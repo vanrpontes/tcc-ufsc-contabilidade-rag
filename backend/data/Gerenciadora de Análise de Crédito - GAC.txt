@@ -1,0 +1,52 @@
+TITULO: Gerenciadora de Análise de Crédito - GAC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2930081856
+--------------------------------------------------
+none
+Objetivo
+Criar um ambiente para consulta de análise de crédito de entidade. Inicialmente será implementado o Serasa, podendo ser implementadas outras gerenciadoras.
+O conceito principal é de não permitir ou restringir a chegada do pedido ao faturamento caso o cliente tenha alguma restrição pela Gerenciadora.
+Para minimizar o impacto sobre o fluxo de trabalho no SisPetro, optou-se por deixar o pedido ser incluído, não bloquear o cliente e restringir a aprovação do mesmo a partir de um perfil mais restrito de aprovação (tanto para os clientes com restrição quanto para os pedidos cujos clientes ainda não tenham uma análise válida).
+Outro ponto importante é que a execução da consulta se dará sempre via serviço para que o usuário não fique bloqueado esperando a realização da mesma.
+Além disso, mediante perfis de empresa e de usuário, é possível forçar uma consulta sem incluir pedido de venda.
+O serviço de Gerenciadora de Análise de Crédito - GAC é um serviço contratado pelas empresas junto à Serasa. 
+A Futura apenas disponibiliza o processo de consulta no SisPetro.
+Configurações necessárias
+Para realizar as configurações necessárias o usuário deve acessar o menu: 
+Ferramentas / Sistema/
+ 
+Aba Clientes
+ - define se a empresa utilizará ou não a Gerenciadora e como utilizará
+Ferramentas / Usuário /
+ Aba Vendas (Usuários)
+ - define as permissões de usuário no uso da Gerenciadora
+Tabelas Auxiliares / Vendas / 
+Gerenciadora de Análise de Crédito
+ - permite somente alterar dados de acesso à Gerenciadora previamente cadastrada pela Futura (URLs dos webservices, login, senha)
+Arquivo / Clientes / Aba Detalhes / Aba 
+Cadastro Detalhado
+ - define os clientes que podem ou não ser consultados
+Servidor Hermes:
+ 
+Serviço de Análise de Crédito
+ - define um intervalo para execução da análise.
+Análise de Crédito - onde solicitar
+Cadastro de Clientes:
+ 
+Clientes - Painel Navegação
+ - botão Análise Crédito
+Cadastro de Clientes:
+ 
+Consulta Análise de Crédito
+ - mostra os dados das consultas realizadas
+Inclusão de Pedido de Vendas:
+ 
+Inclusão do Pedido de Venda
+Aprovação Manual do Pedido de Venda:
+ 
+Aprovação do Pedido de Venda
+ 
+Aprovação Automática do Pedido de Venda: 
+Aprovação de Vendas
+Ver em conjunto com o KB 
+Tabela Gerenciadora de Análise de Crédito
+ 

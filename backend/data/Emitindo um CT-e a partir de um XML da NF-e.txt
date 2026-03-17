@@ -1,0 +1,109 @@
+TITULO: Emitindo um CT-e a partir de um XML da NF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924289166
+--------------------------------------------------
+Na tela de inclusão de conhecimento de frete foi adicionado a opção de importação do XML de uma NF-e, dessa forma agilizando o processo de inclusão e preenchimento de boa parte dos campos, conforme informados no XML.
+Na tela de 
+Inclusão de Conhecimento:
+Através do botão 
+Seleciona NF-e
+, 
+:
+Ira abrir a tela de 
+Seleção de arquivos .XML
+. 
+Após seleção dos arquivos, será realizado o preenchimento de tela (detalhado a seguir)
+Na aba NF-e, foi acrescentado um grid 
+NF-e selecionadas para importação
+, com as seguintes informações:
+Caminho/nome do arquivo
+Chave de Acesso
+Status, que pode ser:  
+ Aceito, 
+ NF-e diferente do conhecimento ou 
+ NF-e duplicada.
+         
+O 
+Preenchimento da tela
+ a partir da NF-e deve:
+Quando for o primeiro arquivo, obter as informações abaixo e preencher os campos correspondentes, sobrepondo qualquer informação já preenchida anteriormente (salvando na aba esse arquivo como 
+ Aceito)
+Campo do Conhecimento
+Forma de Preenchimento
+Remetente
+Pelo CNPJ do Emitente do XML se chega à Entidade (Caso tenha Cliente e Fornecedor, usa o Cliente)
+Destinatário
+Pelo CNPJ do Destinatário do XML se chega à Entidade (Caso tenha Cliente e Fornecedor, usa o Cliente)
+Número da NF
+Pela Chave de Acesso
+Produto
+Pelo produto do 1º item da NF e De/Para do Remetente, caso não encontre o SisPetro irá procurar no Destinatário pelo CNPJ
+Qtde
+Tag qVol do XML
+Valor Total da Nota
+Tag vProd do XML
+Frota
+Placas do XML
+Carreta
+Placas do XML
+Treminhão
+Placas do XML
+NF's acobertadas
+Conforme XML informado: Chave de Acesso e Valor Total da Nota (tag vProd)
+A partir do segundo arquivo:
+Verifica se o arquivo já se encontra na aba (pela chave de acesso), caso esteja, salva na aba como 
+ NF-e duplicada e não faz os próximos passos
+Valida se Remetente, Destinatário, Frota, Carreta e Treminhão são iguais ao do primeiro arquivo. Caso não seja, salva na aba o arquivo como 
+ NF-e diferente do conhecimento  e não faz os próximos passos.
+Soma no campo Qtde a tag qVol do XML
+Soma no campo Valor Total da Nota a tag vProd do XML
+Adiciona na lista de NF's acobertadas a Chave de Acesso e Valor Total da Nota (tag vProd) desse arquivo
+Independente de ser o primeiro arquivo ou não, quando incluído via botão de Seleção não é possível excluir o arquivo da lista de NF´s.
+Quando um arquivo for considerado como aceito e, consequentemente, adicionado na lista de NF's acobertadas, se no campo Tipo de Conhecimento estiver como Venda ou Base/Usina, a NF-e deve ser procurada (via chave de acesso) no Sispetro como uma NF já incluída. Caso esteja incluída adicionar essa NF como vinculada (tabela NotaFiscalConhecimento)
+O campo 
+Depósito
+ será sugerido conforme última utilização do usuário
+O campo 
+Transportadora
+ não terá nenhuma sugestão (pois é o Motorista que fará a viagem), o mesmo deve ser informado pelo usuário
+Os demais campos continuam sendo sugeridos como anteriormente. 
+Campo
+Sugestão
+Natureza de Operação
+Conforme perfil da empresa
+Série
+Conforme Natureza
+#Conhecimento
+Obtido da série quando Emissão própria ou informado pelo usuário se Emissão de Terceiros
+Data de Emissão
+Data Atual
+Data Prestação/Hora,
+Data e hora atual
+Valor do Frete Unitário
+Obtido da tabela de Distâncias entre Retirada/Remetente e Destinatário
+CST
+Conforme Natureza de Operação
+Gera Contas a Receber
+Conforme perfil de empresa
+ICMS
+Conforme Natureza de Operação
+Condição de Pagamento
+Conforme Remetente
+Tipo de Cobrança
+Conforme perfil de empresa
+Receita de Transportes
+Conforme perfil de empresa
+Código de Histórico e Histórico
+Conforme Natureza de Operação
+Responsável do Seguro
+Conforme perfil de empresa
+Tipo de Carga
+Lotação
+Tipo de Conhecimento
+Normal
+Tipo de Serviço
+Normal
+Nas validações finais, independente da origem, validar as NF´s vinculadas.
+Se for Conhecimento Avulso não deve ter nenhuma NF vinculada.
+Se for Conhecimento de Venda as NFs vinculadas devem ser de Venda, Entrega e com Entidade igual à Entidade Destinatária.
+Se for Conhecimento de Transferência/Base as NFs vinculadas devem ser com Entidade igual à Entidade Destinatária.
+Se for Conhecimento de Transferência/Usina as NFs vinculadas devem ser com Entidade igual à Entidade Remetente.

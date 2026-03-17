@@ -1,0 +1,358 @@
+TITULO: Dados Adicionais (Fiscal) (Painel Geral)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210929
+--------------------------------------------------
+No painel Dados Adicionais é configurado toda a parte para a geração dos Livros Fiscais, GIA/GIM/DFC, Sintegra, Anexo / SCANC e entre outros. Será apresentada a seguinte tela:
+Quadro Livros Fiscais
+Gera Movimento para Livros Fiscais:
+ é uma opção que deve ser marcada quando se deseja que os dados das Notas Fiscais que utilizem esta natureza de operação sejam transportados para o módulo de Livros Fiscais. 
+Fórmula:
+ após configurar o perfil citado acima, deve-se informar também a Fórmula desejada (inserida a partir da 
+tabela Fórmulas para Livro Fiscal
+).
+Indicação do uso da Fórmula do Livro Fiscal:
+ ela pode ser utilizada de três maneiras diferentes:
+Geral (Para todas as filiais):
+ fórmula escolhida será utilizada por todas as filiais.
+Conforme informado na filial:
+ deve-se informar a fórmula em cada filial (Aba Dados gerais - Por Filial)
+Conforme informado na filial - (Se Não Tiver usar Geral): 
+deve-se informar a fórmula em cada filial (Aba Dados gerais - Por Filial). Caso o usuário não informe o código na filial, será utilizada a fórmula informada na aba Geral Dados Adicionais (Fiscal)
+Para mais informações, ver 
+Dados Gerais (Painel Por Filial)
+Histórico Padrão para Livros Fiscais: 
+deve-se informar o histórico padrão específico para o Livro Fiscal. 
+Gera Movimento para Livros Fiscais Adicional: 
+indicar qual a 
+fórmula adicional
+ a ser utilizada. Por enquanto esta opção só está sendo considerada na emissão de Conhecimento de Frete. Atente-se que a fórmula adicional geralmente tem características específicas.
+Quadro IBS/CBS
+Classificação Tributária IBS/CBS: 
+indicar qual a classificação tributária que será utilizada na operação da natureza. Para mais informações, ver 
+Roteiro de utilização - Reforma Tributária 2026
+ 
+Classificação Tributária IS: 
+indicar, caso tenha, qual o imposto que será utilizado na operação da natureza. Para mais informações, ver 
+Roteiro de utilização - Reforma Tributária 2026
+ 
+Quadro Gera NF Remessa Automática
+Gera NF Remessa Automática: 
+indica que a partir da emissão da NF que utilizar esta natureza de operação deverá ser gerada uma nova NF de remessa automaticamente. No caso desta opção ser marcada, o usuário precisa configurar os seguintes campos:
+Natureza de Operação:
+ o usuário deve informar nesse campo, o código da natureza de operação que será utilizada na nota de remessa que será gerada.
+Motorista - como obter na NF de origem:
+ este perfil possui duas opções:
+Conforme Código da Transportadora: 
+este perfil utiliza a transportadora informada na nota de origem
+Conforme Código do Motorista: 
+este perfil utiliza o motorista informado na nota de origem
+Valor Unitário da NF Remessa Automática: 
+esta configuração vai definir o valor unitário que terá a nota de remessa que foi gerada, baseada nos seguintes valores:
+Preço unitário da nota de origem:
+ a nota de remessa que foi gerada, terá o valor unitário do seu item, igual ao valor unitário da nota de origem.
+Valor Total da NF de origem dividido pela quantidade(nota de 1 item):
+ a nota de remessa que foi gerada, terá o valor unitário do seu item, baseado no valor total da nota fiscal de origem, dividido pela quantidade, essa regra só terá efeito apenas para notas de 1 item apenas.
+Ação referente ao Processamento SEFAZ: 
+escolher qual ação o SisPetro executará ao incluir a NF:
+Não processa (ficará na NF-e Pendente)
+Processa a NF
+Processa e Imprime a NF
+Para mais informações, ver 
+Geração Automática de Remessa para Armazenagem
+Permite alterar código exportação na NF:
+Código exportação:
+ código a ser utilizado para exportação dos dados de notas fiscais.
+Data de Referência na NF: 
+este perfil foi criado para dar mais flexibilidade no processo de recebimento de notas fiscais, pois essa data é utilizada nos livros ficais (SPED e outras obrigações). Há alguns casos que para ajudar a contabilidade e fiscais, as naturezas precisam ter datas de referencias contabilizadas de uma maneira diferente, algumas são pela Data de movimento outras pela data de emissão. Visando atender essas situações este perfil foi criado, assim o usuário pode escolher 
+por natureza
+ qual será a data de referência. Temos 3 opções de configuração:
+Data Movimento: 
+a data de referência será a data de movimento da NF.
+Data Emissão: 
+data de referência será a data de emissão da NF
+Respeita perfil de Sistema: 
+com esse perfil o sistema respeitará o perfil de sistema. Para mais informações, ver 
+Painel Fiscal
+ Categoria GIA/GIM/DFC:
+ indica em que Categoria da GIA/GIM ou DFC/GI a natureza de operação será agrupada, por padrão a natureza de operação estará definida como 
+Não sai na GIA
+. A emissão da mídia da GIA/DFC é feita no SisPetro Controladoria.
+Discrimina na Apuração Fiscal?: 
+indica se os livros fiscais com esta natureza de operação deverão ser discriminados na apuração fiscal nos itens de Outros Créditos / Outros Débitos. Tal opção fará com que o valor de ICMS dos livros não sejam acumulados nos valores de entradas ou saídas (como é exigido para as notas de entrada de Material de Uso e Consumo atualmente em alguns estados). Caso se marque esta opção deve-se então informar:
+Tipo de apuração: 
+deve ser discriminado (atente-se para escolher devidamente apurações de crédito para naturezas de entrada e apurações de débito para naturezas de saída). Tal tipo de apuração é cadastrado no SisPetro Controladoria.
+Histórico Padrão para Apuração: 
+informe também com que histórico deverá ser exibido na apuração fiscal.
+Desconsidera Base/ICMS ST Apuração Fiscal:
+ se marcada, indica que não irá compor os valores de crédito e débito na Apuração Fiscal de ICMS de Substituição Tributária, ou seja, não interfere na Apuração Fiscal do ICMS Próprio.
+Quadro Perfil Sai no Anexo 
+Categoria Anexo I Quadro 4:
+ em desuso
+Valores ST p/ Scanc: 
+selecionar como serão obtidos os 
+das Notas Fiscais de 
+Entrada
+. 
+Esses valores irão compor dados para o 
+Registro 45
+, campos 22 e 23
+Não obtém Valores ST da NF: 
+essa opção deve ser configurada para as
+ Notas Fiscais de Saída
+, pois elas não são exigidas no SCANC. É importante entender como o SisPetro trabalha e precisa ser configurado para que os valores saiam corretamente. Para mais informações, ver 
+Cálculo de Imposto - Exemplo Prático
+Obtém Valores ST pelo ICMS Próprio (primário) e ST (biocombustível): 
+se desejar que os valores sejam pelo ICMS Substituição, existem duas formas de informar esses valores no momento da inclusão da nota física no SisPetro: manual ou automática.
+Inclusão Manual: 
+geralmente estes valores, 
+Base ICMS Substituição
+ e 
+Valor ICMS Substituição
+, das Notas Fiscais de Entrada são informados pelo usuário no momento da inclusão, devido ao preço de pauta (PMPF) que a Petrobras trabalha, ser diferente do preço que a empresa (distribuidora) cadastra no SisPetro. Portanto, para poder informar nas colunas Base ICMS Substituição e Valor ICMS Substituição os valores, conforme a Nota de Entrada, deve-se configurar na 
+Natureza de Operação
+, painel Por Filial / Impostos, a opção 
+Usuário deve informar ICMS Substituição
+. Dessa forma, o SisPetro habilita as colunas para preenchimento.
+Inclusão Automática: 
+para a empresa que deseja fazer esse cálculo automático, basta configurar na Natureza de Operação, painel 
+Por Filial / painel Impostos
+, a opção 
+Gera ICMS Substituição
+. É importante ver também 
+Cálculos dos Impostos
+, pois é necessário para obter esses valores corretamente e fazer as devidas configurações. 
+Para entender como deve ser configurado corretamente a natureza de operação para obter esses valores, vamos tomar como exemplo uma Nota Fiscal física (ou seja, uma nota que esteja realmente em mãos), lá podem existir duas formas desses valores de ICMS Substituição Tributária serem apresentados:
+Nos campos de ICMS Substituição, onde também é informado os valores totais dos produtos e etc.
+Nas observações, em caráter informativo.
+Obtém Valores ST pelo ICMS Retido: 
+para obter esses valores no momento da inclusão da Nota Fiscal de Entrada, pode-se informá-los manualmente ou configurar para que o SisPetro calcule-os automaticamente.
+Inclusão Manual: 
+se desejar digitar esses valores, basta configurar na Natureza de Operação, painel 
+Por Filial / Impostos
+, a opção 
+Permite alterar ICMS retido na Nota Fiscal
+. assim, no momento da inclusão da Nota Fiscal de Entrada, o SisPetro permitirá que seja informado os valores Base ICMS Retido e ICMS Retido, conforme exemplo dado logo abaixo.
+Inclusão Automática: 
+para obter o cálculo desses valores automaticamente configure na Natureza de Operação, painel Por Filial / Impostos, a opção 
+Gera ICMS Retido Fonte
+. No momento da inclusão da Nota não será preciso informar os valores do ICMS Retido.
+Obtém Valores ST pelo ICMS próprio total
+: utilizado para notas fiscais sem ICMS de Substituição.
+Esta opção deve ser utilizada em notas de compras de congênere, já que esse tipo de nota não possui informações de ICMS Subst ou Retido, por já terem sido recolhidos/apresentados no momento em que a congênere comprou da Refinaria.
+Obtém Valores ST pelo ICMS próprio total diminuído do ICMS Diferido: 
+essa opção deve ser utilizada para compra cuja parte do Biocombustível possui diferimento. 
+Origem dos Valores ST: 
+necessário identificar como a Nota Fiscal será incluída no SisPetro e onde esses valores (ICMS Substituição ou ICMS Retido) deverão ser armazenados, de acordo com as opções abaixo. 
+Informações Complementares: 
+d
+eve ser selecionada quando se trata de ICMS Retido
+Quadro Cálculo Imposto/cobrado na operação: 
+d
+eve ser selecionada quando se trata de Obtém Valores ST pelo ICMS Próprio (primário) e ST (biocombustível)
+Tipo de Movimento: 
+em desuso
+Normal
+Devoluções
+Transferências
+Saídas p/ Congêneres
+Origem do Produto: 
+selecionar uma das opções abaixo para indicar onde o produto é adquirido. É necessário ter uma natureza para cada origem do produto, caso a empresa tenha aquisição do produto nacional e do produto importado - ver 
+Natureza de Operação - Dados Adicionais (Painel Geral)
+. É usado em conjunto com a configuração do produto em 
+Dados Adicionais em Produtos
+ - Código do Anexo.
+Nacional
+Importado
+Para mais informações, ver 
+Informações para Anexo
+ e 
+Configurações Necessárias - Anexos SCANC
+Quadro Sintegra:
+ indica se a natureza de operação constará ou não nos dados para emissão da mídia do Sintegra (utilizado inclusive pelo SisPetro Controladoria).
+Registro Sintegra
+Não sai no Sintegra
+Registro 50 (Nf´s)
+Registro 70 (conhecimento)
+Registro 50 (notas s/ itens).
+CIF/FOB
+Modelo para o Sintegra:
+ código do modelo de nota fiscal para uso do Sintegra.
+Quadro Uso na DIC-SE
+CFOP Estendido:
+ informe o código da extensão para o CFOP em questão a ser utilizado na DIC de Sergipe, para mais informações consulte o manual de Controladoria.
+Cód. Antecipação Trib:
+ informe o código da Antecipação que será utilizada na geração da DIC para a natureza em questão. Para mais informações, ver o manual de Controladoria.
+Sai Sintegra MS:
+ específico para o Sintegra MS
+Sai GRF SP:
+Não sai: 
+é marcado quando não deseje que a natureza envie dados para o GRF de São Paulo
+Sai no registro 50 (NF´s): 
+indica que as NFs desta natureza irão para o GRF de São Paulo
+Sai no registro 70 (conhecimentos): 
+indica que os Conhecimentos gerados desta natureza irão para o GRF de São Paulo
+Sai no registro 50 (notas sem itens): 
+notas sem itens sairão no GRF de São Paulo caso seja marcado.
+Quadro GIA-MT
+Grupo de Operações
+Não sai nos Anexos I e II
+Anexo I - Entradas e Saídas
+Anexo II - Devoluções e anulações de valores
+Cód. Oper. e Prestações (COP) Anexos I e II
+Quadro Livro Eletrônico: 
+indicadores de documentos para a geração do SPED. Estes indicadores deverão ser informados para cada natureza de operação que terão suas notas fiscais participando do SPED.
+Tipo de Emissão para uso no SPED: 
+Aqui o usuário aponta qual o tipo de nota que o SisPetro irá enviar para o SPED, se será 
+Próprio
+ ou de 
+Terceiros
+. Esse campo será sempre sugerido (em inclusão e cópia de Natureza) conforme o campo Tipo de Emissão da aba 
+Dados Gerais
+. Há algumas situações, como por exemplo, em importação de notas próprias, que esse campo estará marcado como 
+própria
+ e o tipo de emissão estará marcado como de 
+terceiros.
+Esse campo deve ser usado para 
+notas fiscais.
+ No caso de Conhecimento de Frete, caso o conhecimento seja de terceiros, mas mude para próprio, alguns dados específicos do conhecimento de emissão própria não serão enviados e apresentará erro.
+Participação nos Registros: 
+definição de registros que as notas fiscais desta natureza de operação irá participar do SPED.
+Não sai no Livro Eletrônico
+Registro C100 (NF's mod 01 e 55)
+Registro C300 (NF mod 02)
+Registro C500 (NF's mod 06 e 28)
+Registro D100 (Conhecimento)
+Registro D500 (NF's mod 21 e 22)
+Registro B020 (NF Serviços)
+Tipo Situação:
+ definição da situação das notas fiscais (documentos). O SisPetro armazenará esta informação no campo COD_SIT no momento da inclusão da Nota Fiscal. Para mais informações, ver 
+Preenchimento de Dados na Nota Fiscal
+.
+Cancelamento de Cupom Fiscal Anterior - 03
+Desfazimento de negócio - 05
+Documento cancelado - 02
+Documento cancelado extemporâneo - 04
+Valor Referenciado - 06
+Valor Regular - 00
+Valor Regular extemporâneo - 01
+Importante:
+A DEFINIÇÃO DA NUMERAÇÃO DOS CÓDIGOS DA SITUAÇÃO DO DOCUMENTO SÃO PADRONIZADOS SEGUNDO O ATO COTEPE.
+Além disso, estes códigos devem estar devidamente cadastrados, tanto para a utilização da NOTA FISCAL ELETRÔNICA como para o SPED.
+Para mais informações sobre a NF-e, ver 
+NF-e - Nota Fiscal Eletrônica
+.
+Para mais informações sobre o SPED, ver 
+Manutenção de Conjunto de dados para o SPED
+.
+Indicador de Movimento Situação:
+ definição da situação das notas fiscais (documentos).
+Documento de ICMS
+Documento de ISSQN
+Código Fiscal de Prestação de Serviço (CFPS)
+Participa do total das operações relativas ao ICMS (Reg. G110): 
+As notas de saídas emitidas participarão do campo 
+Valor Total das Operações
+ (campo Valor Contábil das notas) dos registros G110 para efeito de cálculo do Índice de participação. Este cálculo é efetuado pela divisão do 
+Valor Total das Saídas Tributadas
+ (campo Valor Contábil das notas) e do 
+Valor Total das Operações
+ (campo Valor Contábil das notas). 
+Por padrão a opção selecionada é Não participa de forma alguma.
+ Caso a natureza estivesse configurada com a 
+opção marcada (antes da alteração)
+, será selecionada a opção 
+Participa sempre (tendo ou não ICMS)
+Não participa de forma alguma:
+ as notas de saídas não serão consideradas no Valor Total das Operações
+Participa sempre (tendo ou não ICMS):
+ as notas de saídas serão consideradas tendo ou não ICMS no Valor Total das Operações
+Participa como Não tributada (independente de ter ICMS):
+ as notas de saídas, tendo ou não ICMS, serão consideradas como não tributadas no Valor Total das Operações
+Vincula Documentos manuais de Arrecadação no SPED?: 
+ao final da inclusão da NF será aberta uma tela para preenchimento das informações referentes aos documentos de Arrecadação do SPED. Para mais informações, ver 
+Documentos de Arrecadação SPED
+.
+Detalha prestação de serviço transporte Registro 30 - GIA SP: 
+usado em empresas Transportadoras, tal registro detalha os valores contábeis das prestações de serviços por Código DIPAM (Código do Município do Estado de São Paulo).
+Quadro DMA-BA: 
+a 
+DMA-BA
+ é como se fosse uma GIA. É mensal e pode ser mandada de forma incompleta para que o usuário termine de digitar as informações no programa da DMA (validador) e contém dados do Livro Fiscal agrupados por categoria, Entrada/Saída, UF e código de município. 
+Tipo de detalhamento:
+ será usado na geração dos Registros Tipo 10 (Entradas por Operação) e 11 (Saídas por Operação). Portanto, é muito importante que o tipo de detalhamento seja configurado de forma correta para cada natureza de operação, evitando assim diferenças nos valores desses registros. 
+Não sai no DMA: tipo 00
+Compras/Vendas: tipo 01
+Transferências: tipo 02
+Devoluções/Anulações: tipo 03
+Energia Elétrica: tipo 04
+Comunicações: tipo 05
+Transportes: tipo 06
+Outras Saídas / Entrada Ativo Imobilizado: tipo 07
+Entradas Material de Uso e Consumo: tipo 08
+Outras Entradas: tipo 09
+Quadro PIS/COFINS:
+Registro LPC: 
+definição de registros que as notas fiscais desta natureza de operação irá participar do SPED PIS/COFINS. Através desse campo são organizadas as notas fiscais nos diversos registros do SPED:
+Não participa do SPED PIS/COFINS
+A100 - Notas de Serviço
+C100 - NFe emitidas pela Empresa
+C100 - NFe recebidas pela Empresa
+C395 - NFs Venda a Consumidor recebidas
+C500 - NFs Energia Elétrica recebidas
+D100 - NFs Serviço de Transportes recebidas
+D200 - NFs Prestação de Serviços
+D500 - NFs Comunicação recebidas
+F100 - Demais situações geradoras de crédito
+Abre tela de edição outros impostos ao finalizar a nota fiscal: 
+Se a Natureza estiver configurada para salvar os Outros Impostos, para a Nota que estiver sendo lançada, além dos valores do imposto (Base Cálculo, Alíquota e Valor), salvará também os valores padrões configurados.
+No caso de precisar uma interação do usuário para o preenchimento desses valores nos Outros Impostos, após a inclusão da Nota, o usuário poderá fazer a alteração (que pode ser inclusive com a inclusão de mais impostos).
+Para isso precisará ter permissão e o processo pode ser acionado no término da inclusão da Nota ou via Manutenção de NF. Além disso na natureza a opção 
+Abre tela de edição de outros impostos ao finalizar a nota fiscal
+ deve estar 
+MARCADA
+.
+Um caso prático do desmembramento de valores é a aquisição de Transporte numa operação de venda, onde o mesmo conhecimento, com um item, transportou gasolina (receita não tributada) e álcool (receita tributada). Parte do valor do PIS/COFINS deve ser classificado como Receita Tributada no Mercado Interno e a outra parte como Receita Não Tributada. Neste caso é possível ter um Outro Imposto 
+PIS Receita Tributada
+ e um Outro Imposto 
+PIS Receita Não Tributada
+Natureza da Receita:
+ utilizada na EFD Contribuições para totalizar as receitas não tributadas. No SisPetro, receitas não tributadas são notas de saída sem Outros Impostos. A partir da versão 8.26 é possível definir a Natureza da Receita por produto. Caso não esteja preenchida, no 
+Cadastro de Produtos
+, o SisPetro utilizará a informação que estiver na Natureza de Operação.  Com o preenchimento da Natureza de receita a informação é encaminhada para o EFD Contribuições, mais informações no 
+EFD Contribuições - Bloco M
+Quadro Participa do Cálculo no Ressarcimento SP/SC
+ 
+Participa do Cálculo no Ressarcimento SP/SC:
+ define se as Notas Fiscais com esta Natureza serão consideradas para gerar os arquivos de Ressarcimento para SP e SC.
+Enquadramento das Saídas:
+ define qual enquadramento legal deve ser utilizado para as operações
+Saída Comercialização/Cons. Final:
+ código de enquadramento legal 0 (operação sem ressarcimento/complemento) ou 1 (consumidor final)
+Fato Gerador Não Realizado:
+ código de enquadramento legal 2
+Saída com Isenção ou Não Incidência:
+ código de enquadramento legal 3
+Saída para Outro Estado:
+ código de enquadramento legal 4
+Valor a ser utilizado nos Demais Confrontos
+Valor Constante na NF:
+ utiliza valor total da operação para calcular o ICMS
+Custo Médio Aquisição:
+ utiliza o custo médio calculado pelo SisPetro para calcular o ICMS. Necessário ter fechamento de custos
+CFOP a ser utilizado no arquivo:
+ como o programa validador não foi atualizado, alguns CFOP´s mais novos ainda não são aceitos. Configure neste campo o CFOP que deve ser utilizado no arquivo, podendo ser igual ao CFOP da Natureza, se o validador assim aceitar.
+Quadro Declan IPM: 
+dados para a Declan Estadual. Para mais informações, ver 
+DECLAN-IPM RJ
+.
+Ajuste de Valor Adicionado - DECLAN IPM RJ
+Não Participa
+Ativo Imobilizado
+Uso e Consumo
+Imposto de Renda (IR)
+Gera Imposto Renda
+: campo utilizado na elaboração do custo de uma venda. Quando esta natureza de operação for utilizada e este campo estiver habilitado, o SisPetro irá deduzir da margem (diferença entre preço final da Nota Fiscal e custo total do produto calculado pelo módulo de simulação de custo de venda) o percentual indicado pelo campo % Imposto Renda incluindo este item ao custo do produto.
+% Imposto Renda
+: percentual utilizado no módulo de cálculo de custo do produto para o Imposto de Renda.
+Quadro Tag ObsCont NF-e
+Neste campo poderemos incluir a tag ObsCont NF-e, que será enviada por padrão no arquivo XML, sempre que esta natureza for utilizada, independente da filial. Para mais informações, ver 
+Manutenção de Tag ObsCont NF-e

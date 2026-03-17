@@ -1,0 +1,41 @@
+TITULO: Situação Financeira x Saldo Cliente
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210622
+--------------------------------------------------
+O quadro situação financeira, localizado na tela de manutenção de clientes é definido pelos seguintes valores: 
+Limite:
+ 
+É o Limite de Crédito que o cliente tem para vendas, esse campo é cadastrado na manutenção de clientes, no painel Detalhes/Padrão p/ Vendas. 
+Bloqueado:
+São as baixas do contas a receber que foram feitas e estão bloqueadas;
+Pendente:
+É o valor pendente do contas a receber;
+Crédito:
+ 
+Equivale aos adiantamentos normais ou quantificados que o cliente possui.
+Pedidos aprov.Não Faturados:
+ 
+É o valor dos pedidos que já foram aprovados, mais ainda não foram faturados.
+Saldo Contábil e Saldo Adiantamento:
+ 
+Depende de como o sistema está configurado para tratar as contas de Adiantamento. 
+Se a contabilização Gerencial de adiantamentos estiver como fixa para clientes, o sistema não atualiza o campo Saldo Adiantamento nessa tela, apenas o Saldo Contábil com o valor do Contas a Receber. Caso o sistema esteja configurado para contabilizar uma conta de adiantamento por entidade, os campos saldo contábil e saldo adiantamento serão atualizados respectivamentes pelo valor do contas a receber e pelo valor dos adiantamentos lançados. Caso a esse tipo de contabilização não esteja habilitado no perfil da empresa, o único campo que será atualizado será o saldo contábil que terá os valores do contas a receber + os adiantamento. O tópico 
+Contabilização de Adiantamentos (Créditos) por Conta Auxiliar
+ contém informações mais detalhadas sobre o assunto.
+Saldo Real:
+ 
+Para se ter o Saldo Real, basta fazer o seguinte cálculo : 
+Limite - Bloqueado - Pendente + Credito - Pedidos Aprov. Não Faturados
+Para mais informações, ver 
+Informações do Grupo Econômico
+O Sispetro permite que os pedidos para clientes compradores ou entidades faturadas que estejam com o Saldo Real negativo sejam bloqueados. Para isso, basta acessar no menu Ferramentas/Sistema/Financeiro as seguintes permissões:
+No momento do cadastro do pedido de venda, o valor do mesmo é utilizado para realização dos cálculos de limite de crédito, sendo que no caso do limite não comportar o pedido corrente esse não poderá ser finalizado de acordo com os parâmetros definidos pela empresa. Sendo importante frisar que a empresa poderá configurar o sistema para considerar pedido(s) não aprovado(s) no cálculo do limite, aumentando assim a confiabilidade de não cadastrar um pedido de venda que possa futuramente gerar saldo negativo. Sendo necessário para esse caso configurar a forma de verificação no menu Ferramentas/Sistema/Financeiro:
+Portanto, o saldo real em conjunto com essas configurações do sistema pode interferir diretamente no pedido de vendas.
+No tópico 
+Como fazer um Pedido de Venda
+, há mais informações sobre o pedido de vendas, comprador e entidade faturada.
+Crédito Bloqueados:
+ 
+São os adiantamentos que são incluidos, porém estão bloqueados até determinada data. Isso é comum no caso de adiantamentos por cheques. O adiantamento só é desbloqueado quando cheque for compensado
+Condição de Pagamento e Vendedor:
+ 
+Neste campo, o sistema informa a condição de pagamento que foi cadastrada para esse cliente e o vendedor que trata das vendas.

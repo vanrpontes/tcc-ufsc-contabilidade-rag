@@ -1,0 +1,161 @@
+TITULO: Inclusão de Contas a Pagar manual
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440412
+--------------------------------------------------
+Objetivo
+Realizar a inclusão manual de um registro no Contas a Pagar.
+O acesso é feito através do Menu 
+Movimentação / Financeiro / Contas a Pagar / Inclusão Lançamento:
+Entre com os dados solicitados nesta tela:
+Lançamento Previsto:
+ quando se deseja apenas provisionar um valor (tanto no contas a pagar quanto a receber), podemos habilitar esta opção. Assim, este lançamento poderá ser modificado a vontade (ao contrário do lançamento 
+real
+ que, após efetivado, não pode ser mais alterado). Porém, este lançamento deve ser efetivado (Para mais informações, ver 
+Efetivar lançamento Previsto
+) antes de ser baixado.
+Mantém os dados da última inclusão efetuada?:  
+esta opção permite que as informações que estão sendo digitadas (dados do cabeçalho e painéis), sejam repetidas para o próximo lançamento a ser digitado, evitando assim que o usuário tenha que digitar tudo novamente, no caso de vários lançamentos que tenham os seus dados iguais, mudando apenas o valor e vencimento, por exemplo.  Para mais informações, ver 
+Painel Financeiro (Usuário)
+Para que esta opção esteja habilitada, é necessário configurar no perfil da empresa, Menu 
+Ferramentas / Sistema / Financeiro, os seguintes perfis:
+Após inclusão, mostra nova tela de inclusão lançamento
+Habilita opção para manter os dados da última inclusão efetuada
+A opção 
+Após inclusão, mostra nova tela de inclusão lançamento
+, serve para deixar aberta a tela de inclusão de lançamentos, assim que o usuário termina de lançar um registro, evitando assim, que seja necessário o usuário abrir a tela através do menu, toda a vez que terminar de fazer um lançamento. Portanto, é necessário que seja habilitado os dois perfis, para que a tela permaneça aberta e a opção 
+Mantém os dados da última inclusão efetuada?
+ esteja habilitada.
+Código da Entidade: 
+código do Fornecedor credor do título. O SisPetro permite a consulta da lista dos Fornecedores cadastrados, basta acionar a tecla <Enter>.
+Comprador:
+ o SisPetro assume o mesmo código da Entidade, por esse motivo que o campo comprador está desabilitado para digitação.
+Data da Emissão:
+ o SisPetro sugere a data corrente.
+Data Vencimento Original:
+ é a data de vencimento original do título. Notar que, caso o título seja posteriormente postergado, esta data não muda (muda-se a data Data Vencimento Atual). Note também que o SisPetro, na inclusão, repete esta data na data de vencimento atual do título.
+Data Vencimento Atual:
+ é a data de vencimento do título. O SisPetro não permite que a data de vencimento atual a ser lançada, seja menor que a data de emissão do título, a menos que o perfil localizado nas configurações da empresa - Menu 
+Ferramentas / Sistema / Financeiro / opção: Impede Vencimento Contas Pagar / Receber menor que Emissão esteja desmarcado
+Competência:
+ mês e ano que se refere o título.
+Número do Pedido:
+ digite o número do Pedido de Compra.
+Número do Documento:
+ caso necessário, entre com um número de documento que identifique este lançamento (número da Nota Fiscal, do Pedido, etc). Este número pode ser verificado pelo SisPetro. Para mais informações, ver 
+Verificação de Numero de Documento em Pagamentos
+.
+Número Nota Fiscal:
+ digite o número da Nota Fiscal que originou este título.
+Moeda:
+ o SisPetro permite a alteração deste campo.
+Valor Bruto:
+ digite o valor do título a pagar.
+Valor Líquido
+Código do Histórico:
+ acione a tecla <Enter> e selecione da lista o código adequado.
+Histórico:
+ histórico da Ocorrência.
+Informações Adicionais
+Observações:
+ coloque as observações necessárias.
+Conta Contábil de Despesa:
+ no painel Principal acione a tecla <Enter> e selecione da lista a conta contábil adequada. 
+O SisPetro 
+pode sugerir de forma automática a conta contábil a ser utilizada de 
+duas formas: 
+Através da Conta Contábil cadastrada no cadastro do fornecedor (campo CCDespesa) ou
+Através do Padrão contábil, também vinculado no cadastro (campo Contabiliza pelo Padrão) .
+Para mais informações, ver
+ 
+Tabela Fornecedores
+ 
+e
+ 
+Tabela Padrão Contábil
+.
+Código Centro de Custo (CC):
+ no painel Principal acione a tecla <Enter> e selecione um centro de custo. 
+Igualmente a conta contábil de despesa, o SisPetro pode sugerir de forma automática o Centro de Custo a ser utilizado, também de duas formas: 
+Através do Centro de Custo cadastrado no cadastro do fornecedor (campo Código Centro Custo) ou
+através do Padrão contábil, também vinculado no cadastro (campo Contabiliza pelo Padrão).
+Observação
+: 
+é possível utilizar centros de custos de outras formas. Para mais informações, ver 
+Critérios para utilização de Centro de Custo
+.
+Gera Adiantamento
+: essa opção é útil para controle de pagamentos antecipados a fornecedores, exemplo a Petrobrás, pois inclui-se no Contas a Pagar um lançamento no valor do pagamento antecipado e faz-se a baixa quando for autorizado, para que gere o adiantamento. Com a chegada das NF's vai se baixando os títulos utilizando o adiantamento gerado. Estes lançamentos serão apresentados na cor verde-limão na tela de Manutenção do Contas a Pagar e não serão visualizados na tela de Débito/Crédito de Fornecedor. Não será feito a contabilização desse lançamento. Para utilizar dessa opção é necessário habilitar no perfil da empresa, Menu 
+Ferramentas / Sistema / painel Financeiro a opção: Habilita geração autom. de Adiantamentos pelo Financeiro
+O 
+Tipo de Documento
+ utilizado para esses casos também pode ser configurado para que essa opção já venha previamente marcada, mas podendo ser alterada pelo usuário no momento da inclusão.
+Lança na Contabilidade Real:
+ opção de contabilizar ou não o lançamento na Contabilidade Real. Para isso a empresa já deve trabalhar com a Contabilidade Real habilitada e no perfil do usuário, Menu 
+Ferramentas / Usuário / painel Contabilidade
+, marcar a opção abaixo que dará ao usuário a permissão de marcar e desmarcar quando for necessário.
+Pode não contabilizar Contas Pagar / Receber
+Os lançamentos que forem incluídos com a opção desmarcada, ou seja, que não serão contabilizados na Contabilidade real, aparecerão na cor azul-marinho na tela da Manutenção do Contas a Pagar/Receber. 
+Caso seja marcada esta opção, a contabilização real se fará de acordo com a distribuição entre contas informadas no painel 
+Conta Contábil
+.
+Abas inferiores
+Dados Adicionais
+ é possível informar os dados do Banco do Fornecedor onde será feito o pagamento: número do banco, agência e conta corrente. Os dados serão sugeridos de acordo com o que estiver armazenado no cadastro do 
+fornecedor
+. Caso eles sejam alterados e seja necessário atualizar os dados informados no cadastro do fornecedor, utilize o botão 
+Salva no Fornecedor
+.
+Conta Gerencial
+ devem ser informadas as contas de contrapartida na contabilidade gerencial para a conta da entidade, podendo fazer o rateio entre mais que uma conta. Os centros de custos serão informados neste painel ou no painel Centro Custos conforme 
+Critérios para Utilização do Centro de Custo
+.
+Centro Custos
+ conforme 
+Critérios para Utilização do Centro de Custo
+, sendo também sugeridos conforme a contabilização gerencial.
+No caso do SisPetro estar configurado para Centro de Custos desvinculado das contas gerenciais, os centros de custos informados no painel Centro de Custos serão utilizados tanto para a contabilização gerencial como para contabilização real.
+Conta Contábil
+ só estará visível para empresas que utilizem a contabilidade real, nele devem ser informadas as contas de contrapartida na contabilidade real para a conta da entidade, podendo fazer o rateio entre mais que uma conta. Inicialmente o SisPetro sugere as contas reais vinculadas as contas gerenciais escolhidas no painel 
+O painel 
+Desc/Acrésc.
+ mostra os Descontos/Acréscimos calculados para este título a partir do 
+Tipo de Documento
+ informado. Observe a coluna Tipo Cálc para saber se o valor informado será acrescido, diminuído ou indiferente em relação ao valor bruto informado, de acordo com estes valores será calculado o valor líquido do título. Maiores detalhes vide tópico 
+Cálculos Descontos/Acréscimos
+.
+Veja outras regras no tópico 
+Regras de Inclusão do Contas a Pagar-Receber
+.
+Acione o botão 
+OK
+ para a inserção do registro no Contas a pagar do SisPetro.
+O título de desconto (retenção) pode ser gerado automaticamente, se nos descontos estiver configurado para gerar título automático. Mais informações em 
+Geração Automática de Título de Desconto Oriundo de Retenção
+.
+Após a inclusão do Contas a Pagar a data e a hora da inclusão será armazenada para auxiliar nas consultas pela tela de Manutenção do Contas a Pagar.
+O SisPetro irá incluir este título no Contas a Pagar e fazer a contabilização do mesmo de acordo com o tópico 
+Contabilização de Lançamentos Gerenciais
+.
+O SisPetro questiona sobre a impressão do documento gerado.
+Fica a critério do usuário, imprimir ou não o documento neste momento. Ele irá imprimir, caso o usuário queira, um documento para autorização de pagamento (cujo layout varia de cliente a cliente, porém, para todos tem a mesma função: Anexar este documento à Nota Fiscal - caso exista - informando ao autorizador do pagamento os dados referentes a cada pagamento a ser realizado).
+O layout deste documento pode ser definido e alterado pelo perfil do SisPetro, painel Financeiro, conforme figura:
+Utilize o botão 
+Edita Layout
+ para montar o documento de autorização de pagamento.
+O SisPetro permite vincular o título manual a uma Nota Fiscal (ou mais). Este recurso poderá ser utilizado para os documentos de GNRE, onde é necessário vincular um determinado título a uma ou mais notas fiscais.
+Para utilizar este recurso, clique no botão 
+Vinculo NF
+Em seguida efetue o vínculo através da tela de 
+Seleção de Notas para Vínculos
+.
+Caso deseje Cancelar o Vínculo, na 
+Manutenção de Contas a Pagar, aba Vínculo com NF
+ utilize o Botão 
+Vínculo NF.
+Também é possível Relacionar um Lançamento a uma ou mais Despesa de Frota através dos botões 
+.
+Para mais informações, ver
+https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440530/Manuten+o+de+Eventos+Frota?force_transition=1228f378-8084-49ad-ad14-185661c5cf69
+ 
+Na inclusão de uma nova despesa de frota não é possível incluir a característica
+Para informações ver 
+Inclusão de eventos relacionados ao Frota - com vínculo

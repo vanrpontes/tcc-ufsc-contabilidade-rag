@@ -1,0 +1,253 @@
+TITULO: Fechamento de estoque por Produto
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898228
+--------------------------------------------------
+Para realizar o fechamento de estoque diário por produto, acesse a tela de fechamento pelo menu 
+Movimentação / Estoque / Fechamento de Estoque / Fechamento por Produto
+:
+Normalmente o fechamento de estoque é realizado de forma vinculada, onde é realizado o fechamento Escritural e Físico ao mesmo tempo, porem em algumas empresas, temos pessoas diferentes como responsável dos dois estoques, pensando nisso a partira da versão 9.11 a empresa ira poder escolher como ira realizar o Fechamento do estoque, podendo ser de forma 
+vinculada
+ onde o Sispetro ira realizar o fechamento do Estoque Escritural, Físico e Master ao mesmo tempo, ou pode optar por trabalhar com fechamento de estoque 
+desvinculado, 
+onde a empresa pode definir qual usuário ira realizar o fechamento de estoque Escritural, físico e master separadamente. Veja maiores detalhe abaixo:
+Vinculado: 
+Trabalha com fechamento de estoque Escritural, Físico e Master
+ juntos
+, a data dos 3 fechamentos serão sempre a mesma.
+Perfil de Sistema:
+ 
+Aba Estoque / 
+ 
+Tipo de Fechamento de Estoque / Selecionar a opção 
+'Vinculado (Master, Escritural e Físico juntos)'.
+Perfil de Usuário:
+ 
+Aba Estoque / Marcar o perfil
+ 'Pode Fazer Fechamento de Estoque'
+ para o 
+Master, Escritural
+ e
+ Físico. 
+Desvinculado: 
+Trabalha com os fechamentos de forma separada, podendo realizar um Fechamento para depois efetuar o outro, dessa forma também podemos definir qual usuário vai poder realizar o determinado fechamento de estoque.
+Perfil de Sistema:
+ 
+ 
+Aba Estoque / 
+ 
+Tipo de Fechamento de Estoque / Selecionar a opção 
+'Desvinculado (Master, Escritural e Físico separados)'.
+Perfil de Usuário:
+ 
+Aba Estoque / Marcar o perfil 'Pode Fazer Fechamento de Estoque' do Escritural, Físico e Master para os usuários que irão realizar  seus respectivos fechamentos de estoque.
+A partir da versão 9.23, as empresas 
+inativas
+ não terão mais sua movimentação Escritural e Física apresentadas nessa tela.
+Veja abaixo o detalhamento da tela:
+1 -
+  
+Empresa:
+  Nesse campo informamos a Empresa, o SisPetro sugere a empresa conectada, porém é possível fazer o fechamento de qualquer empresa que o usuário tiver acesso. Veja mais informações sobre acesso de usuários em 
+Acesso Restrito do usuário no fechamento de estoque a determinadas empresas
+2 -
+ 
+Produto: 
+Nesse campo informamos o produto, Serão listados os produtos ativos e que estejam configurados em seus cadastros, para participarem do fechamento de estoque. Veja mais informações em 
+.
+3 -
+ 
+Data Último Fechamento: 
+Nesse campo o sispetro mostra a data do Ultimo Fechamento Master.
+4 -
+ 
+Data Fechamento:
+ Nesse campo inserimos a data que desejamos realizar o Fechamento, 
+para Fechamentos de Estoque Desvinculados, só sera possível realizar um Fechamento Escritural ou Físico para datas posteriores a data do Ultimo Fechamento Master.
+5 -
+ 
+Escritural: 
+Logo acima do painel Escritural é apresentado o Status do fechamento para o dia selecionado no campo Data Fechamento.
+6 - Data Último Fechamento: 
+Nesse campo é apresentado a data do último fechamento Escritural.
+7 - Realiza o Procedimento? - Painel Fechamento Master:
+ O campo Realiza Procedimento tem a mesma função para os 3 Estoques, onde o mesmo define se ira ou não realizar o fechamento de um determinado Estoque, no caso da imagem acima o campo apontado pelo 7, caso esteja marcado é realizado o Fechamento/Abertura do Estoque Master, caso desmarcado não realiza o Fechamento/Abertura do estoque Master quando acionado o botão 
+Fecha Dia/Abre Dia
+.
+ 
+8 - 
+Realiza o Procedimento? - Painel Escritural: 
+ O campo Realiza Procedimento tem a mesma função para os 3 Estoques, onde o mesmo define se ira ou não realizar o fechamento de um determinado Estoque, no caso da imagem acima o campo apontado pelo 8, caso esteja marcado é realizado o Fechamento/Abertura do Estoque Escritural, caso desmarcado não realiza o Fechamento/Abertura do estoque Escritural quando acionado o botão 
+Fecha Dia/Abre Dia
+.
+ 
+O campo 'Realiza o Procedimento?' só vira habilitado disponibilizando marcar e desmarcar caso a Empresa esteja trabalhando com o Perfil de Sistema 
+'Tipo de Fechamento de Estoque igual' 
+á
+ 'Desvinculado'
+, e o usuário tenha as devidas permissões de 
+perfil de usuário
+. Isso vale para os 3 campos do Master, Escritural e Físico.
+9 - Ajuste Escritural: 
+Através desse campo acionamos o Ajuste Escritural, para que o mesmo esteja habilitado para uso o usuário tem que estar com o 
+perfil de usuário
+ 
+'Pode fazer ajuste manual de estoque escritural'
+ habilitado. Veja maiores detalhes mais abaixo.
+10 - Confirma: 
+Através do botão Confirma realizamos o tick de confirmação na coluna 
+Conf. 
+que fica no detalhamento do Escritural, pode ser realizado o tick dando dois clicks direto na coluna.
+11 - Muda Data Movto:
+ Através desse botão é possível realizar a alteração da data de movimento.
+ Para maiores informações veja help: 
+12 - Físico: 
+ 
+Logo acima do painel Físico é apresentado o Status do fechamento para o dia selecionado no campo Data Fechamento.
+13 - 
+Data Último Fechamento: 
+Nesse campo é apresentado a data do último fechamento Físico.
+14 - 
+Realiza o Procedimento? 
+- Painel Físico:
+ O campo Realiza Procedimento tem a mesma função para os 3 Estoques, onde o mesmo define se ira ou não realizar o fechamento de um determinado Estoque, no caso da imagem acima o campo apontado pelo 14, caso esteja marcado é realizado o Fechamento/Abertura do Estoque Físico, caso desmarcado não realiza o Fechamento/Abertura do estoque Físico quando acionado o botão
+ Fecha Dia/Abre Dia. 
+15 - Ajuste Físico: 
+Através desse campo acionamos o Ajuste Físico, para que o mesmo esteja habilitado para uso, o usuário tem que estar com o 
+perfil de usuário
+ "
+Pode fazer ajuste manual de Entrada Escritural"
+ ou "
+Pode fazer ajuste manual de Saída Escritural"
+ habilitado. Veja maiores detalhes mais abaixo.
+16 - Fecha Dia: 
+Ao acionar esse botão, é realizado o fechamento de Estoque. O Fechamento sera realizado para os estoques com a opção '
+Realiza o Procedimento?
+' marcadas.
+17 - Abre Dia:
+ Ao acionar esse botão, é realizado a abertura do Estoque. A abertura do estoque sera realizado para os estoques com a opção 
+'Realiza o Procedimento?'
+ marcado.
+18 - Quadro Escritural:
+ No quadro de movimentação escritural serão apresentados o resumo e o detalhamento das movimentações escriturais das empresas 
+ativas
+.
+19 - Quadro Fisico:
+ No quadro de movimentação Fisico serão apresentados o resumo e o detalhamento das movimentações do fisico das empresas 
+ativas
+.
+Para fechar o estoque é preciso:
+Informar a empresa 
+O SisPetro sugere a empresa conectada, porém é possível fazer o fechamento de qualquer empresa que o usuário tiver acesso. 
+Veja mais informações sobre acesso de usuários em 
+Acesso Restrito do usuário no fechamento de estoque a determinadas empresas
+Informar o produto
+Serão listados os produtos ativos e que estejam configurados em seus cadastros, para participarem do fechamento de estoque.
+ Veja mais informações em 
+Data do novo fechamento
+É recomendado que o fechamento de estoque seja feito diariamente para que se possa ter um acompanhamento mais detalhado das movimentações do estoque
+Após informado o produto, o sistema já busca automaticamente a data do último fechamento, exibindo-o no campo de mesmo nome. Caso não exista nenhum fechamento para a empresa e produto informados, e somente neste caso, o campo data do último fechamento fica habilitado para que seja informado manualmente esta data.
+Depois de informada a empresa, produto e data de fechamento, deve-se apertar o botão 
+"Atualiza"
+ para que o sistema mostre a movimentação escritural (através de Notas Fiscais e pedidos) e físico (através de carregamento/descarregamento na base).
+Após atualizar os dados no Grid e conferir os saldos na tela, basta acionar o botão 
+Fecha Dia
+ que sera realizado o fechamento dos estoques que estiverem com a opção Realiza o Procedimento? habilitado.
+Segue abaixo algumas regras para que possa ser realizado o Fechamento de Estoque:
+Estoque Master: 
+O estoque deve-se encontrar em aberto e a data de Ultimo Fechamento tem que ser uma data anterior a data selecionada para Fechar o Dia.
+Estoque Escritural: 
+Para realizar o fechamento de estoque Escritural o mesmo deve-se encontrar em aberto, a data que sera realizado o fechamento do estoque Escritural deve ser posterior as datas de ultimo Fechamento escritural, e Ultimo fechamento Master.
+Estoque Físico:
+Para realizar o fechamento de estoque Físico o mesmo deve-se encontrar em aberto, a data que sera realizado o fechamento do estoque Físico deve ser posterior as datas de ultimo Fechamento Físico, e Ultimo fechamento Master.
+Para fechar o estoque de todas as empresas de uma vez:
+É preciso dar permissão ao usuário , para tal ação. Habilitar o menu "Fecha estoque de toda as empresas de uma vez" , é um perfil de sistema, 
+Ferramentas/ Sistema/ Estoque, 
+ou buscar o nome do perfil com F4.
+Marcando esse perfil, o sistema informará para o usuário a movimentação de todas as empresas, para o produto e período selecionado para os depósitos que houveram movimentação.
+Vale lembrar que serão listados e fechados somente os Depósitos onde no campo Tipo de Fechamento for Produto, isso a fim de não realizar o fechamento de um estoque por produto e depois o sobreponha com um fechamento por Depósito. (Ver 
+Tabela Depósitos
+).
+Fechamento de Estoque Escritural:
+Na tela Resumo do Escritural é mostrado depósito por depósito o saldo anterior, a totalização de entradas e saídas e o saldo final do período.
+Clicando no painel "Detalhe" do Escritural é possível visualizar todas as movimentações, detalhadamente através de Notas Fiscais e pedidos de ajustes para conferência antes do fechamento.
+Detalhes da Movimentação
+:
+Base Própria
+:
+Quando o depósito é base própria, no momento em que é confirmado o Carregamento na Portaria de Saída, o sistema atualiza a coluna Confirmado da movimentação do Estoque Escritural, marcando-a, ou seja, caso tenha alguma movimentação escritural com esta coluna desmarcada é porque o carregamento/descarga ainda não foi feito, só foi feita a movimentação escritural e não a física. Também na portaria de saída, ao ser confirmado o carregamento/descarga o sistema atualiza a quantidade a 20c de acordo com temperatura e densidade informados (do tanque ou manual).
+Base não própria
+Quando o depósito não é base própria, na movimentação do Estoque Escritural a coluna Confirmado sempre fica desmarcada. Com base em relatórios da empresa, ou disponibilizados pela base, o usuário pode ir conferindo manualmente cada movimentação, marcando esta coluna. Quanto a quantidade a 20c ela sempre será igual à quantidade ambiente, para ajustar a quantidade a 20c dê um 
+duplo clique
+ na linha desejada e informe temperatura, densidade e fator de conversão desejados para converter a quantidade a 20c cadastrada ou então informe diretamente a quantidade a 20c desejada.
+Alterando a tolerância permitida - utilizada na 
+Apuração de Valores de Fretes a Pagar pela Diferença via Fechamento de Estoque
+:
+Para ajustar informar a Tolerância permitida dê um 
+duplo clique
+ na linha desejada (nota fiscal) e informe a quantidade em litros. Essa informação é utilizada para apurar valores de fretes a pagar. Deve ser informada para cada nota fiscal que tenha frete a ser pago.
+Diferença (litros):
+ não permite alteração. É a Quantidade Ambiente menos a Quantidade 20c.
+Tolerância (%):
+ não permite alteração. Utilizada pela Diferenças de Descarga Base Própria;
+Tolerância (litros):
+ informada pelo usuário. É a quantidade permitida, a maior ou a menor, no descarregamento. Para acessar esse campo é necessário que o usuário tenha perfil: 
+Painel Estoque (Usuários)
+,
+ quadro 
+Escritural
+, opção 
+Pode Alterar Tolerância das Descargas.
+Ajuste de Estoque
+Caso necessite, pode-se se fazer ajuste de saldo tanto para o estoque escritural como o físico através do botão correspondente na parte inferior da tela.
+Porém somente poderá ser feito o ajuste se ainda não tiver sido efetuado o fechamento, aliás não poderá haver nenhum tipo de movimentação no estoque com data igual ou anterior a data do fechamento após o mesmo ter sido fechado.
+ A partir da versão 8.12 foi alterada a forma de como mudar a data de movimento no fechamento de estoque. Para maiores informações veja help: 
+Em uma eventual necessidade de se fazer ajustes após o fechamento deve-se abrir retrospectivamente o estoque até chegar na data desejada para então efetuar o ajuste e fechando novamente data por data ou o período anterior de uma só vez.
+Para efetuar o ajuste escritural é preciso posicionar no depósito desejado na tela resumo do escritural e então clicar no botão Ajuste Escritural para que apareça a tela abaixo:
+Esta tela é a mesma tanto para ajuste escritural quanto ajuste físico, porém para o físico aparecem os dados do tanque onde será feita a movimentação como temperatura e densidade.
+Para poder fazer o Ajuste de Estoque Escritural e também o Ajuste de Estoque Físico é necessário que o usuário tenha permissão. Para isso, acesse a partir do menu Ferramentas / Usuário / Perfil / painel Estoque, e as seguintes opções devem estar habilitadas:
+Se a opção acima estiver desmarcada não será possível fazer nenhum Ajuste de Estoque Escritural, 
+ e também não será possível dar Entradas Trânsito.
+O usuário só tera permissão para realizar ajuste conforme o perfil que o mesmo tenha acesso.
+Informar:
+Se o ajuste é de entrada ou de saída
+Informar a quantidade a ser ajustada, seja ela positiva ou negativa.
+Para casos de ajuste de apenas uma das quantidades, seja ambiente ou a 20c, pode-se informar 0 na quantidade que não deve ser ajustada e o valor correto na outra.
+O ajuste das movimentações escriturais entrará nas colunas Ajustes Ambiente e 20c cujo os históricos estejam marcados como sendo de ajuste de estoque. Maiores detalhes vide tópico 
+Tabela Históricos Padrão
+.
+Depois de informado a quantidade deve ser informado também o código do histórico de ajuste, importante para posteriormente identificar o motivo da movimentação gerada.  Na tabela de 
+Históricos
+ é possível configurar cada histórico para que seja apresentado numa cor diferenciada. Caso isso tenha sido feito para os históricos de ajuste, por exemplo, na tela de movimentação tais ajustes serão apresentados na cor definida.
+Fechamento de Estoque Físico
+:
+Os procedimentos para o fechamento de estoque físico são os mesmos do escritural já citado. A tela de Ajuste de Estoque através do botão "Ajuste Físico" muda pois ficam habilitados os dados do Tanque, temperatura, densidade e volume a 20 graus para que possam ser informados.
+Fechamento de Estoque Master
+:
+O Fechamento de Estoque Master, serve para realizar o Fechamento do dia, impedindo que possa ser realizado outro fechamento de estoque Escritural ou Físico com data anterior a data do último fechamento Master.
+Custo de Produtos
+O Fechamento de Custo, que antes era feito nesta tela, agora tem uma tela específica. Veja maiores esclarecimentos no item 
+Custo de Produtos
+.
+Para efetuar o fechamento basta clicar em 
+Fecha Dia
+ e o procedimento está finalizado.
+No momento do fechamento é armazenado o Usuário e a Data / Hora da realização deste processo
+.
+É possível também abrir um fechamento informando a data do fechamento e atualizando. Se houver algum Fechamento de Custo para esta data, o fechamento de estoque não pode ser aberto (veja instrução ao lado do botão 
+Abre Dia
+). No caso é necessário primeiro abrir o fechamento de Custo, para depois abrir o estoque. Veja outras restrições no tópico 
+.
+Há a possibilidade de impedir que determinados usuários façam a abertura do fechamento de estoque, e desta forma o botão Abre Dia ficará sempre desabilitado. O padrão do sistema é permitir abrir, mas pode-se configurar isso pelo perfil de usuários, menu 
+Ferramentas / Usuário / painel Estoque
+, a opção abaixo:
+Existe também a opção de configurar para que o usuário tenha permissão de abrir fechamento de estoque somente até um determinado número de dias, assim evitando que seja feita abertura de dia, por exemplo, de semanas atrás. O padrão é que não verifique este número de dias, mas caso a empresa deseje deve ser configurado por usuário a opção:
+O número de dias para a reabertura do fechamento de estoque, por padrão, é de 3 dias, mas pode ser configurado a quantidade de dias que a empresa desejar no perfil da empresa, menu 
+Ferramentas / Sistema / painel Estoque
+, a opção:
+Também é possível imprimir tanto a tela de resumo quanto a de detalhe do escritural e do físico através dos botões de impressão e com a tela desejada ativa.
+Alterando o layOut da Tela
+:
+Para facilitar a visualização dos dados por parte do usuário, é possível, alterar o layout da tela, ou seja, o usuário pode mover as colunas dos painéis deixando a tela com os dados posicionados de forma a facilitar a consulta.
+Caso tenha a necessidade de mover alguma coluna, basta clicar e manter pressionada o botão do mouse sobre a coluna "Cód.Dep" e arrastá-la para o local desejado.
+Essa mudança de layout pode ser feita em todos os painéis da tela. Caso o usuário tenha a necessidade, basta clicar no botão 
+"Layout Padrão"
+ para que o layout original do sistema seja restaurado.

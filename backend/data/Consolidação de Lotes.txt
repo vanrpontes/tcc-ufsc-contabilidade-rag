@@ -1,0 +1,40 @@
+TITULO: Consolidação de Lotes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899610
+--------------------------------------------------
+Um lote representa dois ou mais lançamentos de débitos ou créditos em determinadas contas. Para que estes lançamentos movimente realmente as contas indicadas é necessário que o valor total de débito dos lançamentos que compõem o lote seja exatamente igual ao valor total de crédito. Assim, a cada lote gerado, o sistema já verifica esta condição e consolida o lote, ou seja, providencia a movimentação das contas (o que aparecerá nos relatórios contábeis como Extrato Conta e etc).
+
+
+Se na tela de 
+ o lote for apresentado com o campo Consolidado desmarcado é sinal que as contas não foram movimentadas. Isto pode ocorrer por dois motivos:
+
+
+
+
+houve algum problema na somatória de débito e crédito, o que é mais comum.
+
+
+O perfil do usuário (painel Financeiro) não tem a opção a seguir marcada:
+
+
+ 
+
+
+
+
+Se o lote foi gerado de forma automática, deve-se verificar na origem o porquê da somatória de débito e crédito não ter sido igual.
+
+
+Se o lote for manual, o usuário pode não ter clicado no botão 
+. Neste caso, pode ser selecionado o lote, se dirigir ao painel 
+Detalhes
+ e então clicar no botão para que seja providenciada a consolidação.
+
+
+Na consolidação do lote também poderá ser validado, caso a empresa desejar, a integridade da Contas Gerenciais e Contas Reais. Para isso, deverá ser marcado no perfil da empresa 
+Ferramentas / Sistema / painel Contas Contábeis
+ a opção:
+
+
+
+
+A validação da integridade das contas gerenciais e reais verificará na consolidação dos lotes se as contas utilizadas são devidas, ou seja, as mesmas devem ser ativas, estar sendo utilizadas na empresa correta (quando for restrita a empresa) e estar sendo utilizadas por usuário autorizado (quando for restrita a usuário). 

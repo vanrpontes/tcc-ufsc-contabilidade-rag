@@ -1,0 +1,149 @@
+TITULO: Versão 7.20.1
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2902166590
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 15/09/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 20/09/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd7201.sql 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 7 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 0 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 7 
+
+
+
+
+
+
+Compras
+
+
+
+
+Código do Depósito com Letras na Análise de Estoque para Liberação de Requisição
+
+Ao entrar na tela de análise de estoque, se o código do depósito configurado para o almoxarifado possuisse letras em seu código, era gerado um erro de conversão de dados. Esse erro foi corrigido. 
+UPA (CCF 14385)
+
+
+Ajustes nos Campos de Quantidade da Requisição
+
+As rotinas para atualização dos campos Qtde Desalocada, Qtde Liberada e Qtde Pendente e Qtde Comprada dos itens da requisição e da cotação foram revisadas e alteradas, corrigindo assim algumas inconsistências encontradas. 
+UPA (CCF 13450, 14508)
+
+
+Quantidade do Fornecedor
+
+Quando o usuário incluia uma cotação através da tela de busca de requisições para cotação, a quantidade do fornecedor, caso existissem mais que uma cotação para o mesmo produto, ficava inconsistente. O seu valor deveria ser igual a soma total do produto para cotação, como é feito no campo Qtde Solicitada. Esse problema foi corrigido. 
+UPA (CCF 14508)
+
+
+Filtro de Status na Tela de Requisições
+
+Ao entrar na tela de manutenção de requisição, essa tela não estava sendo filtrada pelo Status padrão e era necessário alterar o status para o filtro funcionar. Esse problema foi corrigido. 
+UPA (CCF 14508)
+
+
+
+
+Financeiro
+
+
+
+
+Impressão de Boleto Manual
+
+A rotina de impressão de boletos foi alterada na versão 7.20 e por conta dessa alteração os boletos manuais não estavam mais sendo impressos. Esse problema foi corrigido. 
+UPA (CCF 14437)
+
+
+
+
+Vendas
+
+
+
+
+Campo invertido na Manutenção de Pedidos
+
+O campo "Aprov.Financ" estava invertido, apresentando marcado quando não aprovado e vice-versa. Este campo foi ajustado e os campos DPMP, Venda Direta, CMV e Aprovado foram alterados para serem apresentados em checkbox. 
+GSN (CCF 14503)
+
+
+Exclusão de itens de Pedido de Venda durante a alteração
+
+Corrigido para evitar erro de restrição do banco de dados durante a exclusão de itens do pedido de Venda durante a alteração do pedido. 
+GSN (CCF 14487)
+

@@ -1,0 +1,59 @@
+TITULO: Consulta Resumida de Estoque
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2965439130
+--------------------------------------------------
+Para acessar a tela de Consulta Resumida no SispetroApp, acessar o 
+Menu Início > Estoque > Consultas > Consulta Resumida.
+Para ter acesso a esse menu, é necessário habilitar o perfil de usuário 
+Pode emitir relatórios de estoque
+ em 
+Painel Carregamento
+ no SisPetro Normal.
+Nessa tela serão exibidas as movimentações resumidas por produto permitidas por depósito e que tenham fechamento de estoque realizado.
+Informe a 
+Data Inicial
+, 
+Data Final
+ e o 
+Tipo Volume
+ desejado (20 Graus ou Ambiente) e clique no botão 
+ATUALIZAR. 
+Em seguida, caso necessite, utilize também o botão 
+IMPRIMIR 
+ou 
+EXPORTAR PLANILHA.
+Na tela, serão apresentados os produtos com as informações de Saldo inicial do período, Entradas, Saídas e Saldo final e apresenta também o Lastro, Saldo Real, OCs Previstas, Saldo Previsto e Limite Descarga.
+Saldo inicial
+: informação de saldo inicial do produto no período informado.
+Entradas:
+ 
+todas as entradas do produto para o período informado, considerando também ajustes.
+Saídas:
+ todas as saídas do produto para o período informado, considerando também ajustes.
+Saldo final:
+ 
+informação de saldo inicial + entradas - saídas do período informado.
+Lastro:
+ informa a soma dos lastros cadastrados em cada tanque de cada produto da empresa.
+Saldo Real:
+ informação do saldo final - lastro
+OCs Previstas:
+ 
+são todas as OCs de descarga de terceiros que ainda não passaram na portaria de saída.
+Saldo Previsto:
+ representação do saldo real + OC previstas
+Limite Descarga:
+ no cadastro de depósitos (
+Depósitos - Espaço Permitido Terceiros
+) é informado o volume máximo permitido para uma congênere armazenar na base. Esta informação é esse volume - saldo final - OC previstas, que representa o volume que a congênere tem disponível para descarregar na base. Para esta consulta, este volume é sempre baseado na quantidade a 20 graus.
+Para acessar o detalhamento de um determinado produto a partir desta tela, basta clicar no produto e o sistema abrirá a consulta detalhada. Para mais informações, ver 
+Consulta Detalhada
+.
+Para que seja possível consultar os produtos na tela de 
+Consulta Resumida
+, o produto deve estar 
+ativo
+ e com as seguintes características em seu cadastro no SisPetro Normal:
+Tipo de produto:
+ combustível
+Participa do fechamento de estoque:
+ marcado

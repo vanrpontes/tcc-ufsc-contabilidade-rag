@@ -1,0 +1,412 @@
+TITULO: Versão 7.23
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903507807
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 01/11/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 28/11/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd723.sql (cmd2815 a cmd2827) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 24 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 11 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 13 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Relatórios 
+
+
+ DLLs 
+
+
+ Layouts de Exportação 
+
+
+ Layout de Importação 
+
+
+
+
+
+
+ 
+
+
+ SPED_ECD.dll 
+
+
+Sintegra-2010-GRF.rtm 
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+ SPED_EFD.dll 
+
+
+Sintegra-2010-SEF.rtm 
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+ SPED_PISCOFINS.dll 
+
+
+Sintegra-2010-PR.rtm 
+
+
+ 
+
+
+
+
+
+
+ATUALIZAÇÃO DA VERSÃO DO BANCO DE DADOS
+Esta versão já está compatível com a versão 12 do Sybase (banco de dados), com melhor performance e uma diversidade de novas ferramentas. Em breve estaremos disponibilizando um roteiro para migração do banco de dados atual para a nova versão.
+
+
+Geral
+
+
+
+
+Atualização dos Componentes de Conexão ODBC
+
+
+Atualizados os componentes de conexão com o banco de dados ODBC Express. Está atualização foi necessária para correções de bugs internos desses componentes. UPA (CCF 14451)
+
+
+Atualização dos Grids da DevExpress
+
+
+Atualizados os componentes da DevExpress (grids, rotinas de impressão, cubo de análise de dados). Está atualização foi necessária para correções/implementações de novas rotinas. UPA (CCF 14639)
+
+
+Validação de Dados da ANP
+
+No cadastro de fornecedores, no momento da gravação de seus dados, caso o fornecedor for um orgão publico ou estrangeiro, não estaremos mais validando os dados da ANP, mesmo quando perfil de sistema "Força dados de Clientes/Fornecedores para uso do DPMP" estiver habilitado. 
+UPA (CCF 14667)
+
+
+Tela Cliente Aba Patrimonio/Referencias
+
+
+Foi realizada uma alteração para o botão "Entidade com o mesmo sócio" não ficar oculto quando o usuário diminuir o tamanho da tela. CPC (CCF 14904)
+
+
+
+
+Contabilidade
+
+
+
+
+Exclusão de Bens com Fechamento Financeiro
+
+
+A partir dessa versão, será possível excluir um bem que participou de fechamento financeiro
+ 
+desde que todos os fechamentos financeiros que esse bem participou estejam cancelados e o bem não tenha participado do processo de CIAP e/ou depreciação.
+ 
+UPA (CCF 14740)
+
+
+DLL SPED ECD
+
+
+Disponibilizada a dll para geração de arquivo do SPED ECD.
+ 
+Atualizar no conjunto de Dados do SPED ECD o caminho onde for salvo o arquivo SPED_ECD.DLL.
+ 
+GSN (CCF 14768)
+
+
+
+
+Compras
+
+
+
+
+Ajustes no Módulo de Compras
+
+Foram detectadas algumas inconsistências no módulo de compras que foram corrigidas nessa versão.
+	
+
+
+Ao visualizar um PMM, caso o usuário ficasse indo e vindo dentro das páginas do pedido, ao sair da visualização era gerado o erro "Field Count Incorret".
+
+
+Mesmo quando o usuário estava visualizando a manutenção do pedido de vendas, a aba "Alterações do PMM" estava visível.
+
+
+Na Manutenção de Pedidos (Vendas, Outras Saídas, PMM e Outras Entradas) o padrão de casas decimais para os campos de valor unitário era sempre o de vendas. A partir dessa versão o de vendas é adotado em Pedido de Vendas e Outras Saídas e o de compras está sendo ultilizado em PMM e Outras Entradas. 
+UPA (CCF 14867)
+
+
+
+
+
+
+
+
+Estoque
+
+
+
+
+Arrendondamento na Tela de Rateio de Estoque
+
+
+Na tela de Rateio de Estoque, através dos botões Rateio Físico e Rateio Escritural, o SisPetro pega o volume total da diferença e, conforme os critérios estipulados em tela, distribui entre as empresas. Neste processo é normal não dar uma divisão exata, porém, é comum no SisPetro ajustarmos essa diferença no último registro manualmente. À partir dessa versão, a tela de rateio fará o ajuste dessa diferença encontrada automaticamente. UPA (CCF 14774)
+
+
+Produtos Correlatos na Ordem de Fabricação
+
+Quando a ordem de fabricação de um produto possuia matéria-prima que se repetia (caso simulado com produtos correlatos), a ordem de fabricação estava utilizando as quantidades somente do primeiro produto listado. Esse problema foi corrigido. 
+UPA (CCF 14805)
+
+
+
+
+Faturamento
+
+
+
+
+Validação da Natureza de Operação na Finalização da Nota Fiscal de Venda
+
+
+Na finalização da nota fiscal de venda, iremos validar a natureza de operação da nota com a natureza cadastrada para o produto. Caso essa informação esteja conflitante e o usuário não tiver permissão para alterar a natureza de operação, iremos abortar o processo.
+ 
+Essa alteração foi necessária pois alguns clientes têm reclamado de que a natureza de operação gravada na nota fiscal não é a mesma configurada no produto e o faturista não possui permissão para alteração. Se essa situação acontecer agora, poderemos mapear e verificar se realmente existe algum problema.
+ 
+Help:
+ 
+Verificação de Natureza de Operação em NF Venda
+ 
+UPA (CCF 14819)
+
+
+Casas Decimais na Alíquota de Outro Impostos
+
+
+A alíquota de Outros Impostos, quando o mesmo é configurado a partir de fórmulas, é calculada automaticamente pelo SisPetro. Porém, esse cáculo pode resultar casas decimais com dízimas, causando problemas no envio do imposto na NFe e no SPED PIS/COFINS. Não podemos ter uma solução fixa, pois a tabela de Outros Impostos é genérica, por isso, iremos criar um novo campo na tabela de outros impostos onde o usuário irá indicar a quantidade de decimais será utilizado nas dízimas do cálculo e no cálculo automático do SisPetro, esse número de casas decimais será adotado. 
+Help:
+Tabela Outros Impostos
+ UPA (CCF 14110)
+
+
+Códigos de Erro da SEFAZ
+
+
+Atualizada a tabela de códigos de erro da SEFAZ apresentados nos processos de NFe. GSN (CCF 14941)
+
+
+
+
+Financeiro
+
+
+
+
+Histórico dos Itens da Baixa
+
+Corrigida a rotina de lançamento dos históricos nos itens para não setá-lo quando o usuário não tiver permissão. 
+CPC (CCF 14912,14860)
+
+
+
+
+Fiscal
+
+
+
+
+Erro ocasional na Impressão de Livros
+
+Corrigido erro na impressão de Livros, em rara e específica situação, ocasionado devido conversão indevida de campos. 
+GSN (CCF 13146)
+
+
+Histórico na Apuração Fiscal
+
+Nos itens informados manualmente da Apuração Fiscal não estavam gravando as alterações do usuário no descritivo do histórico. Esse problema foi corrigido. 
+UPA (CCF 15017)
+
+
+Migração para o Sybase 12
+
+
+Devido a compatibilização da versão para o Sybase 12 será necessário atualizar: 
+os layouts do Sintegra na manutenção de Exportação de dados (Sintegra-2010-GRF.rtm, Sintegra-2010-PR.rtm, Sintegra-2010-SEF.rtm)
+ e 
+os arquivos DLL dos SPEDs (SPED_ECD.dll, SPED_EFD.dll, SPED_PISCOFINS.dll).
+
+
+Atualização do FCONT
+
+Foram realizados alguns ajustes finais do FCONT (já enviados para alguns clientes que os solicitaram), como evitar a duplicação de dados no Registro I051 e os saldos nos registros (M025, I155 e I355).
+GSN (14938)
+
+
+Ajustes SPED-EFD
+
+Foram realizados alguns ajustes nas fórmulas referente ao campo de frete de Redespacho no Registro D130 e o valor do Item no Registro C170. 
+GSN (14408)
+
+
+Detalhamento de dados do SPED-PIS/COFINS
+
+
+Implementamos a geração dos registros C100 e C170 no SPED PIS/COFINS e desabilitamos os registros C180 e C190. Com isso os dados vão detalhados, facilitando a conferência. 
+Não será necessária nenhuma alteração na configuração já realizada só por causa dessa mudança.
+*GSN (14938)
+
+
+Erro no Registro F120 SPED-PIS/COFINS
+
+Corrigido o erro apresentado no preenchimento do Registro F120.
+GSN (14938)
+
+
+
+
+Vendas
+
+
+
+
+Pedido de Venda com Quantidade Indevida
+
+Na inclusão de pedido de vendas, quando era gerado algum erro que não foi mapeado pelo SisPetro, era solicitado ao usuário uma confirmação se tentaria novamente ou abortava o processo. O problema é que ao tentar novamente, em muitas situações eram gravados dados inconsistentes no banco de dados. Para não termos mais esse problema, caso seja detectado qualquer erro não mapeado pelo SisPetro, esse erro será exibido ao usuário, o pedido não será salvo e a tela de inclusão do pedido de vendas será fechada. 
+UPA (CCF 14257)
+
+
+Valor de Frete no Pedido de Venda do SisPetro Remoto
+
+No Pedido de Vendas do SisPetro Remoto, mesmo quando a empresa não estava configurada para controlar o frete padrão em vendas, no pedido estava sendo possível informar o valor do frete (a mesma situação não acontece no SisPetro Normal). O SisPetro Remoto foi alterado e a partir dessa versão não será mais possível alterar esse campo sem a devida configuração do sistema. 
+UPA (CCF 14546)
+
+
+Manutenção do Pedido de Vendas
+
+Correção na ordenação da grid Pedido de Vendas, pela coluna Carga. 
+CPC (CCF 15085)
+
+
+
+
+Transportes
+
+
+
+
+Visualização de Dados na Manutenção de Cargas
+
+A partir dessa versão, na Manutenção de Cargas, somente serão apresentados as cargas das empresas em que o usuário possui permissão para o fechamento de carga. 
+Após a atualização da versão, caso necessário, configure os usuários por empresa para o fechamento de carga e com isso os dados serão exibidos corretamente.
+ 
+Help:
+ 
+Controle de Carga
+ 
+UPA (CCF 13330)
+

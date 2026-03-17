@@ -1,0 +1,67 @@
+TITULO: Aprovação de Transporte
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440072
+--------------------------------------------------
+O Fluxo abaixo tem validade apenas para a versão 7.19.2 ou superior.
+Baseado nas explicações sobre como funciona a Aprovação de Pedidos no Sispetro presentes no tópico 
+Aprovação Automática do Pedido de Venda
+, nessa página trataremos um pouco mais detalhadamente sobre as regras de negócio referentes a aprovação do módulo de Transporte.
+O Sistema analisará item a item nessa ordem:
+Pedido Cancelado
+Liberação de Transporte
+Não Aprovar Agora
+Aprovação Automática
+Empresa Trabalha com Aprovação de Transportes
+Usuário Libera Transporte
+Retira/Entrega - Ação Tipo Retira
+Retira/Entrega - Ação Tipo Entrega - Frete Negociado
+Detalhamento das condições
+Pedido Cancelado:
+ Caso o pedido esteja cancelado não será possível realizar a Análise de Aprovação. Todas as outras etapas abaixo serão ignoradas.
+Liberação de Transporte:
+ Verifica se o Pedido ja foi Liberado (Aprovado) no módulo de Transporte, caso a resposta seja SIM, todo o restante do processo será ignorado.
+Não Aprovar Agora:
+ Caso a opção 
+Aguardar para aprovar
+ seja marcada durante a inclusão do pedido de venda, o mesmo não será aprovado automaticamente até que essa opção seja desmarcada na manutenção de Pedidos, todo o restante do processo será ignorado.
+Aprovação Automática:
+ Caso no cadastro do cliente esteja selecionado a opção Aprovar Automaticamente, o pedido será aprovado automaticamente.
+Empresa Trabalha com Aprovação de Transportes:
+ Será analisado o perfil de Empresa aba Vendas, 
+Trabalha com Aprovação de Transporte
+, caso essa opção esteja desmarcada o pedido será aprovado no módulo de transporte em todas as situações e o restante das validações serão ignoradas. Caso esteja marcada, as próximas condições serão analisadas.
+Usuário Libera Transporte:
+ Caso o perfil de Usuário aba Frete, 
+Aprova Pedido (com relação ao frete)
+ esteja marcado, todos os pedidos feitos por esse usuário serão aprovados automaticamente no módulo de Transportes, todo o restante do processo será ignorado.
+Retira/Entrega - Ação Tipo Retira:
+ Somente se o pedido for do Tipo RETIRA será analisado o perfil de Empresa aba Frete, 
+Ação para Pedidos do Tipo Retira
+, teremos duas opções "Aprovação Automática" (o pedido SEMPRE será aprovado) e "Aprovação Manual" (o pedido NUNCA será aprovado).
+Retira/Entrega - Ação Tipo Entrega - Frota Próprio - Frete Negociado:
+ Somente se o pedido for do Tipo ENTREGA e o Frota informado no pedido seja 
+Próprio
+ será analisado o perfil de Empresa aba Frete, 
+Ação para Pedidos do Tipo Entrega - Frota Próprio
+, teremos três opções 
+"
+Nunca Aprova (
+Aprovação Manual)"
+ (o pedido NUNCA será aprovado) , 
+ "Analisa se Aprova (Frete Negociado >= Padrão"
+ (caso o valor do frete do pedido seja MENOR que o Frete padrão para o cliente o pedido NÃO será aprovado, caso seja maior ou igual o pedido será aprovado) ou 
+"Analisa se Aprova (Frete Negociado <= Padrão" 
+(caso o valor do frete do pedido seja MAIOR que o Frete padrão para o cliente o pedido NÃO será aprovado, caso seja menor ou igual o pedido será aprovado).
+Retira/Entrega - Ação Tipo Entrega - Frota de Terceiros - Frete Negociado:
+ Somente se o pedido for do Tipo ENTREGA e o Frota informado no pedido seja de 
+terceiros
+ será analisado o perfil de Empresa aba Frete, 
+Ação para Pedidos do Tipo Entrega - Frota de Terceiros
+, teremos três opções 
+"Nunca Aprova (Aprovação Manual)"
+ (o pedido NUNCA será aprovado) , 
+ "Analisa se Aprova (Frete Negociado >= Padrão"
+ (caso o valor do frete do pedido seja MENOR que o Frete padrão para o cliente o pedido NÃO será aprovado, caso seja maior ou igual o pedido será aprovado) ou 
+"Analisa se Aprova (Frete Negociado <= Padrão" 
+(caso o valor do frete do pedido seja MAIOR que o Frete padrão para o cliente o pedido NÃO será aprovado, caso seja menor ou igual o pedido será aprovado).
+Fluxo de Aprovação
+Vale a pena ressaltar que o fluxo abaixo refere-se apenas ao módulo de Transportes, sendo que, quando é mencionado Pedido Aprovado, entenda que o módulo de Transportes foi aprovado. Para que o pedido seja aprovado como um todo, todos os outros módulos devem ser aprovados.

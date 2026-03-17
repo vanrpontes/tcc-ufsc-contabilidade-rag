@@ -1,0 +1,20 @@
+TITULO: Função  GetNFVinc_ImpTemCodProd
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/6019678209
+--------------------------------------------------
+Descrição
+Essa função é utilizada para verificar o código do produto da NFe vinculada ao CTe. Pode ser utilizada no processo de transformação. Para mais informações, ver 
+Transformação no processo de importação
+.
+Parâmetros
+Parâmetros
+Tipo
+Comentário
+GetNFVinc_ImpTemCodProd
+Integer
+Código do Produto da NFe na tabela 
+NotaFiscalVinculo_Imp
+Exemplo
+GetNFVinc_ImpTemCodProd(NotaFiscal_Imp.SeqNFImp,'04') = 1
+A função confirma se o produto informado como parâmetro é o mesmo da NFe que está vinculada ao CTe, ou seja 
+NotaFiscal_Imp.SeqNFImp,'<CÓDIGO do Produto> 
+for verdadeiro igual a nota fiscal referenciada, é igual a 1.

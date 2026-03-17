@@ -1,0 +1,71 @@
+TITULO: Exemplo de Lacres/Envelopes na mesma Ordem de Carregamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926194191
+--------------------------------------------------
+Esse help tem como objetivo explicar, como o SisPetro trata os lacres e envelopes, na Ordem de Carregamento, quando temos o mesmo cliente, mesmo pedido e mesma OC. 
+Compartimento produtos iguais para o mesmo cliente
+Ao compartimentar uma OC, os lacres e envelopes do compartimento serão compartilhados por outros compartimentos do mesmo cliente, pedido e produto.
+Ex.
+Pedido 1
+1. Cliente A - Gasolina - 5.000 Litros
+2. Cliente A - Gasolina - 5.000 Litros
+3. Cliente B - Diesel     - 5.000 Litros
+Pedido 2
+1. Cliente A - Diesel       - 5.000 Litros
+2. Cliente B - Gasolina - 10.000 Litros
+3. Cliente A - Gasolina -  5.000 Litros
+Uma OC para os dois Pedidos (cada compartimento com 5.000 Litros)
+Compartimento 1
+ - Gasolina - 
+Cliente A
+ - Lacre 1 - Envelope 1
+Compartimento 2
+ - Gasolina - 
+Cliente A
+ - Lacre 2 - Envelope 2
+Compartimento 3
+ - Diesel - 
+Cliente B 
+- Lacre 3 - Envelope 3
+Compartimento 4
+ - Diesel - 
+Cliente A
+ - Lacre 4 - Envelope 4
+Compartimento 5
+ - Gasolina - 
+Cliente B
+ - Lacre 5 - Envelope 5
+Compartimento 6
+ - Gasolina - 
+Cliente B
+ - Lacre 6 - Envelope 6
+Compartimento 7
+ - Gasolina - 
+Cliente A
+ - Lacre 7 - Envelope 7
+Faturando
+Pedido 1 - Item 1 
+Cliente A
+: Lacres 1,2, Envelopes 1,2
+Pedido 1 - Item 2 
+Cliente A
+: Lacres 1,2, Envelopes 1,2
+Pedido 1 - Item 3 
+Cliente B
+: Lacre 3, Envelope 3
+Pedido 2 - Item 1 
+Cliente A
+: Lacre 4, Envelope 4
+Pedido 2 - Item 2 
+Cliente B
+: Lacres 5,6, Envelopes 5,6
+Pedido 2 - Item 3 
+Cliente A
+: Lacres 7, Envelope 7
+Esclarecimentos
+NF do Cliente A
+Mesmo sendo dois itens diferentes do Pedido 1, repare que na NF do Cliente A pegou os lacres/envelopes tanto do compartimento 1 como 2, pois são do mesmo produto (Gasolina), cliente (A) e pedido (1).
+Já no caso do Pedido 2, também para o Cliente A e Gasolina, só pegou os lacres/envelopes do compartimento 7, afinal o pedido é diferente.
+Repare que a NF do Pedido 2 item 1 do Cliente A também só pegou os lacres/envelopes do compartimento 4, por ser outro produto (Diesel)
+NF do Cliente B
+Na NF do Pedido 1 item 3 só pegou os lacres/envelopes do compartimento 3, pois era o único compartimento para esse Pedido (1), Produto (Diesel) e Cliente (B)
+Na NF do Pedido 2 item 2, pegou os os lacres/envelopes dos compartimentos 5 e 6, pois em ambos compartimentos tem o mesmo Pedido (2), Produto (Gasolina) e Cliente (B) 

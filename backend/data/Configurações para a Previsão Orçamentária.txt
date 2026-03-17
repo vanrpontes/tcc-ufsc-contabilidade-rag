@@ -1,0 +1,157 @@
+TITULO: Configurações para a Previsão Orçamentária
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878900098
+--------------------------------------------------
+Existem algumas configurações que são necessárias para utilizar o módulo de Previsão Orçamentária.
+Necessário que o produto seja um habilitado para venda ou não será contabilizado na previsão orçamentária. perfil 
+Permitido para venda em 
+, 
+Em 
+Sistema, na aba Previsão Orçamentária
+, deve-se fazer as seguinte configurações:
+Para a 
+Consolidação do Realizado
+ é necessário informar para cada um dos três tipos de contas, qual a fonte de dados deseja utilizar para obtenção dos valores movimentados para as contas.
+Em 
+Fonte do realizado para Receitas
+ temos duas opções:
+Conta:
+ Se estiver configurado por Conta, os valores para as contas de receita serão obtidos da movimentação das contas simplesmente. Assim, pouco interessa a origem do lançamento, bem como a sua contrapartida, basta simplesmente que a conta contábil tenha movimentação.
+Recebimento:
+ Caso seja por Recebimento, estes valores serão obtidos das movimentações de entrada pelas contas bancárias. Estes recebimentos geralmente são Baixas do Contas a Receber, Receitas Extraordinárias e Adiantamento de Fornecedores.
+Ex. 1: Lançamento de Receita Extraordinária
+D - Conta Bancária
+C - Conta Receita
+Se a fonte for Conta este lançamento faria parte, pois movimentou a conta de receita.
+Se a fonte for Recebimento este lançamento também faria parte, pois movimentou uma conta bancária como contrapartida.
+Ex. 2: Faturamento da Nota Fiscal (ainda não foi paga só faturada)
+D - Conta Cliente
+C - Conta Receita
+Se a fonte for Conta este lançamento faria parte, pois movimentou a conta de receita.
+Se a fonte for Recebimento este lançamento NÃO faria parte, pois NÃO movimentou uma conta bancária como contrapartida.
+Além da diferença da origem da conta, temos também a diferença de data que o lançamento será apresentado. A fonte por 
+conta
+ é equivalente ao regime de 
+competência
+ e a fonte por 
+recebimento
+ ao regime de 
+caixa
+.
+Em 
+Fonte do realizado para Custos
+ temos também duas opções:
+Conta:
+ A opção por Conta significa que deve obter os valores da movimentação das contas de custos, similar ao caso da receita, quando é por conta. Esta opção é válida quando há movimentação das contas de custos, que o SisPetro só faz de forma automática no 
+Fechamento de Estoque
+ quando contabiliza o 
+CMV
+.
+Faturamento:
+ Na opção Faturamento os valores são obtidos através dos Custos de aquisição salvos em notas fiscais de venda diminuído dos Custos de Aquisição das Notas de Devolução. Essa opção é interessante para as empresas que não fazem a apuração do 
+CMV
+ e nem movimentam de forma manual (
+lotes manuais
+) as suas contas de custos. Configurando devidamente os 
+Custos de Venda
+, mas especificamente o Custo de Aquisição (também chamado de Custo Inicial ou Custo CIF), já pode ter uma apuração dos custos da empresa. Porém, também é necessário configurar a Conta Contábil de Custos de Venda no 
+Cadastro de Produtos
+.
+Detalhando o processo:
+Ao faturar uma Nota Fiscal de Venda é informado o produto, localizado o Custo de Aquisição deste produto e salvo nos Custos da Nota Fiscal.
+Ao lançar uma Nota de Devolução de Vendas também é informado o produto, localizado o Custo de Aquisição deste produto e salvo nos Custos da Nota Fiscal.
+Ao consolidar o realizado com a opção de custos, o SisPetro verificará as notas de venda e pelo produto chega à sua conta contábil de Custo de Vendas. Nela serão acumulados os valores do Custo de Aquisição.
+No caso das notas de devolução, chega-se à mesma conta contábil, porém se diminuirá o custo de aquisição delas.
+Ex.:
+Produto: 02 - Álcool
+CC Custo Vendas: 50005 - Custo do Álcool
+Custo de Aquisição: 0,98
+3 Notas de Venda de Álcool
+1 - 5000 litros X 0,98: 4.900,00
+2 - 10000 litros X 0,98: 9.800,00
+3 - 6000 litros X 0,98: 5.880,00
+Total do Custo de Aquisição: 20.580,00
+1 Nota de Devolução de Cliente
+5000 X 0,98: 
+4.900,00
+Resultado apresentado na conta 50005:
+20.580,00 - 4.900,00 =
+15.680,00
+Fonte do realizado para Despesas
+ possui as opções:
+Conta:
+ Com a opção Conta, as contas de despesas terão seus valores atualizados conforme a movimentação de suas próprias contas. Similar à receita, ou seja, pouco interessa a origem ou contrapartida do lançamento.
+Pagamento:
+ Se for optado por Pagamento, o valor total de cada conta de despesa, assim como o valor por centro de custo se houver, será obtido da movimentação das entradas pelas contas bancárias. Estes pagamentos geralmente são Baixas do Contas a Pagar, Despesas Extraordinárias e Adiantamento de Clientes.
+Ex. 1: Lançamento de Despesa Extraordinária
+D - Conta Bancária
+C - Conta Despesa
+Se a fonte for Conta este lançamento faria parte, pois movimentou a conta de despesa.
+Se a fonte for Pagamento este lançamento também faria parte, pois movimentou uma conta bancária como contrapartida.
+Ex. 2: Lançamento da Nota Fiscal de Compra (ainda não foi paga)
+D - Conta Fornecedor
+C - Conta Despesa
+Se a fonte for Conta este lançamento faria parte, pois movimentou a conta de receita.
+Se a fonte for Pagamento este lançamento NÃO faria parte, pois NÃO movimentou uma conta bancária como contrapartida.
+Além da diferença da origem da conta, temos também a diferença de data que o lançamento será apresentado. A fonte por 
+conta
+ é equivalente ao regime de 
+competência
+ e a fonte por 
+pagamento
+ ao regime de 
+caixa
+.
+O 
+Cenário Padrão
+ é utilizado para que seja sugerido nas telas de previsão orçamentária, facilitando a digitação para que não seja necessário estar sempre informando-o, e sim informando apenas quando for um outro cenário que não o padrão. Pode-se configurar um outro cenário como sendo o padrão. Veja como incluir cenários no tópico 
+Tabela de Cenários
+.
+É importante configurar a 
+Conta de Receita de Vendas
+ no grupo 
+Mapeamento de contas de clientes para conta de receita de vendas
+. Após configurar esta conta de receita de vendas, é necessário também pressionar o botão 
+Atualiza todas as contas de clientes
+. Este procedimento é necessário para que, no momento de consolidar o realizado, o sistema utilize este mapeamento de contas para obter as receitas através da movimentação das contas de clientes, atualizando o valor total na conta de resultado de receita de vendas.
+O 
+ pode ser configurado para cada conta através da manutenção do 
+Plano de Contas
+.
+        Este campo de 
+Conta Mapeamento Orçamento
+ pode ser utilizado não apenas para conta de clientes, mas para qualquer outro tipo de conta que deseje que seja mapeada para uma outra conta.
+Verificação de Valor
+   PMM
+Inclusão de PMM
+Não verifica valor: 
+habilitado não verificará se o PMM excedeu o orçamento.
+Verifica e só avisa: 
+habilitado, verificará se o PMM excedeu o orçamento e avisará.
+Verifica e impede: 
+habilitado, verificará se o PMM excedeu o orçamento e avisará vai bloquear o lançamento.
+Para mais informações, ver 
+Pedido de Movimentação de Material
+Aprovação de PMM 
+Não verifica valor:
+ habilitado, não verificará se o PMM excedeu o orçamento.
+Verifica e só avisa: 
+habilitado, verificará se o PMM excedeu o orçamento e avisará.
+Verifica e impede: 
+habilitado, verificará se o PMM excedeu o orçamento e avisará bloqueando o lançamento.
+Para mais informações, ver 
+Aprovação
+Contas de Despesa
+ 
+Não verifica valor: 
+habilitado, não verificará se a conta de despesas excedeu o orçamento.
+Verifica e só avisa: 
+habilitado, verificará se a conta de despesas excedeu o orçamento e avisará.
+Verifica e impede: 
+habilitado, verificará se a conta de despesas excedeu o orçamento e avisará bloqueando o lançamento.
+Para mais informações, ver 
+Necessário sempre manter o perfil 
+Contas de Despesa
+ 
+em avisa ou impede, caso seja utilizada a opção 
+não verifica valor
+ a mensagem de validação não exibirá o orçamento da conta.

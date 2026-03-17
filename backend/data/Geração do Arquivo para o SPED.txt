@@ -1,0 +1,76 @@
+TITULO: Geração do Arquivo para o SPED
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879128167
+--------------------------------------------------
+A geração do arquivo em formato TXT para o SPED é feita após o a 
+configuração das Fórmulas
+, seguido do 
+preenchimento dos dados
+ e também da 
+edição dos dados
+.
+Importante: Este processo irá funcionar mesmo que o Preenchimento dos Dados não tenha sido feito, porém o conteúdo do arquivo será vazio, pois não há tabelas preenchidas.
+Para gerar o arquivodeve-se primeiramente preencher os dados. Para isso, o usuário deve acessar o menu 
+Ferramentas/ Tabelas dos Conjuntos de Dados.
+Na tela de Manutenção de Conjunto de Dados, o usuário deverá definir o campo Conjunto de Dados e em seguida clicar no botão 
+Atualiza
+.
+Após atualizar a tela com as tabelas do Conjunto de Dados definido, deverá preencher os dados para depois efetuar edição dos mesmo. Ver tópico de 
+Preenchimento dos Dados
+.
+Com as tabelas preenchidas, o usuário poderá editar o 
+conteúdo dos dados
+ para geração do conteúdo.
+Importante: Se o usuário efetuar alteração de dados no conteúdo preenchido, ele NÃO poderá efetuar o processo de Preenchimento dos Dados novamente, para não perder as alterações feitas. Deverá gerar o arquivo diretamente, corrigindo apenas os totalizadores. Vide maiores informações no tópico de 
+Edição de Dados
+.
+Após efetuar as correções necessárias e atualizar os totalizadores dos registros, o usuário já poderá gerar o arquivo TXT para o SPED. Para isso, o usuário deve selecionar a aba 
+Geral
+ da tela de Manutenção de Conjunto de Dados
+Verificar se o caminho da DLL está configurado corretamente através do campo 
+Caminho da DLL de Exportação de Dados
+. Sua configuração poderá ser feita através de 
+.
+Importante:
+ A geração do arquivo só poderá ser feita com a DLL configurada corretamente e na última versão liberada.
+ 
+Clicar no botão 
+Gera
+, para o preenchimento dos dados conforme a edição feita ou fórmulas configuradas.
+ 
+Confirme (ou não) a geração do arquivo para o conjunto de dados definido, conforme mensagem:
+ 
+Confirmando, informe os parâmetros conforme solicitação da mensagem:
+ 
+Na tela de Edição/Inclusão, o usuário deve informar os dados para seleção dos dados para geração do arquivo de exportação:
+ 
+Informações Padronizadas:
+Sequencial:
+ Número sequencial do preenchimento;
+Empresa:
+ Selecionar a empresa que irá efetuar o preenchimento;
+Data Inicial:
+ Data inicial do período desejado;
+Data Final:
+ Data final do período desejado;
+SQL:
+ Para uso interno e nos testes do Suporte;
+Ao informar os campos para preenchimento dos dados, o usuário deve clicar no botão "Salvar".
+ 
+O usuário poderá cancelar o preenchimento dos dados a qualquer momento, para isso ele deve clicar no botão "Cancelar"
+ 
+Confirme os parâmetros informados e 
+configure o diretório
+ onde irá gerar o arquivo txt para o SPED e o 
+nome do arquivo
+, através da tela de Conjunto de Dados - Geração de Arquivo:
+ 
+Clicar no botão para localização do diretório e definição do nome do arquivo, identificado como:
+Caso o usuário não informe o diretório para gerar o arquivo, o sistema informará conforme mensagem:
+ 
+Após informar o diretório e o nome, o usuário deverá clicar no botão 
+Gera Arquivo
+Aguardar a geração do arquivo que pode demorar alguns minutos.
+ 
+Observação: O tempo pode variar para mais ou para menos, dependendo do tamanho do banco de dados da empresa.
+Após finalizar a geração do arquivo, o sistema informará por mensagem a conclusão do mesmo.
+Finalizando a geração do arquivo, o usuário já poderá valida-lo do validador do SPED, tanto estrutura do arquivo como o conteúdo. 

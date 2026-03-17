@@ -1,0 +1,156 @@
+TITULO: Cálculo de Custos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898773
+--------------------------------------------------
+none
+Objetivo
+Os custos no Sispetro são divididos em 
+Internos
+ e 
+Externos
+. Os 
+custos internos
+ são pré-definidos pelo Sispetro, não podendo ser alterados na Tabela de Custos, e incluem encargos como 
+ICMS Próprio, ICMS Substituição, PIS/COFINS, CPMF, Frete, Imposto de Renda
+ e outros. Cada um tem regras específicas de cálculo e configuração em diferentes telas do Sispetro, geralmente vinculadas à 
+Natureza de Operação
+ e ao 
+Cadastro de Produtos
+.
+Esses custos também podem sofrer incidência de CPMF e considerar prazos de pagamento e frete conforme parâmetros definidos.
+Já os 
+custos externos
+ são criados e configurados livremente pelo usuário, devendo ser cadastrados na 
+Tabela de Custos
+ e associados aos produtos conforme necessidade.
+Os custos são divididos em duas categorias: Internos e Externos. Portanto, temos:
+Internos
+São aqueles pré-definidos pelo Sispetro e não podem ser manipulados pela 
+Tabela de Custos
+. Na Manutenção de NF’s, painel Diversos, painel inferior Custos, estes custos internos podem ser reconhecidos através do código que será sempre negativo. São configurados para sofrer a incidência de CPMF quando houver. Vamos ver cada um destes custos seguindo a mesma ordem que se encontra na Natureza de Operação, painel detalhe, na vertical 'Por Filial', painel inferior 'Custos'. São eles:
+Produto
+Em Arquivo / Produto / aba Detalhes / Natureza de Operação nesta tela pode ser setado as naturezas de operação voltado a venda de produtos no quadro Atividade Econômica x Natureza de Operação existem vários tipos de operação são eles:
+REF - Retirada Entrega Futura, Retorno de Armazenagem, Transferência, VEF - Venda Entrega Futura, Venda Cupom, Venda Direta, Venda Normal, e em cada uma dessas podem ser configurados a Nat OP. Venda Estado, Nat OP. Venda Fora Estado
+Na coluna Atividade Econômica temos TRR, Congênere, Grande Consumidor, Órgão Publico, Posto Revenda
+ICMS Próprio
+ICMS Próprio:
+ Para calcular o ICMS Próprio o Sispetro:
+Verifica qual o código de ICMS que está relacionado no Cadastro de Produtos em Arquivos / Produtos / aba Detalhes / aba inferior Ficha Produto, campo 
+Código ICMS
+.
+Verifica quais são as alíquotas para este ICMS em Tabelas Auxiliares / Faturamento / ICMS, campo 
+% ICMS
+. Veja que temos vários códigos repetidos, pois são um para cada Estado com alíquotas diferentes. Porém, este cálculo só irá funcionar se a opção 
+Gera ICMS
+ em Tabelas Auxiliares / Faturamento / Natureza de Operação / aba Detalhes / aba lateral Por filial / aba inferior Impostos.
+O campo 
+% ICMS de Compra(crédito)
+ será utilizado sobre o valor do Custo CIF para abater o valor do ICMS calculado, já que representa um crédito.
+Para casos como do Estado da Bahia, que quando um consumidor final compra combustível ele pode se creditar do valor do ICMS retido, e assim é preciso que esse valor seja apresentado na NF como ICMS Próprio, é preciso configurar o perfil 
+Considera ICMS Retido como ICMS Próprio
+ em Tabelas Auxiliares / Faturamento / Natureza de Operação / aba Detalhes / aba lateral Por filial / aba inferior Impostos.
+ICMS Substituição
+ICMS Substituição:
+ Mesmo entendimento do ICMS Próprio, sendo que o campo dessa alíquota no Cadastro de ICMS é o 
+%ICMS Subst
+Ressarcimento ou Complemento (somente para Gasolina e Diesel):
+ O Sispetro irá fazer um cálculo e no final vai resultar num valor sendo este um Complemento (vai somar mais um valor na relação dos custos, nesse caso o custo aumenta) ou um Ressarcimento (vai subtrair um valor na relação dos custos, nesse caso o custo diminui). Como o Sispetro calcula este valor:
+ a) Pega o PMPF do estado em que sua empresa está(empresa de origem) e multiplica pela alíquota do ICMS Substituição desse mesmo estado
+ b) Pega o PMPF do estado em que o cliente está e multiplica pela alíquota do ICMS Substituição desse estado
+ c) Subtrai o primeiro resultado pelo segundo 
+Veja os 2 exemplos abaixo só para esclarecer o entendimento. Depois vamos ver em que lugar do 
+Sispetro
+ é cadastrado esse PMPF.
+ 
+ Empresa em SP.
+ Cliente em RS.
+ PMPF ref. ao estado da empresa Distribuidora(SP): 2,09
+ PMPF ref. ao estado do cliente(RS): 2,21
+ Alíquota do ICMS Substituição de acordo com a UF da empresa(SP): 18%
+ Alíquota do ICMS Substituição de acordo com a UF do cliente(RS): 25% 
+ Fazendo as contas 
+ 2,09 x 18% = 0,3762
+ 2,21 x 25% = 0,5525 
+ Subtraindo (0,3762 - 0,5525) temos: -0,1763
+ Então nesse caso sua empresa vai pagar a diferença (complemento) de Custos de 0,1763.
+Outro exemplo:
+ 
+ Empresa em SP.
+ Cliente em SC.
+ PMPF ref. ao estado da empresa Distribuidora(SP): 2,09
+ PMPF ref. ao estado do cliente(SC): 2,01
+ Alíquota do ICMS Substituição de acordo com a UF da empresa(SP): 18%
+ Alíquota do ICMS Substituição de acordo com a UF do cliente(SC): 7%
+Fazendo as contas
+2,09 x 18% = 0,3762
+ 2,01 x 7% = 0,1407
+Subtraindo (0,3762 - 0,1407) temos: 0,2355
+ Então nesse caso sua empresa vai ter um Ressarcimento de Custos de 0,2355.
+PIS/COFINS
+PIS/COFINS:
+ Para que o PIS e o COFINS faça parte do Custo médio primeiramente as alíquotas devem ser em Tabelas Auxiliares / Faturamento / Natureza de Operação / aba Detalhes / aba lateral Por filial / aba inferior Impostos campos 
+Alíquota PIS
+ e 
+Alíquota COFINS
+. Depois nesta mesma tela marque as duas opções 
+Gera PIS
+ e 
+GERA COFINS
+.
+PIS Substituição e Cofins Substituição
+PIS Substituição e Cofins Substituição:
+ Para fazer com que estes dois impostos façam parte do custo médio primeiramente marque em Tabelas Auxiliares / Faturamento / Natureza de Operação / aba Detalhes / aba lateral Por filial > aba inferior Impostos as opções 
+Gera Pis Substituição
+ e 
+Gera COFINS Substituição
+. Depois configure as alíquotas em Arquivos / Produtos / aba Detalhes / aba inferior Margem Subst. Tributária / sub-painel PIS/COFINS Substituição.
+CPMF
+CPMF:
+ Atualmente não tem mais. Se precisar ele é configurado em Consulta / Análise Custo / aba Parâmetros / campo %CPMF/IOF. Também dependerá do perfil do Sispetro no painel Nota Fiscal.
+ 
+ Se o cálculo for feito através dos Custos com Incidência de CPMF, o Sispetro primeiramente calculará todos os custos, somará aqueles configurados para ter incidência de CPMF (os internos e os externos assim configurados na 
+Tabela de Custos
+) e com base na soma destes custos calculará o valor da CPMF. O percentual da CPMF é configurado na tela de 
+Análise de Custo
+, no painel parâmetro.
+Prazo de Pagamento(CF):
+ Em Tabelas Auxiliares / Vendas / Condição de Pagamento / aba Detalhes / quadro Parcelas, na coluna Prazo de Pagamento temos definido a quantidade de dias. Em Consulta / Análise Custo / aba Parâmetros > campo % Encargos ao Dia podemos cadastrar qual vai ser este percentual. O Sispetro irá multiplicar a quantidade de dias da Condição de pagamento por este 
+% Encargos ao Dia
+. Se houver uma condição de pagamento que tenha várias parcelas, o Sispetro irá fazer uma média para este cálculo.
+Frete Entrega:
+ O frete, no caso de Notas Fiscais ou de análise de um Pedido de Venda, dependerá do parâmetro em Ferramentas / Sistema / aba Nota Fiscal / opção Calcula custo de frete pelo valor do frete negociado. Se esta opção estiver desmarcada o cálculo do custo de frete é pelo valor do frete padrão, senão é pelo valor do frete negociado. No caso de digitação direta na tela de Análise de Custo, conforme a cidade do Cliente e a cidade da empresa que o usuário está conectado, pela 
+Tabela Distâncias
+ é calculado o frete padrão.
+Inicial(Aquisição):
+ É definido na
+ Arquivos / Produtos / aba Detalhes / aba inferior 
+Custo para Venda
+. Defina primeiro como vai ser o Custo médio utilizado: se 
+Custo Manual
+ ou pelo 
+Custo pelo Últº fechamento
+. Se for utilizar o 
+Custo Manual
+ informe no campo 
+Custo CIF do Produto
+ qual vai ser o valor do custo inicial. Se for utilizar o 
+Custo pelo Últº fechamento
+ o Sispetro vai ignorar o campo 
+Custo CIF do Produto
+ e vai considerar o custo do Fechamento CMV.
+Imposto de Renda:
+ É configurado em Tabelas Auxiliares / Faturamento / Natureza de Operação / aba Detalhes / aba lateral Geral / aba inferior Dados Gerais, a opção 
+Gera Imposto de Renda
+. No campo 
+% Imposto Renda
+ defina a alíquota que será utilizada. 
+ Todos estes custos internos 
+NÃO podem ser manipulados pela Tabela de Custos(que pode ser acessada em 
+Tabelas Auxiliares / Controladoria / Custos
+. 
+Estes então já são os custos Externos que iremos ver logo a seguir.
+Externos
+São os custos definidos pelo usuário. Eles devem ser cadastrados primeiramente na 
+Tabela de Custos
+ e em seguida atribuídos aos produtos na 
+Tabela de Produtos
+.

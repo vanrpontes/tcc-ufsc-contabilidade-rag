@@ -1,0 +1,45 @@
+TITULO: Roteiro para Importação de XML
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909897480
+--------------------------------------------------
+Muitas distribuidoras recebem um número muito grande de notas fiscais que precisam ser digitadas no SisPetro. O processo mais rápido é a importação de Notas Fiscais. Antes a importação trabalhava com arquivos de texto. Mas agora com a Nota Fiscal Eletrônica, é preciso importar o XML. Porém, no SisPetro, as configurações são diferentes para arquivos texto e arquivo XML. É ai que surge a dúvida: O que fazer? Como configurar? O que devo configurar?
+Com base nestas dúvidas, elaboramos este roteiro para auxiliar nossos usuários a configurar o que é preciso para importação de XML no SisPetro.
+Manutenção de Importação de Dados
+Ferramentas > Importação Dados > Manutenção Importação de Dados
+Nesta tela é onde os layouts são definidos. Porém, é um recurso que não permite a inclusão por parte do usuário, somente a Futura possui permissão. Isto porque, a definição dos layouts depende muito das tabelas e campos disponíveis e necessários para importação. Na medida que novos layouts são desenvolvidos, eles serão incluídos automaticamente pela FUTURA.
+Para mais informações, ver 
+Manutenção Importação de Dados
+.
+O padrão para Importação de XML para NF-e é 
+NOTA FISCAL - LAYOUT NFE
+O padrão para Importação de XML para CT-e é 
+NOTA FISCAL - LAYOUT CTE
+Manutenção De/Para
+Ferramentas > Importação Dados > Manutenção De/Para
+Os XML's que as empresas recebem para importar no SisPetro possuem informações diferentes dos dados armazenados no SisPetro.
+Exemplo: 
+Nota Fiscal de Gasolina A da Petrobras vem descrita como 
+GASO-A
+, já no SisPetro o mesmo produto Gasolina A possui o código 
+05
+ descrito como 
+ Gasolina A
+.
+É preciso configurar o SisPetro para que interprete as informações recebidas da forma correta. Sendo assim, é preciso definir parâmetros de transformação através da tela Manutenção De/Para.
+Para mais informações, ver 
+Configuração de De/Para
+. Tudo ajustado? Então, vamos ao próximo passo!
+Não será necessário cadastrar De/Para de Transportadora e Frota para as notas fiscais cuja Natureza de Operação está com o campo Via Transporte (DCP/Sintegra) configurado como Sem Transportes.
+Manutenção de Processos
+F
+erramentas > Importação Dados > Manutenção Processos
+O SisPetro precisa ter as informações de Layout e De/Para juntas para efetuar a importação. A ideia da tela de Processos é juntar as informações para que o usuário final não altere as informações já cadastradas. Vejamos o que deve ser feito.
+Para mais informações, ver 
+Manutenção de Processos
+Importação NF
+F
+erramentas > Importação Dados > Importação NF
+Agora iremos ao processo final: a importação dos XML's! Para executar esse passo é importante ter os itens 1, 2 e 3 configurados corretamente.
+Para mais informações, ver 
+Importação Manual de Notas Fiscais
+Ver também 
+Importação de Nota Fiscal via Serviço

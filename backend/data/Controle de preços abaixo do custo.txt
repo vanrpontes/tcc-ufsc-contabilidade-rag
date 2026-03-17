@@ -1,0 +1,32 @@
+TITULO: Controle de preços abaixo do custo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439798
+--------------------------------------------------
+Caso a empresa deseje trabalhar com controle de preços abaixo do custo, há alguns perfis que deverão ser configurados, para que permita ao sistema, verificar os itens de um pedido não aprovado, comparando o valor do preço praticado à vista sem frete com o respectivo custo, e caso o custo seja maior que o preço à vista, não permite a aprovação.
+
+
+Para utilizar o controle de preços abaixo do custo, deve fazer as seguintes configurações:
+
+
+
+
+Configurar corretamente os preços verificando na 
+Tabela Clientes (painel Preços)
+ ou na 
+Análise de Custo
+;
+
+
+No perfil de Empresas (menu Ferramentas / Sistema / painel Vendas campo "Ação de comparação custo x preço no pedido de venda", selecionar a opção "Avisa e pedido fica pendente para aprovação manual":
+
+
+
+
+
+
+Quando incluir um pedido de venda, o sistema irá verificar cada item desse pedido, se existe preço abaixo do custo. Se existir, o pedido estará pendente para aprovação manual.
+
+
+Na aprovação manual do pedido, não será permitido se tiver preço abaixo do custo. Somente será permitido a liberação do pedido se o usuário tiver permissão para liberar pedido mesmo com preço abaixo do custo (
+menu Ferramentas / Usuário / painel Perfil / painel Vendas
+):
+

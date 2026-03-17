@@ -1,0 +1,63 @@
+TITULO: SPED REINF - Configurações
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927268794
+--------------------------------------------------
+Diferente dos demais SPEDs, o SPED REINF não tem programa validador.
+Seu processamento utiliza webservices, da mesma forma como é feito na Nota Fiscal Eletrônica.
+No SisPetro, apesar de estar no 
+Conjunto de dados para o SPED
+ > Menu Ferramentas > Tabela dos Conjuntos de Dados
+, a inclusão/exclusão/alteração de dados e processamento é feito na tela de 
+Manutenção do Reinf
+ > 
+Menu Movimentação > Controladoria > Manutenção do Reinf
+Para geração e processamento do REINF é necessário fazer as seguintes configurações:
+Perfil de Sistema: 
+Painel Livro Eletrônico
+, quadro REINF:
+ configuração dos ambientes e das URLs do REINF
+Ambiente: 
+campo que permite definir se o ambiente de envio dos dados do Reinf está definido como Homologação ou Produção
+Homologação
+Produção
+Tipo de Produção: 
+permite definir o tipo de ambiente de produção para envio das informações.
+Produção
+Produção Restrita - Dados Reais
+URL Homologação: 
+deve-se informar a URL do ambiente de homologação.
+URL Produção: 
+deve-se informar a URL do ambiente de produção.
+, quadro REINF: 
+ selecionar o Tipo de Desconto Retenção INSS que a EMPRESA irá utilizar no REINF. Todas as notas que utilizarem esse tipo de desconto serão enviadas no evento 2010, quando utilizado o 
+Preenchimento Automático REINF - R2010
+Perfil de Usuário: 
+Painel Fiscal (Usuários)
+, quadro REINF:
+Pode dar manutenção de dados
+: permite que o usuário possa fazer a inclusão dos dados a serem enviados.
+Geração/Transmissão de dados
+: define o tipo de acesso do usuário com relação a geração do arquivo xml e da transmissão dos dados
+Não Gera/Transmite Dados
+: usuário não poderá gerar xml nem transmitir os dados.
+Só Gera xml
+: usuário só poderá gerar xml dos dados.
+Gera e Transmite Dados
+: usuário poderá gerar xml e transmitir os dados gerados.
+Cadastro de Fornecedores:
+Painel Observações
+:
+Contribuição Previdênciária (uso SPED REINF) - usado nos registros R2010:
+Não é Contribuinte:
+ fornecedor não é contribuinte da 
+Contribuição Previdenciária sobre a Receita Bruta (CPRB)
+Contribuinte:
+ fornecedor é contribuinte da 
+Contribuição Previdenciária sobre a Receita Bruta (CPRB)
+ 
+Para mais informações:
+Painel Livro Eletrônico
+Painel Fiscal (Usuários)
+Painel Observações - Fornecedores
+Manutenção do Reinf
+Preenchimento Automático REINF - R2010
+ 

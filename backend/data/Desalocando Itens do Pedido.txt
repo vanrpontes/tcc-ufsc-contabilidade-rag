@@ -1,0 +1,26 @@
+TITULO: Desalocando Itens do Pedido
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440094
+--------------------------------------------------
+Após incluir um pedido de venda, a quantidade desse pedido é automaticamente reservada do estoque. Em casos em que a quantidade do pedido está incorreta, porém uma parte do pedido já foi utilizada (o que impede o cancelamento do pedido), o sistema possibilita ao usuário desalocar a quantidade restante do pedido.
+Temos no Sispetro a possibilidade de transferir o saldo de um PMM, onde podemos gerar um PMM novo, alocar o saldo em um PMM já existente ou ainda somente desalocar a quantidade. Para mais informações, acesse 
+Transferência de saldo de Pedidos de Movimentação de Material
+.
+A partir da versão 9.38, foi alterada a regra de validação para desalocar itens do pedido, de forma que não seja possível executar esse processo em pedidos configurados para 
+liberação de quantidade pendente pela quantidade paga
+, e também caso tenha enviado ou recebido transferência de PMM. 
+Por exemplo, foi faturado uma quantidade de 2.000 Litros de um pedido de 5.000 litros e o cliente não quer mais os 3.000 litros restantes. Nesse caso, a solução seria desalocar a quantidade que resta, ou seja, a quantidade alocada do pedido, que é de 3.000 litros, pois cancelar o pedido não seria possível, já que uma parte do pedido já foi faturada.
+Para desalocar um item do pedido, deve-se acessar a tela de Manutenção de Pedidos (Menu 
+Movimentação/Estoque
+).
+Após selecionar o pedido, o usuário deve clicar no painel 
+"Itens Pedido"
+, para indicar qual o item que será desalocado (o pedido pode ter mais de um item).
+No painel Itens Pedido, pode-se observar a quantidade total do pedido, a quantidade alocada, a quantidade separada e a quantidade Faturada. Neste caso, há uma quantidade faturada e uma quantidade alocada que ainda não foi utilizada, já que o campo quantidade separada está zerado. O campo quantidade separada só será preenchido no momento que for feita uma Ordem de Carregamento para a quantidade alocada.
+Para desalocar a quantidade alocada, o usuário deve clicar no botão 
+"Desaloca"
+.
+O sistema solicitará a confirmação do usuário antes de desalocar o item.
+Confirmando, o sistema zera a quantidade 
+alocada
+, fazendo com que esse pedido não tenha mais nenhuma quantidade para ser utilizada.
+A facilidade de Desalocar o Item do Pedido, só pode ser utilizada em um pedido por vez.

@@ -1,0 +1,91 @@
+TITULO: Verificação de Volume Útil de Tanque na Portaria
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2965440764
+--------------------------------------------------
+Validação específica para Tanques, não permitir descarregar um volume que exceda o total disponível num tanque específico ou que tente carregar mesmo sem saldo suficiente.
+Para evitar o Transbordo ou a Secagem de um tanque, ao fazer uma descarga é necessário que o 
+Volume a Completar
+ seja maior ou igual ao volume a ser descarregado. 
+No caso do Carregamento é necessário que o 
+Volume Operacional
+ seja maior ou igual ao volume a ser carregado, validação é feita no momento da portaria de entrada.
+Para habilitar a verificação de volume de tanque, basta acessar  Arquivos / Depósitos / 
+Aba Dados Adicionais 
+/ Quadro Verificação de Volume Útil do Tanque na Portaria
+ A verificação pode ser feita por carregamento e descarga, possuindo as seguintes opções na validação:
+Não verifica: 
+por padrão, não faz verificação do volume no tanque, permitindo carregamento e descarga livremente.
+Avisa Caso Não Tenha Volume Disponível: 
+avisa o usuário caso não possua volume disponível, mas permite efetuar a portaria.
+Bloqueia Caso não tenha Volume Disponível: 
+Bloqueia caso não possua volume disponível, impedindo o usuário de efetuar a portaria de entrada.
+Como funciona a validação para cada perfil:
+Descarga
+: 
+é necessário que o 
+Volume a Completar
+ seja maior ou igual ao volume a ser descarregado.
+O 
+V
+ol. a Completar (a) - (c) - (d):
+ quantidade disponível para completar o tanque (capacidade - espaço de segurança - quantidade de estoque atual)
+Caso tenha mais que um tanque para o mesmo produto, a validação será pelo tanque com maior Volume a Completar, o tanque pode estar inativo, porém o tipo de movimentação deve ser igual a "Carregamento\Descarga" ou Descarga. 
+Não verifica: 
+por padrão, não faz verificação do volume no tanque, permitindo carregamento e descarga livremente.
+Avisa Caso Não Tenha Volume Disponível: 
+Avisa o usuário caso não possua volume disponível, mas permite efetuar a portaria.
+Exemplo:
+Temos uma ordem de descarga no vol. de 30.000
+O Volume a completar para operação é de 17.800
+Ao realizar a portaria de entrada o Sispetro, avisará o usuário que o volume útil para operação é insuficiente, porém permite que o usuário continue com a operação.
+A tela de verificação contém as seguintes informações:
+Dados da OC, Frota e Motorista, se é Carregamento ou Descarga, perfil configurado (avisar ou bloquear).
+O Sispetro irá Avisar que o volume útil do tanque é inferior ao volume descarregado, dando a opção para o usuário continuar a operação.
+Basta clicar no botão 
+, para continuar, assim o usuário tem a opção de efetuar a troca do tanque na portaria de saída.
+Bloqueia Caso não tenha Volume Disponível: 
+Bloqueia caso não possua volume disponível, impedindo o usuário de efetuar a portaria de entrada.
+Usando o mesmo exemplo acima, porém com o perfil de Depósito, marcado para bloquear:
+Ordem de descarga no vol. de 30.000
+O Volume a completar para operação é de 17.800
+O Sispetro irá bloquear a operação para que evitar o transbordo do tanque.
+Carregamento
+: É
+ necessário que o "
+Volume Operacional"
+ seja maior ou igual ao volume a ser carregado. 
+O Vol. Operacional (d) - (b): 
+quantidade disponível para venda/entrega, sem considerar o lastro cadastrado (quantidade de estoque atual - lastro)
+Caso tenha mais que um tanque para o mesmo produto, a validação será pelo tanque com maior Volume Operacional, neste caso o tanque deve estar ativo e tipo de movimentação deve ser igual a "Carregamento\Descarga" ou carregamento.
+Não verifica: 
+Por padrão, não faz verificação do volume no tanque, permitindo carregamento e descarga livremente.
+Avisa Caso Não Tenha Volume Disponível: 
+Avisa o usuário caso não possua volume disponível, mas permite efetuar a portaria.
+Exemplo:
+Temos uma ordem de descarga no vol. de 30.000
+O Volume Operacional  é de 24.481
+Ao realizar a portaria de entrada o Sispetro, avisará o usuário que o Operacional útil para operação é insuficiente, porém permite que o usuário continue com a operação.
+A tela de verificação contém as seguintes informações:
+Dados da OC, Frota e Motorista, se é Carregamento ou Descarga, perfil configurado (avisar ou bloquear).
+O Sispetro irá Avisar que o Volume útil do tanque é inferior ao volume carregado, dando a opção para o usuário continuar a operação.
+Basta clicar no botão 
+, para continuar, assim o usuário tem a opção de efetuar a troca do tanque na portaria de saída.
+Bloqueia Caso não tenha Volume Disponível: 
+Bloqueia caso não possua volume disponível, impedindo o usuário de efetuar a portaria de entrada.
+Usando o mesmo exemplo acima, porém com o perfil de Depósito, marcado para bloquear:
+Ordem de descarga no vol. de 30.000
+O Volume Operacional  é de 24.481
+O Sispetro irá bloquear a operação para que evitar o secagem do tanque.
+Caso seja um carregamento de produto composto, a verificação será individual por produto básico.
+Na 
+Manutenção de Tanques
+, 
+possui  uma aba de 
+"Caminhões dentro da Base," 
+ mostra  todos  os carregamentos e descargas que passaram pela Portaria de Entrada, mas não saíram ainda.
+A tela possui informações do carregamento\descarga.
+Na parte inferior da tela temos as seguintes opções:
+Exibe todos independente do Tanque: Exibe todas as ordens de carregamentos e descargas que passaram pela Portaria de Entrada, mas não saíram ainda.
+Botão Troca Tanque: 
+Onde apresenta uma tela com alguns dados do Carregamento/Descarga.
+Usuário pode escolher um Tanque que tenha um tipo de movimentação compatível.
+Se Depósito estiver configurado para verificar volume, fazer a verificação e só permitir a troca se ok (ou se optou por continuar quando avisou).

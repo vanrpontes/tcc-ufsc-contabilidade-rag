@@ -1,0 +1,945 @@
+TITULO: Como é preenchido automaticamente o Livro Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2880176233
+--------------------------------------------------
+Os registros que irão compor o Livro Fiscal são gerados na gravação de uma NF ou são reprocessados utilizando o recurso de 'Reprocessamento de Nfs para Livro Fiscais' do Controladoria. Nem sempre os dados destas notas serão os dados que irão para o  Livro Fiscal. Para resolver isto criou-se o recurso de Fórmulas onde através de uma 
+Tabela de Fórmulas
+ podemos definir com mais exatidão como serão gravadas as informações no Livro Fiscal. Mesmo assim, algumas destas informações são geradas automaticamente. Para distinguir quais são geradas Automaticamente e quais são geradas por Fórmulas veja a tabela abaixo:
+
+
+
+
+
+
+ 
+Descrição do Campo
+ 
+
+
+ 
+Nome do Campo
+ 
+
+
+ 
+Fórmula ou Automático
+ 
+
+
+ 
+Tabela/Campo recomendado
+ 
+
+
+
+
+
+
+ Código da Empresa 
+
+
+ CodEmpresa 
+
+
+ Automático se não tiver na fórmula 
+
+
+ Não informar na fórmula 
+
+
+
+
+
+
+ Número sequencial do Livro 
+
+
+ Sequencial 
+
+
+ Automático 
+
+
+ 
+
+
+
+
+
+
+ Tipo de Documento 
+
+
+ SeqDocto 
+
+
+ Fórmula 
+
+
+ Notafiscal.Seqdocto 
+
+
+
+
+
+
+ Série da NF 
+
+
+ Serie 
+
+
+ Fórmula 
+
+
+ Notafiscal.Serie 
+
+
+
+
+
+
+ Sub-série da NF 
+
+
+ SubSerie 
+
+
+ Fórmula 
+
+
+ SerieNF.Subserie 
+
+
+
+
+
+
+ Código do Cliente ou Fornecedor 
+
+
+ CodEnt 
+
+
+ Automático 
+
+
+ NotaFiscal.Codent 
+
+
+
+
+
+
+ Número da nota 
+
+
+ NumDocto 
+
+
+ Automático 
+
+
+ NotaFiscal.NumeroNF 
+
+
+
+
+
+
+ Controle de nº dos itens 
+
+
+ Item 
+
+
+ Automático 
+
+
+ 
+
+
+
+
+
+
+ Natureza de Operação 
+
+
+ CFOP 
+
+
+ Fórmula 
+
+
+ Notafiscal.CFOP 
+
+
+
+
+
+
+ Razão Social 
+
+
+ RzSocial 
+
+
+ Fórmula 
+
+
+ NotaFiscal.RzSocial 
+
+
+
+
+
+
+ Cidade do Cliente ou Fornecedor 
+
+
+ Municipio 
+
+
+ Automático se não tiver na fórmula 
+
+
+ Entidade.município 
+
+
+
+
+
+
+ Código DNC 
+
+
+ CodigoDNC 
+
+
+ Automático se não tiver na fórmula 
+
+
+ Entidade.CodigoDNC 
+
+
+
+
+
+
+ Estado 
+
+
+ UF 
+
+
+ Automático se não tiver na fórmula 
+
+
+ Entidade.UF 
+
+
+
+
+
+
+ Inscrição Estadual 
+
+
+ IE 
+
+
+ Automático se não tiver na fórmula 
+
+
+ Entidade.IE 
+
+
+
+
+
+
+ CNPJ 
+
+
+ CNPJ 
+
+
+ Automático se não tiver na fórmula 
+
+
+ Entidade.CGC 
+
+
+
+
+
+
+ Nº sequencial no Livro Fiscal 
+
+
+ SeqNF 
+
+
+ Automático 
+
+
+ NotaFiscal.Sequencial 
+
+
+
+
+
+
+ Data de emissão 
+
+
+ DtEmissao 
+
+
+ Fórmula 
+
+
+ NotaFiscal.DataNF 
+
+
+
+
+
+
+ Data do movimento 
+
+
+ DataMovto 
+
+
+ Fórmula 
+
+
+ NotaFiscal.DataMovto 
+
+
+
+
+
+
+ Se é nota de Entrada ou Saída 
+
+
+ ES 
+
+
+ Automático 
+
+
+ NotaFiscal.ES 
+
+
+
+
+
+
+ Valor Contábil 
+
+
+ ValorContabil 
+
+
+ Fórmula 
+
+
+ NotaFiscal.ValNF 
+
+
+
+
+
+
+ Base de Cálculo de ICMS 
+
+
+ BaseCalculoICMS 
+
+
+ Fórmula 
+
+
+ NotaFiscal.BaseICMS 
+
+
+
+
+
+
+ Alícota ICMS 
+
+
+ AlicotaICMS 
+
+
+ Fórmula 
+
+
+ NotaFiscal.AlicICMS 
+
+
+
+
+
+
+ Valor ICMS 
+
+
+ ValICMS 
+
+
+ Fórmula 
+
+
+ NotaFiscal.ValICMS 
+
+
+
+
+
+
+ código do Histórico 
+
+
+ CodHistorico 
+
+
+ Fórmula 
+
+
+ NaturezaOperacao.CodHistoricoLF 
+
+
+
+
+
+
+ descrição do Histórico 
+
+
+ Historico 
+
+
+ Fórmula 
+
+
+ NaturezaOperacao.HistoricoLF 
+
+
+
+
+
+
+ Valor Isentas 
+
+
+ ValorIsentas 
+
+
+ Fórmula 
+
+
+ Ver com o contador 
+
+
+
+
+
+
+ Valor Isentas 
+
+
+ ValorOutras 
+
+
+ Fórmula 
+
+
+ Ver com o contador 
+
+
+
+
+
+
+ Livro Manual ou pela NF 
+
+
+ Manual 
+
+
+ Automático 
+
+
+ 
+
+
+
+
+
+
+ Usuário que emitiu o Livro 
+
+
+ Usuario 
+
+
+ Automático 
+
+
+ 
+
+
+
+
+
+
+ Data Inclusão do Livro 
+
+
+ DataInclusao 
+
+
+ Automático 
+
+
+ 
+
+
+
+
+
+
+ Base ICMS Substituição 
+
+
+ BaseICMSSubst 
+
+
+ Fórmula 
+
+
+ NotaFiscal.BaseICMSSubst 
+
+
+
+
+
+
+ Valor do ICMS Substituição 
+
+
+ IcmsSubst 
+
+
+ Fórmula 
+
+
+ NotaFiscal.ICMSSubst 
+
+
+
+
+
+
+ Código de Cadastro da Nat. Oper. 
+
+
+ CodNatOp 
+
+
+ Automático 
+
+
+ NotaFiscal.CodNatOp 
+
+
+
+
+
+
+ Se a NF de origem foi Cancelada ou não 
+
+
+ OrigemCancelada 
+
+
+ Automático 
+
+
+ 
+
+
+
+
+
+
+ Se a NF está cancelada ou não 
+
+
+ Cancelada 
+
+
+ Automático 
+
+
+ 
+
+
+
+
+
+
+ Quem cancelou o Livro 
+
+
+ UsuarioCancto 
+
+
+ Automático 
+
+
+ 
+
+
+
+
+
+
+ Data de cancelamento do Livro 
+
+
+ DataCancto 
+
+
+ Automático 
+
+
+ 
+
+
+
+
+
+
+ Código de Contabilização 
+
+
+ SeqContabilização 
+
+
+ Automático 
+
+
+ 
+
+
+
+
+
+
+ Número do Lote Contábil 
+
+
+ NumLote 
+
+
+ Automático 
+
+
+ 
+
+
+
+
+
+
+ Observações da NF 
+
+
+ Observacoes 
+
+
+ Automático 
+
+
+ NotaFiscal.Obslivre 
+
+
+
+
+
+
+ Código do Produto 
+
+
+ CodProd 
+
+
+ Automático 
+
+
+ ItensNF.CodProd 
+
+
+
+
+
+
+ Valor do Produto 
+
+
+ ValProd 
+
+
+ Automático 
+
+
+ ItensNF.PrecoReal 
+
+
+
+
+
+
+ Informações Adicionais 
+
+
+ InfoAdic 
+
+
+ Fórmula 
+
+
+ NotaFiscal.InfoAdic 
+
+
+
+
+
+
+ Quantidade 
+
+
+ Qtde 
+
+
+ Automático 
+
+
+ ItensNF.Qtde 
+
+
+
+
+
+
+ Código da empresa da NF 
+
+
+ CodEmpresaOrigem 
+
+
+ Automático 
+
+
+ NotaFiscal.Codempresa 
+
+
+
+
+
+
+ Alícota ICMS Substituição 
+
+
+ AlicotaIcmsSubs 
+
+
+ Fórmula 
+
+
+ NotaFiscal.AlicICMSSubst 
+
+
+
+
+
+
+ Valor Isentas da ST 
+
+
+ ValorIsentasST 
+
+
+ Fórmula 
+
+
+ Ver com o Contador 
+
+
+
+
+
+
+ Valor Contábil da ST 
+
+
+ ValorContabilST 
+
+
+ Fórmula 
+
+
+ Ver com o Contador 
+
+
+
+
+
+
+ Valor Outras da ST 
+
+
+ ValorOutrasST 
+
+
+ Fórmula 
+
+
+ Ver com o Contador 
+
+
+
+
+
+
+ Se foi gerado por item ou não 
+
+
+ GeradoPorItemNF 
+
+
+ Automático 
+
+
+ 
+
+
+
+
+
+
+ Sequencial do Livro por NF 
+
+
+ SequencialLFNF 
+
+
+ Automático 
+
+
+ 
+
+
+
+
+
+
+ Discrimina na Apuração? 
+
+
+ DiscriminaApuracao 
+
+
+ Automático 
+
+
+ NaturezaOperacao.DiscriminaApuracao 
+
+
+
+
+
+
+ Código Histórico Apuração 
+
+
+ CodHistoricoApuracao 
+
+
+ Automático 
+
+
+ NaturezaOperacao.CodHistoricoApuracao 
+
+
+
+
+
+
+ Tipo de Apuração 
+
+
+ SeqTipoApuracao 
+
+
+ Automático 
+
+
+ NaturezaOperacao.SeqTipoApuracao 
+
+
+
+
+
+
+ Sai no Sintegra 
+
+
+ SaiSintegra 
+
+
+ Automático 
+
+
+ Notafiscal.SaiSintegra 
+
+
+
+
+
+
+ Data de Referência 
+
+
+ DataReferencia 
+
+
+ Automático 
+
+
+ Ver Perfil de Sistema 
+
+
+
+
+
+
+ Se a Data é de Movimento ou Emissão 
+
+
+ TipoDataReferencia 
+
+
+ Automático 
+
+
+ 
+
+
+

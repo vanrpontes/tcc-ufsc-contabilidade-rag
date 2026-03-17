@@ -1,0 +1,55 @@
+TITULO: Geração Mídia SCANC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898680
+--------------------------------------------------
+none
+Objetivo
+A geração do arquivo magnético para o programa SCANC é feita a partir do menu 
+Movimentação / Controladoria / 
+Manutenção de Anexos - Distribuidora
+, clique no botão 
+Imprime
+ e acesse o painel SCANC (Sistema de Captação e Auditoria dos Anexos de Combustíveis). 
+Veja tela:
+É necessário cadastrar o layout da mídia para o SCANC na 
+Manutenção de Exportação de Dados
+. 
+O layout atual é 
+SCANC_v117.rtm. 
+Esse layout é disponibilizado pela Futura
+Atentar-se as atualizações dos arquivos rtm a cada versão, pois eles podem sofrer alterações. Para que as alterações feitas sejam consideradas é necessário sobrepor o rtm atual.
+Cabe lembrar que a geração correta do arquivo depende de algumas configurações que devem ser feitas no sistema, portanto vide tópico 
+Configurações Necessárias - Anexo
+ para maiores detalhes.
+Estrutura dos Arquivos
+A estrutura do arquivo magnético tem os seguintes tipos de registros:
+a) 
+Tipo 10
+ - Identificação do Estabelecimento Informante
+b) 
+Tipo 20
+ - Fornecedor/Cliente
+c) 
+Tipo 40
+ - Nota Fiscal (em desuso) - substituído pelo Registro 
+Tipo 45
+d) 
+Tipo 60
+ - Estoque
+e) 
+Tipo 62
+ - Estoque por Fornecedor
+f) 
+Tipo 70
+ - Variação de Estoque
+g) 
+Tipo 80
+ - GNRE
+h) Tipo 90 - Registro de Totais do Arquivo, destinado a fornecer dados indicando a quantidade de registros
+Assim, informe o código do 
+Layout de Exportação
+ e o 
+Caminho
+ onde será gerada a mídia.
+Clique em 
+OK
+ para gerar o arquivo. Após gerado, este arquivo deverá ser importado no Sistema específico do SCANC.

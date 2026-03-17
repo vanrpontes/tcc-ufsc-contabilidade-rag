@@ -1,0 +1,91 @@
+TITULO: Controle de Bombeio - visão Distribuidora com base própria
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899865
+--------------------------------------------------
+Para 
+controlar Bombeio sobre a ótica de uma Distribuidora com base própria
+, responda primeiramente as seguintes perguntas:
+Deseja disponibilizar a quantidade solicitada para bombeio num depósito trânsito para a sua Filial?
+As congêneres acessarão o SisPetro para cadastrar Pedido de Bombeio?
+Configurações iniciais:
+Cadastre a sua base como Filial no SisPetro (entrar em contato com Suporte). Marque a opção 
+Acesso Restrito a Clientes de Armazenadoras
+.
+Cadastre um 
+Depósito
+ com o nome da Base, configurando-o como 
+Base Própria
+.
+Cadastre todas as congêneres como filial no SisPetro (entrar em contato com Suporte).
+Configure no perfil da empresa (para todas as filiais que recebem o bombeio), painel Estoque, grupo Bombeio, as opções:
+Utilização de Bombeio:
+ Controla bombeio físico.
+Movimenta estoque na Confirmação de Bombeio:
+ Conforme resposta da questão 1.
+Configure os usuários de Congênere e suas permissões no perfil do usuário, painel Estoque, grupo Bombeio, conforme resposta da questão 2.
+Configure o perfil da Empresa, no painel Compras, 
+Controla Pedido de Movimentação de Material
+.
+Configure o perfil da Empresa, no painel Compras, 
+Padrão para inclusão de Fornecedores (adiantamentos)
+ para opção do usuário.
+Cadastre a Petrobrás como 
+Fornecedor
+ configurando a opção 
+Controla qtde no Adiantamento
+ para opção do usuário.
+A cada início de mês
+Inclua um 
+PMM
+ configurado para 
+Recebimento Direto do Fornecedor
+, com 
+Controle de Cota
+ e de 
+Adiantamento
+ para o fornecedor Petrobrás, para cada produto que será feito bombeio durante o mês.
+A cada Pagamento Antecipado feito à Petrobrás
+Inclua um 
+ informando o valor pago e o Número do PMM.
+A cada bombeio que for solicitado
+Abra uma 
+ conectado na filial que representa a base e avise as Congêneres.
+Conforme resposta da questão 2, se as congêneres não cadastrar os 
+pedidos de bombeio
+, cadastre-os para cada uma das filiais (congêneres) que desejarem participar do bombeio.
+Entre em contato com a Petrobrás e verifique as quantidades que poderão ser bombeadas. Faça a 
+confirmação do pedido de bombeio
+ para cada uma das filiais (congêneres) que desejarem participar do bombeio, nesta tela, deixe como sugerido a opção 
+Movimenta Estoque
+. Para a sua filial, informe o número do seu PMM. Trave a 
+.
+Após receber o bombeio Físico (ter as medidas das réguas de leitura antes e após o bombeio), se conecte na filial que representa a base e inclua o 
+.
+No dia seguinte, após receber a D3 da Petrobrás, se conecte na filial que representa a base e faça a 
+Distribuição do Bombeio
+. Marque a opção 
+Zera Provisório
+ conforme a resposta da questão 1 (se disponibilizou o estoque na 
+Confirmação de Pedido de Bombeio
+ é necessário zerar o provisório)
+Ao receber a Nota da Petrobrás
+Dê entrada na Nota da Petrobrás utilizando uma 
+Natureza de Operação
+ que 
+Gere Contas a Pagar
+ e configurada para 
+Bombeio
+, sem vincular essa nota a PMM ou OC (
+).
+No final da inclusão da Nota, ao ser questionado se quer Associar a NF ao Bombeio, responda <SIM> e 
+vincule a nota àquela Distribuição de Bombeio
+ (note que será apresentado o número do seu PMM vinculado à Confirmação de Bombeio).
+Em seguida, dê 
+baixa
+ no título gerado utilizando o Adiantamento Quantificado que foi incluído.
+Ao receber a Nota de Remessa de Armazenagem das Congêneres
+Dê entrada na nota conforme a opção 
+, ela não terá vínculo com PMM, OC ou qualquer outro item.
+Para saber a posição da Cota da Petrobrás
+Utilize a tela de 
+Consulta Posição de PMM
+.

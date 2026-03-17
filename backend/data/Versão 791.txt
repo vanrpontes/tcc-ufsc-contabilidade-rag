@@ -1,0 +1,123 @@
+TITULO: Versão 7.9.1
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2895709111
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 13/09/2010 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 21/09/2010 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd791.sql (sem numeração) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 1 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 0 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 1 
+
+
+
+
+
+
+Faturamento/Estoque
+
+
+
+
+Notas de Entrada sem Movimentação de Estoque
+
+As notas fiscais de outras entradas e/ou outras saídas sem ordem de carregamento, no fechamento de estoque, estavam sendo listadas mas sem quantidade. Esse problema foi corrigido. 
+UPA (CCF 10416)
+
+
+Configurações de Notas de Entrada com Ordem de Carregamento
+
+Ao emitir uma nota fiscal de entrada com ordem de carregamento, na primeira nota digitada, em algumas situações o SisPetro não estava pegando todas as configurações vindas da natureza de operação. Essa situação foi corrigida e a primeira nota não apresentará mais problemas. 
+UPA (CCF 10416)
+
+
+Número da Fila do carregamento está sendo alterado indevidamente
+
+Ao gerar a Nota Fiscal (Recebimento de Material) através de uma Ordem de Carregamento (OC), o SisPetro não estava verificando se essa OC já foi carregada e faz com que a mesma entre na fila novamente, alterando o número da fila já gravado anteriormente. Esse problema foi corrigido. 
+ALP (CCF 10416)
+
+
+Quantidade a 20ºC divergente no banco de dados
+
+Foi encontrado no SisPetro um problema que ocorria na geração da Nota Fiscal (NF) onde a quantidade a 20º do produto estava sendo calculada de forma errada. Esse problema foi corrigido para garantir que a quantidade a 20ºC esteja sempre compatível com a densidade. 
+GSN (CCF 10416)
+
+
+Mensagem de erro na tela de Consulta de Pedido de Movimentação de Material (PMM) Pendentes
+
+Ao tentar emitir uam Ordem de Carregamento (OC) através do botão "Emite OC" da tela de Consulta de PMM Pendente o sistema estava apresentando uma mensagem de erro. Esse problema foi corrigido. 
+ALP (CCF 10465)
+

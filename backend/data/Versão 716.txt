@@ -1,0 +1,285 @@
+TITULO: Versão 7.16
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2899609381
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 01/04/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 13/04/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd716.sql (cmd2589) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 18 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 08 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 10 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ DLLs 
+
+
+
+
+
+
+SPED_PISCOFINS.dll
+
+
+
+
+
+
+CIAP
+As empresas que já estejam trabalhando com o CIAP, antes de atualizar a versão, leiam com atenção o tópico Patrimônio.
+
+
+Perfis de usuário retirados
+Os perfis de usuário para Não visualizar a Natureza de Operação na NF de Venda e Muda Número da NF durante a reimpressão foram retirados do sistema. Veja maiores detalhes no tópico 
+Faturamento
+.
+
+
+Geral
+
+
+
+
+Melhora de Performance
+
+
+Foram criados novos índices para as consultas de fechamento de estoque e calculo de custos, com isso, o sistema deve apresentar uma melhora em sua performance em rotinas como faturamento e movimentação de estoques. UPA (CCF 12564)
+
+
+Cadastro de Produtos - Alterações na Aba Crédito Provisório
+
+No cadastro de produtos, aba Crédito Provisório, estávamos com um problema que impedia o usuário de acessar alguns registros dessa aba, com isso, se tornava impossível a alteração desses dados. Esse problema foi corrigido. 
+UPA (CCF 12539)
+
+
+Validação de emails
+
+Retirada validação na digitação de emails que não permitia que no nome do domínio tivesse a expressão "com". 
+UPA (CCF 12576)
+
+
+
+
+Faturamento
+
+
+
+
+Identificação das Notas Fiscais Emitidas no Ambiente de Homologação
+
+
+Para facilitar a identificação das notas fiscais emitidas em homologação, a Sefaz não irá mais receber o CNPJ, Razão Social e Inscrição Estadual dos destinatários das notas. Em seu lugar, devem ir os valores CNPJ = 99.999.999/0001-91, Razão Social = NF-E EMITIDA EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL e Inscrição Estadual em branco. UPA (CCF 12299)
+
+
+NF Retorno Armazenagem - Quantidade da Portaria de Produtos Básicos
+
+Alterado para sugerir devidamente a quantidade utilizada na Portaria quando a OC é de produto composto mas se optou em tela para sugerir os produtos básicos na tela de NF Remessa e Retorno de Armazenagem. 
+GSN (CCF 12488)
+
+
+Versão NFE diferenciada para AM e MT
+
+
+A SEFAZ de AM e MT possuem uma forma diferenciada para envio da NFe, devido isso disponibilizamos na Versão do XML mais uma opção "Versão 2.0, SOAP 1.1, que deve ser utilizada somente pelas empresas que usam a NFe diretamente pela url da SEFAZ de AM e de MT precGSN (CCF 12461)
+
+
+Totais de impostos no xml da NFe em notas de mais um item
+
+Corrigido o valor da Base ICMS ST em xmls com mais de um item, quando no item estava indo o total da Base ICMS ST. Além disso, ajustamos mais algumas informações como: envio de Despesas Acessórias no item, retirada do Valor do IPI no total da NF (pois já não vai no item da NF) e envio correto do CST do COFINS, que antes enviava o CST do PIS (que atualmente são iguais). 
+GSN (CCF 12465)
+
+
+Erro de Access Violation - Botão Recebe na Consulta PMMs Pendentes
+
+Corrigido erro de Access Violation quando tentava fazer uma NF pelo botão Recebe da tela de Consulta de Pedidos de Movimentação de Material Pendentes. 
+GSN (CCF 12398)
+
+
+Mudança de Número da NF na Reimpressão
+
+
+Não será mais possível mudar o número de uma NF na Impressão da NF via Manutenção de Notas Fiscais. Atualmente o Sispetro tem muitos procedimentos que utilizam o número da NF o que inviabiliza refazê-los durante o processo de Impressão.
+ 
+O perfil de usuário Muda Número NF durante a Reimpressão da NF foi retirado.
+ 
+GSN (CCF 12572)
+
+
+Perfil de usuário para não visualizar a Natureza de Operação na NF de Venda
+
+
+Retirado o perfil de usuário que não permitia a visualização da Natureza de Operação na NF de Venda.
+ 
+Poderá ser utilizado o perfil "Trava Escolha da Natureza de Operação na Venda", que apresenta a Natureza mas não permite o usuário alterá-la.
+ 
+GSN (CCF 12572)
+
+
+OCs duplicadas na tela de NF Remessa/Retorno de Armazenagem
+
+Corrigida a apresentação de OCs duplicadas quando esta possuía um carregamento cancelado e outro ativo. 
+GSN (CCF 12555)
+
+
+
+
+Financeiro
+
+
+
+
+Nosso Número no Arquivo de Remessa do Banco Rendimento
+
+
+Alterado para enviar o Nosso Número (7 dígitos) + DV (1 dígito) no arquivo de remessa do Banco Rendimento na posição 63. GSN (CCF 12234)
+
+
+
+
+Fiscal
+
+
+
+
+Conjunto de Dados para SPED PIS/COFINS
+
+
+Liberado o Conjunto de Dados (e suas fórmulas) para o SPED PIS/COFINS. 
+Necessário atualizar o arquivo SPED_PISCOFINS.dll no Conjunto de Dados 6 - Livro PIS e COFINS.
+ GSN (CCF 12195)
+
+
+Ajustes SPED EFD
+
+
+Feitos alguns ajustes no SPED EFD, sendo: Indicador de Movimento no Registro C170 conforme indicação de movimentação de estoque da Nota Fiscal (
+Enviada fórmula para o campo IND_MOV
+); Arredondamento do Valor da Operação no Registro C190 em alguns casos que apresentava diferença (
+Enviada fórmula para o campo VLR_OPE
+); Ajuste de fórmulas dos Registros D100 e D160 (
+Enviada fórmula para o campo COD_MOD do D100 e de todos os campos do D160
+). GSN (CCF 10995)
+
+
+
+
+Patrimônio
+
+
+
+
+Número de Meses do CIAP
+
+O calculo de meses do CIAP não incluia os produtos incluídos no próprio mês. A partir dessa versão, esses meses serão incluídos como 1º parcela. 
+Com essa alteração, seria interessante cancelar os CIAP's passados e calcula-los novamente para acerto das parcelas já geradas.
+ 
+UPA (CCF 12213)
+
+
+Valor de CIAP do Período
+
+Ao incluir um novo patrimonio o sistema não estava calculando automaticamente o valor de ICMS do período para os calculos do CIAP. Para isso estava sendo necessário alterar o patrimonio. A rotina de inclusão foi alterada e agora na inclusão do patrimonio esse valor já será calculado. 
+UPA (CCF 12303)
+
+
+
+
+Transportes
+
+
+
+
+Controle de Vencimentos não conseguem ser alterados
+
+Corrigido para permitir a alteração de Controle de Vencimentos na Manutenção de Frotas e Transportadoras. 
+GSN (CCF 12406)
+
+
+Alteração de Carga
+
+Na alteração da composição de carga, em casos em que o número do pedido se repetia em outras empresa, o código da carga era alterado para todos os pedidos com mesma numeração. Esse problema foi corrigido. 
+UPA (CCF 12563)
+

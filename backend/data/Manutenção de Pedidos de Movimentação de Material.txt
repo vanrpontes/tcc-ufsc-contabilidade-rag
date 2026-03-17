@@ -1,0 +1,185 @@
+TITULO: Manutenção de Pedidos de Movimentação de Material
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701670
+--------------------------------------------------
+none
+Objetivo
+Para saber o status de um pedido de movimentação de material e quaisquer informações complementares a ele, o usuário deve acessar a tela de manutenção de Pedidos via Menu 
+Movimentação / Movimentação de Material / Manutenção Pedidos
+. 
+Vários acessos dependem dos perfis situado em 
+Painel Compras (Usuários)
+.
+Pedidos
+Itens inativos agora ficarão destacados em 
+vermelho
+Para adicionar os campos de pesquisa como 
+Data Cancto,
+ 
+Vendedor, Qtde Transferida Recebida e outros 
+clique no botão da esquerda (como na imagem abaixo) e em seguida selecione os campos.
+Para localizar, por exemplo, um pedido pelo seu número, basta clicar no campo de 
+filtro da coluna
+, abrir a lista de pesquisa, selecionar o número. Caso queira realizar um filtro com parâmetros de 
+igual, maior 
+ou
+ menor, 
+etc
+.
+, basta clicar em 
+customizar, 
+o SisPetro mostrará a imagem abaixo. Após isso basta preencher os campos conforme sua necessidade. 
+Ao acessar essa manutenção o SisPetro mostra a lista dos pedidos a partir de uma determinada data previamente configurada conforme o número de dias para exibição. Esse número é configurado no 
+menu 
+Ferramentas/Sistema/Vendas
+, quadro 
+Período para exibição de dados na Man. De Pedidos.
+Essa configuração evita que seja mostrada na tela uma quantidade muito grande de dados, já que a tela de Manutenção de Pedidos armazena todos os pedidos da empresa desde o seu início.
+Para consultar pedidos com datas anteriores, basta alterar o intervalo de datas conforme sua necessidade no quadro Período para exibição de dados. 
+Os Pedidos ainda não aprovados, aparecem na cor amarela. Outros detalhes referente ao padrão de cores utilizada podem ser obtidos acionando o botão 
+Legenda
+.
+Caso o usuário conectado esteja utilizando o perfil 
+Restringe visualização PMM/Requisição para Setores permitidos
+, ele só visualizará pedidos referente ao setor informado no perfil. 
+Para mais informações, ver 
+Painel Compras (Usuários)
+.
+É possível também alterar o Tipo de PMM, Condição de pagamento, depósito, datas de inclusão e entrega, e até mesmo dados dos produtos como quantidade e valor. Essas alterações são permitidas somente se o PMM 
+não 
+estiver aprovado.
+Botões:
+Visualiza:
+ 
+Através da tela de visualização é possível alterar dados do PMM como: normal para Emergencial e vice-versa se a empresa estiver configurada para trabalhar com Aprovação por Alçada.
+Emite:
+Permite realizar a impressão do PMM que está selecionado. 
+Cancela:
+Exclui um PMM que ainda não foi aprovado ou cancela um PMM que já foi aprovado.
+Aprova:
+Aprova um PMM que ainda não foi aprovado.
+Desaprova:
+Torna um pedido aprovado de volta para pendente de aprovação (em amarelo). 
+Quando o perfil de sistema Aba Aprovação por Alçada / aprovação for 
+sem aprovação 
+esse botão ficará desabilitado. 
+Suspende:
+Suspende um PMM vinculado a um contrato de prestação de serviço. 
+Para mais informações, ver 
+Painel Compras (Usuários)
+ e 
+Contratos de Prestação de Serviços
+.
+Canc.Suspen:
+Cancela a suspensão de um PMM vinculado a um contrato de prestação de serviço. Para
+ mais informações, ver 
+Painel Compras (Usuários)
+ e 
+Contratos de Prestação de Serviços
+.
+Adto:
+É possível incluir o Adiantamento, seja quantificado ou não, para os PMM. Na 
+Aba Movto. Material
+ / Aba Lateral Financeiro mostra os adiantamentos vinculados ao pedido.
+Transf.:
+É possível fazer uma transferência da quantidade do PMM ou desalocar ele. Para esse botão ficar habilitado há algumas regras, sendo:
+Perfil de Usuário / Compras / o perfil 
+Pode indicar preço e o valor do frete unit. para novo PMM 
+deve estar habilitado;
+Não pode ser um PMM de Importação;
+Não pode ter Quantidade Pendente zerada;
+O PMM tem que estar aprovado;
+O PMM não pode ser pela Quantidade Paga e sim pela Quantidade do Pedido.
+Caso o PMM possua Cota diária, na transferência a cota também será transferida. Para mais informações ver 
+Com controle de Cota - Contrato de Compra
+ 
+Para mais informações sobre a transferência, ver 
+Transferência de saldo de Pedidos de Movimentação de Material
+Desalocar o PMM por essa opção não impactará na quantidade da requisição vinculada a ele.
+Projeto:
+ 
+Permite que seja alterado o projeto do item selecionado. Na aba Pedidos, foram disponibilizados os campos Código e Descrição do projeto. 
+Para mais informações, ver
+ 
+Controle de Projetos
+.
+Conhecendo as outras abas
+Para visualizar outras informações de determinado pedido, posicione o cursor sobre ele conforme a ordem em que são mostrados os pedidos, pode-se digitar os primeiros dígitos do pedido (caso seja esta a ordem) ou as primeiras letras do fornecedor (caso a ordem seja Razão Social). Após selecionar o pedido correto, clique no painel correspondente:
+Itens Pedido
+: mostra os itens do pedido selecionado.
+Nas versões anteriores Botão 
+Desaloca 
+constava na aba de pedidos. Atualmente ele está na aba 
+Itens Pedido
+.
+Ordem Carregamento
+: mostra a ordem ou ordens de carregamento do pedido selecionado.
+ 
+Nota Fiscal
+: mostra as notas fiscais de determinado pedido e se elas participaram ou não da Validação do PMM. 
+Para mais informações, ver 
+Aba Nota Fiscal
+.
+Observações
+: mostra as observações do pedido, para
+ mais informações, ver 
+Inclusão de Observações no PMM
+.
+Cota Dia
+: mostra e altera a cota diária prevista do pedido selecionado. Pode-se também clicar no botão Imprime para emitir a programação de entrega que está sendo exibida na tela. Para mais informações, ver 
+Com controle de Cota - Contrato de Compra
+.
+Fluxo Pagto Previsto
+: mostra e Altera o fluxo previsto do pedido selecionado.
+    
+Movto Material
+: mostra o Movimento do Financeiro -Adiantamentos e Baixas - e de Entregas - OC's de transferência e Notas Fiscais - do pedido selecionado.
+Aprovações:
+ mostra as aprovações do pedido. 
+Para mais informações, ver
+ 
+Pedido de Movimentação de Material
+Aprovações por alçada: mostra as aprovações por alçada
+Aprovações/Valor: mostra as aprovações por valor
+Contratos de Venda Vinculados:
+ mostra os contratos de Vendas Vinculados a esse PMM. 
+Para mais informações, ver
+ 
+Pedido de Movimentação de Material
+          
+Alterações PMM: 
+mostra as alterações do PMM
+Arquivos Anexados:
+ nessa aba é possível vincular algum arquivo pertinente ao PMM. Porém, para isso é necessário estar configurada a pasta de arquivo nas configurações do 
+Controlador Hermes
+. Além disso, no menu 
+Ferramentas / Usuário / aba Perfil/ Aba inferior Compras / Quadro Arquivos anexados
+ devem estar habilitados.
+Despesas Vinculadas:
+ nessa aba é possível vincular despesas extras ao PMM. Porém, essa aba só ficará visível se o perfil de 
+Sistema / aba Compras / opção Vincula Despesas ao PMM
+ deve estar marcado.
+Log de Alterações: 
+mostra as alterações efetuadas no PMM. 
+Importação:
+ nessa aba é possível ver os produtos e despesas do PMM cujo tipo é importação. Nela há três abas no canto inferior esquerdo:
+Dados Gerais: aqui é possível visualizar os produtos a serem nacionalizados, taxa cambial, etc.
+Pagamentos: aqui é possível abrir o processo de pagamentos, incluir pagamentos e solicitar o cancelamento
+Nacionalização: aqui é possível incluir o processo de nacionalização, vincular as despesas de importação e emitir a nota fiscal. 
+Para mais informações, ver
+ 
+Processo de Importação de Combustíveis - Nacionalização
+Pré-Adiantamentos: 
+mostra os pré-adiantamentos vinculados ao PMM. 
+Centro de Custos: 
+mostra os centros de custos que o PMM foi rateado. 
+Para visualizar novamente o pedido, selecione o pedido desejado e aperte o botão 
+Visualiza
+Para emitir o pedido, selecione o pedido desejado e aperte o botão 
+Emite
+Para mais informações, ver
+ 
+Painel Compras
+ no Perfil do Sistema.
+Na tela de Consulta de 
+Pedidos de Movimentação de Material Pendentes
+ é possível fazer algumas operações com PMM como Editar Observações, Emitir OC, Receber NF, etc.

@@ -1,0 +1,43 @@
+TITULO: Função GetCCEstoqueByProdDep
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/6019579933
+--------------------------------------------------
+Histórico
+Esta função foi criada para utilizar a conta de estoque cadastrada no produto ou no depósito. Para mais informações, ver 
+Tabela de Produtos
+ e 
+Painel Contas Contábeis
+ - opção Permite definição de contas contábeis de produtos por depósito.
+GetCCEstoqueByProdDep(<ItensNF.CodProd>,<ItensNF.Deposito>, informe 1, 2 ou 3):
+ItensNF.CodProd:
+ código do produto da nota fiscal
+ItensNF.Depósito:
+ código do depósito da nota fiscal
+Números 1, 2 ou 3:
+ retorna os produto básicos de um produto composto, de acordo com a proporção utilizada, da maior para a menor.
+Exemplo: Gasolina C Aditivada - código 06:
+GetCCEstoqueByProdDep(<732>,<751>,1): retorna a conta de estoque da Gasolina A
+GetCCEstoqueByProdDep(<732>,<751>,2): retorna a conta de estoque do Anidro
+GetCCEstoqueByProdDep(<732>,<751>,3): retorna a conta de estoque do Aditivo de Gasolina
+Onde <732> é o campo CodProd da tabela ItensNF (pode ser um número diferente, dependendo do banco de dados)
+Onde <751> é o campo Deposito da tabela ItensNF (pode ser um número diferente, dependendo do banco de dados)
+1, 2 e 3: se referem aos produtos básicos que compõe a Gasolina C Aditivada, da proporção maior para a proporção menor.
+1 = Gasolina A
+2 = Anidro
+3 = Aditivo de Gasolina
+Nota:
+ essa função é utilizada quando a empresa utiliza contas contábeis por depósito.  e é utilizada em conjunto com a 
+Função GetCustoMedioProdBas
+Exemplo de uso:
+sql
+-- DEVOLUÇÃO DE VENDA DE GASOLINA C - Contabilização Auxiliar
+Conta                                    Valor
+GetCCEstoqueByProdDep(<732>,<751>,1)	 if <732> = '01' then GetCustoMedioProdBas(<729>,<730>,'01','05',1) 
+GetCCEstqoueByProdDep(<732>,<751>,1)	 if <732> = '01' then GetCustoMedioProdBas(<729>,<730>,'01','04',1)
+
+-- DEVOLUÇÃO DE VENDA DE GASOLINA C - Código de Contabilização
+Conta                                            Valor
+ContaReal(GetCCEstoqueByProdDep(<732>,<751>,1))	 if <732> = '01' then GetCustoMedioProdBas(<729>,<730>,'01','05',1) 
+ContaReal(GetCCEstoqueByProdDep(<732>,<751>,1))	 if <732> = '01' then GetCustoMedioProdBas(<729>,<730>,'01','04',1)
+
+Caso utilize somente contas contábeis cadastradas nos produtos , pode usar a 
+Função GetCCEstoqueByProd

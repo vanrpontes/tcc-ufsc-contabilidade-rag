@@ -1,0 +1,311 @@
+TITULO: Preenchimento de Dados na Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440308
+--------------------------------------------------
+O preenchimento de dados na Nota Fiscal é basicamente o mesmo para todos os tipos de Nota que o SisPetro possui:
+Notas de Outras Entradas
+Notas de Outras Saídas
+Recebimento de Mercadorias
+Devolução de Clientes
+Complemento de Impostos
+Complemento de Preços
+Remessa e Retorno de Armazenagem
+Conferência de Dados Nota Fiscal
+Para iniciar o preenchimento dos dados deve-se acionar o menu específico para cada tipo de nota.
+Para informações, ver 
+Manifestação Destinatário via Inclusão Manual da NF-e
+Para informações sobre vínculos com outras notas, ver 
+Vínculo com outras NFs
+Para informações sobre uma nota estrangeira ou seja uma nota de produto importado, ver 
+Ao emitir a nota o SisPetro perguntará se a Nota será através da Ordem de Carregamento, caso seja ver 
+Caso contrário, abrirá a seguinte tela...
+Código Entidade:
+ código do fornecedor/cliente da OC escolhida. 
+Nas notas de recebimento é permitido informar uma entidade diferente da entidade da OC selecionada
+.
+Destaca frete no rodapé da Nota Fiscal:
+ através deste campo, o sistema identificará se o cálculo do valor do frete informado no item da nota fiscal, atualizando automaticamente o valor total do frete presente na nota fiscal em questão. Para mais informações, ver 
+.
+Número Pedido:
+ será indicado o número do pedido, para casos de notas de recebimento originada de 
+ , para os demais casos não será habilitado este campo.
+Natureza de Operação:
+ indique qual Natureza de Operação será utilizada. Caso não saiba o código, aperte <enter> para que o SisPetro abra una janela de pesquisa. Se for escolhida uma natureza de operação que não gera movimento de estoque ou obrigação no Contas a Pagar/Receber, o SisPetro irá alertá-lo disso neste momento.
+Tipo Documento:
+ indique o documento que está sendo gerado. Por padrão é configurado em 
+Ferramentas / Sistema / Financeiro
+ no campo 
+Tipo Documento Padrão Natureza Operação
+ como 
+Nota Fiscal/Fatura.
+ Para mais informações, ver 
+Tabela Natureza Operação
+)
+.
+Histórico: 
+é sugerido na Natureza de operação aba 
+Dados Gerais
+ (Painel Geral)
+ no campo 
+Tipo de Histórico.
+Descrição do Histórico: 
+caso o usuário tenha permissão para alterar e esteja configurado na Natureza de operação aba 
+Dados Gerais
+ (Painel Geral)
+ que é do tipo
+ 
+Código Histórico
+. Para mais informações, ver 
+Painel Faturamento (Usuários)
+ perfil 
+Pode alterar histórico NF (exceto NF de Venda)
+ e 
+Dados Gerais
+ (Painel Geral)
+ 
+campo 
+Tipo de Histórico
+.
+ O histórico alterado ou não, pode ser conferido na 
+Manutenção do Contas a Pagar
+ e 
+Manutenção do Contas a Receber
+ e 
+Manutenção de Lotes
+É o último item da OC:
+ só será habilitado este perfil caso a 
+Nota Fiscal seja Com Ordem de Carregamento
+.
+IMPORTANTE:
+ ao informar o Código da Natureza de Operação, o SisPetro irá considerar e salvar no banco de dados o processo referenciado configurado para a empresa cadastrado na Tabela de Natureza de Operação (para mais informações, ver 
+). Além do Processo Referenciado, o SisPetro irá salvar também, o código da situação do documento, definido na 
+Tabela Natureza Operação
+.
+O Processo Referenciado e o código de situação do documento serão utilizados na geração do arquivo do SPED. Para mais informações, ver 
+Manutenção de Conjunto de dados para o SPED
+.
+Clique no botão 
+Avança
+Os endereços para Notas de Venda e demais Notas de Saídas, são oriundos do cadastro de clientes e de acordo com a configuração serão apresentadas nessa tela. Para mais informações, ver 
+Outros Endereços
+ 
+Na tela existem dois botões que são apresentados:
+Seleciona: 
+permite ao usuário selecionar um outro endereço de Faturamento, desde que esteja previamente cadastrado para a entidade em questão no cadastro de Outros Endereços
+Limpa:
+ trazendo para o endereço de faturamento o endereço padrão da entidade. Para mais informações, ver 
+.
+Cabe lembrar que para as Notas de Venda de Pedidos com cliente comprador diferente do cliente faturado, o endereço de entrega será o endereço do cliente faturado, caso esteja configurado corretamente. Para as demais notas (entrada) sempre será o endereço principal.
+Obs:
+ c
+aso seja uma Nota de Transferência vinculada a uma OC de Carregamento Próprio com OC de Descarga Própria, o SisPetro irá verificar o perfil
+ 
+Endereço de Entrega em NF Outras Saídas
+ 
+na
+ 
+Natureza de Operação
+ 
+para definir o Endereço de Entrega.
+ 
+Para
+ 
+mais informações, ver 
+.
+Para as notas de saída, o campo 
+Cidade
+ deve ser preenchido obrigatoriamente.
+Clique no botão 
+Avança
+Série NF:
+ a série NF controla a numeração que será usada na nota fiscal. Estando devidamente configurada na natureza de operação (para mais informações, ver 
+Tabela Natureza Operação
+) , a série será informada automaticamente pelo SisPetro.
+Número da Nota Fiscal:
+ informe o número da nota fiscal quando for necessário, por exemplo nas notas de entrada que deverá ser informado o número da nota que está no formulário recebido.
+Data Nota Fiscal:
+ será a data atual da inclusão da Nota ou se for necessário modifique para a data desejada, caso seja nota de entrada veja a data no formulário recebido.
+Data Ref. Moeda:
+ caso a 
+moeda
+ utilizada para nota esteja configurada para 
+Informar Taxa
+ e a 
+Natureza de Operação
+ estiver configurada para que seja informada a data de referência, este campo será exibido.
+Data Movimento:
+ no caso de nota de entrada é a data de recepção das mercadorias na empresa. E para notas de saídas é a data da saída das mercadorias.
+Chave de acesso:
+ ao definir uma natureza para nota fiscal de entrada, o SisPetro irá verificar o Tipo de Emissão definido na Natureza de Operação. Caso esteja definido para Terceiros, o SisPetro irá permitir a digitação da chave de acesso da nota. Caso contrário, o campo estará desabilitado pois o SisPetro gerará a chave de acesso. Para mais informações, ver 
+Tabela da Natureza de Operação
+.
+Condições de Pagamento:
+ condições de Pagamento para geração de obrigação no módulo financeiro. Caso não saiba o código, tecle <Enter> para que o SisPetro abra uma janela de pesquisa.
+Tipo de Cobrança:
+ utilizado pelo módulo de Financeiro, defina o código do Tipo de cobrança. Para mias informações, ver 
+Tabela de Tipos de Cobrança
+.
+Motorista:
+ informar o código do motorista referente ao frete. Caso não saiba o código, tecle <Enter> para que o SisPetro abra uma janela de pesquisa.
+Estando o campo 
+Via Transporte (DCP/ Sintegra)
+ da Natureza de Operação configurado para ser 
+Sem Transporte
+, os campos 
+Transportadora
+ e 
+Frota
+ ficarão indisponíveis para digitação. Para mais informações, ver 
+Dados Gerais (Painel Geral)
+.
+Foi alterada a validação da transportadora/motorista. Para mais informações, ver 
+Transportadora Vinculada:
+ caso o motorista informado acima tenha vínculo com alguma transportadora, o SisPetro automaticamente preencherá o campo. Caso contrário será preenchido com o código do motorista. 
+Frota:
+ Frota/ Placa que transportará as mercadorias. Caso não saiba o código, tecle <Enter> para que o SisPetro abra uma janela de pesquisa.
+Tabela de Preço:
+ indique uma tabela de preços padrão. Caso não saiba o código, tecle <Enter> para que o SisPetro abra uma janela de pesquisa.
+Introduza na tela acima as seguintes informações (caso a Nota Fiscal tenha sido originada de Ordem de Carregamento ou Pedido de Movimentação de Material anterior, o SisPetro preenche a maioria dos campos)
+A permissão para a alteração da 
+Data Nota Fiscal
+ e da 
+Data Movimento
+ pode ser configurada no perfil do usuário. Para mais informações, ver 
+Painel Faturamento (Usuários)
+O padrão é permitir a alteração das duas datas na inclusão da Nota.
+Hora:
+ Hora de Entrada / Saída da Mercadoria, o valor desse campo é somente informativo e sairá impresso no DANFE. Para mais informações, ver 
+Hora de Emissão na Nota Fiscal
+ 
+A permissão para a alteração da 
+Hora
+ pode ser configurada no perfil do usuário. Para mais informações, ver 
+Painel Faturamento (Usuários)
+Clique no botão
+ Avança
+Preencha os campos acima de acordo com as mercadorias recebidas.
+Os campos 
+Marca
+ e 
+Espécie Mercadorias
+ serão preenchidos conforme o perfil de Empresa no menu 
+Ferramentas / Sistemas / aba Nota Fiscal / quadro Dados da NF
+:
+O campo 
+Qtde Volumes
+ poderá ser preenchido manualmente pelo usuário ou gerado automaticamente.
+Manualmente
+: basta o usuário informar neste campo a quantidade desejada. Caso não seja informado nenhum valor, o SisPetro assumirá como sendo igual a quantidade.
+Automaticamente
+: necessário cadastrar a quantidade no Cadastro de Produtos. Na digitação da nota fiscal, o usuário 
+não deve
+ preencher este campo, e o SisPetro irá calcular automaticamente considerando a quantidade informada nos itens da nota fiscal.
+Exemplo:
+Cadastro de Produto
+Qtde Volume = 10
+Nota Fiscal
+Qtde Volume = 0
+Qtde dos Itens da Nota Fiscal = 150
+Quantidade salva na nota fiscal: 15
+Quando o resultado da divisão for um número com casas decimais, a quantidade de volume será automaticamente arredondada.
+Tal informação será salva no DANFE, no campo Quantidade.
+No campo 
+Informações Complementares
+ é possível colocar qualquer texto (com até 80 caracteres) que precise ser armazenado ou impresso na Nota Fiscal. No caso da necessidade de impressão, pode ser útil quando a informação não possa ser impressa no campo de Observações da Nota.
+Exemplo:
+A ANP permite que o Cliente peça um Envelope de Segurança à Distribuidora para coletar amostras do combustível. Esses envelopes são numerados e estes números devem ser impressos no canhoto da nota (ou seja, não podem ser digitados no campo de Observação). Dessa forma, digita-se os números e o texto necessário no campo de Informações Complementares (veja figura acima).
+O SisPetro exibe, de acordo com a Natureza de Operação, o texto que deve constar no corpo da Nota Fiscal, caso haja alguma informação nas TAGS 
+<
+infAdFisco> e <infCpl>  será exibido na emissão da nota fiscal. Os dados das TAGS são apresentados em duas abas e as TAGS não ficam mais no texto.
+O usuário deve conferir os dados apresentados, e havendo necessidade, completar o texto.
+Para mais informações, ver 
+Impressão NF (Painel Por Filial)
+Clique no botão
+ Avança
+Introduza os seguintes campos, dependendo do tipo da nota esses campos já são preenchidos automaticamente conforme a origem, por exemplo Notas através de Ordem de Carregamento:
+Código do produto: 
+digite o código do produto recebido ou tecle <Enter> para que o SisPetro abra uma janela de pesquisa.
+Depósito:
+ depósito para onde esta mercadoria está sendo recebida no caso de notas de entradas ou depósito do qual sairá a mercadoria notas de saídas. Caso não saiba o código, tecle <Enter> para que o SisPetro abra uma janela de pesquisa.
+Quantidade:
+ quantidade recebida conforme Nota Fiscal ou quantidade que está saindo. Também é possível obter o volume através do carregamento ambiente ou 20ºC. Para mais informações, ver 
+Faturamento a 20ºC - Dados da Movimentação Física
+.
+Preço Unitário:
+ preço unitário conforme Nota Fiscal.
+Verifique o cálculo do preço total
+.
+Verifique se os impostos (base, alíquota e imposto) estão corretos
+Importante:
+ para apresentação da colunas concernentes ao ICMS ou IPI existe uma configuração na Natureza de Operação para a empresa conectada. Para mais informações, ver 
+Tabela Natureza Operação
+.
+Valor do Bem:
+ estará visível e habilitado quando a opção 
+Permite alterar valor do bem na inclusão via NF
+ estiver habilitada na 
+Natureza de Operação
+. Para mais informações, ver 
+.
+Procedimentos referentes a frete ver
+ 
+.
+Clique no botão 
+Avança.
+Caso a Natureza de Operação utilizada estiver configurada para contabilizar descontos/acréscimos, esse painel, Descontos/Acréscimos, será apresentado para visualização, alteração ou inclusão, de acordo com as configurações. Para mais informações, ver 
+Cálculo de Descontos-Acréscimos
+Os dados do Valor de Desconto/Acréscimo poderão ser visualizados no quadro de 
+Valores
+ da tela de digitação da nota fiscal, conforme imagem abaixo:
+Importante:
+ Notas Fiscais de Venda não poderão utilizar esse procedimento de Descontos/Acréscimos na Nota devido às informações que são controladas para a Aprovação do Pedido.
+Para gerar informações referentes ao IPI, ver 
+Gerando IPI na Nota Fiscal Eletrônica (NFe)
+.
+O SisPetro sugere conforme configuração os dados de temperatura, densidade e número do laudo e permite ao usuário alterar esses valores, caso deseje. As configurações referente a temperatura e densidade que serão gravadas na nota fiscal estão detalhadas no tópico Temperaturas e densidade na Impressão da Nota Fiscal 
+Temperaturas e densidade na Impressão da Nota Fiscal
+Clique no botão 
+Avança
+Caso a natureza de operação tenha indicado que esta Nota Fiscal não irá gerar Contas a Pagar/Receber, a tela acima ficará vazia (sem nenhuma parcela).
+Caso contrário, o SisPetro calculará as parcelas de pagamento/recebimento a partir das condições de pagamento introduzidas e as mostrará para sua conferência.
+Para Notas Fiscais de venda se em 
+Ferramentas / Sistema / Financeiro
+ estiver preenchido o campo 
+Portador padrão para os títulos gerados por NF de venda
+ com o código do Portador Padrão, o SisPetro irá gravar o título com esta opção no contas a receber.
+Para editar o número de parcelas, o SisPetro tem alguns perfis de usuário. Para mais informações, ver 
+Painel Faturamento (Usuários)
+, quadro 
+Parcelas
+Também tem a possibilidade de escolher se será impresso junto com a Nota Fiscal (DANFE) no campo de 
+Informações Complementares
+ as informações referentes a cobrança de cada parcela, será mostrado o Nosso Número correspondente aos títulos gerados no financeiro, para isso é necessário que a Nota Fiscal seja gerada utilizando um Tipo de Cobrança que seja eletrônica.
+Abaixo Exemplo de impressão do DANFE onde mostra o Nosso Numero (NN) de uma nota com 4 parcelas:
+Para que seja optado entre imprimir ou não as informações acima, há um perfil de Sistema na aba 
+Nota Fiscal
+, no quadro Financeiro: 
+Além disso, pode definir o campo 
+Títulos Recorrentes
+ na  
+. Assim, ao finalizar a nota o SisPetro exigirá o vínculo com um título recorrente ou se será opcional.
+Caso a 
+natureza de operação
+ esteja configurada para solicitar ou exigir um título recorrente, será exibido a tela abaixo, onde o usuário poderá selecionar um titulo recorrente ativo que não foi efetivado e que se encontra no mesmo mês que a primeira parcela da nota.
+Caso a nota precise ter vínculos com outras notas, ver 
+Vínculo com outras NFs
+Caso a nota não seja do Brasil, seja uma nota importada, ver 
+O SisPetro atualizará os estoques (caso necessário), incluirá as obrigações no módulo Financeiro, contabilizará a Nota Fiscal e providenciará as baixas dos documentos que originaram esta Nota Fiscal (Ordem de Carregamento ou Pedido de Compra).
+Caso a NF seja eletrônica, o SisPetro questionará se o usuário deseja imprimir e processar a NF. 
+Para mais informações, ver 
+Manifestação Destinatário via Inclusão Manual da NF-e
+Verificação de Estoque para Notas de Venda
+Para utilizar a validação do estoque disponível na inclusão da nota fiscal de venda, a opção do perfil do depósito utilizado no pedido deve estar para 
+Somente a partir da Movimentação de NF
+, e a opção de 
+Verificação de Estoque
+ deve estar para avisar ou bloquear. Para mais informações, ver 
+Depósitos - Aba Detalhes
+.
+Caso o produto não tenha estoques, será apresentada a mensagem:
+Segundo o exemplo da imagem acima, o Saldo disponível do produto 05 para venda é de 5.000, então a nota de venda pode ter a quantidade máxima de 5.000 para o produto 05.
+Para mais informações, ver 
+Validações na emissão de Nota Fiscal

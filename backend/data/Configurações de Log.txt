@@ -1,0 +1,37 @@
+TITULO: Configurações de Log
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927273064
+--------------------------------------------------
+As configurações são realizadas através do 
+Controlador Hermes
+, botão 
+.
+Nota: 
+as configurações de log devem ser feitas em cada 
+Servidor Hermes
+, caso tenha mais de 1 Servidor ativo.
+Nível do Log
+Padrão: 
+exibe no log os principais procedimentos executados
+Debug: 
+que detalha no log cada um dos procedimentos executados. Este nível deve ser ativado somente a orientação do Suporte Futura.
+Tamanho máximo dos arquivos
+: tamanho máximo do arquivo de log gerado. Ao atingir o tamanho definido, é gerado um novo arquivo de log.
+O tamanho varia de 1 a 10MB.
+Quando o arquivo chega no tamanho máximo é criado um arquivo seguindo a lógica: 
+HermesServidor.00.main (arquivo com os dados atuais)
+HermesServidor.01.main (mais recente antes do atual)
+HermesServidor.02.main (com os dados antes do 01)
+Número Máximo de Arquivos
+: número máximo de arquivos de log gerados. Ao atingir o número definido, os arquivos mais antigos são apagados.
+Modo
+Produção
+Desenvolvimento: utilizar
+ este modo somente com a 
+orientação do Suporte da Futura
+.
+Pasta de Destino
+: caminho da pasta onde serão gravados os arquivos de log
+Clique em 
+ para gravar as alterações realizadas.
+Clique em 
+ para sair da tela sem gravar qualquer alteração.

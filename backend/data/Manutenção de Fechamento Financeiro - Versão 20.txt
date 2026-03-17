@@ -1,0 +1,85 @@
+TITULO: Manutenção de Fechamento Financeiro - Versão 2.0
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898846
+--------------------------------------------------
+A Manutenção de Fechamento Financeiro (Versão 2.0 - Balanço Patrimonial) consiste em centralizar as informações financeiras e contábeis e demonstrar a evolução patrimonial da empresa, permitindo esta apuração em qualquer data, sem necessidade de fechamentos diários, antes da movimentação do próximo dia.
+Esta opção, pode ser acionada pelo Menu 
+Movimentações / Financeiro / Fechamento
+, mas somente estará disponível se no perfil de sistema (Menu 
+Ferramentas / Sistema - painel Financeiro
+), o campo 
+Tipo de Fechamento Financeiro
+ estiver com a opção 
+Versão 2.0 - Balanço Patrimonial
+ marcada. Se estiver utilizando a versão anterior do Fechamento Financeiro (Versão 1.0 - Estritamente Financeiro), poderá migrar para a versão 2.0, clicando no botão 
+Faz a transição para a versão 2.0
+.
+Observação: Uma vez feita a transição não será possível voltar para a versão anterior. Ao mudar para a versão 2.0, o botão "Faz a transição para a versão 2.0" ficará desabilitado.
+Através desta versão do Fechamento Financeiro é possível ter a posição do Ativo e Passivo da Empresa, com a seguinte estrutura:
+Ativo
+Banco:
+ Posição das contas bancárias (disponibilidades, que inclui caixa e cofre). As contas devem estar ativas, configuradas para Participar do Fechamento Financeiro e ser do tipo Banco (tudo isso configurado na 
+Manutenção do Plano de Contas
+). Será então apurado o saldo final destas contas na data do fechamento realizado. No caso de fechamentos por filial ou grupo de filiais serão consideradas as contas que não sejam restritas à filial ou o grupo escolhido. No entanto, se a conta não tiver restrição, será apresentado o saldo geral da conta, sem divisão de saldo por filial ou grupo.
+Contas a Receber:
+ Indica a somatória de todos os lançamentos pendentes do Contas a Receber no final do dia do fechamento.
+Adiantamento a Fornecedores:
+ Indica a somatória do saldo de todos os adiantamentos feitos a fornecedores pendentes no final do dia do fechamento.
+Estoque:
+ Devido o fechamento de estoque sempre ser um pouco mais tardio que o fechamento financeiro, não será exigido que haja o fechamento de estoque na mesma data que o fechamento financeiro. Assim, serão verificados em cada produto/depósito/filial, o último fechamento de estoque até a data do fechamento financeiro. A cada fechamento de estoque será utilizado o saldo final e o CMV para valorizar o estoque de cada produto/filial/depósito. Para posição do estoque será então apresentada a somatória desta valorização. 
+ Há um perfil de sistema para indicar a utilização do saldo final ambiente ou a 20C que é melhor esclarecido no tópico 
+.
+Imobilizado:
+ No SisPetro Controladoria é possível cadastrar e controlar bens a partir do cadastro de Produtos. Com isso é possível ter a valorização dos bens da empresa o que será esta posição de imobilizado. Veja maiores esclarecimentos na Ajuda do SisPetro Controladoria.
+Passivo
+Contas a pagar:
+ Indica a somatória de todos os lançamentos pendentes do Contas a Pagar no final do dia do fechamento.
+Adiantamento de Clientes:
+ Indica a somatória do saldo de todos os adiantamentos recebidos de Clientes, pendentes no final do dia do fechamento.
+Com a posição do Ativo e Passivo, podemos então calcular qual o capital próprio da Empresa:
+ 
+Ativo - Passivo = Capital Próprio
+A partir da versão 8.3, foram acrescentados alguns campos na tela de Manutenção do Fechamento Financeiro para facilitar as consultas:
+Contas a Receber:
+ foram incluídos os campos Código e Descrição do Tipo de Cobrança, Código e Descrição do Portador (se o perfil de Sistema Controla Portador no Contas a Receber estiver marcado trará as informações), Código e Razão Social do cliente, Código e Descrição do Tipo de Documento (se o perfil de Sistema Controla Tipo Documento Origem do movto financeiro estiver marcado trará as informações), número da NF e número do Docto.
+Contas a Pagar: 
+foram incluídos os campos Código e Descrição do Tipo de Documento (se o perfil de Sistema Controla Tipo Documento Origem do movto financeiro estiver marcado trará as informações) e número do Docto.
+Adiantamento a Fornecedores:
+ foram incluídos os campos Código e Razão Social do fornecedor, Código e Descrição da CC Banco, Código e Descrição do Tipo de Documento (se o perfil de Sistema Controla Tipo Documento Origem do movto financeiro estiver marcado trará as informações), número do PMM vinculado (se tiver) e número do Docto.
+Adiantamento de Clientes:
+ foram incluídos os campos Código e Razão Social do fornecedor, Código e Descrição da CC Banco, Código e Descrição do Tipo de Documento (se o perfil de Sistema Controla Tipo Documento Origem do movto financeiro estiver marcado trará as informações) e número do Docto.
+Este fechamento financeiro, em conjunto com o 
+Demonstrativo de Resultados
+, permite que os gestores da empresa tenham em mãos a situação da empresa para tomada de decisões.
+A tela de Manutenção do Fechamento Financeiro é apresentada como mostra figura abaixo:
+ 
+As funcionalidades referentes ao Fechamento Financeiro, disponíveis nesta tela são:
+Inclusão
+A inclusão do fechamento financeiro é acionada pelo seu respectivo botão:
+Cancelamento
+Permite cancelar um fechamento desde que ele seja o último. O fechamento financeiro deve ser feito em seqüência, sendo sempre com data posterior ao fechamento anterior. Sendo assim, o cancelamento deve ser feito sequencialmente, do último para o primeiro. Esta seqüência, no entanto é respeitada conforme o tipo de Fechamento (Geral, Por Grupo de Filiais ou por Filial). Além disso, se o fechamento é por grupo de filiais, por exemplo, será verificada a seqüência para o grupo de filiais em questão. É acionada pelo botão:
+Opção de permissão para inclusão cancelamento do fechamento financeiro, menu ferramentas / Usuário / Financeiro opção 
+"pode incluir fechamento"
+ ou 
+"Pode cancelar fechamento"
+.
+ 
+Permite emitir a posição de cada área e geral do fechamento financeiro na data do fechamento. É acionada pelo botão:
+Permite emitir a movimentação entre o fechamento anterior e o fechamento posicionado na tela de Manutenção (para cada área e geral). É acionada pelo botão:
+Na tela principal é possível consultar os fechamentos e filtrá-los pelas opções 
+Exibir
+ e 
+Período de Fechamento
+. Após informar as opções de filtro, deve clicar no botão Atualiza:
+As opções do filtro 
+Exibir
+ são:
+Todos:
+ Exibe os fechamentos ativos e cancelados.
+Somente ativos:
+ Exibe os fechamentos concluídos.
+Somente cancelados:
+ Exibe os fechamentos que foram cancelados.
+Ao posicionar num fechamento no painel principal é possível visualizar os dados deste fechamento, navegando nos demais painéis. Cada painel apresenta as movimentações referentes ao fechamento posicionado.
+O botão 
+ mostra o significado das cores e fontes utilizados no painel principal.
+Os grids podem ter a distribuição das colunas personalizados pelo usuário. Para restaurar o layout padrão oferecido pelo SisPetro utilize o botão:

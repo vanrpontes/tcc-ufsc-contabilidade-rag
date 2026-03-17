@@ -1,0 +1,59 @@
+TITULO: Tabelas dos Conjuntos de Dados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2890596521
+--------------------------------------------------
+Os botões Preenche os Dados, Gera o Arquivo e Preenche e Gera Arquivo deixaram de ser executados no ato e passaram a ser executados através do agendamento de tarefas. Para mais informações, ver 
+Jobs
+.
+Participação dos Campos
+Como é de conhecimento de todos, estão sendo feitas alterações no layout do SPED Fiscal, quanto a criação de campos e registros.
+Dependendo do período que vamos entregar a escrituração o layout pode mudar de acordo com a tabela de Código de Versões, e a cada versão do layout poderá ser incluído algum campo a um registro.
+ Ex.
+Dados do arquivo do período de 01/12/2009 a 31/12/2009, para o SPED este arquivo deveria ser gerado no layout 2.0
+No outro mês o arquivo gerado com dados no período de 01/01/2010 e 31/01/2010, para o SPED deveria ser gerado no layout 3.0, e neste deverá ser incluído o campo COD_OBS no registro C190.
+Para resolvermos esta situação podemos desmarcar o campo para a exportação no arquivo seguindo os passos abaixo.
+No menu Ferramentas > Tabelas do Conjunto De Dados > Escolher o Conjunto de Dados desejado, no nosso exemplo o 1 - Livro Fiscal Eletrônico - EFD
+Selecionar o registro que teve alteração, clicar no botão configurações 
+No campo devemos buscar o item que teve alteração no layout.
+ 
+ 
+Agora é marcar ou desmarcar o perfil "Participa do Arquivo de Exportação?"
+ 
+Participação dos Registros
+Para que os 
+REGISTROS
+ saiam no SPED, evitando o erro 
+Registro encontrado é diferente do registro esperado
+, é preciso fazer os seguintes passos:
+Selecionar o registro desejado
+Clicar no botão 
+Configuração
+Na tela apresentada, no grupo 
+Dados da Tabela do Conjunto de Dados
+ marcar a opção 
+ 
+Clicar no botão 
+Salva
+Processamento da geração do SPED
+A partir da versão 10.26 a geração do SPED acontecerá através do Agenda de Tarefas e executado pela funcionalidade 
+Jobs
+.
+No Quadro de Funções
+Ao clicar em uma das funções, ira abrir a tela de Manutenção da Tabela
+Após o preenchimento dos dados, ao clicar no botão 
+, será apresentada a tela de Agendamento de Tarefa, para que o usuário possa informa a data e hora desejada para execução da tarefa. Para mais informações, ver 
+Jobs
+.
+Manutenção do Agendamentos de Tarefa
+Após criado o agendamento de uma tarefa, caso precise realizar a manutenção da mesma, o usuário poderá acessar a tela de 
+Jobs do Usuário
+ 
+clicando no botão 
+Acesso a Tela de Jobs do Usuário 
+. 
+Para mais informações, ver 
+Jobs do Usuário
+.
+Estrutura do SisPetro e Banco de Dados
+Quando a estrutura do SisPetro (executáveis) estão em uma máquina e o banco de dados em outra máquina é obrigatório:
+Servidor Hermes e DLLs dos SPEDs devem estar na mesma máquina onde se encontra o banco de dados
+O caminho da DLL obrigatóriamente deve ser a pasta onde se encontram o Servidor Hermes e as DLLs

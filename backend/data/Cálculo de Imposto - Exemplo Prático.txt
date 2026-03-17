@@ -1,0 +1,176 @@
+TITULO: Cálculo de Imposto - Exemplo Prático
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879128054
+--------------------------------------------------
+Atualmente, o ICMS e o ICMS Substituição são calculados baseados nas 
+tabelas de ICMS e ICMS Substituição
+ do SisPetro.
+ICMS
+Para cada estado brasileiro pode se ter uma determinada alíquota de ICMS.
+Por exemplo: 18% para o estado de SP
+O Estado pode e normalmente faz modificações no ICMS dependendo do produto.
+Há pouco tempo atrás, o governo de SP baixou o ICMS do álcool de 25% para 12%. Isso significa que, caso alguém venda o produto dentro do estado de SP (o que conta é o destino da mercadoria para o ICMS), ele será tributado em 12%.
+Exemplo:
+Venda de 10.000 litros de álcool hidratado a 1,00 com tributação de ICMS de 12%.
+Na NF, deve conter:
+Base de Cálculo para ICMS: 1,00 x 10000 litros = 10.000,00
+ICMS: 10.000,00 x 12% = 1.200,00
+Note que o valor está embutido no valor do produto, isto é, o valor total da NF continuará a ser 10.000,00 e "dentro" deste valor tem 1.200,00 de ICMS. Quem recebe esta NF (o cliente), pagará 10.000,00 para o vendedor e se "creditará" de 1.200,00, pois ele pagou o valor total e lá tinha 1200,00 de ICMS. Caso ele venda esta mercadoria a outro cliente, calculará o novo ICMS baseado no local onde este novo cliente está e o novo valor da venda e, nesta operação, este novo ICMS será utilizado para abater daquele credito (fazendo o que chamamos de apuração, onde o valor líquido do ICMS é calculado baseado nas entradas e saídas de cada estabelecimento, o que é feito no SisPetro Controladoria).
+ICMS Substituição
+Na mesma 
+tabela de ICMS
+, temos um outro campo chamado 
+%ICMS Substituição
+, que pode ser modificado também pelo estado a seu bel prazer produto a produto. Este tipo de imposto é projetado para que, numa cadeia produtiva, onde existem várias entidades comprando e vendendo mercadorias, as primeiras entidades desta cadeia (normalmente em menor número - produtores ou grandes distribuidoras) possam - através de alíquotas determinadas pelo estado - calcular o ICMS para as entidades seguintes recolhendo 
+em substituição
+ a eles. Assim, as entidades seguintes ficam desobrigadas de apurar e recolher o ICMS, ficando as primeiras responsáveis por apurar e recolher o imposto das demais. Com isso, o governo só precisa fiscalizar estas primeiras que são em menor número e normalmente mais organizadas. O cálculo é o seguinte:
+Continuamos a ter o ICMS que agora chamamos de 
+próprio
+ - que é o da própria empresa que está vendendo o produto:
+Exemplo:
+Venda de 10.000 litros de álcool hidratado a 1,00 com tributação de ICMS de 12%.
+Na NF, deve conter:
+Base de Cálculo para ICMS: 1,00 x 10.000 litros = 10.000,00
+ICMS: 10.000,00 x 12% = 1.200,00
+Além dele, o governo fixa um valor médio para o produto para a cadeia seguinte:
+Exemplo:
+No caso dos combustíveis, ele fixa que os postos no estado SP irão vender o álcool a 1,20. Assim, o cálculo para o ICMS Substituição seria:
+Base de Cálculo: 10.000 litros x 1,20 = 12.000,00
+ICMS Substituição: 12.000,00 x 18% = 2.160,00 - ICMS Próprio (1.200,00) = 960,00
+Note duas coisas:
+1) O percentual do ICMS Substituição pode ser diferente do ICMS próprio.
+2) Após calcular o valor do ICMS Substituição total, retiramos o valor do ICMS próprio. Isso para que possamos demonstrar na NF, a parte do ICMS que seria da cadeia seguinte (no caso, o posto), pois ele deve ser destacado na NF e é somado ao valor dos produtos:
+Valor dos Produtos: 10.000,00
+Valor do ICMS Substituição: 960,00
+Valor total da NF: 10.960,00
+Note também que, na grande maioria dos casos, ele fixa um valor unitário para o ICMS substituição (no exemplo acima, 1,20). Porém, tem estados que não se dão ao trabalho de pesquisar os preços médios dos produtos e simplesmente fixam um percentual que será acrescido ao preço de venda, normalmente chamado de margem de valor agregado (MVA).
+No exemplo acima, o governo poderia ter fixado o MVA em 28%, por exemplo. O cálculo ficaria o seguinte:
+Valor Unitário para Base Cálculo (não confundir com o valor unitário do produto que continua 1,00):
+1,00 + 28% = 1,28
+Base de Cálculo: 10.000 litros x 1,28 = 12.800,00
+ICMS Substituição: 12.800,00 x 18% = 2.304,00 - ICMS Próprio (1.200,00) = 1.104,00
+Além disso, podemos ter a situação que, para um determinado produto (normalmente um produto com substituição tributária porém com pouco movimento), o governo não fixe um valor fixo (PMPF) nem uma margem de valor agregado (MVA) indicando somente que a base de substituição tributária do ICMS será o valor final que o cliente (normalmente consumidor final) irá pagar.
+Valor Unitário para Base Cálculo (não confundir com o valor unitário do produto que continua 1,00):
+Igual ao valor do pedido original = 1,00
+Base de Cálculo: 10.000 litros x 1,00 = 10.000,00
+ICMS Substituição: 10.000,00 x 18% = 1.800,00 - ICMS Próprio (1.200,00) = 600,00
+O valor total da NF é o que o cliente irá pagar, pois além do valor do produto, ele está pagando o seu ICMS - que será recolhido pela empresa que vendeu os produtos para ele. Lembrando: fazendo isso, o governo atribui o cálculo e o pagamento a um número menor de empresas (as distribuidoras) que podem ser facilmente fiscalizadas enquanto que as empresas seguintes na cadeia da venda (os postos, neste caso) não precisam nem emitir NF pois os tributos já foram recolhidos antecipadamente. Por isso, é que, para o posto, emitir ou não cupom fiscal, não implica em maiores gastos.
+Algumas UFs informam o PMPF e o MVA e exigem que seja informado no XML o de maior valor. Para estes casos o Sispetro valida de acordo com o cadastro do produto qual é o maior valor e envia na tag <modbCST> com os códigos abaixo. Caso não tenha cadastrado nenhum valor para PMPF ou MVA, esta tag não será enviada.
+Margem de Valor Agregado (%) = 4
+Pauta (Valor) = 5
+Porém, a coisa pode ser um pouco mais complicada quando o governo do estado, durante um determinado período, concede um incentivo a determinado grupo de produtos, reduzindo temporariamente seu ICMS. Ele fixa essa redução em percentual.
+Por exemplo, durante o ano de 2006, o ICMS da Bahia terá redução de 40% para o óleo diesel.
+Neste caso, o que muda NÃO é a alíquota de ICMS e sim existe uma redução no cálculo da base de cálculo do ICMS e ICMS substituição:
+Exemplo de redução de 40% no 
+ICMS Próprio e de Substituição
+:
+Na NF, deve conter:
+Base de Cálculo para ICMS: 1,00 x 10.000 litros = 10.000,00
+NOVA base de Cálculo reduzida = 10.000,00 x 60% = 6.000,00
+ICMS: 6.000,00 x 12% = 720,00
+Valor Unitário para Base Cálculo (não confundir com o valor unitário do produto que continua 1,00):
+1,00 + 28% = 1,28
+Base de Cálculo: 10.000 litros x 1,28 = 12.800,00
+NOVA base de Cálculo Reduzida = 12.800,00 x 60% = 7.680,00
+ICMS Substituição: 7.680,00 x 18% = 1.382,40 - ICMS Próprio (720,00) = 662,40
+Este preço fixo citado é o que chamamos de PMPF e pode ser cadastrado na 
+. 
+O MVA também pode ser cadastrado na 
+.
+No entanto, podemos ter a redução 
+somente no ICMS Próprio
+, neste caso teríamos o seguinte exemplo:
+Na NF, deve conter:
+Base de Cálculo para ICMS: 1,00 x 10.000 litros = 10.000,00
+NOVA base de Cálculo reduzida = 10.000,00 x 60% = 6.000,00
+ICMS: 6.000,00 x 12% = 720,00
+Valor Unitário para Base Cálculo (não confundir com o valor unitário do produto que continua 1,00):
+1,00 + 28% = 1,28
+Base de Cálculo: 10.000 litros x 1,28 = 12.800,00 (Não haverá redução)
+ICMS Substituição: 12.800,00 x 18% = 2.304,00 - ICMS Próprio (720,00) = 1.584,00
+Em outra situação, podemos ter a redução 
+somente no ICMS de Substituição
+, neste caso teríamos o seguinte exemplo:
+Na NF, deve conter:
+Base de Cálculo para ICMS: 1,00 x 10.000 litros = 10.000,00 (Não haverá redução)
+ICMS: 10.000,00 x 12% = 1.200,00
+Valor Unitário para Base Cálculo (não confundir com o valor unitário do produto que continua 1,00):
+1,00 + 28% = 1,28
+Base de Cálculo: 10.000 litros x 1,28 = 12.800,00
+NOVA base de Cálculo reduzida = 12.800,00 x 60% = 7.680,00
+ICMS Substituição: 7.680,00 x 18% = 1.382,40 - ICMS Próprio (1.200,00) = 182,40
+Podemos ter também o 
+Diferimento do ICMS (CST 051)
+, neste caso teríamos o seguinte exemplo:
+Na NF, deve conter:
+Base de Cálculo para ICMS Próprio: 1,00 x 10.000 litros = 10.000,00
+Valor ICMS Próprio: 10.000,00 x 12% = 1.200,00
+% de diferimento = 100%
+Cálculos efetuados:
+Valor do ICMS Próprio = 1.200,00
+Valor do ICMS Diferido = 1.200,00
+Valor da Base de Cálculo = 10.000,00
+Valor do ICMS = 0,00
+Notas com 
+ICMS desonerado
+Na Nota Técnica 2019.001 da NF-e passa a ser obrigatório informar o valor do ICMS de desoneração e o motivo da desoneração em alguns casos. Um deles é quando há redução da Base de Cálculo do ICMS. Para o envio do valor de desoneração deve ser informado o motivo da desoneração na Natureza de Operação, campo motivo de desoneração que fica na de aba 
+.
+Na 
+Inclusão da NF de Emissão Própria
+Quando houver redução da Base de Cálculo do ICMS Próprio, será salvo nos Itens da NF e na Nota Fiscal o valor do ICMS Desoneração que seria:
+(Base de Cálculo Original * Alíquota ICMS /100) - Valor do ICMS destacado
+Informação Adicional
+No manual da NF-e (pág 255) a regra para validar o Total da NF é a seguinte equação:
+vNF = (+) vProd (-) vDesc (-) vICMSDeson (+) vST (+) vFrete (+) vSeg (+) vOutro (+) vII (+) vIPI (+) vServ (id:W18) 
+Porém há duas exceções importantes:
+Esta regra não se aplica nas operações de importação (CFOP inicia com “3”).
+Esta regra de validação não deverá causar rejeição caso não tenha sido subtraído o valor do ICMS Desonerado (vICMSDeson) do valor total da NF-e. 
+Exemplos de cálculos de ICMS Próprio e ICMS ST nas vendas internas de Gasolina C Comum e Gasolina C Aditivada no Estado do Rio Grande do Sul
+Nas operações internas de Gasolina C Comum e Gasolina C Aditivada, os impostos não serão calculados como Retido. Os cálculos serão feitos como ocorre na venda de Hidratado, ou seja, a distribuidora será o Substituto Tributário. 
+Para mais informações ver 
+, 
+Margem Subst. Tributária
+, 
+ e 
+Configurações necessárias para nota e produto
+.
+ICMS Próprio: 
+ não altera na forma como é feito atualmente. Ver 
+item ICMS
+ acima.
+ICMS Substituição:
+ a única alteração é a aplicação do fator de ajuste no PMPF. 
+Exemplo:  venda de Gasolina C Comum para o município de Porto Alegre
+Quantidade:
+ 10.000,00 litros
+Preço de venda final:
+ 3,956
+Valor total do pedido:
+ 39.560,00
+Alíquota ICMS Próprio:
+ 18%
+Alíquota ICM ST:
+ 18%
+Valor do PMPF da Gasolina:
+ 4,104
+Fator de Ajuste para Gasolina C Comum - Porto Alegre:
+ 0,990696
+Novo PMPF:
+ PMPF * Fator de Ajuste = 4,104 * 0,990696 = 
+4,065816384
+Base de Cálculo do ICMS Próprio:
+ 39.318,94
+Valor do ICMS Próprio:
+ 39.318,94 * 18% = 7.077,41
+Base de Cálculo do ICMS ST:
+ 10.000,00 * 
+4,065816384
+ = 40.658,16
+Valor do ICMS ST:
+ 40.658,16 * 18% - Valor do ICMS Próprio = 7.318,47 - 7.077,41 = 241,06
+Valor dos Produtos:
+ 39.318,94
+Valor total da Nota Fiscal:
+ 39.318,94 + 241,06 = 39.560,00
+Para mais informações, ver:
+Margem Subst. Tributária
+Configurações necessárias para nota e produto

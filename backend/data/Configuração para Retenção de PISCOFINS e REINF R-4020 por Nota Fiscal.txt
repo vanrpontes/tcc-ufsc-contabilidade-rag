@@ -1,0 +1,94 @@
+TITULO: Configuração para Retenção de PIS/COFINS e REINF R-4020 por Nota Fiscal.
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4985683983
+--------------------------------------------------
+As configurações a seguir visam habilitar a retenção de PIS/COFINS e os registros do REINF R-4010 e R-4020 de forma automática a partir da NF. As informações de Retenção efetuadas automaticamente são apresentadas na tela de Retenções de PIS e COFINS de origem 
+VIA NF
+.
+Para lançamento manual seguir as instruções 
+Manutenção de Retenções de PIS e COFINS
+ 
+Para o preenchimento automático do REINF - 4020 verificar 
+Preenchimento Automático REINF - R-4020
+ 
+Preenchimento Automático REINF - R-4010
+ 
+ 
+Configurações necessárias
+Tabelas Auxiliares / Controladoria / 
+Tabela Tipo Desconto
+Cálculo a efetuar: selecionar qual será feito
+Desconta Valor Calculado 
+Acrescenta Valor Calculado
+Tipo: 
+selecinoar
+ 
+a opção 
+Fórmula.
+No Quadro 
+Conta para Contabilização do Desconto/Acréscimo
+Marcar 
+Acompanha lançamento de débito
+ caso seja um desconto
+Marcar 
+Acompanha lançamento de crédito
+ caso seja um acréscimo 
+Movimentação / Financeiro / Tipo de documento.
+Tipo de Documento
+: 
+Cadastrar um tipo de documento que será utilizado para retenção.
+Tipo de Desconto:
+Classificação do desconto - selecione a opção conforme o tipo de imposto/contribuição:
+Outros: 
+não participa dos registros R-4020
+PIS:
+ participa dos registros PIS/COFINS e R-4020 (Contribuição)
+COFINS:
+ participa dos registros PIS/COFINS e R-4020 (Contribuição)
+CSLL:
+ participa dos registros R-4020 (Contribuição)
+IRRF:
+ participa dos registros R-4020 (Imposto)
+Previdência Social:
+ participa dos registros R-2010.  
+Utiliza atualmente a configuração do perfil de sistema. Para mais informações, ver 
+Preenchimento Automático REINF - R2010
+Valor Agregado (PIS/COFINS/CSLL):
+ participa dos registros R-4020 (Contribuição)
+Marcar "Calcula Desconto?"
+Grupo de Contabilização 
+Selecionar Faturamento
+Clique em 
+Inclui 
+para Configuração do Desconto, para inserção da fórmula 
+Cálculo de Descontos-Acréscimos
+Na tela abaixo segue um exemplo da configuração apresentada:
+.
+Arquivos / Produtos / Aba Detalhes / 
+Aba Dados Adicionais:
+Natureza do Rendimento (Registro 4020): 
+selecionar a natureza do Tipo de Rendimento
+Selecione a natureza do rendimento.
+Tabelas auxiliares / Faturamento / Natureza de Operação / Aba Detalhes 
+Dados Gerais
+Tipo Documento: 
+selecionar o tipo de documento utilizado
+Painel Geral
+Quadro 
+Descontos
+Campo 
+Acréscimo/Desconto 
+marcar
+ Automático.
+Rateio do Desconto entre os itens da NF: 
+escolher uma das opções
+Rateia pelo Valor de Produtos
+Rateia pela Quantidade
+Para a geração da Retenção PIS/COFINS, verificar o 
+Manutenção de Retenções de PIS e COFINS
+ .
+Para geração do REINF R-4020, verificar o 
+Preenchimento Automático REINF - R-4020
+ 
+Para geração do REINF R-4010, verificar o 
+Preenchimento Automático REINF - R-4010
+ 

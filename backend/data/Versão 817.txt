@@ -1,0 +1,151 @@
+TITULO: Versão 8.17
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921694810
+--------------------------------------------------
+Dados
+Informações
+Início
+01/09/2014
+Final
+29/09/2014
+Scripts
+CMD817.sql (3544 a 3552)
+Itens
+21
+Implementações
+11
+Correções
+10
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+ 
+SisPetroControl.Dll
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Retirada de procedimentos
+Na próxima versão removeremos do SisPetro os seguintes procedimentos que estão em desuso pelos nossos clientes:
+Módulo de Estatísticas de Vendas, que salva dados estatísticos em tabelas, passíveis de consulta somente através de relatório do Gerenciador.
+Aviso de 
+Pré-Pagamento
+ no Faturamento
+Os clientes que ainda utilizarem algum desses procedimentos entrar em contato com a Futura Tecnologia com urgência.
+Geral
+Definição do Usuário na gravação do LOG Automático
+Temos uma variável de sistema, no banco de dados, denominada _NomeUsuario, definida no momento que o SisPetro abre uma Conexão e utilizada em alguns processos, em especial no log automático das tabelas, acionado via Banco de Dados. Porém, quando o processo utiliza o Servidor SisPetro para alterar alguma tabela, nem sempre a Conexão está bem definida, consequentemente não há a variável de sistema _NomeUsuario e o log não consegue ser feito, dando erro em todo o processo. Nesta versão, foi realizada uma alteração para quando essa variável não estiver criada, definir o usuário como “INDEFINIDO”. CPC (CCF 24775)
+Log de alterações na tabela Carregamento 
+Ao logar as alterações realizadas na tabela de Carregamento, a ligação com a tabela Carregamento está errada, pois está utilizando o campo Fila. Nesta versão, foi realizada uma alteração para gravar corretamente o log.
+ CPC (CCF 25238)
+Compras
+Novos campos na Emissão de PMM
+Foram adicionados novos campos para emissão de PMM, sendo eles: Corretora (do Cadastro de Fornecedores), Local de Carregamento (dos endereços do fornecedor ou informado pelo usuário) e Vendedor (do Cadastro de Vendedores). Esses campos dependem da correta configuração de perfil de sistema e de usuário, indicação no Cadastro de Fornecedores e no Cadastro de Vendedores.
+ 
+Help: 
+. PRFC (CCF 25278)
+Estoque
+Usuário e Data de Cancelamento na Ordem de Carregamento
+Foram incluídos os campos Usuário e Data de Cancelamento na Ordem de Carregamento. Sendo assim, ao cancelar uma OC, são gravados o Usuário e a Data e Hora do cancelamento e apresentados na tela de Manutenção. 
+Help:
+ 
+. CPC (CCF 25291)
+Faturamento
+Validação do dígito verificador do Código DNC
+Ao cadastrar ou alterar uma cidade, é realizado o cálculo e validação do digito verificador do campo Código DNC. Porém, algumas cidades estão com os códigos errados no próprio cadastro do IBGE. Nesta versão, foi realizada uma alteração para continuar informando o usuário sobre essa validação, mas dando a opção de prosseguir com o cadastro. 
+Help:
+. CPC. (CCF 25431)
+Atualização do Número NF ao alterar a Série
+Ao emitir uma Nota Fiscal de Emissão Própria, o SisPetro sugere o Número NF de acordo com o próximo número da série, mas ao alterar a Série, ele não está realizando a atualização do campo de imediato. Nesta versão, foi realizada uma alteração para quando trocar Série, atualizar o Número NF. CPC (CCF 25470)
+Melhorias ao emitir uma Nota Fiscal com Produto Composto
+Ao emitir uma NF com um produto composto, o SisPetro gera o pedido de outras saídas e associa a nota fiscal. Nesta versão, foi realizada uma implementação para deixar esse processo mais seguro e rápido. CPC (CCF 25630)
+Escolha indevida de OC diferentes na Emissão de NF
+Na emissão de Notas Fiscais, o SisPetro estava permitindo indevidamente que o usuário escolhesse OC diferentes ao marcar "Seleciona mais de um item da OC". Agora só poderá ser escolhido itens de uma mesma OC.
+ PRFC (CCF 25485)
+Aba Inf. CPL selecionada por padrão
+A tela de emissão de Notas Fiscais foi alterada para que ao chegar na parte de informações, a aba Inf. CPL esteja selecionada por padrão. 
+Help: 
+Preenchimento de Dados na Nota Fiscal.
+ 
+PRFC (CCF 25616).
+Trocar a Transportadora no Pedido, na OC e na NF
+O SisPetro tem o recurso de Trocar a Transportadora no Pedido, na OC e na NF, porém na NF, o campo Transportadora deve ser a Transportadora vinculada ao Motorista e o campo Motorista o que foi definido no processo de Troca, mas estávamos com um problema nesse salvamento de dados que foi corrigido nesta versão. Além disso, foram realizadas melhorias nessas telas para mostrar informações adicionais e só permitir alterar os dados de NF que não sejam NF-e própria para manter a integridade com os dados enviados à SEFAZ. 
+A tela de Alteração pela Manutenção de OC, foi ajustada para apresentar somente os Fretes da OC que está sendo alterada.
+ 
+CPC (CCF 25594)  
+Centralização das Validações da Nota Fiscal
+Na versão 8.16 acrescentamos um processo de centralização de algumas validações das notas fiscais. Porém, durante esse trabalho algumas validações apresentaram problema. Nesta versão foi realizado um trabalho de reanálise de todas as validações e arrumadas as que estavam incorretas. 
+CPC (CCF 25632)
+Financeiro
+Troca de Tipo de Cobrança na Postergação de Títulos
+Na tela de Postergação e Acréscimos de Juros, agora se o titulo já tiver sido enviado via Remessa, o SisPetro questionará ao usuário se deseja realmente trocar o Tipo de Cobrança. 
+Foi incluída também uma validação, impedindo que o usuário troque de um Tipo de Cobrança Eletrônica para outro tipo também marcado como "Eletrônica"
+.
+ PRFC (CCF 24811)
+Tipo de cobrança nas Condições de Pagamento e Portador no Tipo de Cobrança
+Foram implementados novos campos no 
+Cadastro de Condições de Pagamento e Cadastro de Tipo de Cobrança
+, de modo a permitir o vínculo de um Tipo de Cobrança a uma Condição de Pagamento e um Portador a um Tipo de Cobrança. Seu uso é configurado pelos perfis de sistemas 
+"Utiliza vinculo de Tipo de Cobrança à Condição de Pagamento" e "Utiliza vinculo de Portador ao Tipo de Cobrança", estando os mesmos desmarcados, o SisPetro desconsiderará o vínculo informado nos cadastros.
+ Esta funcionalidade ajudará a evitar que seja escolhido um Tipo de cobrança incompatível com a Condição de Pagamento e/ou Portador incompatível com o Tipo de Cobrança informado.
+ 
+Help: 
+ 
+/
+ 
+ 
+/
+ 
+Inclusão do Pedido de Venda
+ 
+.
+ PRFC (23957)
+Transporte
+Melhorias na tela de Eventos do Frota
+A tela de Eventos do Frota é utilizada para inclusão de diversos eventos de uma só vez. Nesta versão, foram realizadas melhorias para dar agilidade no processo de Inclusão. 
+Para atualizar as telas de pesquisas Local, Evento e Funcionário, é necessário clicar no botão “Layout Padrão” para que a tela assuma a melhor posição das colunas. 
+Help:
+ 
+Inclusão de eventos relacionados ao Frota
+.
+CPC (CCF 25708)
+Melhorias no impresso da Ordem de Serviço
+O impresso da Ordem de Serviço foi alterado para disponibilizar dados adicionais do fornecedor como endereço, contato, CNPJ, IE, entre outros. O layout não foi alterado para apresentar os dados, ficando a critério de cada empresa fazer isso de acordo com sua regra. CPC (CCF 25719)
+Informações da Transportadora vinculada ao Motorista
+Na tela de emissão de Ordem de Carregamento foi incluída a informação da transportadora vinculada e, caso não tenha, será apresentada "AUTÔNOMO". 
+A transportadora vinculada é apenas uma informação visual, não salvando na OC. Caso o vínculo seja alterado na manutenção de transportadora entre a Emissão da OC e a Emissão da NF, na NF respeitará o cadastro atual. Exemplo: na emissão da OC foi mostrada a transportadora vinculada ABC. Antes da emissão da NF, a transportadora vinculada foi alterada para 123. Na NF sairá a transportadora 123.
+ 
+Help: 
+. PRFC (CCF 24929)
+Validação de Frota já existente
+Em versões anteriores, foi incluída a possibilidade do usuário cadastrar a quantidade correta de caracteres para os Frotas do tipo Vagão. Porém, ao cadastrar um novo frota, o SisPetro verifica se já existe baseando-se indevidamente apenas nos sete primeiros caracteres. Nesta versão, esse problema foi corrigido.
+ CPC (CCF 24777)
+Nos Eventos do Frota permitir escolher somente os SubGrupos vinculados ao Grupo
+Temos nos Eventos do Frota a possibilidade de informar Grupos e Subgrupos. Na época em que foi feito o subgrupo foi projetado para ser vinculado a um grupo específico. Porém, tanto na tabela de Eventos como na tela de Inclusão de Eventos está sendo possível informar um subgrupo e um grupo que não estão vinculados entre si. Nesta versão, essas telas foram ajustadas para não permitir vincular um SubGrupo que não pertença ao Grupo. 
+ 
+Help:
+ 
+. 
+CPC (CCF 24921)
+Lentidão na tela de Pesquisa de Frotas
+Dependendo do volume de dados na Tabela de Frotas a tela de Pesquisa, ao ser acionada, era um pouco lenta. Alterado o modo de apresentação de dados para dar mais agilidade na abertura da tela de Pesquisa de Frotas.
+ GSN (CCF 25716)
+Vendas
+ 
+Duplicidade na aba de Movimento Faturamento na tela de Clientes
+Foi corrigida a duplicidade de informação na aba Movimento Faturado na tela de cadastro de Clientes. Agora o SisPetro apresentará apenas as movimentações do próprio cliente e do grupo econômico que o mesmo participa. PRFC
+ (CCF 25628)
+Contrato de Venda na Nota Fiscal
+Ao emitir uma Nota Fiscal com base em um Contrato de Venda, o SisPetro estava pegando o Contrato com base no que foi informado na Ordem de Carregamento, mas como ela pode ter mais de um contrato, estava dificultando a consulta. Agora, após a correção, o Contrato será pego diretamente do Pedido.
+ 
+Essa alteração funcionará para Notas Fiscais geradas após atualização da versã
+o
+.
+ 
+PRFC (CCF 25528)

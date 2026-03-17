@@ -1,0 +1,41 @@
+TITULO: Como trabalhar com Frete Mínimo e Máximo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936702590
+--------------------------------------------------
+Atualmente se cadastra um valor de frete e o mesmo é sugerido no pedido. Porém, os responsáveis pelo Frete não conseguem estipular uma faixa de valores a serem utilizados. A solução é que se possa definir um valor mínimo e máximo de forma que o usuário possa utilizar um valor nesse intervalo.
+Configurações
+Configuração de Sistema, 
+na aba Frete temos os perfis:
+Habilitar o perfil 
+"Trabalha com Frete Mínimo e Máximo na Tabela Distâncias?"
+No perfil de 
+empresa
+ 
+"Verificação do Frete Real na Inclusão do Pedido Entrega"
+, habilitar a opção 
+'Exige valor entre Frete Mínimo e Máximo (ou Maior que 0)'.
+A futura indica que para quem for trabalhar com Frete Mínimo e Máximo, que primeiro habilite o perfil 
+"Trabalha com Frete Mínimo e Máximo na Tabela Distâncias?",
+ realize todo o preenchimento de fretes mínimo e máximo na tabela de Distancia, 
+e SOMENTE depois de finalizar todo o cadastro mude o perfil
+ 
+"Verificação do Frete Real na Inclusão do Pedido Entrega"
+ para 
+'Exige valor entre Frete Mínimo e Máximo (ou Maior que 0)'.
+Lembrando que essa validação só será realizada no pedido de venda.
+Após configurar Habilitar o perfil de Sistema 
+"Trabalha com Frete Mínimo e Máximo na Tabela Distâncias?" 
+o primeiro passo é cadastrar os valores Frete mínimo e máximo na tabela de distância para os destinos. para isso basta ir em 
+Tabelas Auxiliares / Transportadora / 
+Distância
+,
+ selecionar a tabela que deseja realizar a manutenção, ir na aba de 
+Valores Origem Destino,
+ selecionar a Cidade Destino e clicar no botão 
+Altera
+.
+Após cadastrar todos os valores de Frete mínimo e Máximo basta utilizar 
+a opção 
+'Exige valor entre Frete Mínimo e Máximo (ou Maior que 0)' 
+do perfil 
+"Verificação do Frete Real na Inclusão do Pedido Entrega", 
+que ao incluir um pedido de venda será realizado a validação dos valores de Frete mínimo e Máximo para os itens inclusos no pedido.

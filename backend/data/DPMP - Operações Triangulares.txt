@@ -1,0 +1,44 @@
+TITULO: DPMP - Operações Triangulares
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926193936
+--------------------------------------------------
+ 
+O i-SIMP, que processa o arquivo DPMP das empresas, passou a exigir, em notas 
+somente
+ de 
+Biodiesel B100,
+ que o fornecedor tenha ao mesmo tempo código de instalação 2 e também identificação terceiros, cód. município terceiros e CNAE terceiros. Ao contactar ANP, já que normalmente, para agentes regulados preenchíamos o Código de Instalação 2 somente e para agentes não regulados os demais campos citados, se obteve a informação de que, em operações triangulares, onde uma empresa vende, mas outra que fornece, é necessário preencher todas essas informações.
+Entendendo melhor isso, uma operação triangular é quando o fornecedor vende o produto a um adquirente originário, que sua vez revende o produto para o adquirente final. A remessa do produto é feita diretamente do fornecedor ao adquirente final. Essa operação é típica para o B100, onde a Usina é o fornecedor e a Petrobras é o adquirente Originário. Assim, a NF da Petrobrás emitida para a Distribuidora (Destinatário Final) é registrada na ANP com a operação 1011003 - COMPRA COM REMESSA POR TERCEIRO  e é a única a ser enviada no DPMP, porém nela, além de mandar o Código de Instalação 2 da Petrobrás, é necessário enviar nos campos de Terceiros (Identificação, Município e CNAE), os dados do Fornecedor, no caso Usina. Essa é a alteração que tratará essa especificação.
+ 
+Configurações:
+Natureza de Operação da Nota de Compra:
+Ao marcar o perfil 
+'
+Identifica como 3º a Entidade de NF Remessa referenciadora'
+ será levado para o DPMP os dados de Identificação Terceiro, Código Município Terceiro e CNAE Terceiro da nota de remessa que está vinculada a nota de compra.
+ 
+Natureza de Operação da Nota de Remessa:
+Na Natureza de Operação da Nota de remessa, deve ser selecionada a opção 
+Sugere Referenciar outras NF(s)
+ caso queira que seja sugerido a referência a outra nota, ou 
+Força referência a outras NF(s)
+ caso queira que seja forçado a referência da Nota.
+Ao realizar a entrada da Nota Fiscal de remessa deve-se realizar o 
+vínculo com a nota
+ de compra.
+ 
+ Apos realizar o vínculo entre as notas, ao gerar o DPMP serão apresentados os dados de Identificação Terceiro, Código Município Terceiro e CNAE Terceiro do fornecedor da nota de remessa.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

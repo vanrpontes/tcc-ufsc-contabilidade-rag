@@ -1,0 +1,50 @@
+TITULO: Tabela Componentes da Prestação de Serviço
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921693278
+--------------------------------------------------
+A partir da versão 8.16, é possível cadastrar componentes da Prestação de Serviço, tais como Seguro, Frete Peso, Frete Valor, Pedágio, etc, que serão utilizados no CTe.
+A tela é acessada por 
+Tabelas auxiliares/ Transportes/ Componentes da Prestação de Serviço
+Inclusão: 
+clicar no botão 
+Informar os dados:
+Nome Usual:
+ nome que melhor identifica, para o usuário, qual o tipo de componente, com tamanho máximo de 40 caracteres.
+Nome Fisco: 
+obrigatório, quando campo TIPO = Vale Pedágio. Nome a ser enviado no XML e com tamanho máximo de 15 caracteres. 
+Nota:
+  a partir da versão 3.0 do CTe, a tag de vale pedágio foi excluída do XML pela Sefaz.
+Tipo: 
+é o tipo de componente.
+Vale Pedágio: 
+quando se tratar de valor pago diretamente nas praças de pedágio ou vale pedágio. 
+Nota:
+  a partir da versão 3.0 do CTe, a tag de vale pedágio foi excluída do XML pela Sefaz. Portanto, esse tipo de componente não deve ser mais utilizado. Caso queira pode ser enviado na tag Componentes da Prestação de Serviços, informando o tipo como Outros.
+Outros: 
+qualquer valor diferente de pedágio.
+Origem do Valor: 
+define que tipo de valor o componente utilizará.
+Valor Fixo:
+ usuário informa o valor do componente.
+Pedágio da Tela de Distância:
+ utiliza o valor informado no campo Valor Pedágio da 
+Tabela de Distâncias
+. 
+Nota:
+  a partir da versão 3.0 do CTe, a tag de vale pedágio foi excluída do XML pela Sefaz. 
+CNPJ Fornecedor: 
+CNPJ da empresa fornecedora do componente. Exemplo: empresa fornecedora do Vale Pedágio (Sem Parar). 
+Nota:
+  a partir da versão 3.0 do CTe, a tag de vale pedágio foi excluída do XML pela Sefaz. 
+Usuário Pode Alterar: 
+se marcado, no momento da inclusão do conhecimento, o usuário tendo perfil para tal - 
+Painel Fretes (Usuários)
+, pode alterar os dados dos componentes que são parte do conhecimento.
+Ativo:
+ a partir da versão 8.18 é possível inativar qualquer cadastro
+Envia no MDF-e: 
+quando selecionado será enviado na geração de MDF-e
+Vinculando os componentes por Empresa:
+Quando o campo Origem do Valor é Pedágio da Tela de Distância, o campo Valor fica desabilitado
+Quando o campo Origem do Valor é Valor Fixo, o campo Valor fica habilitado, permitindo ao usuário informar o valor do componente.
+Todos os componentes cadastrados e vinculados à uma Empresa, serão AUTOMATICAMENTE carregados na inclusão do Conhecimento, na aba Componentes. Para mais informações ver o help 
+.

@@ -1,0 +1,205 @@
+TITULO: Configurando o campo Histórico em um relatório do ReportBuilder
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2885845267
+--------------------------------------------------
+Histórico
+
+
+O campo 
+Histórico
+ existente em várias telas do sistema foi alterado. Seu tamanho passou de 60 posições para 250. Com isso, poderá ser necessário configurar os relatórios existentes para que a exibição dos campos referentes ao histórico sejam de até 250 caracteres.
+
+
+NOTA: os relatórios RAZÃO e BALANCETE NÃO DEVEM SER ALTERADOS. Qualquer alteração nesses relaórios deve ser analisada pelo Desenvolvimento.
+
+
+Objetivo
+
+
+Exemplificar as várias formas de se listar o campo 
+Histórico
+ com 250 posições ou mantê-lo no seu formato original apresentando somente 60 posições.
+
+
+Solução
+
+
+Mantendo a configuração original com 60 posições.
+
+
+
+
+No 
+componente Detalhe
+ de impressão do campo 
+Histórico
+
+
+
+
+Desabilite a propriedade AutoSize.
+
+
+Ajuste o tamanho do campo ao tamanho máximo que deseja imprimi-lo na tela.
+
+
+
+
+
+
+
+
+Exemplo de componente com a propriedade AutoSize desabilitada
+
+
+
+
+
+
+
+
+A propriedade AutoSize, quando habilitada, informa ao ReportBuilder que este campo na tela deve ser redimensionado conforme o tamanho da sua origem ou seja, se o campo que está sendo usado possuir 10 posições, ele transformará o seu tamanho para 10 posições, se o campo conter 250 posições, ele será redimensionado para 250 posições sobrepondo os componentes que estiverem a sua direita e só exibindo o conteúdo que seja possível exibir até a margem direita da folha.
+
+
+Quando desabilitamos o AutoSize e configuramos o tamanho do componente, estamos informando ao ReportBuilder que ele deve imprimir o seu conteúdo somente nessa área que nós definimos.
+
+
+
+
+
+
+O uso desse recurso não impede que sejam gravadas as 250 posições no campo de Histórico por exemplo, o que será feito é limitar a exibição do campo ao tamanho definido no componente, com isso o restante do texto, caso o usuário tenha informado um histórico longo, não ficará visível no relatório.
+
+
+Configurando para apresentar o conteúdo automaticamente na mesma linha
+
+
+
+
+Basta fazer o inverso do passo anterior, habilitando o campo AutoSize. Com isso o histórico será apresentado todo na linha, 
+sobrepondo os componentes a direita caso existam, inclusive ultrapassando o tamanho da folha.
+
+
+
+
+Exemplo de componente com a propriedade AutoSize habilitada
+
+
+
+
+Configurando para apresentar o conteúdo automaticamente em várias linhas se for necessário
+
+
+Atualmente os relatórios, em sua maioria, devem ficar semelhantes a esse exibido abaixo:
+
+
+
+
+1. Abaixo um passo-a-passo para deixar as linhas redimensionadas automaticamente.
+
+
+
+
+Nota:
+ os campos no relatório são de vários tipos. No caso do campo Histórico, o tipo de campo é 
+DBTEXT
+ e deve ser mudado para o tipo 
+DBMEMO
+.
+
+
+
+
+
+
+No relatório, apague o campo 
+Histórico
+ do tipo 
+DBText
+, ao qual está associado.
+
+
+
+
+
+
+
+
+Em seu lugar coloque um campo do tipo 
+DBMemo
+.
+
+
+
+
+
+
+
+
+
+
+
+
+O campo do tipo 
+DBMemo
+ deve ser associado ao campo 
+Histórico
+, conforme abaixo.
+
+
+
+
+
+
+
+
+Aumente a altura do componente que possuirá mais de uma linha.
+
+
+
+
+
+
+
+
+Aumente a altura do campo 
+Histórico
+.
+
+
+
+
+
+
+2. Configurando para criar ou não mais uma linha quando necessário.
+
+
+
+
+No campo 
+Histórico
+ marque as propriedades 
+Stretch
+ e 
+CharWrap
+ como na imagem abaixo.
+
+
+
+
+
+
+
+
+No componente Detalhe, clique com o botão direito do mouse, e habilite a opção 
+Altura Dinâmica
+.
+
+
+
+
+
+
+
+
+Pronto, seu relatório está preparado para imprimir a quantidade de linhas necessárias para mostrar todo o conteúdo de um campo longo, conforme exemplo abaixo.
+

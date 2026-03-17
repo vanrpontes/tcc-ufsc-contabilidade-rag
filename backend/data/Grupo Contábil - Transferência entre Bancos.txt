@@ -1,0 +1,33 @@
+TITULO: Grupo Contábil - Transferência entre Bancos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4213375010
+--------------------------------------------------
+Cabeçalho do lote
+Fórmula para Data:
+ Lote.Data
+Fórmula para Código Histórico:
+ informar um código de histórico cadastrado para a sua empresa
+Fórmula para Histórico:
+ Lote.Historico
+Fórmula para Numero Docto:
+ Lote.NumLote
+Fórmula para Informações Adicionais:
+ Lote.InfoAdic
+Operação
+Conta
+Campo da Conta
+Valor
+Campo de Valor
+Débito
+Débito
+ItensLote.CodConta,ItensLote.CodCompl
+Débito
+ItensLote.ValorDebito
+Crédito
+Crédito
+ItensLote.CodConta,ItensLote.CodCompl
+Crédito
+ItensLote.ValorCredito
+Obs.:
+ nos campos da Conta colocar o conteúdo dentro da função ContaReal(), desde que a conta contábil informada seja gerencial. A conta contábil é gerencial quando informa a tabela e o campo conforme exemplo.
+Exemplo:
+ ContaReal(ItensLote.CodConta). 

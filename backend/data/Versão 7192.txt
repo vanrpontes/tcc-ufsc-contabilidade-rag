@@ -1,0 +1,175 @@
+TITULO: Versão 7.19.2
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2902165733
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 19/08/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 24/08/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ CMD7192.SQL 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 8 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 2 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 6 
+
+
+
+
+
+
+Geral
+
+
+
+
+Cadastro de Fornecedores
+
+Com a liberação da versão 7.19, os campo Tipo Agente ANP e Localidade no Cadastro de Fornecedores tiveram sua posição invertida. Esse problema foi corrigido. 
+UPA (CCF 13990)
+
+
+
+
+Controladoria
+
+
+
+
+Relatorio Ressarcimento ST
+
+Ajustado o valor do Consumidor Final para que calcule o preço unitário arredondando com o número de casas decimais configurado para vendas. 
+UPA (CCF 14038)
+
+
+
+
+Estoques
+
+
+
+
+Manutenção de OC
+
+Com a liberação da versão 7.19, na tela de manutenção de OC's, somente as OC's da empresa 1 estavam sendo listadas (somente no SisPetro Remoto). Esse problema foi corrigido. 
+UPA (CCF 13583)
+
+
+Arredondamento na Inclusão de Ordem de Fabricação
+
+Ao incluir uma Ordem de Fabricação com uma fórmula contendo valores percentuais muito quebrados há problema de arredondamento na distribuição, sobrando ou faltando 0,001 na quantidade. O problema é que mesmo o usuário alterando e na tela apresentando 100% e a soma dos volumes igual ao volume a fabricar o SisPetro apresentava a mensagem de diferença na somatória. Esse problema foi corrigido. 
+UPA (CCF 14119)
+
+
+
+
+Financeiro
+
+
+
+
+Histórico dos Itens da Baixa Truncados
+
+Com a liberação da versão 7.19, o histórico informado nos itens da baixa estão sendo limitados a 20 caracteres. Esse problema foi corrigido. 
+UPA (CCF 14077)
+
+
+
+
+Vendas
+
+
+
+
+Aprovação de Pedido - Módulo de Transportes
+
+
+Incluídas as opções de empresa para aprovação do pedido de vendas sobre o módulo de transportes Ação para Pedidos do Tipo Retira, com duas opções: Aprovação automática ou Aprovação Manual e Ação para Pedidos do Tipo Entrega, com duas opções: Analisa se Aprova (Frete Negociado >= Padrão) ou Aprovação Manual.
+ 
+Help:
+ 
+Aprovação de Transporte
+ 
+UPA (CCF 14001)
+
+
+Aprovação de Pedido - Módulo de Transportes
+
+
+Removidos os perfis Pede aprovação de Pedido c/ relação Frete mesmo quando retira e Libera Frete maior que o padrao. Esse dois perfis foram substitídos pelos perfis acima. UPA (CCF 14001)
+
+
+Pedidos Pendentes
+
+Na tela de Pedidos Aprovados e Não Faturados, os pedidos incluídos pelo Remoto na versão 7.19 não estavam sendo considerados. Esse problema foi corrigido. 
+UPA (CCF 13986)
+

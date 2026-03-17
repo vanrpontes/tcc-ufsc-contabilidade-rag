@@ -1,0 +1,119 @@
+TITULO: Conciliação Automática - Informações Gerais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898177
+--------------------------------------------------
+none
+Objetivo
+Os bancos atualmente possuem arquivos que contém os dados do extrato de forma eletrônica ou impressa. O objetivo do módulo de conciliação automática é auxiliar a leitura e o processo de conciliação bancária, através das informações disponibilizadas pelo banco, que podem ser via extrato físico, arquivo ou API. 
+Não são todos os bancos que disponibilizam o extrato de forma eletrônica
+A funcionalidade via arquivo está disponível para:  Banco do Brasil, Bradesco, Santander, Itaú e Safra.
+A funcionalidade via API está disponível para o Itaú.
+Caso não esteja disponível o Banco desejável, o usuário deverá se informar com o suporte técnico a respeito.
+Botões
+Incluir: 
+inclui um período de conciliação
+Cancelar: 
+cancela um período de conciliação
+Excluir: 
+exclui um período de conciliação 
+Digitação: 
+permite ao usuário digitar itens do extrato, no caso da 
+conta 
+estar configurada para digitação manual
+Arq. banco: 
+permite ao usuário importar um extrato em arquivo digital.
+Extrato API: 
+faz a consulta do extrato conforme o período de conciliação
+Conciliação: 
+abre a tela de 
+conciliação Bancária
+ para o usuário iniciar a 
+conciliação
+Saldos
+, o usuário poderá atualizar o valor do saldo a conciliar em tela, já que enquanto se faz a conciliação, o financeiro poderá fazer determinadas movimentações que irá alterar o saldo a conciliação nas contas bancárias.
+Relatório: 
+o usuário poderá emitir relatórios das conciliações
+Legenda: 
+o significado do tipo ou cor das fontes apresentadas em tela podem ser verificados através desse botão.
+Filtros
+Filtra por Conta: 
+filtra os períodos de conciliação conforme a conta informada
+Período: 
+mostra os períodos conforme a data inicial e final
+Exibe conciliações fechadas: 
+mostra as conciliações com o status 
+FINALIZADA
+Exibe conciliações canceladas: 
+mostra as conciliações 
+canceladas
+Incluindo uma Conciliação:
+Para iniciar o procedimento de uma conciliação automática, o usuário deverá acessar o menu 
+Movimentação / Financeiro / Conciliação automática / Manutenção de conciliações automáticas.  
+O processo pode ocorrer da seguinte forma:
+O usuário deve definir um período onde será digitado ou importado um arquivo de extrato e seus itens para uma determinada conta bancária. Tendo digitado ou importado o arquivo do extrato, deve-se conciliar os movimentos do SisPetro com os movimentos informados no extrato do banco.
+Inclusão de um período:
+O período se refere a data que pertence o extrato, o ideal é incluir períodos 
+diários
+, facilitando assim o processo de conciliação. Para incluir um período, deve-se clicar no botão 
+Incluir
+. O SisPetro irá abrir a tela de Inclusão de Conciliação:
+Através do campo 
+Conta
+ o usuário deve digitar diretamente o código ou selecionar a conta bancária através da tela de pesquisa. Para abrir a tela de pesquisa, basta posicionar o cursor no campo 
+Conta
+ e teclar <ENTER>.
+Caso a conta selecionada não esteja configurada no plano de contas para permitir a conciliação automática ou manual, o SisPetro não permitirá que o usuário inicie o processo de conciliação, emitindo uma mensagem de alerta:
+Caso essa mensagem apareça, veja se a conta selecionada é correta ou se campo 
+Conciliação Automática
+ está configurado corretamente.
+Outra mensagem será apresentada ao usuário, quando o SisPetro verificar que não há nenhum 
+código de banco
+ vinculado a essa conta no 
+plano de contas
+ (campo 
+Banco
+, localizado no grupo Dados de Banco).
+Somente Contas do Tipo Banco permitem que seja habilitada a conciliação.
+Após informar a conta, o usuário deve informar o período que será aberto, nos campos 
+Data Inicial
+ e 
+Data Final
+. Pode-se configurar o SisPetro de forma que ele irá sugerir que a data final seja a data atual menos a quantidade de dias informado em 
+Ferramentas / Sistema / 
+Financeiro 
+/Número de dias para a Data Final da conciliação
+. 
+Conforme a configuração da conta bancária no plano de contas, o grupo 
+Origem
+ mostrará se a conta está configurada para aceitar a digitação manualmente do extrato, ou importar o arquivo de extrato enviado pelo banco.
+Sendo a primeira conciliação automática da conta, o SisPetro permitirá ao usuário incluir um saldo inicial. Para a inclusão de outros períodos para a mesma conta, o recurso fica desabilitado. 
+É muito importante que o usuário tenha o saldo correto da conta ao iniciar esse processo. Se for preciso, inclua o saldo inicial  através do botão 
+Inclui Saldo Inicial
+.
+Pela tela de inclusão de conciliação, no momento da inclusão, será possível o usuário ver o saldo da conta e a data da última conciliação automática. Para confirmar a inclusão do período de conciliação, o usuário deve clicar no botão 
+OK
+.
+O SisPetro irá incluir um registro no painel 
+Períodos de Conciliações
+, com o Status de 
+EM ANDAMENTO
+, que significa que esse período ainda está aberto ou para digitação do extrato ou importação do arquivo, ou para conciliar os lançamentos.
+Para Saber Mais
+Digitação do Extrato e seus itens, somente para contas configuradas para conciliação manual. Para mais informações, ver 
+Conciliação Automática - Digitação Manual
+.
+Importação do arquivo de extrato, somente para contas configuradas para conciliação automática
+. 
+Para mais informações, ver 
+Conciliação Automática - Importação Extrato
+.
+Importação do arquivo de extrato, 
+para extrato via API. 
+Para mais informações, ver 
+Conciliação Automática via API
+.
+Informações referentes a conciliação do extrato, ver 
+Conciliando o Extrato
+.
+Explicações referente a utilização do tipo de lançamento, ver 
+Utilizando o Tipo de Lançamento
+.

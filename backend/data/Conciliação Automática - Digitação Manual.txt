@@ -1,0 +1,135 @@
+TITULO: Conciliação Automática - Digitação Manual
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898190
+--------------------------------------------------
+none
+Objetivo
+Após realizar todo o processo de inclusão de um período para a conta a ser conciliada, conforme explicação do tópico 
+Conciliação Automática - Informações Gerais
+, o usuário deve incluir no SisPetro o extrato e as movimentações referente a esse extrato.
+Como utilizar
+Para isso, o usuário deve selecionar a conta no painel 
+Períodos de Conciliações
+ e clicar no painel 
+Arquivos de Extrato
+. Realizando esse procedimento, o botão 
+Digitação
+ ficará habilitado, caso o perfil do menu 
+Ferramentas / Usuário / Financeiro
+ / 
+Permite digitação do arquivo de extrato
+, estiver marcado
+O botão 
+Digitação
+, poderá ficar desabilitado, caso o status do extrato esteja como 
+PRONTO PARA CONCILIAÇÃO
+.
+Clicando no botão 
+Digitação
+, o SisPetro abrirá a tela de Extrato, onde o usuário digitará o cabeçalho do extrato e seus itens.
+Na tela de extrato teremos os seguintes campos:
+#Arquivo:
+ código sequencial criado pelo próprio sistema;
+#Conciliado:
+ código sequencial criado pelo sistema para identificar a qual conciliação pertence o extrato;
+Conta:
+ código da conta bancária informada no momento de abrir um período;
+#Banco:
+ deverá ser preenchido conforme o código do banco cadastrado no plano de contas;
+#Agência e Díg:
+ deverá ser preenchido conforme o código da agência e digito cadastrado no plano de contas;
+#Conta e Díg:
+ deverá ser preenchido conforme o código da conta e digito cadastrados no plano de contas;
+Número do Arquivo:
+ número do arquivo enviado pelo banco no caso de importação do arquivo;
+Data Inicial:
+ data de inicio que se refere o extrato;
+Saldo Inicial:
+ saldo inicial do período informado;
+Data Final:
+ data final que se refere o extrato;
+Saldo Final:
+ saldo final do período informado;
+Status para Conciliação:
+ o status pode ser:	
+Em Digitação:
+ significa que o extrato ainda não foi finalizado;
+Pronto para conciliação:
+ a digitação do extrato foi finalizada e ele está pronto para ser conciliado com os lançamentos do Sispetro.
+Nome do Arquivo:
+ nome do arquivo enviado pelo banco.
+Após digitar as informações referente ao cabeçalho do extrato e gravá-las por intermédio do botão 
+Salvar
+, o usuário deverá digitar as informações referente aos itens do extrato, para isso, deve-se clicar no painel 
+Itens
+.
+Incluindo um lançamento
+O usuário deve utilizar utilizar o botão 
+Incluir
+, para ter acesso a tela de inclusão dos itens do extrato.
+O campo 
+Data
+, deve ser preenchido dentro do período informado no cabeçalho do extrato, caso contrário, o SisPetro emitirá uma mensagem de alerta ao usuário:
+Deve-se preencher os campos 
+código do histórico
+, 
+histórico
+, 
+Documento
+, 
+valor de débito ou crédito
+ e o 
+tipo de lançamento
+, se for o caso. O campo 
+Tipo de lançamento
+, pode ser pesquisado através do campo 
+Pesquisa o tipo de lançamento
+, caso o usuário não saiba o código.
+Mesmo após utilizar o botão 
+Gravar
+ para salvar as informações digitadas, o SisPetro permanece com a tela dos Itens do Extrato aberta para que seja digitado um novo item. Para que a tela seja fechada, o usuário deve utilizar o botão 
+Sair
+.
+Ao sair, o SisPetro voltará para a tela de navegação, onde será apresentado as informações referente ao item digitado. Para Alterar ou excluir o registro digitado o usuário poderá utilizar o botão 
+Editar
+ ou 
+Excluir
+, respectivamente.
+O usuário digitará a movimentação do período indicado na abertura do extrato, portanto, haverá mais informações em tela, onde cada linha apresentada no painel 
+Itens
+, se referente a uma movimentação.
+Fechando o movimento do extrato
+Após digitar todas as movimentações nos itens do extrato, o usuário deve fechar esse extrato para que não seja incluído mais nenhuma outra movimentação. Para isso, deve-se marcar a opção 
+Fecha movimento do extrato
+.
+Ao clicar no botão 
+Sair
+, o SisPetro irá verificar se o saldo acumulado nos itens do extrato, está de acordo com o saldo final informado no momento da abertura do extrato. 
+Caso os saldos não estejam iguais, o SisPetro apresentará uma mensagem de alerta ao usuário e não finalizará o processo até que os saldos estejam idênticos.
+O SisPetro só irá permitir o fechamento do movimento do extrato com diferença, caso o perfil localizado nas configurações da empresa, através do menu 
+Ferramentas / Sistema / Financeiro
+ opção 
+Efetua o fechamento da conciliação mesmo diferença
+ esteja marcado
+Ao fechar o movimento do extrato, o seu status estará definido como 
+Pronto Para conciliação
+.
+Reabrindo uma conciliação
+Neste momento o extrato não poderá ser mais alterado, a menos que o extrato seja aberto. Para isso, o usuário deve marcar o extrato a ser aberto, clicar no painel 
+Arquivos de Extrato
+ , marcar o item desejado, caso se tenha mais de um item para aquele extrato e clicar no botão 
+ABRIR
+O item marcado voltará para o status 
+EM DIGITAÇÃO
+, permitindo que o usuário possa fazer alguma alteração se necessário, devendo para isso, utilizar o botão 
+Digitação
+, porém, para esse procedimento, deve-se ter o perfil localizado nas configurações de usuário menu 
+Ferramentas / Usuário / Financeiro
+ opção 
+Pode abrir conciliação fechada
+Ao fechar o movimento do extrato, o próximo passo será fazer a conciliação. 
+Para Saber Mais
+ 
+Conciliando o Extrato
+Conciliação Automática - Informações Gerais
+Conciliando o Extrato
+Utilizando o Tipo de Lançamento

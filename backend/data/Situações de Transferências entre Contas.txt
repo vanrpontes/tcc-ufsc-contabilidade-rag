@@ -1,0 +1,45 @@
+TITULO: Situações de Transferências entre Contas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2880798904
+--------------------------------------------------
+Entendemos que uma conta Sintética se trata de uma conta resumo, ou uma conta Pai. Ela não possui movimentação e deve ser vinculada a uma conta do tipo analítica, ou conta filha, estas sim possuem movimentações.
+Deve-se tomar cuidado ao tentar transferir uma conta do tipo Sintética (Pai) para uma conta do tipo Analítica (Filha).
+Vejamos abaixo como o Sispetro se comporta em determinadas situações de transferência entre estes tipos de contas.
+1. Conta Analítica para Conta Sintética (independente dos níveis das contas):
+Ao informar no campo Conta Origem uma conta analítica e no campo Conta Destino uma conta sintética, o sistema não permitirá por serem de níveis estruturais diferente, e com isso enviará uma mensagem:
+ 
+2. Conta Sintética para Conta Analítica (independente dos níveis das contas):
+Ao informar no campo Conta Origem uma conta sintética e no campo Conta Destino uma conta analítica, o sistema não permitirá por serem de níveis estruturais diferente, e com isso enviará uma mensagem:
+ 
+3. Entre Contas Analíticas (independente dos níveis das contas):
+Ao informar no campo Conta Origem uma conta analítica e no campo Conta Destino outra conta analítica, o sistema permitirá por serem de níveis estruturais iguais. Para dar continuidade no processo de transferência, vide tópico de 
+.
+4. Entre contas sintéticas, considerando que possuem a mesma quantidade de contas analíticas (mesmo em níveis diferentes):
+Informar os dados, conforme tópico de 
+.
+Ao informar no campo Conta Origem uma conta sintética o perfil 
+"Apresentar contas abaixo na estrutura"
+ ficará disponível para utilização, ficando a critério do usuário utiliza-lo ou não.
+É recomendável a utilização deste perfil entre contas sintéticas, para que assim o usuário possa verificar se o DE/PARA está correto. Isso através dos paineis de Contas Reais e Contas Gerenciais.
+ Neste caso, o sistema irá relacionar as contas sintéticas e as analíticas. Cabe ao usuário verificar se estão corretas.
+Caso precise corrigir algum relacionamento, o usuário deverá clicar sobre a Conta de Destino relacionada errada, e dar um duplo clique na linha, abrindo assim a tela de alteração de Conta de Destino:
+ 
+Nesta tela o usuário poderá alterar a Conta de Destino para a conta correta. Em seguida, clicar no botão 
+"OK"
+.
+Com as contas corretas relacionadas, o sistema irá efetuar a transferência para cada conta, conforme o relacionamento na tela. O processo de transferência pode ser feito normalmente conforme o tópico 
+.
+5. Entre contas sintéticas, considerando que possuem quantidades de contas analíticas DIFERENTES (mesmo em níveis diferentes):
+Informar os dados, conforme tópico de 
+.
+Ao informar no campo Conta Origem uma conta sintética o perfil 
+"Apresentar contas abaixo na estrutura"
+ ficará disponível para utilização, ficando a critério do usuário utiliza-lo ou não.
+É recomendável a utilização deste perfil entre contas sintéticas, para que assim o usuário possa verificar se o DE/PARA está correto. Isso através dos painéis de Contas Reais e Contas Gerenciais.
+ 
+Neste caso, observe que as quatro últimas contas de origem não possuem uma conta de destino relacionada. Isto é resultado das contas sintéticas terem quantidades de contas analíticas diferentes.
+Caso o usuário queira definir outras contas para essas contas sem relacionamento, podendo ser contas fora do grupo da conta sintética destino escolhida, o usuário deverá dar um duplo clique sobre a linha escolhida, abrindo assim a tela de alteração de Conta de Destino:
+ 
+Nesta tela o usuário poderá alterar a Conta de Destino para a conta correta. Em seguida, clicar no botão "OK".
+Com as contas corretas relacionadas, o sistema irá efetuar a transferência para cada conta, conforme o relacionamento na tela. O processo de transferência pode ser feito normalmente conforme conforme o tópico 
+.
+Importante: Para esta situação, de contas de origem "sobrando" NÃO existe um perfil de exclusão da linha. Será necessário alterar o código da conta para uma conta que necessitará de transferência, ou efetuar o processo de transferência de uma conta analítica para outra conta analítica.

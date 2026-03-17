@@ -1,0 +1,67 @@
+TITULO: Realizando o Fechamento Financeiro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899022
+--------------------------------------------------
+Para realizar o fechamento, o usuário deve acessar a tela de fechamento, através do Menu 
+Movimentação / 
+Financeiro
+ / 
+Fechamento
+.
+O sistema permite que seja realizado 3 tipos de fechamentos:
+Fechamento por grupo de empresa:
+ Esse fechamento será realizado para as empresas que pertencerem a um grupo de empresas e estiverem configuradas para realizarem fechamentos desse tipo. Essa configuração deve ser feita através do Menu 
+Ferramentas / Sistema / Financeiro
+:
+Neste tipo de fechamento, será apresentado o montante apenas das empresas que fazem parte do grupo e que não estejam configuradas para fechamento financeiro exclusivo. Ao marcar essa opção, na tela de fechamento, será possível selecionar o grupo de empresas para o fechamento, através do campo 
+Por grupo de Filiais
+.
+Fechamento por empresa:
+ Esse tipo de fechamento apenas será possível para as empresas que tiverem configuradas para terem Fechamento financeiro exclusivo. O usuário deve seguir os mesmos passos para configurar uma empresa para fechamento por grupo empresa, porém, deve ser marcada a opção 
+Por Filial
+.
+Apenas as empresas configuradas para Terem fechamento financeiro exclusivo, poderão ser selecionadas para esse processo.
+Fechamento geral:
+ Apenas os saldos das contas que sejam exclusivas de empresas configuradas para ter fechamento financeiro exclusivo que não serão englobados no fechamento geral.
+O Sistema sugere a data atual como a de fechamento atual e obtém a data de fechamento anterior do último fechamento realizado (para comparação).
+Na parte da esquerda estão os dados do último fechamento (conforme data de fechamento anterior) e na parte da direita estão os dados da situação atual (conforme data do fechamento atual).
+Na troca de perfil, referente ao tipo de fechamento financeiro (por grupo de empresa ou exclusivo), os dados anteriores serão apresentados zerados.
+Caso deseje salvar os dados do Contas a Pagar e Receber de forma detalhada, marque a opção 
+Salva Detalhamento do Contas Pagar/Receber
+.
+Aperte em seguida o botão 
+Atualiza
+ para que o Sistema possa ler os dados referentes ao Fechamento conforme a data do fechamento atual.
+Caso queira 
+Imprimir um Relatório de Fechamento
+ (para verificar possíveis discrepâncias) aperte o botão 
+Relatório
+.
+Para continuar com o fechamento, aperte o botão 
+Fecha Dia
+.
+Caso necessite cancelar um fechamento (o Sistema só permite cancelar o último fechamento realizado), escolha a data correta de fechamento e aperte o botão 
+Cancela
+.
+Importante: Os dados do fechamento só podem ser recriados a partir da situação atual. Portanto, não será possível recriar os dados de um fechamento ocorrido a dias atrás pois já terão ocorrido baixas e diversos lançamentos posteriormente a aquela data inviabilizando este fechamento.
+Após o fechamento, não será possível movimentar as contas de banco com lançamentos anteriores ou iguais aos do último fechamento realizado. Assim, é importante verificar através do relatório se os dados estão de acordo antes de realizar o fechamento.
+Dados do fechamento:
+Disponível:
+ É a soma do saldo conciliado mais o movimento não conciliado até a data do fechamento.
+Conciliado:
+ É o saldo encontrado dos lançamentos confirmados pelo extrato bancário (deve ser igual ao do Banco).
+Não conciliado:
+ É a soma do movimento não conciliado (aquele ainda não confirmado pelo extrato bancário) até a data do fechamento.
+Créditos Identificados:
+ Soma dos créditos pendentes (ainda não utilizados) identificados de clientes.
+Créditos não identificados:
+ Soma dos créditos não identificados conforme cadastro de créditos.
+Pendente:
+ Soma dos lançamentos no módulo financeiro pendentes de Contas a receber.
+Diferença:
+ Diferença entre o fechamento anterior e o fechamento atual (ainda não fechado). Esta diferença deve ser justificada pelo faturamento (venda menos devolução) e pagamentos realizados.
+Veja também:
+Introdução
+Restrições
+Conciliando a Conta Bancária
+Contas de Banco Fictícias
+Imprimindo Relatórios do Fechamento Financeiro

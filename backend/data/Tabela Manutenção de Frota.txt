@@ -1,0 +1,257 @@
+TITULO: Tabela Manutenção de Frota
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878211026
+--------------------------------------------------
+none
+Objetivo
+A manutenção de Frotas no SisPetro permite cadastrar veículos, definir tipos, placas, capacidade, acessórios (carreta, dolly, treminhão) e controlar informações obrigatórias como UF, RNTRC, RENAVAM e categoria.
+Também possibilita configurar regras de uso: frota próprio, ativo, tipo de movimentação, controle de entregas, bottom loading, peso bruto e inspeções. Há parâmetros específicos para vale pedágio, monitoramento de viagem, agendamento de OC e status de viagem. O sistema controla compartimentos, lacres, capacidades e permite integrações como Painel Fretes e Vale Pedágio. Por fim, há configurações para Venda Spot e opções para salvar, cancelar ou sair do cadastro.
+Nesta tabela são cadastrados os Frotas utilizados na empresa e os seus dados. 
+O acesso é feito através do menu 
+Tabelas Auxiliares / Transportes / Frotas / Manutenção de Frota
+: 
+Itens inativos agora ficarão destacados em 
+vermelho
+Aba Detalhes
+Para acrescentar um novo Frota acione o botão 
+Incluir. 
+O SisPetro exibe a tela para preenchimento dos novos dados, painel 
+Detalhes.
+Os campos Capacidade Litros, Capacidade M3, Total Compartimentos e Nº Lacres por Compartimento ficarão desabilitados para Frotas do tipo Cavalo.
+Tipo:
+ definir o tipo de veículo que se trata, podendo ser:
+Carreta
+Toco
+Truck
+Bitruck
+Cavalo
+Treminhão
+Passeio
+Vagão
+Dolly
+Tritrem
+Aeronave
+Placa do veículo:
+ informar a placa no momento da inclusão do Frota, que não pode ser a mesma de outro frota já cadastrado. Quando o tipo for ferroviário, o SisPetro permitirá a digitação de até 20 caracteres livres;
+É possível alterar da placa do frota para atender o novo padrão de placas do Mercosul.
+Altera placa
+Alterar Placa: 
+permite informar a nova placa do Frota. A nova placa deverá estar em um dos seguintes formatos: 
+XXX-999 (Formato Atual)
+ ou 
+XXX-9X99 (Novo Formato do Mercosul), 
+caso 
+seja aeronave
+ o SisPetro está habilitado para aceitar os padrões internacionais. Também é possível realizar a alteração da Placa do Frota através do Menu
+ Movimentação > Transportes > Troca de Placa 
+A tela de troca de placa somente ficará ativa caso o usuário tenha o menu 
+Movimentação / Transportes / Troca de Placa 
+liberado no perfil
+Botão Frota próprio por empresa:
+ através dele que iremos definir se o
+ Frota selecionado ira:
+Obter ou não o vale pedágio, podendo obter o vale pedágio do um frota para uma determinada empresa, ou de uma empresa para um determinado frota. 
+as opções de Obter e Não Obter informadas no Perfil Obtém Vale pedágio só irão ser adotadas caso o Perfil Frota Próprio por Empresa esteja selecionado a opção de Segue perfil do Frota para a Empresa selecionada. Para mais informações, ver 
+Painel Fretes
+.
+Definir se o frota é próprio
+Para realizar a configuração basta selecionar a Empresa desejada e acionar o botão 
+Altera.
+UF da Placa: 
+UF que se origina a placa do veículo. 
+Informação obrigatória de preenchimento, pois é utilizada na NF-e e SPED.
+RNTRC:
+ código do registro do frota obtido na 
+ANTT
+. Também conhecido como
+  Registro Nacional de Transportador de Carga (ANTT) ou RNTT.
+Renavam: 
+informar o número do RENAVAM impresso no documento do veículo.
+Próprio:
+ se este veículo é da empresa. Para mais informações, ver 
+Configurando Frotas próprios e não próprios
+Ativo:
+ indica ao SisPetro se este frota pode ser utilizado. Essa informação será de grande importância para que no momento do cadastro da Ordem de carregamento não venha ser utilizado um frota inativo. Vale lembrar que no caso de um Treminhão ou Carreta inativa não será possível fazer uma ordem de carregamento para o Cavalo que a(s) utiliza(m).
+Multissetas:
+ ao marcar esta opção é possível cadastrar múltiplas setas nos compartimentos do frota utilizado. Para mais informações, ver 
+Painel Compartimentos (Frotas)
+Total Compartimentos: 
+indica o número total de compartimento do frota.
+Tara:
+ Será copiado do campo Capacidade
+Capacidade Litros: 
+quantidade total do frota (o SisPetro preencherá automaticamente este campo nos casos em que a compartimentação seja definida e o mesmo esteja em branco).
+Capacidade M3: 
+campo Capacidade / 1000 (o SisPetro preencherá automaticamente este campo nos casos em que a compartimentação seja definida e o mesmo esteja em branco).
+Tem carreta?:
+ ao marcar esta opção é possível informar a carreta deste frota, que na verdade é um outro frota que já está cadastrado, mas como tipo Carreta. Só disponível para frotas do tipo 
+Cavalo
+.
+Tem treminhão?:
+ ao marcar esta opção é possível informar o treminhão deste frota, que na verdade é um outro frota que já está cadastrado, mas como tipo Treminhão. Só disponível para frotas do tipo 
+Cavalo
+.
+Tem dolly?:
+ ao marcar esta opção é possível informar mais um frota podendo ser um 
+Dolly
+ ou até mesmo um 
+Tritrem
+. Só disponível para frotas do tipo 
+Cavalo
+.
+Tipo de Transportes: 
+definição do tipo de transporte. Utilizado na NF-e e SPED. Podendo ser:
+Aéreo
+Aquaviário
+Dutoviário
+Ferroviário
+Outro
+Rodo-Ferroviário
+Rodoviário
+Qtde Lacres:
+ número de lacres necessários para este frota.
+Categoria:
+ indica se o frota é particular (placa branca) ou alugado (placa vermelha).
+Nº Lacres por Compartimento:
+ podendo ser informados de 1 até 8 lacres por compartimento. Na inclusão de um frota, o padrão é 2. Esta informação é utilizada pelo 
+Controle de Lacres
+ e para validar mudança de frota na OC com controle de lacre. Para mais informações, ver 
+Mudar Transportadora e Frota da OC e da NF
+.
+Qtde eixos:
+ indica a quantidade de eixos do frota;
+Tipo de Movimentação:
+ permite que seja definido o tipo de movimentação possível para este frota. 
+Todas (padrão):
+ permitir incluir a OC
+Transferências:
+ só permitir se a OC não for de Venda
+Vendas Entrega (CIF) ou Vendas Retira (FOB):
+ só permitir se a OC for de Venda e o campo Retira/Entrega for compatível
+Deve-se habilitar o perfil 
+Verifica Tipo de Movimentação do Frota na OC (exceto de Terceiros), 
+ em 
+Ferramentas / Sistema - Aba Fretes
+ para que o SisPetro faça a verificação do Tipo de Movimentação do Frota informado (este parâmetro não faz a checagem em OC de terceiros - tanto carregamento quanto descarga). Se este perfil não estiver habilitado, o SisPetro não faz a checagem. Este campo está disponível para impressão no layout de OC. Para mais informações, ver 
+Depósitos - Aba Dados Adicionais
+.
+Peso Bruto Total: 
+indica o Peso Bruto Total do Frota (PBT), para que, após o caminhão ser carregado, a Distribuidora possa verificar se o mesmo está com peso maior. Este campo está disponível para relatórios.
+Bottom Loading?: 
+indica o lado de carregamento/descarga quando o frota for do tipo Bottom Loading. Essa opção também influencia se o frota poderá carregar ou não na 
+baia
+.
+Não é Bottom:
+ padrão do SisPetro quando o frota não for do tipo Bottom Loading.
+Bottom Direito:
+ carregamento/descarga é do lado direito.
+Bottom Esquerdo: 
+carregamento/descarga é do lado esquerdo.
+Bottom em Ambos Lados: 
+carregamento/descarga é em ambos os lados.
+Tem bomba para descarga: 
+utilizado para indicar que o frota em questão possui bomba para descarga na composição de carga. Para mais informações, 
+Composição de Carga
+.
+Fator de correção de frete:
+ selecionar qual será o fator cadastrado em 
+Tabela Fator de Correção de Frete
+Controla entregas via OC?: 
+marcando essa opção, quando o frota for utilizado o SisPetro irá permitir incluir dados de entrega na 
+Aba Entregas
+. Para mais informações, ver 
+Controle de Entrega e Viagens
+ e 
+Controle de Entrega e Viagens - SisPetro App
+Quadro Inspeção
+Permite Inspeção:
+ utilizado para sorteio de Bola Preta. Quando marcado, o frota (OC) poderá ser ou não sorteado para inspeção de auto tanque. Para mais informações, ver 
+Inspeção de Auto Tanque - Sorteio de Bola Preta
+Inspeção Imediata: 
+para uso na Inspeção de Auto Tanque (Bola Preta). Para mais informações,  
+Inspeção de Auto Tanque - Sorteio de Bola Preta
+Não força inspeção no próximo carregamento:
+ o frota (OC) entrará para sorteio podendo ou não ser selecionado para inspeção
+Força inspeção no próximo carregamento:
+ o frota (OC) entrará para inspeção obrigatoriamente (Modo Sorteio = Dirigido).  independente de sorteio. Feita a inspeção, esta opção voltará para Não força inspeção no próximo carregamento. Caso o usuário deseje que o frota (OC) seja inspecionado deve alterar novamente para Força inspeção antes de utilizar o frota em uma nova OC.
+Quadro Agendamento de OC
+Agendamento de OC: 
+agendamento de ordens de carregamento para base própria e armazenadora. Para mais informações, ver 
+Agendamento de Carregamentos e Descargas na Base
+.
+Permite agendamento: 
+possibilita indicar se o frota utilizará o agendamento na inclusão da OC, por padrão habilitado.
+Número Comprovante Vale Pedágio:
+ caso tenha, informar o número do comprovante, com tamanho máximo de 20 caracteres. Informar sempre no FROTA PRINCIPAL (Cavalo, Truck e Toco). Para mais informações, ver 
+Emitindo um Conhecimento de Transporte CT-e
+ - aba Componentes.
+Quadro Vale Pedágio
+ Obtém Vale Pedágio:
+ indica como e se irá obter o vale pedágio, podendo seguir o perfil da Empresa, obter ou não obter o vale pedágio.
+Preferência Vale Pedágio:
+ indica a preferência do uso no Vale Pedágio, podendo ser:
+Cupom:
+ a preferência de vale pedágio Cupom deve ser utilizada somente para a empresa gerenciadora de vale pedágio da 
+DBTrans
+.
+Preferências que são destinadas para a empresa gerenciadora de vale pedágio da 
+Target:
+,
+Cartão
+Obs.: para utilizar essa opção, deve cadastrar o cartão no 
+Painel Vale Pedágio (Transportadora/Motorista)
+.
+Veloe 
+Conectar
+MoveMais
+ 
+Quadro Monitoramento
+Monitoramento de Viagem: 
+possibilita monitorar uma viagem. Para mais informações, ver 
+Monitoramento de Viagem
+Nunca:
+ não faz o Monitoramento de Viagem
+Sempre:
+ sempre será feito o Monitoramento de Viagem
+Depende do Valor da Carga:
+ ao realizar o fechamento de carga será sugerido o monitoramento caso o valor da carga seja igual ou maior que o valor mínimo estipulado no campo 
+Valor mínimo da Carga
+ da tabela 
+Tabela Gerenciador de Monitoramento
+.
+Quadro Viagem : 
+é possível alterar o status de viagem, possibilitando o usuário alterar o status do Frota para 
+Disponível para Viagem e Em Viagem. 
+O acesso depende da permissão do usuário Aba Fretes - Grupo: manutenção de Frota - opção 
+Pode mudar Status de Viagem do Frota. 
+Para mais informações, ver 
+Painel Fretes (Usuários)
+Para utilização deste perfil é necessário ativar o perfil : 
+Trabalha com controle de Status de Viagem do Frota em 
+Painel Fretes
+ 
+Informações de Lacres Permanentes
+: campo texto para informar número e local dos lacres permanentes (por exemplo: válvula, abraçadeira...), que pode ser impresso na OC. Para mais informações, ver 
+Depósitos - Aba Dados Adicionais
+.
+Quadro Venda Spot:
+Deposito de movimentação: 
+indiciar o deposito que foi criado para venda Spot, lembrando que é um deposito para cada veículo. 
+Produto Movimentado: 
+indicar o produto que será vendido por esse veículo. 
+Indicação de frota Abastecida: 
+nessa configuração é possível definir a obrigatoriedade de preenchimento do veículo que foi abastecido. 
+Indicação do Responsável: 
+nessa configuração é possível definir a obrigatoriedade de preenchimento do responsável pelo abastecimento. 
+Indicação Quantidade: 
+essa opção é para definir se o abastecimento será realizado 
+Diretamente pela quantidade
+, ou 
+Informar Encerrante Final. 
+Multi-Produto: 
+essa opção é responsável por permitir que alternar entre os produtos para venda no modulo de Venda Spot.
+Ao finalizar cadastro, clique no botão 
+Ok.
+Para abortar o processo, clique no botão
+ Cancela.
+Para sair, acione o botão 
+Sair

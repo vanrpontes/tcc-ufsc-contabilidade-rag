@@ -1,0 +1,66 @@
+TITULO: Empréstimo de Produto entre Congêneres
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4335403009
+--------------------------------------------------
+Objetivo
+Dentro de uma armazenadora é comum que as congêneres realizem empréstimos de produtos entre si
+. Isso é feito de forma manual, incluindo uma saída na empresa cedente (que irá emprestar o produto) e uma entrada na empresa tomadora (que receberá o produto). 
+Existem diversas formas de empréstimo de produtos, por exemplo:
+Em um caminhão de Gasolina C, a Gasolina A é emprestada por uma congênere e o Álcool Anidro é emprestado por outra;
+Uma congênere não comprou a cota necessária para suas vendas diárias de Gasolina A e solicita parte do estoque de outra congênere;
+Uma congênere fez uma venda extraordinária de Diesel B, Etanol Hidratado e Diesel A, mas não possui nenhum desses produtos e solicita a três congêneres diferentes cada produto apenas para atender essa venda;
+Entre outras possibilidades;
+Para automatiza-los, criamos novas configurações no cadastro de Depósito, permitindo informar quais são as empresas envolvidas, o produto que será emprestado a cada Ordem de Carregamento emitida e se será emitida as Notas de Armazenagem. Além disso, foi criado um serviço no Hermes que automatiza a inclusão das OC e uma nova Manutenção de Empréstimos para criar e administrar todos os empréstimos feitos.
+Para utilizar é necessário realizar as configurações abaixo:
+Configurações
+1 - Cadastro de Usuários
+Cadastro de Usuários / aba Carregamento / Grupo Empréstimo
+Pode incluir/alterar Empréstimo manual 
+marcar a opção
+Pode cancelar Empréstimo
+ escolher uma das opções abaixo
+Somente os manuais
+Manuais e Automáticos
+Pode aprovar Empréstimo como Empresa Cedente, 
+marcar caso o campo 
+Exige Aprovação cedente? 
+na 
+Depósitos - Aba Empréstimos
+ estiver marcado
+Pode aprovar Empréstimo como Armazenadora
+, marcar caso o campo 
+Exige Aprovação cedente? 
+na 
+Depósitos - Aba Empréstimos
+ estiver marcado
+Para mais informações, ver 
+Cadastro de Usuários / aba Acessos Menus
+Movimentação / Base / Manutenção de Empréstimos
+: habilitar o acesso
+2 - Configuração do Depósito
+Arquivos / Depósito / aba Empréstimo
+Para Empréstimo Manual
+: 
+aqui será configurado quais os históricos utilizados e as ações após o empréstimo ser aprovado 
+Por padrão os empréstimos manuais são aprovados automaticamente, caso não tenha configuração para o depósito utilizado.
+Para Empréstimo Automático: 
+no 
+Quadro Empréstimo Automático
+, configure como o empréstimo será incluído automaticamente após a inclusão da 
+OC de Carregamento de Terceiros
+Recomendamos que no empréstimo automático sejam sempre desmarcados os campos 
+NF Retorno Armaz p/ OC Origem 
+e 
+NF Remessa Armaz p/ OC Descarga. 
+Abaixo um fluxo com motivo dessa recomendação.
+Para mais informações, ver 
+Depósitos - Aba Empréstimos
+3 - Serviço do Hermes
+Empréstimo OC: 
+configurar o tempo de execução para o serviço e habilita-lo
+Para mais informações, ver 
+Serviço de Empréstimo de OC
+Utilização
+Para mais informações, ver
+Como utilizar o Empréstimo Automático entre Congêneres
+Como utilizar o Empréstimo Manual entre Congêneres
+Manutenção de Empréstimos entre Congêneres

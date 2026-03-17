@@ -1,0 +1,56 @@
+TITULO: Restrição Visualização Clientes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2922578023
+--------------------------------------------------
+Esta página foi criada para explicar onde se configura, no SisPetro Normal, as restrições de clientes por usuário, que serão utilizadas pelo SisPetro Normal e APP.
+Na tela de Manutenção de Usuários, aba Restrição Visualização Clientes:
+Aqui é onde o administrador do SisPetro indicará:
+Acesso Entidade
+Está configuração não irá respeitar caso tenha perfil vinculado.
+Todas:
+ com esta opção o usuário poderá acessar os dados de todos os clientes da Distribuidora, sem restrição nenhuma, pode ser indicado para os vendedores externos.
+Somente as Entidades Especificadas:
+ 
+com esta opção o usuário só poderá incluir pedidos para os clientes especificados.
+Telas para Restrição de Acesso ao Cliente
+Cadastro Clientes:
+ 
+restringe o acesso na tela de clientes, aba detalhes.
+Comprador na emissão Pedido de Venda:
+ 
+com esta opção o usuário só conseguira incluir no pedido de venda um cliente que ele tenha acesso.
+Cliente Faturado na emissão Pedido de Venda: 
+com esta opção o usuário só conseguira alterar o cliente faturado para os clientes que o mesmo tem acesso.
+Incluir Clientes:
+ 
+para incluir os clientes que o usuário, em questão, poderá emitir pedidos é preciso:
+Clicar em
+ 
+Incluir
+, abrirá a seguinte tela:
+Informar qual o número do cliente e depois clicar em
+ 
+Gravar, 
+feito isso as entidades liberadas, aparecerão no quadro
+ 
+Clientes
+.
+O acesso também pode ser dado no cadastro do cliente. Para mais informações, ver 
+Restrição Visualização de Clientes
+Caso seja necessário a restrição da movimentação (Pedido e Faturamento) ou mesmo da carteira de clientes, existem configurações especificas para isso.
+Cenário 1: usuário vê todo a carteira de clientes, porém somente a  movimentação feita pelo vendedor vinculado a ele.
+Para trabalha com este cenário é preciso marcar os seguintes perfil:
+Menu Ferramentas > Sistema > Clientes  marque o perfil 
+Visualiza todos os clientes
+Em menu Ferramentas > Usuário > Perfil >Vendas marque o perfil
+ 
+Filtra vendas por vendedor 
+e indique o código do vendedor que ele representa.
+ 
+Cenário 2: usuário vê somente carteira de clientes cujo o vendedor é o mesmo indicado no perfil de usuário e toda a  movimentação feita pelo vendedor vinculado a ele.
+Menu Ferramentas > Sistema > Clientes desmarque o perfil 
+Visualiza todos os clientes 
+e configura os 3 perfil correspondente ao status do cliente para utilizar o filtro utilizado no perfil do usuário. 
+Em menu Ferramentas > Usuário > Perfil > Vendas marque o perfil
+ 
+Filtra vendas por vendedor 
+e indique o código do vendedor que ele representa.

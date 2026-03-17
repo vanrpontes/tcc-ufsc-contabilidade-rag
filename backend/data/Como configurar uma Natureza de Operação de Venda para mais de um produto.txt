@@ -1,0 +1,43 @@
+TITULO: Como configurar uma Natureza de Operação de Venda para mais de um produto
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924285248
+--------------------------------------------------
+Histórico
+Devido a diversos cenários no passado, a NF do SisPetro, de um modo geral, permitia somente um item. Com o passar do tempo esses cenários foram resolvidos e o SisPetro foi permitindo mais itens, na NF de Outras Saídas (utilizadas para Transferências ou Retorno de Armazenagem) e na NF de Venda Direta (para produtos sem exigência de OC), mas ainda sem permitir na NF de Venda de combustíveis. Agora é possível mais itens na NF de Venda normal.
+A emissão de nota fiscal de venda com mais de 1 item só é possível para PRODUTOS QUE TENHAM O MESMO TIPO DE TRIBUTAÇÃO. Ou seja, não é possível emitir notas de venda que tenham o produto Gasolina C e Etanol Hidratado juntos.
+Configurações necessárias:
+Perfil de Sistemas > 
+> quadro Dados da NF:
+Um item por Nota Fiscal: a emissão de nota permanece com 1 item só.
+Todos os itens com a mesma Natureza de Operação: permite emissão de nota com mais de 1 item.
+Menu Tabelas Auxiliares > Faturamento > 
+Natureza Operação
+: 
+ter mesmas naturezas para produtos que tenham o mesmo tipo de tributação.
+Para venda de Gasolina e Diesel ter duas naturezas de operação: Dentro do Estado e Fora do Estado
+Para venda de Etanol Hidratado ter duas naturezas de operação: Dentro do Estado e Fora do Estado
+Existem situações que podem impedir que Gasolina e Diesel tenham uma mesma natureza de operação. Para solucioná-los, proceder conforme abaixo:
+Natureza da Receita - utilizada na EFD Contribuições: 
+Em Menu Tabelas Auxiliares > Faturamento > Natureza Operação > 
+ 
+- É indicada na aba Dados Adicionais (Fiscal) e deve ser diferente para Gasolina e Diesel. Assim, configurar a natureza da receita em Menu Arquivos > Produtos > 
+. Caso tenha no Produto ela será utilizada, na ausência continua utilizando da 
+.
+Observações da Natureza de Operação:
+ Em alguns casos são colocadas informações específicas de um produto. Nessas situações, basta transferir o texto para as Observações do Cadastro de Produtos - 
+. Nesse campo, usando a tag <infAdProd> o texto colocado entre essa tag será enviado no XML da NF-e e pode ser impresso no DANFE (necessário editar layout e utilizar o campo InfAdProd do condutor ItensNF).
+CST:
+ Pode ser indicado produto e modificado na Natureza de Operação através do uso de ??. Veja mais detalhes em 
+.
+CST do PIS e da COFINS:
+ Quando a NF não é de venda existe a possibilidade de deixar o usuário informar. No caso de NF de Venda, só podem fazer parte da mesma natureza de Operação produtos que usem o mesmo CST para o PIS e COFINS. Para mais informações veja 
+.
+Tipo de Documento:
+ Indica o tipo de desconto para geração de Títulos a Pagar automáticos, quando for o caso. No caso do Complemento/Ressarcimento, ao usar o campo NotaFiscal.AjusteICMSSubstTotal terá o resultado final (ou seja, a diferença entre Complemento e Ressarcimento). Veja mais detalhes em 
+Geração de Título de Desconto Automático para ICMS de Complemento
+ e 
+Configurando Geração de Título de Desconto Automático
+. 
+ 
+Para emitir a nota, veja em 
+.
+ 

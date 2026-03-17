@@ -1,0 +1,433 @@
+TITULO: Versão 6.19.19
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2880176513
+--------------------------------------------------
+
+
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 13/11/2008 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 06/01/2009 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd61919.sql (cmd2047 a cmd2067.sql) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 33 
+ 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 18 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 15 
+ 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+ scanc.rtm 
+
+
+
+
+
+
+
+
+ALTERAÇÕES
+
+
+Geral
+
+
+
+
+Acesso ao help
+
+
+O help do SisPetro está mais fácil de acessar! Agora ele é online, acesse 
+http://kb.futuranet.com.br
+. Nele estamos acrescentando roteiros de utilização, os quais podem ser referencidados em nosso CCF (Canal Cliente Futura). Aguarde por mais novidades nas próximas versões.
+
+
+Usuário Futura
+
+
+Restringidas as permissões de acesso do usuário Futura de forma que este usuário só faça consultas no SisPetro. Além disso, quando for utilizado esse usuário a cor de fundo do SisPetro será diferenciada para fácil identificação.
+ 
+GSN (CCF 4563)
+
+
+Erro:
+ 
+Falta de espaço em disco
+ 
+(erro verificado na tela de manutenção de NFs, porém, poderia ocorrer em qualquer parte do sistema)
+
+Na tela de consulta de Manutenção de NFs, quando o período escolhido das datas das notas era um período muito grande, gerava uma mensagem de erro de falta de espaço em disco. Em um período menor, o erro não acontecia. O erro era ocasionado por um problema técnico externo ao sistema (caso o cálculo do espaço livre no disco rígido fosse um múltiplo de 4 Gb, informava um erro de falta de espaço em disco). 
+ECJ (CCF 4507)
+
+
+
+
+Faturamento
+
+
+
+
+Sincronização NFe quando cancelada no Sispetro e não da Sefaz.
+
+No caso da nota fiscal eletrônica ter sido cancelada no Sispetro e não da SEFAZ - porque a SEFAZ demorou para retornar o número do protocolo no processamento normal da mesma - e, caso a SEFAZ tenha processado corretamente a NFe gerando um número de protocolo posteriormente, ao sincronizar a NFe, o Sispetro estava tentando enviar comando de inutilização e não de cancelamento como seria o correto neste contexto. 
+MCL
+
+
+Exibir ambiente da NFe
+
+
+Na primeira tela da Manutenção de NF´s, serão exibidas informações sobre o ambiente da NFe, anteriormente estas informações ficavam apenas na aba Fiscal. ECJ (CCF 4473)
+
+
+Help: 
+Processos/ Processos - Faturamento/ Manutenção de Nota Fiscal
+
+
+ICMS ST Vendas Interestaduais
+
+Corrigido problema com o cálculo do preço deduzido da Nota Fiscal, o sistema estava considerando o ICMS Próprio, mesmo quando a natureza de operação não estava configurada para gerar ICMS. 
+ECJ (CCF 4326)
+
+
+Pedidos aprovados e não faturados
+
+
+Foi criado um novo perfil, de sistema (na aba vendas):
+ 
+Prazo para faturamento após aprovação (em dias):
+, esse perfil ao ser utilizado impedirá que a OC. seja feita, caso a data da última aprovação do pedido esteja fora do prazo especificado, obrigando dessa forma que o Pedido seja cancelado e/ou aprovado novamente. ECJ (CCF 4517)
+
+
+Help: 
+Processos/ Processos - Faturamento/ Como emitir Ordem de Carregamento
+
+
+Nota Fiscal Eletrônica. Adequação à Nota Técnica número 6
+
+
+O código da ANP será preenchido com '999999999' caso o mesmo não esteja preenchido no cadastro de produtos. Caso o produto não seja do tipo "combustível", isto é, no cadastro de produtos seu tipo não esteja configurado para o tipo Combustível, a tag "Comb" - com informações sobre transações de combustíveis líquidos - não será enviada. É IMPORTANTE QUE OS PRODUTOS QUE SEJAM EFETIVAMENTE COMBUSTÍVEIS LÍQUIDOS ESTEJAM CONFIGURADOS NO CADASTRO DE PRODUTOS COMO COMBUSTÍVEL (campo Tipo de Produto na Aba Principal do cadastro de produtos).
+ 
+MCL (CCF 4536)
+
+
+Help: 
+Manutenção de Tabelas no Sistema/ Tabela de Produtos/ DPMP - Produtos
+
+
+
+
+Financeiro
+
+
+
+
+Recibo Baixa Cobrança Eletrônica
+
+Foi corrigido para que a coluna de Descontos leve em consideração se houve alguma despesa descontada pelo banco (mostrada na coluna de Despesa) e este valor seja subtraido ao ser mostrado na coluna de Descontos (para que nesta coluna só sejam mostrados efetivamente os descontos concedidos pela distribuidora ao cliente). 
+MCL (CCF 3260)
+
+
+Inclusão de Contas a Pagar com geração de Título de Retenção
+
+Quando era incluído um título do Contas a Pagar que gerava um Título de Retenção e a configuração do sistema estava para trabalhar com Centro de Custo desvinculado da Conta Contábil era apresentado um erro de "Access Violation" o que foi corrigido. 
+GSN (CCF 4734)
+
+
+Inclusão de Adiantamento para Fornecedor Bloqueado
+
+Corrigido para que permita a inclusão de adiantamento para Fornecedor bloqueado, pois antes não incluía, mas também não apresentava nenhuma mensagem. 
+GSN (CCF 4724)
+
+
+Geração de Título de desconto automático
+
+Corrigido erro ao passar pelo campo Código Histórico no cadastro de Geração de Títulos de Desconto Automático. 
+ECJ (CCF 4523)
+
+
+Cobrança Eletrônica (CNAB) Nossa Caixa
+
+
+Foi adicionado um novo código de liquidação (08-liquidação de valor bloqueado), na cobrança eletrônica da Nossa Caixa. ECJ (CCF 4544)
+
+
+Cobrança Eletrônica (CNAB) Itaú
+
+
+Foi adicionado um novo código de liquidação (08-Liquidação protesto), na cobrança eletrônica Itaú. ECJ (CCF 4642)
+
+
+Filtro de Data no Relatório de Baixas
+
+
+Foi permitido escolher qual a data que será utilizada para filtrar os dados no Relatório de Baixas do Contas a Pagar e do Contas a Receber. Além disso corrigimos a apresentação do cabeçalho de grupo, que agora está compatível com a ordenação escolhida.GSN (CCF 4261)
+
+
+Help: 
+Processos/ Processos - Financeiro/ Relatórios Financeiro/ Baixa Contas a Pagar e Baixa Contas a Receber
+
+
+Sequencial de Feriados duplicado
+
+Alterada a forma de obter o número sequencial da Manutenção de Feriados. Anteriormente o sequencial era obtido por filial o que causava erro de restrição da chave primária. 
+GSN (CCF 4907)
+
+
+
+
+Fiscal
+
+
+
+
+Alterações nos Anexos VIII & III
+
+
+Foi feita uma reestruturação no layout dos relatórios Anexos VIII & III, sendo que com esse novo layout, os relatórios Anexos passam a atender as especificações contidas no ato COTEPE nº 23 de 14/08/2008. ECJ (CCF 3901)
+
+
+Scanc - Duplicidade no Registro 62
+
+
+No Registro 62 do SCANC, no caso de ter mais que um fornecedor com o mesmo CNPJ, será considerado somente o fornecedor ativo para evitar duplicidades.
+ 
+Necessário atualizar o arquivo scanc.rtm no layout de exportação utilizado.
+ 
+GSN (CCF 4069)
+
+
+SPED - Registro 0100 com várias linhas
+
+Corrigido para que não sejam apresentadas várias linhas no registro 0100 (Contador) do arquivo do SPED Fiscal 
+GSN (CCF 4827)
+
+
+
+
+Estoque
+
+
+
+
+Abertura de Fechamento de Custo
+
+
+Foi adicionado um novo grupo, no perfil de estoque do usuário: 
+Fechamento de Custo
+, esse perfil irá controlar quem poderá abrir o fechamento de custo. ECJ (CCF 4364)
+
+
+Atenção: Por padrão, todos os usuários não terão acesso permitido para essa opção.
+
+
+Help: 
+Processos/ Processos - Estoque/ Custo de Produtos (CMV)
+
+
+Perfil para Ajuste de Estoque Inicial
+
+Corrigido problema com a opção de menu: 
+Movimentações/Estoque/Ajuste de Estoque Inicial por Depósito
+, que não estava sendo habilitada de acordo com o conteúdo do campo: 
+Pode fazer ajuste manual de Estoque Escritural
+, do perfil do usuário. 
+ECJ (CCF 4546)
+
+
+Automação da Portaria de Saída
+
+
+No depósito foi adicionada uma nova opção para automatizar somente a Portaria de Saída nas Descargas. ECJ (CCF 4293)
+
+
+Help: 
+Manutenção de Tabelas no Sistema/ Tabela Depósitos
+
+
+Nº de contrato de compra na ordem de carregamento
+
+
+Foi disponibilizado, para uso na impressão da ordem de carregamento, os campos com as informações sobre PMM. Vale ressaltar que somente será impresso o número do PMM se a OC estiver vinculada a um. ECJ (CCF 4643)
+
+
+Consulta de Temperaturas e Densidades
+
+
+Foi criada, no menu consulta, a tela de consulta de temperaturas e densidades. ECJ (CCF 4292)
+
+
+Help: 
+Processos/ Processos - Estoque/ Consulta - Estoque/ Consulta de Temperaturas e Densidades
+
+
+
+
+Transportes
+
+
+
+
+Manutenção de Eventos do Frota
+
+Corrigido erro que ocorria ao clicar no botão 
+Localiza
+, na tela de Manutenção de Eventos do Frota. 
+ECJ (CCF 4524)
+
+
+Redespacho e Consignatário no Conhecimento de Frete
+
+
+Foram adicionados novos campos no Conhecimento de Frete, com o intuito de armazenar as informações referentes ao Consignatário e a Transportadora de Redespacho. ECJ (CCF 3708)
+
+
+Help: 
+Processos/ Processos - Transportes/ Como emitir um conhecimento de Frete
+
+
+
+
+Contabilidade
+
+
+
+
+Perfil de Sistema: Habilita Contabilização Gerencial Adiantamentos c/Conta Diferenciada
+
+Corrigido erro ao incluir um adiantamento, com o perfil acima habilitado e a conta de adiantamento informada não existia, ocorria travamento no sistema. 
+ECJ (CCF 4329)
+
+
+Relatório de Conferência de Contas Vinculadas ao Demonstrativo de Resultados
+
+Corrigido erro "arquivo inválido" na impressão do Relatório de Conferência das Contas Vinculadas ao Demonstrativo. 
+GSN (CCF 4871)
+
+
+
+
+Vendas
+
+
+
+
+Analise de Custo
+
+Corrigido problema no cálculo do preço deduzido do produto, o sistema não estava considerando o campo: 
+Deduz impostos do preço unitário
+, na natureza de operação. 
+ECJ (CCF 4325)
+
+
+Tabela de Preços - Melhor visualização
+
+
+Melhorada a manutenção e visualização das tabelas de preços, principalmente quando utilizada com data de vigência.
+ 
+Não é mais necessário ter a mesma vigência para um produto em todas as filiais. A vigência agora é individual. Cada produto/empresa pode ter a data de vigência desejada. Para isso, as consultas não são mais baseadas numa data de vigência, mas sim na data-base. A partir da data-base se apresenta os preços válidos para ela, que pode ter datas de vigência diversas.
+ 
+UPA (CCF 2836)
+
+
+Help: 
+Manutenção de Tabelas no Sistema/ Tabela Clientes/ Preços
+
+
+Bloqueio de Clientes pelo Arquivo da SEF-RS
+
+Otimizada a rotina de Bloqueio de Clientes pelo Arquivo da SEF-RS. 
+UPA (CCF 2877)
+
+
+Tipo de Cobrança na Análise Geral de Vendas
+
+
+Foi adicionado o campo Tipo de Cobrança na tela de Análise Geral de Vendas. ECJ (CCF 4743)
+
+
+Cliente faturado no Pedido de Venda
+
+
+Foram disponibilizados novos campos, relacionado ao cliente faturado e ao frete, para utilização na impressão do Pedido de Venda. ECJ (CCF 4835)
+
+
+

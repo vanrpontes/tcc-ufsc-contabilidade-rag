@@ -1,0 +1,61 @@
+TITULO: Paraná
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919335025
+--------------------------------------------------
+Dados Gerais
+O Banco Paraná trabalha em conjunto com o Banco Bradesco (237). Assim, a empresa tem conta no Banco Paraná, onde adquire o produto Cobrança Eletrônica, porém, ao imprimir o boleto, o imprime com as características do Banco Bradesco. Dessa forma, o cliente que recebe o boleto não precisa localizar uma agência do Banco Paraná para efetuar o pagamento, podendo fazer isso perfeitamente no Banco Bradesco, que tem muito mais agências disponíveis em todo o país. Para atender essa necessidade usaremos a configuração de Banco Correspondente do SisPetro. 
+Painel Cobrança Eletrônica
+No campo 
+banco
+ deve ser informado 254 - Banco Paraná S.A.
+No 
+Tipo de convênio
+ informe a operação informada pelo banco.
+No 
+Convênio
+ informe o código da empresa no banco,
+A 
+carteira
+ , 2 dígitos
+.
+A 
+agência
+ com 4 dígitos
+A 
+conta, 
+contém 7 dígitos
+Se desejar pode utilizar a opção 
+Pode indicar sacador/avalista
+, se marcá-la deverá então informar o CNPJ do sacador/Avalista e a razão social.
+Se desejar pode utilizar a opção 
+Pode indicar #docto na remessa
+, escolhendo a opção que melhor agradar à empresa.
+Painel Informações sobre a Cobrança
+Marcar
+ a opção 
+Utiliza Banco Correspondente
+PREENCHER OS CAMPOS ABAIXO NO PAINEL DE BANCO CORRESPONDENTE:
+Informar no 
+Banco Encarregado da cobrança 237 – BRADESCO
+Informar 
+#Banco
+ como 
+237
+ 
+Informar 
+Nome Banco
+ como 
+BRADESCO S/A
+Preencher 
+#Agencia
+ 
+Preencher 
+Número Conta
+ 
+Preencher a 
+Carteira
+ 
+Linha Digitável
+A Linha Digitável para o banco Paraná será montada conforme o banco correspondente configurado, que no caso deverá ser o 
+Bradesco
+. Veja maiores informações sobre a montagem da linha digitável através do tópico 
+Montagem da Linha Digitável

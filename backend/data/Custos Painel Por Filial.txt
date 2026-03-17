@@ -1,0 +1,163 @@
+TITULO: Custos (Painel Por Filial)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210575
+--------------------------------------------------
+O painel 
+Custos
+ pode ser acionado no menu inferior da tela de 
+Natureza de Operação
+:
+Atente-se para os perfis que deverão ser marcados por empresa selecionada no quadro superior.
+Na emissão da Nota Fiscal serão calculados somente os custos que estejam marcados nesta tela. Verifique quais dos custos disponíveis são compatíveis com a natureza de operação em questão. Cabe lembrar que a empresa deve estar configurada para salvar custos de NF (Menu Ferramentas / Sistema / painel Nota Fiscal / quadro Custos / Salvar custos na NF de Venda).
+Custos NF Venda/Devolução
+Configuração de Custos Internos na geração da nota fiscal através da Natureza de Operação em questão. Para mais informações, ver 
+Cálculo de Custos
+Salva Custo ICMS:
+ irá salvar o custo referente ao ICMS Próprio e ao valor do FCP Próprio (ambos somados), caso tenha, na nota fiscal gerada por esta Natureza de Operação. Este custo só será salvo se a natureza de operação estiver marcada para Gerar ICMS, através de Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Por filial > aba inferior Impostos.
+Salva Custo ICMS Substituição:
+ irá salvar o custo referente ao ICMS Substituição e ao valor do FCP ST (ambos somados), caso tenha, na nota fiscal gerada por esta Natureza de Operação. Este custo só será salvo se a natureza de operação estiver marcada para Gerar ICMS Substituição, através de Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Por filial > aba inferior Impostos.
+Salva Custo Complemento/ Ressarcimento: 
+irá salvar o custo referente ao Complemento ou Ressarcimento na nota fiscal gerada por esta Natureza de Operação. O cálculo desses custos são pegos através do PMPF do estado em que a empresa atua e também com a alíquota de ICMS Substituição do mesmo estado.
+Salva Custo PIS:
+ irá salvar o custo referente ao PIS na nota fiscal gerada por esta Natureza de Operação. O cálculo desse custo será pego através das alíquotas configuradas em Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Por filial > aba inferior Impostos, no campo Alíquota PIS. Além disso, a natureza de operação também deverá estar marcada para Gera PIS através de Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Por filial > aba inferior Impostos. 
+Salva Custo COFINS:
+ irá salvar o custo referente ao Cofins na nota fiscal gerada por esta Natureza de Operação. O cálculo desse custo será pego através das alíquotas configuradas em Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Por filial > aba inferior Impostos, no campo Alíquota COFINS. Além disso, a natureza de operação também deverá estar marcada para Gera COFINS através de Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Por filial > aba inferior Impostos. 
+Salva Custo PIS Substituição:
+ irá salvar o custo referente ao PIS Substituição na nota fiscal gerada por esta Natureza de Operação. O cálculo desse custo será pego através das alíquotas configuradas em Arquivos > Produtos > aba Detalhes > aba inferior Margem Subst. Tributária > painel interno Pis/Cofins Substituição. Além disso, a natureza de operação também deverá estar marcada para Gera PIS Substituição através de Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Por filial > aba inferior Impostos. 
+Salva Custo COFINS Substituição:
+ irá salvar o custo referente ao Cofins Substituição na nota fiscal gerada por esta Natureza de Operação. O cálculo desse custo será pego são pegos através das alíquotas configuradas em Arquivos > Produtos > aba Detalhes > aba inferior Margem Subst. Tributária > painel interno Pis/Cofins Substituição. Além disso, a natureza de operação também deverá estar marcada para Gera COFINS Substituição através de Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Por filial > aba inferior Impostos.
+Salva Custo CPMF:
+ irá salvar o custo referente a CPMF na nota fiscal gerada por esta Natureza de Operação. Vale reforçar que atualmente a CPMF não existe mais. O cálculo desse custo será pego através das alíquotas configuradas em Consulta > Análise Custos > aba Parâmetro > campo %CPMF/ IOF. Além de perfil de Sistema Calcula custo de CPMF através de:, veja maiores informações através do tópico 
+.
+Salva Custo Prazo Pagamento (CF):
+ irá salvar o custo referente ao Prazo de Pagamento na nota fiscal gerada por esta Natureza de Operação. O cálculo desse custo será pego através das Tabelas Auxiliares > Vendas > Condição de Pagamento > aba Detalhes > quadro Parcelas > campo Prazo Pagamento. Além disso, em Consulta > Análise Custos > aba Parâmetro > campo %Encargos ao Dia deverão ser informados para que o SisPetro calcule corretamente.
+Salva Custo Frete Entrega: 
+i
+rá salvar o custo referente ao Frete na nota fiscal gerada por esta Natureza de Operação. O cálculo desse custo dependerá do perfil de sistema em Ferramentas > Sistemas > aba Nota Fiscal > perfil 
+Calcula custo de frete pelo valor do frete negociado
+.
+Salva Custo Inicial Aquisição: 
+irá salvar o custo de aquisição do produto. Este poderá ser definido em Arquivos > produtos > aba Detalhes > aba inferior Custo para Venda. Veja maiores informações no tópico 
+.
+Tipo de Calculo ICMS Próprio
+Preço Simples (Alíquota de ICMS Sobre o Preço):
+ ao utilizar essa opção o cálculo será realizado pegando o valor e multiplicando pelo percentual do ICMS.
+Preço tem desconto de ICMS (Alíquota sobre o Preço somando o ICMS)
+:
+ ao utilizar essa opção o sistema irá considerar o cálculo d
+o ICMS Próprio com a seguinte equação: 
+(Base ICMS / (1 - (Alíquota/100))) - Base ICMS
+Exemplo: 
+Ao dar entrada no Produto tivemos:
+Preço da NF Compra: R$ 2,25
+% ICMS: 12
+ICMS:  R$ 0,27
+Custo: R$ 2,25 - R$ 0,27 = 
+R$ 1,98 (Preço sem ICMS)
+Ao emitir a NF de Transferência temos:
+Preço Inicial: Custo = R$ 1,98
+ICMS = R$ 1,98 / (1 - 12/100) - R$ 1,98 = R$ 0,27
+Preço Final:
+ R$ 
+1,98 + 
+R$ 
+0,27 =
+ R$ 
+2,25 (Preço com ICMS)
+Custo Médio p/ NF Entrada
+:
+Configuração de Custos Médio para notas fiscais de Entrada. Este recurso é mais flexível, permitindo ao usuário definir como será a fórmula de cálculo e também a fórmula para tal. Vale reforçar que os campos deste quadro só serão habilitados quando a natureza de operação for do tipo Entrada. Vejamos:
+Forma de Cálculo:
+ definição do cálculo do custo médio, podendo ser:
+Automático:
+ com esta definição, o cálculo do custo médio será feito de forma automática, considerando: 
+Valor Unitário da Nota Fiscal + Frete Unitário da Nota Fiscal
+.
+Fórmula:
+ com esta definição, o cálculo do custo médio será definido pelo usuário através do Campo 
+Fórmula
+. Neste campo, a tela de 
+Auxiliar de Fórmula de Contabilização
+ ficará disponível para uso. É através dessa tela que o usuário deve montar a fórmula para o cálculo. Veja maiores informações no tópico de 
+Teste de Formulas
+.
+Custo NF Origem: e
+ssa opção tem impacto em notas de devolução exclusivamente, já que permite que o custo médio da nota de devolução seja o custo médio na data da Nota Fiscal de Venda vinculada. Para isso é importante que a Nota Fiscal esteja participando do CMV. 
+O sistema possibilita que o custo possa ser informado manualmente pelo usuário e que o valor do custo para determinada nota fiscal possa ser zerado. Para isso o usuário deve marcar as opções:
+Usuário informa custo manualmente:
+ com este perfil marcado, o sistema ignora se o tipo de cálculo é automático ou por fórmula e assumirá o valor que for lançado no momento do preenchimento da nota fiscal de entrada, no campo Custo Médio.
+Valor do custo pode ser zero:
+ com perfil marcado, o valor do custo médio para nota fiscal vinculada a essa natureza de operação, pode ser zerada, independente do tipo de cálculo.
+Em algumas UF, as operações de compra de etanol o ICMS Substituição é recolhido pela distribuidora e não é destacado na nota de compra pelo emitente. 
+No SisPetro, para calcular o CMV considerando o ICMS Substituição sem que esteja destacado na nota, foi necessário criar 2 funções para serem usadas no cálculo do custo médio unitário.
+Para as distribuidoras que tem essa situação, é necessário proceder:
+Incluir NATUREZAS DE OPERAÇÃO específicas para esse tipo de nota - operação interna e interestadual: emitente não destaca na nota e distribuidora recolhe o ICMS Substituição
+Incluídas as novas naturezas em aba POR FILIAL > aba Custos > quadro Custo Médio p/NF Entrada: 
+Campo FORMA DE CÁLCULO = selecione FÓRMULA
+Campo FÓRMULA: inclua a fórmula
+Exemplo de fórmula usando as funções GetPMPF e GetUFEmp:
+(((GetPMPF(<729>,<643>,<732>,GetUFEmp(<729>),<774>) - <774>) + IsNull(<810>,0)) * (<740>/100)) + <774>
+Onde:
+<729>
+ = ItensNF.CodEmpresa
+<643>
+ = NotaFiscal.DataMovto
+<732>
+ = ItensNF.CodProd
+<774>
+ = ItensNF.PrecoPedido
+<810>
+ = ItensNF.FreteUnitReal
+<740>
+ = ItensNF.AlicICMS
+Exemplo de fórmula usando as funções GetCIDENF,  PegaValorOutrosImpostos  e GetIINF para calculo do Custo médio  para Outros Impostos
+GetCIDENF (<556>,<557>,<731>) / <734>
+GetIINF (<556>,<557>,<731>) / <734>
+PegaValorOutrosImpostos (<556>,<557>,<731>,<32362>)
+Onde:
+<556>
+ = NotaFiscal.CodEmpresa
+<557>
+ = NotaFiscal.Sequencial
+<731>
+ = ItensNF.NumItem
+<734>
+ = ItensNF.Qtde
+<32362>
+=NotasFiscaisAux.CodOutImpIRRF
+GetCustoMedioNFTransf
+Para notas de Transferência de uma Empresa para outra no qual o Custo Médio da nota de saída tem que entrar com o mesmo valor na nota de entrada, Com essa formula ao entrar com a nota, o Sispetro vai localizar sozinho o Custo da Nota de Saída pela chave de acesso. Caso a formula seja configurada após a inclusão da nota basta rodar a ferramenta de Atualização de Custo Médio. Para mais informações, ver 
+Atualização de Custo Médio
+Exemplo de fórmula usando a função 
+GetCustoMedioNFTransf
+ que permite que a nota de entrada tenha o mesmo custo médio da nota de 
+saída. O Get tem que ser colocado na formula da Natureza de Entrada
+GetCustoMedioNFTransf(<729>,<730>,<731>)
+Onde:
+<729>
+ = NotaFiscal.CodEmpresa
+<730>
+ = NotaFiscal.Sequencial
+<731>
+ = ItensNF.NumItem
+GetCustoMedioNFVin
+c
+Outra função que foi desenvolvida é para notas de  Empréstimos, etc., no qual o Custo Médio da nota de saída tem que entrar com o mesmo valor na nota de entrada, lembrando que a nota de entrada tem que ser vinculada a nota de saída. Caso o vinculo seja posterior a entrada da nota é necessário rodar a 
+Atualização de Custo Médio
+Exemplo de fórmula usando a função 
+GetCustoMedioNFVin
+c que permite a nota de entrada tenha o mesmo custo médio da nota de 
+saída. O Get tem que ser colocado na formula da Natureza de Entrada
+GetCustoMedioNFVinc(<729>,<730>,<731>)
+Onde:
+<729>
+ = NotaFiscal.CodEmpresa
+<730>
+ = NotaFiscal.Sequencial
+<731>
+ = ItensNF.NumItem
+Os campos numéricos SÃO APENAS EXEMPLOS. Em cada banco de dados os mesmos campos PODEM ter números diferentes. Assim, atentem para OS NOMES DOS CAMPOS e AS TABELAS UTILIZADAS.
+Atualiza Custo Médio ao fechar Custo na origem:
+ em notas de 
+transferência entre filiais
+, com esse perfil marcado, o SisPetro cria um Job para atualizar o custo da nota de entrada. Para mais informações, ver 
+Atualização de Custo automática na Transferência de Produtos entre Filiais no mesmo Banco de Dados

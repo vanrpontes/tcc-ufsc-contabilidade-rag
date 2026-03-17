@@ -1,0 +1,31 @@
+TITULO: Movimento Estoque Base
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899766
+--------------------------------------------------
+Esta tela fornece um resumo dia a dia do movimento da base mostrando ainda o detalhamento de cada dia.
+Pode-se filtrar por deposito, produto e período, porém não filtra por empresa mostrando a movimentação de todas as empresas, pois a abertura da base também não é feita por empresas. Também é possível filtrar se deseja mostrar ou não as entradas e saídas pelo volume programado ou pelo volume real. Essa opção pode ser padronizada no perfil do Sistema , vide explicação logo abaixo.
+Calcula ainda a diferença entre a abertura somada aos movimentos ocorridos no dia (isto é o saldo final teórico) com a abertura do dia seguinte (nas últimas colunas).
+Mostra também os detalhes de cada dia, informando as notas fiscais relacionadas com cada movimento (no detalhe).
+Existem duas maneiras de consultar a tela de movimento da base. A primeira, é para as empresas que trabalham somente com a Leitura de Abertura de Tanque.
+É possível imprimir ou exportar para Excel as informações apresentadas na tela, através dos botões 
+Imprime e Exporta.
+As informações geradas por esta tela são as seguintes: 
+Abertura (amb/20c), Descargas ou Bombeios (Entradas amb/20c), Perda / Sobra (diferença entre o informado e apurado isto é no momento da entrada da NF e da apuração é calculada esta diferença assim como no processo de bombeio) esta coluna não é somada a nada, Carregamentos (Saídas amb/20c), Ajustes (amb/20c), Saldo Final (amb/20c) vindo da soma da abertura mais movimentos, diferenças (compara o saldo final com a abertura inicial do dia seguinte ou posterior)
+.
+A segunda maneira de consultar é para as empresas que trabalham com a Abertura e Fechamento de Leitura de Tanque, que depende de configurações no perfil do Sistema para obter colunas com as leituras de fechamento de tanque e com a diferença entre a abertura do dia e o fechamento do dia anterior. Essas configurações podem ser habilitadas em Menu 
+Ferramentas / Sistema / Estoque / 
+Tela Consulta Movimento Estoque Base
+Mostra coluna Perda/Sobra:
+ opção de visualizar ou não as colunas Perda/Sobra de bombeio. Essa opção independe da maneira que a empresa trabalha, se é somente com Fechamento ou se é Abertura e Fechamento de Leitura de Tanque.
+Mostra coluna Leitura Fechamento de Tanque:
+ opção de visualizar ou não a coluna de Leitura de Fechamento de Tanque. E com essa opção marcada automaticamente é mostrada as colunas com a Diferença entre a Abertura do dia e o Fechamento do dia anterior.
+Mostra entradas e saídas pelo volume programado:
+ opção padrão de mostrar os carregamentos e descarga através do volume programado ao invés do volume real.
+Continuação:
+Outras informações geradas por esta tela são as seguintes quando existe leitura de abertura e fechamento de tanque: Saldo Final (amb/20c) é a soma das colunas Abertura e Descarga menos Carregamento e mais os Ajustes, Diferença (amb/20c) compara o Fechamento com o Saldo Final e a coluna Diferença (amb/20c) Fechto/Abertura é a diferença da Abertura do dia com o Fechamento do dia anterior.
+A aba de detalhes mostra detalhadamente os dados da movimentação física e a Nota Fiscal correspondente.
+A partir da versão 9.7 é possível realizar o filtro somente das movimentações realizada por produção ou todas as movimentações.
+O tipo de movimentação é definido se é produção ou não a partir do perfil '
+Indica que é Movimento de Produção
+' que fica no 
+Histórico Padrão
+ que foi utilizado na movimentação.

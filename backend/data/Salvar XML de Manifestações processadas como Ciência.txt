@@ -1,0 +1,30 @@
+TITULO: Salvar XML de Manifestações processadas como Ciência
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924283881
+--------------------------------------------------
+Depois de feita a Manifestação como Ciência, é possível salvar o XML desta NF para agilizar o processo de importação.
+Para informações sobre como realizar a ciência e outros tipos de manifestações, veja o help 
+ e 
+Evento de Manifestação do Destinatário da NFe
+Para que isso seja feito corretamente é necessário configurar as pastas onde serão salvos os XMLs. Veja mais informações em 
+XML´s Recebidos
+.
+Configurada as pastas e feito a Ciência, é 
+preciso fazer uma nova Consulta de Destinatário
+ para que o SisPetro possa sincronizar, junto a SEFAZ, os XMLs que precisam ser baixados.
+Depois de feita a nova consulta, são retornadas as NFs que tiveram seu Status alterado, desde a última consulta. 
+Neste exemplo apenas uma NF teve seu status alterado. Foi justamente a NF que foi dado a Ciência. Veja que, por todas as pastas para salvar os arquivos .XML estarem configurados, ao realizar a nova pesquisa
+o arquivo já foi salvo. Foi criada a coluna "Status XML NFe" que mostra ao usuário se foi salvo ou não. Veja abaixo mais informações.
+ 
+Coluna Status XML NFe
+Foi criada para indicar ao usuário se o arquivo XML, referente as NF de manifestação, foram salvos ou não. Pode ter três informações:
+Não tem XML da NF-e
+: Significa que o SisPetro não baixou o arquivo. Pode ser por que a NF ainda não foi manifestada ou porque a empresa não tem configuração para salvar XML.
+XML Salvo
+: Significa que o XML foi salvo na pasta indicada no Servidor Sispetro.
+Pasta onde será salvo o XML não localizada
+: Significa que a pasta indicada no Servidor SisPetro não foi encontrada. Pode ter sido alterado o nome ou a mesma foi removida. É preciso verifica-la.
+Em resumo, para o SisPetro salvar o XML da NF que foi dada a Ciência, é preciso:
+Indicar as pastas onde serão salvos os XMLs no Servidor SisPetro
+Fazer a ciência das NFs
+Fazer uma nova consulta de destinatário
+Verificar se o XML foi salvo.

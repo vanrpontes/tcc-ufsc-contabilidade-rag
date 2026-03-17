@@ -1,0 +1,65 @@
+TITULO: NF com mais de um CFOP / Natureza de Operação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2907309237
+--------------------------------------------------
+O Sispetro, em sua concepção inicial, partiu do princípio que os itens de uma Nota Fiscal teriam o mesmo CFOP. Com isso o CFOP é salvo na Nota e não em seus itens. Isso porque notas de combustíveis geralmente são assim. Mas com o passar do tempo foram surgindo notas de outros segmentos, recebidas na Distribuidora, que possuíam mais que um CFOP. A solução na época foi incluir a NF em partes. Seria incluída uma NF com um CFOP e o(s) item(ns) deste CFOP, depois se incluía novamente a mesma NF, porém com o outro CFOP (consequentemente com outra Natureza de Operação) e com o(s) item(ns) desse outro CFOP. Como o Sispetro normalmente impede NF com numeração duplicada, foi criado uma opção na Natureza de Operação para permitir NF duplicada. Com isso, somente em algumas naturezas se permitia a duplicação.
+Além dessas NFs com mais de um CFOP serem comuns, as obrigações fiscais também consideram essa situação, como Sintegra e SPED. No Sintegra, há muito tempo atrás foi implementado um recurso para agrupar essas NFs e apresentar como se fosse uma única NF, mas no SPED o caso é mais complicado. O SPED EFD tem muitos registros decorrentes de uma NF. E para evitar que as informações das NFs sejam duplicadas no SPED o Sispetro disponibiliza de um recurso que permite 
+agrupar as Notas Fiscais duplicadas. 
+Sem dúvida, existem algumas regras e configurações para tornar esse recurso funcional, descreveremos à partir de agora nesse tópico.
+ 
+A partir da versão 9.23 é possível realizar a validação da CFOP em notas duplicadas, assim permitindo realizar a emissão da nota duplicada caso a CFOP seja diferente. Veja mais detalhes em 
+Controle de duplicidade de número de Nota Fiscal
+.
+Pré-requisitos
+O único pré-requisito é que o usuário tenha permissão de incluir NFs duplicadas, para mais detalhes veja no tópico 
+Controle de duplicidade de número de Nota Fiscal
+.
+Operando o Sistema
+Temos na NF dois campos, que podem ser visualizados na Manutenção de NFs aba Notas Fiscais:
+NF Duplicada SPED?
+: que estará marcado em todas as NFs duplicadas (inclusive a primeira NF incluída)
+Seq. NF principal
+: que indicará a primeira NF (Principal) em todas as NFs duplicadas, a partir da segunda NF
+Ao fazer uma NF, o Sispetro já faz uma verificação se a NF já existe. Logo após essa verificação, sendo duplicada, ele localizará a NF com mesmo
+ Número, Série, Data e Entidade.
+ Encontrando, salvará o Sequencial da NF principal nesta NF que está sendo incluída e a marcará como "NF Duplicada". Na NF principal alterará para NF Duplicada.
+ 
+No exemplo abaixo, poderemos observar 5 NFs com a mesma numeração, data e entidade, o que faz com que as mesmas sejam consideradas duplicadas, note que a NF do sequencial 5524 é a NF Principal.
+ 
+Para ver mais detalhes, acesse a Aba 
+Diversos
+ 
+\ NFs Duplicadas
+:
+ 
+Nessa tela veremos dois quadros, sendo 
+Nota Fiscal Principal
+ e 
+Notas Fiscais Associadas.
+Em Nota Fiscal Principal será mostrado os valores da Nota Principal somados aos de todas as associadas.
+Por exemplo, no campo Valor será exibido a soma dos valores de todas as notas associadas mais a nota principal:
+Valor Nota Fiscal Principal R$12.500,00 + Soma dos valores das Notas Associadas R$46.568,75
+TOTAL a ser exibido no campo valor R$59.068.75
+A aba 
+Itens
+ exibirá detalhes de todos os itens (inclusive a Nota Principal)
+ 
+ Caso deseje, será possível Desfazer e Refazer as Associações entre as NFs, para isso utilize os botões 
+Vincular NF
+ e 
+Desvincular NF
+.
+Para Desvincular, posicione na NF desejada e selecione o Botão Desvincular NF, será exibida uma mensagem de confirmação.
+Para Vincular, selecione o Botão Vincular NF, será exibida a tela abaixo:
+Marque o campo 
+Duplicada?
+ a NF que deseja duplicar e selecione 
+OK
+.
+Apenas NFs que atendam as regras de vínculo serão exibidas. Que tenham o mesmo 
+Número, Série, Data e Entidade.
+Esse recurso poderá ser utilizado para vincular notas antigas (Inseridas no Sistema antes da versão 7.27).
+ 
+Outros Exemplos
+ 
+ 
+ 

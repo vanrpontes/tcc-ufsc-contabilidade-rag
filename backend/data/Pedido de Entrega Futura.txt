@@ -1,0 +1,56 @@
+TITULO: Pedido de Entrega Futura
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924282988
+--------------------------------------------------
+O Pedido de Venda de Entrega futura funcionará como um Contrato de Venda, onde terá uma nota mãe (com a quantidade total do pedido) e as notas filhas (as retiradas parciais). Veja mais abaixo o fluxograma.
+Para que seja possível trabalhar com Venda de Entrega futura é necessário configurar alguns perfis, são eles: VEF 
+Perfil de Empresa, 
+Painel Vendas
+Emite Pedido de Vendas com Tipo de Operação diferenciado - 
+Este liberará alterar o Tipo de Operação, na inclusão do Pedido de Venda.
+Momento da liberação do contrato de Venda - Entrega Futura 
+Na inclusão da NF VEF: 
+Ao ser incluída a Nota Fiscal VEF ou seja, a nota fiscal do Pedido de Venda de Entrega Futura, o contrato de venda já estará disponível para ser utilizado.
+Ao quitar títulos da NF VEF: 
+Será preciso baixar o Nota Fiscal VEF, em sua totalidade, para que assim o contrato de venda esteja disponível.
+Perfil de Usuário, 
+Painel Vendas 
+Pode trocar Tipo de Operação no Pedido de Venda
+Deixará o usuário alterar o Tipo de Operação, se a empresa estiver configurada para trabalhar desta maneira.
+O Pedido de Venda de Entrega Futura é dividido em duas partes:
+Pedidos de Venda de Entrega Futura, 
+VEF
+Pedidos de Retiradas de Entrega Futura,
+ REF
+Veja abaixo as características do Pedido de Venda de Entrega Futura (VEF) e Pedidos de Retiradas de Entrega Futura (REF)
+Venda de Entrega Futura (VEF)
+Este será o pedido que contemplará a quantidade total, preço unitário, valor de frete (se houver). Depois de faturado não será possível alterar quantidade, preço e demais valores deste pedido. Como este não gerará nenhum carregamento, 
+não deverá ser emitida Ordem de Carregamento.
+O Pedido deverá ter um item. 
+A princípio, não será permitido pedidos VEF com mais de um item.
+Não poderá ser vinculado a nenhum contrato de venda, pois este gerará, automaticamente.
+Recomendamos que este pedido não movimente estoque, pois pedidos do tipo REF, terão Ordem de Carregamento e assim movimentarão. Porém o sistema respeitará a configuração da Natureza de Operação, se estiver configurada para movimentar, então o SisPetro movimentará.
+Para este pedido será permitido apenas uma única Nota Fiscal.
+Retirada de Venda de Entrega Futura (REF)
+Estes serão os pedidos referentes as entregas parciais dos clientes. Seguirão o fluxo normal de um Pedido de Venda. 
+Deverão ser vinculados ao contrato de venda, gerado pelo Pedido VEF. 
+Emissão do Pedido de Venda VEF ou REF.
+Para emissão veja o help 
+Inclusão de pedidos VEF e REF
+Consulta de Contrato de Venda
+Para consultar o saldo dos Contratos de Vendas 
+Contrato de Venda
+. Veja a legenda para cada tipo de contrato.
+Exemplo de Funcionamento:
+Abaixo serão explicadas as particularidades dos pedidos VEF e REF. Será ilustrado um exemplo de utilização dos dois tipos para ficar mais clara a explicação.
+Cliente fechou um contrato de 1.000.000 de litros com preço de R$ 1,00 como deverá ser feito no SisPetro?
+Criar um Pedido de Venda de Entrega Futura (VEF) com quantidade de 1.000.000 de litros e preço R$ 1,00.
+Aprovar o Pedido.
+Emitir a Nota Fiscal VEF, deverá ser no valor total de pedido e com quantidade total.
+Veja a forma como a empresa trabalhará, com relação a liberação do Contrato de Venda
+. (veja no Fluxograma abaixo)
+Depois de liberado o contrato de venda, os Pedidos do tipo REF poderão ser emitidos.
+Pedido do tipo REF seguem o mesmo fluxo dos pedidos de vendas normais. Devem ser aprovados, emitida a Ordem de Carregamento e posteriormente são faturados.
+As particularidades deste é que:
+Obrigatoriamente devem ser vinculados ao contrato de Venda gerado, anteriormente.
+Não será permitido alterar quantidade, preço e valor de frete (se houver)
+REF e VEF

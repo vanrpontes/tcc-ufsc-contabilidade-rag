@@ -1,0 +1,34 @@
+TITULO: Alterar a I.E. no layout do DANFE
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2886336625
+--------------------------------------------------
+Histórico
+O campo Inscrição Estadual deve conter os dados da nota fiscal. Acontece que na geração do XML isto já está sendo feito, porém ao gerar o imprimir o danfe a informação trazida é a inscrição estadual da entidade.
+Objetivo
+Alterar o conteúdo de um campo do layout do danfe.
+Solução
+1.
+ Acessar o layout do Danfe:
+Menu Ferramentas/ Sistema/ aba Nota Fiscal
+Localizar no quadro de NF-Eletrônica o campo 
+Caminho de arquivo de layout do Danfe
+ 
+Clicar no botão 
+Edita Layout do Danfe
+ 
+2.
+ Na tela de Edição do layout do Danfe
+ 
+Localize o quadro da Inscrição Estadual
+ 
+No quadro de Inscrição Estadual, selecione o objeto abaixo chamado IE e do tipo DBText
+No quadro do condutor de dados, selecione o pipeline desejado.
+Para pegar a IE utilizada na Nota Fiscal, selecione o pipeline 
+NF
+.
+Verifique se o campo do condutor de dados é o IE
+ 
+Para o campo IE selecionado, o condutor de dados deverá ficar igual a imagem abaixo:
+ 
+Salve as alterações feitas no layout do Danfe
+Menu Arquivo/ Salvar
+Sair da tela de Edição do Layout do Danfe com as alterações efetuadas e testar o novo conteúdo através da emissão da NF-Eletrônica.

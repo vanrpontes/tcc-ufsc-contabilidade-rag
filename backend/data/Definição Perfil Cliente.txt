@@ -1,0 +1,129 @@
+TITULO: Definição Perfil Cliente
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927266754
+--------------------------------------------------
+Abaixo detalhamos os perfis que podem ser definidos para o SispetroWeb/SispetroApp.
+Para acessar esta tela, acesse o 
+SispetroMon / SispetroWeb / Definição Perfil Cliente:
+Tela inicial:
+ a tela inicial que o cliente terá acesso no logon do SispetroWeb/SispetroApp.
+Tela Cliente
+: ao logar no SispetroWeb/SispetroApp, será apresentada a tela de dados de clientes
+Tela Estoque:
+ ao logar no SispetroWeb/SispetroApp, será apresentada a tela de consulta resumida de estoque
+Perfil Cliente SispetroWeb
+: é possível definir se o cliente a acessar o SispetroWeb/SispetroApp tem perfil de Congênere ou Perfil de Posto Revenda ou se Ambos.
+Congênere
+: apresentará os menus de Dados Clientes (notas fiscais), Tabelas (transportadoras e frotas), Ordem de Carregamento, Estoque e Base.
+Posto Revenda
+: apresentará os menus de Dados Clientes (dados clientes, notas fiscais e títulos) e Pedidos
+Ambos
+: visualizará todos os menus.
+Visualização Fila Entrada Base:
+ pode definir se o acesso será somente realizado através do SispetroWeb/SispetroApp (com usuário e senha) ou livre, onde o acesso pode ser feito sem autenticação de usuário e senha. Neste caso, através de link a ser fornecido pela empresa:
+Exemplo:
+Link do SispetroWeb/SispetroApp/portaria: se o acesso ao SispetroWeb/SispetroApp é 
+www.distribuidora.sispetro.com.br,
+ o acesso a Consulta da Fila será 
+www.distribuidora.sispetro.com.br/portaria
+.
+Observação:
+ no Sispetro Normal (perfil de usuário), caso o perfil 
+Pode visualizar fila de entrada na base
+ do (painel Carregamento) estiver habilitado, o usuário terá acesso a 
+Fila Entrada Base
+, caso contrário não.
+Código Depósito Fila Entrada Base (quando livre): 
+é possível definir o código do depósito da armazenadora.
+OC Visualização Colunas Temperatura/Densidade:
+ permite que sejam exibidas ou não as colunas de temperatura e densidade dos produtos na OC.
+OC Visualização Informação Bocas
+: permite que seja exibido ou não as informações de bocas na OC.
+OC Visualização Rodapé Assinaturas
+: permite que sejam exibidos campos específicos para assinatura do usuário do drive, do operador e do motorista.
+OC Visualização Produtos Primários
+: permite que sejam exibidos o detalhamento da composição dos produtos (produtos primários com suas respectivas quantidades).
+Todos os perfis de OC referem-se tanto a visualização quanto a impressão da OC.
+Layout Comprovante Carga e Descarga
+: permite que seja definido de onde o SispetroWeb/SispetroApp buscará o layout de impressão do comprovante de Carga e de Descarga, que pode ser diretamente do SispetroWeb/SispetroApp (padrão) ou do SisPetro Normal, onde utilizará o rtm definido na tela de configuração de empresas 
+.
+Layout Ordem Carregto
+: permite que seja definido de onde o SispetroWeb/SispetroApp buscará o layout de impressão da Ordem de Carregamento, que pode ser diretamente do SispetroWeb/SispetroApp (padrão) ou do SisPetro Normal.
+Para que o SispetroWeb/SispetroApp utilize o rtm da OC definida no SisPetro Normal, são necessárias mais 2 configurações:
+1 - Na tela de 
+Manutenção de Depósitos
+ - Menu: Arquivo > Depósitos > Painel 
+OC 
+> na 
+Empresa 
+selecionada, devemos configurar o 
+diretório
+ e 
+nome do
+ 
+arquivo
+ da 
+OC
+ no campo:  
+Nome Arquivo Layout Ordem Carregto:
+Para que seja possível utilizar o Layout de Ordem de Carregamento do SisPetro Normal no SispetroWeb/SispetroApp, é necessário que o campo 
+Tipo Formulário
+ configurado no 
+Depósito
+ do SisPetro Normal esteja configurado como: 
+Pipeline Extendido 
+e o layout da OC deve estar preparado para ser utilizado com o pipeline extendido.
+2 - Também se faz necessário a configuração do campo: 
+Pasta RTMs
+ nas 
+Configurações Gerais 
+do 
+ no qual também devemos informar o 
+diretório
+ onde encontram-se os arquivos de 
+OC
+ que serão utilizados, conforme exemplo abaixo:
+Para mais informações sobre como habilitar o WebService, acesse 
+Manutenção do Monitoramento Servidor Sispetro
+.
+Pedido Venda - Edição Transportadora (entrega)
+: permite que seja definido se os usuários que incluem pedido de venda via SispetroWeb/SispetroApp podem alterar a transportadora, quando o tipo de frete for "Entrega".
+Layout Boletim Conformidade
+: permite que seja definido de onde o SispetroWeb/SispetroApp buscará o layout de impressão do Boletim de Conformidade, que pode ser diretamente do SispetroWeb/SispetroApp (padrão) ou do SisPetro Normal, onde será o rtm definido na tela de configuração de empresas 
+.
+Página inicial
+: permite que o administrador possa definir o acesso a página inicial da interface web a ser utilizada, conforme as opções abaixo: 
+SispetroWeb
+: selecionando essa opção, será apresentada a interface web do SispetroWeb na tela de login
+SispetroApp:
+ selecionando essa opção, se acessarmos o endereço do SispetroWeb, será apresentada uma mensagem de redirecionamento para a interface web do SispetroApp, exemplo:
+ 
+Em Manutenção:
+ selecionando essa opção, a interface web apresentará uma mensagem informando que o SispetroWeb e ou SispetroApp encontram-se em manutenção (isso ocorrerá por exemplo quando a atualização estiver sendo realizada), exemplo:
+Web:
+App:
+Layout Pedido Venda (normal)
+: permite que seja definido de onde o SispetroWeb/SispetroApp buscará o layout de impressão do Pedidos de Venda Normal, que pode ser diretamente do SispetroWeb/SispetroApp (padrão) ou do SisPetro Normal (via rtm).
+Layout Pedido Venda (spot)
+: permite que seja definido de onde o SispetroWeb/SispetroApp buscará o layout de impressão do Pedidos de Venda SPOT, que pode ser diretamente do SispetroWeb/SispetroApp (padrão) ou do SisPetro Normal (via rtm).
+Tipo Distribuição Cpts Auto Atendimento: 
+permite configurar os passos para utilização do Auto Atendimento, onde temos:
+         - 
+Sem distribuir compartimentos antes lacres:
+ selecionando essa opção, os lacres e envelopes são informados antes da distribuição dos compartimentos e o AutoAtendimento leva em consideração o número total de compartimentos dos frotas informados.
+         - 
+Distribui compartimentos antes de mostrar lacres:
+ nessa opção, o AutoAtendimento distribui os pedidos escolhidos nos compartimentos e o usuário informa os lacres após esta distribuição. Serão mostrados os compartimentos e o usuário inclui os lacres para cada compartimento. 
+A tela de envelopes segue a mesma regra. No final, aparece a tela de resumo onde ele pode alterar o que quiser. Quando o usuário não vai utilizar todos os compartimentos, este tipo de processamento é vantajoso pois ele terá de colocar somente os lacres e envelopes dos compartimentos realmente utilizados.
+         - 
+Distribui compartimentos e os mostra antes de mostrar lacres:
+ na última opção, o AutoAtendimento mostra a tela de compartimentos (com a distribuição sugerida) antes de mostrar os lacres e envelopes. O usuário tem condição de, antes de informar os lacres e envelopes, alterar os compartimentos para, então, informar os lacres e envelopes. Ao final, como sempre, aparece a mesma tela de resumo onde ele pode alterar tudo. A vantagem nesta configuração é que o usuário pode alterar a compartimentação sugerida antes de informar os lacres e envelopes.
+Exibe produtos tela portaria (display):
+ responsável por exibir ou inibir os produtos na 
+tela consulta da portaria de entrada display
+URL host SispetroApp:
+ aqui devemos informar o endereço do SispetroWeb para utilização junto ao SispetroApp.
+Importante salientar que os acessos aos menus, mesmo que o perfil esteja definido corretamente, deve ser revisto e os acessos liberados via SisPetro - Cadastro de usuários. Para mais informações, ver 
+Perfil de Usuário
+.
+Após alterações, deve-se resetar o SispetroWeb. Para mais informações, ver item 4 do 
+.

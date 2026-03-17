@@ -1,0 +1,97 @@
+TITULO: Posição de PMM
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899744
+--------------------------------------------------
+A Consulta Posição de PMM apresenta a posição atual do PMM, e seu extrato de movimentação, financeiro e cota do PMM selecionado. É útil para acompanhamento de contratos, como os da Petrobrás e de Usinas.
+Esta consulta se encontra no Menu 
+Consulta / Estoque /
+ 
+Posição de PMM
+:
+ 
+Na parte esquerda da tela, são apresentados os PMM's e os campos para filtro.
+Podem ser consultados PMM's do tipo pendentes, encerrados ou todos, escolhendo a opção pelo campo 
+Exibir
+:
+A opção 
+Pendentes
+ não habilita o campo 
+Período
+.
+No painel 
+Filtro Adicional
+ há mais campos para filtro, possibilitando um refinamento da consulta.
+Atenção: esse filtro adicional é armazenado no arquivo .ini (de configurações) do usuário toda vez que este sai da tela. Assim, ao entrar novamente na tela o filtro adicional será conforme a última utilização. Então, sempre confira o filtro adicional para identificar que tipo de dados estão sendo apresentados.
+Para exibir os dados, clique no botão 
+.
+ Os dados do painel 
+PMM's
+ pode ter a distribuição das colunas personalizadas pelo usuário. Para restaurar o layout padrão oferecido pelo SisPetro, clique no botão 
+.
+Na parte superior direito da tela, são apresentadas as informações do PMM selecionado.
+Na parte inferior direito da tela, são apresentados os painéis 
+Extrato Movimentação
+, 
+Extrato Financeiro
+ e 
+Cota
+, detalhando as transições do PMM em cada painel .
+Extrato Movimentação
+Apresenta os lançamentos de movimentações feitas para o PMM, como Ordem de Carregamento, Confirmações de Pedido de Bombeio e Notas Fiscais.
+Caso seja feita uma Ordem de Carregamento para este PMM e ela ainda não tenha sido faturada, será apresentada a quantidade desta Ordem de Carregamento, que significa a quantidade em 
+Trânsito
+. Porém, se ela já foi faturada, ela não será mais apresentada, mas sim a quantidade da Nota Fiscal, que representa a quantidade 
+Faturada
+.
+Com a confirmação de Bombeio é similar, se ainda não houve o vínculo da Nota da Petrobrás com o Bombeio, a confirmação de bombeio é apresentada, sendo a quantidade em 
+Trânsito
+. Porém, após o vínculo, a Nota é então apresentada, representando a quantidade 
+Faturada
+.
+O Campo 
+Docto.
+ dependendo do tipo de PMM será preenchido com uma informação diferente, veja a tabela:
+Descrição
+Docto.
+Nota Fiscal de Compra
+Nº da NF
+OC de Transferencia entre Depositos
+Nº da OC
+Confirmação de Bombeio
+Sequencial Bombeio
+ 
+Extrato Financeiro
+Apresenta os lançamentos de adiantamentos pendentes e baixas do contas a pagar.
+Somente o saldo dos adiantamentos pendentes é apresentado. Abrange os 
+Adiantamentos quantificados de Fornecedor
+ feitos especificamente para o produto ou 
+Adiantamentos de Fornecedor
+ que não sejam quantificados.
+Neste último caso, se o PMM tiver mais que um item, o saldo do Adiantamento é apresentado para todos os itens do PMM.
+Além dos saldos de adiantamentos, são apresentadas as baixas de títulos do Contas a Pagar referentes a Notas envolvidas com PMM:
+Notas que durante a inclusão foram vinculadas a um PMM cujo recebimento é Direto do Fornecedor (geralmente compra de materiais para almoxarifado).
+Notas geradas a partir de Ordem de Carregamento de Transferência Entre Depósitos, cuja OC tenha sido vinculada ao PMM (geralmente compra de Usina).
+Notas geradas a partir de Ordem de Carregamento de Transferência Entre Filiais, cuja OC tenha sido vinculada ao PMM (geralmente Transferências).
+Notas de Bombeio, que foram associadas a uma Confirmação de Bombeio que possuía vínculo com PMM (geralmente Notas da Petrobrás)
+ 
+Cota
+Apresenta o controle de cota do PMM (se configurado que controla por cota) e a situação atual em cada lançamento.
+ 
+Algumas funcionalidades da consulta:
+Os círculos em vermelho, são botões que expandem a visualização do painel na tela.
+ Os círculos em azul, ao clicar neles, exibe uma lista de campos disponíveis para serem exibidos em seus respectivos grids, marcando ou desmarcando-os.
+Os lançamentos apresentados em cada painel (Extrato Movimentação, Extrato Financeiro ou Cota) podem ser impressas clicando no botão 
+.
+ Somente serão impressas o painel que estiver posicionado.
+Contrato de Venda Vinculados
+Uma distribuidora de Combustível pode fazer um contrato de Compra com um Fornecedor e ao mesmo tempo fazer um Contrato de Venda com um Cliente. Nessa consulta é possível visualizar o controle dos 
+Contratos de Vendas
+:
+ 
+Pagtos. Vinculados
+Apresenta todos os pagamentos vinculados ao PMM, seja ele, Adiantamento, Pagamentos de Títulos e Despesas de Importação.
+Etapas
+Apresenta as Etapas vinculados ao PMM .
+ 
+Entradas
+Apresenta as entras(Transferências/Devoluções) realizadas para o PMM selecionado.
+ 

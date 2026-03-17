@@ -1,0 +1,185 @@
+TITULO: Seleção automática de Natureza de Operação para CT-e via Transformação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4466409473
+--------------------------------------------------
+Objetivo
+Automatizar a seleção de natureza de operação na inclusão de CT-e na importação via serviço através de transformação.
+Hoje o processo de importação de CT-e possibilita aplicar o De/Para através do CFOP, porém as distribuidoras possuem operações distintas que utilizam o mesmo CFOP, mas são escrituras em naturezas diferentes para atender necessidades contábeis. 
+Com base na situação citada acima, apenas o De/Para não será suficiente, com recurso de transformação, em conjunto com as funções 
+GetTipoNFVinc_Imp e
+ 
+GetNFVinc_ImpEhCombustivel, 
+o SisPetro irá identificar o tipo da NF-e e tipo de produto referenciados no CT-e e transformará a Natureza do De/Para padrão para a Natureza Correta.
+Para isso faremos 3 exemplos de Operações:
+Frete Transferência/Coleta dentro e fora do estado
+Para CT-e de compras e transferências
+Frete CIF 
+dentro e fora do estado
+Para CT-e de vendas
+Frete Diversos 
+dentro e fora do estado
+Para CT-e de materiais de uso e consumo e equipamentos 
+No exemplo que iremos utilizar, teremos apenas duas naturezas de operações cadastradas no De/Para 
+F01 - Fretes (DE) e F02
+ - Fretes (FE), 
+toda vez que um CT-e for importado via serviço, o SisPetro irá verificar o CFOP e irá direcionar para uma das naturezas padrões.
+ATENÇÃO
+Os códigos de natureza de operação utilizados como exemplo devem ser substituídos de acordo com os códigos de operações cadastrados no SisPetro do cliente.
+FRETE COLETA TRANSF (DE)
+Toda vez que for importado um CT-e cujo a NF-e referenciada for compras, 
+transferências
+ de combustíveis, dentro do estado o SisPetro deve incluir com a natureza, 
+F01 - Fretes (DE)
+, 
+para isso devemos cadastrar uma regra de transformação para que essa operação se diferencie das demais. Para mais informações, ver 
+Transformação para Importação de NF
+.
+Incluir uma regra para tipo de NF =CT-e, determine em qual filial será aplicada.
+ 15
+REGRA
+sql
+Exemplo de regra
+true
+GetTipoNFVinc_Imp (NotaFiscal_Imp.SeqNFImp) in ('OE','CP') and  GetNFVinc_ImpEhCombustivel(NotaFiscal_Imp.SeqNFImp)=1
+A regra acima, verifica através da função 
+Função GetTipoNFVinc_Imp
+ se o Tipo da NF-e referênciada ao CT-e é 
+OE (Outras Entradas) ou CP (Compras), 
+em conjunto com a função 
+Função GetNFVincEhCombustivel
+, verifica se o produto é combustivel.
+Incluir campo e valor conforme a imagem.
+CAMPO E VALOR
+A regra manterá a Natureza que determinamos para operação de Coleta e Trasnferência dentro do Estado, 
+Natureza de Operação F01
+.
+FRETE COLETA TRANSF (FE)
+Toda vez que for importado um CT-e cujo a NF-e referenciada for compras, 
+transferências
+ de combustíveis, fora do estado o SisPetro deve incluir com a natureza, 
+F02
+ - Fretes (FE), 
+para isso devemos cadastrar uma regra de transformação para que essa operação se diferencie das demais. Para mais informações, ver 
+Transformação para Importação de NF
+.
+Incluir uma regra para tipo de NF =CT-e, determine em qual filial será aplicada. 
+REGRA
+sql
+Exemplo de regra
+true
+GetTipoNFVinc_Imp (NotaFiscal_Imp.SeqNFImp) in ('OE','CP') and  GetNFVinc_ImpEhCombustivel(NotaFiscal_Imp.SeqNFImp)=1
+A regra acima, verifica através da função 
+Função GetTipoNFVinc_Imp
+ se o Tipo da NF-e referênciada ao CT-e é 
+OE (Outras Entradas) ou CP (Compras), 
+em conjunto com a função 
+Função GetNFVincEhCombustivel
+, verifica se o produto é combustivel.
+Incluir campo e valor conforme a imagem.
+CAMPO E VALOR
+A regra manterá a Natureza que determinamos para operação de Coleta e Trasnferência Fora do Estado, 
+Natureza de Operação F02
+.
+FRETE CIF (DE)
+Toda vez que for importado um CT-e cujo a NF-e referenciada for venda de combustíveis, dentro do estado o SisPetro deve incluir com a natureza, 
+F03
+ - Fretes CIF (DE), 
+para isso devemos cadastrar uma regra de transformação para que essa operação se diferencie das demais. Para mais informações, ver 
+Transformação para Importação de NF
+.
+Incluir uma regra para tipo de NF =CT-e, determine em qual filial será aplicada. 
+REGRA
+sql
+Exemplo de regra
+true
+GetTipoNFVinc_Imp (NotaFiscal_Imp.SeqNFImp) ='VD' and  GetNFVinc_ImpEhCombustivel(NotaFiscal_Imp.SeqNFImp)=1 and NotaFiscal_Imp.codnatop='F01'
+A regra acima, verifica através da função 
+Função GetTipoNFVinc_Imp
+ se o Tipo da NF-e referênciada ao CT-e é 
+VD (Vendas), 
+em conjunto com a função 
+Função GetNFVincEhCombustivel
+, verifica se o produto é combustivel, por fim faremos o filtro que pega o campo da natureza utilizada no De/Para para identificar se é operação é dentro do Estado.
+Incluir campo e valor conforme a imagem.
+CAMPO E VALOR
+A regra transformará a Natureza padrão do De/Para, para a natureza que determinamos para operação de Frete CIF dentro do estado, 
+Natureza de Operação F03
+.
+FRETE CIF (FE)
+Toda vez que for importado um CT-e cujo a NFe referenciada for venda de combustíveis, fora do estado o SisPetro deve incluir com a natureza, 
+F04
+ - Fretes CIF (FE), 
+para isso devemos cadastrar uma regra de transformação para que essa operação se diferencie das demais. Para mais informações, ver 
+Transformação para Importação de NF
+.
+Incluir uma regra para tipo de NF =CT-e, determine em qual filial será aplicada. 
+REGRA
+sql
+Exemplo de regra
+true
+GetTipoNFVinc_Imp (NotaFiscal_Imp.SeqNFImp) ='VD' and  GetNFVinc_ImpEhCombustivel(NotaFiscal_Imp.SeqNFImp)=1 and NotaFiscal_Imp.codnatop='F02'
+A regra acima, verifica através da função 
+Função GetTipoNFVinc_Imp
+ se o Tipo da NF-e referênciada ao CT-e é 
+VD (Vendas), 
+em conjunto com a função 
+Função GetNFVincEhCombustivel
+, verifica se o produto é combustivel, por fim faremos o filtro que pega o campo natureza utilizada no De/Para para identificar se é operação é fora do estado.
+Incluir campo e valor conforme a imagem.
+A regra transformará a Natureza padrão do De/Para, para a natureza que determinamos para operação de Frete CIF fora do estado, 
+Natureza de Operação F04
+.
+FRETE DIVERSOS (DE)
+Toda vez que for importado um CT-e cujo a NF-e referenciada for outras entradas e o produto não seja combustível, dentro do estado o SisPetro deve incluir com a natureza, 
+F05
+ - Fretes Diversos (DE), 
+para isso devemos cadastrar uma regra de transformação para que essa operação se diferencie das demais. Para mais informações, ver 
+Transformação para Importação de NF
+.
+Incluir uma regra para tipo de NF =CT-e, determine em qual filial será aplicada. 
+REGRA
+sql
+Exemplo de regra
+true
+GetTipoNFVinc_Imp (NotaFiscal_Imp.SeqNFImp) ='OE' and  GetNFVinc_ImpEhCombustivel(NotaFiscal_Imp.SeqNFImp)=0 and NotaFiscal_Imp.codnatop='F01'
+A regra acima, verifica através da função 
+Função GetTipoNFVinc_Imp
+ se o Tipo da NF-e referênciada ao CT-e é 
+OE (Outras Entradas) 
+, 
+em conjunto com a função 
+Função GetNFVincEhCombustivel
+, verifica se o produto não é combustivel, por fim faremos o filtro que pega o campo natureza utilizada no De/Para para identificar se é operação é dentro do estado.
+Incluir campo e valor conforme a imagem.
+A regra transformará a Natureza padrão do De/Para, para a natureza que determinamos para operação de Frete Diversos dentro do estado, 
+Natureza de Operação F05
+.
+FRETE DIVERSOS (FE)
+Toda vez que for importado um CT-e cujo a NF-e referenciada for outras entradas e o produto não seja combustível, dentro do estado o SisPetro deve incluir com a natureza, 
+F06
+ - Fretes Diversos (FE), 
+para isso devemos cadastrar uma regra de transformação para que essa operação se diferencie das demais. Para mais informações, ver 
+Transformação para Importação de NF
+.
+Incluir uma regra para tipo de NF =CT-e, determine em qual filial será aplicada. 
+REGRA
+sql
+Exemplo de regra
+true
+GetTipoNFVinc_Imp (NotaFiscal_Imp.SeqNFImp) ='OE' and  GetNFVinc_ImpEhCombustivel(NotaFiscal_Imp.SeqNFImp)=0 and NotaFiscal_Imp.codnatop='F02'
+A regra acima, verifica através da função 
+Função GetTipoNFVinc_Imp
+ se o Tipo da NF-e referênciada ao CT-e é 
+OE (Outras Entradas) 
+, 
+em conjunto com a função 
+Função GetNFVincEhCombustivel
+, verifica se o produto não é combustivel, por fim faremos o filtro que pega o campo natureza utilizada no De/Para para identificar se é operação é fora do estado.
+Incluir campo e valor conforme a imagem.
+CAMPO E VALOR
+A regra transformará a Natureza padrão do De/Para, para a natureza que determinamos para operação de Frete Diversos dentro do estado, 
+Natureza de Operação F06
+.
+Veja também:
+Serviço de Importação de NF - Transformação
+Importação de Nota Fiscal via Serviço
+Transformação no processo de importação

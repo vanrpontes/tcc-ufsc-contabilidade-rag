@@ -1,0 +1,33 @@
+TITULO: Alteração da data de aquisição dentro de um período com fechamento financeiro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926197172
+--------------------------------------------------
+Histórico
+Atualmente há um controle da Data de Aquisição de Bens já que os mesmos são controlados pelo Fechamento Financeiro. No entanto, há cenários onde a empresa não estava controlando os bens, porém quando vai controlar, precisa lançar bens com data retroativa. Nesse cenário ficaria inviável reabrir todos os fechamentos. A partir da versão 9.16, possível incluir bens com data de aquisição retroativa, independente de ter Fechamento Financeiro.
+Perfil de Usuário > aba Contabilidade > quadro Bens - ver 
+Perfil Contabilidade (Usuários)
+:
+Pode incluir/alterar Data de Aquisição de bens dentro do Fechamento Financeiro 
+Caso este perfil seja marcado, o usuário poderá alterar a data de aquisição de um bem mesmo que nessa data tenha fechamentos financeiros
+Inclusão de bem
+Na inclusão automática de bens a partir de uma NF será necessário colocar uma Data de Aquisição que não tenha Fechamento Financeiro. Após a inclusão automática, um usuário com permissão, e antes de ter movimentação, poderá alterar a data de aquisição para uma data retroativa via Manutenção de Bens.
+Em caso de cancelamento da nota que gerou o bem, 
+antes de cancelar
+, deve voltar a data de aquisição (e as demais datas alteradas) para a data original (data da nota fiscal).
+Na inclusão de bem manualmente através do cadastro de 
+, o usuário tendo perfil marcado poderá alterar a data de aquisição. 
+Alteração de bem
+Acessar o cadastro de 
+, selecionar o bem a ser alterado e mudar a data de aquisição.
+Observar que na alteração da data de aquisição de um bem, as demais datas devem acompanhar: Data de Início Depreciação, Último CIAP ICMS Próprio, Início Apropriação Dif. Alíquota, Início Apropriação ICMS Próprio, 
+Início Apropriação ICMS Subst, Último CIAP Dif. Alíquota e Último CIAP ICMS Subst.
+ 
+Observações
+Não afeta as empresas que não utilizam fechamento financeiro
+As demais validações não foram alteradas, em especial o travamento contábil e a apuração fiscal
+A alteração da data de aquisição NÃO ALTERA a posição do Imobilizado de um fechamento financeiro 
+O valor do bem cuja data de aquisição foi alterada será considerado/desconsiderado no próximo fechamento financeiro
+O recurso deve ser utilizado somente em casos bem específicos. O uso aleatório não é recomendado
+A inclusão/alteração de bens com data de aquisição dentro de um período com fechamento financeiro deve seguir critérios rigorosos e para situações bem específicas (bens que não estavam no SisPetro e agora serão controlados pelo módulo de Patrimônio)
+ 
+ 
+ 

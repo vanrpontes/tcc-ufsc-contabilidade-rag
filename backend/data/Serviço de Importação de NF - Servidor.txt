@@ -1,0 +1,49 @@
+TITULO: Serviço de Importação de NF - Servidor
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926196678
+--------------------------------------------------
+ 
+Foi criado na versão o Serviço de Importação de NF
+. Para que este funcione é preciso indicar em quais pastas serão lidos e gravados os arquivos. Veja abaixo
+É através da tela de Serviço de importação de NF que iremos definir quais serviços que a Empresa ira trabalhar na importação de NF. Veja maires detalhes em 
+Monitoramento da Importação de NF/CT
+Serviço de Leitura de XML NF-e/CT-e
+O Serviço de leitura é responsável por realizar a leitura dos arquivos XML, ao iniciar o serviço o Sistema ira realizar a leitura dos arquivos que se encontram dentro do diretório apontado na Pasta de Arquivos a processar, e caso seja um arquivo valido do tipo XML, sera realizado a importação dos dados para o Sispetro, e o arquivo XML sera movido da pasta Pasta de Arquivos a processar para a Pasta de Arquivos Processados, caso o arquivo contenha algum erro, o mesmo será movido para a Pasta Arquivos com erro.
+Iniciar Serviço:
+ Ao acionar esse botão o serviço é iniciado ou parado. 
+Iniciar o serviço automaticamente
+: Caso deseje que o serviço seja iniciado junto com o servidor, marcar esta opção.
+Serviço de aplicação de De/Para
+O serviço de De/Para é responsável por executar os De/Para nas Notas Importadas. Após o Sispetro realizar a leitura do arquivo, caso o Serviço de De/Para esteja Ativo, o Sispetro ira realizar automaticamente o De/Para para as notas de acordo com o De/Para configurado no processo informado no perfil de Sistema, e com os perfis configurados devidamente. Veja mais em 
+Painel Importação de NF
+Iniciar Serviço:
+ Para iniciar ou parar o serviço de aplicação de De/Para basta clicar neste botão
+Iniciar o serviço automaticamente
+: Caso deseje que o serviço seja iniciado junto com o servidor, marcar esta opção.
+Serviço de Processamento de NF
+O serviço de Processamento e respónsavel por executar o processamento das notas impostadas, só serão processado as notas que estão com tudo Ok, e com os perfis devidamente configurados. Veja também 
+Painel Importação de NF
+Iniciar Serviço:
+ Para iniciar ou parar o serviço de Processamento de NF basta clicar neste botão
+Iniciar o serviço automaticamente
+: Caso deseje que o serviço seja iniciado junto com o servidor, marcar esta opção.
+Pasta para a importação de XML
+Pasta de Arquivos a Processar: 
+Deve ser indicado um diretório para a leitura dos arquivos. O sispetro ira realizar a leitura dos arquivos dentro do diretório indicado e ira mover o mesmo para a pasta de Processados ou com erro caso tenha algum. Arquivos que não são do tipo XML serão movidos para a pasta de com erro. Após realizar a leitura do arquivo, o serviço tenta mover o arquivo para o diretório referente aos aquivovos processados ou para a Pasta de arquivos com erro, e caso não consiga arquivo é perdido.
+Pasta de Arquivos Processados:
+ Nesse campo informamos o diretório de onde irão ficar os arquivos Processados. Depois de realizar a leitura, caso não seja encontrado nenhum erro no arquivo xml o SisPetro ira realizar a inclusão da nota e moverá o arquivo para o diretório informado nesse campo. 
+Pasta de 
+Arquivos com erro: 
+Nesse campo informamos o diretório para os arquivos com erro, nesse diretório também será gravado o arquivo que contem o motivo do erro. Caso seja encontrado algum erro na leitura, os arquivos serão movidos para esta pasta.
+Após indicar os diretórios referente aos arquivos, fica de responsabilidade da empresa garantir que os mesmos estejam corretos e com as devidas permissões de gravação, caso contrario ao realizar o Serviço o Sistema ira remover os arquivos da 
+p
+asta de Arquivos a Processar
+ e ira tentar mover para a pasta de Arquivos Processados caso esteja OK, ou para a pasta de Arquivos com erro caso esteja com erro. Caso uma dessas pastas não exista ou o usuário não tenha as devidas permissões de gravação, o Sispetro não ira gravar o arquivo. dessa forma dando a falsa impressão de que o arquivo "Sumiu", mas na verdade o sispetro retirou o arquivo da pasta 'a Processar' e tentou gravar em outra pasta, como não conseguiu o processo e finalizado.
+ 
+Identificando erros na Leitura do arquivo
+Arquivos que contem erros serão movidos da pasta de arquivos a processar para a pasta de arquivos com erros, e o serviço ira criar um arquivo do tipo ERR, contendo o motivo do erro. Veja o exemplo abaixo onde o Sispetro não encontrou o CNPJ do destinatário.
+Abaixo temos o arquivo original movido da pasta a processar para a pasta com erros.
+Abaixo segue um exemplo do conteudo de um arquivo de retorno do erro.
+Veja também:
+Importação NF (Painel Geral)
+Painel Importação de NF
+Monitoramento da Importação de NF/CT

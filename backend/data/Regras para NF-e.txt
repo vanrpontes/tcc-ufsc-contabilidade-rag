@@ -1,0 +1,101 @@
+TITULO: Regras para NF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927264839
+--------------------------------------------------
+Nesta tela é possível definir os parâmetros que variam de acordo com a UF para Nota Fiscal Eletrônica: Tabelas Auxiliares → Faturamento → UF´s
+Envio do grupo de Transportes:
+ permite definir em quais situações a Tag de Transporte deve ser enviada por UF:
+Enviar somente em operações Dentro da UF do Emitente
+Enviar somente em operações Dentro do Município do Emitente
+Nunca Enviar
+Sempre Enviar
+Envio do grupo de Cobranças:
+ permite definir em quais situações a Tag de Cobrança deve ser enviada por UF:
+Não enviar independente de ter Contas a Receber/Pagar
+Enviar sempre que tiver Contas a Receber/Pagar
+ 
+NT 2018.005 - Tas Retirada
+NT 2018.005 - Tags Retirada: 
+ao habilitar essa opção, serão disponibilizados os novos campos para complementação das informações de identificação do estabelecimento e do endereço do local de retirada: xNome, CEB, cPais, xPais, fone, email e IE, no xml.
+NT 2018.005 - Tags Entrega: 
+habilitando essa opção, serão disponibilizados os novos campos para complementação das informações de identificação do estabelecimento e do endereço do local de entrega: xNome, CEB, cPais, xPais, fone, email e IE, no xml.
+NT 2018.005 - Tags ICMSST/60: 
+habilitando essa opção, serão disponibilizados os novos campos para informar o ICMS Próprio do Substituto (Grupo ICMS 60), e novos campos informando o Fundo de Combate à Pobreza (FCP) retido anteriormente por ST para o Grupo de Repasse do ICMS ST, no XML.
+Dados de ICMS Efetivo nas tags ICMS60 e ICMSST: 
+habilitando essa opção serão disponibilizados os campos referente ao Grupo de informações do ICMS Efetivo.
+ NT 2020.006 - Tag indIntermed: 
+campo indicativo do Intermediador/Marketplace
+Não Envia
+Envia
+           
+ Regra para tag <tpAto> de Processo Referenciado: 
+Inclusão do campo Tipo do Ato Concessório (campo: tpAto) no Grupo de Informações Adicionais da NF-e (campo: infAdic), 
+Tabela Processo Referenciado
+.
+Não Envia
+Envia
+     
+      
+Quadro Responsável Técnico:
+ habilitando essa opção serão incluídas, no xml, as tags referente aos dados do responsável técnico (
+FUTURA
+). Todos os dados referentes ao responsável técnico são gravados internamente no SisPetro, pela Futura.
+Dados do Responsável Técnico:
+Não Envia
+Envia
+CSRT (Código Segurança): caso selecione Envia (caso tenha
+, caso a empresa responsável técnica (FUTURA) tenha um código CSRT para a UF em questão, será informado o código nas tags idCSRT e hashCSRT.
+Não Envia
+Envia (caso tenha)
+NT 2023.001 
+NT 2023.001 
+ - 
+Tag pBio:
+ percentual do BioCombustível na composição do Produto Composto
+Não envia
+Envia para produtos compostos contendo Biocombustível
+NT 2023.001 
+ - 
+Tag origComb: 
+percentual do BioCombustível conforme a UF do produtor/importador
+Não envia
+Envia para produtos com % Originário por UF
+Nota:
+ caso seja selecionada essa opção, deve informar o percentual originário por UF em 
+Margem Subst. Tributária
+, conforme colunas 
+%Orig. Nac. e %Orig. Imp.
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Não envia
+Envia quando o item conter o CST de Tributação Monofásica
+Para mais informações, ver 
+Configurações necessárias para emissão de notas com tributação monofásica
+NT 2023.004 - Tag indDeduzDeson:  
+tag que informa se deve ou não deduzir o valor do ICMS Desonerado do valor do item
+Não envia
+Envia
+NT 2025.001 - Tag indSinc: 
+nessa NT é implementado o envio obrigatório no modo 
+síncrono 
+quando o lote de notas enviadas conter uma só NF ou modo 
+assíncrono 
+para lotes com mais de uma NF
+Assíncrono
+Síncrono
+Ambos: 
+o SisPetro irá enviar na tag 
+indSinc 
+o valor 0 (zero) para lotes com mais de uma NF-e e 1 (hum) para uma nota apenas. 
+Essa informação pode ser vista na 
+https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440363/Manuten+o+de+Nota+Fiscal?search_id=f4c45a46-e435-4312-a773-3e09d58fed1d&additional_analytics=queryHash---0472cd2ab87dadf94f4eda2390f98993803d78cca59edbd890cc16c81d1d943f
+ na coluna 
+Regra IndSinc (NFe)
+Não recomendamos trocar o valor da configuração 
+NT 2025.001 - Tag indSinc
+ enquanto houverem NFs pendentes, pois caso isso seja feito o 
+SisPetro
+ irá processar de acordo com a configuração salva para a primeira NF recebida pelo Servidor Hermes.
+Envia Complemento da Forma de Pagamento (tag xPag): 
+habilitando essa opção, será enviando no XML da NFe a descrição do meio de pagamento, configurado no 
+tipo de cobrança
+.
+            

@@ -1,0 +1,209 @@
+TITULO: Apuração de PIS e COFINS
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2894725195
+--------------------------------------------------
+A partir de 2009 a Apuração de PIS e COFINS do Álcool passou a ter duas opções:
+Alíquota
+Valor fixo por m³ (metros cúbicos)
+Esta opção é feita pela Empresa que fica com essa forma de apuração durante um ano. Assim, no caso da Distribuidora ela pode optar por fazer a apuração por Alíquota, mas alguns de seus fornecedores optarem por ser por Valor Fixo e vice versa.
+No entanto, para complementar a Apuração de PIS e COFINS, a Receita Federal instituiu que as empresas que desejarem solicitar Ressarcimento precisam enviar um arquivo com dados de PIS e COFINS de todas as suas notas fiscais (PER DCOMP 4.3). Neste arquivo, para notas de Entrada temos que diferenciar a forma de cálculo do PIS e COFINS conforme o fornecedor. Nas saídas, conforme opção da Empresa. Além disso precisamos saber a alíquota e o valor fixo por m³ de cada produto.
+Para isso o Sispetro disponibiliza algumas configurações que permitirão a melhor definição do modo de trabalho, se será por aliquota ou por valor fixo em m³, veja mais detalhes nos procedimentos descritos abaixo:
+Criando as fórmulas de outros impostos para cálculo do PIS/COFINS na Natureza de Operação
+A fórmula de outros impostos permite a utilização de campos do Cadastro de Clientes/Fornecedores (tabela Entidade) e de Produtos (tabela Produto). Dessa forma, ao invés de ter uma fórmula fixa direcionada para Alíquota e outra fórmula fixa direcionada para Valores fixo, pode-se ter uma fórmula genérica que, conforme configuração, faça os cálculos necessários. Com isso, não é necessário ter duas naturezas de operação distintas.
+Para mais detalhes de como configurar outros impostos veja o tópico 
+Vamos fazer um exemplo de uma fórmula de PIS para uma natureza de operação de entrada:
+ Na aba de outros impostos da Natureza de Operação, inclua um novo impostos.
+No código de outro imposto, selecione o correspondente ao PIS.
+Para isso é necessário que tenha em Tabelas Auxiliares \ Outros Impostos, o cadastro referente ao PIS.
+ Também é importante que o mesmo esteja definido para trabalhar por fórmula.
+ Mais detalhes veja o tópico 
+Serão habilitados os campos de fórmula para Base de cálculo e Alíquota.
+ Ao contruir a fórmula, teremos disponíveis para utilização, os campos de valores de alíquota e m³ cadastrados na tela de Produtos (já explicado nesse tópico).
+Vamos supor que definimos o perfil do fornecedor para utlizar Tributação por alíquota, poderemos pensar nas seguintes fórmulas:
+Veremos mais detalhes sobre os campos das tabelas entidade e produto no Anexo 1, logo mais abaixo.
+Base de Cálculo: Se <entidade.ApuPisCofins> = 1 entao <NotaFiscal.Valprod> senao <ItensNF.Qtde>/1000 fimSe
+Aliquota: Se <entidade.ApuPisCofins> = 1 entao <NotaFiscal.Valprod>*(<Produto.PIS_CR_Aliquota>/100) senao <ItensNF.Qtde>*(<16611>/100)  fimSe
+
+Na fórmula de outros impostos é necessário colocar ao invés do nome das tabelas, o código dos campos no banco de dados, dessa forma, a fórmula final configurada ficaria da seguinte maneira, já com o Se substituido por IF:
+Base de Calculo: if <16620> = 1 then <564> else <734>/1000 endif
+Aliquota: if <16620> = 1 then <564>*(<16612>/100) else <734>*(<16611>/100)  endif
+
+ANEXO 1
+Tabela Entidade
+Nome do Campo
+Comentários
+ApuPISCOFINS
+Apuração de PIS/COFINS: 0 - Respeita Perfil da empresa 1 - Alíquota, 2 - Valor fixo por m3
+Tabela Produto
+Nome do Campo
+Comentários
+PIS_DB_ValorM3
+Valor Fixo PIS por m3 no Débito
+PIS_DB_Aliquota
+Aíquota PIS no Débito
+COFINS_DB_ValorM3
+Valor Fixo COFINS por m3 no Débito
+COFINS_DB_Aliquota
+Alíquota COFINS no Débito
+PIS_CR_ValorM3
+Valor Fixo PIS por m3 no Crédito
+PIS_CR_Aliquota
+Aíquota PIS no Crédito
+COFINS_CR_ValorM3
+Valor Fixo COFINS por m3 no Crédito
+COFINS_CR_Aliquota
+Alíquota COFINS no Crédito
+ 
+ 
+ 
+ 
+ 
+Exemplos de fórmulas para PIS e COFINS:
+Descrição
+Base de Cálculo
+Cálculo do Imposto
+Imposto
+Onde:
+Compra de Anidro m3
+<734>/1000
+(<734>/1000)*3.21 ou
+PIS
+<734> = campo QTDE da tabela ItensNF
+ 
+(<734>/1000)*<16614>
+ 
+<16614> = campo PIS_CR_ValorM3 da tabela Produto
+Compra de Anidro m3
+<734>/1000
+(<734>/1000)*14.79 ou
+COFINS
+ 
+ 
+(<734>/1000)*<16616>
+ 
+<16616> = campo COFINS_CR_ValorM3 da tabela Produto
+Compra de Anidro de Congenêre m3
+<734>/1000
+(<734>/1000)*16.07 ou
+PIS
+<734> = campo QTDE da tabela ItensNF
+ 
+(<734>/1000)*<17223>
+ 
+<16614> = campo PIS_CR_ValorM3_Cong da tabela Produto
+Compra de Anidro de Congenêre m3
+<734>/1000
+(<734>/1000)*73.93 ou
+COFINS
+ 
+ 
+(<734>/1000)*<17227>
+ 
+<16616> = campo COFINS_CR_ValorM3_Cong da tabela Produto
+Compra de Hidratado m3
+<734>/1000
+(<734>/1000)*8.57 ou
+PIS
+<734> = campo QTDE da tabela ItensNF
+ 
+(<734>/1000)*<16614>
+ 
+<16614> = campo PIS_CR_ValorM3 da tabela Produto
+Compra de Hidratado m3
+<734>/1000
+(<734>/1000)*39.43 ou
+COFINS
+ 
+ 
+(<734>/1000)*<16616>
+ 
+<16616> = campo COFINS_CR_ValorM3 da tabela Produto
+Compra de Hidratado de Congenêre m3
+<734>/1000
+(<734>/1000)*21.43 ou
+PIS
+<734> = campo QTDE da tabela ItensNF
+ 
+(<734>/1000)*<17223>
+ 
+<16614> = campo PIS_CR_ValorM3_Cong da tabela Produto
+Compra de Hidratado de Congenêre m3
+<734>/1000
+(<734>/1000)*98.57 ou
+COFINS
+ 
+ 
+(<734>/1000)*<17227>
+ 
+<16616> = campo COFINS_CR_ValorM3_Cong da tabela Produto
+Compra de Hidratado Alíquota %
+<774>*<734>
+(<774>*<734>)*0.0165 ou
+PIS
+<734> = campo QTDE da tabela ItensNF
+ 
+(<774>*<734>)*(1.65/100) ou
+ 
+<774> = campo PRECOPEDIDO da tabela ItensNF
+(<774>*<734>)*<16615>
+ 
+<16615> = campo PIS_CR_Aliquota da tabela Produto
+Compra de Hidratado Alíquota %
+<774>*<734>
+(<774>*<734>)*0.0760 ou
+COFINS
+ 
+ 
+(<774>*<734>)*(7.60/100) ou
+ 
+(<774>*<734>)*<16617>
+ 
+<16617> = campo COFINS_CR_Aliquota da tabela Produto
+Outras Entradas com Créditos
+<774>*<734>
+(<774>*<734>)*0.0165 ou
+PIS
+<734> = campo QTDE da tabela ItensNF
+Frete Aquisição, Servs Armazenagem,etc.
+ 
+(<774>*<734>)*(1.65/100) ou
+ 
+<774> = campo PRECOPEDIDO da tabela ItensNF
+ 
+(<774>*<734>)*<16615>
+ 
+<16615> = campo PIS_CR_Aliquota da tabela Produto
+Outras Entradas com Créditos
+<774>*<734>
+(<774>*<734>)*0.0760 ou
+COFINS
+ 
+Frete Aquisição, Servs Armazenagem,etc.
+ 
+(<774>*<734>)*(7.60/100) ou
+ 
+ 
+(<774>*<734>)*<16617>
+ 
+<16617> = campo COFINS_CR_Aliquota da tabela Produto
+Venda Hidratado m3
+<734>/1000
+(<734>/1000)*21.43 ou
+PIS
+<734> = campo QTDE da tabela ItensNF
+ 
+(<734>/1000)*<16610>
+ 
+<16610> = campo PIS_DB_ValorM3 da tabela Produto
+Venda Hidratado m3
+<734>/1000
+(<734>/1000)*98.57 ou
+COFINS
+ 
+ 
+(<734>/1000)*<16612>
+ 
+<16612> = campo COFINS_DB_ValorM3 da tabela Produto
+Notas:
+1 - Lembramos que são exemplos, portanto, os campos e alíquotas podem ser diferentes.
+2 - Quando se tratar de valor fixo, utilizar . (ponto decimal) no lugar da vírgula. Exemplos: 3,21 deve informar 3.21, 1,65% deve ser informado 0.0165 ou 1.65/100
+3 - Os códigos de campos informados entre < > podem ser diferentes, dependendo do banco de dados. Portanto, a pesquisa deve ser feita sempre pelo nome do campo e tabela.

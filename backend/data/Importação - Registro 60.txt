@@ -1,0 +1,30 @@
+TITULO: Importação - Registro 60
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899519
+--------------------------------------------------
+No SisPetro, temos a emissão de Cupom Fiscal pela impressora Bematech, mas como essa funcionalidade está em desuso pelos nossos clientes, a partir da versão 8.6 foi retirada do sistema. Sendo assim a DLL da Bematech não esta mais funcionando, para gerar dados para Registro 60, deve-se incluir via 
+Inclusão Manual - 60
+ ou 
+Importação - Registro 60
+.
+ 
+As telas de Importação do Registro 60M e 60A, são similares, conforme tela a seguir:
+ 
+Informe o 
+arquivo de origem
+, que deve ser um arquivo texto com o layout compatível com as exigências do SisPetro (vide tópico 
+). Em seguida, clique no botão 
+Importa
+, com isso serão feitos os seguintes passos:
+Exclusão de dados do arquivo temporário: Neste ponto serão excluídos dados "remanescentes" que ainda não tenham ido para o painel 
+"Registros Não Importados"
+. Ou seja, se um registro foi importado uma vez, na segunda vez será acusada a duplicidade e o registro irá para o painel "Registros Não Importados". Se tentar importar o mesmo registro uma terceira, quarta, quinta ou ... vez e não houver erros de layout, o registro será sempre transferido para o painel 
+"Registros Não Importados"
+. Aí, o usuário pode alterá-lo ou excluí-lo via tela de 
+Manutenção
+.
+Importar para arquivo temporário: É quando o arquivo texto será lido para então ir para o arquivo temporário. Caso haja problemas de layout, nesta fase é que eles serão encontrados e o processo não poderá continuar.
+Visualizar dados: apresenta os dados (painel dados) que foram lidos no arquivo texto.
+Transferir para tabela destino: Verifica se o registro pode ir para a tabela destino. Na maior parte dos casos isso irá acontecer, só não irá acontecer em casos de duplicidade:
+Registro 60M: Um único registro por Data e #Série
+Registro 60A: Um único registro por Data, #Série e Situação Tributária.
+Os erros serão apresentados no painel Erros.

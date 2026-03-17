@@ -1,0 +1,304 @@
+TITULO: Banrisul
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878211214
+--------------------------------------------------
+Para configurar o tipo de cobrança para o Banco Banrisul (041), os campos abaixo deverão ser preenchidos obrigatoriamente da seguinte forma:
+
+
+Painel Cobrança Eletrônica
+
+
+
+
+Banco Oficial:
+ 041 - BANCO DO EST. R. GRANDE DO SUL S.A.
+
+
+
+
+
+
+Nome Banco:
+ BANRISUL
+
+
+
+
+
+
+Tipo Convênio:
+ deve ser informado o tipo de documento que é preenchido no arquivo de remessa nas posições 148 e 149. Pode ser:
+	
+
+
+04 - Cobrança Direta
+
+
+06 - Cobrança Escritural
+
+
+08 - CCB - O Banco não emite o bloqueto
+
+
+09 - Títulos de Terceiros
+
+
+
+
+
+
+
+
+
+
+Número Conta:
+ código cedente fornecido pelo banco com 7 dígitos.
+
+
+
+
+
+
+Dígito Conta:
+ dígito do código cedente fornecido pelo banco com 2 dígitos.
+
+
+
+
+
+
+#Agência:
+ deve ser preenchido com até 4 dígitos.
+
+
+
+
+
+
+Dígito Agência:
+ deve ser preenchido com 2 dígitos.
+
+
+
+
+
+
+Carteira:
+ deve ser preenchido com 1 dígito.
+
+
+
+
+
+
+#Docto no Arquivo Remessa:
+ se informado a opção 
+Com Parcela...
+, será acrescentado no lado do campo 
+Número de Documento no Arquivo de Remessa
+, a identificação da parcela.
+
+
+
+
+
+
+Informação de Juros no Arquivo Remessa:
+ utilizado para informação do campo código de mora (posição 161) e o campo valor de juros ao dia ou taxa mensal (posições 162 a 173) no arquivo de remessa.
+
+
+
+
+Faixa Nosso Número:
+
+Só deve ser informada uma faixa com até 8 dígitos.
+
+
+Dados Técnicos
+
+
+Nosso Número:
+ é salvo no SisPetro com 10 dígitos (apesar da faixa ser até 8 dígitos), porém os dois últimos dígitos são calculados no módulo 10 e 11, obtendo o duplo dígito.
+
+
+Linha Digitável
+
+
+
+
+041 -  Banrisul
+
+
+
+
+
+
+ Conteúdo 
+
+
+ Tamanho 
+
+
+ Início 
+
+
+ Fim 
+
+
+
+
+
+
+Fixo '2'	
+
+
+1	
+
+
+1	
+
+
+1
+
+
+
+
+
+
+Fixo '1'	
+
+
+1	
+
+
+2	
+
+
+2
+
+
+
+
+
+
+Agência	
+
+
+4	
+
+
+3	
+
+
+6
+
+
+
+
+
+
+Conta	
+
+
+7	
+
+
+7	
+
+
+13
+
+
+
+
+
+
+Nosso número	
+
+
+8	
+
+
+14	
+
+
+21
+
+
+
+
+
+
+Fixo '40'	
+
+
+2	
+
+
+22	
+
+
+23
+
+
+
+
+
+
+1º Dígito - Módulo 10	
+
+
+1	
+
+
+24
+
+
+	24
+
+
+
+
+
+
+2º Dígito - Módulo 11	
+
+
+1	
+
+
+25	
+
+
+25
+
+
+
+
+
+
+
+
+
+
+Exemplo:
+
+Agência: 9999
+
+Conta: 8888888
+
+Nosso Número: 77777777
+
+1º Dígito Módulo 10: 6
+
+2º Dígito Módulo 10: 5
+
+
+Campo Livre:
+ 2 1 9999 8888888 77777777 40 6 5
+
+
+Linha Digitável:
+ | 0 4 1 | 1 | 2 1 9 9 9 | 0 | 9 8 8 8 8 8 8 8 7 7 | 1 | 7 7 7 7 7 7 4 0 6 5 | 1 | 1 | 4 5 6 7 | 0 0 0 1 0 0 0 0 0 0 |
+
+
+Para informações sobre a montagem da linha digitável para este banco, veja o tópico 

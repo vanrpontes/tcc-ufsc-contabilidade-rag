@@ -1,0 +1,27 @@
+TITULO: Aba Processamento Retorno
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927266413
+--------------------------------------------------
+Esta tela deve ser parametrizada quando é necessário indicar se, na leitura do arquivo de retorno, o sistema deve ler os comandos do banco e realizar ações indicadas neles, como baixa e troca de portador. Essa parametrização deve ser feita por tipo de cobrança.
+Processa comandos extras no Retorno: 
+indica se deve ler os comandos do banco configurado para retorno e fazer as ações indicadas neles (baixa e troca de portador). A configuração também deve ser feita em 
+, para que o sistema processe os comandos extras.
+Processa Títulos Antigos: 
+permite que sejam processados títulos antigos, podendo alterar o tipo de cobrança e podendo alterar o portador.
+No. dias para o Título ser antigo:
+ onde o usuário indica o número de dias, que a partir da data atual dará a data inicial para o título ser considerad antigo
+Data do Título a ser utilizada: 
+data do título, podendo ser data de Emissão ou de Vencimento
+Troca para Cobrança Normal: 
+altera o título para cobrança normal, caso ainda esteja como cobrança eletrônica
+Troca Portador:
+ permite que seja alterado o portador na leitura do arquivo
+Portador: 
+se o parâmetro estiver marcado, sistema alterará o portador para o definido neste campo
+Gera comando extra: 
+permite que seja enviado um comando extra ao banco
+Comando a ser gerado: 
+onde o usuário pode escolher um comando de envio válido para o banco, que deve ser cadastrado no banco cadastrado na 
+, utilizado nessa cobrança .
+Veja mais em 
+Processamento de Títulos Antigos (Alteração do Comando de forma programada)
+.

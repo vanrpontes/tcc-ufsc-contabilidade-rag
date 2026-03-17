@@ -1,0 +1,318 @@
+TITULO: Composição de Carga
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898395
+--------------------------------------------------
+none
+Objetivo
+O controle de carga foi criado com o intuito de auxiliar o Setor de transportes na composição de Cargas. 
+O controle visa apresentar os pedidos para entrega, a rota de cada cliente e outros dados complementares, agilizando o processo de agrupamento.
+A tela de Composição de Carga é acionada através do menu 
+Movimentação / Transportes / Manutenção de Carga / botão compõe
+:
+A carga pode ser composta por pedidos e OC de uma ou várias empresas. Isso depende do perfil de sistema 
+Carga x Empresa 
+estiver configurado para Mono ou Multi Empresa. Para mais informações, ver 
+Painel Fretes
+No lado esquerdo são apresentados todos os Pedidos do tipo 
+Entrega
+ e OC do tipo 
+Transferência entre Depósitos
+ e/ou 
+Descarga Própria
+, das empresas que o usuário tem permissão para visualizar. Esta permissão é definida no perfil do Usuário, 
+Painel Filiais para Carga (Usuários)
+ / opção 
+Visualização das Cargas. 
+A visualização dos pedidos e OC também depende dos filtros informados na parte inferior da tela
+Abas Superiores
+Aba Pedidos Entrega
+Exibe os Pedidos de Entregas disponíveis para viagem
+Opções de Filtros: 
+aplicação dos filtros exibe as informações desejadas na tela, facilitando o usuário a localizar os pedidos desejados, temos as seguintes opções para filtro.
+Filtro Aprovação Pedidos: todos
+ os pedidos, só os 
+aprovados
+ ou só os 
+a aprovar
+. No caso dos aprovados e a aprovar é possível indicar as áreas de aprovação desejadas: Vendas, Financeiro ou Transportes.
+Data entrega:
+ período de data de entrega do pedido, exibe os pedidos dentro do período informado.
+Mostra somente pedidos ainda sem carga definida:
+ com esta opção selecionada, o SisPetro apresentará somente Pedidos/OC que ainda não tenham carga definida.
+Botões: 
+os botões determinam as ações a serem tomadas nos pedidos selecionados na tela.
+Altera Depósito: 
+permite alterar o deposito do pedido de venda selecionado. 
+Para mais informações, ver 
+Mudança de depósito no Pedido de Venda - Desmembramento de Pedido
+.
+Desmembra Pedido: 
+permite desmembrar o pedido selecionado em vários pedidos
+. Para mais informações, ver 
+Mudança de depósito no Pedido de Venda - Desmembramento de Pedido
+.
+Muda Transportadora: 
+permite alterar a transportadora do pedido de venda selecionado
+. Para mais informações, ver 
+Mudança de transportadora no Pedido de Venda
+Aprova: 
+permite aprovar pedido pendentes de aprovação. 
+Para mais informações, ver 
+Aprovação do Pedido de Venda
+.
+Aprova (X vermelho): 
+permite realizar o cancelamento do pedido de venda selecionado. 
+Para mais informações, ver 
+Cancelamento da aprovação do Pedido de Vendas
+Legenda: 
+informa o significado das cores e fontes dos dados apresentados.
+Outro Filtro: 
+ permite o usuário aplicar filtros mais específicos, através de campos e valores disponíveis na tela. 
+Atualiza: 
+atualização dos dados em tela.
+Layout Padrão: 
+volta o Layout padrão, ou seja, colunas a sua posição original dos quadros 
+PedidosEntrega, Cargas e Itens/Ordem de Entrega 
+Na tela de Pedidos é possível:
+Aprovar o pedido sem sair da tela, através do botão 
+Aprova
+ (você será direcionado para a tela de 
+Aprovação de Pedidos
+).
+Alterar o depósito do pedido, através do botão 
+Desmembra Pedido
+ (você será direcionado para a tela de 
+Mudança de depósito no Pedido de Venda - Desmembramento de Pedido
+).
+Quando estiver pendente a aprovação do setor de Transporte no Pedido de Venda, é possível realizar o fechamento da carga mesmo sem a aprovação do Transporte. Basta selecionar a opção 
+ na tela da 
+Manutenção de Carga 
+e a carga será fechada, entretanto o Pedido de Venda ainda constará como pendente de aprovação. 
+Os dados apresentados serão:
+Status de Aprovação, Data de entrega do pedido, Município, UF, Qtde, Descrição Produto, Empresa, Código do Produto, Número do Pedido, Cliente, Razão Social, Rota do cliente, Carga Fechada, Número Sequencial da Carga, Frete unitário, Frete Total, Número Frota, Placa, Sequencial Carreta, Sequencial Treminhão, Código da Transportadora, Nome da Transportadora, Aprovações de Vendas, Financeiro, Transporte e Aguardar para Aprovar e Depósito.
+A rota do cliente é um dado para auxiliar o agrupamento dos pedidos com a mesma rota na carga. A rota apresentada é a rota preferencial do cliente e só serve como parâmetro, não sendo impeditiva. Para configurar a rota preferencial do cliente, veja em Tabela Clientes - 
+Rotas
+.
+Aba Ordem de Carregamento
+Exibe as Ordens de Carregamentos disponíveis para viagem
+Opções de Filtros: 
+aplicação dos filtros exibe as informações desejadas na tela, facilitando o usuário a localizar as ordens de carregamento desejadas, temos as seguintes opções para filtro.
+Filtro Tipos de OC: 
+Todas as OC, 
+Transferência Entre Depósitos 
+Carregamento Próprio. 
+Data da OC:
+ período de data da ordem de carregamento, exibe as ordens de de carregamento do período informado.
+Mostra somente pedidos ainda sem carga definida:
+ com esta opção selecionada, o SisPetro apresentará somente  as OC que ainda não tenham carga definida.
+Não mostra OC sem Transporte:
+ ordens de carregamento próprio que geraram descarga própria utilizando a opção de responsável pelo frete igual á 'Sem Transporte', não serão apresentados na tela para composição de carga.
+Botões: 
+os botões determinam as ações a serem tomadas nas ordens de carregamento selecionados na tela.
+Muda Transportadora: 
+altera a Transportadora da Ordem de Carregamento. 
+Altera Frete: 
+altera o frete da ordem de carregamento. 
+Para mais informações, ver 
+Alteração do Frete da Ordem de Carregamento
+.
+Legenda: 
+informa o significado das cores e fontes dos dados apresentados.
+Outro Filtro:
+ permite o usuário aplicar filtros mais específicos, através de campos e valores disponíveis na tela. 
+Atualiza: 
+atualização dos dados em tela.
+Layout Padrão: 
+volta o Layout padrão.
+Aba Frotas Disponíveis
+Exibe Frotas disponíveis para viagem
+Opções de Filtros: 
+aplicação dos filtros exibe as informações desejadas na tela, facilitando o usuário a localizar o frota desejado, temos as seguintes opções para filtro
+Filial:
+ d
+epende se utiliza ou não frota próprio por empresa - para mais informações ver 
+Configurando Frotas próprios e não próprios
+Tipos de Frota:
+ 
+Somente Próprios: 
+mostra os frotas próprios, ativos e e não bloqueados
+Somente Terceiros: 
+mostra os frotas de terceiros, ativos e e não bloqueados
+Ambos: 
+mostra os frotas próprios e de terceiros, ativos e e não bloqueados
+Ao ser alterado algum filtro é necessário clicar no botão 
+Atualiza
+.
+Botões:
+Nova Carga: 
+utilizado para incluir uma nova carga.
+Atualiza: 
+atualização dos dados em tela.
+Quadro Cargas
+Aqui é possível: 
+Visualizar os carregamentos abertos
+Como cada carga está distribuída em cada compartimento do caminhão
+Definir e distribuir cada carga
+Definir sua entrega
+Visualizar um mapa com os pontos de cada entrega
+Assim como no lado esquerdo dos Pedidos e OC, a visualização da carga da permissão do usuário, e elaé definida no perfil do Usuário, 
+Painel Filiais para Carga (Usuários)
+ / opção 
+Visualização das Cargas 
+e dependendo da opção escolhida, juntamente com as empresas definidas no 
+Quadro Filiais para Carga.
+Quando a carga está configurada para ser 
+MultiEmpresa, 
+a carga a qual a empresa pertence é definida a partir do primeiro item incluído. Se o usuário utilizar a distribuição automática, o SisPetro ordena automaticamente para ser a de menor número. Além disso o SisPetro ajusta o código da empresa de acordo com o primeiro item existente do Pedido, assim caso o usuário exclua o primeiro item, a empresa será ajustada conforme o segundo item. Caso não exista nenhum item a carga não tem definição de empresa
+A alocação dos pedidos pode ser feita automaticamente ou de forma manual, a exemplo das Cargas de Venda. Elas podem envolver vários clientes numa mesma entrega e a ordem de entrega é intimamente ligada ao compartimento para que se tenha um melhor equilíbrio do produto durante o trajeto.  
+Botões: 
+determina as ações que serão feitas para as cargas: 
+Nova Carga: 
+permite abrir uma nova carga e indicar a qual carga a empresa pertence
+As empresas incluídas no 
+Painel Carga (Usuários)
+ / Quadro 
+Filiais para Cargas 
+define para qual carga o usuário pode abrir, dar manutenção ou visualizar a carga. 
+Altera:
+ permite alterar uma carga 
+Exclui:
+ permite excluir uma carga nova
+Fecha: 
+permite fechar uma carga aberta
+Legenda:
+ informa o significado das cores e fontes dos dados apresentados.
+Abas inferiores 
+Compartimentos da Carga
+Nessa aba é possível distribuir os Pedidos / OC nos compartimentos, tanto de forma manual quanto automática. 
+Botões: 
+determina as ações que serão feitas com os pedidos / OC selecionados para serem incluídos na carga
+Seleção Manual: 
+ o usuário seleciona um pedido / OC, seleciona um compartimento e inclui 
+Distrib. Automática: 
+permite distribuir de forma automática (da mesma forma que é feita na 
+Consulta Pedidos aprovados para Faturamento
+Visualiza Compart.: 
+permite visualizar a compartimentação feita 
+Redistribui: 
+redistribui a carga dos pedidos / OC 
+Limpa: 
+limpa o compartimento selecionado
+Limpa Todos: 
+limpa tudo
+Ordem de Entrega
+Nessa aba é possível modificar a ordem das entregas e visualizar com a rota da entrega
+Botões: 
+Remove da Carga: 
+permite ao usuário remover a carga selecionada. O botão fica habilitado ou não ao usuário se o perfil do Painel Rotas 
+Pode excluir itens da carga incluídos por outros usuários 
+(caso a carga não for do usuário que estiver incluindo) marcado
+Mapa: 
+visualiza um mapa com as entregas
+Seta para cima e para Baixo: 
+muda a ordem da carga 
+Compartimentação com Múltiplas Entidades
+Configuração de Sistema
+Acesse 
+Configuração de Sistema
+ / 
+Painel Fretes
+ 
+Na aba 
+Fretes
+, localize o perfil 
+Permite vários clientes em um compartimento nos frotas com Bomba
+marcar
+Inclusão de OC
+Na 
+Inclusão de OC
+, caso existam 
+Pedidos com carga definida
+, o SisPetro irá:
+Sugerir a compartimentação 
+conforme a carga
+, permitindo 
+produtos de múltiplas entidades
+ no mesmo compartimento.
+Na tela de 
+Compartimentação de OC
+, o SisPetro verifica se a OC atende à regra para 
+trabalhar com múltiplas entidades em um compartimento
+, sendo necessário:
+Frota principal ser do tipo 
+Cavalo
+ ou possuir 
+Bomba de Descarga
+.
+Caso possua 
+Carreta vinculada
+, a Carreta deve ter 
+Bomba de Descarga
+.
+Caso possua 
+Treminhão vinculado
+, o Treminhão deve ter 
+Bomba de Descarga
+.
+Caso possua 
+Frota 4 vinculada
+, o Frota 4 deve ter 
+Bomba de Descarga
+.
+Se estiver na habilitado conforme mencionado acima:
+Os produtos serão agrupados:
+Na coluna 
+Cliente
+, será exibida uma lista numerada dos clientes com a respectiva quantidade individual.
+Na coluna 
+Municípios
+, será exibida uma lista numerada dos municípios de cada cliente.
+O restante da tela mantém o comportamento padrão, permitindo ao usuário realizar a 
+distribuição manual ou automática
+ nos compartimentos, como já era feito.
+Compartimentação via Manutenção de OC
+Na 
+Compartimentação de OC
+ acessada pela 
+Manutenção de OC
+, o comportamento é o mesmo descrito para a inclusão da OC.
+ Reordenação de Compartimentação
+Na tela de 
+Reordenação de Compartimentação de OC
+, se a OC atender à regra de múltiplas entidades:
+O campo 
+Cliente
+ exibirá a lista de entidades.
+O campo 
+Município
+ exibirá apenas o texto 
+‘MÚLTIPLOS MUNICÍPIOS’
+ quando houver dados de pedidos de entidades diferentes no mesmo compartimento.
+Composição de Carga
+Na tela de 
+Composição de Carga
+, ao incluir ou alterar uma carga, será ajustada a regra para permitir ou não múltiplas entidades em um compartimento:
+Frota principal ser do tipo 
+Cavalo
+ ou possuir 
+Bomba de Descarga
+.
+Se informada 
+Carreta
+, esta deve ter 
+Bomba de Descarga
+.
+Se informada 
+Treminhão
+, este deve ter 
+Bomba de Descarga
+.
+Para mais informações, ver: 
+Tabela Gerenciador de Monitoramento
+, 
+Inclusão de Carga
+, 
+Monitoramento de Viagem
+, 
+Controle de Carga
+ e 
+Tabela Manutenção de Frota

@@ -1,0 +1,92 @@
+TITULO: Tipos de informações retornadas na Consulta Destinatário X Sispetro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4064968708
+--------------------------------------------------
+No arquivo zipado da Consulta Destinatário temos diversos tipos de informações. A seguir listaremos quais são esses tipos e o que é considerado ou não pelo Sispetro.
+Consulta NF-e 
+Tipo
+tpEvento
+Detalhamento
+Sispetro
+resNFe
+-
+Somente o resumo da NF-e, como 
+Salva o xml e utiliza essa informação para enviar a Manifestação de Ciência da Operação se estiver configurada para tal.
+nfeProc
+-
+Dados de envio e retorno da NF-e
+Salva o xml completo que será utilizado pela Importação de NF
+procEventoNFe
+Dados de envio e retorno do evento
+Só considera determinados tipos de evento.
+110110
+Carta de Correção 
+Salva o xml completo que será utilizado pela Importação de Carta de correção.
+110111
+Cancelamento
+Salva o xml completo para fins informativo
+210210
+Ciência da Operação
+ Para controle de manifestação
+210200
+Confirmação da Operação
+ Para controle de manifestação
+210220
+Desconhecimento
+ Para controle de manifestação
+210240
+Operação Não Realizada
+ Para controle de manifestação
+resEvento
+Somente o resumo do evento, como Chave de Acesso, Data/Hora, Protocolo e Tipo de Evento
+Desconsidera qualquer informação
+610600
+Registro de Autorização de CT-e para NF-e
+ Não considerado
+610601
+Registro de Cancelamento de CT-e para NF-e
+ Não considerado
+610610
+MDF-e autorizado
+ Não considerado
+610611
+MDF-e cancelado
+ Não considerado
+610614
+MDF-e autorizado com CT-e
+ Não considerado
+610615
+Cancelamento de MDF-e autorizado com CT-e
+ Não considerado
+Consulta CT-e 
+Tipo
+tpEvento
+Detalhamento
+Sispetro
+cteProc
+-
+Dados de envio e retorno do CT-e
+Salva o xml completo que será utilizado pela Importação de NF
+procEventoCTe
+Dados de envio e retorno do evento
+Só considera determinados tipos de evento.
+110110
+Carta de Correção 
+Salva o xml completo que será utilizado pela Importação de Carta de correção.
+110111
+Cancelamento
+Salva o xml completo para fins informativo
+110180
+Comprovante de Entrega do CT-e
+ Não considerado
+110181
+Cancelamento do Comprovante de Entrega do CT-e
+ Não considerado
+310610
+MDF-e autorizado
+ Não considerado
+310611
+MDF-e cancelado
+ Não considerado
+Ver demais eventos em 
+Códigos de Eventos da SEFAZ
+ 

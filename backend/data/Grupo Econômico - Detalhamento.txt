@@ -1,0 +1,46 @@
+TITULO: Grupo Econômico - Detalhamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892890456
+--------------------------------------------------
+A partir da Versão 7.6 o Sispetro irá controlar o Grupo Econômico de forma automática, considerando o cadastro do cliente.
+Vejamos o que mudou:
+Temos um limite de crédito único para o Grupo Econômico.
+As informações de 
+Padrão para Vendas
+ no cadastro de Cliente agora será individual para cada Cliente Faturado no Pedido de Venda.
+O Cliente Comprador não precisará mais ser informado no Pedido de Venda.
+Como configurar o Grupo Econômico:
+Cadastro de Cliente - Vínculo do Cliente Comprador ao Cliente Faturado
+Localizar o Cliente Faturado e acessar 
+Arquivos / Clientes / aba Detalhes / aba inferior Cadastro Detalhado
+Marcar o perfil 
+Pertence a Grupo Econômico (para Crédito, Faturamento)?
+Informar o Código do Cliente Comprador deste Grupo Econômico.
+Efetuar o mesmo procedimento para os demais clientes do mesmo Grupo Econômico e o mesmo processo para os demais Grupos.
+Cadastro de Cliente - Configuração o Limite de Crédito
+ Para a configuração de Limite de Crédito você poderá trabalhar de duas formas, sendo elas:
+Configurando o Limite de Crédito no Cliente Comprador
+Localizar o Cliente Comprador e acessar a aba de Padrão para Vendas em 
+Arquivos / Clientes / aba Detalhes / aba inferior Padrão p/ Vendas
+No campo 
+Limite de Crédito
+, informar o valor total do limite para o Grupo Econômico.
+Certifica-se de que todos os Clientes Faturados deste Grupo Econômico 
+não
+ possui valor de Limite de Crédito informado.
+Caso haja algum Cliente Faturado com informação de Limite de Crédito o Sispetro irá 
+SOMAR
+ ao demais limites definidos para o Grupo Econômico em questão. Por isso, atente-se!
+Configurando o Limite de Crédito no Cliente Faturado
+Localizar o Cliente Faturado e acessar a aba de Padrão para Vendas em 
+Arquivos / Clientes / aba Detalhes / aba inferior Padrão p/ Vendas
+No campo 
+Limite de Crédito
+, informar o valor total do limite para este Cliente. Caso o Cliente Comprador tenha um limite de crédito específico, o mesmo deverá ser feito para ele.
+É importante que todos os clientes faturados e o comprador tenham seus limites de crédito definidos em seus respectivos cadastros, pois o Sispetro irá 
+SOMAR
+ todos os limites definidos para o Grupo Econômico em questão.
+Cadastro de Cliente - Padrão para Vendas
+ Esta aba agora é individual, cada cliente poderá ter suas respectivas configurações que poderão ser utilizadas no Pedido de Venda.
+Controlar o Limite de Crédito do Grupo Econômico através da Aprovação de Pedido de Venda.
+ Para trabalhar com Grupo Econômico no Sispetro e controlar o Limite de Crédito será preciso marcar o perfil de Sistema {{Ferramentas / Sistema / Vendas / perfil 
+Verifica limites e valores do Grupo Econômico para aprovação do pedido

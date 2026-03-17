@@ -1,0 +1,85 @@
+TITULO: Vinculando Nota Fiscal e Ordem de Carregamento pela Manutenção de Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440380
+--------------------------------------------------
+Pela manutenção de Nota Fiscal (menu 
+Movimentação / Faturamento / Manutenção NF
+), através do painel "Estoque" / painel "Ordem de Carregamento", o usuário consegue visualizar todas as ordens de carregamento que estão vinculadas a nota fiscal selecionada ou incluir vínculos ou alterar vínculos já existentes, desde que os vínculos já existentes não tenham sidos gerados por processos automáticos.
+
+
+
+
+Os processos automáticos são aqueles gerados automaticamente pelo sistema, por exemplo, quando se fatura uma nota fiscal de vendas ou quando se faz um recebimento de uma nota fiscal, através de uma ordem de carregamento.
+
+
+Para vincular uma Ordem de Carregamento a nota fiscal selecionada, ou até mesmo alterar esse vínculo o usuário deve clicar no botão 
+"Altera Vínculo"
+.
+
+
+O sistema abrirá a tela de 
+"Vínculo NF/OC"
+:
+
+
+
+
+Na parte superior da tela, o sistema exibirá as informações referentes a nota fiscal selecionada pelo usuário.
+
+
+
+
+Na parte central, o usuário terá os filtros que poderão ser utilizados para localizar determinadas ordens de carregamento que se queira vincular.
+
+
+
+
+Pode-se selecionar Ordens de outras empresas ou mesmo de um produto especifico. Após selecionar o período desejado, se realmente isso for necessário, para atualizar as informações, o usuário deve clicar no botão 
+"Atualiza"
+, assim, o sistema atualizará o grid "Itens da OC a serem Vinculados", na parte inferior da tela, do lado direito, mostrando outras ordens de 
+carregamento
+ que estão disponíveis para serem vinculadas, isso se a nota fiscal selecionada for de saída, caso contrário serão apresentadas as ordens de descarga.
+
+
+
+
+Serão apresentadas todas as Ordens que não tenham vínculo com alguma nota fiscal ou não seja a última, caso esteja vinculada.
+
+
+Para vincular, o usuário deverá utilizar o botão 
+"Vincula Item"
+:
+
+
+
+
+Ao utilizar esse botão, o item selecionado no grid "Itens da OC a serem Vinculados", será adicionado ao grid "Itens de Oc Vinculado"
+
+
+
+
+Para remover o item do painel "Itens de Oc Vinculado", o usuário deve utilizar o botão "Remove o vínculo":
+
+
+
+
+Ao fazer o vínculo, ou seja, selecionar a OC e transferir essa OC para o painel "Itens de OC vinculado", o sistema automaticamente marca essa OC como "FINAL".
+
+
+
+
+Quando a OC está marcada como final, ela não poderá ser mais utilizada para vínculo com outra nota fiscal. Isso quer dizer que ela não apareceria em uma eventual pesquisa. Para que ela pudesse ser vinculada a outra nota fiscal e aparecer em outra pesquisa, ela não pode estar marcada como final.
+
+
+Para mudar o "status" de uma Ordem, o usuário deve selecionar a OC e utilizar o botão "Marca/Desmarca Finalização".
+
+
+Deve-se atentar que o sistema não valida se a Ordem de Carregamento tem o mesmo produto que a Nota fiscal e se as quantidades estão iguais.
+
+Ao acessar essa tela para uma nota fiscal que já tenha vínculo com uma Ordem de carregamento, o sistema apresentará a OC no grid "Itens de Oc Vinculado" e permitirá que esse vínculo seja removido ou alterado seguindo as mesmas regra da inclusão de um vínculo.
+
+
+Para consolidar o vínculo o usuário deve clicar no botão 
+.
+
+
+O sistema voltará para o painel "Ordem de Carregamento", exibindo o vínculo.

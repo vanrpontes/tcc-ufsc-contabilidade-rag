@@ -1,0 +1,116 @@
+TITULO: Tabela Composição Fiscal de Produtos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4349001810
+--------------------------------------------------
+A tabela Composição Fiscal de Produtos é utilizada nos cálculos da Tributação Monofásica e deve ser informada no produto em 
+ em Composição para Efeito Fiscal.
+O cadastramento de uma composição é bem simples e segue a mesma ideia da 
+Composição
+. A diferença é que a composição deve ser informada como percentual e não decimal como é na aba Composição do produto.
+Para acessar a tabela
+Menu Tabelas Auxiliares / Controladoria / Composição de Produtos
+Essa tabela pode ser acessada também através do cadastro de produtos em
+ 
+, quadro NF-e, Composição para Efeito Fiscal em Composição de Produtos.
+Incluindo uma composição
+Clique no botão +
+Aba Detalhes
+ID: 
+definido pelo SisPetro sem possibilidade de alterações
+Descrição:
+ informe uma descrição que melhor identifique a composição a ser utilizada no produto
+Ativa:
+ por padrão vem marcada
+Aba Itens
+Nesta aba são cadastradas as composições fiscais do produto
+Incluir/Editar
+Produto: 
+selecione um produto
+Tipo (Tributação AdRem):
+ não selecionável. Informação é do cadastro de produto em 
+, quadro NF-e, opção Tipo (Tributação AdRem)
+Tipo de Cálculo
+Simples (Proporcao * Qtde NF):
+ quantidade da nota multiplicada pelo percentual do campo % Composição
+Por Dentro ((Qtde da NF / 1 - Proporcao) - Qtde da NF): 
+utilizada em operações com produto primário simples mas para sua venda/transferência deve considerar o % de composição do BioCombustível.
+% Composição:
+ informe o percentual de composição do produto
+Grava: 
+inclui os dados informados
+Cancela: 
+saí da tela sem incluir os dados informados
+Campos % Composição e Tipo de Cálculo
+Para Diesel B composto ou misturado
+%Composição do Diesel A: deve ser o mesmo definido pela ANP
+Tipo de Cálculo: Simples
+%Composição do 
+B100: 
+deve ser o mesmo definido pela ANP
+Tipo de Cálculo: Simples
+Para Diesel A
+%Composição do 
+Diesel A: deve ser 100%
+Tipo de Cálculo: Simples
+%Composição do 
+B100: 
+deve ser o mesmo definido pela ANP
+Tipo de Cálculo: Por Dentro
+Incluída uma composição, fica disponível para ser utilizada no produto em 
+, quadro NF-e, Composição para Efeito Fiscal em Composição.
+Excluir
+Selecione um item e clique em Excluir: 
+excluir somente se não foi utilizada anteriormente
+. Caso tenha sido utilizada, desmarcar a opção Ativa na aba Detalhes.
+Para mais informações, ver 
+Configurações necessárias para emissão de notas com tributação monofásica
+.
+Composição fiscal de produtos para Diesel A, Diesel B, Gasolina C e Gasolina A (composto ou misturado)
+Produto 
+**
+Produto Primário
+% Composição (exemplo)
+Tipo de Cálculo
+Diesel B S10 Comum ou Aditivado
+A S10
+88
+Simples
+B100
+12
+Simples
+Diesel A S10
+A S10
+100
+Simples
+B100
+12
+Por Dentro
+Diesel B S500 Comum ou Aditivado
+A S500
+88
+Simples
+B100
+12
+Simples
+Diesel A S500
+A S500
+100
+Simples
+B100
+12
+Por Dentro
+Gasolina C
+Gasolina A
+73
+Simples
+Alcool Anidro
+27
+Simples
+Gasolina A
+Gasolina A
+100
+Simples
+Alcool Anidro
+27
+Por Dentro
+** 
+Cada produto deve ter sua composição fiscal e cada composição fiscal é composta unicamente pelo produto primário (A S10, A S500) e pelo BioCombustível (B100). Assim, caso tenha mais de 1 produto igual cadastrado (2 A S10 e 2 B S10, com códigos diferentes), deve cadastrar uma composição fiscal para cada um deles com seus respectivos produtos.

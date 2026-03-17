@@ -1,0 +1,103 @@
+TITULO: Fibra
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439596
+--------------------------------------------------
+Objetivo
+O Banco Fibra trabalha em conjunto com os Bancos Itaú (341) e Bradesco (237). Porém, o SisPetro, até o momento, disponibiliza apenas a operação com o Banco Itaú. Assim, a empresa tem conta no Banco Fibra, onde adquire o produto Cobrança Eletrônica, ao imprimir o boleto, o imprime com as características do Banco Itaú. Dessa forma, o cliente que recebe o boleto não precisa localizar uma agência do Banco Fibra para efetuar o pagamento, podendo fazer isso perfeitamente no Banco Itaú, que tem muito mais agências disponíveis em todo o país ou até o vencimento em qualquer outro banco integrado ao sistema nacional de compensação. Para atender essa necessidade usaremos a configuração de Banco Correspondente do SisPetro. Cabe lembrar que o arquivo de remessa é conforme o layout do Banco Fibra.
+Configurações
+Tabelas Auxiliares / Tipo de Cobrança / Aba Por Empresa / 
+Aba Cob. Eletrônica
+No campo 
+banco
+ deve ser informado 224 - Banco Fibra S.A.
+Tipo de convênio
+ não é utilizado.
+Apesar do Banco Fibra não ter número de 
+convênio
+ é necessário colocar alguma informação para geração do arquivo de cobrança. Coloque neste campo o número da 
+conta
+ da empresa no Banco Fibra.
+A 
+carteira
+ deve ser com três dígitos, geralmente 
+109
+.
+A 
+Variação da Carteira
+ deve ser preenchida com um dígito, 
+6
+ para cobrança direta.
+O 
+Código de Serviço de Cobrança
+ não é utilizado.
+A 
+agência
+ do banco Fibra tem 
+4
+ dígitos.
+A 
+conta
+ tem 
+7
+ dígitos mais 
+1
+ dígito verificador.
+O 
+modo de cobrança
+ não é utilizado.
+Se desejar pode utilizar a opção 
+Pode indicar sacador/avalista
+, se marcá-la deverá então informar o CNPJ do sacador/Avalista e a razão social.
+Se desejar pode utilizar a opção 
+Pode indicar #docto na remessa
+, escolhendo a opção que melhor atender a empresa.
+O campo 
+Informação de juros no Arquivo Remessa
+ deve estar configurado como 
+Sem Informação
+ ou 
+Informa valor diário calculado pela taxa diária
+ que são as formas aceitas pelo Banco Fibra.
+Caso o título vier de nota fiscal será incluído o registro 4 abaixo do registro detalhe no arquivo de remessa. 
+Caso utilize Banco Correspondente
+:
+Tabelas Auxiliares / Tipo de Cobrança / Aba Por Empresa / 
+Aba 
+Informações sobre a Cobrança
+Marcar
+ a opção 
+Utiliza Banco Correspondente
+Informar no 
+Banco Encarregado da cobrança 341 – Itaú
+Informar 
+#Banco
+ como 
+341
+Informar 
+Nome Banco
+ como 
+Itaú S/A
+Preencher 
+#Agencia
+ com 
+1248
+ (esta é a agência do Itaú onde o banco Fibra tem conta)
+Preencher 
+Número Conta
+ com 
+02130
+ e o seu 
+dígito
+ com 
+3
+ (esta é a conta do banco Fibra no Itaú)
+Preencher a 
+Carteira
+ com 
+109
+As demais informações não precisam ser preenchidas.
+Faixa Nosso Número
+Só deve ser informada uma faixa com até 11 dígitos.
+Dados Técnicos
+Nosso Número:
+ é salvo no SisPetro com 11 dígitos, porém ao ser impresso, antes é apresentada a carteira com 3 dígitos no seguinte formato: CCC/NNNNNNNN-D (Onde CCC é a carteira e NNNNNNNN é o Nosso Número)
+O dígito verificador é calculado no módulo 10. Para este cálculo é usada a carteira, a agência e conta do Banco Correspondente.

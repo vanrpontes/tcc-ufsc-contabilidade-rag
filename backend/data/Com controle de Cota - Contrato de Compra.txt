@@ -1,0 +1,89 @@
+TITULO: Com controle de Cota - Contrato de Compra
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701612
+--------------------------------------------------
+Pedidos de compra com controle de cota são conhecidos também como 
+Contrato de Compra
+. São diferentes dos pedidos normais, pois possuem características específicas:
+Tem um preço pré-definido para o produto, sendo acordado como serão feitas as entregas diárias
+Estes pedidos poderão ser feitos somente para 
+produtos
+ que estejam marcados que utilizam o controle de cota.
+Cada pedido poderá ter um único produto
+O fluxo de caixa previsto é gerado normalmente pela condição de pagamento estipulada, porém poderá ser alterado para que acompanhe o fluxo de entrega das cotas.
+É imprescindível que se informe como será o controle de cota diária, cuja soma deverá ser igual à quantidade informada no pedido para o produto.
+No 
+recebimento de mercadorias
+, ao informar a Ordem de Carregamento de Transferência, os dados referentes à quantidade serão carregados para inclusão da Nota de Entrada.
+Geralmente é utilizado para combustíveis, em especial, para retirada de Álcool em Usina e Gasolina/Diesel na Petrobrás.
+Caso esteja controlando cota de bombeio, e utilizando 
+Natureza de Operação de bombeio não movimenta estoque, necessário habilitar o perfil 
+Valida valores do PMM= Considera na validação de valores do PMM 
+Ao finalizar um pedido que foi marcada a opção Controle de Cota, será apresentada a tela a seguir:
+Através do botão 
+Inclui Cota Rápida
+ é possível estipular como o SisPetro pode preencher a cota automaticamente. Para isso serão necessários os dados apresentados na seguinte tela:
+É possível que o SisPetro divida a quantidade total entre o período informado, ou então que se fixe a cota diária, onde o SisPetro, a partir da data inicial, lançará a cota diária até atingir a quantidade total.
+Clique em OK após definir a opção mais adequada.
+O SisPetro apresentará a distribuição que fez automaticamente, porém esta distribuição poderá ser alterada à vontade, desde que a soma das cotas seja igual à quantidade total informada no pedido.
+Pelo botão 
+Cria fluxo p/ cota
+ é possível ajustar o fluxo de caixa previsto que foi gerado inicialmente pela condição de pagamento para que seja de acordo com as cotas diárias. Sendo assim, será gerado para cada dia de retirada um fluxo equivalente à quantidade vezes o valor unitário do produto. Este processo será útil quando foi informada uma determinada condição de pagamento, mas o pagamento será feito de acordo com a retirada do produto (não condizendo com a condição informada).
+Pelo botão 
+Atualiza Valores
+ é possível atualizar os valores de cota retirada a partir de Notas Fiscais, Bombeios, e OC de transferência, válido apenas após a inclusão do PMM.
+Também é possível incluir as cotas manualmente através do botão 
+Inclui
+. 
+O SisPetro mostrará a tela abaixo
+Informe a data de entrega e quantidade, clique em 
+OK
+ para incluir.
+Após a distribuição / inclusão / alteração da cota, é possível alterar a data e quantidade da cota distribuída. Para isso acesse a aba 
+Aba Cota Dia
+ na Manutenção de PMM.
+Importante que as quantidades distribuídas na cota dia somem o total do pedido.
+No processo de recebimento, ao incluir uma ordem de carregamento, a quantidade real acumulada e a quantidade em trânsito são movimentadas.
+É possível acompanhar a movimentação através da tela de 
+Manuteção de Pedido de Movimentação de Materia
+l, aba Cota Dia.
+Atualmente, tanto na tela de Cota (aberta na finalização da inclusão do PMM) como na Manutenção de PMM, aba Cota, temos as seguintes informações:
+A cada data definida para Cota temos:
+Qtde Prevista
+: que foi preenchida pela Cota rápida ou alterada pelo usuário.
+Qtde Prevista Acumulada
+: é a soma da Qtde Prevista da Linha posicionada com as quantidades previstas imediatamente anteriores.
+Qtde Real:
+ é a quantidade recebida em NF (não cancelada) para o PMM considerando a data de movimento da nota.
+Qtde Real Acumulada
+: é à soma da Qtde Real e a Trânsito da Linha posicionada com as quantidades reais e trânsito imediatamente anteriores.
+Qtde Trânsito
+: é a quantidade emitida de OC ou de Confirmação de Pedido de Bombeio.
+Saldo do Dia
+: é a diferença entre a Prevista e a Qtde Real somada à Qtde Trânsito
+Saldo Acumulado:
+ é a soma do Saldo do Dia da linha posicionada com as quantidades do Saldo do Dia anteriores.
+Após receber através da Nota Fiscal vinculada a uma ordem de carregamento ou bombeio a 
+Quantidade Real
+ é movimentada, 
+Saldo do Dia,
+ é a diferença entre a 
+Prevista
+ e a 
+Qtde Real
+ somada à 
+Qtde Trânsito.
+Já o 
+Saldo Acumulado,
+ é a soma do 
+Saldo do Dia, 
+diferença entre a Prevista e a Qtde Real somada à Qtde Trânsito, 
+com as quantidades do 
+Saldo do Dia
+ anteriores.
+Importante
+Na transferência de PMM as cotas são transferidas com base na quantidade.
+Exemplo: 
+Temos um PMM com qtd. total de 1000 e cota diária de 100 unidades por dia.
+Caso eu transfira 350 o SisPetro irá: 
+Zerar a cota dos três primeiros dias e utilizar 50 do quarto dia.
+No PMM de destino essa cota será transferida da mesma forma

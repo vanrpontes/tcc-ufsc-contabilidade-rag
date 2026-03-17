@@ -1,0 +1,80 @@
+TITULO: Manutenção Chaves de Acesso
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926189201
+--------------------------------------------------
+Os Serviços de Manifestação de NF-e/CT-e foram implementados para agilizar o processo, deixando o processo mais prático, sendo executado automaticamente a partir de um intervalo definido pelo usuário. Para mais informações,  ver  
+Evento de Manifestação do Destinatário da NF-e
+ e 
+Evento de Manifestação do Destinatário do CT-e
+Vale ressaltar que a manifestação é realizada somente através do serviço.
+Para os casos em que se há necessidade de emitir a manifestação no exato momento, o usuário pode acionar o botão de
+ Aciona Serviço 
+na tela de
+ Consulta chave de Acesso.
+A tela de 
+Consulta Chave de Acesso
+ mostra todas as chaves de acesso emitidas por terceiros para o CNPJ da empresa, podendo ser inclusas via Importação de XML, Entrada Manual de Notas Fiscais ou via Consulta Destinatário, sendo possível visualizar de forma simples qual o status de uma determinada chave.
+Consulta de Destinatário 
+Veja nos links abaixo como realizar as devidas configurações para consultar Notas emitidas para o CNPJ da empresa.
+Consulta de Destinatário de NF-e/CT-e
+Serviços automáticos para Consulta de Destinatário de NF-e/CT-e
+Consulta chave de acesso X Evento de Manifestação Destinatário NF-e/CT-e
+Após definir como a empresa irá trabalhar com a manifestação, o usuário pode acompanhar todo o processo através da tela de Consulta Chave de Acesso.
+Por esta tela é possível realizar a consulta de chaves de acesso com e sem evento de manifestação, incluir evento de manifestação individual ou até mesmo em lote, visualizar a fila de manifestações pendentes e quais foram as últimas que foram manifestadas ou até mesmo visualizar o retorno dos eventos, podendo identificar eventuais casos de erros.
+Seguem abaixo alguns detalhes sobre cada aba e de como as mesmas podem auxiliar no processo de evento de Manifestação.
+Para que o usuário tenha permissão para acionar o serviço, o perfil de usuário 
+'
+Pode acionar manualmente o Serviço de Manifestação'
+ deve estar marcado.
+Com o campo Empresa pode se selecionar as NF-es separado por filial
+Tipo de Documento Fiscal:
+ 
+Deverá ser informado NF-e ou CT-e, desta forma todas as informações e ações da tela, serão efetuadas para o tipo de documento informando.
+NF-e/CT-e
+Na aba NF-e/CT-e serão apresentadas todas as chaves de acesso emitidas para a empresa conectada, podendo ser filtradas por um determinado período ou até mesmo somente as com 
+Manifestação Pendente
+.  
+No final da tela, há indicadores sobre o Serviço de Consulta Destinatário e Serviço de Manifestação. Se estão ativos, qual IP, Porta, data e hora da última conexão:
+Podemos verificar se o Serviço de Manifestação e Consulta Destinatário estão ativos no Servidor Sipetro através da tela de Log de Serviços. veja maiores detalhes em
+ 
+Log de Serviços
+.
+Inclusão de Manifestação pela Consulta Destinatário NF-e
+Agora é possível realizar a inclusão de um evento de Manifestação direto na tela de Consulta Chave de acesso.
+Há duas opções de inclusão, sendo uma de forma unitária ou em lote (neste caso, podendo selecionar diversas chaves para a inclusão de um evento em lote). A inclusão do evento só sera realizada para chaves de acesso que não estejam com evento de confirmação ou que estejam como pendente:
+Inclusão manual:
+ É possível realizar a inclusão de um evento de manifestação, essa opção é acionada através do botão 
+. Após acionar o mesmo, será apresentada a tela abaixo onde o usuário poderá selecionar o tipo de Manifestação a ser realizada.
+Após confirmar, o evento será incluído na chave e a mesma ficará como pendente de ação do serviço.
+Inclusão em lote: 
+é possível realizar a inclusão do evento de manifestação em lote, para realizar essa opção basta selecionar mais de uma chave utilizando a tecla SHIFT do teclado e acionar o botão 
+, após acionar o mesmo será apresentado a tela abaixo onde o usuário pode alterar o tipo de evento a ser realizado.
+O Serviço de manifestação envia os eventos em lote. Caso uma manifestação contenha erro, as demais manifestações pertencentes ao lote em que se encontra o evento com erro, não serão processadas, ficando pendentes e necessitando que seja realizado a correção do evento com erro ou solicitação de um novo evento para as chaves que se encontram paradas. O Serviço de Manifestação realizará a tentativa de processamento de um evento somente 2 vezes. Após a segunda tentativa, caso ocorra erro, a chave de acesso sairá da fila de manifestações pendentes, e ficará como finalizada, com o status de Erro.
+ 
+Inclusão de Manifestação pela Consulta Destinatário CT-e
+Para o CT-e foi implementado pela SEFAZ  a manifestação de "Prestação de Serviço em Desacordo”. 
+A inclusão da manifestação deverá ser efetuada manualmente, podendo ser de forma individual ou em lote:
+Inclusão manual:
+ Para a inclusão de um evento de manifestação, clique do botão 
+. Será solicitada a confirmação da inclusão do evento de manifestação de "Prestação de Serviço em Desacordo"
+Após a confirmação será exibida a tela abaixo para que seja possível incluir observações referente a manifestação:
+Inclusão em lote: 
+é possível realizar a inclusão do evento de manifestação em lote, para realizar essa opção basta selecionar mais de uma chave utilizando a tecla SHIFT do teclado e acionar o botão 
+.
+Após acionar o mesmo, será apresentada a tela de observações para que o usuário informe observações referente a manifestação.
+Eventos
+A partir da aba evento é possível visualizar os eventos enviados para a chave de acesso que foi selecionada. É possível também, visualizar se os eventos foram processados corretamente ou se ocorreu algum erro, e qual foi o erro.
+É possível visualizar os XMLs de envio e retorno através dos botões 
+XML Enviado 
+e 
+XML Retorno. 
+Pela tela de Manutenção de Chave de Acesso é possível realizar a exclusão de um evento, através do botão Exclui Manifestação. Para maiores informações sobre os acessos, veja 
+Painel Faturamento (Usuários)
+.
+Fila Manifestação
+Na aba Fila Manifestação, a partir do Grid superior, o usuário poderá visualizar os eventos de manifestações que se encontram como pendentes e estão aguardando a execução do serviço. Logo abaixo, no Grid inferior, o usuário poderá ver os últimos eventos de manifestações processados, onde o Status pode ser 
+'OK'
+ quando processado com sucesso ou 
+'Erro' 
+quando ocorreu algum erro ao enviar o evento.
+Veja também: 
+Como identificar divergências na Manifestação

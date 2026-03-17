@@ -1,0 +1,124 @@
+TITULO: Monitoramento da Importação de NF-e/CT-e - Notas Fiscais a Serem Processadas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4017389569
+--------------------------------------------------
+none
+Objetivo
+Após ser realizada a validação das notas, elas irão para a aba 
+Notas Fiscais a Serem Processados
+, podendo ou não ficar pendente de confirmação, ou aguardando alguma ação do usuário.
+Notas Fiscais a Serem Processados
+Abas inferiores
+Para mais informações sobre as abas inferiores, ver 
+Abas Monitoramento da Importação de NF-e/CT-e - Notas Fiscais a Serem Processadas
+ 
+Quadro Operações por NF
+Botão Edita: 
+ao selecionar a nota e acionar o botão Edita será apresentado a tela
+ Edição de NF para Importação
+ abaixo, onde será possível realizar as alterações de:
+Nota
+Itens
+Parcelas
+NF Vinculadas
+Vínculo Título Recorrente
+Centro Custo
+UF Origem. 
+Para exibir o botão despesas é necessário habilitar o perfil 
+Contas de Despesas Configuração Inicial
+ 
+Para que o campo 
+Tipo de Documento
+ fique habilitado na edição da nota é necessário que a opção 
+Permite alterar tipo de documento na nota fiscal
+ esteja marcada na Natureza de Operação, aba 
+Geral - Dados Gerais
+Para informar / vincular Projeto na Importação de NF, 
+não pode ter 
+nenhum vínculo de NF com OC ou PMM.
+Observações da NF: 
+essa guia é para informar as observações da nota fiscal. 
+Observações da Importação: 
+essa guia é
+ para fins informativos. Ao ser processada a NF as informações desse campo serão descartadas.
+Abas da Edição da Nota Fiscal
+Editando Itens
+   
+Editando UF Origem
+Editando Parcelas
+Caso a parcela tenha sido alterada será necessário realizar a 
+Autorizar
+, as alterações para que isso ocorra o usuário precisa ter o perfil 
+Autoriza valor total de parcelas diferente do total da NF?
+: habilitado no perfil de usuário, estas autorizações ficam logadas, na aba
+ Notas Fiscais a Serem Processadas
+, apresentando usuário e diferença do valor original para o novo valor
+Centro de Custos  
+Através da aba de centro de custos podemos visualizar e editar os centros de custos através do botão 
+Altera Distribuição
+. 
+O botão 
+Altera Distribuição
+ só ficara habilitado caso o usuário tenha o perfil 
+Pode distribuir Centro de Custos em Compras
+ marcado. 
+Caso o usuário queira utilizar a 
+contabilização por centro de custo
+ definida em 
+Depósitos - Aba Detalhes
+ a natureza utilizada na importação deve estar com a opção 
+Desconsidera Código de Contabilização marcada. 
+Para mais informações, ver 
+Natureza de Operação / Aba Contabilização (Painel Geral)
+, 
+Depósitos - Aba Detalhes
+.
+Os Centros de Custos serão apresentados quando a nota for vinculado a um PMM que contem centro de Custo informado. Para mais informações, ver 
+Critérios para Utilização de Centro de Custo
+.
+Vinculo na aba Itens
+Notas Fiscais: 
+Através da aba NF Vinculadas, podemos realizar o vínculo com uma nota Fiscal.
+Títulos Recorrentes: 
+Através da aba Vinculo com recorrente podemos realizar o vinculo com títulos recorrentes.
+Botão Exibe Erros/Avisos: 
+ao acionar o botão, será exibido as validações pré-processamento, como vínculos pendentes e Erros de Processamento pós validação tais como 
+A Nota Fiscal ainda não tem confirmação do Vínculo de OC automático.
+Recarrega Eventos: 
+ao processar a Nota Fiscal (seja manualmente ou via Serviço) ou ao clicar em "Exibe Erros e Avisos" valida para que o número de Eventos salvos para a Nota Fiscal seja igual ao número de Eventos previstos. Caso não seja, será apresentado como orientação para que o usuário clique no botão 
+Recarrega Eventos. 
+Isso pode ocorrer nos casos onde o vínculo do PMM ou OC foi feito antes de Encerrar a OS, mas a NF não foi processada no momento. Assim, ao processar a NF pode ser que a OS já tenha sido encerrada e seja necessário gerar eventos que antes não seriam gerados. Um outro cenário é a OS estar encerrada no momento do vínculo, o que geraria eventos pela NF, mas depois alguém cancelar o seu Encerramento, antes do processamento da NF. Ou seja, processo inverso do caso anterior.
+Vincula OC:
+ é possível vincular uma OC na nota de 
+entrada
+ a ser importada. Para notas de 
+saída
+ não é permitido o vínculo de OC.
+Vincula PMM: 
+é possível vincular um PMM na nota de 
+entrada
+ a ser importada. Para notas de 
+saída
+ não é permitido o vínculo de PMM.
+Quadro Operações pra NF marcadas
+Processa Agora: 
+processa as notas de acordo com os De / Para informados. 
+Exclui: 
+exclui as notas marcadas. 
+Edita: 
+faz a alteração em lote do depósito ou da data do movimento.
+Para realizar a alteração da data de movimentação o usuário deve estar com o perfil de usuário 
+Pode alterar data de movimento da NF
+ marcado. 
+As opções de Confirmar depósito e Liberação de Processamento, trabalham de forma separadas. Sendo assim quando se tem a necessidade de realizar a confirmação do depósito basta marcar a opção Confirma Depósito e clicar no botão Ok.
+Liberando para Processamento: 
+ a nota poderá ficar pendente para processamento por diversos motivos, sendo por ocorrer algum erro na nota, por configuração de Sistema onde exija a liberação por deposito ate mesmo podendo ser configurado para exigir a confirmação para todas as notas, após a sua inclusão.
+Confirma Depósito: 
+libera o depósito.
+Liberação de Processamento: 
+define a liberação a ser utilizada.
+Não Libera:
+  não realiza nenhuma liberação
+Libera somente Status para os confirmados:
+ realiza a liberação para as notas cujo o depósito se encontra confirmado.
+Libera Processamento e libera tudo:
+ liberação e confirmação do depósito.

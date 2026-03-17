@@ -1,0 +1,90 @@
+TITULO: Controle de Diferenças em Descargas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2923954648
+--------------------------------------------------
+Visando atender a todas as empresas, aquelas que tem base própria e as que não tem, o Controle de Diferença em Descargas foi alterado na Versão 8.27. A partir desta versão há a possibilidade de Importar e Exportar as Diferenças de Descargas, assim as distribuidoras que não tem base própria podem calcular a diferença entre o volume programado e efetivamente descarregado. Veja mais informações sobre o processo em 
+ 
+A tela é acessada pelo menu 
+Movimentação / Base/ Controle de Diferenças em Descargas
+Diferença apurada e Diferença apurada diminuída da diferença permitida. Veja mais informações em
+ 
+Depósitos - Aba Dados Adicionais
+, 
+procure por
+ "Volume a ser considerado".
+Foi criado o Controle de Diferenças em Descargas. É utilizado para a base controlar a diferença, a 20 graus, entre o que foi programado para o carregamento e o que foi efetivamente descarregado. Normalmente essa diferença é cobrada da Transportadora responsável. 
+O valor a ser cobrado da transportadora, por litro não entregue, é igual ao valor da unitário informado na Nota Fiscal.
+Primeiro é preciso configurar qual será o percentual de "perdas" aceito por Ordem de Carregamento. Pode ser configurado em três lugares distintos. O SisPetro seguirá a seguinte sequencia para encontra-lo:
+Será verificado se foi cadastrado em 
+Transportadoras / Motoristas
+ 
+"% Diferença Permitida" 
+(Caso não esteja)
+Será verificado se foi cadastrado na (Caso não esteja). veja help: 
+Painel Empresa Transportadora (vínculo Transportadora x Motorista)
+Será verificado no Cadastro de 
+Depósitos - Aba Dados Adicionais
+,
+"% Diferença Permitida"
+Ou seja, o perfil do 
+Motorista
+ sobrepõe o da
+ transportadora
+, que por sua vez, sobrepõem o do 
+Depósito
+.
+Veja como incluir uma nova apuração em
+ 
+Inclusão de Diferença de Descargas
+Veja como cancelar a apuração em
+ 
+Cancelando Diferença de Descargas
+Veja como Importar/Exportar apurações em
+ 
+Importação/ Exportação de Diferenças de Descargas
+ 
+Aba "Resumo Transportadoras"
+Nesta aba são exibidas todos os detalhes das descargas.
+Quadro "Dados Transportadora"
+Nome e código das transportadoras
+Nome e código dos motoristas
+Empresa em que foi feita a movimentação
+Quantidade da diferença
+Valor unitário cobrado por litro
+Valor total ( Diferença em litros x valor unitário cobrado por litro.
+Quadro "Descargas"
+Neste quadro é detalhado toda a movimentação de cada uma das transportadoras envolvidas na apuração. É detalhado por Ordem de Carregamento, apresentando o Volume Programado, Volume Real, Diferença entre os dois (Diferença 20c) e Código do Tanque de descarga.
+Aba "Resumo OC"
+Foi criada na versão 8.27. Nela são exibidas as informações referentes as 
+Ordem de Carregamento
+s e também as Diferenças de Descargas importadas. Veja mais informações sobre esse processo em 
+Importação/ Exportação de Diferenças de Descargas
+ 
+Os campos que a aba apresenta são:
+#Empresa:
+ Número sequencial da empresa que foi emitida a Ordem de Carregamento 
+Empresa:
+ Nome da empresa que foi emitida a Ordem de Carregamento 
+#OC:
+ Número da Ordem de Carregamento
+Tipo da OC:
+ Tipo da Ordem de Carregamento. Exemplo: Transferência entre depósitos, descarga de terceiros e etc...
+Data da OC:
+ Data da Ordem de Carregamento
+#Produto:
+ Número sequencial do Produto
+Produto:
+ Nome do produto
+Diferença
+: Diferença encontrada entre o volume programado e descarregado 
+#Empresa Origem:
+ Empresa que a Ordem de Carregamento foi emitida. Este campo é usado na importação de Diferenças de Descargas. Veja mais informações em 
+Importação/ Exportação de Diferenças de Descargas
+#OC Origem: 
+Número da Ordem de Carregamento, na empresa origem. Este campo é usado na importação de Diferenças de Descargas. Veja mais informações em 
+Importação/ Exportação de Diferenças de Descargas
+ 
+#DifDescarga Origem: 
+Número da Diferença de Descarga, na empresa que emitiu a OC. Este campo é usado na importação de Diferenças de Descargas. Veja mais informações em 
+Importação/ Exportação de Diferenças de Descargas
+ 
+ 

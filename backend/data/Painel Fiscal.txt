@@ -1,0 +1,71 @@
+TITULO: Painel Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2882535526
+--------------------------------------------------
+none
+Objetivo
+Permite configurar perfis fiscais essenciais, como o regime tributário (CRT), a composição da data de referência para relatórios e a forma de apuração de PIS/COFINS. Também possibilita definir os dados do contador, tanto de forma padrão para todas as empresas quanto por filial, informações obrigatórias para geração de arquivos fiscais como Sintegra, SPED, EFD e ECD. Além disso, inclui configurações específicas para exportação de arquivos à ANP e para o E-Ressarcimento SP, exigindo dados como código de produtor/importador e layout de exportação. Essas definições garantem o correto funcionamento das rotinas fiscais e a conformidade com as obrigações legais.
+O acesso a essa tela se dá mediante ao menu Ferramentas / Sistema / aba Fiscal.
+Conhecendo os perfis existentes:
+CRT - Código de Regime Tributário
+É utilizado para indicar qual o regime tributário que a empresa se enquadra. Podendo ser:
+1 - Simples Nacional
+3 - Regime Normal
+Por padrão o SisPetro irá marcado como a opção 
+3 - Regime Normal
+Composição da data de referência no relatório de apuração
+Com este perfil é escolhido como a data de referência das NF serão compostas no relatório de apuração, sendo essa data:
+Data de movimento
+Data de emissão
+Lembrando que este perfil trabalha em conjunto com o perfil da 
+Natureza de Operação/
+Dados Adicionais (Fiscal) (Painel Geral)
+Apuração de PIS/COFINS
+Campo específico para definir a forma como a empresa trabalhará com relação à Apuração de Pis e Cofins, considerando que a partir de 2009 a Apuração de PIS e COFINS do Álcool passou a ter as opções Alíquota e Valor fixo por m³ (metros cúbicos). Portanto, temos:
+Tributado por Alíquota (opção padrão do sistema)
+Tributado por Valor Fixo por m3
+Dados do Contador Padrão
+Os dados do contador pode ser definido por 
+empresa
+ ou por 
+sistema
+. Para definir os dados do contador para todas as empresas, ou seja 
+perfil de sistema
+, deve-se cadastrar as informações nos campos existentes.
+Essas informações serão consideradas para a geração de arquivos fiscais, como o
+ 
+Sintegra
+, GRF, SPED.
+Dados do Contador por Filial
+Caso tenha um contador para cada filial, 
+perfil de empresa
+, então deve-se definir os dados do contador nos campos existentes no quadro 
+Dados do Contador por Filial
+.
+Essas informações serão consideradas para a geração de arquivos fiscais, como o 
+Sintegra
+, GRF, EFD e ECD.
+Todos os campos são de PREENCHIMENTO OBRIGATÓRIO para a ECD.
+Data de Validade do CRC: 
+Refere-se à data de validade da Certidão de Regularidade Profissional do Contador
+Nº Controle Certidão CRC: 
+Número de Controle que consta na Certidão emitida pelo CRC para validade do mesmo, será utilizado no registro 
+J930 do SPED ECD
+.
+É importante ressaltar que, inicialmente, os campos do quadro Dados do Contador por Filial
+ serão preenchidos conforme os campos do quadro 
+Dados do Contador Padrão
+.
+Arquivo exportação para ANP
+Alguns agentes econômicos do Ramo de Combustíveis, como Produtores, Formuladores ou Importadores, precisam enviar um arquivo semanal para ANP com a variação de preços praticada para cada produto. O SisPetro possui este relatório semanal. Veja mais em 
+Geração Arquivo de comercialização ANP
+.
+Código Produtor/Importador na ANP:
+ Nesse campo informamos o código do Produtor/importador.
+Layout de Exportação Arquivo de Comercialização da ANP:
+ Nesse campo é informado o layout de exportação a ser utilizado.
+E-Ressarcimento SP
+Para gerar o arquivo do 
+E-Ressarcimento SP 
+é necessário indicar o caminho da DLL do ressarcimento SP.
+Para mais informações veja 
+Roteiro de utilização - Reforma Tributária 2026

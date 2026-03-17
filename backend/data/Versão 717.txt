@@ -1,0 +1,438 @@
+TITULO: Versão 7.17
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2900557847
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 15/03/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 25/04/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd717.sql (cmd2590 a cmd2614) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 32 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 11 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 21 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Relatórios 
+
+
+ DLLs 
+
+
+ Layouts de Exportação 
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+Sintegra-2010-SEF.rtm 
+
+
+
+
+
+
+Perfil de usuário retirado!
+Foi retirado o perfil de usuário que permitia Cancelar títulos oriundos de NF.
+
+
+Geral
+
+
+
+
+Localizador de Perfis (F4)
+
+Na versão passada incluímos a opção de pesquisa de perfis nos cadastro de Clientes, Fornecedores, Produtos e Natureza de Operação. Com isso, algumas informações que deveriam ser listadas somente na tela (como Data de Vigências, Saldos Totais, etc.) estavam sendo adicionadas na pesquisa. À partir dessa versão, essas informações serão tratadas e não serão adicionadas a pesquisa. 
+ALP (CCF 12182)
+
+
+Migração nos Grids
+
+
+Estamos em um processo de migração dos grids utilizados no SisPetro. Essa migração deixará nossos grids mais bonitos, práticos e com opções de filtros diversos para facilitar o trabalho de nossos usuários. UPA (CCF 12031)
+
+
+
+
+Contabilidade
+
+
+
+
+Fechamento de CMV
+
+Ao realizar o fechamento de CMV, em alguns casos, ao clicar no botão "Atualizar" o SisPetro exibia a mensagem de erro de divisão por zero. Esse problema foi corrigido. 
+ALP (CCF 11344)
+
+
+
+
+Compras
+
+
+Estoque
+
+
+
+
+Inclusão de Insumos na Formulação dos Produtos Fabricados
+
+
+A partir dessa versão, na formulação dos produtos Fabricados, poderão ser cadastrados também os insumos utilizados.
+ Esse cadastro se fez necessário para que possamos calcular os custos dos Insumos do produto fabricado. Hoje, no custo estão somente as matérias-prima utilizadas
+.
+ 
+Help:
+ 
+Rateio de Custos de Produção
+ 
+UPA (CCF 12170)
+
+
+Rateio de Custos de Produção
+
+
+Foi incluído no sistema um novo módulo chamado 
+Alocação de Ordem de Fabricação
+, nesse módulo, o usuário irá selecionar um período, e com base nas Ordens de Fabricação, irá informar o valor dos insumos utilizados e esse valor irá incorporar o custo do produto fabricado.
+ 
+Help:
+ 
+Rateio de Custos de Produção
+ 
+UPA (CCF 12170)
+
+
+Não pegar fila automaticamente em Ordens de Carregamento (OC) de Transferência entre Depósitos
+
+
+Implementamos no sistema uma validação ao realizar uma OC de Transferência entre Depósitos, onde na Tela de Inclusão não será mais sugerido que as mesmas entrem na fila da Portaria automaticamente
+ 
+mesmo se a opção "Exige confirmação do carregamento nas OCs de transferências" estiver desmarcada. Caso queira que pegue fila automaticamente deve desmarcar a opção Aguardar Fila.
+ 
+ALP (CCF 11890)
+
+
+Diferença de arredondamento - Carregamento x Fechamento Estoque
+
+Foi identificada uma diferença de arredondamento entre a tela de Fechamento de Estoque (campo "Volume Real 20c") e a tela de Carregamento (campo Qtde Real 20c). Esse problema foi corrigido. 
+ALP (CCF 11864)
+
+
+Liberação de Ordem de Fabricação (OF)
+
+Após cadastrar uma OF com um determinado volume, o SisPetro permite a alteração desse volume (Volume Real) no botão "Executar". 
+Porém, no botão "Liberar" estava sendo possível liberar um volume maior do que o Volume Real.
+ Esse problema foi corrigido. 
+ALP (CCF 12188)
+
+
+Transferência entre Tanques - Valor do preço unitário
+
+Na tela de Transferência entre Tanques existe um campo "Valor Unitário" que, atualmente, não está sendo utilizado. 
+Corrigimos o sistema para utilizar esse valor na movimentação gerada pela Transferência entre Tanques
+ 
+quando o depósito não for Base Própria (ou seja, quando houver só movimentação escritural) e estiver sendo utilizado um histórico que participa do CMV.
+ 
+ALP (CCF 12141)
+
+
+Régua Somente por MM
+
+
+Criado um perfil no cadastro de depósitos que define que os tanques desse depósito utilizam a régua fixa por MM. 
+Esse recurso deverá ser utilizado em empresas que a arqueação por MM não é fixa, variando conforme a altura do tanque. 
+ 
+Help:
+ 
+Manutenção de Tanques
+ 
+UPA (CCF 12655)
+
+
+Movimentação do Estoque escritural na execução da Ordem de Fabricação
+
+Na execução da ordem de fabricação, os produtos consumidos agora são movimentados também no estoque escritural. Além disso, no cancelamento da ordem de fabricação, tanto esta movimentação (de saída) quanto as movimentações de entrada (dos produtos acabados) são canceladas automaticamente (anteriormente, o usuário deveria cancelar as movimentações manualmente). 
+MCL (CCF 12672)
+
+
+
+
+Faturamento
+
+
+
+
+Dados Adicionais para Recebimento de NFs
+
+
+Foram adicionados a Ordem de Carregamento dois novos campos, Número de Nota Fiscal e Inspeção Veicular. Esses dois novos campos não são obrigatórios mas
+ 
+ajudarão a identificar as notas recebidas. Quando a nota fiscal é gerada antes da OC, como já teremos a nota fiscal em mãos, poderá ser informado o número da nota fiscal na OC e depois listaremos essa informação nas telas de vínculos com a nota fiscal.
+ 
+UPA (CCF 11287)
+
+
+Qtde de Lacres em Ordem de Carregamento (OC) de Venda não aparece
+
+Ao criar uma OC, o usuário pode informar o campo "Frota", e o SisPetro utiliza essa informação para exibir na tela o número de Lacres. 
+Mas se o usuário fosse acessar a tela de OC através de outra tela (como por exemplo o botão "Faz OC" da tela de Consulta - Pedidos aprovados para Faturamento), se o campo Frota já estivesse preenchido, a informação do número de Lacres não estava sendo exibida.
+ Esse problema foi corrigido. 
+ALP (CCF 11986)
+
+
+Diferença de Arredondamento - Nota Fiscal (NF) com desconto automático
+
+Foi identificado um problema de arredondamento, em alguns casos, quando era efetuada uma NF com desconto automático. Esse problema foi corrigido. 
+ALP (CCF 12101)
+
+
+Perfil para sugerir número da Nota Fiscal
+
+
+Com a implantação do Faturamento Simultâneo, o SisPetro não necessita mais utilizar o perfil de sistema que sugere o número da Nota Fiscal, já que isso agora é feito verificando-se o tipo de emissão da Natureza de Operação. Portanto esse perfil foi retirado do sistema. ALP (CCF 12142)
+
+
+Casas Decimais para Notas Fiscais de Compra
+
+Atualmente o SisPetro permite que seja configurado um número de casas decimais para Vendas e um outro número de casas decimais para Compras. Porém, mesmo com essas configurações, a emissão de uma Nota Fiscal de Compra não estava obedecendo sua respectiva configuração no sistema. Esse problema foi corrigido. 
+ALP (CCF 12353)
+
+
+Importação de arquivo xml de Notas Fiscais
+
+
+Em alguns casos, o valor unitário e a quantidade que vêm no arquivo xml de Notas Fiscais, quando multiplicados entre si não refletem o valor total da Nota. Isso ocorre porque a quantidade de casas decimais enviadas no arquivo nem sempre é a mesma que foi utilizada para o cálculo do valor total.
+ 
+Para isso, disponibilizamos um perfil de sistema onde é possível configurar se a importação deve pegar o valor unitário que veio no arquivo, ou se deve pegar o valor total e a quantidade que vieram no arquivo e calcular o valor unitário. Também nessa versão disponibilizamos na tela de importação uma opção para escolher a Data de Movimento das Notas importadas, com 3 opções (Data que vem no arquivo, Data do dia ou Data informada pelo usuário).
+ 
+ALP (CCF 10153)
+
+
+Sefaz Devolvendo nº de Chave de Acesso Diferente da Enviada
+
+Foi detectado um problema de comunicação com a Sefaz em que o nº da chave de acesso que o SisPetro enviava a Sefaz não estava sendo retornado igual e com isso estava sendo gerado um "access violation" no sistema. Essa situação foi tratada e caso isso aconteça, o usuário receberá uma mensagem mais clara. 
+UPA (CCF 12631)
+
+
+Data/Hora de Contingência no XML da NFe em Ambiente de Contingência
+
+Corrigido para que fosse enviada a data/hora de contingência no XML da NFe quando faturado em Ambiente de Contingência. 
+UPA (CCF 12355)
+
+
+
+
+Financeiro
+
+
+
+
+Mais informações na tela de baixa com adiantamento
+
+
+Na tela de baixa, ao escolher um adiantamento, será exibida mais uma informação: o Código da Conta de Banco em que foi feito o Adiantamento. ALP (CCF 11180)
+
+
+Falha de Arredondamento - Débitos/Créditos
+
+Foi identificada uma falha de arredondamento na tela de baixa de títulos Débito/Crédito. 
+Em alguns casos onde o título possui uma moeda que tenha conversão de taxa, o valor convertido para baixa deixa alguns centavos de diferença.
+ 
+Essa diferença faz com que o título fique com saldo pendente em REAIS, mas as tabelas que possuem os valores da moeda (Dólar, Euro, etc.) ficam com saldo zerado.
+ Esse problema foi corrigido. 
+ALP (CCF 12183)
+
+
+Arquivo Remessa do Banco do Brasil
+
+
+O SisPetro estava configurado para não enviar os juros nos arquivos de remessa de cobrança eletrônica do Banco do Brasil. Agora implementamos para que seja possível enviar a taxa de juros ou o valor calculado dos juros (mora diária), obedecendo as configurações do cadastro do Tipo de Cobrança. ALP (CCF 12174)
+
+
+Arredondamento na Distribuição das Contas de Títulos gerados por NF
+
+Foi identificado um problema de arredondamento no momento de distribuir os valores de títulos gerados pela emissão de Nota Fiscal, em casos onde o valor do título não é divisível exatamente pelo número de contas contábeis selecionadas para o mesmo. Esse problema foi corrigido. 
+ALP (CCF 12311)
+
+
+Contas de contra-partida de Títulos a Pagar incluídos manualmente
+
+Corrigido para apresentar devidamente as contas de contra-partida de títulos a pagar incluídos manualmente, o que implica na devida distribuição dos pagamentos no Relatório de Extrato Bancário. 
+GSN (CCF 12064)
+
+
+Cancelamento de Títulos gerados por NF
+
+
+Retirado perfil de usuário que permitia cancelar títulos gerados por NF, pois 
+isso causava muitos problemas contábeis e no fechamento financeiro, já que títulos desse tipo só serão cancelados no cancelamento da NF.
+ GSN (CCF 12219)
+
+
+
+
+Fiscal
+
+
+
+
+Ajustes SPED Fiscal - CIAP
+
+Feitos alguns ajustes do SPED Fiscal - CIAP para preenchimento dos Registros 0300, 0305, 0500, 0600, G110, G125. 
+Foram atualizadas fórmulas dos Registros citados.
+ 
+GSN (CCF 12587)
+
+
+Ajustes Layout GIM-PB (Sintegra)
+
+Feitos alguns ajustes no Layout da GIM-PB que é gerado pelo Registro 88 no Sintegra: Outros Créditos, Créditos de Transferência e de Ativo Imobilizado no Registro 88/01 que estavam indo zerado; Zeros ao invés de espaços no final do Registro 88/15. 
+Necessário atualizar o arquivo Sintegra-2010-SEF.rtm na Manutenção de Exportação de Dados.
+ 
+GSN/MSI (CCF 12364,12567)
+
+
+
+
+Vendas
+
+
+
+
+Condições de Pagamento com decimais no percentual
+
+Na tela de cadastro de Condições de Pagamento trocamos o componente que permite informar o percentual da parcela. 
+Dessa forma facilita ao usuário a digitação de casas decimais.
+ 
+ALP (CCF 10727)
+
+
+Prazo de Condições de Pagamento maior que 999 dias
+
+O SisPetro não permitia que uma condição de pagamento pudesse ter mais que 999 dias. 
+Com isso o cliente não conseguia emitir títulos, por exemplo, em 48 vezes, onde já na 34ª parcela o prazo já ultrapassaria os mil dias.
+ Esse problema foi corrigido. 
+ALP (CCF 12087)
+
+
+
+
+Transportes
+
+
+
+
+Inclusão do Contas a Pagar a partir da Manutenção de Viagens, Fretes e Fechamento de Viagem sem Alterar o Valor
+
+A partir das telas de manutenção de viagens, manutenção de fretes e fechamento de viagens é possível gerar um contas a pagar com o valor do processo que se está sendo executado. Esse lançamento não poderia ter seu valor alterado mas devido algumas alterações na tela do contas a pagar, estava sendo possível alterá-lo. Com isso, era possível ter um título com um valor diferente do processo que geraou o título. Esse problema foi corrigido. 
+UPA (CCF 11948)
+
+
+
+
+Patrimonio
+
+
+
+
+Ajustes no CIAP
+
+Estamos implementando nessa versão alguns ajustes de correção no CIAP sobre o número de parcela gerada, valor da parcela gerada e arredondamento na ultima parcela do CIAP. 
+UPA (CCF 12650)
+
+
+Valores de ICMS do Bem incluído por NF
+
+Corrigido para obter corretamente os valores de ICMS (próprio e ST) da NF para inclusão de Bens. 
+GSN (CCF 12436)
+

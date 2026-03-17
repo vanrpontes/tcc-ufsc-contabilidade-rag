@@ -1,0 +1,87 @@
+TITULO: Saldo excedente para PMM
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921074231
+--------------------------------------------------
+A partir da versão 8.32 é possível indicar se o Saldo Excedente foi pago, a quantidade e o valor recebido. Veja mais informações abaixo
+É possível incluir o Saldo Excedente para 
+Pedido de Movimentação de Material
+.
+Em alguns PMM é possível que fique algum saldo, que não é capaz (sozinho) de completar um caminhão e como no SisPetro não é possível emitir Ordem de Carregamento que deixe o saldo do PMM negativo, é preciso dar um "Saldo Extra".
+Primeiro é preciso informar que a 
+empresa
+ trabalhará com o Saldo Excedente: 
+Habilitar o perfil 
+"Permite Utilização de Saldo Excedente no PMM
+" 
+em 
+Depois é preciso dar permissão ao 
+usuário
+:
+Habilitar o perfil "
+Pode Incluir/Alterar Saldo Excedente no PMM" 
+em 
+Painel Compras (Usuário)
+.
+Há duas formas de utilizar o Saldo Excedente, definido no perfil de Empresas - painel Compras:
+Pela Quantidade do Pedido:
+ é indicado para casos onde não haja transação financeira. 
+: é indicado para casos onde haja transação financeira.
+É possível incluir o Saldo Excedente pelas telas:
+Manutenção de Pedidos de Movimentação de Material
+/ 
+Aba "Itens Pedido"
+. 
+Acessado pelo menu:
+ Movimentação/ Movimentação de Material/ Manutenção de Pedidos de Movimentação de Material
+:
+Manutenção de Pedidos de Movimentação de Material
+Acessado pelo menu: 
+Consulta / Manutenção de Pedidos de Movimentação de Material
+Para incluir um saldo excedente, clique no botão Altera Saldo Excedente:
+Para indicar o Pagamento do Saldo Excedente basta marcar a opção "Excedente Recebido?", indicar a data, quantidade paga e valor unitário. Essas informações podem ser visualizadas em 
+Manutenção de Pedidos de Movimentação de Material
+Após informar o saldo excedente, clique em Salva:
+O Saldo Excedente é uma alternativa mais rápida para se carregar o caminhão. Porém deve ser utilizado, por completo, com a quantidade pendente do PMM. Veja um exemplo abaixo.
+Utilização do Saldo Excedente:
+Quantidade Pendente do PMM:
+ 25m³
+Quantidade do Saldo Excedente:
+ 5m³
+Total disponível para Ordem de Carregamento:
+ 30m³ (25m³ + 5m³)
+Caso essa OC seja feita com quantidade de 27m³ o SisPetro entenderá que, como a quantidade pendente e uma parte do Saldo Excedente foram utilizados, o caminhão referente a este carregamento já foi todo preenchido, assim podendo indicar este PMM como já utilizado na sua totalidade. Não podendo mais ser vinculado a nenhuma OC. O Saldo Excedente é uma alternativa rápida para fazer o carregamento do caminhão mais rápido, porém não deve ser entendido como um saldo extra que se pode utilizar em partes, é para UM carregamento apenas.
+Exemplo 1:
+A distribuidora tem alguns contratos feitos com a Usina de álcool. 
+Num PMM, específico, há saldo de 28m³ e faltando 2m³ para completar o caminhão.
+Como a distribuidora tem diversos contratos foi acertado que a Usina liberaria estes 2m³, e assim é foi possível carregar o caminhão.
+Note que neste caso 
+NÃO houve
+ transação financeira, foi um acordo feito entre as duas partes. Assim a melhor forma é dar "um saldo excedente" para o PMM de 2m³ e emitir a 
+Ordem de Carregamento
+.
+Caso houvesse transação financeira, para que a realidade reflita nas movimentações financeiras é melhor utilizar o 
+Ex1
+Exemplo 2:
+A distribuidora trabalha com 5 
+Representantes
+ e foi feito um contrato de 1000m³ com a Usina.
+Este contrato é divido, internamente, em 5 PMMs de 200m³ cada.
+Depois de alguns carregamentos o saldo para cada PMM é de 6m³, mas para a Usina o saldo do PMM é de 30m³, pois ela o contrato feito foi de 1000m³.
+Então como 
+NÃO houve
+ transação financeira entre Distribuidora e Usina, a melhor opção é utilizar o saldo de todos os Representantes (veja na imagem abaixo), dar um Saldo Excedente para algum representante e fazer a OC. Para retirar o saldo dos demais representantes é preciso desalocar estes PMMs. Veja mais informações em 
+ 
+ex2
+ 
+Perfil de empresas definido com a opção Controle de PMM pela Quantidade Paga:
+A partir da versão 8.19 há uma nova forma de se tratar a quantidade pendente, quando se trabalha com a liberação pela quantidade paga. Veja mais informações em 
+No adiantamento quantificado, o Saldo Excedente pode interferir na Quantidade Pendente do Pedido. 
+Para evitar que um Saldo Excedente Não Utilizado fique disponível após a inclusão do adiantamento quantificado, foi permitido o encerramento do Saldo Excedente. Dessa forma, pode-se impedir que um usuário fique incluindo adiantamentos quantificados através do Saldo Excedente Não Utilizado.
+Para isso basta selecionar o PMM que tenha um Saldo Excedente Não Utilizado e clicar no botão Encerra Saldo Excedente e depois clicar em Salva. Com isso, o Saldo Excedente é zerado.
+Em um cenário que falte produto para completar o contrato e não possa fazer um 
+Adiantamento Quantificado de Fornecedores
+ 
+porque ainda não sabemos exatamente a quantidade que irá vir e correr o risco de pagar maior, usando o Saldo excedente para PMM 
+não correria esse risco.
+ 
+ 
+ 

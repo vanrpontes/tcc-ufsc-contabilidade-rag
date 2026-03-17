@@ -1,0 +1,256 @@
+TITULO: Versão 7.25
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2905145573
+--------------------------------------------------
+Dados
+Informações
+Início
+22/12/2011
+Final
+30/01/2012
+Scripts
+cmd2855 a cmd2878
+Itens
+43
+Implementações
+19
+Correções
+24
+Anexos
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+MovimentoImobilizado.rtm
+TipoMovtoImobilizado.rtm
+Nota Técnica NFE 005.2011
+A partir de 
+01/02/2012
+ entrará em vigor na NFe a validação que exige que 
+o preço unitário do produto multiplicado pela quantidade seja igual ao Valor dos Produtos
+. Em algumas situações, devido o arredondamento atual do preço unitário ser de 4 casas decimais pode ser apresentado esse erro. Para isso foi criado um perfil de sistema para que possa ser indicado até 8 casas decimais para apresentação do preço unitário no xml da NFe. 
+Fique atento e altere este perfil para mais casas decimais caso seja necessário! - Veja item 8 do Faturamento.
+Geral
+Logotipo da Empresa
+A partir dessa versão será possível salvar o logotipo da empresa nas configurações da empresa e essa imagem estará sendo disponibilizada em diversos relatórios do sistema, no boleto de cobrança e no formulário da nota fiscal.
+ 
+Com essa alteração, será possível personalizar os relatórios emitidos pelo SisPetro, incluindo o logotipo da empresa nesses relatórios.
+ 
+Help:
+ 
+Painel Logotipo 
+ 
+UPA (CCF 13903)
+Alteração no processo de instalação/atualização do Sybase no SisPetro
+Alterado o processo de instalação/atualização do Sybase para aceitar versões iguais ou superiores a exigida pelo SisPetro e alerta ao usuário sobre a necessidade de reiniciar a máquina após uma instalação/atualização. CPC (CCF 15205)
+Contabilidade
+Alteração de Lote Contábil
+Na alteração de lote gerencial, em algumas situações, o SisPetro não estava arredondando corretamente os valores para poder fazer a comparação e validar a alteração efetuada, gerar um erro ao usuário informando-o que os valores estavam inconsistentes. Esse problema foi corrigido. 
+UPA (CCF 15533)
+Cadastro de Bens
+Após a alteração de um bem, o sistema irá se manter no bem alterado. Na versão passada após salvar as alterações o sistema se posicionava no primeiro bem do cadastro. UPA (CCF 15480)
+Relatório de Imobilizado
+O relatório de menu Relatório de Movimento do Imobilizado teve seu rtm renomeado para 
+TipoMovtoImobilizado.rtm
+, evitando assim conflitos com o outro relatório do fechamento de estoques que possui o mesmo nome. 
+Help:
+ 
+Relatório Movimento do Imobilizado
+ 
+UPA (CCF 12824)
+Baixa de Bem
+O processo de Baixa de Bem foi alterado para possibilitar o desmembramento em Contas de Custo de Alienação.
+ 
+Help:
+ 
+Baixa do Bem
+ 
+CPC (CCF 14756)
+Ajustes no CIAP
+A rotina de cancelamento do CIAP estava causando alguns problemas que estão sendo corrigidos sendo eles: o número de parcelas e a data do último CIAP estavam sendo gravados errado. Problema corrigido. 
+UPA (CCF 15610, 15676)
+Estoque
+Alteração no processo de Edição de DPMP
+Alterado o processo de Edição de DPMP para possibilitar a edição do Código do Produto por Produtos com o mesmo Código DPMP e foram incluídas checagens para verificar se os campos Data NF e Tipo de Operação estão preenchidos e se a Data NF está dentro da vigência do período selecionado.
+ 
+Help:
+ 
+Edição de Informações do DPMP
+ 
+CPC (CCF 15354)
+Ordem de Carregamento
+Removido o campo Responsável pelo Frete da tela de inclusão de OC. Esse campo está em desuso e só estava visível no SisPetro Remoto. UPA (CCF 15443)
+Alteração de Qtde 20c na Nota Fiscal pela Portaria
+Ao finalizar uma portaria de saída, o fator conversão e a qtde 20c serão atualizados somente se o sistema estiver configurado para isso, assim como já acontece na emissão da nota fiscal. 
+UPA (CCF 13596)
+Rateio de Estoque
+Corrigido problema na rotina de rateio de estoque que fecha o SisPetro caso a opção "não rateia" esteja habilitada. 
+UPA (CCF 15591)
+Faturamento
+Destacar ICMS Retido como ICMS Próprio na NF
+No Estado da Bahia, quando um consumidor final compra combustível ele pode se creditar do valor do ICMS retido. Para isso é preciso que esse valor seja apresentado na nota fiscal como ICMS Próprio.
+ 
+Foi criado um parâmetro na natureza de operação que quando habilitado, os valores do ICMS retido serão repassados para o ICMS próprio, ajustando-se a essa situação.
+ 
+Help:
+ 
+Impostos Natureza Operação
+ 
+UPA (CCF 13671)
+Cadastro de Natureza de Operação
+A frase "Obtém dados do Carregamento p/ NF" estava com a grafia incorreta no cadastro de natureza de operação e foi corrigida. 
+UPA (CCF 15456)
+Importação de Nota Fiscal
+O processo de importação de Nota Fiscal através de arquivo XML foi alterado para salvar o valor do campo ICMS Retido. Foi acrescentado um campo ICMSRetido na tabela De Para Natureza de Operação, para configurar se o ICMSRetido deve ser salvo como ICMS Retido ou ICMS de Substituição.
+ 
+Help:
+ 
+Manutenção De - Para - NFs
+ 
+e
+ 
+ICMS Retido como ICMS ST na Importação de NF por XML
+ 
+CPC (CCF 13617)
+Importação de Nota Fiscal
+Alteração no processo de edição de Notas Fiscais geradas por arquivo XML, para possibilitar a alteração do campo série.
+ 
+Help:
+ 
+Manutenção de Importação de Notas Fiscais
+ 
+CPC (CCF 13580)
+Importação de Nota Fiscal
+Durante o processo de importação de Nota Fiscal, não era verificado a Situação do Frete contida no arquivo importado e a nota sempre era importada com o valor padrão "Por Conta do Emitente". À partir dessa versão, essa informação será importada corretamente, além disso, foram disponibilizadas mais opções de situação de Frete para escolha durante a inclusão de uma NF.
+ 
+Help:
+ 
+Situação do Frete na Nota Fiscal
+ 
+CPC (CCF 13252)
+Cálculo Automático de Retenção de Imposto pela Data de Vencimento
+A partir dessa versão será possível calcular um desconto/acréscimo por valor acumulado pela data de vencimento, como já era feito com a data de emissão.
+ 
+Com essa alteração será possível configurar descontos para calculo de CSLL, COFINS e PIS automaticamente.
+ 
+Help:
+ 
+Tabela Tipo de Descontos
+ 
+UPA (CCF 10177)
+Valor do Desconto/Acréscimo no Rodapé da Tela de Emissão da Nota Fiscal
+Incluído no rodapé da tela de emissão da nota fiscal o valor do Desconto/Acréscimo gerado para a nota que está sendo emitida.
+ 
+Help:
+ 
+Preenchimento de Dados da Nota Fiscal
+ 
+UPA (CCF 10177)
+Validação do Valor dos Produtos da Nota Fiscal na NFe
+A partir de 01/02/2012, a Sefaz irá validar o valor dos produtos com o total da nota fiscal, pelo fato de combustíveis trabalharem com diversas casas decimais, em algumas situações por conta do arredondamento esse valor pode não bater. Para evitar esse tipo de problemas, criamos um perfil de empresa onde será informado o número de decimais que o SisPetro deverá utilizar no XML da NFe.
+ 
+Esse parâmetro, por padrão, está configurado para 4 casas decimais e só deve ser alterado caso seja realmente necessário.
+ 
+Help:
+ 
+Validação do valor unitário do item do produto na NFe
+ 
+UPA (CCF 15326).
+Baixa Automática de Adiantamento no Remoto
+No SisPetro Remoto, mesmo que habilitada a opção de baixa automática de adiantamentos na natureza de operação, os adiantamentos não eram baixados e após emitir a nota fiscal era gerado uma mensagem de erro ao usuário. Esse problema foi corrigido. 
+UPA (CCF 15756)
+Financeiro
+Tela de Pesquisa de Título de Desconto Automático
+O campo "Tipo Data Base" estava vindo em branco quando a opção era "Data Emissão NF (se não tiver, do Título)". Problema corrigido. 
+UPA (CCF 15450)
+Baixa de Contas a Pagar e a Receber
+Alterado o processo de baixa para validar o limite de desconto, quando configurado, apenas se foi aplicado algum desconto na baixa em questão. 
+CPC (CCF 15104)
+Erro na Tela de Impressão de Cheques
+Ao sair da tela de impressão de cheques, estava sendo gerado alguns erros de endereço de memória. Esse problema foi corrigido. 
+UPA (CCF 15545)
+Erro ao Tentar Excluir Dados da Tabela Progressiva
+Ao tentar excluir os dados na manutenção da tabela progressiva estava sendo gerado um erro ao usuário e a exclusão não estava sendo concluída. Esse problema foi corrigido. 
+UPA (CCF 15375)
+Fiscal
+Código da Entidade para uso no Livro Eletrônico
+A partir dessa versão, ao cadastrar uma entidade (cliente ou fornecedor) caso não seja informado o código da entidade para uso no livro eletrônico, esse campo será preenchido com o código da entidade. .
+ 
+Help:
+ 
+Cadastro Detalhado
+ 
+e
+ 
+Observações - Fornecedores
+ 
+UPA (CCF 15277)
+Erro ao Filtrar por Filial a Manutenção de Livros Fiscais
+Caso o usuário tentasse filtrar os dados da manutenção de livros fiscais para listar os dados de uma filial especifica, diferente da conectada que já vem como padrão, era gerado um erro de arquivo vazio que travava o sistema. Esse problema foi corrigido. 
+UPA (CCF 15347)
+SPED-EFD Perfil da empresa
+Alterada a fórmula do campo de perfil do Registro 0000 para utilizar a configuração cadastrada no campo Perfil da aba Livro Eletrônico da empresa. 
+Importante: Não esqueça de conferir a configuração antes de gerar o SPED.
+ 
+GSN (CCF 15548)
+SPED-EFD UF no Registro E200
+Corrigida a fórmula do campo UF do Registro E200 para trazer corretamente a UF da empresa e as UFs onde a empresa possui IE de substituição. 
+GSN (CCF 15548)
+SPED-EFD Registro C510
+Corrigido para só gerar o Registro C510 para notas não canceladas. 
+GSN (CCF 15548)
+SPED-EFD Chave de acesso de notas
+Alterada a fórmula dos Registros C100 para sempre apresentar a chave de acesso de NFs de emissão própria, independente se a nota está cancelada, conforme nova regra do SPED EFD.
+ 
+GSN (CCF 15548)
+SPED-PIS/COFINS Chave de acesso de notas e conhecimento
+Alterada a fórmula dos Registros C100 e D100 para sempre apresentar a chave de acesso de NFs de emissão própria, independente se a nota está cancelada, conforme nova regra do SPED EFD.
+ 
+GSN (CCF 15549)
+SPED-PIS/COFINS Número do Item no Registro C170
+Corrigido para apresentar o Número do Item corretamente no Registro C170. 
+GSN (CCF 15549)
+SPED-PIS/COFINS Registro 0200
+Corrigido para que só sejam enviados no Registro 0200 os produtos movimentados no período. 
+GSN (CCF 15549)
+SPED-PIS/COFINS Registro 0111
+Corrigido valores e número de casas decimais do Registro 0111. 
+GSN (CCF 15549)
+SPED-PIS/COFINS Conta do Registro F120
+Corrigido para enviar devidamente as contas utilizadas no Registro F120 no Registro 0200. 
+GSN (CCF 15549)
+Apuração Fiscal
+Foi detectado um problema na apuração fiscal que ao reabrir uma apuração, alterar o livro fiscal desse período e depois encerrar a apuração, o SisPetro estava repetindo os valores do ST para todas as apurações existentes. Esse problema está sendo corrigido. 
+O clientes que detectarem esse problema nas suas apurações, podem corrigir essa situação através do script de correção publicado em nosso 
+blog
+.
+ 
+UPA (CCF 15659)
+Vendas
+Análise de Custos em Tela Cheia
+Ao maximizar a tela de Análise de Custos, o grid onde são apresentados os custos não era ajustado ao novo tamanho da tela. Esse problema foi corrigido. 
+UPA (CCF 15107)
+Validação do Comprador no Pedido de Vendas do SisPetro Remoto
+No SisPetro Remoto, a validação do comprador no pedido de vendas não estava validando corretamente o cliente selecionado. Esse problema foi corrigido. 
+UPA (CCF 15474)
+Tabela de Preços
+A Manutenção de Tabela de Preços simulando com tabela Percentual em algumas situações estava gerando um erro no sistema por não conseguir calcular o preço do produto. Esse problema foi corrigido. 
+UPA (CCF 15053)
+Alterado o processo de Bloqueio de Produtos para Venda
+Foi alterada a configuração de Bloqueio de produtos para venda, que agora será por Atividade Econômica. Todos os Produtos atualmente cadastrados serão configurados como Produtos permitidos para Consumidor Final. Para evitar de ter que cadastrar os produtos permitidos para todos os clientes daquela atividade econômica, ou ter que reconfigurar os produtos quando o cliente tiver sua atividade econômica alterada, teremos um perfil no cliente para indicar, quando ele tiver restrição de venda, se será usada a configuração do sistema, ou se para ele serão determinados produtos específicos.
+ 
+Help:
+ 
+Bloqueio de Venda por Atividade Econômica
+ 
+CPC (CCF 14493)
+Alteração da Tabela de Preços
+A partir dessa versão, após o usuário clicar no botão para aplicar as alterações na tabela de preços, a tela não será mais fechada, podendo o usuário efetuar outra alteração, alterando somente os parâmetros necessários. Caso o usuário tenha habilitado o filtro por empresa, na próxima vez que o usuário entrar nessa tela, esse parâmetro já estará habilitado. UPA (CCF 9491)
+Transportes
+Validações na Inclusão de Viagem
+A partir dessa versão, ao incluir uma nova viagem, as validações dos campos obrigatórios serão feitas todas de uma só vez, apresentando em uma única tela todos os campos que precisam ser informados. Foram adicionadas mais validações de campos, garantindo assim a integridade dos dados..
+ 
+Help:
+ 
+Controle de Viagens
+ 
+UPA (CCF 15098)

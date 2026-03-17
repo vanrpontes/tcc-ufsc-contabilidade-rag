@@ -1,0 +1,115 @@
+TITULO: Evento de Manifestação do Destinatário da NF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913894686
+--------------------------------------------------
+O objetivo do projeto da NF-e é controlar todas as emissões de Nota Fiscal. Para complementar esse trabalho foi criada a possibilidade do Destinatário se posicionar em relação às NF-es direcionadas para o seu CNPJ. Esse processo se chama Evento de Manifestação do Destinatário, cuja especificação está na 
+Nota Técnica 2012.002 da NF-e
+, e permite que o destinatário consulte as NF-es emitidas para o seu CNPJ, dando ciência da operação, confirmando-a, desconhecendo-a ou indicando que a operação não foi realizada. O SisPetro implementará esse processo para NFs de Terceiros, direcionadas para a empresa Distribuidora.
+Para sanar algumas dúvidas à respeito do assunto, a SEFAZ criou uma página de Perguntas Frequentes. Para mais informações, ver 
+Eventos de Manifestação do Destinatário (21 questões)
+.
+Nota Técnica 2020.001_v1.50 - publicada em 06/03/2024:
+ alterações na Manifestação de Destinatário a vigorar a partir de 01/07/2024 (Ambiente de Homologação) e 01/08/2024 (Ambiente de Produção)
+Alteração para possibilitar 2 ocorrências de cada evento conclusivo, conforme previsto no Ajuste Sinief 43/23, que altera o Ajuste Sinief 07/05.
+Sobre a mudança da Manifestação do Destinatário:
+Conforme disposto no Ajuste Sinief 43/23, que altera o Ajuste Sinief 07/05, o destinatário poderá registrar até 2 (dois) eventos de cada manifestação conclusiva por NF-e, quais sejam: Confirmação da Operação, Desconhecimento da Operação ou Operação não Realizada. Porém, somente terá validade a última manifestação registrada.
+Exemplo:
+ o destinatário pode confirmar uma operação, depois desconhecê-la e por fim confirmá-la novamente.
+Conforme previsto na cláusula décima quinta-C do Ajuste Sinief 7/05, todas manifestações do destinatário devem ocorrer dentro do prazo máximo de 180 dias contados da data de autorização da NF-e, observado o prazo de retificação previsto no § 3º da mesma cláusula.
+O evento de 
+Ciência da Operação
+ não configura a manifestação final do destinatário, portanto não cabe o registro deste evento após a manifestação final do destinatário.
+Prazos para realização dos eventos de manifestação do destinatário: 
+Evento
+Prazo legal(Ajuste SINIEF 44/20)
+Ciência da Emissão
+10 dias contados a partir da data de autorização da NF-e
+Confirmação da Operação
+180 dias contados a partir da data de autorização da NF-e
+Desconhecimento da Operação
+180 dias contados a partir da data de autorização da NF-e
+Operação Não Realizada
+180 dias contados a partir da data de autorização da NF-e
+Vamos entender como funciona esse processo:
+Funcionamento SEFAZ
+A equipe de NF-e disponibiliza alguns webservices, sendo eles:
+Evento de Manifestação do Destinatário
+É por onde a empresa se manifesta perante a uma NF destinada a ela. São enviados os dados da empresa, a chave de acesso a ser manifestada e o tipo de evento desejado, que podem ser:
+Ciência:
+ quando a empresa tem ciência dessa operação, porém não tem condições de apresentar uma manifestação conclusiva. Ao usar esse evento a empresa deve enviar posteriormente um dos eventos acima para concluir o processo de manifestação. Este evento, caso seja obrigatório pela Sefaz, é o primeiro a ser manifestado.
+Confirmação da operação
+: confirma a ocorrência da operação e o recebimento de mercadorias (caso haja). Este é o evento a ser mais utilizado, quando a NF-e emitida é legal.
+Desconhecimento da operação:
+ declara o desconhecimento dessa NF-e, sendo utilizado quando o emitente usou o CNPJ de sua empresa indevidamente, podendo ser caracterizado como fraude.
+Neste caso não fará sentido ter esse tipo de evento em uma NF-e cadastrada no SisPetro, afinal se está no SisPetro a empresa tem conhecimento.
+É de responsabilidade da empresa o uso dessa opção.
+Operação não realizada:
+ quando a NF-e é legal, porém houve recusa do Recebimento da Mercadoria. Este evento será útil quando a NF-e recebida foi devolvida.
+O retorno deste webservice conterá o status de realização do evento e um protocolo.
+- Código 136
+ - Evento Registrado, mas nao vinculado a NF-e
+- Código 135
+ - Evento Registrado e vinculado a NF-e
+O destinatário poderá enviar uma 
+única
+ mensagem de Confirmação da Operação, Desconhecimento da Operação ou Operação não Realizada, valendo apenas a última mensagem registrada.
+Exemplo: o destinatário pode desconhecer uma operação que havia confirmado inicialmente ou confirmar uma operação que havia desconhecido inicialmente. O SisPetro 
+não fará nenhuma validação neste sentido
+, deixando por conta da SEFAZ rejeitar ou não alguma duplicidade.
+O prazo que a empresa tem para enviar o evento para uma determinada NF-e era indicado na Nota Técnica como 180 dias, porém o 
+Ajuste SINIEF 001/2013
+ publicado em 06/02/2013 alterou o prazo para 20 dias para Confirmação de uma NF-e dentro do estado.
+Caso a empresa queira fazer a manifestação fora do SisPetro pode utilizar o programa gratuito disponibilizado pela 
+SEFAZ SP
+.
+Para maiores detalhes, acesse 
+Como fazer Manifestação de Ciência
+.
+Consulta de Destinatário de NF-e
+Através deste webservice é possível consultar as NF-es emitidas para um determinado CNPJ, podendo ser:
+todas,
+somente as sem manifestação ou 
+somente as sem manifestação e sem o evento de ciência.
+Como cada NF-e tem um Número Sequencial Único que a identifica (NSU), é possível  indicar a partir de qual NSU deve ser feita a consulta, para evitar a consulta indevida. No retorno, serão enviados os dados principais desses documentos, como a Chave de Acesso, dados do Emitente, Data, Valor Total, Tipo de Operação (Entrada ou Saída), Dados da autorização, Dados da Manifestação, Dados do possível Cancelamento e Dados de possíveis Carta de Correção.
+Esse webservice será útil para a empresa verificar se alguma NF-e foi emitida para o seu CNPJ indevidamente ou se falta cobrar o arquivo .XML de algum fornecedor.
+Para informações sobre a Consulta, veja o help: 
+Consulta de Destinatário de NF-e/CT-e
+.
+Download de XML de NF-e 
+É possível, de forma muito simples, baixar os arquivos de NF-es que foram manifestadas como Ciência. Isso deixa o processo de recebimento e importação das NF-es muito mais rápido. Veja as configurações e mais informações sobre este recurso em 
+XML´s Recebidos
+ e 
+Salvar XML de Manifestações
+ 
+Funcionamento no SisPetro
+Com base nesses webservices, teremos o seguinte fluxo no SisPetro:
+Identificação da empresa que trabalhará com Manifestação
+Há um perfil de empresa que, quando marcado, permite a configuração e o envio do Evento de Manifestação do Destinatário. Assim, empresas sem essa obrigatoriedade como Transportadoras, Representantes Comerciais e outros podem deixar esse perfil desmarcado. Veja mais detalhes em 
+Painel Serviço Sefaz
+.
+Identificação das NF-es passíveis de Manifestação
+Na Natureza de Operação, aba por Filial, há um campo "Envia Manifestação do Destinatário" que, quando marcado, exige que a Nota Fiscal seja manifestada. Ao incluir a NF-e, a mesma já aparece na tela de notas pendentes, para que seja feita alguma ação de manifestação. Veja detalhes da Natureza de operação em 
+.
+Envio de evento de uma NF-e
+Considerando as NF-es que exigem Manifestação do Destinatário (marcadas pelo processo acima), o envio de evento poderá ser feito de várias formas:
+Via Importação de NF's
+ - Veja mais detalhes na página 
+Manutenção de Importação de Notas Fiscais
+.
+Via Inclusão Manual da NF-e
+ - Veja na página 
+.
+Via Tela de NF-e Pendentes
+ - Veja na página 
+Manutenção de NF-e/CT-e Pendente
+.
+Via Manutenção de NFs
+ - Veja na página 
+Inclusão Manual de Eventos de Manifestação de Destinatário de NFe
+.
+Envio incorreto de evento de uma mesma NF-e
+Pode acontecer de um usuário enviar o mesmo evento duas ou mais vezes de uma mesma NF-e. O SisPetro não valida se o envio do evento está correto ou não. Essa validação é feita na Sefaz. Assim, no caso de enviar o mesmo evento duas ou mais vezes, a Sefaz retorna o 
+Erro de Duplicidade de Evento
+.
+Com isso, na tela de Manutenção de NFs, essa NF-e constará como 
+Pendente de Manifestação. 
+O usuário deve analisar os motivos da pendência e, com base nisso, deve decidir a exclusão ou não do evento incorreto.

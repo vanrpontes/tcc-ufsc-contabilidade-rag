@@ -1,0 +1,48 @@
+TITULO: Controle Representante x Distribuidora - Controle Vendas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5239963649
+--------------------------------------------------
+Objetivo
+Apontar as ferramentas do SisPetro utilizadas para controlar o processo de Vendas entre o Representante e a Distribuidora (alguns chamam de barriga). 
+Glossário de termos
+CCS - Conta Corrente SisPetro:
+ é uma conta do tipo Banco (código BC0001 por exemplo) utilizada para controle.
+Como Funciona o controle das Vendas
+Ação
+No SisPetro
+Vendedor efetua uma venda.
+Inclui ou localiza o Contrato de Venda vinculado ao PMM do vendedor em questão (opcional)
+Inclui um Pedido de Venda vinculando esse contrato (o vínculo do contrato é opcional)
+Inclui uma OC de Venda
+Emite uma NF de Venda com a Natureza previamente configurada com o tipo de documento que irá gerar: 
+Um Contas a Receber com o Valor da Venda
+Um Contas a Receber com o Spread que o vendedor irá pagar.
+Cliente paga a Representante  
+Baixa o Contas a Receber utilizando a CCS da Representante
+Cliente paga a Distribuidora
+Faz a baixa utilizando CCS criada para Distribuidora.
+Ação
+No SisPetro
+Vendedor solicita produto que ele negociou a compra com a Usina - Pagamento a Vista
+Localiza o Contrato de Venda do vendedor em questão já vinculado ao PMM
+Na Manutenção de Bancos, faz a transferência da CCS do Vendedor para a conta do Banco da Representante do valor de venda
+Inclui um 
+Adiantamento de Cliente
+, vinculado ao Contrato de Venda, usando como contrapartida a CCS do Vendedor no  valor de venda
+Incluir um Pedido de Venda:
+Indicando se ele será Cupom ou não
+Vinculando o contrato de vendas.
+Nas observações do pedido, Indicar se há ou não Nota Fiscal. Para cada produto indica o valor da NF e valor do financeiro.
+Inclui uma OC de Venda
+Emite uma NF de Venda com a Natureza previamente configurada com o tipo de documento que irá gerar: 
+Um Contas a Receber com o Valor da Venda
+Um Contas a Receber com o Spread que o vendedor irá pagar.
+Fazer a baixa do Contas a Receber das vendas usando o Adiantamento de Cliente do Parceiro.
+ Cliente paga à Distribuidora
+Na Manutenção de Contas a Receber, fazer a baixa utilizando a CCS da Distribuidora.
+ Cliente paga ao Vendedor
+Na Manutenção de Contas a Receber,
+ fazer a baixa complementar das vendas lançando em qualquer conta a diferença entre o valor do Representante
+Cliente paga ao Representante
+Na Manutenção de Contas a Receber, fazer a baixa complementar das vendas lançando na CCS do Vendedor a diferença entre o valor da Representante.
+Representante apura Spread a Receber das vendas dos vendedores
+Após pagamento do vendedor, fazer a baixa do Contas a Receber do Spread gerado usando a CCS do Vendedor como contrapartida

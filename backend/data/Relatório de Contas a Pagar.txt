@@ -1,0 +1,95 @@
+TITULO: Relatório de Contas a Pagar
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898872
+--------------------------------------------------
+Este relatório mostra exatamente a situação do Contas a Pagar da empresa. É possível fazer vários filtros e obter resultados de todos os tipos de lançamentos (quitados, pendentes, cancelados e etc).
+O acesso a esse relatório é através do Menu 
+Relatórios / Financeiro / Contas a Pagar / 
+Contas a Pagar
+O layout do relatório será gerado conforme o arquivo 
+ContasPagarReceber.rtm
+ que estiver no mesmo caminho do executável, sua existência é 
+imprescindível
+. Para alterar o layout, caso for necessário ajustar de acordo com a empresa, utilize o botão 
+Edita Layout
+.
+O botão 
+Edita Layout
+ só estará habilitado se o usuário estiver com o perfil correspondente marcado no painel Financeiro:
+Utilize as opções de Filtros existentes na tela para obter resultados mais objetivos:
+Fornecedores:
+ Se deseja obter resultado de todos os fornecedores do Contas a Pagar, basta selecionar a opção 
+Todos
+, caso contrário selecione a opção 
+Somente este
+ e informe o código do fornecedor. E também é possível fazer o filtro por 
+Intervalo
+, basta informar o código inicial e o código final, de acordo com o cadastro do fornecedor.
+Unidade de Negócios:
+ Opte por 
+Todas as Filiais
+, uma 
+Filial
+, um 
+Conglomerado
+ ou um 
+Grupo de Filiais
+ específico. Só serão apresentados os títulos que atendam a Unidade de Negócios informada.
+Data Emissão:
+ Se não deseja imprimir tudo, seleciona a opção 
+Intervalo
+ e informe um período no qual foi feita a emissão do título.
+Data Vencimento:
+ Se não deseja imprimir tudo, seleciona a opção 
+Intervalo
+ e informe um período.
+Ordem:
+ É possível ordenar o relatório por 
+Data Vencimento
+, 
+Data Emissão
+, 
+Entidade
+, 
+Comprador
+, e 
+Histórico
+, basta selecionar uma dessas opções. Porém essas ordenações definem o primeiro nível de quebra do relatório, por exemplo agrupar por Data de Vencimento. Num segundo nível de ordenação é por Numero de Nota.
+Tipo Lançamento:
+ Pode-se filtrar pelo tipo de lançamentos: 
+Pendentes
+, 
+Quitados
+, 
+Cancelados
+, 
+Todos
+ e 
+Todos - Cancelados
+.
+Filtra Tipo Documento:
+ Marque essa opção, caso deseja filtrar por algum tipo de documento e informe abaixo o código do mesmo.
+Importante:
+ Os filtros 
+Vendedor
+, 
+Tipo Cobrança
+ e 
+Portador
+ não são utilizados para emitir relatório do Contas a Pagar já que são opções do Conta a Receber. Se marcados o sistema não retornará nenhum dado.
+Títulos a serem considerados:
+ São apresentadas as seguintes opções:
+Conforme escolha serão apresentados ou não os títulos efetivos (já incluídos no Contas a Pagar) e 
+Recorrentes
+ (previstos numa Recorrência).
+Opções:
+Inclui lançamentos previstos?
+ - se marcada, serão impressas também os lançamentos previstos.
+Imprime Baixa?
+ - se o lançamento foi quitado e essa opção está marcada, será impresso logo abaixo do lançamento as informações da baixa do mesmo.
+Mostra baixas bloqueadas
+ - se marcado, serão impressas as baixas bloqueadas da entidade ou comprador, apresentando a soma das baixas bloqueadas e a soma final (dos títulos pendentes + baixas bloqueadas), logo abaixo da lista de títulos pendentes. Esta opção somente estará habilitada se o campo 
+ordem
+ estiver selecionada em entidade ou comprador.
+Clique no botão 
+OK
+ para efetuar a emissão do relatório.

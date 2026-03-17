@@ -1,0 +1,6 @@
+TITULO: Arquivo DLL da Consulta a ANP e anti-vírus da Symantec (Norton)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2923954514
+--------------------------------------------------
+Foi verificado em um dos nossos clientes que a DLL utilizada pela Consulta a ANP, que fica na mesma pasta do executável do Servidor SisPetro, foi considerada como vírus ou malware pelo anti-vírus da Symantec.
+Assim, ao efetuar uma consulta na ANP, o aplicativo da Symantec excluia a DLL utilizada, não emitindo qualquer aviso ou mensagem. Com isso, ao fazer a consulta, o SisPetro informava que não foi possível fazer a consulta pois a DLL não foi encontrada.
+Para resolver o problema, o aplicativo da Symantec foi configurado para não efetuar varredura na pasta onde se encontra a DLL .

@@ -1,0 +1,33 @@
+TITULO: Exportação de OC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926200287
+--------------------------------------------------
+Objetivo
+O objetivo da integração é permitir que a comunicação entre Distribuidoras e Armazenadoras seja mais eficaz facilitando, por exemplo, casos que uma OC de venda na Distribuidora se torna uma OC de Carregamento de Terceiros na Armazenadora entre outros. É possível gerar um arquivo em formato XML ou realizar comunicação via API para 
+UniBraspe
+ ou via API entre 
+SisPetros
+ diferentes.
+No caso de integração 
+entre SisPetros
+, há várias
+ Distribuidoras de Combustível usuárias do Sispetro que armazenem nelas e precise incluir OC de Carregamento e Descarga de Terceiros a partir de suas próprias OC. Com a Exportação da OC, a
+ ideia é que o Sispetro da Distribuidora, a partir das OC próprias, acione a API da Armazenadora (que também usa o sisPetro) e inclua a OC de Terceiro correspondente, tornando automático um processo que é totalmente manual.
+Configurações
+Para mais informações, ver 
+Configurações - Exportação de OC Unibraspe
+Configurações - Exportação de OC entre SisPetros
+Utilização
+Em 
+Movimentação > Estoque > Exportação OC 
+é possível selecionar as OC antes marcadas para exportação e gerar
+ o arquivo XML. 
+Tanto na Exportação para Unibraspe quanto Exportação entre SisPetros as OC antes marcadas para exportação serão enviadas assim que o serviço Exportação OC for executado. As OC de 
+Carregamento
+ precisam estar compartimentadas para serem exportadas.
+OC  de carregamento e descarga de terceiros 
+não serão exportadas.
+A API do SisPetro além de enviar OC para outra empresa, também recebe OC desde que um layout pré definido seja seguido, além de um usuário e senha seja devidamente configurado. O layout e mais informações estão disponíveis em 
+Documentação - API para inclusão/cancelamento de Ordens de Carregamento
+Para saber mais
+Inclusão de Ordem de Carregamento
+Documentação - API para inclusão/cancelamento de Ordens de Carregamento

@@ -1,0 +1,151 @@
+TITULO: Tabela Operações DPMP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879127852
+--------------------------------------------------
+Nesta tabela são armazenados os códigos de Operações utilizados na geração do DPMP. Aqui o usuário poderá incluir, excluir e até alterar códigos de Operações existentes, porém para isso, deverá seguir algumas regras.
+
+
+Para acessar a tela de Manutenção de caracteristica, o usuário deve utilizar o menu: 
+Tabelas Auxiliares / Estoque / Operações DPMP
+.
+
+
+
+
+O sistema abrirá a tela , mostrando dados já cadastrados, que foram importados da ANP. Para inserir um novo código, o usuário deve clicar no botão 
+.
+
+
+
+
+O sistema entrará em modo de edição, permitindo que o usuário preencha os campos:
+
+
+Código:
+ Deve ser númerico e único, ou seja, o sistema não aceitará a inclusão de um código que já exista.
+
+
+Descrição:
+ O nome da operação a ser cadastrado. Neste caso o sistema aceitará letra e números, se for o caso.
+
+
+Ativa:
+ Essa opção deve ser preenchida caso a nova operação a ser cadastrada já esteja disponível para uso.
+
+
+Para finalizar o cadastrado, o usuário deve clicar no botão 
+. O sistema se posicionará na tela de navegação, onde o usuário poderá consultar a operação que foi cadastrado ou as já existentes.
+
+
+
+
+Para consultar algum registro, basta o usuário clicar na coluna que se deseja pesquisar ("Código" ou "Descrição"), desta forma o sistema organizará as informações e posicionará o cursor no campo "Pesquisa", aguardando a digitação por parte do usuário
+
+
+
+
+A coluna que o usuário clicar, ficará em amarelo, demonstrando assim, que o sistema fará a pesquisa por essa coluna.
+
+
+Os registros que estiverem inativos, ou seja, com a opção "Ativa" desmarcada, serão exibidos no painel de navegação na cor vermelha.
+
+
+
+
+Alteração de Código:
+
+
+Para o DPMP são necessárias algumas tabelas, disponibilizadas pela ANP. Como mencionado anteriormente, o sispetro já importou algumas dessas tabelas, porém, são tabelas que sofrem alterações constantes por parte da ANP, um caso mais específico dessas alterações são os códigos.
+
+
+
+
+Hoje podemos ter, por exemplo, o código "3020003" com a descrição "ESTOQUE FINAL PRÓPRIO" e daqui um mês essa descrição "ESTOQUE FINAL PRÓPRIO" pode passar a ter o código "3020010".
+
+
+Pensando nessa manutenção, o sistema possibilita ao usuário alterar um código já existente através do botão 
+, porém, para se fazer a alteração de um código existente é necessário seguir algumas regras. O usuário pode alterar um código existente para outro código existente na manutenção de Operações do DPMP, desde que o novo código já não esteja vinculado ao DPMP e Natureza de operação.
+
+
+
+
+Situação 1:O código "3020003" que é a "ESTOQUE FINAL PRÓPRIO", passará a ser código "3020010" e esse novo código não existe na manutenção de Operações do DPMP e nem possui nenhum vinculo com a natureza de operação nem na geração do DPMP.
+
+
+Basta o usuário selecionar o Registro com o código 
+"3020003"
+;
+
+
+
+
+E clicar no botão 
+. O sistema emitirá uma mensagem de confirmação, antes de efetuar o processo de alteração do código.
+
+
+
+
+Confirmando a alteração do Código, o sistema solicitará que o usuário informe o novo código:
+
+
+
+
+Ao informar o código 
+"3020010"
+(conforme o nosso exemplo), o sistema fará com que o código 
+"3020003"
+ passe a ser código 
+"3020010"
+, não alterando a sua descrição.
+
+
+
+
+Dessa forma, o antigo código "3020003" que agora é código "3020010", será modificado nos vinculos com o DPMP e Natureza de operação, caso tenha.
+
+
+
+
+Situação 2:
+
+
+O código "3020003" que é "ESTOQUE FINAL PRÓPRIO", passará a ser código "3020010" (o código "3020010" não está cadastrado na manutenção de Métodos). O código antigo (3020003), está vinculado a algumas naturezas de operação, ou seja, na manutenção de Natureza de Operação, Painel Detalhes, Informa Dados para o DPMP, foi configurado com esse código de operação e no DPMP também (geração).
+
+
+Ao fazer o processo de alteração (seguindo os passos do exemplo 1), o sistema trocará o código "3020003" para o código "3020010", preservando a descrição do código "3020003" e também fará essa substituição nas naturezas que estiverem usando o código antigo e nos registros do DPMP que estiverem na mesma situação.
+
+
+
+
+Situação 3:
+
+
+O código "3020003" que é "ESTOQUE FINAL PRÓPRIO", passará a ser código "3020010", porém, esse código "3020010" já está cadastrado na manutenção de Operações. O código "3020003" possue vinculo com a natureza e com a tabela de DPMP (geração) e o código "3020010" não. Ao fazer o processo de alteração (seguindo os passos do exemplo 1), o sistema trocará o código "3020003" para o código "3020010", preservando a descrição do antigo código "3020003" e também fará essa substitução nos produtos vinculados e no DPMP e natureza de operação.
+
+
+
+
+Situação 4:
+
+
+O código "3020003" que é "ESTOQUE FINAL PRÓPRIO", passará a ser código "3020010", porém, esse código "3020010" já está cadastrado na manutenção de operações e além do código "3020003", o código "3020010" tem vinculo com a natureza de operação e com registros do DPMP. Neste caso, o sistema não permitirá a troca do código "3020003" pelo código "3020010", pelo fato de ter registros vinculados no DPMP e na natureza de operação. O sistema só faria a alteração se o novo código ("3020010") não tivesse sendo usado na natureza de operação ou na geração do DPMP.
+
+
+Quando acontecer essa situação, o sistema emitirá uma mensagem de alerta para o usuário, informando quando houver vinculo no DPMP:
+
+
+
+
+E também quando houver vinculo com o produto:
+
+
+
+
+Esse processo de integridade também é realizado pelo sistema no momento da exclusão. Ao excluir um Método, o sistema verifica se há vinculo entre o código a ser excluido e as tabelas de produto e DPMP. Caso haja vinculo com alguma dessas tabelas o sistema não fará a exclusão.
+
+
+
+
+Verifique mais detalhes nos tópicos:
+
+
+;

@@ -1,0 +1,155 @@
+TITULO: Preços (Clientes)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210632
+--------------------------------------------------
+O acesso a esta tela se dá via 
+Arquivos > Clientes > aba Detalhes > aba inferior Preços
+.
+Importante:
+ Para ter acesso a essa tela, é necessário ter o perfil 
+Controla preços por cliente
+ marcado. Veja maiores informações em 
+Painel Controle Preços
+, e também em 
+Painel Segurança (Usuários)
+, o perfil Visualiza painel preço no cadastro de clientes, e para editar é necessário habiltar o perfil 
+Edita Tabela de Preços / Aprova Mudanças.
+A empresa e o usuário estando configurados, será possível visualizar a aba Preços no cadastro de clientes:
+Atente-se para esta tela, pois ela é dividida em 2 partes, sendo:
+Parte superior: Filiais/ Empresas cadastradas no Sispetro / Tabelas de Preço. Deve-se considerar as empresas ao qual o cliente pode vender;
+Parte inferior: Preços que serão praticados para este cliente com definições de custo e condições de pagamento, e logo em seguida a definição de uma Data-Base (para comercialização do produto) e permissão dos preços.
+Para incluir uma empresa e vincular a uma tabela de Preço basta acionar o botão 
+Inclui.
+ 
+Sera exibido a tela de 
+Tabela Preço por Entidade 
+onde deve ser informado uma empresa e uma tabela de preço.
+A tabela de preço utilizada no cliente pode ser do tipo Principal, ou do tipo vinculada onde a mesma pode estar vinculada a uma tabela principal. Veja também 
+Manutenção de Preços por Tabela
+.
+A forma mais indicada para se trabalhar é informar uma tabela do Tipo Vinculada no Cliente e amarrar a mesma à uma tabela Principal que esteja Vinculada a um depósito. Veja um pouco mais em 
+Manutenção de Preços por Tabela
+.
+Após incluir a Empresa/Tabela de Preço na Parte Superior, devemos definir os dados de preços para cada produto. Para isso deve-se selecionar o produto e clicar no botão 
+Editar.
+A seguinte tela é apresentada:
+Os campos 
+Empresa
+, 
+Codigo Entidade
+ , 
+Produto 
+e
+ Tabela Preço 
+ serão apresentados automaticamente conforme seleção na tela anterior.
+O campo de 
+Tabela de Preço Principal
+ só sera apresentado na tela caso a tabela de preço selecionada seja do tipo Vinculada.
+O usuário deve informar os seguintes campos:
+Preço Mínimo
+: Será o preço mínimo, que dependendo da configuração da filial, o Sispetro aceitará (caso o usuário possa modificar o preço sugerido na venda).
+Preço Máximo
+: Será o preço máximo, que dependendo da configuração da filial, o Sispetro aceitará (caso o usuário possa modificar o preço sugerido na venda).
+Preço Sugestão
+: O preço que será sugerido no momento da realização de um pedido de venda.
+Os campos de 
+Preço Mínimo Final, Preço Maximo Final 
+e
+ Sugestão Final
+ são úteis para quando o cliente utiliza uma tabela do tipo Vinculada e a mesma está vinculada a uma outra tabela de preço. 
+Exemplo:
+Valor Tabela Vinculada 
+Valor Tabela Principal
+Valor Final
+Preço Mínimo Final
+0,50
+1,50
+2,0
+Sugestão Final
+0,30
+2,50
+2,80
+Preço Maximo Final
+0,50
+3,50
+4,00
+Veja maiores detalhes  da composição de preço em 
+Manutenção de Preços por Tabela
+.
+O preço a ser considerado depende do perfil de sistema "Valor comparado com o preço máximo de tabela", definido em 
+Painel Vendas
+.
+Preço unitário informado no pedido
+ - sistema verifica somente o valor máximo do produto para venda.
+Preço unitário somado a acessórios (frete, seguro,etc)
+ - sistema verifica o valor máximo do produto somando os valores de despesas acessórias, tais como seguro, fretes...
+%Custo Financeiro ao dia
+: Percentual a ser acrescido no preço sugestão baseado no número de dias de prazo de pagamento informado no pedido através do código das condições de pagamento. Assim, o Sispetro multiplica o número de dias pelo percentual informado acima para chegar num custo financeiro em percentual que será multiplicado pelo preço a vista sugerido.
+#Dias Início Custo Financeiro
+: Muitas vezes, embora o prazo de pagamento indique que o cliente tem, digamos, 3 dias de prazo, a política da empresa é a de aplicar o mesmo valor a vista para estas condições (fazendo com que o preço sugestão a vista seja igual mesmo que o cliente tenha 3 dias de prazo por exemplo). Pode-se colocar nesta coluna, então, a quantidade de dias que este cliente poderá ter de prazo cujo custo financeiro não será cobrado ou calculado. Para maiores esclarecimentos da aplicação das informações referentes a Custo Financeiro veja em 
+Calculando o Custo Financeiro da Venda
+.
+Atenção
+O Custo Financeiro 
+NÃO
+ está mais embutido ao Preço Sugestão. Isto porque a idéia inicial desta tela é trazer os 
+preços
+ da Tabela de Preço configurada. E Tabela de Preço é referente a valores 
+a vista
+, não fazendo sentido calcular o custo financeiro no preço. Isto vale também para o valor do 
+frete
+. Para visualização de preços com 
+custo financeiro
+ e 
+frete
+, veja a tela de 
+Simulador Preço de Venda
+.
+Para visualizar informações sobre custo é preciso ter o perfil de usuário 
+Pode visualizar custo/margens
+ marcado. Veja maiores informações em 
+Painel Vendas (Usuários)
+.
+Informa condição de pagamento
+: Se este perfil estiver marcado, informar o campo 
+Condições Pagamento
+ para o produto. Este campo somente estará habilitado se o perfil 
+Condições de Pagamento por Produto 
+estiver marcado, veja maiores informações em 
+Padrão para Vendas (Clientes)
+. Esta condição de pagamento será utilizada no pedido de venda (mais informações em 
+Condição de Pagamento por Produto
+).
+Valor Desconto Condicional Unitário
+: Se informado o valor de desconto condicional, será calculado no momento que estiver faturando uma nota de venda, multiplicando este valor unitário com a quantidade do produto informado e resultando no desconto dado pela empresa ao cliente. Ver também em 
+Inclusão do Pedido de Venda
+. Somente será possível informar este campo se o cliente tiver permissão para receber o desconto, através do perfil 
+Permite desconto condicional
+. Veja maiores informações em 
+Padrão para Vendas (Clientes)
+.
+Ao finalizar, clique no botão 
+Ok.
+Além disso, o Sispetro disponibiliza as seguintes funções:
+Campo 
+Data-Base
+: Deve ser utilizado para uma "consulta" de preço para comercialização de uma determinada data, possibilitando a edição dessas informações (caso data seja superior a atual).
+Campo 
+Data Vigência
+:  Esse campo é informativo e será apresentado a vigência de acordo com a data informada no campo de data base. Veja também 
+Tabela Manutenção de Vigência de Preços
+.
+            
+Campo 
+Filtra produtos sem preço
+: irá trazer na pesquisa inclusive os produtos que não foram definidos preços.
+Simulação Preço
+: irá buscar a tela de Simulação de Preço. Para maiores informações vide tópico de 
+Simulador Preço de Venda
+.
+Pega CF Padrão
+: Ao clicar nesse botão, o Custo Financeiro cadastrado em 
+Painel Controle Preços
+, no Perfil de Sistemas > aba Controle de Preços é automaticamente "trazido" para os Custos do Cliente. Com isso, é possível "padronizar" o Custo Financeiro do Cliente selecionado, sem que seja necessário preenchê-los um a um.
+Para tanto, basta executar este procedimento (Pega CF Padrão) para que o Sispetro copie o Custo Financeiro padrão (cadastrado filial a filial na tela acima) para a coluna Custo Financeiro do cliente. Note que o cadastramento de um custo financeiro padrão não altera como o Sispetro obtem o custo financeiro numa venda (veja em 
+Calculando o Custo Financeiro da Venda
+).

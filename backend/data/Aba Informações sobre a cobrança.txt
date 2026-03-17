@@ -1,0 +1,84 @@
+TITULO: Aba Informações sobre a cobrança
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878211200
+--------------------------------------------------
+Bancos Correspondentes são utilizados normalmente por bancos que não tem uma presença nacional. Assim, eles utilizam os serviços de compensação de outros bancos (normalmente bancos com presença nacional como Bradesco ou Itaú) para atingir com sua cobrança todo o país.
+Acesse o painel 
+Informações sobre a Cobrança:
+Utiliza Banco Correspondente:
+ se a cobrança deste banco utiliza um banco correspondente, deve-se marcar esta opção e escolher qual o código do banco encarregado da cobrança. Assim, você deve escolher aqui o código do banco correspondente, ou seja, o banco que fará a compensação no local.
+Banco Encarregado da Cobrança:
+ se a opção 
+Utiliza Banco Correspondente
+ for marcada, é necessário informar o banco encarregado de fazer a cobrança. A geração do arquivo de remessa para esse tipo de transação está disponível apenas para o 
+Banco Safra
+.
+Número Convênio:
+ número informado pelo Banco e utilizado para agrupamento dos dados na geração do arquivo de Remessa.
+Número Conta/Digíto:
+ número da conta da empresa onde serão creditados os valores recebidos da cobrança eletrônica.
+Número do Banco:
+ normalmente, o mesmo número escolhido acima.
+Dígito do Banco:
+ dígito de controle para o código do banco. Normalmente, os funcionários de cobrança podem orientá-lo sobre qual é este dígito. Ele aparece logo em seguida do número do banco numa ficha de compensação.
+Nome Banco:
+ descrição do Banco.
+Número da Agência/Dígito:
+ agência onde a empresa possui a conta.
+Carteira:
+ código da carteira utilizado no banco para geração do arquivo de Remessa.
+A faixa Nosso Número a ser utilizada pelo sistema será aquela cadastrada no campo 
+Banco Encarregado da Cobrança
+.
+Após preencher todos os campos necessários, clique no 
+Botão Salva
+, para confirmar os dados cadastrados.
+Preenchimento correto na utilização do Banco Safra com o banco correspondente Bradesco:
+1.
+ No painel 
+Cobrança Eletrônica
+, preencher dados da conta da empresa no Banco Safra.
+ 
+2.
+ No painel 
+Informações sobre a Cobrança
+, preencher dados da conta do Banco Safra no Banco Bradesco. Todas as empresas que utilizar esse procedimento do Safra com Bradesco devem preencher esses dados:
+A faixa do Nosso Número deve ser configurada no Banco Safra, na 
+Tabela de Bancos
+, ressaltando que a faixa deve ter no máximo 8 dígitos.
+Para a emissão da cobrança é necessário utilizar o layout da ficha de compensação indicado para esse procedimento de banco correspondente: 
+fichaCompCorresp.rtm
+. A configuração desse layout de impressão é feito no painel Cobrança Eletrônica, conforme é explicado no tópico 
+Tabela Tipos de Cobrança
+.
+Usa Prefixo:
+O usuário pode cadastrar no sistema uma faixa de nosso número de até 8 dígitos significativos. Para bancos que possuem uma faixa superior a essa quantidade de digitos, o sistema dispõe do recurso do prefixo.
+Exemplo:
+O banco passou a seguinte faixa para o nosso número com 10 digitos: 7417777778.
+O sistema não irá aceitar o cadastro dessa faixa, por ter 10 digitos, então o usuário pode configurar o uso do Prefixo da seguinte forma:
+Tirar da faixa de 10 digitos, 2 ou 3 digitos do início da faixa (74 ou 741) e informar no campo 
+Prefixo
+.
+Informar no campo 
+Número de dígitos no nosso número
+ que a faixa é de 10 digitos.
+Cadastrar a faixa do nosso número com 8 digitos (
+Manutenção da Tabela de Bancos
+)
+Internamente o sistema irá gerar o nosso número no contas a receber, pegando os 10 digitos da faixa - o número de digitos definido no campo 
+Prefixo
+.
+Exemplo:
+Prefixo: 741
+ 
+Nosso número cadastrado na cobrança eletrônica: 74177778
+ 
+Nosso número gerado no financeiro com 7 digitos (prefixo de 3 digitos) - faixa de 10 digitos - o sistema considera): 4177778
+ 
+Para o boleto e o arquivo de remessa, o sistema irá unir o prefixo + a faixa do nosso número gerado para informar o nosso número com 10 digitos.
+O sistema irá utilizar a faixa do nosso número configurado na , juntamente com o prefixo para gerar o nosso número que será enviado no arquivo de remessa e linha digitável do boleto, em um total de 10 dígitos (prefixo + faixa do nosso número).
+ 
+Email de Cobrança
+Marque o Perfil Envia cobrança por e-mail, caso deseje que ao final da inclusão da Nota Fiscal ou Conhecimento de Frete seja enviado o Boleto em PDF para o cliente, veja mais detalhes em 
+.
+ 
+ 

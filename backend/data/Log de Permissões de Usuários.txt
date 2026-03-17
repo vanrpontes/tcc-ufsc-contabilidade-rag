@@ -1,0 +1,130 @@
+TITULO: Log de Permissões de Usuários
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2965440941
+--------------------------------------------------
+1
+6
+false
+none
+list
+true
+Objetivo
+Este recurso permite consultar o histórico de alterações de permissões de acesso de usuários, incluindo alterações em:
+Perfis de acesso
+Visibilidade de menus
+Habilitação ou desabilitação de funcionalidades
+O que o LOG possibilita identificar
+Quem realizou a alteração
+Qual usuário foi afetado
+Qual permissão foi modificada
+Qual era o valor anterior e o novo valor
+Este recurso é útil para auditoria de segurança e rastreamento de alterações de permissões no sistema.
+Geração dos dados de LOG
+Para consultar o LOG é necessário primeiro gerar os dados no Sispetro.
+Navegar até o menu 
+Ferramentas / Geração de Dados de Log de Usuários
+Será exibida a tela:
+Campo
+Descrição
+Data Inicial
+Data inicial do período que será analisado
+Data Final
+Data final do período
+Após informar o período desejado, clique em 
+Gerar Dados
+:
+O SisPetro irá preparar as informações para consulta.
+Consulta das alterações
+Após gerar os dados, a consulta pode ser realizada diretamente na 
+view de auditoria do banco de dados
+: 
+vwPerfilMenuUsuarioLog
+Esta view centraliza todas as alterações relacionadas a:
+Perfis de usuário
+Menus do sistema
+Estrutura das informações retornadas
+A consulta retorna os seguintes campos:
+Coluna
+Descrição
+Tipo
+Tipo de alteração registrada (Perfil ou Menu)
+Aba
+Aba do perfil onde ocorreu a alteração
+NomeUsu
+Usuário que teve a permissão alterada
+NomePerfil
+Nome do perfil ou menu afetado
+Data
+Data e hora da alteração
+UsuarioAlteracao
+Usuário que realizou a alteração
+CaptionCalc
+Nome da funcionalidade exibida no sistema
+ValorPerfilAntCalc
+Situação anterior da permissão
+ValorPerfilPosCalc
+Situação atual da permissão
+Interpretação dos valores
+A view converte valores técnicos em valores legíveis.
+Permissões de perfil
+Valor técnico
+Significado
+cbChecked
+Marcado
+cbUnchecked
+Desmarcado
+Permissões de menu
+A alteração pode conter duas informações:
+Visibilidade
+Valor
+Significado
+S
+Visível
+N
+Não Visível
+Habilitação
+Valor
+Significado
+S
+Habilitado
+N
+Desabilitado
+Exemplo de resultado:
+wide
+1800
+Visível Desabilitado
+Visível Habilitado
+Exemplo de análise de auditoria
+Consulta para verificar alterações de permissões de um usuário específico:
+sql
+wide
+1800
+select *
+from vwPerfilMenuUsuarioLog
+where NomeUsu = 'USUARIO'
+order by Data desc
+Consulta para verificar quem alterou um perfil específico:
+sql
+wide
+1800
+select *
+from vwPerfilMenuUsuarioLog
+where CaptionCalc like '%Perfil%'
+order by Data desc
+Quando utilizar este recurso
+Recomendado para análise de situações como:
+Usuário perdeu acesso a um menu
+Menu deixou de aparecer para determinado perfil
+Auditoria de alterações de segurança
+Identificação de quem alterou permissões no sistema
+:info:
+atlassian-info
+#FFEBE6
+O log é gerado somente após a execução da 
+Geração de Dados para Log de Usuários
+.
+A consulta deve ser realizada diretamente no banco de dados.
+O período informado na geração define os registros que serão disponibilizados na view.
+Para mais informações sobre Log, ver 
+Consulta ao log de acesso dos Usuários
+ e 
+Log Eventos

@@ -1,0 +1,76 @@
+TITULO: Comissão de Vendas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440248
+--------------------------------------------------
+Através do Menu Relatórios / Vendas / Comissão Vendas, o usuário poderá emitir um relatório referente às comissões dos vendedores.
+A comissão será calculada conforme configurado no cadastro de 
+Vendedores
+.
+O relatório será agrupado por Vendedor e depois por Produto.
+No cabeçalho do Vendedor será apresentado o tipo de comissão cadastrado para ele.
+No cabeçalho do Produto será apresentado o valor ou percentual a ser aplicado para este Vendedor/Produto. Se o tipo de comissão for por faixa, dependerá do valor total do relatório. Ou seja, se o período do relatório for maior, a faixa a ser utilizada será compatível com os dados deste período maior.
+As devoluções de venda do Vendedor/Produto serão apresentadas na quantidade e valor negativos. No caso da comissão por faixa, consequentemente serão diminuídas do montante.
+Este tipo de cálculo está sendo utilizado no 
+Relatório de Comissão de Vendas
+ e não é gravado na nota fiscal. Assim, é possível alterar o tipo de cálculo da comissão para gerar relatórios com comissões diferentes para um mesmo vendedor. A comissão é calculada no momento da emissão do relatório.
+Esta tela utiliza o arquivo 
+"ComissaoVendedor.rtm"
+ que pode ser editado e utilizado pelo Gerenciador de Relatórios.
+ 
+Tipos de Comissões que podem ser configuradas no cadastro do Vendedor e como se comportam no Relatório:
+Tipo Cálculo Comissão:
+- 
+% Sobre Venda:
+ quando no Cadastro de Vendedor configurado, poderá estipular um percentual de Comissão para o Vendedor e Gerente. Será calculado o 
+(%) percentual
+ cadastrado em cima do 
+Valor Total de cada Venda
+.
+ 
+- 
+Valor por Litro: 
+quando no Cadastro de Vendedor configurado, poderá estipular um valor (R$) de Comissão para o Vendedor e Gerente. Será calculado 
+(R$) Valor por Litro
+ cadastrado em cima da 
+Qtde Vendida
+.
+- 
+% por Faixa (Valor):
+ quando no Cadastro de Vendedor configurado, nele terá disponível para informar o Produto e campos para lançar faixas de comissão para
+ Vendedor 
+e 
+Comissão
+ Gerente, que será calculado em cima do 
+Valor Vendido
+.
+Exemplo de cadastro de 
+% por Faixa (Valor)
+:
+Quando puxa o relatório, conforme o 
+Valor Vendido
+ será estipulado qual a 
+Faixa de Valor Limite
+ que irá entrar e calcular a 
+Comissão do Vendedor
+:
+- 
+% por Faixa (Volume):
+ quando no Cadastro de Vendedor configurado, nele terá disponível para informar o Produto e campos para lançar as faixas de comissão,
+ Vendedor 
+e
+ Comissão Gerente
+, que será calculado em cima da 
+Qtde Total Vendida
+.
+Quando puxa o relatório, conforme a 
+Qtde
+, será estipulado qual a 
+Faixa de Valor Limite 
+que irá entrar e calcular a 
+Comissão do Vendedor:
+Tabela de comissão de Vendas: 
+quando puxa o relatório, conforme o 
+Valor Vendido 
+será calculado o valor da comissão:
+Para maiores informações sobre o cadastro de Comissões, ver 
+Aba Comissão
+.

@@ -1,0 +1,147 @@
+TITULO: HSBC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2888204734
+--------------------------------------------------
+Painel Cobrança Eletrônica
+No campo 
+banco
+ deve ser informado 399 - HSBC Bank.
+Informar o número de 
+convênio
+. Esse número é fornecido pelo Banco.
+Preencher 
+#Agencia
+ com 
+4 dígitos
+ e o dígito verificador.
+Preencher 
+Número Conta
+ com 
+5 dígitos
+. Preencher também 
+o dígito verificador da conta
+ com 
+2 dígitos
+.
+Preencher a 
+Carteira
+ com 3 dígitos.
+#Docto no Arquivo Remessa:
+ se informado a opção 
+Com Parcela...
+, será acrescentado no lado do campo 
+Número de Documento no Arquivo de Remessa
+, a identificação da parcela.
+Informação de Multa no Arquivo de Remessa: 
+se for configurado, as opções de preenchimento são:
+Não informa:
+ não irá gerar informações de multa no arquivo de remessa
+Informa Valor Monetário Calculado:
+ irá gerar informações de multa no arquivo, levando o valor calculado para a multa nas posições 
+206 a 215, zeros nas posições 216 e 218. A instrução de multa será a 24 nas posições 159 a 160.
+Informa Percentual:
+ irá gerar informações de multa no arquivo, levando o valor percentual da multa nas posições 212 a 215 e zeros nas posições 216 e 218. A data para inicio da multa será gerada nas posições 206 a 211, e a instrução de multa será a 15 nas posições 159 a 160.
+Painel Informações sobre a Cobrança
+Não marcar
+ a opção 
+Utiliza Banco Correspondente
+As demais informações não precisam ser preenchidas.
+Faixa Nosso Número
+ Deve ser informada uma faixa com até 5 dígitos. Será salvo um nosso número com 5 dígitos do convênio mais os 5 dígitos da faixa, com zeros a esquerda.
+Observação Importante:
+ ao valor informado de recebimento informado pelo banco no arquivo retorno é somado o valor da tarifa de cobrança indicada no próprio arquivo de retorno. Por exemplo, se tívéssemos um título hipotético de 10.000,00, o cliente pagaria ao Banco R$ 10.000,00, porém o que seria creditado na conta da distribuidora seria 9.998,00 sendo que 2,00 seriam de tarifa de cobrança. No arquivo retorno deste exemplo, seria indicado como valor creditado na conta 9.998,00 e 2,00 de tarifa de cobrança. O Sispetro irá então somar os dois valores realizando a baixa pelo valor total pago pelo cliente. Isso irá resolver um problema e criar outro, isto é, o título será quitado normalmente, porém a conta de banco será movimentada por um valor maior do que o valor real. O usuário deve emitir o relatório de cobrança e gerar uma despesa extraordinária com o valor desta tarifa (somatória de todos os títulos envolvidos neste arquivo).
+Linha Digitável
+399 - HSBC
+Conteúdo
+Tamanho
+Início
+Fim
+Convênio
+5
+1
+5
+Nosso Número
+5
+6
+10
+DV Nosso Número
+1
+11
+11
+Agência
+4
+12
+15
+Conta
+5
+16
+20
+DV
+2
+21
+22
+Fixo 001
+3
+23
+24
+Exemplo:
+ Convênio: 66666
+ Nosso Número: 11111
+ DV Nosso Número: 2
+ Agência: 3333
+ Conta: 44444
+ DV: 55
+ Carteira: 01
+ Código Aplic. Cobrança: 1
+Campo Livre:
+ 6666611111 2 3333 4444455 01 1
+ 
+Linha Digitável:
+ |7 4 5| 1 | 6 6 6 6 6 | 1 | 1 1 1 1 1 2 3 3 3 3 | 1 | 4 4 4 4 4 5 5 0 0 1 | 1 | 1 | 4 5 6 7 | 0 1 1 0 0 0 0 0 0 |
+Linha Digitável
+399 - HSBC (usado pelo Sofisa)
+Conteúdo
+Tamanho
+Início
+Fim
+Convênio (aba Correspondente)
+5
+1
+5
+Nosso Número
+5
+6
+10
+DV Nosso Número
+1
+11
+11
+Agência
+4
+12
+15
+Conta
+7
+16
+22
+Carteira '00'
+2
+23
+24
+Código Aplic. Cobrança '1'
+1
+25
+25
+Exemplo:
+ Convênio: 66666
+ Nosso Número: 11111
+ DV Nosso Número: 2
+ Agência: 3333
+ Conta: 4444444
+ Carteira: 00
+ Código Aplic. Cobrança: 1
+Campo Livre:
+ 6666611111 2 3333 4444444 00 1
+ 
+Linha Digitável:
+ |7 4 5| 1 | 6 6 6 6 6 | 1 | 1 1 1 1 1 2 3 3 3 3 | 1 | 4 4 4 4 4 4 4 0 0 1 | 1 | 1 | 4 5 6 7 | 0 0 1 0 0 0 0 0 0 |
+Para informações sobre a montagem da linha digitável para este banco, veja o tópico 

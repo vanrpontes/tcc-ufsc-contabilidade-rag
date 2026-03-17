@@ -1,0 +1,127 @@
+TITULO: Conciliando o Extrato
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898225
+--------------------------------------------------
+Objetivo
+Após ter configurado um determinado período, digitado, importado ou consultado via API um arquivo de extrato, conforme comentado no tópico 
+Conciliação Automática - Informações Gerais
+, o usuário deverá conciliar as informações obtidas.
+Configurações
+Ferramentas / Usuário / Financeiro / Quadro 
+Conciliação Automática: 
+os perfis desse quadro impedem ou não o usuário de realizar a conciliação. Verifique e marque os perfis:
+Pode efetuar a conciliação automática
+Pode excluir a conciliação automática
+Pode fechar a conciliação automática
+Pode excluir arq. agregados a conciliação
+Pode abrir conciliação fechada
+Pode abrir conciliação fechada
+Cancelamento da conciliação automática
+Como fazer a conciliação
+Na Manutenção de Conciliação, o usuário deve ir até a Aba 
+Extrato 
+e clicar no botão
+ Conciliação.  
+O SisPetro irá verificar os lançamentos que já estão no banco provenientes de baixas, pagamentos e despesas extraordinárias e transferências entre bancos e irá associar aos lançamentos realizados através da digitação do extrato, 
+comparando a data, número do documento e o valor
+.
+As informações referente a 
+digitação do extrato
+ serão apresentadas do 
+lado esquerdo
+ da tela e as informações do 
+SisPetro
+ para o período do extrato serão apresentadas do 
+lado direito.
+Por padrão serão exibidos os lançamentos não conciliados. Se ao abrir a tela não for apresentado 
+nenhum registro
+, é sinal que ele já vinculou de forma automática os lançamentos entre o extrato e o Sispetro.
+Para apresentar em tela os lançamentos vinculados, basta o usuário desmarcar a opção 
+Mostra somente não conciliados
+.
+O usuário pode se deparar com as seguintes situações:
+No quadro Banco(Extrato) há registros e no quadro SisPetro não há:
+ significa que houve vinculo de alguns registros e ficou faltando os registros mostrados no quadro Banco(Extrato) para serem vinculados ou não há nenhum registro no SisPetro para esse banco nesse período para ser vinculado. Se houvesse algum registro, ele seria mostrado, caso não fosse feito o vínculo automático.
+No painel quadro Banco(Extrato) não há registros e no quadro Sispetro há:
+ o SisPetro conseguiu vincular de forma automática os registros digitados no extrato e apenas os apresentados no quadro Sispetro não foram vinculados de forma automática.
+No painel quadro Banco(Extrato) há registros e no quadro Sispetro também possuem registros:
+ o SisPetro não conseguiu fazer o vínculo, porque não encontrou coincidências entre as datas, documentos e valores dos lançamentos do extrato e do Sispetro.
+Caso o SisPetro não faça o vínculo de forma automática e o usuário identifique que há uma relação entre os registros do extrato e do SisPetro, basta selecionar um ou mais lançamentos e clicar no botão 
+Vincular 
+ 
+ 
+Para excluir o vínculo, escolha os mesmos lançamentos vinculados e clique no botão 
+Desvincular
+ 
+ 
+Ao vincular um lançamento do quadro Banco (Extrato) o usuário deverá se atentar para a seguinte situação:
+O lançamento Banco (extrato) deve possuir o mesmo tipo (pagamento ou recebimento) do lançamento do quadro SisPetro. Para se certificar, basta visualizar a coluna 
+Pagamento
+ ou 
+Recebimento
+. Caso o vínculo seja feito Pagamento x Recebimento, o Sispetro emitirá a mensagem:
+O lançamento Banco (extrato) deve possuir a mesma data do lançamento do quadro Sispetro. O mesmo deverá ser para Recebimento. Caso as datas sejam diferentes, o Sispetro emitirá a mensagem:
+As datas do extrato e movimento são diferentes. Selecionar itens com a mesma data no Extrato e Movimento.
+Se preciso for, o usuário poderá alterar a data de um determinado lançamento. Para isso, deve-se selecionar o lançamento no quadro Sispetro e clicar no botão 
+Muda data lançamento
+.
+Ao clicar no botão, o usuário poderá efetuar alteração via tela de 
+Alteração de data de Lote
+.
+As informações referentes aos registros vinculados podem ser verificados através das abas:
+Vinculo completo
+ 
+Resumo
+Caso necessário, pode-se incluir um lançamento que será adicionado no painel 
+Sispetro
+, que poderá ser utilizado para vínculo. Basta o usuário selecionar no painel 
+Banco(Extrato)
+, o registro que servirá de origem para o vínculo e clicar no botão 
+Processa.
+Se o tipo do lançamento não estiver definido na 
+tabela bancos
+ será aberta a tela, solicitando ao usuário que selecione o tipo do lançamento. Os lançamentos podem ser: 
+Despesa Extra
+Receita Extra
+Adiantamento Cliente
+ 
+Adiantamento Não Identificado
+O usuário poderá selecionar um registro do painel 
+Sispetro
+ e cancelar o lançamento, através dos botões 
+Cancelar Lançamento
+. Para mostrar os lançamentos cancelados basta marcar a opção 
+Mostra cancelados
+.
+Após o processo de vínculo entre os registros do extrato e do Sispetro, o usuário deverá fechar a conciliação, através da opção em tela 
+Fecha conciliação
+.
+Após processar o fechamento da conciliação, será aberta a tela de conferência, onde será possível verificar as informações do fechamento (data do período, saldos inicial, saldo final e saldo à conciliar, ou seja, o saldo dos registros que não foram vinculados):
+Para confirmar o fechamento, o usuário deve clicar no botão 
+OK
+, caso contrário, no botão 
+Cancelar
+.
+Mesmo sem ter vinculado nenhum lançamento, o usuário poderá fazer o fechamento da conciliação.
+Ao fechar a conciliação, o período de conciliação ficará com o status de 
+FINALIZADA
+, aparecendo para o usuário apenas se for marcada a opção 
+Exibe conciliações Fechadas
+As conciliações que estiverem fechadas serão mostradas em negrito, podendo ser revertidas ao status de
+ EM ANDAMENTO,
+ ou seja, podem ser abertas novamente.
+Caso seja necessário abrir o extrato digitado, o usuário deve selecionar a conciliação e clicar no botão 
+ABRIR
+. O status do período voltará para 
+Em Andamento 
+e o  extrato mudará para 
+Em digitação
+, permitindo que o usuário faça as alterações necessárias. O perfil Pode abrir conciliação fechada validará a permissão de usuário para essa situação.
+Marcando a opção da tela, 
+Exibe conciliações canceladas
+, todas as conciliações que foram canceladas no período selecionado serão mostradas na tela.
+Veja também:
+Conciliação Automática - Digitação Manual
+Conciliação Automática - Importação Extrato
+Utilizando o Tipo de Lançamento
+Conciliação Automática - Informações Gerais
+ 

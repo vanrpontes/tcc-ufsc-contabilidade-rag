@@ -1,0 +1,116 @@
+TITULO: Como emitir OC de Transferências entre Depósitos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701901
+--------------------------------------------------
+Este tipo de transferência é considerada 
+interna ao estoque da empresa
+ embora envolva normalmente outra empresa (origem da transferência). 
+É considerada interna, pois os depósitos envolvidos na transferência pertencem à mesma empresa (Sispetro).
+Este recurso é utilizado para processo de compras de combustíveis em usinas, veja maiores detalhes sobre compras no tópico 
+Roteiro para Área de Compras
+.
+Exemplo:
+Quando compramos um determinado volume de um produto em uma Usina para armazenar em uma base armazenadora, estamos na realidade fazendo uma movimentação entre dois depósitos internos da própria empresa (embora o depósito Usina seja considerado um depósito de terceiros, seus produtos são de propriedade da empresa), sendo o Depósito Usina o depósito de Origem e o Depósito Base o depósito de destino. 
+Para incluir uma OC de Transferência entre Depósitos, deve-se acessar a tela de inclusão de OC através de 
+Movimentação / Estoque / Ordem de Carregamento.
+Definir o campo
+ Tipo Ordem Carregamento
+ como 
+Transferência entre Depósitos
+:
+Informar os demais campos exigidos para este tipo de OC, tais como:
+Entidade
+: escolha a usina ou fornecedor remetente dos produtos.
+Histórico
+: informar o histórico para a operação. Neste caso, será sugerido automaticamente através do perfil de Sistema configurado em 
+Painel Históricos
+.
+Data OC:
+ 
+data da ordem de carregamento, sempre será sugerida com a data atual.
+Depósito Origem
+: depósito referente a Usina, onde foi feita a compra do produto. Depósito previamente cadastrado na empresa origem das mercadorias. Caso não saiba aperte <enter> para pesquisar os depósitos existentes.
+Depósito Destino
+: depósito onde o produto será armazenado. Depósito previamente cadastrado na empresa destino das mercadorias. Caso não saiba aperte <enter> para pesquisar os depósitos existentes. Normalmente é a base armazenadora.
+Depósito Trânsito
+: depósito fictício onde o Sistema irá alocar a quantidade da Ordem de Carregamento para indicar que esta mercadoria não está disponível para venda ainda e ainda não chegou no destino. Caso não saiba aperte <enter> para pesquisar os depósitos existentes. Nas pesquisas, este depósito está em negrito (indicando um depósito do tipo indisponível para venda).
+Motorista
+: informar a Transportadora/ motorista que efetuará o transporte do produto a ser definido. Caso o cadastro da transportadora/ motorista tenha controle de vencimento, o SisPetro irá validar as informações assim que sair deste campo.
+ 
+Para mais informações, ver 
+Tabela Controle de Vencimentos
+.
+Caso o parâmetro de
+ 
+Valida Controles de Vencimentos de Operações Internas/Interestaduais
+ 
+esteja habilitado em
+ 
+Painel Ordem Carregto
+, o SisPetro verificará as informações cadastradas como
+ 
+Exigências em Operações
+ 
+definidas em 
+Tabela Cidades
+ 
+e 
+Tabela Unidades Federativas - UF
+, pois a
+lgumas UFs ou municípios exigem de transportadoras algumas licenças específicas.
+Transportadora: 
+neste campo será apresentada a transportadora vinculada ao motorista, caso tenha. Caso não tenha, mostrará a própria transportadora.
+Frota
+: informar o Frota que efetuará o transporte do produto a ser definido. Caso o cadastro do Frota tenha controle de vencimento, o SisPetro irá validar as informações assim que sair deste campo. Para mais informações ver, 
+Tabela Controle de Vencimentos
+Capacidade
+: informa a capacidade do caminhão, considerando todas as placas vinculadas. Para mais informações ver, 
+Painel Compartimentos (Frotas)
+.
+Armazenagem Automática:
+ ao fazer uma venda para uma congênere, na Ordem de Carregamento de Venda, há a opção de fazer a remessa de armazenagem automaticamente. Para mais informações ver, 
+Remessa para Armazenagem Automática
+. Mas para trabalhar com esse recurso, é necessário indicar na tela de clientes, aba Cadastro Detalhado, que tipo de Armazenagem Automática o cliente deve ser configurado. 
+Para mais informações, ver
+ 
+Cadastro Detalhado (Clientes)
+.
+Informa Contrato Venda:
+ 
+este campo será habilitado caso o Pedido de Venda vinculado tenha Contrato de Venda. Para mais informações ver, 
+Como emitir Ordem de Carregamento de Venda
+Fretes: o
+ cálculo do frete para esse tipo de Ordem de Carregamento pode ser controlado pelo perfil da empresa. Maiores informações no tópico 
+.
+O valor do frete unitário pode ou não ser informado pelo usuário na inclusão da OC. Caso a empresa opte por não permitir que o usuário informe o valor do frete, deve-se desmarcar (por padrão pode informar) a permissão no perfil do Usuário painel Carregamento, opção 
+Pode informar o frete na inclusão da OC (qualquer tipo)
+Compartimentação
+: c
+aso deseje, poderá introduzir a compartimentação deste carregamento apertando o botão 
+Compartimentação
+. Este procedimento deve ser realizado se for imprimir uma Ordem de Carregamento ou documento que conste esta compartimentação. 
+Para distribuição de produtos na compartimentação da OC, vide tópico
+ 
+Compatimentação de OC
+.
+Aperte 
+OK
+ para confirmar a inclusão da Ordem de Carregamento.
+Caso haja necessidade, poderá imprimir em seguida a OC. 
+O Sispetro emitirá uma mensagem ao usuário para impressão da OC:
+Com a OC incluída e vinculada ao PMM, o Sispetro irá, de forma automática, subtrair da quantidade disponível do Depósito Origem a quantidade informada na OC, e irá somar essa mesma quantidade à quantidade do Depósito Trânsito, deixando-a no estado de Pendente.
+A quantidade ambiente da ordem de carregamento é sempre o resultado da quantidade da ordem OC dividido pelo Fator Conversão Unidade. O campo de fator de conversão é apresentado na aba de itens da ordem de carregamento, na Manutenção de Ordem de Carregamento.
+Verifique se sua empresa está trabalhando com 
+Confirmação de OC
+. Estando trabalhando, ao emitir uma OC de Transferência entre Depósitos, o Sispetro exigirá uma 
+confirmação com ou sem 
+Pedido de Movimentação de Material
+. Caso essa confirmação seja feita após fechamento de estoque e o perfil do Sistema, Menu 
+Ferramentas / Sistema / painel Ordem Carregto / 
+Exige a data da confirmação carregto nas OC's de transferências
+ estiver desmarcada, o sistema irá emitir uma mensagem reclamando que não pode concluir pois há fechamento de estoque.
+Portanto, se a opção acima estiver marcada é possível que seja informada uma outra data que não seja a da OC no momento da confirmação, para que esta data seja utilizada na movimentação do depósito de origem versus depósito de trânsito. 
+Para confirmar OC, basta acessar a tela de Manutenção de Ordem de Carregamento, selecionar a OC e clicar no botão 
+Confirmar
+. Veja maiores informações no tópico 
+Confirmação de Ordem de Carregamento
+Após confirmação da OC, pode-se lançar a Nota Fiscal de Entrada. Veja maiores informações no tópico sobre 

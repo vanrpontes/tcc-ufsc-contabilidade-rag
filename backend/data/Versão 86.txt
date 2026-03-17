@@ -1,0 +1,235 @@
+TITULO: Versão 8.6
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2917990482
+--------------------------------------------------
+Versão 8.6
+Dados
+Informações
+Início
+15/04/2013
+Final
+03/06/2013
+Scripts
+CMD86.SQL (cmd3210 a 3231)
+Itens
+45
+Implementações
+25
+Correções
+20
+Compartimentação de OC via Perfil de Empresa
+Na próxima versão só será permitido fazer a compartimentação da OC utilizando a 
+ 
+não sendo mais permitida a 
+. Contacte nosso Suporte Técnico caso precise de auxílio para a migra
+ção.
+Retirada do Cupom Fiscal
+No SisPetro, temos a emissão de Cupom Fiscal pela impressora Bematech, mas como essa funcionalidade está em desuso pelos nossos clientes, nessa versão ela foi retirada do sistema.
+Arquivo de Retorno do Banco Itaú
+Na leitura do arquivo de retorno da Cobrança Eletrônica do Banco Itaú (341), será utilizado a data de crédito informada no arquivo de retorno da cobrança como Data de Fluxo na Baixa.
+ 
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+Danfe.rtm
+ 
+ 
+ 
+Danfe_Itens.rtm
+ 
+ 
+ 
+Geral 
+Remover perfis que caíram em desuso nas telas de configuração de Empresa e Usuário
+Na versão anterior, alguns perfis de sistema e usuário foram desabilitados nas telas porque caíram em desuso. Nessa versão, esses perfis forão removidos das telas. 
+AO (CCF 16517, CCF 19381, CCF 19905, CCF 19335)
+Exibição da Tela de Configurações da Empresa
+A tela de configurações da empresa não poderá mais ser colocada em segundo plano, dependendo do usuário clicar no OK ou Cancelar para sair desta tela. Com essa alteração, evitaremos que dados informados pelo usuário sejam perdidos ou replicados. UPA (CCF 20423)
+Contabilidade
+Tela de Código de Contabilização
+Na tela de Código de Contabilização do SisPetro Controladoria, para excluir os itens é necessário posicionar no item e digitar <CTRL>+<DEL>. Porém, ao posicionar no item a célula entra em edição, dificultando a seleção do item como um todo. Nessa versão, foi criado um botão para Excluir os Itens de Contabilização.
+Help:
+ 
+ CPC (CCF 18143)
+Estoque
+Validação de movimentação incorreta na Leitura de Tanques
+Na validação de movimentação na Leitura de Tanques, n
+o momento em que é incluída uma Leitura de Tanque de Abertura não será feita uma verificação de movimentação, caso o tanque não tenha movimentação no dia. 
+AO (CCF 20180)
+Tipo Avulsa de OC em Desuso
+Há muitos anos atrás fizemos um trabalho para transformar a OC Avulsa em OC de Carregamento ou Descarga Própria. Porém, em algumas telas, ainda sobraram a utilização deste termo Avulsa. Nessa versão, essas telas foram atualizadas para utilizarem Carregamento/Descarga Própria ao invés de Avulsa. CPC (CCF 20168)
+Inclusão de OC
+Na tela de Pedidos Aprovados para Faturamento há um atalho para emissão da OC de Venda. Porém ao entrar na tela de Emissão da OC é possível trocar o tipo da OC e deixar vinculado o pedido de venda, gerando uma inconsistência. Nessa versão, foi realizada uma melhoria no SisPetro para garantir o correto preenchimento dos dados da OC. CPC (CCF 18040)
+Ajuste no Bombeio
+A partir dessa versão, na tela Manutenção Bombeio Físico, foram feitos ajustes onde não é mais possível
+ 
+associar um pedido de bombeio a uma programação cancelada e não deixar o
+s botões de manutenção da programação (incluir, alterar e travar) executar o seu código mesmo não tendo nenhuma programação sendo listada ao usuário. 
+AO (CCF 20253)
+Filtro por Depósito Origem com o código contendo letras na Nota Fiscal com OC 
+Ocorria um problema ao filtrar o depósito origem em Notas Fiscais com OC dando erro de coluna inexistente. Esse problema foi resolvido permitindo
+ o filtro por por números e letras.
+ AO (CCF 20442)
+OC de Descarga gerada pelo Bombeio na Tela NF Remessa Armazenagem
+A partir dessa versão, não será apresentado erro de falta de portaria na tela de NF Remessa Armazenagem em OC de Descarga de Terceiros gerada pela Distribuição de Bombeio.
+ AO (CCF 20311)
+Utilização de Balança e SmartCard nas Portarias
+ 
+Na Portaria de Saída estaremos efetuado a gravação do peso final independente da OC ter produtos diferentes. Só não será permitido utilizar o peso da Balança como volume nos casos em que a OC tiver produtos diferentes. Estaremos também deixando o SisPetro Remoto igual ao SisPetro Normal com as alterações de gravar peso Inicial na Portaria de Entrada quando o cartao do SmartCard é gravado e abrir a tela de Informações de Qtde e salvar devidamente os dados quando é Descarga e o perfil de sistema indicar que não utiliza Smartcard na Descarga. 
+UPA (CCF 20268)
+Validações no Bombeio 
+No processo de Bombeio foram feitos alguns ajustes e validações em campos que exigem dados válidos, as seguintes telas sofreram alterações: 
+Inclusão de Pedido de Bombeio
+ 
+Físico, 
+Confirmação de Pedido de Bombeio Físico, 
+Inclusão de Pedido de Bombeio Físico Confirmado, 
+Inclusão de Pedido de Bombeio Escritural, 
+Confirmação de Pedido de Bombeio Escritural, 
+Inclusão de Pedido de Bombeio Físico Confirmado
+. AO (CCF 18027, CCF 18174, CCF 18182)
+Faturamento
+Validação do Certificado Digital
+Os processos relacionados a Sefaz (NFe / CTe) necessitam que a empresa esteja vinculada a um certificado válido. Quando vamos vincular uma empresa a um certificado, verificamos se esse certificado ainda está válido (existe uma data de validade) porém, com o tempo esse certificado será inválido e quando tentamos processar algo na Sefaz com esse certificado, o sistema fica parado, esperando uma resposta da Sefaz que não vem dando a impressão que o sistema travou. Nessa versão, foi realizada uma melhoria no SisPetro para antes de iniciar os processos que necessitam de resposta da Sefaz, verificar se o certificado associado a empresa é válido. CPC (CCF 18790)
+Código NCM ou gênero no XML da NF-e 
+A partir dessa versão será permitido quando a NF-e envolve serviços de terceiros ao invés de enviar o código NCM com 8 dígitos vai 
+ser enviado o gênero somente, que possui 2 dígitos.
+ AO (CCF 19644) 
+Apresentação de dados na tela Importação NFs
+A tela de importação de NF´s tem um filtro de processo e depósito já na parte superior da tela. Nessa versão, os dados serão apresentados na tela de Importação de NF´s conforme filtro de processo e depósito informados. AO (CCF 19682)
+Importação de XML NF-e com dois itens idênticos 
+Anteriormente não era possível fazer a importação de dois itens idênticos no XML gerando um erro, mas nessa versão foi resolvido o problema podendo na 
+Importação de XML NF-e 
+a importação de dois itens idênticos.
+ Help:
+ AO (CCF 19066)
+Situação do Frete no Danfe 
+A partir dessa versão, foi disponibilizado no Layout do Danfe o campo Situação do Frete conforme indicado no manual da NF-e, 
+se desejar atualizar o layout  padrão da Futura favor baixar os arquivos: 
+Danfe.rtm e 
+Danfe_Itens.rtm
+ .
+ 
+Help:
+ 
+ AO (CCF 17861) 
+Taxa de Juros na Cobrança Eletrônica Santander
+A partir dessa versão, será enviada a Taxa de Juros com 5 casas decimais na Cobrança Eletrônica Santander quando for valor percentual. AO (CCF 19554)
+Data do Crédito na cobrança eletrônica Itaú
+Na leitura do arquivo de retorno da Cobrança Eletrônica do Banco Itaú (341), será utilizado a data de crédito informada no arquivo de retorno da cobrança como Data de Fluxo na Baixa.
+ 
+AO (CCF 19157)
+ 
+Retirar do SisPetro a funcionalidade de Cupom Fiscal 
+Há tempos atrás foi criado no SisPetro a emissão de Cupom Fiscal pela impressora Bematech. Como essa funcionalidade não está mais sendo utilizada por nenhum cliente, e além disso, provavelmente surgiram novas atualizações da impressora, 
+retiramos tudo que se refere a Cupom Fiscal do Sispetro
+. CPC (CCF 18604)
+Modalidade do Frete da Transportadora somente para NFs Emissão Própria 
+Temos no Sispetro a possibilidade de indicar com que Modalidade de Frete a Transportadora pode ser utilizada no Pedido e OC de Venda e nas Notas Fiscais de qualquer tipo, para Retira, Entrega ou Ambas. Porém uma mesma transportadora pode ser restrita para Entrega quando for NF de emissão própria, mas pode ser Entrega numa NF de emissão de terceiros (quando contratada como Entrega por uma Usina por exemplo). 
+Nessa versão, essa restrição de Modalidade do Frete da Transportadora será considerada somente para NF's de Emissão Própria que é o cenário onde a empresa pode atuar.
+ 
+Help:
+ 
+, 
+ CPC (CCF 11434)
+Campo Outros Impostos CSSL
+O campo onde o usuário pode informar o CSSL dos outros impostos nas configurações da empresa não estava disponível ao usuário. Esse problema foi corrigido. 
+UPA (CCF 20238)
+Cancelamento de CTe
+Quando um CTe está sendo cancelado, não estava sendo enviado automaticamente o comando de cancelamento ou inutilização ao Sefaz. Esse problema foi corrigido. 
+UPA (CCF 20252)
+Importação de Notas Fiscais não esta levando a Hora Saída
+A partir dessa versão, na tela de Importação de Notas Fiscais foi alterado o nome de apresentação do combo para: Data/hora de movimento das NFs. AO (CCF 20187)
+Permitir Desmarcar uma NF para não Exigir Manifestação
+A partir dessa versão, será permitido em Manutenção de Notas Fiscais desmarcar o parâmetro que informa que a Nota Fiscal requer manifestação. AO (CCF 20137)
+Inclusão de Evento de Manifestação Manual
+Na tela de Manutenção de Notas Fiscais é possível incluir um evento de manifestação manualmente, porem ao clicar no botão para criar um evento está sendo gerado um erro ao usuário. Esse problema foi corrigido. 
+UPA (CCF 20405)
+NF-e de Terceiros em Empresas Emissoras CT-e
+Na versão anterior se a Natureza estava marcada como NF-e, Tipo de Emissão como terceiros e a Empresa fosse emissora de CT-e, apresentava uma mensagem de erro indevidamente. A partir dessa versão esta mensagem não ocorrerá mais, permitindo a inclusão de NF-e com Tipo de Emissão de Terceiros em Empresas emissoras de CT-e.
+ AO (CCF 20430)
+No Servidor Sispetro retornar sequencial da Nota Fiscal de Manifestação pela Chave de Acesso
+Quando e
+ra necessário fazer manifestação de uma nota fiscal própria
+, 
+na hora de salvar o protocolo o Sispetro não localizava a Nota, deixando manifestada na SEFAZ e com erro no Sispetro, nessa versão
+ vai fazer manifestação de uma nota fiscal própria permitindo o devido envio de Manifestação de NF's e salvar o número do protocolo devidamente.
+ AO (CCF 19921)
+Remessa e Retorno de Armazenagem - Desabilitando o Botão OK Durante Gravação da Nota Fiscal
+ 
+Quando o usuário incluía uma nota fiscal de remessa ou retorno de armazenagem, se após mandar gerar a nota o usuário clicasse novamente no botão de OK, uma segunda nota era gerada com os mesmo dados da primeira. Para evitar esse tipo de problema, a  partir dessa versão, após o usuário clicar no botão de geração da nota fiscal, iremos desabilita-lo, habilitando novamente só ao fim do processo. 
+UPA (CCF 20221)
+Remessa e Retorno de Armazenagem - Mantendo as Configurações de Casas Decimais Quando Gerado Diversas Notas Fiscais em Sequencia
+Após a geração de uma nota fiscal de remessa ou retorno de armazenagem, caso o usuário habilitasse a opção de manter essa tela aberta para gerar outra nota fiscal, na segunda nota fiscal emitida o sistema não estava mais respeitando as configurações de nº de casas de decimais a ser utilizado. Esse problema só acontecia na segunda nota fiscal caso o usuário estivesse gerando diversas notas seguida. Esse problema foi corrigido. 
+UPA (CCF 20321)
+Remessa e Retorno de Armazenagem - Corrigida Rotina de Arredondamento das Quantidades Movimentadas
+Alteradas as rotinas para arredondamento e cálculo dos volumes na tela da nota fiscal de Remessa / Retorno de Armazenagem. Essa alteração corrige os problemas referentes ao arredondamento das quantidades movimentadas pela nota fiscal. 
+UPA (CCF 20171, 20431)
+Remessa e Retorno de Armazenagem - Preenchimento do Número da Nota Fiscal 
+O preenchimento do campo de número da nota fiscal e a sugestão dessa numeração, a partir dessa versão será controlado pelo tipo de emissão da natureza de operação selecionada. Se a natureza de operação for de emissão própria, o campo de número da nota fiscal será desabilitado e preenchido pelo sistema. Se a natureza de operação for de emissão de terceiros, o número da nota fiscal não será preenchido e estará disponível para edição do usuário. UPA (CCF 20203)
+Remessa e Retorno de Armazenagem - Vínculo de Notas Fiscais
+Na versão passada foi criada uma rotina para permitir o vínculo de notas fiscais na tela de Remessa e Retorno de Armazenagem, porém, caso a nota fiscal possuísse mais do que um item, o vínculo não era concluído corretamente. 
+UPA (CCF 20023)
+Ajustes no XML do CTe
+Nessa versão, foram feitos alguns ajustes no xml do Recibo do CT-e conforme obrigatoriedade atual da SEFAZ incluindo o grupo de Tags Seg e a Tag respSeg. 
+Help:
+ 
+Como Emitir um Conhecimento de Frete
+, 
+Como Emitir um Conhecimento de Frete Eletrônico - CT-e
+ AO (CCF 20393 CCF 20360)
+Problema de arredondamento no Valor dos Produtos XML da NFe
+Em alguns casos apresentava erro de arredondamento no valor dos produtos mas a SEFAZ aceitava por ser 0,01, porém nessa versão o valor dos produtos será devidamente arredondado quando enviado no XML da NF-e. 
+AO (CCF 20117)
+Cancelamento de NF-e Denegada
+Foi feita anteriormente a implementação da Análise de Cancelamento antes do cancelamento efetivo de uma NF-e e a questão da NF-e denegada não foi tratada. A partir dessa versão será permitido o devido cancelamento de NF-e denegada no Sispetro sem o envio do cancelamento à SEFAZ. 
+Help:
+ 
+Processos e Validações para Cancelamento de Nota Fiscal
+, 
+ 
+Cancelamento de NFe primeiro na SEFAZ
+ AO (CCF 20379)
+Erro ao cancelar NF com mais de um item X estoque físico
+Durante o processo de cancelamento de NF's, quando era necessário verificar se uma NF com mais de um item teve movimentação no Estoque Físico era apresentado um erro, o que foi corrigido  
+GSN (CCF 20577)
+Financeiro
+Cancelamento de Baixa quando não há Baixas
+A partir dessa versão, na Manutenção do Contas a Pagar/Receber botão que aciona o Cancelamento da Baixa, não será acionado caso não tenha baixas a serem canceladas no título. AO (CCF 19067)
+Dados de Entidade no Contas a Receber de Conhecimento
+A partir dessa versão, no Conhecimento de Frete que é de emissão própria pode gerar Contas a Receber para a Entidade Remetente, Destinatária ou Consignatária, com o campo CGC do Título gerado pelo conhecimento conforme a Entidade que foi usada para sua geração. AO (CCF 19551)
+Baixa da Cobrança Eletronica ABC com Correspondente Bradesco
+No processo de leitura de Arquivo de Retorno do Banco ABC (246), o tamanho do campo nosso número passou de  11 dígitos para 12, para ajustar a 
+baixa da Cobranca Eletronica ABC com Banco Correspondente Bradesco. AO (CCF 20209)
+Fiscal
+Pontos no CFOP no XML do CT-e Faturamento 
+A partir dessa versão, o Sispetro vai fazer o tratamento de retirar os pontos do CFOP no xml do Recibo do CT-e. AO (CCF 20332)
+Patrimônio
+Baixar Bens do Patrimônio sem Contabilizar o Botão Marca/Desmarca não está fazendo a Função Patrimônio
+ 
+Nessa versão foi corrigido o problema no botão que marca ou desmarca todos os produtos para contabilização que não estava recalculando o lote que será gerado
+. 
+AO (CCF 20316)
+Transportes
+Permissão de Usuário e Ordenação de Dados na Tela de Manutenção de Fretes 
+Nessa versão foram feitos alguns ajustes na Tela de Manutenção de Fretes, garantindo que ao ordenar os dados no grid principal, não apresente erro, independente da coluna. 
+AO (CCF 20145) 
+Preços mínimo e máximo na Tela de Pedido de Alteração de Preço Vendas
+ 
+Na Tela de Pedido de Alteração de Preço será permitido que o usuário informe os preços mínimo e máximo. 
+Help:
+ 
+ AO (CCF 18339)
+Vendas
+Dados de Desmembramento de Pedido
+A partir dessa versão, na tela de Manutenção de Pedido, serão apresentados os dados do Desmembramento de Pedido. 
+Help:
+ 
+ AO (CCF 20049)
+Encargos Financeiros na tela de Análise de Custos 
+Na tela de Análise de Custo 
+será possível fixar um parâmero de % de
+ Encargos Financeiros 
+para as próximas análises
+. 
+AO (CCF 20235)

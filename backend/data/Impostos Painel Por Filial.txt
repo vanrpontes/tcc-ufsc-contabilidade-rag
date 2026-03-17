@@ -1,0 +1,631 @@
+TITULO: Impostos (Painel Por Filial)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210571
+--------------------------------------------------
+none
+Objetivo
+Para configurar a parte de impostos, gerenciados pela natureza de operação, o usuário deve clicar painel 
+Por Filial
+ e depois no painel 
+Impostos
+, localizado na parte inferior da tela da manutenção de natureza de operação.
+As configurações do painel Impostos são 
+por empresa
+, por isso, deve-se ter uma atenção maior nessa configuração.
+Aba Detalhes
+Itens inativos agora ficarão destacados em 
+vermelho
+Quadro Endereço
+Quadro Endereço/UF:
+UF utilizada para Impostos:
+UF de Faturamento: 
+padrão. É utilizada em conjunto com as informações do Cadastro de Clientes: 
+Padrão para Vendas (Clientes)
+ - campo Endereço de Consumo e 
+Outros Endereços (Clientes)
+. Caso a Empresa tenha Inscrição Estadual Substituta e seja da mesma da UF utilizada para impostos, não será enviada a tag <IEST>
+UF de Consumo: 
+em alguns estados, quando se trata de vendas a consumidor final, o cliente é de uma UF diferente da UF onde o produto será consumido, por questões fiscais, é obrigatório calcular os impostos de acordo com a UF de consumo. Caso opte pela UF de Consumo, no DANFE, o endereço do cliente será o endereço de faturamento ou endereço principal e os impostos serão calculados de acordo com a UF de consumo.
+Endereço do Consumo: 
+Esta configuração só afetará o faturamento caso a UF utilizada para Impostos for a UF de Consumo. 
+Endereço conforme cadastro do Cliente: 
+padrão.  Esta opção permanece como é atualmente: o SisPetro irá calcular os impostos de acordo com a UF de consumo definida no cadastro de clientes em 
+Padrão para Vendas (Clientes)
+ - campo Endereço de Consumo.
+Endereço do Depósito: 
+o SisPetro irá considerar a UF do depósito utilizado no pedido de vendas para cálculo dos impostos e o endereço de entrega será o do depósito utilizado. Essa situação ocorre em operações de venda de combustível cujo consumo ocorrerá no ponto de venda, ou seja, o endereço de entrega do cliente será o endereço do depósito da distribuidora, permanecendo o endereço de faturamento do cliente. Para mais informações, ver 
+Como emitir nota fiscal com consumo no ponto de venda
+.
+Esta opção é aceita somente para notas fiscais de venda, ou seja, geradas através de pedidos de venda
+Quadro ICMS/IPI
+Quadro ICMS/IPI:
+Gera ICMS: 
+se a Nota Fiscal que utilizar esta natureza de operação gera ICMS, isto é, se pode-se calcular o ICMS da Nota Fiscal de acordo com a alíquota e código do ICMS cadastrado no produto.
+Mostra valores de ICMS nos itens da NF:
+ para os casos onde deseja-se ocultar os campos pertinentes ao ICMS na tela de itens da Nota fiscal, poderá desmarcar esta opção, sendo importante frisarmos que os cálculos continuarão a funcionar normalmente, conforme configurado.
+Gera IPI: 
+se a Nota Fiscal que utilizar esta natureza de operação gera IPI, isto é, se pode-se calcular o IPI da Nota Fiscal de acordo com a alíquota e código do IPI cadastrado no produto. Para mais informações, ver 
+Gerando IPI na Nota Fiscal Eletrônica (NFe)
+.
+Mostra valores de IPI nos itens da NF: 
+para os casos onde deseja-se ocultar os campos pertinentes ao IPI na tela de itens da Nota fiscal, poderá desmarcar esta opção, sendo importante frisarmos que os cálculos continuarão a funcionar normalmente, conforme configurado.
+Não calcula ICMS automaticamente (usuário informa)
+Valor do IPI deve ser somando à base do ICMS: 
+este item foi desenvolvido especificamente para uma empresa importadora. Marcando este item, o valor do IPI dos produtos é incorporado na base de cálculo do ICMS.
+Definição da Base de ICMS: 
+define como o SisPetro irá considerar a Base de Cálculo do ICMS. 
+Incorpora base de cálculo do ICMS no valor do ICMS. Usado em operações de diferimento no estado do RJ.
+Valor dos Produtos
+Valor dos Produtos somando ICMS: Valor Produtos / (1 - (%ICMS/100)): 
+d
+eve ser o valor dos Produtos com o ICMS incorporado.
+Envia na NF-e a Tag <origComb> para os produtos que tenham % Originário por UF ?
+Respeita Cadastro de Produtos:
+conforme configurado no produto. Para mais informações, ver 
+Dados Adicionais em Produtos
+, item Envia na NF-e a Tag <origComb> com o % Originário por UF? e 
+Margem Subst. Tributária
+, item Campos % Orig. e Importado.
+Envia sempre: 
+caso selecionada, a tag sempre será enviada, independente da configuração no produto.
+Nunca envia: 
+caso selecionada, a tag nunca será enviada, independente da configuração no produto
+ICMS Diferenciado:
+Não Aplica Redução
+Reduz Base de Cálculo ICMS Próprio e ICMS ST
+Reduz Somente Base Cálculo ICMS Próprio
+Reduz Somente Base Cálculo ICMS ST
+Calcula ICMS Próprio como Diferido: 
+se for selecionada esta opção, deve marcar as opções Gera ICMS e Mostra valores de ICMS nos itens da NF
+Quando essa opção estiver diferente de Não Aplica Redução, para calcular a base de cálculo de ICMS e ICMS Substituição na Nota Fiscal, caso na tabela de 
+ICMS
+ esteja configurado um percentual de redução, o mesmo será utilizado, respeitando as opções que indicam se deve ser nos dois impostos ou somente em um deles (ICMS Próprio + Substituição, Somente ICMS Próprio ou Somente ICMS Substituição). Isto é necessário quando o governo dá um incentivo reduzindo em percentual a base de cálculo do ICMS, como foi o caso da Bahia em 2006 para o óleo diesel. Para mais informações, ver 
+Cálculo de Imposto - Exemplo Prático
+.
+Ação ICMS Desonerado na NF: 
+Somente Destaque do Valor: 
+o valor do ICMS apenas será destacado no XML da nota fiscal. 
+Diminui do Valor da NF: 
+o valor do ICMS desonerado será descontado do valor total da nota fiscal. Cálculo efetuado: p
+reço = Preço Real / (1 - (Alíquota ICMS/100)). Para mais informações, ver 
+Como emitir nota fiscal de venda a órgão público com ICMS Desonerado no estado do Rio de Janeiro
+Motivo de desoneração: 
+n
+a Nota Técnica 2019.001 da NF-e passa a ser obrigatório informar o valor do ICMS de desoneração e o motivo da desoneração em alguns casos. Um deles é quando há redução da Base de Cálculo do ICMS. Para informar na nota o valor da desoneração, esse campo deve ser preenchido com o motivo, e a nota deve conter uma redução na Base de calculo.
+Quando houver redução da Base de Cálculo do ICMS Próprio, será salvo nos Itens da NF e na Nota Fiscal o valor do ICMS Desoneração que será:
+(Base de Cálculo Original * Alíquota ICMS /100) - Valor do ICMS destacado
+Base/ICMS Apuração Fiscal/SPED: 
+este perfil permite considerar ou desconsiderar o ICMS Próprio nos lançamentos da apuração fiscal, além de ser utilizado nos SPED.
+Considera Base/ICMS: 
+este perfil considera os valores de ICMS Próprio na apuração fiscal e nos SPED, desde que nas notas tenham esses valores lançados.
+Desconsidera Base/ICMS: 
+este perfil não considera os valores de ICMS Próprio na apuração fiscal e nos SPED,  mesmo que nas notas tenham esses valores lançados.
+Segue regra conforme CST (090 não envia):
+ é o padrão do perfil. Utilizado somente para os SPED. Selecionando esta opção, nos SPED continuará verificando os CST informados nas notas fiscais.
+Somar valor do ICMS Próprio no total da NF:
+ com este perfil habilitado, o valor do ICMS Próprio será somado no valor total da NF.
+Quadro ICMS ST
+Quadro ICMS ST
+Gera ICMS Substituição:
+ se a Nota Fiscal que utilizar esta natureza de operação gera ICMS Substituição, isto é, se pode-se calcular o ICMS de substituição da Nota Fiscal de acordo com a alíquota e código do ICMS cadastrado no produto. Notar que a opção Gera ICMS deve estar habilitada para que o Sistema calcule o ICMS Substituição de acordo.
+Subtrai preço Origem do preço Destino no ICMS Substituição:
+ normalmente, no ICMS Substituição, para calcular o ICMS Substituição, utilizamos a diferença entre o preço destino (calculado a partir de uma margem x preço unitário ou preço destino no caso de produto com cálculo através do PMPF) e o origem. Caso queiramos desprezar o preço origem na subtração (isto é, como se fosse um cálculo de ICMS simples - sem subtrair o ICMS próprio), temos de desabilitar este campo. 
+Usuário deve informar ICMS Substituição:
+ o SisPetro normalmente calcula todos os impostos da Nota Fiscal automaticamente. Porém, em alguns casos (exemplo: Notas Fiscais referentes a períodos anteriores, com base desatualizada (normalmente de fornecedores e de datas anteriores a aumentos), o usuário necessita informar a base e o valor do ICMS Substituição - que influencia o valor da Nota Fiscal. Neste caso, deve-se habilitar este campo para que duas colunas sejam visíveis no momento da inclusão do item na Nota Fiscal: 
+Base ICMS Substituição e Valor ICMS Substituição.
+Nota: quando se habilita este campo, o SisPetro deixa de calcular o ICMS Substituição para as Notas Fiscais que utilizarem esta natureza. Portanto o usuário deve realmente preencher os dois campos pois estes estarão inicialmente zerados (ver tela abaixo).
+Utiliza preço pedido para Base ICMS ST:
+ o usuário irá escolher como o SisPetro irá calcular a Substituição tributária.
+Sempre utiliza PMPF/MVA:
+ valor padrão. O SisPetro irá verificar o cadastro do produto e, caso estiver preenchido PMPF e MVA o SisPetro irá escolher o maior e fazer o cálculo.
+Sempre utiliza o valor da NF:
+ utilizado quando o valor da base do ICMS Substituição deve ser o preço unitário da operação. Se marcada, no XML na tag modBCST será enviado 6 - Valor da Operação.
+Utiliza o valor menor entre PMPF/MVA e o Valor da NF:
+ utilizado para casos como venda de Querosene de Aviação, onde é permitido 
+que se use o menor Valor entre NF ou PMPF para Base ST nas vendas para Consumidor Final. Com essa opção marcada o SisPetro sempre utilizará o menor entre os dois.
+Despreza ICMS Substituição no valor total da Nota Fiscal:
+ 
+caso este campo esteja marcado, o SisPetro irá desprezar o valor do ICMS Substituição calculado ou indicado pelo usuário no momento de calcular o valor total da nota fiscal.
+ Normalmente, este campo deve estar desmarcado, isto é, caso exista algum ICMS Substituição destacado na nota fiscal, o SisPetro irá somá-lo ao valor total dos produtos para obter o valor total da nota fiscal. Porém, existem alguns tipos de nota fiscal (particularmente os de entrada, emitidos por terceiros) que simplesmente destacam o ICMS Substituição e não o somam ao valor dos produtos. Normalmente, notas fiscais de distribuidoras e principalmente de vendas, este campo NÃO deve estar marcado para não calcular o valor total da nota fiscal incorretamente (pois ele calcula quando há destaque de ICMS Substituição na venda, o preço dos produtos retirando do total do pedido o ICMS Substituição de forma ao valor total da nf ser igual ao do pedido).
+Deduz Impostos do preço unitário: 
+na Nota Fiscal, existem dois preços unitários: O que sai impresso na Nota Fiscal e o preço origem da mesma (nem sempre este existe - ele só existe caso haja um fato gerador que originou a Nota Fiscal: pedido de venda, por exemplo). Assim, o preço origem é o preço que multiplicado pela quantidade resulta no valor da Nota Fiscal. Ele é utilizado normalmente nas Vendas. O vendedor negocia com o cliente este preço e ele é digitado no pedido de venda. Quando se vai faturar o pedido, caso exista por exemplo ICMS/PIS/COFINS Substituição (itens que devem ser somados ao valor unitário dos produtos), caso esta opção esteja habilitada, o Sistema calcula o preço unitário da Nota Fiscal de maneira que o valor final seja o negociado (do pedido)
+ alterando o valor unitário dos produtos.
+Utiliza Fator de Ajuste por Cidade Destinatária ?: 
+esta opção deve ser utilizada pelas empresas que operam no estado do Rio Grande do Sul nas vendas internas de Gasolina C Comum e Gasolina C Aditivada. Marcando esta opção, será aplicado um fator de ajuste no PMPF nas vendas internas desses produtos. Utilizada em conjunto com as informações cadastradas em 
+Tabela Fator Ajuste PMPF
+ e as configurações no produto conforme 
+Margem Subst. Tributária
+ - aba inferior Dados por UF.
+Deve marcar as opções de gerar ICMS no quadro ICMS/IPI e no quadro ICMS ST marcar as opções de gerar ICMS ST e Deduz impostos do preço unitário. São as mesmas opções de uma natureza de venda de Etanol Hidratado (para as UFs em que a distribuidora é Substituto Tributário).
+Para mais informações, ver:
+Tabela Fator Ajuste PMPF
+Margem Subst. Tributária
+Cálculo de Imposto - Exemplo Prático
+Configurações necessárias para nota e produto
+Base/ICMS ST Apuração Fiscal/SPED:
+ 
+considera ou não os valores de ICMS ST na apuração fiscal e no SPED.
+Considera Base/ICMS ST: 
+considera Base e valor do ICMS ST.
+Desconsidera Base/ICMS ST: 
+desconsidera Base e valor do ICMS ST.
+Respeita o perfil geral na Natureza:
+ 
+considera conforme marcada ou desmarcada a opção 
+Desconsidera Base/ICMS ST Apuração Fiscal
+ na aba 
+Dados Adicionais (Fiscal)
+.
+Sinalizando que esta alteração afetará o 
+Relatório de Conferência do Livro Fiscal. 
+Para mais informações, ver 
+Relatório Apuração de Livro Fiscal
+.
+Quadro Fundo Estadual
+Quadro Fundo Estadual de Combate à Pobreza - FCP
+Envio do FCP nas Informações Adicionais do XML da NF-e:
+Não envia: 
+não será enviada nenhuma informação sobre o FCP no XML.
+Nas informações adicionais do Produto e Complementares da NF: 
+caso seja marcada esta informação será criada uma TAG no XML enviando o valor calculado para o FCP. 
+Calcula FCP sobre ICMS Próprio?: 
+permite definir se será calculado ou não o FCP sobre notas com ICMS Próprio
+Não Calcula:
+ não será calculado
+Calcula para uso nas Obrigações:
+ calculará valores de FCP para envio no XML/DANFE e nas obrigações fiscais. Utilizado para as UF que tem FCP sobre ICMS Próprio.
+Calcula para fins Informativos:
+ calculará valores de FCP somente para a Apuração Fiscal. Não serão gerados valores de FCP no XML/DANFE. Utilizado para as UF nas quais a alíquota do FCP é somada à alíquota do ICMS Próprio mas deve gerar lançamentos separados do ICMS Próprio e do FCP na Apuração Fiscal.
+Calcula FCP sobre ICMS Substituição?:
+ permite definir se será calculado ou não o FCP sobre notas com ICMS Substituição
+Não Calcula:
+ não será calculado
+Calcula para uso nas Obrigações:
+ calculará valores de FCP para envio no XML/DANFE e nas obrigações fiscais. Utilizado para as UF que tem FCP sobre ICMS ST.
+Calcula para fins Informativos:
+ calculará valores de FCP somente para a Apuração Fiscal. Não serão gerados valores de FCP no XML/DANFE. Utilizado para as UF nas quais a alíquota do FCP é somada à alíquota do ICMS ST mas deve gerar lançamentos separados do ICMS ST e do FCP na Apuração Fiscal.
+Calcula FCP sobre ICMS Retido?: 
+ permite definir se será calculado ou não o FCP sobre notas com ICMS Retido. Utilizado para as UF que tem FCP sobre ICMS Retido.
+Não Calcula:
+ não será calculado
+Calcula para uso nas Obrigações:
+ calculará valores de FCP para envio no XML/DANFE. 
+Calcula para fins Informativos:
+ caso tenha, calculará valores de FCP somente para a Apuração Fiscal. Não serão gerados valores de FCP no XML/DANFE. Utilizado para as UF nas quais a alíquota do FCP é somada à alíquota do ICMS Retido mas deve gerar lançamentos separados do ICMS Retido e do FCP na Apuração Fiscal.
+Para mais informações, ver 
+FCP - Operações com Gasolina no PR
+.
+Desconto do FCP ICMS Próprio:
+Desconta do Valor do ICMS Substituição: 
+informando esta opção, o valor do FCP de ICMS Próprio será descontado do ICMS ST.
+Desconta do Valor do FCP sobre o ICMS Substituição:
+ informando esta opção, o valor do FCP de ICMS Próprio será descontado do FCP sobre o ICMS ST.
+Esta opção 
+não pode ser utilizada
+ quando se calcula
+ somente o FCP sobre ICMS Próprio
+NF Terceiros e Complemento - usuário pode informar valores nas NF Manuais:  
+marcando este perfil  será possível informar manualmente os valores de FCP (FCP Próprio, FCP ST e FCP Retido) no lançamento manual de NFs de Terceiros e para notas de complemento de impostos (saída). 
+Para que os campos de valores do FCP sejam exibidos para a digitação, serão consideradas as seguintes regras:
+FCP Próprio
+:
+Gera ICMS: 
+deve ser marcado
+Mostra valores do ICMS nos itens da NF: 
+deve ser marcado
+FCP ST
+:
+Gera ICMS Substituição: 
+deve ser marcado
+Usuário deve informar ICMS Substituição:
+ deve ser marcado
+FCP Retido
+:
+Gera ICMS Retido: 
+deve ser marcado
+Permite alterar o ICMS Retido na Nota Fiscal: 
+deve ser marcado
+Antes de emitir nota complementar de FCP Retido, favor entrar em contato com o Suporte da Futura.
+É possível indicar para quais estados o SisPetro enviará as informações do FCP.
+Para mais informações, ver 
+UF's (Painel Por Filial)
+.
+A definição das alíquotas para o cálculo devem ser feitas na 
+Tabela ICMS
+.
+Quadro ICMS Retido
+Quadro ICMS Retido:
+Gera ICMS Retido Fonte:
+ calcula ICMS Retido conforme parâmetros no 
+cadastro de produtos
+.
+Considera ICMS Retido como ICMS Próprio:
+ permite que o ICMS Próprio seja igual ao ICMS Retido. Isto pois no Estado da Bahia, quando um consumidor final compra combustível ele pode se creditar do valor do ICMS retido. Para isso é preciso que esse valor seja apresentado na NF como ICMS Próprio. Este recurso será considerado para o Cálculo de Custo na emissão da Nota fiscal. Para mais informações, ver 
+Cálculo de Custos
+.
+Permite alterar o ICMS Retido na Nota Fiscal:
+ apesar do SisPetro calcular automaticamente os impostos de acordo como produto, cliente e natureza de operação, existem NFs que são totalmente fora do padrão. Assim, habilitando este campo, o usuário pode alterar os valores de ICMS Retido para esta Nota Fiscal.
+ICMS Retido Substituído:
+  é a parcela da ICMS Retido Substituído conforme os artigos 269, 274 e 278 do RICMS/SP e Portaria CAT nº 147/2009. 
+Não Calcula
+ 
+Calcula e envia nas Inf. Adic. do Produto e Inf. Cpl. da NF
+ 
+Os valores calculados, tanto da base de cálculo como da parcela, serão enviados no XML (nas Informações Adicionais do produto e nas Informações Complementares). Além disso, o valor da Parcela é também informado nos registros C197/D197 da EFD ICMS IPI. Os valores estão disponíveis:
+Manutenção de Notas Fiscais:
+ abas Notas Fiscais e Itens NF
+Para uso em Códigos de Contabilização
+Para uso em fórmulas para Livros Fiscais
+Para uso no DANFE
+De forma automática:
+ serão impressos nos itens da nota e nas observações complementares e enviados no XML.
+De forma manual:
+ caso queira, podem ser incluídos com os dados de impostos já existentes.
+Cálculos dos valores da base de cálculo e da parcela
+Base de Cálculo da Operação sem ST
+(Valor total da NF - (Valor da Base ICMS Retido * (Alíquota interna do ICMS /100))) / (1 - (Alíquota interna do ICMS /100))
+Valor da Parcela do Imposto Retido Substituído
+(Valor da Base ICMS Retido - Valor da Base de Cálculo da Operação sem ST) * (Alíquota interna do ICMS / 100)
+Exemplo:
+ 
+Valor total da nota fiscal:
+ 11.130,00
+Base ICMS Retido:
+ 13.670,20
+Alíquota interna do ICMS:
+ 12%
+Base de Cálculo da Operação sem ST
+(Valor total da NF - (Valor da Base ICMS Retido * (Alíquota interna do ICMS /100))) / (1 - (Alíquota interna do ICMS /100))
+(11.130,00 - (13.670,20 * (12/100))) / (1 - (12/100)))
+(11.130,00 - 1.640,42) / (1 - 0,12)
+9.489,58 / 0,88 = 10.783,61 (base de cálculo)
+Parcela do ICMS Retido Substituído
+(Valor da Base ICMS Retido - Valor da Base de Cálculo da Operação sem ST) * (Alíquota interna do ICMS / 100)
+(13.670,20 - 10.783,61) * (12/100)
+2.886,59 * 0,12 = 346,39 (valor da parcela)
+Caso o valor do ICMS Retido Substituído (PIR) calculado seja negativo ou zero, no XML serão enviados a base de cálculo e o valor do PIR zerado. Para o SPED Fiscal, nos registros C197, a nota não será informada.
+Quadro AdRem
+Quadro AdRem
+Habilita Ad Rem: 
+se marcada, os cálculos do ICMS serão conforme a tributação monofásica. Para mais informações, ver 
+Configurações necessárias para emissão de notas com tributação monofásica
+.
+Produto Primário
+ICMS Próprio
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+ICMS ST
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+ICMS Retido
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+ICMS Diferido
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+Produto BioCombustível
+ICMS Próprio
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+ICMS ST
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+ICMS Retido
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+ICMS Diferido
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+ 
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?
+Respeita Cadastro de Produtos:
+ utiliza o que estiver configurado no 
+produto
+, quadro NF-e
+Envia sempre:
+ envia sempre independente da configuração no 
+produto
+, quadro NF-e
+Não envia nunca:
+ não envia independente da configuração no 
+produto
+, quadro NF-e
+Dados Tributação Monofásica
+Não envia:
+ as informações da tributação monofásica não serão enviadas
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+tag infCpl(NF): 
+ envia a base de cálculo e o valor do ICMS nas Informações Complementares
+tag infAdProd(Item NF):
+ envia a base de cálculo, a alíquota e o valor do ICMS nas Informações Adicionais do Produto
+Nota:
+ com esta opção, as informações são
+ automaticamente enviadas
+ no XML/DANFE.
+Quadro ICMS Frete
+Quadro ICMS Frete
+Calcula e Envia ICMS de Frete Retido para envio da NF-e?
+Não Calcula:
+ não calcula o ICMS do frete.
+Calcula e envia na NF-e: 
+realiza o cálculo, informa na nota e manda no  XML. Para mais informações, ver 
+Como incluir ICMS sobre transporte na NF-e
+Só calcula, não envia na NF-e: 
+realiza o cálculo, informa na nota mas não manda no XML.
+CFOP do Frete: 
+onde é informado a CFOP do Frete.
+Código ICMS: 
+no campo Código ICMS é informado o código da tabela de ICMS, onde fica a alíquota a ser utilizado para a realização dos cálculos.
+Valida se foi calculado ICMS de Frete na NF-e?: 
+quando marcado essa opção, o SisPetro realiza a validação do ICMS do Frete ao finalizar a nota, caso esteja faltando alguma informação será apresentada uma tela informando a divergência e impedindo a emissão da nota.
+    
+Quadro PIS / COFINS e Outros:
+Gera PIS:
+ somente para constar na relação de Notas Fiscais que gerem PIS para a empresa (Notas Fiscais de outras empresas por exemplo, não geram PIS/COFINS para a empresa destinatária).
+Gera COFINS:
+ somente para constar na relação de Notas Fiscais que gerem COFINS para a empresa (Notas Fiscais de outras empresas por exemplo, não geram PIS/COFINS para a empresa destinatária).
+Gera PIS Substituição:
+ se gera PIS Substituição conforme alíquota PIS definida nesta mesma tela. Este PIS deve ser calculado de acordo com os parâmetros de cada produto. Para mais informações, ver 
+Cadastro de Produtos
+.
+Gera COFINS Substituição:
+ se gera COFINS Substituição conforme alíquota COFINS definida nesta mesma tela. Este COFINS deve ser calculado de acordo com os parâmetros de cada produto. Para mais informações, ver 
+Cadastro de Produtos
+ para definição destes cálculos.
+Alíquota PIS:
+ utilizado para 
+cálculo de Custo
+ de PIS Próprio.
+Alíquota COFINS:
+ utilizado para 
+cálculo de Custo
+ de COFINS Próprio
+Permite item da NF com valor zerado: 
+com este perfil habilitado o usuário pode incluir uma nota com valor zero. Pode ser usado quando é preciso dar entrada em uma nota de ativos imobilizados onde há o direito de apropriar o crédito de ICMS (CIAP). Vale ressaltar que é preciso cautela quando for habilitar este perfil, garantir que está na natureza correta. Para mais informações, ver 
+Notas de entrada de emissão própria com valores zerados
+.
+Permite ao usuário informar Outros Impostos na inclusão da NF:
+ com este perfil habilitado, o usuário pode informar os valores dos impostos manualmente (base de cálculo, alíquota e valor do imposto).  Para mais informações, ver 
+Outros Impostos (Painel Por Filial)
+.
+Obtenção do CST PIS/COFINS: 
+determina de onde o SisPetro irá obter o CST nas operações.
+Conforme configurado na Natureza: 
+utilizará o CST configurado na própria natureza.
+Conforme configurado no Produto: 
+utilizará o CST configurado no cadastro de produtos. Para mais informações, ver 
+Dados Adicionais em Produtos
+.
+Campos 
+CST (Situação Tributária) PIS
+, 
+CST (Situação Tributária) COFINS
+, 
+CST (Situação Tributária) PIS sem valor
+, 
+CST (Situação Tributária) COFINS sem valor
+: é preciso definir o Código da Situação Tributária para o PIS e para a COFINS, considerando com valor e sem valor.
+É importante se atentar para o CST definido tanto para PIS como para a COFINS. Isto porque, a SEFAZ está exigindo informações conforme o CST definido.
+Exemplo:
+CST 010
+ a SEFAZ exige valores de ICMS Próprio e ICMS Substituição.
+CST 060
+ a SEFAZ exige somente o ICMS Retido.
+Se sua natureza de operação estiver configurada para Gerar ICMS e Gerar ICMS Subst e o CST Produto estiver 060, a SEFAZ irá analisar e exigir o ICMS Retido, porém a informação enviada será de ICMS Próprio e Subst.
+CST (Situação Tributária) PIS
+: através deste perfil será possível definir na nota Fiscal o valor do CST do PIS.
+No XML antes verificava se havia Outros Impostos para então decidir a TAG a ser utilizada. Agora conforme o CST que está salvo na nota fiscal é que serão montadas as TAG de PIS e COFINS, isso porque o manual da NF-e define (de forma fixa) qual a TAG que deve ser criada para determinado CST.
+Veja a regra:
+CST do item da Nota
+TAG PIS
+TAG COFINS
+01 ou 02
+PISAliq
+COFINSAliq
+03
+PISQtde
+COFINSQtde
+04,06,07,08 ou 09
+PISNT
+COFINSNT
+99
+PISOutr
+COFINSOutr
+Qualquer outro
+Nenhuma
+Nenhuma
+O campo 
+CST PIS
+ é utilizado quando a NF tem Outros Impostos configurados como PIS.
+O campo 
+CST PIS sem valor
+ é utilizado quando a NF não tem Outros Impostos configurados. 
+Aplicando essa regra numa situação real, poderíamos dizer que Naturezas de Venda de Álcool Hidratado usaria o campo 
+CST PIS
+ e Naturezas de Venda de Gasolina/Diesel usaria o campo 
+CST PIS sem valor
+.
+Importante
+É fundamental que se preencha os dois campos, geralmente com a mesma informação. Caso não preencha o campo 
+CST PIS sem valor
+ e a NF não tiver Outros Impostos o SisPetro utilizará o seu valor padrão que é 
+06
+CST (Situação Tributária) COFINS
+: a regra para COFINS é a mesma utilizada no PIS que já foi explicado acima.
+As tag são iguais na versão 1.1 e 2.0 da NFe.
+É de responsabilidade do usuário escolher um CST que seja compatível com o imposto que ele tem configurado, como já acontece com o ICMS. Assim, se escolher CST 03 mas não ter o valor de Outros Impostos, será gerada a TAG ...Qtde e a SEFAZ dará o erro, já que as TAG dos valores irão sem valor.
+.
+Importante!
+Quando utilizar a opção Tributável com alíquota pela unidade do produto nos campos de CST (Situação Tributária) PIS e CST (Situação Tributária) COFINS na Natureza de Operação, atente-se para a fórmula utilizada para a Base de Cálculo. A fórmula deverá ser sempre pela Quantidade do produto (ItensNF.Qtde), e não Valor dos Produtos (NotaFiscal.ValProd).
+Usuário deve informar CST na digitação da NF: 
+se marcado, será 
+sugerido o CST, configurado conforme o perfil, 
+Obtenção do CST PIS/COFINS
+ da Natureza Operação.
+Deduz ICMS Preço para PIS/COFINS Substituição:
+ se retira ICMS antes de calcular PIS/COFINS Substituição. Opção normalmente utilizada nas Notas Fiscais de Entrada de Produto da Petrobrás.
+Deduz Despesas Acessórias/Seguro do Preço Unitário: 
+permite deduzir as despesas acessórias e/ou o seguro do valor dos produtos para efeito de cálculo de impostos. 
+VER LEGISLAÇÃO DA SEFAZ DE SEU ESTADO
+ sobre este assunto. Para mais informações, ver 
+Dados de Despesas Acessórias e Seguro na NF
+.
+Zera valor da Operação no SPED EFD ICMS/IPI: 
+quando marcado os valores dos registro C100 
+Valor total documento, Valor Total Mercadoria, C190 Valor da Operação e C170 Valor Total Itens.
+Quadro Ajustes ICMS
+Quadro Ajustes ICMS - Uso no SPED:
+ 
+Gera Ajuste Automático:
+ se este perfil for marcado, irá gerar automaticamente as informações referentes ao Ajuste de ICMS na Nota Fiscal. Para mais informações, ver 
+Ajustes Livro/SPED
+.
+Botões
+Incluir / Editar: 
+ para incluir um tipo de ajuste ou editar um já existente. Ao clicar no botão será aberta a tela abaixo:
+ 
+Natureza de Operação:
+ não permite edição. 
+Empresa:
+ não permite edição.
+Origem dos valores:
+ indica a origem dos valores de ajuste. Utilizado em conjunto com 
+Valor de Destino
+.
+ICMS Próprio: 
+valores do ICMS Próprio da nota fiscal
+ICMS Retido: 
+valores do ICMS Retido da nota fiscal
+ICMS ST: 
+valores do ICMS ST da nota fiscal
+Valor Total da NF: 
+utiliza o valor total da nota fiscal. Usado quando o tipo de ajuste é Informativo e Valor de Destino é Outros
+Valor Total Produtos:
+ utiliza o valor total dos produtos. Usado quando o tipo de ajuste é Informativo e Valor de Destino é Outros
+FCP ICMS Próprio:
+ valores de FCP Próprio
+FCP ICMS ST:
+ valores de FCP ST
+FCP ICMS Retido:
+ valores de FCP Retido
+Base de Cálculo de Operação sem ST:
+ calculado automaticamente, conforme quadro 
+ICMS Retido Fonte
+, opção 
+ICMS Retido Substituído
+Valor do ICMS Retido Substituído:
+ calculado automaticamente, conforme quadro 
+ICMS Retido Fonte
+, opção 
+ICMS Retido Substituído
+Valor de Destino: 
+utilizado em conjunto com 
+Origem dos Valores
+ Apuração ICMS Próprio: 
+ICMS Próprio, Retido, FCP ICMS Próprio.
+Outros (informativo): 
+Valor Total da NF ou Valor Total Produtos
+Apuração ICMS ST: 
+ST, FCP ICMS ST ou FCP ICMS Retido
+Tipo de Apuração:
+ selecione o Tipo de Apuração utilizado pelo Ajuste. Para mais informações, ver 
+Tabela de Tipos de Apuração
+. 
+Não
+ informar quando no campo 
+Tipo de Ajuste
+ for selecionado 
+Informativo
+Tipo de Ajuste:
+ selecione o tipo de Ajuste.  Obrigatório informar.
+Outros Débitos
+Estorno de Débitos
+Outros Créditos
+Estorno de Créditos
+Deduções
+Débitos Especiais: 
+utilizados para valores de ICMS que são destacados na apuração fiscal mas não fazem parte dos cálculos dos valores devidos ou a crédito de ICMS
+Informativo: 
+utilizado para a EFD ICMS IPI e não são destacados na apuração fiscal e nem fazem parte dos cálculos de valores devidos ou a crédito de ICMS
+Cód. p/uso Livro Eletrônico:
+ selecione o código de ajuste do lançamento. Obrigatório informar. É cadastrado em 
+Manutenção de Conjunto de dados para o SPED
+ - item EFD - Tabelas Auxiliares - tabela LFEAjusteInfo e utilizado na 
+Tabela de Tipos de Apuração
+ - campo Cód. uso Livro Eletrônico
+Histórico:
+ selecione o Histórico utilizado pelo Ajuste. Obrigatório informar. Para mais informações, ver 
+Tabela Histórico Padrão
+.
+Envia o registro C197/D197:
+ por padrão é marcada.
+Se marcada, será gerado o registro C197/D197 na EFD ICMS IPI
+Se desmarcada, não será gerado o registro C197/D197
+Excluir: 
+exclui o registro selecionado mostrando a mensagem abaixo
+Para os valores do ICMS Retido Substituído (PIR), só será gerado o registro C197 caso o valor do PIR seja positivo. Se o valor do PIR for zero ou negativo, mesmo com a opção marcada, não será gerado o registro C197.
+Valores de ajustes, para o registro D197, serão gerados somente para CT-e de terceiros. CT-e de emissão própria não gera ajuste, mesmo se configurado.
+Após preencher os campos, clique em Salvar
+Com os dados de ajustes devidamente configurados, serão apresentados na 
+Ajustes Livro/SPED
+, podendo ser editados. É possível também incluir manualmente esses dados. Os lançamentos do tipo de ajuste Débitos Especiais são destacados na 
+Apuração Fiscal
+ sem fazer parte dos cálculos. Os lançamentos do tipo de ajuste Informativo não fazem parte da 
+Apuração Fiscal
+. 
+Ambos fazem parte do registro C197 do SPED ICMS IPI.

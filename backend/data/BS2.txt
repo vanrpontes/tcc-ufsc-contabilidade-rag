@@ -1,0 +1,78 @@
+TITULO: BS2
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4843274242
+--------------------------------------------------
+Banco218.dll
+ é para quem utiliza 
+CNAB
+ padrão 
+444
+ (com chave de acesso da NF-e) quando a carteira é 41. Para carteira simples, 21, essa informação não é enviada. 
+Painel Cobrança Eletrônica
+ 
+Funcionalidade
+Detalhes
+Uso de Prefixo no Nosso Número
+Envio de Juros
+Envio de Multa
+Envio de Desconto
+Envio de Abatimento
+Envio de Sacador Avalista
+Envio de Chave Acesso NF-e
+No campo 
+banco
+ deve ser informado 218
+Nome do Banco: BS2 (ou pode ser BS2_REM)
+#Docto no Arquivo Remessa:
+ se informado a opção 
+Com Parcela...
+, será acrescentado no lado do campo 
+Número de Documento no Arquivo de Remessa
+, a identificação da parcela.
+Carteira:
+ deve ser informado o número da Carteira cadastrada. Caso não seja preenchida o SisPetro preencherá com "21", pois é um campo que não pode ser nulo.
+Agência:
+ deve ser informado o número da agencia, com 4 posições
+Número da conta:
+ deve ser informado o número da conta cadastrada.
+Dígito da conta
+: deve ser informado o dígito da conta
+Informação de Juros no Arquivo Remessa:
+ utilizado para informação do campo juros 
+Desconto Cond. Arquivo Remessa:
+ em alguns casos há a necessidade de dar um abatimento ao cliente ao invés de desconto condicional. É importante que no ato do pedido de venda sabe-se o valor total do abatimento a ser concedido. Consequentemente a Nota Fiscal de Venda e o título do Contas a Receber seriam gerados com o valor total e no arquivo de remessa será enviado o valor deste abatimento e a baixa deste arquivo de remessa (via Arquivo de Retorno) irá considerar devidamente o abatimento enviado.
+As opções existentes para este perfil são:
+Informar como Desconto:
+ será informado no arquivo de remessa como desconto condicional.
+Informar como Abatimento:
+ será informado no arquivo de remessa como abatimento.
+Linha Digitável
+Campo Livre da Linha Digitável
+Conteúdo
+Tamanho
+Início
+Fim
+Agência - Fixo '001'
+3
+1
+3
+Conta
+10
+4
+13
+Nosso Número
+11
+14
+24
+Fixo '8'
+1
+25
+25
+ 
+Código de Protesto
+Sempre: 09
+Nunca: 10
+Depende Convênio: 09
+Para informações sobre a montagem da linha digitável para este banco, ver 
+Montagem da Linha Digitável
+Nosso Número
+O nosso número é fornecido pelo banco com 11 dígitos.

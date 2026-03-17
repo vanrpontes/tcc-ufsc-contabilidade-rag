@@ -1,0 +1,40 @@
+TITULO: Manutenção de Arquivos do Pagamento Eletrônico
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2925002934
+--------------------------------------------------
+No Menu
+ 
+Movimentação / Financeiro / Arquivos Pagto Eletrônico
+ é possível visualizar os dados dos arquivos de remessa e retorno, bem como manipulá-los.
+Nesta tela é possível filtrar os arquivos por:
+Remessa
+Retorno
+Data Inicial:
+ Esta data é salva sempre que o usuário altera-la e será sugerida na próxima vez que este usuário entrar na tela novamente.
+Escolha entre remessa e retorno para visualizar os dados e os botões correspondentes ficarem habilitados.
+Os arquivos de Retorno que foram encontrado erros, ficarão com a legenda amarela. O erro é logado no Servidor SisPetro, é preciso enviar o arquivo de Log para a Futura.
+Os arquivos de layout de relatório devem estar no mesmo diretório que o executável ou dentro da pasta configurada nos Caminhos Auxiliares, e são os seguintes:
+PagForRemessa.rtm
+ - Relatório de remessa.
+PagForRetorno.rtm
+ - Relatório de retorno somente com os itens encontrados no Contas a Pagar.
+PagForRetornoTodos.rtm
+ - Relatório de retorno com todos os itens processados no arquivo.
+A manipulação de arquivos (Geração, Cancelamento, Leitura e Processamento) depende da opção no 
+perfil do Usuário/ painel Financeiro/ grupo Pagamento Eletrônico/
+Pode gerar/baixar arquivos
+.
+ 
+A partir da versão 9.4 o Sispetro grava o Log de geração do arquivo, indicando a data e hora que foi gerado o arquivo, o usuário que realizou o processo, o diretório onde foi salvo o arquivo e se o arquivo substituiu um arquivo já existente. Caso tenha sido sobreposto um arquivo existente o checkbox da coluna 
+Substitui arquivo 
+ficara ticado.
+ 
+O Log de Arquivo só será realizado para geração de remessa manual, já que a geração via Serviço não sobrepõe o arquivo.
+ 
+ 
+ 
+ 
+Veja nos itens específicos como funcionam os seguintes processos:
+Gera Arquivo
+Cancela Arquivo
+Lê Retorno
+Processa

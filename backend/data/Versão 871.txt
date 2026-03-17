@@ -1,0 +1,89 @@
+TITULO: Versão 8.7.1
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918974895
+--------------------------------------------------
+Versão 8.7.1
+Dados
+Informações
+Início
+31/07/2013
+Final
+19/08/2013
+Scripts
+CMD871.SQL (sem numeração)
+Itens
+14
+Implementações
+2
+Correções
+12
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+Layout de Impressão
+ 
+ 
+ 
+ 
+Danfe_v871.rtm
+ 
+ 
+ 
+ 
+Danfe_Itens_v871.rtm
+Geral
+Erro de Conversão de Nulo para String
+As empresas que não possuem o rtm do DANFE/DACTE configurado nas configurações da empresa, estão recebendo a mensagem de erro "Impossível converter variante do tipo null para string" nos processos de aprovação de pedido e cancelamento de nota fiscal. Esse problema foi corrigido. 
+UPA (CCF 21301)
+Faturamento
+Tela de Consulta de NF-e's Emitidas a Empresa
+Em ambiente de produção, em algumas UF's, o valor retornado pela Sefaz no campo Ultimo NSU está maior que o previsto e foi necessário aumentar o seu limite. 
+UPA (CCF 21298)
+Edição do DANFE
+Na tela de edição do DANFE, todos os campos disponíveis ao usuário estavam aparecendo com o tipo desconhecido, com isso, na alteração do DANFE, não estava sendo possível diferenciar um campo data de um campo inteiro por exemplo. Problema corrigido. 
+UPA (CCF 21308)
+Visualização do DANFE
+Nas empresas onde os usuários não possuem acesso a pasta de sistemas do Windows a visualização do DANFE estava gerando um erro ao usuário. Esse problema foi corrigido. 
+UPA (CCF 21338)
+Distribuição da NF-e
+Nos XML's das NF-e's gerados pela distribuição estavam sendo suprimidos os caracteres de saldo de página. Com essa alteração, a assinatura do XML não estava mais condizente com o seu conteúdo, o que impedia a importação desses XML's que eram importados em sistema que faziam essa verificação. Esse problema foi corrigido. 
+UPA (CCF 21116 e CCF 21189)
+Importação de Notas Fiscais
+Na rotina de importação de notas fiscais, quando o sistema estava configurado para somente avisar quando tem erros na nota fiscal (avisa mas continua)  processo estava sendo interrompido e a nota fiscal não estava sendo importada. Esse processo foi corrigido. 
+UPA (CCF 21402)
+Informações do Transporte Ferroviário e Outros no DANFE
+A partir dessa versão os dados de Transportes (Transportadora e Frota) serão sempre exibidos no DANFE, inclusive quando o Tipo de Transporte é Ferroviário, Sem Transportes e Outros. 
+Cada layout de DANFE deve ser alterado para apresentar ou não esses dados, cuja verificação para impressão deve ser conforme o tipo de Transporte utilizado na NF.
+ 
+ 
+Para essa funcionalidade a empresa pode utilizar os layouts padrões da Futura (Danfe_v871.rtm e Danfe_Itens_v871.rtm) ou fazer a alteração no layout da empresa conforme orientação dada em nosso Help. 
+Help:
+ 
+Atualizações DANFE versão 8.7.1
+ 
+AO (CCF 21501)
+Contabilidade
+Transferência de Movimentação de Conta
+Ao executar a rotina de transferência de movimentação de conta contábil, está sendo gerado um erro ao usuário e o processo é interrompido. Esse erro foi corrigido e este processo voltou a funcionar normalmente. 
+UPA (CCF 21316)
+Estoques
+Configuração da Coluna na Ordem de Carregamento por Produto
+Nas configurações da Ordem de Carregamento por Depósito, o botão de Configuração da Coluna na Ordem de Carregamento por Produto não estava ficando habilitado caso a empresa na versão 8.6 não estivesse configurada como Configuração de Produtos nas Colunas por Depósito. Esse problema foi corrigido, e esse botão está sendo habilitado normalmente. 
+UPA (CCF 21380)
+Transportes
+Edição do DACTE
+Na tela de edição do DACTE, todos os campos disponíveis ao usuário estavam aparecendo com o tipo desconhecido, com isso, na alteração do DACTE, não estava sendo possível diferenciar um campo data de um campo inteiro por exemplo. Problema corrigido. 
+UPA (CCF 21308)
+Visualização do DACTE
+Nas empresas onde os usuários não possuem acesso a pasta de sistemas do Windows a visualização do DACTE estava gerando um erro ao usuário. Esse problema foi corrigido. 
+UPA (CCF 21338)
+Capacidade do Frota Correta no XML do DACTE
+Correção nos valores levados nas tags "tara", "capKg" e "capM3" na geração de XML do CT-e. Agora o sistema leva a capacidade em quilos para as duas primeiras e o total da capacidade em m³ informada na aba Compartimentação do cadastro da Frota. 
+PRFC (CCF 21393)
+Impossibilidade de Vincular Pagamento na Manutenção de Frete
+Corrigido o processo de Vínculo de Fretes com o Contas a Pagar, garantindo que o(s) frete(s) selecionado(s) seja(m) devidamente vinculado(s) ao Título escolhido. 
+AO (CCF 21450)
+ 
+ 
+Melhorar acessibilidade na tela de Pesquisa de Frota
+Foram feitas melhorias na Pesquisa de Frota, agora o campo Placa está sendo exibido em primeiro lugar e foi colocado uma campo para pesquisa exclusivamente pela Placa. PRFC (CCF 21433 e CCF 21451)

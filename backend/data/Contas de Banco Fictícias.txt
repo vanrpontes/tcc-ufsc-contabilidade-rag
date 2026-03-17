@@ -1,0 +1,85 @@
+TITULO: Contas de Banco Fictícias
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899019
+--------------------------------------------------
+Contas de Banco fictícias são contas contábeis do tipo 
+Banco
+ que possuem o parâmetro 
+Não requer Conciliação
+ (tela abaixo) habilitado. Estas contas são contas que representam o movimento de:
+
+
+
+
+Um cofre
+
+
+Conta de transferência
+
+
+Um Caixa
+
+
+
+
+
+
+São caracterizadas por terem o mesmo comportamento de uma conta de banco, guardam montantes reais, dinheiro, cheque, e seus saldos são controlados diáriamente, porém, não são contas de banco 
+reais
+, não possuem extrato para serem conferidas - devem ser conferidas através de contagem física.
+
+
+Assim, embora estas contas necessitem de controle e acompanhamento, não possuem um documento para realização de conciliação fazendo-se desnecessário este procedimento (não o acompanhamento mas sim a conciliação).
+
+
+O Sistema, em seu fechamento financeiro, assume as seguintes condições neste tipo de conta:
+
+
+
+
+Todo o movimento com data de referência posterior ao do fechamento é ignorado e seu montante subtraído do saldo final da conta (
+Saldo Real:
+ saldo apresentado na Manutenção de Plano de Contas ou o Saldo da linha no último lançamento na Manutenção de Bancos) = 
+Saldo Fechamento
+.
+
+
+
+
+
+
+Todo o movimento até a data de fechamento cuja data de emissão for posterior à esta data de fechamento será considerado 
+movimento não conciliado
+ (isto é, movimento ainda não disponível - normalmente cheques pré datados recebidos).
+
+
+
+
+
+
+O 
+Saldo Conciliado
+ será o 
+Saldo Fechamento
+ (Saldo Real da Conta menos o movimento posterior ao do fechamento - item 1) menos o 
+movimento não Conciliado
+.
+
+
+
+
+Veja também:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,564 @@
+TITULO: Alterações - A partir de Julho de 2009
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2885845121
+--------------------------------------------------
+Atualizado:
+ 17/07/09 15:18
+
+
+Registros
+
+
+
+
+0000
+
+
+
+
+Versão 7.1
+
+
+
+
+Erro no tamanho do campo IE
+
+O campo IE foi aumentado para 15
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0100
+
+
+
+
+Versão 7.1
+
+
+
+
+O campo CNPJ deve ser preenchido ora com CNPJ, ora com CPF
+
+Alterado via fórmula.
+
+
+Erro no campo Cidade
+
+Alterado via fórmula.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0150
+
+
+
+
+Versão 7.1
+
+
+
+
+IE não pode ser 0 tem que ser branco
+
+Alterado via fórmula.
+
+
+
+
+
+
+Em análise
+
+
+
+
+Informar somente quando referenciado em pelo menos um dos demais blocos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0200
+
+
+
+
+Analisado
+
+
+
+
+Não está sendo gerado para todos os produtos movimentados no mês.
+
+Em testes na Futura gera devidamente para os produtos movimentados no mês.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0450
+
+
+
+
+Versão 7.1
+
+
+
+
+Não estava sendo gerado em algumas situações.
+
+Alterado via filtro.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0460
+
+
+
+
+Script EFD_13072009_1.sql
+
+
+
+
+Não está sendo gerado
+
+Alterado via filtro.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+C100
+
+
+
+
+Versão 7.1
+
+
+
+
+Limpar todos os campos, exceto Tipo Operação, Eminente, Código Modelo Documento, Código Situação Documento, Serie, Numero Documento quando a nota for cancelada. Não gerar registros filhos.
+
+Alterado via fórmula e filtro.
+
+
+
+
+
+
+Script EFD_13072009_1.sql
+
+
+
+
+Está buscando os documentos pela data de emissão.
+
+Estará utilizando as configurações da Apuração Fiscal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+C140
+
+
+
+
+Versão 7.1
+
+
+
+
+Não gerar esse registro caso a nota seja a vista.
+
+Alterado via filtro.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+C141
+
+
+
+
+Versão 7.1
+
+
+
+
+Não gerar esse registro caso a nota seja a vista.
+
+Alterado via filtro.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+C170
+
+
+
+
+Versão 7.1
+
+
+
+
+Situação tributária do IPI
+
+Alterado via comando.
+
+
+BaseIPI está sendo preenchida mesmo quando a nota não gera IPI
+
+Alterado via fórmula.
+
+
+
+
+
+
+Em análise
+
+
+
+
+A situação tributária não está sendo preenchida para Pis e Cofins
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+C195
+
+
+
+
+Em análise
+
+
+
+
+Quando gerar esse registro é necessário informar também no registro 0460
+
+
+COD_OBS observação do lançamento fiscal. forma de ser preenchido.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+C500
+
+
+
+
+Em análise
+
+
+
+
+Faltando registro filho obrigatório.
+
+
+Código da Situação do Documento não está indo correto (COD_SIT).
+
+
+
+
+
+
+Script EFD_13072009_1.sql
+
+
+
+
+Está buscando os documentos pela data de emissão.
+
+Estará utilizando as configurações da Apuração Fiscal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+D100
+
+
+
+
+Script EFD_13072009_1.sql
+
+
+
+
+Está buscando os documentos pela data de emissão.
+
+Estará utilizando as configurações da Apuração Fiscal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+D190
+
+
+
+
+Script EFD_13072009_1.sql
+
+
+
+
+Campo COD_OBS está indo no arquivo TXT indevidamente.
+
+Alterado para não sair no arquivo.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+D500
+
+
+
+
+Em análise
+
+
+
+
+Faltando registro filho obrigatório.
+
+
+
+
+
+
+Script EFD_13072009_1.sql
+
+
+
+
+Está buscando os documentos pela data de emissão.
+
+Estará utilizando as configurações da Apuração Fiscal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+E110
+
+
+
+
+Script EFD_28072009_1.sql
+
+
+
+
+Campos sem valor devem ser preenchidos com '0,00'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+E111
+
+
+
+
+Em análise
+
+
+
+
+O SisPetro não apresenta os códigos padrões para crédito relativo ao ajuste do livro de Apuração de ICMS. (Para analise do desenvolvimento)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+E210
+
+
+
+
+Script EFD_28072009_1.sql
+
+
+
+
+Campos sem valor devem ser preenchidos com '0,00'
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+TITULO: Filtro para Visualização de Pedidos de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4455956591
+--------------------------------------------------
+Objetivo
+Mostrar como o SispetroApp filtra os pedidos de venda
+Lógica
+Existe uma limitação de mostrar os pedidos de até 90 dias. Isso é fixo atualmente. 
+Além disso, conforme o perfil de sistema e do usuário, podemos filtrar os pedidos para mostrar somente os pedidos de clientes vinculados ao usuário ou de pedidos cujo vendedor é vinculado ao usuário conforme seu cadastro.
+Perfis relacionados ao fluxograma:
+Perfil Usuário acesso_clientes
+Menu: 
+Ferramentas > Usuário > Painel 
+Restrição Visualização Clientes
+ 
+Pesquisa via F4: Cadastro Clientes (Restrição Visualização Clientes) [ckbRestricao_CadCli]
+Perfil usuário ckb_filtra_vendas
+Menu: 
+Ferramentas > Usuário > Painel Perfil > Painel 
+Vendas
+Pesquisa via F4: Filtra vendas por vendedor (Vendas) [ckbFiltraVenda]
+código vendedor preenchido no cadastro usuários
+Menu: 
+Ferramentas > Usuário > Painel Perfil > Painel 
+Vendas
+Pesquisa via F4: Código Vendedor: (Vendas) [edtCodVend]
+Perfil Sistema controla vendedor por empresa controla_vendedor_empresas_cliente
+Menu: 
+Ferramentas > Sistema  > painel 
+Clientes
+Pesquisa via F4: Controla vendedor por filial para os clientes (Clientes) [ckbControlaVendedorEmpresaCliente]

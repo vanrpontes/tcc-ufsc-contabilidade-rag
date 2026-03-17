@@ -1,0 +1,73 @@
+TITULO: Configuração de e-mail Google - OAuth
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4939776001
+--------------------------------------------------
+A partir de 30/09/2024, o Google atualizou a forma de autenticação para uso de e-mails por aplicativos de terceiros. Para que o SisPetro consiga enviar e-mails usando sua conta Google, é necessário configurar as permissões adequadas diretamente na sua conta Google, permitindo o acesso ao aplicativo.
+Siga atentamente os passos abaixo para realizar essa configuração:
+Acesse o Console do Google Cloud: 
+Google Cloud Console
+Crie um novo projeto
+Clique em 
+“CRIAR PROJETO”
+Nomeie o projeto como 
+SISPETRO
+Clique em 
+“CRIAR”
+Após a criação, o projeto será selecionado automaticamente na parte superior da página.
+Configure a Tela de Permissão OAuth
+No menu lateral, vá até 
+"Tela de permissão OAuth"
+Clique em 
+Vamos Começar 
+Informações do App: 
+Preencha as informações solicitadas:
+Nome do app:
+ Hermes
+E-mail de suporte:
+ informe o e-mail que será usado no SisPetro. Clique em 
+Próxima.
+Público: 
+Se a sua conta não pertence ao Google Workspace, selecione a opção 
+“Externo”
+ (essa opção permite que qualquer conta Google use o app)
+Dados de Contato: 
+informe 
+e-mail do desenvolvedor ou gestor das Contas Google
+Concluir: 
+Aceite os termos e clique em 
+“CRIAR”
+Crie as credenciais OAuth
+No menu lateral, vá até 
+“APIs e Serviços” → Credenciais
+Clique em 
+“+ CRIAR CREDENCIAIS”
+ e selecione 
+“ID do cliente OAuth”
+Em 
+Tipo de aplicativo
+, selecione 
+“App para computador”
+Dê um nome identificador (ex: SisPetro) e clique em 
+“CRIAR”
+Ao finalizar, serão geradas duas informações importantes:
+ID do Cliente
+Chave Secreta do Cliente
+Anote essas informações
+, pois serão usadas para configurar o envio de e-mails no SisPetro.
+Conectar o SisPetro com a conta Google - Office 365
+No Sispetro informe os dados de e-mail em Ferramentas / Manutenção de E-mails / Selecione o email / Clique em Alterar 
+Configuração de Conta de E-mail
+ 
+Selecione Perfil OAuth: 
+Google
+Informe Client Key anotado anteriormente
+Informe Secret Key anotado anteriormente
+Clique em 
+Gravar
+Selecione novamente o email / Clique em Alterar
+Clique na parte inferior em 
+Autorizar SisPetro
+Realize login com email e senha em questão e realize as devidas autorizações.
+Após isso será realizado a comunicação correta
+Token de utilização
+Quando o serviço de envio de e-mail é executado, caso ele não tenha e-mail a ser enviado, não atualiza a autorização.
+Quando tem algum e-mail a ser enviado, 1 ou n… antes de iniciar os envios, o serviço atualiza a autorização. Essa mesma autorização é utilizada para enviar todos os e-mails dessa execução do serviço

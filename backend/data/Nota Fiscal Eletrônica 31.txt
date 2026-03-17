@@ -1,0 +1,47 @@
+TITULO: Nota Fiscal Eletrônica 3.1
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921696355
+--------------------------------------------------
+A partir de Maio de 2015 todos os clientes deverão migrar para a versão 3.1 da Nota Fiscal Eletrônica. Houve algumas mudanças tanto no SisPetro quando no XML enviado a SEFAZ. Veja abaixo as mudanças
+Mudanças no SisPetro
+Criado campos de Fuso Horário e Horário de Verão. Veja help 
+Criado o perfil de Sistema "Habilita Horário de Verão". Veja help 
+Adicionado novos campos de importação de produtos. Veja help 
+Adicionada novo finalidade na Natureza de Operação. Veja help 
+, procure pelo campo "Tipo NF".
+Possibilidade de informar CNPJ do fornecedor estrangeiro, sem restrição de máscara. Veja help 
+Mudanças no arquivo .XML 
+Junção da Data de Saída e Hora de Saída na mesma tag: 
+Na versão 2.00 a Data de Saída e Hora de Saída estão em tag's diferentes (dSaiEnt e hSaiEnt) e na versão 3.10 em uma tag só (dhSaiEnt)
+Identificador de local de destino da operação: 
+Até a versão 2.00 a SEFAZ identifica se a operação era Interna, Interestadual ou no Exterior pelas UF enviadas. Agora, na versão 3.10, haverá uma tag (idDest) onde será indicada essa operação com uma dessas três opções. 
+Dados de Operações com Consumidor Final: 
+Foram adicionadas 2 tag's (indFinal e indPres) que representam, respectivamente, se a Operação envolve Consumidor Final e se ele estava presente na Operação. O SisPetro enviará na tag 
+indFinal
+ o campo  
+ConsumidorFinal
+ da Entidade e na tag 
+indPres
+ o valor fixo 9 (Operação não presencial,Outros). Veja o help 
+. Consumidor Final deve estar indicado no campo "Categoria do Estabelecimento".
+IE do Destinatário: 
+Até a versão 2.00 a IE do Destinatário só era exigida quando o mesmo era Contribuinte de ICMS, agora não necessariamente, dependerá da UF. Assim, foi criada uma tag (indIEDest) para indicar a situação do Destinatário. O SisPetro preencherá essa tag conforme o campo IE da Entidade, sendo:
+1
+ - quando tiver IE informada
+2
+ - quando no campo IE estiver ISENTO
+9
+ - quando estiver em branco
+Autorizados a baixar arquivo XML: 
+A partir da versão 3.10 será possível indicar quem pode baixar os arquivos .xml (CNPJ ou CPF) da empresa. Como isso já tinha sido feito para o CT-e 2.0, onde na tela de 
+Configuração de Sistema
+, aba NF-e/CT-e pode-se cadastrar uma lista de autorizados, agora só é necessário enviar esses dados (quando preenchidos) no arquivo .xml na tag de grupo autXML. Veja mais informações em 
+Dados de IPI numa Devolução: 
+Foi criada a tag de grupo impostoDevol, onde terá 3 informações:
+pDevol:
+ Percentual da mercadoria devolvida. O SisPetro preencherá essa informação comparando a quantidade do item devolvido e a quantidade do item original (armazenada no campo QtdeMax em notas de Devolução)
+IPI:
+ Tag de grupo da Informação do IPI devolvido
+vIPIDevol:
+ Valor do IPI devolvido, obtido pelo valor de IPI indicado no item da Nota Fiscal de Devolução
+ 
+ 

@@ -1,0 +1,363 @@
+TITULO: Versão 7.22
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903081290
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 06/10/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 01/11/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd722.sql (cmd2799 a cmd2814) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 21 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 5 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 16 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Relatórios 
+
+
+ DLLs 
+
+
+ Layouts de Exportação 
+
+
+ Layout de Importação 
+
+
+
+
+
+
+ ConciliacaoAutomatica.rtm 
+
+
+ sped_Fcont.dll 
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+Geral
+
+
+
+
+Alteração do Tipo de Campo
+
+Em algumas tabelas do sistema existiam campos que deveriam ser campos Inteiros mas foram criados como decimais sem casa decimal para que só recebessem valores inteiros. Esses campos foram alterados e agora são do tipo inteiro. 
+UPA (CCF 14705)
+
+
+Alteração de IP no Servidor SisPetro
+
+O Servidor SisPetro só estava permitindo a alteração do IP através do arquivo INI. Corrigido para quando o servidor for parado e reiniciado, seja ultilizado o endereço IP informado no próprio servidor. 
+UPA (CCF 14925)
+
+
+
+
+Contabilidade
+
+
+
+
+Perfil de Usuário para Editar o Relatório Razão
+
+
+Criado perfil de usuário para edição do Relatório Razão.
+ 
+Será necessário dar permissão ao usuário que poderá alterar esse relatório.
+
+As instruções para a alteração foram incluídas na página do relatório Razão no 
+Help:
+ 
+Relatório Razão
+ 
+UPA (CCF 13844)
+
+
+Conta de Contra-Partida na Alteração de Lote
+
+Os lotes que passavam pela alteração de lote (de um único lote e/ou alteração de lote em lote) estavam ficando com a informação da conta de contra-partida inconsistentes, muitas vezes com a informação da conta anterior. Esse problema foi corrigido. 
+UPA (CCF 14270)
+
+
+FCont
+
+
+Implementado Conjunto de Dados (8 - FCONT) e Fórmulas para geração do arquivo do FCont. Ele seguirá as configurações já feitas para o SPED-ECD, tendo como adicional o bloco M.
+ 
+Os ajustes a serem lançados nos registros I200 e I250 devem ser feitos direto no validador do FCONT. Necessário vincular ao Conjunto de dados 8 o arquivo sped_fcont.dll no caminho da dll de exportação.
+ 
+MSI/GSN (CCF 14270)
+
+
+
+
+Compras
+
+
+
+
+Controle de Despesas no PMM
+
+
+A partir dessa versão é possível cadastrar no sistema despesas que poderão ser associadas ao PMM e fazer um controle sobre elas.
+ 
+Caso essas despesas sejam vinculadas a um PMM, no momento que for feita a entrada da Nota Fiscal, iremos calculá-las e gravar o seu valor em campos nos itens da nota fiscal. Com isso, elas poderão ser adicionadas ao calculo do custo do produto. Poderão ser definidas no Cadastro de Despesas quais devem ou não participar no CMV.
+ 
+Será necessário Resetar os Menus do Sispetro Normal para que novas telas fiquem disponíveis.
+ 
+Help:
+ 
+Controle de Despesas no PMM
+ 
+UPA (CCF 12945)
+
+
+
+
+Estoque
+
+
+
+
+Posição da Ordem de Carregamento
+
+
+Foi criado no sistema o cadastro de Posições da Ordem de Carregamento.
+ 
+Essas posições podem ser associadas a OC e com isso poder ser feito um controle de que status e/ou lugar a OC se encontra.
+ 
+UPA (CCF 13952)
+
+
+Após incluir volume a utilizar no tanque, não permite zerar o valor
+
+
+Na tela de edição dos Itens da OF, na aba/grid Produtos Tanque é possível escolher o tanque a ser utilizado. Para evitar que seja escolhido um tanque sem informar um volume é sempre necessário colocar um volume maior que zero. Porém, se o usuário desmarca o tanque para não ser utilizado, o volume continua lá, participando da somatória de valores apresentada na tela, quando não deveria.
+ 
+Help:
+ 
+Processo de Produção de Ordem de Fabricação
+ 
+TDM (CCF 14127)
+
+
+
+
+Faturamento
+
+
+
+
+Código do CST do IPI nas NFe de Importação
+
+
+Atendendo a solicitação da Sefaz estaremos enviando a partir dessa versão o CST do IPI no XML da NFe. Para que essa informação seja enviada a Sefaz, será necessário informar o CST do IPI no produto, se o CST informado for um CST válido, o CST do IPI será enviado.
+ 
+Help:
+ 
+IPI na NF-e de Importação
+ 
+UPA (CCF 14922)
+
+
+Filtro de Entidade na Emissão de Nota Fiscal
+
+Há uma regra na tela de emissão de nota fiscal que filtra o tipo das entidades que podem ser utilizadas conforme o tipo da nota fiscal. Porém essa regra só vale para tela de pesquisa, não valendo caso o usuário digite o código de uma entidade cujo tipo não está permitido. Esse problema foi corrigido e agora, mesmo o usuário digitando o código da entidade, caso a entidade não seja do tipo compatível com a nota fiscal que está sendo emitida, será aberta a tela de pesquisa ao usuário. 
+UPA (CCF 14454)
+
+
+Lentidão no Vinculo Nota Fiscal Ordem de Carregamento
+
+Ao entrar na tela de vinculo de nota fiscal com ordem de carregamento, por conta do aumento de dados no SisPetro, estava sendo notada uma certa lentidão no sistema para pesquisa das ordens de carregamento. Esse problema foi corrigido aumentando a performance dessa tela. 
+UPA (CCF 13918)
+
+
+Manutenção do Certificado Digital
+
+Na Manutenção do Certificado Digital para NFe estava sendo possível alterar os dados da empresa mas essa alteração não era salva. Esses campos realmente não podem ser alterados nessa tela e por isso estamos tirando a permissão de edição desses campos. 
+UPA (CCF 14899)
+
+
+Cancelamento de NF-e - ajustes
+
+Ao fazer um cancelamento ou inutilização de uma NF-e, ao terminar o primeiro processamento, caso retorne com erro, o Sispetro não gera um novo registro com comando de cancelamento. Com isso, caso o cancelamento fosse processado novamente, o histórico de tentativas de cancelamento não era salvo corretamente. Esse problema foi corrigido. 
+MCL (CCF 14883)
+
+
+
+
+Financeiro
+
+
+
+
+Conciliação Bancária - Valores Débito/Crédito
+
+Os valores vindos no arquivo de Débito e Crédito do processo de conciliação bancária automática são valores financeiros: débito é pagamento e crédito é recebimento. Quando são comparados com os valores lançados no Sispetro, os débitos são relacionados com débitos e créditos com créditos, só que os valores do Sispetro são contábeis, onde débito é recebimento e crédito é pagamento. Nas telas (Manutenção de Conciliaçôes, Importação do Extrato, Processo de Conciliação Automático, Processo de Vinculo Manual e no Relatório de Conciliações) foram ajustados os valores de débitos e créditos como Pagamentos e Recebimentos. Quando valores vindos do extrato, débitos serão pagamentos e créditos recebimentos. Caso sejam valores do Sispetro débitos serão recebimentos e créditos pagamentos. 
+Necessário atualizar o arquivo ConciliacaoAutomatica.rtm.
+ 
+Help:
+ 
+Conciliação Automática
+ 
+TDM (CCF 13819)
+
+
+
+
+Fiscal
+
+
+
+
+Validação na Inclusão da Apuração
+
+Ao incluir uma apuração, não estava sendo validado se o período que estava sendo incluso era menor do que os já existentes no sistema e nem se o usuário havia clicado no botão Calcula Valores. Essas validações foram incluídas nessa versão. 
+UPA (CCF 14821)
+
+
+UFs da Apuração de ICMS ST
+
+Ajustada a Apuração de ICMS ST para só gerar apuração para as UFs que teve movimentação de ST, pois estava gerando para UFs que teve movimentação do ICMS próprio, deixando zerado os valores de ST. 
+GSN (CCF 14804)
+
+
+
+
+Vendas
+
+
+
+
+Informação de Quantidade nas Colunas da OC
+
+A informação de quantidade dos produtos não estava sendo apresentada nas colunas da OC quando o nome do produto era muito longo. A partir dessa versão o tamanho do cabeçalho da coluna irá se ajustar conforme a necessidade e com isso todas as informações serão exibidas. 
+UPA (CCF 13824)
+
+
+Pesquisa na Manutenção de Pedidos
+
+Na versão 7.20 alteramos a tela de Manutenção de Pedidos para um grid mais atualizado. Porém nele não está sendo possível pesquisar um cliente ou um fornecedor na coluna Razão Social dos pedidos, o que antes era permitido por um campo específico de pesquisa. Foi Habilitada a funcionalidade que permite a digitação das celulas permitindo o filtro. 
+Help:
+ 
+Manutenção do Pedido
+ 
+TDM (CCF 14541)
+
+
+Valor do Seguro no Valor de Pedidos Aprovados e Não Faturados
+
+Ajustados os campos de Valor de Pedidos Aprovados e Não Faturados no Cadastro de Clientes e na tela de Consulta de Pedidos Pendentes para considerar também o valor do Seguro do Pedido, o que não estava considerando. 
+GSN (CCF 14488)
+
+
+Campos com edição indevida
+
+Impedida a edição de alguns campos (como Autorização da ANP e Categoria do Estabelecimento) quando o usuário não tem permissão para alteração de dados da Entidade. Esses campos estavam indevidamente liberados para edição, o que foi corrigido. 
+GSN (CCF 14480)
+
+
+
+
+Transportes
+
+
+
+
+Cancelamento de Adiantamento na Manutenção de Viagens
+
+Durante a migração dos grid's da janela de Manutenção de Viagens, o grid da aba Adiantamentos não permitia navegar entre os registros. Esse problema foi corrigido. 
+TDM (CCF-14687)
+

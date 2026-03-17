@@ -1,0 +1,64 @@
+TITULO: Como efetuar leitura do tanque
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898771
+--------------------------------------------------
+A partir da versão 9.19 é possível travar as leituras de tanque que não tiverem valores válidos, seja de densidade ou temperaturas. Veja mais informações em 
+Depósitos - Aba Dados Adicionais
+Para se incluir uma leitura do tanque deve-se entrar através da 
+Manutenção de Tanques em Movimento / Base / Manutenção Tanque
+.
+Nesta tela após selecionar o depósito aparecerão os Tanques.
+Deve-se então selecionar o tanque e clicar em Leituras onde serão mostradas todas as leituras do tanque a partir de determinada data.
+O filtro de data "A partir de" inicialmente mostrará as leituras da última semana podendo ser modificado este período.
+Utilize o botão Leitura Manual para incluir uma nova leitura onde aparecerá a seguinte tela.
+Para efetuar outros tipos de leituras, vide o help 
+Tipos de Leituras
+A partir da versão 9.22 será apresentado no grid o código e descrição do produto.
+Informe o tanque, régua, temperaturas e densidade e o sistema calcula o volume ambiente e a 20 graus. A densidade, temperaturas e o número do laudo poderão ser utilizados na
+ Impressão da Nota Fiscal
+, independente do tipo de leitura feita.
+O número do laudo pode ser utilizado para informar o número do documento do boletim de conformidade.
+É possível informar a altura do Lastro Variável. Para isso, deve-se habilitar na configuração do Tanque a opção "
+Ativa Lastro Variável
+", vide tópico
+ Manutenção de Tanques
+.
+A leitura pode ser feita sem alterar o volume do tanque e para isso basta negar a pergunta "Altera volume do tanque?" que aparece no final da tela.
+O campo Tipo na inclusão de leitura de tanque possibilita fazer três tipos de leitura (Fechamento, Abertura ou Ajuste).
+Porém, o padrão o campo Tipo fique desabilitado para que somente possa ser incluído o tipo de leitura Fechamento, mas caso deseje fazer também os tipos Abertura ou Ajuste pode-se habilitar a opção em "Sistema / Ordem Carregto / Pode fazer leitura de tanque diferente de Fechamento".
+O sistema sempre irá sugerir o tipo Fechamento na inclusão da leitura de tanque.
+Ao incluir uma segunda leitura do tipo Fechamento ou Abertura no mesmo dia, o sistema automaticamente mudará as leituras incluídas anteriormente para o tipo Ajuste para que somente possa existir uma única Abertura e um único Fechamento por dia.
+Se já houver movimentação no estoque físico no dia ao incluir uma leitura do tipo Abertura o sistema não permitirá que se faça a alteração no volume do tanque somente atualizando suas temperaturas e densidade.
+Obs: Serão consideradas somente as leituras do tipo Fechamento para o rateio de estoque.
+O botão
+ 
+Inclui Fator na Tabela Conversão
+ 
+só estará habilitado se o usuário tiver permissão. Para dar permissão, na Manutenção de Usuários, painel Carregamento, grupo Tanques, marque a seguinte opção:
+Ele é útil para produtos do tipo "Alcool". Ao clicar nele abrirá uma tela específica, como pode ser visto no item 
+Fator de Conversão - Álcool
+.
+Agora basta clicar em OK para finalizar a leitura do tanque.
+É possível fazer também a 
+Leitura via Arquivo
+, que exige algumas configurações específicas. Veja maiores detalhes em 
+Leitura Automática DPM
+Atenção
+O Sispetro irá considerar as informações de 
+Temperatura Tanque
+, 
+Temperatura Amostra
+ e 
+Densidade
+ da última leitura efetuada. Porém, caso à última leitura efetuada seja com data anterior a última leitura estes dados 
+NÃO
+ sofrerão alterações.
+Data da Leitura do Tanque
+Em alguns casos no processo de leitura de Tanque, ao fazer uma leitura com data maior que as leituras existentes o Sispetro permite atualizar as temperaturas e densidade do tanque. Porém, quando se inclui, indevidamente, uma leitura com data muito futura, até a chegada dessa data as temperaturas e densidade não são atualizadas. Como não há nenhum tipo de validação na data informada, esse procedimento fica muito vulnerável a falhas.
+Como forma de prevenir essa vulnerabilidade, temos um 
+Perfil de Sistema
+ na aba 
+Ordem Carregto
+: 
+Impede leitura de tanque com data maior que a data atual
+. 
+Esse perfil, como propriamente dito, não permitirá fazer leitura de tanque maior que a data/hora atual.

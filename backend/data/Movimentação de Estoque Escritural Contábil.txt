@@ -1,0 +1,43 @@
+TITULO: Movimentação de Estoque Escritural Contábil
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210420
+--------------------------------------------------
+none
+Objetivo
+Emitir a movimentação contábil de um determinado produto e depósito, atrelado aos dados de contabilização que ocorreram durante esta movimentação, ou seja, ter um extrato da conta do produto/depósito.
+O acesso é feito através do menu
+ 
+Relatórios / Auxiliares / Contábil / Movimentação de Estoque Escritural Contábil
+ 
+é possível 
+Esse relatório é mais um recurso para conferência, traz a cada fechamento de estoque uma comparação entre a contabilização na conta de estoque e a movimentação real, apresentando a diferença. Esta diferença será decorrente de entradas feitas por pedido ou por NF's não contabilizadas e de saídas que não sejam do tipo Venda. A contabilização destes casos poderá ser feita manualmente a partir da diferença apresentada neste relatório. 
+Filtros
+É possível realizar o filtro
+Por período
+Depósito
+Produto
+Filial
+Impressão de Contabilização
+Imprime contabilização gerencial
+Imprime contabilização real
+Marcando uma das opções acima o SisPetro imprime os dados da contabilização.
+Caso queira, para conferência, é possível emitir junto com esses dados o número do lote. Basta editar o RTM (botão 
+edita layout
+) e em um dos subreports incluir o campo NumLote da MovtoPlanoContas. 
+Caso deseje enviar o relatório direto para a impressora, marque a opção
+ 
+Enviar direto para a impressora
+ 
+e o relatório será impresso na impressora que estiver configurada como padrão. Se preferir direcionar para outra impressora, deve-se marcar a opção
+ 
+Seleciona impressora
+.
+O layout do relatório será gerado conforme o arquivo
+ 
+MovEstoqueContabil.rtm
+ 
+que deve estar localizado no mesmo diretório que o executável. Sua existência é
+ 
+imprescindível.
+ 
+Para alterar o layout utilize o botão 
+Clique Ok para confirmar a impressão.

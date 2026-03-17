@@ -1,0 +1,29 @@
+TITULO: Função GetValorDescontoNF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/6019579905
+--------------------------------------------------
+Descrição
+Essa função é utilizada para obter o valor exato de um determinado desconto, por exemplo, de uma nota fiscal de serviços.
+Parâmetros
+sql
+wide
+1800
+--Utilizar os campos CodEmpresa e Sequencial das tabelas de notas que tenham esses campos
+CodEmpresa - código da empresa
+Sequencial - sequencial da nota fiscal
+SeqDesconto - código do desconto utilizado: informar, caso tenha.
+Exemplo
+sql
+wide
+1800
+GetValorDescontoNF(<CodEmpresa>,<Sequencial>,0 ou código do desconto) 
+Nota:
+ o campo SeqDesconto pode ou não ser informado. 
+Cenário
+Quando uma Nota Fiscal de Serviço tiver um Desconto Comercial e para calcular a Base do PIS e COFINS sobre o valor da Nota Fiscal menos o Desconto Comercial, temos uma função para fazer esse cálculo.
+Então conforme detalhamento do campo Fórmula Base de Cálculo abaixo informamos o Valor dos Produtos (ValProd) menos a  função GetValorDescontoNF que diminuiria o desconto da Base de Cálculo e no campo Fórmula Imposto, é a mesmo ideia da Base só calculando o valor do PIS e COFINS.
+Configurar na Nota Fiscal o PIS e COFINS como Outros impostos
+Configuração 
+Natureza Operação:
+Aba Outros Impostos e fazer a configuração, por fórmula do PIS e COFINS.
+PIS
+COFINS

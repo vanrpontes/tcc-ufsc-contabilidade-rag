@@ -1,0 +1,209 @@
+TITULO: Data do Livro Fiscal a ser considerada na Apuração
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210384
+--------------------------------------------------
+A Apuração é baseada em valores constantes nos Livros (entrada e saída) num determinado período. Este período é informado na Inclusão de Apuração Fiscal, sendo geralmente mensal. Porém temos no Livro Fiscal três tipos de datas que podem ser utilizadas como parâmetro deste período:
+
+
+
+
+Data de Emissão: data em que foi emitida a nota.
+
+
+Data de Movimento: data em que efetivamente foi movimentado o produto constante na nota.
+
+
+Data de Referência: data configurada no Livro Fiscal, vide maiores detalhes em 
+.
+
+
+
+
+
+Para isso, na configuração do Sistema, menu 
+Ferramentas / Sistema / Fiscal
+, é possível configurar qual das três datas será utilizada pelo perfil:
+
+
+ 
+
+
+Com as opções:
+
+
+ 
+
+
+À partir da versão 7.19 do Sispetro essas 3 opções não estarão mais disponíveis, sendo o valor 
+Data Referência
+ padrão e impossível de ser alterado. Sendo assim, para os livros Fiscais deve-se usar as datas definidas nos campos 
+Composição da Data de Referencia para Livros Fiscais
+, Entrada e Saída.
+
+A data de referência também será salva na nota fiscal e utilizada no SPED
+
+
+Para filtrar os dados na Apuração Fiscal, na impressão dos livros de Apuração, Entradas e Saídas, na impressão dos relatórios de Conferência, nas GIAS das diversas UF´s e no Sintegra (e registros específicos) será sempre utilizada esta configuração.
+
+
+ Ex.: Temos as seguintes notas:
+
+
+
+
+
+
+ 
+#NF
+ 
+ 
+
+
+ 
+Data Emissão
+ 
+ 
+
+
+ 
+Data Movimento
+ 
+ 
+
+
+ 
+Data Referência
+ 
+ 
+
+
+
+
+
+
+ 1 
+ 
+
+
+ janeiro/2004 
+ 
+
+
+ dezembro/2003 
+ 
+
+
+ janeiro/2004 
+ 
+
+
+
+
+
+
+ 2 
+ 
+
+
+ dezembro/2003 
+ 
+
+
+ janeiro/2004 
+ 
+
+
+ dezembro/2003 
+ 
+
+
+
+
+
+
+ 3 
+ 
+
+
+ dezembro/2003 
+ 
+
+
+ janeiro/2004 
+ 
+
+
+ janeiro/2004 
+ 
+
+
+
+
+
+
+ 4 
+ 
+
+
+ janeiro/2004 
+ 
+
+
+ dezembro/2003 
+ 
+
+
+ dezembro/2003 
+ 
+
+
+
+
+
+
+
+
+Se a apuração fosse feita por 
+Data de Emissão
+
+
+
+
+Em dezembro 2003 teríamos as notas 2 e 3.
+
+Em janeiro 2004 teríamos as notas 1 e 4.
+
+
+
+
+Se a apuração fosse feita por 
+Data de Movimento
+
+
+
+
+Em dezembro 2003 teríamos as notas 1 e 4.
+
+Em janeiro 2004 teríamos as notas 2 e 3.
+
+
+
+
+Se a apuração fosse feita por 
+Data de Referência
+
+
+
+
+Em dezembro 2003 teríamos as notas 2 e 4.
+
+Em janeiro 2004 teríamos as notas 1 e 3. 
+
+
+É importante que esta configuração não seja alterada com frequência, pois a sua alteração em pontos não bem observados pode causar inconsistência de dados.
+ 
+
+
+Ex: Foi feita a apuração de janeiro/2004 baseada na data de movimento e depois troca-se para a data de emissão e se imprime o Livro de Entradas desta apuração. Na apuração vão constar os valores das notas 2 e 3, porém o livro de Entradas exibiria as notas 1 e 4.
+
+
+Assim, antes de alterar esta configuração, feche e imprima todas as informações em relação ao mês desejado. A partir do próximo mês, aí sim, utilize relatórios e processamentos com a nova configuração, sem tentar imprimir relatórios relacionados ao período anterior.

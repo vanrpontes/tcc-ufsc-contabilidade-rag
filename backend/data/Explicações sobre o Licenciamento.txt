@@ -1,0 +1,43 @@
+TITULO: Explicações sobre o Licenciamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4150820870
+--------------------------------------------------
+Objetivo
+Informar sobre a mudança no processo de licenciamento do Sispetro a partir da versão 10.36
+Este documento só se aplica aos clientes que não estão na nossa nuvem.
+Histórico
+Desde que começamos a controlar melhor o licenciamento, ele passou por diversas fases, desde a troca via email de arquivos onde o usuário indicava as chaves que gostaria de ativar ou desativar e a Futura respondia com o arquivo validado até a mais recente, totalmente automática via Controlador Hermes.
+Nosso objetivo é manter a forma de licenciamento a mais transparente e a mais simples para os usuários de forma a medir a quantidade de licenças de uma maneira que não impeça aos usuários consumirem o Sispetro dentro dos limites impostos pela quantidade adquirida.
+A mudança
+Na versão 10.36 promovemos uma mudança do sentido de 
+limitar que uma mesma chave (que teoricamente serviria para identificar um único usuário) seja usada mais de duas vezes.
+ 
+Mais importante até que este limite de licenças é que temos alguns processos que, para serem seguros, 
+precisam identificar um usuário de forma inequívoca
+.
+Reparem que ainda estamos permitindo a uma mesma chave (um usuário) acessar o Sispetro dentro da mesma sessão duas vezes, para acomodar aqueles usuários que gostariam de executar o Sispetro normal e o controladoria simultaneamente.
+O problema
+Entretanto, algumas soluções 
+não homologadas pela Futura
+ para execução do Sispetro, impedem que captemos todas as informações necessárias para diferenciar um usuário de outro na geração da chave de acesso ao Sispetro.
+Nestes casos, até a versão 10.35 existiam muitas chaves iguais (só diferenciando-se o sufixo delas) e, na versão 10.36, estes usuários ficariam impedidos de entrar no Sispetro mesmo tendo licenças sobrando. 
+Ressaltando que o problema ocorre somente em clientes que tenham soluções não homologadas de acesso ao Sispetro (diferente do TS e do acesso via rede local)
+A solução
+Visando acomodar este cenário, mesmo estas soluções não sendo conhecidas ou homologadas, estamos lançando uma versão extra para as versões 10.35 e 10.36 que incorpora um novo algoritmo de geração de chaves levando em consideração estas soluções. 
+A versão 10.35.1 ainda não impede a utilização de chaves simultaneamente mas tem um papel importante no sentido de mostrar à empresa a quantidade correta de licenças (pois já incorpora o algoritmo de geração da chave sem entretanto limitar à 2 sessões).
+A versão 10.36.2 irá limitar a quantidade de chaves iguais a no máximo duas conforme descrito anteriormente já incorporando este algoritmo. 
+É importante, portanto, aos clientes que ainda não instalaram a versão 10.36, instalar a versão 10.35.1 verificando que a chave gerada para cada usuário (verificar estas chaves na aba Chaves do controlador Hermes) tenha um sufixo 
+0001
+ ou no máximo 
+0002. 
+Às vezes, pode ocorrer do sufixo ser maior que 0002 caso o usuário entre em duas sessões (0001 e 0002), saia da primeira (0001) e entre novamente obtendo o sufixo (0003). Portanto, estamos nos referindo à quantidade de chaves iguais (sem o sufixo) maior do que 2 (duas). 
+Nosso objetivo com essa modificação não foi de causar transtorno a nenhum cliente nem de controlar melhor a utilização do Sispetro e sim de permitir utilizar a chave para controlar melhor outros processos e auditar melhor certos procedimentos agora e futuramente. 
+Por fim, esta modificação (tanto na versão já lançada quanto na extra) não tem efeito algum sobre o SispetroApp que continua sem restrição de utilização por licenciamento.
+Ações Necessárias a todos os clientes (exceto os da nossa nuvem)
+Versão Atual do Sispetro
+Ação Inicial
+Importante
+10.35
+Atualizar para a versão 10.35.1 verificando ao longo do dia as chaves criadas (via controlador Hermes) e principalmente a quantidade de chaves iguais ( com final 0001, 0002, etc)
+Entrar em contato com a Futura caso existam chaves iguais numa quantidade maior do que 2. 
+10.36
+Atualizar para a versão 10.36.2

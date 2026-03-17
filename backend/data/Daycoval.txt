@@ -1,0 +1,164 @@
+TITULO: Daycoval
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439589
+--------------------------------------------------
+Dados Gerais
+Hoje temos a opção de trabalhar somente com o Banco Daycoval, ou trabalhar em conjunto com o Banco Bradesco (237) e Itau(341). Assim, a empresa tem conta no Banco Daycoval, onde adquire o produto Cobrança Eletrônica, porém, ao imprimir o boleto, o imprime com as características do Banco Bradesco ou do Itau. Dessa forma, o cliente que recebe o boleto não precisa localizar uma agência do Banco Daycoval para efetuar o pagamento, podendo fazer isso perfeitamente no Banco Bradesco/Itau, que tem muito mais agências disponíveis em todo o país. Para atender essa necessidade usaremos a configuração de Banco Correspondente do SisPetro. Cabe lembrar que o arquivo de remessa é conforme o layout do Banco Daycoval.
+Painel Cobrança Eletrônica
+No campo 
+banco
+ deve ser informado 707 - Banco Daycoval S.A.
+No 
+Tipo de convênio
+ informe a operação informada pelo banco, geralmente 0. Caso não seja informado nada neste campo o SisPetro o preencherá com "00"
+No 
+Convênio
+ informe o código da empresa no banco, geralmente é o código do grupo no banco (no caso de ter mais que uma filial). Possui no máximo 5 dígitos.
+A 
+carteira
+ deve ser com um dígito, geralmente 4. Caso não seja preenchida, o sistema preencherá com "4".
+Não é necessário informar a 
+Variação da Carteira
+.
+A 
+agência
+ do banco Daycoval tem somente 1 dígito. A agência matriz é 1, com 
+dígito de agência
+ 9.
+A 
+conta e o seu dígito
+ não são utilizados, mas podem ser preenchidos.
+No campo 
+CNPJ/CPF Conta 
+deve ser informado o CNPJ ou CPF da empresa que esta emitindo o título. Tal informação irá ser usada no Arquivo de Remessa.
+O 
+modo de cobrança
+ pode ser configurado para 
+Simples
+, pois não é utilizado.
+O 
+código de serviço de cobrança
+ é o produto no banco Daycoval, que pode ser:
+050 - Cobrança Simples
+060 - Cobrança Vinculada
+070 - Cobrança Caucionada 
+Geralmente é 060.
+Se desejar pode utilizar a opção 
+Pode indicar sacador/avalista
+, se marcá-la deverá então informar o CNPJ do sacador/Avalista e a razão social.
+Se desejar pode utilizar a opção 
+Pode indicar #docto na remessa
+, escolhendo a opção que melhor agradar à empresa.
+A opção 
+Informação de juros na remessa
+ não é utilizada, pois o banco Daycoval só tem uma opção que é o valor da mora diária.
+A cobrança para o Banco Daycoval no SisPetro não permite utilização de desconto, então a opção 
+Utiliza desconto na baixa eletrônica
+ NÃO deve ser marcada.
+Painel Informações sobre a Cobrança
+Marcar
+ a opção 
+Utiliza Banco Correspondente
+PREENCHER OS CAMPOS ABAIXO NO PAINEL DE BANCO CORRESPONDENTE BRADESCO:
+Informar no 
+Banco Encarregado da cobrança 237 – BRADESCO
+Informar 
+#Banco
+ como 
+237
+ e 
+Dig
+ como 
+2
+Informar 
+Nome Banco
+ como 
+BRADESCO S/A
+Preencher 
+#Agencia
+ com 
+2374
+ e o seu 
+dígito
+ com 
+4
+ (esta é a agência do Bradesco onde o banco Daycoval tem conta).
+Preencher 
+Número Conta
+ com 
+60019
+ e o seu 
+dígito
+ com 
+9
+ (esta é a conta do banco Daycoval no Bradesco).
+Preencher a 
+Carteira
+ com 
+19
+.
+As demais informações não precisam ser preenchidas.
+Faixa Nosso Número
+Só deve ser informada uma faixa com até 8 dígitos.
+Dados Técnicos
+Nosso Número:
+ é salvo no SisPetro com 8 dígitos, porém é impresso com 11 dígitos no seguinte formato:NNNNNNNNNNN-D. 
+O dígito verificador é calculado no módulo 11, utilizando até a base 7. Para este cálculo é usada a carteira do Banco Correspondente.
+Código da Empresa
+ (no header do arquivo remessa).
+É composto por:
+Número da Agência
+ (1 digito).
+Digito Agência
+ (1 digito).
+Código do Serviço de cobrança
+ (padrão é '060' - com 3 digitos).
+Convênio
+ (5 digitos).
+Tipo Convênio
+ (padrão '00' com 2 dígitos).
+PREENCHER OS CAMPOS ABAIXO NO PAINEL DE BANCO CORRESPONDENTE ITAÚ:
+Informar no 
+Banco Encarregado da cobrança 341 – BANCO ITAU SA
+Informar 
+#Banco
+ como 
+341
+Informar 
+Nome Banco
+ como 
+BANCO ITAU S/A
+Preencher 
+#Agencia
+ com 
+1248
+ e o seu 
+dígito
+ com 
+0
+ (esta é a agência do Itaú onde o banco Daycoval tem conta).
+Preencher 
+Número Conta
+ com 
+1764
+ e o seu 
+dígito
+ com 
+0
+ (esta é a conta do banco Daycoval no Itaú).
+Preencher a 
+Carteira
+ com 
+109
+.
+As demais informações não precisam ser preenchidas.
+Faixa Nosso Número
+Só deve ser informada uma faixa com até 8 dígitos.
+Dados Técnicos
+Nosso Número:
+ é salvo no SisPetro com 8 dígitos,  é impresso com 8 dígitos no seguinte formato:NNNNNNNN-D. 
+Linha Digitável
+A Linha Digitável para o banco Daycoval será montada conforme o banco correspondente configurado, que no caso pode ser o 
+ ou 
+Itaú
+. Veja maiores informações sobre a montagem da linha digitável através do tópico 
+Montagem da Linha Digitável

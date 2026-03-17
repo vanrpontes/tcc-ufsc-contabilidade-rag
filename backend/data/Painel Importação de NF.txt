@@ -1,0 +1,103 @@
+TITULO: Painel Importação de NF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926196670
+--------------------------------------------------
+none
+Objetivo
+O painel 
+Importação NF
+ centraliza todas as configurações relacionadas à importação de notas fiscais no SisPetro. Nele, é possível definir regras para CST, séries, quantidades, unidades de medida, impostos (ICMS, IPI e ST), bem como descontos, seguros e demais despesas, utilizando as informações do arquivo ou cálculos realizados pelo sistema.
+O painel também permite configurar a geração e validação de parcelas de contas a pagar e a receber, conforme os dados do arquivo, condição de pagamento, PMM ou fornecedor. Além disso, controla o tratamento de observações, o cancelamento de frete em operações de devolução e a origem da Inscrição Estadual. Por fim, define a data e hora de movimento da NF (arquivo, emissão, data atual ou pendente para preenchimento pelo usuário), bem como o comportamento do processamento automático, do De/Para e dos vínculos com PMM e Ordem de Compra (OC).
+O acesso a essa tela se dá via 
+Ferramentas / Sistemas / Importação de NF
+Quadro Geral
+Aplica Transformação após Processo de De/Para? 
+define se no processo de importação de NF será utilizado o processo de transformação. Configuração através do 
+Transformação no processo de importação
+.
+Verifica situação da NF-e/CT-e na SEFAZ e Consulta Destinatário antes de importar?
+ se marcada, define se o 
+Serviço de Importação de NF - De/Para
+ irá verificar se a nota está cancelada na SEFAZ e com isso barrá-la no processo de importação de nota fiscal. Para mais informações, ver 
+Tabela Unidades Federativas - UF
+ e 
+Monitoramento da Importação de NF-e/CT-e
+. 
+Importante
+ Não se aplica para Importação Manual de NF.
+Quadro Importação de NF-e
+Forma de obtenção de valores unitários
+ define a forma de obtenção do valor da nota
+Pelo Valor unitário informado no arquivo
+ utiliza como base para o cálculo o valor unitário do produto vindo do arquivo.
+Pelo valor total da NF informado no arquivo dividido pela quantidade
+ importa o XML informando o valor unitário igual ao valor total da Nota dividido pela quantidade.
+Ação quando NF Vinculada na Importação não for encontrada
+ define a ação a ser tomada quando a NF Vinculada na importação não for encontrada
+Desconsiderar 
+inclui a nota
+Bloquear 
+não permite incluir a nota
+Quadro Importação de CT-e
+Produto Referente ao Frete na Importação CT-e
+ define o código do produto referente ao frete, que será utilizado na importação de CT-e.
+Ajusta Data de Movimento Conforme NF-e Referenciadas (que tenham a mesma data)? 
+ Se marcada, a data de movimento do CT-e será conforme a data de movimento da(s) nota(s) referenciada(s). Essa ação só será realizada se
+As notas referenciadas (quando há mais de uma) tem a mesma data de movimento.
+Caso a Data de Movimento for menor que a Data do CT-e a configuração da 
+Natureza de Operação
+ 
+Permite data movimento anterior a data da emissão
+ estiver marcada. 
+O CT-e ser importado após a nota referenciada, ou caso as notas serem importadas via 
+Serviço de Importação de NF - Faturamento
+ a configuração da 
+Natureza de Operação
+ 
+Permite vincular NF a outra NF Emitida
+ for igual à 
+Força referência a outras NF(s)
+.
+Nos casos em que a data de movimento das notas referenciadas são diferentes, a data de movimento sugerido no CT-e será conforme o definido na 
+Natureza de Operação
+.
+Quadro Serviço de Leitura de XML NF-e/CT-e
+Processo para NF-e: 
+define o processo para a importação de NF-e.
+Processo para CT-e: 
+define o processo para a importação de CT-e. 
+Importação de NF de Emissão Própria: 
+permite a leitura de XML de notas de emissão própria, com duas opções:
+Não importa:
+ transfere para pasta de erros, padrão habilitado.
+Importa: 
+faz o processo de esteira.
+Quadro Serviço de Aplicação De/Para
+Quadro Depósito a ser utilizado na NF
+Preenchimento Depósito (quando não obtido da OC): 
+define a regra a ser seguida para utilização do Depósito na importação de Nota Fiscal.
+Fixo
+ utiliza um depósito Fixo, informado no perfil 
+Depósito Serviço Importação NF
+.
+Vazio 
+o depósito informado ficará sempre vazio.
+Obter pelo CNPJ Retirada ou Emitente (se possível)
+ será informado o depósito conforme CNPJ de Retira ou Emitente vindo do XML. 
+Depósito Serviço Importação NF 
+é informado um depósito padrão para ser utilizado no serviço de importação de NF. Sua utilização depende do perfil 
+Preenchimento Depósito (quando não obtido da OC).
+Confirmação Depósito Serviço importação NF
+ define a regra de confirmação, podendo processar a nota quando informado um depósito, ou exigindo a confirmação da mesma.
+Não requer confirmação (se estiver preenchido)
+ a nota será processada automaticamente caso o depósito esteja preenchido.
+Necessário confirmar antes de importar NF
+ a nota ficará pendente de confirmação, independente do que foi informado no campo referente ao depósito.
+Veja também
+Monitoramento da Importação de NF/CT
+Importação NF (Painel Geral)
+Painel Faturamento (Usuários)
+Controlador Hermes
+ 
+Serviço de Importação de NF - Leitura de XML
+Serviço de Importação de NF - De/Para
+Serviço de Importação de NF - Faturamento

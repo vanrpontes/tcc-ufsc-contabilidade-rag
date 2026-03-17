@@ -1,0 +1,67 @@
+TITULO: Emitindo CT-e Anulação, Substituição, Redespacho e Subcontratação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921074430
+--------------------------------------------------
+Anulação do Serviço de Transporte
+Em casos onde houve erro num CT-e, se não houve transporte da mercadoria e está dentro do prazo definido, é feito o Cancelamento ou Carta de Correção dependendo da informação errada. Porém, nas outras situações é preciso fazer a 
+Anulação do Serviço de Transporte
+.
+Para isso temos duas situações, uma em que o 
+tomador do Serviço é Contribuinte de ICMS
+ e a 
+outra quando ele não é. Quando:
+Tomador Contribuinte de ICMS
+A empresa 
+tomadora
+ emite uma NF-e com CFOP que corresponde à Anulação de Serviço de Transporte, utilizando um produto adequado para o fim (
+Anulação de Serviço de Transporte
+ por exemplo. Veja com o fiscal qual o mais apropriado). O valor da NF-e será o valor do Serviço. Nas observações deverá citar a chave de Acesso do CT-e que está sendo anulado.
+A empresa 
+Transportadora
+ ao receber a NF-e de Anulação de Frete emitida pela empresa tomadora, irá realizar o processo de Devolução de Clientes. Para mais informações, ver 
+Como emitir Nota Fiscal de Devolução de Cliente ou Fornecedor
+A empresa 
+Transportadora
+ emitirá então um CT-e com Tipo de Conhecimento 
+Substituição
+ e Tipo de Serviço Normal, referindo-se à chave de acesso do CT-e original e à chave de acesso da NF-e de Anulação recebida.
+Tomador NÃO Contribuinte de ICMS
+Empresa 
+tomadora
+ não pode emitir a NF-e, ela precisa emitir uma declaração para a empresa Transportadora, solicitando a Anulação. 
+A empresa 
+Transportadora
+ emite primeiro um CT-e de Tipo de Conhecimento 
+Anulação
+ e Tipo de Serviço Normal referenciando o CT-e que está sendo anulado e colocando a data da declaração emitida pela tomadora.
+O CT-e de anulação, assim como a Nota Fiscal de Devolução de Cliente irá gerar um adiantamento. Porém, ele será gerado para a entidade que for apontada no quadro 
+Gera Financeiro para
+ podendo ser: Remetente, Destinatário ou Consignatário. Ele será gerado de acordo com o Valor Financeiro dele e este deve ser utilizado para dar baixa no financeiro gerado do CT-e Original.
+Depois, caso necessário, a empresa 
+Transportadora
+ emitirá um CT-e com Tipo de Conhecimento Substituição e Tipo de Serviço Normal, referindo-se à chave de acesso do CT-e original e à chave de acesso do CT-e de Anulação emitido. Obrigatoriamente, é preciso fazer a 
+Anulação
+ para depois fazer a 
+Substituição
+. 
+Na fórmula da contabilização do frete o campo Entrada / Saída 
+deve estar vazio. 
+Para mais informações, ver 
+Contabilização de Frete
+ e 
+Tabela de Fórmula para Livro Fiscal
+Para emitir uma NF-e de anulação de prestação de serviço de transportes ver
+ 
+Anulação de Serviço de Frete
+CT-e Subcontratação
+É utilizado quando a empresa Transportadora é contratada por outra Transportadora. Ou seja, ocorre a subcontratação. Isso é válido para casos onde a empresa Transportadora será responsável por 
+todo
+ o transporte (e não só uma parte dele, pois aí seria Redespacho). Dependendo da legislação a Empresa Transportadora que foi subcontratada pode fazer o transporte com o CT-e emitido pela Transportadora que a contratou. Porém quando a legislação exige a emissão do CT-e por parte da empresa Transportadora subcontratada, esse CT-e será de Tipo de Conhecimento Normal e Tipo de Serviço Subcontratação. Devem ser repetidas as informações do CT-e principal, inclusive remetente e destinatário e a Empresa Transportadora contratante será o Tomador do Serviço. A chave de acesso do CT-e original será informado tanto como Documento Anterior como em CT-e referenciado.
+CT-e Redespacho
+Este é o caso onde a empresa Transportadora faz o transporte de uma parte do trajeto. Assim, temos a figura da empresa Transportadora Redespachante, que faz a primeira parte do trajeto e a empresa Transportadora Redespachada (que faz o transporte intermediário ou final).
+Empresa Transportadora Redespachante
+Emitirá um CT-e com Tipo de Conhecimento e Tipo de Serviço com Normal, porém informando a empresa Transportadora Redespachada como Recebedor, Esse CT-e acompanhará a carga em todo o trajeto.
+Empresa Transportadora Redespachada
+Emitirá um CT-e com Tipo de Conhecimento Normal e Tipo de Serviço Redespacho, informando a empresa Transportadora Redespachante como Expedidor. A chave de acesso do CT-e da Redespachante será informado tanto como Documento Anterior como em CT-e referenciado. 
+No caso do Redespacho Intermediário há uma terceira Transportadora no meio das duas Transportadoras citadas. Assim, será um CT-e com Tipo de Conhecimento Normal e Tipo de Serviço Redespacho Intermediário, tendo a Transportadora Redespachante como Expedidor, a Transportadora Redespachada como Recebedor. A chave de acesso do CT-e da Redespachante será informado tanto como Documento Anterior como em CT-e referenciado. Só que aí, no CT-e da Empresa Transportadora Redespachada o Documento Anterior não será mais o CT-e da Redespachante, mas sim o CT-e de Redespacho intermediário.
+CT-e de Complemento de Valores
+É quando é necessário emitir um CT-e para complementar um CT-e anterior, que pode ser de qualquer um dos Tipos de Serviço citados (Normal, Subcontratação ou Redespacho). 

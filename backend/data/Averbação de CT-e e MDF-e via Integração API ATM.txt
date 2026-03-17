@@ -1,0 +1,129 @@
+TITULO: Averbação de CT-e e MDF-e via Integração API AT&M
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2968388411
+--------------------------------------------------
+O SisPetro permite trabalhar com Gerenciadoras de Averbação. O
+ processo de integração permite obter automaticamente 
+o número da averbação
+ junto à seguradora, preencher a informação no CT-e/MDF-e. 
+Atualmente trabalhamos com a AT&M.
+Configurações
+Ferramentas /
+ Sistema / Aba Nota Fiscal / Quadro Averbação
+Envio de NFe/CTe para Averbação
+Sempre
+. Enviará todas as NF independente do que está configurado
+Conforme indicado na Transportadora / Cliente. 
+Enviará conforme indicado na Transportadora
+Gerenciadora Averbação
+selecionar 
+AT&M
+Para mais informações, ver 
+Painel Nota Fiscal
+Tabelas Auxiliares / Transporte 
+Gerenciadora de Averbação
+Aba Navegação
+Selecionar 
+AT&M
+Aba Detalhes
+Selecionar o 
+Ambiente
+Quadro URL: 
+preencher as URLs abaixo conforme o ambiente selecionado:
+URL CT-e
+URL NF-e
+URL MDF-e
+URL Token
+Observações: 
+Um ponto sobre a configuração das URLs para a gerenciadora AT&M. Ao lidar com essa agenciadora, o endereço do webservice permanece o mesmo, tanto para o ambiente de homologação quanto para o de produção. A diferenciação entre os ambientes é feita via token ID específico, fornecido pela própria gerenciadora.
+:info:
+atlassian-info
+#E6FCFF
+ATENÇÃO:
+ Para emissão do MDF-e se faz necessário aguardar o retorno da Gerenciadora de Averbação com o número da averbação. Sem este número de averbação não é possível proceder com a emissão do Manifesto. 
+Aba Identificação
+Aba Dados
+Nome de Usuário: 
+preencher
+Senha: 
+preencher
+Código ID: 
+preencher
+Aba Empresas
+Gerenciadora de Averbação - Identificação: 
+preencher com o usuário cadastrado anteriormente
+Empresa: 
+selecionar a(s) empresas
+Transportadora Motorista
+Aba Detalhes / Quadro Averbação
+Encaminha Averbação
+selecionar 
+Encaminha p/ Averbação c/ Gerenciadora do perfil de Empresa
+Gerenciadora Averbação
+selecionar 
+AT&M
+Para mais informações, ver 
+Gerenciadora de Averbação
+ e 
+Tabela Transportadoras / Motoristas
+Serviço de Averbação de Notas Fiscais
+Configurar o Serviço do Hermes e ativá-lo. 
+Para mais informações, ver 
+Serviço de Averbação de Notas Fiscais
+Como utilizar
+Após realizar a emissão do 
+CT-e ou MDF-e,
+ o SisPetro irá automaticamente enviar as informações para API da AT&M. É possível visualizar como está o processo de envio em 
+Manutenção de Notas Fiscais
+ / Aba Transportes / Sub Aba Averbação ou na Manutenção de MDF-e / Aba Diversos / Sub aba Averbação.
+Em 
+Tabelas Auxiliares / Transporte / Gerenciadora de Averbação 
+é possível visualizar as comunicações e, assim como na tela acima, ver as notas enviadas com sucesso. 
+Reenvio ou Cancelamento de envio de informação
+Se houver algum erro de comunicação é possível fazer o reenvio da informação. Além disso, é possível também cancelar a comunicação com a AT&M. Em 
+Manutenção de Notas Fiscais
+ / Aba Transportes / Sub Aba Averbação há dois botões que permitem o reenvio, ou o cancelamento de envio da informação. Os botões são habilitados no perfil de usuário, 
+Aba Fretes
+.
+Inativar a comunicação
+Caso seja necessário inativar a Gerenciadora de Averbação AT&M o usuário deverá verificar primeiro se não tem 
+nenhum documento
+ (CT-e ou MDF-e) com Status de Envio Pendente e se a Averbadora não está vinculada na tela de Configuração de Sistema. Com essas condições sanadas a inativação será feita. É bom ressaltar que os documentos gerados até o momento da inativação ficarão na fila para ser enviados, exceto se o usuário cancele o envio.
+Histórico de Comunicação
+O SisPetro, por padrão, armazenará os últimos 90 dias do histórico das comunicações entre a AT&M e o SisPetro. Caso queira alterar isso, basta acessar a 
+Limpeza de dados
+ e modificar a quantidade de dias a preservar.
+Exemplo de utilização XPERT e AT&M
+Empresa Transportadora
+Perfil de Sistema
+Envio de NFe/CTe para Averbação:
+ sempre
+Gerenciadora Averbação:
+ AT&M
+Empresa Distribuidora
+Perfil de Sistema
+Envio de NFe/CTe para Averbação:
+ conforme indicado na Transportadora/Cliente
+Gerenciadora Averbação:
+ vazio
+Cadastro de Transportadora
+Encaminha Averbação:
+ encaminha p/ Averbação c/ Gerenciadora do perfil de Empresa
+Cadastro de Cliente
+Clientes Específicos
+Encaminha Averbação:
+ encaminha p/ Averbação c/ Gerenciadora específica
+Gerenciadora Averbação:
+ XPERT
+Demais Clientes
+Encaminha Averbação:
+ não encaminha p/ Averbação
+Gerenciadora Averbação:
+ vazio
+Dessa forma, quando feito
+Venda pela empresa Distribuidora
+Clientes Específicos:
+ vai gerar Abervação XPERT
+Demais Clientes:
+ não irá gerar averbação
+CT-e emitido pela Transportadora:
+ irá gerar averbação AT&M para ambos clientes.

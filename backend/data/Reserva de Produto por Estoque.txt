@@ -1,0 +1,77 @@
+TITULO: Reserva de Produto por Estoque
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4536172587
+--------------------------------------------------
+Objetivo
+O objetivo é ampliar a visão de disponibilidade do produto, reservando um determinado volume para transferências entre filiais, até mesmo fazendo a reserva de volume 
+mínimo
+ 
+da ANP, impedindo que o volume reservado seja vendido e sendo 
+considerado
+ 
+na 
+Consulta de Disponibilidade
+.  A reserva tem um dia de validade e, quando incluída.
+A reserva deve ser feita para o dia que será considerada na disponibilidade, 
+ela pode ser feita:
+Sem Histórico:
+ tem a finalidade de garantir um estoque mínimo, pois, nenhuma movimentação será 
+atribuída
+ 
+a essa reserva, preservando o saldo reservado.
+Com Histórico: 
+essa opção pode ser utilizada, por exemplo, para transferência de produto entre filiais. O usuário ao incluir a reserva, informa histórico padrão e qualquer movimentação escritural que utilizar esse mesmo histórico, a quantidade da operação é automaticamente descontada da reserva do produto. 
+Configurações
+Depósitos / Aba Detalhes / Quadro Disponibilidade de Produtos
+Reserva de Produto na Disponibilidade de Produtos
+Considera a Reserva de Produtos: marcar
+Verificação Estoque:
+ escolher uma das opções abaixo
+Avisa no pedido quando negativo
+Bloqueia pedido quando negativo
+Para mais informações, ver 
+Depósitos - Aba Detalhes
+Tabelas / Faturamento / Natureza de Operação / Aba Detalhes / Aba lateral Geral
+Histórico Padrão para NF:
+ para caso de emissão de NF de saída, selecionar / verificar o histórico da natureza. Esse deve ser o 
+mesmo histórico
+ utilizado na reserva do produto 
+Para mais informações, ver 
+Como Utilizar
+Acessar o Menu 
+Movimentação / Estoque / Reserva de Produto. 
+Na tela temos os seguintes botões:
+Incluir: 
+inclui um novo registro de reserva de produto.
+Edita: 
+exibe a tela para alteração dos dados, também é possível inativar uma reserva já existente.
+Copiar:
+ faz uma cópia do registro selecionado na tela com as mesmas informações, possibilitando apenas a inclusão da nova data a ser reservada.
+Excluir:
+ exclui a reserva selecionada, porém, só é possível excluir reservas com a data maior que a data atual.
+Layout Padrão: 
+é possível reordenar as colunas da tela, clicando e arrastando para posição desejada, ao clicar no botão layout retorna ao padrão inicial.
+Atualiza:
+ atualiza os dados exibidos na tela.
+Sair:
+ sai da tela.
+Após clicar no botão 
+Incluir 
+o SisPetro irá apresentar a tela abaixo. Basta preencher as informações solicitadas na tela e clicar no botão 
+Gravar.
+Após incluir a reserva, o volume será considerado no cálculo de disponibilidade e descontado o volume reservado na tela de Consulta Disponibilidade.
+Para mais informações, ver 
+Disponibilidades
+.
+O volume reservado, será considerado na verificação de estoque, em combinação com Tipo de verificação, configurada no depósito, ao incluir um pedido de venda ou na emissão da nota fiscal de venda.  
+Na inclusão da nota fiscal ou do pedido de venda, caso o saldo seja inferior ao 
+disponível
+ 
+SisPetro fará a validação informando o saldo disponível.
+  
+Como Consultar a utilização da reserva
+Na aba 
+Movimentações 
+da Manutenção de Reserva de Produto, ficam registradas todas as movimentações que utilizaram o mesmo 
+padrão atribuído 
+a reserva, descontando o volume utilizado do saldo. 
+É fundamental ter em mente que a reserva possui validade apenas para data atual. Assim, no dia subsequente, esse saldo não será refletido na Consulta de Disponibilidade, tampouco será considerado na validação de estoque ao inserir um Pedido ou NFe de Venda.

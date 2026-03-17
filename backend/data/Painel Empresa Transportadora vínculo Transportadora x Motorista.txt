@@ -1,0 +1,110 @@
+TITULO: Painel Empresa Transportadora (vínculo Transportadora x Motorista)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909897357
+--------------------------------------------------
+Através do Painel 
+Empresa Transportadora
+ no menu superior da tela é possível informar para cada empresa, qual a transportadora que o motorista selecionado está vinculado. Sendo assim, na emissão da Nota Fiscal, ao ser escolhido um motorista com transportadora vinculada, automaticamente o sistema substituirá o código e descrição do motorista pelo da transportadora. Para desfazer o vinculo, basta selecionar a linha da empresa e transportadora e clicar no botão 
+Desvincula Transportadora
+.
+Na versão 8.11 o SisPetro passa a validar os vínculos entre motorista e transportadora. Para validar se o vínculo é correto foi criado o campo "Tipo" na 
+Transportadoras / Motoristas
+. Assim só é possível vincular uma Transportadora a um Motorista e vice-versa. 
+Caso o registro seja antigo e esteja errado, ao tentar alterar qualquer campo na tela de 
+Tabela Transportadora
+, ocorrerá o erro dizendo que não é possível vincular um motorista a motorista ou transportadora a transportadora. A ação a ser tomada é: desfazer esse vinculo errado, só assim será possível alterar os campos na 
+Tabela Transportadoras
+.
+Além de corrigir os cadastros antigos, 
+é necessário prestar atenção que nas telas de Pedido de Venda, Ordem de Carregamento e Nota Fiscal, o campo "Transportadora" trará apenas os motoristas
+, ou seja, não será o nome da transportadora que será selecionado e sim o do motorista. Isso ocorrerá se o campo TIPO estiver selecionado TRANSPORTADORA. Sendo assim, 
+é necessário toda transportadora ter um motorista vinculado
+ a ela.
+Vínculo Individual
+No painel Navegação, selecione a linha referente ao motorista que será vinculado a uma transportadora.
+Acesse o painel Empresa Transportadora.
+Observe que todas as empresas (filiais) cadastradas no Sispetro estarão disponíveis nesta tela. Selecione a linha referente a empresa (filial) cujo motorista presta serviço.
+Clique no botão 
+Vincula Transportadora
+ e selecione através da tela de Pesquisa a Transportadora para qual o motorista cadastrado e selecionado presta serviço:
+Observe que a Transportadora terá seu nome e código apresentado em tela.
+Caso seja necessário, clique no botão 
+Desvincula 
+Transportadora
+ para retirar o vínculo existente.
+A partir da versão 8.11 só será possível vincular Transportadora com Motorista e vice-versa. Veja informações sobre como configurar Motoristas e Transportadoras em 
+Caso seja tentado vincular Transportadora a outra Transportadora aparecerá a seguinte mensagem
+E se for Motorista a Motorista...
+Vínculo "Em lote"
+É possível providenciar o vínculo em todas as filiais de uma única vez. É útil quando em todas as filiais o mesmo motorista trabalha com a mesma transportadora. 
+Para que o vinculo em todas as empresas seja efetuado é preciso que se tenha vinculado pelo menos uma filial. Para repetir o mesmo vínculo nas demais é preciso:
+1 - Selecionar o vínculo que deseja ser refeito
+2 - Clicar no botão 
+Note que também é possível 
+Desvincular todas
+ as transportadoras de uma única vez, com o botão 
+Também temos a possibilidade de repetir algum vínculo para as empresas que ainda não possuem, através do botão 
+. Veja o exemplo abaixo...
+Filial 1 - Possui vínculo 
+Filia 3 - Possui vínculo
+Filial 8 - Possui vínculo
+Para que as demais filiais recebam o vínculo de uma única vez, basta selecionar a transportadora que se deseja replicar o vínculo e clicar em 
+É possível vincular mais de uma transportadora a um motorista, assim tendo uma Transportadora Preferencial e Várias Auxiliares, permitindo sua alteração no momento da emissão da Ordem de Carregamento, mediante perfil.
+Para habilitar o recurso é necessário ativar o perfil de Sistema, 
+aba Fretes, grupo Motorista.
+Para que o usuário possa alterar a transportadora no momento de emissão da Ordem de Carregamento é necessário ativar o perfil de usuário, 
+aba Carregamento, grupo OC.
+Com os perfis devidamente habilitados, no cadastro de motorista, na parte inferior da tela possui uma aba chamada "Vínculo Auxiliar"
+Em seguida clique no botão para incluir um novo vínculo, será apresentada a tela para inclusão do vínculo auxiliar.
+Informe a empresa desejada e a transportadora auxiliar. Em seguida clique no botão 
+Ok
+.
+Desconto do Frete
+Através desta tela é permitido informar, alterar ou retirar um percentual de desconto no frete por empresa/ filial para determinada Transportadora. 
+Para efetuar tais alterações, é preciso ter permissão de sistema e de usuário. Veja maiores informações em 
+ e 
+Painel Fretes (Usuários)
+.
+Tendo as permissões necessárias, o botão 
+Altera Percentual do Desconto do Frete
+ ficará habilitado.
+Ao clicar no botão, o sistema abrirá uma nova janela onde deve-se infomar o tipo de operação que será feito: Alterar o Desconto ou Retirar o Desconto:
+Operação Alteração do Desconto:
+Permitirá incluir ou alterar um determinado desconto.
+Os campos 
+Empresa
+ e 
+Transportadora
+ ficarão desabilitados, pois serão informados conforme seleção na tela anterior.
+Informe o percentual desejado no campo 
+% Desconto Frete.
+Confirme a operação clicando no botão 
+Ok.
+Para abortar o processo, clique em 
+Cancela
+Importante:
+É permitido ter o percentual de Desconto do Frete cadastrado em 
+Detalhes
+ e 
+Empresa 
+Transportadora
+ ao mesmo tempo. Primeiramente o Sispetro irá verificar o percentual de 
+Desconto do Frete
+ cadastrado para a filial no painel Empresa Transportadora. Caso este esteja em 
+branco (sem valor cadastrado)
+, o Sispetro irá verificar (e utilizar) se o campo padrão 
+%Desconto do Frete
+ está configurado no painel Detalhes.
+Para casos onde o percentual cadastrado seja 
+0,00
+ (zero) por filial (painel Empresa Transportadora) e também o padrão da transportadora (painel Detalhes), o Sispetro 
+não aplicará nenhum valor de desconto
+.
+Caso exista uma transportadora vinculada para a empresa selecionada, não será permitido alterar o Desconto do Frete, já que os percentuais para descontos que serão utilizados são da empresa vinculada e não da empresa selecionada. Portanto, neste caso, a alteração deverá ser feita na empresa vinculada. O Sispetro emitirá uma mensagem de alerta:
+Mensagem: Não é possível cadastrar o percentual de desconto sobre o frete nesta empresa pois ela possui uma transportadora vinculada.
+Operação Retirada do Desconto:
+Este processo irá retirar qualquer desconto informado para esta empresa.
+Marcando o campo 
+Retirada do Desconto, 
+não será preciso colocar qualquer valor no campo 
+% Desconto Frete
+, mesmo que ele esteja preenchido por algum valor. A retirada será feita automaticamente.

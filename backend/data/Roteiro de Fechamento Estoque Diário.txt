@@ -1,0 +1,76 @@
+TITULO: Roteiro de Fechamento Estoque Diário
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898223
+--------------------------------------------------
+Objetivo
+Explicar sobre o fechamento de Estoque Diário por Produto ou por Depósito.
+Cada um dos tipos têm as suas vantagens de acordo com o funcionamento de cada empresa, no entanto é imprescindível que se atente para
+ optar por um tipo de fechamento somente, não intercalando tipos de fechamentos
+. Afinal a data de fechamento é definida pelo tipo de fechamento escolhido: 
+Produto
+ ou 
+Depósito
+.
+É permitido fazer a abertura e fechamento de estoque escritural e físico separadamente. Para mais informações, ver 
+Fechamento de estoque por Depósito
+ e 
+Fechamento de estoque por Produto
+Se for intercalado os tipos de fechamento pode-se ter inconsistência de datas
+. Deve-se analisar como é feita a movimentação de estoque da empresa para escolher o tipo de fechamento mais adequado e caso tenha que utilizar o outro tipo de fechamento garanta que haja a consistência de datas.
+Fechamento por Produto
+Fechamento por Depósito
+Acesso Restrito do usuário no fechamento de estoque a determinadas empresas
+Fechamento de estoques com perfil de Sistema Vinculado ou Desvinculado
+Normalmente o fechamento de estoque é realizado de forma vinculada, onde é realizado o fechamento Escritural e Físico ao mesmo tempo, porém, em algumas empresas, há pessoas diferentes como responsáveis pelos dois estoques. Com isso foi implementado o fechamento Master,
+Dessa forma, a empresa poderá escolher como realizará os Fechamentos dos estoques, podendo ser:
+Vinculado: 
+ onde o SisPetro realizará os fechamentos do Estoque Escritural, Físico e Master ao mesmo tempo
+No 
+Perfil de Sistema:
+ 
+a
+ba Estoque / 
+ 
+Tipo de Fechamento de Estoque / Selecionar a opção 
+Vinculado (Master, Escritural e Físico juntos).
+No 
+Perfil de Usuário:
+ 
+aba Estoque / Marcar o perfil
+ Pode Fazer Fechamento de Estoque
+ para o Master, Escritural e Físico. 
+Desvinculado: 
+onde a empresa pode definir quais usuários, de forma separada, realizarão os fechamentos de estoque Escritural, Físico e Master.
+No 
+Perfil de Sistema:
+ aba Estoque / 
+ 
+Tipo de Fechamento de Estoque / Selecionar a opção 
+Desvinculado (Master, Escritural e Físico separados).
+No 
+Perfil de Usuário:
+ 
+aba Estoque / Marcar o perfil 
+Pode Fazer Fechamento de Estoque
+ do Master, Escritural e Físico para os usuários que irão realizar seus respectivos fechamentos de estoque.
+Uso dos perfis de Sistema e de Usuários - prática:
+Perfil de Sistema Desvinculado:
+Usuário com somente Fechamento Master
+Realizará somente o fechamento Master: na tela de fechamento de estoques ficará desabilitada e desmarcada a opção Realiza o Procedimento dos fechamentos Escritural e Físico
+Usuário com somente Fechamento Escritural
+Realizará somente o fechamento Escritural, na tela de fechamento de estoques ficará desabilitada e desmarcada a opção Realiza o Procedimento dos fechamentos Master e Físico
+Usuário com somente Fechamento Físico
+Realizará somente o fechamento Físico, na tela de fechamento de estoques ficará desabilitada e desmarcada a opção Realiza o Procedimento dos fechamentos Master e Escritural
+Se usuário com permissões de Fechamento Master, Escritural e Físico:
+Se já teve fechamento Escritural e/ou Físico antes do Master:
+No fechamento Master, na tela de fechamento de estoques deve desmarcar as opções Realiza o Procedimento do escritural e/ou do físico
+Caso já tenha realizado todos os fechamentos pelo Master:
+Escritural e/ou físico não podem realizar o fechamento do mesmo depósito/produto
+Uma eventual reabertura também deve ser realizada pelo Master.
+Perfil de Sistema Vinculado:
+Somente o usuário com todos os perfis de fechamento pode realizar os fechamentos:
+Serão fechados o Master, Escritural e Físico juntos, na tela de fechamento de estoques poderá selecionar ou não os fechamentos (Realiza o Procedimento).
+Qualquer usuário que tenha permissão somente para um dos tipos de fechamento, não poderá realizar o fechamento de estoques: os botões de Fecha Dia e Abre Dia ficam desabilitados.
+Alteração do perfil de Sistema:
+A alteração de Vinculado para Desvinculado e vice-versa não pode ser feita caso tenha algum usuário esteja com a tela de Fechamento de Estoques aberta. A alteração não terá efeito e poderá gerar inconsistências.
+Alteração dos perfis de Usuário:
+Após alterar os perfis do usuário, deve sair e entrar novamente no Sispetro.

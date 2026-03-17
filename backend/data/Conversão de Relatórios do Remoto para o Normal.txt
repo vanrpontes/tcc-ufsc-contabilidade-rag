@@ -1,0 +1,48 @@
+TITULO: Conversão de Relatórios do Remoto para o Normal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439877
+--------------------------------------------------
+
+
+Você sabe como converter um relatório que foi feito no Gerenciador de Relatórios do SisPetro Remoto para o SisPetro Normal?
+
+
+É simples, siga os passos abaixo:
+
+
+
+
+Edite o relatório num editor de textos como o Bloco de Notas ou Context (este último é melhor).
+
+
+Substitua todas as ocorrências das palavras a seguir:
+
+
+
+
+
+
+daAstaQueryDataView
+ para 
+daBDEQueryDataView
+
+
+TppChildDBPipeline
+ para 
+TppChildBDEPipeline
+
+
+Conexao
+ para 
+SCGWIN.DB
+
+
+
+
+E pronto! Basta carregar o arquivo .rtm no Gerenciador de Relatórios do SisPetro Normal.
+
+
+Atenção!
+Um relatório feito no SisPetro Normal pode ser aberto no SisPetro Remoto, mas um relatório feito no SisPetro Remoto não pode ser aberto no SisPetro Normal, por isso a necessidade da conversão.
+
+
+

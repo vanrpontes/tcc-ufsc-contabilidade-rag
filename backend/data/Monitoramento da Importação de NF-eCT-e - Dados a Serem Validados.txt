@@ -1,0 +1,96 @@
+TITULO: Monitoramento da Importação de NF-e/CT-e - Dados a Serem Validados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4017356801
+--------------------------------------------------
+none
+Objetivo
+Na aba de 
+Dados a Serem Validados
+ serão apresentadas todas as notas importadas.
+Filtros
+Empresa: 
+é possível realizar filtrar a visualização das notas por empresa. Para isso basta clicar no combo e selecionar uma determinada empresa.
+Para realizar a consulta de notas de 
+Todas 
+as Empresas, basta clicar dentro do campo Empresas e pressionar a tecla 
+Backspace 
+do teclado até o campo ficar vazio.
+Status Processamento: 
+no campo 
+Status Processamento
+ podemos filtrar as notas de acordo com o status. O Filtro pode ser feito por:
+Não Processados
+Processado com Erro
+Em processamento
+Todos
+Quadro Operações por NF
+Edita: 
+ao acionar o botão Edita, será aberta a tela de edição referente a nota na qual o cursor está posicionado.
+Abas
+Parcelas
+UF Origem
+IBS/CBS
+Quadro Operações para NF Marcadas
+Exclui: 
+ao acionar o botão Exclui, serão excluídas todas as notas selecionadas.
+Edita Natureza: 
+permitir que o usuário possa indicar a Natureza de Operação na Importação de Nota Fiscal ainda quando a Nota Fiscal não passou pela Validação do De/Para. 
+Para utilizar essa opção, o usuário deve configurar o De/Para da Natureza de Operação, porém não informando o Código de Natureza. Em seguida informar esse De/Para no Fornecedor.
+Depois de ler o XML, ao tentar aplicar De/Para e identificar que no De/Para de Natureza de Operação configurado não tem Natureza informada, não continuaria o processo, deixando a NF parada na aba Dados a serem validados da tela de Monitoramento de Importação de NF. 
+Nesta aba, será permitido o usuário informar manualmente uma Natureza de Operação específica e então usar o botão 
+Liberar o processamento
+ para que a NF seja processada novamente. Na próxima tentativa de aplicação de De/Para novamente ele verá que já tem uma Natureza (o fato de ter Natureza sempre prevalecerá, mesmo que ele já tenha configurado no De/Para a natureza) específica para o registro e continuaria o processo. 
+Libera para Processamento: 
+faz a liberação para o processamento das notas. Para isso basta marcar as notas que serão liberadas e acionar o botão
+ Libera para Processamento
+. Após isso as notas ficarão com o Status liberado.
+Leitura Manual
+Carrega XML:
+ botão utilizado para incluir manualmente um arquivo na lista de importações do SisPetro.
+De/Para: 
+ao clicar no botão De/Para será aberta a tela de Manutenção De/Para. 
+Para mais informações, ver
+ 
+Configurações De/Para
+Para que o botão De/Para fique habilitado, é necessário que o usuário tenha acesso à tela de Manutenção De/Para no Menu. Caso contrário, o botão ficará desabilitado
+. 
+Para mais informações, ver
+ 
+Acesso Menus
+.
+Marca todos: 
+ao acionar o botão Marca Todos serão marcadas ou desmarcadas todas as notas visíveis na tela (no caso de possível filtro).
+Legenda: 
+apresenta as legendas da tela.
+Imprime: 
+imprime as notas listadas
+Layout Padrão: 
+ao acionar esse botão aciona o layout padrão.
+Temos a automatização do vínculo de Notas Referenciadas mesmo quando a NF a ser referenciada ainda não estiver lançada no SisPetro. 
+Na 
+Importação de NF -e/CT-e, n
+o
+ 
+Processamento do De/Para
+, caso o XML faça referência a uma Chave de Acesso e ela ainda não foi lançada no SisPetro temos duas ações:
+Se o perfil 
+Ação quando NF Vinculada na Importação não for encontrada 
+estiver configurado para bloquear, continuará bloqueando.
+Se o perfil 
+Ação quando NF Vinculada na Importação não for encontrada 
+em estiver para Desconsiderar, armazenará a Chave de Acesso.
+Para mais informações, ver 
+Painel Importação de NF
+Se No 
+Processamento da NF 
+o
+ perfil Permite vincular NF a outra NF Emitida em Dados Gerais (Painel Por Filial) exigir o vínculo, continuará não deixando incluir se não tiver a NF Referenciada (mesmo que tenha a Chave de Acesso). Assim que a NF referenciada for importada o SisPetro automaticamente retira a pendência da NF e a deixa livre para ser processada. Caso não ela continuará sendo processada normalmente e essa Chave de Acesso será descartada.
+Para mais informações, ver
+ 
+Dados Gerais (Painel Por Filial)
+Para Saber Mais
+Abas Monitoramento da Importação de NF-e/CT-e - Notas Fiscais a Serem Processadas
+ 
+Validações Importação de Nota Fiscal
+ 
+Abas Monitoramento da Importação de NF-e/CT-e - Dados a Serem Validados
+ 

@@ -1,0 +1,46 @@
+TITULO: Contabilização e Controle de Vínculos de Notas Fiscais de Remessa e Retorno de Armazenagem
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924286437
+--------------------------------------------------
+Procedimentos para contabilização de estoques de terceiros e controle de vínculos de notas fiscais de remessa e retorno de armazenagem, considerando uma empresa que é distribuidora e presta serviços de armazenagem.
+Contabilização de estoques de terceiros, considerando que cada congênere terá uma conta no Passivo:
+1 - No Cadastro de Clientes: <Arquivo/Clientes> aba Detalhes > aba inferior Contas Auxiliares:
+Nessa aba tem um botão Inclui Produto e Empresas, clique nele e aparecerá todos os produtos x Empresas. Informe para cada produto as contas de Entrada e de Saida:
+Coluna Saída: Conta de Estoque de Terceiros da Congênere
+Coluna Entrada: Conta de Estoque de Terceiros da Congênere
+2 - Natureza de Operação (Remessa - entrada na Distribuidora e Armazenadora)
+Aba Contabilização > quadro Contabilização Gerencial > mude o tipo de contabilização para Manual(Definido pela natureza)
+No campo Débito, escolha a opção Conta específica e informe a conta de Estoques.
+No campo Crédito, escolha a opção Fórmula. No campo Fórmula utilize a seguinte fórmula ContaGerencialAuxProduto(<732>,<574>,<556>,<586>).
+Esta Fórmula tem os seguintes campos ContaGerencialAuxProduto(<CodProd>, <CodEnt>, <CodEmpresa>, <ES>), onde <CodProd> é da tabela ItensNF, <CodEnt> e <CodEmpresa> são da tabela NotaFiscal.
+A situação acima ficaria:
+D - Conta de Estoques
+C - Conta de Auxiliar de Entrada: Mercadorias de Terceiros
+3 - Natureza de Operação (Retorno - saída da 
+Distribuidora e Armazenadora
+)
+Na Aba contabilização no quadro Contabilização Gerencial mude o tipo de contabilização para Manual(Definido pela natureza).
+No campo Débito, escolha a opção Fórmula. No campo Fórmula utilize a seguinte formula ContaGerencialAuxProduto(<732>,<574>,<556>,<586>).
+Esta Fórmula tem os seguintes campos ContaGerencialAuxProduto(<CodProd>,<CodEnt>,<CodEmpresa>,<ES>)
+No campo Crédito, escolha a opção Conta específica e informe a conta de Estoques.
+A situação acima ficaria:
+D - Conta Auxiliar de Saída: Mercadorias de Terceiros
+C - Conta de Estoque
+4 - Código de contabilização - Sispetro Controladoria
+Para o código de contabilização o procedimento é o mesmo mudando somente a função que neste caso será ContaAuxProduto(<CodProd>,<CodEnt>,<CodEmpresa>,<ES>)
+NOTA 1: para a contabilização de Estoque de Terceiros usar somente Clientes.
+NOTA 2: a contabilização ocorre somente nas empresas do grupo da 
+Distribuidora e Armazenadora
+. O Sispetro não contabiliza nada nas congêneres.
+NOTA 3: os campos numéricos informados nas funções ContaGerencialAuxProduto e ContaAuxProduto nem sempre serão iguais. Os campos numéricos podem ser diferentes dependendo do banco de dados da empresa. O importante são os nomes dos campos e as tabelas utilizadas.
+Controle de vínculos entre as notas de remessa e retorno:
+Natureza de operação > aba Por Filial > selecione a filial > aba Dados Gerais > quadro Vínculo de Nota Fiscal:
+Nota de remessa:
+ marcar SOMENTE a opção 
+Permite ser NF de Origem....
+Nota de retorno:
+ NÃO MARCAR a opção Permite ser NF de Origem... e selecionar uma das opções dos campos 
+Permite vincular NF a outro NF Emitida (Sugere ou Força)
+ e 
+Validação de Qtde no Vínculo de NF (Avisa ou Barra)
+.
+ 

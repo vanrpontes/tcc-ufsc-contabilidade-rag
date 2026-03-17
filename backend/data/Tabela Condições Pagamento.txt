@@ -1,0 +1,149 @@
+TITULO: Tabela Condições Pagamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899029
+--------------------------------------------------
+Especifica o prazo de pagamento de compra/venda de produtos. Para melhor entendimento do assunto, a cada apresentação do campo presente na tela será dado um exemplo prático de seu possível uso.
+Para manipular esta tela acione a partir do Menu principal as opções - 
+Tabelas Auxiliares / Vendas / Condições Pagamento.
+O Sistema exibe a tela abaixo.
+Aba Navegação: 
+será listada as condições de pagamento cadastradas 
+Aba Detalhes
+Tendo os seguintes campos a serem definidos: 
+Código:
+ identificador único da parcela, que será utilizado nas telas de pesquisa.
+Descrição:
+ nome da parcela, empregada principalmente para melhor compreensão da finalidade da parcela, já que o código trata-se de um campo bastante reduzido quanto a número de caracteres.
+Instrução para Data Vencimento:
+ não é um campo obrigatório, tendo como finalidade replicar tal informação nas parcelas Nota Fiscal, sendo possível seu uso em relatórios.
+Permitido para vendas:
+ por padrão sempre estará marcado, mas poderá ser desmarcado caso essa condição de pagamento não possa ser usada para vendas (pedido de vendas).
+Considera os meses com 30 dias: 
+caso a(s) data(s) de vencimento precise(m) obedecer a uma regra onde independente do mês possuir 28, 30 ou 31 dias, ele venha sempre ter seus cálculos balizados por mês(es) de 30 dias.
+Exemplo: supondo-se que o campo está marcado e temos parcelas com Prazo de pagamento 10 e 20, e o faturamento tenha ocorrido no dia 22, independente do faturamento ter ocorrido no mês de fevereiro, junho ou julho a data de vencimento da primeira parcela sempre será dia 2 do próximo mês e a segunda parcela no dia 12 do próximo mês.
+Tipo de Cobrança:
+ é possível 
+vincular uma Condição de Pagamento a um Tipo de Cobrança
+. 
+Condição Especial: 
+será possível informar condições especiais para cálculo do primeiro dia a ser utilizado com base para projetar as datas de vencimento, tendo as seguintes opções:
+Nenhuma:
+ opção padrão, não sendo realizado nenhum processamento específico para obtenção da data base.
+Fora Semana (semana inicia domingo): 
+desconsidera a semana do faturamento e define a data base como sendo o próximo domingo.
+Ex. Supondo-se a situação onde independente do faturamento ter ocorrido na segunda ou na sexta a data de vencimento deverá cair na terça feira da semana subseqüente, neste caso poderíamos marcar essa opção e na parcela definir como prazo de pagamento como sendo 2 dias.
+.
+Fora Semana (semana inicia segunda-feira): 
+desconsidera a semana do faturamento e define a data base como sendo a próxima segunda-feira.
+Ex. Supondo-se a situação onde independente do faturamento ter ocorrido na segunda ou na sexta a data de vencimento deverá cair primeira segunda-feira da próxima semana, neste caso poderíamos marcar essa opção e na parcela definir como prazo de pagamento como sendo 0 dias.
+.
+Fora Intervalo:
+ divide o mês de acordo com o número definido no campo 
+Intervalo de dias 
+e no caso do faturamento dentro de um intervalo a data base será o primeiro dia após o termino do intervalo.
+Ex. Supondo-se que venha a ser definido 10 dias, se a data do faturamento ocorrer entre o dia 1 ao dia 10 sempre terá como data base o dia 11, caso a data de faturamento ocorrer entre o dia 11 a 20 a data base será dia 21 e finalmente se a do faturamento ocorrer entre o dia 21 a 30 a data base será o dia 1 do próximo mês (desde que não esteja definido para força no mesmo mês como veremos mais adiante)/ 
+Ex. Supondo-se a situação onde independente do faturamento ter ocorrido entre o dia 1 ou dia 7 a empresa sempre realizará o pagamento no dia 20 e no caso de um faturamento entre o dia 8 a 14 o vencimento deverá ser dia 27 ou se o faturamento ocorrer entre o dia 15 a 21 o vencimento deverá ser dia 4 do próximo mês, ou se o faturamento ocorrer entre o dia 22 a 28 o vencimento necessariamente deverá ser no dia 11 do próximo mês e finalmente se o faturamento ocorrer entre o dia 28 a 30 a data de vencimento deverá ser o dia 12, para esses casos teríamos apenas que definir a opção intervalo e informar no campo intervalo de dias 7 e na parcela 12 dias, sendo importante apenas ressaltarmos que o campo 
+Considera o mês com 30 dias
+ deverá estar marcado para que venha a cair nas datas especificadas, caso contrário será um dia antes para meses de 31 dias e 2 depois para fevereiro (quando não é ano bissexto).
+Sendo importante definirmos que havendo a necessidade de uma opção 
+Fora quinzena
+, 
+Fora decêndio
+ basta definir os respectivos intervalos 15 e 10.
+Preencha agora os dados da(s) parcela(s):
+Parcela: 
+número seqüencial gerado automaticamente pelo SisPetro.
+Importante: ao definir os dias para prazo de pagamento, o Sispetro poderá prorrogar o dia final do vencimento para mais um dia. Isso poderá ocorrer se o Tipo de Cobrança for configurado para isso. Para maiores informações, vide tópico de Tipo de Cobrança.
+Percentual:
+ percentual do valor total que será destinado para a parcela em questão, no caso de uma única parcela deverá ser definido como 100.
+Prazo para pagamento:
+ número de dias a ser contados a partir da data base.
+Usa Regra Pós-Prazo: 
+por meio desta opção será possível implementarmos a inteligência de negócio na geração das parcelas com as seguintes possibilidades:
+Dia Fixo:
+ irá forçar para que a parcela em questão venha a sempre ter seu vencimento em um determinado dia da semana (quarta-feira por exemplo) ou um dia específico do mês (por exemplo todo dia 15).
+Comando:
+ neste campo poderemos definir qual decisão o SisPetro deverá tomar caso a data de vencimento calculada venha a ser superior ou inferior ao dia fixado (podendo ser o dia fixo do mês ou da semana).
+Esses campos irão sempre trabalhar em conjunto, sendo possível realizar as seguintes combinações:
+Fixar um dia específico e no comando forçar no mesmo mês
+, isso quer dizer que após o cálculo do vencimento, mesmo que a data tenha caído em um dia anterior ou posterior ao fixado o vencimento sempre será no dia definido, exceto no caso do dia fixado vir a ser inferior a data do faturamento, sendo nestes casos utilizada a data do faturamento.
+Fixar um dia específico e no comando forçar no próximo mês caso já tenha passado
+, isso quer dizer que após o cálculo do vencimento, mesmo que a data tenha caído em um dia anterior ao fixado o vencimento sempre será no dia definido, e para os casos onde a data tenha caido em um dia posterior ao definido será utilizado o dia fixado contudo do próximo mês.
+Ex. Supondo-se que o dia fixado tenha sido dia 20 e após o cálculo do vencimento a data que deveria ser retornada é dia 23, contudo para esse caso o vencimento será lançado para o dia 20 do próximo mês.
+Fixar um dia específico e no comando forçar no mês anterior caso o dia do mês não tenha passado
+, isso quer dizer que após o cálculo do vencimento, caso data tenha caído antes do dia fixado e for possível será utilizado o dia fixado contudo do mês anterior (sendo importante lembrarmos da seguinte regra, caso o dia do vencimento for inferior ao dia do faturamento sempre será empregada a data de faturamento para o vencimento).
+Ex. Supondo-se que o dia fixado tenha sido dia 15 e após o cálculo do vencimento a data que deveria ser retornada é dia 05, contudo para esse caso o vencimento será lançado para o dia 15 do mês anterior ao calculado para o vencimento.
+Fixar um dia da semana específico e no comando forçar na mesma semana
+, isso quer dizer que após o cálculo do vencimento, mesmo que a data tenha caído em um dia da semana anterior ou posterior ao fixado o vencimento sempre será no dia da semana definido, exceto no caso do dia fixado vir a ser inferior a data do faturamento, sendo nestes casos utilizada a data do faturamento.
+Fixar um dia da semana específico e no comando forçar na próxima semana caso já tenha passado
+, isso quer dizer que após o cálculo do vencimento, mesmo que a data tenha caído em um dia da semana anterior ao fixado o vencimento sempre será no dia da semana definido, e para os casos onde a data tenha caído em um dia da semana posterior ao definido será utilizado o dia da semana fixado contudo da próxima semana.
+Ex. Supondo-se que o dia da semana fixado tenha sido quarta-feira e após o cálculo do vencimento a data que deveria ser retornada iria cair na quinta, contudo para esse caso o vencimento será lançado para a próxima quarta-feira.
+Fixar um dia da semana específico e no comando forçar na semana anterior caso o dia da semana não tenha passado
+, isso quer dizer que após o cálculo do vencimento, caso data tenha caído antes do dia da semana fixado e for possível será utilizado o dia fixado contudo da semana anterior (sendo importante lembrarmos da seguinte regra, caso o dia do vencimento for inferior ao dia do faturamento sempre será empregada a data de faturamento para o vencimento).
+Ex. Supondo-se que o dia da semana fixado tenha sido dia sexta-feira e após o cálculo do vencimento a data que deveria ser retornada na quarta-feira, contudo para esse caso o vencimento será lançado para a sexta-feira da semana anterior ao calculado para o vencimento.
+Utilize os botões 
+Incluir
+, 
+Editar
+ e 
+Excluir
+ para montar a tabela de parcelas, como no exemplo abaixo. É imprescindível que seja cadastrada ao menos uma parcela.
+Atente-se para que a soma do percentual das parcelas informadas seja sempre 100.
+Para atualizar os dados o usuário deve clicar no botão 
+OK
+. O Sistema voltará para a tela de navegação.
+Aba Acréscimo: 
+Quadro Fator Acréscimo Financeiro: 
+percentual que será acrescido no valor base dos produtos, quando esta condição de pagamento for utilizada. Este item somente estará habilitado no cadastro de condições de pagamento caso o parâmetro esteja com a opção 
+Percentual do Preço 
+selecionada. Ver mais em 
+.
+Quadro Replica estes valores p/ o intervalo de prazos: 
+replica parâmetros para as condições de pagamento informadas no prazo inicial e final.
+Quadro Acréscimo Por Filial: 
+neste quadro poderá ser informado acréscimos por filial.
+Coluna Empresa: 
+filial a ser incluida acréscimo financeiro.
+Coluna Fator Acréscimo Financeiro (%): 
+percentual financeiro a ser acrescido na filial especifica.
+Botão Inclui Todas: 
+inclui todas as empresas a participarem do acrescimo financeiro por filial.
+Botão Exclui:
+ exclui as filiais selecionadas.
+Painel Preço:
+Para ter o controle de Acréscimo, o usuário deve configurar através do Menu 
+Ferramentas / Sistema / 
+Vendas
+ / Quadro Preço no Ped. Venda / perfil Tipo Acréscimo Financeiro Tabela Preços
+, escolher entre 'Valor por Litro' ou 'Percentual de Preço'
+Tendo os seguintes campos a serem definidos:
+Código:
+ informe o produto para o qual vai ser definido o acréscimo.
+Valor Acréscimo/Descr.:
+ valor que será acrescido no preço base deste produto, quando esta condição de pagamento for utilizada. Este item somente estará habilitado no cadastro de condições de pagamento caso o parâmetro esteja com a opção 
+Valor por Litro 
+selecionada.
+Ex. Supondo-se que o preço base do produto é R$ 1,00 e o valor a ser acrescido é de R$ 0,10 para este produto, o valor de venda será de R$ 1,10.
+Fator Acréscimo Financeiro (%):
+ percentual que será acrescido no valor base dos produtos, quando esta condição de pagamento for utilizada. Este item somente estará habilitado no cadastro de condições de pagamento caso o parâmetro esteja com a opção 
+Percentual do Preço
+selecionada.
+Ex. Supondo-se que o preço base de um produto seja R$ 1,00 e o percentual para acréscimo seja de 20%, o valor de venda será de R$ 1,20.
+Replica:
+ comando utilizado para que o acréscimo em percentual ou em valor seja igual para condições de pagamento com o 
+Prazo Inicial
+ e 
+Prazo Final
+ estipulados em dias.
+Ex. Quando temos um prazo inicial de 10 dias e um final de 30 dias o sistema irá considerar o mesmo acréscimo - em valor ou em percentual - para todas as condições de pagamento que apresentam estes prazos.
+Para atualizar os dados o usuário deve clicar no botão 
+OK
+. O Sistema voltará para a tela de navegação.
+Para retornar ao Menu principal acione o botão 
+Sair.
+Campo Prazo
+A partir da versão 9.14 o campo prazo é utilizado para a aprovação de vendas, agora é possível realizar a alteração da condição de pagamento do pedido desde que a condição utilizada tenha o prazo igual ou menor que o prazo utilizado na condição de pagamento padrão que está cadastrada no cliente. Veja também 
+Aprovação de Vendas
+O prazo pode ser definido de 3 formas, pega a maior parcela, realiza a média simples ou realiza a média ponderada, essas 3 opções são definidas no perfil de sistema
+ 
+Forma de Cálculo do Prazo de Condições Pagto.
+ 

@@ -1,0 +1,19 @@
+TITULO: Acerto Automático Estoque Zero
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440428
+--------------------------------------------------
+É possível fazer o ajuste nas Notas Fiscais importadas também. Veja mais informações em 
+ Importação de Notas Fiscais
+ 
+Normalmente, um determinado depósito opera com estoque zero quando a distribuidora vende o produto sem se preocupar com o estoque (mas sim com o valor financeiro que tem junto ao fornecedor), e no final de um determinado período (normalmente no final do dia), o fornecedor emite uma nota fiscal de venda para a distribuidora com a quantidade total carregada por ela naquele período. 
+ A distribuidora vende seus produtos e emite suas notas fiscais com a quantidade à temperatura ambiente enquanto que recebe a nota fiscal do fornecedor normalmente à 20 graus. 
+ Assim, existe uma diferença que, normalmente, é ajustada manualmente pela empresa no fechamento.
+Para que o sistema faça este ajuste, deve-se configurar o perfil "Quantidade de acerto nos itens da NF". Veja mais detalhes em 
+Tabela Natureza Operação
+:
+Na inclusão da nota fiscal utilizando a natureza de operação com este perfil marcado, ao informar os itens deverá informar a quantidade original da nota na coluna "Qtde Original Operação Estoque Zero, como mostra na figura abaixo:
+O valor do ajuste será calculado da seguinte forma:
+Valor do Ajuste
+ = Quantidade Original/ Descarregada Estoque Zero - Qtde
+Na finalização da nota, será ajustado o estoque para zero com o resultado desse valor do ajuste.
+Se a Natureza não movimentar estoque, porém estiver configurada para fazer o ajuste este será feito pois há a necessidade de ajustar o mesmo com relação à diferença da temperatura ambiente para 20 graus, por exemplo, quando se informa a NF de devolução de armazenagem de uma venda. Esta nota não movimenta estoque pois quem movimenta é a NF de compra e venda de produto. Dessa forma, o sistema ajusta automaticamente.
+ 

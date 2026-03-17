@@ -1,0 +1,34 @@
+TITULO: Zebrando Relatórios
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2880798881
+--------------------------------------------------
+Você já deve ter visto alguns relatórios no Sispetro onde os dados aparecem em um linha branca seguida de uma linha cinza. Nós apelidamos este tipo de formatação de layout como 
+Zebrar um relatório.
+Este tipo de formatação de relatório é muito simples de ser feita. Ela é muito útil, pois ajuda na visualização do próprio relatório.
+Quer deixar um relatório seu assim? Siga os passos abaixo.
+ Como zebrar um relatório
+A figura abaixo nos mostra um exemplo de como aplicar:
+Crie a área que vai ser zebrada com a 
+ferramenta de polígono
+, com isso o Report Builder inclui um objeto chamado 
+SHAPEx
+, a cima, SHAPE1
+Botão Direito em cima do objeto  e escolha a opção 
+Altura do Antecessor
+, novamente botão direito em cima do objeto  e escolha a opção 
+Largura do Antecessor 
+e por fim botão direito novamente em cima do objeto  e escolha a opção
+ 
+Envia para trás.
+Pinte o objeto com o tom de cinza ou mesmo outra cor que deseja intercalar
+Na aba de 
+Cálculo
+ procure pelo objeto na lista e na opção 
+OnPrint
+ digite o seguinte código:
+ShapeX.visible := not Shape1.visible
+
+No nosso exemplo ficaria:
+Shape1.visible := not shape1.visible
+
+Volte para a aba Desenhos, e vá em Arquivo/ Salvar.
+E Pronto! Agora seu relatório já está esteticamente melhor!

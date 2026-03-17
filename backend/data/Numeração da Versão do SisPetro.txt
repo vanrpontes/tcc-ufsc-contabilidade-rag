@@ -1,0 +1,124 @@
+TITULO: Numeração da Versão do SisPetro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2883420229
+--------------------------------------------------
+A partir da 
+versão 7.0
+ estaremos disponibilizando algumas inovações, sendo uma delas uma numeração de versão mais clara aos nossos usuários.
+
+
+Cada versão pode ser composta de executáveis e scripts.
+
+
+
+
+Executáveis que podem ser disponibilizados
+:
+	
+
+
+Scg??.exe
+: SisPetro Normal, onde temos os módulos de Vendas, Faturamento, Estoque, Financeiro e etc.
+
+
+SisPetro??.exe
+: SisPetro Remoto, onde temos os módulos de Vendas, Faturamento e Estoque. Utilizado geralmente em filiais para acesso remoto.
+
+
+SptCont??.exe
+: SisPetro Controladoria, onde temos os módulos de Contabilidade Real, Fiscal e Patrimônio. Permite acesso remoto.
+
+
+ServidorSisPetro??.exe
+: Servidor SisPetro, responsável por algumas rotinas importantes como NFe, acesso remoto do SisPetro Remoto e Controladoria, entre outras.
+
+Para atualizar os executáveis, verifique como estão configurados os atalhos na sua empresa. Cabe lembrar que esse trabalho deve ser realizado por uma pessoa que tenha um mínimo de conhecimento sobre esse assunto. 
+
+
+
+
+
+
+Scripts
+
+Os scripts servem para atualizar o banco de dados, seja criando novas tabelas ou procedimentos, como atualizando a estrutura já existente. Dificilmente mudará dados, mas isso também é possível.
+
+O 
+script
+ terá sempre a denominação 
+CMD??.SQL
+, onde ?? é a numeração da versão que ele corresponde. Possuem uma numeração sequencial interna para impedir que sejam executados numa ordem indevida.
+
+
+
+Por exemplo, o script da versão 7.0 terminou com o número 2120. O script da próxima versão iniciará no número 2121. Assim, caso, ao invés de rodar o script da versão 7.1, você rodar novamente o script da versão 7.0, será apresentada uma mensagem de que o próximo script deveria ser o 2121. Pare imediatamente o processo e procure o script correto.
+
+
+
+
+Quanto a numeração da versão, esta terá de 2 a 3 níveis:
+
+
+
+
+9.9 - Dois níveis
+
+Indica uma versão completa, com executáveis e script. Isso não quer dizer que precise ter todos os executáveis, afinal, alguns deles podem não ter alteração, mas script é certeza que terá.
+
+
+
+Exemplos de versões:
+
+7.0
+
+7.1
+
+7.2
+
+...
+
+7.35
+
+
+9.9.9 - Três níveis
+
+Indica uma versão dispensável, disponibilizada para uma função específica, mas que não é obrigatória para todas as empresas. Só terá o executável necessário e não terá script. Sendo assim, nem todos os clientes receberão email desta versão ou precisarão atualizá-las. Ela pode ser 
+"pulada"
+ normalmente.
+
+
+
+
+Exemplos de versões:
+
+
+
+
+7.0.1: Neste caso é possível atualizar da 7.0 para 7.1 sem precisar desta versão
+
+
+7.15.7: Para esta versão atualize da 7.15 para 7.16, sem utilizar esta versão
+
+
+
+
+
+
+Não se preocupe! Todo o conteúdo de uma versão não obrigatória estará disponível na próxima versão. 
+
+
+
+
+
+
+Importante:
+
+Nem todas as versões terá script, e quando houver um script não haverá controle de numeração. Isto porque o conteúdo é de uma versão 
+não obrigatória
+, e estará disponível na próxima versão com numeração.
+
+
+Atente-se no CCF (
+Canal Cliente Futura
+) para verificar em que versão as solicitações da sua empresa estão sendo encaixadas. Esta informação fica no campo 
+"Versão corrigida"
+.

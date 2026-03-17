@@ -1,0 +1,80 @@
+TITULO: Utilizando arredondamento de valores
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2957115438
+--------------------------------------------------
+O padrão de arredondamento de valores no Report Builder é diferente do padrão de arredondamento do SisPetro.
+No Report Builder segue as seguintes regras:
+Menor ou igual a 5:
+ não arredonda, mantendo o número imediatamente anterior
+Maior que 5: 
+ arredonda, somando 1 ao número imediatamente anterior
+No SisPetro as regras para arredondamento seguem o que está definido pela ABNT (Associação Brasileira de Normas Técnicas):
+Ver 
+Para uso no Report Builder foi criada a função FormatCurrencyDecimalsExtended, que segue as mesmas regras utilizadas no SisPetro.
+A função deve ser informada com os parâmetros FormatCurrencyDecimalsExtended(
+eValor
+,
+bDecimalsCorrente
+,
+iTypeDecimals
+), onde:
+eValor:
+ cálculo de valores
+bDecimalsCorrente:
+true:
+ utilizar somente com orientação da Futura
+false:
+ utilizar na grande maioria dos casos
+iTypeDecimals:
+ define o tipo de decimais conforme tabela abaixo
+Valor para iTypeDecimals
+Definição
+0
+Sistema Operacional:
+ o que está definido nas configurações do Windows
+1 (Padrão)
+Casas decimais padrão do SisPetro:
+ 2 casas decimais
+2
+Casas decimais utilizadas em Vendas:
+ conforme definido no perfil de sistema > aba Vendas
+3
+Casas decimais utilizadas em Compras:
+ conforme definido no perfil de sistema > aba Compras
+4
+Casas decimais utilizadas em Frete:
+ conforme definido no perfil de sistema > aba Fretes
+5
+Casas decimais utilizadas em Custos:
+ 6 casas decimais
+6
+Casas decimais utilizadas em Taxas de Conversão de Moeda:
+ até 6 casas decimais
+7
+As casas decimais são truncadas:
+ não é feito arredondamento. 
+Exemplo:
+ 1,65 fica 1
+Exemplo de uso da função em um campo para calcular o valor do complemento de ICMS:
+No OnCalc do campo ComplementoICMS (criado no relatório):
+begin
+// Complemento o campo AjusteICMSSubst é salvo negativo. Quando positivo é ressarcimento e não precisa imprimir
+  if (NaturezaOperacaoEmp['GeraICMSRetidoFonte']= 1) and (ItensNF['ajusteICMSSubst']< 0) then begin
+      Value := FormatCurrencyDecimals(((ItensNF['ajusteICMSSubst']* ItensNF['qtde']) * -1),false,1);
+  end else begin
+      Value:= 0;
+  end;
+end;
+Onde 
+FormatCurrencyDecimals(((ItensNF['ajusteICMSSubst']* ItensNF['qtde']) * -1),false,1);
+eValor:
+ 
+(
+(ItensNF['ajusteICMSSubst']* ItensNF['qtde']) * -1)
+bDecimalsCorrente:
+ 
+false
+iTypeDecimals:
+ 
+1
+Considerando que no campo AjusteICMSSubst foi salvo o valor de -0,859874 e no campo Qtde foi salvo o valor de 5.177:
+(-0,859874 * 5177) * - 1 = 4.451,567968 > aplicando a função FormatCurrencyDecimals, o valor no relatório é apresentado como 4.451,57

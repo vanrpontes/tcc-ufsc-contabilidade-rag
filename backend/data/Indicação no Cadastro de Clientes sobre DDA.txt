@@ -1,0 +1,67 @@
+TITULO: Indicação no Cadastro de Clientes sobre DDA
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2891088112
+--------------------------------------------------
+Quando um cliente (Pessoa Física ou jurídica) aderir ao 
+DDA
+ (Débito Direto Autorizado), em qualquer banco que possua conta (banco de relacionamento), seu 
+CPF
+ ou 
+CNPJ
+ vai ser incluído no 
+CP (CAMARA DE COMPENSACAO)
+, nada mais é que um cadastro centralizado que armazena todos os clientes independente do banco, esse cadastro vai servir para que os bancos possam consultar os clientes.
+
+
+Ao ser enviado o arquivo remessa ao banco, o mesmo já verifica o 
+CPF
+ ou 
+CNPJ
+ de cada titulo no cadastro 
+CP
+, uma vez localizado, será incluso um registro com todos os dados do boleto (que consta neste arquivo remessa), para que o cliente acompanhe, através de sua conta todos os títulos a vencer e posteriormente efetue o pagamento. Este processo evita a necessidade de impressão de boletos para este clientes, ou seja, a impressão será necessária apenas para os clientes não inclusos neste cadastro 
+DDA
+.
+
+
+No Sispetro, será necessário algumas configurações para o sistema respeitar estas rotinas:
+
+
+
+
+Indicar se o Cliente é participante do DDA:
+
+Acesse o cadastro de cliente e desmarcar o perfil Solicita Imp. do boleto na geração da NF, através de Arquivos / Clientes / Detalhes / aba inferior Padrão p/ Vendas, e desmarque o perfil Solicita Imp. do boleto na geração da NF, conforme mostra o figura baixo:
+
+
+
+
+
+
+
+
+Para os clientes que estiverem configurados com o perifl 
+DESMARCADO
+, não haverá impressão automática de boletos ao término do faturamento, ou seja, a impressão do boleto será somente para os clientes 
+MARCADOS
+. A impressão na tela de Manutenção de NFs e Manutenção de Lançamentos do Contas a Receber, continua funcionando normalmente para ambas situações. Caso seja necessário a impressão dos boletos, basta acessar estas telas e fazer a impressão normalmente pelo botão 
+Cobrança
+, isto funcionará independente do perfil estar ou não habilitado.
+
+
+
+Note que no grid da tela de Manutenção de Notas Fiscais, as notas configuradas para 
+NÃO
+ imprimir boletos automaticamente estão com legenda, mas como citamos acima, estes boletos poderão ser impressos normalmente. Na tela abaixo podemos ver algumas notas que não foram impressas automaticamente:
+
+
+
+
+2. Verificar as configurações de mensagens de impressão na tela de manutenção de tipo de cobrança:
+
+
+
+
+Acessar Tabelas Auxiliares / Vendas / Tipo de Cobrança / aba Por Empressa / aba Impressão. Estas opções serão válidas apenas para os clientes que estiverem cadastrados para imprimir os boletos, ou seja, os que não fazem parte do 
+DDA
+. É importante lembrar, que se a empresa usa mais de um tipo de cobrança para emissão de boletos, todos os tipos de cobrança deverão ser analisados. Veja a figura abaixo:
+

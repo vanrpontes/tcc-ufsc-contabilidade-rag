@@ -1,0 +1,300 @@
+TITULO: Procedimentos para migrar do Servidor SisPetro para o Hermes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927269276
+--------------------------------------------------
+Objetivo
+Nosso sistema se baseia em ter concentrado em um servidor (ou vários) os procedimentos que o cliente SisPetro irá utilizar de forma mais intensa ou de forma repetitiva (serviços) e, para tal, 
+foi desenvolvido o Servidor SisPetro.
+Hoje, entendemos a necessidade de melhoria em função de evolução na tecnologia, embora a ideia é tentar preservar nosso código atual mudando somente a infraestrutura de comunicação para algo mais moderno. 
+Assim, surgiu o 
+Projeto Hermes
+.
+A proposta de divisão de serviços fica da seguinte forma:
+:
+ será um executável responsável por configurar os demais servidores. 
+:
+ será o substituto do Servidor SisPetro atual. Ele foi codificado com um código mais atual, com protocolos mais modernos de comunicação e principalmente para ser configurado por outro executável (controlador), ou seja, não existe nenhuma tela ou forma de configuração direta nele. Uma outra característica é que toda a configuração dele é salva num arquivo INI com seu nome. Outra característica interessante é que ele não salva o estado da conexão do cliente, com isso, podemos executar vários servidores Hermes listando-os como servidores disponíveis para o cliente SisPetro se conectar e este irá se conectar no primeiro servidor disponível em cada operação que assim exigir.  
+A partir da versão 10.8, o endereço IP nos arquivos INIs dos 
+Servidores Hermes
+, 
+, SisPetro Normal e SisPetro Controladoria, poderá informar o hostname (nome da máquina onde estão executando). Observar que, apesar de utilizar o hostname no lugar do endereço IP, as telas continuarão mostrando os números IPs. Caso o endereço IP da máquina seja alterado, os 
+Servidores Hermes
+ deverão ser reiniciados.
+Funcionamento
+A melhor forma para entender o funcionamento atual do 
+Servidor
+ 
+Hermes
+ é mostrar como configurá-lo (arquivos INI) tanto no cliente, no controlador e no servidor.
+PASSO 1 - TER A ESTRUTURA DO 
+SERVIDOR HERMES
+ EM FUNCIONAMENTO
+1. Configurar a pasta com os arquivos necessários:
+Incluir uma pasta no servidor com os seguintes arquivos:
+DLLs
+borlndmm.dll
+libeay32.dll
+msxml5.dll
+msxml5r.dll
+SisPetroControl.dll
+ssleay32.dll
+ Executáveis
+HermesServidor.exe 
+HermesControlador.exe
+INI
+HermesControlador.ini - com as informações, conforme descritas no próximo passo.
+2. No 
+ em 
+Configurações Gerais
+:
+As configurações do arquivo ini do
+ 
+Controlador Hermes
+ 
+devem ser:
+<nome servidor>=<IP servidor>:<
+porta controle
+>:<senha conexao servidor>
+Onde temos inicialmente:
+Nome Servidor = 
+NaoConfigurado
+IP Servidor = 127.0.0.1
+Podendo ser informado o nome do servidor em vez do número IP
+Porta Controle = 
+12000
+Senha Conexao Servidor = 123456
+[Servidores]
+NaoConfigurado=127.0.0.1:12000:123456 
+ou
+NaoConfigurado=nomedoservidor:12000:123456
+3. Colocar o 
+ e o 
+ em execução com o mínimo necessário
+Executar o 
+Servidor Hermes
+O ícone será adicionado na barra de ícones de bandeja (ao lado do relógio)
+Ao dar duplo clique, será apresentada a tela:
+Importante: 
+use o botão Minimizar para sair da tela. O botão de Fechar, além de fechar a tela, terminará a execução do 
+Servidor Hermes
+.
+Repare que as portas padrão são 8099 e 12000. Caso tenha alguma aplicação (como Banco de Dados ou outras) utilizando essas portas é fundamental que sejam indicadas outras portas.
+Executar o 
+Será apresentada a tela abaixo, listando o 
+Controlador Hermes
+ que foi iniciado
+Clicar no botão 
+ e na tela apresentada definir os dados de conexão. Para mais informações, ver 
+Configuração do Banco de Dados
+.
+Clicar no botão 
+ e na tela apresentada ajustar os campos conforme instruções apresentadas em
+ 
+Configurações Gerais
+. 
+Neste ponto é fundamental informar portas que não estejam sendo utilizadas em outras aplicações
+Se desejar, pode já configurar os dados do Log, clicando no botão 
+. Para mais informações, ver 
+Configurações de Log
+.
+A versão 10.1 do SisPetro contempla a nova Tabela de Preços. Para mais informações, ver 
+Nova Tabela de Preço
+. Caso utilize o 
+SisPetroWeb
+/
+SispetroApp
+ para inclusão de Pedidos, se faz necessário configurar o 
+SisPetroWeb/SispetroApp
+ para que o mesmo se comunique com o 
+, pois é o responsável por obter o preço para ser apresentado no 
+SisPetroWeb
+/
+SispetroApp
+.
+No 
+, botão 
+, definido a porta e demais parâmetros. 
+Para mais informações, ver
+ 
+Configuração do Serviço para o SisPetroWeb
+.
+No 
+SispetroMon
+, em
+ Servidor SisPetro / Manutenção
+, definindo dados do 
+.
+Neste momento o ini do 
+Servidor Hermes
+ foi criado com as configurações conforme os passos anteriores. Para mais informações, ver 
+.
+O 
+Servidor Hermes
+ deve permanecer sempre em execução. Já o 
+Controlador Hermes
+ pode ser executado quando necessário.
+Ao final desse passo, o 
+Servidor Hermes
+ e o
+ Controlador Hermes
+ estão em execução, mas nada foi alterado no funcionamento do SisPetro.
+PASSO 2 - CONFIGURAR O SISPETRO NORMAL PARA USAR O 
+SERVIDOR HERMES
+ NO FATURAMENTO
+1. Configurar os serviços automáticos nos 
+Servidores Hermes
+ - execute o 
+Ver 
+Informações de Serviços
+2. Ajustar o arquivo SCG.INI 
+Na 
+Seção [Geral]
+, coloque uma chave 
+SemServidorSispetro= 1
+Crie uma 
+Seção [ServidorSefaz]
+ e adicione uma linha para indicar o 
+ 
+<nome servidor>=<IP servidor>:<porta>:<senha conexao servidor>
+, usando as mesmas informações do Passo 1, item 3, no botão Configurações Gerais do 
+Controlador Hermes
+, onde:
+<Nome Servidor>: 
+informe um nome para o servidor. 
+<IP servidor>: 
+informe o IP ou nome do servidor.
+<porta>: 
+informe a Porta Produção do servidor.
+<senha conexao servidor>: 
+senha de conexão 
+Veja um exemplo de como ficaria o arquivo Scg.Ini
+[Geral]
+... conteúdo que já existia no seu arquivo Scg.Ini
+SemServidorSispetro=1
+  
+[ServidorSefaz]
+servidor1=192.168.0.111:8098:010101
+ou
+servidor1=nomedoservidor:8098:010101
+A estrutura do arquivo ini do SisPetro baseia-se em Seções, que foram detalhadas em 
+ e 
+Configurações
+.
+As senhas de conexão do servidor 
+devem ser as mesmas
+ para todos os servidores.
+Ao final desse passo, o SisPetro Normal utilizará o 
+Servidor Hermes
+ no Faturamento. 
+Para reverter, basta alterar a chave SemServidorSispetro para 0.
+PASSO 3 - CONFIGURAR O 
+SERVIDOR HERMES
+ PARA SER O S3
+1. Executar o 
+Clicar no botão 
+Tornar S3
+. Não será apresentada nenhuma tela e o Servidor SisPetro que era S3 será derrubado automaticamente.
+Clicar no botão 
+Dados Licenciamento
+ e na tela apresentada colocar os dados de licenciamento (podem ser obtidos no Servidor SisPetro). Para mais informações, ver 
+Configurações Gerais
+, 
+Configurações de Log
+ 
+e 
+.
+Clicar no botão 
+Obter Arq. Licenciamento
+ para obter o arquivo de licenciamento.
+Clicar no botão 
+Validar Arq. Licenciamento
+ para validar o arquivo de licenciamento obtido no passo anterior.
+A cada usuário que acessar o SisPetro Normal a partir desse momento o número de licenças utilizadas será aumentado e na aba Chaves será possível consultar os usuários (que são considerados chaves no 
+Servidor Hermes
+) conectados.
+Na parte inferior, grupo
+ Informações Serviços
+, o 
+Serviço de Chaves
+ 
+estará ativado
+2. Ajustar o arquivo SptCont.ini
+Adicionar a 
+Seção [ServidorSefaz]
+ e adicione uma linha para indicar o 
+Servidor Hermes
+ 
+<nome servidor>=<IP servidor>:<porta>:<senha conexao servidor>
+, usando as mesmas informações do Passo 1, item 3, no botão Configurações Gerais do 
+Controlador Hermes
+, onde:
+<Nome Servidor>: 
+informe um nome para o servidor. 
+<IP servidor>: 
+informe o IP ou nome do servidor.
+<porta>:
+ informe a Porta Produção do servidor.
+<senha conexao servidor>:
+ senha de conexão 
+Veja um exemplo de como ficaria o arquivo SptCont.ini
+[ServidorSefaz]
+servidor1=192.168.0.111:8098:010101
+ou
+servidor1=nomedoservidor:8098:010101
+Lembrando que há dois executáveis para o SisPetro Controladoria:
+SptCont.exe:
+ que depende do Servidor SisPetro para os procedimentos de tela (
+ainda utilizado nesse passo
+)
+SptContHermes.exe:
+ não usa o Servidor SisPetro, será utilizado no passo 5
+Ao final desse passo, o controle de acessos (S3) passará a ser responsabilidade do Servidor Hermes e o 
+SisPetro Normal não dependerá mais do Servidor SisPetro
+ para nenhum procedimento. Porém, o Servidor SisPetro será utilizado para o SisPetro Controladoria. 
+Para reverter, basta:
+Clicar no botão Torna S3, o que desmarcará a coluna S3 do 
+Executar o Servidor SisPetro como S3
+PASSO 4 - CONFIGURAR O 
+SERVIDOR HERMES
+ PARA OS SERVIÇOS
+1. Executar o 
+Ver 
+Informações de Serviços
+.
+Ao final desse passo não será mais necessário o uso do Servidor Sispetro para Serviços. 
+Para voltar a utilizar os Serviços no Servidor SisPetro:
+No 
+, configure cada serviço para NÃO iniciar automaticamente. Utilize o botão Desativa para parar o Serviço.
+No Servidor SisPetro, inicie o Serviço desejado.
+PASSO 5 - CONFIGURAR O 
+SERVIDOR HERMES
+ PARA USO DO SISPETRO CONTROLADORIA (SEM SERVIDOR SISPETRO TOTALMENTE)
+1. Obter os arquivos necessários
+Ao invés de usar o arquivo SptCont.Exe, usar o arquivo
+ SptContHermes.exe
+Copiar o arquivo SptCont.Ini e:
+Retirar da Seção Geral as chaves IP, Porta e SenhaSeguranca (utilizadas para acessar o Servidor SisPetro)
+Acrescentar na Seção Geral a chave 
+SemServidorSispetro = 1
+[Geral]
+... conteúdo que já existia no seu arquivo SptCont.Ini
+SemServidorSispetro=1
+  
+[ServidorSefaz]
+servidor1=192.168.0.111:8098:010101
+ou
+servidor1=nomedoservidor:8098:010101
+Fazer backup da pasta de rtms (podem estar na pasta do executável ou na pasta indicada nos CaminhosAuxiliares do arquivo sptCont.ini)
+2. Executar o SisPetro Controladoria para converter os relatórios
+Conversão do Gerenciador de Relatórios e Manutenção de Exportação de Dados
+Acessar o menu Relatórios / Migração de Relatórios, clicar no botão 
+Converter
+  e aguardar finalizar o processo.
+Conversão dos Relatórios de menu
+Substituir os relatórios da pasta indicada na chave CaminhosAuxiliares (ou na ausência no caminho do executável) pelos relatórios convertidos disponibilizados na versão. Para mais informações, ver 
+Relatórios Convertidos do Sispetro Controladoria
+)
+Caso tenha algum relatório alterado (com algo específico para sua empresa), ter esse arquivo .rtm e acessar o menu Relatórios / Migração de Rtm's Externos, indicar o nome desse arquivo para conversão, clicar no botão 
+Converter
+  e aguardar finalizar o processo.
+Ao final desse passo o Servidor SisPetro não é mais necessário. 
+Esse passo não é possível reverter.

@@ -1,0 +1,75 @@
+TITULO: 2. Executar Ordem de Fabricação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2899608412
+--------------------------------------------------
+Apenas tanque que sejam do tipo 
+Formulação
+ poderão ser utilizados na Execução da Ordem de Fabricação. Veja mais informações sobre o Tipo do Tanque em 
+Manutenção de Tanques
+Execução da OF
+Caso a OF esteja aprovada, poderá ser executada. 
+Neste momento, o usuário poderá: 
+Alterar a quantidade final da OF (para bater com a quantidade real) informando a régua inicial/final do tanque destino.
+Vincular o certificado previamente cadastrado na 
+Manutenção de Certificados
+ 
+Alterar a quantidade dos 
+produtos tanque
+ informando a quantidade real utilizada de cada tanque. A soma da quantidade dos 
+produtos tanque 
+deve bater com a quantidade final produzida
+.
+ 
+Para saber a quantidade real de produtos básicos que deverá ser movimentada em cada tanque, devemos respeitar a participação (em percentual) dos produtos básicos no produto tanque até um limite mínimo de volume (volume corte) abaixo do qual todo o produto deve ser utilizado. 
+Exemplificando estamos utilizando dois tanques de Heptano (F3 e F7). O tanque F3 tem um saldo total de 100.000 lts. Iremos movimentar todo o saldo deste tanque nesta OF. Portanto, iremos movimentar 75.000 litros do produto básico Heptano A e 25.000 do produto básico Heptano B (cada um com seu respectivo CMV).
+Vamos supor que o usuário informasse que, ao contrário do que a OF estipulou, foi movimentado somente 95.000 lts deste tanque.
+Neste caso, tentando respeitar a proporção de cada produto básico no tanque, teríamos:
+Produto Básico
+Saldo Original
+Proporção no Tanque
+Volume Movimentado
+Saldo Final
+Heptano A
+75.000
+75%
+71.250
+3.750
+Heptano B
+25.000
+25%
+23.750
+1.250
+Continuando no exemplo, caso fosse estipulado que o volume de corte do tanque é de 1.500 lts, teríamos de alterar a proporção novamente (para utilizar todo o volume do Heptano B pois seu saldo após a movimentação seria inferior ao volume de corte):
+Produto Básico
+Saldo Original
+Proporção no Tanque
+Volume Movimentado
+Saldo Final
+Volume Corrigido
+Saldo Final após Correção Volume Corte
+Heptano A
+75.000
+75%
+71.250
+3.750
+70.000
+5.000
+Heptano B
+25.000
+25%
+23.750
+1.250
+25.000
+0
+O volume de corte é um parâmetro global do depósito (em percentual) e que pode ser ajustado tanque a tanque (em volume) manualmente. Assim, caso o parâmetro no depósito seja de 1%, todos os tanques vinculados a ele terão um limite mínimo em volume de 1% da capacidade do tanque por padrão. Porém, o usuário pode alterar este volume manualmente estipulando um outro valor que será respeitado nos cálculos posteriores.
+Após a confirmação, o saldo de cada 
+produto primário
+ necessário será verificado, não sendo permitida a execução de uma OF caso exista algum produto primário sem saldo disponível. O SisPetro mostrará a mensagem abaixo: 
+Caso tudo OK, Sispetro movimentará o estoque dos respectivos 
+produtos primários 
+respeitando suas proporções na formulação e sua participação no respectivo 
+produto tanque
+ criando o produto destino no tanque destino.
+O estoque físico será atualizado automaticamente assim que o produto for fabricado assim como o estoque dos tanques. O estoque escritural será atualizado mediante disponibilização via manutenção de OFs (a fim de permitir o controle das vendas). Esta disponibilização poderá ser total ou parcial.
+O produto destino deverá ser um 
+produto básico
+ seja ele correlato ao produto tanque armazenado no tanque destino ou o próprio produto tanque armazenado no tanque destino.

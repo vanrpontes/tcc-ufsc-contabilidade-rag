@@ -1,0 +1,76 @@
+TITULO: DPMP - Clientes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210636
+--------------------------------------------------
+Através do menu 
+Arquivos / Clientes / painel Detalhes / painel Observações
+ é possível se configurar os dados necessários no Cliente para uso no DPMP:
+ 
+A regra para o DPMP 
+MUDOU
+.
+ Agora, caso o cliente seja um 
+Agente Regulado
+, ele deve possuir um código de Instalação registrado na ANP e este deve ser informado no campo Código Instalação 2 do DPMP. Caso o cliente seja um 
+Agente Não Regulado
+, ele é considerado como um Terceiro, então deverá ser informado o CNPJ/CPF no campo Identificação, o 
+CNAE
+ (Código Nacional de Atividade Econômica) e a 
+Localidade
+.
+Não deixe de configurar as operações para agente regulado e não regulado na 
+Natureza de Operação - DPMP
+.
+Com base na tabela de Instalações da ANP, atualizamos, pelo CNPJ cadastrado para o cliente, o 
+código de instalação
+, caso ele tenha registrado. Para este campo não é possível fazer a pesquisa numa tabela, já que o número de instalações é muito grande e varia muito. Solicite ao seu cliente o código de instalação dele, caso ele possua ou consulte na tabela de Instalações da ANP.
+O 
+CNPJ
+/CPF já tínhamos cadastrado no SisPetro, como informação primordial.
+O 
+CNAE
+ também deverá ser informado pelo cliente ou consultado na tabela de atividades da ANP. Não é possível pesquisar pelo SisPetro, já que o número de atividades na tabela é grande, mas entre os clientes deve variar entre uns dois códigos.
+A 
+localidade
+ indica o código ANP para onde está localizado o cliente e deve ser primeiramente cadastrado na tabela 
+Cidades
+. Já fizemos um trabalho de atualização, pelo código DNC, do código ANP. Assim, a localidade está conforme a configuração do município do cliente. Se não for informada a localidade, ele assumirá que é o mesmo município do seu cadastro principal. Caso seja necessário acrescentar uma localidade com um código DNC já existente, é preciso incluir uma cidade como "Região" e utilizar esta região neste campo Localidade do cadastro do cliente.
+O 
+Tipo Agente ANP
+ indica se o cliente é 
+Regulado, Não Regulado ou Sem Regulação
+. Por se tratar de um campo novo para atender as novas regras da ANP, este campo será atualizado como 
+Regulado
+ para os clientes que já possuem o Código de Instalação preenchido, será atualizado como 
+Não Regulado
+ para os clientes que não possuírem Código de Instalação preenchido ou 
+Sem Regulação
+ para clientes que não possuem CNAE e Código de Instalação.
+ Assim, quando gerar o DPMP, o Sispetro irá fazer a validação para a partir do campo 
+Tipo Agente ANP
+.
+É de responsabilidade do usuário Sispetro verificar se os seus respectivos clientes possuem os dados para o DPMP configurados corretamente. 
+Reforçando que a validação da ANP irá verificar se o cliente é Regulado ou Não Regulado. 
+Para casos de 
+Sem Regulação
+, caso a nota esteja configurada para constar no DPMP, o Sispetro a levará como 
+Não Regulado
+.
+Preenchimento Obrigatório
+Alguns usuários tem esquecido de preencher essas informações ao realizar um cadastro, e isso tem gerado trabalho extra durante a geração do DPMP, pois será necessário localizar todos Clientes sem os dados preenchidos e completar o cadastro. Para evitar isso, pode-se configurar um perfil de sistema no menu 
+Ferramentas / Sistema / painel Estoque
+ perfil 
+Força dados de Clientes/Fornecedores para uso do DPMP
+Ao marcar esse perfil, os preenchimentos dessa informação se tornam obrigatórios durante o cadastramento de novos clientes, não sendo possível gravar antes que preencha os dados de DPMP na aba de Observações.
+ 
+Bloqueando duplicado de código de Instalação
+Para a geração do DPMP o cliente deve estar com o campo de código de instalação preenchido com um código valido, como cada cliente tem seu próprio código de instalação, temos a opção de avisar ou até mesmo bloquear o Cadastro/Alteração de um cliente caso já exista outro Cliente utilizando  esse código de instalação. Para isso, pode-se configurar um perfil de sistema no menu 
+Ferramentas / Sistema / 
+painel Estoque
+ perfil 
+Código de Instalação ANP de Clientes e Fornecedores. 
+Veja maiores detalhes em 
+Painel Estoque
+.
+ 
+ 
+ 

@@ -1,0 +1,91 @@
+TITULO: DIME-SC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210470
+--------------------------------------------------
+A Declaração do ICMS e do Movimento Econômico – DIME deve ser apresentada, em arquivo eletrônico, pelas empresas para informar à Secretaria da Fazenda o resumo mensal das suas operações e prestações registradas no livro Registro de Apuração do ICMS. 
+O arquivo eletrônico tem especificações técnicas conforme manual de orientações publicado em Portaria do Secretário de Estado da Fazenda.
+Características do DIME
+É utilizada para prestar informações sobre as operações incorridas a partir do mês de janeiro/2005;
+De periodicidade mensal;
+Traz informações sobre a apuração do ICMS, movimento econômico, informações sobre a economia e dados do balanço anual;
+Entregue pelo contabilista responsável pela escrituração da empresa através de acesso ao Sistema de Administração Tributária - SAT, anotando como usuário o CPF do contabilista e a mesma senha definida para acesso ao SAT;
+É possível substituir mediante envio de arquivo pela Internet durante o ano corrente, até março do ano seguinte;
+As empresas devem apresentar as informações mensalmente.
+A geração do arquivo DIME se refere somente ao Estado de Santa Catarina.
+O arquivo da DIME é composto por vários registros, veja na página 
+ quais os registros gerados pelo SisPetro.
+Para gerar a mídia DIME-SC, o usuário deve acessar o menu
+ 
+Ferramentas / Geração Mídia Gia/Gim/DIME.
+Através do painel
+ 
+DIME-SC
+, o usuário poderá gerar um arquivo contendo as informações necessárias para serem validadas pelo programa de Declaração de ICMS e Movimento Econômico (DIME).
+Geração do Arquivo:
+De: 
+informe a data inicial e a data final
+Como padrão, já vem preenchidos alguns campos:
+Todos estes dados podem ser informados manualmente, ou carregá-los de uma apuração de um mês anterior, bem como do mês corrente, caso você já os tenha salvo. Para mais informações, ver 
+Carrega dados da Apuração
+ 
+e
+ 
+Salva dados na Apuração
+. 
+Zera ICMS Saída:
+ a partir da versão 7.18, na geração do arquivo, o usuário tem a possibilidade de zerar os valores de ICMS saída. Atentar-se ao fato de que, zerando o ICMS de saída, alguns registros serão alterados
+ATENÇÃO:
+ 
+Sempre que alterar algum campo, deve
+ 
+salvar os dados na apuração
+.
+Conforme PORTARIA SEF N
+º
+153/2012, note as mudanças ocorridas para geração da DIME a partir de Julho/2012.
+Os campos a seguir sempre serão enviados com valor fixo: 1 - Não se aplica.
+Porte da Empresa
+Tem créditos presumidos
+Tem créditos por incentivo fiscal
+Porém os mesmos não foram removidos da tela de geração, pois caso seja necessário a geração de dados retroativos (antes de Julho/2012) , os mesmos serão necessários.
+Obs:
+ o
+ RTM disponível junto com a versão 8.1 do SisPetro já contempla essa mudança. Caso seja necessário gerar um período anterior a Julho/2012 deve-se usar o RTM da versão 7.27.
+Dados do Arquivo:
+Layout de Exportação:
+ 
+selecione o layout a ser utilizado para gerar o arquivo. Para mais informações, ver 
+Manutenção Exportação de Dados
+Nome do arquivo:
+ 
+informe a pasta onde o arquivo será gravado e o nome do arquivo
+Clique no botão
+ 
+OK 
+para iniciar a geração do arquivo ou no botão 
+Cancela 
+para cancelar.
+Algumas considerações devem ser observadas para que o arquivo seja validado com sucesso:
+Nas configurações da empresa,
+ 
+, o usuário deve preencher as seguintes informações:
+Dados do Contador:
+Informe os dados do contador responsável
+Dados da Empresa
+:
+Nas configurações da empresa,
+ 
+, preencher os campos
+ 
+Razão Social e a Inscrição Estadual
+Geração do arquivo para empresas SEM Movimentação:
+Caso seja necessário a geração da DIME para uma empresa sem Movimentação (que ainda não esteja operando), os registros 30 quadro 09 e 32 quadro 11, possuem alguns registros que não são gerados. Para mais informações, ver 
+.
+Sendo assim, caso em tela o usuário indique no campo 
+Movimento
+: 
+Sem movimento e sem saldos
+, os itens acima não serão gerados no arquivo.
+Importante:
+ o campo movimento só pode ser indicado como 
+Sem movimento e sem saldos
+ quando realmente a empresa não tem movimento, senão a combinação de informações pode não ficar compatível, gerando dados incorretos no arquivo.

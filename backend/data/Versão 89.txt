@@ -1,0 +1,365 @@
+TITULO: Versão 8.9
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919991082
+--------------------------------------------------
+Versão 8.9
+Dados
+Informações
+Início
+15/10/2013
+Final
+24/12/2013
+Scripts
+CMD89.sql (3003 a 3339)
+Itens
+66
+Implementações
+36
+Correções
+30
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+Apuração.rtm
+Banco254.dll
+DPMP_v89.rtm
+ 
+ 
+SisPetroControl.Dll
+Sintegra-SEF_v89.rtm
+ 
+ 
+SisPetroBancos.Dll
+Sintegra-DIC-SE_v89.rtm
+ 
+ 
+sped_ecd.dll
+ 
+ 
+Geral
+Atualização da Biblioteca SecureBlackBox
+Foram atualizadas as bibliotecas de componentes da SecureBlackBox. Esses componentes são responsáveis pela certificação para acesso aos WebServices da Sefaz. UPA (CCF 22334)
+Inclusão de Log na Rotina de Envio de E-Mails
+Foram incluídos log's na rotina de envio de e-mails. Caso seja necessário agora, basta habilitar a opção do Servidor SisPetro de logar os comandos e as rotinas utilizadas no envio de e-mails serão listadas na aba de log. UPA (CCF 22416)
+Skin Laranja no Sispetro quando Ambiente NFe for Homologação
+Para facilitar a identificação,o sistema estando em Ambiente de Testes/Homologação será alterado para a cor laranja na tela principal.Através do nome usual o usuário poderá se nortear, identificando se está conectado no banco de teste ou de Produção
+. AO (CCF 22319)
+Validações Sobre a Versão
+A partir dessa versão, foi alterada a forma como é feita a validação da versão do executável do SisPetro com a versão do banco de dados. UPA (CCF 22306)
+Validação da Quantidade de Licenças 
+A cada usuário conectado ao SisPetro estaremos validando o número de licenças cadastrados no banco de dados com a informação do arquivo de licenciamento web. Caso essas informações estejam divergentes, o usuário será impedido de se conectar ao sistema. UPA (CCF 22927)
+Liberação de Memória no Servidor SisPetro
+Foi detectado que em alguns clientes o Servidor SisPetro tem alocado memória para a execução de processos mas depois da execução do processo essa memória não estava sendo liberada. Foram implementadas rotinas no Servidor SisPetro que forçaremos a essa memória ser liberada evitando assim problemas de falta de memória. 
+Help:
+ 
+Servidor SisPetro
+,  
+UPA (CCF 22504)
+Erro ao tentar acessar Sispetro Normal e Remoto
+Correção de erro ao abrir o sistema, havia um problema de conversão de valores quando a proporção de anidro não havia sido informada.
+ PRFC (CCF 21950)
+Liberação de Memória na Rotina de Envio de E-mails
+Na rotina de envio de e-mails do SisPetro, em algumas situações, a memória do computador estava sendo alocada para esse processo e não estava sendo descarregada. Essa rotina foi alterada e a partir dessa versão esse problema não mais acontecerá. 
+UPA (CCF 22428)
+Exclusão dos E-mails Enviados
+Os logs dos e-mails enviados pelo SisPetro não estavam sendo apagados, mesmo se a empresa estivesse configurada para isso e o e-mail já tivesse alcançado seu prazo para exclusão. Esse problema foi corrigido. 
+UPA (CCF 22449)
+Teste de acesso da pasta de Anexos e RTM's no Servidor Sispetro
+No servidor Sispetro é possível indicar a pasta de Anexos e a pasta dos arquivos .rtm que serão gravados, porém no C: de um servidor não é possível salvar o arquivo teste.xml, entretanto a rotina anterior retornava Ok e a gravação do XML não era concluída, a partir desta versão será garantido que o teste de acesso da pasta de Anexos e RTM's no Servidor Sispetro permita gravação de arquivos .xml. 
+AO (CCF 22415)
+ 
+ 
+Servidor S3
+Reorganização do processo de verificação de credenciais em acesso simultâneo de um mesmo usuário.
+ UPA (CCF 22396)
+Erro de Acces Violation ao cancelar login
+Na tela de login do SisPetro não será mais apresentada a mensagem de "Access Violation" depois de pressionar ESC para sair da tela.
+ AO (CCF 17937)
+ 
+Exclusão de Configuração de E-Mail
+O SisPetro estava permitindo ao usuário excluir uma configuração de e-mail que estivesse em uso nas configurações do sistema. A partir dessa versão, essa exclusão não será mais permitida. 
+UPA (CCF 22677)
+Desconexão de Usuários no Servidor Sispetro
+Corrigido para que a desconexão de usuários pelo Servidor Sispetro não interrompa os processos de NF-e, como Consulta de Protocolo, Sincronização, etc. Além disso, foi atualizado o modo de envio de mensagem. Tanto para desconexão como para mensagem para mais de um usuário basta selecioná-los no grid utilizando as teclas <SHIFT> ou <CTRL>. 
+Help:
+ 
+ 
+MCL (CCF 22232)
+ 
+Compras
+Tratamento de Erro na Alteração do PMM
+A tela de Alteração de PMM foi ajustada para verificar e apresentar mensagem de erro caso o Pedido esteja vinculado a um Adiantamento ou a uma OC. AO (CCF 21366)
+Permitir a Alteração do Deposito na Edição na Importação de Notas.
+A tela de Edição na Importação de Notas foi alterada e reorganizada para permitir a alteração do depósito utilizado.
+ Help:
+ 
+ PRFC (CCF 22711)
+Contabilidade
+Importação de Lote Contábil do Sistema Cordilheira
+Foi adicionado no Sispetro o layout gerado pelo Sistema Cordilheira para que tenhamos a possibilidade de importar lotes contábeis gerados por este sistema. 
+Help:
+ Importação de lotes
+. AO (CCF 20820)
+Correção da Edição de Lote
+A edição da tela Alteração de Lote, agora o sistema esta acatando o valor digitado pelo usuário no campo Histórico da Aba "Dados Gerais".
+ Help
+:
+ 
+Alteração de lote.
+ PRFC (CCF 22064)
+Verificação de Travamento Contábil na tela de Fechamento de Custo
+Antes de processar o fechamento de custo será feita uma verificação de travamento contábil (Gerencial ou Real). Caso haja travamento será apresentada uma mensagem de erro e o processo será interrompido. 
+Help: 
+. 
+AO (CCF 17286, CCF 22060) 
+ 
+Estoque
+Diferenças na Tela de Portaria de Entrada e Saida no Sistema Normal e Remoto
+Foram padronizadas as telas de Portaria e Manutenção de Carregamento e Descarga no Sistema Normal e Remoto, e salvar informações da verificação de volume e peso fora do limite para consulta posterior. 
+Help:
+ 
+, 
+, 
+. AO (CCF 20854) 
+Acesso a Portaria de Entrada e Saída no Remoto como Consulta
+Implementado a funcionalidade para permitir a visualização em modo consulta nas telas de Portaria de Saída e Entrada no sistema remoto.
+ Help:
+ 
+, 
+Portaria de Entrada.
+ PRFC (CFF 21221)
+Representante no PMM 
+Na tela de Vínculo com a OC e Vínculo com PMM na Importação de NF's 
+será apresentando o código e a Razão Social do Representante nos grids das OC's e dos PMM's disponíveis. AO (CCF 22709)
+Errata: 
+Há algumas empresas que trabalham com representantes, onde cada representante fecha o seu contrato com a Usina, passa as informações para a Distribuidora que providencia a inclusão do PMM. Consequentemente, na sequência, é feita a venda dos produtos por esses Representantes, utilizando seus respectivos estoques. 
+Para identificação das vendas está sendo utilizada a figura do Comprador, ou seja, cada Representante se torna um comprador e as vendas são vinculadas através do Comprador aos seus Representantes. 
+Help: 
+. AO (CCF 22709).
+Faturamento
+Leitura de E-mails Recebidos com NF-e / CT-e
+Agora é possível configurar o SisPetro para que fique lendo uma conta de e-mail e toda vez que for recebida uma NF-e ou um CT-e válido nesta conta, o XML dessa NF-e/CT-e seja salvo em um diretório previamente informado pelo usuário. 
+Essa é a primeira parte do processo de importação automática das NF-e's e CT-e's.
+ 
+Help: 
+, 
+, 
+.
+ UPA (CCF 21865)
+Campos permitindo edição na tela de vínculo de OC a NF importada no painel Nota Fiscal
+Os campos sobre as informações da nota fiscal, Entidade, Transportadora e Frota não estão mais permitindo edição. AO (CCF 21576)  
+Quantidade de Acerto de Estoque Zero na Importação de NF's
+Foi adicionado o recurso Acerto Automático Estoque Zero na importação de NF´s a partir dessa versão. AO (CCF 21809) 
+Evitar NF's sem execução da 
+Contabilização da Nota Fiscal
+Foram feitas algumas melhorias para garantir que
+ não aconteça em algumas situações esporádicas a Contabilização da Nota Fiscal e operações afins, como gerar Livro Fiscal, etc... não seja executada em algumas NF´s. AO (CCF 20398)
+Tomador Outros na Importação do CT-e
+O Sispetro a partir dessa versão vai identificar também o destinatário na Importação do CT-e pela tag Toma4. Nem sempre os CT-e's têm a tag Toma03, podendo ter uma outra tag Toma4 que indica o tomador do serviço "Outros". AO (CCF 21364) 
+Permitir a Importação de uma NF-e com mais de 6 duplicatas 
+A importação de Notas Fiscais, via xml, foi alterada para permitir a importação de notas com mais de 6 duplicatas. 
+Help:
+ 
+. PRFC (CCF 22051)
+Agrupar itens na tela de Remessa e Retorno de Armazenagem
+Na tela de Remessa e Retorno de Armazenagem era possível selecionar várias OC's para gerar uma única NF. Porém, ao fazer isso, o número de itens dessa NF fica correspondente ao número de itens da OC selecionadas. Foi implementada uma funcionalidade, Agrupa Itens da NF por Produto, que faz com que o número de itens da NF seja um para cada produto diferente nas OC's selecionadas, ou seja agrupa os itens da OC por Produto na NF. 
+Help: 
+Armazenadora - Remessa e Retorno de Armazenagem
+. 
+PRFC (CCF 21550) 
+Melhorias no Processo de Importação de XML
+No De/Para de natureza, agora é possível indicar um Produto, indicar De/Paras personalizados para cada fornecedor e o sistema foi adequado para quando a nota possui itens de Naturezas de Operações diferentes. 
+Recomenda-se o processamento ou exclusão de todos os registros presentes da tela de importação antes da atualização.
+ 
+Help: 
+Cadastro Fornecedor
+, 
+Manutenção DE/PARA
+. 
+PRFC (CCF 21326)
+Prazo Máximo para Carta de Correção Eletrônica
+Após a alteração da regra NT 2011/03 pela NT 2011/004 de Julho/2011, que não há mais prazo para emitir uma CC-e. No Sispetro foi removido o limite 
+do prazo de 30 dias para emitir uma CC-e. 
+Help:
+ 
+. AO(CCF 22518)
+Gravação de chave de acesso em notas não eletrônicas
+Quando mudar a Natureza de Operação por outra que tenha a opção Habilita NF-e desmarcada, deverá apagar o conteúdo do campo Chave de Acesso da NFe
+.
+ AO (CCF 22478)
+Desabilitação do CODIF
+A rotina do CODIF não está mais em uso e nessa versão estamos desabilitando-a internamente, sem a possibilidade de habilitação pelo usuário. Na próxima versão, iremos remover do SisPetro todas as suas rotinas. UPA (CCF 22563)
+Cancelamento de Frete em processos automáticos
+Ao cancelar uma NF que gerou Frete automaticamente e o mesmo esteja vinculado com algum título do Contas à Pagar, esta NF não poderá ser cancelada enquanto houver o vínculo. 
+Help:
+ 
+. AO (CCF 19840).
+Filtra Vendas por Vendedor na tela de Impressão de NF
+Na tela Impressão de Notas Fiscais quando o perfil de usuário "Filtra Vendas por Vendedor" estiver marcado será filtrada apenas a notas por vendedor que o usuário representa. 
+Help:
+ 
+ e 
+. AO (CCF 21105, CCF 22715)
+Melhorias na tela de NF Remessa/Retorno de Armazenagem
+Foi criado o painel Dados Carregamento com os dados de quantidades e fator de conversão informados ao fazer a Portaria de Saída
+.
+ 
+Help: 
+Armazenadora - Remessa e Retorno de Armazenagem
+. 
+PRFC (CCF 21819)
+PDF da NF-e/CT-e Gerado Duas Vezes
+Estava gerando dois PDF's do DANFE/DACTE da mesma nota/conhecimento quando a empresa está configurada para envio de NF-e/CT-e por e-mail. Nessa versão foi feita a correção, gerando apenas um PDF, da mesma forma como ocorre com o arquivo XML. 
+UPA (CCF 22543)
+Dados duplicados no Painel Margem Subst. Tributária do Cadastro de Produtos
+Foi corrigido um erro de duplicidade de valores na apresentação dos dados ao navegar por campos no painel de Margem de Subst.
+ AO (CCF 21944)
+Erro ao tentar imprimir cobrança na emissão de Nota de Entrada
+Ao emitir uma nota de entrada o Sispetro não mais irá tentar imprimir uma cobrança, somente irá imprimir uma cobrança quando for uma emissão de nota de saída. 
+AO (CCF 19271)
+Apresentação duplicada de Itens da OC na tela de NF Remessa/Retorno de Armazenagem
+Correção de erro ao selecionar dados na tela de NF Remessa/Retorno de Armazenagem, onde dados dos itens da OC eram apresentados duplicados.
+ 
+Help: 
+Armazenadora - Remessa e Retorno de Armazenagem
+. 
+PRFC (CCF 21819)
+Correção da Edição da Natureza de Operação na Importação de NF
+Foi feita correção na tela de edição de item. Antes ao alterar a Natureza da Operação da NF na tela de edição, o sistema não estava acatando para os itens da nota.
+ PRFC (CCF 22014)
+Duplicidade de Itens ao importar arquivo XML
+Foi corrigida na importação de Notas Fiscais o erro dos itens que 
+eram lançados duplicados caso o usuário tentasse importar 
+mais de uma vez o mesmo arquivo XML
+. 
+Help:
+ 
+. 
+PRFC (CCF 22643)
+Erro ao Imprimir cobrança no Sispetro Remoto
+Correção de erro ao imprimir cobrança no Sispetro Remoto.
+ PRFC (CCF 22792)
+Na importação de NF o Sispetro não está considerando a Natureza de Operação correta
+A tela de edição dos dados a serem importados foi alterada para que não haja mais a necessidade de alteração manual da natureza dos itens quando a natureza da nota for 
+alterada, evitando que a Natureza da Nota seja uma e dos itens outra
+.
+ PRFC (CCF 22104)
+Financeiro
+Número de casas decimais superior na tela de Manutenção de lançamentos nas abas Baixas e Cobrança Eletrônica
+Na tela de manutenção de Contas a Pagar/Receber nas abas "Baixas" e "Cobrança Eletrônica" os campos Saldo e Valor Original estão formatados 
+com duas casas decimais. AO (CCF 22160)
+Efetivação de Pré-Adiantamento X Adiantamento Quantificado
+Na efetivação de Pré-Adiantamento foi ajustada a inclusão de adiantamentos quantificados de fornecedores quando o adiantamento não é vinculado a um PMM ou esta vinculado a um PMM e que controla quantidade. AO (CCF 22251) 
+Inclusão do Segmento S no Arquivo de Remessa SICOOB (756)
+No layout do arquivo remessa do banco Sicoob que é o banco 756 registrado na Febraban, foi acrescentado o segmento S. AO (CCF 22528)
+ 
+Campos sem formatação na tela de Geração de Arquivo de Remessa
+Na tela para geração de Arquivo de Remessa no painel de lançamentos onde apresenta os títulos no arquivo texto, foram formatados os campos Saldo e Valor Original 
+para monetário (2 casas decimais). AO (CCF 22164)
+Consulta e cancelamento de Vínculo de Títulos e NF's
+Na manutenção de NF's na aba Financeiro - Títulos Vinculados serão apresentados os títulos aos quais a NF está vinculada. Na 
+Manutenção do Contas a Pagar/Receber, será apresentada uma mensagem diferenciada quando é para vincular e quando é para cancelar o vínculo. 
+Help:
+ 
+. AO (CCF 22519)
+Ajustes na Tela de Tipo de Cobrança
+Foram feitos ajustes em mensagens de erro e forma como o campo "Informação de multa..." é exibido. PRFC (CCF 22196)
+Erro ao ler data de crédito no Retorno do Banco Paraná (254)
+Correção de erro ao ler a posição da data de crédito no arquivo de retorno do banco Paraná (254).
+ 
+Necessário atualizar a biblioteca 
+Banco254.dll 
+no caminho do executável
+. 
+PRFC (CCF 22439)
+Ajustes do Campo Livre e Nosso Número do banco Nova América
+Foram corrigidos o campo livre e na geração do arquivo de remessa o nosso número.
+ 
+Necessário atualizar a biblioteca 
+SispetroBancos.dll 
+no caminho do executável
+.
+ PRFC (CCF 19020)
+Erro ao alterar o Nosso Número na tela de Manutenção de Lançamentos do Contas a Receber
+O sistema calculava o dígito verificador corretamente, mesmo quando alfanumérico, porém quando era necessário alterar o nosso número via tela de Manutenção do Contas a Receber, o sistema não permitia que o usuário inserisse letras, apenas números. 
+PRFC (CCF 22102)
+Erro na geração de campos do arquivo de Remessa do Banco Paraná
+Calculava de maneira incorreta o dígito verificador do nosso número, bem como não apresentava a numeração das parcelas. A formatação para impressão do campo Nosso Número no boleto foi alterada para incluir também o número da carteira.
+ 
+Necessário atualizar a biblioteca 
+Banco254
+.dll no caminho do executável
+.
+ PRFC (CCF 22331, CCF 22263)
+Cobrança Eletrônica - Banco 004 - BNB (Banco do Nordeste do Brasil)
+Atualmente temos alguns Bancos com Cobrança Eletrônica configurada no SisPetro, e não tínhamos a cobrança Eletrônica para o Banco 004 - BNB (Banco do Nordeste do Brasil), que foi implementada a partir dessa versão. 
+Antes de colocar em produção É FUNDAMENTAL FAZER OS TESTES JUNTO AO BANCO DO NORDESTE DO BRASIL.
+ 
+Help :
+ 
+.  
+AO (CCF 22323) 
+Erro no Relatório de Adiantamento de Fornecedores/Clientes
+No relatório de Adiantamento de Fornecedores quando selecionava a ordem por
+ 
+Entidade ou Comprador apresentava um erro após a segunda tentativa de impressão do relatório, que foi corrigido após esta versão. 
+Help:
+ 
+ e 
+. AO (CCF 22297) 
+Erro de conversão de data em títulos recorrentes
+Corrigido erro apresentado na efetivação/simulação ou Relatório de Títulos Recorrentes quando o intervalo de meses configurado no título recorrente era maior que 12.
+ 
+GSN (CCF 22699)
+Fiscal 
+Reprocessamento de NF 
+No Sispetro Controladoria na tela que permite Reprocessar NF's para lançar no Livro Fiscal a opção "Sobrepõe Notas já Lançadas no Livro Fiscal" estará sempre marcada. AO (CCF 21859)
+Ajustes do Relatório de Apuração.
+Foram feitos ajustes na máscara do campo CFOP e apresentação de Estorno de Débitos.
+ 
+É necessário atualizar o arquivo Apuracao.rtm no caminho do executável (ou conforme caminhos auxiliares). 
+PRFC (CCF 21567, CCF 22259)
+Ajustes iguais no DPMP são considerados como único no Total
+Serão considerados como único no total todos os itens cujo histórico seja participa do DPMP e que são apresentados na Movimentação do DPMP
+. AO (CCF 22430)
+Dados de Frota incorretas na tela de Pedidos Aprovados e não Faturados
+Os dados de Frota não serão mais apresentados conforme o vínculo na tela de Pedidos Aprovados e Não Faturados, 
+mas conforme os dados de frota informados no pedido. AO (CCF 22457)
+Número de Dígitos de NF
+Ajustados os layouts do Sintegra (SEF e DIC) para que coloque só os 6 últimos dígitos do Número da NF quando tiver mais que 6 dígitos, já que a legislação atual permite número de NF com até 9 dígitos e esses layouts só tem espaço para 6 dígitos.
+ 
+Necessário atualizar os arquivos Sintegra_SEF
+_
+v89
+.rtm e Sintegra-DIC_SE_v89.rtm na Manutenção de Exportação de Dados do Sispetro Controladoria.
+ GSN (CCF 21409, CCF 21474)
+ 
+Erro na geração do arquivo DPMP
+Correção no layout de exportação do DPMP. A somatória de linhas do arquivo não estava correta. 
+N
+ecessário atualizar o arquivo
+ 
+DPMP_v89
+.rtm na Manutenção de Exportação de Dados do Sispetro.
+ PRFC (CCF 22438)
+ 
+Ajustes do FCont 2012
+Corrigidos os registros I050, I155 e J930. MSI (CCF 20925)
+Ajustes do SPED ECD 2012
+Corrigidos os registros 0000, I010, I030, I052, I350, J005, J100 e J150. MSI (CCF 20767, CCF 20769, CCF 20924)
+Transporte
+No conhecimento a alíquota do ICMS Retido está sempre sendo considerada
+Ao lançar um Conhecimento, a tela estava sempre considerando o valor informado no campo de alíquota do ICMS retido. A tela foi alterada para identificar qual deverá ser utilizada, alíquota do ICMS retido ou do ICMS próprio. 
+PRFC (CCF 22013)
+ 
+Vendas
+Verificação do perfil de sistema de aprovação por filial na Aprovação de Venda
+Antes ao aprovar um pedido pela tela de Aprovação de Vendas, o sistema não estava verificando quais filiais o usuário poderia aprovar. A tela foi alterada para identificar tanto o perfil de sistema quanto quais filiais o usuário tem permissão para aprovar pedido. 
+Help:
+ Perfil de Usuário 
+ e Perfil de Sistema 
+ Aprova Pedido por Filial.
+ PRFC (CCF 22229) 
+Perfis de Compras dependendo dos Perfis de Vendas
+Para organizar quem faz uma operação com Pedido de Venda e Pedido de Compras, foram criados perfis separados para cada operação para distribuir devidamente 
+as permissões para operações com pedidos. AO (CCF 19263 e CCF 20288)

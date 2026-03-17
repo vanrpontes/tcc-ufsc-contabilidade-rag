@@ -1,0 +1,40 @@
+TITULO: Faturamento a 20ºC - Dados da Movimentação Física
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2895708480
+--------------------------------------------------
+A emissão de Nota Fiscal da Distribuidora é feita em volume ambiente. Na sequência é feita a movimentação do estoque físico que utiliza os dados do tanque para obter o volume a 20c.
+Nas Refinarias ou Usinas as Notas Fiscais são emitidas com volume a 20c. Para chegar nesse volume a 20c o melhor caminho seria obter essa quantidade da movimentação do estoque físico.
+Para isso precisamos inverter o processo citado acima (como processo das Distribuidoras). Sendo assim, temos na Configuração de Sistema, aba Ordem Carregto, a opção:
+Caso o perfil acima esteja marcado, os processos que são acompanhados de Nota Fiscal terão que ser feitos ANTES da Portaria de Entrada. São eles:
+Carregamento
+Venda
+Transferências via Nota Fiscal de Outras Saídas
+Descargas
+Transferências entre Depósitos (Compras de Usinas e Congêneres)
+Transferências via Nota Fiscal de Outras Entradas
+Caso este mesmo perfil esteja desmarcado, os processos acima poderão ter o processo de Portaria sendo feito antes da Nota Fiscal.
+Neste caso, ao fazer a Nota Fiscal, pode-se lançar a Nota Fiscal utilizando os volumes obtidos durante o processo de Portarias (carregamento). Para isso pode-se configurar o perfil na 
+Natureza de Operação
+:
+Além do Volume o sistema também pegará as informações de Temperaturas e Densidade do Carregamento.
+Acesse o menu 
+Tabelas Auxiliares \ Faturamento \ Natureza Operação
+, vá até a aba 
+Detalhes \ Por Filial \ Dados Gerais
+, localize o perfil 
+Obtém dados do Carregamento p/NF
+ e selecione uma das opções, como pode ser visto na imagem abaixo:
+Importante
+As Notas Fiscais de Entrada (descargas) em sua grande maioria são emitidas por Terceiros, sendo assim devem ser lançadas no sistema respeitando a quantidade informada na Nota Fiscal. Neste caso não há uma necessidade explícita para ter o processo de Portaria ANTES do Faturamento. 
+Recomendamos que somente o processo de Carregamento tenha esse fluxo invertido: Faturamento após Portarias!
+Regras quanto ao preenchimento da quantidade na Nota Fiscal
+O perfil citado nesse documento não se aplica a Notas Fiscais que não possuem Ordem de Carregamento (OC), sendo que em todos os casos o valor da quantidade deverá ser informado durante a inclusão da Nota Fiscal. Exemplo de alguns tipos de notas fiscais nessa situação:
+Outras Entradas sem OC
+Outras Saídas sem OC
+Outras Entradas com PMM do tipo Recebimento direto do Fornecedor
+Devolução de Clientes
+Devolução de Fornecedores
+Venda Direta
+Para as notas geradas à partir de uma ordem de carregamento ou PMM, a quantidade será respeitada de acordo com o carregamento efetuado (perfil citado no inicio do artigo, pode ser carregamento ambiente ou 20ºC), não será possível alterar a quantidade nos itens da nota durante sua inclusão, apenas caso o perfil esteja configurado para Não obter dados do carregamento. Exemplo de alguns tipos de notas fiscais nessa situação:
+Venda
+Outras Entradas ou saídas com OC do tipo avulsa ou transferência entre depósitos
+Outras Entradas com OC vinculada a um PMM

@@ -1,0 +1,54 @@
+TITULO: Registro 40
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899950
+--------------------------------------------------
+Em desuso a partir do mês 06/2023. Para mais informações, ver 
+ e 
+Configurações necessárias para emissão de notas com tributação monofásica
+Este é o registro do item da Nota Fiscal, ou seja, deverá ter um registro para cada item da Nota Fiscal. Os dados a serem preenchidos nesse registro são:
+01 - Tipo de registro - 40
+02 - Mês/Ano Apuração
+03 - CNPJ
+04 - Inscrição Estadual
+05 - UF
+06 - Data emissão/recebimento - Data de emissão na saída ou recebimento na entrada
+07 - Modelo - código do modelo da nota fiscal cadastrado na 
+Tabela Natureza Operação
+08 - Série da Nota Fiscal - séria cadastrada na 
+Tabela Série NF
+09 - Número da Nota Fiscal
+10 - CFOP
+11 - Tipo Frete (1-Remetente ou 2-Destinatário)
+12 - CNPJ/CPF Transportador
+13 - UF Transportador
+14 - Primeira Placa Veículo
+15 - Segunda Placa Veículo
+16 - Terceira Placa Veículo
+17 - Código do Produto - código cadastrado, conforme manual do SCANC no 
+Cadastro do Produto
+18 - Quantidade de Produto
+19 - Valor Total do Produto
+20 - Quantidade de Gasolina "A"
+21 - Valores da BC-ST e ICMS-ST obtidos da NF
+22 - Valor Base de Cálculo
+23 - Valor Total do ICMS Próprio mais ICMS-ST
+No 
+campo 20
+, Quantidade de Gasolina "A", será preenchido somente quando houver notas fiscais de Gasolina A, quantidade total, ou quando for notas fiscais de Gasolina C, quantidade proporcional. No caso de Notas Fiscais de Óleo Diesel, por exemplo, a quantidade será preenchida com zeros.
+Para os 
+campos 21, 22 e 23
+ é necessário fazer algumas configurações e conhecer como deve ser o preenchimento correto dessas informações, portanto vide detalhes no tópico específico 
+Informações para o Anexo
+ a partir da 
+Tabela Natureza de Operação
+.
+No 
+campo 23
+ do Registro 40 do layout do SCANC é enviada a soma do ICMS Próprio mais o ICMS ST.
+O ICMS ST enviado no campo 23 do Registro 40 é obtido conforme a configuração da Natureza de Operação 
+Valores ST p/ SCANC
+ onde pode ser configurado para obter do ICMS ST, ICMS Retido ou Preço de Pauta.
+Para maiores informações de configurações que devem ser feitas antes da geração do arquivo, vide tópico 
+Configurações Necessárias - Anexos SCANC
+, a partir da tela 
+Manutenção de Anexos - Distribuidora
+.

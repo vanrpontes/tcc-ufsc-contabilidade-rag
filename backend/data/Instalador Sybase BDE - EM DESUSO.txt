@@ -1,0 +1,21 @@
+TITULO: Instalador Sybase/ BDE - EM DESUSO
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2923955408
+--------------------------------------------------
+Foi criado uma maneira mais ágil e fácil para instalar o Sybase (seja ele versão 12 ou 16) e BDE. A instalação é muito intuitiva, veja os passos abaixo:
+Identificar a versão do Sybase. Para isso basta ir ao Interactive SQL e fazer o seguinte select 
+"Select @@version"
+Este, no caso, está na versão 12.
+Baixar o instalador da área de download 
+http://www.futuranet.com.br/index.php/downloads/
+SetupSybase12BDE.exe - 
+Para a versão 12 
+SetupSybase16BDE.exe - 
+Para a versão 16 
+Feito isso, executar o instalador.
+Atente-se para a versão do Sybase.
+Após clicar, o instalador fará alguns questionamentos como: Versão do Sistema Operacional
+Nome do banco e em qual IP e porta ele se encontra. Note que é preciso separar o IP e Porta do Banco de Dados por "dois pontos" ( : ). Assim como na imagem.
+Informar em qual diretório o SisPetro será instalado
+Será questionado se o local está certo, se estiver basta clicar em "Avançar"
+Caso não haja nenhum erro, falta de espaço no diretório informado por exemplo, a instalação será realizada com sucesso.
+Depois de instalado, basta mapear a unidade de rede onde se encontram os executáveis do SisPetro e criar o atalho na área de trabalho do usuário.

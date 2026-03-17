@@ -1,0 +1,196 @@
+TITULO: Versão 8.26
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924284264
+--------------------------------------------------
+Dados
+Informações
+Início
+01/07/2015
+Final
+03/08/2015
+Scripts
+CMD826.sql (3768 a 3802)
+Itens
+27
+Implementações
+13
+Correções
+14
+Relatórios
+DLL
+Layouts de Exportação
+ECF.rtm
+SisPetroControl.Dll
+ 
+LancamentosECF.rtm
+sped_ecf.dll
+ 
+ContasReaisXECF.rtm
+ 
+ 
+Danfe_Itens_v826.rtm
+ 
+ 
+Avisos Importantes
+Escrituração Contábil e Fiscal – ECF
+: Nesta versão foram criadas as estruturas para a geração da Escrituração Contábil e Fiscal. Lembrando que para que essa seja gerada é preciso do arquivo da ECD assinado e validado. 
+Salvar o XML recebido pela Distribuição de DF-e:
+ Agora é possível 
+baixar e salvar o XML da NF-e recebido na tela de Consulta de NF-e de Destinatário.
+Geral
+Atualização das Ferramentas de Comunicação com os WebServices da Sefaz
+Foram atualizadas as ferramentas de comunicação via webservices com a Sefaz. Essa atualização deixa o processo mais seguro e compatível com as novas tecnologias de comunicação. UPA (CCF 28454)
+Painel Livro Eletrônico nos Perfis de Empresa
+O painel Livro 
+Eletrônico,
+ no perfil de empresa, foi rearranjado de modo a não apresentar o espaço em branco entre os perfis. PRFC (CCF 28749)
+Compras
+Cancelamento da Movimentação de Estoque ao Cancelar Requisição
+A Requisição de compras pode gerar a movimentação do estoque, porém ao executar o cancelamento, não estava sendo previsto esse vínculo. Nessa versão, foi realizada a alteração para que ao cancelar a Requisição, o Pedido seja cancelado automaticamente.
+ CPC (CCF 27916)
+Contabilidade
+Dados para Escrituração Contábil e Fiscal
+No SisPetro Controladoria, foram incluídas telas para gerar dados para a ECF, bem como relatório para análise. 
+O relátorio ECF.rtm 
+deve ser salvo na pasta onde se encontra o executável do SisPetro Controladoria ou
+, caso utilize, na pasta indicada pelos caminhos auxiliares. 
+Help:
+ 
+Manutenção da ECF
+. PRFC  (CCF 25073)
+Lançamentos da 
+Escrituração Contábil e Fiscal
+Foi criada a estrutura no SisPetro Controladoria para permitir registrar os Lançamentos da ECF. Foram adicionadas telas para inclusão e manutenção dos Lançamentos do Tipo Adição e Exclusão e disponibilizados relatórios para análise. 
+O
+ relatório 
+LancamentosECF.rtm 
+deve ser salvo na pasta onde se encontra o executável do SisPetro Controladoria ou, caso utilize, na pasta indicada pelos caminhos auxiliares
+. 
+O relatório ContasReaisXECF.rtm deve ser carregado pelo Gerenciador de Relatórios do SisPetro Normal e pode ser executado tanto no SisPetro Normal como no SisPetro Controladoria
+.
+ 
+Help:
+ 
+Manutenção de Lançamentos ECF
+. CPC(CCF 25073)
+Geração da 
+Escrituração Contábil e Fiscal
+Disponibilizado conjunto de dados para a geração do arquivo eletrônico da ECF. 
+Help: 
+Configurações - ECF
+.
+ 
+GSN (CCF 25073)
+Registro I350 e I355 na ECD
+Anteriormente o Registro I350 (e consequentemente o I355) só era gerado caso houvesse lote de Encerramento para Contas de Receita e Despesa, porém isso causava problema em empresas que só tinha um dos dois lotes (devido só movimentar no período contas de receita ou só contas de despesa). Corrigido para que gere o Registro I350 (e consequentemente o I355) na ECD desde que tenha ao menos um dos lotes de Encerramento (Receita ou Despesa).
+ GSN (CCF 28534)
+Apresentar corretamente o CPF ao editar um signatário
+Ao editar um signatário o CPF era apresentado truncado. Nessa versão, foi realizada a correção para apresenta-lo corretamente.
+ CPC (CCF 28817)
+Estoque
+Alteração na Aprovação de Pedido de Venda
+O processo de validação e aprovação do Pedido de Venda foi alterado, agora não aguardará para aprovar caso o Pedido esteja vinculado a um Contrato de Venda
+. PRFC (CCF 28574)
+Validação de Estoque na OC de Carregamento de Terceiros
+Quando a OC tinha mais de um item o SisPetro não estava considerando a quantidade de todos ao validar o saldo, assim, era possível incluir OC com quantidade maior, sem trava/aviso. A validação foi movida para o final da inclusão da Ordem de Carregamento
+. PRFC (CCF 27710)
+Erro ao Cancelar Pedido de Outras Entradas
+No SisPetro Normal ao tentar cancelar pedidos gerados via ajuste de estoque, estava ocorrendo erro e abortando o processo, após correção o cancelamento será realizado corretamente
+. PRFC (CCF 28588)
+Faturamento
+EPEC
+A partir dessa versão o SisPetro estará emitindo o Evento Prévio de Emissão em Contigência (EPEC) em substituição a DPEC que foi desativada pela Sefaz. O seu funcionamento é bem semelhante a DPEC, uma vez configurado para emissão das NF-e em EPEC, elas são enviadas ao Ambiente Nacional e assim que a Sefaz sair da contingência, essas NF-e devem ser enviadas normalmente a sua UF. 
+Muita atenção para quando a Sefaz entrar em contingência. As NF-e emitidas em contingência devem ser enviadas logo que a Sefaz volte a funcionar, caso isso não aconteça e a Sefaz entrar em contingência novamente a Sefaz não recebera os EPEC dessa segunda entrada pois acusará pendências da primeira entrada em contingência
+. 
+Help:
+ 
+EPEC - Evento Prévio de Emissão em Contingência
+ e 
+Alteração do layout do DANFE - Nota Técnica 2014/001
+ UPA (CCF 25535)
+Envio de Ciência de Operação no Evento de Manifestação
+Atualmente no SisPetro, não enviamos o Evento de Manifestação de Ciência de Operação. Nessa versão, foi realizada a implementação para enviar esse evento também. 
+Help:
+ 
+Painel Manifestação Destinatário
+, 
+, 
+Evento de Manifestação do Destinatário da NFe
+, 
+Manutenção de NF-e/CT-e Pendente
+, 
+Inclusão Manual de Eventos de Manifestação de Destinatário de NFe
+. CPC (CCF 25916)
+Campo de Ressarcimento/Complemento ICMS na Nota Fiscal
+Foi incluído o campo para armazenar o cálculo do total do Ressarcimento/Complemento do ICMS na Nota Fiscal. 
+Será útil pra quem quiser gerar títulos de desconto automático para Complemento de ICMS.
+ Help:
+ 
+Geração de Título de Desconto Automático para ICMS de Complemento
+ PRFC (CCF-28353)
+Natureza vinculada ao Produto no Faturamento
+Foi feita a reorganização das funções para o
+btenção da natureza vinculada ao produto no Faturamento. PRFC (CCF 28633)
+Incluir campo Natureza da Receita no Cadastro de Produto
+A tela de cadastro de Produto foi alterada para permitir a informação da Natureza da Receita utilizada na geração da EFD Contribuições. PRFC (CCF 28363)
+Salvar o XML recebido pela Distribuição de DF-e
+Foi realizada a implementação para Salvar o XML da NFe recebido após a execução da Consulta de Manifestação de Destinatário. 
+Esse procedimento irá aumentar a segurança, em relação as NFs emitidas para a Empresa e também poderá agilizar o processo de entrada da NF
+.
+ Help:
+ 
+Habilitando Serviço de E-mail
+, 
+XML´s Recebidos
+, 
+, 
+Salvar XML de Manifestações processadas como Ciência
+ e 
+Habilitando Serviço de E-mail
+  CPC (CCF 26036)
+Atualização da Rotina de Geração de Descontos
+A rotina de geração dos títulos de desconto durante o faturamento foi atualizada com isso, o processo de geração ficará mais rápido e seguro. UPA (CCF 28701)
+Geração da Data dos Eventos para a Sefaz
+Criada a rotina para pegar a data e hora do banco de dados para ser utilizada na geração da nota fiscal e na geração dos eventos da Sefaz. Com isso, diminuirá a chances de ocorrer a rejeição da Sefaz informando que a data do evento é menor que o da NF-e. UPA (CCF 28759)
+Indicação de Percurso na emissão de MDF-e
+A emissão de MDF-e foi alterada para permitir a indicação de percurso, seja ele padrão da UF ou indicado manualmente, entre os estados que não façam divisa. 
+Help:
+ 
+Inclusão de MDF-e
+, 
+ e 
+MDF-e - Manifesto Eletrônico de Documentos Fiscais
+ PRFC (CCF 28473) 
+Percentual de Redução da Base ICMS na Importação NF
+Corrigido processo de Importação de NF para que, caso venha informado o % Redução da Base de ICMS no arquivo .XML da NF-e (CST 020), que o mesmo seja salvo nos itens da Nota Fiscal, com isso não serão apresentados mais erros na EFD.
+ No caso de Importação será desconsiderado, sempre, o % cadastrado na tabela de ICMS
+. GSN (CCF 28390)
+Financeiro
+Arredondamento do Valor de Adiantamento Quantificado
+Ao incluir um Adiantamento Quantificado (tanto de Clientes como Fornecedores), dependendo do preço unitário e quantidade, havia uma diferença entre o valor final do Adiantamento e NF. Foi corrigido para que a tela de Inclusão de Adiantamento utilize o processo de arredondamento (seguindo regras da ABNT) que as demais telas. 
+GSN (CCF 28703)
+Transporte
+Data do Frete na Manutenção de Fretes
+A tela de Manutenção de Fretes traz fretes oriundos de Notas Fiscais. Porém, ao ser gerado um Frete a data dele era sempre a data atual ao invés de ser a Data de Movimento da NF. Nessa versão, foi realizada a alteração para gravar a Data de Movimento e se o usuário tiver permissão, poderá alterá-la.
+ 
+Help:
+ 
+Painel Fretes (Usuários)
+ CPC (CCF 28316 / CCF 25056)
+Valor do Frete Total
+Corrigida a tela de Simulação de Frete para que apresente o valor do Frete Total (frete unitário multiplicado pela quantidade informada), pois estava sempre apresentando zero.
+ GSN (CCF 28676)
+Vendas
+ 
+Dados do Pedido X Cliente na Consulta de Pedidos Pendentes
+Na tela de Consulta de Pedidos Pendentes, a cor de fundo dos campos de Tipo de Cobrança, Prazo e Tabela de Preço do Pedido ficava em vermelho quando estes dados estivessem diferentes do Cadastro de Cliente. Porém esse recurso não estava funcionando corretamente devido à utilização de temas. Foi corrigido nessa versão para que quando alterado, esses campos, a cor da fonte seja vermelha.
+ GSN (CCF 28575)
+Cor diferenciada para pedidos de Consumidor Final
+Nas telas de Consulta de Pedidos Pendentes e Pedidos Aprovados para Faturamento, no grid dos Itens do Pedido, quando o Cliente Faturado for Consumidor Final a cor de fundo será cinza. Na tela de Consulta de Pedidos Pendentes também foi implementada cor diferenciada no grid dos Pedidos para Pedidos de Venda e Retirada de Entrega Futura.
+ GSN (CCF 28243)
+ 
+Escolha da Classificação no cadastro de Produto
+No Cadastro de Produtos há um campo Classificação, caso alguns campos da Classificação não estivessem preenchidos ocorria o erro. Nessa versão, foi realizada a alteração para garantir que esse recurso funcione corretamente. 
+CPC (CCF 28526)
+Erro ao Mudar de Abas na Manutenção de Pedidos
+Na manutenção de pedidos, se o usuário entrar na aba Itens da Aprovação e mudar para outra aba voltando rapidamente para a aba Itens da Aprovação, em algumas máquinas com menor poder de processamento gerava um erro para atualização de dados. Esse problema foi corrigido. 
+UPA (CCF 28167)

@@ -1,0 +1,200 @@
+TITULO: Versão 7.17.1
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2900853115
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 26/04/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 11/05/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ CMD7171.SQL 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 7 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 1 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 6 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Relatórios 
+
+
+ DLLs 
+
+
+ Layouts de Exportação 
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+Compras
+
+
+
+
+Manutenção de Requisição de Materiais - Data e Usuário
+
+
+Implementamos na tela de Manutenção de Requisição de Materiais e na tela de Consulta de Requisições Pendentes uma nova funcionalidade onde, ao aprovar uma requisição, será gravado o Usuário que efetuou a aprovação.
+ 
+Além disso, na tela de Consulta de Requisições Pendentes disponibilizamos a visualização da Data da Requisição
+ 
+. ALP (CCF 12817)
+
+
+Erro ao Incluir Item na Requisição de Material
+
+Ao tentar incluir um material na Requisição de materiais, utilizando o botão de pesquisa "...", era gerado uma mensagem de erro. Esse problema foi corrigido. 
+ALP (CCF 12713)
+
+
+
+
+Estoque
+
+
+
+
+Erro ao efetuar a Portaria de Entrada com Smartcard no Sispetro Remoto
+
+Ao efetuar a Portaria de Entrada com Smartcard, estava apresentando uma mensagem de erro na gravação do cartão. Esse problema foi corrigido 
+ALP (CCF 12820)
+
+
+SmartCard não grava Biodiesel corretamente  no Sispetro Remoto
+
+Foi identificado no SisPetro Remoto que, quando utilizado o SmartCard, o cartão não estava sendo gravado quando a categoria do produto era Biodiesel. Esse problema foi corrigido. 
+ALP (CCF 12849)
+
+
+
+
+Faturamento
+
+
+
+
+Gravando Nota Fiscal de Saída com Erro ao Atualizar Temperatura e Densidade
+
+Na emissão de notas fiscais de saída, que utilizam a temperatura na portaria, em situações que gerassem algum erro, mesmo avisando ao usuário a nota fiscal era gravada e era necessário cancela-la posteriormente. Esse problema foi corrigido e caso ocorra algum erro a nota fiscal não será salva. 
+UPA (CCF 12882)
+
+
+
+
+Financeiro
+
+
+
+
+Impossibilidade de selecionar um Título para cancelamento de acréscimo
+
+A tela de Manutenção de Títulos não estava permitindo que o usuário selecionasse um título para cancelamento de acréscimo. Esse problema foi corrigido. 
+ALP ( CCF 12767)
+
+
+
+
+Fiscal
+
+
+
+
+Ajustes SPED PIS/COFINS
+
+Foram feitos vários ajustes no preenchimento dos dados do SPED PIS/COFINS. Os ajustes são: Configuração dos campos de valores para 2 decimais; não permitir gerar valores negativos nos Registros de Apuração; calcular a Alíquota de Quantidade diretamente da fórmula (Valor/Base Cálculo), sem usar a alíquota salva no Sispetro; garantir que o valor seja salvo com 0 (zero) quando esteja vazio; Ajustar os campos de Apropriação e Contribuição do Registro 0110. 
+GSN ( CCF 12751, 12667)
+

@@ -1,0 +1,67 @@
+TITULO: Desconto Condicional - Pagamentos até o Vencimento ou com Abatimento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2968388234
+--------------------------------------------------
+O objetivo do 
+Desconto Condicional como Abatimento, envolve especialmente o fato da Nota Fiscal ter valor cheio mas o cliente pagar com o abatimento até a data de vencimento do título.
+Para Utilizar o Desconto condicional, é necessário fazer as seguintes configurações:
+Cadastro de Clientes, aba 
+Padrão para Vendas (Clientes)
+:
+Marque a opção, 
+Permite desconto condicional
+Cadastro de Clientes, aba 
+: 
+Valor Desconto Condicional Unitário
+: se informado o valor de desconto condicional, será calculado no momento que estiver incluindo um pedido de venda, multiplicando este valor unitário com a quantidade do produto informado e resultando no desconto dado pela empresa ao cliente. Ver também em
+ 
+Inclusão do Pedido de Venda
+. Somente será possível informar este campo se o cliente tiver permissão para receber o desconto, através do perfil
+ 
+Permite desconto condicional
+. Veja mais informações em
+ 
+Padrão para Vendas (Clientes)
+.
+Tipo de Cobrança, 
+Painel Detalhes - Tipo de Cobrança
+:
+Selecione qual o 
+Uso do Desconto Condicional
+, veja como fica cada parâmetro aplicado no pedido de venda, por padrão 
+Como Desconto para Pagamentos até o Vencimento
+.
+Como Desconto para Pagamentos até o Vencimento: 
+nos casos de Tipo de Cobrança configurado para Desconto para Pagamentos até o Vencimento, o pedido é gerado com o valor unitário com o preço de tabela normal, porém o desconto é concedido valor a pagar no titulo do financeiro até a data de vencimento. 
+Ex.: Qtde 10.000   Preço Tabela 2,50   Desconto 0,30 Preço Final 2,50 Frete 0,10  
+Pedido
+ 
+Valor Produtos = 10.000 * 2,50 = 25.000,00
+Valor Frete Total = 10.000 * 0,10 = 1.000,00
+Valor Pedido = 25.000,00 + 1.000,00 = 26.000,00
+Desconto=10.000 x 0,30 =3.000
+Nota Fiscal
+Preço Unitário = 2,50  + 0,10 = 2,60
+Valor Nota Fiscal = 10.000 * 2,60 = 26.000,00
+Contas a Receber
+ 
+Saldo = 26.000,00
+Desconto = 3.000,00
+Como Abatimento:
+ nos casos de Tipo de Cobrança configurado para Desconto como abatimento, o pedido terá o valor final já com abatimento. Para isso, o preço unitário apresentado no pedido já deve diminuir o valor do Desconto Condicional configurado para a empresa, cliente e produto.
+Ex.: Qtde 10.000   Preço Tabela 2,50   Desconto 0,30 Preço Final 2,20 Frete 0,10  
+Pedido
+ 
+Valor Produtos = 10.000 * 2,20 = 22.000,00
+Valor Frete Total = 10.000 * 0,10 = 1.000,00
+Valor Pedido = 22.000,00 + 1.000,00 = 23.000,00
+Nota Fiscal
+Preço Unitário = 2,20 + 0,30 + 0,10 = 2,60
+Valor Nota Fiscal = 10.000 * 2,60 = 26.000,00
+Contas a Receber
+ 
+Saldo = 26.000,00
+Desconto = 3.000,00
+Observação: em ambos os casos a nota fiscal permanece o valor sem o desconto, o desconto é aplicado no título do contas a receber.
+Utilização de desconto via PIX: 
+a 
+partir do momento que o preço já vem menor, tudo fluirá com esse valor menor, inclusive a geração do PIX, que se baseia no valor do Pedido. O Adiantamento gerado utiliza o valor do PIX, então também será gerado com o valor considerando o abatimento.

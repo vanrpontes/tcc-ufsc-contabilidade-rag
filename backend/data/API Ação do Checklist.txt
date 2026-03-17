@@ -1,0 +1,99 @@
+TITULO: API Ação do Checklist
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4915396623
+--------------------------------------------------
+Introdução
+Funcionalidades disponíveis na API do Checklist
+Saber se o checklist do Frota ou do Motorista está vencido, para listar na API Oc do dia
+Atualizar o controle de Vencimento ou cancelar a OC ao ser acionada a API de retorno do Checklist.
+Além disso, há checklists diferentes para Carregamento e Descarga, algo que o Sispetro não diferencia atualmente.
+1. Obter token autenticação
+Introdução
+Este webservice tem por finalidade receber um CPF de Motorista, ID da OC e Conjunto de Placas para ação no SisPetro após o Checklist. Se o Checklist foi feito com sucesso, serão atualizados os Controles de Vencimento correspondente. Se não foi feito com sucesso, a OC com ID recebido será cancelada.
+O usuário autenticado deve ter o perfil 
+ckbCancelaOC (
+Pode cancelar OC
+) 
+habilitado
+ para poder acessar este método, e ser 
+realizar a configuração
+ no perfil de depósito 
+Checklist
+ 
+Para mais informações, ver 
+Documentação - API Obtenção de Token
+Endereço
+<endereço do SispetroWeb>/ordem_carregamento/acao_checklist
+Parâmetros
+Será necessário enviar um header com o token.
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+Content-Type
+tipo do formato de envio
+application/json
+Accept
+tipo do formato de envio
+application/json
+Body
+Layout abaixo em formato JSON.
+Chave
+Conteudo
+Pai
+Obrigatório
+placa1
+Placa principal. No caso de carreta, será a placa do Cavalo.
+Sim
+placa2
+Segunda placa, geralmente a carreta.
+Não
+placa3
+Terceira placa, geralmente o treminhão.
+Não
+placa4
+Quarta placa, geralmente o dolly.
+Não
+cpfMotorista
+CPF Motorista
+Sim
+checkListFrota
+0 - OK (Os frotas terão a data do controle de vencimento atualizada) , 1 - Não OK (OC passada em id_OC será cancelada)
+Sim
+checkListTransportadora
+0 - OK (O motorista terá a data do controle de vencimento atualizada), 1 - Não OK (OC passada em id_OC será cancelada) 
+Sim
+id_OC
+id da OC que será cancelada se checkListFrota for 0 
+OU
+ checkListTransportadora for 0 
+Sim
+Método
+POST
+Exemplo de chamada de WebService (exemplo de arquivo input: 
+checklist_acao_input.json)
+checklist_acao_input.json
+{
+"placa1": "JLY-4653",
+"cpfMotorista": "37319221004",
+"checkListFrota": 1,
+"checkListTransportadora": 0,
+"id_OC": 16211
+}
+curl --location 'http://localhost/ordem_carregamento/acao_checklist' \
+-X POST
+-d@arquivo_input.json
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjo4NCwiY25waiI6IjAwLjAwMC4wMDAvMDAwMC0wMSIsImRlcG9zaXRvX3BhZHJhbyI6bnVsbCwiZXhwIjoxNzE3NzY3NDAyfQ.j_CChFzlGOMkfvQ1psP8gaxZiKQ8yiD1pJnyVeUWkg0'
+Retorno Bem Sucedido
+Será retornado um objeto JSON com uma mensagem fixa e o status 200. 
+O status da resposta sempre será 200.
+{mensagem: "checklist processado com sucesso","status":200}
+Retorno Sem Sucesso
+Será retornado um objeto JSON com o motivo da não inclusão (poderá ser um erro de autenticação caso o token tenha expirado, ou seja inválido ou alguma regra de negócio não atendida. 
+O status da resposta sempre será diferente de 200.
+{"errors":{"base": OC inválida"},"status":422}

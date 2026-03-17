@@ -1,0 +1,58 @@
+TITULO: Regras para preenchimento dos campos de ICMS (Próprio e ST)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924282019
+--------------------------------------------------
+No SPED EFD os campos de valores de ICMS só podem ser preenchidos caso os valores sejam creditados/debitados na Apuração Fiscal. Com base nessa premissa, nem sempre o Sispetro pode simplesmente respeitar o que foi lançado na NF, pois, às vezes o valor precisa ser destacado na NF, mas a legislação não permite sua utilização.
+Com isso, o fator fundamental a ser considerado, atualmente é o CST (Código da Situação Tributária), já que o SPED também verifica essa informação para permitir ou não os valores de ICMS. Veja então as regras aplicadas:
+CST
+Situação na utilização do CST
+ICMS Próprio
+ICMS ST
+No SPED EFD
+000 - Tributado integralmente
+Sempre terá Valores de ICMS Próprio
+ 
+ 
+Sempre preencherá os campos de ICMS Próprio.
+Quando não tiver apresentará erro. 
+010 - Tributado com ST
+015 - Tributado com ST: produtos monofásicos
+Sempre terá Valores de ICMS Próprio e ST
+Sempre preencherá os campos de ICMS Próprio.
+Quando não tiver apresentará erro. 
+020 - Tributado com redução na Base de Cálculo
+Sempre terá Valores de ICMS Próprio e ST, porém a Base de Cálculo tem redução
+Sempre preencherá os campos de ICMS Próprio.
+O campo referente à Redução da Base de Cálculo só será preenchido caso a configuração para Redução tenha sido feita na Natureza de Operação e na tabela de ICMS 
+antes
+ de lançar a NF no Sispetro.
+Quando não tiver devidamente configurado apresentará erro. 
+030 -  Isenta ou não tributada e com cobrança do ICMS por substituição tributária
+Não deve ter valores de ICMS Próprio, mas deve ter valores de ICMS ST.
+Nunca preencherá os campos de ICMS Próprio, mesmo que estejam preenchidos na NF.
+No caso do  
+040 - Isenta
+Não deve ter valores de ICMS 
+Próprio e ST
+ Nunca preencherá os campos de ICMS Próprio e ST, mesmo que estejam preenchidos na NF.
+041 - Não tributada
+Não deve ter valores de ICMS 
+Próprio e ST
+ 
+Nunca preencherá os campos de ICMS Próprio e ST, mesmo que estejam preenchidos na NF.
+050 - Suspensão
+ 
+Nunca preencherá os campos de ICMS Próprio e ST, mesmo que estejam preenchidos na NF.
+051 - Com diferimento
+053 - Com diferimento: produtos monofásicos
+Pode ou não ter valores de ICMS, já que o Diferimento pode ser total (Valor do ICMS será zero) ou parcial
+Utilizamos o critério adotado na NF. Se nela estiver informado os valores de ICMS mandaremos no SPED.
+O diferimento parcial deve ser configurado como Diferimento, não como Redução 
+060 - Com substituição tributária anterior (Retido)
+061 - Com substituição tributária anterior (Retido): produtos monofásicos
+Nunca terá Valores de ICMS Próprio ou ST
+Nunca preencherá os campos de ICMS Próprio e ST, mesmo que estejam preenchidos na NF.
+070 -  Com redução de base de cálculo e cobrança do ICMS por substituição tributária
+PENDENTE
+090 - Outros
+É a situação das exceções, então pode ou não ter ICMS e mesmo tendo poderá ou não utilizar esses valores na Apuração Fiscal.
+ Por enquanto está sendo tratado caso a caso. Em breve colocaremos uma opção na Natureza de Operação.

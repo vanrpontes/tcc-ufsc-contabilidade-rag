@@ -1,0 +1,85 @@
+TITULO: Situação do Frete na Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2904621956
+--------------------------------------------------
+Na Nota Fiscal temos um campo para indicar a Situação do Frete (Essa informação poderá ser útil para a geração do SPED Fiscal), onde temos as seguintes opções:
+Por conta do Emitente
+Por conta do Destinatário
+Por conta de Terceiros
+Transp. Próprio Remetente
+Transp. Próprio Destinatário
+Sem cobrança de Frete
+As situações de Frete 
+Transp. Próprio Remetente
+ e 
+Transp. Próprio Destinatário
+ foram disponibilizados na versão 9.29 junto com a disponibilidade de emissão de notas na versão 4.0. Para utilizar essas duas situações de Frete o perfil de sistema 
+Uso da tabela de Fretes na NF-e
+ deve estar selecionado a opção 
+'A partir da versão 4.0 NF-e'
+.
+ 
+O campo que será disponibilizado para essa informação será o 
+Situação Frete
+ que poderá ser encontrado durante a inclusão da Nota Fiscal, conforme imagem abaixo:
+Importante: 
+Em notas de 
+venda
+ do tipo retira a situação do frete pode variar de acordo com as configurações de Sistema e da Tabela Frota, agora podemos informar se a situação vai ser por conta do Destinatário ou Emitente, e se ó transporte próprio ou de terceiros. Veja maiores detalhes através do help 
+Painel Operações Retira (Frotas)
+Para facilitar o preenchimento dos dados da Nota Fiscal uma regra será utilizada para definir o valor padrão do campo:
+Caso a Nota Fiscal venha por padrão preenchido com o frete do Tipo Entrega, por exemplo Outras Saídas, será sugerido 
+Por conta do emitente
+ no campo Situação Frete, se for Retira, por exemplo Vendas, por padrão será sugerido 
+Por conta do destinatário, 
+porem de ser configurado diferente através do
+ 
+Painel Operações Retira (Frotas)
+.
+O processo de importação de XML de Nota Fiscal também considerará essa informação durante a importação. A TAG responsável por essa informação é a 
+modFrete
+.
+Códigos de Situação de Frete
+Por conta de diferentes legislações, o código usado no tipo de frete será diferente no SPED e NFE, veja a tabela dos códigos abaixo:
+Código
+Descrição
+Código SPED
+Código NFE
+1
+Por conta do Emitente
+0
+0
+2
+Por conta do Destinatário
+1
+1
+3
+Por conta de Terceiros
+2
+2
+4
+Transp. Próprio Remetente
+3
+3
+5
+Transp. Próprio Destinatário
+4
+4
+9
+Sem cobrança de Frete
+9
+9
+Esta tabela será de uso interno do Sispetro e não terá manutenção pelo usuário.
+Vamos dar um exemplo
+:
+Suponha que será importada para o Sispetro uma NFe via XML que contém a situação do Frete "Por conta de terceiros".
+ No XML a ser importado, a TAG 
+modFrete
+ estará preenchida com o valor 
+2
+ (vide tabela acima), após a importação, no Sispetro, o campo 
+Cód. Situação Frete
+ que poderá ser encontrado na Manutenção de Notas Fiscais, estará preenchido com o valor 
+3
+. E ao gerar o SPED Fiscal do período que considere essa Nota importada, no registro correspondente a Situação do Frete será gerado o valor 
+2
+.

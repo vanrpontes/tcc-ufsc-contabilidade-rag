@@ -1,0 +1,85 @@
+TITULO: CT-e Conhecimento de Transporte Eletrônico
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913239203
+--------------------------------------------------
+Objetivo
+O Conhecimento de Transporte Eletrônico (CT-e) tem como objetivo a implantação de um modelo nacional de documento fiscal eletrônico para a substituição dos conhecimentos de frete em papel que acobertam os serviços de transporte interestadual e intermunicipal.
+O conceito é similar ao adotado para NF-e (Nota Fiscal Eletrônica), foi instituído pelo
+ AJUSTE SINIEF 09/07, de 25/10/2007
+, que poderá ser utilizado para substituir um dos seguintes documentos fiscais:
+Conhecimento de Transporte Eletrônico Rodoviário de Cargas, modelo 57;
+Conhecimento de Transporte Rodoviário de Cargas, modelo 8;
+Conhecimento de Transporte Aquaviário de Cargas, modelo 9;
+Conhecimento Aéreo, modelo 10;
+Conhecimento de Transporte Ferroviário de Cargas, modelo 11;
+Nota Fiscal de Serviço de Transporte Ferroviário de Cargas, modelo 27;
+Nota Fiscal de Serviço de Transporte, modelo 7, quando utilizada em transporte de cargas.
+O CT-e também poderá ser utilizado como documento fiscal eletrônico no transporte duto viário.
+Os estados que estão participando do projeto: São Paulo, Paraná, Mato Grosso e Rio Grande do Sul. Esse último abrangendo, além do próprio RS, AM, BA, CE, ES, GO, MA, RJ, RN, RO e SC. 
+Informações sobre CT-e
+Origem e Destino do Serviço de Transporte
+Para definir se uma operação de prestação de serviço de transporte é interna ou interestadual depende do Município/UF de origem e do Município/UF de destino.
+Exemplos:
+UF Origem
+UF Destino
+UF Transportadora
+CFOP
+Operação
+Tipo 
+Estabelecimento
+SP
+SP
+SP
+1353/5353
+Interna: UF Transportadora é igual à UF Origem. UF Origem é igual à UF Destino.
+Comercial
+SP
+PR
+SP
+2353/6353
+Interestadual: UF Transportadora é igual à UF Origem. UF Origem é diferente da UF Destino.
+Comercial
+PR
+PR
+SP
+1932/5932
+Interna: UF Transportadora é diferente da UF Origem. UF Origem é igual à UF Destino.
+Qualquer
+PR
+SP
+SP
+2932/6932
+Interestadual: UF Transportadora é diferente da UF Origem: UF Origem é diferente da UF Destino.
+Qualquer
+CFOP: 
+Depende do Tipo de Estabelecimento (3 últimos dígitos) 
+Operação:
+Depende da UF Origem e da UF Destino
+Regras para o envio dos dados de Expedidor e Recebedor no XML: 
+O SisPetro somente enviará os dados do Expedidor ou do Recebedor, quando informados em seus respectivos campos na tela de 
+emissão do CT-e
+. Na ausência, os dados não serão enviados. Ou seja, se o Remetente for o Expedidor e/ou o Destinatário for o Recebedor, os dados de Expedidor e/ou Recebedor não serão enviados no XML.
+Emitente do CT-e: 
+Empresa transportadora
+Remetente do CT-e:
+Empresa responsável pela saída do produto. Na emissão do conhecimento de transporte, o Remetente é representado pelo o preenchimento do campo de Entidade Remetente da aba lateral Geral. 
+Expedidor do CT-e:
+Empresa responsável pelo envio do produto. Para indicar o Expedidor no conhecimento de transporte preencha o campo de Entidade Retirada na aba lateralOutras Inf. 
+Ao indicar o Expedidor, serão enviados os dados no XML.
+Para mais informações, ver 
+Como emitir um Conhecimento de Transporte CT-e
+.
+Para saber mais
+As regras para emissão de CT-e são muito semelhantes as de 
+NF-e - Nota Fiscal Eletrônica
+.
+Configurações. Para mais informações, ver 
+Configuração da Empresa para CT-e
+.
+O Envio de boletos Funciona semelhante a NF-e. Para mais informações, ver 
+Serviço de E-mail
+.
+No cadastro de Frotas, dar atenção especial aos campos RENAVAM Registro, e Nacional de Transportador de Carga (ANTT) que são obrigatórios. Para mais informações, ver 
+Manutenção de Frotas
+As regras sobre emissão de Recibo, Protocolo, Cancelamento e Inutilização são semelhantes a usada na NF-e. Para mais informações, ver 
+NF-e - Nota Fiscal Eletrônica
+.

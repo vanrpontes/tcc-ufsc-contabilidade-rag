@@ -1,0 +1,20 @@
+TITULO: Backup do Banco de Dados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903508155
+--------------------------------------------------
+Configuração de Backup
+O usuário deverá fazer o backup do Banco de dados para que nada seja perdido durante o processo.
+Para criação do Backup o usuário poderá efetuar a cópia manualmente, seguindo os passos abaixo:
+Não ter ninguém conectado no Sispetro;
+Parar o Servidor Sispetro;
+Parar o serviço do banco de dados;
+Identificar a pasta onde se encontra o banco de dados atual;
+Gerar uma cópia da pasta que contém os arquivos .db, .log e .bat (scgwin.db, scgwin.log e startdb.bat - se existir);
+Renomear a pasta de forma que facilite a identificação para o novo ambiente de teste.
+Exemplo:
+ Banco_Teste
+Configurar o arquivo .bat, o ODBC, arquivo .ini e o Servidor Sispetro para que visualize o banco de teste. Para isso, siga as orientações para configuração conforme a versão utilizada para o Sybase.
+Sybase 7
+. utilizado somente até a versão 7.27.
+Sybase 12
+.
+Para configurações mais detalhadas de backup, o usuário deverá ter conhecimento para utilização do Sybase Central 4.0.

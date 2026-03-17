@@ -1,0 +1,394 @@
+TITULO: Painel Vendas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918974349
+--------------------------------------------------
+none
+Objetivo
+A tela de 
+Padrões para Vendas
+ permite configurar valores e regras sugeridos automaticamente na inclusão de clientes e pedidos, como limite de crédito, moeda, transportadora, depósito, condição de pagamento e natureza de operação. Também define permissões de aprovação, bloqueios por inconsistências, validações de documentos, regras de preço, cota, contratos e controle financeiro. Há perfis específicos para transporte, tabela de preços, recálculos, controle por grupo econômico e regras para pedidos vinculados a contratos. O sistema pode bloquear pedidos por cadastro desatualizado, excesso de cota, preço fora do intervalo ou documentos pendentes. Por fim, controla parâmetros adicionais como motivos de cancelamento, quantidade de vias, casas decimais, exibição de informações, seguros e regras para vendas futuras.
+O acesso a essa tela se dá através de Ferramentas / Sistemas / Vendas
+Aqui será definido os padrões que serão sugeridos na inclusão de clientes no perfil de vendas além das configurações relacionadas ao pedido de venda.
+Conhecendo os Perfis
+Limite Crédito:
+ quando é definido um valor neste campo, ao incluir um cliente, o SisPetro sugere este valor como limite de crédito.
+Número Máximo Itens:
+ este perfil define o número máximo de itens num pedido de venda.
+Transportadora:
+ este perfil permite que seja definida uma transportadora padrão, que será utilizada para clientes novos.
+Moeda:
+ este perfil permite que seja definida uma moeda padrão, que será utilizada para clientes novos.
+Natureza de Operação:
+ este perfil permite que seja definida uma natureza de operação padrão, que será utilizada para novos produtos.
+Arquivo de Layout Pedido:
+ caminho do layout de impressão do pedido.
+Arquivo de Layout Pedido Venda Direta:
+ caminho do layout de impressão do pedido de venda direta.
+Mostra gráfico movimento produtos automaticamente?:
+ com este perfil marcado, o SisPetro apresenta informações de últimas OC, com os respectivos valores, no cadastro de produtos - Aba Quantidades/Informações. Para mais informações, ver 
+Quantidades-Informações
+.
+Altera pedido após aprovação?: 
+quando habilitado, permite que os pedidos sejam alterados após aprovação. 
+Perfil não utilizado por empresas que operam no ramo de combustíveis.
+Aprova financeiro mesmo com débitos atrasados do cliente: 
+permite que o usuário aprove pedidos de clientes que possuam débitos atrasados.
+Usuário aprova pedido por filial?:
+ este perfil se marcado, os usuários só poderão aprovar os pedidos nas filiais que tiverem permissão. A permissão é liberada no menu Ferramentas / Usuários aba
+ Filiais p/ Aprovação de Vendas
+. Caso não tenha nenhuma filial selecionada, o usuário não conseguira aprovar os pedidos em nenhuma filial, uma vez que nenhum pedido será exibido na 
+Consulta Pedidos Pendentes
+.
+Aprova pedido mesmo se usuário mudar tab. preço:
+ quando marcado, permite que o pedido seja aprovado mesmo que o usuário altere a tabela de preço.
+Trabalha com Aprovação de Transporte:
+ define se a empresa trabalhará ou não com Aprovação de Transporte.
+Faz análise de Aprovação de Pedido via Web através de serviço:
+ habilitando essa opção os pedidos incluídos via SisPetro Web/App ficarão com status de 
+Necessita analise
+ e irão aguardar o serviço de 
+Análise de aprovação de Pedido
+ ser executado. Para mais informações,
+ ver 
+Aprovação Automática Pedido de Venda incluídos via SispetroWeb
+.
+Verificação mudança de tabela de preço em pedidos com alteração de depósito: 
+quando habilitado, caso o pedido estiver pendente, alterar o código do depósito e as tabelas de preço entre o depósito antigo e o depósito novo forem diferentes o SisPetro deixará o pedido pendente de aprovação. Para mais informações, ver 
+Aprovação de Vendas
+.
+#Prazo para faturamento após aprovação (dias úteis):
+ perfil que define o número máximo de dias úteis para faturamento após o pedido já ter sido aprovado.
+Títulos renegociados pendentes: 
+quando utilizado, a opção 
+Não
+ aprova pedido caso tenha o SisPetro verifica na aprovação financeira de pedidos de venda, se o cliente tem títulos renegociados pendentes, caso tenha o pedido fica pendente de aprovação.
+Aprovação manual: preço de tabela do pedido X atual:
+ este perfil tem por objetivo avisar caso, na aprovação manual, o preço de tabela do pedido seja diferente do preço de tabela atual.
+Não verifica
+: não verifica o preço.
+Alerta caso esteja divergente
+: apresenta mensagem em casos em que o preço é diferente. Neste caso, o SisPetro verifica o preço de tabela salvo 
+em cada item do pedido
+ e o preço de tabela atual (o mesmo que seria apresentado caso o pedido estivesse sendo incluído nesse momento, com as mesmas características de UF do cliente, código de tabela de preço, tipo de cobrança, Consumidor Final ou não) e apresenta o alerta, caso seja diferente.
+Preço Fora de Intervalo x Aprovação Manual:
+ perfil determina a Forma de Aprovação quanto a alteração de Preço, pode ser configurado de duas maneiras.
+Quando estiver Fora do intervalo Mínimo e Máximo.
+Quando estiver abaixo do preço sugerido.
+Agrupamento permitido na Aprovação em Lote de Pedidos
+Mesmo cliente Comprador no Pedido.
+Mesmo grupo econômico cadastrado.
+Livre.
+Depósito Padrão:
+ este perfil permite que seja definida um depósito padrão, que será utilizada para clientes novos.
+Condições de Pagamento:
+ este perfil permite que seja definida uma condição de pagamento padrão, que será utilizada para clientes novos.
+Tipo Cobrança:
+ este perfil permite que seja definida um tipo de cobrança padrão, que será utilizada para clientes novos.
+Considera Sábado como dia Útil?:
+ este perfil valida se o Sábado é considerado com Dia Útil para o cálculo de prazos.
+#Vias Pedido:
+ deve-se informar o número de vias para impressão do pedido de venda.
+#CasasPUnit.:
+ deve-se informar a quantidade de casas decimais a serem consideradas para os pedidos de venda.
+Status Inic. Cliente:
+ permite que seja definido um status para clientes novos.
+PT:
+ cliente em Potencial - cadastro não aprovado.
+LV:
+ cliente Livre - cadastro aprovado mas sem vendedor.
+AT:
+ cliente Ativo - com  vendedor.
+Para mais informações, ver 
+Mudando o Status de um Cliente.
+Utiliza vinculo de Tipo de Cobrança à Condição de Pagamento:
+ 
+com essa opção marcada, é possível trabalhar com o processo de vínculo entre uma 
+Condição de Pagamento
+ e um 
+Tipo de Cobrança
+. Isso trará facilidades na 
+Inclusão do Pedido de Venda
+.
+Bloqueia entidade cadastro desatualizado: 
+bloqueia a inclusão de pedido de venda para clientes cujo cadastro está desatualizado.
+#Dias para bloqueio:
+ número de dias definido para bloquear a inclusão de pedido de vendas em casos de cadastros desatualizados.
+Bloqueia pedido com excesso de cota:
+ bloqueia inclusão de pedido para clientes com excesso de cota.
+Bloqueia pedido caso preço fora do intervalo tabela:
+ bloqueia inclusão de pedido de venda caso o valor do pedido seja maior ou menor do que o mínimo e máximo cadastrados na tabela de preços.
+Valida documentos de Clientes na inclusão de Pedido:
+ habilitando esse perfil o SisPetro ira realizar a validação dos documentos na inclusão/alteração de pedido.
+Controle de Documentos de Clientes: 
+esse perfil define o tipo de controle de documentos de clientes.
+Verifica somente se falta imprescindível:
+ selecionando essa opção vai ser verificado somente se falta documento imprescindível.
+Verifica se falta imprescindível e data de validade:
+ selecionando essa opção vai realizar a verificação dos documentos imprescindíveis e com data de validade vencidas.
+Verifica somente data de validade dos documentos:
+ selecionando essa opção vai realizar a verificação e só permitir a inclusão se os clientes (do pedido ou dos itens) não tenham documentos vencidos.
+Força digitação/validação UF cliente nos itens pedido: 
+exige que seja digitada a UF do cliente na inclusão do pedido de vendas.
+Valida documento cliente no pedido de venda: 
+na inclusão de um pedido de venda checa os documentos cadastrados para o cliente e apresenta mensagem.
+Avisa quando cliente tiver débitos atrasados: 
+ao incluir um pedido de vendas, SisPetro apresenta mensagem de que o cliente possui débitos atrasados.
+Cliente faturado pode ser diferente do pedido?: 
+com esta opção marcada, o cliente faturado pode ser diferente do cliente do pedido.
+Tem Base Primária: 
+permite que seja definido no depósito se o cliente possui ou não base própria.
+Avisa quando não tiver IE para o estado: 
+apresenta mensagem quando não tem inscrição estadual substitutiva cadastrada para estado, no perfil de sistema 
+Painel IE Substituição/CNAE
+.
+Permite compra atravessador: 
+quando marcado, permite que seja feito pedidos com atravessador.
+Atualiza  Data Última Venda Comprador na entidade?: 
+apresenta a data da última venda feita para este comprador no cadastro do cliente.
+Restringe Transportadoras no Pedido de Venda Retira: 
+trabalha em conjunto com o perfil de usuário 
+Pode cadastrar Transp./Motorista permitidos nos Clientes
+. Para mais informações, ver 
+Painel Fretes (Usuários)
+. Com o perfil marcado, nos pedidos de vendas em que a modalidade do frete seja 
+Retira
+ só será possível finalizar o pedido com as transportadoras previamente cadastradas no cadastro de
+ Clientes
+.
+Restringe Frotas no Pedido de Venda Retira: 
+na inclusão de um pedido de venda retira, restringe os frotas que poderão atender este pedido, em função da definição no Cadastro do Cliente.
+Preenche Data Prevista Entrega?: 
+com esta opção marcada é possível informar a data prevista de entrega do pedido de venda.
+Controle venda para Grupo Econômico: 
+com esta opção marcada é possível controlar as vendas para o grupo econômico dos clientes.
+#Dias Úteis Entrega Posterior permitido: 
+permite que seja definida a data máxima de entrega dos pedidos incluídos, com base na data atual.
+Informa Motivo de Cancelamento do Pedido: 
+quando marcado, SisPetro obriga a informação de um motivo no cancelamento de um pedido de venda.
+Grava data do Pedido pelo Servidor: 
+grava data e hora do pedido conforme horário do servidor.
+Motivo Cancelamento para Desmembramento do Pedido: 
+permite que seja definido um motivo padrão para casos de desmembramento de pedido de venda.
+Controla Cota Venda: 
+permite que seja feito controle das cotas de vendas definidas para o cliente.
+Após inclusão, abre tela pedido novo: 
+com esta opção selecionada, ao finalizar a inclusão de um pedido de venda, o SisPetro abre a tela para inclusão de uma novo pedido.
+Visualiza venctos no pedido
+: permite que sejam vistos os títulos a receber do cliente.
+Controla Promotor de Vendas: 
+permite que a empresa trabalhe com promotor de vendas, que será definido no cadastro do cliente.
+Bloqueio de pedido por bandeira: 
+caso seja marcado só será possível incluir pedidos de vendas para Postos com bandeira Branca ou igual a da Distribuidora. Veja mais informações de como cadastrar as bandeiras corretamente em 
+Tabela Bandeiras
+.
+Emite Pedido de Vendas com Tipo de Operação diferenciado: 
+é utilizado no controle de Vendas de Entrega Futura. Para mais informações, ver 
+Pedido de Entrega Futura
+.
+Exibe tela Destino da Emissão no final da Inclusão/Alteração: 
+este perfil permite definir se o SisPetro exibirá ou não a tela de impressão na finalização do Pedido de Venda. O usuário poderá imprimir via manutenção de pedidos.
+Exibe campo #Item Ped. Cliente nos itens do Pedido?:
+ apresenta campo de número do pedido do cliente nos itens do pedido para que seja preenchido manualmente Para que o campo seja apresentado no XML, habilite na natureza de operação. Para mais informações, ver 
+Dados Gerais (Painel Por Filial)
+.
+Recálculo de Preço e Frete no Pedido de Venda:
+Avisa e faz o recálculo: 
+o SisPetro irá mostrar de aviso de recálculo (Os preços dos itens...) conforme imagem abaixo, caso seja alterado algum campo que impacte no cálculo do preço do pedido.
+Os campos que interferem no cálculo e essa mensagem é mostrada: condição de Pagamento; Tipo de cobrança; Tabela de preço; Retira/Entrega; Data de entrega (Tabela de preço X Vigência); Endereço de entrega; Motorista; Frota.
+Não avisa e faz o recálculo: 
+o SisPetro faz o recálculo caso seja alterado algum campo que impacte no cálculo do preço do pedido.
+Não permite Alterações se tiver itens:
+ o SisPetro não permitirá alterar nenhum campo que impacte no cálculo do preço do pedido.
+Quadro Aviso Manifestações Pendentes na Inclusão de Pedido: 
+esse perfil permite habilitar um aviso para que na Inclusão do Pedido de Venda, seja avisado quando o cliente tem alguma manifestação pendente 
+ (NF com Ciência não é considerada manifestada)
+.
+Não Avisa: 
+não realiza nenhum aviso ao incluir os pedidos.
+Avisa buscando NFs da empresa do pedido: 
+realiza a verificação de manifestações pendentes do cliente utilizado no pedido, buscando as manifestações da empresa conectada e realiza o aviso ao finalizar a inclusão de pedido de venda.
+Avisa buscando NFs de todas as empresas: 
+realiza a verificação de manifestações pendentes do cliente utilizado no pedido, buscando as manifestações de todas as empresas e realiza o aviso ao finalizar a inclusão de pedido de venda.
+Serão consideradas manifestadas aquelas com manifestação do tipo Confirmada, Desconhecimento ou Operação Não Realizada..
+Período:
+ o perfil de período é utilizado para definir um período de busca das manifestações, 
+será considerado como base a data de emissão da NF, veja logo abaixo um exemplo.
+Exemplo de configuração de período:
+Se estiver configurado De 180 dias Até 2 dias, no dia 08/06/2020, pesquisará de 11/12/2019 a 06/06/2020.
+Se estiver configurado De 45 dias Até 0 dias, no dia 08/06/2020, pesquisará de 24/04/2020 a 08/06/2020.
+Valor do contrato x Pedido no contrato de venda: 
+este perfil ficará disponível no momento da inclusão do pedido de venda, e permite que no momento de se vincular o contrato ao pedido, o usuário não possa alterar o valor do pedido (campo preço) ou o preço de tabela (Campo Preço Tabela). Isso irá depender do perfil da empresa 
+Valores Financeiro X Faturamento. Para mais informações, ver
+ 
+Painel Financeiro
+. Das opções deste perfil, temos:
+Valor do pedido é sobreposto com o valor do Contrato:
+ esta opção fará com que, independente do preço de tabela ou informado no pedido, o preço seja sobreposto pelo preço que foi lançado no contrato de venda.
+Valor do pedido permanece inalterado mesmo com o vínculo:
+ essa opção é sugerida no momento da inclusão do contrato de vendas e permite que no momento de se vincular o contrato ao pedido, o usuário possa alterar o valor do pedido (campo preço) ou o preço de tabela (Campo Preço Tabela), independentemente da configuração do perfil da empresa 
+Valores Financeiro X Faturamento.
+Gera Qtde na NF (Contrato Venda) pela OC: 
+opção que configura se o Pedido de Venda será gerado pela quantidade da OC.
+Bloqueia Cota do Contrato de Venda: 
+realiza a validação da cota do contrato de venda, com esse perfil marcado o SisPetro não permitira uma venda que exceda a cota diária informada no contrato.
+Pedido sem Contrato de Venda: 
+c
+aso seja feito um Pedido sem vínculo de Contrato e a entidade compradora tenha Contrato de Venda com saldo disponível para aquela empresa, depósito e produto, mas o mesmo não foi utilizado, com este perfil marcado, será apresentado um aviso ao usuário solicitando se deve continuar ou abortar o processo:
+Não verifica, permite livremente: 
+não apresenta aviso.
+Avisa caso exista Contrato com Saldo Pendente para a Entidade Compradora: 
+apresenta avisa caso tenha contrato com saldo pendente.
+Utilização de Contrato de Vendas: 
+perfil permite definir se uma entidade faturada, pertencente a um grupo econômico, pode ou não utilizar contrato de venda do Comprador do mesmo grupo econômico:
+Só utiliza contratos da própria entidade faturada.
+Utiliza contratos próprios ou do comprador do grupo econômico.
+Aprovação de Pedidos vinculados a Contrato de Venda: 
+perfil permite definir se um pedido de venda vinculado a um Contato de Venda, será aprovado automaticamente ou seguirá o Fluxo de 
+Aprovação Financeira
+.
+Aprova Automaticamente.
+Segue Fluxo de Aprovação.
+Verifica CPF transportadora: 
+com este perfil marcado, o SisPetro passará a validar se foi informado o CPF/CNPJ do Motorista/Transportadora. A validação ira ocorrer ao realizar o cadastro em 
+Tabela Transportadoras / Motoristas
+, ou ao finalizar uma Ordem de Carregamento ou Pedido de Venda.
+Valida documento transportadora: 
+com este perfil marcado, o SisPetro passará a validar se o CPF/CNPJ informado no Motorista/Transportadora é um CPF/CNPJ valido. A validação ira ocorrer ao realizar o cadastro em 
+Tabela Transportadoras / Motoristas
+, ou ao finalizar uma Ordem de Carregamento ou Pedido de Venda.
+Controla CNH motorista: 
+com este perfil marcado, o SisPetro passará a validar se foi informado o número da CNH do motorista. Para informa-lo basta ir em 
+Tabela Transportadoras / Motoristas
+. Este perfil é utilizado na 
+Validações na emissão de Nota Fiscal
+ .
+Preço no Ped. Venda
+Altera preço tabela zerado segundo desconto?: 
+quando habilitado, o preço de tabela está zerado e o percentual de desconto é diferente de 0, o SisPetro recalcula o preço de tabela com base no valor do desconto.
+Forma de Cálculo do Prazo de Condições Pagto
+Maior Prazo de Itens Cond. Pagto: 
+utiliza o maior prazo das parcelas no campo de prazo.
+Média Simples de Prazo de Itens Cond. Pagto: 
+ao utilizar essa opção o SisPetro pega os prazos das parcelas e realiza uma média simples, com base nesse resultado é preenchido o campo prazo na condição de pagamento.
+Média Ponderada de Prazo de itens Cond. Pagto: 
+ao utilizar essa opção o SisPetro pega os prazos das parcelas e realiza uma média ponderada, com base nesse resultado é preenchido o campo prazo na condição de pagamento.
+A aprovação é realizada com base no prazo da condição de pagamento cadastrada no Cliente, o SisPetro verifica se a condição utilizada no pedido é igual ou menor que a condição cadastrada no cliente, e não mais ao simplesmente alterar a condição de pagamento.
+Inclui acréscimo/decr. no preço p/ condição pagto: 
+o acréscimo/desconto incluído no pedido de venda é considerado no custo financeiro. Veja mais informações em 
+Calculo do Acréscimo do Custo Financeiro
+.
+Tipo acréscimo Financeiro Tabela Preços: 
+permite escolher como será o acréscimo financeiro na tabela de preços. Para mais informações, ver 
+Calculo do Acréscimo do Custo Financeiro
+.
+Percentual do Preço:
+ se selecionado, deve-se informar o percentual que será considerado para acréscimo financeiro no preço de tabela.
+Valor por litro: 
+se selecionado, deve-se informar o valor por litro que será considerado para acréscimo financeiro no preço de tabela.
+Trabalha com acréscimo financeiro por filial: 
+permite
+ que seja informado o percentual de Acréscimo de Custo Financeiro por Empresa.
+Calcula custo financeiro segundo Preço Tabela:
+ caso marcado, SisPetro fará o cálculo do custo financeiro conforme o preço de tabela. Para mais informações, ver 
+Calculo do Acréscimo do Custo Financeiro
+.
+Visualiza preço tabela no pedido?: 
+permite que o usuário veja a tabela de preço que está sendo utilizada no pedido de venda.
+Informa preços (a vista/prazo) no Pedido de Venda: 
+quando marcado, apresenta os valores a vista e a prazo na tela de inclusão de pedidos de vendas.
+Ação de comparação custo x preço no pedido de venda: 
+permite que seja definido se haverá ou não comparação entre o custo do produto e o preço no pedido de venda.
+Não verifica: 
+não realiza comparação do custo com o preço do pedido de venda.
+Avisa e pedido fica pendente para aprovação: 
+avisa se há diferença entre o custo e o preço do pedido de venda, e se houver diferença, não aprova automaticamente o pedido.
+Torna pedido pendente se preço tabela alterado pedido: 
+não aprova o pedido automaticamente, caso o preço de tabela seja alterado no pedido de venda.
+Aparece na consulta de tabela de preços: 
+permite definir se a empresa será ou não apresentada na consulta de Tabela de Preços (Consulta / Tabela Preço).
+Visualiza Cons. Final na Tabela de Preços: 
+permite definir se a informação de consumidor final será ou não apresentada nas tabelas de preços.
+Valor comparado com o preço máximo de tabela: 
+na inclusão de um pedido de venda, o SisPetro os aprova automaticamente, desde que não haja grande discrepância no valor do mesmo. Assim, para considerar o valor máximo, deve-se definir este perfil de acordo com as informações abaixo descritas:
+Preço unitário informado no pedido:
+ SisPetro verifica somente o valor máximo do produto para venda.
+Preço unitário somado a acessórios (frete, seguro, etc.):
+ SisPetro verifica o valor máximo do produto somando os valores de despesas acessórias, tais como seguro, fretes.
+Contrato de Rede Própria - Recálculo
+Os cálculos dos valores realizados para contratos de rede própria são feitos através da leitura das notas fiscais faturadas para este cliente, distribuindo os valores mensalmente e para os previstos, o SisPetro recalcula os valores definidos no contrato, distribuindo as quantidades de cada produto por mês.
+Para o recálculo do previsto e realizado, o período para análise deve ser informando neste perfil. Para mais informações, ver 
+Rede Própria (Clientes)
+.
+Caminho do arquivo de layout do Pedido de Alteração de Preço: 
+caminho do layout de impressão do pedido de alteração de preço. Para mais informações, ver 
+Pedido Alteração de Preços
+.
+Configuração de Comissão de Vendas: 
+permite que seja definida se a comissão de vendas será definida por vendedor ou por cliente.
+Por Vendedor: 
+ver 
+Aba Comissão
+.
+Por Cliente: 
+ver 
+Padrão para Vendas (Clientes)
+.
+Verifica Limites e Valores do G.Econômico para Aprovação: 
+essa opção configura o SisPetro para trabalhar no formato atual de Grupo Econômico. Para mais informações, ver 
+Informações do Grupo Econômico
+ e 
+Grupo Econômico - Detalhamento
+.
+Utiliza Adiantamento Comprador da Entidade: 
+essa opção permite utilizar adiantamentos incluídos em nome do Comprador para a Entidade Faturada (desde que pertencente ao mesmo Grupo Econômico), sem a necessidade de fazer transferências.  Para mais informações, ver 
+Utilização de Adiantamentos de Compradores para Entidades Faturadas
+.
+Controle Assistente de Venda:
+ permite que a empresa trabalhe com Assistentes de Vendas, que devem ser vinculados aos clientes (
+Dados Gerais (Clientes)
+).
+Vínculo do Assistente ao Vendedor: 
+permite definir se o assistente terá vínculo com um único vendedor ou não trabalha com um vendedor em específico.
+Sem vendedor pré-definido.
+Vinculado a um único vendedor.
+Momento da liberação do contrato de Venda - Entrega Futura: 
+é utilizado no controle de Vendas de Entrega Futura, onde permite definir se a liberação acontecerá na inclusão da nota fiscal ou na quitação dos títulos.
+ Para mais informações, ver
+ 
+Pedido de Entrega Futura
+.
+Permite qtde decimais no pedido:
+ permite definir quantidade com casas decimais na inclusão do pedido de venda.
+Permite qtde decimais no adiantamento: 
+permite definir quantidade com casas decimais na inclusão do adiantamento.
+Período para exibição de dados na Man. de Pedidos
+Esse intervalo que aparece no grupo 
+Período para exibição de dados
+ é sugerido automaticamente quando o usuário entra na tela de 
+Manutenção do Pedido
+, mais isso não impede que o período seja modificado.
+Cores Consulta Pedidos (Pendentes e Aprovados e Não Faturados): 
+esta opção permite definir as cores dos tipos de clientes nas telas de Pedidos Pendentes e Pedidos Aprovados e Não Faturados.
+Conforme configuração padrão na tela:
+ apresentará as cores padrões do SisPetro.
+Conforme configuração em Tipos de Clientes:
+ apresentará as cores conforme configurado em Tipos de Clientes.
+Habilita Seguros?: 
+com este perfil marcado, irá habilitar o campo Seguro na inclusão do Pedido de Venda.
+Perfil Segurado:
+ permite que seja definido se os pedidos terão ou não seguro, conforme opção abaixo.
+Sem seguro: 
+os pedidos nunca terão seguro.
+Usuário Escolhe: 
+o usuário definirá se o pedido terá ou não seguro.
+Com seguro: 
+todos os pedidos terão seguro.
+Padrão: 
+permite definir o tipo de seguro que será considerado no pedido.
+Permissão de Seguro x Modalidade Frete:
+ permite que seja definido se o seguro será para pedidos do tipo retira ou entrega, conforme opções abaixo.
+Em ambas modalidades: 
+tanto para retira quanto para pedidos do tipo entrega.
+Somente Retira: 
+somente para pedidos do tipo retira.
+Somente Entrega: 
+somente para pedidos do tipo entrega.

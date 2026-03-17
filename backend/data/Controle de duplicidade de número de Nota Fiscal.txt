@@ -1,0 +1,113 @@
+TITULO: Controle de duplicidade de número de Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440426
+--------------------------------------------------
+O SisPetro possui alguns controles para bloquear ou não a emissão de notas fiscais duplicadas.
+Controle para notas de Entrada e Saída.
+ É preciso configurar de 
+DUAS
+ formas:
+Perfil de Sistema , aba 
+Nota Fiscal.
+ 
+Bloqueia #NF duplicado
+ 
+Natureza de Operação
+ 
+Duplicidade #NF.
+Configurado o Perfil de Sistema e a Natureza de Operação, é necessário configurar como o SisPetro vai validar a 
+Regra quando duplicar #NF
+.
+Número NF e Série.
+ 
+Se este parametro for marcado, a validação será da seguinte forma:
+Caso haja alguma nota fiscal com o 
+mesmo número
+, mas 
+série
+ diferente, a nota será duplicada.
+Caso haja nota fiscal com o 
+mesmo número
+ e 
+mesma série
+, não será possível incluir esta nota.
+Série, Número NF e Entidade
+ 
+Se este parametro estiver marcado, a validação se dá da seguinte forma:
+Notas com: Mesmo número, mesma entidade mas série diferente, a nota será duplicada
+Notas com: Entidade diferente, mesma série e número, será incluída.
+Notas com: Série, entidade e número iguais, a nota 
+não
+ será incluída.
+Tabela de Combinações
+Duplica?
+Nat Op
+Sistema
+S
+Habilitado
+Habilitado
+S
+Habilitado
+Desabilitado
+N
+Desabilitado
+Habilitado
+S
+Desabilitado
+Desabilitado
+Cenários
+Como é visto na tabela acima, a única combinação de perfil para 
+não
+ duplicar NF é com o perfil de sistema 
+Habilitado
+ e o perfil da natureza de operação 
+Desabilitado
+ , ou seja uma 
+DICA
+ seria:
+Para notas de saídas, que na teoria não podem ser duplicadas, deixar as naturezas 
+desabilitadas
+ e o perfil de sistema _ habilitado_, pois assim não há chances de algum erro.
+Para notas de entradas, onde a emissão seja de terceiros, ou seja, são notas de fornecedores diferentes, onde há a possíbilidade de ter duas notas com o mesmo número, 
+sugerimos
+, como o perfil de sistema já esta 
+Habilitado
+ para bloquear a duplicidade das notas de saídas, apenas marcar a opção na natureza de operação para 
+permitir duplicidade
+ .
+ Assim com essa configuração notas de entrada 
+podem
+ ser duplicadas, e notas de saídas 
+não
+.
+Nota Fical de Conhecimento
+A mesma regra utilizada para notas de Entrada e Sáida, é utilizada para notas de conhecimento, ou seja, se apenas o perfil de Sistema estiver marcado para não deixar duplicar notas, não será possível emitir duas notas com o mesmo número, porém se a opção 
+Pode duplicar numero de conhecimento de frete
+ , 
+Ferramentas / Sistema / aba Frete
+ , estiver marcada, o usuário consegue duplicar as notas fiscais de conhecimento.
+Quando puder duplicar nº NF/Conhecimento usar regra
+A regra para duplicar notas fiscais de conhecimento, é um pouco diferente, temos duas formas:
+Padrão
+ 
+ O Sistema verifica o número do conhecimento e número da entidade, caso os dois sejam iguais a nota não será duplicada.
+Regra por Série da Nota Fiscal/Conhecimento.
+ 
+ Neste caso, é verificado como esta a configuração para duplicar notas na 
+Tabela Série Notal Fiscal
+ e também a entidade. Sendo assim a validação se dá pelos seguintes paramenttros: Série NF, Número NF e Entidade.
+Tabela de Combinações
+Duplica?
+Nat Op
+Sistema
+S
+Habilitado
+Habilitado
+S
+Habilitado
+Desabilitado
+S
+Desabilitado
+Habilitado
+N
+Desabilitado
+Desabilitado

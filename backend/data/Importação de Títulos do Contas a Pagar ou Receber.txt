@@ -1,0 +1,121 @@
+TITULO: Importação de Títulos do Contas a Pagar ou Receber
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439891
+--------------------------------------------------
+
+
+Usuário, 
+
+
+Aqui está um resumo com uma seqüência ordenada de como utilizar o recurso de Importação de Títulos.
+
+
+Após tomar conhecimento da a estrutura de layout de importação da Futura, siga os passos abaixo na mesma ordem apresentada.
+
+
+
+
+1º: Manutenção Importação de Dados
+
+
+Acesse o menu Ferramentas/ Importação Dados/ Manutenção Importação de Dados.
+
+
+1.1. Confirmar o caminho que se encontra o arquivo 
+TITULOS.SMI
+ da Futura através do campo 
+Path Arquivo Layout
+.
+
+Geralmente é o mesmo caminho onde está o executável do sispetro (scg.exe). Caso este campo não seja preenchido, o sispetro irá procurar automaticamente no diretório onde está o executável ou onde foi definido na linha de comando 
+caminhoarquivosauxiliares
+, do arquivo INI.
+
+
+1.2. Preencher o campo 
+Máscara Diretório
+ com a extensão do arquivo de importação.
+
+Geralmente *.txt ou *.csv. Isso servirá como filtro no momento da escolha dos arquivos que serão importados lá na tela de Importação dos Títulos.
+
+
+Para maiores detalhes veja no Help o tópico 
+
+
+2º: Manutenção De/Para
+
+
+Acesse o menu Ferramentas/ Importação de Dados/ Manutenção De/Para.
+
+
+
+
+Esta tela é utilizada para o cadastro dos dados que serão trocados no momento da importação do arquivo. Verificar quais os dados que constam no arquivo de importação e que precisarão ser trocados.
+
+
+
+ 
+Exemplo:
+
+Vamos supor que o código do TIPO DE COBRANÇA do BRADESCO dentro do arquivo venha como BRADE01 e no Sispetro está cadastrado como ER.
+
+
+
+
+Então temos que fazer um de/para:
+
+De BRADE01 para ER
+
+
+Isto deve ser feito com todos os campos que precisarem de troca. Se algum campo estiver em branco no arquivo, deve-se fazer o De/Para como 
+em branco
+ para o dado do Sispetro.
+
+
+Para maiores detalhes veja no Help o tópico 'Manutenção De/Para'
+
+
+3º: Manutenção de Processos
+
+
+Acesse o menu Ferramentas/ Importação Dados/ Manutenção de Processos.
+
+
+
+
+Esta tela é utilizada para incluir o Processo de 
+Importação de títulos
+ e relacionar com o código 
+De/Para
+ cadastrado anteriormente. As duas informações constam nos cadastros 
+Manutenção de Importação de Dados
+ e 
+Manutenção De/Para
+.
+
+
+
+
+4º: Como fazer a importação do arquivo
+
+
+Acesse o menu Ferramentas/ Importação de Dados/ Importação de Títulos a Pagar/Receber
+
+
+No campo 
+Processo
+ escolha o processo cadastrado anteriormente, depois clique no botão 
+Importa
+
+
+Ainda nesta tela, será possível visualizar os erros de importação, os dados a serem validados e os títulos a serem processados.
+
+
+Após essas verificações, basta clicar no botão 
+Processa
+ para que a importação dos dados seja feita.
+
+
+Para maiores detalhes veja no Help o tópico 
+
+
+

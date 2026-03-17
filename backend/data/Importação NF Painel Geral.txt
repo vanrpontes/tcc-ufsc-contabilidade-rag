@@ -1,0 +1,169 @@
+TITULO: Importação NF (Painel Geral)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924291517
+--------------------------------------------------
+none
+Objetivo
+O painel 
+Importação NF
+ centraliza todas as configurações relacionadas à importação de notas fiscais no SisPetro. Nele, é possível definir regras para CST, séries, quantidades, unidades de medida, impostos (ICMS, IPI e ST), além de descontos, seguros e demais despesas, utilizando as informações do arquivo ou cálculos realizados pelo sistema.
+Também permite configurar a geração e a validação de parcelas de contas a pagar e a receber, conforme os dados do arquivo, condição de pagamento, PMM ou fornecedor. O painel ainda controla o tratamento de observações, o cancelamento de frete em operações de devolução e a definição da origem da Inscrição Estadual. Por fim, estabelece a data e hora de movimento da NF (arquivo, emissão, data atual ou pendente para preenchimento pelo usuário), bem como o comportamento do processamento automático, do De/Para e dos vínculos com PMM e Ordem de Compra (OC).
+Painel Importação
+No painel 
+Importação NF
+ é configurado toda a parte de importação da nota fiscal. 
+Foi adicionado uma nova opção ao perfil 
+Data/Hora Movimento NF importada,
+ permitindo agora também deixar pendente para o usuário preencher a data de movimento.
+Quadro Importação NF's
+Campo CST do Item da NF
+Utiliza Configuração da Natureza ou Produto: 
+ao realizar a Importação de NF-e, o CST do Item será preenchido conforme o valor cadastrado no campo 
+C.S.T Produto
+ da Aba 
+Por Filial/Geral
+ da Natureza, caso o mesmo não esteja preenchido, será utilizado o valor definido na 
+Aba Ficha
+ Produto do cadastro de Produto. Lembrando que o campo deve ser preenchido com 3 (três) caracteres, podendo informar o carácter? (interrogação), que indica que no lugar da 
+?
+, será substituído pelo valor que estiver cadastrado no CST do produto na mesma posição da 
+?
+.
+Exemplo:
+CST informado na natureza de operação: ?4?
+CST cadastrado no produto: 123
+Valor que será salvo ao faturar a nota: 143
+Se este campo não estiver preenchido ou o tamanho do conteúdo informado for menos que 3 (três), a nota irá salvar o CST com o CST cadastrado no produto.
+Utiliza CST vindo do arquivo (quando houver): 
+na importação será carregado o valor do CST contido no arquivo de Importação. Para mais informações, ver 
+Manutenção de Importação de Notas Fiscais
+.
+Geração de Parcelas do Contas Pagar/Receber: 
+Através dos vencimentos do arquivo:
+ na importação do arquivo, considera a data que nele contém. Caso não haja o usuário deverá indicar uma manualmente
+Através Condição Pagamento PMM (na ausência, do fornecedor ): 
+na importação, o SisPetro considera a data de acordo com a condição de pagamento informada no PMM (isso quando é realizado o vínculo do PMM direto com a nota), para as demais situações (Notas vinculadas à OC, Notas sem Vínculo com PMM/OC) a data ira considerar a condição de pagamento que está cadastrado no Cliente ou Fornecedor.
+Através da condição de pagamento se não tiver vencimento:
+ na importação, o SisPetro verificará se no arquivo não possuir a data de vencimento, o SisPetro considera o vencimento da condição de pagamento informada no cliente ou fornecedor. 
+Tabela Condições Pagamento
+Usa condição pagamento (PMM/Fornecedor) e valida c/arquivo (se não vier no arquivo, não valida): 
+na importação, o SisPetro verificará se a condição de pagamento do PMM/Fornecedor para validar com as parcelas do XML a ser importado, se houver discrepâncias é necessária autorização para importação 
+Parcelas e controle de Pagamentos (PMM X NF)
+.
+Série da NF
+Utiliza Configuração da Natureza: 
+ao realizar a Importação de NF-e, a Série vinda no arquivo de importação será ignorada e considera a série definida na Natureza de Operação.
+Aplica De/Para Quando Possível: 
+nesse caso o código da Série vinda do arquivo sofre a transformação De/Para previamente cadastrada.
+ Para mais informações, ver
+ 
+Manutenção De/Para
+.
+Quantidade 0 (zero) na NF
+Salva 0 (zero)- Total será zerado:
+ se estiver configurado para 
+Salva 0
+, ele manterá a quantidade como zero, exatamente como está na nota.
+Salva 1 (um) - Total terá valor: 
+se estiver configurado para 
+Salva 1
+, mesmo que a nota diga zero, o SisPetro mudará a quantidade para um.
+Se utilizado o Salva 1 (um) - Total terá valor:
+Para o SPED é importante que o campo 
+Zera valor da Operação no SPED EFD ICMS/IPI
+ na Natureza de Operação, aba Por Filial/Impostos esteja marcado, para escriturar a 
+Quantidade com 0
+ e não 1.
+Unidade de Medida Utilizada na Importação
+Cadastrada no produto: 
+durante o processo de importação, a unidade de medida importada será a definida no 
+Cadastro de Produtos
+.
+Vinda no arquivo ou De/Para: 
+durante o processo de importação, primeiramente o sistema verá se existe algum 
+De / Para
+ cadastrado para o valor lido do arquivo, caso exista fará o De/Para e caso não exista, considerará o valor lido no arquivo de importação.
+Valor do IPI
+Considera os valores de Base, Alíquota e Imposto vindos no arquivo:
+ ao realizar a importação de NF-e, considera os valores do IPI informados no arquivo XML.
+Desconsidera os valores do arquivo (IPI ficará zerado sempre):
+ ao realizar a importação de NF-e, desconsidera os valores de IPI informado no arquivo XML.
+Valor do Desconto
+Considera o valor de Desconto vindo no arquivo (não usará os Descontos via Tipo de Documento): 
+ao realizar a importação de NF-e, considera o desconto informado no arquivo XML.
+Desconsidera os valores do arquivo: 
+na importação de NF-e desconsidera o valor do desconto informado no arquivo XML.
+Observações
+Salva as observações (Informações Complementares e Informações Adicionais de Interesse do Fisco) vindas no arquivo:
+ ao realizar a importação de NF-e, considera as observações informadas no arquivo XML.
+Desconsidera as observações vindas no arquivo:
+ na importação de NF-e, desconsidera as observações informadas no arquivo XML.
+Valor do ICMS Próprio
+Considera os valores de Base, Alíquota e Imposto vindos do arquivo:
+ o SisPetro respeitará, exatamente, o que estiver no arquivo XML, não fazendo qualquer cálculo.
+Faz o cálculo conforme configurado no SisPetro:
+ o SisPetro fará o cálculo, baseado nas alíquotas já cadastradas, utilizadas nas NF-e manuais
+Valor do ICMS Substituição
+Considera os valores de Base, Alíquota e Imposto vindos do arquivo:
+ o SisPetro respeitará, exatamente, o que estiver no arquivo XML, não fazendo qualquer cálculo.
+Faz o cálculo conforme configurado no SisPetro:
+ o SisPetro fará o cálculo, baseado nas alíquotas já cadastradas, utilizadas nas NF-e manuais
+ICMS Retido na Importação
+Considera os valores de Base, Alíquota e Imposto vindos do arquivo:
+ respeita os valores vindos do arquivo XML, que podem ser alterados pelo usuário antes da aba de Processamento.
+Faz o cálculo conforme configurado no SisPetro: 
+despreza qualquer valor vindo do arquivo XML ou informado pelo usuário
+Valor do Seguro
+Considera o valor do Seguro vindo no arquivo:
+ ao realizar a importação de NF-e, considera o valor do seguro informado no arquivo.
+Desconsidera os valores do arquivo (valor ficará zerado sempre): 
+ao realizar a importação de NF-e, considera o valor do seguro como Zero.
+Valor Despesas Acessórias 
+Considera o valor de Despesas Acessórias vindo no arquivo: 
+ao realizar a importação de NF-e, considera o valor das despesas acessórias informado no arquivo.
+Desconsidera os valores do arquivo (valor ficará zerado sempre): 
+ao realizar a importação de NF-e, considera o valor das despesas acessórias como Zero.
+Cancelamento de Frete da NF de origem da devolução
+Nunca cancela:
+ não cancela o frete da nota de origem.
+Cancela e para o processo se não for possível cancelar: 
+realiza o cancelamento do frete da nota de origem, caso não seja possível realizar o cancelamento o processo é interrompido. 
+Cancela e continua o processo se não for possível cancelar: 
+realiza o cancelamento do frete da nota de origem, caso não seja possível realizar o cancelamento o processo continua normalmente.
+Obtenção da IE da Entidade na NF
+A Partir do cadastro da Entidade: 
+considera a Inscrição Estadual cadastrada na Entidade.
+A Partir do Arquivo:
+ considera a Inscrição Estadual vinda do arquivo referente ao Destinatário no arquivo XML.
+Data/Hora Movimento NF importada
+Utiliza Data Saída/Entrada do arquivo: 
+considera a data de saída/entrada vinda do arquivo.
+Utiliza Data/Hora Atual:
+ ao selecionar essa opção é utilizado a Data/Hora atual.
+Utiliza Data Emissão:
+ ao selecionar essa opção é utilizado a data de emissão na data de movimento.
+Deixa pendente para usuário preencher:
+ ao utilizar essa opção o campo referente a data de movimento ficara em branco, sendo obrigatório o preenchimento pelo usuário. Somente usuários com o perfil de usuário 
+Pode alterar data de movimento da NF
+ marcados vão conseguir realizar a alteração da data.
+Processamento Serviço Importação NF
+Aplica De/Para e inclui NF: 
+ao realizar o serviço de importação, é aplicado o De/Para e caso esteja tudo certo, é realizada a inclusão da nota.
+Aplica De/Para e aguarda confirmação:
+ ao realizar o serviço de importação, é aplicado o De/Para e aguarda a confirmação do usuário.
+Quadro Vínculo de PMM e OC: 
+vínculo de OC e PMM em Notas Fiscais Importadas
+.
+Data de Movimento X Data Saída Base
+Não altera: 
+não realiza alteração na data de movimento da nota importada e continua com a data informada no arquivo.
+Obter Data de Saída da Base - Impede processo caso não exista OC/Carregamento: 
+essa opção considera a data de movimento da data do carregamento da OC vinculada, e impede o processo caso não exista um carregamento para a OC vinculada. 
+Obter Data de Saída da Base caso exista OC/Carregamento: 
+essa opção considera a data de movimento da data do carregamento caso a OC tenha um carregamento, caso contrario considera a data do arquivo.
+Vínculo Automático OC na Importação
+Não vincula: 
+não vincula a OC na importação de NF-e.
+Vincula e aguarda confirmação: 
+vincula a OC e aguarda a confirmação para concluir.
+Vincula e libera processamento: 
+vincula e continua com o processamento.

@@ -1,0 +1,41 @@
+TITULO: Como Apurar Valores de Frete a Pagar
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924285093
+--------------------------------------------------
+A necessidade de contratação de um frete de terceiros pode surgir pelos seguintes motivos:
+Entrega no caso da Nota Fiscal de Venda: quando a Distribuidora não tem caminhão próprio, mas faz a entrega do produto ao cliente utilizando o serviço de transportadoras.
+Subcontratação de Transportadora: quando uma Transportadora precisa contratar uma transportadora (geralmente um motorista autônomo) e marca a opção Frete a Pagar na emissão do Conhecimento de Frete.
+Retira no caso de Nota Fiscal de Compra: similar á Venda, mas quando a Distribuidora busca o produto no Fornecedor (geralmente Usina, mas pode ser também na Petrobrás).
+Dos casos citados, a retirada ou transferência de produtos é a mais crítica, pois o frete é pago por litro de produto transportado, mas ao receber o produto a Distribuidora pode identificar que há menos produto que o contratado, portanto o valor do frete precisa ser ajustado.
+Além disso, uma perda de produto, até um certo percentual, pode ser aceitável devido a variações de temperatura ou acordos contratuais entre Distribuidora e Transportadora, porém acima desse limite a Transportadora precisa ressarcir a Distribuidora com o valor equivalente ao produto.
+Mediante essa situação, é normal a Transportadora emitir o Conhecimento de Frete com um valor (o programado), mas o Contas a Pagar com outro, já ajustado após a apuração da descarga. 
+Como fazer a apuração dos valores de frete a pagar no caso de fretes originados de uma Entrada de Produto (descarga) e consequentemente ter um Contas a Pagar exatamente igual ao valor devido e não ao valor programado (do Conhecimento). Complementando, tendo a garantia de que o Conhecimento já foi recebido.
+Temos 3 cenários onde essa apuração pode ser feita:
+1 - 
+Empresas com base própria, que tem o volume descarregado no processo de Portaria do SisPetro
+2 - 
+Empresas que utilizam base própria de uma base parceira ou do grupo, que conseguiria ter acesso ao volume descarregado de forma mais padronizada
+3 - 
+Empresas que utilizam base de terceiros, recebendo relatórios diários sobre o volume efetivamente descarregado
+Para cada um dos cenários é possível fazer a apuração  dos valores de fretes a pagar conforme segue:
+Pela Diferença de Descarga Base Própria:
+ a apuração é feita conforme as configurações no depósito e da unidade adicional do produto. Além disso, deve informar as OCs que terão os fretes apurados pela Diferença de Descarga. Normalmente utilizado nos cenários 1 e 2. Para mais informações, ver 
+Apuração de Valores de Fretes a Pagar por Diferenças de Descarga Base Própria
+.
+Pela Diferença via Fechamento de Estoque:
+ a apuração é feita conforme as configurações de depósitos e as opções de volume descarregado. É apurada com base na diferença entre a quantidade ambiente e a quantidade a 20C (diferença em litros) e a Tolerância permitida em litros, informada pelo usuário na nota fiscal na tela de fechamento de estoque. Para que a apuração do valor do frete seja feita, é obrigatório ter fechamento do estoque. Normalmente utilizado no cenário 3. Para mais informações, ver 
+Apuração de Valores de Fretes a Pagar pela Diferença via Fechamento de Estoque
+.
+Pela Capacidade do Caminhão:
+ nesta opção, a apuração será feita com base na capacidade do caminhão (quantidade confirmada da OC). Depende somente da configuração do depósito indicando se será pela Capacidade do Caminhão (as demais opções não são utilizadas) e da configuração de unidade adicional no produto (caso receba volumes com unidade diferente de litro).  Pode ser utilizado em qualquer cenário. Para mais informações, ver 
+Apuração de Valores de Fretes a Pagar pela Capacidade do Caminhão
+.
+Para informações das configurações do depósito, ver 
+Depósitos - Aba Dados Adicionais
+.
+Para informações das configurações do responsável pelas diferenças de frete/produto, ver 
+Observações - Fornecedores
+, quadro Apuração de Frete.
+Uma vez configurada a forma como serão apurados os fretes e lançados os fretes, acessar a tela de 
+Manutenção de Frete
+ e incluir uma 
+apuração de frete.

@@ -1,0 +1,120 @@
+TITULO: Serviço de Pagamento Eletrônico
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927274495
+--------------------------------------------------
+Para habilitar o 
+Serviço de Pagamento Eletrônico
+ 
+deve-se acessar o 
+, na aba
+ Informações Serviços,
+ selecionar 
+Pagamento Eletrônico
+ 
+e clicar em 
+Abrirá a tela de configurações, que deverá ser preenchida conforme instruções abaixo descritas:
+Intervalo Entre as Execuções
+: informar o intervalo de tempo que o serviço será executado. O tempo mínimo que pode ser definido é de 3 minutos.
+Horário de Execução
+: definição do período que o serviço será executado, respeitando o tempo de intervalo entre as execuções.
+Executar Automaticamente Quando Servidor for Iniciado
+: parâmetro que define se o serviço deve ser iniciado sempre que o 
+ for iniciado. 
+Pasta de Remessa do PagFor: 
+caminho que indica a geração dos arquivos de remessa referente ao pagamento de fornecedores.
+Pasta de Remessa do Pag. de Tributos: 
+caminho que indica a geração dos arquivos de remessa referente ao pagamento de tributos.
+Pasta de Retorno do PagFor: 
+caminho que indica a gravação dos arquivos de retorno referente ao pagamento de fornecedores.
+Pasta de Retorno do PagFor com Erro: 
+caminho que indica a gravação dos arquivos de retorno que apresentaram algum erro, referente ao pagamento de fornecedores.
+Pasta de Retorno do PagFor Processados: 
+caminho que indica a gravação dos arquivos de retorno que foram processados, referente ao pagamento de fornecedores.
+Pasta de Retorno do 
+Pag. Tributos
+: 
+caminho que indica a gravação dos arquivos de retorno referente ao pagamento de tributos.
+Pasta de Retorno do 
+Pag. Tributos com Erro
+: 
+caminho que indica a gravação dos arquivos de retorno que apresentaram algum erro, referente ao pagamento de tributos.
+Pasta de Retorno do 
+Pag. Tributos Processados
+: 
+caminho que indica a gravação dos arquivos de retorno que foram processados, referente ao pagamento de tributos.
+Pasta dos Arquivos de Importação SMI: 
+caminho onde estão localizados os arquivos SMI, que são responsáveis pelo processo de pagamento eletrônico, seja de tributos ou de fornecedores.
+Usuário
+: d
+eve-se indicar um usuário para gravar nas tabelas de log. Esta informação não afetará em nada o funcionamento ou quaisquer outras funções deste usuário.
+Quando o perfil de Sistema "
+Nome dos arquivos de remessa
+"
+ 
+estiver marcada a opção '
+Simples (Data + Num.Remessa)
+' os arquivos serão gerados da seguinte forma:
+AAAAMMDD
+sssssss
+.RPF
+- Pag. Fornecedor 
+AAAAMMDD
+sssssss
+.RPT
+ - Pag. tributos
+Sendo:
+AAAA: 
+ano
+MM: 
+Mês
+DD: 
+Dia
+sssssss: 
+Sequencial do arquivo de remessa
+Quando o perfil de Sistema "
+Nome dos arquivos de remessa
+"
+ 
+estiver marcado a opção '
+Com Tipo Pagamento, Código Banco, Nome Empresa e Data/Hora
+' os arquivos serão gerados da seguinte forma:
+PAGFOR_BBB_CCC_ddmmyyyynnnnnn.TXT 
+- Pag. Fornecedor 
+PAGTRIB_BBB_CCC_ddmmyyyynnnnnn.TXT
+ - Pag. tributos
+Sendo:
+PAG:
+ Fixo.
+BBB:
+ Código do Banco, por exemplo 237.
+CCC:
+ Nome usual da Empresa com até 15 caracteres.
+ddmmyyyynnnnnn:
+ Data e hora atual.
+Clique em 
+ para salvar as configurações e sair da tela.
+Clique em 
+ para não salvar as configurações e sair da tela.
+Após configurado o serviço, na tela principal do
+ 
+, clique em
+ 
+ 
+para verificar se todas as configurações estão corretas.
+Clique em 
+ para ativar o serviço. Caso a opção 
+Executar Automaticamente Quando Servidor for Iniciado 
+estiver
+ 
+desmarcada
+, ao reiniciar o 
+, o serviço ficará desativado.
+Clique em 
+ para desativar o serviço. Caso a opção 
+Executar Automaticamente Quando Servidor for Iniciado 
+estiver
+ 
+marcada
+, ao reiniciar o 
+, o serviço ficará ativado.
+Clique em 
+ para forçar a execução do serviço, independente do intervalo e do horário de execução.

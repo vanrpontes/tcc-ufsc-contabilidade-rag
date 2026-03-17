@@ -1,0 +1,63 @@
+TITULO: Análise Estoque - Liberação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2902655039
+--------------------------------------------------
+O acesso é feito através do menu 
+Movimentação > Movimentação de Material > Requisição > Análise Estoque/Liberação
+Na tela Análise Estoque/Liberação, o usuário poderá, para cada item selecionado, informar a quantidade liberada e se o item deve: 
+Ir para cotação (caso exista quantidade a comprar)
+Ser liberado integralmente (caso não exista quantidade faltante) ou
+Permanecer com o mesmo status.
+Para usuários que utilizam o perfil 
+R
+estringe visualização de PMM/Requisição para Setores permitidos,
+ só será apresentado na tela as requisições que utilizam um setor do requisitante que o usuário tem permissão para visualizar. Para mais informações, ver 
+Painel Compras (Usuários)
+É preciso informar:
+Depósito da requisição
+O Produto se ira apresentar 
+Todos
+ ou 
+Só os que participam fechamento de estoque.
+Pode ou não filtrar o Setor Requisitante. Caso queira filtrar, marque o perfil 
+Informa Setor Requisitante
+Pode ou não filtrar o Setor responsável pela compra. Caso queira filtrar, marque o perfil
+ Informa Setor de Compras
+Ao selecionar a requisição desejada e clicar no botão 
+Informar Qtde. Liberada
+, é apresentada a tela para liberar a quantidade de material para esta Requisição de Material.
+É preciso informar:
+A quantidade que será ou não liberada
+Data da liberação
+Caso seja marcada a opção 
+Para Cotação/PMM
+, a quantidade a liberar deve ser 
+zero
+. Pois não faz sentido a requisição ir para cotação se ainda há em estoque na empresa.
+Liberação da Requisição
+Depois que todo o processo de compras foi percorrido (veja Fluxograma 
+ ) é necessário informar ao SisPetro que o produto está disponível para uso. 
+No quadro 
+Requisições
+, para as requisições que já foram emitidas PMM aparecerão em negrito. Veja abaixo:
+Note que neste exemplo acima, a quantidade da requisição era 600 peças (
+Qtde Pendente de liberação
+ + 
+Qtde Liberada
+), foram liberadas 50 peças (
+Qtde Liberada
+) e ainda faltam 550 peças (
+Qtde Pendentes de Liberação
+). 
+A legenda (
+negrito
+) para requisições que já foram emitidos PMM, junto com essas duas colunas dão ao usuário o cenário real do que se passa com a Requisição.
+As requisições só sairão da tela, quando forem liberadas integralmente. Para libera-las:
+Clicar no botão
+ Informar Qtde. Liberada
+ 
+Informar a quantidade e data
+Clicar no botão 
+Gravar
+Para saber mais
+Tela de Distribuição de Centro de Custo
+Depósitos - Aba Detalhes

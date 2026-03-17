@@ -1,0 +1,93 @@
+TITULO: Controle de Lacres
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2923955886
+--------------------------------------------------
+Histórico
+Os caminhões de combustíveis precisam circular com lacres em seus compartimentos para ter a garantia que o produto carregado não foi adulterado depois. Por isso, tanto na Ordem de Carregamento como na Nota Fiscal há um campo onde o usuário informa os números de lacres utilizados. No entanto não há um controle efetivo sobre esses números informados, podendo o usuário digitar o que quiser ou inclusive repetir lacres em carregamentos diferentes. 
+Objetivo
+Permitir o controle da numeração de lacre.
+Possibilitar o uso do lacre na Nota Fiscal conforme o compartimento em que o produto da NF estiver armazenado.
+Solução
+Ter uma 
+Série de Lacres
+ para controlar os lotes de lacres a serem utilizados, onde será indicado se o controle de numeração será
+ manual
+ (o usuário informa sem controle do SisPetro) ou 
+automático
+ (SisPetro segue sequencialmente o intervalo de numeração da série).
+ 
+A partir da versão 8.29 mesmo o controle de lacres MANUAL terá controle de utilização, ou seja, não será possível inserir um lacre já utilizado ou inutilizado.
+O Controle de Lacres é permitido somente para OC de Vendas e de Carregamento Próprio.
+Para utilizar o Controle de Lacres, é necessário configurar o SisPetro conforme segue:
+Perfil de Sistemas:
+ para mostrar os números dos lacres gerados (série de lacre automática) ou informados (série de lacre manual) na finalização da inclusão da OC
+ - ver 
+;
+Perfil de Usuário: 
+permissões ao usuário para incluir série de lacres, alterar série de lacres na OC e alterar números de lacres após OC ou nota fiscal emitida - 
+ver 
+Painel Carregamento (Usuários)
+;
+Série de Lacres: 
+nesta tela são incluídas e configuradas as séries de lacres a serem utilizadas para controle - 
+ver 
+Tabela Série de Lacres
+;
+Depósitos: 
+definir se o Depósito utiliza ou não controle de lacres e também cadastrar uma série de lacre padrão - 
+ver 
+Depósitos - Aba Layout OC
+;
+Frota: 
+informar a quantidade de lacres por compartimento - 
+ver 
+;
+Numeração de Lacres e Envelope Amostra: 
+as configurações de numeração de lacres e envelope amostra NÃO tiveram quaisquer alterações, independente da utilização de controle de lacres ou não - 
+ver 
+Numeração de Lacre e Envelope de Amostra
+.
+Utilizando o Controle de Lacres:
+Inclusão de OC:
+ os lacres são selecionados na inclusão da OC ou podem estar definidos no 
+Depósitos - Aba Layout OC
+. 
+A numeração dos lacres pode ser feita automaticamente ou manual, conforme configuração 
+Tabela Série de Lacres
+ 
+- ver 
+Inclusão de Ordem de Carregamento
+;
+Alteração dos números de lacres: 
+caso haja necessidade de trocar um número de lacre, isso pode ser feito através da tela de 
+Manutenção de Ordem de Carregamento
+ - botão
+ Compartimentação - 
+;
+Inutilização de lacres: 
+os lacres podem ser inutilizados de 3 formas: através da 
+Inutilização de Lacre
+ 
+ou através da 
+Tabela Série de Lacres
+ 
+ou na tela 
+Manutenção de Ordem de Carregamento
+ - b
+otão
+ Compartimentação - 
+;
+Consulta de Utilização: 
+os lacres utilizados na OC ou inutilizados podem ser consultados através da 
+Tabela Série de Lacres
+ - aba Utilização
+ (geral) ou através de 
+ (individual) ou através da tela de 
+Manutenção de Ordem de Carregamento
+ - aba Compartimentos.
+ 
+A partir da versão 8.27 o tamanho da Tag "nlacre", no arquivo .XML da NF-e, foi aumentado. Podendo ter 60 caracteres por lacre. Para separar o lacres basta colocar vírgula entre eles, assim sairá um lacre por Tag no arquivo .XML
+ 
+Fluxo do 
+Lacre na OC e NF
+ 
+Se optar por NÃO UTILIZAR o Controle de Lacres, não fazer as configurações acima.

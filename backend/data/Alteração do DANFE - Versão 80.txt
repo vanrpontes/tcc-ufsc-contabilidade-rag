@@ -1,0 +1,65 @@
+TITULO: Alteração do DANFE - Versão 8.0
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909896797
+--------------------------------------------------
+No xml da NFe, desde o início do projeto, o código do produto na ANP é enviado junto com os itens da NF. Porém no DANFE, por não haver um espaço físico específico para essa informação, esse código não está sendo impresso. Agora, uma resolução da ANP obriga a impressão no DANFE.
+O objetivo desse Help é mostrar como disponibilizar o código do Produto na ANP no pipeline dos itens da NF no DANFE.
+Junto com a Versão 8.0 do Sispetro foi disponibilizado um arquivo Danfe.rtm que já contempla essas modificações. Fica a critério do cliente utilizar o Danfe padrão disponibilizado ou alterar seu próprio Danfe seguindo os passos descritos nesse roteiro.
+ 
+IMPORTANTE: ANTES DE INICIAR AS ALTERAÇÕES CRIE UM BACKUP (CÓPIA) DO ARQUIVO DANFE.RTM ATUAL.
+Editar o layout do Danfe configurado na empresa:
+Acessar o menu Ferramentas/ Sistema/ aba Nota Fiscal
+No quadro de NF-Eletrônica, clicar no botão 
+Edita Layout do Danfe
+Conforme imagens abaixo, faça os passos 1 e 2
+Após clicar no botão SubRelatório (SubReport) conforme passo 2, clique na área onde o mesmo será inserido, vai ficar assim:
+Clique com o botão direito do mouse em cima do SubReport inserido e desmarque a opção "
+Largura do antecessor
+", conforme figura abaixo:
+Ajuste o tamanho do SubReport
+Vamos agora configurar o Condutor de dados. Com o SubReport selecionado, vá no menu "
+Relatório \ Dados...
+"
+Selecione o Condutor de Dados "
+ItensNF".
+A partir de agora, vamos trabalhar sempre no SubReport e não mais no Principal.
+Clique no Menu 
+Relatório
+ e desmarque as opções 
+Título
+ e 
+Resumo
+ 
+Usando o Botão marcado na imagem abaixo, adicione um texto ao espaço 
+Detalhe
+Na aba 
+Cálculo
+, clique no menu Visualizar \ Eventos
+Renomeie o campo texto para 
+lblDPMPCodigo
+No campo 
+Detail
+, clique com o botão direito em 
+Before Print
+ e selecione a opção 
+Novo
+Na parte inferior da tela Cole as informações abaixo:
+begin
+  if not ( (ItensNF['DPMP_Codigo'] = 0) or (ItensNF['DPMP_Codigo'] is null) ) then begin
+    lblDPMPCodigo.Caption := 'Código ANP do Produto ' + ItensNF['CodProd'] + ' : ' + ItensNF['DPMP_Codigo'];
+    lblDPMPCodigo.Visible := True;
+  end else begin
+    lblDPMPCodigo.Visible := False;
+  end;
+end;
+Ficará assim:
+Após colar o código, como na imagem acima, é necessário compilar, clique com o botão direito do mouse e vá na opção 
+Compilar
+.
+Nenhum erro deve aparecer.
+Volte a Aba Desenho, redimensione o Detalhe ajustando conforme imagem abaixo:
+Com o campo 
+lblDPMPCodigo
+ selecionado, desmarque a opção 
+AutoSize
+Fim da configuração, salve as alterações no menu 
+Arquivo \ Salvar.

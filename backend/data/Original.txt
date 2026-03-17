@@ -1,0 +1,158 @@
+TITULO: Original
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4739072001
+--------------------------------------------------
+Banco212.dll
+ é para quem utiliza
+ 
+CNAB
+ 
+padrão
+ 
+240
+ 
+(sem chave de acesso da NF-e)
+Painel Cobrança Eletrônica
+ 
+No campo 
+banco
+ deve ser informado 212- Original
+#Docto no Arquivo Remessa:
+ se informado a opção 
+Com Parcela...
+, será acrescentado no lado do campo 
+Número de Documento no Arquivo de Remessa
+, a identificação da parcela.
+Carteira:
+ deve ser informado o número da Carteira cadastrada. Caso não seja preenchida o Sistema preencherá com "09", pois é um campo que não pode ser nulo.
+Agência:
+ deve ser informado o número da agencia, com 4 posições
+Número da conta:
+ deve ser informado o número da conta cadastrada.
+Dígito da conta
+: deve ser informado o dígito da conta
+Informação de Juros no Arquivo Remessa:
+ utilizado para informação do campo juros (posição 18 a 32) no arquivo de remessa. 
+Desconto Cond. Arquivo Remessa:
+ em alguns casos há a necessidade de dar um abatimento ao cliente ao invés de desconto condicional. É importante que no ato do pedido de venda sabe-se o valor total do abatimento a ser concedido. Consequentemente a Nota Fiscal de Venda e o título do Contas a Receber seriam gerados com o valor total e no arquivo de remessa será enviado o valor deste abatimento e a baixa deste arquivo de remessa (via Arquivo de Retorno) irá considerar devidamente o abatimento enviado.
+As opções existentes para este perfil são:
+Informar como Desconto:
+ será informado no arquivo de remessa como desconto condicional.
+Informar como Abatimento:
+ será informado no arquivo de remessa como abatimento.
+Linha Digitável
+212 - Original
+Campo Livre da Linha Digitável
+Conteúdo
+Tamanho
+Início
+Fim
+Agência
+4
+1
+4
+Carteira
+3
+5
+7
+Número da Operação
+7
+8
+14
+Nosso Número
+11
+15
+25
+Informações do Arquivo de Retorno
+Campo a ser setado na LeArquivoCNAB
+Segmento
+Posição
+Tamanho
+Nosso Número
+3T
+47-57
+11
+Carteira
+3T
+58-58
+1
+Identificação do Título na Empresa
+3T
+106-130
+25
+CNPJ
+3T
+135-148
+14
+Data Crédito
+3U
+146-153
+8
+Data Liquidação
+3U
+138-145
+8
+Ocorrência
+3U
+154-157
+4
+Valor Pago
+3U
+78-92
+13
+Valor Acréscimo
+3U
+18-13
+13
+Valor Desconto
+3U
+33-47 e 48-62
+13 e 13
+Valor Custas Cartório
+3T
+199-213
+13
+Número do Documento
+3T
+59-73
+15
+Rejeições
+3T
+214-223
+10
+Rejeição 1
+3T
+214-215
+2
+Rejeição 2
+3T
+216-217
+2
+Rejeição 3
+3T
+218-219
+2
+Rejeição 4
+3T
+220-221
+2
+Rejeição 5
+3T
+222-223
+2
+Ocorrências
+Ocorrência SisPetro
+No Banco
+6 - Liquidação
+06, 17
+2 - Registro
+02
+9 - Baixa
+09
+13 - Confirmação de Prorrogação
+14
+-1 - Protesto Confirmado
+19
+-2 - Cancelamento de Protesto Confirmado
+20
+Para informações sobre a montagem da linha digitável para este banco, ver 
+Montagem da Linha Digitável

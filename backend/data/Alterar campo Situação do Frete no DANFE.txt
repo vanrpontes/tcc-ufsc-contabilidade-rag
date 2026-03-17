@@ -1,0 +1,32 @@
+TITULO: Alterar campo Situação do Frete no DANFE
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2917564411
+--------------------------------------------------
+Histórico  
+Este campo só considerava Frete por Conta do Emitente ou Destinatário, não considerando Frete de Terceiros ou Sem Cobrança de Frete. 
+Há algum tempo  criamos uma tabela para Situação do Frete, onde temos o valor esperado para o Sispetro, para a NF-e e para o SPED. Porém, não alteramos o DANFE que antes fazia a referência do Sispetro para NF-e manualmente.
+Objetivo
+Alterar o conteúdo de um campo do layout do danfe.
+Solução
+1.
+ Acessar o layout do Danfe:
+Menu Ferramentas/ Sistema/ aba Nota Fiscal
+Localizar no quadro de NF-Eletrônica o campo 
+Caminho de arquivo de layout do Danfe
+Clicar no botão
+ Edita Layout do Danfe
+ 
+2.
+ Na tela de 
+Edição do layout do Danfe
+Localize o quadro da Situação do Frete
+No quadro de Situação de Frete, selecione o objeto, "SitFrete", 
+do tipo DBText
+Altera-lo para "SitFrete_NFe", deve ficar como na imagem a baixo
+ 
+Salve as alterações feitas no layout do Danfe
+Menu Arquivo/ Salvar
+Sair da tela de Edição do Layout do Danfe com as alterações efetuadas e 
+testar o novo conteúdo.
+ 
+ 
+ 

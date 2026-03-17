@@ -1,0 +1,56 @@
+TITULO: Módulo Patrimônio - Iniciar do zero
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439895
+--------------------------------------------------
+Como utilizar o módulo de Patrimônio no SisPetro
+O módulo de 
+Patrimônio
+ do SisPetro serve para o controle do Ativo Fixo da empresa.
+1. Configuração do sistema
+A primeira configuração a ser feita é marcar a opção 
+"Habilita Módulo Patrimônio"
+ na Configuração do Sistema, painel Patrimônio.
+2. Cadastro de Produtos
+O Ativo Fixo da empresa é todo baseado no cadastro de Produtos. Assim, cada 
+bem
+ é obrigatoriamente vinculado a um produto. Assim, providencie a configuração dos Produtos.
+A inclusão dos produtos deve ser feita pelo SisPetro Normal na tela
+A configuração das contas referentes a este produto (que serão sugeridas a cada bem) deve ser feita pelo 
+SisPetro Controladoria (menu Arquivos / Produto)
+Veja o tópico 
+Atualização dos dados do Patrimônio no Cadastro de Produtos
+ que explica como gerar um arquivo para que essa atualização seja feita via script.
+3. Cadastro de Bens
+A manutenção dos bens é feita pelo Cadastro de Produtos do SisPetro Controladoria (menu Arquivos / Produto), posicionando no produto e visualizando os bens referentes a este produto na aba 
+Bens
+A inclusão dos bens pode ser feita de três formas:
+Incluindo o bem diretamente no cadastro de Produtos
+, vide 
+Inclusão Manual
+Incluindo automaticamente pela Entrada da Nota Fiscal
+Para isso deve marcar na 
+Natureza de Operação
+ (aba Geral) o campo "Cria dados para Imobilizado na entrada da NF". Quando for lançada a Nota Fiscal para o produto utilizado (que deve ser passível de ter bens) serão gerados "n" bens conforme a quantidade informada.
+Incluindo por uma Nota Fiscal, mas posteriormente
+Se a nota fiscal já foi lançada, mas sem estar configurado na Natureza de Operação para criar dados para Imobilizado, é possível, pela Manutenção de Bens, botão 
+Inclui pela NF
+ selecionar a nota para que seja providenciada a inclusão do Bem.
+Nestas duas últimas formas é salvo para cada bem um sequencial, a data de aquisição e o valor de aquisição. Informações de conta, tempo de vida útil e etc serão utilizados conforme padrão cadastrado no produto correspondente.
+Veja o tópico 
+Importação de Bens (ou de algumas informações)
+ que explica como gerar um arquivo para cadastrar os bens através de script.
+4. Movimentação de Bens
+Para controle contábil destes bens, será possível incluir os seguintes tipos de movimentação:
+Depreciação
+CIAP
+Baixa
+Ajustes
+Essas movimentações poderão ser feitas pelo SisPetro Controladoria, menu Movimentação / 
+Manutenção de Patrimônio
+Porém é bem provável que o processo de Depreciação e de CIAP já estejam em andamento. Veja os tópicos
+Ajustando o valor depreciado de um bem
+Ajustando o valor utilizado de CIAP de um bem
+Além do controle propiciado, a valorização dos bens é utilizada no 
+Fechamento Financeiro
+ do SisPetro Normal, que é o Balanço Contábil Gerencial da empresa.
+Importante!
+O módulo de Patrimônio só interage na Contabilidade Real, não interagindo na Contabilidade Gerencial, por isso suas contas são definidas pelo SisPetro Controladoria.

@@ -1,0 +1,145 @@
+TITULO: Geração Mídia Sintegra
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210444
+--------------------------------------------------
+Através desta tela é possível gerar a mídia com a movimentação de um determinado período para ser transmitida ao Sintegra.
+Acesse esta tela partir do menu Principal, nas opções
+ 
+Ferramentas / Geração Mídia Sintegra.
+Preencha os dados que serão utilizados na geração da mídia:
+Finalidade:
+ 
+Finalidade desta mídia, geralmente é NORMAL, mas pode ser também de Retificação, neste caso há uma finalidade para cada tipo de retificação.
+ 
+Quando se tratar do SINTEGRA SEF - PE, as opções válidas são NORMAL, RETIFICAÇÃO TOTAL e RETIFICAÇÃO CORRETIVA. Qualquer outra opção será inválida e o arquivo não será validado.
+Período:
+ 
+A geração da mídia deveria estar sempre amarrada a uma apuração fiscal, que por sua vez é mensal. No entanto, caso não haja apuração para o período informado, o usuário será avisado e questionado sobre a continuidade do processo. Cabe lembrar que o Sintegra só valida mídias cujo período seja do primeiro ao último dia do mës informado.
+Tipos de Nota:
+ 
+Pode ser Todas, Entrada ou Saída.
+Gerar para uma UF específica:
+ 
+é possível que a mídia contenha dados somente de uma UF, como de todas, bem como é possível não escolher uma UF específica (o que geraria para todas), mas em mídias diferenciadas, como indica o próximo campo.
+Desmembrar arquivo:
+ 
+Caso não tenha escolhido uma UF específica é possível desmembrar cada UF num arquivo diferenciado. Se esta opção for marcada, será gerado um arquivo para cada UF com o nome conforme informado no campo de nome de arquivo, porém a extensão do arquivo será a sigla da UF e não a extensão informada (geralmente .txt).
+Versão do Layout:
+ 
+O validador 5.0.2 do Sintegra exige um código de convênio diferenciado (3) para arquivos com dados a partir de 2004. Já o validador 4.1.0 do Sintegra aceita somente até o tipo de convênio (2).
+Quando se tratar do SINTEGRA SEF - PE, a opção válida é 2 - Convênio ICMS xx/02 - até Validador Sintegra v.4.1.0.
+Natureza das Operações:
+ 
+Pode ser:
+ 
+* Interestaduais somente operações sujeitas ao regime de Substituição Tributária,
+ 
+* Interestaduais - operações com ou sem Substituição Tributária ou
+ 
+* Totalidade das operações do informante
+ (Vem como padrão)
+Tipos de Registro:
+ 
+Geralmente são necessários todos os tipos informados na tela, exceto o registro 88 que é exigido somente por alguns estados.
+ 
+O SisPetro atende o Registro 88 para Paraíba (contém dados da Apuração Fiscal para GIM), o Registro 88 para Pernambuco (contém dados específicos para SEF) e o Registro 88 para SP (contém dados de notas de combustíveis para a Portaria CAT-95).
+ 
+Registro 60 (Mestre e Analítico)
+ 
+- São dados de Cupom Fiscal. Se marcado utilizará as informações referentes aos Registros 60A e 60M constantes na Manutenção de Registro 60 do SisPetro Normal. Selecionará todos os registros cuja data de emissão esteja no período informado para geração da mídia do Sintegra. Estes registros poderão ser incluídos nesta tela de Manutenção manualmente, via Importação ou via Cupom Fiscal. Veja maiores detalhes na Ajuda do usuário do SisPetro Normal.
+ 
+Registro 74
+ 
+- se marcado para gerar esse registro, deve-se informar a data do inventário. Caso seja informada uma data que não tenha nenhum inventário, o sistema irá emitir uma mensagem de data não encontrada. Lembrando, que para cada lançamento do registro 74, é criado um lançamento correspondente no registro 75.
+ 
+Registro 50 sem 54
+ 
+- Para notas que forem incluídas sem itens no Sispetro, existe a possibilidade, através de configuração na
+ 
+Tabela
+ 
+Natureza Operação
+, de gerar registro 50 e não gerar 54 (itens) para esses tipos de nota.
+Dados do arquivo:
+ 
+Informe o
+ 
+layout de exportação
+ 
+cadastrado para o Sintegra. Este layout de exportação deve ser carregado pela
+ 
+Manutenção de Exportação de Dados
+ 
+utilizando um arquivo .rtm. Informe também o nome do arquivo onde serão gravados os dados.
+Verifica as Críticas antes da geração do arquivo:
+ 
+Está opção, não permite que o arquivo seja gerado, caso se tenha dados inconsistentes. Estes dados serão apresentados no painel
+ 
+"Críticas"
+ 
+(comentado mais adiante).
+No caso de ter escolhido o tipo de registro 88 da Paraíba, é necessário informar alguns dados no painel Dados GIM, como mostra a tela a seguir:
+É possível informar os dados manualmente, ou carregá-los de uma apuração de um mês anterior, bem como do mês corrente, caso você já os tenha salvo. Para isso veja em
+ 
+Carrega dados da Apuração
+ 
+e
+ 
+Salva dados na Apuração
+. O período de referência e a versão do programa não são armazenados na apuração.
+Informe os dados referentes a cada Detalhe do registro 88, não esquecendo de marcar ou não (conforme a necessidade) a impressão dos Detalhes 03 e 06, que são opcionais.
+No caso de ter escolhido o tipo de registro 88 de Pernambuco , é necessário informar alguns dados no painel Dados SEF - PE, como mostra a tela a seguir:
+É possível informar os dados manualmente, ou carregá-los de uma apuração de um mês anterior, bem como do mês corrente, caso você já os tenha salvo. Para isso veja em
+ 
+Carrega dados da Apuração
+ 
+e
+ 
+Salva dados na Apuração
+.
+Preencha ou altere os dados necessários.
+No caso do Registro 88 para o Estado de São Paulo, há algumas configurações necessárias que são explicadas no tópico
+ 
+Registro 88 SP - GRF
+.
+Quando a opção escolhida for o Registro 88 para o Mato Grosso do Sul, é necessário verificar se houve alteração ou inclusão dos dados do contador e/ou se Envia Registro Sem Movimentação de entrada ou saída, conforme tela a seguir:
+Maiores informações sobre o preenchimento do Registro 88 para o Estado do Mato Grosso do Sul, no tópico 
+Registro 88-MS
+.
+Como mencionado anteriormente, marcando a opção 
+"Verifica as Críticas antes da geração do arquivo"
+, os dados que tiverem inconsistências serão apresentados no painel
+ 
+"Críticas"
+.
+Caso prefira, antes de gerar o arquivo, o usuário pode verificar as inconsistências, selecionando no painel
+ 
+"Dados Gerais"
+ 
+o período ao qual se refere o arquivo e indo diretamente no painel
+ 
+"Críticas
+", clicando no botão
+ 
+"Atualiza"
+.
+O dados inconsistentes serão apresentados mostrando o seu problema e a ação que deve ser tomada pelo usuário para resolução do problema, além de informações referente ao registro selecionado (data de emissão, número do documento, etc).
+O painel de "Críticas", permite ao usuário imprimir através do botão "Imprime", um relatórios com as inconsistências encontradas. Esse relatório pode ter o seu layout configurado conforme a necessidade do usuário, para isso, deve-se utilizar o botão "Edita Layout".
+Para facilitar a ordenação dos dados em tela, o usuário pode além de trocar de posição as colunas, agrupar os dados na tela.
+Exemplo: Ao gerar as críticas, o usuário pode agrupar os erros por descrição. Para isso, basta arrastar a coluna "Descrição" para o cabeçalho da tela. Para arrastar uma coluna, o usuário deve clicar com o botão direito do mouse na coluna deseja, permanecer com o mouse clicado e levar a coluna até o cabeçalho.
+Na tela acima, os dados estão agrupados por descrição. Para verificar os registros de cada descrição, basta o usuário clicar no sina de "+", localizado no lado esquerdo de cada descrição.
+Para iniciar o processo de geração do arquivo, o usuário deve se posicionar no painel "Dados Gerais" e clicar no botão
+ 
+"OK"
+. A mídia será gerada e ao final será apresentada a mensagem:
+Os dados que constarão em cada registro dependerão da
+ 
+configuração de data a ser utilizada na Apuração
+.
+Nota: Caso apareça algum tipo de ocorrência durante o processo de validação do Sintegra é interessante ir para o tópico
+ 
+ 
+para identificar o motivo dessa ocorrência.
+Para geração do arquivo Sintegra é necessário ter o contador cadastrado para a empresa. Para isto, vide o Item *Dados do Contador no Tópico
+ 
+Perfis de Sistema
+.

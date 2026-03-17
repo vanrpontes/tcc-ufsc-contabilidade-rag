@@ -1,0 +1,76 @@
+TITULO: EFD Contribuições - Bloco 0
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903998459
+--------------------------------------------------
+Este bloco é responsável pelos cadastros. Alguns registros serão preenchidos após o preenchimento dos demais blocos, pois depende deles. Deverá ter sempre uma ocorrência por código em cada registro, independente do número de vezes utilizados ou em quantos blocos foi utilizado.
+Registro
+Descrição
+Observações
+Registros dos quais depende
+Pai
+0100
+Dados do contador
+Conforme perfil de sistema. Menu Ferramentas, Sistema, aba Fiscal, contador da empresa
+0001
+0110
+Dados do Regime de apuração
+Conforme perfil de sistema. Menu Ferramentas, Sistema, aba Livro Eletrônico, Quadro SPED EFD Contribuições (PIS/COFINS)
+0001
+0111
+Valores de Receita Tributada e Não Tributada
+Valores calculados de PIS e COFINS nas notas fiscais configuradas para sair na EFD Contribuições
+0110
+0140
+Empresas do mesmo grupo empresa da empresa informada na geração
+Perfil de sistema / Grupo Empresa
+0001
+0150
+Entidades
+Ver Entidade para uso do Livro Eletrônico: 
+Clientes
+ e 
+Fornecedores
+Não pode ter CNPJ/CPF duplicado
+0140
+0190
+Unidades de Medida dos Produtos
+Configuração do produto
+, aba Ficha Produto
+0200
+0140
+0200
+Produtos
+Produtos
+, aba Dados Adicionais
+Gênero do Produto
+Tipo de Item
+C100, F100, A170
+0140
+0205
+Alterações de Produtos
+Conforme log do Sispetro
+0200
+0200
+0206
+Dados da ANP
+Código DPMP do Produto
+, aba DPMP
+0200
+0200
+0400
+Naturezas de Operação
+Configurar as informações das 
+Naturezas de operação
+C170
+0140
+0450
+Informação Complementar
+Naturezas de Operação
+A110, C500, D100, D500, C110
+0140
+0500
+Plano de Contas Gerencial e Real
+Plano de contas gerencial
+ e 
+Plano de Contas Real
+ - utiliza o código estendido da conta real vinculada à conta gerencial informada na natureza de operação (aba Contabilização) ou no cadastro de produtos ou no cadastro de clientes ou no cadastro de fornecedores
+0001

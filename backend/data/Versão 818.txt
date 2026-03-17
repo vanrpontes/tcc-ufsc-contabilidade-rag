@@ -1,0 +1,271 @@
+TITULO: Versão 8.18
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921696557
+--------------------------------------------------
+Versão 8.18
+Dados
+Informações
+Início
+23/09/2014
+Final
+26/11/2014
+Scripts
+CMD818.sql (3553 a 3585)
+Itens
+43
+Implementações
+26
+Correções
+17
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+Sintegra-GRF_v818.rtm
+SisPetroControl.Dll
+ 
+ 
+DaCTe_818.rtm
+SispetroANP.Dll
+ 
+ 
+Demonstrativo.rtm
+ 
+ 
+ 
+Aviso importante
+Nesta versão, a execução dos scripts está pouco mais demorada, em decorrência da necessidade de atualização do novo campo “Sai GRF SP” da tabela “Nota Fiscal”.  Antes de executar os scritps, é recomendado que o banco seja iniciado com o parâmetro 
+-b
+ (junto com os demais parâmetros), que garante que apenas um usuário se conecte ao banco. Após finalizar a execução dos scripts, parar o banco, remover o parâmetro 
+-b 
+e iniciar novamente.
+GRF SP
+Para gerar o GRF SP, é obrigatório utilizar o layout Sintegra-GRF_v818.rtm, específico para o estado de São Paulo.
+Faturamento Automático de Notas Fiscais de Venda
+A partir desta versão disponibilizamos na tela de Pedidos Aprovados e Não Faturados a opção de Faturamento Automático dos pedidos que já tenham ordem de carregamento.
+NF-e 3.10
+Disponibilizada a versão 3.1 da NF-e, que trabalhará em paralelo com a versão 2.0 até Março/2015.
+Antes de utilizá-la em produção, a empresa deverá:
+Não possuir pendências de envio para a Sefaz;
+Atentar-se para a necessidade de testar todos os serviços em homologação (Processamento, Sincronização, Inutilização de faixa numérica e individual, Cancelamento, Carta de Correção e Geração de Arquivo para Distribuição) em cada UF de interesse, pois em alguns casos o novo ambiente ainda não havia sido posto em operação, pela SEFAZ.
+Geral
+Alterações nas Views para não apresentar problemas na execução de script
+Em determinadas situações, algumas views do banco de dados têm apresentado problemas, ficando inválidas na execução de scripts. Nesta versão, foram feitos ajustes para que esses problemas não ocorram mais.
+ CPC (CCF 24619)
+Correção de mensagem de arquivo desatualizado
+Foi feita correção de mensagem de erro apresentada indevidamente quando a versão da DLL informada nas chaves PathDllBDE e PathDllSybase no arquivo de configuração (scg.ini) estavam com versão inferior à versão instalada.
+ PRFC (CCF 24038)
+Cor do campo "Código" no Cadastro de Clientes e Fornecedores
+A cor de fundo do campo Código estava dificultando sua visualização no windows 7. A cor foi alterada.
+ PRFC (CCF 25960)
+Nome Usual da Empresa na tela de informações do Grupo Econômico
+Foi adicionado o campo Nome Usual da Empresa da movimentação na tela de informações do Grupo Econômico. 
+Help:
+ 
+. PRFC (CCF 25711) 
+Gravação de LOG
+Nesta versão, foi realizada uma alteração para que alguns eventos importantes do SisPetro sejam gravados no log. CPC (CCF 25496)
+Compras
+Impressão de PMM
+Na versão passada foram implementados novos campos no PMM, porém alguns deles não foram disponibilizados no Impresso. Nessa versão, foram disponibilizados os campos Telefone, Nome Usual, CNPJ e IE do Fornecedor do Carregamento no impresso do PMM. 
+Help: 
+ CPC (CCF 26104)
+Contabilidade
+Valores indevidos no Demonstrativo de Resultados
+Alterado o layout do Demonstrativo de Resultados do SisPetro Controladoria para não apresentar valores indevidos na primeira linha da segunda página. 
+Necessário atualizar o arquivo Demonstrativo.Rtm na pasta do executável ou nos caminhos auxiliares
+.
+ 
+GSN (CCF 25440)
+Ajustes no SPED ECD
+Alterado o preenchimento dos campos "Indicador de 
+existência de 
+NIRE" e "Indicador de Situação no Início do Período" no Registro 0000 e do campo "Código da Versão" do Registro I010.
+ 
+GSN (CCF 24445)
+Alteração do Código da Obrigação na Apuração Fiscal
+Em uma versão passada foram implementados os Dados das obrigações a recolher da Apuração Fiscal para uso do SPED, porém, não era permitido que o usuário alterasse o código da obrigação . Nesta versão, foi feita uma alteração para permitir a edição do Código da Obrigação. Além disso, os perfis de sistema referentes a esse recurso foram disponibilizados com fonte azul para indicar que é um perfil de sistema. 
+Help:  
+ 
+CPC (CCF 25405)
+Estoque
+Temperatura negativa no Smartcard
+Temos um perfil de sistema pra configurar quando o Smart Card não grava a temperatura, porém, a validação feita é somente com temperatura igual a zero, permitindo gravar valor negativo. Nesta versão, foi criado um novo campo nas configurações de sistema, que será utilizado em conjunto ao perfil já existente, não permitindo gravar temperaturas menor ou igual à configurada no novo campo. 
+Help:
+ 
+ CPC (CCF 25755)
+OC de Vendas sejam vinculadas a um Pedido do tipo Vendas
+Na versão 8.6 foi realizada uma alteração no SisPetro para que as OC de Venda só sejam vinculadas a um Pedido do tipo Vendas, porém, em determinada situação não era possível cancelar uma OC vinculada ao pedido. Nesta versão, esse problema foi corrigido. 
+CPC (CCF 25826)
+Atualização do Fator de Conversão e Quantidade 20c
+Foram feitos ajustes na atualização do Fator de Conversão e Quantidade a 20c para que sejam verificados corretamente os perfis do Sistema e/ou do Depósito informado.
+ Help:
+ 
+ 
+PRFC (CCF 25341)
+Estoque Escritural com Qtde 20c Incorreta
+Feita correção para calcular corretamente a quantidade a 20c no estoque escritural. O SisPetro estava utilizando como base o campo quantidade, sendo o correto utilizar o campo referente a quantidade ambiente. 
+PRFC (CCF 25720)
+Faturamento
+Faturamento Automático de Notas Fiscais de Venda
+A partir desta versão disponibilizamos a opção de Faturamento Automático através da tela de Pedidos Aprovados e Não Faturados. 
+Essa opção permitirá ao usuário faturar diversos pedidos com Ordem de Carregamento ao mesmo tempo, sem a necessidade de passar por diversas telas como na tela de emissão de notas fiscais antiga.
+ 
+O faturamento de nota de venda antigo continua ativo e disponível ao usuário. 
+ 
+Help: 
+.
+ 
+UPA (CCF 23936)
+Validação na emissão de Nota Fiscal 
+Nesta versão, o processo de validação na emissão da Nota Fiscal foi alterado para não gravar as análises realizadas. Se acontecer um erro, a nota fiscal não será gravada e assim não deixará dados inconsistentes. CPC (CCF 25635)
+Melhorias ao emitir uma Nota Fiscal com Produto Composto
+Ao emitir uma NF com um produto composto, o SisPetro gera o pedido de outras saídas e associa a nota fiscal. Nesta versão, foi realizada uma implementação para deixar esse processo mais seguro e rápido. CPC (CCF 25630)
+Preenchimento da UF de Faturamento, Cobrança e Entrega na Emissão da Nota Fiscal
+Foram realizadas melhorias na emissão da Nota Fiscal para garantir a correta gravação do campo UFImpostos. Os campos UF de Faturamento, Cobrança e Entrega foram desabilitados já que os mesmos são preenchidos automaticamente ao escolher a respectiva Cidade. CPC (CCF 25785)
+Validação ao sugerir um Portador na emissão da Nota Fiscal
+Na versão 8.17 foi criado uma validação, ao emitir uma Nota Fiscal, para verificar se o portador a ser sugerido está apto no cadastro para permitir a sugestão, porém, a validação não foi aplicada em todos os pontos. Nesta versão, foi realizado um trabalho para todos os pontos que sugerem o Portador, validar se o mesmo está apto no cadastro de portadores. CPC (CCF 25956)
+Melhorias 
+Componentes de Serviços e Vale Pedágio no CT-e
+ 
+Na versão 8.16 foi implementado Componentes de Serviços e Vale Pedágio no CT-e. Nesta versão, os Componentes utilizados são gravados no CT-e, o que antes não acontecia. E na Manutenção de Componentes de Serviço foi criado o campo Ativo para possibilitar inativar Componentes que já não estão sendo utilizados, evitando que apareçam na inclusão do CT-e. 
+É necessário utilizar o arquivo
+ DaCTe_818.rtm
+. CPC (CCF 25486)
+Validação Faturamento de Pedido
+Atualmente, o SisPetro faz uma validação para garantir que o  pedido não seja  faturado mais de uma vez de forma simultânea; Porém, só era validado um pedido por vez. Nesta versão, foi realizada uma melhoria para permitir validar uma lista de pedidos. CPC (CCF 25990) 
+Aviso de validade do Arquivo de Licenciamento na emissão de Nota Fiscal
+Quando o arquivo de licenciamento está próximo de vencer a sua validade o SisPetro alerta o usuário, um dos pontos é na emissão de nota fiscal. Nesta versão, foi realizada uma alteração para apresentar esse aviso ao entrar na tela de Retorno e Remessa de Armazenagem e Importação de Nota Fiscal e não na emissão da nota, pois o processamento é em lote e o aviso é apresentado muito rapidamente.  Foi incluído também nas informações do sistema e na Barra de Status da tela principal 
+(a mesma deve ser res
+etada para receber a alteração - ver help)
+. 
+Help:
+ 
+. 
+CPC (CCF 25651)
+Alterações no DaCTe para disponibilizar informações 
+de CT-e Complementar, de Anulação, Substituto e Subcontratação
+ 
+Na versão 8.13 implementamos CT-e Complementar, de Anulação, Substituto e Subcontratação, porém no DACTE não foram disponibilizadas as informações referentes a estes tipos de CT-e. Nessa versão, foi realizada a alteração para imprimir devidamente o Tipo do CT-e e do Serviço no DACTE e disponibilizadas as informações referentes aos diversos tipos de CT-e. 
+É necessário utilizar o arquivo
+ DaCTe_818.rtm
+. 
+Help:
+ 
+ CPC (CCF 25839)
+Edição do campo Quantidade na Importação de Nota Fiscal
+Na edição do campo quantidade da Tela de Importação, estava permitindo informar apenas 2 casas decimais. Nesta versão, foi realizada uma alteração para permitir informar 8 casas decimais arredondando o valor para 3. CPC (CCF 25953)
+Layout NF-e 3.10.
+Foi implementada no SisPetro a geração do XML para a versão do layout 3.10 da Nota Fiscal Eletrônica
+. Notas de Devolução/Retorno e de Importação sofreram alterações significativas em sua estrutura. Agora também será possível configurar fusos horários em cada UF, bem como indicar Horário de Verão na mesma.
+ 
+P
+ara migrar da versão 2.00 para a 3.10, a empresa não deverá possuir nenhuma pendência de envio para a Sefaz. 
+Help:
+ 
+ 
+PRFC
+ 
+(CCF 21261)
+Notas Fiscais Denegada ou Extemporânea
+Foi feita alteração na emissão de Notas Fiscais e Conhecimento de Transportes, de modo a guardarem corretamente as Situações "Denegada" e "Extemporânea". 
+Help: 
+NF-e - Nota Fiscal Eletrônica
+.
+ 
+PRFC (CCF 24806)
+Melhoria nas Validações de Notas Fiscais
+As validações referentes a emissão de Notas Fiscais foram reorganizadas e também foi acrescentada validação que impedirá o uso de uma Natureza de Operação com tipo de Emissão diferente de Própria na emissão de Notas de Venda. PRFC (CCF 25727)
+Edição do Campo "Histórico" no Lançamento de Nota Fiscal
+Na emissão de Nota Fiscal agora é possível alterar a descrição do campo histórico, caso a natureza informada esteja configurada para tal.
+ Help:
+ 
+ PRFC (CCF 22903)
+Filtro de Notas Fiscais para Vínculo
+No processo de vínculo de Notas Ficais e Itens, o SisPetro valida se a Nota selecionada é da mesma entidade e o item do mesmo produto. A tela de seleção não considerava estas duas informações. Após alteração, serão exibidas apenas Notas compatíveis com o vínculo. 
+Help:
+ 
+ PRFC (CCF 20698)
+Correção no arredondamento de ICMS ST 
+O SisPetro segue Regras para Arredondamento de Casas decimais conforme ABNT. Nesta versão, foi realizado um ajuste para fazer esse arredondamento no ICMS ST, corrigindo assim, a diferença de R$ 0,01 que estava ocorrendo com alguns valores. 
+CPC (CCF 25638)
+Validação de Vínculo de Frete
+O SisPetro, ao emitir Nota Fiscal, estava sempre validando o vínculo do Frete mesmo sem marcar o campo "Cancela Frete?". Agora esta validação somente será feita quando o campo estiver marcado. 
+Help:
+ 
+Vínculo de Frete com Contas a Pagar
+ 
+PRFC (CCF 25981)
+Transportadora na tela de Seleção de NF-e e CT-e do MDF-e
+Corrigida a apresentação do campo Transportadora na tela de Seleção de NF-e e CT-e para emissão do MDF-e para que apresentasse a descrição da Transportadora e não do Motorista. 
+GSN (CCF 26185)
+Validações da Nota Fiscal
+Quando a Nota Fiscal não possuía itens estava apresentando uma mensagem de erro nas validações da nota. Nesta versão, o problema foi corrigido, já que é possível através de configurações na Natureza de Operação, emitir uma nota fiscal sem itens. 
+CPC (CCF 25935)
+Responsável pelo Frete em OC Descarga Próprio
+Correção do responsável pelo frete na emissão de Ordem de Carregamento de Descarga Próprio, estava sempre sendo a origem. Após correção será o emitente.
+ PRFC (CCF 26198)
+Financeiro
+Cancelamento indevido de item de Baixa
+Foi corrigido erro ao cancelar um item de baixa via tela de Manutenção de Lançamentos de Contas a Pagar/Receber, o SisPetro estava cancelando indevidamente outro item de baixa.
+ 
+O botão "Canc.Item" foi reposicionado para aba Baixas/Baixas do Título selecionado.
+ 
+Help:
+ 
+ PRFC (CCF 25832)
+Ajuste na tela de Condição de Pagamento
+A tela de Condição de Pagamento estava com o campo "pesquisa" parcialmente escondido, o mesmo foi alterado para que seja exibido integralmente na tela.
+ PRFC (CCF 26331)
+Fiscal
+Nota Fiscal a ser enviada no GRF SP
+Para gerar o arquivo GRF para o estado de São Paulo, o SisPetro utilizava a configuração da Natureza de Operação “Registro Sintegra” e o Tipo do Produto “Combustível”, porém, quando a Nota tinha mais de um item, o Registro 50 está ficando com os valores incorretos (duplicados, triplicados..).  Nesta versão, foi criando um campo específico na Natureza de Operação, que é gravado na Nota e respectivas tabelas, pra informar se o registro deve sair no GRF SP e também foi criado um 
+layout especifico que deve ser atualizado porque não funcionará com outro layout. É necessário utilizar o arquivo
+ Sintegra-GRF_v818.rtm. 
+Help:
+ 
+CPC (CCF 25375)
+CST 051 (Diferimento) no SPED EFD ICMS/IPI
+Alterados os campos referentes ao ICMS nos Registros C100, C170, C190, C500, C590, D100, D190, D500 e D590 para considerar o CST 051 (Diferimento) como não tributado. 
+GSN (CCF 24542)
+Ajustes da NF na Apuração Fiscal
+Alterado para que os Ajustes informados na Manutenção de NF (aba Fiscal / Ajustes Livros/SPED) com valor 0 (zero) não sejam incluídos como Ajuste na Apuração Fiscal
+. 
+GSN (CCF 26152)
+COD_INF no Registro C500 do SPED EFD ICMS/IPI
+Alterado o campo COD_INF do Registro C500 para que seja preenchido com o código da Natureza de Operação.
+ 
+GSN (CCF 26159)
+Transporte
+Data/Hora do Término do Serviço
+ 
+No Encerramento da Ordem de Serviço já existem algumas informações como o KM, Usuário e Data de Encerramento. Nesta versão, foi incluída a Data/Hora do Término do Serviço, porque nem sempre o encerramento ocorre no mesmo momento que o serviço foi finalizado. 
+Help:
+ 
+ e 
+  CPC (CCF 25735)
+ 
+Pesquisa de Frota
+Na versão 8.17 foi corrigido o problema de lentidão na tela de pesquisa de frotas. Nesta versão, foram implementadas melhorias para garantir o perfeito funcionamento desse recurso.
+ CPC (CCF 25784)
+ 
+Filtrar Frota próprio na inclusão de Eventos do Frota
+Na inclusão de Eventos do Frota, foi implementada a opção de filtrar somente os Frotas Próprios. Para habilitar essa funcionalidade, basta configurar um perfil de sistema na aba Frete. 
+Help:
+ 
+. CPC (CCF 25732)
+Vendas
+Consulta da ANP com erro em alguns clientes
+Corrigida a Consulta da ANP para não apresentar erro em Clientes cuja Razão Social inicie com "Posto Com...". 
+Necessário atualizar o arquivo SispetroANP.dll no caminho do executável do Sispetro
+. 
+GSN (CCF 25855)
+Prazo na Pesquisa de Condição de Pagamento
+Apresentado na tela de Pesquisa de Condição de Pagamento o campo "Prazo" para facilitar o processo de escolha da condição. 
+GSN (CCF 25836)
+Validação de Saldo de Cliente no Pedido de Vendas
+No SisPetro há dois perfis que, no Pedido de Venda, verificam se o cliente tem Saldo suficiente ao incluir/alterar o pedido. Porém, estavam com problemas ao comparar os valores; algumas vezes o cliente tinha saldo e era apresentado que ele não tinha. Nesta versão, foi realizada a alteração para garantir que a validação seja feita corretamente. 
+CPC (CCF  25677)
+ 
+Cancelamento de Título a Pagar X Frete
+Em alguns casos a NF de Venda é devolvida sem que o serviço de Frete seja concretizado. Sendo assim, o frete gerado por esta NF precisa ser cancelado ao ser feita a NF de Devolução, opção essa disponível em tela para o usuário. Porém, ao tentar cancelar o frete é apresentada a mensagem que tem título a Pagar vinculado, mesmo quando não tem. Nesta versão, foi realizada uma alteração para ajustar as regras de cancelamento de Títulos a Pagar e Fretes vinculados entre si. 
+CPC (CCF 25834)

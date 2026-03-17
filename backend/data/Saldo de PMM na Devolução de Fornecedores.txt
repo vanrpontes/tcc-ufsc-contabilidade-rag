@@ -1,0 +1,41 @@
+TITULO: Saldo de PMM na Devolução de Fornecedores
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927272919
+--------------------------------------------------
+Após emitir uma Nota de 
+devolução
+ para Fornecedor, que movimentou estoque, o saldo disponível do PMM será disponibilizado novamente para utilização.
+Essa operação afeta a quantidade do pedido e a quantidade de entrada, que aumentarão conforme a quantidade devolvida, veja o exemplo abaixo:
+ 
+Operação
+Qtde da Operação
+Qtde PMM
+Faturada
+Pendente
+Disponível
+Entrada
+Na inclusão de PMM
+1000
+1000
+0
+1000
+1000
+0
+No faturamento da Nota
+400
+1000
+400
+600
+600
+0
+Na devolução da Nota
+400
+1400
+400
+1000
+1000
+400
+ 
+Conforme exemplo acima, após realizar a devolução, a quantidade da nota devolvida é somada na quantidade do Pedido, disponibilizando-a novamente para utilização.
+Toda essa movimentação pode ser visualizada mais facilmente através da tela de 
+Posição de PMM
+.

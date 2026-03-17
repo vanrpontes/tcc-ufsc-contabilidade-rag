@@ -1,0 +1,212 @@
+TITULO: Dados Gerais (Clientes)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2905145395
+--------------------------------------------------
+Através dessa tela o usuário poderá informar ou atualizar os dados do cliente conforme sua necessidade.
+É necessário ter perfil de usuário para poder manipular esses dados, sendo:
+Pode incluir entidades
+Pode excluir entidades
+Pode alterar entidades
+O acesso a tela de cadastro dos dados do novo cliente é feito através da 
+aba Detalhes / aba inferior Dados Gerais:
+Nesta tela deverão ser cadastrados os Dados Gerais do Cliente, sendo:
+Nome Usual:
+ nome que o cliente é conhecido
+Nome Usual Alternativo:
+ este é utilizado para Identificar o 
+Grupo Econômico.
+ Nas telas de 
+Consulta Pedidos aprovados para Faturamento,
+ 
+ 
+e 
+Manutenção do Pedido
+ 
+sempre será exibido o nome do Cliente Comprador do Grupo.
+Pessoa Jurídica: 
+se marcado, trata-se de 
+Pessoa Jurídica 
+Consumidor Final
+: este campo é muito importante para os cálculos de impostos. É necessário que o usuário que esteja incluindo / alterando o cadastro, habilite ou não este campo de acordo com a natureza do cliente. Através desse campo é agrupado os valores na geração da mídia GI, que é feito pelo SisPetro Controladoria
+Sem CNPJ/CPF: 
+este campo é utilizado apenas em caso de emissão de 
+NFC-e
+ 
+de clientes que não tem CPF ou CPNJ. No XML do Recibo da nota fiscal, a Tag do destinatário não será enviada. 
+Inativo?
+: habilitando este campo, este cliente passa a não figurar mais na lista de clientes ativos para vendas. Seu histórico permanece o mesmo podendo ser consultado porém nenhum usuário conseguirá emitir pedido, OC ou Nota Fiscal para ele pois ele passa a não constar mais na lista de clientes para venda. Esta é uma situação mais permanente do que a de Vendas bloqueadas pois o cliente fica no cadastro (somente no cadastro de clientes e em nenhuma pesquisa de clientes) somente para pesquisa de históricos passados enquanto que, quando está com vendas bloqueadas, ele permanece em todas as pesquisas porém o Sistema alerta ao usuário que ele não conseguirá emitir o pedido, etc. para este cliente.
+Caso o SisPetro esteja configurado para controle de cadastro de clientes, o status do cliente no momento da inclusão do mesmo é o POTENCIAL. Pode haver mais dois status para o cliente: LIVRE quando ainda não existe vendedor cadastrado para ele ou o vendedor cadastrado ainda não realizou nenhuma venda e ATIVO quando somente o vendedor cadastrado para o cliente pode realizar uma venda, isto é, o campo vendedor no pedido de venda permanece desabilitado e, mesmo que outro vendedor realize uma venda para este cliente, a comissão e todos os controles sobre a venda indicarão o vendedor cadastrado como sendo o realizador da venda. 
+Para mais informações, ver 
+Como mudar o status de um cliente
+.
+Razão Social:
+ razão social da entidade.
+Endereço:
+ rua ou avenida onde a empresa do cliente se localiza.
+Número:
+ número do prédio onde a empresa se localiza. Se não tiver numeração coloque 
+S/N
+Complemento:
+ dados complementares do endereço
+CEP:
+ CEP referente ao endereço da empresa. Para tornar a digitação desse campo obrigatório, deve-se marcar o perfil 
+CEP obrigatório no cadastro clientes
+Não é obrigatório o preenchimento do CEP quando o cliente é estrangeiro e sua UF é igual a 
+EX.
+Bairro:
+ local do município onde a empresa se localiza
+Cidade:
+ munícipio onde a empresa se localiza
+Estado:
+ estado onde a empresa se localiza
+País:
+ país referente a localização da empresa.
+Latitude:
+ informação da latitude da localização do cliente
+Longitude:
+ informação da longitude da localização do cliente
+Telefone
+ e 
+Fax:
+ números de telefones da empresa.
+CNPJ / CPF:
+ o SisPetro verifica o que foi marcado no campo 
+Pessoa Jurídica
+ e assume automaticamente o formato de CNPJ, caso seja pessoa física assume o CPF. Podemos forçar a digitação e também validar esse campo, conforme o perfil 
+Verifica C.G.C.?
+ localizado em 
+Ferramentas / Sistema / aba Clientes opção Verifica C.G.C? 
+          Para alterar um CNPJ, é necessário ter permissão de usuário, de Incluir, Alterar  e o perfil 
+Pode Alterar CNPJ/CPF de Entidades. Para mais informações, ver 
+Painel Segurança (Usuários)
+.
+Vale lembrar que não é permitido o cadastro de duas entidades ativas com o 
+mesmo CNPJ/CPF
+, a menos que uma delas esteja 
+inativa
+ e o perfil 
+Permite duplicação CGC inativo
+ localizado em Ferramentas / Sistema / aba Clientes, esteja marcado. 
+Para clientes estrangeiros, onde a UF é igual a 
+EX
+, o SisPetro não ira realizar a validação do preenchimento do campo
+Inscrição Estadual / RG:
+ o SisPetro valida a lei de formação para a IE, que varia conforme a localização (estado). Utilize o RG quando for pessoa física, senão digite a Inscrição Estadual. Assim como no campo CNPJ/CPF, pode-se adotar a máscara de inscrição estadual de cada estado através do perfil 
+Verifica formato Inscrição Estadual
+ que se encontra em 
+Ferramentas / Sistema / aba Clientes opção Verifica formato Inscrição Estadual ? 
+Assim como também pode-se validar a Inscrição Estadual através do perfil 
+Valida Inscrição Estadual
+ que se encontra em 
+Ferramentas / Sistema / aba Clientes opção Valida Inscrição Estadual clientes 
+Caso a empresa seja Isento de Inscrição Estadual o campo pode ser deixado vazio (Branco) ou preenchido com a palavra 
+ISENTO.
+Durante a geração do Sintegra, quando a IE estiver em branco, no arquivo gerado, automaticamente será preenchido com ISENTO na posição da IE
+Não é obrigatório o preenchimento da Inscrição Estadual quando o cliente é estrangeiro e sua UF é igual a EX e a operação é de Exportação.
+Para operação de consumo no País, é obrigatório o preenchimento deste campo, pois, na geração do XML, é gerado e passado a informação na tag idEstrangeiro 
+Este campo também é usado para cadastro de cliente que seja 
+Produtor Rural
+. Neste caso, deverá ser informado o CAD, que é o código referente ao cadastro deste cliente como produtor rural.
+Obs.: para quem usa o ambiente da SEFAZ do estado de Minas Gerais, o CAD deverá ser antecedido da sigla 
+PR
+ (Produtor Rural),antes de informar o referido código(CAD).
+As configurações citadas para validação de CNPJ/CPF e IE, são as mesmas tanto para Clientes como para Fornecedores.
+Latitude:
+ nesse campo informamos a latitude da localização do Cliente. 
+Longitude:
+ nesse campo informamos a longitude da localização do Cliente.
+Ao utilizar os campos de 
+Latitude
+ e 
+Longitude
+ a busca no mapa ira utilizar as coordenadas informadas no mesmo. A utilização desse recurso só é permitido quando informamos os 2 campos.
+Autorização ANP:
+ número do Registro da entidade na ANP.
+Botão CCC SEFAZ: 
+efetua consulta junto a SEFAZ, verifica a situação cadastro e obtém os dados para cadastro. 
+Para mais informações, ver 
+.
+Nome da pessoa de contato
+Aniversário Contato
+Vendedor
+: responsável pelas vendas - acione a tecla <Enter> e selecione um registro da lista de vendedores que será exibida. Existe a opção de 
+, podendo informar mais de um vendedor por cliente em diferentes filiais, através do botão ao do campo vendedor.
+É necessário ter perfil de usuário habilitado,
+ 
+Altera Vendedor no Cadastro de Clientes
+. 
+Para mais informações, ver 
+Painel Segurança (Usuários)
+.
+Código da Bandeira:
+ acione a tecla <Enter> e selecione uma bandeira da lista exibida.
+Você poderá incluir uma bandeira para classificar ou identificar seus clientes, conforme 
+ cadastradas.
+Para facilitar a visualização é disponibilizado no grid o código da bandeira e descrição.
+Assistente de Vendas:
+ Permite que seja vinculado um assistente de vendas. Para habilitar, acesse Ferramentas / Sistema / Painel Vendas. 
+Para mais informações, ver 
+.
+Promotor de Vendas:   
+Permite que seja vinculado um promotor para atender esse cliente. Para habilitar, acesse Ferramentas / Sistema / Painel Vendas. 
+Para mais informações, ver 
+.
+E-mail:
+ Utilizado para compor dados no 
+ do SCANC, campo 11. E também é utilizado para realizar o disparo de E-mail na inclusão de pedido de venda, seja pelo SisPetro APP ou SisPetro Normal.
+Importante: 
+obrigatório
+ informar um e-mail caso precise enviar Pedido de Venda para o cliente.
+Categoria do Estabelecimento: 
+ o padrão é Posto Varejista, porém quando o cliente não é posto varejista, deve ser alterada essa informação, para que saia corretamente na geração dos dados para Anexo/SCANC. Utilizado no registro 20, campo 12 (Categoria) do arquivo do SCANC.
+0 = Não é Substituto Tributário:
+ caso utilize esta opção, o campo 12 não será preenchido
+1 = Refinaria:
+ será preenchido com REF
+2 = Formulador:
+ será preenchido com FOR
+3 = Importador:
+ será preenchido com IMP
+5 = Armazenador:
+ será preenchido com ARM
+6 = Consumidor Final Não Contribuinte:
+ será preenchido com CNF
+7 = Central Petroquímica:
+ será preenchido com CPQ
+8 = Distribuidor:
+ será preenchido com DIS
+9 = Posto Varejista:
+ será preenchido com PRV
+10 = Transportador e Revendedor Retalhista:
+ será preenchido com TRR
+11 = Usina:
+ será preenchido com USI
+12 = Consumidor Final Contribuinte:
+ será preenchido com CFC
+13 = Varejista de GLP:
+ será preenchido com VGL
+14 = Empresa Comercializadora de Etanol:
+ será preenchido com ECE
+Para mais informações, ver 
+Manutenção de Anexos - Distribuidora
+.
+Apuração de PIS/COFINS:
+ campo específico para definir a forma como o cliente trabalha com relação a Apuração de Pis e Cofins, considerando que a partir de 2009 a Apuração de PIS e COFINS do Álcool passou a as opções 
+Alíquota 
+e 
+Valor fixo por m³ (metros cúbicos)
+. Portanto, temos:
+Respeita a configuração para a empresa
+Tributado por Alíquota (opção padrão)
+Tributado por Valor Fixo por m3
+Para mais informações, ver 
+Apuração de PIS e COFINS
+.
+Importante: normalmente, o vendedor é o responsável pelo correto preenchimento da tela de dados gerais (acima). Não é necessário preencher os outros campos (abaixo) que normalmente são preenchidos pelo setor de cadastro.
+Região para Vendas
+: 
+esse campo é meramente informativo, onde informamos uma região para vendas do cliente e pode ser utilizado para agrupamentos em relatórios e consultas. Só é permitido alterar o mesmo caso o perfil de usuário 
+Pode alterar Região para Vendas
+ esteja habilitado. 
+Após a inclusão dos dados do novo Cliente acione o botão 
+Acione o botão 
+ para retornar ao Menu principal.

@@ -1,0 +1,395 @@
+TITULO: Controlador Hermes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2942469665
+--------------------------------------------------
+none
+Objetivo
+O Controlador Hermes é o executável através do qual são feitas todas as configurações necessárias para que os 
+Servidores Hermes
+ (caso a empresa utilize mais de um 
+Servidor Hermes
+) e serviços automáticos sejam executados de forma correta.
+Caso tenha mais de um banco de dados, então deve ter um Controlador Hermes e 
+Servidores Hermes
+ para cada banco de dados.
+A 
+versão
+ do 
+Controlador Hermes
+ deve estar na
+ mesma versão do 
+Servidor Hermes
+. Caso estejam em 
+versões diferentes
+, apresentará a mensagem de
+ erro
+ no quadro Log Execução:
+Configurações mínimas necessárias
+Alterar o arquivo INI - 
+ nome do arquivo INI
+ segue o nome do executável do Controlador Hermes:
+<nome servidor>=<IP servidor>:<
+porta controle
+>:<senha conexao servidor>, onde temos inicialmente:
+Nome Servidor:
+ 
+NaoConfigurado
+IP Servidor:
+ 127.0.0.1
+Podendo ser informado o nome do servidor em vez do número IP
+Porta Controle:
+ 
+12000
+Senha Conexao Servidor:
+ 123456
+wide
+1800
+[Servidores]
+NaoConfigurado=127.0.0.1:12000:123456 
+ou
+NaoConfigurado=nomedoservidor:12000:123456
+Onde:
+Nome Servidor: 
+informação do nome do 
+Servidor Hermes
+IP ou Nome:
+ informação do IP ou nome do máquina onde está executando o 
+Servidor Hermes
+Porta Controle:
+ porta que será utilizada pelo 
+Servidor Hermes
+ para conexão do Controlador Hermes
+Senha de Conexão ao Servidor Hermes:
+ senha utilizada para restringir acesso dos clientes (opcional)
+Colocar o 
+Servidor Hermes
+ e o Controlador Hermes em execução com o mínimo necessário
+Executar os 
+Servidores Hermes
+ (caso tenha mais de um 
+Servidor Hermes
+)
+O ícone será adicionado na barra de ícones de bandeja (ao lado do relógio)
+Ao dar duplo clique, será apresentada a tela:
+Importante:
+ use o botão Minimizar para sair da tela. O botão de Fechar, além de fechar a tela, terminará a execução do 
+Servidor Hermes
+.
+Repare que as portas padrão são 8099 e 12000. Caso tenha alguma aplicação (como Banco de Dados ou outras) utilizando essas portas é fundamental que sejam indicadas outras portas.
+Para mais informações, ver 
+Procedimentos para migrar do Servidor SisPetro para o Hermes
+asdf
+Quadro Servidores
+são apresentados todos os 
+Servidores Hermes
+ e cujos endereços IP/hostname,  portas de controle e senhas estão devidamente configurados no INI do Controlador Hermes
+Versão: 
+versão do Servidor Hermes
+Endereço IP:
+ endereço IP da máquina na qual o 
+Servidor Hermes
+ está executando
+Porta:
+ número da porta da máquina na qual o 
+Servidor Hermes
+ está executando
+Ativo:
+ indica se o 
+Servidor Hermes
+ está ativo ou inativo. 
+Nome:
+ nome do 
+Servidor Hermes
+Data Inicialização:
+ data e hora que o 
+Servidor Hermes
+ foi inicializado.
+Reset dos Contadores:
+ data e hora da última vez que os contadores de processos foram limpados.
+Qtde Workers:
+ quantidade de processos do tipo Workers.
+Qtde Funções:
+ quantidade de processos do tipo Funções.
+S3:
+ indica qual 
+Servidor Hermes
+ é o 
+S3
+. 
+ID Servidor:
+ identificação do servidor. 
+Porta Controle:
+ porta utilizada pelo 
+Servidor Hermes
+ para conexão com o Controlador Hermes
+Qtde Licenças:
+ número de licenças da empresa. Mostrado somente no 
+Servidor Hermes de Segurança (S3)
+.
+Qtde Licenças Utilizadas:
+ número de licenças utilizadas, ou seja, quantos usuários estão conectados no SisPetro. Mostrado somente no 
+Servidor Hermes de Segurança (S3)
+.
+Validade Arq. Lic.:
+ data de validade do arquivo de licenciamento. Para mais informações, ver 
+Licenciamento
+Botões: 
+utilizado para fazer as configurações e ativações de recursos utilizados pelos 
+Servidores Hermes
+Ativa: 
+ ativar um 
+Servidor Hermes
+Desativa:
+ desativar um 
+Servidor Hermes
+.  Um 
+Servidor Hermes
+ é desativado para que se possa fazer configurações sem que seja necessário encerrar e iniciar novamente o executável.
+Torna S3: 
+define qual 
+Servidor Hermes
+ será o S3. Para mais informações, ver 
+Servidor Hermes de Segurança (S3)
+.
+Configurações do Log: 
+configurações de log dos 
+Servidores Hermes
+. Para mais informações, ver 
+Configurações de Log
+Atualiza:
+ atualiza a lista dos 
+Servidores Hermes
+.
+Dados Licenciamento:
+ habilitado somente no 
+Servidor Hermes de Segurança (S3)
+. Para mais informações, ver 
+Licenciamento
+.
+Obter Arq.Licenciamento: 
+habilitado somente no 
+Servidor Hermes de Segurança (S3)
+. Para mais informações, ver 
+Licenciamento
+.
+Validar Arq.Licenciamento:
+ habilitado somente no 
+Servidor Hermes de Segurança (S3)
+. Para mais informações, ver
+ 
+Licenciamento
+.
+Obter Log Inicialização:
+ são os logs de inicialização dos 
+Servidores Hermes
+. São atualizados somente quando o 
+Servidor Hermes
+ é iniciado ou reiniciado. Não atualiza quando Ativa ou Desativa.
+Obter Log Erros Roteador: 
+são os Log de exceção do SisPetro, como, por exemplo, erros de 
+Envio de Mensagem via SMS / WhatsApp na chamada do Motorista
+ 
+Dados Banco:
+ configuração do banco de dados. Para mais informações, ver 
+Configuração do Banco de Dados
+. 
+Reseta Contador:
+ limpa os contadores de processos.
+SisPetro App:
+ configuração do SisPetroApp. Somente para as empresas que usam o SisPetroWeb/SisPetroApp. Para mais informações, ver 
+Configuração do Serviço para o SisPetroWeb
+, 
+SispetroWeb
+, e 
+SispetroApp
+ .
+Configurações Gerais:
+ configurações gerais dos 
+Servidores Hermes
+, Para mais informações, ver 
+Configurações Gerais
+.
+Certificados:
+ configuração dos certificados digitais. Para mais informações, ver
+ 
+Configuração do Certificado Digital
+.
+Arquivos de Schemas:
+ configurações para validação de Schemas na emissão de notas/conhecimentos. Para mais informações, ver 
+Validação do Schema (Esquema) do XML da NFe / CTe / MDFe
+.
+Aba Log Controlador
+Aba Log Hermes
+Filtro log:
+ após acionar o botão 
+conectar Log Live
+ é possível utilizar o filtro para gerar um arquivo texto apenas com o que se quer analisar. É possível filtrar
+Botão Superior
+INFO
+ERROR
+WARN
+DEBUG
+CRIT
+Botão Inferior
+Log por número de Threads: de forma resumida, cada processo gerado ou por usuário ou por rotina acionada ganha um número (ID). Esse é um dos filtros que pode ser feito. Vale lembrar que assim que o 
+processo
+ é concluído (análise um pedido, por exemplo) essa thread é finalizada e encerrada.
+Conectar Log Live: 
+acionando esse botão é possível acompanhar em tempo real o que está ocorrendo no hermes nesse momento
+Essa ferramenta serve para acompanhar processos específicos do SisPetro. Deixar o Log Live acionado causa lentidão em todos os processos. 
+Desconectar Log Live: 
+desabilita o log em tempo real
+Obter arquivo log: 
+gera um arquivo de texto com o log após ativar o log em tempo real. 
+Quadro Informações Serviços: 
+neste quadro são feitas as configurações de todos os serviços automáticos disponíveis. 
+Abas
+Serviços
+Nome Serviço:
+ nome do serviço
+Status:
+Ativado:
+ serviço ativo
+Desativado:
+ serviço inativo
+Em Reativação:
+ serviço que apresentou erros consecutivos e será reativado automaticamente. Para mais informações, ver 
+Serviços Automáticos que Apresentam Erros na Execução
+.
+Intervalo de execução:
+ de quanto em quanto tempo o serviço será executado
+Qtde Erros:
+ quantidade de erros que o serviço apresentou. O serviço é desativado automaticamente quando apresenta 6 erros consecutivos. Para mais informações, ver
+ 
+Serviços Automáticos que Apresentam Erros na Execução
+.
+Qtde Tentativas:
+ quantidade de tentativas de execução do serviço
+Qtde Execuções:
+ quantidade de execuções bem sucedidas do serviço
+Qtde Reinicializações:
+ quantidade de reinicializações automáticas do serviço que apresentou 6 erros consecutivos e foi desativado. Após 6 reinicializações consecutivas, o serviço não é mais reativado automaticamente. Para mais informações, ver 
+Serviços Automáticos que Apresentam Erros na Execução
+.
+Hora Janela Inicial:
+ hora para iniciar a execução do serviço
+Hora Janela Final:
+ hora para terminar a execução do serviço
+Último Erro:
+ último erro apresentado na execução do serviço
+Data Ativação:
+ data e hora em que o serviço foi ativado
+Data Última Execução:
+ data e hora em que o serviço foi executado pela última vez
+IdServiço:
+ uso interno do SisPetro
+Id Servidor:
+ uso interno do SisPetro
+ 
+Serviços Automáticos Disponíveis
+Serviço de Agendamento de OC
+Serviço de Análise de Crédito
+Serviço de Análise de Aprovação de Pedido
+Serviço de ANP - Estoque
+Serviço de Averbação de Notas Fiscais
+Serviço de Baixa Automática
+Serviço de Cobrança Eletrônica - Remessa
+Serviço de Cobrança Eletrônica - Retorno
+Serviço de Comprovante de Entrega CT-e
+Serviço de Consulta ANP
+Serviço de Consulta Cadastro Contribuinte - SEFAZ
+Serviço de Consulta Destinatário CT-e
+:
+ recomendado desativar, caso utilize 
+Serviço de Recebimento de E-mail
+ e vice-versa
+Serviço de Consulta Destinatário NF-e
+:
+ recomendado desativar, caso utilize 
+Serviço de Recebimento de E-mail
+ e vice-versa
+Serviço de Depósito Identificado
+Serviço de E-mail de Saída - Envio
+:
+ recomendado ativar em todos os 
+Servidores Hermes
+, caso tenha mais de um.
+Serviço de E-mail de Saída - Geração
+:
+ ativado em todos os 
+Servidores Hermes
+, caso tenha mais de um. Recomendado utilizar as mesmas configurações de pastas em todos os 
+Servidores Hermes
+.
+Serviço de E-mail de Saída - Limpeza
+:
+ recomendado ativar em todos os 
+Servidores Hermes
+, caso tenha mais de um.
+Serviço de Encerramento de MDF-e
+Serviço de Empréstimo de OC
+Serviço de Exportação OC
+Serviço de Importação ANP
+Serviço de Importação AutoLoad
+ 
+Serviço de Importação de NF - De/Para
+Serviço de Importação de NF - Faturamento
+Serviço de Importação de NF - Leitura de XML
+Serviço de Importação de NF - Transformação
+Serviço de Integração AT&M
+Serviço de Integração de Recebíveis: Terras
+Serviço de Jobs
+Serviço de Limpeza de Memória: interno dos 
+Servidores Hermes
+ para evitar uso excessivo de memória da máquina.
+Serviço de Manifestação de CT-e
+Serviço de Manifestação NF-e
+Serviço de Mon. Viagem: Cadastro
+Serviço de Mon. Viagem: Consulta
+Serviço de Movimentação XML SEFAZ
+: 
+ativado em todos os 
+Servidores Hermes
+, caso tenha mais de um. Recomendado utilizar as mesmas configurações de pastas em todos os 
+Servidores Hermes
+.
+Serviço de Pagamento Eletrônico
+Serviço de PIX Recebidos Banco
+Serviço de PIX Recebidos Processa
+Serviço de PIX Geração QR Code
+Serviço de Recebimento de E-mail
+:
+ recomendado desativar, caso utilize 
+Serviço de Consulta Destinatário CT-e
+ 
+e/ou 
+Serviço de Consulta Destinatário NF-e
+ e vice-versa
+Serviço Tempo Chamada de Motoristas
+Botões relacionados ao serviço:
+Edita Parâmetros:
+ são as configurações dos serviços. Cada serviço tem seus próprios parâmetros. Ver nos helps acima os parâmetros configuráveis.
+Testa Configuração:
+ após configurar os parâmetros é necessário testar se as configurações estão corretas. Caso tenha algum problema, será mostrada uma mensagem e o serviço não será ativado.
+Força Execução:
+ força a execução de um serviço, independente do tempo determinado.
+Ativa:
+ ativa um serviço, independente da opção para iniciar automaticamente ou não. Caso não esteja marcada a opção, quando o 
+Servidor Hermes
+ reiniciar o serviço voltará inativo.
+Desativa: 
+desativa um serviço, independente da opção para iniciar automaticamente ou não. Caso esteja marcada a opção, quando o 
+Servidor Hermes
+ reiniciar o serviço voltará ativo.
+Aba Chaves
+Serviço de Chaves
+:
+ ativado somente no 
+Servidor Hermes
+ definido como 
+S3
+. Não configurável.
+Log
+Apresenta os logs do serviço selecionado na aba Serviços de uma forma mais amigável do que o arquivo de log gerado (que necessita de uma aplicação específica para visualizar)
+Clicando no botão 
+Busca mais dados
+ os dados de log serão atualizados.

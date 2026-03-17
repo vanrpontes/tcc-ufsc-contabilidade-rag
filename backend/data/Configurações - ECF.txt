@@ -1,0 +1,60 @@
+TITULO: Configurações - ECF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924284219
+--------------------------------------------------
+Tabela Conjunto de Dados
+ 
+Informar o diretório onde está armazenada a DLL - sped_ecf.dll - utilizada para geração do arquivo para a ECF:
+ 
+Tabelas Auxiliares > Controladoria > Conjunto de Dados
+Campo
+ DLL Arquivo de Exportação
+ 
+Perfil de Empresa
+Ferramentas > Sistema > aba Dados Gerais
+Configurar os 
+dados cadastrais da empresa
+,
+sendo 
+obrigatórios os campos Razão Social, CNPJ, Inscrição Estadual, UF, Inscrição na Junta Comercial e Data Cadastro Junta Comercial
+.
+Ferramentas > Sistema > aba Livro Eletrônico ECD/ECF
+Ver configurações em: 
+Painel Livro Eletrônico ECD/ECF
+Perfil de Usuário
+Ferramentas > Usuário > aba Contabilidade
+Permite ou não um usuário acessar a ECF no SisPetro Controladoria.
+SisPetro Controladoria:
+Arquivos > 
+Plano Contas
+:
+Configurar o vínculo com o
+ 
+Plano de Contas Referencial
+ - 
+PREENCHIMENTO OBRIGATÓRIO para a ECF.
+Este vínculo normalmente é configurado para a geração da ECD.
+Configurar o quadro DADOS ECF
+ - os campos indicam as contas que participam ou não da ECF e como participam.
+Relatório para conferência das contas que participam da ECF: ContasReaisXECF.rtm disponibilizado na versão 8.26.
+Manutenção da E
+CF
+:
+ inclusão do período da escrituração da ECF, quadro Outras Informações e Rendimentos dos Dirigentes.
+Manutenção de Lançamentos da ECF
+:
+ registrar os Lançamentos do Tipo Adição e Exclusão.
+Informações importantes:
+Antes de gerar a ECF, garantir que a ECD foi devidamente gerada, validada e assinada, pois parte das informações para a ECF são retiradas da ECD.
+Na tela de preenchimento, no campo RETIFICADORA informar N ou S.
+O plano de contas referencial é facultativo para a ECD, porém, é obrigatório para a ECF. Se na ECD teve advertências por problemas de vínculo com o  plano de contas referencial, na ECF essas advertências tornam-se erros. Nesses casos, alterar manualmente através do validador da ECF.
+No validador da ECF, carregar o arquivo da ECF gerado pelo SisPetro e no próprio validador selecionar a opção Carregar Dados da ECD. 
+Nota:
+ é possível incluir manualmente toda a ECF através do validador. Em uma eventual necessidade, é possível incluir qualquer registro manualmente.
+Para empresas que entregaram a ECF em 2015 (referente ano-calendário 2014) deve carregar também o arquivo da ECF entregue em 2015. Isso é feito no validador da ECF, da mesma forma que o carregamento do arquivo da ECD.
+Na versão 2014 (entregue em 2015) o campo DIF_CONT está nulo e o campo OPT_EXT_RTT está 'N', dos registros LCF0010. Esses campos referem-se à opção ou não pela extinção do RTT. Como estamos enviando como não optante pela extinção do RTT, os registros Y665 não são gerados. 
+Mapeamento do plano de contas referencial:
+ caso no arquivo da ECD não tenha sido feito o mapeamento do plano de contas referencial (registros I050 e I051), na ECF serão apontados erros no mapeamento (registros J050 e J051). Por padrão, no SisPetro, não são gerados os registros J. Assim, caso a empresa tenha necessidade de gerar os registros J através da ECF deve entrar em contato com o Suporte da Futura, onde serão providenciados os ajustes necessários.
+ 
+As validações podem ser alteradas sem que haja aviso prévio por parte da Receita Federal. É importante iniciar a validação do arquivo o quanto antes para que, em caso de problemas, seja possível corrigi-los em tempo hábil.
+Para a ECF, o SisPetro gera os registros conforme 
+. Na versão 2014 (entregue em 2015), parte dos registros são gerados através do arquivo assinado e validado da ECD. E parte são gerados pelo SisPetro. Assim, os demais registros que não estão sendo gerados nessa versão e que as empresas queiram gerar, devem entrar em contato solicitando análise para gerar tais registros.

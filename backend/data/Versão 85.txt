@@ -1,0 +1,228 @@
+TITULO: Versão 8.5
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2915467520
+--------------------------------------------------
+Dados
+Informações
+Início
+15/03/2013
+Final
+23/04/2013
+Scripts
+CMD85.SQL (cmd3188 a 3209)
+Itens
+39
+Implementações
+23
+Correções
+16
+Cancelamento de NFe
+Para atualização dessa versão, devem ser enviadas 
+a
+ Sefaz todas as pendências existentes.
+A partir dessa versão, o cancelamento da NFe será efetuado antes do cancelamento da nota fiscal do SisPetro, com isso, caso a NFe não consiga ser cancelada na Sefaz, não será possível também cancelar a nota fiscal no SisPetro.
+Tipo de Quantidade utilizada na tela NF Remessa/Retorno Armazenagem
+A partir dessa versão a opção Utiliza Quantidade Portaria, que era sugerida via arquivo .ini do usuário conforme a última opção utilizada, será retirada. Então todas as empresas vão estar configuradas para usar Qtde Programada Ambiente. Para usar a Qtde Programada 20c deverá trocar o perfil de sistema e/ou dar permissão ao usuário de trocar na tela.
+Atualizações do Sybase
+Na versão 8.3, foi informado que a versão mínima dos EBF's de atualização do Sybase para a execução do SisPetro passaria a ser o EBF 12.0.1.3797. Essa alteração não foi realizada, portanto, essa atualização não será obrigatória.
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+ResumoMovimentoBase.rtm
+BalancaJundiaiTxt.dll
+ 
+ 
+DaCTeFracionado.rtm
+ 
+ 
+ 
+DaCTeLotacao.rtm
+ 
+ 
+ 
+Geral
+Endereço do Servidor S3 Externo
+A partir dessa versão será possível informar no arquivo ini do
+ Sispetro
+ 
+o endereço (IP e Porta) do Servidor S3. Essa alteração permite que empresa com duas ou mais redes de computadores distintas informe o endereço onde se encontra o Servidor S3. 
+Help
+: 
+Infra-estrutura para uso do Servidor Sispetro
+ UPA (CCF 19552)
+Grids com colunas Editáveis - Parte II
+A partir dessa versão foi padronizada a forma de edição dos grids das seguintes telas: 
+Cadastro de clientes, 
+Efetivação de Vendor, 
+Rateio de Estoque, 
+Distribuição de Bombeio, 
+Efetivação de Recorrente, Busca de Produtos para cotação, Manutenção de Cotação, Identificação NFs duplicadas SPED, Carta Correção, Atualização Custo Médio, Atualização Dados PIS/COFINS.
+ 
+  AO (CCF 18918)
+Removidos Drivers do Sybase 7 do Servidor SisPetro
+Foram removidos todos os drivers do Sybase 7 do Servidor SisPetro. Com essa alteração, o Servidor SisPetro rodará exclusivamente no Sybase 12. UPA (CCF 19297)
+Bloquear a entrada no sistema ao validar a versão do SyBase 
+Na versão 7.25, foi realizada uma alteração no processo de instalação/atualização do Sybase para aceitar versões iguais ou superiores a exigida pelo SisPetro- versão 3484, porém o SisPetro está bloqueando a entrada no sistema, mesmo quando é apenas uma mensagem informativa de que a versão do Cliente está mais atualizada do que a versão mínima. Nessa versão, foi realizada uma alteração para só bloquear a entrada no sistema se a variável de ini  "AtualizacaoClient" estiver setada com valor 2 - (AtualizacaoClient = 0 - Não faz nada;  1 - Avisa que está desatualizado; 2 - Bloqueia o sistema). 
+Help:
+ 
+ 
+CPC (CCF 18536)
+Incluir a Path do Executável para Localização de DLL's do SisPetro
+No SisPetro, as rotinas que carregam DLL's, não adicionam a Path do executável, por isso, a dll deve estar no mesmo local do executável. Nessa versão, foi realizada uma melhoria para que nas rotinas que carregam DLL, informar a path do executável antes do nome da DLL - (DllInscE32.Dll; SispetroANP.dll; SispetroSintegra.dll)
+ 
+. CPC (CCF 18457)
+Importação de Hora de Saída obtida do XML NF-e e CT-e
+A partir dessa versão, é possivel salvar a hora de saída do xml da NF-e durante o processo de importação. AO (CCF 18741)
+Pesquisa de Processos nas telas de importação
+Abrir a tela de Pesquisa de Processos compatível com o Tipo de Importação da tela que está chamando a tela de pesquisa. Na tela de importação de NF´s só serão apresentados os processos compatíveis ao de importação
+.
+ 
+AO (CCF 19900)
+UF na Tabela de Distâncias
+Nessa versão, foi adicionado o campo UF da cidade de Destino na Tabela de Distâncias. Foi adicionado na tela não na Tabela
+ Help:
+ 
+ AO (CCF 19952)
+Lentidão no acesso ao SisPetro
+Algumas rotinas para acesso ao SisPetro foram melhoradas e a partir dessa versão o acesso ao sistema, mesmo em máquinas virtuais, deve ser executado de forma mais rápida. UPA (CCF 20102)
+Contabilidade
+Pesquisa pelo Código Extendido na tela de Ajuste de Saldo
+A partir dessa versão, é permitido pesquisar e informar a conta de Ajuste de Saldo pelo Sispetro Controladoria. 
+Help: 
+, 
+, 
+ 
+AO (CCF 18038
+)
+Erro na Inclusão de Lote manual no Controladoria
+A partir dessa versão, o Sispetro irá fazer a validação de Total de Débito e Creditos utilizando formatação dos totais para não ocorrer em totais com casas decimais. 
+AO (CCF 19961)
+Erro de Sintaxe Plano de Conta Real - Acesso Restrito ao usuário
+Nessa versão foi corrigido na tela do Plano de Contas Real, um erro que estava sendo apresentado quando se marcava a opção Acesso Restrito a Usuários numa conta. 
+AO (CCF 20020)
+Estoque
+Alteração de Pedido de Bombeio
+Na versão passada ao impedir a inclusão de um pedido de bombeio duplicado, impediu, indevidamente, a alteração do pedido de bombeio. Nessa versão, não estão mais impedindo a alteração de pedido de bombeio ainda não confirmado. 
+AO (CCF 19532)
+Balança x SmartCard
+O SisPetro foi adequado para salvar o peso obtido através da balança nas Portarias de Entrada e Saída mesmo que a empresa esteja utilizando o SmartCard. 
+Help: 
+, 
+Portaria de Saída
+ 
+UPA (CCF 19652)
+Balança Jundiaí através do Arquivo Texto
+Gerado o arquivo BalancaJundiaiTxt.dll que faz a Integração da Balança Jundiaí, porém utilizando o programa Captura.exe que gera um arquivo texto. 
+Necessário indicar no arquivo BalancaJundiaTxt.ini (no mesmo caminho da dll) o caminho e nome desse arquivo texto (geralmente c:\peso.txt). Caso o Sispetro seja utilizado em Terminal Server é necessário compartilhar o drive C e indicar no caminho \\tsclient\c\peso.txt
+. 
+Help: 
+ 
+GSN (CCF 19652)
+Relatório Resumo Movimento Base
+Na impressão desse relatórios, em situações em que as movimentações de um produto começavam em uma página e terminavam em outra mas com somente um registro impresso nessa segunda página, não estavam sendo impressos os totais da movimentação do produto. Esse problema foi corrigido. 
+Será necessário atualizar o 
+rtm
+ ResumoMovimentoBase.rtm para que essas atualizações sejam efetivadas.
+ 
+UPA (CCF 19887)
+Faturamento
+Cancelamento de Nota Fiscal
+A partir dessa versão caso seja solicitado o cancelamento de uma nota fiscal de emissão própria que gerou uma NF-e, será solicitado primeiro o cancelamento da nota fiscal na Sefaz, e uma vez homologado o cancelamento então a nota fiscal será cancelada no SisPetro. 
+Essa alteração impede a situação de uma nota fiscal cancelada no SisPetro e não cancelada na Sefaz como por exemplo quando uma nota fiscal de saída já foi confirmada pelo destinatário.
+ UPA (CCF 16602)
+Tela de NF Remessa/Retorno Armazenagem e Permissões de Usuário
+Alguns perfis de usuário, como o que permite alterar o tipo de cobrança da NF, não estavão sendo respeitados na tela de Remessa e Retorno de Armazenagem, quando deveriam. Nessa versão, os perfis de usuário de tela de inclusão de NF na tela de NF Remessa/Retorno Armazenagem agora estão sendo respeitados, são eles: Grupo Mostra na tela da NF c/Pedido - Tipo Cobrança, Permite alterar transportadora NF, Pode alterar dados do frete na NF Venda, Grupo Mostra na tela da NF c/Pedido - Condições de Pagamento, Grupo Mostra na tela da NF c/Pedido - Transportadora, Grupo Mostra na tela da NF c/Pedido -Tabela de Preço, Inclui/exclui itens na NF c/ Pedido. 
+AO (CCF 17834)
+Tela de Natureza de Operação
+Melhorias na tela principal de Natureza de Operação. Foram retirados campos que estão em desuso e ajustada a descrição de algumas colunas.
+ 
+ CPC (CCF 18279)
+Importação do XML de CT-e
+A obrigatoriedade do CT-e vem ocorrendo de forma vagarosa, desde 2012, porém algumas empresas já têm um volume razoável de CT-e, precisando da importação pelo xml para dar agilidade ao seu trabalho, usando o mesmo processo de importação de Notas Fiscais, agora é possivel fazer a importação do XML de CT-e. 
+Help:
+ 
+ AO (CCF 19354)
+Vincular NFs nas Telas de Remessa e Retorno de Armazenagem
+Na tela de NF é possível, via Natureza de Operação, vincular outras NF´s. Isso pode ser necessário quando se faz NFs de Entrega Futura ou no caso de se querer controlar os Retornos de Armazenagem em relação à Remessa. Porém esse recurso só está disponível em NFs incluídas manualmente, não estando disponível nas telas de Remessa e Retorno de Armazenagem. Nessa versão, essas telas foram melhoradas para permitir esse vinculo.
+ Help:
+ CPC (CCF 19276)
+Manutenção de Nota Fiscal
+Na versão 8.4 foram adicionadas algumas colunas novas no grid principal da Manutenção de NF´s e ao tentar ordenar os dados por algumas dessas colunas é apresentada uma mensagem. Nessa versão esse problema foi corrigido.
+ CPC (CCF 19791)
+Tipo de Quantidade utilizada na tela NF Remessa/Retorno Armazenagem
+Nas bases que gostariam de fazer a NF com a quantidade real da portaria a 20c, a partir dessa versão
+, será permitido a utilização da quantidade real da portaria a 20c e ambiente na tela de NF de Remessa/Retorno Armazenagem. 
+Help: 
+, 
+, 
+ 
+AO (CCF 19217)
+Dados de Impostos no DANFE devido lei Federal
+A partir dessa versão, foram disponibilizadas as informações de PIS e COFINS na impressão do DANFE. AO (CCF 18825) 
+Acertos na Data do Cancelamento NF
+A partir dessa versão, é possivel fazer acertos na data do Cancelamento de Notas Fiscais para poder trabalhar de forma diferenciada entre NF´s próprias e de terceiros. 
+Help:
+ 
+, 
+,  
+AO (CCF 19856)
+Melhorias internas na Inclusão de Evento de Manifestação
+Na versão 8.4, foi criado no SisPetro o recurso de Evento de Manifestação. Como o desenvolvimento foi realizado em partes, cada rotina que executa a inclusão de um novo evento foi criada de forma individual. Nessa versão, para melhorar esse processo, essa rotina foi centralizada. CPC (CCF 19657)
+Validação do Retorno do WebService
+Em algumas situações em que a Sefaz não responde a uma solicitação do WebServices, a string de XML de retorno fica vazia causando um "Access Violation" no Servidor SisPetro. Essa situação não gera "problemas" pois o Servidor SisPetro está configurado para capturar essas exceções e exibi-la ao usuário sem prejudicar a vida do projeto. Nessa versão, foi realizada uma melhoria para tratar no Servidor quando não houver resposta do WebService, não gerar um "Access Violation". CPC (CCF 19587)
+Sincronização de NF-e
+A partir dessa versão, a sincronização de NF-e, fora os dados hoje recebidos (Autorização de Uso, Carta de Correção e Cancelamento de NF-e), receberemos também o comando de manifestação da NF-e efetuado pelo destinatário da nota. UPA (CCF 19878)
+Tipo de OC permitidos no vínculo durante a inclusão de NF
+A partir dessa versão, foi limitado os tipos de OC's permitidos no vínculo durante a Inclusão de NF e não será permitido o vínculo com NF's de Outras Entradas e Saídas, como as OC's de Venda ou de Terceiros. 
+AO (CCF 19851)
+Cancelamento de NF sem protocolo na SEFAZ sem Inutilizar a Numeração
+Atualmente no SisPetro, para cancelar NFs rejeitadas pela SEFAZ o procedimento é enviar a inutilização do número. Porém há um cenário em que isso não deveria ocorrer, quando o erro retornado pela SEFAZ impede a inutilização, como por exemplo os erros de Modelo da NF diferente de 55 ou de numeração da NF já inutilizada na SEFAZ. Nesses casos não adianta enviar o comando de inutilização. Nessa versão, foi realizada uma alteração no SisPetro para permitir o cancelamento de NF sem protocolo na SEFAZ sem ter que enviar a Inutilização da Numeração. 
+Help:
+ 
+ CPC (CCF 19886)
+Sincronização de NF-e Cancelada Fora do Prazo
+O processo de sincronização de NF-e não estava gravando o protocolo de cancelamento das NF-e's canceladas fora do prazo. Esse problema foi corrigido. 
+UPA (CCF 20025)
+Relatório de Notas Emitidas não esta filtrando
+Nessa versão, foi corrigido o Filtro por Tipo de NF no Relatório de NF's Emitidas. 
+AO (CCF 19916)
+Tela de navegação da Natureza de Operação
+A partir dessa versão, foi ajustada a tela de navegação da Natureza de Operação para garantir que os campos, 
+Participação do Registro na LFE e 
+Tipo de Nota Fiscal 
+também sejam apresentados devidamente na aba Detalhes. 
+AO (CCF 20042) 
+Chave de Acesso do CT-e referenciado na NF-e
+Alterado o xml do recibo da NF-e para enviar a Chave de Acesso de um CT-e referenciado na tag refCTE conforme exigido pelo manual da NF-e. Anteriormente os dados do CT-e iam indevidamente na tag de NF's modelo 1.
+ 
+GSN (CCF 20083) 
+Fiscal
+SPED-EFD Código da Conta
+Alterados os registros C170, D100 e H010 para permitir contas com código contendo caracter. 
+GSN (CCF 19826)
+SPED-EFD Ajustes Registro C112
+Alterada as fórmulas do Registro C112: quando obtém dados de Documento de Arrecadação vinculado à NF, para que a UF seja a UF da empresa; quando obtém dados do Contas a Pagar para que o número do documento seja a Linha Digitável GNRE. 
+GSN (CCF 19708)
+Patrimônio
+Classificação de Bem como Principal ou Componente
+Nessa versão, foi implementado no Sispetro a possibilidade de indicar se um Bem é Principal ou Componente. Essa informação será utilizada no SPED-EFD para envio das informações de CIAP.   Bem Principal: é o bem oriundo da composição de outros bens. Bem Componente: é o bem, ou conjunto de bens, que irá compor um bem principal. 
+Help:
+ 
+Inclusão Manual de Bens - Sispetro Controladoria
+ 
+CPC (CCF 19972)
+Transportes
+DACTE
+Liberado no formulário de impressão do DACTE os dados do conjunto transportador do conhecimento de frete (dados dos veículos utilizados no transporte). 
+Disponibilizamos os Layouts DaCTeLotacao.rtm e DaCTeFracionado.rtm que devem ser usados conforme perfil da empresa.
+ 
+Help:
+ 
+Como emitir um Conhecimento de Frete Eletrônico
+ 
+UPA (CCF 19833)
+Vendas
+Descrição de telas e campos
+Melhorada a descrição de algumas telas e campos referentes a Custos de Venda (Natureza de Operação, Recálculo de Custos de NF's de Venda, Atualização da Participação do CMV e Atualização do Custo Médio) para facilitar o entendimento
+. 
+GSN (CCF 19960)

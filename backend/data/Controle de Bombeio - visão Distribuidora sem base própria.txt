@@ -1,0 +1,64 @@
+TITULO: Controle de Bombeio - visão Distribuidora sem base própria
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899859
+--------------------------------------------------
+Para 
+controlar Bombeio sobre a ótica de uma Distribuidora sem base própria
+, responda primeiramente as seguintes perguntas:
+Deseja disponibilizar a quantidade solicitada para bombeio antes da chegada da nota?
+Configurações iniciais:
+Cadastre a sua base como Filial no Sispetro (entrar em contato com Suporte).
+Cadastre um 
+Depósito
+ com o nome da Base, configurando-o como 
+Não Base Própria
+Configure no perfil da empresa (para todas as filiais que recebem o bombeio), painel Estoque, grupo Bombeio, as opções:
+Utilização de Bombeio:
+ Não Controla bombeio físico.
+Movimenta estoque na Confirmação de Bombeio:
+ Conforme resposta da questão 1.
+Configure o perfil da Empresa, no painel Compras, *Controla Pedido de Movimentação de Material.
+Configure o perfil da Empresa, no painel Compras, 
+Padrão para inclusão de Fornecedores (adiantamentos)
+ para opção do usuário.
+Cadastre a Petrobrás como 
+Fornecedor
+ configurando a opção 
+Controla qtde no Adiantamento
+ para opção do usuário.
+A cada início de mês
+Inclua um 
+PMM
+ configurado para 
+Recebimento Direto do Fornecedor
+, com 
+Controle de Cota
+ e de 
+Adiantamento
+ o fornecedor Petrobrás, para cada produto que será feito bombeio durante o mês.
+A cada Pagamento Antecipado feito à Petrobrás
+Inclua um Adiantamento não Quantificado de Fornecedores informando o valor pago e o Número do PMM.
+A cada bombeio que for solicitado
+Cadastrar o 
+ que for feito à Base.
+Quando a Base avisar qual será a quantidade bombeada, confirmada pela Petrobrás, faça a 
+confirmação do pedido de bombeio
+ e informe o número do seu PMM.
+Ao receber a Nota da Petrobrás
+Dê entrada na Nota da Petrobrás utilizando uma 
+Natureza de Operação
+ que 
+Gere Contas a Pagar
+ e configurada para 
+Bombeio
+, sem vincular essa nota a PMM ou OC (
+).
+No final da inclusão da Nota, ao ser questionado se quer Associar a NF ao Bombeio, responda <SIM> e 
+vincule a nota àquela Confirmação de Bombeio
+ (note que será apresentado o número do seu PMM vinculado à Confirmação de Bombeio).
+Em seguida, dê 
+baixa
+ no título gerado utilizando o Adiantamento Quantificado que foi incluído.
+Para saber a posição da Cota da Petrobrás
+Utilize a tela de 
+Consulta Posição de PMM
+.

@@ -1,0 +1,19 @@
+TITULO: Aprovação Automática Pedido de Venda incluídos via SisPetroWeb / SisPetroAPP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2932048442
+--------------------------------------------------
+Objetivo
+Permitir que os pedidos de venda incluídos via Sispetro Web passem pela Aprovação Automática.
+Configurações necessárias
+Perfil de Sistema/Empresa:
+ 
+ - perfil 
+'Faz análise de Aprovação de Pedido via Web através de serviço'
+ define se a empresa utilizará ou não a aprovação automática de pedido de vendas incluídos via SisPetroWeb. 
+Servidor Hermes:
+ 
+Serviço de Análise de Aprovação de Pedido
+ - define o serviço de análise de aprovação de pedidos inclusos via Web.
+Após o serviço ser realizado, os pedidos que foram inclusos via SisPetroWeb e que a empresa trabalhe com análise de aprovação de pedido via web, passarão do status de análise de aprovação de 'Necessita analise' para 'Análise realizada' informando também a data e hora que foi realizado a analise.
+A analise realizada via serviço segue as mesmas regras que a realizada na inclusão do pedido ou no acionamento manualmente através do botão de "Análise Aprovação" via tela de Consulta Pendentes.
+Veja também 
+Aprovação do Pedido de Venda

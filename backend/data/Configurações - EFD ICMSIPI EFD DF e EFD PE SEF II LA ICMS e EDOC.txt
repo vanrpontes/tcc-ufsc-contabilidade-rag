@@ -1,0 +1,303 @@
+TITULO: Configurações - EFD ICMS/IPI, EFD DF e EFD PE (SEF II LA ICMS e EDOC)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2908848494
+--------------------------------------------------
+Cliente / Fornecedor / Transportadora
+O arquivo da EFD deverá conter somente 
+UM CNPJ por entidade
+, independente de ser cliente, fornecedor ou transportadora. Neste caso, quando houver um cliente com o mesmo CNPJ de um fornecedor, deve-se definir qual deles será enviado na EFD: o cliente ou o fornecedor. Para isso, faça as seguintes configurações:
+No caso do Cliente ser enviado na EFD
+:
+Acessar o cadastro do fornecedor (que não será enviado na EFD) e configurar o 
+campo Código Entidade para uso no Livro Eletrônico
+ informando o código do Cliente. O cliente a ser vinculado deverá ter o mesmo CNPJ do Fornecedor em questão. Caso contrários, o Sispetro validará informando que os CNPJ's são diferentes. 
+Arquivos > Fornecedores > aba Detalhes > aba inferior Observações;
+No caso do Fornecedor ser enviado na EFD
+:
+Acessar o cadastro do cliente (que não será enviado na EFD) e configurar o 
+campo Código Entidade para uso no Livro Eletrônico
+ informando o código do Fornecedor. O fornecedor a ser vinculado deverá ter o mesmo CNPJ do Cliente em questão. Caso contrários, o Sispetro validará informando que os CNPJ's são diferentes. 
+Arquivos > Clientes > aba Detalhes > aba inferior Cadastro Detalhado;
+No caso da Transportadoras ser enviada na EFD
+:
+Devem estar cadastradas no SisPetro como Cliente ou Fornecedor. Geralmente é como Fornecedor, afinal você costuma utilizar serviços dela.
+Acessar o cadastro da Transportadora e configurar o 
+campo Código Entidade para uso no Livro Eletrônico
+ com o código do cliente ou do fornecedor (conforme escolhido).
+Tabelas Auxiliares > Transportes > Transportadoras/Motoristas > aba Detalhes;
+Relatório para Conferência de CNPJ: SPEDConfCGCEntidade.rtm
+Tabela Clientes
+Arquivos > Clientes > aba Detalhes > aba inferior Dados Gerais
+O cadastro do 
+Telefone
+ deverá conter o DDD (com 2 dígitos) e o telefone (com 9 dígitos). Vale reforçar que no telefone poderá conter até 14 dígitos.
+Conferir o cadastro do telefone para todos os clientes existentes;
+Possibilidade de manter os caracteres separadores no campo;
+Relatório para Conferência de Telefone: SPEDConfEntidadeLFE.rtm
+ 
+Tabela 
+Fornecedores
+Arquivos > Fornecedores > aba Detalhes > aba inferior Dados Gerais
+O cadastro do 
+Telefone
+ deverá conter o DDD (com 2 dígitos) e o telefone (com 8 dígitos).
+Conferir o cadastro do telefone para todos os fornecedores existentes;
+Possibilidade de manter os caracteres separadores no campo;
+Relatório para Conferência de Telefone: SPEDConfEntidadeLFE.rtm
+ 
+Tabela 
+Transportadora/Motorista
+Tabelas Auxiliares > Transportes > Transportadoras/Motoristas > aba Empresa Transportadora
+O motorista deverá ter em seu cadastro o vínculo com a respectiva transportadora a quem presta serviço.
+Conferir o 
+vínculo entre os motoristas e as transportadoras
+Relatório para Conferência Transportadoras: SPEDConfTransportadoras.rtm
+ 
+Tabela 
+Processo Referenciado
+ 
+Se a empresa possuir processos/ licitações que devem sair nas Observações da Nota Fiscal, será preciso, antes de tudo, cadastrar os processos existentes e sua respectiva situação.Para isso, faça as seguintes configurações:
+ 
+Tabelas Auxiliares > Faturamento > Processo Referenciado
+Informar os processos referenciados existentes para um determinado tipo de nota fiscal.
+Campo 
+Identificação de Processo
+Campo 
+Origem do Processo
+Campo 
+Situação
+Tabela Natureza de Operação
+Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Geral > aba inferior Dados Gerais
+Configurar o 
+campo Tipo Emissão
+:
+Deve estar preenchido com o tipo de emissão da nota. Para venda: 
+Própria
+, para compra: 
+Terceiros
+.
+Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Geral > aba inferior Dados Adicionais (Fiscal)
+Configurar o 
+Campo Modelo NF
+:
+Deve ser preenchido com os códigos dos tipos de notas segundo o Ato Cotepe (Por exemplo: Código 55 para Notas Fiscais Eletrônicas)
+ 
+ 
+Modelo da Nota x Registro da EFD:
+Os registros da EFD requerem que o modelo da Nota esteja devidamente configurado.
+Exemplo:
+Você não pode ter uma nota de Modelo 55 (que é NFe) num Registro C500 que é para notas de Telecomunicações
+O preenchimento do Modelo NF
+ 
+É OBRIGATÓRIO
+, pois existem fórmulas que utilizam do seu conteúdo para a composição do conteúdo de outros campos!
+Preencher os campos do quadro Livro Eletrônico - 
+Obrigatórios
+:
+Participação nos Registros: Verificar em qual se enquadra, conforme Ato Cotepe 09/2008
+Situação do Documento
+Indicador de Movimento
+Documento de ICMS
+Documento de ISSQN
+ 
+ 
+Atentar-se para os modelos exigidos para cada registro!
+Configurar, para a EFD PE, o quadro SPED PE SEF II, campo Classe de Operação.
+Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Por Filial > aba inferior Dados Gerais
+Preencher o 
+campo C.S.T. Produto
+Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Por Filial > aba inferior Processo Referenciado
+Vincular os 
+Processos Referenciados 
+a sua respectiva natureza de operação
+Tabelas Auxiliares > Faturamento > Natureza de Operação > 
+aba Detalhes > 
+aba Geral > aba Dados Adicionais
+Marcar a opção 
+Vincula Documentos Manuais de Arrecadação no SPED? 
+ veja mais detalhes em 
+.
+Observações da Nota Fiscal
+As observações das Notas Fiscais são mais controladas. Nem tudo vai mais na Observação, veja alguns exemplos:
+Processo: 
+Se a sua empresa fatura baseada num processo judicial ou fiscal, antes era informado na Observação o número deste processo. Agora é necessário cadastrar esse processo e vincular à Natureza de Operação
+Informações complementares e de Uso do Fisco: 
+Utilizar as tags disponíveis na Natureza de Operação para separar estas informações.
+Notas referenciadas: 
+Ao fazer uma nota que precise indicar nas Observações a nota que está sendo referenciada (Nota de Remessa de Armazenagem, Ressarcimento, etc), é necessário fazer o vínculo desta nota à nota de origem (que deve estar devidamente cadastrada no SisPetro).
+Assim, deve-se configurar a Natureza de Operação para sugerir o vínculo ou para forçar o vínculo durante a inclusão da nota. Se preferir, pode-se, após a inclusão, via Manutenção de NF´s vincular essas notas. 
+Relatório para Conferência de Natureza de Operação: SPEDConfNatOp.rtm
+Tabela Produtos 
+Arquivos > Produtos > aba Detalhes > aba inferior Ficha Produto
+CST
+ do Produto
+Cód Unidade
+ do Produto
+Campo CC Estoque
+ do Produto, no quadro Contas Contábeis
+Peso Bruto
+ do Produto
+Peso Liquido
+  do Produto
+ 
+Arquivos > Produtos > aba Detalhes > aba inferior Dados Adicionais
+Código NCM
+ do Produto
+Código Barras
+ do Produto (se houver)
+Gênero do Item no Livro Eletrônico
+Código Serviço
+Código Importação
+ 
+Arquivos > Produtos > aba Detalhes > aba inferior DPMP
+Deve ser preenchido para os produtos do tipo Combustível
+ 
+Relatório para Conferência de Produto: SPEDConfProdutos.rtm
+ 
+Tabela Condição de Pagamento 
+Tabelas Auxiliares > Vendas > Condições de Pagamento > aba Detalhes
+Configurar o 
+Campo À Vista/Prazo
+Relatório para Conferência de Condições de Pagamento: SPEDConfCodPg.rtm
+ 
+Tabela Frota 
+Tabelas Auxiliares > Transportes > Frota > Manutenção Frota > aba Detalhes
+Configurar os 
+Campos
+UF da Placa
+Tipo de Transporte
+Relatório para Conferência de Frota: SPEDConfFrotas.rtm
+ 
+ 
+Tabela Depósito 
+Arquivos > Depósitos > Dados Adicionais
+Verifique os campos abaixo:
+Campo Endereço
+Campo Número Endereço
+Campo Bairro
+Campo UF
+Campo CGC
+Campo I.E.
+ 
+Tabela Tipo de Documento 
+Tabelas Auxiliares > Financeiro > Tipo de Documento
+Verifique os campos abaixo:
+Participa no SPED EFD
+Campo Documento de Arrecadação
+Campo Inclusão do Título
+Campo Na Baixa do Título
+Tabela UF
+Tabelas Auxiliares > Faturamento > UF > selecione a UF que está gerando a EFD
+Informe os campos abaixo:
+Cód.Receita ICMS Próprio
+Cód.Receita ICMS ST
+Inventário
+Movimentação > Controladoria > Manutenção de Inventário
+Inclua um inventário conforme 
+.
+Nota:
+ a inclusão de inventário é obrigatória somente para os Estados que exigem envio de inventário na EFD e/ou no Sintegra.
+Tabela Conjunto de Dados
+ 
+Informar o diretório onde está armazenada a DLL utilizada no preenchimento e na geração do arquivo para a EFD, no serviço de Livro Fiscal Eletrônico - EFD.
+ 
+Tabelas Auxiliares > Controladoria > Conjunto de Dados
+Campo
+ DLL Arquivo de Exportação
+ 
+Obrigações Tributárias
+Quando a nota gera uma Obrigação Tributária, até então, no momento da Apuração Fiscal era responsabilidade do usuário incluir o valor somado destes ajustes como Outros Créditos ou Outros Débitos. Agora, é preciso configurar a natureza de Operação destas notas para já ter configurada a Obrigação Tributária (com o devido Tipo de Apuração utilizado na Apuração Fiscal). Assim, ao fazer a Apuração Fiscal estes valores já serão devidamente apresentados. 
+Chave de Acesso de Notas de Terceiros
+Foi acrescentado um campo de Chave de Acesso na inclusão de Notas Fiscais de Terceiros. Essa informação será imprescindível para a EFD. 
+GNRE
+Os pagamentos de GNRE deverão ser mais bem controlados. Apesar do trabalho adicional, algumas informações facilitarão o trabalho que se tem atualmente no SCANC/Anexo. Atente-se para como deve ser o procedimento de GNRE no SisPetro (pode ser que alguns passos já estejam sendo realizados!):
+Tenha um Tipo de Documento devidamente configurado para cada pagamento de GNRE.
+Fature normalmente a nota que tem ICMS Subst para pagamento de GNRE
+Inclua um Contas a Pagar, utilizando o Tipo de Documento configurado. Durante a inclusão ou após (depende de como se configurou o Tipo de Documento) vincule a Nota (faturada no item anterior) referente a este pagamento.
+Ao fazer a baixa do Contas a Pagar ou após a baixa (depende de como se configurou o Tipo de Documento) informe o Banco, Agência e Número de Autenticação deste pagamento.
+P.S. Ao buscar pagamentos de GNRE lá na Atualização da Manutenção de Anexos, os dados deste pagamento já serão enviados devidamente preenchidos, não sendo mais necessário preencher o Número da Autenticação no Anexo. 
+Perfil de Empresa
+Ferramentas > Sistema > aba Dados Gerais
+Configurar os 
+dados cadastrais da empresa
+ 
+Ferramentas > Sistema > aba Livro Eletrônico
+Configurar as Informações da Empresa:
+Nº PIS/PASEP
+Nº Suframa
+Inscrição Municipal
+Escrituração
+Estabelecimento centralizador de Escrituração
+Estabelecimento com escrituração centralizada
+Estabelecimento sem escrituração centralizada
+Definir o campo 
+Perfil SPED EFD
+ para a empresa conectada
+Perfil A
+Perfil B
+Perfil C
+Definir 
+Versão do Layout
+ a ser gerado
+Configurar campos de
+ 
+ICMS Próprio
+Código da Obrigação a Recolher
+: Definir o código da obrigação a ser considerada para o ICMS Próprio.
+Sequencial do Processo Referenciado
+: Definir o sequencial do processo referenciado a ser considerado para o ICMS Próprio.
+Configurar campos de
+ 
+ICMS ST 
+Código da Obrigação a Recolher
+: Definir o código da obrigação a ser considerada para o ICMS Substituição.
+Sequencial do Processo Referenciado
+: Definir o sequencial do processo referenciado a ser considerado para o ICMS Substituição.
+Log de Alterações
+A EFD possui dois registros que tratam das alterações efetuadas no período para a Entidade e para o produto. Aqui iremos destacar os dois casos.
+As alterações na Razão Social, CNPJ, Endereço, Número, Complemento, Bairro, Cidade e SUFRAMA de Clientes e Fornecedores serão registradas numa tabela separada para envio à EFD. Caso tenha mais que uma alteração no mesmo dia, valerá a última do dia. 
+Caso se altere a descrição de um produto, a mesma será registrada numa tabela separada para envio à EFD. A EFD precisa saber a data inicial e final de utilização de uma determinada descrição. 
+Registro 0175 - Alteração da Entidade no Registro 0150
+Conforme o Ato Cotepe, o Registro 0175 da EFD é referente ao Log de Alteração da Entidade cadastrada no sistema, que é o Registro 0150 da EFD. Sendo assim, o Registro 0175 abrange as seguintes informações:
+Registro
+: Conteúdo fíxo, sempre contendo 
+0175
+, pois é a referência do registro.
+Data da Alteração
+Número do campo alterado
+Conteúdo Anterior
+Para maiores informações sobre os campos do registro 0175, veja o Ato Cotepe atualizado para a EFD.
+Porém nem todos os campos do registro 0150 serão informados, que teve alteração, no registro 0175. Os campos que serão informados são os seguintes:
+Nome
+CNPJ
+CPF
+COD_MUN
+Suframa
+Endereço
+Número
+Complemento
+Bairro
+Para maiores informações sobre os campos do registro 0150, veja o Ato Cotepe atualizado para a EFD.
+Os campos que não estão preenchidos, e caso sejam, não serão marcados para envio de alteração de registro. Somente os que já possuíam informação e que sofrerão alteração.
+Registro 0205 - Alteração do Produto no Registro 0200
+Conforme o Ato Cotepe, o Registro 0205 da EFD é referente ao Log de Alteração do Produto cadastrado no sistema, que é o Registro 0200 da EFD. Sendo assim, o Registro 0205 abrange as seguintes informações:
+Registro:
+ Conteúdo fixo, sempre contendo 
+0205
+, pois é a referência do registro.
+Descrição Anterior do Item
+Data Inicial da utilização do item
+Data Final da utilização do item
+Para maiores informações sobre os campos do registro 0175, veja o Ato Cotepe atualizado para a EFD.
+Porém nem todos os campos do registro 0200 serão informados, que teve alteração, no registro 0205. Os campos que serão informados são os seguintes:
+Descrição do Item
+Código de Barras
+Código Anterior do Item
+Unidade de medida
+Tipo do Item
+Código NCM
+Código EX
+Código do Gênero
+Código do serviço
+Alíquota de ICMS
+Para maiores informações sobre os campos do registro 0200, veja o Ato Cotepe atualizado para a EFD.
+Os campos que não estão preenchidos, e caso sejam, não serão marcados para envio de alteração de registro. Somente os que já possuíam informação e que sofrerão alteração.

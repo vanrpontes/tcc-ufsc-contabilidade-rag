@@ -1,0 +1,493 @@
+TITULO: Versão 7.14
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2899608146
+--------------------------------------------------
+Versão 7.14
+
+
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 01/02/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 14/03/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd714.sql (cmd2563 a cmd2580) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 37 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 16 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 21 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Relatórios 
+
+
+ Layouts de Exportação 
+
+
+
+
+
+
+ balancete.rtm 
+
+
+ ComercializacaoANP.rtm 
+
+
+
+
+
+
+A regra para validação de duplicidade do conhecimento de fretes foi alterada, leia com atenção os itens de transporte pois com essa alteração, a emissão de conhecimento de frete pode ser afetada.
+
+
+Nesta versão corrigimos o problema na Série NF que às vezes acusava nota duplicada sem ter. Caso tenha sido alterada alguma série da NF no campo "Regra Quando Duplicar Numero NF" para "Série, Numero NF e Entidade" só para evitar o problema, esse campo já pode ser alterado para seu conteúdo correto.
+
+
+Geral
+
+
+
+
+Pesquisa de Perfis (F4)
+
+
+Nas telas de configurações de usuário e sistema, podemos localizar um determinado parâmetro teclando F4. Essa opção abre uma janela em que o usuário digita uma parte do texto do parâmetro desejado e o sistema executa uma busca na tela sobre essa informação.
+ 
+A partir dessa versão, esse recurso de busca de perfis estará disponível também nos cadastros de natureza de operação, clientes, fornecedores e produtos.
+ 
+UPA (CCF 11778)
+ 
+Help:
+ 
+Localizador de Perfis
+
+
+Pesquisa de Perfis (F4)
+
+Na rotina de busca de perfis, quando o perfil pesquisado era um perfil de pesquisa sobre o cadastro (campo onde é informado um código e caso não exista é aberta uma janela de pesquisa), o rotina de pesquisa localizava a página onde o perfil se encontrava mas não conseguia focar nesse campo como acontece com os outros tipos de campo. Esse problema foi corrigido. 
+UPA (CCF 11778)
+
+
+
+
+Contabilidade
+
+
+
+
+Balancete Real Comparativo
+
+
+No Relatório de Emissão do Balancete de Verificação foi criada uma opção de emissão de Balancete Real Comparativo.
+ 
+Essa opção não é habilitada quando é selecionada a opção "Detalha Centro de Custo".
+ 
+É necessário atualizar o arquivo balancete.rtm.
+ 
+Help:
+ 
+Balancete
+ 
+ALP (CCF 11019)
+
+
+Contabilização de Baixa de Bem
+
+Ao tentar efetuar uma baixa de bem sem contabilização, em alguns casos, o sistema não estava obedecendo e acabava por contabilizar a baixa. Esses casos foram identificados e o sistema foi corrigido. 
+ALP (CCF 12113)
+
+
+
+
+Compras
+
+
+
+
+Ordem de navegação dos campos na tela de Pedido de Movimentação de Material (PMM)
+
+
+Criamos um perfil de Sistema para que, na tela de inclusão de PMM, o preenchimento do campo "Depósito Destino" seja obrigatório quando a opção "Força Depósito Destino" estiver marcada
+ 
+e corrigimos o problema onde selecionava-se a opção "Força Depósito Destino" mas os campos não estavam em ordem e, por isso, o campo seguinte a ser preenchido não estava sendo o Depósito Destino.
+ 
+Help:
+ 
+Pedido de Movimentação de Material
+ 
+ALP (CCF 11878)
+
+
+
+
+Estoque
+
+
+
+
+Código Adicional de Tanque
+
+
+Disponibilizamos na tela de Manutenção de Tanques um campo a mais para identificação dos tanques. Esse campo possui mais caracteres que o campo Código do Tanque (atualmente com 3 caracteres), facilitando a identificação dos mesmos.
+ 
+ALP (CCF 11014)
+ 
+Help:
+ 
+Manutenção de Tanques
+
+
+Tipos de Leitura de Tanque
+
+
+Na tela de Leitura de Tanque existem atualmente 3 tipos de leitura (Abertura, Fechamento e Ajuste). Devido a necessidade de haver outros tipos de leitura, disponibilizamos um campo nessa tela que permite selecionar um Tipo de Leitura desejado.
+ 
+Os Tipos de Leitura podem ser cadastrados pelo menu "Tabelas Auxiliares - Estoque" e podem ser utilizados pela empresa conforme desejado, não afetando os processos.
+ 
+ALP (CCF 11201)
+ 
+Help:
+ 
+Tipos de leituras de tanque
+
+
+Números dos Pedidos na Manutenção de OC
+
+
+Incluídos na manutenção de OC o Número do Pedido e Pedido de Entrada. UPA (CCF 11758)
+
+
+Número do Pedido na Consulta de Saldo de Produto
+
+
+Na aba de movimentação, na consulta de saldo de produto foi disponibilizado o número do pedido. UPA (CCF 11758)
+
+
+Verificação de Fechamento no Rateio de Estoque
+
+
+Na tela de rateio de estoque o sistema estava verificando se havia Fechamento de Estoque para todas as leituras selecionadas na tela. Foi alterado para que apenas seja efetuada a verificação de Fechamento de Estoque caso tenha não sido selecionada a opção "Não Ratear". ALP (CCF 11803)
+
+
+Custo na Fabricação de Produto
+
+Na execução de uma ordem de fabricação, não estava sendo salvo o custo médio da fabricação do produto conforme o custo da proporção dos produtos da fórmula a ser produzida. Esse problema foi corrigido. 
+UPA (CCF 12055)
+
+
+Ordem de Fabricação (OF)- Somente Tanques do Depósito Selecionado
+
+Ao incluir os itens em uma OF, o sistema estava apurando o valor disponível verificando todos os tanques do produto. Mas esse valor deve levar em conta o Depósito em que a OF foi incluída, filtrando assim apenas os tanques daquele depósito. Este problema foi corrigido. 
+ALP (CCF 12081)
+
+
+Validação do volume na Liberação de Ordem de Fabricação (OF)
+
+Na tela de OF, no momento em que se fazia a liberação, o sistema não estava validando o volume a liberar. Devido a isso o saldo ficava negativo em casos onde se liberava uma quantidade maior do que o volume disponível para liberação. Esse problema foi corrigido. 
+ALP (CCF 11893)
+
+
+
+
+Faturamento
+
+
+
+
+Controle de Vínculo de Nota Fiscal para Entrega Futura
+
+
+No processo de vendas, é normal o faturamento de uma nota fiscal para venda futura com o volume total a ser enviado ao cliente e a cada entrega ser gerada uma nota menor com a quantidade que está sendo entregue ao cliente até ser alcançado o volume total (volume da primeira nota emitida).
+ 
+A partir dessa versão, será possível vincular notas fiscais por item e com isso controlar as quantidades vinculadas.
+ 
+Com essa implementação, e desde que configurado para isso, o usuário não conseguirá faturar notas de entrega com uma quantidade maior do que a nota principal vinculada.
+ 
+Help:
+ 
+Seleção de Notas para Vínculos
+ 
+UPA (CCF 11015)
+
+
+Origem do Número da Nota nas Notas de Remessa/Retorno de Armazenagem
+
+Ao emitir uma nota fiscal de remessa/retorno de armazenagem, após selecionar a natureza de operação, é informado ao usuário o número da nota fiscal que será gerada. Caso a natureza de operação estivesse marcada para ser NFe e a série NF utilizada para gerar essa NFe fosse diferente da série da natureza de operação, no momento da gravação da nota, o sistema vendo que a natureza de operação era uma NFe, pegava o número correto, ou seja, estava gravando com o número correto mas na geração da nota, mostrava ao usuário um número de nota incorreto. Esse problema foi corrigido. 
+UPA (CCF 11767)
+
+
+Tipo de Emissão da Série NF x Tipo de Emissão da Natureza de Operação na Importação de Notas
+
+Na importação de notas, assim como na emissão de notas fiscais manuais, está sendo validado o tipo de emissão da natureza de operação contra o tipo de emissão da série NF. Essas duas informações devem ser idênticas. No caso da importação, quando se estava importando uma NFe, o sistema não estava pegando a série NF da NFe e sim a da natureza. Esse problema foi corrigido. 
+UPA (CCF 11767)
+
+
+Importação de Notas Fiscais Via XML com Transportadora Utilizando CPF
+
+Na importação de notas fiscais via XML, caso a transportadora estivesse no XML com CPF, o sistema não estava importando essa informação. Esse problema foi corrigido. 
+UPA (CCF 11817)
+
+
+Versão dos Dados no Cabeçalho da Distribuição
+
+No cabeçalho do XML gerado para distribuição existe um campo que informa a versão dos dados do XML. Esse campo estava fixo com o valor 1.10, ignorando se a empresa estava gerando dados na versão 2.00. Esse problema foi corrigido e agora o conteúdo desse campo está de acordo com a configuração da empresa. 
+Essa informação não é enviada a Sefaz, o campo em que a Sefaz verifica a versão dos dados é outro e esse estava correto.
+ 
+UPA (CCF 11829)
+
+
+Campo Entrada/Saída no DANFE do Remoto
+
+Na impressão do DANFE no SisPetro Remoto o campo Entrada/Saída estava com o seu conteúdo errado. Esse problema já havia sido corrigido a algumas versões atrás no SisPetro Normal mas não foi repassada para o Remoto. Estamos nessa versão corrigindo esse problema. 
+UPA (CCF 11743)
+
+
+Mensagem de Nota Fiscal Duplicada Indevida
+
+Nas notas fiscais de entrada utilizando uma série de nota fiscal que valide o número da nota fiscal por entidade, após ser informado o número da nota fiscal, em algumas situações mesmo não existindo uma nota com o mesmo número para o fornecedor informado, o sistema estava emitindo uma mensagem informando ao usuário que a nota estava duplicada. Conseguimos simular essa situação em nosso banco de dados de testes e corrigimos essa situação. 
+UPA (CCF 11834)
+
+
+Bloqueio de Nota Fiscal Duplicada Quando a Empresa/Natureza de Operação estava Configurada para Permitir Duplicidade
+
+Mesmo com o sistema configurado para permitir nota fiscal duplicada, quando essa situação acontecia, ao finalizar a nota fiscal, estava sendo gerada uma mensagem de erro ao usuário e cancelando o processo de inclusão da nota. Esse problema foi corrigido. 
+UPA (CCF 11834)
+
+
+Arquivo XML de distribuição
+
+Foi identificado um problema no SisPetro que ocorre quando o protocolo de uma Nota Fiscal Eletrônica (NFe) é obtido através do botão "Sincroniza" (disponível na tela "Manutenção de Notas Fiscais" e na tela "Manutenção de NFe Pendentes"). Quando é feita essa sincronização, o xml gerado pela tela "Geração de Arquivo NFe Distribuição" fica em um formato que não é o correto para Distribuição. 
+Esse problema foi corrigido. Para emissão do arquivo de distribuição de Notas Fiscais antigas, deve ser feita a sincronização. Caso contrário o arquivo continuará a ser gerado de forma errada .
+ 
+ALP (CCF 11555)
+
+
+Não fecha a tela de Emissão da Nota Fiscal quando o RTM não é Localizado
+
+Na impressão da nota fiscal após a sua emissão, se o arquivo rtm da nota não for encontrado, o SisPetro gera um erro para avisar o usuário mas depois disso não consegue mais fechar a tela de nota através do botão finaliza. Esse problema está corrigido e nessas situações, será utilizado o layout padrão da nota fiscal. 
+UPA (CCF 12013)
+
+
+Emissão de Nota Fsical - Gravar Layout do grid de Ordens de Carregamento (OCs)
+
+
+Na tela de emissão de Nota Fiscal, foi implementado gravação do layout do grid de OCs (ordem de exibição e largura das colunas) mantendo o layout sempre que a tela for acessada. E com isso, disponibilizamos o botão "Layout Padrão" para que seja possível voltar ao layout original do sistema. ALP (CCF 11967)
+
+
+Data de referência para Moeda nos Títulos
+
+
+Na versão anterior do SisPetro, para títulos que possuíam moeda com taxa de conversão, o sistema utilizava a Data de Emissão do título como referência para conversão da taxa da moeda. Nessa versão criamos nos títulos o campo "Data de Referência Moeda", que será a data utilizada para fazer a conversão da moeda (é necessário que haja uma taxa cadastrada nessa data ou em uma data anterior. A localização da taxa dependerá da configuração do perfil "Cotação Diária" já existente na versão anterior).
+ 
+O acesso a alteração do campo "Data de Referência da Moeda" é configurado por um perfil na Natureza de Operação.
+ 
+Help:
+ 
+Inclusão de Contas a Pagar em moeda estrangeira
+ 
+ALP (CCF 11918)
+
+
+
+
+Financeiro
+
+
+
+
+Descrição do Tipo de Documento na Autorização de Pagamento
+
+
+Foi disponibilizado na Autorização de Pagamento o campo de Descrição do Tipo de Documento.
+ 
+Os usuários que desejarem podem alterar o RTM da Autorização de Pagamento e exibir essa informação no seu relatório.
+ 
+UPA (CCF 11470)
+
+
+Cobrança Eletrônica Banco do Brasil - Ocorrência 17
+
+
+Nessa versão implementamos uma verificação na leitura de arquivo de cobrança eletrônica do Banco do Brasil para que os casos onde há o retorno de ocorrência 17 (pagamento do boleto antes do banco efetuar o registro do título) possam ter as baixas efetuadas. ALP (CCF 11618)
+
+
+Lote de Lancamento de Título Não Identificado não é cancelado na Identificação
+
+Ao efetuar o cancelamento de um título identificado, se o mesmo tiver sido originado a partir de um título-não-identificado, esse último não estava sendo reativado. Esse problema foi corrigido. 
+Help:
+ 
+Identificação de Débitos Não Identificados
+ 
+ALP (CCF 11630)
+
+
+Moedas fixa como "REAL" no sistema
+
+Alguns processos do sistema não possibilitam a escolha da moeda, pois isso é feito automaticamente. E nesses processos foram encontrados alguns códigos onde a moeda estava fixa como "REAL", desobedecendo a moeda padrão cadastrada nos perfis de Empresa. 
+Por isso, se um cliente não tivesse cadastrado uma moeda como "REAL", ocorriam erros de divergência no processo da baixa.
+ Esse problema foi corrigido. 
+ALP (CCF 12014)
+
+
+Legenda sem descrição na manutenção de adiantamentos
+
+Na tela de Manutenção de Adiantamentos, os Pedidos já faturados de adiantamentos quantificados ficam em amarelo. Mas a legenda não estava indicando essa cor. Esse problema foi corrigido. 
+ALP (CCF 12150)
+
+
+
+
+Fiscal
+
+
+
+
+SCANC Refinaria - Importação sem Anexo III
+
+Na importação do SCANC Refinaria, a validação do período a ser importado será feita pelos registros A3HD e A5HD e não mais só pelo A3HD. Com isso, mesmo não vindo um dos registros, a importação dos arquivos será válidada. 
+UPA (CCF 11827)
+
+
+Conferência do Livro de Entrada e Saida
+
+O relatório "Conferência Livro Entrada/Saída" deixa as linhas em negrito quando identifica uma diferença entre o valor contábil e a soma da base ICMS, valor outras e valor isentos. Mas essa diferença, em alguns casos, não existia e mesmo assim a linha estava saindo em negrito. 
+ALP (CCF 11748)
+
+
+
+
+Vendas
+
+
+
+
+Arquivo com dados de comercialização para ANP
+
+
+No menu "Relatórios - Vendas" foi disponibilizada uma tela para permitir a emissão de arquivo para a ANP, com informações de comercialização de produtos.
+ 
+É necessário atualizar o layout de exportação ComercializacaoANP.rtm.
+ 
+ALP (CCF 11048)
+ 
+Help:
+ 
+Geração Arquivo de comercialização ANP
+
+
+
+
+Transportes
+
+
+
+
+Validação do Número de Conhecimento de Frete Duplicado
+
+Na emissão de conhecimento de frete é validado o número do conhecimento que está sendo emitido, para verificar se ele está duplicado e nesse caso o que deverá ser feito (bloquear ou permitir). Essa validação estava levando em conta somente o perfil de empresa, ignorando o perfil da natureza de operação que permite também, independente da configuração da empresa a duplicidade de um conhecimento de frete. 
+É importante lembrar que com essa alteração, caso a empresa não permitisse conhecimento de frete duplicado mas na natureza estiver configurado para permitir, a partir da atualização da versão, será permitido duplicar, cabendo ao usuário alterar a configuração da natureza de operação para que isso não aconteça.
+ 
+UPA (CCF 11834)
+
+
+Consulta de Controle de Vencimentos de Frota/Transportadora
+
+
+A partir dessa versão, para uma melhor visualização e performance, a tela de consulta de vencimentos de frota/transportadora listaram somente os frotas/transportadoras ativos. UPA (CCF 11432)
+ 
+Help:
+ 
+Controle de Vencimento
+
+
+Melhora de Performance na Aba de Fretes na Manutenção de Transportadoras
+
+
+Na manutenção de transportadoras, na aba de Fretes, incluímos um filtro por período, exibindo assim somente os fretes de um determinado período (podendo ser alterado pelo usuário) e com isso tornando o processo mais rápido para exibição de dados ao usuário. UPA (CCF 11820)
+
+
+Alíquotas de Icms X Emissão de Fretes
+
+Na tela de Emissão de Conhecimento de Frete, se a Natureza de Operação estivesse configurada para Gerar ICMS, a alíquota referente não estava sendo corretamente localizada no sistema. Esse problema foi corrigido. 
+ALP (CCF 11288)
+

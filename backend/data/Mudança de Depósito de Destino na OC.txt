@@ -1,0 +1,36 @@
+TITULO: Mudança de Depósito de Destino na OC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898501
+--------------------------------------------------
+Ao fazer uma Ordem de Carregamento de Transferência entre Depósitos, de Carregamento ou de Descarga Própria se indica o Depósito Destino onde será recebido o produto. Porém, no dia do recebimento o depósito destino pode ser outro. Esta situação é devidamente atendida no 
+recebimento da Nota Fiscal
+, já que nela o usuário pode informar o depósito. No entanto, se o depósito original é base própria e o novo não é, ou vice versa, teríamos problemas em relação a entrada desta OC na Portaria. Por isso é necessária a troca do depósito destino na OC.
+Essa tela poderá ser acionada através do botão 
+Altera
+ a partir da 
+Manutenção de Ordem de Carregamento
+. Temos algumas condições para isso, sendo:
+O perfil de usuário 
+Pode alterar OC (Transf. Depósitos ou Própria)
+ l
+imitará o acesso - 
+Painel Carregamento (Usuários)
+.
+A OC deve ser de Transferência entre Depósitos, Carregamento Próprio ou Descarga Própria.
+A OC não pode ter nenhuma Nota Fiscal não cancelada vinculada a ela.
+No caso de depósito antigo ser do tipo Base Própria, a OC não pode estar na fila ou ter feito a portaria.
+No caso do depósito novo ser do tipo Base Própria será responsabilidade do usuário pegar a fila pela Manutenção de OC, se assim o desejar.
+Na 
+Manutenção de Ordem de Carregamento
+ utilize o botão 
+Altera:
+E informar o novo depósito, e clicando em Salvar.
+Ao clicar na opção 
+Altera
+ o Sispetro permite que seja alterado o valor unitário do frete, conforme tela abaixo:
+Esse botão só estará habilitado se a OC:
+não for Transferência entre Depósitos
+não estiver vinculada a um Contrato de Frete
+estiver vinculada a um Contrato de Frete, mas o perfil da empresa Valor do Frete na OC vs Contrato de Frete estiver configurado como Não Utiliza
+S
+e o usuário desejar cancelar essa troca, basta clicar no botão 
+Cancelar.

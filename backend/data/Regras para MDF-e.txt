@@ -1,0 +1,43 @@
+TITULO: Regras para MDF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936701024
+--------------------------------------------------
+Para acessar a tela vá ao Menu → Tabelas Auxiliares → Faturamento → UF's → aba Detalhes → aba Regras p/ MDF-e
+Nesta tela é possível definir os parâmetros que variam conforme a UF, para MDF-e.
+Responsável Técnico
+Dados do Responsável Técnico:
+ Habilitando essa opção serão incluídas, no XML, as tags referente aos dados do responsável técnico (FUTURA). Todos os dados referente ao responsável técnico são gravados internamente no Sistema, pela Futura.
+CSRT (Código Segurança): 
+Marcando essa opção, caso a empresa responsável técnica (FUTURA) tenha um código CSRT para a UF em questão, será informado o código nas tags idCSRT e hashCSRT.
+O perfil CSRT se trata de um código de Segurança enviado pela Sefaz para a Futura e só pode ser marcado como 
+Envia
+ com a autorização da Futura.
+QR Code: 
+Habilitando essa opção o Sispetro irá informar no XML o QR code e disponibilizar a impressão do mesmo no Damdfe, lembrando que o layout do Damdfe  que esta sendo utilizado já deve estar devidamente configurado. Para maiores detalhes de como incluir o QR code no Damdfe veja o kb: 
+Incluir QR Code no RTM da CT-e/MDF-e
+O QR Code veio como um facilitador para a consulta do MDF-e, após realizar a leitura do código de QR Code impresso no Damdfe utilizando um dispositivo com leitura de QR Code, o dispositivo irá direcionar para um link da Sefaz contendo os dados do MDF-e.
+URL Consulta Pública MDF-e Produção: 
+URL para Geração do Caminho do ambiente de Produção da Sefaz que será Impresso como QRCode.
+URL Consulta Pública MDF-e Homologação: 
+URL para Geração do Caminho do ambiente de Homologação da Sefaz que será Impresso como QRCode.
+Envia Grupo de Informações do Produto Predominante (quando MDF-e c/ CT-e):
+ Habilitando esse perfil serão enviados no XML algumas tags específicas para 
+MDF-e
+ de 
+CT-e
+ conforme nota técnica 2020.001 do MDF-e. Veja abaixo uma tabela com os novos campos e um exemplo de como fica no xml.
+Campo
+Preenchimento
+xProd
+Descrição do Produto informado no CT-e
+CEP_Carrega
+CEP do Endereço de Entrega do Remetente (ou de Retirada) do CT-e (só preencher se Tipo Carga for Lotação)
+Latitude_Carrega
+Latitude do Remetente (ou de Retirada) do CT-e (só preencher se Tipo Carga for Lotação)
+Longitude_Carrega
+Longitude do Remetente (ou de Retirada) do CT-e (só preencher se Tipo Carga for Lotação)
+CEP_Descarrega
+CEP do Endereço de Entrega do Destinatário CT-e (só preencher se Tipo Carga for Lotação)
+Latitude_Descarrega
+Latitude informada para o Destinatário no CT-e (só preencher se Tipo Carga for Lotação)
+Longitude_Descarrega
+Longitude informada para o Destinatário no CT-e (só preencher se Tipo Carga for Lotação)

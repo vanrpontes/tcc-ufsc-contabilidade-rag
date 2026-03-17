@@ -1,0 +1,55 @@
+TITULO: Monitoramento SispetroWeb
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926194093
+--------------------------------------------------
+Funções do SispetroMon para monitoramento do SispetroWeb
+1. Monitorar o SispetroWeb
+Para tanto, basta ir até o menu 
+SispetroWeb / Log
+ para visualizar seu log. Este log é importante pois mostra eventuais problemas que o usuário está tendo no momento utilizando o 
+SispetroWeb
+.
+2. Permitir visualizar e editar os arquivos de configuração do SispetroWeb
+Temos algumas configurações possíveis:
+Dados de conexão do banco de dados.
+Interface de rede da máquina virtual (para trocar o IP dela, por exemplo).
+Dados do endereço do servidor para links em e-mails.
+Configuração de SSL
+Atualização
+Definição Perfil Cliente
+Reset
+Para configurar o banco de dados, acesso o menu 
+SispetroWeb / Configuração Banco Dados
+.
+Ambiente de Execução:
+ o padrão é 
+production
+, onde devem ser definidos os dados de acesso ao banco de dados.
+Para configurar a rede, acesse o menu  
+SispetroWeb / Configuração Rede
+ (somente em caso de troca do IP da máquina):
+Para definir um IP fixo, deve-se comentar as instruções abaixo, incluindo um # no início da linha:
+allow-hotplug eth0
+iface eth0 inet dhcp
+E, incluir as instruções abaixo, definindo os campos:
+auto eth0
+iface eth0 inet static
+address <endereço IP>
+netmask <máscara>
+gateway <gateway>
+A configuração do e-mail  deve ser realizada pelo menu  
+SispetroWeb / Configuração Endereço E-mail
+, informando o endereço de acesso do SispetroWeb, que servirá como servidor para envio de links dos e-mails:
+Através do menu 
+SispetroWeb / Definição Perfil Clientes
+ é possível definir alguns perfis específicos. Para mais informações, ver 
+Definição Perfil Cliente
+.
+3. Atualização do SispetroWeb
+Para atualizar o SispetroWeb, acesse o menu 
+SispetroWeb / Atualização.
+Ao final da atualização, o sistema apresentará a mensagem de que a atualização foi bem sucedida.
+O SispetroWeb apresentará eventuais erros no monitor.
+4. Reiniciando o SispetroWeb
+Para reiniciar o serviço do SispetroWeb, acesse o menu 
+SispetroWeb / Reset.
+O SispetroWeb encerrará a sessão, sendo necessário novo Logon no sistema.

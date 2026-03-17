@@ -1,0 +1,69 @@
+TITULO: Importação de lotes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2900853620
+--------------------------------------------------
+Importação de lotes contábeis tem como propósito permitir uma comunicação rápida e simples entre os lotes gerados por outros sistemas e o SisPetro, por meio da troca de arquivo magnético, desde que siga um dos modelos de importação disponíveis.
+Para mais informações veja as estruturas do 
+Layout de Importação de lote gerencial
+ (padrão Sispetro) e do 
+Layout para importação de lotes contábeis do Sistema Cordilheira
+.
+O menu para importar o arquivo .TXT é acessado por Ferramentas / Importação de Dados / Importação de Lote:
+Processo: 
+selecione um processo previamente cadastrado - ver help 
+Manutenção Importação de Dados
+.
+Informações Complementares:
+ nesta aba, selecione o campo 
+TIPO DE CONTA
+ e o campo 
+TIPO DE CONTABILIZAÇÃO.
+Tipo de Conta: 
+utilizada no processo de importação para definir como o Sispetro verificará as contas contábeis que estão no arquivo texto com as contas cadastradas nos Planos de Contas
+Código de Exportação: 
+no 
+Plano de Contas Gerencial
+ a informação deve ser cadastrada no campo Código Exportação. No 
+Plano de Contas Real
+ a informação deve ser cadastrada na aba Exportação.
+De/Para: 
+conforme as informações cadastradas na tela de Manutenção De/Para.
+Código Reduzido:
+ no 
+Plano de Contas Gerencial
+ utiliza o campo Código. No 
+Plano de Contas Real
+ utiliza o campo Cód. Reduzido.
+Tipo de Contabilização:
+  define como os lançamentos serão contabilizados.
+Só Gerencial: 
+será contabilizado somente na contabilidade gerencial (Sispetro Normal).
+Gerencial e Real: 
+será contabilizado na contabilidade gerencial e real (Sispetro Normal e Sispetro Controladoria).
+Só Real: 
+será contabilizado somente na contabilidade real (Sispetro Controladoria).
+Botão Exclui: 
+exclui o lançamento selecionado.
+Botão Edita: 
+edita o lançamento selecionado.
+Botão De/Para: 
+edita as configurações De/Para do processo (se for o caso).
+Botão Imprime: 
+imprime os lançamentos apresentados na tela 
+Botão 
+Exclui Todos
+: 
+ utilizado para excluir TODOS OS LANÇAMENTOS apresentados na tela.
+Após selecionar o Tipo de Conta e o Tipo de Contabilização:
+Importa: 
+ao clicar neste botão, abrirá uma tela para selecionar o arquivo texto a ser importado.
+Caso haja algum erro nos campos do arquivo texto (por exemplo: faltando algum campo ou campo sem informação quando deveria ter), os lançamentos serão mostrados na aba 
+Dados a serem validados. 
+Nessa aba, caso o usuário queira, os erros podem ser corrigidos.
+Caso não tenha qualquer erro nos campos do arquivo texto, os lançamentos serão mostrados na aba 
+Lotes a serem processados
+. Clicando no botão 
+Processa,
+ é feito uma segunda validação. Os lançamentos sem erros serão importados. Lançamentos com erros permanecerão na tela e ,
+ caso o usuário queira, é possível corrigi-los.
+Nota: a diferença entre importar lote gerencial (padrão Sispetro) e importar lote do Sistema Cordilheira é a forma como os lançamentos são contabilizados. No padrão Sispetro, cada lançamento gera um lote contábil. Na importação do arquivo do Sistema Cordilheira, os lançamentos geram um único lote contábil.
+O Sispetro NÃO CONTROLA se um determinado arquivo texto já foi importado ou não e também não verifica se tal arquivo pertence à empresa conectada ou não. A responsabilidade de importar o arquivo texto uma única vez e verificar se está conectado na empresa correta é do usuário.

@@ -1,0 +1,96 @@
+TITULO: n. Diferenças entre a contabilização gerencial e a contabilização real
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4441341953
+--------------------------------------------------
+12. Verificação das diferenças entre os lançamentos contábeis gerenciais e os lançamentos contábeis reais
+1 - Os dados são gerados a partir dos lançamentos contábeis gerenciais.
+2 - Se uma conta contábil gerencial não tiver saldo e nem movimentação mas a conta contábil real tiver saldo ou movimentação, será gravado na tabela, desde que essa conta contábil gerencial estiver vinculada à conta contábil real. Se não existir o vínculo entre as contas, não será gravado.
+3 - São consideradas somente as contas analíticas 
+4 - Caso seja necessário apagar toda a tabela BalanceteGerencialReal, basta executar novamente o script Balancete.sql. 
+Atenção: este item deve ser utilizado com critério e cuidado, pois apaga todos os lançamentos incluídos anteriormente.
+Procedimentos através do dbisql:
+Executar o script Balancete.sql:
+Criação da tabela BalanceteGerencialReal
+Criação da procedure PreencheBalanceteGerencialReal:
+ esta procedure grava os dados na tabela BalanceteGerencialReal
+ Após executar o script Balancete.sql:
+Parâmetros a serem passados para a procedure PreencheBalanceteGerencialReal que grava os dados na tabela BalanceteGerencialReal:
+call PreencheBalanceteGerencialReal (AnoMesIni,AnoMesFim,SeqGrupoEmpresa,CodEmpresa,ConsideraLanctoCancGerencial)
+, onde:
+AnoMesIni:
+ ano e mês inicial dos lançamentos contábeis gerenciais no formato AAAAMM
+AnoMesFim:
+ ano e mês inicial dos lançamentos contábeis gerenciais no formato AAAAMM
+SeqGrupoEmpresa:
+ caso não seja informado assumirá 0. Caso informe o grupo empresa, informe 0 no CodEmpresa. Se informado, irá gerar dados para todas as filiais. Processo extremamente demorado.
+CodEmpresa:
+ informe o código da filial ou 0, caso informe o SeqGrupoEmpresa. Se informado, irá gerar dados para a filial informada. Processo mais rápido.
+ConsideraLanctoCancGerencial: 
+0 =
+ não considera os lançamentos gerenciais cancelados
+1 =
+ considera os lançamentos gerenciais cancelados
+ Após executar a procedure PreencheBalanceteGerencialReal:
+No exemplo acima a tabela BalanceteGerencialReal foi preenchida com os lançamentos contábeis gerenciais dos meses de 04/2020 e 05/2020 de uma única filial considerando também os lançamentos gerenciais cancelados.
+No select abaixo mostra todos os lançamentos contábeis gerenciais e os respectivos lançamentos contábeis reais com e sem diferenças:
+No select abaixo mostra somente os lançamentos contábeis gerenciais e os respectivos lançamentos contábeis reais com diferenças:
+A tabela BalanceteGerencialReal pode ser preenchida várias vezes, com as seguinte regras:
+Caso informe um mesmo período, os lançamentos serão sobrepostos.
+Exemplo:
+ no primeiro preenchimento foi informado somente o mês e ano 202001 (início e final). Caso faça um novo preenchimento com esse mesmo período, os lançamentos serão sobrepostos.
+Podem ser preenchidos tantos períodos quanto necessitar, sendo diferentes popularão a tabela.
+Exemplo:
+ preenchimento de 202001 a 202001, preenchimento 202001 a 202002, preenchimento 202002 e 202002, etc. Os lançamentos contábeis gerenciais de cada período informado serão gravados na tabela BalanceteGerencialReal, bastando no select informar os campos AnoMesIni e AnoMesFim
+Campos:
+ID:
+ preenchimento automático pelo SisPetro
+AnoMesIni:
+ ano e mês inicial dos lançamentos. Informado na chamada da procedure PreencheBalanceteGerencialReal
+AnoMesFim:
+ ano e mês final dos lançamentos. Informado na chamada da procedure PreencheBalanceteGerencialReal
+SeqGrupoEmpresa:
+ código do grupo empresa. Informado na chamada da procedure PreencheBalanceteGerencialReal
+CodEmpresa:
+ código da filial. Informado na chamada da procedure PreencheBalanceteGerencialReal
+CodConta:
+ código da conta contábil gerencial.
+CodCompl:
+ código complementar das contas gerencias de entidades
+SaldoIni_G:
+ saldo inicial da conta contábil gerencial no mês inicial (AnoMesIni)
+Debitos_G:
+ valores totais a débito da conta contábil gerencial no período informado (AnoMesIni e AnoMesFim)
+Creditos_G:
+ valores totais a crédito da conta contábil gerencial no período informado (AnoMesIni e AnoMesFim) 
+SaldoFim_G:
+ saldo final da conta contábil gerencial no mês final (AnoMesFim)
+SeqConta:
+ código reduzido da conta contábil real
+SaldoIni_R:
+ saldo inicial da conta contábil real no mês inicial (AnoMesIni)
+Debitos_R:
+ valores totais a débito da conta contábil real no período informado (AnoMesIni e AnoMesFim)
+Creditos_R:
+ valores totais a crédito da conta contábil real no período informado (AnoMesIni e AnoMesFim) 
+SaldoFim_R:
+ saldo final da conta contábil real no mês final (AnoMesFim)
+TemDiferenca:
+ 
+0 =
+ a conta contábil gerencial está com valores iguais aos valores da conta contábil real 
+1 =
+ a conta contábil gerencial está com valores diferentes aos valores da conta contábil real
+ConsideraCanc_G:
+0 =
+ não considera os lançamentos contábeis gerenciais cancelados
+1 =
+ considera os lançamentos contábeis gerenciais cancelados
+Caso sejam necessários mais dados do plano de contas gerencial e/ou do plano contas real, deve fazer um select com inner join das tabelas:
+BalanceteGerencialReal inner join com PlanoContas (plano de contas gerencial)
+Exemplo:
+  select pc.Descricao, * from BalanceteGerencialReal bgr inner join PlanoContas pc on bgr.CodConta = pc.CodConta and bgr.CodCompl = pc.CodCompl where bgr.AnoMesIni = '202004' and bgr.AnoMesFim = '202005' and bgr.TemDiferenca =1
+BalanceteGerencialReal inner join com PlanoContasReal (plano de contas real)
+Exemplo:
+  select pcr.SeqConta, * from BalanceteGerencialReal bgr inner join PlanoContasReal pcr on bgr.SeqConta = pcr.SeqContaRed where bgr.AnoMesIni = '202004' and bgr.AnoMesFim = '202005' and bgr.TemDiferenca =1 
+BalanceteGerencialReal inner join com PlanoContas (plano de contas gerencial) e inner join com PlanoContasReal (plano de contas real)
+Exemplo: 
+select pc.Descricao, pcr.SeqConta, * from BalanceteGerencialReal bgr inner join PlanoContas pc on bgr.CodConta = pc.CodConta and bgr.CodCompl = pc.CodCompl inner join PlanoContasReal pcr on bgr.SeqConta = pcr.SeqContaRed where bgr.AnoMesIni = '202004' and bgr.AnoMesFim = '202005' and bgr.TemDiferenca =1

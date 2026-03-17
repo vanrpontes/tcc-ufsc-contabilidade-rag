@@ -1,0 +1,131 @@
+TITULO: Alteração de Cheques Vinculados a Transferência entre Bancos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701976
+--------------------------------------------------
+Através do botão 
+Altera Cheques
+, localizado no painel cheques vinculados, na Manutenção de Bancos, o sistema permite ao usuário fazer alterações nos cheques vinculados a movimentos provenientes de 
+transferência entre bancos
+.
+
+Mais detalhes no tópico 
+.
+
+
+Para ter acesso a esse recurso, é necessário que o perfil localizado no menu 
+Ferramentas/usuário/Financeiro/ Pode Alterar Cheques vinculados a transf. entre bancos
+, esteja marcado. Caso contrário, mesmo que o lançamento seja de um movimento de transferência entre bancos, o botão 
+Altera Cheques
+ ficará desabilitado.
+
+
+Ao clicar no botão 
+Altera Cheques
+, do painel Cheques Vinculados, o sistema abrirá a tela de Alteração de Cheques Vinculados a Transferência, onde será exibido os cheques que estão vinculados e outras informações referentes ao lançamentos.
+
+
+
+
+Nesta tela, a única informação que poderá ser alterada, é o valor total dos cheques (campo 
+Novo Valor
+). O campo 
+Novo Valor
+, funciona de acordo com o tipo de documento que está sendo utilizado para esse lançamento. Caso o tipo de documento não esteja configurado (opção: Valida valor do movimento associado) para validar o valor dos cheques com o valor total do lançamento, o sistema permitirá que o usuário salve as alterações feitas, mesmo o valor total (Campo 
+Novo Valor
+), sendo diferente do total de cheques. Mais informações sobre a configuração do tipo de documento, no tópico 
+Tabela Tipo Documento
+.
+
+
+O usuário pode utilizar alguns recursos da tela de alteração de cheques vinculados a transferência, para facilitar a organização e exibição dos dados.
+
+
+Por exemplo: Pode-se agrupar os cheques pelo código do portador, para isso, basta o usuário arrastar o campo e colocá-lo no local onde está escrito "Arraste o cabeçalho de uma coluna para agrupar por esta coluna". Dessa forma o sistema agrupará as informações, dividindo por Cod.Port., conforme tela abaixo.
+
+
+
+
+Além dos botões de navegação, que servem para o usuário se deslocar dentro do grid, essa tela permite que um registro seja marcado para posteriormente ser acessado.
+
+
+
+
+Por exemplo: O usuário tem 50 cheques listados nessa tela, porém, no meio da conferência, há necessidade de uma análise mais criteriosa de um determinado cheque. Nesse caso, o usuário pode marcar esse cheque, através do botão 
+Salva Bookmark
+ 
+ e continuar a conferência. Ao terminar, basta clicar no botão 
+Move para Bookmark
+ 
+, que o sistema se posiciona no registro anteriormente marcado pelo 
+Salva Bookmark
+, que necessitava de uma análise mais criteriosa.
+
+
+Caso prefira, ao invés de agrupar os registros, conforme explicação anterior, o usuário pode utilizar o botão 
+Filtra Registros
+ 
+, para exibir informações especificas na tela. Ao clicar nesse botão, o sistema abrirá uma nova janela, onde o usuário poderá criar e até salvar consultas personalizadas.
+
+
+
+
+Por exemplo: O usuário tem a necessidade de conferir, apenas os cheques de um determinado portador, porém, na tela, os registros estão misturados.
+
+
+No construtor de filtros, o usuário deve clicar na palavra Filtro, forçando o sistema a abrir duas opções: 
+Adicionar Condição
+ e 
+Adicionar Grupo
+. Deve-se selecionar 
+Adicionar Condição
+.
+
+
+
+
+Dessa forma o sistema abrirá uma nova linha, onde o usuário deve selecionar o campo, a condição e o valor.
+
+
+
+
+Neste caso, o usuário deve substituir o campo 
+#Cheque
+, por 
+Cod.Port
+, a condição 
+parecido com
+, por 
+igual
+ e o valor 
+<Vazio>
+ pelo valor do Cod.Port. que será filtrado.
+
+
+
+
+Ao finalizar o filtro e retornar para a tela de Alteração de cheques Vinculados a Transferência, o sistema mostrará os registros conforme o filtro criado.
+
+
+
+
+Lembrando que a tela acima, está apresentando os registros dessa forma, porque não tinha nenhum grupo criado.
+
+
+Clicando no botão 
+Altera lista de cheques
+, o sistema abrirá a tela de cheques recebidos. Por meio dessa tela que poderão ser feitas as alterações necessárias (Inclusão, alteração e exclusão) nos cheques, caso o usuário necessite.
+
+
+
+
+Na tela de Alteração de Cheques Vinculados a Transferência, clicando no botão 
+OK
+, o sistema emitirá uma tela de confirmação para o usuário:
+
+
+
+
+Confirmando a operação, o sistema irá cancelar o lote gerencial e real (se houver) desse lançamento, criando outro lote gerencial e real para o movimento em questão.
+
+
+Para maiores informações sobre lote gerencial, acesse o tópico 
+. 

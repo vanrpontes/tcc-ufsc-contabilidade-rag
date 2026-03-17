@@ -1,0 +1,81 @@
+TITULO: Contabilização de Transferências de Produtos Compostos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2965440831
+--------------------------------------------------
+A função 
+GetValNFItemProdBas
+ retorna o 
+valor do produto básico, na proporção cadastrada, quando na nota fiscal tem um produto composto
+. Se na 
+nota tem o próprio produto básico, então retorna o valor integral.
+A função 
+GetCCEstoqueByProd
+ retorna a conta contábil de estoque do produto básico informado.
+É possível utilizar as funções tanto na Contabilidade Gerencial como na Contabilidade Real.
+Nas funções não é possível utilizar códigos de produtos compostos. Deve informar somente códigos de produtos básicos.
+Exemplo:
+Gasolina C não deve informar 01. Informe 05 (Gasolina A) e 04 (Etanol Anidro)
+Contabilidade Gerencial: configurando a contabilização auxiliar
+Configurações necessárias - SisPetro Normal:
+Menu Tabelas Auxiliares > Faturamento > Natureza Operação > selecione a natureza > aba Detalhes > aba inferior Contabilização > quadro Contabilização Gerencial:
+Tipo de Contabilização:
+ Manual (Definido pela Natureza)
+Débito:
+ Desabilitado
+Crédito:
+ Desabilitado
+Utiliza Contabilização Auxiliar:
+ marcar
+Botão Desdobramento de Contas
+Nota:
+ caso marque a opção Desconsidera Código de Contabilização, não é necessário configurar um Código de Contabilização, pois será contabilizado conforme a contabilização gerencial.
+Exemplos de uso: produtos Gasolina C, Gasolina A e Etanol Anidro
+Campo Conta
+GetCCEstoqueByProd('05'): 
+ o campo '05' é o código do produto básico que faz parte da composição do produto composto, esse Get vai buscar a conta que está no cadastro do produto CCEstoque
+GetCCEstoqueByProd('04'):
+ o campo '04' é o outro código do produto básico que faz parte da composição do produto composto, esse Get vai buscar a conta que está no cadastro do produto CCEstoque
+Campo Valor: GetValNFItemProdBas(<729>,<730>,<731>,'05')
+<729>
+ = ItensNF.CodEmpresa
+<730>
+ = ItensNF.Sequencial
+<731>
+ = ItensNF.NumItem
+'05' - O campo '05' é o código do produto básico que faz parte da composição do produto composto
+Campo Valor: GetValNFItemProdBas(<729>,<730>,<731>,'04')
+<729>
+ = ItensNF.CodEmpresa
+<730>
+ = ItensNF.Sequencial
+<731>
+ = ItensNF.NumItem
+'04' - O campo '04' é o código do produto básico que faz parte da composição do produto composto
+Contabilidade Real: configurando o código de contabilização
+Configurações necessárias - SisPetro Controladoria:
+Menu Arquivo Arquivos > Códigos Contabilização:
+Selecione o código ou inclua um novo código
+Aba Detalhes:
+ inclua os dados necessários
+Exemplos de uso: produtos Gasolina C, Gasolina A e Etanol Anidro
+Campo Conta
+ContaReal(GetCCEstoqueByProd('05')): 
+ o campo '05' é o código do produto básico que faz parte da composição do produto composto, esse Get vai buscar a conta que está no cadastro do produto CCEstoque
+ContaReal(GetCCEstoqueByProd('04')):
+ o campo '04' é o outro código do produto básico que faz parte da composição do produto composto, esse Get vai buscar a conta que está no cadastro do produto CCEstoque
+Campo Valor: GetValNFItemProdBas(<729>,<730>,<731>,'05')
+<729>
+ = ItensNF.CodEmpresa
+<730>
+ = ItensNF.Sequencial
+<731>
+ = ItensNF.NumItem
+'05' - O campo '05' é o código do produto básico que faz parte da composição do produto composto
+Campo Valor: GetValNFItemProdBas(<729>,<730>,<731>,'04')
+<729>
+ = ItensNF.CodEmpresa
+<730>
+ = ItensNF.Sequencial
+<731>
+ = ItensNF.NumItem
+'04' - O campo '04' é o código do produto básico que faz parte da composição do produto composto
+Os códigos de produtos utilizados como exemplos são os códigos padrões do SisPetro.

@@ -1,0 +1,87 @@
+TITULO: API Consulta Fila da Portaria de Entrada
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926197524
+--------------------------------------------------
+Objetivo
+Consultar quais frotas estão na portaria de entrada. 
+1. Obter token autenticação
+Introdução
+Qualquer webservice do projeto 
+SispetroWeb 
+exigirá um token de autenticação. Este token é gerado a partir deste webservice e será válido por 24 horas. Assim, recomendamos que o sistema consumidor dos webservices aqui descritos salvem o token armazenando também a data e hora em que ele foi gerado para que, quando chegar próximo de sua validade, seja obtido novo token.
+Para mais informações, ver 
+API Obtenção de Token
+2. Informações sobre Portaria de Entrada
+Introdução
+Este webservice tem por finalidade retornar os dados da portaria de entrada.
+Endereço
+<endereço do SispetroWeb>/portaria/get_portaria_entrada_from_api
+Parâmetros
+Será necessário enviar um header com o token.
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+Content-Type
+tipo do formato de envio
+application/json
+Accept
+tipo do formato de envio
+application/json
+Body
+Nada
+Método
+GET
+Exemplo de chamada de WebService
+wide
+1800
+curl -H "Content-Type: application/json" -H "Accept: application/json" -H 
+"Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM" 
+http://192.168.0.107:3000/portaria/get_portaria_entrada_from_api 
+Retorno Bem Sucedido
+Será retornado um objeto JSON com uma matriz contendo os dados de cada registro na portaria de entrada e o status 200. 
+O status da resposta sempre será 200.
+Nome Campo
+Descrição
+Observações
+Fila
+Número da Fila
+StatusCarregamento
+Status da operação
+1=Está esperando para entrar na base, 2=Está dentro da base
+PlacaVei
+Placa do frota principal
+Tipo
+Tipo da OC
+V=Venda, C=Carregamento (carregamentos)
+D=Descarga, T=Transferência entre depósitos (descargas)
+Carreta
+Placa da Carreta (se houver)
+CodTransp
+Código do motorista ou transportadora
+CodDep
+Código do depósito da operação
+DescrTransp
+Nome do motorista
+CodProd
+Código do Produto da operação
+DescricaoCompleta
+Descrição do produto da operação
+DataRecepcao
+Data/Hora que motorista obteve a fila para entrar na base
+DataEntradaBase
+Data/Hora da entrada na base do motorista
+Qtde
+Quantidade da operação
+wide
+1800
+[...,{"Fila":8454,"PlacaVei":"JLY-4653","Carreta":null,"CodTransp":"00032","DescrTransp":"DIELSON FERREIRA DE FREITAS","CodProd":"05","DescricaoCompleta":"GASOLINA A","DataRecepcao":"2017-03-23 14:35:21","DataEntradaBase":"2017-03-23 14:35:21","Qtde":"30000.0"},....]
+Retorno Sem Sucesso
+Será retornado um objeto JSON com o motivo da não inclusão (poderá ser um erro de autenticação caso o token tenha expirado ou seja inválido ou alguma regra de negócio não atendida. 
+O status da resposta sempre será diferente de 200.
+wide
+1800
+{"error":"Forbidden","status":403}

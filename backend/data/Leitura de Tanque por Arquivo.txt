@@ -1,0 +1,99 @@
+TITULO: Leitura de Tanque por Arquivo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927266935
+--------------------------------------------------
+Através do menu 
+Movimentação / Base / Leitura de Tanques por Arquivo é possível
+ realizar a integração da leitura de tanque via arquivos.
+Depósito: 
+O Depósito onde iremos realizar as leituras.
+Tipo de Leitura:
+ Tipo de Leitura que será realizado.
+Tipo Leitura p/ empresa:
+ informa o tipo de Leitura a ser realizado pela empresa. Esse campo é meramente informativo visando somente dar nomes para as leituras. Veja mais em 
+Tipos de leitura de tanque
+.
+Altera Volume do Tanque:
+ Marcando essa opção, o sistema altera o Volume do Tanque após realizar a leitura.
+Seleciona arquivo:
+ Ao acionar esse botão, será aberta a tela de pesquisa para buscar e selecionar os arquivos para a leitura.
+Sobrepõe as Leituras da Tela:
+ Se essa opção estiver desmarcada, o Sispetro adiciona a lista de leituras no grid da tela, se estiver marcada, apaga primeiro o que tiver, para depois adicionar.
+Botão Salva: 
+Salva o processo e efetua a leitura caso estejam OK.
+Botão Cancela: 
+Sai da tela cancelando o processo.
+A quantidade de 
+casas decimais
+ apresentada para os campos referente a 
+Temperatura
+ e 
+densidade 
+são configurados de acordo com o perfil de depósito 
+'Arredonda os valores recebidos?'.
+ Veja mais em 
+Depósitos - Aba Dados Adicionais
+.
+Na Inclusão / Alteração de Tanque, precisa preencher o campo 
+Cód. Tanque (Automação Leitura)
+Layout do arquivo
+O arquivo pode incluir várias linhas com tanques distintos para o mesmo tipo de leitura 
+Tipo de Leitura
+Leitura do arquivo um a um:
+Tem cabeçalho 
+Separado por ; (ponto e virgula)
+Data e hora no formato: DD/MM/YYYY hh:mm
+Separador de decimal , (virgula)
+A ordem das colunas é: Cada linha é uma leitura
+Código do Tanque
+Data/Hora Leitura
+Regua
+Volume
+Densidade
+Temperatura (usamos essa temperatura para salvar em Temperatura do Tanque e Temperatura da Amostra)
+Numlaudo (sequencial de números)
+O campo NumLaudo é um campo texto, porém não é permitido o uso do caracter 
+;
+ em seu conteúdo, pois o mesmo já é o delimitador de colunas no arquivo texto.
+Exemplo: 
+Tanque
+;
+DataHora
+;
+Regua
+;
+Volume
+;
+Densidade
+;
+Temperatura
+;
+NumLaudo
+;
+01
+;
+01/10/2018 09:15
+;
+198,69
+;
+124166
+;
+0,805
+;
+29,0625
+;
+5841
+;
+02
+;
+01/10/2018 09:15
+;
+438
+;
+562300
+;
+0,813
+;
+25,0565
+;
+1247
+;

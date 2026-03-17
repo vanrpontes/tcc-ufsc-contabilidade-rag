@@ -1,0 +1,63 @@
+TITULO: Débitos Não Identificados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898299
+--------------------------------------------------
+Débitos não identificados são todos os lançamentos encontrados na sua conta bancária (saídas ou pagamentos) cuja origem é desconhecida, 
+porém, sabe-se que a origem é de algum cliente, isto é, a empresa irá de alguma maneira cobrar algum cliente quando este for identificado.
+
+
+É diferente portanto de algum lançamento que o banco lançou na sua conta, porém, diz respeito a alguma tarifa ou taxa a qual ele ainda não comunicou o motivo. Este tipo de movimento deve ser lançado simplesmente como no item 
+.
+
+
+Assim, quando por exemplo, houve um cheque devolvido e o emitente deste cheque ainda não foi identificado (o cheque ainda não foi recuperado), cria-se um problema para a conciliação bancária pois existe um movimento e não temos como lançá-lo (como cheque devolvido por exemplo) pois ainda não temos o nome do cliente.
+
+
+É importante que se note que a pendência será lançada no Contas a Receber da empresa (pois alguém terá de pagar isso posteriormente). Este tipo de lançamento no Contas a Receber só pode tomar um de dois destinos: ser identificado ou cancelado.
+
+
+Para então lançar um débito não identificado deve-se proceder da seguinte maneira:
+
+
+Abrir tela de Inclusão de Contas a Receber (
+Movimentação / Financeiro / Contas a Receber / Inclusão de Lançamento
+).
+
+
+
+
+Como este é um lançamento não identificado, deve-se desabilitar o campo 
+Lançamento Identificado
+.
+
+
+O próximo passo é preencher os campos da tela conforme descrito no tópico 
+.
+
+
+Caso não saiba, o usuário deve verificar na área contábil da empresa, em qual 
+conta
+ de 
+Débitos Não Identificados
+ (campo 
+Código Conta Débitos Não Identificados
+) deve incluir este lançamento. Normalmente, esta conta armazena toda a movimentação de débitos não identificados (a débito) e, quando se identifica o cliente (a crédito), tendo, portanto, um saldo que é igual a soma de todos os lançamentos não identificados.
+
+
+Na manutenção de Contas a Receber, os lançamentos deste tipo são identificados pela cor cinza.
+
+
+
+
+Para identificar um lançamento (quando por exemplo o cheque devolvido chegou e você conseguiu identificar a qual cliente pertence o cheque), basta selecionar o lançamento e apertar o botão 
+Identifica
+.
+
+
+
+
+Preencha os campos com o código do cliente, comprador, vendedor e taxa de juros ao dia. Aperte o botão 
+OK
+ para confirmar a identificação.
+
+
+O Sistema irá gerar um Contas a receber manual com este cliente (com os mesmos dados do lançamento não identificado anterior) movimentando a conta do cliente contra a conta de débitos não identificados. Além disso, ele irá mudar o status do lançamento original (não identificado) para Cancelado (sem alterar a contabilização anterior). 

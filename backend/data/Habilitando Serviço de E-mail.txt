@@ -1,0 +1,70 @@
+TITULO: Habilitando Serviço de E-mail
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2896298319
+--------------------------------------------------
+ 
+Configuração do Serviço de E-mail (Envio):
+Neste quadro, são configuradas a forma como o serviço de 
+envio
+ de -mail deve iniciar - recomendado marcar a opção Iniciar o Serviço Automaticamente - e uma pasta para gravar os arquivos. Caso seja configurado o serviço de e-mail, 
+é obrigatório
+ informar uma pasta onde serão gravados os arquivos XML, PDF e boletos que serão enviados aos destinatários da nota fiscal.
+Essa pasta deve existir e ter as permissões necessárias de leitura, gravação, alteração e exclusão. O
+ botão
+ 
+Testar Acesso da Pasta
+ 
+verifica se o caminho da pasta  e as permissões estão corretas.
+Para iniciar o serviço, verificar se a opção 
+Iniciar o Serviço Automaticamente
+ está marcada, clicar em 
+Iniciar o Servidor
+ ou 
+Parar o Servidor
+. 
+Caso o usuário queira que os e-mails sejam enviados assim que iniciar o Servidor SisPetro, é recomendado que deixe marcada a opção 
+Iniciar o Serviço Automaticamente
+. Caso queira que, por exemplo, os e-mails sejam enviados no final do dia, deixar desmarcada, no final do dia marcar a opção e clicar em 
+Iniciar Serviço.
+A opção de Iniciar Serviço Automaticamente estando marcada vai sempre obedecer a configuração feita na Aba E-mail - Ferramentas \ Empresa \ Email, onde deve ser configurado o tempo em que será realizada a verificação de novas mensagens.
+Configuração do Serviço de E-mail (Recebimento):
+Neste quadro, é informado ao usuário quais são as pastas onde serão salvos os aquivos XMLs baixados ou recebidos.
+A forma como o serviço de 
+recebimento
+ de e-mail deve iniciar -
+ recomendado marcar a opção Iniciar o Serviço Automaticamente
+ - e as pastas para gravação dos anexos recebidos. Caso seja configurado o serviço de e-mail, 
+é obrigatório
+ informar as pastas onde serão gravados os arquivos XML recebidos dos emitentes da nota fiscal eletrônica.
+Para iniciar o serviço, verificar se a opção 
+Iniciar o Serviço Automaticamente
+ está marcada, clicar em 
+Iniciar o Servidor. 
+Para parar o serviço  ou 
+Parar o Servidor
+. 
+Caso o usuário queira que os e-mails sejam recebidos assim que iniciar o Servidor SisPetro, é recomendado que deixe marcada a opção 
+Iniciar o Serviço Automaticamente
+. Caso queira que, por exemplo, os e-mails sejam recebidos no final do dia, deixar desmarcada, no final do dia marcar a opção e clicar em 
+Iniciar Serviço.
+A opção de Iniciar Serviço Automaticamente estando marcada vai sempre obedecer a configuração feita na Aba E-mail - Ferramentas \ Empresa \ Email, onde deve ser configurado o tempo em que será realizada a verificação de novas mensagens.
+Veja o help 
+XML´s Recebidos
+ para informações sobre as configurações das pastas de XMLs Recebidos.
+É possível salvar o XML das NFs em que o usuário Manifestou como "Ciência". Veja mais informações em 
+Salvar XML de Manifestações processadas como Ciência
+ 
+Envio de arquivo .PDF do DACTE/DANFE
+O envio do .PDF do DACTE/DANFE segue os mesmo passos do envio do email (NF-e e CT-e), porém para ser gerado é necessário informar aonde se encontra o arquivo .RTM para geração do DACTE/DANFE. Veja abaixo.
+Informar na aba principal do 
+ o caminho do arquivo .RTM do DACTE/DANFE.
+É necessário, o usuário, ter acesso a pasta, pois caso contrário o servidor não conseguirá acessar.
+Importante:
+ caso não seja preenchido o caminho do RTM, não ocorrerá nenhum erro, o e-mail será gerado apenas com o arquivo .XML da NF-e ou CT-e
+ 
+Ver também:
+Configurações Gerais
+Serviço de E-mail
+Configuração de "Filial x Conta"
+Configuração de Conta de E-mail
+XML´s Recebidos
+Possíveis formas de configurar os vínculos do sistema

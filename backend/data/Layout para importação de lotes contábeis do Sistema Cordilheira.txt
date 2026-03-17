@@ -1,0 +1,54 @@
+TITULO: Layout para importação de lotes contábeis do Sistema Cordilheira
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919989596
+--------------------------------------------------
+Permite a importação de lote contábil utilizando o arquivo texto gerado pelo Sistema Cordilheira.
+A primeira linha não é utilizada no arquivo texto (campo, descrição, observação). É meramente informativa e ilustrativa.
+Os campos devem ser separados por | (pipe).
+Campo
+Descrição
+Observação
+Filial
+Código da filial
+Este campo não é utilizado no Sispetro.
+ 
+É de responsabilidade do usuário estar conectado na empresa a qual pertencem os lançamentos contábeis do Sistema Cordilheira.
+Data
+Data do lote, formato DDMMAA
+ 
+Débito
+Conta a débito
+ 
+Crédito
+Conta a crédito
+ 
+Número do documento
+número que identifica este lote, informação opcional
+ 
+Valor
+Valor do lançamento com a parte decimal separada por PONTO DECIMAL
+ 
+Histórico
+Código do histórico padrão
+Não utilizado pelo Sispetro. No arquivo texto, este campo não vem preenchido
+Complemento
+Histórico
+Delimitado por (").
+Centro de Custo
+Centro de custo
+Não utilizado pelo Sispetro. No arquivo texto, este campo não vem preenchido
+Código histórico
+Código histórico padrão
+Utilizado pelo Sispetro. No arquivo texto, este campo vem preenchido.
+Débito ou crédito
+D ou C
+Campo de uso interno do Sispetro
+ 
+Nota:
+ demais campos da tela de importação que estão sem informações não são utilizados.
+Exemplo de arquivo:
+001|311013|00000|01111|000000015000.32|000|"VALOR CONF. FOLHA PGTO MES MM/AAAA                "|000|0999
+001|311013|02222|00000|000000012007.73|000|"VALOR CONF. FOLHA PGTO MES MM/AAAA                "|000|0999
+001|311013|00000|03333|000000001000.00|000|"VALOR CONF. FOLHA PGTO MES MM/AAAA                "|000|0999
+001|311013|00000|04444|000000045000.09|000|"VALOR CONF. FOLHA PGTO MES MM/AAAA                "|000|0999
+001|311013|05555|00000|000000009000.00|000|"VALOR CONF. FOLHA PGTO MES MM/AAAA                "|000|0999
+001|311013|00000|06666|000000000800.77|000|"VALOR CONF. FOLHA PGTO MES MM/AAAA                "|000|0999

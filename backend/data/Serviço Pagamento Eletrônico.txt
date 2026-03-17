@@ -1,0 +1,45 @@
+TITULO: Serviço Pagamento Eletrônico
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2925002946
+--------------------------------------------------
+A geração do arquivo de Remessa e leitura do arquivo de Retorno são trabalhos repetitivos e que se tudo estiver configurado, há pouca interação do usuário. Pensando nisso foi criado o Serviço de Pagamento Eletrônico, que irá gerar os arquivos de remessa e lerá os arquivos de retorno, num intervalo de tempo e pasta pré determinados. Para maiores informações, veja o help 
+Pagamento Eletrônico
+Depois de configurado, o serviço funcionará automaticamente sem interação dos usuários. Uma forma fácil de se verificar se os arquivos foram gerados ou lidos da forma certa é pela tela de 
+Manutenção de Arquivos do Pagamento Eletrônico
+ 
+ou
+ 
+Pagamento Eletrônico
+Veja as configurações necessárias abaixo.
+Configuração de Sistema
+Configurar os perfis referentes ao Pagamento Eletrônico:
+Tipo de Documento para Baixa
+Processamento de Envio - Fornecedores
+Processamento de Envio - Tributos
+Usuário
+Data de Movimento no Serviço de Leitura
+Intervalo para execução do serviço (em minutos)
+Ver mais informações em 
+Painel Financeiro
+Plano de Contas Gerencial
+Habilitar os perfis (Pagamento de tributos e Fornecedor)
+Permite Processamento Automático
+No Serviço automático, para o Bradesco, é preciso que, na primeira linha:
+o primeiro caracter seja 0;
+os tamanho de caracteres:
+Se 500 é Pagamento a Fornecedores
+Se 1000 é Pagamento de Tributos;
+ID sejam os mesmos do arquivo de retorno (
+ID/Convênio Pagamento Fornecedores 
+e
+ ID/Convênio Pagamento Fornecedores Tributos - 
+localizados no Header do arquivo, posição 2 a 10).
+Caso contrário os arquivos não serão lidos.
+Veja mais informações em 
+Tabela Plano de Contas
+Servidor SisPetro
+No Servidor SisPetro é necessário informar as pastas onde os arquivos serão lidos e salvos e iniciar o serviço. veja mais informações em
+ 
+Serviço Pagamento Eletrônico - Servidor
+ 
+ 
+ 

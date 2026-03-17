@@ -1,0 +1,52 @@
+TITULO: Verificação de Número de Documento em Adiantamentos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898831
+--------------------------------------------------
+O sistema permite que seja feito a validação do Número de Documento na 
+Inclusão de Adiantamentos a Fornecedores
+, com o objetivo de controlar numeração de documento em Adiantamento de Fornecedores, não permitindo que seja incluído mais que um adiantamento com o mesmo número.
+
+
+Para isso, configure no Menu 
+Ferramentas / Sistema / painel Financeiro
+ a opção:
+
+
+
+
+Estão disponíveis três opções:
+
+
+
+
+Não controlar:
+ Não é verificado se há duplicidade no número de documento.
+
+
+Avisar duplicidade:
+ É apresentada a mensagem de duplicidade e questiona se deseja continuar ou não a operação.
+
+
+Bloqueia duplicidade:
+ É apresentada a mensagem de duplicidade e não deixa concluir a operação.
+
+
+
+
+A verificação da duplicidade do número de documento é feita para o fornecedor do lançamento a ser incluído.
+
+
+Caso a empresa deseja exigir o número de documento no Adiantamento, deve-se marcar a opção:
+
+
+
+
+Com essa opção marcada, sempre será exigido que seja informado um número válido para o documento, mesmo que a empresa opte por não controlar.
+
+
+ 
+Importante:
+ Se a empresa optar por 
+Bloquear duplicidade
+, é recomendado que seja também marcada a opção 
+Exige Documento em Adto Fornecedores
+, pois não faz sentido bloquear e não exigir um número válido para o documento.

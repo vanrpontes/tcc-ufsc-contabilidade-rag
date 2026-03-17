@@ -1,0 +1,261 @@
+TITULO: Pedido de Movimentação de Material Direto do Fornecedor - (BOMBEIO)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2957116297
+--------------------------------------------------
+O Pedido de Movimentação de Material Direto do Fornecedor pode ser feito para compras de produtos que não necessitam de transporte rodoviário, exemplo bombeio via duto.
+O processo que veremos se trata de uma Distribuidora, comprando produto da Petrobras via duto e  armazenado em terceiros.
+Geralmente esse processo se inicia com um adiantamento feito ao fornecedor PETROBRAS, esse adiantamento é creditado no Canal Cliente, assim que os pedidos de produtos são faturados e esse Crédito vai diminuindo.
+Inclusão de Adiantamento de Fornecedor.
+Através do menu: 
+Movimentação > Financeiro > Contas a Pagar > Manutenção de Adiantamento de Fornecedores
+Clique no botão:
+Deverão ser informados os seguintes dados:
+Fornecedor:
+ que deverá estar cadastrado no sistema pela tela de Fornecedores.
+Data Inclusão:
+ data em que está sendo feito o pedido.
+Data do Movimento: 
+Data do movimento no banco.
+Moeda:
+ Espécie de moeda em que será feito o adiantamento.
+CC Banco: 
+Informe a conta banco de contra partida do adiantamento.
+Valor Original:
+ Informe o valor do adiantamento.
+Histórico:
+ Informe um histórico compatível com a operação.
+Pode Contabilizar: 
+Informe se o adiantamento será contabilizado através do perfil "
+Pode Contabilizar
+" ao marcar esse perfil será solicitado o código de contabilização real.
+Tipo de Documento: 
+ Informe o tipo de documento compatível com a operação.
+Inclusão de PMM
+Próximo passo é incluir o PMM através do menu: 
+Movimentação > Pedido de movimentação de material > Pedido de Movimentação de Material 
+Em ambos os casos, a tela inicial para inclusão dos dados é a seguinte:
+Deverão ser informados os seguintes dados:
+Fornecedor:
+ que deverá estar cadastrado no sistema pela tela de Fornecedores.
+Data Inclusão:
+ data em que está sendo feito o pedido.
+Data Emissão:
+ data em que deve ser processado este pedido.
+Moeda
+Condições de Pagamento:
+ que deve estar previamente cadastrada no sistema na Tabela de Condições de Pagamento. Através da condição de pagamento e da data de entrega do pedido será gerado um fluxo de caixa previsto, que é como e quanto este pedido vai ser pago. Cabe lembrar que mesmo com datas de entrega diferenciadas nos produtos (no caso de pedidos normais), o fluxo de caixa previsto será sempre calculado a partir da data de início de entrega informado nesta tela.
+Prazo Entrega:
+ o prazo dado pelo fornecedor para a entrega
+Data Início Entrega:
+ a partir de quando vai ser entregue o produto. Caso a opção de "
+Atualiza com Data Aprovação + Prazo de Entrega
+" esteja habilitada no perfil de sistema (
+), ao aprovar o PMM, o sistema atualizará esta data, somando a data da aprovação ao prazo de entrega.
+Data Fluxo Caixa: 
+é possível escolher a data de fluxo de caixa, há casos que o fornecedor exige o pagamento antecipado ou um sinal, nestes casos indicar esta data para que o fluxo de caixa fique correto.
+#Pedido Fornecedor:
+ Número de referência para localização deste pedido no fornecedor ou em outros controles da empresa que possua um número diferenciado do número de pedido atribuído automaticamente pelo sistema.
+Representante: 
+ É o cliente que foi definido como representante para ser informado no PMM. Maiores informações 
+Cenário 5: Controle de Representantes
+.
+Controla Cota:
+ Ele irá definir se o pedido será normal ou com controle de cota, atente-se bem para marcá-lo corretamente.
+Controla Adiantamento Quantificado:
+ marque essa opção para vincular o PMM ao Adiantamento.
+Gera Contrato de Venda:
+ marque essa opção para que ao final da inclusão do PMM seja gerado um contrato de venda e vinculado ao PMM. Veja mais detalhes em 
+Manutenção de Contrato de Venda
+ e 
+Manutenção de Pedidos de Movimentação de Material
+Contrato de Prestação de Serviço: 
+É utilizado quando há um contrato de prestação de serviço. Veja mais informações em
+ 
+Contratos de Prestação de Serviços
+Liberação da Quantidade Pendente:
+ A partir da versão 8.12 é possível controlar a liberação dos PMMs por:
+Pela quantidade do pedido: 
+Esta a maneira usual de se trabalhar, o usuário poderá movimentar o PMM até que toda a quantidade pedida tenha sido utilizada. 
+Pela quantidade paga: 
+com este perfil só será possível liberar o PMM quando este tiver um adiantamento quantificado vinculado ao PMM. Veja mais informações em
+ 
+Tipo de Recebimento:
+ Informe a forma como serão recebidos os materiais deste pedido.
+Direto do fornecedor - ver help 
+Pedido de Movimentação de Material Direto do Fornecedor
+.
+Clique em 
+Avança
+.
+Vendedor:
+ quando está utilizando Corretora, pode-se informar o Vendedor do contrato com a Usina. Serão apresentados somente os Vendedores cujo campo Uso do Vendedor esteja como Vendas e Compras. Para mais informações, ver help 
+ e 
+.
+Investidor: 
+na emissão do PMM além de informar o Fornecedor é possível informar qual o investidor relacionado ao contrato. Para informar o investidor no PMM é necessário que no cadastro de Fornecedor informe se ele é ou não investidor. Para mais informações ver help 
+.
+É necessário habilitar um perfil de Sistema na aba compras 
+Indica investidor na inclusão do PMM
+. Para Maiores informações ver help: 
+Corretor:
+ informe o Corretor. Serão apresentados somente os fornecedores que estejam com a opção Pode Ser Corretora? marcada. Para mais informações, ver help 
+Observações - Fornecedores
+ e 
+.
+Representante:
+ uma empresa pode trabalhar com Representantes no PMM. Caso trabalhe, informe o representante. Para mais informações, ver help 
+Cenário 5: Controle de Representantes
+.
+Setor da Empresa: 
+selecione o setor que originou o PMM, caso tenha.
+Filial Origem:
+ quando utiliza PMM entre Transferência entre Filiais. O PMM deve ser incluído na filial de destino, informando a filial de origem.
+Tipo do PMM
+: permite classificar esse PMM conforme os 
+Tipos de PMM
+ cadastrados.
+Projeto:
+ permite informar se o PMM participa ou não de um projeto. Para mais informações ver 
+.
+Clique em 
+Avança
+.
+Fornecedor do Carregamento: 
+caso utilize, o mesmo do PMM pois esse recurso é utilizado geralmente em operações de transferência entre depósitos.
+ 
+Fornecedor configurado para escolher somente entre os endereços cadastrados:
+ caso não informe, será utilizado o endereço preferencial de entrega do fornecedor do Carregamento. Se não existir esse endereço, será utilizado o endereço principal cadastrado na aba Dados Gerais (
+). Nessa configuração, o usuário pode selecionar qual endereço utilizar:
+Fornecedor configurado para usar o endereço principal do fornecedor:
+ será utilizado o endereço principal do fornecedor do Carregamento:
+Fornecedor configurado para usuário informar o endereço de carregamento:
+ caso não informe, será utilizado o endereço preferencial de entrega do fornecedor do Carregamento. Se não existir esse endereço, será utilizado o endereço principal cadastrado na aba Dados Gerais (
+):
+Clique em 
+Avança
+.
+Nesta tela ser(ão) informado(s) o(s) produto(s) do pedido. Caso o usuário tenha permissão (
+Painel Compras (Usuários)
+), poderá definir a unidade de compra do produto, desde que a mesma esteja cadastrada previamente no produto (
+).
+O produto deverá estar previamente cadastrado na tela de 
+Produtos
+, podendo para cada produto ter uma data de entrega diferenciada. Lembre-se que esta data de entrega informada para o produto não interferirá no fluxo de caixa previsto.
+Clique em 
+Avança
+.
+Após salvar o Pedido a observação informada será gravada na tabela de Observações do PMM, que pode ser visualizada através da aba de Observações na tela de Manutenção de Pedido de Movimentação de Material. Veja mais em 
+Inclusão de Observações no PMM
+Clique em 
+Avança
+.
+Caso o SisPetro esteja configurado para vincular despesas ao PMM, o usuário pode incluir, excluir e alterar. Para mais informações, ver help 
+.
+Clique em 
+Finaliza.
+Após concluir o pedido, o Sistema questiona sobre a impressão do mesmo
+Através da tela de impressão de PMM, temos as seguintes opções:
+Impressão: 
+Caso selecionado será realizado a impressão de PMM.
+Em Tela: 
+Abre a tela de visualização de impressão.
+E-mail:
+ Caso essa opção esteja selecionada, será enviado um arquivo em pdf do PMM para o cliente. Para utilizar esse serviço veja mais em 
+Configuração de Conta de E-mail
+Deseja alterar corpo da Mensagem?:
+  Com esta opção é possível incluir um destinatário em cópia e também como cópia oculta, alterar o assunto e também a mensagem. Para isso basta marcar o perfil de usuário 
+Altera Destinatários do Pedido de Compras. 
+Veja maiores detalhes em 
+Painel E-mail (Usuários)
+Em Arquivo:
+ Selecionando essa opção é possível salvar em forma de arquivo PDF o PMM, para isto basta selecionar um diretório em Arquivo de Destino.
+Por padrão o SisPetro informa a descrição do arquivo a nomenclatura: PMM + Código da empresa + Numero da OC.
+O Sistema permite a impressão do pedido em outro momento, na tela de 
+Manutenção de Pedidos
+. Vide 
+.
+É possível também que seja enviado email para o fornecedor contendo a impressão do PMM, veja detalhes em 
+Envio de E-mail para PMM
+.
+Se o usuário tiver autorização para aprovar pedidos, o pedido sai automaticamente aprovado. Se no perfil do usuário estiver marcado que sempre será pedido a aprovação, este pedido ficará pendente para aprovação. De qualquer forma, confira as 
+configurações necessárias
+ no perfil do usuário.
+Feito o Pedido de Compra, devemos incluir o pedido de bombeio para que o sistema, geralmente com as mesmas características do pedido feito para a coordenação de bombeio na base.
+Pedido de BOMBEIO
+ 
+Através do menu: 
+Movimentação > Estoque > Manutenção de Bombeio 
+Para Incluir um pedido basta clicar no botão
+Empresa: 
+Informe o código da empresa que receberá o bombeio
+Data Pedido: 
+Data da inclusão do Pedido
+Data Prevista do Bombeio: 
+Data prevista para o bombeio do produto
+Código do Produto: 
+Código do produto que será bombeado
+Código depósito: 
+Deposito que receberá o bombeio
+Quantidade Pedida: 
+Quantidade solicitada para a coordenação do Bombeio
+Quantidade Prevista: 
+Quantidade prevista que será confirmada
+Custo unitário: 
+Custo do produto que será levado para fechamento de custo
+Observação: 
+Campo para observações gerais.
+Após a inclusão do pedido o mesmo ficará disponível na tela de manutenção de Bombeios.
+Após a coordenação de bombeio confirmar a quantidade que será bombeada, clique o botão "Conf. Ped."
+Ao clicar no botão a tela será apresentada.
+Data real: 
+Data real do bombeio
+Quantidade Confirmada: 
+Quantidade confirmada pela coordenação de bombeio
+Código de Histórico: 
+Histórico que identifique o bombeio
+Com PMM: 
+Marque a opção para fazer o vinculo entre o bombeio e o PMM, informando o código do PMM
+Ao clicar no botão "ok" o volume confirmado já movimentará o estoque.
+Bombeio Físico
+Em caso de bombeio físico, faça a inclusão do bombeio físico e distribuição, antes de entrar com a nota fiscal.
+O próximo passo é o recebimento da nota.
+Recebimento de nota de Bombeio
+Através do menu "Movimentação > Estoque > Entradas > Recebe"
+O Sisptro irá perguntar se deseja receber a nota através de uma OC, clique em "Não."
+Código da Entidade: 
+Informe o código da entidade, deve ser o mesmo do bombeio
+Natureza de Operação: 
+Informe uma natureza de operação que esteja parametrizada para bombeio, para efetuar o vinculo e não movimentar estoque duas vezes
+Histórico: 
+Será carregado na Natureza de Operação
+Série NF: 
+Informe a série indicada na Nota
+Número NF: 
+Informe o número indicado na Nota
+Data Nota Fiscal: 
+Informe a data de emissão da NF
+Data Movimento: 
+Informe a data em que o produto movimentou o estoque
+Chave: 
+Informe a Chave de Acesso indicada na Nota
+Condição de Pagamento: 
+Informe a Condição de Pagamento 
+Tipo de Cobrança: 
+Informe código do tipo de cobrança que será utilizado no pagamento
+Informe o Código do Produto
+Informe a Quantidade do produto indicado na NF
+Informe o preço do unitário 
+Avence até finalizar e clique no botão "Finaliza"
+Importação de XML
+Caso  utilize a importação de xml para entrar com a nota, faça o vinculo do bombeio posteriormente através da manutenção de notas fiscais.
+ 
+Clique em "SIM" Para efetuar o vinculo entre a Nota e o Bombeio.
+Na tela de vinculo, confira as informações na tela superior do bombeio, note que o número do PMM, está vinculado ao bombeio, na parte inferior consta o bombeio já selecionado para o vinculo.
+Caso o bombeio possua mais de uma nota, desmarque a opção "É a última NF do Bombeio" 
+Ao clicar em "ok" o processo será concluído.
+Excedente 
+Caso a nota seja maior que volume total do PMM, o Sispetro irá barrar o pois o valor excede o valor aprovado, você deve incluir um novo PMM, com o volume excedido, realizar a transferência  para o PMM de origem para que o vinculo seja bem sucedido.
+Transferência de saldo de Pedidos de Movimentação de Material
+Aprovações
+Esse processo funciona com aprovação simples, por alçada tanto por setor ou por tipo de PMM.
+Aprovação por Alçada
+Processos de aprovação por alçada 

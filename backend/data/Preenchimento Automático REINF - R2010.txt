@@ -1,0 +1,38 @@
+TITULO: Preenchimento Automático REINF - R2010
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927267861
+--------------------------------------------------
+Implementamos, há algumas versões atrás, o REINF, porém o usuário era obrigado a digitar todas as informações. Como a ideia é automatizar o processo aos poucos, iniciamos com o preenchimento automático do Registro 2010.
+Configurações necessárias:
+ 
+Cadastro de Fornecedores - aba Observação
+:
+Contribuição Previdenciária (uso SPED REINF) - usado nos registros R2010:
+Não é Contribuinte:
+ 
+fornecedor não é contribuinte da 
+Contribuição Previdenciária sobre a Receita Bruta (CPRB)
+Contribuinte:
+ fornecedor é contribuinte da 
+Contribuição Previdenciária sobre a Receita Bruta (CPRB)
+Cadastro de Produtos - aba Dados Adicionais
+No cadastro de produtos devemos informar o tipo de serviço no campo 
+'Tipo Serviço REINF'
+. O código desse serviço será utilizado n
+o campo de infoTpServ_tpServico do REINF.
+Configurações de Sistema - aba Livro Eletrônico
+No perfil de sistema 
+'Tipo de Desconto Retenção INSS'
+ devemos informar o Tipo de Desconto que a empresa vai utilizar. O preenchimento automático só será realizado para as Notas cujo o Tipo de Desconto seja o  informado para a Empresa em questão.
+Preenchendo os Registros:
+Após realizar as configurações acima, basta acionar o botão 
+Preenche
+ na tela de 
+Manutenção do Reinf
+ que todas as notas que utilizam o mesmo tipo de desconto informado no perfil de sistema serão carregadas no registro R-2010.
+ 
+Após finalizar o preenchimento os registros serão salvos no R-2010.
+Para o período selecionado, caso os registros R-2010 não tenham recibo, ao fazer o preenchimento automático mais de uma vez os registros serão apagados e gerados novamente. Tendo recibo não será permitido preencher novamente.
+Para mais informações:
+SPED REINF - Configurações
+Painel Livro Eletrônico
+Manutenção do Reinf

@@ -1,0 +1,66 @@
+TITULO: Regras de envio de dados do MDF-e - RNTRC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927268671
+--------------------------------------------------
+Detalharemos abaixo as regras para enviar ou não os dados de RNTRC no
+ XML do Recibo do MDF-e
+, em função das mudanças da 
+Nota Técnica 2018.002
+ (
+http://www.nfe.fazenda.gov.br/portal/exibirArquivo.aspx?conteudo=NH9NBCgaOUs=
+), onde a SEFAZ passou a validar se o RNTRC informado é válido.
+Assim, quando a operação não tem RNTRC, a tag não deve ser enviada, senão apresenta rejeição. Porém, no caso dos RNTRC dos veículos, a tag é obrigatória.
+Tag
+Regras
+<infANTT><RNTRC>
+Se a empresa tiver RNTRC envia a Tag (Cadastro em 
+)
+Caso contrário não envia a Tag (ela não é obrigatória dentro do grupo 
+<infANTT>
+<veicTracao><prop>
+ 
+Verifica se o frota principal é próprio para a empresa 
+(sempre considerando se o perfil de Sistema "Utiliza indicação de frota próprio por empresa" está habilitado - 
+)
+se a empresa tem essa informação por empresa, verifica se ele é próprio na empresa do MDF-e
+se a empresa tem essa informação de forma geral, verifica diretamente se o frota é marcado como próprio ou não
+Sendo frota próprio não envia o grupo de 
+Tag <prop>
+Sendo frota não próprio envia o grupo de 
+Tag <prop>
+ onde temos:
+CNPJ/CPF, Razão Social ou Nome Proprietário, Inscrição Estadual, UF e Tipo do Proprietário (se Tac Agregado, Tac Independente ou Outros) - Cadastro em 
+RNTRC
+caso o frota tenha cadastrado (Cadastro em 
+), envia o RNTRC
+se o frota não tiver, verifica se o motorista tem RNTRC e o envia
+se nenhum tiver, envia a Tag vazia (ela é obrigatória dentro do grupo de 
+Tag <prop>
+)
+<veicReboque><prop>
+Pode ir uma vez para a Carreta e outra vez para o Treminhão
+Só teremos o grupo inteiro 
+<veicReboque>
+ se tiver Carreta ou tiver Treminhão indicado no MDF-e
+Verifica se o frota em questão (carreta ou treminhão) é próprio para a empresa
+(sempre considerando se o perfil de Sistema "Utiliza indicação de frota próprio por empresa" está habilitado - 
+)
+se a empresa tem essa informação por empresa, verifica se ele é próprio na empresa do MDF-e
+se a empresa tem essa informação de forma geral, verifica diretamente se o frota é marcado como próprio ou não
+Sendo frota próprio não envia o grupo de 
+Tag <prop>
+Sendo frota não próprio envia o grupo de 
+Tag <prop>
+ onde temos:
+CNPJ/CPF, Razão Social ou Nome Proprietário, Inscrição Estadual, UF, Tipo do Proprietário (se Tac Agregado, Tac Independente ou Outros),
+Tipo de Carroceria, UF veículo licenciado e Código de Agendamento no porto
+ - Cadastro em 
+RNTRC
+caso o frota tenha cadastrado (cadastro em 
+), envia o RNTRC do frota
+se o frota não tiver, verifica se o motorista tem RNTRC e o envia
+se nenhum tiver, envia a Tag vazia (ela é obrigatória dentro do grupo de 
+Tag <prop>
+)
+Obs.: 
+A tag RNTRC está dentro do grupo de 
+Tag <prop>

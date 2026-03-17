@@ -1,0 +1,337 @@
+TITULO: DECLAN-IPM RJ
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2902164262
+--------------------------------------------------
+Para gerar a DECLAN - Estadual, o usuário deve ir ao menu Ferramentas/Geração de mídia DECLAN-RJ , este é um arquivo anual, que o estado do Rio de Janeiro solicita.
+
+
+
+
+
+
+Período
+ - Informar o período a será gerado o DECLAN (Lembrando que é uma obrigação anual).
+
+
+
+
+
+
+Tipo DECLAN
+ - Informar qual DECLAN vai ser gerada 
+DECLAN (Municipal)
+ ou neste caso a Estadual.
+
+
+
+
+
+
+Header de arquivo
+ No campo 
+Versão da DECLAN-IPM
+, deverá conter a ultima versão publicada na pagina da SEFAZ para DECLAN-IPM.
+
+
+
+
+
+
+Identificação
+ são os dados que irão para o DECLAN. Abaixo os campos que já serão apresentados como marcado por padrão:
+	
+
+
+Declaração Retificadora:
+ padrão desmarcado
+
+
+Regimes durante o Ano-Base
+, com 3 opções:
+		
+
+
+A = Ambos
+
+
+N = Normal, Estimativa e Outros (padrão)
+
+
+S = Simples Nacional
+
+
+
+
+
+
+Declaração de Baixa de Inscrição:
+ padrão desmarcado
+
+
+Estabelecimento Principal ou Único no Estado:
+ padrão marcado
+
+
+Estabelecimento único em território nacional:
+ padrão marcado
+
+
+Estabelecimento sem receita no ano-base:
+ padrão desmarcado
+
+
+Empresa sem receita no ano-base:
+ padrão desmarcado
+
+
+
+
+
+
+
+
+
+
+Questionário
+ É necessário informar os dados sobre a empresa naquele período.
+
+
+
+
+
+
+Ajustes
+ O Sispetro irá apresentar o código e valores contábeis.
+
+
+
+
+
+
+O Botão "Buscar valores Imob. e Consumo, irá buscar os dados de valores contábeis do Livro Fiscal, conforme configuração da Natureza.
+
+
+
+
+
+
+Na 
+ será possível configurar se a Nota Fiscal deve ser considerada como Ajuste de Valor Adicionado RJ.
+
+Na aba Geral/Dados gerais terá um novo campo "Ajuste de Valor Adicionado - DECLAN IPM RJ" com três opções:
+
+
+
+
+
+
+Não participa
+
+
+Ativo Imobilizado
+
+
+Uso e Consumo
+
+
+
+
+A soma dos valores contábeis serão apresentados cujo descrição abaixo:
+
+
+
+
+Código 1 - Soma do valor contábil das Entradas cuja Natureza está configurada para Imobilizado
+
+
+Código 2 - Soma do valor contábil das Entradas cuja Natureza está configurada para Consumo.
+
+
+Código 6 - Soma do valor contábil das Saídas cuja Natureza está configurada para Imobilizado.
+
+
+Código 7 - Soma do valor contábil das Saídas cuja Natureza está configurada para Consumo.
+
+
+
+
+Caso seja necessário alterar algum registro, o Sispetro não permite alterar, sendo assim, deve-se excluir o registro desejado e incluir o registro corretamente.
+
+
+O mesmo processo deve ser feito, para inclusão quando não apresentar nenhum valor de ajuste e o mesmo tenha.
+
+
+
+
+Receita Bruta Mensal
+
+
+
+
+
+
+Preencher o campo de receita, informando os campos Mês, Receita do Estabelecimento e Receita da Empresa.
+
+Lembrando que o preenchimento deve ser feito mês a mês.
+
+
+
+
+
+
+Layout de Exportação
+
+
+
+
+Deve selecionar o Layout de exportação, uma vez já carregado no 
+, rtm: 
+Declan_IPM.rtm
+
+
+O layout da DECLAN-IPM possui os seguintes registros:
+
+
+
+
+
+
+ Registro 
+
+
+ Descrição 
+
+
+ Sispetro? 
+
+
+ Dados a ser utilizados 
+
+
+
+
+
+
+ 0001 
+
+
+ Abertura 
+
+
+ 
+ 
+
+
+ nenhuma 
+
+
+
+
+
+
+ 0100 
+
+
+ Dados da Empresa 
+
+
+ 
+ 
+
+
+ Dados da Empresas e Apurações Fiscais 
+
+
+
+
+
+
+ 0200 
+
+
+ Valores da Empresa 
+
+
+ 
+ 
+
+
+ Questionário Preenchido em tela 
+
+
+
+
+
+
+ 0300 
+
+
+ Ajustes VA 
+
+
+ 
+ 
+
+
+ Ajustes adicionados e informados em tela 
+
+
+
+
+
+
+ 0400 
+
+
+ Distribuição de Valores por Município 
+
+
+ 
+ 
+
+
+ 
+
+
+
+
+
+
+ 0500 
+
+
+ Receita Bruta Mensal 
+
+
+ 
+ 
+
+
+ Valores de Receita informados mês a mês em tela 
+
+
+
+
+
+
+ 9999 
+
+
+ Trailler 
+
+
+ 
+ 
+
+
+ nenhuma 
+
+
+
+
+
+
+
+
+Informar o nome do arquivo:
+ Caminho onde o mesmo vai ser gerado e com o nome definido
+

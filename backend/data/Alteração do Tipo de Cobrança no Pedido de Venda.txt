@@ -1,0 +1,32 @@
+TITULO: Alteração do Tipo de Cobrança no Pedido de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4025679873
+--------------------------------------------------
+Essa alteração de tipo de cobrança foi criada para que ela seja alterada sem mexer nos valores dos pedidos.  A alteração pode ser realizada por:  
+Menu Movimentação > Vendas > 
+Muda Tipo Cobrança do Pedido. 
+Menu Consulta > Pedidos Pendentes através do botão 
+muda Tipo de Cobrança do Pedido 
+ou no 
+Essa alteração só é possível se  perfil de usuário 
+Pode alterar tipo cobrança pedido
+ estiver marcado.
+Para mais informações sobre, ver 
+Painel Vendas (Usuários)
+Na consulta de Pedidos Pendentes, por exemplo, assim que o tipo de cobrança é modificado os dados já são alterados na tela. Caso o tipo de cobrança for alterado para um que exija adiantamento quantificado, o SisPetro já altera a visualização do pedido pintando ele de verde. 
+Regras para troca do Tipo de Cobrança
+No momento que o usuário informa ou seleciona o pedido para trocar o tipo de cobrança, o SisPetro faz algumas validações e não permite a troca mostrando uma mensagem similar a abaixo: 
+Abaixo os casos que o SisPetro não irá trocar o tipo de cobrança: 
+Pedido de venda encontrado é de Adiantamento Quantificado:
+Caso o pedido possuir um adiantamento quantificado, o SisPetro mostrará a mensagem  
+Pedido com adiantamento quantificado vinculado!
+ 
+Pedido encontrado não é de venda: 
+Caso o usuário informe o número de PMM ao invés de um pedido de venda, o SisPetro mostrará a mensagem 
+Pedido deve ser de Venda
+Pedido encontrado está cancelado
+Caso o usuário informe o número de um pedido cancelado, o SisPetro mostrará a mensagem 
+Pedido Cancelado!
+Usuário informou um número de pedido inexistente para o cliente: 
+Caso o usuário informe o número de um pedido que não existe, o SisPetro mostrará a mensagem 
+Pedido não Encontrado!
+Para mais informações, ver 

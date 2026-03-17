@@ -1,0 +1,36 @@
+TITULO: Atualização DACTE - Versão 8.18
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921695512
+--------------------------------------------------
+Histórico
+Na versão 8.13 implementamos CT-e Complementar, de Anulação, Substituto e Subcontratação, porém no DACTE não foram disponibilizadas as informações referentes a estes tipos de CT-e.
+Objetivo
+Imprimir devidamente o Tipo do CT-e e do Serviço no DACTE, além de disponibilizar as informações referentes aos diversos tipos de CT-e.
+Solução
+ 1. Acessar o layout do Danfe:
+Menu Ferramentas/ Sistema/ aba Nota Fiscal
+Localizar no quadro de NF-Eletrônica o campo 
+Caminho de arquivo de layout do Danfe
+Clicar no botão
+ Edita Layout do Danfe
+Lembrar de fazer um Backup do arquivo que será modificado...
+ 
+2. 
+Na tela de 
+Edição do layout do Danfe
+Inserir um objeto de texto (DBtext 1)
+Informar qual o condutor de dados desejado (no caso dos novos campos, é o "Conhecimento")
+Informar qual campo deseja inserir no DACTE 
+Os novos campos disponíveis são:
+Tipo Serviço
+Tipo CT-e
+ 
+Chave de Acesso Referenciada
+Chave de Acesso Anulação
+Tipo de Anulação
+Data Decl. Não Contribuinte
+DescTipoServicoCTe
+DescTipoCTe
+DescTipoAnulacao
+CodTranspRedespachante
+Lembrando que caso queira a descrição dos campos é necessário utilizar os campos "DescTipoServicoCTe", "DescTipoCTe" e "DescTipoAnulacao".
+ 

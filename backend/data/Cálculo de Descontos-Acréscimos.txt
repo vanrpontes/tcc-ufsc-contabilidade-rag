@@ -1,0 +1,280 @@
+TITULO: Cálculo de Descontos-Acréscimos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440420
+--------------------------------------------------
+Pode-se calcular e contabilizar os descontos e acréscimos das 
+Notas fiscais
+ e dos títulos do 
+Contas Pagar/Receber
+, porém é necessário configurar o sistema para que os mesmos sejam feitos.
+Contabilização de Desconto/Acréscimo no Faturamento (Nota Fiscal):
+Para ter a possibilidade de incluir estes descontos ou acréscimos nas Notas Fiscais é preciso efetuar as seguintes configurações:
+Habilitar o perfil 
+Habilita descontos no faturamento
+ que se encontra no Menu 
+Ferramentas / Sistema / painel Contas Contábeis
+.
+Configurar o perfil de usuário 
+Pode incluir desconto/acréscimo
+ para permitir trabalhar com descontos e acréscimos no Faturamento. Este perfil de encontram no Menu 
+Ferramentas / Usuário / Perfil / painel Faturamento
+. Ele será utilizado quando o Desconto for cadastrado como Manual.
+Configurar a 
+Tabela Progressiva
+ (
+(Caso seja necessário)
+ com a faixa necessária para o cálculo do desconto.
+Configurar o 
+Tipo de Desconto
+ conforme a necessidade da empresa, se atentando para os campos:
+Quando for para inclusão de Desconto na Nota Fiscal, 
+só podem utilizar campos da tabela NotaFiscal.
+Cálculo a efetuar:
+ Definir se o desconto será do tipo Desconto ou Acréscimo. Ou, até mesmo, se será Indiferente.
+Tipo:* Definir se o Desconto/Acréscimo será do Manual, Automático ou por Tabela Progressiva. Caso seja Tabela Progressiva, vincular no campo 
+Tabela Progressiva
+- a tabela criada no item 3.
+Valores Acumulados Mês:
+ Definir se o desconto/acréscimo será acumulativo no mês.
+Acumula por:
+ Caso escolha por acumular os valores, deve-se definir se como será feito o cálculo do desconto, se 
+Calcular pela data de emissão do título ou nota fiscal
+ ou 
+Calcular pela data de vencimento do título ou a data do primeiro vencimento da nota
+.
+Acompanha Lançamento de Débito
+ e 
+Acompanha Lançamento de Crédito:
+ Definir conforme o lançamento que este desconto será utilizado, se Entrada ou Saída.
+Vincular o Tipo de Desconto no cadastro de 
+Tipos de Documentos
+ que será utilizado na emissão da Nota Fiscal. Este tipo de documento será amarrado a Natureza de Operação, para permitir a contabilização de descontos.
+Configurar o campo 
+Grupo de Contabilização
+ para ser como 
+Faturamento
+.
+Informar o Tipo de desconto criado no item 4, informando fórmula 
+(Se necessário)
+.
+Configurar a 
+Natureza de Operação
+ que será utilizada na emissão ou digitação da nota fiscal, se atentando para:
+Vinculo do Tipo de Documento criado no item 5.
+A contabilização será realizada conforme configuração da 
+Natureza de Operação
+. Na manutenção da natureza de operação, painel 
+Contabilização
+, pode-se configurar a forma como serão contabilizados os descontos e/ou acréscimos, para cada natureza. Veja maiores informações no tópico sobre 
+Contabilização de Descontos/Acréscimos
+.
+Exemplo de configuração de desconto no Faturamento:
+Cenário:
+ O governo possui uma regra para a retenção da CSLL, PIS e COFINS de notas fiscais de serviço. Quando uma NF de serviços for emitida, deve ser verificado o mês do vencimento de cada parcela. Caso o valor acumulado para aquele cliente seja superior a R$ 5.000,00, deve ser retido 4.65% (3% COFINS, 1% CSLL e 0.65% PIS).
+Como configurar no Sispetro?
+Tabela Progressiva:
+ Configurar a faixa para cálculo do percentual para a retenção de CSLL, PIS e COFINS - 4.65%
+Descrição
+Faixa Inicial
+Faixa Final
+Alíquota (%)
+Dedução
+CSLL PIS COFINS
+5.000,01
+999.999,99
+4,65
+0
+Lembrando que para este imposto o cálculo só é feito acima de R$ 5.000,00.
+Tipo de Desconto:
+ Configurar o Tipo de Desconto vinculando a Tabela Progressiva
+Descrição
+Cálculo a Efetuar
+Tipo
+Tabela Progressiva
+Valores Acumulados Mês
+Acumula por
+Acompanha Lançamento de Débito / Conta Débito
+Acompanha Lançamento de Crédito / Conta Crédito
+Desconto CSLL PIS COFINS
+Desconta Valor Calculado
+Tabela Progressiva
+CSLL PIS COFINS
+Marcado
+Calcular pela data de vencimento do título ou a data do primeiro vencimento da nota
+Desmarcado / Conta XX0001
+Marcado / Sem Conta
+Tipo de Documento:
+ Configurar o Tipo de Documento que será vinculado a Natureza de Operação.
+Descrição
+Calcula Desconto
+Grupo Contabilização
+Desconto / Base Cálculo / Desconto
+Nota Fiscal com Desconto
+Marcado
+Faturamento
+Desconto CSLL PIS COFINS / NotaFiscal.ValNF / Em branco
+Natureza de Operação:
+ Configurar a Natureza de Operação
+Detalhes > Geral < Dados Gerais > Tipo Documento
+Detalhes > Geral > Contabilização > Acréscimo/Descontos
+Nota Fiscal com Desconto
+Automático
+Com estas configurações, na emissão da nota fiscal teremos as seguintes situações:
+Situação 1:
+Cliente 1
+Valor Nota fiscal = R$ 10.000,00
+Data Emissão: 20/01/2012
+Data Vencimento: 15/02/2012
+Desconto = R$ 465,00
+Resultado: Haverá retenção na fonte pois o valor total da Nota Fiscal é superior a R$ 5.000,00.
+Situação 2:
+Cliente 2
+Valor Nota fiscal = R$ 4.500,00
+Data Emissão: 20/01/2012
+Data Vencimento: 15/02/2012
+Desconto = R$ 0,00
+Resultado: Não haverá retenção na fonte pois o Cliente é diferente da Situação 1 e o valor total da Nota Fiscal é inferior a R$ 5.000,00.
+Situação 3:
+Cliente 2
+Valor Nota fiscal = R$ 5.000,00
+Data Emissão: 20/01/2012
+Data Vencimento: 17/02/2012
+Desconto = R$ 0,00
+Resultado: Não haverá retenção na fonte pois o valor total da Nota Fiscal é igual a R$ 5.000,00. e a data de vencimento não é a mesma utilizada na Situação 2, considerando o mesmo cliente
+Situação 4:
+Cliente 2
+Valor Nota fiscal = R$ 4.000,00
+Data Emissão: 20/01/2012
+Data Vencimento: 17/02/2012
+Desconto = R$ 418,50
+Resultado: Haverá retenção na fonte, considerando que o mesmo cliente, a data de vencimento é a mesma da Situação 3, sendo assim o cálculo será feito da seguinte forma:
+R$ 5.000,00 (NF Situação 3) + R$ 4.000,00 (NF Situação 4) = R$ 9.000,00
+R$ 9.000,00 - 4,65% = R$ 418,50
+Val NF com Desconto = R$ 8.581,50
+Contabilização de Desconto/Acréscimo no Financeiro (Contas Pagar/Receber)
+O cálculo de Descontos/Acréscimos no Contas a Pagar/Receber deve ser configurado na seguinte ordem:
+Habilitar o perfil 
+Habilita descontos no financeiro
+ que se encontra no Menu 
+Ferramentas / Sistema / painel Contas Contábeis
+.
+A partir disto, o sistema mudará a forma de contabilização, passando incluir lançamentos contábeis também para as contas informadas nos tipos de descontos, além de contabilizar as despesas/receitas pelo valor líquido.
+Configurar a 
+Tabela Progressiva
+ (
+(Caso seja necessário)
+ com a faixa necessária para o cálculo do desconto.
+Configurar o 
+Tipo de Desconto
+ conforme a necessidade da empresa, se atentando para os campos:
+Cálculo a efetuar:
+ Definir se o desconto será do tipo Desconto ou Acréscimo. Ou, até mesmo, se será Indiferente.
+Tipo:* Definir se o Desconto/Acréscimo será do Manual, Automático ou por Tabela Progressiva. Caso seja Tabela Progressiva, vincular no campo 
+Tabela Progressiva
+- a tabela criada no item 3.
+Valores Acumulados Mês:
+ Definir se o desconto/acréscimo será acumulativo no mês.
+Acumula por:
+ Caso escolha por acumular os valores, deve-se definir se como será feito o cálculo do desconto, se 
+Calcular pela data de emissão do título ou nota fiscal
+ ou 
+Calcular pela data de vencimento do título ou a data do primeiro vencimento da nota
+.
+Acompanha Lançamento de Débito
+ e 
+Acompanha Lançamento de Crédito:
+ Definir conforme o lançamento que este desconto será utilizado, se Entrada ou Saída.
+Vincular o Tipo de Desconto no cadastro de 
+Tipos de Documentos
+ que será utilizado na emissão da Nota Fiscal. Este tipo de documento será amarrado a Natureza de Operação, para permitir a contabilização de descontos.
+Configurar o campo 
+Grupo de Contabilização
+ para ser como 
+ContasPagarReceber
+.
+Informar o Tipo de desconto criado no item 4, informando fórmula 
+(Se necessário)
+.
+Exemplo de configuração de desconto no Financeiro:
+Cenário:
+ No pagamento de um autônomo é necessário descontar do valor bruto a ser pago o valor correspondente a imposto de renda, já que o recolhimento é de obrigação do contratante. No mês 05 de 2050 foram incluídos três títulos do contas a pagar para JOÃO DA SILVA nos seguintes valores: R$ 650,00, R$ 1000,00 e R$ 800,00. O sistema deverá identificar a cada lançamento quanto deverá ser abatido de Imposto de Renda.
+Como configurar no Sispetro?
+Tabela Progressiva:
+ Incluída a tabela Progressiva com as seguintes faixas:
+Descrição
+Imposto de Renda
+Faixa Inicial
+Faixa Final
+Alíquota (%)
+Dedução
+0
+1.058,00
+0
+0
+1.058,01
+2.115,00
+15
+158,70
+2.115,01
+9.999.999,99
+27,5
+220,00
+Tipo de Desconto:
+ Incluído um Tipo de Desconto por Tabela Progressiva.
+Descrição
+Cálculo a Efetuar
+Tipo
+Tabela Progressiva
+Valores Acumulados Mês
+Acumula por
+Acompanha Lançamento de Débito / Conta Débito
+Acompanha Lançamento de Crédito / Conta Crédito
+Desconto Imposto de Renda
+Desconta Valor Calculado
+Tabela Progressiva
+Imposto de Renda
+Marcado
+Calcular pela data de vencimento do título ou a data do primeiro vencimento da nota
+Marcado / Sem Conta
+Desmarcado / XX0001
+Tipo de Documento:
+ Configurar o Tipo de Documento que será vinculado a Natureza de Operação.
+Descrição
+Calcula Desconto
+Grupo Contabilização
+Desconto / Base Cálculo / Desconto
+Imposto de Renda
+Marcado
+CONTASPAGARRECEBER
+Desconto Imposto de Renda / ContasPagarReceber.ValorOrig / Em branco
+Com estas configurações, na emissão da nota fiscal teremos as seguintes situações:
+Situação 1:
+ Incluído o primeiro título do Contas a Pagar*
+Fornecedor 1
+Valor Título = R$ 650,00
+Data Emissão: 20/01/2012
+Data Vencimento: 30/01/2012
+Desconto = R$ 0,00
+Resultado: Não haverá Descontos, já que a faixa em que ele se encontra não tem alíquota de desconto.
+Situação 2:
+ Incluído o segundo título do Contas a Pagar*
+Fornecedor 1
+Valor Título = R$ 1.000,00
+Data Emissão: 20/01/2012
+Data Vencimento: 30/01/2012
+Desconto = R$ 88,80
+Resultado: Haverá Descontos, já que a faixa em que ele se encontra possui alíquota de desconto, sendo assim o cálculo será feito da seguinte forma:
+R$ 650,00 (Situação 1) + R$ 1.000,00 (Situação 2) = R$ 1.650,00 (Base de calculo)
+R$ 1.650,00 * 15% = R$ 247,50 (aplica a alíquota da faixa onde se encontra a base de cálculo) 
+R$ 247,5 - 158,70 = R$ 88,80 (faz a dedução da faixa para chegar ao valor do desconto)
+Situação 3:
+ Incluído o terceiro título do Contas a Pagar
+Fornecedor 1
+Valor Título = R$ 800,00
+Data Emissão: 20/01/2012
+Data Vencimento: 30/01/2012
+Desconto = R$ 364,95
+Resultado: Haverá Descontos, já que a faixa em que ele se encontra possui alíquota de desconto, sendo assim o cálculo será feito da seguinte forma:
+R$ 650,00 (Situação 1) + R$ 1.000,00 (Situação 2) + R$ 800,00 (Situação 3) = R$ 2.450,00 (Base de calculo)
+R$ 2.450,00 * 27,5% = R$ 673,75 (aplica a alíquota da faixa onde se encontra a base de cálculo) 
+R$ 673,75 - R$ 220,00 = R$ 453,75 (faz a dedução da faixa para chegar ao valor do desconto) 
+R$ 453,75 - R$ 88,80 = 364,95 (retira do desconto o que já foi descontado anteriormente)

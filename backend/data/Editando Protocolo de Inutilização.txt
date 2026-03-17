@@ -1,0 +1,60 @@
+TITULO: Editando Protocolo de Inutilização
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899409
+--------------------------------------------------
+A inutilização da numeração de nota fiscal ocorre quando a nota é cancelada pelo Sispetro e não foi autorizada na Sefaz por algum motivo. O Sispetro então envia a solicitação de inutilização para a Sefaz e logo após ela retorna com um número de protocolo de inutilização indicando que a nota foi inutilizada na base.
+
+Mas há algumas situações em que a Sefaz retorna com uma mensagem informando que a nota já foi inutilizada na base e não retorna o número do protocolo de inutilização.
+
+Nesses casos, o usuário deve acessar o site de consulta da Sefaz, consultar a numeração inutilizada e obter o número do protocolo.
+
+Feito isso, deve acessar a tela de 
+Manutenção de NF´s
+, painel 
+Fiscal
+, subpainel 
+NF-e
+ e clicar no botão 
+"Edita Prot. Inutiliz"
+:
+
+
+
+
+A seguinte tela será apresentada:
+
+
+
+
+Nesta tela deve ser informado o número do protocolo de inutilização obtido no site da Sefaz. Após clicar no botão "Ok", o protocolo será gravado e também será registrado no log.
+
+
+O número do protocolo pode ser informado somente nas seguintes situações:
+
+
+
+
+Usuário deve ter permissão: no perfil de usuários (menu 
+Ferramentas / Usuário / painel Perfil / painel Faturamento
+), marcar a opção:
+
+
+
+
+
+
+
+
+É nota fiscal eletrônica;
+
+
+A nota deve estar cancelada;
+
+
+Não foi autorizada na Sefaz (não tem número de protocolo e protocolo de cancelamento).
+
+
+
+
+Mais informações em 
+Relatório de Notas Fiscais Inutilizadas
+. 

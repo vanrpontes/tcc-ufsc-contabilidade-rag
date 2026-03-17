@@ -1,0 +1,64 @@
+TITULO: Natureza de Operação - Produto
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924282332
+--------------------------------------------------
+No cadastro de produtos, aba Natureza de Operação é possível definir as naturezas padrões a serem utilizadas para cada tipo de operação e atividade econômica:
+As naturezas de operação cadastradas para 
+transferências
+,
+ serão utilizadas quando for realizada a emissão de nota fiscal de 
+outras saídas
+ utilizando uma ordem de
+ carregamento próprio. 
+Neste grupo o usuário pode definir a natureza de operação que será sugerida no momento do faturamento, quando se estiver utilizando um determinado produto e dependendo do tipo da entidade.
+Exemplo:
+Quando a entidade tiver a sua atividade econômica cadastrada como 
+Posto Revenda
+, o SisPetro utilizará a natureza 
+V13 
+para dentro do estado e 
+V16 
+para fora do estado para um pedido de venda de um determinado produto.
+Da mesma forma ocorre com as outras atividades econômicas e os outros tipos de operação.
+Para cadastrar a natureza operação para dentro e fora do estado, o usuário deve selecionar o registro e clicar no botão 
+Editar
+ no final da tela.
+O SisPetro abrirá a tela de 
+Natureza de operação por atividade econômica dentro e fora do estado
+, onde é possível alterar ou cadastrar a natureza de operação para a atividade econômica e tipo de operação selecionada na tela anterior. Para gravar a alteração, o usuário deverá clicar no botão 
+Salvar
+.
+O SisPetro possui uma configuração na empresa que determina a mudança automática de CFOP nas vendas para consumidor final (Menu Ferramentas / Sistema / Nota Fiscal).
+Estando esse perfil marcado, o SisPetro verificará se a Entidade está configurada como 
+Consumidor Final
+ e gravará o código do CFOP na nota fiscal, conforme configurado nesse perfil.
+Exemplo:
+Nas configurações da empresa, o campo 
+Habilita Mudança CFOP Automática
+ está marcado, e os campos Dentro Estado e Fora Estado estão configurados com os valores 
+5949 e 6404
+, respectivamente. O produto está configurado de forma que, para a venda de Óleo Diesel a 
+Posto Revenda
+ dentro do estado, o código da natureza de operação seja 
+V13
+. O código do CFOP correspondente à natureza de operação 
+V13 no SisPetro é 5655
+.
+Quando uma nota fiscal de venda é emitida para um cliente cadastrado como 
+Posto Revenda
+, dentro do estado da empresa e que não seja consumidor final, o SisPetro registra a nota fiscal com o código da natureza de operação 
+V03
+ e o código do 
+CFOP 5655
+. No entanto, se o cliente estiver configurado como consumidor final, a nota fiscal será registrada com o código da natureza de operação 
+V03
+ e o código do 
+CFOP 5949
+.
+Sempre que o campo Habilita Mudança CFOP Automática estiver marcado e o cliente faturado for configurado como consumidor final, o sistema ajustará automaticamente o código do CFOP de acordo com as configurações da empresa.
+Mais detalhes sobre a configuração de produtos para venda direta no tópico 
+Preços
+ / 
+Bloqueio
+ e outras configurações necessárias no tópico 
+Pedido de Venda Direta
+.

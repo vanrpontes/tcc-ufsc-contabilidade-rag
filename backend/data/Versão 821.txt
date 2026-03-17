@@ -1,0 +1,167 @@
+TITULO: Versão 8.21
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2923954169
+--------------------------------------------------
+Versão 8.21
+Dados
+Informações
+Início
+01/02/2015
+Final
+05/03/2015
+Scripts
+CMD821.sql (3626 a 3651)
+Itens
+32
+Implementações
+16
+Correções
+16
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+PagForRemessa.rtm
+SispetroControl.dll
+PagForBradesco-Remessa_v821.rtm
+ 
+ConsultaOnLineANP.rtm
+SisPetroANP.Dll
+ 
+ 
+ 
+SisPetroSintegra.Dll
+ 
+ 
+Avisos importantes
+Para uma melhor performance durante a atualização, iniciar o banco em modo monousuário.
+Atualizados os procedimentos da NF-e 3.10. Todos os procedimentos devem ser feitos no ambiente de Homologação (
+antes de serem colocados em Produção
+), principalmente para as UF's que na versão 8.20 ainda não haviam sido liberadas pela Sefaz e UF's que a Futura não tem certificado digital para realizar os testes. 
+O prazo para utilização da NF-e 2.0 é 31/03/2015.
+Para a verificação de Bandeira na Consulta da ANP, é necessário, além da correta configuração de perfil de sistema, alterar Tabela de Bandeiras, vinculando cada bandeira do Sispetro com uma Bandeira da ANP.
+A partir dessa versão o SisPetro Normal não estará mais instalando/atualizando o BDE/Sybase nas máquinas em que ele é executado. Em breve será disponibilizado um instalador.
+Geral
+Remover Rotinas de Instalação/Atualização do BDE/Sybase
+A partir dessa versão o SisPetro Normal não estará mais instalando/atualizando o BDE/Sybase nas máquinas em que ele é rodado. Isso se deve as regras dos novos Windows (a partir da versão 7) que impede que programas de terceiros copiem DLL's para a máquina que está executando o SisPetro. 
+UPA (CCF 27346)
+Compras
+Preço Inicial e Percentual na emissão de PMM
+Foram incluídos no PMM, o recurso de Preço Inicial e Percentual de Desconto para agilizar os processos de Compras. Os novos campos estão disponíveis nos PMM do Tipo Direto do Fornecedor e nos tipos Transferência entre Depósitos ou entre Filiais quando estes forem originados de Requisições/Cotações. 
+Help: 
+Pedido de Movimentação de Material Direto do Fornecedor
+ CPC (CCF 25941) 
+Alteração de Depósito na inclusão do PMM
+Ao incluir um PMM é sugerido o depósito de compras do perfil da empresa. Porém, caso o usuário troque esse depósito após a inclusão de itens, os mesmos não são atualizados. Nessa versão, foi  realizada uma alteração para garantir que o Depósito informado pelo usuário seja salvo corretamente. 
+CPC (CCF 27280)
+Estoque
+Melhoria de Filtro na Manutenção de Carregamento
+A tela de manutenção de carregamento foi alterada para permitir filtro por período e unidade de negócio. Help: 
+Manutenção Carregamento/Descarga
+ PRFC (CCF 25368)
+Limitação de Quantidade Real na Portaria de Saída
+No SisPetro é possível fazer  Limitação de Quantidade Real na Portaria de Saída conforme um percentual de tolerância permitido (por usuário) com opção de ser por Volume, Peso ou Ambos. Porém, essa configuração é a mesma para Carregamento e Descarga. Nesta versão, realizamos uma alteração para desmembrar essa configuração em Carregamento e Descarga para permitir valores diferentes. Help: 
+Painel Carregamento (Usuários)
+ CPC (CCF 26362)
+Correção da Pesquisa de Empresas no Remoto
+A tela de Pesquisa de Empresas não estava considerando a configuração de perfil de usuário ao verificar o acesso do mesmo a determinadas empresas. Após correção a listagem será mostrada corretamente com as empresas as quais o usuário tenha permissão de acesso.
+ PRFC (CCF 27099)
+Faturamento
+Bandeira do Cliente na Nota Fiscal
+Foi feita alteração para salvar os dados da bandeira do cliente na Nota Fiscal e exibir na tela de Manutenção de Notas. PRFC (CCF 25685)
+Indicação do Número da NF para Emissão Própria
+Na versão 8.21 foi criada uma nova configuração na tabela de Série da NF para possibilitar que o usuário informe o Número da Nota quando a série for do Tipo Emissão Própria. Nesta versão, essa alteração foi estendida para o Faturamento Automático, Remessa e Retorno de armazenagem e Conhecimento de Frete.  Help: 
+, 
+, 
+Utilizando Faturamento Automático
+, 
+Tabela Série Nota Fiscal
+ CPC (CCF 26737)
+Importação de NFe
+A partir dessa versão é possível importar uma NFe emitida na versão 3.10. UPA (CCF 27141)
+Validação da Data da OC X Data de Entrega do Pedido
+Foi feita uma implementação recente da Data da OC X Data de Entrega do Pedido. Porém, algumas empresas não utilizam da forma como foi feita. Nesta versão, foi implementado um perfil de empresa para permitir a configuração desse recurso. 
+Help: 
+ 
+CPC (CCF 26903)
+Endereço de Web Services para Manifestação e Eventos da NF-e
+Apesar da Manifestação e Eventos não terem sido disponibilizados na versão 3.10 da NF-e estando somente na versão 2.0, estamos disponibilizando na aba da versão 3.10 a edição desses endereços, evitando que o usuário tenha que ficar alterando entre 2.00 e 3.10 para atualizar os endereços. UPA (CCF 27218)
+Criação da tag 
+impostoDevol 
+NF-e 3.0
+Na NF-e 3.0 há uma tag impostoDevol que só deve ser enviada quando a finalidade da NF for Devolução e o SisPetro estava utilizando o Tipo do Pedido para decidir pela criação da tag, mas  o correto é utilizar o Tipo da Nota. Nessa versão foi realizada uma correção para esse item.
+ Help: 
+Anulação de Serviço de Frete
+ CPC (CCF 27236)
+Data da Nota nos Itens via Faturamento 
+Automático
+Ao gerar uma nota via faturamento automático, o SisPetro estava inserindo como data da Nota Fiscal nos itens uma data diferente da mesma. Após correção a data será igual, tanto nos itens quanto na Nota Fiscal.
+ PRFC (CCF 27115)
+Tratamento de Mensagem de Erro na Emissão de Conhecimento
+Quando havia erros, na tela de inclusão de Conhecimento de Transporte não estava exibindo corretamente as mensagens. Após correção, as mensagens são exibidas corretamente
+. PRFC (CCF 27007)
+Diferença de R$ 0,01 em Notas com ICMS Substituição
+Em algumas notas fiscais com ICMS Substituição o cálculo estava gerando uma diferença de R$ 0,01. Essa diferença é aceita pela Sefaz por conta dos arredondamentos, porém alguns clientes tem reclamado desse valor ao importar notas fiscais. Alteramos o cálculo do ICMS ST para ajustar essa diferença. Foi também criado um perfil na natureza de operação para permitir ou não ter diferenças de R$ 0,01 nas notas nas quais o SisPetro estiver configurado para não calcular os impostos. Nas demais situações, esse perfil não influencia nos cálculos de ajustes de R$ 0,01 que serão sempre feitos.  
+Help: 
+ 
+UPA (CCF 27153)
+Faturamento Manual no Remoto para Venda Direta
+A tela de faturamento manual para pedidos de Venda Direta no SisPetro Remoto não estava abrindo quando chamada pela tela de Consulta Pedidos Aprovados e Não Faturados. Após correção, a tela de faturamento abre normalmente.
+ PRFC (CCF 27264)
+Cancelamento de NF
+No processo de cancelamento de NF foi implementado o log com os passos do cancelamento e a verificação da integridade do cancelamento (cancelamento da Nota Fiscal e de todos os outros dados vinculados).
+ GSN (CCF 27295)
+Financeiro
+Alteração de Dados Bancários no Contas a Pagar
+A tela de lançamento de Contas a Pagar foi alterada para permitir a alteração dos dados bancários do título após sua inserção. PRFC (CCF 26673
+)
+Pagamento Eletrônico 
+O Pagamento Eletrônico no SisPetro é feito título a título.  Nesta versão, foi realizada uma alteração para possibilitar a geração do Pagamento Eletrônico de um Boleto composto por vários títulos da mesma entidade e vencimento. Com essa  alteração, o botão “Pag.Eletrônico” da tela Manutenção de Contas a Pagar, foi retirado da aba “Pagto Eletrônico” e disponibilizado na parte superior da tela. S
+erá necessário utilizar os rtms PagForRemessa.rtm e PagForBradesco-Remessa_v821.rtm.
+ CPC (CCF 24448)
+Servidor Sispetro
+NFe 3.10
+Alterado o cabeçalho do XML para NFe 3.0 para que fique compatível com todas as UF. UPA (CCF 26357)
+ 
+Licenciamento Web
+O processo de aquisição e validação do licenciamento Web foi alterado e com isso terá uma melhor performance nos bancos de dados com muitas movimentações. UPA (CCF 27129)
+Informações do IP e Porta Utilizados
+A partir desta versão, quando o cursor do mouse for parado sobre o ícone do Servidor SisPetro, além da versão do servidor também serão exibidos também o IP e a Porta em que o servidor está executando. Essa informação ajudará aos clientes que possuem mais de um Servidor SisPetro rodando na mesma máquina identificar os servidores. UPA (CCF 27129)
+Transporte
+Aumento do Campo Observações da Frota
+O campo Observações da Frota teve seu tamanho aumentado, sendo possível digitar livremente neste campo. Com isso será possível ao usuário manter um histórico mais detalhado e completo do Frota em questão. PRFC (CCF 14940)
+Tipo de Transporte no Frota
+A tela de Manutenção de Frota foi alterada para indicar obrigatoriedade do campo Tipo de Transporte.
+ PRFC (CCF 19141)
+Vendas
+ 
+Verificação da Bandeira e Atividade Econômica na Consulta ANP
+A Consulta da ANP foi alterada para incluir verificação de Bandeira e Atividade Econômica do Cliente, bloqueando-o ou não, de acordo com a configuração de sistema . Além da correta configuração de perfil de sistema é necessário alterar o cadastro de bandeira, vinculando o registro com uma Bandeira da ANP. Atualizar ConsultaOnLineANP.rtm no caminho dos executáveis.  Help: 
+Tabela Atividade Econômica
+, 
+, 
+, 
+  PRFC (CCF 27089)
+Nova Situação na Consulta ANP
+A biblioteca de consulta na ANP foi alterada para tratar a situação "Posto aguardando publicação do D.O.U." como Autorizado. Necessário atualizar a biblioteca SispetroANP.dll na mesma pasta do Servidor SisPetro. PRFC (CCF 27267)
+Problemas ao Filtrar Condição de Pagamento
+Ao aplicar filtro na tela de Condição de Pagamento, o SisPetro mostrava indevidamente mensagem de validação de dados. Após correção a tela poderá ser fechada normalmente.
+ PRFC (CCF 26772
+)
+Consulta a ANP
+Alterada a rotina para Consulta da ANP para considerar corretamente o status Processo em Revogação de acordo com o perfil configurado e com isso não informar ao usuário como cadastro não localizado. 
+UPA (CCF 27131)
+Tecla de Acesso Rápido à Consulta OnLine
+No cadastro de Cliente, as teclas de atalho para a Consulta OnLine e Ocorrências estavam conflitantes. Após ajuste a nova tecla de atalho para a Consulta Online é <
+ALT> + <L>
+.
+ PRFC (CCF 27064)
+Tipo de Cobrança no Pedido de Venda
+Ao visualizar um pedido, o SisPetro estava sobrescrevendo o Tipo de Cobrança com o vinculado à Condição de Pagamento. Após correção, este erro não mais acontecerá.
+ PRFC (CCF 26340)
+Abertura da Janela de Pesquisa Quando o Usuário Não Possui Acesso ao Campo
+Em situações em que o usuário não possuía acesso a um determinado campo do pedido de vendas e o mesmo estava sendo preenchido com uma informação inconsistente, era aberta a tela de pesquisa para que o usuário escolhesse um valor válido. Essa situação acontecia principalmente com o tipo de cobrança. Por exemplo, o tipo de cobrança foi inativado mas ainda está associado ao cliente, quando era lançado o pedido, esse tipo de cobrança não poderia ser utilizado e por isso abria a tela de pesquisa. Agora será validado e pedido não poderá ser incluído nessa situação sendo necessário acertar o cadastro do cliente. 
+UPA (CCF 26971)
+Tipo de Cobrança no Pedido de Venda
+Ao visualizar um pedido de venda já emitido, em determinados casos, o SisPetro estava sobrescrevendo o campo Tipo de Cobrança pelo vinculado na Condição de Pagamento. Feita correção.
+ PRFC (CCF 26673
+)

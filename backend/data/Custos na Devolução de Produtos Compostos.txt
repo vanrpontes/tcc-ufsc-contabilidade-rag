@@ -1,0 +1,19 @@
+TITULO: Custos na Devolução de Produtos Compostos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2902164037
+--------------------------------------------------
+Histórico
+Toda entrada de Produto, através de Nota Fiscal, tem a possibilidade de ter um custo definido (Automático, via Fórmula, manual, etc), isso porque o comum é se fazer a entrada de um produto básico, que não seja composto. Porém, na Devolução de Clientes de Produtos Compostos, a entrada dos produtos básicos é feita somente no estoque e não estava previsto transferir para essa entrada o custo. Isso não era percebido porque uma nota fiscal de Devolução geralmente é configurada para não participar do CMV, ou seja, não utiliza o custo configurado na Nota, mas sim o último custo calculado.
+Solução
+Aproveitaremos para estender um pouco a solução para, além do custo, tratar da movimentação do estoque, criando uma nova opção na tabela 
+Natureza de Operação
+:
+Na aba Geral/Dados Gerais:
+NF Devolução Cliente - Produtos Compostos
+: 
+Opção 
+Movimenta Estoque Produtos Básicos
+, que por padrão já vem marcado.
+Normalmente não se tem fechamento de estoque de produto composto e, consequentemente, também não tem fechamento de custo. Por isso a opção mais recomendada é o novo perfil estar marcado.
+Para mais informações sobre os tipos de cálculos de custos veja o tópico 
+Custos
+.

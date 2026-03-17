@@ -1,0 +1,101 @@
+TITULO: Configurando Banco de Teste para migração do Sybase 7 para o Sybase 12
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913894889
+--------------------------------------------------
+Este documento visa orientar o usuário a configurar o ambiente de teste, levando em considerando desde a criação de uma cópia do banco de dados, até a configuração do Servidor Sispetro para o banco de testes.
+Ele é totalmente voltado para o Sybase 7. Deve ser utilizado para bancos de dados que ainda estão utilizando o Sybase 7.
+1. Criar um backup do banco de dados:
+1.1. Ter o backup criado para o banco de dados, conforme o tópico 
+Backup do Banco de Dados
+;
+2. Configurar o novo banco de dados com um outro nome:
+Considerando que o banco de dados é iniciado via arquivo .bat, o usuário deverá:
+2.1. Clicar com o botão direito em cima do arquivo startdb.bat da pasta gerada e renomeada;
+ 
+2.2. Selecionar a opção Editar:
+ 
+2.3.No bloco de notas, editar a linha de comando com um novo nome para o banco de dados:
+Exemplo:
+ 
+De:
+Start dbsrv7 -c128M -m -xtcpip -nScgwin scgwin.db
+Para:
+Start dbsrv7 -c128M -m -xtcpip -nTeste scgwin.db
+ 
+2.4. Fechar o arquivo startdb.bat salvando as alterações efetuadas;
+2.5. Iniciar o banco, clicando duas vezes sobre o arquivo startdb.bat.
+Considerando que o banco de dados é iniciado via Sybase Central 4.0, o usuário deverá:
+2.1. Abrir o Sybase Central;
+2.2. Selecionar a opção 
+Adaptive Server Anywhere 7 > Services
+;
+ 
+2.3. Clicar com o botão direito sobre o serviço existente e selecionar a opção 
+Stop
+ 
+2.4. Novamente, clicar com o botão direito sobre o serviço existente e selecionar a opção 
+Properties
+;
+ 
+2.5. Selecionar a aba 
+Configuration
+, e no quadro 
+Parameters for executable
+ editar a linha de comando com um novo nome para o banco de dados.
+Exemplo:
+ 
+De:
+-c128M -m -xtcpip -nScgwin scgwin.db
+Para:
+-c128M -m -xtcpip -nTeste scgwin.db
+2.6. Clicar no botão 
+Apply
+, e em seguida em 
+Ok
+;
+2.7. Novamente, clicar com o botão direito sobre o serviço existente e selecionar agora a opção 
+Start
+;
+ 
+3. Configurar o ODBC para o banco de dados teste:
+3.1. Acessar menu 
+Iniciar/ Painel de Controles/ Ferramentas Administrativas/ Fontes de dados (ODBC)
+;
+ 
+3.2. Acessar a aba 
+Fonte de Dados Sistema
+;
+ 
+3.3. Clicar no botão 
+Adicionar
+ e selecionar o driver para configurar a nova fonte de dados, sendo ele 
+Adaptive Server Anywhere 7.0
+;
+3.4. Após escolher a opção 
+Adaptive Server Anywhere 7.0
+, clique em Concluir;
+ 
+3.5. Na aba ODBC da janela ODBC Configuration:
+3.5.1. Preencher o campo 
+Data Source name
+ com o nome do ODBC (não precisa ser necessariamente o mesmo nome do banco de dados;
+3.5.2. Habilitar, 
+obrigatoriamente
+, as opções 
+Microsoft applications (Keys in SQLStatistics)
+ e 
+Delphi applications
+;
+3.5.3. Manter as demais opções da forma padrão;
+ 
+3.6. Na Aba Login da janela ODBC Configuration:
+3.6.1. Escolher a opção 
+Supply User ID and Password
+;
+3.6.2. Preencher os campos de User ID e Password;
+ 
+3.7. Na aba Database da janela ODBC Configuration:
+3.7.1. Preencher o campo 
+Server Name
+ com o nome exato do banco de dados, conforme item 2.3;
+ 
+3.8. Manter o padrão das demais definições;

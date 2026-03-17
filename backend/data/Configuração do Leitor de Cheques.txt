@@ -1,0 +1,143 @@
+TITULO: Configuração do Leitor de Cheques
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440490
+--------------------------------------------------
+Na tela de 
+Vínculo de Cheques a NF
+, 
+ e 
+ é possível utilizar um leitor de cheques para facilitar o trabalho. O Sispetro está preparado para trabalhar com diversos leitores, entre eles Maxyscan, CIS, TecnoPoint, Cobra e outros. 
+
+
+A configuração pode ser feita por usuário ou empresa. Se a empresa só trabalha com um leitor de cheques, a configuração por empresa é o mais recomendado, pois será válida para todos os usuários. No entanto, se a empresa trabalha com mais de um leitor, então a configuração tem que ser por usuário. A cada usuário se configura de acordo com o leitor de cheques que ele for utilizar. Para possibilitar a configuração por usuário, deve-se: 
+
+
+No menu Ferramentas / Sistema, painel Nota Fiscal
+ 
+
+
+
+
+As configurações por empresa encontram-se no 
+menu Ferramentas / Sistema, painel Nota Fiscal
+, já as configurações por usuário encontram-se no 
+menu Ferramentas / Usuário, painel Perfil, subpainel Faturamento
+. 
+
+
+As configurações, que podem ser por usuário ou empresa, são as seguintes: 
+
+
+
+
+Porta serial ou emulador de teclado
+
+
+
+
+ 
+
+
+ Caso desmarcada indica que o leitor de cheques emula o teclado.  
+
+
+
+
+Porta onde está instalado
+
+
+
+
+ 
+
+
+ No caso do leitor utilizar a porta serial deve-se já configurar a porta.  
+
+
+
+
+Enter ao final
+
+
+
+
+ 
+
+
+ Quando o leitor emula o teclado, há leitores que logo após a leitura já dão um <ENTER> final, outros não. Para os que não mandam, deve-se marcar esta opção.  
+
+
+
+
+Dígitos iniciais inválido
+
+
+
+
+ 
+
+
+ A maior parte dos leitores retornam como primeiro caracter < e em seguida o código do banco e os outros dados do cheque. No caso dos leitores que retornarem quaisquer outros caracteres antes (faça o teste fazendo a leitura do cheque num editor de textos qualquer), verifique quantos são e informe então a quantidade a ser desconsiderada.  
+
+
+
+
+Aceita caracteres menores que <ESC> pela porta serial
+
+
+
+
+ 
+
+
+ Quando o leitor utiliza a porta serial, geralmente os caracteres cujo código ASCII sejam menores que 27 (ESC) são desconsidetados, devendo esta opção ficar desmarcada. No caso de leitores que retornam estes tipos de caracteres e que, quando desconsiderados, não trazem o conteúdo completo, esta opção então deverá está marcada.  
+
+
+ 
+ 
+
+
+Independente, da configuração ser por usuário ou empresa, deve-se atentar para a configuração a seguir: 
+
+
+
+
+No menu Ferramentas / Sistema, painel Nota Fiscal
+
+
+
+
+ Geralmente é 34, mas pode sofrer alteração da Febraban ou conforme o leitor de cheques.  
+
+
+
+
+No leitor de cheques, a recomendação básica, quando ele for configurável, é a seguinte:
+
+
+
+
+ 1. Não deve enviar nenhum finalizador (nem TAB nem Enter).  
+
+ 2. A velocidade deve ser 2400 conforme está configurado no Baud Rate para o Sispetro.  
+
+ 3. Stop Bits 1.  
+
+ 4. Tamanho do byte 7.  
+
+ 5. Paridade ímpar.  
+
+ 6. Não deve ter tabs primários nem secundários.  
+
+ 7. Não deve ter separador de blocos.  
+
+ 8. Não envia identificador inicial.  
+
+ 9. Se estiver usando a emulação de teclado, configurar o scanner de acordo o layout do teclado utilizado.  
+
+
+ É possível ainda alterar a configuração para comunicação serial no momento do vínculo do cheque, utilizando-se o botão 
+Configura Porta COM
+, mas essa configuração será só para esta execução do sistema e não será armazenada. Ao clicar no botão citado, será apresentada a tela a seguir:  
+
+
+ 

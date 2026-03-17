@@ -1,0 +1,85 @@
+TITULO: Título Pago
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898464
+--------------------------------------------------
+A amortização de título pago são títulos de cobrança da dívida que serão pagas pelo cliente.
+Inclusão de Título Pago
+Para incluir um ajuste de amortização, deve acessar a tela de 
+Manutenção de Mútuo
+, selecionar um contrato, ir no painel 
+Amortizações
+, grupo 
+Títulos Pagos
+ e clicar no botão 
+Inclui Título
+. A seguinte tela é apresentada:
+Os campos abaixo deverão ser informados:
+Data Emissão: 
+será
+ sugerido com a data atual e sofre influência dos perfis de empresa 
+Impede Vencimento Contas Pagar/Receber menor que Emissão
+e os perfis de usuário
+Permite Dt. Emissão superior a Dt. Atual 
+e
+ Muda Data Emissão?
+Data Vencimento:
+ data de vencimento original do título.
+#Documento:
+ caso necessário, entre com um número de documento que identifique este lançamento (número do cheque devolvido, Nota Fiscal, etc).
+#NF:
+ número da nota fiscal que identifique o lançamento.
+Código Tipo Cobrança:
+ código do tipo de cobrança do lançamento (como se pretende receber este lançamento ou de que forma o cliente pretende quitá-lo). Aperte <enter> para abrir a janela de pesquisa caso não saiba o código.
+Tipo Documento:
+ código do tipo de documento que originou este lançamento (normalmente uma nota fiscal porém pode ser recibo, rpa, etc). É importante que se escolha aqui o tipo de documento correto pois ao tipo de documento está associado um conjunto de descontos (que podem modificar o valor líquido do lançamento). Aperte <enter> para abrir a janela de pesquisa de tipos de documento caso não saiba seu código. Ver mais detalhes sobre descontos em 
+Como cadastrar descontos automáticos
+.
+Código Histórico:
+ acione a tecla <Enter> e selecione da lista o código adequado.
+Histórico:
+ histórico da Ocorrência.
+Informações Adicionais:
+ informações adicionais do lançamento.
+Vendedor:
+ código do vendedor responsável pelo cliente (e por seus títulos). Aperte <enter> para abrir janela de pesquisa de vendedores.
+Código Portador:
+ código do portador do título (onde fisicamente o título está). Acione a tecla <enter> para pesquisar caso não saiba o código.
+Moeda:
+ código da moeda do lançamento. Aperte <enter> para abrir janela de pesquisa de moedas.
+% Juros Dia:
+ será 
+sugerido com a Taxa Juros Dia do Cadastro de Clientes.
+% Multa: 
+será
+ 
+sugerido conforme perfil de sistema ou Cadastro de Clientes. 
+CC Receita Juros:
+ se informado a conta contábil de receita de juros, será habilitado o campo 
+Valor dos Juros
+.
+Valor da Amortização:
+ valor efetivo do título.
+Valor dos Juros:
+ informar o valor do juros se tiver sido informado o campo 
+CC Receita Juros
+.
+Ao clicar no botão 
+OK
+, será incluído um título de contas a receber. Após inclusão do título, o sistema irá perguntar se deseja imprimir a cobrança (boleto) e caso o usuário desejar emití-la, será impressa a cobrança.
+O valor do título de amortização não deverá ser maior do que o saldo atual pendente, caso seja, o sistema não permitirá a inclusão do mesmo e gerará uma mensagem de erro conforme abaixo:
+A contabilização será feita da seguinte forma:
+Débito
+ - conta de mútuo pelo valor da amortização
+Débito
+ - conta receita de juros pelo valor do juros
+Crédito
+ - conta cliente pelo valor da amortização + juros
+Cancelamento de Título Pago
+Para cancelar uma transferência, deve acessar a tela de 
+Manutenção de Mútuo
+, selecionar um contrato, ir no painel 
+Amortizações
+, grupo 
+Títulos Pagos
+, selecionar o registro e clicar no botão 
+Cancela Título
+.

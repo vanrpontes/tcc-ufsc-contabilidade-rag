@@ -1,0 +1,24 @@
+TITULO: Função EhFrotaProprio
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/6019710994
+--------------------------------------------------
+Histórico
+Essa função foi criada para não somar o valor do Frete no CMV quando o Frota for Próprio, mesmo que o frete esteja incluído na OC.
+Essa função tem os seguintes parâmetros:
+Sequencial do Frota = NotaFiscal.SeqFrota 
+Código da Empresa = NotaFiscal.CodEmpresa
+Exemplo de uso:
+sql
+wide
+1800
+if EhFrotaProprio(<NotaFiscal.SeqFrota >,<NotaFiscal.CodEmpresa>) = 1 then (Montar a Formula) else (Montar a Formula) endif
+Sequencial do Frota
+<702> =  NotaFiscal.SeqFrota
+Código da Empresa
+<556> = NotaFiscal.CodEmpresa
+1 : significa que o Frota é Próprio
+0 : significa que o Frota é de Terceiros
+Exemplo de uma fómula:
+sql
+wide
+1800
+if EhFrotaProprio(<702>,<556>) = 1 then <736> else <736>+isnull(<810>,0) endif

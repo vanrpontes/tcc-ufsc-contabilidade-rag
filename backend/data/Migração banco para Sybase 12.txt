@@ -1,0 +1,98 @@
+TITULO: Migração banco para Sybase 12
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903508161
+--------------------------------------------------
+Recomendamos aos nossos usuários que os procedimentos abaixo sejam executados a partir da versão 7.23, que está compatível com o Sybase 12.
+ 
+Inicie o banco de dados na versão atualmente utilizada 
+Sybase 7.0.4.3498
+.
+Abra o Sybase Central 12 (Iniciar/ Programas/ SQL Anywhere 12/ Administration Tools/ 
+Sybase Central
+.
+ 
+Dê um duplo-clique sobre a opção 
+SQL Anywhere 12
+ 
+Clique na opção 
+Connect to a database
+ 
+Informe o 
+User ID
+ e 
+Password
+ do respectivo banco de dados e também o 
+Server Name
+ utilizado.
+ 
+O padrão utilizado é 
+User ID= dba
+, 
+Password= 
+ (senha default) caso não possua, solicitar ao suporte técnico futura.
+ e 
+Server name = scgwin
+. Atente-se para os dados da sua empresa.
+Em seguida clique em Connect.
+Na mensagem para fazer Unload e Reload, o usuário deverá clicar em 
+Yes
+ 
+Na mensagem seguinte, o usuário deverá clicar em 
+Next
+ para continuar o unload.
+ 
+Selecione o database escolhendo a opção 
+Unload a database running on an earlier version of the server, or a database that is not running
+. (Fazer o unload no banco de dados rodando em versão anterior ou sem o banco rodando).
+ 
+Ainda na mesma tela, confirme os campos 
+User ID
+ e 
+Password
+, e informe o local e nome do banco de dados através do campo 
+Database file
+Na tela seguinte, escolha a opção 
+Unload and reload into a new database
+ (unload e reload para um novo banco de dados)
+ 
+Defina no campo 
+Save the new database to the following file
+ o nome e o diretório onde será salvo o novo banco de dados, clicando no botão 
+Browse
+.
+ 
+Ainda na mesma tela, 
+mantenha os demais campos nas opções já marcadas
+Selecione o tipo de Unload que será feito, sendo: 
+Unload structure and data
+ (unload da estrutura e dados).
+ 
+Caso deseje que o banco seja inicializado após o Unload e Reload, marque essas opções e informe o nome do banco de dados
+ 
+Na tela seguinte será mostrado o comando que será executado para realizar o processo, em seguida cliquem em 
+Finish
+ 
+Aguarde o banco ser migrado para a nova versão
+ 
+Até que o 
+Status
+ em tela como 
+Completed
+ 
+Acesse o SQL Anywhere 12;
+Acessar o menu 
+Help
+, e a opção 
+About Sybase Central
+ e verificar a versão do Sybase que foi instalada, considerando o quadro de plugins;
+A versão mínima para utilização com o Sispetro é a 12.0.1.3484. É importante ressaltar que a versão do Sybase deverá ser compatível com a versão da DLL.
+Estando em uma versão inferior a 12.0.1.3484, volte ao menu 
+Help
+, e escolha a opção 
+SQL Anywhere 12 > Check For updates
+Aguarde a finalização da análise de update. Havendo necessidade de atualização, o Sybase informará com a seguinte mensagem:
+Clique em 
+Yes
+ para que seja direcionado ao site do Sybase para efetuar download, conforme exemplo abaixo:
+Efetue o download necessário e em seguida configure o banco para subir como serviço seguindo o roteiro de 
+Configuração para utilizar o banco como Serviço
+.

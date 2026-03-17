@@ -1,0 +1,104 @@
+TITULO: Razão
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210287
+--------------------------------------------------
+O acesso a este relatório se dá a partir do menu 
+Relatórios / Razão.
+Nova página por conta:
+ com esta opção selecionada, o Sispetro emite o relatório com uma página para cada conta sintética e seu detalhamento.
+Imprime contas sintéticas:
+ quando emitimos um relatório analítico com esta opção selecionada, o Sispetro apresentará um relatório com todo o detalhamento e a totalização das contas sintéticas que possuem movimentação, possibilitando assim a conciliação dos movimentos de forma mais simples. Quando emitimos um relatório sintético com esta opção selecionada, apresentará um relatório com o detalhamento de todas as contas.
+Detalha Centro de Custo:
+ habilitando o campo, o sistema apresentará a movimentação por centro de custo e conta.
+Forma de Agrupamento:
+Centro de Custo/Conta:
+ os itens serão agrupados por centro de custo e na sequência, por conta.
+Conta/Centro de Custo:
+ os itens serão agrupados por conta e na sequência, por centro de custo.
+Sintético - Nível da Conta:
+ determina da quantidade de contas sintéticas para considerar a totalização do relatório - esta opção está disponível somente para o relatório sintético.
+O layout do Razão Analítico será gerado conforme o arquivo
+ 
+razao.rtm
+ 
+que estiver no caminho do executável, sua existência é
+ 
+imprescindível
+. Para o relatório Sintético, é necessário ter o arquivo 
+razaosintetico.rtm 
+e, se marcada a opção
+ 
+"Detalha Centro de Custo"
+, o layout será gerado pelo arquivo
+ 
+RazaoCCusto.rtm
+. Para alterar o layout utilize o botão 
+Para incluir informações sobre o Responsável Legal pela empresa, acesse 
+Dados do Responsável Legal pela empresa nos Relatórios Contábeis
+.
+Para permitir alterar o layout do relatório, foi criado um perfil de usuário e esse perfil será responsável por habilitar ou não o botão edita layout.
+Por padrão, o botão para editar o layout vem desabilitado. Para habilitá-lo acesse: Sispetro Normal/Ferramentas/Usuário/ Perfil / Contabilidade/ Relatório Razão – Pode editar o relatório Razão.
+Atentar-se as atualizações do arquivo .rtm a cada atualização do Sistema. Para que as alterações feitas sejam consideradas, é necessário sobrepor o .rtm existente pelo atual.
+O usuário deve informar a
+ 
+"Filial"
+ 
+ou desmarcar a opção
+ 
+"Filial específica"
+ 
+para imprimir o razão de todas as filiais.
+Através do campo Período, pode-se informar um
+ 
+determinado período
+ 
+para o qual se deseja emitir o relatório. 
+É importante lembrar que, se a empresa trabalha com códigos estendidos, 
+a partir do processamento dos novos códigos estendidos, o período da emissão dos relatórios deve ser em função da data inicial deste período. Não é recomendado emitir um relatório com um período que contemple dois ou mais códigos estendidos diferentes, pois os resultados podem ser afetados.
+Para maiores informações, acesse 
+Tipo de Relatório:
+ é possível definir se deseja emitir um relatório sintético ou analítico, onde temos:
+Analítico:
+ permite a emissão do relatório Razão com o detalhamento de todas as contas;
+Sintético: 
+relatório equivalente ao Balancete.
+Para emitir somente de contas específicas, deve-se marcar a opção "
+Intervalo de contas
+", selecionando a
+ 
+"Conta inicial" e "Final"
+ 
+(A conta final deve ser maior ou igual a conta inicial). Caso só queira de uma conta, basta repetir a conta em conta inicial e em conta final.
+Na emissão do Razão, caso seja informado um período e um intervalo de contas, ao alterar este período para nova emissão - sem sair da tela, deve-se definir novamente o intervalo de contas.
+ 
+Caso esteja imprimindo o razão de todas as filiais, é possível a cada dia apresentado, apresentar um cabeçalho que agrupa os dados de cada filial, para isso deve-se marcar a opção
+ 
+"Quebra por filial"
+, não sendo marcada esta opção, o código da filial será apresentado numa coluna do relatório.
+Nova página por conta:
+ com esta opção selecionada, o Sispetro emite o relatório com uma página para cada conta sintética e seu detalhamento.
+Imprime contas sintéticas:
+ quando emitimos um relatório analítico com esta opção selecionada, o Sispetro apresentará um relatório com todo o detalhamento e a totalização das contas sintéticas que possuem movimentação, possibilitando assim a conciliação dos movimentos de forma mais simples. Quando emitimos um relatório sintético com esta opção selecionada, apresentará um relatório com o detalhamento de todas as contas.
+Detalha Centro de Custo:
+ habilitando o campo, o sistema apresentará a movimentação por centro de custo
+Forma de Agrupamento:
+Centro de Custo/Conta:
+ os itens serão agrupados por centro de custo e na sequência, por conta.
+Conta/Centro de Custo:
+ os itens serão agrupados por conta e na sequência, por centro de custo.
+ 
+Importante: Detalhando centros de custos só serão apresentadas as movimentações que utilizaram centros de custos. O saldo apresentado não é o saldo geral da conta, mas sim o saldo da conta no centro de custos.
+Sintético - Nível da Conta:
+ determina da quantidade de contas sintéticas para considerar a totalização do relatório - esta opção está disponível somente para o relatório sintético.
+Através da opção
+ 
+"Informa número de página inicial"
+, o usuário pode definir a partir de qual númeração o relatório começará a ser impresso, para isso, basta informar o número inicial da página no campo
+ 
+"Número da página Inicial"
+.
+Ao selecionar essa opção, o relatório não será impresso informando a página corrente de tantas páginas a serem impressas (página 1 de 100), mesmo que o layout esteja configurado para ser impresso dessa forma.
+O usuário deve clicar no botão
+ 
+"OK"
+ 
+para que o relatório seja apresentado em tela e para imprimí-lo clique em 

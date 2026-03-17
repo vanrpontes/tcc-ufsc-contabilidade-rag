@@ -1,0 +1,125 @@
+TITULO: Baixa pelo Débito-Crédito do Cliente
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701694
+--------------------------------------------------
+Objetivo
+Esta tela permite ao usuário quitar os lançamentos (débitos) do cliente, através dos adiantamentos (créditos) selecionados.
+A tela de Débito/Crédito do Cliente é acessada através do Menu 
+Movimentação / Financeiro / Débito/Crédito de Cliente.
+Quadro Geral
+Filtra Empresa (Débito/Crédito):
+ caso deseje filtrar a empresa do lançamento, marcar essa opção e informá-la.
+Filtra Contrato de Venda: 
+caso deseje filtrar os débitos vinculados a um contrato de venda, marcar essa opção e informá-la.
+Tipo de Antecipação: 
+filtra os títulos e adiantamentos que serão mostrados na tela
+Quadro Débitos
+Débitos: 
+caso deseje filtrar os débitos por data de vencimento, marque a opção 
+ informa Período de Vencimento 
+e informe um intervalo de data.
+Adiantamento Quantificado: 
+caso esta opção esteja marcada, os débitos referentes a adiantamentos quantificados serão visualizados.
+Exibe Débitos de cob. eletrônica:
+ caso esta opção esteja marcada, os débitos referentes a cobrança eletrônica serão visualizados
+A opção de exibir débitos de cobrança eletrônica pode ser sugerida automaticamente pelo SisPetro. Para isso basta marcar o perfil de empresa menu Ferramentas/ Sistema / Financeiro / opção: 
+Exibe débitos de cobrança eletrônica.
+Entidade:
+ informar o cliente
+Pendê
+ncias de: 
+informar o tipo de pendência da entidade cliente faturado ou do comprador
+Quadro Créditos (exceto bloqueados)
+Créditos com Data Movto até: 
+caso deseje filtrar os adiantamentos até uma determinada data,  informar uma data. 
+Entidade: 
+informar o código da entidade.
+O SisPetro sugere quais serão os adiantamentos (créditos) utilizados do mesmo cliente que foi informado para os débitos. Para poder informar um cliente 
+diferente
+ é preciso que na configuração da empresa, Menu Ferramentas / Sistema / Financeiro/opção: 
+Utiliza crédito de outra entidade.  Para mais informações, ver 
+. 
+No entanto, a regra para utilização de créditos é definida na 
+Contabilização de Lançamentos Gerenciais
+ (débitos X adiantamentos do mesmo comprador ou débitos X adiantamentos da mesma entidade faturada), a tela permite a visualização de créditos de outras entidades, porém, não será realizada a baixa caso não atenda o critério.
+Inclui créditos do Comprador: 
+para que o SisPetro mostre os créditos do comprador vinculado a entidade em questão, marcar essa opção. 
+Essa opção pode ser sugerida como marcada, desde que esteja marcada nas configurações da empresa, Menu Ferramentas / Sistema / Financeiro / opção 
+Padrão é comprador,
+ e também deve-se habilitar o perfil Ferramentas / Sistema / Vendas / opção 
+Utiliza Adiantamento Comprador da Entidade Menu. 
+Para mais informações, ver 
+ e 
+Utiliza Créditos de outras empresas: 
+ao marcar esta opção aqui na tela de Débito/Crédito após fazer o processo de baixa utilizando o crédito de uma empresa para o título da mesma empresa, se sobrar títulos e créditos é feita a transferência integral do crédito para a empresa onde tem o débito e em seguida é utilizado o crédito para baixar o débito. 
+Ou seja, o crédito sempre será utilizado para quitar um débito da empresa onde ele está incluído. O SisPetro faz a transferência automática deste crédito para que ele possa ser utilizado
+.
+Com o perfil 
+Permite utilizar Adiantamentos de outras empresas na Baixa
+, é possível utilizar créditos de outras empresas para quitar um débito.
+Cenário
+:
+Empresa 1
+Débito de R$ 10.000,00 para cliente 900
+Empresa 2
+Crédito de R$ 15.000,00 para Cliente 900
+Assim se este perfil for habilitado e, este crédito poderá ser utilizado na empresa 1, porém será transferido na sua 
+totalidade.
+Para utilizar créditos de outras empresas, deve-se marcar a opção 
+Permite utilizar Adiantamentos de outras empresas na Baixa
+. Assim, nesta tela vai aparecer os adiantamentos de todas as empresas para este cliente Ferramentas / Sistema / Financeiro / opção: 
+Permite Utilizar Adiantamento de Outras Filiais. 
+Para mais informações, ver 
+Caso o histórico padrão para baixas esteja configurado para aceitar fórmulas, é possível alterar a fórmula sugerida e testá-la para prever o resultado (
+aba Histórico)
+Para restringir o número de adiantamentos ou títulos envolvidos na baixa, o usuário pode utilizar o botão
+Filtro 
+fica ao lado de algumas colunas como a 
+Data Emissão
+  
+  por exemplo. Importante lembrar que os adiantamentos bloqueados não estarão disponíveis.
+Caso seja necessário providenciar alguma transferência de adiantamentos entre entidades, é possível realizá-la sem abandonar esta tela, utilizando o botão 
+Transfere para outra entidade 
+ 
+Para mais informações, ver 
+Transferindo Adiantamentos de Clientes
+Ao ser concluída, será retornado para a tela de Débito Crédito atualizando os créditos levando em consideração a transferência realizada.
+Deve ser informado os dados para a baixa, como a 
+conta
+ a ser movimentada, 
+datas
+, 
+documentos
+ e 
+históricos
+.
+A opção 
+Pode Contabilizar
+ só estará visível para as empresas que utilizam o módulo contábil em seguida deve-se informar o código de contabilização. Para mais informações ver 
+Contabilização real durante baixas
+. É possível configurar no perfil da empresa para que o 
+código de contabilização
+ seja sugerido na tela, facilitando e evitando erros de digitação no momento da baixa. E o mesmo pode ser alterado, caso for necessário.
+Para configurar a sugestão do código de contabilização da tela de Baixa, deve-se ir no Menu 
+Ferramentas / Sistema / painel Contab.Real 
+e selecionar a seguinte opção 
+Cod. Contab. para Baixa Recibo Manual
+ 
+Vide tópico 
+Consolidação de Lotes
+ para obter maiores detalhes sobre a consolidação do lote no momento da baixa.
+Caso se tenha marcado a opção para utilizar créditos de outras empresas, na parte inferior da tela, deve-se ir para o painel 
+"Dados p/ Transf. Créditos entre Empresas"
+ e informar os dados para a transferência automática dos créditos.
+Clique no botão 
+Baixa
+ para concretizar o processo.
+Impressão do Recibo de Baixa
+Emite um único relatório, contendo todas as baixas realizadas. Agiliz
+ando os controles, e evitando a geração de um recibo para cada baixa. 
+Na aba Impressão de Recibo, marcar a opção 
+e selecionar uma impressora
+ 
+.
+Caso tenha sido marcada a opção 
+Adiantamento quantificado
+ o débito será baixado com o adiantamento ao qual ele está vinculado, independente da ordem e apresentação dos adiantamentos em tela.

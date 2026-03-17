@@ -1,0 +1,195 @@
+TITULO: Versão 8.12
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921073871
+--------------------------------------------------
+Versão 8.12
+Dados
+Informações
+Início
+21/05/2014
+Final
+12/06/2014
+Scripts
+CMD812.sql (3450 a 3467)
+Itens
+30
+Implementações
+19
+Correções
+11
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+balanco.rtm
+SisPetroControl.Dll
+ 
+ 
+demonstrativo.rtm
+SisPetroBancos.dll
+ 
+ 
+ 
+ 
+ 
+ 
+Geral
+Tela de Produto
+Na aba Navegação, é apresentado um grid com os principais dados do cadastro de Produtos, porém, tem alguns campos que foram inseridos de forma indevida deixando assim o grid poluído. Nessa versão, esse grid foi organizado para melhorar essa visualização.
+ CPC (CCF 24329)
+Compras
+Configuração de Conta de E-mail Exclusiva para Compras
+Incluído no SisPetro a opção de configurar uma conta de e-mail para uso exclusivo no módulo de compras. 
+Com isso é possível configurar uma conta para enviar os e-mails da Sefaz (Faturamento) e outra conta para enviar cotações do módulo de compras por exemplo
+.
+ 
+Help:
+ 
+ , 
+, 
+. UPA (CCF 24430, 24397)
+Preço Inicial na Inclusão de Cotação
+Ao ser incluída uma cotação, no seus itens, agora é possível informar o Preço Inicial da negociação para documentação. 
+Esse valor é meramente informativo mas atenderá a analises futuras para novas negociações. 
+Help:
+ 
+ UPA (CCF 24430
+, 24397
+)
+Produtos Repetidos na Cotação
+A partir dessa versão não serão mais permitidos produtos repetidos dentro de uma cotação. Essa alteração não é uma correção mas, sim uma adequação dos processos afim de simplifica-los. 
+Cotações já lançadas com produtos repetidos no SisPetro não poderão ser duplicadas.
+ 
+Help:
+ 
+ UPA (CCF 24430
+, 24397
+)
+Melhorias nas Funcionalidades de Cotação.
+Foram feitas diversas melhorias nas Funcionalidades de Cotação, dentre elas: o Sispetro permite filtrar ou não por Setor Requisitante; foram acrescentadas outra legendas na tela de Manutenção de Cotações; foram disponibilizados dados do Fornecedor no Relatório; na tela de Manutenção de Cotações foi incluída aba para exibição de PMM vinculados. 
+Help:
+ 
+ PRFC (CCF 24300)
+Formatação de Quantidade de PMM nas telas de Consulta
+Nos processos onde a movimentação de combustível é em litros, dificilmente temos quantidades com decimais. Porém quando a movimentação é em m3 é normal ter decimais na quantidade. Porém as telas 
+"Consulta Posição de PMM
+" e "
+Consulta Pedido de Movimentação de Materiais Pendentes
+" não estão apresentado as casas decimais, atrapalhando a visualização dos dados. Nessa versão, essas telas foram ajudas para mostrar as casas decimais dos campos quantidade. CPC (CCF 24206)
+Melhorias no processo de Liberação de Estoque 
+Foi criado um novo campo para sinalizar a quantidade pendente de liberação e o recurso de imprimir a tela de requisição. Assim podendo diferenciar os produtos que já tiveram quantidade liberadas por PMM. CPC
+ Help:
+ 
+ e 
+ (CCF 24394)
+Inclusão de Requisição
+Na lista de itens da requisição foi incluída a coluna Marca (somente consulta) onde será exibida a marca do produto selecionado. 
+Help:
+ 
+ UPA (CCF 24301)
+Manutenção de Requisições
+Incluído  Status da Requisição na lista de requisições. Incluído também na aba de Itens o campo Descrição do Uso e acrescentada a aba Liberações com os pedidos de outras saídas gerados para a requisição selecionada
+. Help:
+ 
+ UPA (CCF 24301)
+Manutenção de Requisições
+Na aba Cotações é listada a cotação referente a requisição selecionada, porem, uma cotação possui itens de outras requisições. A partir dessa versão, o item da cotação referente a requisição selecionada será apresentado em negrito. 
+Help:
+ 
+ UPA (CCF 24301)
+Tela de Ação Requisitante / Estoque
+A partir dessa versão o usuário terá a opção de NÃO filtrar um responsável, exibindo as requisições de todos e não só do responsável selecionado. Foram ajustados os botões dessa tela para ficarem habilitados ou desabilitados de acordo com as configurações do usuário.
+ Help:
+ 
+ UPA (CCF 24301)
+Tela de Análise de Estoque / Liberação
+Incluído nessa tela o filtro do setor de compras (opcional) e agora ao informar uma quantidade a liberar do produto, será possível também informar a data da liberação. 
+Help:
+ 
+ UPA (CCF 24301)
+Inclusão do PMM atraves da Cotação
+Ao incluir um PMM cuja cotação não indicou a Condição de Pagamento, o Sispetro sugere a Condição de Pagamento conforme cadastrado no Fornecedor. Porém, caso o usuário troque essa condição de pagamento sugerida para outra e passe novamente no campo Fornecedor, a condição de pagamento é sobreposta. Nessa versão, foi realizado um ajuste para corrigir essa situação. 
+CPC (CCF 24389)
+Alteração de Pedido de Movimentação de Material
+No processo de alteração de preço ou quantidade de um PMM já aprovado, está sendo salvo no campo Total do PMM o valor do último item. Nessa versão, o SisPetro foi corrigido para salvar a somatória de todos os itens nos respectivos campos no Pedido. 
+CPC (CCF 24584)
+Contabilidade
+Tela de Relatórios Contábeis 
+- Balanço Patrimonial e no Demonstrativo de Resultado
+Nos relatórios de Balanço patrimonial e Demonstrativo de Resultado, a sequencia das páginas não estava correta. Foi corrigido nesta versão. 
+Para que essa alteração seja aplicada, é necessário atualizar os arquivos demonstrativo.rtm e balanco.rtm 
+CPC (CCF 24295)
+ 
+Estoque
+Tela Fechamento de Estoque botão Muda Data Movimento
+Nessa versão, o SisPetro foi melhorado para estender a alteração data de Movimento para a OC e para a cópia da NF, além de incluír um Perfil de Usuário, Alteração da Data de Movimento, para configurar a permissão de acesso a esse botão. 
+Help:
+,
+, 
+ e 
+ CPC (CCF-21769 CCF-22999 CCF-23869)
+Faturamento
+Envio do E-mail da NF-e para Entidade Compradora
+É possível no SisPetro termos uma entidade compradora vinculada a uma ou várias entidades faturadas, porem, na emissão da NF-e, somente a entidade faturada recebe o e-mail com o XML da NF-e e o DANFE emitido. A partir dessa versão será possível configurar o SisPetro para que em situações como essa a entidade compradora também receba esse e-mail. 
+Help:
+  UPA (CCF 23935)
+Agrupamento de e-mails Gerados da NF-e por Ordem de Carregamento
+Quando uma ordem de carregamento possui vários itens e o SisPetro está configurado para emitir o e-mail ao cliente com o XML da NF-e e o DANFE, a cada item faturado da OC é gerado um e-mail. Agora é possível configurar o SisPetro para que esses e-mails sejam agrupados por OC e enviado somente um e-mail (que pode ser enviado também a entidade compradora, vide item anterior) com os XML e DANFE's de todas as notas fiscais geradas para a OC. 
+Executando essa configuração no SisPetro, o e-mail só será enviado quando o ultimo item da OC for faturado e autorizado na Sefaz
+. 
+Help:
+ 
+,
+ UPA (CCF 23995)
+ 
+Inclusão de Nota Fiscal, definição das parcelas
+Na inclusão da Nota Fiscal, na definição das parcelas, tem um botão “Vinculo Docto. Fiscal” que não tem tecla de atalho. Nessa versão, foi realizado um ajuste nesse botão para incluir a tecla de atalho “Alt + D”. 
+Help:
+ 
+ CPC (CCF 20469)
+Geração de Títulos de Desconto no Lançamento de Nota Fiscal
+Foi corrigido Notas que geram Títulos de desconto automáticos e suas naturezas de Operação estavam configuradas para exigir vínculo de Frete, os títulos de descontos estavam exigindo o vínculo de frete, quando não deviam. CPC (CCF 24453)
+Tela de Manutenção Natureza de Operação
+Na tela de Natureza de Operação, aba Detalhes/Dados Gerais, no Quadro Importação NF's campo "Dados Frota", a primeira opção do combo esta cortando a palavra Interrompe ficando "nterrompe". Item ajustado nessa versão. 
+CPC (CCF 24323)
+Ajustar o cálculo de impostos na tela de Edição da Mídia Magnética Anexo
+Na versão 8.8 foi feita uma implementação para permitir Despesas Acessórias na Nota Fiscal sem deduzir do Valor dos Produtos. Porém nesse trabalho foi feita a digitação indevida de uma informação e o Cálculo de Custos de Impostos  na Edição da Mídia Magnética Anexo passou a não funcionar. Nessa versão, esse problema foi resolvido. 
+CPC (CCF 24552)
+Correção do Valor da Carga na Emissão de Conhecimento
+Na geração do CT-e 2.0, o Sispetro estava considerando como Valor da Carga, o valor do campo "Valor Total do Frete", foi feita correção na geração do XML para que seja considerado o Preço Total dos Produtos. 
+PRFC (CCF 24628)
+Inclusão da NF de Compra
+Na emissão da NF, quando o SisPetro está configurado para verificar o saldo financeiro do PMM x Títulos Vinculados, está sendo utilizada a quantidade sem respeitar as suas casas decimais. Nessa versão, foi realizado um ajuste para corrigir essa situação. 
+CPC (CCF 24389)
+Financeiro
+Leitura de arquivo de cobrança
+O Sispetro ao ler arquivos de retorno dos bancos Bando do Brasil (001), Santander (033), Caixa Econômica Federal (104) e Banco Cooperativo do Brasil (756) layout CNAB240 estava apresentando erros referente a conversão para inteiros, foi feita correção no tratamento de erro de modo a apresentar apenas erro coerentes com a leitura. 
+ 
+Baixar a Biblioteca: (SisPetroBancos.dll).
+ CPC (CCF 24404)
+Mensagem de erro na leitura da Data de Crédito em Arquivos de Retorno
+O Sispetro estava exibindo mensagem de Data de Crédito inválida quando a mesma estava zerada nos arquivos de retorno dos banco Brasil (001) e Votorantim (655), foi feita uma tratativa para que a data de crédito zerada seja considerada como vazia.
+ 
+As datas de credito zeradas, informadas na posição 176~181 dos arquivos de retorno dos bancos Brasil (001) e Votorantim (655), serão consideradas como não informada.
+ 
+PRFC (CCF 24385). 
+Baixar a Biblioteca: (SisPetroBancos.dll).
+ 
+Help: 
+ 
+Vinculo de Nota Fiscal no lançamento do Contas a Pagar
+Ao lançar um Contas Pagar e vincula-lo a uma nota fiscal, o SisPetro está guardando o histórico do vínculo, vinculando títulos a nota de forma incorreta. Nessa versão, foi realizado um ajuste para garantir a gravação correta do vínculo entre o Contas a Pagar e a Nota Fiscal. 
+CPC (CCF 24586)
+Transporte
+Melhorias na Inclusão e Manutenção de Eventos
+Para facilitar a inclusão de Eventos da Frota, agora é possível repetir os dados lançados anteriormente. A Manutença de Eventos da Frota foi alterada para permitir que usuário editar um evento e personalizar a listagem na aba principal. 
+Help: 
+. PRFC (CCF 24211)
+Melhorias no Controle de Viagem
+Na Manutenção de Viagens, o Valor Total será calculado corretamente, a tela Seleção de Despesas c/ Frota fechará ao clicar em "Ok" e ao Cancelar Seleção será verificado primeiro se há itens na tela evitando possíveis erros. 
+Help:
+, 
+. PRFC (CCF 24211)
+Vendas
+Validação se o produto é permitido para o Cliente na Inclusão do Pedido de Venda
+Nessa versão foi realizado um ajuste na validação da Entidade Faturada, no pedido de venda. Essa validação será feita após definir a Entidade Faturada, ou seja, na inclusão do item. CPC (CCF 23953)
+ 

@@ -1,0 +1,81 @@
+TITULO: Transferência de produto com notas de remessa
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5184290817
+--------------------------------------------------
+Algumas distribuidoras possuem estoque em bases diferentes dentro do  mesmo estado, com a necessidade de transferir esse produto, porém a operação é de transferência para o mesmo CNPJ impedindo a emissão de uma nota convencional de transferência.
+Como é permitido o transportar produto com a nota de remessa, faremos a movimentação do estoque com ela.
+Importante que todo o processo seja feito com ordem de carregamento para que possamos ter os dados de frete, caso tenha e vinculo posterior com a NFE
+Cenário
+Saída do produto do 
+TERMINAL BASE A
+Ordem de Carregamento Saída
+Primeiro passo é incluir a ordem de carregamento do 
+tipo Carregamento próprio.
+Neste passo iremos informar a entidade e depósito, portanto é de extrema importância a atenção quanto as informações inseridas na ordem.
+No campo entidade, você deve informar a entidade do tipo cliente 
+TERMINAL BASE B, 
+pois a nota fiscal será destinada a essa empresa.
+Já o campo depósito você informa o depósito de onde 
+será retirado o produto
+, ou seja do 
+TERMINAL BASE A.
+ENTIDADE = 
+TERMINAL BASE B
+DEPÓSITO = 
+TERMINAL BASE A
+Preencha os demais dados da ordem de carregamento, como motorista e produto.
+Não criar ordem de descarga no destino ao finalizar, pois na entrada os dados serão diferentes.
+Emissão da Nota de Saída
+Através do faturamento de outras saída, ao ser solicitado se deseja efetuar a Saída através de ordem de carregamento, 
+clique na opção SIM.
+Informe a entidade, 
+TERMINAL BASE B, 
+localize a a ordem de carregamento criada no passo anterior.
+No campo natureza de operação, informe uma natureza de 
+remessa para armazenagem
+ que esteja configurada para realizar 
+movimentação de estoque
+.
+Caso necessário, solicite ao departamento fiscal a criação.
+Avance entre as etapas até a finalização e emissão e processamento da NFe.
+Caso seja uma base própria, faça as portarias de entrada e saída.
+Ao emitir a Nota Fiscal de Remessa, via outras saídas, o produto foi retirado do estoque do 
+TERMINAL BASE A
+ 
+Entrada do produto do 
+TERMINAL BASE B
+Ordem de Descarga  Entrada
+Primeiro passo é incluir a ordem de carregamento do 
+tipo Descarga própria.
+Neste passo iremos informar a entidade e depósito, portanto é de extrema importância a atenção quanto as informações inseridas na ordem.
+No campo entidade, você deve informar a entidade do tipo cliente 
+TERMINAL BASE A. 
+pois utilizaremos a nota fiscal de retorno de armazenagem emitida pelo 
+TERMINAL BASE A, 
+com a saída do produto.
+Já o campo depósito você informa o depósito de onde 
+será retirado o produto
+, ou seja do 
+TERMINAL BASE B.
+ENTIDADE = 
+TERMINAL BASE A
+DEPÓSITO = 
+TERMINAL BASE B
+Preencha os demais dados da ordem de carregamento, como motorista e produto.
+Importação NFe XML, Nota de Entrada
+Quando o caminhão chagar no destino 
+TERMINAL BASE B, utilize a NFe de retorno de armazenagem do 
+TERMINAL BASE A, 
+para dar entrada no estoque.
+Importante, utilize uma natureza de operação de entrada, 
+Retorno de Armazenagem que movimente estoque
+, apenas para essa operação.
+Essa natureza dever ser configurada para movimentar estoque e permitir vinculo com ordem de carregamento.
+Caso necessário, solicite ao departamento fiscal a criação.
+Ao dar entrada no XML, faça a conferência dos dados da NFe, certifique-se de confirmar o 
+DEPÓSITO = 
+TERMINAL BASE B,
+ na tela de monitoramento de NFe, em seguida faça o vinculo com a ordem de carregamento.
+Ao processar a entrada a movimentação ocorrerá no 
+DEPÓSITO, 
+TERMINAL BASE B.
+Apesar de parecer complexo toda a operação, a única coisa que tem de diferente de uma operação convencional de transferência é a inversão das entidades e depósitos nas OCs.

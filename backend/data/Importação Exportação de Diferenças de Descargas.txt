@@ -1,0 +1,55 @@
+TITULO: Importação/ Exportação de Diferenças de Descargas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924285207
+--------------------------------------------------
+A partir da versão 8.27 é possível Importar e Exportar as Diferenças de Descargas. Esse processo possibilitará Distribuidoras que não são Base Própria de calcularem as diferenças entre o volume programado e volume descarregado.
+Para cadastrar o layout de exportação, veja o help: 
+Manutenção de Exportação de Dados
+O nome do arquivo de exportação é "DiferencaDescarga_Exportacao.rtm"
+O tipo de arquivo é "Text File"
+O layout de exportação é muito simples, possui apenas 6 campos. São eles
+Empresa Congenere: 
+Número sequencial da empresa que esta importando o arquivo
+OC Congenere: 
+Número sequencial da Ordem de Carregamento, na empresa que esta importando o arquivo
+Produto: 
+Código do produto cadastra no SisPetro
+Diferenca: 
+Diferença encontrada entre o volume programado e descarregado
+Empresa Base: 
+Empresa em que o produto foi descarregado. Tal campo não é obrigatório para importação, porém se for preenchido pode ser útil para consulta de dados, no futuro.
+OC Base: 
+Número da Ordem de Carregamento que deu entrada na base. Tal campo não é obrigatório para importação, porém se for preenchido pode ser útil para consulta de dados, no futuro.
+Seq Dif Descarga Base: 
+Código sequencial da diferença de descarga, na base que foi descarregado o produto. Tal campo não é obrigatório para importação, porém se for preenchido pode ser útil para consulta de dados, no futuro.
+O arquivo de importação ou não deve conter as informações referentes a 
+"Empresa Base" e "OC Base" ou deve conter as duas. Caso se tenha apenas um dos campos a importação não será concluída.
+Para não enviar as informações basta deixar em branco, sem espaços entre os "ponto e vírgula", veja abaixo:
+"Empresa Congenere";"OC Congenere";Produto;Diferenca;"Empresa Base";"OC Base";"Seq Dif Descarga Base"
+64;123;02;3997;;;
+Exportação de Dados
+Como foi dito anteriormente é necessário, para a exportação de dados, cadastrar o layout de exportação.
+Veja o passo a passo de como exportar:
+Na 
+Inclusão de Ordem de Carregamento
+ pode ser informado os campos de "Empresa Origem" e "OC Origem" que facilitará a visualização dos dados na empresa que importará este arquivo, porém não são obrigatórios.
+Deve ser feito o Controle de Diferença em Descargas. Veja mais informações em 
+Controle de Diferenças em Descargas
+Clicar sobre qual Diferença entre descarga será exportada e posteriormente, clicar no botão "Exporta".
+A seguinte tela será aberta:
+Deverá ser informado o local e nome do arquivo a ser gerado, em "Nome do Arquivo" e também informar qual o layout de exportação.
+Depois disso o arquivo, referente a Diferença selecionada será gerado.
+Importação de Dados
+Para as distribuidoras que precisam importar os dados de descargas, para apurar as diferenças o processo é bem simples, veja o passo a passo:
+Clicar no botão "importa" 
+A seguinte tela será aberta:
+Deverá ser informado:
+Nome do Arquivo:
+ Nome e caminho de onde o arquivo, referente as Diferenças de Descargas exportado anteriormente, está.
+Depósito:
+ Depósito da Ordem de Carregamento, feita anteriormente, referente a Descarga.
+Data Inicial e Data Final:
+ Data de início e fim das Diferenças de descargas.
+Depois disso, o arquivo será importado. As diferenças entre descargas podem ser visualizadas na apa "Apurações" de 
+Controle de Diferenças em Descargas
+, a aba "dados da transportadora" não trará nenhuma informações e a aba "Resumo da OC" trará as informações do arquivo como, quantidade de diferença, produto e etc...
+ 

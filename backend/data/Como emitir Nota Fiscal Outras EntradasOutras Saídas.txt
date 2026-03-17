@@ -1,0 +1,44 @@
+TITULO: Como emitir Nota Fiscal Outras Entradas/Outras Saídas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440352
+--------------------------------------------------
+Nota Fiscal de Outras entradas
+ - é utilizada quando se faz necessário emitir uma Nota Fiscal de entrada que não seja 
+, 
+, estas serão introduzidas através da NF do fornecedor através do item Recebe Mercadoria - Movimentação/Estoque/Entradas/Recebe e nem Recebimento de um 
+ (Compra), pois quando é incluído um Pedido de Movimentação de Material vinculando o número do pedido a Ordem de Carregamento o seu recebimento deverá ser através do menu Movimentação / Movimentação de Material / Recebimento de Material.
+Nota Fiscal de Outras saídas
+ - é utilizada quando se faz necessário emitir uma Nota Fiscal de saída que não seja de venda de produto (através de pedido de venda). Através dessa tela são feitas notas, por exemplo de Remessa de Armazenagem e Transferências de Produtos entre Filiais. As Notas de Transferências estão relacionadas as Ordens de Carregamento entre Filiais que foram incluídas vinculadas ao Pedido de Movimentação de Material.
+Acione, a partir do Menu principal, as opções:
+Movimentação / Faturamento / Outras Entradas
+Movimentação/ Faturamento / Outras Saídas 
+A partir da versão 8.18 é possível editar o campo 
+Descrição do Histórico 
+. 
+Veja mais informações em 
+A partir da versão 8.11, ao tentar adicionar uma entidade pelo campo 
+Código Entidade 
+o SisPetro questionará se deseja incluir um 
+fornecedor
+ ou 
+cliente
+. Veja abaixo:
+Após entrar na tela de pesquisa de entidade.
+Ao clicar em 
+Incluir
+ o SisPetro questionará se deseja incluir um cliente ou fornecedor, basta escolher um dos dois.
+ 
+Preencha os dados solicitados ou selecione da lista que pode ser exibida, em cada campo, pelo Sistema. A Natureza de Operação deve ser adequada à esta Nota Fiscal.
+Para a emissão de Nota Fiscal de Saída de Transferência entre Filiais deve-se vincular a Nota a uma Ordem de Carregamento:
+Deve-se responder 
+Sim
+ para que ao invés de solicitar o Número do Pedido (vide tela acima) solicite para que seja informado o Número da OC, conforme tela abaixo:
+Para localizar a OC, pode filtrar por 
+Entidade
+ ou 
+Depósito Origem 
+PARA O SPED
+Ao informar a natureza de operação, o sistema irá verificar se a mesma possui configuração para Processo Referenciado e para Situação do Documento, para gerar o arquivo SPED. Para isso, é importante o preenchimento correto desses campos. Para maiores informações, vide tópico de 
+ e/ ou a aba 
+ da Tabela Natureza de Operação.
+Acione o botão Avança para prosseguir com o preenchimento dos dados. Caso existam dúvidas quanto ao preenchimento vide maiores detalhes no tópico 
+.

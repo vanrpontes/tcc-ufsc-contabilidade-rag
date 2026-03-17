@@ -1,0 +1,134 @@
+TITULO: Banco Industrial
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4051894273
+--------------------------------------------------
+Painel Cobrança Eletrônica
+No campo 
+banco
+ deve ser informado 604 - Banco Industrial.
+Informa Sacador Avalista: 
+o Banco Industrial permite utilizar 
+Sacador Avalista.
+ Caso seja marcada a opção o 
+CNPJ e Razão Social
+ serão levados para o Arquivo de Remessa.
+Carteira:
+ deve ser informado o número da Carteira cadastrada no Banco Industrial. Caso não seja preenchida o Sistema preencherá com 
+09
+, pois é um campo que não pode ser nulo.
+Agência:
+ deve ser informado o número da agência, com 4 posições
+Número da conta:
+ deve ser informado o número da conta cadastrada no Industrial
+Dígito da conta
+: deve ser informado o dígito da conta, cadastrada no Industrial
+Informação de Juros no Arquivo Remessa:
+ utilizado para informação do campo juros (posição 127) no arquivo de remessa. 
+Desconto Cond. Arquivo Remessa:
+ em alguns casos há a necessidade de dar um abatimento ao cliente ao invés de desconto condicional. É importante que no ato do pedido de venda sabe-se o valor total do abatimento a ser concedido. Conseqüentemente a Nota Fiscal de Venda e o título do Contas a Receber seriam gerados com o valor total e no arquivo de remessa será enviado o valor deste abatimento e a baixa deste arquivo de remessa (via Arquivo de Retorno) irá considerar devidamente o abatimento enviado.
+As opções existentes para este perfil são:
+Informar como Desconto:
+ será informado no arquivo de remessa como desconto condicional.
+Informar como Abatimento:
+ banco não possui abatimento.
+Alguns campos do seguimento P, possibilita transformação no arquivo remessa, fixando os valores a serem enviados.
+Segmento P
+Campo
+Ini
+Fim
+Tam
+Conteúdo
+Serviço de Classificação
+38
+38
+1
+Fixo 5
+Modalidade c/ Correspondentes
+39
+41
+3
+Fixo 000
+Modalidade c/ Banco Cedente
+44
+46
+3
+Carteira (padrão 121)
+Carteira
+58
+58
+1
+Fixo 1
+Cadastramento
+59
+59
+1
+Fixo 1
+Documento
+60
+60
+1
+Fixo 1
+Emissão Bloqueto
+61
+61
+1
+Fixo 2
+Distrib. Bloqueto
+62
+62
+1
+Fixo 2
+Espécie do Título
+107
+108
+2
+Fixo 02
+Aceite
+109
+109
+1
+Fixo N
+Número do Contrato
+230
+239
+10
+Fixo 0000000000
+Para mais informações, ver 
+Aba Transformações Arquivo Cobrança
+.
+Linha Digitável
+604 - Industrial 
+Conteúdo
+Tamanho
+Início
+Fim
+Agência
+4
+1
+4
+Carteira
+3
+5
+7
+Convenio (operação)
+7
+8
+14
+Nosso Número
+10
+15
+246
+DV Nosso Número
+1
+25
+24
+Exemplo:
+Agência: 0001
+Carteira: 121
+Nosso Número: 0004309542
+DV Nosso Numero: 4
+Campo Livre:
+ 0001 121 0004309542 4 
+Linha Digitável:
+ |6 0 4| 9 |0 0 0 1 1 | 7 | 2 1 0 0 0 0 0 0 2 0 | 4 | 0 0 4 3 0 9 4 2 4 8 | 1 | 9 | 0 4 9 0 | 0 0 5 2 5 1 0 5 0 0 |
+Para informações sobre a montagem da linha digitável para este banco, veja o tópico 
+Montagem da Linha Digitável

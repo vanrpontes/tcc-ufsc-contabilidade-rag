@@ -1,0 +1,101 @@
+TITULO: Como Enviar o Saldo do Estoque Diariamente para ANP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4227989565
+--------------------------------------------------
+O usuário deverá primeiro acessar a manutenção via menu 
+Movimentação / Estoque / Manutenção de Envio de Estoque Diário ANP.
+Ao clicar no botão 
+Incluir
+, o SisPetro irá apresentar a tela abaixo. 
+O usuário deverá selecionar a Empresa (exibiremos o ARI dessa empresa) e a Data que o estoque será enviado. 
+A data será do dia anterior ao dia que está sendo enviado, exceto finais de semana e feriado. Para mais informações, ver 
+Envio de Estoque Diário ANP
+ 
+O SisPetro irá trazer dados de Estoque de todas as filiais que contenham 
+o mesmo ARI
+ da empresa selecionada
+ 
+Ao clicar no botão 
+Traz Dados 
+serão listados todos os produtos com código DPMP informado, 
+não bloqueados para DPMP
+ e de 
+d
+epósitos marcados para enviar estoque
+.
+Na tela acima, na coluna 
+Operação, 
+veja que foram listados dados de estoque 
+Em Tanque 
+e também de estoque 
+Em Trânsito. 
+Esses estoques vem do fechamento do estoque do dia anterior e das ordens de carregamento. Para mais informações, ver 
+Envio de Estoque Diário ANP
+ 
+Nessa fase, o usuário poderá incluir, alterar ou excluir os dados apresentados. Clicando no botão 
+Incluir 
+ou 
+Alterar 
+o SisPetro mostrará a tela abaixo: 
+Qualquer dado que for incluído ou alterado, automaticamente ele será destacado em 
+negrito
+ e a coluna 
+manual 
+ ficará marcada. Além disso, na alteração do volume de um dado carregado automaticamente,  o SisPetro irá guardar na coluna 
+Volume Calculado
+ o volume carregado automaticamente. 
+O campo 
+Volume
+ deve ser informado a 20 graus.
+Na inclusão do Item o SisPetro faz algumas validações que constam no manual de preenchimento de envio do estoque à ANP. 
+Após verificar todos os dados apresentados, o usuário deve mudar o 
+Status dos dados 
+para 
+Preenchido
+ e após isso clicar no botão 
+Salva. 
+O SisPetro mostrará o registro incluído na Aba Dados Gerais, com o fundo cinza, conforme imagem abaixo: 
+A partir daqui o registro estará pronto para ser enviado pelo serviço do Hermes ANP - Estoque. Para mais informações, ver 
+Serviço de ANP - Estoque
+No caso de ter mais que um produto no SisPetro com o mesmo Código DPMP, na hora do envio os dados serão agrupados, pois a ANP recusa dados repetidos.
+Informações Importantes 
+Os dados da data que se pretende enviar o estoque só serão carregados se o 
+Fechamento de estoque Diário 
+estiver feito.
+Se, por algum motivo, o lote do estoque for rejeitado pela ANP é possível cancelar esse registro, incluir um novo com as devidas correções (os registros manuais devem ser incluídos manualmente) e enviar novamente para ANP. É possível 
+É possível também 
+mudar o status
+ do lote enviado para 
+Em preenchimento
+, alterar a informação que foi enviada errada e enviar o mesmo lote novamente. 
+A ANP também prevê o envio do estoque 
+via planilha.
+ Na Manutenção de Envio de Estoque, basta: 
+preencher as informações relativas ao estoque daquele dia
+salvar
+clicar no botão 
+planilha 
+para gerar a planilha com as devidas informações
+criar uma aba com o código regulado e data de referência similar a imagem abaixo.
+ 
+Renomear a planilha iniciando com o código 091 + código regulado + data de referência, similar (091_07777777_202211101549_42) e carrega-la no site que a ANP disponibiliza para tal. 
+A quantidade do produto sempre será a quantidade escritural a 20 graus.
+Enquanto os dados não forem enviados para ANP, na Manutenção de Envio de Estoque é possível alterar os dados e carrega-los novamente com as informações que o SisPetro traz do fechamento de estoque. Para isso basta posicionar o cursor em cima do registro que será alterado, clicar no botão 
+Alterar
+ e em seguida no botão 
+traz dados. 
+O SisPetro mostrará a mensagem 
+Buscar os dados de empresas com o mesmo ARI...
+ conforme imagem abaixo: 
+Caso o usuário clique em : 
+SIM e Mantém Manuais:
+ o SisPetro manterá os dados incluídos manualmente e carregará apenas os que foram incluídos automaticamente
+SIM e Apaga tudo:
+ os dados manuais serão 
+apagados 
+e o SisPetro carregará os que foram incluídos automaticamente. 
+Caso o usuário modificar a senha de acesso o serviço do Hermes deve ser desativado e a senha deve ser trocada no SisPetro. Para mais informações, ver 
+Envio de Estoque Diário ANP
+Para mais informações, ver 
+Manutenção de Envio de Estoque Diário ANP
+ e 
+Envio de Estoque Diário

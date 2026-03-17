@@ -1,0 +1,46 @@
+TITULO: DPMP - Natureza Operação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210581
+--------------------------------------------------
+Através do menu 
+Tabelas Auxiliares / Faturamento / Natureza de Operação / painel Dados Gerais
+ se faz a configuração dos dados necessários do DPMP na Natureza de Operação:
+A primeira informação é se deve ou não 
+Participar do DPMP/DCP:
+A seguir, preencha as demais informações:
+Operação para agente regulado:
+ É o código da operação utilizado para agentes regulados e que está cadastrada na ANP para notas que forem utilizar a natureza de operação que está sendo configurada. É possível fazer a pesquisa pelo SisPetro já que importamos a tabela de Operação da ANP. Atente-se para não informar operações que sejam totalizadoras (final 998) ou que representem estoque (iniciam com 3), bem como operações relativas a produto composto que são Remessa/Retorno para Unidade Interna do Informante. Estas operações são incluídas automaticamente pelo sistema no momento da 
+geração dos dados
+ do DPMP.
+Operação para agente não regulado:
+ É o código da operação utilizado para agentes não regulados e que está cadastrada na ANP para notas que forem utilizar a natureza de operação que está sendo configurada. É possível fazer a pesquisa pelo SisPetro já que importamos a tabela de Operação da ANP. Atente-se para não informar operações que sejam totalizadoras (final 998) ou que representem estoque (iniciam com 3), bem como operações relativas a produto composto que são Remessa/Retorno para Unidade Interna do Informante. Estas operações são incluídas automaticamente pelo sistema no momento da 
+geração dos dados
+ do DPMP.
+*Caso não exista diferenciação de operações para agentes regulados e não regulados, DEVE-SE repetir o código da operação nos dois campos.
+De acordo a operação DCP que estava cadastrada, atualizamos automaticamente algumas operações DPMP. No entanto é importante um trabalho de conferência. Não soubemos a operação correspondente no DPMP para algumas operações DCP:
+1406 - Transferência entre Bases
+ 2305 - Transação com Congênere
+Assim, é importante que se localize na tabela de operações a operação correspondente e se faça a atualização da Natureza que estiver utilizando estas operações DCP.
+Se o código da operação não estiver preenchido as notas nem sequer serão apresentadas no DPMP.
+Modalidade:
+ Indica a modalidade de Transporte para a nota. Fizemos a atualização automática desta informação partindo da informação que estava no campo 
+Via de Transporte (DCP/Sintegra
+) da Natureza de Operação.
+Série da Nota:
+ Indica qual a série da NF (de uso exclusivo para o DPMP). A configuração da série para o Sintegra continua sendo na 
+Manutenção Séries NF
+. Já sugerimos para todas as naturezas de Operação para que sejam Única e subséries. Altere a natureza de operação que não atender esta informação.
+Cód.Produto/Operação Resultante:
+ Em naturezas que sejam do tipo Devolução, neste campo deverá ser informado a operação que originou a devolução. Não há como fazer pesquisa para este campo já que ele não é obrigatório em todas as naturezas, porém para saber o código da operação consultando o código de operação utilizado na natureza que originou a devolução. (Por exemplo, na natureza de Venda).
+Identifica como 3º a Entidade de NF Remessa referenciadora:
+ Leva para o DPMP os dados da nota de remessa que foi referenciada á nota de compra. Veja maiores detalhes em 
+DPMP - Operações Triangulares
+.
+Para casos de notas que determinados itens participam do DPMP e outros não, veja o tópico 
+Itens de Nota com Natureza de Operação diferentes
+.
+O usuário deve configurar os demais painéis da natureza de operação (links mencionados abaixo), que estão relacionados diretamente a correta emissão da nota fiscal e são geranciados pela natureza:
+Tabela Natureza Operação
+Impressão NF (Painel Por Filial)
+Teste de Formulas
+Contabilização (Painel Geral)
+Importação NF (Painel Geral)

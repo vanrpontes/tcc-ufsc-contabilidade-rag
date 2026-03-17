@@ -1,0 +1,167 @@
+TITULO: Zylix - Integração com Polysoftware
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4886659073
+--------------------------------------------------
+none
+Objetivo
+O SisPetro já possui 
+Integração com Sistema de Automação
+ que otimizam o processo de carregamento e descarga.
+Surgiu a necessidade de automatizar os processos de: 
+Entrada do caminhão na base
+Obtenção de peso do caminhão vazio e cheio
+Portaria de entrada
+A Polysoftware em conjunto com a Zylix irão automatizar esses processos, que serão feitos da seguinte forma: 
+Motorista Pega Fila. O 
+SisPetro
+ envia o registro da OC para 
+Polisoftware
+ através de uma API.
+O caminhão chega na Entrada da Base. A 
+Polisoftware
+ irá reconhecer esse caminhão e enviar ao 
+SisPetro
+ um aviso da entrada dele também via API. 
+O 
+SisPetro
+ processa a Portaria de Entrada Automática. 
+O Caminhão vai para Balança e Polisoftware salva o peso de Entrada.
+O Caminhão vai para baia e faz o Carregamento/Descarga.
+O Caminhão vai para Balança e Polisoftware salva o peso de Saída.
+O Caminhão vai para Portaria de Saída.
+O Usuário do 
+SisPetro
+ obtém os dados do Carregamento/Descarga da automação e obtém os pesos de Entrada e Saída já enviados pela 
+Polisoftware 
+através da API.
+O usuário no 
+SisPetro 
+finaliza a Portaria de Saída e envia para a 
+Polisoftware
+ a Finalização da OC através da API. 
+O Caminhão sai da base
+Nesse processo o SisPetro vai fazer a impressão do leiaute de portaria assim que a API for ativada.
+Impressoras que geram arquivo .pdf não devem ser configuradas
+Para que o processo seja feito dessa forma, serão necessárias as seguintes configurações:
+Configurações
+Configurações de Sistema
+Ferramentas / Sistema / aba Ordem Carregto / quadro Automação
+Tipo de Automação: 
+marcar Troca de Arquivos
+Configurações de Usuário
+Ferramentas / Usuários / aba Perfil 
+aba Carregamento
+Quadro Sistema de Automação
+Faz Portaria Entrada Saída: 
+marcar
+Quadro Portaria
+Pode Incluir carregamento manual: 
+marcar
+aba Produto
+Pode alterar dados Automação Base: 
+marcar
+Configurações de Depósito
+Depósitos / aba Dados Adicionais 
+Quadro Balança
+: 
+Obtenção de peso do caminhão através de balança nas portarias:
+Tem Integração Total: 
+marcar
+Forma de Pesagem nas Portarias
+Obtenção do Peso nas Portarias
+Volume a ser utilizado configurado para Balança:
+Usa sempre Volume da Balança: 
+marcar
+Configuração de Balança
+Segue Perfil da Empresa: 
+caso a automação seja única para as bases, marcar essa opção
+Utiliza configuração do Depósito: 
+quando a empresa trabalha com mais de uma automação, deverá utilizar esta opção para tratar cada base com sua automação. No perfil de Sistema preencher a dll BalancaPolysoftware.dll da 
+Automação Balança Polysoftware
+Botão Gerenciamento de Balanças: 
+caso utilize essa opção, preencher a dll BalancaPolysoftware.dll da 
+Automação Balança Polysoftware
+Quadro Sistema de Automação de Portaria: 
+preencher as URL e usuário e senha fornecidos pela Polisoftware
+URL Registro de OC
+URL Cancelamento de OC
+URL Leitura de Peso
+URL Finalização de OC
+URL Obtenção Token
+Usuário
+Senha
+Quadro Tipo Automação: 
+Respeita Perfil da Empresa: 
+caso a automação seja única para as bases, marcar essa opção
+Troca de Arquivo: 
+quando a empresa trabalha com mais de uma automação, deverá utilizar esta opção para tratar cada base com sua automação. 
+Quadro Integração via arquivo: 
+O usuário deve informar os caminhos das pastas que serão utilizadas na troca de arquivos entre o SisPetro e os Sistemas de Automação em: 
+Banco Dados do Sistema de Automação
+Pasta Gravação do Sistema de Automação
+Pasta Leitura do Sistema de Automação
+DLL do Sistema de Automação: 
+informar a dll ZylixPolisoftware.dll para 12 compartimentos ou 
+ZylixPolisoftware16Comp.dll para empresas que trabalham com 
+16 compartimentos. 
+A informação sobre os compartimentos deve estar muito alinhada entre a Zylix e a Empresa.
+Automação de Carregamentos
+Possui Automação: 
+selecionar essa opção
+Automação de Descargas: 
+selecionar uma das duas opções
+Possui Automação de Descargas (Volume Descarregado) 
+Sem Automação - Obtém Ticket de Carregamento para completar o Volume
+Gravação Arquivo Portaria Entrada  
+Ao Pegar Fila: 
+marcar
+Leitura do Arquivo do Sistema de Automação na Portaria de Saída para Carregamentos: 
+escolher qual ação o SisPetro irá fazer ao ler o arquivo.
+Não verifica Status do Carregamento no arquivo 
+Avisa caso o Status do Carregamento no arquivo não esteja 2 - Abastecido
+Bloqueia caso o Status do Carregamento no arquivo não esteja 2 - Abastecido
+Para mais informações, ver 
+Depósitos - Aba Dados Adicionais
+Prefixo Arquivo Portaria: 
+informar qual será utilizado
+Verifica produtos configurados para automação / balança?: 
+marcar caso queira configurar para um ou mais produtos não participe do processo de automação. Para mais informações, ver 
+Depósitos - aba Dados por Produto
+Quadro Carregamento
+Densidade Amostra a ser utilizada
+: selecionar qual a densidade da amostra deve ser considerada para leitura do arquivo do Sistema de Automação.
+Utiliza a densidade da Amostra da última leitura do tanque 
+Utiliza a densidade recebida no arquivo da portaria de saída 
+Temperatura de Amostra a ser utilizada
+: selecionar qual a temperatura da amostra deve ser considerada para leitura do arquivo do Sistema de Automação.
+Utiliza a temperatura da Amostra da última leitura do tanque 
+Utiliza a temperatura recebida no arquivo da portaria de saída 
+Volume 20c - Forma de Cálculo: 
+selecionar como o SisPetro irá obter o volume a 20 graus .
+SisPetro calcula a partir de temperaturas e densidade 
+Utiliza da Automação se existir, caso contrário SisPetro calcula 
+Sempre utiliza da Automação e caso não exista utiliza Volume Ambiente 
+Quadro Descarga
+Densidade de Amostra a ser utilizada:
+ selecionar qual a densidade da amostra deve ser considerada para leitura do arquivo do Sistema de Automação.
+Utiliza a Densidade da Amostra da última leitura de tanque 
+Utiliza a Densidade recebida no arquivo da Portaria de Saída 
+Temperatura de Amostra a ser utilizada: 
+selecionar qual a temperatura da amostra deve ser considerada para leitura do arquivo do Sistema de Automação.
+Utiliza a Temperatura da Amostra da última leitura de tanque 
+Utiliza a Temperatura recebida no arquivo da Portaria de Saída 
+Volume 20c - Forma de Cálculo: 
+selecionar como o SisPetro irá obter o volume a 20 graus .
+SisPetro calcula a partir de temperaturas e densidade
+Utiliza da Automação se existir, caso contrário SisPetro calcula 
+Sempre utiliza da Automação e caso não exista utiliza Volume Ambiente 
+Configurações no Produto
+Arquivo / Produto / Aba Detalhes / Composição / Quadro Automação Base / 
+Código da Automação: 
+informar qual o código de automação que será utilizado no arquivo
+Configuração do SisPetro APP
+Quadro API via WEB: 
+para a API ser utilizada, devem ser geradas no SisPetro 
+Access Key
+Secret Key
+As informações da API constam no 
+Documentação - API para processamento da portaria de Entrada

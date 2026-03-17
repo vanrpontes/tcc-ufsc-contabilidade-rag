@@ -1,0 +1,60 @@
+TITULO: Temperaturas e densidade na Impressão da Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440499
+--------------------------------------------------
+Na impressão da Nota Fiscal é necessário imprimir a temperatura do tanque, temperatura da amostra e a densidade do produto. Também pode ser impresso o número do laudo, que pode ser o número do documento do boletim de conformidade. Além disso, para a 
+geração do DPMP
+, as características de Massa Específica e Teor Alcoólico também utilizam estas informações.
+Através das configurações da empresa, o usuário pode indicar ao sistema como obter essas informações.
+Veja o help 
+ , tópico 
+Temperatura e densidade que será salvo na NF. 
+No 
+cadastro de Produtos
+, no painel composição, poderá ser informado qual o produto que será utilizado para pegar a temperatura do tanque:
+Tendo algum produto marcado, é do tanque ativo deste produto que serão obtidas as informações;
+Caso esteja marcado mais que um produto, é do tanque ativo do produto com maior composição que será obtida as informações (por exemplo, se na gasolina C estiver marcado uma quantidade maior para a composição da Gasolina A do que para o Álcool Anidro é do tanque da Gasolina A que serão levantados os dados).
+Não tendo nenhum produto marcado, nenhuma informação será impressa na Nota Fiscal.
+Caso não se tenha um tanque ativo para o produto e tendo informações de temperatura, temperatura da amostra e densidade, na gasolina C, será da gasolina C as informações que serão gravadas na Nota Fiscal. Exemplo, se na composição da Gasolina C estiver marcado que as informações de temperatura e densidade serão obtidas da Gasolina A e não tiver nenhum tanque ativo para a gasolina A, o sistema verifica se a Gasolina C possui esses dados, havendo, essas informações serão aproveitadas na impressão da Nota Fiscal.
+Após isso, o usuário precisará configurar o campo: 
+"No cadastro de produtos, cadastrar:"
+. Indicar como deverá ser cadastrada a temperatura e densidade, se será por 
+por empresa ou por depósito
+.
+Para atualizar a quantidade a 20 graus e o fator de conversão nas Notas Fiscais automaticamente, o usuário definir no perfil de sistema como o SisPetro trabalhará em relação a quantiade 20c e fator de conversão. Podendo ser de 3 maneiras: 
+Nunca Atualiza
+Sempre Atualiza
+Respeita configuração do Depósito
+Veja mais informações em 
+, tópico
+ 
+Atualiza Fator de Conversão e Quantidade a 20c nas NFs (Entradas e Saídas)
+ e 
+Atualiza Fator de Conversão e Quantidade a 20c nas NFs 
+Também é possível acessar o painel para 
+mudança de densidade e temperatura
+, tanto no Sispetro Normal quanto no Sispetro Remoto, por meio do menu 
+Movimentação / Faturamento / Muda Temperatura e Densidade
+.
+Mais detalhes no tópico 
+Temperatura-Densidade
+, 
+no cadastro do produto.
+Agora é necessário configurar o perfil "Verifica dados de densidade e temperatura no cadastro de produtos". Veja mais informações em 
+, tópico "Verifica dados de densidade e temperatura no cadastro de produtos"
+Estando o grupo 
+"Temperatura e densidade"
+ configurados corretamente, o usuário deve definir alguns procedimento na 
+Natureza de Operação
+, através dos campos:
+"Informação sobre densidade e temperatura" 
+e 
+"Verificação dos dados de densidade e temp. na NF"
+.
+Informação sobre densidade e temperatura. Veja mais informações em 
+. Procure pelo perfil
+ "
+Informação sobre densidade e temperatura"
+Verificação dos dados de densidade e temp. na NF. Veja mais informações em 
+. Procure pelo perfil
+ "
+Verificação dos dados de densidade e temp. na NF"

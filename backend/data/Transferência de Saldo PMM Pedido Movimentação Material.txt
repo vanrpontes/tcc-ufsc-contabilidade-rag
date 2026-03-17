@@ -1,0 +1,158 @@
+TITULO: Transferência de Saldo PMM (Pedido Movimentação Material)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926201969
+--------------------------------------------------
+none
+Objetivo
+A transferência de saldo Pedido de Movimentação de Material, possibilita a transferência de uma determinada quantidade do PMM, além de permitir ajustar o preço transferindo para um novo PMM em função do saldo.
+Temos quatro formas de transferência:
+Para um PMM novo
+Para um já existente 
+Desalocar a quantidade
+Nacionalização
+Para ter permissão de realizar transferência de Pedidos de Movimentação de Material, o usuário deve estar com o perfil de usuário 
+Pode Fazer Transferência de PMM 
+marcado. Para mais informações, ver 
+Painel Compras (Usuários)
+.
+Ao selecionar um Pedido na tela de Manutenção de Pedidos de Movimentação de Material, caso o pedido tenha saldo disponível e o usuário tenha permissão, o botão 
+Transf. 
+ficará habilitado, permitindo acionar a tela de transferência. 
+Após acionar o botão 
+Transf.
+ será exibida a tela de inclusão de Transferência de PMM.
+Quadro Dados do Pedido: 
+Filial:
+ mostra a filial de origem do pedido.
+#PMM:
+ nesse campo é apresentado o número do PMM de origem.
+Tipo:
+ tipo do PMM de origem, definido na inclusão do PMM.
+Data:
+ data de Inclusão do PMM de origem.
+Fornecedor:
+ fornecedor do PMM de origem
+Quadro Novo PMM
+Destino:
+  destino da quantidade a ser transferida, podendo criar um novo PMM, Transferir para um PMM existente ou Nenhum (Desalocar).
+Empresa:
+ empresa onde será incluído o novo PMM ou que será gerada a transferência para um pmm existente. Essa opção só fica visível quando o Destino for Novo PMM ou PMM Existente.
+Fornecedor: 
+fornecedor para criar um novo PMM, esse campo só ficará ativo quando o destino selecionado for Novo PMM.
+Depósito:
+ ao escolher a opção Novo PMM como Destino, além de informar a empresa e o fornecedor, permite informar o Depósito de Origem.
+PMM:
+ campo destinado a informar o número do PMM para realizar a transferência, esse campo só ficará ativo quando o destino selecionado for PMM Existente.
+Quadro Itens da Transferência: 
+na tela de itens da transferências serão apresentado todos os itens do PMM.
+Botão Editar:
+ exibe a tela para edição do item selecionado para transferência.
+Legenda: 
+exibe 
+detalhes referente ao padrão de cores utilizada na situação do item.
+Abaixo detalharemos os passos de como realizar cada uma das transferências.
+Inclusão de Transferência
+O primeiro passo para realizar qualquer uma das 3 transferências é selecionar o produto e acionar o botão 
+Editar. 
+Dessa forma, será exibida a tela abaixo, aonde iremos informar a quantidade da transferência a ser realizada.
+Na tela de edição do item, temos os seguintes campos: 
+Quantidade de Origem: 
+refere-se a quantidade original 
+passível 
+de transferência.
+Quantidade Transferência: 
+quantidade a ser transferida.
+Preço Origem: 
+preço original do PMM.
+Preço: 
+preço do novo PMM, novo preço deve ser maior que zero. Para ter permissão de alterar preço na transferência de Pedidos de Movimentação de Material, o usuário deve estar com o perfil de usuário 
+Pode indicar preço para novo 
+Frete Unit. Original: 
+frete unitário original do PMM
+Frete Unit.: 
+frete do novo PMM. 
+Só será possível realizar a transferência da quantidade informada, caso o pedido tenha a mesma disponível para utilização e a mesma unidade de medida, seja para um pedido novo ou para um item já existente.
+Alteração de preço é permitido apenas na transferência para um novo PMM.
+Transferindo para um Pedido Novo
+Após informar a quantidade para transferência, o próximo passo é selecionar a opção de Destino igual a 
+Novo PMM
+:
+Selecione a 
+Empresa
+, o 
+Fornecedor
+, o 
+Depósito
+ e o 
+Tipo de PMM
+ que deseja realizar a Transferência:
+Confirme a operação através do botão 
+OK
+ e será gerado um novo Pedido.
+Dados como Tipo Recebimento, Datas Entrega/Fluxo, Condição de pagamento, etc... serão similares aos do pedido original.
+Caso o Fornecedor de Destino seja diferente do Fornecedor de Origem, o Endereço de Entrega será o Endereço do Fornecedor de Destino.
+Despesas vinculadas ao PMM de Origem 
+não
+ 
+serão copiadas
+ para o Pedido de Destino em caso de utilização da opção 
+PMM Existente
+Apenas ocorrerá
+ 
+cópia
+ de despesa quando criado um novo pedido através da opção 
+Novo PMM
+Na transferência tem a validação do depósito relacionado a empresa de destino. Caso no cadastro de depósito, aba 
+Empresas p/ movto
+, a empresa de destino não estiver cadastrada o depósito não aparecerá. 
+Transferindo para um Pedido Existente
+Após informar a quantidade para transferência, deve-se selecionar a opção de Destino igual a 
+PMM Existente.
+Selecione o Destino e defina a 
+Empresa
+ e o 
+Pedido
+ que deseja realizar a transferência.
+Para confirmar a Transferência basta acionar o botão 
+OK
+.
+Após realizar inclusão, a quantidade transferida será somada ao Pedido de Destino. O valor do pedido é mantido para o do pedido de destino.
+Regras para transferir para pedidos existentes:
+Os itens dos pedidos de Destino e Origem devem ser os mesmos.
+O Tipo de recebimento dos pedidos devem ser iguais.
+O pedido de destino 
+não
+ pode estar Finalizado ou Cancelado.
+Desalocando
+Após informar a quantidade para transferência, selecione a opção de Destino igual a 
+Nenhum (Desalocar). 
+A quantidade a ser desalocada pode ser parcial ou a quantidade total do pedido.
+ 
+Desalocar PMM de Importação
+Existe a possibilidade de desalocar PMMs do tipo nacionalização (importação) através do botão transf, basta selecionar a quantidade, seja ela total ou parcial
+Importante o PMM de nacionalização apenas deixa desalocar
+ Visualização de Transferências
+Podemos visualizar as quantidades transferidas e recebidas através das colunas de 
+Qtde Transferida Enviada 
+e
+ Qtde Transferida Recebida, 
+que 
+encontram 
+na tela principal da Manutenção de Pedidos de Movimentação de Material.
+O campo de 
+Qtde Pedido
+ sempre somará a quantidade do pedido atual com a 
+Quantidade Transferida Recebida. 
+Para visualizar as movimentações de transferências, basta selecionar o Pedido / Aba Movto. Material / Sub Aba 
+Transferências Recebidas 
+ou 
+Transferências Enviadas.
+Cancelamento de Transferência
+Para realizar o cancelamento de uma transferência basta selecionar o registro na aba de 
+Movto. Material
+ / Sub Aba Transferências Recebidas / Enviadas e acionar o botão
+ Cancelamento. 
+O botão de cancelamento só ficará habilitado para usuários que tiverem o perfil de usuário 
+Pode cancelar Transferência de PMM 
+habilitado. Para mais informações, ver 
+Painel Compras (Usuários)
+.

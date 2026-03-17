@@ -1,0 +1,103 @@
+TITULO: Editar Fórmulas para o SPED
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879128161
+--------------------------------------------------
+Nesta tela será possível configurar, editar ou corrigir fórmulas para os campos solicitados no SPED.
+Para isso, o usuário deve acessar o Menu 
+Ferramentas / Tabelas dos Conjuntos de Dados
+.
+ Na tela de Manutenção de Conjunto de Dados, o usuário deverá definir o campo 
+Conjunto de Dados
+ e em seguida clicar no botão 
+Atualiza
+.
+Importante: Não é necessário efetuar o preenchimento dos dados, pois essas alterações de fórmula afetarão a formatação do campo da tabela, e não o conteúdo.
+Após atualizar a tela com as informações do Conjunto de Dados, o usuário deverá selecionar a tabela desejada e em seguida clicar no botão 
+Fórmula
+.
+Na tela de 
+Comando para Tabela do Conjunto de Dados
+ é possível visualizar:
+Descrição da tabela:
+ nome real da tabela no banco de dados;
+Comando:
+ linha em SQL com o comando para aquela tabela, especificando se há relacionamento com outras tabelas;
+Filtro: 
+filtros específicos para a tabela, utilizando os campos da tabela e das tabelas que estão relacionadas.
+Atenção: É importante ressaltar que não existe meios no Sispetro de alterar esses comandos. Eles são padronizados conforme determinação do Ato Cotepe, e as alterações geradas via SCRIPT.
+Botão Fórmula:
+ permite que ao usuário configure fórmulas para determinados campos da tabela selecionada, através da tela de 
+Fórmulas para Campos da Tabela do Conjunto de Dados
+.
+Localizar o campo nas colunas Descrição e Nome do Campo e definir a fórmula na coluna Fórmula.
+Para definir uma fórmula, selecione o campo, e na coluna Fórmula clique no botão 
+(...)
+, e será exibida a tela de montagem de fórmulas.
+A tela 
+Pesquisa Fórmula X-tabela Campo 
+(onde
+ X 
+é o número do Conjunto do Dados,
+ tabela 
+é o nome da tabela que sofrerá alterações em fórmulas e
+ Campo 
+é o nome do campo que está sendo alterado) disponibilizará os campos de tabelas envolvidas com a tabela selecionada, isso com base no comando descrito na tela anterior, Comandos para Tabelas do Conjunto de Dados.
+Escolha o campo desejado, sendo possível fazer cálculo entre eles, desde que seja respeitada a compatibilidade entre campos. É possível inclusive digitar textos ou valores fixos.
+Os códigos dos campos aparecerão entre os símbolos < e >, conforme imagem acima.
+ 
+Importante: atente-se ao definir os campos para as fórmulas, em utilizar os campos corretos levando em consideração a compatibilidade entre eles.
+ 
+Por exemplo: Você não conseguirá efetuar uma soma entre o campo Código da Empresa (CodEmpresa) e o Número da Nota Fiscal (NumeroNF) da tabela Nota Fiscal.
+Após definir a fórmula, clique no botão 
+OK
+.
+Voltando para a tela de Fórmulas para Campos da Tabela do Conjunto de Dados, o usuário poderá definir ou alterar as fórmulas para os demais campos, seguindo as mesmas regras citadas acima.
+Após finalizar a definição de fórmulas, o usuário deve clicar no botão 
+Salva
+.
+O usuário poderá cancelar o processo a qualquer momento, para isso ele deve clicar no botão 
+Cancela
+Para sair da tela, o usuário deverá clicar no botão 
+Sai
+Botão Parâmetro:
+ permite que ao usuário visualize os relacionamentos existentes entre as tabelas relacionadas conforme comando da tela Comandos para Tabelas do Conjunto de Dados.
+Nesta tela temos as seguintes informações:
+Conjunto de Dados:
+ conjunto de dados definido pelo usuário na tela de Manutenção de Conjunto de Dados;
+Tabela:
+ tabela selecionada pelo usuário na tela de Manutenção de Conjunto de Dados;
+Descrição do Comando:
+ descrição da Tabela;
+Tabela Parâmetro:
+ tabela utilizada como parâmetro para o relacionamento com outra tabela;
+Campo Parâmetro:
+ campo da tabela parâmetro que será o vínculo com a outra tabela;
+Operador:
+ tipo de operação que será utilizada no relacionamento entre as tabelas, podendo ser: 
+Igual
+, 
+Maior ou igual a
+, 
+Menos ou igual a
+;
+Tabela:
+ tabela que será vinculada a tabela parâmetro;
+Campo Tabela:
+campo que será utilizado como vínculo entre as tabelas.
+Importante: Estas informações não poderão sofrer alterações, servem apenas como base de conhecimento do que foi vinculado.
+Botão Teste:
+permite ao usuário testar as fórmulas cadastradas e verificar o resultado.
+Ao clicar no botão 
+Teste
+, o usuário deverá digitar as informações de filtros para geração dos dados de teste, através da tela de Edição/Inclusão, podendo inclusive visualizar o SQL que o sistema está gerando, com base nas fórmulas.
+Clicar no botão 
+Salvar
+ para gerar o resultado.
+Verifique o resultado através da tela Teste de Fórmulas dos Campos da Tabela do Conjunto de Dados:
+O usuário poderá aumentar ou diminuir a quantidade de registros em tela para o teste, isso através do campo 
+Nº de registros para teste
+.
+ 
+Importante: Caso ocorra erro na execução do teste, contate o Suporte Futura para auxiliar.
+Importante: Existem tabelas que possuem um número muito grande de registros e não apresentam os resultados em tela. Porém, existe a possibilidade de visualizar via SQL.
+ 
+Clicar em Sair, ao finalizar a realização dos testes da fórmula 

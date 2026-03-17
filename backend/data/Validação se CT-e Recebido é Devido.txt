@@ -1,0 +1,12 @@
+TITULO: Validação se CT-e Recebido é Devido
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2956066830
+--------------------------------------------------
+A parti da versão 10.16, fica disponível no Sispetro a funcionalidade de validação de CT-e recebido, se o mesmo é devido. No processo de importação de CT-e, o Sispetro só permitira a importação caso a empresa em questão seja a tomadora do serviço. A validação ocorrera através da nota fiscal referenciada no CT-e, onde, pelo tipo de frete e a situação de frete informado na nota referenciada definira se a mesma é passível de frete ou não, caso a nota fiscal referenciada seja uma nota não passível de frete, o receber um conhecimento de transporte com esta nota fiscal referenciada, o Sispetro barrara a importação do conhecimento de frete.
+Configuração de Sistema
+Na Configuração de Sistema, aba 
+Fretes
+Perfil de empresa 
+Validação de CT-e indevido para a empresa (NF referenciada não passível de frete)
+Não valida: 
+Funcionalidade desabilitado.
+Valida e impede a inclusão: Habilita o processo de validação de CT-e recebido, se o mesmo é devido com base nas notas fiscais referenciadas.

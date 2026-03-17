@@ -1,0 +1,213 @@
+TITULO: 8. Controle de Acesso ao Controladoria
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2893840402
+--------------------------------------------------
+A partir da versão 7.7 foram implementados alguns controles de acesso ao SisPetro Controladoria, em razão de que nem todos os usuários podem ou devem acessar a contabilidade real da empresa.
+Com essa implementação, aliada aos perfis de usuários já existentes, o acesso ao Controladoria ficou bem mais restrito.
+A tabela abaixo mostra os perfis de usuários e as permissões:
+Tela
+Perfil
+Aba no Perfil de Usuários
+Onde é verificado
+Campo se Marcado
+Plano de Contas
+Pode incluir contas
+Contabilidade
+No menu Arquivos / Plano Contas
+Permite incluir
+Plano de Contas
+Pode excluir contas
+Contabilidade
+No menu Arquivos / Plano Contas
+Permite excluir
+Digitação Rápida
+Pode incluir lote
+Contabilidade
+No menu Movimentação / Digitação / Rápida
+Permite incluir
+Digitação Por Lote
+Pode incluir lote
+Contabilidade
+No menu Movimentação / Digitação / Por Lote
+Permite incluir
+Ajuste de Saldo
+Pode incluir lote
+Contabilidade
+No menu Movimentação / Ajuste de Saldo
+Permite incluir
+Manutenção de Lançamentos
+Pode incluir lote
+Contabilidade
+No menu Movimentação / Manutenção Lançamentos
+Permite incluir, habilitando o botão Inclui
+Manutenção de Lançamentos
+Pode cancelar lotes
+Contabilidade
+No menu Movimentação / Manutenção Lançamentos
+Permite cancelar, habilitando o botão Cancela
+Manutenção de Lançamentos
+Pode excluir lotes
+Contabilidade
+No menu Movimentação / Manutenção Lançamentos
+Permite excluir, habilitando o botão Exclui
+Manutenção de Encerramentos
+Pode Encerrar Período Contábil
+Contabilidade
+No menu Movimentação /Manutenção Encerramentos
+Permite encerrar, habilitando o botão Inclui
+Manutenção de Encerramentos
+Pode Cancelar Encerramentos
+Contabilidade
+No menu Movimentação / Manutenção Encerramentos
+Permite encerrar, habilitando o botão Cancela
+Encerramento de Período
+Pode Encerrar Período Contábil
+Contabilidade
+No menu Movimentação / Encerramento Período
+Permite incluir encerramento
+Travamento de Período
+Pode Travar Movimentação
+Contabilidade
+No menu Movimentação / Travamento Período
+Permite incluir travamento de período
+Manutenção de Fechamento de CMV
+Pode fechar CMV
+Contabilidade
+No menu Movimentação / Fechamento CMV
+Permite incluir fechamento de CMV, habilitando o botão Inclui
+Manutenção de Fechamento de CMV
+Pode cancelar fechamento de CMV
+Contabilidade
+No menu Movimentação / Fechamento CMV
+Permite cancelar, habilitando o botão Cancela
+Plano de Contas
+Pode incluir contas de Entidades
+Contabilidade
+No menu Arquivos / Plano Contas
+Permite incluir contas de Entidades no plano de contas: clientes e fornecedores
+Nas telas de lançamentos do Contas a Pagar e do Contas a Receber
+Pode não contabilizar Contas a Pagar/Receber
+Contabilidade
+Nos lançamentos de contas a pagar e receber do Sispetro Normal que tenham vínculos com a contabilidade real
+Força a contabilização de qualquer lançamento que o usuário fizer no contas a pagar e receber
+Nas telas de lançamentos
+Pode não contabilizar qualquer grupo contábil
+Contabilidade
+Nos lançamentos de qualquer grupo contábil do Sispetro Normal que tenham vínculos com a contabilidade real
+Força a contabilização de qualquer lançamento que o usuário fizer em qualquer grupo contábil
+Manutenção de Lançamentos
+Pode visualizar lotes alterados
+Contabilidade
+No menu Movimentação / Manutenção Lotes
+Mostra a opção Alterados no campo Tipos de Lote
+Nas telas que tem pesquisa de conta real
+Pesquisa conta real pelo código extendido
+Contabilidade
+Nas telas que utilizam pesquisa de conta real
+Permite ao usuário pesquisar a conta real pelo código extendido
+Nas telas de pesquisa de contas reais
+Pode filtrar contas na tela de pesquisa de contas reais
+Contabilidade
+Nas telas que utilizam filtro de pesquisa de conta real
+Permite ao usuário filtrar contas
+Plano de contas
+Pode informar a natureza das contas reais de receita e despesa
+Contabilidade
+Menu Arquivos / Plano Contas
+Permite ao usuário informar a natureza das contas
+Manutenção de Lançamentos
+Pode alterar lote real
+Contabilidade
+Menu Arquivos / Manutenção Lançamentos
+Opções: Nenhum, Só Normal ou Todos - habilita ou não o botão Altera, conforme opção
+Nas telas de lançamentos
+Utiliza histórico nos itens do lote gerencial
+Contabilidade
+Nos lançamentos efetuados no sistema
+Permite utilizar histórico nos itens
+Nas telas de lançamentos
+Utiliza histórico nos itens do lote real
+Contabilidade
+Nos lançamentos efetuados no sistema
+Permite utilizar histórico nos itens
+Transferência de movimentação de conta
+Permite transferir movimentação de conta
+Contabilidade
+Menu Ferramentas / Contabilidade / Transferência da Movimentação de Conta
+Permite ao usuário transferir movimentação de uma conta para outra
+Troca de máscara do plano de contas
+Acessa tela de troca de máscara das contas reais
+Contabilidade
+Menu Ferramentas / Contabilidade / Troca de máscara do plano de contas
+Permite ao usuário trocar a máscara das contas reais e gerenciais
+Manutenção de Lotes (gerencial)
+Alteração de data na contabilização gerencial
+Contabilidade
+Nos lotes gerenciais
+Opções: Nenhum, Só Gerencial sem vínculo com a Real, Gerencial e Real caso haja vínculo e Só Gerencial mesmo com vínculo na Real
+Produto
+Pode incluir bens manuais
+Contabilidade
+No menu Arquivos / Produto / aba Bens
+Permite incluir, habilitando o botão Inclui
+Produto
+Pode incluir bens a partir de NF
+Contabilidade
+No menu Arquivos / Produto / aba Bens
+Permite incluir a partir de NF, habilitando o botão Inclui pela NF
+Produto
+Pode alterar bens
+Contabilidade
+No menu Arquivos / Produto / aba Bens
+Permite alterar, habilitando o botão Altera
+Produto
+Pode excluir bens
+Contabilidade
+No menu Arquivos / Produto / aba Bens
+Permite excluir, habilitando o botão Exclui
+Manutenção de Patrimônio
+Pode incluir movimentação de bens
+Contabilidade
+No Menu Movimentação / Manutenção de Patrimônio
+Permite depreciar, baixar e alterar um bem, habilitando os botões Depreciação, Baixa e Valor
+Manutenção de Patrimônio
+Pode efetivar movimentação de bens
+Contabilidade
+No Menu Movimentação / Manutenção de Patrimônio
+Permite efetivar a movimentação de um bem, habilitando o botão Efetivação
+Manutenção de Patrimônio
+Pode cancelar movimentação de bens
+Contabilidade
+No Menu Movimentação / Manutenção de Patrimônio
+Permite cancelar a movimentação de um bem, habilitando o botão Cancela
+Apuração de Livro Fiscal
+Pode incluir
+Fiscal
+No Menu Movimentação / Apuração Livro Fiscal
+Permite incluir, habilitando o botão Inclui
+Apuração de Livro Fiscal
+Pode encerrar
+Fiscal
+No Menu Movimentação / Apuração Livro Fiscal
+Permite encerrar, habilitando o botão Encerra
+Apuração de Livro Fiscal
+Pode cancelar
+Fiscal
+No Menu Movimentação / Apuração Livro Fiscal
+Permite cancelar, habilitando o botão Cancela
+Manutenção do Livro Fiscal
+Pode incluir
+Fiscal
+No Menu Movimentação / Manutenção Livros Fiscais
+Permite incluir, habilitando o botão Inclui
+Manutenção do Livro Fiscal
+Pode alterar
+Fiscal
+No Menu Movimentação / Manutenção Livros Fiscais
+Permite alterar
+Manutenção do Livro Fiscal
+Pode excluir/cancelar
+Fiscal
+No Menu Movimentação / Manutenção Livros Fiscais
+Permite excluir
+Perfil de Usuário / aba Contabilidade
+Perfil de Usuário / aba Fiscal

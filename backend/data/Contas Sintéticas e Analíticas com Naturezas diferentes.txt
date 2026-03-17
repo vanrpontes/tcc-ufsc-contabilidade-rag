@@ -1,0 +1,269 @@
+TITULO: Contas Sintéticas e Analíticas com Naturezas diferentes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879390409
+--------------------------------------------------
+
+
+Quando existirem Contas Reais em que a conta Sintética é de Natureza RECEITA e algumas das contas analíticas são de Natureza DESPESA isso resultará em totais errados no relatório de Balancete do Controladoria. Para resolver isso será necessário proceder da seguinte forma: 
+
+
+
+
+Exemplo:
+
+Conta Sintética 3.1.1.01.0000 (RECEITA) possue a conta analítica 3.1.1.01.0220 como DESPESA.
+
+O total na conta Sintética 3.0.0.00.0000 ficará errado.
+
+
+ 
+  
+
+
+Em um Plano de Contas é normal termos Grupos para Contas 
+RECEITAS(Credoras)
+ e grupos para Contas 
+DESPESA (Devedoras)
+. Dessa forma a conta 
+SINTÉTICA
+ será sempre equivalente as contas 
+ANALÍTICAS
+, tendo seu cálculo correto somando ou diminuindo créditos ou débitos conforme o caso.  
+
+
+Há contadores que optam por ter conta de 
+RECEITA
+ e 
+DESPESA
+ no mesmo 
+GRUPO
+, isso não é errado, porém você tem que optar por uma 
+Natureza
+ (CREDORA ou DEVEDORA) para este Grupo como um todo senão as contas SINTÉTICAS ficam confusas.
+
+
+
+
+Exemplo:
+  
+
+
+
+
+Temos uma conta 3.0.0.0001 (CREDORA)
+	
+
+
+Saldo Inicial: 1.000,00
+
+
+Foi feito um débito de 500
+
+
+Foi feito um débito de 30
+
+
+Como Saldo Final teríamos: (1.000,00 - 500,00 + 30,00) => 530,00  
+
+
+
+
+
+
+
+
+
+
+Temos outra conta 3.0.0.0002 (DEVEDORA)
+	
+
+
+Saldo Inicial: 1.000,00
+
+
+Foi feito um débito de 500
+
+
+Foi feito um débito de 30
+
+
+Como Saldo Final teríamos: (1.000,00 - 500,00 + 30,00) => 1470,00  
+
+
+
+
+
+
+
+
+
+
+Totalizando estas duas contas resultando na conta Sintética(3.0.0.0000) teríamos:  
+	
+
+
+OPÇÃO A:
+
+
+
+
+
+ Conta 
+
+
+ Saldo Inicial 
+
+
+ Débito 
+
+
+ Crédito 
+
+
+ Saldo Final 
+
+
+
+
+
+
+ 3.0.0.0000 
+
+
+ 2.000,00 
+
+
+ 1.000,00 
+
+
+ 60,00 
+
+
+ 2.000,00 
+
+
+
+
+
+
+ 3.0.0.0001 
+
+
+ 1.000,00 
+
+
+ 500,00 
+
+
+ 30,00 
+
+
+ 530,00 
+
+
+
+
+
+
+ 3.0.0.0002 
+
+
+ 1.000,00 
+
+
+ 500,00 
+
+
+ 30,00 
+
+
+ 1470,00 
+
+
+
+
+
+
+
+
+OPÇÃO B:
+
+
+
+
+
+ (Saldo Inicial + Débito - Crédito) 
+
+
+ Total 
+
+
+
+
+
+
+ (2.000,00 + 1.000,00 - 60,00) 
+
+
+ 2.940,00 
+
+
+
+
+
+
+
+
+OPÇÃO C:
+
+
+
+
+
+ (Saldo Inicial - Débito - Crédito) 
+
+
+ Total 
+
+
+
+
+
+
+ (2.000,00 - 1.000,00 - 60,00= 940,00) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Conseqüentemente como no Sispetro não pode optar por Conta Credora ou Devedora, mas sim por 
+RECEITA
+ ou 
+DESPESA
+, temos as seguintes opções para resolver este problema:
+
+a) Permanecer somente com 1 grupo (3.....) e retirar do Plano de Contas as contas tipo 
+DESPESA
+ ou retirar as contas do tipo 
+RECEITA
+ ficando assim só com uma Natureza.
+
+
+OBS: Na versão 6.19.16 foi adicionada uma tela que permite a transferência da movimentação de uma conta para outra conta sem perder as movimentações e históricos anteriores. Assim é possível criar novas contas com a Natureza correta(somente para as contas indevidas) e depois fazer as transferências para estas novas contas.  
+
+
+b) Dividir o grupo 3 em 2 partes: 3-RECEITAS e 4-DESPESAS. Para isso, troque o código extendido de todas as contas tipo DESPESA. Para fazer isso no Controladoria, acesse o menu em Ferramentas/Troca Código Extendido de conta.  
+
+
+c) Uma outra forma de 'solução rápida mas não definitiva' seria apresentar o balancete salvando o relatório em arquivo Excel e depois ajustar os valores das contas Sintéticas (pois as analíticas estão corretas)
+

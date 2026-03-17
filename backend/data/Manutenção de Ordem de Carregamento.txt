@@ -1,0 +1,133 @@
+TITULO: Manutenção de Ordem de Carregamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898382
+--------------------------------------------------
+none
+Objetivo
+Através desta tela o usuário poderá dar manutenção e consultar as Ordens de Carregamento geradas pelo sistema, tanto as ativas como as canceladas.
+A tela de 
+Manutenção de Ordens de Carregamento
+ poderá ser acessada pelo menu 
+Movimentação / Estoque / Manutenção de Ordens de Carregamento.
+Filtros
+Os filtros de pesquisa e exibição de dados de Ordem de Carregamento estão disponíveis através dos campos:
+Tipos de Ordem de Carregamento:
+ onde o usuário poderá filtrar os tipos de OC que deseja consultar, considerando:
+Vendas
+Transferência entre Depósitos
+Carregamento e Descarga Própria
+Carregamento e Descarga de Terceiros
+Caso queira, também poderá visualizar todas as OC's já emitidas.
+Quadro Período para exibição de dados: 
+será possível, ao usuário, selecionar um intervalo de data desejado e visualizar as OC geradas dentro do período citado. Esse intervalo poderá ser sugerido automaticamente conforme perfil de empresa. Para mais informações, ver 
+Painel Ordem Carregto
+. 
+Exibe OC´s canceladas: 
+quando marcado irá exibir as OC que estão canceladas. Esse campo vem por padrão desmarcado
+Informações importantes
+O Campo Data Inicial (nº de dias anteriores a data atual) equivale ao campo De, do grupo Período para exibição de dados da tela de Manutenção de Ordem de Carregamento, ou seja, o que for cadastrado nas configurações da empresa, no campo Data Inicial, será sugerido ao usuário quando ele entrar na Manutenção de Ordem de Carregamento, a mesma regra será usada para o campo Data Final (nº de dias posteriores a data atual) e o campo Até
+Exibição das Ordens de Carregamento: além disso, é possível definir se os usuários poderão visualizar as ordens de carregamento de todas as empresas cadastradas no SisPetro ou não. Para isso é necessário trabalhar com o perfil de Sistema 
+Mostra OC de todas as empresas na Manutenção de OC.
+ Para mais informações, ver 
+Painel Ordem Carregto
+. No SisPetro App só será possível visualizar as OC da 
+empresa conectada.
+As Ordens de Carregamento serão mostradas na tela de acordo com o perfil de Grupo de Usuários utilizado. Para mais informações, ver  
+Visualização de Movimentação por Grupo de Usuários
+ 
+Além disso, nesta tela existem outros recursos que podem ser utilizados pelo usuários, todos disponibilizados nos botões localizados na parte superior da tela de Manutenção de Ordem de Carregamento
+Botões
+Inclui
+: permite ao usuário incluir uma nova Ordem de Carregamento. Para mais informações, ver 
+Inclusão de Ordem de Carregamento
+Cancela
+: possibilita ao usuário cancelar a ordem de carregamento, desde que não tenha vínculos com outros processos, e baseado nesses vínculos a OC não será cancelada para preservar a segurança das informações. Ou seja, a Ordem de Carregamento que o usuário deseja cancelar estiver atrelada a uma nota fiscal, o sistema irá solicitar que a nota fiscal seja cancelada antes. Estando cancelada, a OC será apresentada na 
+cor Vermelha
+. Além disso, se a OC já estiver na fila da Portaria de Entrada, será necessário cancelar a fila da Portaria para poder efetuar o cancelamento da OC. É possível cancelar Ordem de Carregamento vinculada a um pedido de vale pedágio 
+Ativo
+, para isso a empresa deve estar com o perfil do 
+Painel Fretes
+ - 
+Pode cancelar OC mesmo com Vale Pedágio
+ ativo habilitado e o usuário deve ter permissão para cancelar, para isso deve habilitar o perfil de usuário 
+Pode cancelar OC mesmo com Vale Pedágio ativo
+.
+Pega Fila
+: permite ao usuário enviar as OC para a fila da portaria de Entrada. As OC de Transferência entre Depósitos pegarão fila automaticamente. Para mais informações, ver 
+Fila Automática na Portaria de Entrada
+.
+Cancela Fila
+: permite ao usuário cancelar a fila da portaria das OC que estão na fila da portaria de Entrada. Para mais informações, ver 
+Cancelamento de Fila
+.
+O processo de Pegar Fila na Portaria de Entrada, o carregamento na portaria de Entrada e o processo na portaria de Saída serão feitos de forma automática caso o Depósito esteja configurado para Não utilizar a tela de Portaria de Entrada/Saída. Para mais informações, ver 
+Depósitos - Aba Dados Adicionais
+ 
+Confirma
+: 
+ caso o usuário tenha permissão, ele pode realizar a 
+confirmação
+ de ordem de carregamento. 
+ 
+:
+ caso o usuário tenha permissão, ele pode realizar o 
+cancelamento da confirmação
+ de ordem de carregamento. 
+Para mais informações, ver 
+Confirmação de Ordem de Carregamento
+Altera
+: permite que o usuário altere as seguintes informações, caso seja uma OC de Transferência entre Depósitos, Carregamento ou Descarga Própria.
+Depósito de Destino
+. Para mais informações, ver 
+Mudança de Depósito de Destino na OC
+.
+Nova Previsão de Chegada:
+ o usuário pode informar (caso não preenchida) ou alterar a data caso queira que a OC participe do depósito 
+em Transito
+ no Envio de Estoque Diário da ANP. É possível também deixar o campo em branco, desta forma a OC 
+não será enviada no Estoque Diário. 
+Para mais informações, ver 
+Envio de Estoque Diário ANP
+Itens: 
+é possível alterar a quantidade e valor de frete
+Altera Qtde
+: permite ao usuário alterar a quantidade da ordem de carregamento de Venda. Nos outros tipos de OC, este botão não ficará habilitado. É necessário ter o perfil de usuário 
+Painel Carregamento (Usuários)
+.
+Altera Frete
+: através desse botão, pode-se alterar o frete informado nas Ordens de Carregamentos ou Descargas próprias. Para mais informações, ver 
+Alteração do Frete da Ordem de Carregamento
+Muda Transp.
+: através desse botão, pode-se alterar a transportadora na Ordem de Carregamento. Na tela de Mudança de Transportadora, informe a nova transportadora e o novo frota. Para mais informações, ver 
+Mudar Transportadora e Frota da OC e da NF
+.
+Info.Adic.
+: caso o usuário tenha permissão, ele pode alterar as Informações Adicionais da Ordem de Carregamento. O usuário deverá ter permissão. Para mais informações, ver 
+Painel Carregamento (Usuários)
+.
+Compartimentação
+: para alteração de produtos na compartimentação da OC. Para mais informações, ver 
+Alterando Compartimentos, Lacres e Envelopes na OC
+.
+Exportação:
+ caso o usuário tenha permissão, ele pode marcar ou desmarcar uma Ordem de Carregamento para ser exportada pelo Serviço de Exportação. Para mais informações, ver 
+Exportação de OC
+  
+Legenda
+: informa ao usuário, o significado das cores das Ordens de Carregamento apresentadas na tela.
+Atualiza
+: quando se abre uma tela, o SisPetro automaticamente atualiza as informações antes de exibi-las. Se essa tela fica aberta sem ser utilizada, as ordens que o setor de faturamento estiver emitindo, por exemplo, não serão apresentadas, a menos que se clique no botão atualiza.
+Imprime
+: para imprimir OC que já foram incluídas no Sistema, ver 
+Impressão de OC
+. É possível enviar OC de Transferência entre Depósitos por E-mail aos fornecedores. Para mais informações, ver 
+Envio de Ordem de Carregamento por e-mail
+Comprovante Carga/Descarga
+: através desse botão, pode imprimir o comprovante de carga/descarga da Ordem de Carregamento que já completou o processo de Entrada e Saída da base somente. Isso tanto para a Leitura Manual como Leitura do Smart Card. Para mais informações, ver 
+Impressão Comprovante Carga - Descarga
+.
+Boletim
+: permite que as congêneres imprimam o boletim de conformidade disponibilizado pela armazenadora. O SisPetro imprime o boletim com base na data da inclusão da OC caso ela não tenha sido carregada parcialmente. Se ela já tiver sido carregada, é com base no último carregamento. Para mais informações, ver 
+Como imprimir um Boletim de Conformidade / Certificado de Produção
+.
+Sair
+: fecha a tela de manutenção de Ordens de Carregamento, voltando a tela principal do SisPetro.

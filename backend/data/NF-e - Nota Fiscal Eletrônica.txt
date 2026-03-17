@@ -1,0 +1,72 @@
+TITULO: NF-e - Nota Fiscal Eletrônica
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899254
+--------------------------------------------------
+O SisPetro permite o processo de emissão de NF-e conforme estabelecido pela Secretaria da Receita Federal (SRF). Caso NF-e seja um assunto desconhecido, verifique os esclarecimentos gerais no tópico 
+O que é NF-e
+?.
+Para configurar a utilização da NF-e no SisPetro temos os seguintes passos:
+Configurar Informações da Empresa
+Configurar Endereços de cada UF
+Configurar Naturezas de Operação
+Configurar Certificado Digital
+Envio de e-mail automático
+Temos para a NF-e quatro operações fundamentais, as quais denominamos de comandos:
+Solicitação de Recibo:
+ É o envio das informações da nota para Secretaria da Fazenda Estadual ou SRF. Esse processo pode ser feito para uma nota ou para um lote de notas. Ao enviar não receberemos imediatamente a resposta de Autorização ou Denegação, mas sim um Número de Recibo (único para o lote de notas) que deverá ser consultado após uns minutos.
+Solicitação de Protocolo:
+ É o próximo passo após solicitação do recibo. Com o número de recibo, o consultamos, para então obter o protocolo de cada uma das notas enviadas no lote deste recibo. Cada nota será avaliada individualmente, recebendo sua Autorização ou Denegação. Assim, um lote pode conter uma nota Autorizada e outra Denegada.
+Solicitação de Cancelamento:
+ Só será feito quando se deseja cancelar uma nota. Para isso, é necessário que ela tenha sido Autorizada no Comando de Solicitação de Protocolo. Será enviada a chave de acesso da nota e o motivo do cancelamento. Sendo recebido imediatamente a Autorização ou Denegação do cancelamento.
+Solicitação de Inutilização de Numeração:
+ O procedimento de inutilização de numeração ocorre quando necessitamos informar à Secretaria de Fazenda Estadual que uma determinada numeração de notas fiscais não será mais utilizada por qualquer motivo. No Sispetro, este procedimento pode ser feita de duas maneiras:
+1 - será feito quando se deseja cancelar uma nota, desde que não tenha o número de recibo para ela;
+2 - através da tela de Manutenção de Inutilização, informado um intervalo de números.
+O processo é síncrono, ou seja, após o envio da solicitação será recebida imediatamente a Autorização ou Denegação da inutilização.
+Para cada comando temos a possibilidade dos seguintes status:
+Não Solicitado:
+ significa que ainda não foi enviado à SRF ou à Secretaria da Fazenda Estadual
+Autorizado:
+ indica que, depois de efetuado o processo, foi recebida a autorização.
+Erro:
+ indica que, depois de efetuado o processo, foi retornado erro.
+Para utilização do Documento para uso do SPED EFD quando a Nota Fiscal for 
+Denegada 
+ou 
+Extemporânea.
+Denegada: 
+Quando a Sefaz retorna a NF-e com situação 
+Denegada 
+o Sispetro automaticamente indicará essa situação na visualização mesma. No momento que for feito o cancelamento no Sispetro da NF-e com essa Situação, o Sispetro irá corrigir toda a parte de Estoque e Financeiro, porém sem alterar a situação da NF-e, para que assim não ocorra problemas na geração do SPED EFD.
+Extemporânea: 
+Ocorre quando a NF-e com Data de Emissão em mês diferente da Data de Movimentação, o Sispetro identifica essa informação deixando a NF-e com a situação do Documento "
+Extemporânea", 
+no caso de cancelamento dessa NF-e o processo será igual as NF-e com situação 
+Regular
+, será enviado a solicitação a Sefaz, e no Sispetro a situação do Documento constará como "
+Documento Cancelado Extemporâneo
+".  
+Ao incluir uma Nota configurada como NF-e ela terá, automaticamente, um comando de 
+"Solicitação de Recibo"
+ com status 
+"Não Solicitado"
+ vinculado à ela. Esta solicitação poderá ser feita das seguintes formas:
+Na seqüência da 
+Inclusão da Nota
+.
+Quando acionado via 
+tela de NF-e
+.
+Pelo 
+procedimento automático
+ no Servidor SisPetro (a ser desenvolvido).
+Para recuperar o XML enviado na 
+Solicitação de Recibo
+ é preciso clicar no botão 
+XML Enviado
+, e para recuperar o XML de retorno com a 
+Autorização ou não do XML
+ é preciso clicar no botão 
+XML Retorno
+. Para mais informaçoes, ver 
+Recuperar XML de Envio e de Retorno
+.

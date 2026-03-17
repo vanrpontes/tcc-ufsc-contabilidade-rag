@@ -1,0 +1,56 @@
+TITULO: Como emitir Nota Fiscal para Consumidor Final - NFC-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4129292289
+--------------------------------------------------
+Objetivo
+A 
+NFC-e (modelo 65) que é a Nota Fiscal para Consumidor Final Eletrônica, apesar de ser bem parecida com a NF-e, possui algumas particularidades específicas. É
+ para Consumidor Final, não contribuinte de ICMS, em operações internas.
+Para realizar a emissão da NFC-e é necessário:
+Configurações
+Para cliente estrangeiro, alguns perfis de cadastro são preenchidos ou tem sua opção selecionada diferente de clientes convencionais.
+Em Arquivos > Clientes > Aba Detalhes > 
+A opção 
+Consumidor Final 
+deve estar marcada.
+Para mais informações, ver 
+Em Tabelas Auxiliares > Natureza de Operação
+ Aba Lateral Geral > Aba Rodapé Dados Gerais
+A opção 
+ModeloNF 
+deve ser preenchida com 65.
+A opção 
+Operação Interestadual 
+deve estar desmarcada
+Aba Lateral Por Filial > 
+Aba Rodapé Dados Gerais 
+Na opção 
+Habilitar  NF-Eletrônica 
+marcar a opção 
+É NFC-e
+No quadro NFC-e, selecionar o Indicador de Presença. Há as opções: 
+0 Não se Aplica
+1 Presença do Consumidor 
+2 Operação pela Internet 
+3 Operação pelo Tele Atendimento 
+4 Entrega a Domicílio 
+5 Operação Presencial Fora Estabelecimento
+9 Outros 
+Para mais informações, ver 
+Dados Gerais (Painel Por Filial) 
+Deve ser criada uma Natureza de Operação específica para emissão de NFC-e. Caso for utilizar Faturamento Automática para esse tipo de operação, deve-se associar essa natureza ao produto que será comercializado.
+Em Tabelas Auxiliares > Faturamento > UF > Aba Detalhes > Aba Rodapé Endereços URL p/ NFC-e
+Preencher os Endereços URL para emissão de NFC-e.
+Para mais informações, ver 
+ e 
+Configuração da UF
+Em Ferramentas > Sistema > Aba NF-e/CT-e 
+Quadro NFC-e
+Preencher os Campos: 
+ID Token
+Código Token(CSC)
+Quadro NFC-e Layout
+Preencher o Caminho do arquivo de layout da NFC-e
+Para mais informações, ver 
+Feitas as configurações acima, a NFC-e pode ser emitida, por exemplo, através de um Pedido de Venda ou nota de Outras Saídas. 
+Para mais informações, ver 
+Como emitir Nota Fiscal Outras Entradas/Outras Saídas

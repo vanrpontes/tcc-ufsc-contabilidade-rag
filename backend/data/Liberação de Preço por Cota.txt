@@ -1,0 +1,93 @@
+TITULO: Liberação de Preço por Cota
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440066
+--------------------------------------------------
+Geralmente o gestor da empresa após alguns levantamentos (custo por exemplo) faz a precificação do produto e estabelece um preço mínimo para vendas. Esse valor mínimo é cadastrado na tabela de preço (geralmente) com o intuito de limitar a venda a um preço menor do que o estabelecido.  Além disso, o gestor pode estabelecer também, por vendedor e de acordo com a análise de desempenho ou volume de vendas (ou outras análises), um desconto seja ele percentual ou valor, de tal forma que esse vendedor possa aumentar seu volume de vendas ou até fechar um grande negócio sem a intervenção do gestor. Para isso foi criada a Liberação por Cota.   
+Para ativar o Controle de Liberação por Cota é necessário:
+Cadastrar uma tabela de preço do tipo 
+vinculada por percentual ou vinculada por valor
+ e Uso 
+Aprovação
+.
+Cadastrar nesta 
+tabela de preço
+ o percentual ou valor desejado para a cota.
+No perfil do usuário / aba Vendas / quadro Controla Lib. Cota 
+marcar
+ a opção Controla liberação por Cota?.
+ 
+Para mais informações, ver 
+Painel Vendas (Usuários)
+No perfil do usuário / aba Vendas / quadro Controla Lib. Cota selecionar a tabela cadastrada anteriormente na opção 
+Tabela Preços Auxiliar para Aprovação
+. 
+Para mais informações, ver 
+Tabela Manutenção de Tabela de Preços
+O perfil de empresa / Aba Vendas / quadro Bloqueios opção Bloqueia pedido caso preço fora intervalo tabela deve estar 
+desmarcada.
+ 
+Para mais informações, ver 
+Aprovação Automática
+A análise 
+automática
+ de liberação por Cota está ligada ao perfil de empresa / Aba Vendas quadro Aprovação de Pedido 
+Preço Fora do Intervalo x Aprovação Manual. 
+Para mais informações, ver 
+ 
+Caso a opção seja:
+Quando estiver Fora do intervalo Mínimo e Máximo:
+Na aprovação automática (na inclusão do pedido ou no Menu Consulta / Pedidos Pendentes botão Análise Aprovação) o SisPetro compara se preço unitário do pedido está 
+menor que o mínimo ou maior que o máximo
+ cadastrado na tabela de preço. Se o pedido estiver fora o SisPetro mostrará a mensagem abaixo e o pedido ficará pendente de aprovação para um usuário que tenha permissão. 
+Quando estiver abaixo do preço sugerido:
+ 
+Na aprovação automática (na inclusão do pedido ou no Menu Consulta / Pedidos Pendentes botão Análise Aprovação) o SisPetro compara o preço unitário do pedido com o 
+preço sugerido
+. Se estiver fora o pedido fica pendente de aprovação de um usuário que tenha permissão.
+O perfil de usuário / Aba Vendas / Quadro Aprovação de Vendas / opção Libera Pedido de Venda? deve estar 
+desmarcado 
+para que essa análise seja feita. 
+Para mais informações, ver 
+Painel Vendas (Usuários)
+Aprovação Manual
+O SisPetro, 
+na aprovação manual
+, fará a comparação entre o preço unitário do item somado com o percentual/valor cadastrado na tabela de aprovação do pedido com:
+Preço mínimo da tabela, caso o perfil de sistema da aba vendas 
+Preço fora do Intervalo X Aprovação Manual
+ estiver como 
+Quando estiver fora do intervalo do Mínimo e Máximo. 
+Para mais informações, ver 
+Preço de sugestão da tabela, caso o perfil de sistema da aba vendas 
+Preço fora do Intervalo X Aprovação Manual
+ estiver como 
+Quando estiver abaixo do preço de sugestão.
+ 
+Para mais informações, ver 
+Caso o preço unitário for 
+menor
+ que essa soma, o pedido continuará pendente e o SisPetro mostrará a mensagem 
+O preço do pedido está abaixo da cota permitida.,
+ similar a imagem abaixo: 
+Exemplo de como é feita a comparação: 
+Preço 
+unitário
+ do Pedido de Vendas informado pelo usuário: R$ 0,40 (A)
+Preço 
+mínimo / sugestão
+ da tabela do cliente aplicada no pedido: R$ 1,00 (B)
+Valor
+ cadastrado na tabela de aprovação: R$ 
+-
+0,50 (vinculada ao usuário que está aprovando o pedido) (C)
+Soma (B+C) do 
+unitário
+ com o 
+valor
+ da tabela: R$ 1,00 - R$ 0,50 = R$ 0,50
+Como a soma (B+C) é superior que o preço unitário (B), o pedido continua pendente de aprovação.
+Abaixo um breve fluxo da aprovação
+O Pedido é aprovado caso A for maior ou igual (B+C) respeitando o 
+Fluxo de Aprovação de Vendas
+.
+Para mais informações ver 
+Aprovação do Pedido de Venda

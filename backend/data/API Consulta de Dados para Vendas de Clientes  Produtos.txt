@@ -1,0 +1,269 @@
+TITULO: API Consulta de Dados para Vendas de Clientes / Produtos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4893048844
+--------------------------------------------------
+Objetivo
+Este webservice tem por finalidade obter os dados para venda a 
+UM 
+determinado cliente/produto. 
+Uso Geral
+1. Obter token autenticação
+Introdução
+Qualquer webservice do projeto 
+SispetroWeb 
+exigirá um token de autenticação. Este token é gerado a partir deste webservice e será válido por 24 horas. Assim, recomendamos que o sistema consumidor dos webservices aqui descritos salvem o token armazenando também a data e hora em que ele foi gerado para que, quando chegar próximo de sua validade, seja obtido novo token.
+Para mais informações, ver 
+API Obtenção de Token
+Métodos do setor de Vendas
+2. Dados de venda de cliente
+ Endereço
+<endereço do SispetroWeb>/entidade/get_dados_venda_api
+Parâmetros
+Será necessário enviar um header com o token e no corpo do webservice (body) os dados relativos à venda para busca de preços.
+Por uma questão de consumo de recursos do banco, esta API só irá retornar no máximo 
+15 produtos diferentes
+ para o cliente (os primeiros 15 cadastrados na tabela de preços dele).
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+Content-Type
+tipo do formato de envio
+application/json
+Accept
+tipo do formato de envio
+application/json
+Params
+Chave
+Conteúdo
+Obrigatório
+codEnt
+Código da Entidade que se deseja os dados
+Sim
+codEmpresa
+Código da Empresa onde ocorrerá a venda
+Sim
+dtPrevFat
+Data prevista para Faturamento (devido vigência de preços). Formato: dd/mm/yyyy
+Não. Se não informada será considerada a data atual.
+retiraEntrega
+E ou R para indicar se é retira ou entrega
+Não. Se não informado será considerado como Retira.
+codDep
+Código do Depósito onde ocorrerá a venda.
+Não. Se não informado será considerado o depósito padrão de vendas da empresa. 
+Caso seja informado um código inexistente o custo retornado é influenciado pois a API pega a primeira vigência de custo cadastrada
+codTransp
+Código do Motorista
+Não. Se não informado será considerado o  Motorista vinculado ao cliente.
+seqFrota
+Sequencial do frota principal
+Não. Se não informado será considerado o  Frota vinculado ao cliente.
+codProd
+Código do produto
+Opcional, se passar, calcula somente para o produto. Caso contrário, calcula para todos os produtos de venda do cliente.
+codPg
+Código das condições de pagamento.
+Opcional, se passar, calcula para essa condição de pagamento, caso contrário, calcula para a condição de pagamento padrão do cliente. 
+seqEnderecoEntrega
+Sequencial do endereço de entrega que será considerado para o frete, etc
+Opcional, caso não seja passado, será considerado o sequencial de endereço do cadastro do cliente.
+Se passar algum sequencial válido, o endereço de entrega retornado pela API será o correspondente a este sequencial e não mais o endereço de entrega do cadastro da entidade. 
+Método
+GET
+Exemplo de envio: 
+ 
+ . 
+Exemplo de retorno:
+ 
+ 
+Exemplo de chamada de WebService
+curl --location 'http://localhost/entidade/get_dados_venda_api -X GET
+-d @dados_preco.json
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjo4NCwiY25waiI6IjAwLjAwMC4wMDAvMDAwMC0wMSIsImRlcG9zaXRvX3BhZHJhbyI6bnVsbCwiZXhwIjoxNzE3NzY3NDAyfQ.j_CChFzlGOMkfvQ1psP8gaxZiKQ8yiD1pJnyVeUWkg0'
+Retorno Bem Sucedido
+Serão retornados todos os dados necessários para fazer uma venda para o cliente e produto informados. 
+O status da resposta sempre será 200. 
+Chave
+Conteudo
+Pai
+CodEnt
+Código do Cliente
+CodEmpresa
+Código da empresa
+CodDep
+Código do depósito considerado
+DtPrevFat
+Data prevista do faturamento considerada
+RetiraEntrega
+Indica se foi considerado Retira ou Entrega
+CodTransp
+Motorista para o qual foi considerado o frete
+SeqFrota
+Frota para o qual foi considerado o frete
+CodPgCli
+Código da Condição de Pagamento do Cliente
+PrazoCli
+Prazo da Condição de Pagamento do Cliente
+DescricaoCondPagto
+Descrição da Condição de Pagamento do Cliente
+DescricaoDeposito
+Descrição do Depósito considerado
+precos
+list
+CodProd
+Código do Produto
+precos
+CodPgProd
+Código da Condição de Pagamento considerada para o produto
+precos
+Preco
+Preço sugestão (já somado com Custo Financeiro)
+precos
+PrecoMinimo
+Preço mínimo (já somado com Custo Financeiro)
+precos
+PrecoMaximo
+Preço mínimo (já somado com Custo Financeiro)
+precos
+PrecoMinimoAvista
+Preço mínimo a vista (conforme tabela de preços)
+precos
+CustoFinancReal
+Custo Financeiro calculado a partir da Condições de Pagamento ou do cliente
+precos
+Seguro_Aliquota
+Alíquota do Seguro (será sempre calculado independente do Pedido ser segurado)
+precos
+Seguro_ValUnitario
+Valor unitário do Seguro (será sempre calculado independente do Pedido ser segurado)
+precos
+FreteUnitPadrao
+Frete unitário padrão
+precos
+Custo
+Custo de Vendas total desse item.
+precos
+endereco_entrega
+grupo
+Endereco
+Endereço de Entrega 
+endereco_entrega
+Numero
+Número do Endereço de Entrega 
+endereco_entrega
+Complemento
+Complemento do Endereço de Entrega
+endereco_entrega
+Bairro
+Bairro da Entrega
+endereco_entrega
+CodigoDNC
+Código IBGE do Município de Entrega 
+endereco_entrega
+Municipio
+Descrição do Município de Entrega 
+endereco_entrega
+UF
+UF de Entrega
+endereco_entrega
+CEP
+CEP da Entrega 
+endereco_entrega
+CodPais
+Código do País
+endereco_entrega
+Latitude
+Latitude
+endereco_entrega
+Longitude
+Longitude
+endereco_entrega
+Fone
+Telefone 
+endereco_entrega
+CNPJ
+CNPJ do Endereço
+endereco_entrega
+IE
+IE do Endereço
+endereco_entrega
+RzSocial
+Razão Social do Endereço
+endereco_entrega
+Exemplo de retorno de WebService
+ {
+    "dadosVenda": [
+        {
+            "CodPgProd": "998",
+            "CodProd": "01",
+            "Custo": 1.843334,
+            "CustoFinancReal": 0.2,
+            "EnderecoEntrega": "fgdfgfd,  -  - / - ",
+            "FreteUnitReal": 0,
+            "Preco": 1.91,
+            "PrecoMaximo": -1,
+            "PrecoMinimo": -1,
+            "Produto": "GASOLINA C",
+            "Seguro_Aliquota": 10,
+            "Seguro_ValorUnitario": 0.191
+        }
+    ],
+    "CodEnt": 1,
+    "CodEmpresa": 1,
+    "CodDep": "1",
+    "DtPrevFat": "2024-08-21",
+    "RetiraEntrega": "R",
+    "CodTransp": "00032",
+    "SeqFrota": 772,
+    "CodPgCli": "998",
+    "PrazoCli": 10,
+    "endereco_entrega": {
+        "Endereco": "fgdfgfd",
+        "Numero": null,
+        "Complemento": null,
+        "Bairro": null,
+        "CodigoDNC": null,
+        "Municipio": null,
+        "UF": null,
+        "CEP": null,
+        "CodPais": null,
+        "Latitude": null,
+        "Longitude": null,
+        "Fone": null,
+        "CNPJ": "12764122000133",
+        "IE": null,
+        "RzSocial": "DEMO DISTRIBUIDORA LTDA"
+    }
+}
+A quantidade de casas decimais do 
+CustoFinancReal 
+depende do perfil 
+#CasasPrUnit.
+ limitada a 
+06 
+casas decimais. Para mais informações, ver 
+https://futura.atlassian.net/wiki/spaces/SPT/pages/2918974349/Painel+Vendas?search_id=b452df13-384c-4fe4-bb1b-274a818be835&additional_analytics=queryHash---a4db473c943dcc1d157ebd8f9d806eeed8cb81aa9aa2c3d3343436fc622c0e7c
+ 
+A quantidade de casas decimais do 
+FreteUnitPadrao 
+depende do perfil 
+#Casas decimais Frete Unitario
+ limitada a 
+06 
+casas decimais. Para mais informações, ver 
+Painel Fretes
+ 
+Retorno Sem Sucesso
+Será retornado um objeto JSON com o motivo da falha (normalmente  um erro de autenticação caso o token tenha expirado ou seja inválido ou alguma regra de negócio não atendida. 
+O status da resposta sempre será diferente de 200.
+{
+    "error": "Unauthorized",
+    "status": 401
+}
+ 

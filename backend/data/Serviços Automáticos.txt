@@ -1,0 +1,297 @@
+TITULO: Serviços Automáticos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927273071
+--------------------------------------------------
+No SisPetro temos, atualmente, vários serviços que podem ser executados automaticamente sem qualquer intervenção do usuário. Alguns serviços são executados independente de ativação por parte do usuário.
+Regras:
+Tempo mínimo do serviço for igual ou menor que 2 minutos:
+ o tempo padrão será de 2 minutos.
+Tempo mínimo for maior que 2 minutos:
+ o tempo padrão será o tempo mínimo definido para o serviço.
+Essa alteração não afeta os serviços que já estão configurados e ativados.
+Recomendamos que os tempos de execução sejam, no mínimo, de 2 minutos, mesmo que os tempos mínimos sejam inferiores.
+Horário de execução
+A configuração de serviços permitirá que um serviço seja configurado para ser executado em intervalos de tempo que envolvem dias diferentes. Por exemplo, agora é possível configurar um intervalo de tempo que inicia às 22 horas de um dia e termina às 6:00 horas de outro dia.
+Caso o banco de dados esteja em uma versão diferente do Hermes, assim que o serviço for executado ele será desativado e no log do Hermes será apresentada a mensagem de erro: 
+Desativado. Versão do Hermes incompatível com o banco de dados.
+Observação: 
+se o banco for atualizado com o Hermes ativo, essa validação ocorrerá caso seja alterado alguma configuração no Hermes Controlador. 
+:
+ 
+Selecione o 
+ que será designado como 
+Servidor Hermes de Serviços
+, podendo ser o mesmo que está definido como 
+Servidor Hermes de Segurança (S3)
+Na aba 
+Informações Serviços
+, 
+selecione o serviço e faça as configurações necessárias
+Serviços disponibilizados:
+Serviço de Agendamento de OC
+:
+ permite agendar carregamentos e descargas em uma base. Para mais informações, ver 
+.
+Serviço de Análise de Crédito
+:
+ consulta a situação de crédito de um cliente junto a uma gerenciadora de análise de crédito. Para mais informações, ver 
+Gerenciadora de Análise de Crédito - GAC
+.
+Serviço de Análise de Aprovação de Pedido
+:
+ permite aprovação automática de pedidos de venda incluídos via SisPetroAPP. Para mais informações, ver
+ 
+SispetroAPP
+ e 
+Aprovação Automática Pedido de Venda incluídos via SisPetroWeb
+.
+Serviço de ANP - Estoque
+: 
+envia as informações de estoque diário para ANP. Para mais informações, ver 
+Envio de Estoque Diário
+Serviço de Averbação de Notas Fiscais
+:
+ envia informações do ou de CT-e e MDF-e para AT&M afim de obter o número de averbação ou de NF-e para Xpert para controle de estoque. Para mais informações, ver 
+Averbação de CT-e e MDF-e via Integração API AT&M
+ ou 
+Envio de NF-e via Integração API Xpert
+.
+ 
+Serviço de Baixa Automática
+:
+ baixa automática de títulos de clientes usando adiantamentos. Para mais informações, ver 
+Depósito Identificado
+ e 
+Baixa Automática utilizando Adiantamentos
+.
+Serviço de Chaves
+:
+ mostra os usuários conectados no SisPetro. Tendo necessidade, é possível bloquear usuários. Somente no 
+Servidor Hermes de Segurança (S3)
+.
+Serviço de Cobrança Eletrônica - Remessa
+:
+ gera arquivo de cobrança eletrônica para remessa ao banco. Para mais informações, ver
+ 
+Cobrança Eletrônica
+.
+Serviço de Cobrança Eletrônica - Retorno
+:
+ faz a leitura do arquivo de retorno de cobrança eletrônica disponibilizado pelo banco. Para mais informações, ver
+ 
+Cobrança Eletrônica
+.
+Serviço de Comprovante de Entrega CT-e
+:
+ permite emitir comprovante eletrônico de entrega de CTe. Para mais informações, ver
+ 
+Como Emitir Comprovante Eletrônico de Entrega CT-e
+.
+Serviço de Consulta ANP
+:
+ realiza consulta da situação de postos de combustíveis junto à ANP. Para mais informações, ver 
+.
+Serviço de Consulta Cadastro Contribuinte - Sefaz
+:
+ realiza consulta da situação dos clientes junto às Sefaz. Para mais informações, ver 
+.
+Serviço de Consulta Destinatário CT-e
+:
+ realiza consulta de destinatário de CTe emitidos para a empresa ou que de alguma forma o CNPJ da empresa esteja envolvido. Recomendado 
+desativar
+ caso o 
+Serviço de Recebimento de E-mail
+ 
+esteja 
+ativo.
+ Para mais informações, ver 
+Consulta de Destinatário de NF-e/CT-e
+.
+Serviço de Consulta Destinatário NF-e
+: 
+realiza consulta de destinatário de NFe emitidos para a empresa ou que de alguma forma o CNPJ da empresa esteja envolvido. Recomendado 
+desativar
+ caso o 
+Serviço de Recebimento de E-mail
+ 
+esteja 
+ativo. 
+Para mais informações, ver
+ 
+Consulta de Destinatário de NF-e/CT-e
+.
+Serviço de Depósito Identificado
+:
+ permite receber informações do banco de depósitos identificados e gerar automaticamente adiantamentos de clientes. Para mais informações, ver 
+Depósito Identificado
+.
+Serviço de Email de Saída - Geração
+:
+ gera emails do Faturamento (XML, DANFE/DACTE e boletos) e Compras (OC de transferência de depósito e PMM). Para mais informações, ver 
+Serviço de E-mail
+.
+Serviço ativado sem intervenção do usuário. Sempre será iniciado. Tempo de execução deve ser menor que o 
+Serviço de Email de Saída - Envio
+.
+Serviço de Email de Saída - Envio
+:
+ envia emails gerados pelo Faturamento (XML, DANFE/DACTE e boletos) e Compras (OC de transferência de depósito e PMM). Para mais informações, ver 
+Serviço de E-mail
+. Tempo de execução deve ser maior que o 
+Serviço de Email de Saída - Geração
+.
+Recomendado marcar a opção Executar Automaticamente Quando Servidor for Iniciado.
+Serviço de Email de Saída - Limpeza
+:
+ apaga os emails gerados, tanto das tabelas internas do SisPetro como das pastas onde foram gravados, de acordo com o que está definido no perfil de sistema
+ 
+, opções 
+Número dias p/ manter e-mails processados
+ e 
+Exclusão de e-mails
+. Para mais informações, ver 
+Serviço de E-mail
+.
+Recomendado marcar a opção Executar Automaticamente Quando Servidor for Iniciado.
+Serviço de Empréstimo de OC
+: 
+processa os empréstimo e inclui automaticamente as OC de Carregamento e Descarga. Para mais informações, ver 
+Empréstimo de Produto entre Congêneres
+Serviço de Encerramento de MDF-e
+: 
+inclui e processa automaticamente evento de encerramento de MDF-e de entrada. Para mais informações, ver 
+Encerramento de MDF-e Automático pela NF-e Entrada
+Serviço de Exportação OC
+:
+ exporta OC para o sistema da Unibraspe ou para o SisPetro. Para mais informações, ver 
+Exportação de OC
+Serviço de Importação ANP
+: 
+leitura de planilha de agentes autorizados disponibilizada pela ANP. Para mais informações, ver 
+.
+Serviço de Importação AutoLoad
+: 
+serviço que através de uma API inclui automaticamente uma OC de terceiros. Para mais informações, ver 
+Importação de OC AutoLoad
+.
+Serviço de Importação de NF - Leitura de XML
+:
+ processo de leitura de XML para validar e importar. Para mais informações, ver
+ 
+Importação de NFs
+ 
+e 
+Monitoramento da Importação de NF/CT
+.
+Serviço de Importação de NF - De/Para
+:
+ aplicação de processos De/Para na importação de NFe e CTe. Para mais informações, ver 
+Importação de NFs
+ 
+e 
+Monitoramento da Importação de NF/CT
+.
+Serviço de Importação de NF - Transformação
+:
+ 
+aplicação da conversão de dados semelhante ao De/Para, porém com maior flexibilidade na manipulação de dados, com base em regras de análise. Para mais informações, ver 
+Transformação no processo de importação
+ 
+e 
+Importação de Nota Fiscal via Serviço
+.
+ 
+Serviço de Importação de NF - Faturamento
+:
+ importação dos XML de NFe e CTe. Para mais informações, ver
+ 
+Importação de NFs
+ 
+e 
+Monitoramento da Importação de NF/CT
+.
+Serviço de Integração de Recebíveis: Terras
+:
+ integração com o sistema da empresa Terras Raras. Para mais informações, ver
+ 
+Trabalhando com Sistema de Recebíveis
+.
+Serviço de Jobs
+: 
+serviço que executa uma tarefa programado pelo usuário. Para mais informações, ver 
+.
+Serviço de Limpeza de Memória:
+ interno dos Servidores Hermes para evitar uso excessivo de memória da máquina.
+Serviço de Manifestação de CT-e
+:
+ realiza a manifestação do destinatário de CTe.  Para mais informações, ver 
+Evento de Manifestação do Destinatário da NF-e
+ 
+e 
+Painel Serviços Sefaz
+.
+Serviço de Manifestação NF-e
+:
+ realiza a manifestação do destinatário de NFe. Para mais informações, ver 
+Evento de Manifestação do Destinatário da NF-e
+ 
+e 
+Painel Serviços Sefaz
+.
+Serviço de Mon. Viagem: Cadastro
+: 
+realiza a inclusão de cargas a serem monitoradas. Para mais informações, ver 
+Serviço de Mon. Viagem: Consulta
+: 
+realiza a consulta das cargas monitoradas. Para mais informações, ver 
+Serviço de Movimentação XML Sefaz
+:
+ realiza a validação e movimentação de XML recebidos, de acordo com as configurações. Para mais informações, ver 
+Salvar XML de Manifestações processadas como Ciência
+.
+Serviço ativado sem intervenção do usuário. Sempre será iniciado.
+Serviço de Pagamento Eletrônico
+:
+ processa os títulos a pagar, enviando ao banco e fazendo leitura do arquivo de retorno baixando os títulos. Para mais informações, ver 
+Pagamento Eletrônico
+,
+Serviço de PIX: Geração QR Code
+:
+ serviço que realiza a geração do QR Code. Para mais informações, ver 
+Manutenção de PIX
+.
+Serviço de PIX Recebidos - Bancos
+: 
+serviço que realiza a comunicação com API do banco e localizar os PIX. Para mais informações, ver 
+Manutenção de PIX
+.
+Serviço de PIX Recebidos - Processa
+: serviço que realiza o processamento dos recebimentos do PIX no SisPetro. Para mais informações, ver 
+Manutenção de PIX
+.
+Serviço de Recebimento de E-mail
+:
+ serviço que faz leitura de e-mails na conta de e-mail configurada, salvando os anexos (XML e PDF) nas pastas configuradas. Recomendado 
+desativar
+ caso o 
+Serviço de Consulta Destinatário CT-e
+ 
+e/ou o 
+Serviço de Consulta Destinatário NF-e
+ estejam 
+ativos.
+Serviço Tempo Chamada de Motoristas
+: 
+serviço que realiza a execução das chamadas de motoristas. Para mais informações, ver 
+.
+Serviço DDA
+: 
+serviço que realiza a importação dos arquivos DDA dos bancos 
+001 - Banco do Brasil
+ e 
+341 - Itaú
+ para o Sispetro. Para mais informações, ver 
+Manutenção de DDA
+.
+Quando um serviço apresenta erros consecutivos, é desativado e reativado automaticamente. Para mais informações, ver 
+Serviços Automáticos que Apresentam Erros na Execução
+.

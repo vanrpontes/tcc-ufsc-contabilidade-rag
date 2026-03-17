@@ -1,0 +1,44 @@
+TITULO: Configuração - Vale Pedágio
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926200076
+--------------------------------------------------
+O SisPetro atualmente disponibiliza comunicação com as Gerenciadoras de Vale Pedágio 
+Target e ViaFácil (SemParar)
+. A comunicação com os seus serviços se dá da seguinte forma:
+Compra de Vale Pedágio
+Durante o processamento de compra do Vale Pedágio são acionados vários serviços (via 
+ ou botão 
+Processa 
+na tela de 
+Manutenção de Pedágios
+), na seguinte ordem:
+Cadastrar Transportadora
+Caso a Transportadora ainda não esteja cadastrada na gerenciadora, os dados da mesma serão enviados para providenciar esse cadastro. Veja detalhamento do XML gerado em 
+Cadastrar Transportadora
+Cadastrar Motorista
+No caso do Motorista sempre é acionado o cadastro na Target, pois o vínculo com a Transportadora é muito variável e seria bem complexo ficar controlando se o motorista em conjunto com a transportadora utilizada já está vinculado devidamente na gerenciadora. Veja o detalhamento do XML em 
+Cadastrar Motorista
+Associar Cartão
+É o serviço acionado quando o motorista realiza a primeira utilização do cartão.  Detalhamento do XML em 
+Associar Cartão
+Comprar Pedágio
+É a compra efetiva do pedágio, feita em toda operação. Nesse fase é que teremos o número do Vale Pedágio. Detalhamento do XML em 
+Comprar Pedágio
+Obter Custo
+Como a compra do pedágio não retorna os valores de pedágio, é necessário acionar esse serviço para ter os valores efetivos. Detalhamento do XML em 
+Obter Custo
+Confirmação de Pedágio
+Essa operação é obrigatória para a gerenciadora, é nessa fase que o valor do pedágio será lançado no "Sem Parar" do veículo (quando a opção for TAG) ou no cartão do Motorista. Operação acionada na tela de 
+Manutenção de Pedágios
+, ao clicar no botão 
+Confirma.
+  Detalhamento do XML em 
+Confirmar Pedágio
+Cancelamento de Vale Pedágio (Já Processado)
+Na 
+Manutenção de Pedágios
+, ao clicar no botão 
+Cancela
+, caso o pedágio já esteja processado, é acionado esse serviço. Veja 
+Cancelar Pedágio
+Segue o link da documentação da Target: 
+https://targetmp.atlassian.net/wiki/spaces/DOC/pages/402980927/1-+Introdu+o

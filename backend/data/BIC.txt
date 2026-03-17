@@ -1,0 +1,132 @@
+TITULO: BIC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878211216
+--------------------------------------------------
+Dados Gerais
+ O Banco BIC pode trabalhar individualmente como também em conjunto com o Banco Bradesco (237). Ou seja, se individualmente, emite o próprio boleto do Banco BIC. Se optar por trabalhar em conjunto com o Banco Bradesco, assim, a empresa tem conta no Banco BIC, onde adquire o produto Cobrança Eletrônica, porém, ao imprimir o boleto, o imprime com as características do Banco Bradesco. Dessa forma, o cliente que recebe o boleto não precisa localizar uma agência do Banco BIC para efetuar o pagamento, podendo fazer isso perfeitamente no Banco Bradesco, que tem muito mais agências disponíveis em todo o país. Para atender essa necessidade usaremos a configuração de Banco Correspondente do SisPetro. Cabe lembrar que o arquivo de remessa é conforme o layout do Banco BIC, muito parecido com o layout do Bradesco, mas não idêntico.
+Painel Cobrança Eletrônica
+No campo 
+banco
+ deve ser informado 320 - BIC.
+Utilizar o tipo do convênio para informar o tipo da conta.
+Apesar do banco BIC não ter número de 
+convênio
+ é necessário colocar alguma informação para geração do arquivo de cobrança. Coloque neste campo o número da 
+conta
+ da empresa no BIC.
+A 
+carteira
+ deve ter 1 (um) dígito, que pode ser:
+1 - Cobrança Simples
+4 - Cobrança Caucionada
+O 
+modo de cobrança
+ deve ser configurado para 
+Simples
+.
+Os campos 
+Indica sacador/avalista
+, 
+#Docto no arquivo remessa
+ NÃO são considerados ao gerar o arquivo de remessa.
+O campo 
+Informação de juros no Arquivo Remessa
+ deve estar configurado como 
+Sem Informação
+ ou 
+Informa valor diário calculado pela taxa diária
+ que são as formas aceitas pelo Banco BIC.
+A cobrança para o Banco BIC no SisPetro não permite utilização de desconto, então a opção 
+Utiliza desconto na baixa eletrônica
+ NÃO deve ser marcada.
+O boleto pelo BIC é impresso o 
+Nosso Número
+ no formato 999999.9.
+Transformação Arquivo Cobrança 
+acessando via 
+Tabelas Auxiliares / Vendas / Tipos Cobrança / Aba Por Empresa / Aba Transformações Arquivo Cobrança. É
+ nesta aba que o usuário deve indicar em qual segmento será a transformação.  
+No Arquivo de Remessa do Banco BIC 
+não será mais
+ considerada a transformação do 
+Segmento P
+ e sim 
+Segmento Q
+ na geração do registro 2.
+Veja mais informações em 
+Painel Informações sobre a Cobrança
+Caso utilize o boleto de outro banco, marcar a opção *Utiliza Banco Correspondente.
+Informar no *Banco Encarregado da cobrança: 237 – BRADESCO.
+No campo 
+Número do Convênio
+, informar 5 dígitos, na qual o radical são 2 dígitos e a matrícula, 3 dígitos.
+Preencher 
+#Agencia
+ com 
+4150
+ e o seu 
+dígito
+ com 
+5
+ (esta é a agência do Bradesco onde o banco BIC tem conta).
+Preencher 
+Número Conta
+ com 
+0000320
+ e o seu 
+dígito
+ com 
+4
+ (esta é a conta do banco BIC no Bradesco).
+Preencher a 
+Carteira
+ com 
+9
+.
+As demais informações não precisam ser preenchidas.
+O boleto será impresso de forma diferenciada, pelo Bradesco.
+Só deve ser informada uma faixa com até 6 dígitos.
+Linha Digitável
+320 - BICBanco
+Conteúdo
+Tamanho
+Início
+Fim
+Agencia
+3
+1
+3
+Tipo do convênio
+2
+4
+5
+Conta da empresa
+7
+6
+12
+Nosso Numero com DV
+6
+13
+18
+DV
+1
+19
+19
+Zeros
+5
+20
+24
+Fixo '2'
+1
+25
+25
+Exemplo:
+ Agência: 111
+ Tipo do Convênio: 22
+ Conta da empresa: 3333333
+ Nosso Número com DV: 444444
+ DV: 5
+*Campo Livre: 111 22 3333333 444444 5 00000 2
+ 
+Linha Digitável:
+ | 3 2 0 | 1 | 1 1 1 2 2 | 0 | 3 3 3 3 3 3 3 4 4 4 | 1 | 4 4 4 5 0 0 0 0 0 2 | 1 | 1 | 4 5 6 7 | 0 0 0 1 0 0 0 0 0 0 |
+Para informações sobre a montagem da linha digitável para este banco, veja o tópico 

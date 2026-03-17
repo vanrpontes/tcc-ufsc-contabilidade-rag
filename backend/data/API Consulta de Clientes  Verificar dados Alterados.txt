@@ -1,0 +1,1027 @@
+TITULO: API Consulta de Clientes / Verificar dados Alterados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4894261249
+--------------------------------------------------
+Objetivo
+Este webservice tem por finalidade retornar dados de clientes
+1. Uso Geral
+Obter token autenticação
+Introdução
+Qualquer webservice do projeto 
+SispetroWeb 
+exigirá um token de autenticação. Este token é gerado a partir deste webservice e será válido por 24 horas. Assim, recomendamos que o sistema consumidor dos webservices aqui descritos salvem o token armazenando também a data e hora em que ele foi gerado para que, quando chegar próximo de sua validade, seja obtido novo token.
+Para mais informações, ver 
+API Obtenção de Token
+ 
+2. Dados Gerais de Cliente
+Introdução
+Este webservice tem por finalidade retornar dados de 
+UM
+ cliente. Não é necessário informar a empresa ao obter o token.
+Para acessar este método, o usuário deverá ter a permissão de usuário conforme perfil 
+Permite visualizar Clientes. 
+Para mais informações, ver 
+SispetroApp (Usuários)
+ 
+Endereço
+<endereço do SispetroWeb>/entidade/get_entidade_api?id=<id da entidade>
+Parâmetros
+Será necessário enviar um header com o token. Como parâmetro enviar:
+Nome
+Descritivo
+Exemplo
+Observações
+id
+Código do Cliente que se deseja os dados.
+2550
+Obrigatório
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+Content-Type
+tipo do formato de envio
+application/json
+Accept
+tipo do formato de envio
+application/json
+Método
+GET
+Exemplo de chamada de WebService
+curl -H "Content-Type: application/json" -H "Accept: application/json" 
+     -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAzLjk4MC43NTQvMDAwMy0wNSIsImRlcG9zaXRvX3BhZHJhbyI6IjEiLCJleHAiOjE3MjM1NTAwMTN9.IeVJImGIv4_Ko__pYQMQgmC0ehTcyNnGlCUMZoR75M8" 
+     -X GET http://localhost/entidade/get_entidade_api\?id\=6426
+Retorno Bem Sucedido
+Serão retornados todos os dados relativos ao cliente consultado se encontrado. 
+O status da resposta sempre será 200. 
+Layout conforme retorno:
+json
+ {
+    "CodEnt": 1,
+    "CGC": "07.452.833/0011-04",
+    "NomeUsual": "Demo1",
+    "RzSocial": "DEMO DISTRIBUIDORA LTDA",
+    "IE": "709018511110",
+    "ConsumidorFinal": 0,
+    "InscricaoMunicipal": "",
+    "Endereco": "RUA RIO UNA",
+    "Numero": "102",
+    "Complemento": "RESID",
+    "Bairro": "IBURA",
+    "CodigoDNC": "355.240-3",
+    "Municipio": "SUMARE",
+    "UF": "SP",
+    "CEP": "51220-010",
+    "Latitude": null,
+    "Longitude": null,
+    "CodPais": 1058,
+    "Fone": "(81) 4656-111",
+    "OutrosFones": "",
+    "EMail": "werwerw@werwwe.com.br",
+    "Bloqueado": 0,
+    "DtCad": "2024-01-01",
+    "dataAlteracaoCad": "2024-01-13",
+    "DPMP_CodigoInstalacao": "123",
+    "HorarioEntregaInicial": "2000-01-01T10:00:00.000+00:00",
+    "HorarioEntregaFinal": "2000-01-01T20:00:00.000+00:00",
+    "LimCred": "8000000.0",
+    "CodPg": "998",
+    "CodTpCobr": "15",
+    "Vendedor": "0001",
+    "AtividadeEconomica": "P",
+    "SubstitutoTributario": 9,
+    "SeqTipo": 1,
+    "BloqueiaEntregaRetira": 0,
+    "IDRegiaoVendas": 1,
+    "PermiteEntregaCarreta": 1,
+    "CdPrefFat": 8,
+    "CdPrefCob": 8,
+    "CdPrefEnt": 8,
+    "Comprador": 1,
+    "dataLiberacao": "2000-02-01",
+    "valorpendente": "11634891.33",
+    "valorCredito": "1004104.25",
+    "RestringeVendaDeposito": 1,
+    "IDDepositoConjunto": 1,
+    "ValorAtrasado": "11607777.36",
+    "enderecos": [
+        {
+            "Seq": 1,
+            "Endereco": "Rua Sales, 234",
+            "CEP": "01234-456",
+            "Bairro": "Silvestre erew123",
+            "Municipio": "MACAPA4",
+            "UF": "AP",
+            "Fone": "12312311",
+            "documento": "1231231231",
+            "Numero": null,
+            "Complemento": null,
+            "CodigoDNC": null,
+            "CNPJ": "12764122000133",
+            "RzSocial": "DEMO DISTRIBUIDORA LTDA",
+            "CodPais": null,
+            "Latitude": null,
+            "Longitude": null
+        },
+        {
+            "Seq": 2,
+            "Endereco": "rua teste, 4342",
+            "CEP": "43242-334",
+            "Bairro": "bairro teste",
+            "Municipio": "Macapa 4",
+            "UF": "MG",
+            "Fone": null,
+            "documento": "43434323232",
+            "Numero": null,
+            "Complemento": null,
+            "CodigoDNC": null,
+            "CNPJ": "12764122000133",
+            "RzSocial": "DEMO DISTRIBUIDORA LTDA",
+            "CodPais": null,
+            "Latitude": null,
+            "Longitude": null
+        },
+        {
+            "Seq": 3,
+            "Endereco": "teste 3",
+            "CEP": "12312-341",
+            "Bairro": "sadf asd",
+            "Municipio": "DAMIANOPOLIS",
+            "UF": "GO",
+            "Fone": "41231",
+            "documento": "12341234123",
+            "Numero": null,
+            "Complemento": null,
+            "CodigoDNC": null,
+            "CNPJ": "12764122000133",
+            "RzSocial": "DEMO DISTRIBUIDORA LTDA",
+            "CodPais": null,
+            "Latitude": null,
+            "Longitude": null
+        },
+        {
+            "Seq": 6,
+            "Endereco": "wwwwwwwwwwwtt",
+            "CEP": "13213-132",
+            "Bairro": "wewerw",
+            "Municipio": "ABADIA DOS DOURADOS",
+            "UF": "MG",
+            "Fone": null,
+            "documento": "444444444",
+            "Numero": null,
+            "Complemento": null,
+            "CodigoDNC": null,
+            "CNPJ": "12764122000133",
+            "RzSocial": "DEMO DISTRIBUIDORA LTDA",
+            "CodPais": null,
+            "Latitude": null,
+            "Longitude": null
+        },
+        {
+            "Seq": 7,
+            "Endereco": "zzzzzzzzzzzz",
+            "CEP": null,
+            "Bairro": null,
+            "Municipio": null,
+            "UF": null,
+            "Fone": null,
+            "documento": "22222",
+            "Numero": null,
+            "Complemento": null,
+            "CodigoDNC": null,
+            "CNPJ": "12764122000133",
+            "RzSocial": "DEMO DISTRIBUIDORA LTDA",
+            "CodPais": null,
+            "Latitude": null,
+            "Longitude": null
+        },
+        {
+            "Seq": 8,
+            "Endereco": "fgdfgfd",
+            "CEP": null,
+            "Bairro": null,
+            "Municipio": "ABADIA DE GOIAS",
+            "UF": "GO",
+            "Fone": null,
+            "documento": null,
+            "Numero": null,
+            "Complemento": null,
+            "CodigoDNC": "520.005-9",
+            "CNPJ": "06511653854   ",
+            "RzSocial": "DEMO DISTRIBUIDORA LTDA",
+            "CodPais": 1058,
+            "Latitude": null,
+            "Longitude": null
+        },
+        {
+            "Seq": 9,
+            "Endereco": "Rua Carvalho",
+            "CEP": "05424-020",
+            "Bairro": "Pinheiros",
+            "Municipio": "SAO PAULO",
+            "UF": "SP",
+            "Fone": null,
+            "documento": "709018511110",
+            "Numero": "64",
+            "Complemento": null,
+            "CodigoDNC": "355.030-3",
+            "CNPJ": "12764122000133",
+            "RzSocial": "DEMO DISTRIBUIDORA LTDA",
+            "CodPais": null,
+            "Latitude": null,
+            "Longitude": null
+        }
+    ],
+    "galonagens": [],
+    "depositos": [
+        {
+            "CodDep": "1",
+            "Descricao": "BASE_DEMO"
+        },
+        {
+            "CodDep": "13",
+            "Descricao": "USINA CUCAU"
+        }
+    ],
+    "condicoes_pagto_possiveis": [
+        {
+            "CodPGPossivel": "000",
+            "DescricaoCPPossivel": "A VISTA (TESTE)",
+            "PrazoCPPossivel": 0
+        },
+        {
+            "CodPGPossivel": "001",
+            "DescricaoCPPossivel": "A VISTA 001 DIA",
+            "PrazoCPPossivel": 1
+        },
+        {
+            "CodPGPossivel": "002",
+            "DescricaoCPPossivel": "A VISTA 002 DIAS",
+            "PrazoCPPossivel": 2
+        },
+        {
+            "CodPGPossivel": "003",
+            "DescricaoCPPossivel": "A VISTA 003 DIAS",
+            "PrazoCPPossivel": 3
+        },
+        {
+            "CodPGPossivel": "004",
+            "DescricaoCPPossivel": "A VISTA 004 DIAS",
+            "PrazoCPPossivel": 4
+        },
+        {
+            "CodPGPossivel": "005",
+            "DescricaoCPPossivel": "A VISTA 005 DIAS",
+            "PrazoCPPossivel": 5
+        },
+        {
+            "CodPGPossivel": "201",
+            "DescricaoCPPossivel": "BOLETO 001 DIA",
+            "PrazoCPPossivel": 1
+        },
+        {
+            "CodPGPossivel": "202",
+            "DescricaoCPPossivel": "BOLETO 002 DIAS",
+            "PrazoCPPossivel": 2
+        },
+        {
+            "CodPGPossivel": "203",
+            "DescricaoCPPossivel": "BOLETO 003 DIAS",
+            "PrazoCPPossivel": 3
+        },
+        {
+            "CodPGPossivel": "204",
+            "DescricaoCPPossivel": "BOLETO 004 DIAS",
+            "PrazoCPPossivel": 4
+        },
+        {
+            "CodPGPossivel": "205",
+            "DescricaoCPPossivel": "BOLETO 005 DIAS",
+            "PrazoCPPossivel": 5
+        },
+        {
+            "CodPGPossivel": "206",
+            "DescricaoCPPossivel": "BOLETO 006 DIAS",
+            "PrazoCPPossivel": 6
+        },
+        {
+            "CodPGPossivel": "207",
+            "DescricaoCPPossivel": "BOLETO 007 DIAS",
+            "PrazoCPPossivel": 7
+        },
+        {
+            "CodPGPossivel": "208",
+            "DescricaoCPPossivel": "BOLETO 008 DIAS",
+            "PrazoCPPossivel": 8
+        },
+        {
+            "CodPGPossivel": "209",
+            "DescricaoCPPossivel": "BOLETO 009 DIAS",
+            "PrazoCPPossivel": 9
+        },
+        {
+            "CodPGPossivel": "210",
+            "DescricaoCPPossivel": "BOLETO 010 DIAS",
+            "PrazoCPPossivel": 10
+        },
+        {
+            "CodPGPossivel": "261",
+            "DescricaoCPPossivel": "BOLETO 05/15 DIAS",
+            "PrazoCPPossivel": 10
+        },
+        {
+            "CodPGPossivel": "267",
+            "DescricaoCPPossivel": "BOLETO 05/10 DIAS",
+            "PrazoCPPossivel": 8
+        },
+        {
+            "CodPGPossivel": "270",
+            "DescricaoCPPossivel": "BOLETO 04/07 DIAS",
+            "PrazoCPPossivel": 6
+        },
+        {
+            "CodPGPossivel": "277",
+            "DescricaoCPPossivel": "BOLETO 07/08 DIAS",
+            "PrazoCPPossivel": 8
+        },
+        {
+            "CodPGPossivel": "278",
+            "DescricaoCPPossivel": "BOLETO 07/13 DIAS ",
+            "PrazoCPPossivel": 10
+        },
+        {
+            "CodPGPossivel": "279",
+            "DescricaoCPPossivel": "BOLETO 08/12 DIAS ",
+            "PrazoCPPossivel": 10
+        },
+        {
+            "CodPGPossivel": "281",
+            "DescricaoCPPossivel": "BOLETO 05/08 DIAS ",
+            "PrazoCPPossivel": 7
+        },
+        {
+            "CodPGPossivel": "400",
+            "DescricaoCPPossivel": "CHEQUE",
+            "PrazoCPPossivel": 0
+        },
+        {
+            "CodPGPossivel": "401",
+            "DescricaoCPPossivel": "CHEQUE 001 DIA",
+            "PrazoCPPossivel": 1
+        },
+        {
+            "CodPGPossivel": "402",
+            "DescricaoCPPossivel": "CHEQUE 002 DIAS",
+            "PrazoCPPossivel": 2
+        },
+        {
+            "CodPGPossivel": "403",
+            "DescricaoCPPossivel": "CHEQUE 003 DIAS",
+            "PrazoCPPossivel": 3
+        },
+        {
+            "CodPGPossivel": "404",
+            "DescricaoCPPossivel": "CHEQUE 004 DIAS",
+            "PrazoCPPossivel": 4
+        },
+        {
+            "CodPGPossivel": "405",
+            "DescricaoCPPossivel": "CHEQUE 005 DIAS",
+            "PrazoCPPossivel": 5
+        },
+        {
+            "CodPGPossivel": "406",
+            "DescricaoCPPossivel": "CHEQUE 006 DIAS",
+            "PrazoCPPossivel": 6
+        },
+        {
+            "CodPGPossivel": "407",
+            "DescricaoCPPossivel": "CHEQUE 007 DIAS",
+            "PrazoCPPossivel": 7
+        },
+        {
+            "CodPGPossivel": "408",
+            "DescricaoCPPossivel": "CHEQUE 008 DIAS",
+            "PrazoCPPossivel": 8
+        },
+        {
+            "CodPGPossivel": "409",
+            "DescricaoCPPossivel": "CHEQUE 009 DIAS",
+            "PrazoCPPossivel": 9
+        },
+        {
+            "CodPGPossivel": "410",
+            "DescricaoCPPossivel": "CHEQUE 010 DIAS",
+            "PrazoCPPossivel": 10
+        },
+        {
+            "CodPGPossivel": "461",
+            "DescricaoCPPossivel": "CHEQUE 05/15 DIAS",
+            "PrazoCPPossivel": 10
+        },
+        {
+            "CodPGPossivel": "467",
+            "DescricaoCPPossivel": "CHEQUE 05/10 DIAS",
+            "PrazoCPPossivel": 8
+        },
+        {
+            "CodPGPossivel": "470",
+            "DescricaoCPPossivel": "CHEQUE 04/07 DIAS ",
+            "PrazoCPPossivel": 6
+        },
+        {
+            "CodPGPossivel": "477",
+            "DescricaoCPPossivel": "CHEQUE 07/08 DIAS ",
+            "PrazoCPPossivel": 8
+        },
+        {
+            "CodPGPossivel": "478",
+            "DescricaoCPPossivel": "CHEQUE 07/13 DIAS ",
+            "PrazoCPPossivel": 10
+        },
+        {
+            "CodPGPossivel": "479",
+            "DescricaoCPPossivel": "CHEQUE 08/12 DIAS ",
+            "PrazoCPPossivel": 10
+        },
+        {
+            "CodPGPossivel": "481",
+            "DescricaoCPPossivel": "CHEQUE 05/08 DIAS ",
+            "PrazoCPPossivel": 7
+        },
+        {
+            "CodPGPossivel": "495",
+            "DescricaoCPPossivel": "CHEQUE 02/03 DIAS",
+            "PrazoCPPossivel": 3
+        },
+        {
+            "CodPGPossivel": "497",
+            "DescricaoCPPossivel": "CHEQUE 03/04 DIAS",
+            "PrazoCPPossivel": 4
+        },
+        {
+            "CodPGPossivel": "600",
+            "DescricaoCPPossivel": "PARCELADO",
+            "PrazoCPPossivel": 0
+        },
+        {
+            "CodPGPossivel": "612",
+            "DescricaoCPPossivel": "CHEQUE 04/05 DIAS",
+            "PrazoCPPossivel": 5
+        },
+        {
+            "CodPGPossivel": "620",
+            "DescricaoCPPossivel": "BOLETO 05/10/15 DIAS",
+            "PrazoCPPossivel": 10
+        },
+        {
+            "CodPGPossivel": "621",
+            "DescricaoCPPossivel": "CHEQUE 05/10/15 DIAS",
+            "PrazoCPPossivel": 10
+        },
+        {
+            "CodPGPossivel": "623",
+            "DescricaoCPPossivel": "22 / 23 DIAS CHEQUE",
+            "PrazoCPPossivel": 5
+        },
+        {
+            "CodPGPossivel": "74",
+            "DescricaoCPPossivel": "--------",
+            "PrazoCPPossivel": 0
+        },
+        {
+            "CodPGPossivel": "88",
+            "DescricaoCPPossivel": "BOLETO 11 PARCELAS",
+            "PrazoCPPossivel": 6
+        },
+        {
+            "CodPGPossivel": "900",
+            "DescricaoCPPossivel": "ORGAOS PUBLICOS",
+            "PrazoCPPossivel": 0
+        },
+        {
+            "CodPGPossivel": "901",
+            "DescricaoCPPossivel": "ORGAOS PUBLICOS 001 DIA",
+            "PrazoCPPossivel": 1
+        },
+        {
+            "CodPGPossivel": "902",
+            "DescricaoCPPossivel": "ORGAOS PUVLICOS 002 DIAS",
+            "PrazoCPPossivel": 2
+        },
+        {
+            "CodPGPossivel": "903",
+            "DescricaoCPPossivel": "ORGAOS PUBLICOS 003 DIAS",
+            "PrazoCPPossivel": 3
+        },
+        {
+            "CodPGPossivel": "904",
+            "DescricaoCPPossivel": "ORGAOS PUBLICOS 004 DIAS",
+            "PrazoCPPossivel": 4
+        },
+        {
+            "CodPGPossivel": "905",
+            "DescricaoCPPossivel": "ORGAOS PUBLICOS 005 DIAS",
+            "PrazoCPPossivel": 5
+        },
+        {
+            "CodPGPossivel": "906",
+            "DescricaoCPPossivel": "ORGAOS PUBLICOS 006 DIAS",
+            "PrazoCPPossivel": 6
+        },
+        {
+            "CodPGPossivel": "907",
+            "DescricaoCPPossivel": "ORGAOS PUBLICOS 007 DIAS",
+            "PrazoCPPossivel": 7
+        },
+        {
+            "CodPGPossivel": "908",
+            "DescricaoCPPossivel": "ORGAOS PUBLICOS 008 DIAS",
+            "PrazoCPPossivel": 8
+        },
+        {
+            "CodPGPossivel": "909",
+            "DescricaoCPPossivel": "ORGAOS PUBLICOS 009 DIAS",
+            "PrazoCPPossivel": 9
+        },
+        {
+            "CodPGPossivel": "910",
+            "DescricaoCPPossivel": "ORGAOS PUBLICOS 010 DIAS",
+            "PrazoCPPossivel": 10
+        },
+        {
+            "CodPGPossivel": "998",
+            "DescricaoCPPossivel": "10 DIAS BOLETO",
+            "PrazoCPPossivel": 10
+        },
+        {
+            "CodPGPossivel": "xxx",
+            "DescricaoCPPossivel": "TESTE XXX",
+            "PrazoCPPossivel": 4
+        },
+        {
+            "CodPGPossivel": "xxy",
+            "DescricaoCPPossivel": "TESTE XXY",
+            "PrazoCPPossivel": 1
+        }
+    ]
+}
+Retorno Sem Sucesso
+Será retornado um objeto JSON com o motivo da não inclusão (poderá ser um erro de autenticação caso o token tenha expirado ou seja inválido ou alguma regra de negócio não atendida. 
+O status da resposta sempre será diferente de 200.
+{"error":"Cliente... nao e valido","status":422}
+3. Clientes alterados
+Introdução
+Este webservice tem por finalidade retornar dados de clientes que sofreram alguma alteração a partir da data/hora informada.
+Para acessar este método, o usuário deverá ter a permissão de usuário conforme perfil 
+Permite visualizar Clientes. 
+Para mais informações, ver 
+SispetroApp (Usuários)
+ 
+Endereço
+<endereço do SispetroWeb>/entidade/clientes_alterados?data_hora_inicial=<data hora inicio alteracao>
+Parâmetros
+Será necessário enviar um header com o token. Como parâmetro enviar:
+Nome
+Descritivo
+Exemplo
+Observações
+data_hora_inicial
+Data e hora inicial (Formato: yyyy-mm-dd hh:mm) 
+“2023-10-23 13:37”
+Obrigatório
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+Content-Type
+tipo do formato de envio
+application/json
+Accept
+tipo do formato de envio
+application/json
+Método
+GET
+Exemplo de chamada de WebService
+curl -H "Content-Type: application/json" -H "Accept: application/json" -X GET -H 
+"Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAzLjk4MC43NTQvMDAwMy0wNSIsImRlcG9zaXRvX3BhZHJhbyI6IjEiLCJleHAiOjE3MjM2NjA2Mjl9.Jrx6JRm4i6C18MillNsbnSEnx47i4ae7rnF_vKmn86o" 
+http://localhost/entidade/clientes_alterados\?data_hora_inicial=2024-08-10%2012:00
+Retorno Bem Sucedido
+Serão retornados todos os dados relativos aos clientes alterados a partir da data/hora informada. 
+O status da resposta sempre será 200. 
+Layout de matriz (um para cada cliente modificado) em formato JSON. 
+Item
+Chave
+Conteudo
+1
+CodEnt
+Código da entidade alterada ou excluída
+2
+FlagOperacao
+I = inclusão, U = alteração ou E = exclusão
+3
+entidade
+mesmo layout de retorno de um cliente 
+https://futura.atlassian.net/wiki/spaces/ESP/pages/4691329025/API+para+Vendas#1.-Inclus%C3%A3o-Cliente
+Se o flagOperação for igual a 'E' (exclusão), não retorna a estrutura entidade. 
+Layout conforme retorno
+json
+
+        "CodEnt": 4,
+        "FlagOperacao": "U",
+        "entidade": {
+            "CodEnt": 4,
+            "NomeUsual": "1SERV. GUA SP",
+            "RzSocial": "SERV. GUARULHOS - SP",
+            "Endereco": "RUA GANGES",
+            "CEP": "0xxx5-150",
+            "Bairro": "JD. CAMPESTRE2",
+            "Municipio": "GUARULHOS",
+            "UF": "SP",
+            "CGC": "xx.xxx.191/0001-xx",
+            "Fone": "3434-xxxx",
+            "DtCad": "2002-09-30",
+            "LimCred": "0.0",
+            "Vendedor": "01",
+            "CodPg": "098",
+            "CodTpCobr": "BL",
+            "Bloqueado": 0,
+            "CdPrefEnt": null,
+            "CdPrefCob": null,
+            "OutrosFones": "",
+            "CdPrefFat": null,
+            "IE": "xxxxxxxx",
+            "CodigoDNC": "351.880-9",
+            "AtividadeEconomica": "P",
+            "dataAlteracaoCad": null,
+            "ConsumidorFinal": 1,
+            "valorpendente": "272534.01",
+            "valorCredito": "150000.0",
+            "SeqTipo": 1,
+            "SubstitutoTributario": 9,
+            "EMail": "suporte@futuranet.com.br",
+            "BloqueiaEntregaRetira": 0,
+            "DPMP_CodigoInstalacao": "1238",
+            "InscricaoMunicipal": null,
+            "Numero": "123",
+            "Complemento": null,
+            "CodPais": 1058,
+            "HorarioEntregaInicial": null,
+            "HorarioEntregaFinal": null,
+            "PermiteEntregaCarreta": 1,
+            "Latitude": null,
+            "Longitude": null,
+            "IDRegiaoVendas": 2,
+            "RestringeVendaDeposito": 1,
+            "IDDepositoConjunto": 1,
+            "enderecos": [
+                {
+                    "Seq": 1,
+                    "Endereco": "AV. TESTE ENTREGA ",
+                    "CEP": "xxx00-000",
+                    "Bairro": "ENTREGA ",
+                    "Municipio": "SALVADOR",
+                    "UF": "SP",
+                    "Fone": null,
+                    "documento": null,
+                    "Numero": "2",
+                    "Complemento": null,
+                    "CodigoDNC": "292.740-3",
+                    "CNPJ": "XX54XXX1000XX7",
+                    "RzSocial": "SERV. GUARULHOS - SP",
+                    "CodPais": null,
+                    "Latitude": null,
+                    "Longitude": null
+                },
+                {
+                    "Seq": 2,
+                    "Endereco": "RUA TESTE FAT. PERNAMBUCO",
+                    "CEP": "54590-000",
+                    "Bairro": "FAT. PERNAMBUCO",
+                    "Municipio": "CABO DE SANTO AGOSTINHO",
+                    "UF": "PE",
+                    "Fone": null,
+                    "documento": null,
+                    "Numero": "4",
+                    "Complemento": null,
+                    "CodigoDNC": "260.290-3",
+                    "CNPJ": "14546191000287",
+                    "RzSocial": "SERV. GUARULHOS - SP",
+                    "CodPais": null,
+                    "Latitude": null,
+                    "Longitude": null
+                },
+                {
+                    "Seq": 3,
+                    "Endereco": "AV. TESTE RIBEIRAO PRETO",
+                    "CEP": "14XXX-800",
+                    "Bairro": "ENTREGA RIB. PRETO",
+                    "Municipio": "RIBEIRAO PRETO",
+                    "UF": "SP",
+                    "Fone": null,
+                    "documento": null,
+                    "Numero": "45",
+                    "Complemento": null,
+                    "CodigoDNC": "354.340-4",
+                    "CNPJ": "XX54XX91000XX7",
+                    "RzSocial": "SERV. GUARULHOS - SP",
+                    "CodPais": null,
+                    "Latitude": null,
+                    "Longitude": null
+                }
+            ],
+            "galonagens": [],
+            "depositos": [
+                {
+                    "CodDep": "01",
+                    "Descricao": "DEPOSITO J"
+                },
+                {
+                    "CodDep": "03",
+                    "Descricao": "ITABUNA"
+                }
+            ],
+            "condicoes_pagto_possiveis": [
+                {
+                    "CodPGPossivel": "000",
+                    "PrazoCPPossivel": 0
+                },
+                {
+                    "CodPGPossivel": "001",
+                    "PrazoCPPossivel": 1
+                },
+                {
+                    "CodPGPossivel": "002",
+                    "PrazoCPPossivel": 2
+                },
+                {
+                    "CodPGPossivel": "003",
+                    "PrazoCPPossivel": 3
+                },
+                {
+                    "CodPGPossivel": "004",
+                    "PrazoCPPossivel": 4
+                },
+                {
+                    "CodPGPossivel": "005",
+                    "PrazoCPPossivel": 5
+                },
+                {
+                    "CodPGPossivel": "006",
+                    "PrazoCPPossivel": 6
+                },
+                {
+                    "CodPGPossivel": "007",
+                    "PrazoCPPossivel": 7
+                },
+                {
+                    "CodPGPossivel": "008",
+                    "PrazoCPPossivel": 8
+                },
+                {
+                    "CodPGPossivel": "009",
+                    "PrazoCPPossivel": 9
+                },
+                {
+                    "CodPGPossivel": "010",
+                    "PrazoCPPossivel": 10
+                },
+                {
+                    "CodPGPossivel": "011",
+                    "PrazoCPPossivel": 11
+                },
+                {
+                    "CodPGPossivel": "012",
+                    "PrazoCPPossivel": 12
+                },
+                {
+                    "CodPGPossivel": "013",
+                    "PrazoCPPossivel": 13
+                },
+                {
+                    "CodPGPossivel": "014",
+                    "PrazoCPPossivel": 14
+                },
+                {
+                    "CodPGPossivel": "015",
+                    "PrazoCPPossivel": 15
+                },
+                {
+                    "CodPGPossivel": "016",
+                    "PrazoCPPossivel": 16
+                },
+                {
+                    "CodPGPossivel": "017",
+                    "PrazoCPPossivel": 17
+                },
+                {
+                    "CodPGPossivel": "018",
+                    "PrazoCPPossivel": 18
+                },
+                {
+                    "CodPGPossivel": "019",
+                    "PrazoCPPossivel": 19
+                },
+                {
+                    "CodPGPossivel": "020",
+                    "PrazoCPPossivel": 20
+                },
+                {
+                    "CodPGPossivel": "021",
+                    "PrazoCPPossivel": 21
+                },
+                {
+                    "CodPGPossivel": "022",
+                    "PrazoCPPossivel": 22
+                },
+                {
+                    "CodPGPossivel": "023",
+                    "PrazoCPPossivel": 23
+                },
+                {
+                    "CodPGPossivel": "024",
+                    "PrazoCPPossivel": 24
+                },
+                {
+                    "CodPGPossivel": "025",
+                    "PrazoCPPossivel": 25
+                },
+                {
+                    "CodPGPossivel": "026",
+                    "PrazoCPPossivel": 26
+                },
+                {
+                    "CodPGPossivel": "027",
+                    "PrazoCPPossivel": 27
+                },
+                {
+                    "CodPGPossivel": "028",
+                    "PrazoCPPossivel": 28
+                },
+                {
+                    "CodPGPossivel": "029",
+                    "PrazoCPPossivel": 29
+                },
+                {
+                    "CodPGPossivel": "030",
+                    "PrazoCPPossivel": 30
+                },
+                {
+                    "CodPGPossivel": "031",
+                    "PrazoCPPossivel": 31
+                },
+                {
+                    "CodPGPossivel": "032",
+                    "PrazoCPPossivel": 32
+                },
+                {
+                    "CodPGPossivel": "033",
+                    "PrazoCPPossivel": 33
+                },
+                {
+                    "CodPGPossivel": "034",
+                    "PrazoCPPossivel": 34
+                },
+                {
+                    "CodPGPossivel": "035",
+                    "PrazoCPPossivel": 35
+                },
+                {
+                    "CodPGPossivel": "036",
+                    "PrazoCPPossivel": 36
+                },
+                {
+                    "CodPGPossivel": "037",
+                    "PrazoCPPossivel": 37
+                },
+                {
+                    "CodPGPossivel": "038",
+                    "PrazoCPPossivel": 38
+                },
+                {
+                    "CodPGPossivel": "039",
+                    "PrazoCPPossivel": 39
+                },
+                {
+                    "CodPGPossivel": "040",
+                    "PrazoCPPossivel": 40
+                },
+                {
+                    "CodPGPossivel": "045",
+                    "PrazoCPPossivel": 45
+                },
+                {
+                    "CodPGPossivel": "050",
+                    "PrazoCPPossivel": 50
+                },
+                {
+                    "CodPGPossivel": "055",
+                    "PrazoCPPossivel": 55
+                },
+                {
+                    "CodPGPossivel": "060",
+                    "PrazoCPPossivel": 60
+                },
+                {
+                    "CodPGPossivel": "065",
+                    "PrazoCPPossivel": 65
+                },
+                {
+                    "CodPGPossivel": "070",
+                    "PrazoCPPossivel": 70
+                },
+                {
+                    "CodPGPossivel": "075",
+                    "PrazoCPPossivel": 75
+                },
+                {
+                    "CodPGPossivel": "086",
+                    "PrazoCPPossivel": 30
+                },
+                {
+                    "CodPGPossivel": "087",
+                    "PrazoCPPossivel": 30
+                },
+                {
+                    "CodPGPossivel": "090",
+                    "PrazoCPPossivel": 90
+                },
+                {
+                    "CodPGPossivel": "091",
+                    "PrazoCPPossivel": 15
+                },
+                {
+                    "CodPGPossivel": "092",
+                    "PrazoCPPossivel": 15
+                },
+                {
+                    "CodPGPossivel": "093",
+                    "PrazoCPPossivel": 10
+                },
+                {
+                    "CodPGPossivel": "094",
+                    "PrazoCPPossivel": 10
+                },
+                {
+                    "CodPGPossivel": "095",
+                    "PrazoCPPossivel": 20
+                },
+                {
+                    "CodPGPossivel": "096",
+                    "PrazoCPPossivel": 11
+                },
+                {
+                    "CodPGPossivel": "097",
+                    "PrazoCPPossivel": 60
+                },
+                {
+                    "CodPGPossivel": "098",
+                    "PrazoCPPossivel": 150
+                },
+                {
+                    "CodPGPossivel": "120",
+                    "PrazoCPPossivel": 120
+                },
+                {
+                    "CodPGPossivel": "98",
+                    "PrazoCPPossivel": 15
+                },
+                {
+                    "CodPGPossivel": "99",
+                    "PrazoCPPossivel": 20
+                },
+                {
+                    "CodPGPossivel": "100",
+                    "PrazoCPPossivel": 12
+                },
+                {
+                    "CodPGPossivel": "121",
+                    "PrazoCPPossivel": 10
+                },
+                {
+                    "CodPGPossivel": "122",
+                    "PrazoCPPossivel": 10
+                },
+                {
+                    "CodPGPossivel": "089",
+                    "PrazoCPPossivel": 9
+                },
+                {
+                    "CodPGPossivel": "BB",
+                    "PrazoCPPossivel": 0
+                }
+            ],
+            "ValorAtrasado": "310636.92"
+        }
+    }
+Retorno Sem Sucesso
+Será retornado um objeto JSON com o motivo da não aceitação (poderá ser um erro de autenticação caso o token tenha expirado ou seja inválido ou alguma regra de negócio não atendida. 
+O status da resposta sempre será diferente de 200.
+{"error":"Cliente... e invalido","status":422}

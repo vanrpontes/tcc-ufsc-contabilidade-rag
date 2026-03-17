@@ -1,0 +1,94 @@
+TITULO: Contratos de Prestação de Serviços
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2902165845
+--------------------------------------------------
+Um contrato é um compromisso de prestação de serviços que será controlado através de eventos definidos para cada contrato. Assim, um contrato não serve para receber um produto, pois a evolução do contrato é controlada através de eventos que vão sendo cumpridos durante a vida do mesmo.
+O controle será pela estrutura de processo/etapa que já é usada para o controle dos processos de importação (normalmente processos similares ao de um contrato onde a vida do PMM é mais longa e devemos controlar diversas etapas dele).
+Temos um campo chamado peso, que é informado em cada processo do PMM de forma que podemos calcular o percentual de realização do contrato através da divisão da soma dos pesos dos processos concluídos com a soma dos pesos de todos os processos do PMM. Cada peso terá um valor padrão de 1 (que o usuário pode alterar para um valor maior ou igual a zero).
+ Este andamento é controlado na tela de 
+.
+Além disso, para dar mais segurança a todo o processo, controlamos o fluxo de pagamentos de forma que:
+Não é possível vincular mais títulos do que o valor total do PMM (sejam títulos oriundos de NF vinculado a PMM seja título vinculado manualmente ao PMM posteriormente).
+Não é possível baixar um título cujo PMM esteja suspenso.
+Podemos controlar o processo de alteração de quantidade/valor de um item do PMM a fim de adequá-lo a uma nova realidade posterior à sua aprovação.
+Incluindo Contratos de Prestação de Serviços
+Esses Contratos serão controlados através da inclusão de um 
+PMM
+, marcando uma opção específica para isso, vejamos à seguir os passos para inclusão:
+Acesse o menu {{Movimentação \ Movimentação de Material \ Pedido de Movimentação de Material \ Pedido de Movimentação de Material}.
+Preencha os campos necessários e marque a opção 
+Contrato de Prestação de Serviço
+.
+Avance até a próxima etapa, informe o item do PMM.
+Normalmente, o "produto" que será indicado no item do PMM deverá ser um produto genérico "PRESTAÇÃO DE SERVIÇOS" ou podemos até definir vários tipos de prestação de serviços como: informática, manutenção, etc.
+Na próxima etapa poderá detalhar Observações que forem necessárias sobre o contrato bem como anexar arquivos, para mais detalhes sobre anexos veja o tópico 
+.
+Em seguida, poderá vincular um Processo ao PMM:
+Clique no Botão 
+Incluir
+ que será apresentada a tela abaixo:
+Informe o Processo, veja detalhes no tópico 
+.
+Informe o peso do processo, veremos detalhes sobre o peso mais abaixo.
+Marque a opção 
+Concluído
+ caso o processo já tenha sido finalizado.
+Caso necessário escreva uma 
+Observação
+.
+Finalize para concluir.
+Gerenciando Contratos
+Os PMM´s de Contrato poderão ser visualizados na 
+ e também em 
+.
+Manutenção de Pedidos de Movimentação de Materiais
+Na Manutenção de PMM os campos que mostrarão informações sobre esse assunto são os em destaque na imagem abaixo:
+Utilize os Botões 
+Suspensão
+ e 
+Cancto Susp
+ como propriamente dito, Suspender e Cancelar a Suspensão de Pedidos para habilita-los utilize o 
+.
+Títulos de Contas a Pagar vinculados a Pedidos Suspensos não poderão ser baixados.
+Títulos gerados por PMMs de Contrato não poderão ser 
+Processados
+ via Pagamento de Fornecedores (PagFor).
+Para mais informações sobre o botão 
+Altera PMM
+ veja o tópico 
+ e 
+.
+Manutenção de Processos PMM
+Na Manutenção de Processos poderemos alterar, incluir, concluir, modificar os pesos de um PMM com contrato.
+Utilize o Botão 
+Editar
+ e altere as informações necessárias.
+Pesos
+Para cada processo será necessário indicar um peso, esse peso tem como objetivo controlar a prioridade ou a importância de cada processo dentro do contrato, e são utilizados para realizar o cálculo do % concluído do Processo.
+O calculo realizado é o seguinte:
+Vejamos um exemplo:
+Processo 1 - Peso 1
+ Processo 2 - Peso 4
+ Processo 3 - Peso 2
+ Processo 4 - Peso 3
+ Processo 5 - Peso 1
+Consideraremos que os Processos 3 e 4 já estão concluídos, teremos a seguinte situação:
+Total de Pesos = 11
+ Peso dos Processos concluídos = 5
+% concluído = (5 x 100)/11
+ % concluído = 45,45%
+Validação de Saldo Financeiro x Títulos Vinculados
+O Perfil 
+Verifica Saldo Financeiro do PMM x Títulos Vinculados
+ no perfil de Empresa aba Compras, caso esteja 
+Marcado
+, durante a inclusão de uma Nota Fiscal ou algum título de contas a pagar vinculado a um PMM, verificará a soma dos títulos vinculados e comparará com o valor do PMM aprovado. Sendo assim, caso o valor do PMM seja INFERIOR ao valor da soma dos títulos vinculados a ele NÃO será permitida a inclusão da NF ou título.
+Na mesma aba de Compras, temos o perfil 
+Percentual de Discrepância para PMM
+, que serve para armazenar a discrepância 
+financeira
+ permitida entre o valor aprovado do PMM e o valor de títulos vinculados ao PMM. Esse perfil atua em conjunto com o perfil acima para garantir ser possível vincular títulos ao PMM sem que o valor financeiro aprovado no PMM seja excedido.
+Exemplo:
+Valor do PMM = R$ 1000,00
+Discrepância definida no perfil = 10%
+Valor máximo para inclusão de NF ou Título vinculado ao PMM = R$ 1000,00 + 10% = R$ 1100,00
+Qualquer NF ou Título acima desse valor não será possível incluir.

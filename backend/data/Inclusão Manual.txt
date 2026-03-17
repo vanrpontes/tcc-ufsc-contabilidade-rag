@@ -1,0 +1,112 @@
+TITULO: Inclusão Manual
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210352
+--------------------------------------------------
+Para providenciar a inclusão manual de um bem, clique no botão 
+Inclui
+ da tela de Bens. Será apresentada a tela para digitação dos dados:
+O novo bem será do tipo de produto de acordo o produto que estava selecionado na tela de Manutenção de produtos. Não é possível alterar o produto, caso esteja incorreto, cancele a operação e selecione o produto correto antes de clicar no botão 
+Inclui
+.
+O 
+código do bem
+ é dado pelo sistema, sequencialmente.
+Informe os dados:
+Data de aquisição:
+ Informar. Caso tenha o bem tenha sido gerado através de nota fiscal, é preenchido com a data da nota.  
+A partir da versão 9.16 é possível alterar data de aquisição mesmo que tenha fechamento financeiro. Ver 
+Alteração de data de aquisição dentro de um período com fechamento financeiro
+.
+Docto aquisição:
+ Informar. Caso tenha o bem tenha sido gerado através de nota fiscal, é preenchido com o número da nota.
+Taxa Depreciação (% ao ano):
+ Taxa anual para depreciação do bem, conforme legislação.
+Vida útil (em meses):
+ Vida útil (em meses) do bem em decorrência da taxa anual de depreciação. Ex.: Se um bem tem uma taxa de depreciação de 20% ao ano, sua vida útil é de 5 anos, portanto 60 meses. O sistema já sugerirá os meses de acordo com a taxa informada.
+Valor original:
+ Valor de aquisição do bem, não permitindo inclusão de bens com valor zerado.
+Número ativo:
+ Informar caso tenha. Não é gerado pelo SISPETRO.
+Setor:
+ Setor da empresa onde o bem foi alocado. Utiliza a tabela 
+Setores
+.
+Local:
+ Local dentro do setor onde o bem foi alocado.
+Observações:
+ Qualquer informação que o usuário julgar importante.
+Suspende Depreciação:
+ Se marcado, o bem não será depreciado.
+Data Início Depreciação: 
+Data que será dado início a depreciação, caso não seja preenchida o SISPETRO usará a data de inclusão do bem.
+Data Término Depreciação:
+ Incluída automaticamente pelo SISPETRO de acordo com tempo de vida útil informado. Utilizado para consultas. Não permite alteração direta no campo.
+CC Depreciação Acumulada:
+ Conta contábil a ser utilizada no processo de depreciação do bem.
+CC Despesa Depreciação:
+ Conta contábil a ser utilizada no processo de depreciação do bem.
+CC Custo Alienação:
+ Conta contábil a ser utilizada no processo de alienação do bem, no momento da sua baixa.
+CC Receita Alienação:
+ Conta contábil a ser utilizada no processo de alienação do bem, no momento da sua venda.
+CC Imobilizado:
+ Conta contábil que indica a conta de ativo onde é registrada a aquisição do bem.
+CC ICMS a Recolher:
+ Conta contábil a ser utilizada no caso de ter débito.
+CC ICMS a Recuperar:
+ Conta contábil a ser utilizada no caso de ter crédito.
+CIAP
+Suspende CIAP:
+ Se marcado, o bem não participará do CIAP.
+Nº Meses CIAP:
+ Caso participe do CIAP, informar o número de meses. Normalmente são 48 meses a partir da data de aquisição.
+ICMS
+Início Apropriação ICMS Próprio:
+ data inicial da apropriação do ICMS Próprio. Pode ser alterada pelo usuário de acordo com suas necessidades. Não pode ser MENOR que a data de aquisição.
+Último CIAP ICMS Próprio:
+ Somente para consulta. Gerado automaticamente de acordo com o módulo de Patrimônio - CIAP.
+Alíquota ICMS:
+ Informar. Caso o bem tenha sido gerado através de nota fiscal, a alíquota será a que foi informada na nota.
+Base ICMS:
+ Informar. Caso o bem tenha sido gerado através de nota fiscal, a base será a que foi informada na nota.
+ICMS:
+ Valor do ICMS calculado de acordo com a base e alíquota informada. Se o bem foi gerado através de nota fiscal, o valor será o que foi informado na nota.
+ICMS Substituição
+Início Apropriação ICMS Subst.:
+ data inicial da apropriação do ICMS Substituição. Pode ser alterada pelo usuário de acordo com suas necessidades. Não pode ser MENOR que a data de aquisição.
+Último CIAP ICMS Subst.:
+ Somente para consulta. Gerado automaticamente de acordo com o módulo de Patrimônio - CIAP. 
+É de responsabilidade do usuário definir a partir de que data o CIAP do ICMS Diferencial de Alíquota deve ser calculado. Isso ocorre em função de diferentes Estados definirem a data de apropriação de forma diferente. Existem Estados que definem a data de apropriação como a data de aquisição do bem, outros Estados definem a data de apropriação o mês seguinte ao do mês de aquisição, ou seja, na data de pagamento do ICMS do diferencial de alíquota.
+ICMS Substituição:
+ Informar o valor do ICMS Substituição. Se o bem foi gerado através de nota fiscal, o valor será o que foi informado na nota.
+Diferencial de alíquota
+Início Apropriação Dif. Alíquota:
+ data inicial da apropriação do ICMS Diferencial de Alíquota. Pode ser alterada pelo usuário de acordo com suas necessidades. Não pode ser MENOR que a data de aquisição.  
+Último CIAP Dif. Alíquota:
+ Somente para consulta. Gerado automaticamente de acordo com o módulo de Patrimônio - CIAP. 
+ICMS Diferencial de Alíquota:
+ Informar o valor, mesmo que o bem tenha sido gerado através de nota fiscal.
+ICMS Frete:
+ Informar o valor, mesmo que o bem tenha sido gerado através de nota fiscal.
+SPED Contribuições
+Sai no SPED PIS/COFINS:
+ Caso participe do SPED PIS/COFINS, deve marcar esta opção. Na inclusão de um novo produto, por padrão, já vem marcada esta opção.
+Centro de Custo SPED:
+ Obrigatório informar para o SPED Fiscal - bem alocado na área Administrativa ou Operacional.
+Funcionalidade:
+ Obrigatório informar para o SPED Fiscal - descrever a função/utilização do bem.
+Origem Bem:
+ Por padrão é 1 (sequencial) que indica 0 - Aquisição no Mercado Interno. Utilizado para o SPED PIS/COFINS: registro F120.
+Tipo de Utilização: 
+ Por padrão é 4 (sequencial) que indica 9 - Outros. Utilizado para o SPED PIS/COFINS: registro F120.
+Tipo de Bem: 
+Pode ser classificado como Individual, Principal e componente.
+Individual: Podemos dizer que é aquele bem que ja foi comprado pronto, por exemplo uma mesa, cadeira
+Bem Principal: É o bem oriundo da composição de outros bens, sejam bens físicos ou não.
+Bem Componente: É o bem, ou conjunto de bens, que irá compor um bem principal. 
+Bem principal:  
+quando o tipo de bem for componente informar o código de qual bem principal este bem pertence. 
+Lembrando que para incluir um bem Componente é preciso ter cadastrado um bem Principal. Se atentar ao excluir um bem, pois este pode ser o bem Principal, o SisPetro irá avisar quando isso ocorrer, mas se mesmo assim o cancelamento foi efetivado, os outros bem Componentes irão virar órfãos. Para maiores informações sobre Bens, vide help 
+Bens Principais X Bens Componentes
+Nas próximas versões, visando facilitar e agilizar este processo, o SisPetro terá telas para inclusão de bens Principais a partir dos bens Componentes.
+Bens Principais X Bens Componentes
+ 

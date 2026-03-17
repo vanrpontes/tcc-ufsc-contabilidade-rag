@@ -1,0 +1,46 @@
+TITULO: Mudança de depósito no Pedido de Venda - Desmembramento de Pedido
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440055
+--------------------------------------------------
+Na inclusão de um Pedido de Venda é informado o depósito para cada item do pedido indicando de onde sairá a mercadoria. Normalmente o vendedor estima que o produto sai de um determinado depósito, mas às vezes pode acontecer do saldo deste depósito, no momento de se carregar o pedido, não comporta tal quantidade e o mesmo deve ser carregado em outro local.
+Portanto, existe um procedimento no Sistema que permite que um pedido com vários itens, todos num mesmo depósito, possa ser desmembrado em vários pedidos, cada um para o seu depósito, esse procedimento chamamos de 
+Desmembramento de Pedido
+.
+Após incluir o Pedido de Venda com mais de um item, vide maiores detalhes no tópico 
+Como fazer um Pedido de Venda
+, acesse a partir do menu 
+Movimentação / Vendas / a tela Desmembramento de Pedido (ou pela tela de 
+Consulta de Pedidos Pendentes
+):
+Informe a empresa e o número do Pedido que deseja fazer o desmembramento e depois aperte <enter> para que os dados do pedido apareçam.
+O 
+motivo de cancelamento
+ padrão é configurado no perfil do sistema, menu 
+Ferramentas / Sistema / painel Vendas
+, opção:
+Para que o usuário possa alterar o motivo de cancelamento na tela de desmembramento de pedido, é necessário configurar no perfil do usuário, menu 
+Ferramentas / Usuarios / painel Vendas
+, a opção:
+Informações importantes para realizar o Desmembramento:
+O pedido deve ser do tipo Venda;
+Pedidos já aprovados poderão ser desmembrados;
+O pedido não pode estar cancelado;
+Só poderão ser desmembrados pedidos que ainda não tiveram Ordem de Carregamento e Nota Fiscal emitidas;
+Pedidos com carga já atribuída também não poderão ser desmembrados.
+Informe o 
+Novo Depósito
+ para cada item do pedido. Só é permitido a alteração do código do Novo Depósito.
+O sistema valida se o Novo Depósito informado permite venda, se está inativo, se controla empresa e também faz a verificação de saldo do produto. Estas validações são configuradas no cadastro do Depósito, vide tópico 
+Tabela Depósitos
+.
+Após a alteração, aperte 
+Ok
+ para confirmar.
+O Sistema cancela o pedido original e inclui, automaticamente, um pedido para cada depósito.
+Por exemplo, no nosso caso acima o número do pedido original é 18799. Para cada item desse pedido foi informado um depósito novo. Após dar Ok o sistema mostra a seguinte mensagem:
+Isso indica que o pedido original 18799 foi cancelado e automaticamente foi incluído o pedido 18801.
+Para pedidos gerados com pagamento via 
+PIX QRCode
+, não é possivel realizar o desmembramento de pedido, gerando a mensagem abaixo:
+Através da tela Manutenção de Pedidos é possível consultar o pedido cancelado e os novos pedidos. Vide tópico 
+Manutenção de Pedidos de Venda
+.

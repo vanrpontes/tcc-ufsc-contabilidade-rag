@@ -1,0 +1,36 @@
+TITULO: Servidor Sispetro e Proteções do Windows
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2922971881
+--------------------------------------------------
+Algumas das proteções do Windows interferem indevidamente na execução do Servidor SisPetro.
+A própria Microsoft disponibilizou uma configuração para que isso não aconteça mais. Siga o roteiro abaixo para aplicar essa configuração ao Servidor SisPetro.
+Clique com o botão direito em 
+Computador
+ e depois em 
+Propriedades
+;
+Escolha 
+Configurações Avançadas do Sistema
+;
+Selecione a aba 
+Avançado, 
+quadro
+ Desempenho
+ e clique em 
+Configurações
+;
+Selecione a aba 
+Prevenção de Execução de Dados
+;
+Selecione a opção 
+Ativar a DEP para todos os programas e serviços, exceto os que eu selecionar
+;
+Clique no botão 
+Adicionar
+ e selecione o executável do Servidor SisPetro. Se tiver mais de um Servidor SisPetro ativo, selecione todos;
+Clique em 
+Aplicar
+ e depois em 
+OK
+. 
+Para mais informações, veja o blog oficial da Microsoft em 
+https://social.technet.microsoft.com/Forums/pt-BR/72d21e3e-8080-4f6a-a513-a124dbc0da78/erros-appcrash-diariamente-windows-7?forum=winvistapt

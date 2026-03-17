@@ -1,0 +1,17 @@
+TITULO: Automática
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899755
+--------------------------------------------------
+Em 2008 o Estado de São Paulo aboliu o envio de CODIF para distribuidoras devido a implementação da NF-e. A partir da versão 8.11 toda a estrutura do CODIF foi removida.
+ 
+Temos, a seguir, as configurações exclusivas para integração do CODIF de forma 
+automática
+:
+Na configuração da empresa, no painel Nota Fiscal, devemos habilitar a integração automática do SisPetro ao CODIF e informar o usuário, senha e os endereços eletrônicos para acesso ao serviço, como na figura abaixo:
+É possível configurar quando o Sispetro fará o registro da nota fiscal após a sua impressão, e para isso existem três possibilidades:
+1) Na figura acima o intervalo de tempo se refere ao período que o Sispetro aguardará para o registro da nota após a sua impressão (o período mínimo é de 3600 segundos, ou seja, 1 hora). Essa opção tem por objetivo, permitir que problemas com a impressão de uma nota sejam resolvidos neste intervalo de tempo ou que a nota seja cancelada dentro do Sispetro e sua autorização possa ser utilizada para outra nota com os mesmos dados de cliente, produto, quantidade e data, sem que haja a necessidade do cancelamento da nota junto ao CODIF.
+2) Habilitando a opção para o registro manual na tela de manutenção de autorizações, fica sob responsabilidade do usuário o registro das nota impressas no site do CODIF na tela de manutenção de autorizações. Nesse caso, apesar de ser exigida uma operação manual, o usuário tem pleno controle de quando as notas vão ser registradas e ele pode então decidir se as notas serão registradas apenas no final do dia quando já estiver tudo conferido ou em intervalos aleatórios quando o usuário achar conveniente. Lembrando que essa operação se resume a alguns cliques. Veja os detalhes em 
+.
+3) Com a configuração para registro após um determinado horário, o usuário define em que momento o registro da notas emitidas vai ser feito, por exemplo, informar como hora para registro o final do expediente. Para essa opção é necessária atenção especial já que o horário definido pode ser fora do expediente e se por algum motivo, por exemplo, falta de energia, o sistema não vier a fazer os registros, essa operação então só será realizada no horário marcado no próximo dia em que o sistema esteja em funcionamento, o que poderia levar até três dias caso isso aconteça numa sexta feira e não haja expediente no fim de semana e só após o registro das notas já autorizadas em um dia anterior é possível solicitar mais autorizações.
+Para evitar, em qualquer das situações, que a nota não seja registrada, basta bloquear o registro desta nota, via Manutenção de Notas Fiscais, conforme tópico 
+Dados CODIF
+.

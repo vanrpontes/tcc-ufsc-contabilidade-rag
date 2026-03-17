@@ -1,0 +1,57 @@
+TITULO: Consulta On-Line Clientes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210682
+--------------------------------------------------
+A Consulta On-Line de Clientes é acessada no Cadastro de Clientes, painel Navegação, botão ,
+, apresentando a seguinte tela:
+Para verificar se o Estado esta configurado para realizar a consulta Sintegra o usuário deve consultar na 
+Tabela UF´s- Menu Tabelas Auxiliares \ Faturamento \ UF´s \ Aba Detalhes
+ e verificar se o campo 
+Permite Consulta On-Line Sintegra
+ esta marcado.
+Atualmente, temos as seguintes consultas disponíveis:
+Sintegra
+ANP
+A partir da versão 8.37, as DLL 
+SispetroANP.dll
+ e 
+SispetroSintegra.dll
+ não são mais necessárias para executar as Consultas. O processo é feito internamente no Servidor SisPetro.
+ 
+É necessário que a máquina que esteja executando o SisPetro tenha acesso à Internet. Ou seja, é como se fôssemos num navegador (Internet Explorer ou FireFox) e só digitássemos o endereço do site, sem ter que digitar senhas de permissão. Caso isso seja possível na máquina, o SisPetro poderá fazer a consulta (de acordo com as demais regras citadas mais abaixo).
+Lembre-se: A máquina tem que ter acesso à Internet, independente do executável estar ou não no Servidor.
+A performance da consulta dependerá do link de Internet da máquina, bem como da velocidade de resposta do site. Caso fique em dúvida se o problema é o SisPetro, tente fazer a consulta de forma manual, indo diretamente no site. Se no navegador for também devagar, o problema é o site!
+É possível Bloquear o Cliente com um determinado Status perante a ANP, para isso, devem ser configuradas as opções de Consulta On-Line ANP em 
+, 
+Painel Segurança (Usuários)
+. Para maiores informações acesse 
+Consulta On-Line ANP
+.
+Nestes casos, o cliente ficará com a opção 
+Vendas Bloqueadas
+ marcada em seu cadastro (vide 
+Padrão para Vendas (Clientes)
+), com o motivo:
+ 9    - Caso esteja desabilitado no Sintegra e/ou
+ 10  - Caso esteja desabilitado na ANP
+Além de permitir bloquear o cliente, é possível atualizar um documento no cliente, com a data que a consulta foi feita. No painel 
+ será possível visualizar essa data, porém para isso é necessário configurar no perfil do sistema (Ferramentas / Sistema / Clientes) qual o 
+documento
+ que deve ser utilizado para cada tipo de consulta:
+Essa opção de ter um documento 
+não é obrigatória
+. Utilize o botão 
+ caso não queira mais atualizar um documento para a consulta. 
+A partir da versão 8.20, os dados da consulta também serão salvos na aba Consulta ANP no Cadastro de Clientes. Maiores informações em 
+.
+ 
+O usuário deve ter permissão para fazer este tipo de Consulta (Ferramentas / Usuário / Segurança / 
+"Pode fazer consulta on-line"
+).
+Veja detalhes de cada consulta nos tópicos:
+Caso a Consulta apresente erro ou não mostre as informações na tela pode estar acontecendo algum dos problemas abaixo:
+o site está fora do ar: isso pode ser verificado tentando acessar o site de forma manual pelo seu navegador.
+o site mudou de endereço: só o Suporte Técnico poderá afirmar isso.
+A Internet não está conectada: isso pode ser verificado com outras operações do seu dia-a-dia que dependam da Internet.
+A dll não está carregada: faça o download da dll no ftp da futura e coloque no diretório do Servidor Sispetro.
+O site não foi desenvolvido: é o caso de algumas UF do Sintegra
+Os dados do cliente não estão corretos: é o caso de CNPJ incorretos ou de clientes que não são postos, mas foram consultados na ANP.

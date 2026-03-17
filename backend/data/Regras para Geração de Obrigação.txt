@@ -1,0 +1,43 @@
+TITULO: Regras para Geração de Obrigação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440360
+--------------------------------------------------
+Na inclusão de uma Nota Fiscal de Outras Entradas ou de Outras Saídas algumas regras devem ser consideradas para a geração de obrigação no Contas Pagar ou Receber: 
+
+
+
+
+Se a 
+Natureza de Operação
+ utilizada para a inclusão da Nota Fiscal de Outras Entradas estiver com a opção 
+"Gera Contas Pagar/Receber"
+ marcada e o código da entidade informado é um cliente a obrigação no Contas a Pagar não será gerada. E vice-versa para o caso de Notas Fiscais de Outras Saídas, se informar no código da entidade um fornecedor para Notas Fiscais de Outras Saídas utilizando uma natureza de operação com a opção acima marcada, a obrigação no Contas a Receber também não será gerada.
+
+
+Importante: Para gerar obrigação no Contas Pagar/Receber a entidade deve ser compatível com o tipo da Nota Fiscal a ser incluída. Cliente -> Outras Saídas e Fornecedores -> Outras Entradas.
+
+
+
+
+ No perfil do sistema, menu Ferramentas / Sistema / painel Financeiro existe a opção de emitir um aviso quando utilizar de forma incompatível a entidade com uma natureza de operação para gerar obrigação, como também existe a possibilidade de travar essa operação. A opção é "Travamento de Entidade no Contas Pagar/Receber" com a possibilidade de selecionar:  
+
+
+ 
+
+
+ Avisa da incompatilidade e em seguida que a Natureza de Operação não gerará obrigação mesmo com a opção "Gera Contas Pagar/Receber" marcada.  
+
+
+ 
+
+
+ Avisa da incompatilidade e não permite concluir a operação, solicitando a correção através de mensagem.  
+
+
+
+
+No caso de utilizar Natureza de Operação que tenha a opção acima desmarcada, ou seja, não gera obrigação no Contas Pagar ou Receber, e informar, por exemplo, no código de entidade um cliente para Notas Fiscais de Outras Entradas, não haverá restrição para a inclusão da nota, mas também não será gerado a obrigação no Contas a Receber. E vice-versa para o caso das Notas Fiscais de Outras Saídas.
+
+
+
+
+Um exemplo para Notas Fiscais de Outras Saídas utilizando o código de um fornecedor sem gerar obrigação é o caso da emissão de Nota Fiscal de Remessa de Armazenagem (Saída). A entidade será um fornecedor, por exemplo uma Usina, e não será necessário gerar a obrigação no Contas a Receber.

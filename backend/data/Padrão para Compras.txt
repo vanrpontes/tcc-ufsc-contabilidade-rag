@@ -1,0 +1,165 @@
+TITULO: Padrão para Compras
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210941
+--------------------------------------------------
+none
+Objetivo 
+O painel 
+Padrão para Compras
+ permite configurar e conferir dados utilizados nas compras do fornecedor, como condições de pagamento, contas contábeis, moeda e limite de crédito, que devem ser revisados pelo usuário. A alteração de contas contábeis é restrita a perfis específicos, mas não recomendada, pois o sistema já sugere contas automaticamente. Também é possível bloquear compras, cadastrar dados bancários, definir regras de adiantamento e configurar endereços preferenciais para faturamento, cobrança e entrega. O cadastro contempla ainda tipo de fornecedor, chaves PIX (principal e adicionais) e regras para o módulo CIOT, incluindo data base, tipo de pagamento e cartões vinculados. Alterações ou exclusões de cartões só são permitidas se eles não tiverem sido utilizados em cargas.
+Aba Detalhe
+A partir do painel 
+Detalhes
+ é possível acionar o painel Padrão para Compras localizado no menu inferior da tela.
+O Sistema ativa a tela para preenchimento / conferência das características de compras acordadas com o Fornecedor.
+Note que o SisPetro atribui aos campos citados abaixo, valores definidos como padrão:
+Condições de pagamento
+Conta Contábil
+Conta Contábil Despesa
+Moeda
+Limite de Crédito: este campo será exibido em: Relatório de Extrato de Fornecedores, Relatório de Posição do Contas a Pagar, Relatório de Contas a Pagar e Consulta Contas a Pagar Pendente.
+O usuário deve certificar-se de que estes dados são adequados ao novo Fornecedor.
+Os campos referentes a contas (
+Conta Contábil
+, 
+Conta Contábil Real
+, 
+Conta Contábil Adiantamento
+ e 
+Conta Contábil Auxiliar
+) só poderão ser alterados se o perfil de Usuário (no painel Segurança) mostrado abaixo estiver marcado:
+No entanto, 
+NÃO RECOMENDAMOS QUE OS USUÁRIOS TENHAM ESSE PERFIL MARCADO
+, pois as contas contábeis, quando devidamente configuradas, são sugeridas e/ou criadas corretamente pelo sistema, não necessitando da intervenção do usuário.
+No caso da 
+conta contábil
+, caso o usuário deseje alterar, só será permitido escolher uma conta gerencial cujo código de complemento seja igual ao código da entidade. Lembre-se que só o sistema gera contas com código de complemento preenchido, no caso de contas incluídas manualmente o código de complemento sempre será 0.
+No caso da 
+Conta Contábil Real
+, verifique as regras conforme o tópico 
+Conta Real de Fornecedor
+.
+Compras Bloqueadas
+: Caso se necessite, poderemos bloquear as compras e recebimentos de determinado fornecedor habilitando este campo. Assim, nenhum usuário conseguirá, a partir do momento da habilitação deste campo, incluir pedido de compra ou nota fiscal para este fornecedor.
+Caso a empresa trabalhe com a Contabilidade Real e o fornecedor não tenha conta real vinculada a ele (vide tópico 
+Conta Real de Fornecedor
+), o usuário não poderá desbloquear o fornecedor até que uma conta real seja designada para ele.
+Pagamento em conta corrente
+Dados para pagamento em Conta Corrente: 
+Cadastro de dados bancários para o Fornecedor, é possível cadastrar mais de uma conta através do botão 
+Demais Contas.
+Somente usuários com o perfil 
+'
+Pode Alterar Dados Bancários de Fornecedores
+'
+ habilitado podem realizar alterações nos dados bancários. 
+O campo 
+CNPJ de Pagamento
+ (utilizado no pagamento eletrônico) é utilizado para atender as empresas que necessitam enviar um CNPJ diferente do cadastrado no fornecedor. Essa situação ocorre quando a rede de empresas é muito grande, e seu pagamento é centralizado na conta da Matriz. Caso utilize uma conta cadastrada via botão Demais Contas, o CNPJ utilizado no pagamento será o CNPJ informado na Conta selecionada.
+Controla Qtde no Adto
+: Caso a empresa optar por controlar adiantamento quantificado de fornecedor, poderá ser configurado, por fornecedor, se 
+Nunca
+ controla, se o 
+Usuário
+ escolhe se informa ou não, ou entao, se 
+Sempre
+ controla obrigando informar.
+Endereço Carregto no PMM: 
+Utilizado na emissão do PMM quando o endereço de carregamento é diferente do endereço do fornecedor do PMM.
+Escolhe somente entre os cadastrados (padrão): 
+se for selecionado, os endereços devem estar cadastrados na aba Outros Endereços e informados no quadro Endereço Preferencial
+Endereço deve ser o endereço principal do fornecedor:
+ se for selecionado, será usado o endereço cadastrado na aba Dados Gerais
+Pode digitar um avulso: 
+se for selecionado, na inclusão do PMM o usuário pode informar um endereço diferente dos endereços cadastrados.
+Para mais informações, ver help 
+Corretora no PMM
+.
+Endereço preferencial
+: Por meio desta pré-configuração o sistema poderá fazer uso automático de outros endereços que o fornecedor possua, no processo da digitação de faturamento. Por exemplo, supondo que o fornecedor possua um endereço de faturamento em Paulínia, de cobrança em São Paulo e de entrega em Limeira, e no cadastro de "Outros Endereços" já foram cadastrados. Não teria cabimento que toda vez que o usuário realiza-se um faturamento, tivesse que ficar digitando todas essas informações novamente. Para que isso não ocorra, bastaria somente selecionar no campo "Entrega", o endereço de entrega previamente cadastrado, no campo "Cobrança", o endereço de cobrança e no campo "Faturamento", o endereço de faturamento previamente cadastrado, assim o de forma automática, o sistema trará esses campos no faturamento, agilizando e diminuindo uma possível falha de digitação.
+Tipo de Fornecedor:
+ Esse campo define o 
+tipo de entidade
+ a ser utilizado no fornecedor, essa opção é muito utilizado para classificar os Fornecedores. Ao incluir um novo Fornecedor, o Sispetro pega como padrão o tipo de Entidade informado no 
+Perfil de Sistema
+ 
+Tipo de Fornecedor Padrão.
+Quadro PIX
+A parti da versão 10.17, começa a ser disponibilizado no Sispetro a integração com a modalidade de pagamento PIX.
+Com a nova modalidade de pagamento 
+PIX, 
+no cadastro de fornecedor foram adicionado campos para os cadastros das chaves de pagamento. Na tela padrão para compras, no quadro PIX encontra-se os campos de cadastro da principal chave de pagamento do Fornecedor, e ao lado o botão para cadastro das demais chaves de pagamento.
+Quando selecionado uma das opções em 
+Tipo Chave, 
+no campo que segue ao lado, recebera a mascara com a formação do tipo de chave a ser cadastrado, ou seja, cada campo terá sua formação, conforme regar abaixo:
+Tipo Chave:
+Telefone: 
+O número de telefone inicia com "+", seguido do código do País, DDD, e número de celular com nove dígitos.
+E-mail: 
+O e-mail só pode ter até 77 caracteres, conforme regra BACEN.
+CNPJ: 
+A chave de CNPJ é composto pelos 14 dígitos do CNPJ. 
+Aleatório: 
+A chave aleatória deve ter até 36 caracteres.
+Chave PIX :
+Conforme informado anteriormente, no quadro do PIX, contem os campos de indicação da principal chave PIX do fornecedor, a ao lado o botão 
+Chave PIX 
+, 
+na qual abrira a tela de cadastro das demais chaves PIX do fornecedor.
+#ID: 
+Identificador de registro gerado pelo Sispetro.
+Tipo Chave: 
+indica o tipo de chave PIX registrado.
+Chave: 
+chave PIX cadastrado do fornecedor.
+Ativa: 
+indica se a chave PIX do fornecedor está ativo ou inativo para uso.
+Usuário: 
+informa o usuário que cadastrou a chave PIX.
+Data Inclusão: 
+data de inclusão da chave PIX.
+Quadro CIOT
+Data Base para Pagamento
+Através do campo de Data Base para pagamento iremos definir qual a data a ser tomada como base para gerar o pagamento do CIOT. A data do Pagamento será gerada com base na opção selecionada no campo de Data Base para Pagamento mais a 
+condição de Pagamento
+ informada no cadastro de Fornecedor.
+Respeita perfil empresa:
+ Selecionando essa opção, o Sispetro irá respeitar a configuração informada no 
+perfil de Sistema
+. 
+Data de embarque:
+ Selecionando essa opção, o Sispetro irá tomar como base a data de embarque informado na carga. 
+Data de Entrega:
+ Selecionando essa opção, o Sispetro irá tomar como base a data de entrega informado na carga. 
+Caso o Fornecedor esteja vinculado a uma transportadora que emite CIOT, a condição de pagamento informada deve conter somente 1 parcela, caso contrário o Sispetro irá validar e não permitirá a inclusão ou alteração da carga.
+Tipo de Pagamento
+Cartão: Selecionada 
+essa opção ao incluir a carga, a opção de pagamento virá como padrão a forma de pagamento 'Cartão', podendo ser alterado pelo usuário caso o mesmo tenha as devidas 
+permissões de usuário
+.
+Depósito em conta: 
+Selecionada essa opção ao incluir a carga, a opção de pagamento virá como padrão a forma de pagamento 'Depósito em conta', podendo ser alterado pelo usuário caso o mesmo tenha as devidas 
+permissões de usuário
+.
+Cartões
+No quadro de cartões realizamos a inclusão e manutenção dos cartões utilizados para pagamento do CIOT. 
+Para incluir um cartão basta acionar o botão 
+Inclui
+ que será aberto a tela de Inclusão abaixo:
+Gerenciadora de Pedágio:
+ Nesse campo informamos para qual gerenciadora de pedágio que iremos cadastrar o cartão.
+Nº Cartão:
+ Nesse campo incluímos o número do cartão. 
+Validade:
+ Nesse campo informamos a data de validade do cartão.
+CNPJ/CPF Responsável:
+ Nesse campo será informado o CNPJ do Fornecedor.
+Quadro Tem Cartão Anterior?
+  Nº Cartão: 
+Nesse campo será visualizado o número do cartão anterior que o usuário deseja realizar a alteração. No caso da primeira inclusão o campo virá em branco.
+  Motivo da Substituição: 
+Nesse campo iremos informar o motivo da substituição do cartão.
+Regras para alteração e exclusão de cartão:
+Só é possível alterar um cartão que não tenha sido utilizado ainda em uma carga, ou seja, que 
+NÃO
+ esteja com o status igual a Processado OK.
+Só é possível excluir um cartão caso o mesmo seja o cartão ativo e não tenha sido utilizado em uma carga.

@@ -1,0 +1,97 @@
+TITULO: Pedidos de Movimentação de Material Pendentes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701713
+--------------------------------------------------
+none
+Objetivo
+A finalidade e o funcionamento da tela de gerenciamento de Pedidos de Movimentação de Material (PMM), detalhando como consultar, aprovar, alterar, emitir ordens e acompanhar pendências de pedidos, conforme as permissões e perfis de usuário configurados no sistema.
+Essa tela tem como funcionalidade principal gerenciar todos os PMM que contenham algum tipo de pendência, seja de aprovação, pedidos que precisam emitir Ordem de Carregamento ou pedidos que ainda não foram emitidas notas de recebimento ou de saída. Por ser de fácil manuseio, permite ao usuário ter a visualizar os pedidos de compra e liberá-los conforme a necessidade.
+Após a inclusão dos pedidos é possível consultá-los a partir do menu 
+Consultas / Pedidos de Movimentação de Material Pendentes.
+Existem regras na 
+Configuração no Perfil do Usuário
+ que influenciam na visualização/consulta dos Pedidos Pendentes.
+Os Pedidos Pendentes serão mostrados na tela de acordo com o perfil de Grupo de Usuários utilizado. Para mais informações, ver 
+Visualização de Movimentação por Grupo de Usuários
+.
+Na parte superior da tela são mostrados todos os pedidos que ainda estão 
+pendentes
+ por algum motivo já exemplificados acima.
+Ao clicar na lista dos pedidos, apresentados nesta tela, pressionando a tecla 
+Ctrl
+ o botão 
+ permite que seja salvo todas as seleções facilitando para demais ações, como aprovação, cancelamento ou Emissão de OC. O sistema demonstra a quantidade de 
+Itens Selecionados
+ e os salvos através do botão, se as seleções  tiverem de ser desfeitas pode se clicar no botão 
+ e refazer o processo se necessário.
+O botão 
+ pode ser utilizado para acrescer a quantidade original do PMM a ser carregada. Para mais informações, ver 
+Saldo excedente para PMM
+.
+O botão 
+ é possível incluir adiantamentos para os PMM sem ter que sair da tela.
+Botões
+No botão 
+ o usuário poderá acessar a tela de cadastro do pedido para visualizá-los ou alterá-los.
+As observações inseridas na inclusão do PMM, são carregadas através da parte inferior da tela e podem ser alteradas clicando no botão 
+. O botão é controlado pelo perfil de usuário 
+Pode editar observações do PMM
+. Para mais informações, ver 
+Painel Compras (Usuário)
+. O usuário com permissão poderá alterar as observações do PMM, mesmo depois de aprovado.
+Caso o Pedido esteja Pendente para aprovação, é possível libera-lo clicando no botão 
+. O usuário deverá ter permissão no perfil 
+Aprova Pedidos de Movimentação de Material?
+ habilitado. Para mais informações, ver 
+Painel Compras (Usuários)
+.
+Clique no botão 
+ para que seja emitido a Ordem de Carregamento de acordo com o tipo de recebimento que originou esse pedido deve-se seguir a seguinte regra:
+Pedido de Movimentação de Material com Tipo de Recebimento Via transferência entre Depósitos só serão emitidas 
+OC de Transferências entre Depósitos
+.
+Pedido de Movimentação de Material com Tipo de Recebimento Via transferência entre filiais só serão emitidas 
+OC de Transferência entre Filiais
+.
+Para os Pedidos Pendentes que faltam fazer o Recebimento, clique no botão 
+. Para mais informações, ver 
+Recebimento Material
+.
+Clique no botão 
+ para faturar Pedidos de Movimentação de Material com tipo de Recebimento Via transferência entre filiais.
+Para desalocar o PMM, selecionado, clique no botão 
+Para identificar o significado de cada cor, clique no botão 
+ para consultar. As cores indicam a situação do pedido, por exemplo a cor roxa significa que o pedido está pendente para recebimento e a cor verde que o pedido está pendente para emissão de OC.
+O botão 
+ serve para levar o usuário a tela de 
+Manutenção do Pedido
+.
+Para que sejam renovados os dados desta tela basta clicar em 
+.
+Abas
+Itens do Pedido: 
+permite visualizar os itens do pedido selecionado.
+Arquivos Anexados: 
+permite visualizar os arquivos anexados ao pedido selecionado.
+Aprovações por Alçada: 
+a aba de Aprovação por Alçada permite ao usuário realizar uma analise com relação as aprovações por alçadas do pedido selecionado. Ao selecionar a aba Aprovação por Alçada o usuário teremos acesso as sub abas 
+Necessárias, Realizadas 
+e
+ Faltantes.
+ Para mais informações, ver 
+Aprovação por Alçada
+Necessárias:
+ Apresenta as aprovações Necessárias.
+Realizadas:
+ Apresenta as aprovações que já foram realizadas.
+Faltantes:
+ Apresenta as aprovações faltantes para o pedido.
+Aprovações/Valor: 
+a aba de Aprovações/Valor apresenta as aprovações Simples do Pedido caso o mesmo esteja configurado para trabalhar com tal aprovação. Para mais informações, ver 
+Aprovação Simples
+Observações: 
+através da aba Observações podemos visualizar as observações que foram realizadas para os pedidos selecionados, pode ser realizado também a inclusão de novas Observações ou exclusão das mesmas. Para mais informações, ver 
+Inclusão de Observações no PMM
+Histórico por Fornecedor: 
+através da aba Histórico por Fornecedor é possível ver todos os PMM de todas as filiais para um determinado Fornecedor filtrando por um determinado período. Desta forma quem for realizar a aprovação deste PMM poderá consultar esse histórico e assim ter mais segurança para realizar essa aprovação. Os perfis de 
+Compras
+ do quadro Regra para visualização de pedidos pendentes (PMM)

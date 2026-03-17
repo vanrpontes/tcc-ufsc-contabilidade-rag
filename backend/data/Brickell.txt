@@ -1,0 +1,46 @@
+TITULO: Brickell
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2902163864
+--------------------------------------------------
+Dados Gerais
+O Banco Brickell (92) trabalha em conjunto com o Banco Bradesco (237). Assim, a empresa que tem conta no Banco Brickell, pode adquirir o produto "Cobrança Eletrônica", dando a possíbilidade para a empresa que for efetuar o pagamento deste boleto, pagar no Banco Bradesco, conforme for configurado o Tipo de Cobrança.
+ Para atender a essa necessidade, usaremos a configuração de 
+Banco Correspondente do SisPetro.
+Painel Cobrança Eletrônica
+Tipo:
+ informar a espécie de título:
+ 01=Duplicata
+ 02=Nota Promissória
+ 03=Cheque
+ 04=Letra de Câmbio
+ 05=Recibo
+ 08=Apólice de Seguro
+ 12=Duplicata de Serviço
+ 99=Outros
+Número do convênio
+: Indicar os 6 dígitos informados pelo banco.
+Banco Brickell pede o código da empresa, fornecido por ele mesmo, normalmente código da empresa, agência cedente e número da operação, usaremos a 
+transformações arquivo de cobrança
+agência
+ do banco tem 4 dígitos.
+carteira
+ deve ser com 1 dígito.
+Se desejar pode utilizar a opção Pode indicar sacador/avalista, se marcá-la deverá então informar o CNPJ do sacador/Avalista e a razão social.
+O campo Informação de juros no Arquivo Remessa deve estar configurado como Sem Informação ou Informa valor diário calculado pela taxa diária que são as formas aceitas pelo Banco
+Painel Banco Correspondente
+ Como o banco Brickell irá trabalhar em conjunto com o banco Bradesco (237), será necessário:
+habilitar o campo 
+Utiliza banco correspondente
+Indicar que, este banco, é o Bradesco (237)
+Número do convênio, conta e dígito
+Número do banco,agência, dígito e número do convênio.
+Transformações Arquivo de Cobrança
+ Para o banco Brickell é necessário que no arquivo de remessa e retorno conste o 
+Código da Empresa
+ , que é fornecido pelo próprio. Para informar este código usaremos a transformação, ou seja, vamos informar que, por exemplo, da posição 1 à posição 6 é para enviar a palavra PEDRO, assim ficará fixo em todos os arquivos deste banco.
+ É necessário informar tanto no arquivo de remessa quanto de retorno, no 
+Cabeçalho Arquivo
+ e 
+Detalhe segmento P
+Linha Digitável
+ Como se trata de um correspondente do banco Bradesco, sua linha digitável ficará igual, vide o help 
+Linha digitável banco bradesco

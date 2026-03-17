@@ -1,0 +1,162 @@
+TITULO: Biometria FACIAL dos Motoristas na Portaria de Entrada
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926189620
+--------------------------------------------------
+Objetivo
+O controle de base está cada vez mais se especializando para garantir que os carregamentos e descargas sejam feitos com motoristas e veículos aptos. Um novo passo para essa garantia é ter certeza de que o motorista que está entrando na base é o motorista esperado. Pensando nisso, o SisPetro faz a integração com sistemas de Biometria. Nesse sistema cada Motorista terá sua informação biométrica cadastrada, vinculada ao código do SisPetro. Na Portaria de Entrada, o SisPetro aciona a leitura da biometria do motorista, envia as informações ao sistema, que por sua vez devolve o código do motorista. Se esse código for o código do motorista esperado o processo continuará sem problemas. 
+A Biometria foi desenvolvida no SisPetro para o modelo 
+RecFacialHikVision
+Através das configurações definidas no depósito que iremos informar quais os dados para conexão com a biometria, se ira realizar no carregamento e na descarga e qual será a ação a ser adotada em caso de problemas de comunicação, motorista sem cadastro ou motorista diferente.
+Configurações
+Antes de iniciar, CONFERIR se o horário da máquina e do servidor estão 
+SINCRONIZADOS. 
+Pode ser utilizado o 
+Relógio
+ para auxiliar essa tarefa. 
+Ferramentas / Usuários / aba Perfil / aba Carregamento
+Pode fazer portaria de Entrada sem biometria do Motorista: 
+marcar caso o usuário possa realizar Portaria de Entrada sem informar a biometria.
+Para mais informações, ver 
+Configurações de usuário
+Arquivo / Depósito / Aba Dados Adicionais
+Quadro Biometria: 
+preencher as seguintes informações
+Dll Portaria:
+ diretório onde se encontra a DLL da Biometria 
+RecFacialHikVision.dll - Biometria 
+Facial
+IP:
+ IP do aparelho de biometria.
+O IP do aparelho de Biometria deve ser fixo
+Porta:
+ porta onde se encontra o aparelho de biometria
+Usuário Aparelho Biometria: 
+informar o usuário configurado no aparelho da Biometria. 
+Obs.: geralmente, já vem configurado o usuário 
+Admin, porém
+ é interessante verificar no manual do aparelho em  questão.
+Senha Aparelho Biometria: 
+informar a senha do usuário acima no aparelho configurado
+ 
+Quadro Carregamento/Descarga
+Exige Biometria (Tipo): 
+informar Biometria 
+2 - Facial
+Ação para Problema de comunicação ou Motorista sem cadastro:
+ define a ação será realizada
+Avisa
+Bloqueia
+Ação para Motorista diferente da Fila:
+ define a ação a ser realizada 
+Avisa
+Bloqueia
+Para mais informações, ver 
+Configurações de Depósito
+Aparelho de Biometria
+RecFacialHikVision
+Acessar via browse o aparelho através do IP previamente definido
+Na aba 
+User
+ cadastrar o Motorista
+O campo 
+Employee ID 
+do usuário deve conter a informação do 
+CPF / CPNJ 
+da Manutenção de Transportadoras / Aba Detalhes.
+Uma foto nítida do rosto do motorista deve ser vinculada ao cadastro. Ela pode ser tirada pelo próprio aparelho ou enviada a ele
+Quando utilizado a ação 
+Avisa
+ e a resposta da biometria se enquadrar em um dos perfis acima, será apresentado uma mensagem para o usuário questionando se ele quer parar o processo ou dar continuidade. 
+Quando utilizado a ação 
+Bloqueia
+ e a resposta da biometria se enquadrar em um dos perfis acima, não será possível dar continuidade no processo até que seja obtido um valor valido de biometria.
+Botão 
+Testar biometria: 
+ao acionar o botão 
+Testar biometria 
+será apresentado a tela de Leitura de Biometria onde o usuário pode realizar testes de conexão com o aparelho de biometria.
+Como utilizar a Leitura Biométrica
+Com o depósito da OC selecionada configurado para realizar a biometria, o SisPetro apresentará a tela de Leitura Biométrica ao acionar um carregamento seja ele manual ou via automação.
+Na tela de Leitura Biométrica teremos as informações da comunicação com o aparelho de Leitura, será apresentado qual Motorista o SisPetro está aguardando.
+Na tela de Leitura de Biometria teremos 3 quadros sendo eles 
+Comunicação, Aguardando Confirmação de Transportadora 
+e
+ Dados Recebidos.
+Comunicação:
+ no quadro de comunicação teremos os dados de comunicação com o aparelho de Biometria, tais como IP, Porta e Status da Conexão. O status de Conexão vai ficar sempre como 
+Desconectado
+, isso porque a comunicação só é realizada quando o usuário clica no botão 
+Conectar
+ e o aparelho de biometria envia uma leitura de biometria para o SisPetro.
+Aguardando Confirmação de Transportadora: 
+informa o motorista que é aguardado a confirmação da biometria.
+Dados Recebidos:
+ nesse quadro são apresentados os dados obtidos pelo aparelho de biometria.
+Mensagem em caso de motorista diferente do informado na Ordem de Carregamento
+Caso seja feita a leitura facial de um motorista diferente do cadastrado na OC, o Sispetro exibira a seguinte mensagem:
+ 
+Erro de Leitura -
+Caso, no momento da leitura, apresente a mensagem de biometria não reconhecida ou 
+No Match 
+conforme imagem abaixo, veja as seguintes informações: 
+Os dados do motorista estão compatíveis com a OC?
+O IP do aparelho está compatível com o IP cadastrado no depósito? 
+Ocorre que algumas vezes a empresa possui dois provedores de internet e o IP pode ter trocado 
+A hora do aparelho está igual à hora do servidor? 
+Acessando a interface de configuração com <
+IP:PORTA>
+Exemplo: 
+http://123.456.789.
+321:1234 / Informar usuário e senha.
+Acessar menu lateral System / System Settings / Time Settings / Campo 
+Set Time
+ 
+informar horário exato em segundos
+ 
+conforme servidor
+ / 
+Clicar em
+ 
+OK
+ / 
+Clicar em 
+Save.
+Cadastramento Biometria Facial.
+É possível vincular a Biometria Facial no SisPetro, facilitando o reconhecimento de motoristas. Ao selecionar o botão 
+Biometria
+ na tela de 
+Portaria de Entrada
+, o sistema exibe automaticamente a última foto capturada nos últimos 10 minutos. Essa imagem pode ser associada diretamente ao carregamento ou descarregamento realizado, criando um cadastro de biometria facial para o motorista, o que permite seu reconhecimento nas operações futuras.
+Seleção do Botão Biometria
+Ação:
+ O usuário clica no botão Biometria na tela de 
+Portaria de Entrada
+.
+Resultado:
+ O SisPetro exibirá uma tela com a última foto capturada nos últimos 10 minutos. Esta foto pode ser vinculada ao motorista e ao carregamento ou descarregamento realizado, facilitando o registro da biometria facial para reconhecimento automático no futuro.
+2. 
+Exibição da Tela de Biometria
+Após clicar no botão Biometria, será exibida uma tela com a última imagem capturada, com as seguintes opções de interação:
+Botões Disponíveis:
+Leitor:
+Função:
+ exibe a última imagem capturada nos últimos 10 minutos pelo leitor de biometria facial.
+Objetivo:
+ Permite ao usuário visualizar a foto mais recente registrada pelo sistema.
+Arquivo:
+Função:
+ Permite incluir uma imagem que esteja disponível localmente (por exemplo, do computador ou dispositivo do usuário).
+Objetivo:
+ Caso não seja possível usar a imagem capturada pelo leitor, o usuário pode carregar uma imagem alternativa para o motorista.
+Gravar:
+Função:
+ Quando este botão for selecionado, a imagem será salva e vinculada ao motorista selecionado.
+Objetivo:
+ Conclui o processo de cadastro da biometria facial, associando a imagem ao motorista e ao carregamento/descarregamento realizado.
+Cancelar:
+Função:
+ Ao selecionar este botão, o processo de vínculo da imagem ao motorista será cancelado.
+Objetivo:
+ Permite ao usuário desistir de vincular a imagem ao motorista, retornando à tela anterior sem fazer alterações.
+Para mais informações ver: 
+https://futura.atlassian.net/wiki/spaces/SPT/pages/2896298060/Portaria+de+Entrada#Bot%C3%A3o-Biometria
+ 

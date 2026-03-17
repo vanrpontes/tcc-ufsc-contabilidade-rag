@@ -1,0 +1,68 @@
+TITULO: Serviço de Remessa de Cobrança Eletrônica
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926190341
+--------------------------------------------------
+A partir da versão 9.15 é preciso indicar no Servidor SisPetro a pasta onde as DLLs de Cobrança Eletrônica estão, para que a cobrança seja enviada via e-mail. Caso contrário, será exibido ao usuário a mensagem de erro.
+A geração de arquivo de Remessa é algo repetitivo que é realizado todos os dias onde na maioria das vezes a Empresa realiza a geração dos arquivos uma vez por dia em um determinado horário. Pensando nisso a partir da versão 9.9 foi criado o Serviço de geração de arquivo de remessa de cobrança eletrônica.
+Depois de configurado, o serviço funcionará automaticamente gerando os arquivos de remessa para os Tipos de cobrança que estão configurados, e no horário definido pelo usuário no perfil de sistema.
+Veja as configurações necessárias abaixo.
+Configuração de Sistema
+Segue configurações a serem realizadas no 
+Permite geração de remessa automática: 
+define se a empresa vai ou não gerar o serviço.
+Horário para geração automática: 
+define um horário para gerar os arquivos de remessa, podendo ser entre 00:00 e 23:59.
+Nomenclatura
+ do arquivo:
+ nesse perfil definimos como será a nomenclatura do arquivo, podendo ser 
+'COB'BancoContaDiaMesAno (COBBBBCCCCDDMMAAAA)
+, 
+Banco_Convenio_Sequencial Remessa (BBB_CCCCCCCCC_RRRRRRRRR.rem) 
+ou 
+Tipo_Tipo Cobranca_DiaMesAno_SequencialRemessa.rem (G01_TT_DDMMAAA_RRRRRRRRR.rem)
+ onde o Tipo (G01) indica o grupo de corte, que no momento podemos ter G01 e G02
+ 
+Configuração de Usuário
+Segue configurações a serem realizadas no 
+Painel Financeiro (Usuário)
+Ao acionar o perfil de usuário 
+Pode acionar Serv. de Geração de Cobrança manualmente
+, o usuário vai ter acesso ao botão 
+Aciona Serviço
+ na tela de 
+manutenção de cobrança eletrônica
+, podendo acionar o serviço de geração de cobrança manualmente. 
+Tabela Tipo de cobrança
+Na tabela de 
+tipo de cobrança
+ no painel detalhes, será configurado se o tipo de cobrança vai ser gerado através de serviço, e um valor de corte caso tenha um. Para mais informações, ver 
+Painel Detalhes - Tipo de Cobrança
+O valor de corte é indicado para as empresas que enviam seu arquivo de remessa para o banco ou representante ate um determinado valor, criando um segundo arquivo para os demais arquivos. Caso a empresa não trabalhe com essa opção basta deixar o valor de corte igual a zero.
+Veja abaixo um exemplo de como funciona a geração de arquivo de remessa utilizando o valor de corte.
+Exemplo:
+Vamos supor que no tipo de cobrança o valor de Corte é 1000,00, e temos 5 lançamentos.
+Lançamentos:
+Lançamentos
+Valor do Lançamento
+252656
+500,00
+252657
+300,00
+252658
+400,00
+252659
+200,00
+252660
+300,00
+Seguindo esse exemplo o serviço ira gerar 2 arquivos de remessa.
+Detalhamento do 1º arquivo:
+Detalhamento do 2º arquivo:
+Conforme podemos ver nas imagens acima, o serviço pega os lançamentos ate atingir o valor de corte, caso o próximo lançamento for ultrapassar o valor de corte o Sistema gera o Primeiro arquivo com os lançamentos ate aquele momento e os demais são gerados no segundo arquivo. Pegando o exemplo acima o nosso valor de corte era 1000,00 e tínhamos 5 lançamentos, o serviço gerou um arquivo de 800,00 composto por um lançamento de 500,00 e outro de 300,00, e como o terceiro lançamento era de 400,00 onde ultrapassaria o valor de corte, o Serviço pegou esse terceiro lançamento e junto com os demais gerou o segundo arquivo.
+Manutenção de Cobrança Eletrônica
+Através da tela de 
+Manutenção de Cobrança Eletrônica
+ podemos ver os arquivos de remessa que foram gerados tanto via Serviço quanto manualmente, de qual grupo de corte o mesmo participa
+Caso aja necessidade também  podemos acionar o serviço manualmente para que sejam gerados os arquivos via serviço, para isso basta acionar o botão 
+Aciona Serviço, 
+após acionar essa opção o Serviço inicia gerando os arquivos de remessa que estão configurados para gerar via Serviço. Ao acionar o botão será apresentado uma tela informando a hora que está configurado para gerar o serviço e se o usuário deseja dar continuidade ao processo.
+Para configurar o Serviço e ser executado automaticamente, acesse 
+Serviço de Cobrança Eletrônica - Remessa

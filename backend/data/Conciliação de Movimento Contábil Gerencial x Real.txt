@@ -1,0 +1,179 @@
+TITULO: Conciliação de Movimento Contábil Gerencial x Real
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210368
+--------------------------------------------------
+A tela de conciliação, tem o objetivo de mostrar o movimento de uma determinada conta gerencial e de sua conta real vinculada permitindo identificar, num periodo indicado pelo usuário, discrepancias em ambas, sendo ainda calculada a diferença relativa a estas diferenças de forma prática.
+
+
+A tela de conciliação pode ser acessada pelo menu
+ 
+Movimentação/Conciliação do Mov.Contabil.
+
+
+
+
+Para iniciar o processo, o usuário deve escolher o tipo de pesquisa que será utilizado pelo sistema, selecionando uma pesquisa por conta Gerencial ou por Código da Entidade, isso deve ser feito através do painel "Pesquisa por":
+
+
+
+
+Após selecionar o tipo de pesquisa, o usuário deve informar o código da Conta Gerencial ou Código Entidade, conforme o tipo de pesquisa que foi selecionada. Vale lembrar que os campos "Conta Gerencial" e "Código Entidade", ficarão habilitados conforme o tipo de pesquisa que foi selecionado.
+
+
+Sendo informado o tipo de pesquisa, o sistema verifica a conta real vinculada e automaticamente preenche o campo "Conta Real", isso se a conta gerencial ou código de entidade estiver devidamente vinculada a uma conta real. Caso não tenha vinculo entre as contas, o usuário é obrigado a informar uma Conta Real.
+
+
+Após selecionar a conta gerencial ou código da entidade e a conta real, o usuário deve informar uma data inicial e uma data final, no campo "Período", para que o sistema processe as informações referente a esse intervalo de data. O próximo passo, é clicar no botão "Atualiza".
+
+
+
+
+Ao clicar no botão "Atualiza", o sistema irá preencher o grid da Contabilidade Gerencial com as informações referentes aos lotes gerenciais, cuja as contas movimentadas sejam a selecionada pelo usuário no campo "Conta Gerencial" ou "Código Entidade". No grid da contabilidade real, será apresentado os lotes conforme algumas situações apresentadas abaixo:
+
+
+
+
+Pelo Sispetro Normal, o usuário pode configurar um processo, que ao ser finalizado seja também contabilizado, por exemplo, uma baixa do contas a receber. Supondo que as contas movimentadas estejam corretamente vinculadas entre as duas contabilidades (Conta Gerencial - conta: 1100 e Conta Real - conta: 767). Terminando a baixa, o sistema gera um lote gerencial e um lote real vinculados, movimentando as contas configuradas. Neste caso, os dois lotes seriam apresentados tantos no grid da contabilidade gerencial como no grid da contabilidade real. No grid contabilidade gerencial, pelo fato de ter a conta escolhida pelo usuário, e no grid contabilidade real, pelo fato do lote estar vinculado a um lote da contabilidade gerencial, além de ter a conta real movimentada, a mesma escolhida pelo usuário.
+
+
+
+
+
+
+Na tela acima, o registro selecionado (lote 31769), possue um lote vinculado na contabilidade real (lote 46465). Selecionando a linha do lote 31769, o sistema automaticamente se posiciona no lote real vinculado, no caso o lote 46465. O usuário pode verificar as contas movimentadas através do painel "Itens do Lote Gerencial" e "Itens do Lote Real":
+
+
+
+
+Vale notar que as contas movimentadas nos dois lotes, são as contas selecionadas pelo usuário. Nos campos Conta Gerencial e Conta Real.
+
+
+
+
+Ao fazer uma inclusão do contas a pagar, o sistema permite ao usuário, contabilizar esse lançamento. Caso as contas estejam devidamente configuradas, o sistema preenche automaticamente o campo "Conta Real". Neste exemplo, as contas movimentadas seriam a 1100 (gerencial) e 767 (real). Porém, a conta real foi alterada, não será mais a conta 767 e sim a 502, por exemplo. Ao finalizar o processo, o sistema irá criar um lote gerencial, onde uma das contas movimentadas é a conta 1100 e um lote real, onde uma das contas movimentadas não será a conta real vinculada a conta 1100 (conta 767) e sim a conta 502. Neste caso, os dois lotes apareceriam, tanto no grid do gerencial como no grid do real. No grid do gerencial, pelo fato da conta escolhida ser a 1100 e uma das contas movimentadas no lote ser exatamente esta, e na contabilidade real por esse lote estar vinculado a um lote gerencial que tem como conta movimentada a conta 1100.
+
+
+
+
+
+
+O lote gerencial gerado nessa situação é o 31785, e o lote real vinculado é o 46488. Deve-se notar que o sistema está apresentando o lote real, de uma forma diferente, por ser um lote que embora esteja vinculado a um lote gerencial, não tem nas contas movimentadas a conta real selecionada. Neste caso, o sistema apresenta esse registro em negrito e no histórico informa que o lote não pertence a conta que foi escolhida, mas o lote está vinculado.
+
+
+
+
+Observando os itens de cada lote, fica fácil observar que a conta real movimentada, não é a selecionada pelo usuário, mesmo assim, pelo vinculo, o sistema apresenta esse lote.
+
+
+
+
+Na tela de conciliação, como já foi citado, ao selecionar a conta gerencial, ou código da entidade, o sistema preenche automaticamente a conta real vinculada, se estiver devidamente configurada. Porém, o sistema permite que essa conta real seja alterada.
+
+
+
+
+
+
+Note que na tela acima, a conta real não é mais a conta vinculada a conta gerencial. Nesse caso, o sistema mostrará no grid da contabilidade gerencial, todos os lotes que tenha a conta gerencial ou código da entidade selecionada pelo usuário e no grid da contabilidade real, seria listado todos os lotes vinculados aos lotes apresentados na contabilidade gerencial e lotes reais que possuam como contas movimentadas aquela escolhida pelo usuário no campo conta real. Ao marcar o lote 31785, no grid da contabilidade gerencial, o sistema posiciona automaticamente no registro vinculado na contabilidade real, lote 46488. Neste caso, esses dois lotes possuem um vinculo e suas contas movimentadas são as selecionadas pelo usuário.
+
+
+Marcando o registro do lote gerencial 31782, o sistema vai posicionar no lote real vinculado, no caso 46481.
+
+
+
+
+Neste caso, há um vinculo entre os lotes, porém, o lote real é apresentado em negrito, pelo fato das contas movimentadas não serem a escolhida pelo usuário. Um detalhe importante, é o fato de poder haver lotes reais que não tenham vinculo com os lotes gerenciais e vice-versa.
+
+
+
+
+Na tela acima, o lote real 46489 está marcado e o sistema posiciona em um registro em branco no grid do lote gerencial. Este é um caso que o lote real não tem vinculo com o lote gerencial. Pode-se ter outras situações que o lote é mostrado na tela, sem o vinculo:
+
+
+O usuário gerou um lote gerencial que não precisou ser contabilizado. Quando for feita a pesquisa pela conta movimentada, esse lote aparecerá no grid do gerencial, porém quando o usuário posicionar sobre o registro, a linha vinculada no grid do real estará em branco, pelo fato de não ter gerado lote real. O mesmo pode acontecer se o usuário gerar um lote pelo real. Quando for feita a pesquisa, haverá um lote real que não terá nenhum registro vinculado no gerencial. Ao posicionar no registro do real, seria apresentada uma linha em branco no grid do gerencial.
+
+
+Foi gerado um lote gerencial com um lote real vinculado. Pelo lote gerencial, foi movimentada a conta 1101 e na real foi movimentada a conta 502. Levando em consideração que o filtro usando para a conta gerencial é 1100 e conta real é 502, os lotes em questão que seriam mostrados pelo sistema seria apenas o lote real. Ao posicionar nesse lote, o sistema mostraria um registro em branco no grid do gerencial.
+
+
+
+
+Caso o sistema esteja configurado para excluir, ao invés de cancelar um lote real vinculado, o sistema apresentará o lote real vinculado sem as informações das contas movimentadas nos seus itens.
+
+
+
+
+
+
+No exemplo acima, o lote 31777 foi cancelado e o lote vinculado (lote 46469), foi excluido. No histórico do lote real, consta a informação de lote excluido.
+
+
+
+
+Apenas o item do lote gerencial contém as informações de movimentação. Os lotes cancelados, serão apresentados em vermelho e terão os mesmos critérios de apresentação em tela dos lotes não cancelados.
+
+
+Recursos da Tela de Conciliação:
+
+
+O usuário pode optar por mostrar na tela, apenas os lançamentos sem vinculo (não coincidentes), lançamentos cancelados ou ainda, lançamentos de uma empresa especifica. Para isso, basta clicar no botão
+ 
+
+
+Ao clicar no botão, o sistema abrirá a tela de Opções de seleção de dados, onde poderá ser selecionada a opção desejada:
+
+
+
+
+Caso o usuário marque as duas opções (somente não coincidentes e somente cancelados), o sistema mostrará na tela, os lançamentos que são cancelados e ao mesmo tempo não possuem vinculos.
+
+
+Para facilitar a apresentação dos dados na tela, o usuário tem a opção de criar grupos.
+
+
+
+
+Para isso, basta arrastar a coluna e soltar na parte escura da tela, onde está escrito
+ 
+"Arraste o cabeçalho de uma coluna para agrupar por esta coluna".
+
+
+
+
+Na tela acima, as informações foram agrupadas por data, bastando o usuário clicar no sinal de +, para verificar todas as informações daquela data. Além do agrupamento, as colunas podem ser mudadas de posição, sendo arrastadas para uma direção desejada e caso o usuário deseje restaurar o formato original da tela, basta clicar no botão
+ 
+.
+
+
+Para facilitar o deslocamente de um registro para outro dentro do grid , o usuário pode utilizar os botões de navegação de cada grid:
+
+
+
+
+Caso prefira deixar um registro do grid marcado, para acessá-lo posteriormente, deve-se marcar o registro e clicar no botão
+ 
+ 
+(bookMark). Para localizar o registro marcado, deve-se utilizar o botão
+ 
+ 
+. Lembrando que esse processo, só funciona enquanto se está com a tela de conciliação aberta. Ao fechar a tela, o sistema limpa a marca do registro.
+
+
+Para imprimir um relatório contendo as informações apresentadas na tela, o usuário deve utilizar o botão
+ 
+ 
+e para alterar o layout do relatório, deve-se clicar no botão
+ !sispetro controladoria^clip0219.jpg!
+.
+
+
+Lembrando que o usuário não deve esquecer de salvar as alterações feitas no layout do relatório, caso deseje utilizar essas alterações mais vezes.
+
+
+Os dados podem ser apresentados em cores e formato de fontes diferentes. Para esclarecer o significado de cada cor ou tipo de fonte, o usuário pode consultar o botão
+ !sispetro controladoria^clip0220.jpg!
+.
+
+
+Para fechar a tela e retornar ao menu principal do sistema, basta utilizar o botão
+ !sispetro controladoria^clip0221.jpg!
+.

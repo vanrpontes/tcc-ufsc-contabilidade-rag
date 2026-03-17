@@ -1,0 +1,47 @@
+TITULO: Versão 8.11.2
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921073081
+--------------------------------------------------
+Versão 8.11.2
+Dados
+Informações
+Início
+21/05/2014
+Final
+ 26/05/2014
+Scripts
+ Sem Script
+Itens
+ 5
+Implementações
+0 
+Correções
+5 
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+ 
+SisPetroBancos.dll
+ 
+ 
+ 
+Geral
+Faturamento
+Importação de Nota Fiscal com Vinculo a OC
+Ao importar duas notas que são do mesmo carregamento e a mesma é vinculada a uma OC com dois itens, cada nota em cada item da OC, o PMM delas fica errado, pois deveria baixar o saldo de cada PMM destacado em cada item da OC, mas está baixando o saldo do mesmo PMM. Nessa versão, o processo foi ajustado para garantir que o vinculo ao Pedido seja realizado corretamente para atualizar saldo do PMM. 
+CPC (CCF 24190)
+Tela Exibição de XML com titulo trocado
+A tela utilizada para exibição de XML estava apresentando titulo trocado, "Conhecimento de Transporte Eletrônico - XML" quando Nota Fiscal e "Nota Fiscal Eletrônica - XML" quando Conhecimento. Agora a tela apresentará o titulo correto para o tipo de Nota. 
+PRFC (CCF 24391)
+Financeiro
+Leitura de arquivo de cobrança
+Foi implementada uma melhoria no controle e exibição de erros vindos das DLLs de Cobrança Eletrônica, porém isto causou problemas na leitura de arquivo de retorno do Banco do Brasil quando CNAB240 apresentado ao ler indevidamente a linha de cabeçalho. Nessa versão, esse problema foi corrigido.
+ CPC (CCF 24404)
+Transportes
+Correção de erro ao Vincular OC/PMM na tela de Importação de NF.
+Correção de erro ao tentar vincular OC/PMM quando eram importadas várias Notas com Séries diferentes, o Sispetro estava exibindo um erro informando que a sintaxe estava incorreta. Também foi incluída validação para impedir que um item que já tenha sido vinculado a uma OC/PMM seja excluído.
+ PRFC (CCF 24186)
+Vendas
+Inclusão de Pedido de Vendas
+No lançamento do Pedido de Venda o SisPetro deveria calcular o valor total do frete automaticamente, porém há um problema na tela que obriga ao usuário inserir um novo produto para que o valor total do frete seja (re)calculado.  Nessa versão, esse problema foi corrigido. 
+CPC (CCF 23834)

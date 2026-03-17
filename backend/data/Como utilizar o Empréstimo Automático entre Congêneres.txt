@@ -1,0 +1,68 @@
+TITULO: Como utilizar o Empréstimo Automático entre Congêneres
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4337139713
+--------------------------------------------------
+Objetivo
+O objetivo é mostrar como utilizar o empréstimo entre Congêneres de 
+forma automática. 
+O processo de inclusão é feito em três etapas
+1 - Inclusão da OC de Carregamento de Terceiros
+O usuário deverá acessar a manutenção de ordem de Carregamento via menu 
+Movimentação / Estoque/ Manutenção de Ordem de Carregamento 
+ou 
+Movimentação / Estoque / Ordem de Carregamento
+Inclua uma OC de
+ Carregamento de Terceiros
+ utilizando o 
+depósito 
+e o 
+Histórico de Gatilho 
+previamente configurados em 
+Depósitos - Aba Empréstimos
+  
+Após preencher todas as informações e clicar em 
+OK
+ a OC estará disponível na Manutenção de Ordem de Carregamento 
+Para mais informações, ver 
+Inclusão de Ordem de Carregamento
+.
+Nessa etapa, conforme da configuração do 
+Depósitos - Aba Empréstimos
+, ou SisPetro já incluiu automaticamente o empréstimo (que já pode ser consultado na 
+Manutenção de Empréstimos
+) ou está aguardando que a OC em questão passe pelo processo de Portaria de Entrada e Saída.
+2 - Aprovação do Empréstimo
+Por padrão, os empréstimos são 
+aprovados automaticamente
+, exceto se na configuração do 
+Depósitos - Aba Empréstimos
+ exigir aprovação.
+Veja que o Empréstimo já está aprovado e na coluna 
+#OC Origem 
+é possível ver o número da OC que gerou o empréstimo (a mesma utilizada no passo 1)
+Para casos que exigem aprovação
+Selecione o empréstimo e clique no botão 
+Aprovar. 
+O SisPetro mostrará uma mensagem se deseja aprovar como:
+Cedente
+Armazenadora
+Cedente e Armazenadora
+Clique em 
+Sim 
+para aprovar o empréstimo e disponibilizar para próxima etapa. 
+Caso o usuário não tenha permissão para aprovar o empréstimo como Cedente e / ou Armazenadora o SisPetro mostrará uma mensagem informando qual aprovação falta (Falta somente a aprovação de...): 
+3 - Execução do Serviço do Hermes
+Após a inclusão e aprovação do Empréstimo, assim que o serviço for executado, o status ficará como 
+Processado 
+As OC de Carregamento e de Descarga serão incluídas automaticamente com a data da execução do serviço: 
+Caso ocorra algum erro após o processamento do serviço, o status do Empréstimo ficará como 
+Erro
+, dependendo da parte do processo que o erro ocorreu 
+Na coluna erros é possível verificar qual foi o erro catalogado. 
+Legenda: 
+mostra a legenda das cores utilizadas
+O processo de inclusão das OC é feito em uma única etapa, ou seja, ou são incluídas as duas OC ou não é incluída nenhuma.
+As Portarias também são feitas em etapas, porém é feito primeiro a de entrada e depois a de saída. Se der erro em uma das portarias o SisPetro mostrará nessa coluna em qual OC e em qual Portaria o erro ocorreu e o usuário pode ou faze-la manualmente ou cancelar todo o processo
+Cancelamento de Empréstimos
+Para cancelar um empréstimo incluído, basta clicar no botão 
+Cancela 
+ou cancelar a OC de origem no caso do Empréstimo Automático 

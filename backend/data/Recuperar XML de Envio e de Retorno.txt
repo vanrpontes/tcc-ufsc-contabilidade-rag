@@ -1,0 +1,49 @@
+TITULO: Recuperar XML de Envio e de Retorno
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2904621197
+--------------------------------------------------
+Após a 
+inclusão da Nota Fiscal eletrônica
+ é enviada a Secretaria da Fazenda Estadual a Solicitação de Recibo. Este recibo contém todas as informações da Nota Fiscal no formato XML.
+Em seguida é feita a Solicitação de Protocolo, que pode ser autorizada ou não pela Secretaria da Fazenda Estadual.
+Em algumas situações, podem ocorrer erros na autorização do protocolo. E será preciso gerar o XML do Recibo enviado a SRF. Para gerar o XML em questão, siga as orientações abaixo:
+A partir da versão 8.24 há duas formas de se obter o Recibo e Protocolo. Veja as duas formas abaixo.
+Forma 1:
+Acessar a tela de 
+Manutenção de Notas Fiscal
+Acessar as abas 
+Fiscal > aba inferior NF-Eletrônica
+Selecionar a linha referente ao 
+Comando Recibo
+ 
+Clicar no botão 
+XML Enviado
+ 
+Na janela referente ao XML:
+O botão
+ Copia para Área de Transferência 
+é utilizado para validar o XML no site da Sefaz RS. Basta clicar no botão, ir para o site da Sefaz RS - 
+https://www.sefaz.rs.gov.br/NFE/NFE-VAL.aspx
+ - colar na área '
+Conteúdo da mensagem a ser validada'  e validar o XML.
+Nota:
+ usado somente quando apresentar erro de Falha de Schema. Pode ser colado também no bloco de notas do Windows ou em qualquer editor de texto. É o XML sem estruturação e próprio para ser utilizado com o Assinador RS (
+https://www.sefaz.rs.gov.br/NFE/NFE-VAL.aspx
+).
+Clicar no botão 
+Salvar
+Definir um local/diretório e o nome do arquivo onde será salvo o XML
+ 
+Clicar no botão 
+Sair
+Também existem outras situações que será preciso gerar o XML do Recibo recebido pela SRF. Para gerar o XML em questão, siga as orientações abaixo:
+Acessar a tela de 
+Manutenção de Notas Fiscal
+Acessar as abas 
+Fiscal > aba inferior NF-Eletrônica
+Selecionar a linha referente ao 
+Comando Protocolo e faça o mesmo processo feito para o Recibo.
+Forma 2:
+Esta é a forma mais rápida, veja abaixo:
+Foi criada uma nova aba "NF-e/CT-e", veja ao lado esquerdo. Nesta aba só serão apresentados os XML da situação atual, ou seja, caso o último processamento tenha dado erro, este XML com erro será apresentado, caso tenha sido processado com sucesso idem. É um facilitador, pois podem haver inúmeros XMLs na aba "Movimentação".
+Selecione uma opção entre, "Recibo", "Protocolo", "Solicitação de Cancelamento" ou "Autorização de Cancelamento" e clique em "Visualizar"
+Será apresentado o XML em questão, como na Forma 1.

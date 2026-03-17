@@ -1,0 +1,23 @@
+TITULO: Contrato de Mútuo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898437
+--------------------------------------------------
+Um mútuo é um empréstimo que a distribuidora faz ao seu cliente, seja em forma de produto ou em dinheiro vivo. Normalmente estas operações são realizadas quando o posto está trocando para a bandeira da distribuidora.
+Assim, a distribuidora combina um determinado valor com o cliente que será o valor do contrato, a forma que irá fornecer este valor (dinheiro ou produto) e como o posto irá devolver este valor (parcelas e juros).
+Cada cliente pode ter um número ilimitado de contratos de mútuo em vigor.
+Como é realizado o contrato de mútuo
+O processo de contrato de mútuo ocorre da seguinte forma:
+O cliente precisa de um financiamento;
+A empresa inclui um contrato de mútuo informando o cliente, o valor a ser financiado, o número de parcelas, a conta contábil de mútuo, o número do contrato e alguma observação;
+A empresa inicia transferência do valor seja incluindo um pedido de venda e faturando normalmente ou gerando um título a receber (porém este título não será o que o cliente irá pagar) ou através da Manutenção de Bancos via transferência. Estes valores ainda não foram vinculados ao contrato de mútuo criado;
+A empresa vincula as origens ao contrato. As origens do contrato podem ser:
+Títulos do contas a receber - a empresa está fornecendo produtos para o cliente através de um processo normal (pedido/nota fiscal/título);
+Dinheiro - através de uma transferência em dinheiro pela Manutenção de Bancos, botão Transferência;
+Outro contrato de mútuo - o cliente tinha um mútuo com saldo e resolveu renegociar juntando alguns outros títulos que tinha em atraso e gerando um novo contrato de mútuo.
+Ao vincular os títulos de contas a receber, estes títulos são baixados para a conta de mútuo. No caso de transferência em dinheiro, deve ser informando a conta de mútuo e o número do contrato de mútuo. Em ambos os casos, o saldo original e o atual são ajustados positivamente.
+O cliente inicia os pagamentos: todo início do mês, o usuário deve entrar em cada contrato e gerar uma parcela para o cliente pagar informando o valor que deverá ser baixado sem juros, o valor final que o cliente pagará (com juros) e a data de vencimento do boleto. O SisPetro irá gerar um título de contas a receber e o saldo atual é ajustado negativamente pelo valor da parcela sem juros.
+O saldo atual do contrato pode ser ainda ajustado para mais ou para menor conforme descontos ou incorporação de juros. O SisPetro irá gerar um lote contábil e ajustar o saldo atual do contrato positiva ou negativamente conforme o caso.
+O contrato é considerado finalizado quando o saldo atual tiver zerado.
+Para utilização do contrato de mútuo, veja os tópicos seguintes:
+Manutenção de Mútuo
+Inclusão de Contrato de Mútuo
+Amortizações

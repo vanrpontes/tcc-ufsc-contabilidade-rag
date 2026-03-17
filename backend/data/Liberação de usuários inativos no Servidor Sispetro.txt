@@ -1,0 +1,37 @@
+TITULO: Liberação de usuários inativos no Servidor Sispetro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921696841
+--------------------------------------------------
+A partir da versão 8.19 o SisPetro verificará as conexões de usuário, para que as que não estejam ativas sejam desconectadas (caso seja marcada esta opção). Deste modo a empresa ficará com menos usuários ativos, possibilitando que os demais possam fazer login.
+Conexões ativas ou inativas
+Caso esteja marcada a opção 
+Remover usuários conectados que estejam inativos
+, o Servidor SisPetro fará o monitoramente das conexões dos usuários.
+O fato do usuário estar com o SisPetro aberto (seja o Normal, Remoto ou Controladoria) e não esteja utilizando, 
+NÃO CARACTERIZA conexão inativa
+.
+As conexões podem estar inativas vários motivos:
+Por queda da rede (problema interno na infraestrutura, cabo de rede desconectado, etc.)
+Sem acesso à internet
+Travamento da máquina do usuário
+Máquina entrando em hibernação (função do Windows para economia de energia elétrica)
+Outras situações que impedem o acesso da máquina do usuário ao SisPetro.
+Configurando o tempo para verificar se a conexão do usuário está ativa
+A configuração é feita no arquivo de inicialização do Servidor Sispetro - servidorsispetro.ini (nome padrão, caso não tenha sido alterado):
+O parâmetro 
+RemoverInativosACada 
+indica o tempo, em minutos, para que o Servidor SisPetro faça a verificação das conexões.
+As conexões inativas são desconectadas após o tempo determinado ou pelo tempo padrão.
+Caso o parâmetro não seja configurado, o Servidor SisPetro assume o tempo padrão de 5 minutos para verificação das conexões. (Este padrão foi alterado na versão 8.37)
+O intervalo de tempo válido para uso com o parâmetro é de, no mínimo, 2 minutos e no máximo de 120 minutos.
+Qualquer configuração de tempo fora do intervalo, o Servidor SisPetro assume automaticamente 5 minutos.
+A configuração do campo 
+Ambiente
+ no arquivo servidorsispetro.ini d
+efine em qual servidor de licenciamento web o Servidor SisPetro irá se conectar para adquirir o arquivo:
+ (
+0=Homologação
+ / 
+1=Produção
+)
+.
+ 

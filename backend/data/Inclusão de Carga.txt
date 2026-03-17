@@ -1,0 +1,121 @@
+TITULO: Inclusão de Carga
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4013850646
+--------------------------------------------------
+none
+Objetivo
+O controle de carga foi criado com o intuito de auxiliar o Setor de transportes na 
+composição de Cargas.
+ O controle visa apresentar os pedidos para entrega, a rota de cada cliente e outros dados complementares, agilizando o processo de agrupamento.
+A Inclusão de Carga é acionada pela tela de 
+Composição de Carga
+, no botão 
+Nova Carga. 
+O usuário deve ter o perfil do Painel Rotas 
+Pode fazer composição de carga 
+marcado. Ao clicar neste botão, o SisPetro apresentará a tela abaixo, para que sejam confirmadas as informações:
+Empresa: 
+selecione a qual empresa pertence a carga. 
+Motorista:
+ apresentado o motorista do pedido ou da OC, podendo ser alterado.
+Transportadora
+: apresentada a transportadora do pedido ou da OC, podendo ser alterada.
+Frota
+: apresentado o frota definido no pedido ou na OC, podendo ser alterado.
+Carreta
+: apresentada a carreta definida no pedido ou na OC, podendo ser alterada.
+Treminhão
+: apresentado o treminhão definido no pedido ou na OC, podendo ser alterado.
+Distância: 
+usuário informa a distância a ser percorrida, 
+campo pode ser ajustado pelo usuário na 
+alteração 
+e no 
+fechamento da carga
+Datas
+: 
+Embarque
+: data de liberação e embarque da carga. sistema apresenta a data atual.
+Entrega:
+ data de entrega efetiva do produto. Sistema apresenta a data conforme perfil "No. de dias para Data de Entrega", definido em 
+Painel Fretes
+.
+Integração Requerida?: 
+essa opção ficara marcada caso a empresa trabalhe com pelo menos uma das integrações vale pedágio ou CIOT.
+Gerenciador de Pedágio
+: definição da empresa responsável pelo vale pedágio desta carga. Permite alteração caso o perfil "Pode alterar na carga ID do Gerenciador de Pedágios" esteja habilitado em 
+Painel Fretes (Usuários)
+.
+Vale Pedágio Requerido?
+: define se a carga vai emitir ou não vale pedágio, essa opção virá habilitada ou não de acordo com as configurações definidas no 
+perfil de Sistema
+ e nas configurações definidas no 
+Frota
+ e no 
+Perfil de usuário
+.
+Exige Confirmação
+: informação de confirmação, utilizada de acordo com o gerenciador de pedágios. Para mas informações ver 
+Gerenciamento de Pedágios automatizados
+.
+Tipo de Vale Pedágio
+: se o pedágio será adquirido em forma de TAG, Cartão ou Cupom.
+#Rota do Gerenciador
+: informação da rota do pedágio a ser adquirido.
+Faz CIOT se Permitido?:
+ essa opção define se a carga vai ter ou não CIOT. Para que a Empresa possa trabalhar com CIOT, é preciso habilitar perfis de Sistema, 
+Utilização de CIOT
+. Assim como, para que o usuário tenha permissões, é preciso configura perfis de usuário, 
+Pode alterar CIOT requerido na Inclusão da Carga
+ habilitado.
+Tipo de Pagamento:
+ esse campo define o Tipo de Pagamento a ser utilizado na emissão do CIOT, podendo ser do tipo cartão ou depósito em conta. Essa opção virá de acordo com o que foi informado no fornecedor no campo 
+Tipo de Pagamento
+. Para que o usuário possa alterar esse campo na tela de inclusão/alteração da carga o mesmo deve ter o perfil de usuário 
+Pode alterar Tipo de Pagamento
+ habilitado.
+Data Pagto:
+ nesse campo é informada a data de pagamento para o CIOT, a data será preenchida de acordo com a condição de pagamento informada no fornecedor que esta vinculado à transportadora informada na carga. O usuário só conseguirá alterar a data caso o mesmo esteja com o perfil de usuário 
+Pode informar Data de Pagamento
+ habilitado.
+Valida RNTRC do Frota Principal x Transportadora?:
+ quando marcado será realizado a validação do RNTRC do Frota Principal x Transportadora. Essa opção só ira realizar a validação após acionar o botão de 'OK', e sempre que a tela de composição de carga for aberta essa opção vira desmarcada, caso o usuário queira validar o mesmo terá que marcar a opção novamente. Dessa forma caso o usuário queira ele pode incluir uma carga sem realizar a validação e eventualmente validar o RNTRC na edição ou no fechamento da carga.
+Valor do Frete: 
+o campo referente ao valor do frete só fica visível ao acionar o 
+fechamento da carga
+, seu conteúdo é preenchido automaticamente caso o pedido ou OC contenham valor de frete. Só é possível editar o frete caso o usuário esteja com o perfil 
+Pode alterar Valor do Frete 
+habilitado.
+O valor do Frete da Ordem de Carregamento Próprio sempre será sugerido no Fechamento de Carga. Em versões anteriores o valor só era sugerido quando a OC era responsável pelo Frete.
+Uma nova carga será criada, sendo apresentada no painel Cargas e podendo nela ser vinculados pedidos.
+Informações importantes
+Se o perfil da empresa (painel Fretes) 
+Permite ao usuário escolher transportadora / frota ao criar carga?
+ estiver marcado, será apresentada a tela para escolha da frota e transportadora, caso contrário, a frota e transportadora serão preenchidos conforme a opção padrão no perfil da empresa (painel Fretes):
+Após incluir a carga, o sistema apresenta no grid a quantidade de eixos dos frotas utilizados.
+Inclusão da Carga
+Através do botão
+ 
+ o usuário poderá vincular pedidos à carga. Cabe lembrar que, apresar de ser apresentado item a item do pedido, caso o pedido tenha mais de um item, ao escolher um deles, todos serão automaticamente vinculados a carga. 
+Ou seja, o vínculo à carga é por pedido e não por item de pedido
+.
+Há a possibilidade de, na inclusão do pedido, indicar que ele exige 
+carga fechada
+, ou seja, a carga será exclusiva para o pedido.
+Assim, ao tentar incluir um pedido será verificada esta situação. Caso já tenha pedido na carga, não deixa o pedido ser vinculado. Caso ele seja vinculado, não deixa outros serem vinculados posteriormente (neste caso, o frota escolhido tem que ter a mesma capacidade do pedido).
+O pedido só pode ser vinculado a uma carga uma única vez.
+Valor da carga
+O campo Valor da Carga, onde ao incluir um Pedido/OC na carga o SisPetro apresentará o valor dessa carga. Essa opção é utilizada para quem trabalha com gerenciador de monitoramento de viagem, onde somente viagens com valores acima de um valor X são monitoradas.
+O valor da carga para pedidos e OC é calculado conforme segue:
+Pedido de Venda
+O valor da carga é o valor estipulado no Pedido de Venda.
+Oc de Transf. Entre Depósitos c/PMM
+O valor da carga é o valor estipulado no PMM.
+OC de Carregamento Próprio
+O valor da carga será o mesmo que o da nota de outras saídas quando a mesma for emitida, para podermos chegar no valor da carga antes mesmo de emitir a nota, devemos realizar as configurações de 
+Preço para uso em Transferência
+.
+Para Saber Mais
+Tabela Gerenciador de Monitoramento
+Monitoramento de Viagem
+Tabela Manutenção de Frota
+Composição de Carga 

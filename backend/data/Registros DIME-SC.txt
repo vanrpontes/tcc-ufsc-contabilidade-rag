@@ -1,0 +1,599 @@
+TITULO: Registros DIME-SC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2899607837
+--------------------------------------------------
+O layout do arquivo da DIME-SC é composto por vários registros, veja abaixo quais os registros gerados pelo SisPetro:
+Tipo
+Descrição
+Quadro
+SisPetro
+Observações
+20
+Dados do contabilista
+21
+Início da declaração de ICMS
+00
+22
+Valores fiscais entradas
+01
+23
+Valores fiscais saídas
+02
+Tem tratativa para Regime Especial
+24
+Resumo dos valores fiscais
+03
+Tem tratativa para Regime Especial
+25
+Resumo da Apuração dos Débitos
+04
+Tem tratativa para Regime Especial
+26
+Resumo da Apuração dos Créditos
+05
+27
+Apuração para Empresas no Regime Simples
+06
+REVOGADO
+28
+Apuração especial para Bares, Restaurantes e Similares
+07
+29
+Apuração do Regime Especial de Estimativa Fixa
+08
+30
+Cálculo do Imposto a Pagar ou Saldo Credor
+09
+Tem tratativa para Regime Especial
+31
+Débitos Específicos
+10
+Tem tratativa para Regime Especial
+32
+Informações sobre Substituição Tributária
+11
+33
+Discriminação dos Pagamentos do Imposto e dos Débitos Específicos
+12
+41
+Demonstrativo de Créditos Acumulados
+41
+42
+Débitos por Transferência de Crédito Acumulado
+42
+43
+Créditos Recebidos por Transferência
+43
+44
+Créditos Presumidos
+44
+45
+Créditos por Incentivos Fiscais
+45
+46
+Créditos por Autorizações Especiais
+46
+47
+Entradas de Extratores, Produtores Agropecuários e Pescadores
+47
+48
+Receita de Prestação de Serviços e Fornecimento e Energia Elétrica
+48
+49
+Entradas por unidade de federação
+04
+50
+Saídas por unidade de federação
+04
+Tem tratativa para Regime Especial
+51
+Exclusões do Valor Adicionado no Mês
+51
+80
+Resumo do Livro Registro de Inventário e Receita Bruta
+80
+81
+Ativo
+81
+82
+Passivo
+82
+83
+Demonstração de Resultados
+83
+84
+Detalhamento das Despesas
+84
+90
+Resumo do Livro Registro de Inventário e Receita Bruta (Encerramento 
+de Atividades)
+90
+91
+Ativo (Encerramento de Atividades)
+91
+92
+Passivo (Encerramento de Atividades)
+92
+93
+Demonstração de Resultados (Encerramento de Atividades)
+93
+94
+Detalhamento das Despesas (Encerramento de Atividades)
+94
+98
+Fim da declaração
+98
+99
+Quantidade de declarações e registros
+99
+Detalhamento de alguns registros
+Registro 25 - Quadro 04
+Item
+Valor
+Observações
+010
+Débitos por Saídas
+Será zerado se for Regime Especial
+020
+Diferencial de alíquota Ativo Permanente
+Informado em tela
+030
+Diferencial de alíquota Material Uso ou Consumo
+Informado em tela
+040
+Importações Ativo Permanente
+Informado em tela
+050
+Estornos de Créditos
+Será zerado se for Regime Especial
+060
+Outros Estornos de Créditos
+NÃO SERÁ GERADO
+070
+Outros Débitos
+Pega da Apuração
+990
+Soma dos Valores acima
+Valor calculado
+Registro 26 - Quadro 05
+Item
+Valor
+Observações
+010
+Saldo Credor do Mês Anterior
+Pega da Apuração
+020
+Crédito pelas Entradas
+Pega da Apuração
+030
+Crédito Ativo Permanente
+Informado em tela
+040
+Crédito Material Uso ou Consumo
+Informado em tela
+050
+Crédito ICMS Retido por ST
+Informado em tela
+060
+...
+NÃO SERÁ GERADO
+070
+...
+NÃO SERÁ GERADO
+080
+...
+NÃO SERÁ GERADO
+090
+...
+NÃO SERÁ GERADO
+100
+...
+NÃO SERÁ GERADO
+110
+...
+NÃO SERÁ GERADO
+120
+...
+NÃO SERÁ GERADO
+130
+...
+NÃO SERÁ GERADO
+140
+...
+NÃO SERÁ GERADO
+150
+Outros Créditos
+Pega da Apuração
+160
+...
+NÃO SERÁ GERADO
+990
+Soma dos Valores acima
+Valor calculado
+Registro 30 - Quadro 09
+Item
+Valor
+Observações
+010
+Outros Débitos + Débitos por Saídas
+Será zerado se for Regime Especial
+011
+...
+NÃO SERÁ GERADO
+020
+...
+NÃO SERÁ GERADO
+030
+...
+NÃO SERÁ GERADO
+040
+Outros Débitos + Débitos por Saídas
+Será zerado se for Regime Especial
+050
+Saldo Anterior + Estornos de Débitos + Outros Créditos + Créditos por Entradas
+Pega da Apuração
+051
+...
+NÃO SERÁ GERADO
+052
+...
+NÃO SERÁ GERADO
+060
+...
+NÃO SERÁ GERADO
+070
+...
+NÃO SERÁ GERADO
+075
+DCIP informado na tela
+TELA
+080
+DCIP informado na tela
+TELA
+090
+...
+NÃO SERÁ GERADO
+100
+...
+NÃO SERÁ GERADO
+105
+...
+NÃO SERÁ GERADO
+110
+...
+NÃO SERÁ GERADO
+120
+Imposto a Recolher
+Desconsiderará as saídas se for Regime Especial
+Empresa Sem Movimento e sem Saldo NÃO SERÁ GERADO
+130
+...
+NÃO SERÁ GERADO
+999
+Imposto a Recolher
+Desconsiderará as saídas se for Regime Especial
+Empresa Sem Movimento e sem Saldo NÃO SERÁ GERADO
+140
+Saldo Credor p/ Mês Seguinte
+Desconsiderará as saídas se for Regime Especial
+150
+...
+NÃO SERÁ GERADO
+998
+Saldo Credor p/ Mês Seguinte
+Desconsiderará as saídas se for Regime Especial
+160
+...
+NÃO SERÁ GERADO
+170
+...
+NÃO SERÁ GERADO
+180
+...
+NÃO SERÁ GERADO
+190
+...
+NÃO SERÁ GERADO
+Registro 32 - Quadro 11
+Item
+Valor
+Origem
+010
+Total BaseICMS de Saídas
+Livro Fiscal
+020
+Valor do IPI
+Informado em tela
+030
+Despesas Acessórias
+Informado em tela
+040
+Total BaseICMS de Saídas
+Livro Fiscal
+050
+Débitos por Saídas
+Pega da Apuração
+060
+Total BaseICMS ST de Saídas
+Livro Fiscal
+070
+Débitos por Saídas ST
+Pega da Apuração
+080
+Débitos por Saídas ST
+Pega da Apuração
+090
+Saldo Credor Anterior ST
+Pega da Apuração
+100
+Devolução de Mercadorias
+Informado em tela
+110
+Ressarcimento ICMS ST
+Informado em tela
+120
+Outros créditos ST
+Pega da Apuração
+130
+Soma 090+100+110+120
+Valor calculado
+140
+...
+NÃO SERÁ GERADO
+150
+...
+NÃO SERÁ GERADO
+155
+...
+NÃO SERÁ GERADO
+160
+...
+NÃO SERÁ GERADO
+170
+Saldo Devedor ST
+Se for Regime Especial retira os Débitos ST
+Empresa Sem Movimento e sem Saldo NÃO SERÁ GERADO
+190
+Saldo Credor ST
+Se for Regime Especial retira os Débitos ST
+999
+Imposto a Recolher ST
+Pega da Apuração
+Empresa Sem Movimento e sem Saldo NÃO SERÁ GERADO
+998
+Saldo Credor p/ Mês Seguinte ST
+Pega da Apuração
+Registro 33 - Quadro 12
+Campo
+Valor para ICMS Próprio
+Valor para ICMS Subst
+Origem
+1
+2
+Código da Receita
+Informado em tela
+Informado em tela
+Data
+tela
+Informado em tela
+Valor recolhimento
+Imposto a Recolher (Pega da Apuração)
+Imposto a RecolherST (Pega da Apuração)
+Classe Vencimento
+Informado em tela
+Informado em tela
+Dados Contábeis Anuais
+Registro 80
+Código
+Descrição
+Origem
+010
+Estoque no início do exercício
+Tela
+020
+Estoque no fim do exercício
+Tela
+030
+Receita bruta de vendas e serviços
+Tela
+Registro 81
+Código
+Descrição
+Origem
+110
+(=) Circulante
+111+113+121+123+128
+111
+ Disponibilidades
+Tela
+113
+ Contas a receber do circulante
+Tela
+121
+ Estoque de mercadorias e matéria-prima
+Tela
+123
+ Outros estoques
+Tela
+128
+ Outras contas do ativo circulante
+Tela
+130
+(=) Realizável a longo prazo
+131+148
+131
+ Contas a receber do realizável
+Tela
+148
+ Outras contas do realizável
+Tela
+150
+(=) Permanente
+151+155+157
+151
+ Investimentos
+Tela
+155
+ Imobilizado (líquido)
+Tela
+157
+ Diferido (líquido)
+Tela
+199
+(=) Total geral do ativo
+110+130+150
+Registro 82
+Código
+Descrição
+Origem
+210
+(=) Circulante
+211+213+215
+211
+ Fornecedores
+Tela
+213
+ Empréstimos e financiamentos
+Tela
+215
+ Outras contas do passivo circulante
+Tela
+230
+(=) Exigível a longo prazo
+Tela
+240
+(=) Resultados de exercícios futuros
+Tela
+269
+(=) Passivo a Descoberto
+Tela
+270
+(=) Patrimônio líquido
+(271+278-279)
+271
+ Capital social
+Tela
+278
+ Outras contas do patrimônio líquido
+Tela
+279
+ Outras contas do patrimônio líquido(de valor negativo)
+Tela
+299
+(=) Total geral do passivo
+(210+230+240+269+270)
+Registro 83
+Código
+Descrição
+Origem
+310
+ Receita bruta vendas/serviços
+Tela
+311
+ Deduções da receita bruta
+Tela
+320
+(=) Receita líquida vendas/serviços
+310-311
+323
+ Custo da mercadoria ou produtos vendida(os) ou dos serviços prestados
+Tela
+330
+(=) Lucro bruto
+320-323
+331
+(=) Prejuízo bruto
+323-320
+333
+ Outras receitas operacionais
+Tela
+335
+ Despesas operacionais
+Tela
+340
+(=) Lucro operacional
+330-331+333-335
+341
+(=) Prejuízo operacional
+330-331+333-335
+343
+ Receitas não operacionais
+Tela
+345
+ Despesas não operacionais
+Tela
+350
+(=) Resultado antes do I.R. e da contribuição social
+340-341+343-345
+351
+(=) Resultado negativo antes do I.R. e da contribuição social
+340-341+343-345
+353
+ Provisão para o IR e para a contribuição social
+Tela
+360
+(=) Resultado após o I.R. e a contribuição social
+350-351-353
+361
+(=) Resultado negativo após o I.R. e a contribuição social
+350-351-353
+363
+ Participações e contribuições
+Tela
+398
+(=) Prejuízo do exercício
+360-361-363
+399
+(=) Lucro do exercício
+360-361-363
+Registro 84
+Código
+Descrição
+Origem
+411
+ Pró-labore
+Tela
+412
+ Comissões, salários, ordenados
+Tela
+431
+ Combustíveis e lubrificantes
+Tela
+421
+ Encargos sociais
+Tela
+422
+ Tributos federais
+Tela
+423
+ Tributos estaduais
+Tela
+424
+ Tributos municipais
+Tela
+432
+ Água e telefone
+Tela
+433
+ Energia elétrica
+Tela
+441
+ Aluguéis
+Tela
+451
+ Serviços profissionais
+Tela
+442
+ Seguros
+Tela
+443
+ Fretes e carretos
+Tela
+461
+ Despesas financeiras
+Tela
+498
+ Outras despesas
+Tela
+499
+(=) Total
+411:498

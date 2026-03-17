@@ -1,0 +1,171 @@
+TITULO: Versão 8.13
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921074966
+--------------------------------------------------
+Versão 8.13
+Dados
+Informações
+Início
+12/06/2014
+Final
+21/07/2014
+Scripts
+CMD813.sql (3468 a 3515)
+Itens
+27
+Implementações
+16
+Correções
+11
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+PMMGeral.Rtm
+SisPetroControl.Dll
+ 
+ 
+OrdemServico.rtm
+ 
+ 
+ 
+SCANC_v813.rtm
+ 
+ 
+ 
+Compras
+Tratamento do Saldo Excedente no PMM
+Foi implementada um funcionalidade que permite informar Saldo excedente para os PMMs, possibilitando a inclusão de uma Ordem de Carregamento com quantidade maior que a informada no Pedido. 
+Help: 
+. PRFC (CCF 24507)
+Data de Inicio do Fluxo de Pagamento Previsto do PMM
+A partir dessa versão será possível informar na inclusão do PMM a data de inicio para o fluxo de pagamento previsto. Caso haja pagamento antecipado, total ou parcial, informar esta data no campo "Data Fluxo Caixa". 
+Help:
+ 
+. UPA (CCF 24349)
+Informações da Liberação no PMM
+Foram incluídos os campos "Liberado Em", "Liberado Por" e "Primeiro Vencimento" na tela de Consulta de Pedidos de Movimentação de Material Pendentes. 
+Help:
+ 
+. PRFC (CCF 24732)
+Envio de e-mail de PMM
+Alterado o envio de e-mail de PMM para que utilize a Conta de E-mail configurada exclusivamente para Compras. 
+No caso dessa conta não estar configurada não será permitido o envio de e-mail de Cotação e de PMM
+. 
+Help:
+ 
+. GSN (CCF 24825)
+Utilização da quantidade pendente do PMM quando o Faturamento for a maior
+Atualmente, quando é emitida uma NF com quantidade menor que a OC, a diferença é devolvida para a quantidade pendente, mas quando é emitida uma NF com quantidade maior que a OC, a diferença não é retirada da quantidade pendente.  Nessa versão, foi realizada uma alteração para permitir a utilização da quantidade pendente do PMM quando o Faturamento for a maior.
+ CPC (CCF 24700)
+Relatório de Movimentação de Material – Geral
+Foram incluídos dois novos filtros, Tipo de PMM e Representante, além de disponibilizá-los para inclusão no relatório. 
+Para que essa alteração seja aplicada, é necessário atualizar o arquivo
+ 
+PMMGeral.Rtm
+.
+ 
+Help:
+ 
+. CPC (CCF 24582)
+Contabilidade
+Demonstrativo de Resultados
+Ao tentar incluir um novo item no Demonstrativo de Resultados era apresentado um erro informando que já estava cadastrado. Esse problema foi corrigido. 
+UPA (CCF 24178)
+Estoque
+Razão Social da Entidade na OC
+Corrigido para que ao incluir uma OC via tela de Consulta de Pedidos de Movimentação de Material Pendentes o campo da Razão Social da Entidade seja apresentado na tela de Manutenção de OC, o que não estava sendo preenchido.
+ GSN (CCF 24063)
+Consulta Saldo de Produtos
+Na tela de Consulta de Saldo de Produtos eram apresentados os produtos com Código 01 e 06, pois eram fixos. Esses produtos foram retirados e serão apresentados somente produtos cujo campo "Participa do Fechamento de Estoque" esteja marcado. Produtos compostos deveriam estar com esse campo desmarcado.
+ É possível que alguns produtos que eram apresentados antes não sejam mais apresentados devido essa nova regra. Nesses casos verifiquem o campo indicado e ajuste-o conforme a necessidade.
+ 
+Help:
+ 
+Consulta Saldo Produto
+. 
+GSN (CCF 18936) 
+Alteração de Data do Movimento no Fechamento de Estoques
+Na versão passada incluímos a opção de alterar a data de movimento dos itens do fechamento de estoque pela própria tela de fechamento. Em algumas situações quando a movimentação era de pedido sem nota fiscal, estava sendo alterada uma nota fiscal fora do processo. Esse problema foi corrigido. 
+UPA (CCF 25074)
+Faturamento
+Emissão de CT-e com diversos Tipos e Serviços do Conhecimento
+No CT-e há o Tipo de Conhecimento e o Tipo de Serviço. O SisPetro atualmente permite somente CT-e com Tipo de Conhecimento Normal e com Tipo de Serviço como Normal ou Redespacho e ainda sim, o Tipo de Serviço de Redespacho está incompleto.  A partir dessa versão é possível, ao emitir um CT-e, indicar diversos Tipos de Serviço e Tipos de Conhecimento. 
+Help:
+ 
+. CPC (CCF 24695)
+Impressão de Notas
+Nessa versão, o SisPetro foi alterado para possibilitar que o usuário envie somente as Notas Fiscais por e-mail sem obrigar a impressão. Além disso, foi ajustado para habilitar a configuração de “data/hora de saída” somente para tipo “Nota”
+. CPC (CCF 23714)
+Filtro por Frota e Data no vinculo de OC na importação de NF
+A tela de vínculo de OC com NF no processo de importação não possui qualquer filtro lógico, então é possível vincular OC emitidas depois da nota e com frota diferente. Nessa versão, foram incluídos perfis de usuário para permitir ou não essas situações. 
+Help:
+ 
+. CPC (CCF 24514)
+Validação na Natureza de Operação
+No cadastro de natureza de operação não será mais permitido cadastrar ou alterar a natureza de operação de notas de emissão própria para que utilize fator de conversão para as unidades da nota fiscal. 
+Help:
+ 
+Cadastro de Natureza de Operação / Dados Gerais (Painel Geral)
+ e 
+Cadastro de Natureza de Operação / Dados Gerais (Painel Por Filial)
+. UPA (CCF 24587)
+Validação na Nota Fiscal
+Na emissão de nota fiscal, validaremos para não permitir nota fiscal de emissão própria utilizar fator de conversão de unidade e também não permitir nota fiscal de terceiros obter o volume do carregamento. UPA (CCF 24587)
+Ambiente para Manifestação de NF-e do Destinatário
+Nos casos onde o Ambiente da NF-e está direcionado para Contingência, foi alterado o processo de envio de Manifestação de NF-e do Destinatário para utilizar o Ambiente de Produção, já que para Manifestação não existe Ambiente de Contingência. 
+GSN (CCF 24463)
+Ausência de Campos na Configuração de Sistema
+Os campos Layout DACTE e Aviso de NF-e Pendentes na tela de Configuração de Sistema estavam abaixo de outros campos, não estando visível ao usuário, o que foi corrigido.
+ GSN (CCF 24927)
+Diferença de R$ 0,01 no Valor Total do Item no DANFE
+Na primeira impressão do DANFE de Notas de Venda, em alguns casos o valor total do Item apresentava diferença de R$ 0,01 devido problemas de arredondamento, o que foi corrigido.
+ GSN (CCF 24792)
+Financeiro
+Otimização de performance na Baixa Automática
+Foram feitas alteração para otimizar a performance no processo de Baixa Automática. O processo continuará com o mesmo funcionamento. GSN (CCF 24734)
+Fiscal 
+Alterações nos processos de Anexo e DPMP
+Os processos de Anexo e DPMP foram alterados para utilizarem a quantidade da Nota Fiscal aplicando o fator de conversão da unidade. 
+Para que essa alteração seja aplicada ao SCANC, é necessário atualizar o arquivo
+ 
+SCANC_v813.rtm
+. CPC (CCF 24587)
+Edição de dados da EFD Contribuições
+Foi acrescentada a solicitação do filtro por empresa na edição de dados da EFD Contribuições, melhorando a performance
+. GSN (CCF 20513)
+Patrimônio
+Servidor SisPetro
+Recebimento de XML de Notas por E-mail
+No Windows Server 2008, o Servidor SisPetro não movimentava os XML das notas recebidas por e-mail de acordo com as configurações de pastas criadas pelo usuário. Esse problema foi corrigido utilizando funções compatíveis com esse sistema operacional. 
+UPA (CCF 24865)
+Transporte
+Alterações no módulo de Transporte
+A inclusão de Itens na Ordem de Serviço foi melhorada para trazer na tela todos os itens já incluídos para a mesma, possibilitando assim aproveitar os dados para a inclusão de um novo item.  A Ordem de Serviço ganhou três novos campos e 
+foi incluída permissão de acesso aos botões Incluir, Editar, Cancelar, Excluir e Imprimir (configurado via perfil de sistema)
+. Foi criado também um controle de Bloqueio de Frotas, sendo assim, na inclusão de um Pedido de Venda e uma Ordem de Carregamento, é validado se o Frota está ou não Bloqueado. 
+Para que as alterações no impresso de Ordem de Serviço seja aplicada, é necessário atualizar o arquivo OrdemServico.rtm
+.
+ 
+Help: 
+,
+,
+,
+ 
+CPC (CCF 24649)
+Controles de Vencimento do Frota
+Na versão 8.11 fizemos uma alteração para que os Controles de Vencimento de Frota que estivessem marcados a opção "Somente próprio" só fossem aplicados sobre frotas próprios, já que antes, indevidamente, estava sendo aplicado em frotas de terceiros. Porém, após essa alteração, se a empresa tivesse ao menos um Controle de Vencimento exclusivo para Frotas Próprios, nenhum outro controle era aplicado sobre frotas de terceiros. Esse procedimento foi corrigido. 
+UPA (CCF 24832)
+Ajustes na Inclusão de Eventos do Frota
+Foram feitas alterações na tela de inclusão de eventos do frota. Agora ao selecionar um novo evento, os campos com descrição serão atualizados e a tela permite informar quantidade de horas menor que 0,5.
+ PRFC (CCF 24994)
+ 
+Vendas
+ 
+Alteração de Depósito
+A partir desta versão será possível alterar o depósito de um pedido de vendas mesmo após o seu faturamento. Quando solicitada essa alteração no pedido, todas as ordens de carregamento, pedidos de venda, pedidos de outras saídas, adiantamentos quantificados (caso tenha depósito) e notas fiscais movimentadas no processo de venda terão também o seu depósito alterado para o novo depósito informado. 
+Help: 
+. 
+UPA (CCF 24303)
+Saldo Negativo de Estoque no Pedido de Venda
+Ajustada a verificação de Saldo Negativo de  Estoque acionada pelo Pedido de Venda para não apresentar problema com Windows 2012.
+ CPC (CCF 24566)

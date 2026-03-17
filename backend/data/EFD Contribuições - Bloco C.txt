@@ -1,0 +1,82 @@
+TITULO: EFD Contribuições - Bloco C
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903998468
+--------------------------------------------------
+O Bloco C é responsável pelas Notas Fiscais de Produtos ou Produtos/Serviços. É importante separar a obrigatoriedade dos registros para Notas de Emissão Própria e de Terceiros.
+Registro
+Descrição
+Observações
+Emissão 
+(P ou T)
+Pai
+C010
+CNPJ e Razão Social da Empresa
+Conforme perfil de sistema. Menu Ferramentas, Sistema, aba Dados Gerais
+C001
+C100
+Notas Fiscais Modelo 01 e 55
+Natureza de Operação
+Participação no Registro do SPED PIS COFINS (C180 e C190)
+Modelo da Nota
+Situação do Documento
+Condições de Pagamento (A vista/A prazo)
+Data de Filtro: 
+Apuração Fiscal
+Para a NF ser selecionada no período informado para o SPED é usado o campo DataReferencia, o qual pode ser preenchido com a Data de Movimento. Porém, como isso é feito na inclusão da NF, a Data de Referência utiliza a Data de Movimento Original, pois não é alterada posteriormente.
+Entidade para uso da LFE (
+Clientes
+)
+Indicador de Pagamento
+P/T
+C010
+C110
+Observações da Nota
+Se não tiver na Nota Fiscal, pegará da 
+Natureza de Operação
+P/T
+C100
+C111
+Processo Referenciado
+Natureza de Operação
+P/T
+C100
+C120
+Complemento de documento - operações de importação
+Exigido em notas de importação - emissão própria. Os dados para os registros C120 são informados na inclusão da nota: 
+Notas Fiscais de produtos importados
+P
+C100
+C170
+Itens das Notas Fiscais
+Para as informações de Substituição tributária constarem no arquivo é necessário que o perfil de Natureza 'Desconsidera Base/ICMS ST Apuração Fiscal' não seja marcado, caso contrário marca-lo. 
+Dados Adicionais (Fiscal) (Painel Geral)
+P/T
+C100
+C500
+Notas Fiscais Energia Elétrica
+Natureza
+Participação no Registro da LFE
+Modelo da Nota
+Situação do Documento
+Condições de Pagamento (A vista/A prazo)
+Data de Filtro: Apuração
+Para a NF ser selecionada no período informado para o SPED é usado o campo DataReferencia, o qual pode ser preenchido com a Data de Movimento. Porém, como isso é feito na inclusão da NF, a Data de Referência utiliza a Data de Movimento Original, pois não é alterada posteriormente.
+Entidade para uso da LFE
+P/T
+C001
+C501
+Complemento da Operação - PIS
+Outros Impostos gerados na Nota Fiscal. Configuração em 
+Natureza de Operação
+P/T
+C500
+C505
+Complemento da Operação - COFINS
+Outros Impostos gerados na Nota Fiscal. Configuração em 
+Natureza de Operação
+P/T
+C500
+Coluna Emissão P ou  T: emissão de NF Próprio ou de Terceiros.
+Coluna Pai: apresenta qual registro do Sped Contribuição vem a informação principal.
+Para a geração do registro C100 e C170 é importante o usuário analisar os perfis disponíveis a serem configurados no KB 
+Painel Livro Eletrônico
+. 

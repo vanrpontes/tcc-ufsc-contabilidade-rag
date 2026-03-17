@@ -1,0 +1,97 @@
+TITULO: Sicoob
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913239113
+--------------------------------------------------
+Painel Cobrança Eletrônica
+Banco: Deve ser informado o número do banco, 756
+Informar o número de 
+convênio. Informado pelo banco
+Preencher 
+#Agencia
+ com 
+4 dígitos
+ e o dígito verificador.
+Preencher 
+Número Conta
+ com 
+5 dígitos
+. Preencher também 
+o dígito verificador da conta.
+Preencher a 
+Carteira
+ com 1 dígito
+#Docto no Arquivo Remessa:
+ se informado a opção 
+Com Parcela...
+, será acrescentado no lado do campo 
+Número de Documento no Arquivo de Remessa
+, a identificação da parcela.
+O campo 
+Informação de juros no Arquivo Remessa
+ pode ser configurado com qualquer uma das opções, sendo utilizado no arquivo de remessa.
+Desconto Cond. Arquivo Remessa:
+ Em alguns casos há a necessidade de dar um abatimento ao cliente ao invés de desconto condicional. É importante que no ato do pedido de venda saiba o valor total do abatimento a ser concedido. Conseqüentemente a Nota Fiscal de Venda e o título do Contas a Receber seriam gerados com o valor total e no arquivo de remessa será enviado o valor deste abatimento e a baixa deste arquivo de remessa (via Arquivo de Retorno) irá considerar devidamente o abatimento enviado.
+As opções existentes para este perfil são:
+Informar como Desconto: será informado no arquivo de remessa como desconto condicional.
+Informar como Abatimento: será informado no arquivo de remessa como abatimento.
+Painel Informações sobre a Cobrança
+A cobrança para o Banco Sicoob NÃO utiliza banco correspondente, portanto, a opção 
+Utiliza Banco Correspondente
+ NÃO deve ser marcada.
+Linha digitável
+ 
+Conteúdo
+Tamanho
+Início
+Fim
+Carteira
+1
+1
+1
+Agência
+4
+2
+5
+Modalidade (Código do Serviço de Cobrança)
+2
+6
+7
+Cedente
+7
+8
+14
+Nosso Número
+7
+15
+21
+DV Nosso Número
+1
+22
+22
+Parcela
+3
+23
+25
+Exemplo:
+Carteira:
+ 1
+Agência
+: 2222
+Modalidade (Código do Serviço de Cobrança)
+: 33
+Cadente
+: 4444444
+Nosso Número
+: 5555555
+DV
+: 6
+Parcela
+: 777
+Campo Livre: 
+1 22222 33 4444444 5555555 6 777
+Linha Digitável: |7 5 6| 9 | 1 2 2 2  | 9 | 3 3 4 4 4 4 4 4 4 5 | 9 | 5 5 5 5 5 5 6 7 7 7 | 9 | 9 | 8 8 8 8 | 0 0 0 0 0 0 0 0 0 0|
+Para informações sobre a montagem da linha digitável para este banco, veja o tópico 
+Montagem da Linha Digitável
+ 
+DLL 
+Banco756_v3.dll (versão 1.0.0.0), sem o seguimento S
+ 

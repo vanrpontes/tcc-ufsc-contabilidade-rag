@@ -1,0 +1,56 @@
+TITULO: Manutenção de Bombeio Escritural
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2910486767
+--------------------------------------------------
+none
+Objetivo
+A partir dessa manutenção é possível incluir pedidos de bombeio escritural, criado para 
+Empresas que não controlam o bombeio físico (base de terceiros)
+.
+O acesso é feito através do menu 
+Movimentação / Estoque / Manutenção Bombeio Escritural.
+Botões: 
+Inclui Ped.
+Permite a inclusão dos dados do pedido do bombeio selecionado.
+Altera Ped.
+Permite a alteração dos dados do pedido do bombeio selecionado.
+Canc. Ped.
+Providencia o cancelamento do pedido de bombeio selecionado, inclusive se ele já estiver confirmado.
+Conf. Ped.
+Faz a confirmação do pedido incluído anteriormente. Na confirmação, caso o perfil do quadro Bombeio 
+Movimenta estoque na confirmação de bombeio
+ esteja marcado o SisPetro já faz a movimentação do estoque. Para mais informações, ver 
+Confirmação de Bombeio
+.
+Canc. Conf.
+Providencia o cancelamento da confirmação do pedido de bombeio selecionado, ou seja, o pedido continuará valendo, porém como não confirmado.
+Inclui Conf.
+É possível incluir o pedido já confirmado, ao invés de fazer em dois passos. Neste caso é apresentada a mesma tela da 
+Confirmação de Bombeio
+, com algumas opções disponíveis para informação pelo usuário.
+Legenda
+Mostra o significado de fontes/estilos utilizados na apresentação dos Pedidos de Bombeio.
+Atualiza
+Atualiza as informações da tela
+As ações acima são permitidas ou não conforme perfil de usuário. Para mais informações, ver 
+Permissões de Usuário para Bombeio
+Como utilizar
+1.
+ 
+Pedido de Bombeio
+Sem a necessidade de uma programação, a filial registrará a sua intenção de receber um bombeio nesta programação, fazendo um pedido de Bombeio.
+2.
+ 
+Confirmação de Pedido de Bombeio
+Ao receber da base a quantidade confirmada pela Petrobrás, deve ser feita a Confirmação de Pedido de Bombeio, que disponibilizará a quantidade confirmada pela Petrobrás no depósito de vendas da filial. Caso tenha sido feito o seu controle de Cota através de PMM, deve vincular esse PMM à confirmação, de forma que lá tenha a informação que esta quantidade está em trânsito.
+3.
+ 
+Recebimento da NF da Petrobrás
+Neste ponto deve-se receber essa Nota Fiscal com 
+Natureza de Operação
+ configurada como 
+Bombeio
+. Isso pode ser feito inclusive através do processo de Importação de NF.
+4.
+ 
+Vínculo da NF ao Bombeio
+Neste processo é que a Nota Fiscal da Petrobrás prevalecerá sobre a Confirmação de Pedido de Bombeio feita. Ou seja, ao vincular a NF ao Bombeio, é cancelada a movimentação feita no processo de Confirmação de Pedido de Bombeio, passando a valer, a partir de então, a movimentação da NF vinculada. Além disso, é neste ponto que o PMM será atualizado como faturado em relação a este bombeio.

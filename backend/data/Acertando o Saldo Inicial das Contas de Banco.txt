@@ -1,0 +1,40 @@
+TITULO: Acertando o Saldo Inicial das Contas de Banco
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898962
+--------------------------------------------------
+Para atualizarmos o saldo inicial das contas, o usuário deve abrir a tela de 
+Manutenção de Bancos
+, através do Menu 
+Movimentação / Financeiro / Manutenção Bancos
+.
+Após selecionar a conta que terá o saldo corrigido, o usuário deverá clicar no botão 
+Acerta Saldo
+. O sistema abrirá a tela de 
+Acerto de Saldos
+.
+A partir da versão 8.8 é possível escolher se o acerto de saldo será ou não contabilizado na contabilidade REAL. Veja maiores informações sobre perfis em 
+ 
+O sistema sugere o acerto de saldo da conta que foi selecionada na tela de Manutenção de Bancos, mais isso não impede que o usuário possa fazer o acerto de outras contas em conjunto. O sistema emite a seguinte mensagem caso for selecionada outra conta:
+O usuário deve informar a data do saldo final do banco e a conta contrapartida para o lançamento na conta 
+Acerto Saldos
+ e um 
+Histórico
+ para o movimento, normalmente ACERTO DE SALDO INICIAL.
+Informar, se o usuário for contabilizar no plano de contas Real, o código de contabilização
+Deve ser informado o saldo final da conta participante, no campo 
+Saldo Final Banco
+ e marcar o campo 
+Acerta Saldo
+, da conta que terá o saldo corrigido.
+Ao clicar no botão 
+OK
+, o sistema emite a seguinte mensagem de confirmação:
+Será lançado um movimento para a conta acertando-a de acordo com o saldo informado. Para as contas que não requer conciliação o acerto de saldo será feito em cima do Saldo Final, permanendo zerado o Saldo Conciliado. Já as contas que requer conciliação o saldo final e conciliado serão acertados de acordo com valor desejado.
+O que foi lançado anteriormente será desprezado (não desaparecendo). Qualquer lançamento que apareça no extrato do banco posteriormente deve ser lançado na respectiva conta (através de baixa ou pagamento/recebimento) mesmo que tenha sido lançado anteriormente.
+Veja também:
+ 
+ 
+ 
+ 
+ 
+ 
+ 

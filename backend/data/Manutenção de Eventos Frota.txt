@@ -1,0 +1,96 @@
+TITULO: Manutenção de Eventos Frota
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440530
+--------------------------------------------------
+Objetivo
+A tela que permite a inclusão, bem como visualização de todos os eventos relacionados ao Frota. 
+Antes era usado o termo despesas com frota, hoje usamos o termo eventos relacionados ao frota, por ser mais abrangente.
+Ela é acionada pelo menu 
+Movimentação / Transportes / Manutenção de Eventos do Frota.
+Os eventos que forem de outras empresas serão apresentados com fundo cinza e cor da fonte vermelha, para melhor visualização.
+Nesta tela é possível agrupar os dados, arrastando o cabeçalho de uma determinada coluna.
+Utilize o botão 
+Legenda
+ para saber a diferenciação de cores e fontes apresentada, pois nesta mesma tela estão apresentados os eventos lançadas no 
+Fechamento da Viagem
+, bem como eventos vinculadas no 
+Contas a Pagar
+ ou NF ou eventos totalmente desvinculadas.
+Para 
+incluir um Evento Frota
+, acionar o botão 
+Os eventos aí incluídos estão totalmente desvinculados, mesmo que tenha sido informada a viagem, eles não participaram, nem participarão do adiantamento do evento. Estes eventos não foram contabilizados, nem pagos. Até então eles só servem para sabermos que sobre determinado frota incidiram tais eventos.
+Para providenciar o pagamento destes eventos há duas formas:
+Pelo Contas a Pagar
+Esta é a opção mais prática, no momento em que se for fazer a inclusão do Contas a Pagar se seleciona as despesas relacionadas ao pagamento a ser agendado.
+Pela NF
+Caso o pagamento de determinado grupo de despesas seja parcelado, o mais prático é efetuar o lançamento da Nota Fiscal no sistema, informando as condições de pagamento desejada (número de parcelas e prazo) e na tela de Manutenção de NF providenciar o vínculo com as despesas referentes a esta nota.
+Abas
+Contas a Pagar
+Nas abas Contas a Pagar é possível visualizar os títulos vinculados ao Evento do Frota. 
+Nota Fiscal
+Nessa aba é possível visualizar as notas vinculadas ao Evento do Frota e suas respectivas notas fiscais. 
+ A
+s características do item da Nota Fiscal caso a ordem seja gerada via evento de NF e anexada a NF no momento da inclusão devem ser consultadas na Ordem de Serviço gerada. Elas 
+não vão 
+aparecer no campo em questão. 
+Botões
+Incluir: 
+inclui um novo evento de frota
+Eventos: 
+permite importar um arquivo em formato .CSV para lançar eventos de frota em lote
+Os dados do documento podem ser informados a partir da 
+Pesquisa de NF
+, acionada pelo botão, apresentando em uma tela de pesquisa notas da 
+Empresa
+ e 
+Fornecedor
+ informados. Ao escolher a NF os demais campos serão preenchidos a partir da NF e não estarão disponíveis para digitação do usuário.
+Se o usuário quiser informar os dados do documento (
+Fornecedor
+, #
+Docto
+ e 
+Data
+), pode digitá-los se os campos estiverem habilitados, caso não estejam, seria só clicar no botão 
+Retira NF
+O 
+Layout do arquivo .csv (separado por vírgula) 
+deve conter:
+Data (data no formato “dd/mm/yyyy”)
+Placa (da mesma forma que está cadastrado no Sispetro)
+Valor (Valor com 2 casas decimais separado por ponto)
+KM (valor inteiro)
+Codígo do Produto (código de produto conforme cadastro do Sispetro)
+Quantidade (Valor com até 3 casas decimais separado por ponto)
+Sequencial do Local (Sequencial do Local conforme cadastro do Sispetro)
+Observações (Texto livre)
+O arquivo deve utilizar o Encode ANSI
+Para importar o arquivo, clicar no botão 
+Importa Arquivo
+Para validar os registros importados, clique no botão 
+Valida. 
+Os registros validados e corretos ficarão com o fundo cinza. Já os que necessitam de correção ficarão em vermelho. As colunas 
+Status 
+e 
+Erro
+ também mostram o status do registro
+Para excluir um dos registros importados clique no botão 
+Exclui. 
+Para incluir um registro manualmente junto com os importados, clique no botão 
+Inclui. 
+Para salvar os registros clique no botão 
+Salvar
+. 
+Editar: 
+edita um evento de frota já cadastrado. 
+A partir dessa tela é possível incluir, alterar ou excluir um evento já cadastrado
+Cancela: 
+cancela um evento de frota
+Atualiza: 
+atualiza as informações da tela
+Legenda: 
+mostra a legenda das informações
+Filtra: 
+em desuso
+Localiza: 
+mostra filtros adicionais 

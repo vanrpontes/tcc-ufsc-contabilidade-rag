@@ -1,0 +1,37 @@
+TITULO: Sifra
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2899607963
+--------------------------------------------------
+Dados Gerais
+O Banco Sifra trabalha em conjunto com o Banco Bradesco (237). Assim, a empresa que tem conta no Banco Sifra, pode adquirir o produto "Cobrança Eletrônica", dando a possíbilidade para a empresa que for efetuar o pagamento deste boleto, pagar no Banco Bradesco, conforme for configurado o Tipo de Cobrança.
+ Para atender a essa necessidade, usaremos a configuração de 
+Banco Correspondente do SisPetro.
+Informar:
+Nome do Banco:
+ 999- Banco Sifra
+Agência
+ 4 Dígitos
+Carteira
+ 2 Dígitos
+Número da Conta
+Faixa do nosso número
+ 7 dígitos e 1 verificador.
+Transformação Arquivo Cobrança 
+acessando via 
+Tabelas Auxiliares / Vendas / Tipos Cobrança / Aba Por Empresa / Aba Transformações Arquivo Cobrança / Tipo do Arquivo > Retorno
+ 
+/ Posição Inicial 77, Posição Final 79 e Conteúdo 999.
+PREENCHER OS CAMPOS ABAIXO NO PAINEL DE BANCO CORRESPONDENTE:
+Informar no Banco Encarregado da cobrança 237 – BRADESCO
+Informar #Banco como 237 e Dig como 2* Informar Nome Banco como BRADESCO S/A
+Preencher #Agencia e o seu dígito (esta é a agência do Bradesco onde o banco Sifra tem conta).
+Preencher Número Conta
+Preencher a Carteira
+REGISTRO 4:
+Quando títitulos oriundos de Notas Fiscais Eletrônica, o SisPetro gerará no arquivo de remessa o Registro 4, que se trata da chave de acesso da Nota Fiscal. Para maiores informações sobre Chave de Acesso veja o help 
+.
+Linha Digitável
+A Linha Digitável para o banco Sifra será montada conforme o banco correspondente configurado, que no caso deverá ser o 
+. Veja maiores informações sobre a montagem da linha digitável através do tópico 
+Montagem da Linha Digitável
+ 
+ 

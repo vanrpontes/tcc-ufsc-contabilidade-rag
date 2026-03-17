@@ -1,0 +1,33 @@
+TITULO: Análise Financeira de Clientes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2942469569
+--------------------------------------------------
+Este novo recurso do SisPetro possibilita executar 
+ uma análise financeira 
+(sobre atraso de pagamento)
+ dos clientes de forma automatizada e agendada.
+O serviço faz a análise de todos os clientes, ativos e inativos considerando os dias de atraso do vencimento do titulo até a sua baixa, assim destacando o seu maior prazo.
+Através do 
+menu Ferramentas > Cadastro Clientes > Análise Financeira de Clientes - Configuração
+Por padrão o menu será visível, mas desabilitado.
+Para ativar ou desativar o serviço, basta marcar ou desmarcar a opção Ativa Serviço de Análise Financeira (por padrão desmarcado)
+O número de dias para considerar as baixas até a Data Atual:
+ 
+será sugerido 90.
+Considerando que a data atual é 30/03/2020, o SisPetro contará esses x dias retroativos. Sendo, 90, teremos como resultado 31/12/2019. Ou seja, seriam analisadas as baixas (de todas as empresas) realizadas entre 31/12/2019 e 30/03/2020.
+O número de dias para executar nova Análise para o cliente:
+ 
+será sugerido 30.
+Isso indica que somente após ter sido feita uma análise para o cliente, o SisPetro esperará esse número de dias para então fazer nova análise. Se a data da última análise foi 30/03/2020, a próxima seria em 29/04/2020.
+O intervalo de dias para execução:
+ 
+será sugerido 1.
+Para ser realizado diariamente. Obviamente, ao ser executado, verificará os clientes passíveis de consulta (conforme o perfil citado acima).
+Caso queira execução semanal, pode ser informado o intervalo como 7 dias, o mesmo vale para mensal, que seria 30 dias.
+Ao salvar, o SisPetro configurará automaticamente um Evento no Banco de dados, seguindo o intervalo de dias e o horário.
+No menu Movimentação/Financeiro teremos um item de menu para a tela
+ 
+Análise Financeira de Clientes
+ 
+- Execução
+ (utilizado para forçar a análise fora do horário agendado).
+Tela para execução da Análise fora do agendamento

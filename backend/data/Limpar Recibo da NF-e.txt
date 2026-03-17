@@ -1,0 +1,88 @@
+TITULO: Limpar Recibo da NF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2886959422
+--------------------------------------------------
+Anteriormente o Sispetro permitia aos seus usuários limparem o número do recibo da NF-e para possibilitar o cancelamento da nota fiscal.
+
+Porém, este processo era passível de erro, podendo gerar situações inconsistentes no Sispetro. Por isso tornamos este processo automático.
+
+
+Ao enviar a Nota Fiscal à Sefaz existirão alguns retornos que o Sispetro não limpará o recibo de suas respectivas notas fiscais, sendo eles:
+
+
+
+
+Erro 105 - Lote em processamento
+
+
+Erros referente a internet da empresa
+
+
+Nota Fiscal denegada
+
+
+
+
+Isto porque os erros citados acima não dependem do Sispetro e nem da Futura Tecnologia. 
+
+
+Entenda o porque:
+
+
+
+
+Erro 105 - Lote em processamento:
+
+
+
+
+Nem sempre o retorno da Sefaz será imediato, e nessas situações a mensagem que será apresentada é a de Lote em Processamento. 
+
+
+Veja um exemplo:
+
+É emitida a Nota Fiscal Eletrônica e o Sispetro envia a solicitação de recibo a Sefaz.
+
+A Sefaz retorna o número do recibo com a mensagem 
+Lote recebido com sucesso
+.
+
+Ao solicitar o número do protocolo a Sefaz retorna uma mensagem que a Nota Fiscal esta em processamento (Lote em Processamento). E, por algum motivo, fica nessa situação durante um tempo.
+
+
+Supondo que o usuário tenha a permissão de limpar o recibo, neste exemplo, ele poderia em seguida cancelar esta nota fiscal. Após cancelar essa nota a Sefaz poderia, em seguida, autorizar o uso da NF-e. Com isso, teríamos uma situação inconsistente no SisPetro, pois o usuário teria que incluir uma nova Nota Fiscal idêntica à cancelada, porém a chave de acesso seria outra.
+
+
+O correto e permitido ao usuário atualmente é, para este exemplo, o usuário *não
+ tem a permissão de limpar o recibo. 
+Ele deverá aguardar o retorno da Sefaz quanto a Autorização ou não da NF-e.
+
+
+
+
+
+
+Erros referente a internet da empresa
+
+
+
+
+Por se tratar de problemas internos o Sispetro e a Futura não tem muito o que fazer, pois é um problema de infra-estrutura da empresa. 
+
+
+
+
+
+
+Nota Fiscal denegada
+
+
+
+
+Quando ocorre um erro de 
+denegado
+ significa que a nota fiscal eletrônica foi indeferida pela Sefaz. E sem a autorização da Sefaz o Sispetro e a Futura não tem como proceder neste caso.
+
+
+
+
+Para os demais erros o Sispetro limpa o número do recibo automaticamente, permitindo ao usuário solicitar o recibo novamente.

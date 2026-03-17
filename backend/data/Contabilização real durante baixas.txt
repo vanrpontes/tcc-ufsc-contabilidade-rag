@@ -1,0 +1,32 @@
+TITULO: Contabilização real durante baixas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2896494899
+--------------------------------------------------
+Existe um perfil de sistema que controla a contabilização de um lançamento de baixa (manual ou eletrônica). Ao parametrizar o sistema, marcando o perfil "Habilita Contabilização Real" que fica na aba "Contab. Real". Com isso será possível informar o grupo contábil durante a baixa através da opção 
+Pode Contabilizar?
+Para essa opção citada acima estarem disponíveis, além do perfil Habilita Contabilização Real, existe uma regra que envolve dois perfis, são eles:
+Ferramentas > Usuário > Contabilidade >
+ 
+E no Sispetro Controladoria, menu 
+Arquivos > Grupos Contábeis
+. Selecione o grupo contábil e na aba detalhes veja o campo 
+Força Contabilização
+.
+ 
+Regras para os dois perfis citados:
+Perfil de Empresa:
+Habilita Contabilidade Real 
+Grupo Contábil (SisPetro Controladoria)
+Força Contabilização 
+Perfil de Usuário:
+Pode não Contabilizar Qualquer Grupo 
+Visível
+Habilitado
+Marcado
+Independente do status
+Independente do status
+Baixa Manual 
+Telas afetadas
+Baixa Debito/Credito
+Baixa Eletrônica
+Inclusão de Adiantamento
+Transferência de Adiantamento

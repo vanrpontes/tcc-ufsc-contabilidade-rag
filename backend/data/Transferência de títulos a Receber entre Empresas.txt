@@ -1,0 +1,64 @@
+TITULO: Transferência de títulos a Receber entre Empresas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4757520385
+--------------------------------------------------
+Objetivo
+Há grupo de empresas em que 
+uma dessas empresas
+ é a responsável por administrar os 
+valores
+ de todas elas, e assim, todo recebimento é direcionado para ela, bem como os pagamentos. Daremos o nome de 
+Controladora. 
+A empresa controladora vai repassando os valores às demais empresas conforme a necessidade de cada, porém, devido o grande volume de vendas, o repasse dos valores se torna inviável para fazer de forma manual. A solução proposta nesse cenário é transferir o título gerado na empresa controlada para a empresa controladora assim que a venda é emitida. Dessa forma, ao ocorrer o pagamento do cliente e a baixa do título, não será necessário registrar a saída de valor da empresa controladora nem a entrada na empresa controlada
+Abaixo um passo a passo de como o processo vai ocorrer:
+Empresa Controlada
+Emite Nota Fiscal de Venda
+Gera Títulos do Contas a Receber
+Os títulos gerados serão automaticamente baixados utilizando uma conta gerencial 
+transitória
+ e nas observações será incluído um histórico dessa movimentação. No exemplo foi configurado para incluir o histórico 
+Transferência entre Filiais
+É possível na Manutenção de Notas Fiscais, nas últimas colunas da aba Financeiro / Títulos Gerados se o Contas a Receber foi transferido, para qual empresa ele foi direcionado e o número do lançamento gerado na empresa de destino (Controladora). 
+Empresa 
+Controladora
+O SisPetro copia o título para a Controladora com praticamente todos os dados 
+Exceto:
+Empresa:
+ será a empresa Controladora
+#Lançamento:
+ seguirá a numeração da empresa Controladora
+CC contra-partida:
+ Conta informada no tipo de cobrança para uso na transferência.
+Sequencial NF:
+ deve estar 
+vazio  
+Configurações
+Para o SisPetro realizar a Transferência de títulos é necessário configurar:
+Ferramentas / Sistema / Aba Financeiro / Quadro Contas a Receber
+Habilita Transferência de Títulos entre Empresas:
+ marcar
+Para mais informações, ver 
+Ferramentas / Sistema / Aba Histórico 
+Histórico Padrão Transf. Títulos:
+ informar um histórico que será utilizado para baixa automática do Contas a Receber
+Obs.: por padrão será sugerido o histórico padrão da Baixa a Receber
+Para mais informações, ver 
+Painel Históricos
+Tabelas Auxiliares / Vendas / Tipo de Cobrança / Aba Por Empresa / Sub Aba Diversos
+ 
+Transfere o título para outra empresa?:
+ marcar
+Empresa Responsável:
+ informar aqui a empresa 
+Controladora
+Conta para uso na Transferência:
+ informar a conta que será utilizada para baixa do Contas a Receber
+Para mais informações, ver 
+Tabelas Auxiliares / Faturamento / Natureza de Operação: 
+nas naturezas de emissão de Nota que gere Títulos do Contas a Receber que serão transferidos
+Aba Detalhes / Aba Lateral Geral / Aba Inferior Contabilização / Quadro Contabilização Real
+Pode Contabilizar?: 
+marcar
+Desconsidera Código de Contabilização: 
+marcar
+Para mais informações, ver 
+Contabilização (Painel Geral)

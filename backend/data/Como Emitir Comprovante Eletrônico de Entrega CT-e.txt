@@ -1,0 +1,83 @@
+TITULO: Como Emitir Comprovante Eletrônico de Entrega CT-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936702480
+--------------------------------------------------
+A partir da versão 10.4 foi implementada a possibilidade de emitir o evento de comprovantes de entrega para conhecimentos de Frete.
+Esse novo evento substituirá o canhoto físico utilizado atualmente, por um evento digital, enviado para a SEFAZ, evitando o armazenamento dos canhotos em papel. No SisPetro esse processo pode ser realizado de 02 formas:
+Pré-configurado:
+ O SisPetro enviará o comprovante para autorizar na Sefaz na data e hora definida no momento que emitiu o CT-e, independente se a entrega já foi realizada ou não.
+Manual:
+  O usuário inclui o comprovante, através da tela de Manutenção NFs > aba Transportes > aba inferior  Comprovante de Entrega, com os dados reais da entrega realizada e o SisPetro enviará o comprovante para autorizar na Sefaz.
+Abaixo seguem as configurações necessárias e as telas para realizar os processos. 
+Configurações:
+Perfil de Sistema em 
+, Grupo CT-e:
+Envia comprovante de Entrega: 
+marcar a opção
+Dados para Comprovante de Entrega na Inclusão do CT-e: 
+selecionar a opção desejada
+#Dias padrão para Data Entrega (a partir da Data da Prestação): 
+informar a quantidade de dias 
+Perfil de Usuário em 
+Painel Fretes (Usuários)
+, Grupo Conhecimento de Frete:
+Pode incluir/alterar/cancelar dados de entrega?: 
+marcar o perfil
+Cadastro de Cliente em 
+:
+Nome do Recebedor: 
+se informado, será automaticamente preenchido na tela de emissão de CT-e
+Documento do Recebedor: 
+se informado, será automaticamente preenchido na tela de emissão de CT-e
+Cadastro de Cliente em 
+:
+Latitude: 
+se informado, será automaticamente preenchido na tela de emissão de CT-e
+Longitude: 
+se informado, será automaticamente preenchido na tela de emissão de CT-e
+Servidor Hermes em 
+Serviço de Comprovante de Entrega CT-e
+: 
+Configurar conforme consta no help
+Durante nossos testes identificamos que a SEFAZ só permite um único Comprovante de Entrega por CT-e. O processo de cancelamento só é útil para possibilitar o cancelamento do CT-e, não permitirá a inclusão de outro comprovante. O SisPetro permite novas inclusões pois não sabemos como ficará a regra no futuro.
+Inclusão do Comprovante de entrega na inclusão do conhecimento.
+Ao 
+incluir um conhecimento de frete
+ podemos já informar se o conhecimento será passível de envio do evento de comprovante de entrega, para isso o campo 'Passível de Compr. Entrega' deve estar habilitado e os dados do recebedor devem estar preenchidos.
+Regras para emissão de Comprovante de entrega
+Não é permitido incluir comprovantes de entrega para CT-e do tipo Complemento de valores ou de Anulação.
+Não é permitido incluir comprovantes de entrega para conhecimentos de Frete Denegados ou cancelados.
+Só é permitido incluir comprovantes de entrega para conhecimentos de frete do tipo de serviço igual a normal.
+Inclusão do Comprovante de entrega Via Manutenção de Nota Fiscal
+A inclusão de comprovante de Entrega via Manutenção de Nota Fiscal é acionado via 
+Movimentação / Faturamento / Manutenção NFs / Aba Transportes / Sub Aba Comprovante de Entrega.
+Para que o usuário tenha permissões de incluir, alterar e cancelar dados de entrega o perfil de usuário 
+'Pode incluir/alterar/cancelar dados de entrega?' 
+deve estar habilitado.
+Pela rotina de Manutenção de Conhecimentos, na aba Fiscal / NF /CT-e Eletrônica, temos acesso aos eventos fiscais, XML de Envio e Retorno.
+Botão Inclui
+Após acionar o botão de Inclui será aberto a tela de inclusão de comprovante de entrega, onde o usuário pode informar o dados do comprovante.
+A inclusão de Comprovantes de Entrega via Manutenção de NF seguem as mesmas regras que na inclusão via inclusão de conhecimento de Frete.
+Botão Altera
+Só é permitido realizar alteração de comprovantes de entrega para:
+Comprovantes de entrega que 
+NÃO 
+estejam cancelados.
+Comprovantes de entrega com Status Pendente Autorização ou Pendente Envio.
+Comprovantes de entrega vinculados a Conhecimentos de Frete que 
+NÂO 
+estejam cancelados.
+Botão Cancela
+ 
+Só permite realizar o cancelamento de comprovantes de entrega que:
+Comprovantes de entrega que 
+NÃO 
+esteja cancelado.
+Status de Cancelamento esteja como Pendente Autorização CT-e, Pendente Envio ou Processado com Erro.
+Manutenção de Comprovante de Entrega
+Através da tela de manutenção de Comprovante de Entrega que podemos acessar indo no
+ 
+Menu Faturamento / opção Nota Fiscal Eletrônica / Conhecimento de Transporte Eletrônico / opção Manutenção de Comprovante de Entrega
+ 
+é possível visualizar e dar manutenção nos comprovantes de entrega emitidos para a empresa. Veja maiores detalhes em 
+Manutenção de Comprovante de Entrega
+.

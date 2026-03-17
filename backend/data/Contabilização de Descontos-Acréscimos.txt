@@ -1,0 +1,155 @@
+TITULO: Contabilização de Descontos-Acréscimos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210939
+--------------------------------------------------
+A partir da Natureza de Operação, pode-se configurar para que seja contabilizado os descontos/acréscimos na Nota Fiscal.
+
+
+Não basta apenas configurar a Natureza de Operação, existem configurações que devem ser feitas primeiramente:
+
+
+
+
+Configurar a empresa e usuário;
+
+
+Cadastrar um 
+Tipo de Desconto
+;
+
+
+Amarrar o tipo de desconto ao 
+Tipo de Documento
+.
+
+
+
+
+Para maiores detalhes vide tópico 
+Cálculo de Descontos/Acréscimos
+.
+
+
+Após toda a configuração necessária concluída, deve-se amarrar o Tipo de Documento a Natureza de Operação que irá contabilizar os descontos/acréscimos, vide tópico 
+.
+
+
+A partir do painel 
+Contabilização
+ configure a Natureza para utilizar os Descontos/Acréscimos:
+
+
+
+
+
+
+Acréscimo/Desconto:
+
+
+
+
+Desabilitado:
+ não contabiliza os descontos.
+
+
+Automático:
+ contabiliza os descontos de acordo com as configurações.
+
+
+Manual:
+ contabiliza e permite que o usuário altere valores de descontos que foram também configurados como manuais.
+
+
+
+
+
+
+
+
+
+
+Rateio do Desconto entre os itens da NF:
+
+
+
+
+Não rateia:
+ não lança na coluna de Desconto/Acrescimo nos itens da nota fiscal, armazenando assim essa informação apenas no cabeçalho da nota.
+
+
+Rateia pelo Valor do Produto (qtde x preço):
+ grava nos itens da nota o valor do desconto da nota fiscal, contudo a regra para se realizar o rateio é feito em função do valor total do item.
+
+
+
+Ex. Supanhamos que temos um desconto de 50 reais e dois itens na nota, o primeiro com quantidade de 200 a um valor de 0,50 centavos e o segundo item com quantidade de 100 a um valor de 2,10 reais para esse caso será gravado na coluna de desconto no primeiro item um valor de 16,13 e no segundo item 33,87.
+
+
+Rateio pela Quantidade:
+ grava nos itens da nota o valor do desconto da nota fiscal, contudo a regra para se realizar o rateio é feito em função da quantidade do item.
+
+
+
+Ex. Suponhamos que temos um desconto de 50 reais e dois itens na nota, o primeiro com quantidade de 200 e o segundo item com quantidade de 100, nesse caso será gravado na coluna de desconto no primeiro item um valor de 33,33 e no segundo item 16,67.
+
+
+
+
+
+
+
+
+
+
+Obrigações a Receber dividido em Débito e Crédito:
+
+
+
+
+Configure se a Contabilização será feita pela 
+Conta Indicada pelo Tipo de Desconto
+, ou seja, o sistema irá contabilizar os descontos/acréscimos pelas contas contábeis informadas no tipo de desconto, ou se será configurado uma 
+Conta fixa
+ na natureza. Caso a empresa defina que será contabilizado pela Conta Fixa, deverá ser selecionado a opção 
+Fixo
+ e informar, logo abaixo, uma conta fixa, assim o sistema irá ignorar a conta que estiver configurada no Tipo de Desconto no momento da contabilização
+
+
+
+
+
+
+
+
+
+
+Obrigações a Pagar dividido em Débito e Crédito:
+ idem ao item anterior.
+
+
+
+
+Regras a serem seguidas:
+
+
+
+
+Se estiver configurado para Desconto Manual, só aparecerá o painel de descontos na Nota Fiscal para usuários que tenham permissão e a nota não seja de Venda, vide configuração no tópico 
+Cálculos de Descontos/Acréscimos
+.
+
+
+Se estiver configurado para Desconto Manual, o usuário poderá alterar valores de descontos manuais configurados no tipo de desconto e poderá incluir outros descontos do tipo manual no painel desconto da Nota Fiscal.
+
+
+Se estiver configurado para Desconto Automático, não será levado em consideração a permissão do usuário.
+
+
+Se estiver configurado para Desconto Automático, o usuário não poderá alterar nem descontos do tipo manual.
+
+
+As notas de Venda também poderão utilizar do recurso de Descontos, cujo valor obtido vai interferir no valor da nota e no valor do Financeiro.
+
+
+
+Nas notas de Venda só não serão permitidos descontos manuais. 
+

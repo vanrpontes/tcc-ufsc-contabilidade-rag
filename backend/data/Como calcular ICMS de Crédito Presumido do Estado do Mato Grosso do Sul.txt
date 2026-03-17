@@ -1,0 +1,25 @@
+TITULO: Como calcular ICMS de Crédito Presumido do Estado do Mato Grosso do Sul
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2910814258
+--------------------------------------------------
+No Estado do MS é feita apropriação de crédito de um determinado percentual (atualmente de 14,5%) do ICMS nas Notas recebidas de usinas, conforme o Decreto nº 13275/2011, capitulo XI, pag 12.  Além disso, tem também um desconto de 10,5%.
+No Sispetro, para calcular corretamente esse crédito e o desconto, deve-se configurar conforme segue:
+1 - Tela de Manutenção do ICMS: Menu Tabelas Auxiliares / Faturamento / ICMS / Painel Detalhes / campo %Redução BC ICMS:
+Informe o percentual de redução da base de cálculo do ICMS, cujo cálculo é feito da seguinte forma: 100 - (%Crédito/(Alíquota/100)):
+Exemplo do cálculo da redução - 
+Supondo uma alíquota de ICMS de 25% e um percentual de crédito presumido de 14,5%, então aplicando a fórmula teremos: 100 - (14,5/(25/100)) = 100 - (14,5/0,25) = 100 - 58 = 42, onde 42 é o percentual de redução da base de cálculo do ICMS. Esse percentual de 42% é informado no campo % Redução BC ICMS.
+2 - Tela de Manutenção de Natureza de Operação: Menu Tabelas Auxiliares / Faturamento / Natureza Operação / painel Detalhes / painel lateral Por Filial / painel inferior Impostos / marque a opção GERA ICMS e selecione SOMENTE ICMS PRÓPRIO em Redução Base Cálculo ICMS. 
+Após configurar conforme acima, os cálculos na inclusão de uma nota fiscal ficaria conforme segue, supondo:
+a) Quantidade: 44.627
+b) Preço unitário final: 1,4565
+Eventualmente pode haver diferença de centavos entre o cálculo efetuado pelo Sispetro e o cálculo efetuado pelo emissor da nota fiscal. Caso ocorra, deve-se ajustar manualmente os valores do ICMS na tela de itens.
+Nota: 
+na nota fiscal do fornecedor, os campos BASE ICMS e VALOR ICMS NÃO SÃO INFORMADOS, porém, no Sispetro esses campos SERÃO DEVIDAMENTE PREENCHIDOS pois são necessários para o SPED EFD.
+3 - Na fórmula para o Livro Fiscal, os campos de valores devem corresponder aos campos informados na nota fiscal.
+Caso a fórmula NÃO esteja configurada GERADO POR ITEM, deve-se utilizar os campos da tabela NotaFiscal.
+Caso a fórmula esteja configurada GERADO POR ITEM, deve-se utilizar os campos da tabela ItensNF.
+4 - Para calcular desconto: tela de Manutenção de Tipo de Desconto, Menu Tabelas Auxiliares / Controladoria / Tipo de Desconto / inclua um tipo de desconto e informe os dados conforme desejado.
+5 - Tela de Manutenção de Tipo de Documento: Menu Tabelas Auxiliares / Financeiro / Tipo Documento / inclua um tipo de documento e informe os dados conforme desejado, incluindo a fórmula, se for o caso, para calcular o desconto automaticamentem utilizando o tipo de desconto cadastrado no item 2, na inclusão da nota fiscal.
+6 - Tela de Manutenção de Natureza de Operação: Menu Tabelas Auxiliares / Faturamento / Natureza Operação / painel Detalhes / painel lateral Geral / painel inferior Dados Gerais / informe o tipo de documento incluindo no item 3. Também pode configurar para permitir alterar o tipo de documento na nota fiscal. 
+7 - Tela de manutenção da natureza de operação, Menu Tabelas Auxiliares / Faturamento / Natureza Operação / painel Detalhes / painel lateral Geral / painel inferior Contabilização / quadro Descontos: informe os campos:
+Nota: as configurações acima não afetam a parte contábil.
+ 

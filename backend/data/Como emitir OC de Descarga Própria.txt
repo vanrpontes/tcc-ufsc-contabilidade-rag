@@ -1,0 +1,63 @@
+TITULO: Como emitir OC de Descarga Própria
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918974037
+--------------------------------------------------
+Este procedimento visa emitir ou incluir uma OC de Descarga Própria, que é utilizada para movimentação de produto para a própria empresa. Esta OC só poderá ser emitida por empresas que controlam o próprio estoque físico pelo Sispetro. 
+Além disso, deve-se incluir essa OC para que a empresa possa preparar a entrada deste caminhão na base e movimentar estoque.
+Para incluir esta OC, o usuário deve utilizar o botão Inclui da tela de 
+Manutenção de Ordens de Carregamento
+ ou acessar a tela de inclusão, através do Menu 
+Movimentação / Estoque / Ordem de Carregamento
+.
+Alterar o campo 
+Tipo Ordem Carregamento
+ para 
+Descarga Próprio
+ (nota-se que o Sistema habilita e desabilita diversos campos de acordo com o tipo escolhido):
+O usuário deve incluir as seguintes informações
+:
+Entidade
+: informe a Entidade.
+Depósito Origem
+: código do Depósito para onde este produto irá ser descarregado. Deve corresponder à base de carregamento.
+Código Transportadora
+: escolha o motorista ou transportadora.
+Código Frota
+: escolha o veículo que entrará na base.
+Escolha os produtos e quantidades para descarga
+. estas quantidades são à temperatura ambiente (na realidade, o Sistema assume neste momento quantidades iguais à temperatura ambiente e a 20 graus pois ainda não possui dados suficientes para realizar a conversão).
+ O valor do frete unitário pode ou não ser informado pelo usuário na inclusão da OC. Caso a empresa opte por não permitir que o usuário informe o valor do frete, deve-se desmarcar (por padrão pode informar) o perfil do Usuário, localizado através do Menu 
+Ferramentas / Usuário /Carregamento / 
+Pode informar o frete na inclusão da OC (qualquer tipo)
+:
+Veja maiores informações no tópico sobre 
+Inclusão de Ordem de Carregamento
+.
+Compartimentação: 
+c
+aso deseje, o usuário poderá introduzir a compartimentação deste carregamento apertando o botão 
+Compartimentação
+. Este procedimento deve ser realizado se for imprimir uma Ordem de Carregamento ou documento que conste esta compartimentação. 
+Para distribuição de produtos na compartimentação da OC, vide tópico
+ 
+Compartimentação de OC
+.
+Após o preenchimento correto das compartimentações acione o botão 
+OK
+ para finalizar.
+O Sistema irá colocar o caminhão na fila de entrada da base (veja maiores informações no tópico 
+). 
+Ele não irá atualizar ainda o estoque pois não foi confirmada (via Controle de Carga/Descarga da base) que este produto foi descarregado ainda
+. 
+Caso queira esperar para colocar o caminhão na fila por algum motivo, o usuário pode habilitar o controle (no momento da emissão da OC) 
+Não entra na fila
+. Assim, o Sistema não irá colocar o caminhão na tela de portaria de entrada. Caso, mais tarde, queira colocá-lo na fila para carregamento, abra a tela de manutenção de Ordem de Carregamento, localize a respectiva OC e aperte o botão 
+Pega Fila
+.
+A OC de Descarga é feita com um volume equivalente a capacidade do caminhão. Isto porque na prática não se manda um caminhão pela metade para a base para ser feita uma descarga. Assim, a capacidade do caminhão é o volume programado. Porém, quando o caminhão chega na base, pode ser que haja variação no volume devido perdas ou mudança de temperatura. Assim, o volume físico não vai ser necessariamente o volume programado. Então, para o estoque escritural, gera-se uma movimentação para o volume programado (capacidade do caminhão informada na OC) e outra movimentação com a diferença entre o volume programado e o real (físico).
+Ex.: Capacidade do caminhão 30000, Volume Físico 29900
+Movimentação programada 30000
+Movimentação de diferença -100
+Neste caso a movimentação real será de 29900, coincidindo com o volume físico.
+Quando é mencionado movimentação, significa que quando for feita a saída da portaria dessa OC, o sistema irá gerar dois pedido de Outras Entradas: um com o volume programado e o outro com o volume da diferença. Embora esses dois pedidos sejam gerados no mesmo processo quando há diferença, eles podem apresentar históricos diferentes, ficando mais fácil para o usuário identificar o pedido da movimentação programada e da movimentação da diferença. Para isso, deve-se configurar corretamente o perfil de empresa para sugerir o Histórico neste tipo de OC. Veja maiores informações no tópico 
+Painel Históricos
+.

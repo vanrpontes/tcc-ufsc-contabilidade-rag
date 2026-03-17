@@ -1,0 +1,37 @@
+TITULO: Serviço de Consulta OnLine a ANP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926195324
+--------------------------------------------------
+ 
+A partir da versão 9.14 foi implementado o serviço de Consulta OnLine a ANP, onde o usuário pode definir um período para que a consulta seja realizada e definir a ação a ser tomada dependendo do status retornado na consulta. Veja abaixo como configurar.
+Caso esteja configurando a Consulta OnLine ANP pela primeira vez, é recomendado que veja antes o help de 
+A Consulta ANP via serviço só realiza a consulta para clientes ativos
+ (além daqueles cuja atividade econômica permite a consulta).
+ 
+O primeiro passo é realizar as configurações de sistema, indo em Ferramentas / Sistema / 
+Intervalo entre cada consulta (segundos):
+ Nesse campo é inserido um intervalo para realizar a consulta entre cada cliente, a consulta ira iniciar sempre pelo primeiro cliente encontrado pelo Sistema sem Consulta ou pelo cliente que tenha sido o ulto a ser consultado. Por padrão o Sistema tem um intervalo de 60 segundos para sair de uma consulta e iniciar a próxima, portanto o intervalo informado nesse perfil é somado aos 60 segundos padrões do sistema.
+Usuário de Consulta:
+ Nesse campo é informado o usuário que ira ficar logado, recomendamos incluir um usuário genérico e com nome sugestivo e com as devidas permissões
+Ação de Consulta:
+ Nesse campo podemos definir à ação a ser tomada após realizar a consulta, podendo ser:
+Somente Consulta
+: Ao selecionar essa opção, o Sistema ira realizar somente a consulta.
+       ou
+Consulta e BLOQUEIA cliente conforme Status x Perfil de Sistema:
+ Esse perfil trabalha em conjunto com os perfis do painel 
+Ação sobre o Cliente em relação ao status na ANP. 
+Após o serviço realizar a consulta o Sistema ira bloquear o Cliente caso o Status retornado esteja configurado para bloquear no quadro 
+Ação sobre o Cliente em relação ao status na ANP.
+Horário Programado para as Consultas:
+ Nesse campo informamos o horário em que o serviço ficara ativo realizando a consulta.
+ 
+Após realizar as configurações no 
+, basta iniciar o Serviço no 
+.
+ 
+Verificando o Log do Serviço
+Através da tela de 
+Log de Serviços
+ é possível consultar se o Serviço está ativo, qual o IP e Porta do Servidor e o qual entidade foi consultada.
+ 
+ 

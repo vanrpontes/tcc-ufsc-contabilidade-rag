@@ -1,0 +1,42 @@
+TITULO: Processos - Estoque
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210231
+--------------------------------------------------
+O módulo de Estoque do SisPetro foi feito para atender os seguintes ramos:
+Distribuidoras de Petróleo com base própria
+Distribuidoras de Petróleo sem base própria
+Armazenadoras
+Empresas com movimentação de estoque simples
+No caso de combustíveis o controle tem mais particularidades, atendidos plenamente pelo controle de estoque do SisPetro e pode ser dividido em três tipos de estoque:
+Escritural
+: é o controle de estoque normal na empresa controlado através das Notas Fiscais de Entrada/Saída, pedidos, etc. Este tipo de estoque deve ser controlado por qualquer empresa independente se possui base própria ou não. Pode ser controlado tanto à temperatura ambiente quanto à 20 graus. Normalmente, na saída ou na entrada do produto, não existe ainda as informações de temperatura (para ajuste do estoque a 20 graus). Portanto, neste momento, o Sistema atualiza os dois saldos (ambiente e 20 graus) com a mesma quantidade. No momento da realização do fechamento diário de estoque, o usuário informa para cada saída/entrada as temperaturas/densidades (ou opcionalmente o fator de correção ou quantidade a 20 graus) para que o Sistema possa ajustar a quantidade movimentada a 20 graus e seu saldo. Assim, em regra geral, sempre que o Sistema não possuir informações suficientes sobre as temperaturas e densidades para converter o estoque de temperatura ambiente para 20 graus e vice-versa, ele irá manipular ambos com a mesma quantidade.
+Físico
+: é o saldo físico de cada empresa para cada produto nos tanques (tanto à temperatura ambiente quanto à 20 graus). Este controle só deve ser realizado se a empresa possui base própria pois requer informações que, normalmente, uma empresa que não possui base própria não possui (temperatura tanque, amostra, densidade tanque, volume real à temperatura ambiente da carga/descarga, etc). Este estoque é, num primeiro momento, quando somado, igual ao estoque do tanques. Mas, ao longo de um período, o estoque dos tanques pode ir variando (de acordo com a sua temperatura, por exemplo) e, mesmo que não haja movimentação, ser diferente da soma do estoque físico de cada empresa.
+Tanques
+: é o estoque medido nos tanques. Este estoque deve ser o balizador dos outros, isto é, tanto o estoque físico quanto o escritural devem ser ajustados (mensalmente, semanalmente ou em qualquer período) através do procedimento de Rateio para que fiquem iguais ao do tanque. Este estoque não é separado por empresa pois é, na realidade, o que foi medido em determinada data em cada tanque. É separado somente por tanque.
+Assim, uma empresa que não possui base própria, deve controlar somente o estoque escritural enquanto que uma que possui deve controlar os dois estoques.
+O estoque físico pode (e normalmente isso acontece) ficar diferente do escritural durante um intervalo (que pode variar de horas a dias) pois o carregamento real nunca é igual à quantidade da Nota Fiscal. Porém, a empresa deve acompanhar os dois estoques pois esta variação não pode ser muito grande e deve ser ajustada diariamente ou semanalmente via ajuste de Estoque.
+Quando a empresa não possui base própria, deve controlar o estoque conferindo a quantidade de carga/descarga com o que a base armazenadora lhe informa diariamente, conferindo se todas as descargas e cargas foram lançadas em seu Sistema, se os bombeios foram confirmados, etc.
+Para abranger as movimentações podemos ter as seguintes situações:
+Ajuste Inicial
+Saidas
+Armazenagem
+Os controles de armazenagem servem para informar aos seus usuários a movimentação completa do estoque físico da base. Assim, a armazenagem tem uma relação muito grande com o módulo de estoque já que grande parte de seu movimento é gerado por ele.
+Os controles são:
+Entrada/Saída Carregamento.
+Entrada/Saída Descarga.
+Entrada de Bombeio físico.
+Leitura dos Tanques.
+Automação: Smart Card e arquivos (Basecom, Infitech e Zylix)
+Integração com balanças: Jundiaí, Toledo e Toledo Guardian
+Integração com terceiros: Unibraspe, Congenêres
+Controle de Inspeção de Auto Tanque
+Agendamento de carregamento e descarga
+Biometria
+Chamada de Motoristas
+Portanto, o que temos aqui são os controles básicos que movimentam o estoque físico dos produtos, isto é, controlamos o que entra e sai da base (como, quando, quem).
+Preparação para Entrada na Base
+Esta etapa é a que precede a entrada na base para realizar um carregamento ou descarga.
+Entrada Base
+Este é o procedimento que é executado quando uma baia dentro da base ficou livre e um motorista será chamado para entrar na base.
+Saída Base
+Este é o procedimento para os frotas que acabaram de realizar o procedimento dentro da base e estão prontos para sair (na portaria de saída).

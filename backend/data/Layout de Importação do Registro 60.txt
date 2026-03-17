@@ -1,0 +1,39 @@
+TITULO: Layout de Importação do Registro 60
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899523
+--------------------------------------------------
+No SisPetro, temos a emissão de Cupom Fiscal pela impressora Bematech, mas como essa funcionalidade está em desuso pelos nossos clientes, a partir da versão 8.6 foi retirada do sistema. Sendo assim a DLL da Bematech não esta mais funcionando, para gerar dados para Registro 60, deve-se incluir via 
+Inclusão Manual - 60
+ ou 
+Importação - Registro 60
+.
+ 
+O layout do arquivo de Importação é um arquivo texto, com uma linha de cabeçalho, separados por ";'.
+As regras de formatação de dados é a seguinte: 
+ Data: DD/MM/AAAA 
+ Valor: Sem separador de milhar, e com Decimais separados por "."
+Cada linha será um Registro apresentado na tela de Manutenção.
+Os Registros 60M e 60A possuem layouts distintos, como apresentado a seguir:
+Registro 60M
+Data
+Número de Série
+Número de Ordem Sequencial
+Modelo
+Contador Inicial
+Contador Final
+Contador da Redução Z
+Contador de Reinício
+Valor da Venda Bruta
+Valor Totalizador Geral
+Exemplo do arquivo: 
+ Data;Serie;Ordem;Modelo;NumContIni;NumContFin;NumContReducaoZ;NuReinicio;ValorVendaBruta;ValorTotalizadorGeral 
+ 15/01/2006;1234;2;2B;1000;1010;1110;1111;15000;15580 
+ 16/01/2006;1234;3;2B;1011;2020;2220;2222;30000;30200
+Registro 60A
+Data
+Número de Série
+Situação Tributária
+Valor
+Exemplo do arquivo: 
+ data;serie;sit;valor; 
+ 15/01/2006;1234;ST;100.51; 
+ 16/01/2006;1234;SB;100.16;

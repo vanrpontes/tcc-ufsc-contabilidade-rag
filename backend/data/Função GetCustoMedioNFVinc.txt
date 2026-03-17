@@ -1,0 +1,31 @@
+TITULO: Função GetCustoMedioNFVinc
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4066476043
+--------------------------------------------------
+Histórico
+Essa função é utilizada para Notas Fiscais de Empréstimos, no qual permite que as duas Nota Fiscais fiquem com o mesmo valor do Custo Médio Unitário.
+Para o funcionamento dessa Função é necessário configurar a formula abaixo na Natureza de Operação da Nota Fiscal de Entrada. Dessa forma o SisPetro vai salvar o Custo Médio Unitário na Nota Fiscal de Entrada o mesmo Custo Médio Unitário da Nota Fiscal de Saída.
+Para a função funcionar, é necessário configurar na Natureza de Operação o vinculo de NF conforme parâmetros abaixo
+Vínculo de Nota Fiscal
+Nota de Saída
+Permite ser NF de Origem p/ controle de quantidade) no vínculo entre NFs
+: Marcado
+Permite vincular NF a outra NF Emitida
+: Sem ação
+Validação de Qtde. no Vínculo de NF: 
+Não controla qtde. no vínculo
+Nota de Entrada
+Permite ser NF de Origem p/ controle de quantidade) no vínculo entre NFs
+: Desmarcado
+Permite vincular NF a outra NF Emitida
+: Barra qtde. de vínculo maior que origem
+Validação de Qtde. no Vínculo de NF: 
+Não controla qtde. no vínculo
+Parâmetros
+CodEmpresa.ItensNF <729>
+Sequencial.ItensNF <730>
+NumItem.ItensNF <731>
+Exemplo de uso
+wide
+1800
+GetCustoMedioNFVinc(<729>,<730>,<731>)
+Para configurar a fórmula,  na Natureza de Operação, aba lateral por Filial, aba Custos

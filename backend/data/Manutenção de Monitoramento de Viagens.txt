@@ -1,0 +1,188 @@
+TITULO: Manutenção de Monitoramento de Viagens
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2946564892
+--------------------------------------------------
+A Manutenção de Monitoramento de Viagens, permite um controle de carga automatizado e integrado que agilizará as informações dos Status das viagens. 
+As viagens podem ser visualizadas através do menu 
+Movimentação / Transportes / Manutenção de Monitoramento de Viagens
+Botões
+Cancela: 
+cancela a viagem selecionada
+Força: 
+força os Serviços do Hermes de 
+Cadastro 
+e 
+Consulta
+Atualiza: 
+atualiza as informações em tela
+Legenda: 
+mostra a legenda com as informações
+Reenviar: 
+reenvia os dados para gerenciadora, caso o Status Proc. Inclusão esteja 
+Com Erro. 
+Obs.: 
+informações como Placa, UF, Bairro, Descrição do Município, documento do Motorista / Transportador são enviados conforme consta no cadastro. 
+Sair: 
+sai da manutenção 
+Filtros:
+Status: 
+Ativo
+Cancelado
+Todos
+Status Inclusão:
+Não Definido
+Pendente Envio
+Enviado
+Com Erro
+Todos
+Status Cancelamento:
+Não Definido
+Pendente Envio
+Enviado
+Com Erro
+Todos
+Período:
+ informe o período desejado para consultar as viagens
+Aba Viagens
+Status: 
+Ativo
+Cancelado
+Status Proc. Inclusão: 
+Com Erro
+Pendente de Envio.
+Enviado e Ok
+Status Proc. Cancelamento:  
+Não Enviado.
+Enviado
+Último Status Recebido:
+COM SM
+FINALIZADA
+Último Status Consultado:
+  
+Agendada
+Sem Status
+Finalizada
+Após o cancelamento da viagem o status não será mais consultado. 
+Data Fim Gerenciador: 
+data da finalização da viagem
+#Carga:
+ registro número da Carga.
+#Frota: 
+Id do cadastro.
+Frota: 
+placa do Veículo.
+#Motorista: 
+Id do motorista.
+Motorista: 
+nome do Motorista.
+Data Embarque: 
+data e horário do fechamento da carga.
+Usuário Inclusão:
+ quem efetuou o lançamento.
+Data Inclusão: 
+data e horário do agendamento.
+Usuário Cancto: 
+quem efetuou o cancelamento.
+Data Cancto.: 
+data do cancelamento
+Data Últ. Consulta Status: 
+data e horário da operação de consulta.
+Ambiente: 
+o ambiente que foi processado, podendo ser 
+Homologação 
+ou 
+Produção
+CNPJ Origem: 
+informa o CNPJ de Origem.
+CNPJ Destino: 
+informa o CNPJ de Destino.
+Operação
+CNPJ Origem
+CNPJ Destino
+Venda
+CNPJ da empresa
+CNPJ do último cliente
+Transferência entre Depósitos
+CNPJ Depósito de Origem
+CNPJ do Depósito de Destino
+Carregamento Próprio
+CNPJ Depósito de Origem (ou do outro endereço do Depósito)
+CNPJ da entidade (que representa o Destino)
+Nas ordens do tipo Transferência entre Depósitos os CNPJ enviados para o XML são os do cadastro principal, mesmo se usuário trocar o endereço.
+Código Auxiliar: 
+código fornecido pelo gerenciador.
+Tipo de Operação:
+ tipo da OC utilizada para realizar a viagem
+Venda
+Transferência entre Depósitos
+Carregamento Próprio.
+Número Rota: 
+informado pelo usuário no 
+.
+Como é trabalhoso ficar cadastrando a rota no Trafegus (para Engerisco) os dados de Latitude e Longitude informado nos endereços são utilizados e enviados no JSON. Assim se tem a localização precisa e o Trafegus pode montar a rota.
+#Viagem: 
+número criado para a viagem.
+Gerenciador Monitoramento: 
+ANGELLIRA MONITORAMENTO
+ENGERISCO (TRAFEGUS)
+M3 Risk
+Número Viagem (Gerenciador):
+ número fornecido pelo gerenciador de monitoramento
+Endereço Origem: 
+endereço de onde sai a mercadoria
+Número Origem
+: número do endereço de origem
+Complemento Origem: 
+complemento do endereço de origem
+Bairro Origem: 
+bairro do endereço de origem
+#Cidade Origem:
+ código DNC da cidade de origem
+Cidade Origem: 
+nome da cidade do endereço de origem
+UF Origem: 
+sigla do estado do endereço de origem
+CEP Origem: 
+CEP do endereço de origem
+Latitude Origem:
+ caso informado, latitude do endereço de origem
+Longitude Origem: 
+caso informado, longitude do endereço de origem
+Endereço Destino: 
+endereço onde a viagem será encerrada
+Número destino:
+ número do endereço de destino
+Complemento destino:
+ complemento do endereço de destino
+Bairro destino:
+ bairro do endereço de destino
+#Cidade destino:
+ código DNC da cidade de destino
+Cidade destino:
+ nome da cidade do endereço de destino
+UF destino:
+ sigla do estado do endereço de destino
+CEP destino: 
+CEP do endereço de destino
+Latitude destino:
+ caso informado, latitude do endereço de destino
+Longitude destino:
+ caso informado, longitude do endereço de destino
+Os endereços envolvidos na viagem podem vir do cadastro das entidades envolvidas ou do 
+depósito
+ dependendo do Tipo de operação
+Aba Comunicação
+Comando: 
+Agendar Viagem
+Cancelar Viagem.
+Data Processamento: 
+data e horário do Processamento.
+Status Processamento: 
+Pendente Envio
+Enviado e Ok
+Enviado com Erro.
+Data Inclusão: 
+data da inclusão da comunicação
+Erro Comunicação: 
+Status do WebService.
+Para mais informações, ver 
+ 

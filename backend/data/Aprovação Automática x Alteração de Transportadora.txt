@@ -1,0 +1,9 @@
+TITULO: Aprovação Automática x Alteração de Transportadora
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2942468778
+--------------------------------------------------
+A partir da versão 10.9, ao efetuar a Alteração de Transportadora no Pedido de Venda, o Sispetro faz a alteração no valor do Frete Padrão de acordo com o novo Motorista/Transportadora sem alterar o valor do Frete Negociado.
+Desta forma, utilizando o perfil Ação para Pedidos do Tipo Entrega - Frota Próprio e/ou Ação para Pedidos do Tipo Entrega - Frota Próprio além da Aprovação Automática o Sispetro irá realizar as validações da seguinte forma:
+Analisa se Aprova (Frete Negociado <= Padrão)
+Se o Frete original do Pedido for menor ou igual ao Frete da nova Transportadora/Motorista o Pedido não será aprovado automaticamente.
+Analisa se Aprova (Frete Negociado >= Padrão)
+Se o Frete original do Pedido for maior ou igual ao Frete da nova Transportadora/Motorista o Pedido não será aprovado automaticamente.

@@ -1,0 +1,164 @@
+TITULO: Manutenção de Inventário
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899942
+--------------------------------------------------
+none
+Objetivo
+O SisPetro permite o controle de Inventário para geração do Registro 74 do Sintegra (Geração de mídia do Sintegra - SisPetro Controladoria). Além disso, é utilizado também para a EFD ICMS/IPI e EFD PE. 
+A tela de Manutenção de Inventário, pode ser acessada pelo 
+Menu Movimentação / Controladoria / Manutenção de Inventário
+O controle de inventário serve para armazenar todos os produtos inventariados numa determinada data pela empresa (geralmente uma vez ao ano), valorizando-os e indicando a sua posse: 
+Própria
+, 
+De terceiros
+ ou 
+Própria em poder de terceiros
+.
+Com base nestas informações será gerado o Registro 74 do Sintegra (Inventário) para os estados que exigirem, como Pernambuco e Paraná.
+Como utilizar
+Para cada empresa (filial) deve ser providenciada a inclusão do inventário, através do botão 
+Inclui
+, sendo apresentada a seguinte tela:
+Para fazer a inclusão de um inventário, é necessário que o usuário tenha permissão, configurada através do Menu Ferramentas / Usuário / Fiscal / 
+Pode fazer Inventário
+Dados Iniciais
+Empresa:
+ Filial para qual está sendo cadastrado o inventário.
+Data:
+ Data do inventário.
+Motivo:
+ usado na EFD ICMS IPI para gerar os registros H.
+No final do período - código da EFD 01
+Na mudança de forma de tributação da mercadoria (ICMS) - código da EFD 02
+Na solicitação da baixa cadastral, paralisação temporária e outras situações - código da EFD 03
+Na alteração de regime de pagamento condição do contribuinte - código da EFD 04
+Por determinação dos fiscos - código da EFD 05: este item gera os registros H020.
+Dados referentes aos produtos inventariados:
+Produto:
+ informe o código do produto pré-cadastrado no SisPetro na 
+Tabela de Produtos
+.
+Qtde:
+ informe a quantidade do produto informado.
+Valor:
+ informe o valor unitário do produto informado.
+CST:
+ informe o código da situação tributária do produto informado (não obrigatório)
+Base ICMS:
+ informe o valor da base de cálculo do ICMS, caso tenha (não obrigatório)
+Valor ICMS:
+ informe o valor do ICMS, caso tenha (não obrigatório)
+Posse:
+ quem é proprietário do produto. É importante para definir os campos CNPJ e IE. Sempre do ponto de vista da empresa inventariante.
+Próprio: 
+estoque próprio em poder próprio
+Informar CNPJ e IE da empresa que está fazendo o inventário
+Terceiros: 
+estoque de terceiros em poder próprio
+Informar CNJP e IE da empresa proprietária do produto armazenado 
+Próprio em Poder de Terceiros: 
+estoque próprio em poder de terceiros
+Informar CNPJ e IE da empresa na qual o produto está armazenado
+Para estados que exigirem maior detalhamento, como Pernambuco, temos ainda: 
+Em trânsito
+Inaproveitável ou Imprestável
+.
+Dados do local / propriedade / motivo
+UF:
+ a UF onde o produto se localiza. O SisPetro já sugere a UF da empresa para qual está sendo cadastrado o inventário, podendo ser alterada.
+CNPJ:
+ CNPJ do proprietário do produto. O SisPetro já sugere o CNPJ da empresa para qual está sendo cadastrado o inventário, podendo ser alterado.
+IE:
+ Inscrição Estadual do proprietário do produto. O SisPetro já sugere a IE da empresa para qual está sendo cadastrado o inventário, podendo ser alterada.
+Nota:
+ o campo CNPJ deve ser informado com a máscara - 99.999.999/0000-00
+Tipo de Item de Inventário:
+  o tipo onde o produto se enquadra. Nem todos os estados exigem esta classificação.
+Mercadorias
+Matérias Primas
+Produtos intermediários
+Materiais de Embalagem
+Produtos Manufaturados
+Produtos em Fabricação
+Para incluir os produtos que serão inventariados, o usuário deve clicar no botão 
+Inclui
+, e para excluir no botão 
+Exclui
+. Para alterar algum bem já inserido, botão 
+Alterar
+O usuário deve informar o mesmo produto de acordo com as posses existentes para ele, ou seja, se o produto Gasolina A for inventariado, deve-se incluir com os dados referentes a posse própria. O usuário deve providenciar outra inclusão com dados referentes a posse de terceiros e assim por diante.
+Depois de informado todos os produtos do inventário, clicar em 
+Salvar
+, o
+O SisPetro fará a validação dos dados caso não haja nenhum erro, clicar em 
+Grava Tudo 
+e assim
+ 
+o SisPetro retornará para tela de Manutenção.
+Para alterar, incluir ou excluir os produtos incluídos no inventário, o usuário deve utilizar o botão 
+Altera
+. É possível imprimir um relatório do inventário através do botão 
+Imprime
+, porém, para isso é necessário ter o arquivo 
+Inventario.rtm
+ na pasta dos documentos auxiliares.
+Manutenção de Inventário inclusão Automática
+É possível realizar o lançamento de inventário de forma automática utilizando o botão 
+Automático, que será baseado no fechamento de estoque realizado por Depósito
+Como o SisPetro define o tipo de posse no inventário de inclusão Automática
+Como no inventário não há informação de depósito, os dados serão agrupados conforme o tipo de participação da empresa em cada depósito, pois a partir dela teremos o 
+tipo de posse e UF/CNPJ/IE 
+a serem utilizados, conforme tabela abaixo:
+Participação
+Estoque
+Posse
+UF/CNPJ/IE
+Administrador
+De todo o depósito
+Da sua empresa: Próprio em poder próprio
+Demais empresas: Terceiros em poder próprio
+Do depósito
+Sócio Proprietário
+Somente da empresa do inventário
+Próprio em poder próprio
+Da empresa
+Inquilino
+Somente da empresa do inventário
+Próprio em poder de terceiros
+Do depósito
+Não utiliza
+Somente da empresa do inventário
+Não informa
+Da empresa
+Para mais informações, ver 
+Depósitos - OC
+Para ocorrer o preenchimento do inventário é requisito ter realizado o fechamento de estoque por depósito.
+É possível definir se as quantidades serão exibidas em 
+Escritural Ambiente
+ ou 
+Escritural 20C
+ conforme Perfil 
+Tipo de Qtde do Estoque a ser utilizada no K200
+Para prosseguir, finrome os seguintes dados: 
+Empresa: 
+informar a empresa que deseja realizar o fechamento automático.
+Data: 
+informar o depósito que foi fechado
+Produto: 
+selecionar a categoria de produtos que deseja realizar o inventário 
+Somente não combustíveis:
+ irá exibir apenas os produtos que não são combustíveis
+Somente Combustíveis:
+ irá exibir apenas os produtos que são combustíveis
+Todos: 
+irá exibir todos produtos
+Traz os Produtos sem Saldo:
+ quando selecionado irá exibir os produtos que não possuem saldo na pesquisa
+Botões
+Incluir
+Será possível incluir manualmente um produto na lista caso o produto não tenha sido incluso conforme o fechamento de estoque realizado previamente.
+Alterar
+Nesta tela poderá ser realizada a edição de valores que serão inclusos no inventário
+Agora é possível inserir o Valor Unit. Produto com até 6 casas decimais
+Botão 
+Excluir
+Ao selecionar o item do estoque e optar por excluir será apresentada mensagem de confirmação para excluir o produto do inventário

@@ -1,0 +1,369 @@
+TITULO: Rural
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439609
+--------------------------------------------------
+Dados Gerais
+
+O Banco Rural pode trabalhar individualmente como também em conjunto com o Banco Bradesco (237). Ou seja, se individualmente, emite o próprio boleto do Banco Rural. Se optar por trabalhar em conjunto com o Banco Bradesco, assim, a empresa que tem conta no Banco Rural, onde adquire o produto Cobrança Eletrônica, porém, ao imprimir o boleto, o imprime com as características do Banco Bradesco. Dessa forma, o cliente que recebe o boleto não precisa localizar uma agência do Banco Rural para efetuar o pagamento, podendo fazer isso perfeitamente no Banco Bradesco, que tem muito mais agências disponíveis em todo o país. Para atender essa necessidade usaremos a configuração de Banco Correspondente do SisPetro. Cabe lembrar que o arquivo de remessa é conforme o layout do Banco Rural.
+
+
+Painel Cobrança Eletrônica
+
+
+
+
+No campo 
+Banco
+ deve ser informado: 
+453 - Banco Rural
+.
+
+
+
+
+
+
+Apesar do Banco Rural não ter número de 
+convênio
+ é necessário colocar alguma informação nos campos 
+Tipo / Número Convênio
+ para geração do arquivo de cobrança. Coloque nestes campos o tipo e o número da 
+conta
+ da empresa no Rural.
+
+
+
+
+
+
+A 
+carteira
+ deve ter 1 (um) dígito.
+
+
+
+
+
+
+Os campos 
+Indica sacador/avalista
+ e 
+#Docto no arquivo remessa
+ NÃO são considerados ao gerar o arquivo de remessa.
+
+
+
+
+Painel Informações sobre a Cobrança
+
+
+
+
+Caso utilize o boleto de outro banco, marcar a opção 
+Utiliza Banco Correspondente
+.
+
+
+
+
+
+
+Informar no 
+Banco Encarregado da cobrança: 237 – BRADESCO
+
+
+
+
+
+
+Preencher 
+#Agência/Dígito
+, 
+Número Conta/Dígito
+ e 
+Carteira
+ de acordo com o registro da cobrança conveniada no Bradesco:
+
+
+
+
+
+
+
+
+ 
+Cobrança Conveniada Bradesco
+ 
+
+
+ 
+#Agência/Dígito
+ 
+
+
+ 
+Número Conta/Dígito
+ 
+
+
+ 
+Carteira
+ 
+
+
+
+
+
+
+ Com registro no Banco Rural e no Bradesco 
+
+
+ 2011-7 
+
+
+ 0002103-2 
+
+
+ 19 
+
+
+
+
+
+
+ Com registro no Banco Rural 
+
+
+ 0465-0 
+
+
+ 0353949-0 
+
+
+ 06 
+
+
+
+
+
+
+Estas são as agências e contas do Bradesco onde o Banco Rural tem conta.
+
+
+
+
+Marcar a opção 
+Usa Prefixo
+.
+
+
+
+
+
+
+Informar o campo 
+Prefixo
+ com 4 (quatro) dígitos. Este campo deve ser preenchido com o código reduzido fornecido pela agência Rural.
+
+
+
+
+
+
+O campo 
+Número de Dígitos no Nosso Número
+ deve preenchido 
+11
+.
+
+
+
+
+O boleto será impresso de forma diferenciada, pelo Bradesco.
+
+
+Faixa Nosso Número
+
+Só deve ser informada uma faixa com até 7 dígitos.
+
+
+Dados Técnicos
+
+
+
+
+Nosso Número:
+ deve ser impresso com a carteira (CC), código reduzido (SSSS), o nosso número (NNNNNNN) e o dígito verificador(D), no seguinte formato: CC/SSSSNNNNNNN-D.
+
+Só será gravado no SisPetro, para visualização do Contas a Receber, o nosso número (NNNNNNN).
+
+O dígito verificador é calculado no módulo 11, utilizando até a base 7.
+
+
+
+
+Linha Digitável
+
+
+
+
+453 - Banco Rural (cobrança vinculada)
+
+
+
+
+
+
+ Conteúdo 
+
+
+ Tamanho 
+
+
+ Início 
+
+
+ Fim 
+
+
+
+
+
+
+Zeros	
+
+
+1	
+
+
+1	
+
+
+1
+
+
+
+
+
+
+Agência	
+
+
+3	
+
+
+2
+
+
+	4
+
+
+
+
+
+
+Tipo Convênio	
+
+
+2	
+
+
+5	
+
+
+6
+
+
+
+
+
+
+Convênio	
+
+
+8	
+
+
+7	
+
+
+14
+
+
+
+
+
+
+Nosso Número	
+
+
+7	
+
+
+15	
+
+
+21
+
+
+
+
+
+
+DV Nosso Número	
+
+
+1	
+
+
+22	
+
+
+22
+
+
+
+
+
+
+Zeros	
+
+
+3	
+
+
+23	
+
+
+25
+
+
+
+
+
+
+
+
+
+
+Exemplo:
+
+Agência: 111
+
+Tipo Convênio: 22
+
+Convênio: 33333333
+
+Nosso Número: 4444444
+
+DV Nosso Número: 5
+
+
+Campo Livre:
+ 0 111 22 33333333 4444444 5 000
+
+
+Linha Digitável:
+ | 4 5 3 | 1 | 0 1 1 1 2 | 1 | 2 3 3 3 3 3 3 3 3 4 | 1 | 4 4 4 4 4 4 5 0 0 0 | 1 | 1 | 4 5 6 7 | 0 0 0 1 0 0 0 0 0 0 | 
+
+
+Para informações sobre a montagem da linha digitável para este banco, veja o tópico 

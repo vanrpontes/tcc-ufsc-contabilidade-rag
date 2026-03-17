@@ -1,0 +1,98 @@
+TITULO: Documentação - API para inclusão de Ordens de Carregamento - Layout arquivo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926195082
+--------------------------------------------------
+Objetivo
+Detalhar a API de inclusão de ordens de carregamento de terceiros.
+1100
+Segue abaixo o layout do arquivo a ser gerado para integração com o SisPetro da armazenadora:
+Layout Dados
+Item
+Chave
+Conteúdo
+Pai
+Obrigatório
+1
+ordem_carregamento
+fixo
+-
+Sim
+2
+CnpjEmpresa
+CNPJ da empresa Congênere
+1
+Sim
+3
+Tipo
+"D" descarga ou "C" carregamento
+1
+Sim
+4
+data
+Data da Ordem Carregamento dd/mm/aaaa
+1
+Sim
+5
+CodTransp
+CPF ou CNPJ da empresa transportadora exatamente como está no cadastro de transportadoras do SisPetro
+1
+Sim
+6
+SeqFrota
+Placa do veículo transportador (cavalo) exatamente como está registrado no cadastro de frotas do SisPetro
+1
+Sim
+7
+SeqFrotaCarreta
+Placa do veículo transportador (carreta) exatamente como está registrado no cadastro de frotas do SisPetro
+1
+Não
+8
+SeqFrotaTrem
+Placa do veículo transportador (treminhão) exatamente como está registrado no cadastro de frotas do SisPetro
+1
+Não
+9
+SeqFrota4
+Placa do veículo transportador caso possua o quarto frota
+1
+Não
+10
+ColetaAmostra
+Se coleta Amostra Testemunha ao carregar ou descarregar produto. 0 = Sem definição (padrão), 1 = Coleta, 2 = Não coleta.
+1
+Não
+11
+webNumeroOCCliente
+Número da OC em seu sistema. Caso seja preenchido, será validado e não será permitido incluir duas OCs com este número igual. Campo String
+1
+Não
+12
+Observacao
+Campo livre para observação
+13
+DepositoOrigem
+Código do depósito que será criada a OC (é opcional, se não for passado, pega o código do depósito de vendas da empresa)
+1
+Não
+14
+compartimentacao_oc
+fixo
+1
+Sim
+15
+Compartimento
+Número do compartimento
+9
+Sim
+16
+CodProd
+Código do Produto (pode ser utilizado o código do produto do Sistema da congênere pois será cadastrado um de-para no SisPetro para cada produto da Congênere
+9
+Sim
+17
+Qtde
+Quantidade movimentada
+9
+Sim
+Exemplo de arquivo a ser gerado:
+{"ordem_carregamento": {"CnpjEmpresa": "01.999.999/0001-99", "Tipo": "D", "data": "25/04/2017",  "CodTransp": "12345678901", "SeqFrota": "AAA-9999", "SeqFrotaCarreta": "BBB-9999", "SeqFrotaTrem": "CCC-9999",  "SeqFrota4": "CCC-9910", "ColetaAmostra": 1,  "webNumeroOCCliente": "1010", "Observacao": "Carregar no período da manhã", "compartimentacao_oc": [{"Compartimento": 1, "CodProd": "OLEODIESEL", "Qtde": "5000" }]}}

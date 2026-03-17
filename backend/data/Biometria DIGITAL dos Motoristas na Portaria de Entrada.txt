@@ -1,0 +1,76 @@
+TITULO: Biometria DIGITAL dos Motoristas na Portaria de Entrada
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5063704577
+--------------------------------------------------
+Objetivo
+O controle de base está cada vez mais se especializando para garantir que os carregamentos e descargas sejam feitos com motoristas e veículos aptos. Um novo passo para essa garantia é ter certeza de que o motorista que está entrando na base é o motorista esperado. Pensando nisso, o SisPetro faz a integração com sistemas de Biometria. Nesse sistema cada Motorista terá sua informação biométrica cadastrada, vinculada ao código do SisPetro. Na Portaria de Entrada, o SisPetro aciona a leitura da biometria do motorista, envia as informações ao sistema, que por sua vez devolve o código do motorista. Se esse código for o código do motorista esperado o processo continuará sem problemas. 
+A Biometria foi desenvolvida no SisPetro para o modelo 
+Primme SF Acesso da Empresa Henry
+Através das configurações definidas no depósito que iremos informar quais os dados para conexão com a biometria, se ira realizar no carregamento e na descarga e qual será a ação a ser adotada em caso de problemas de comunicação, motorista sem cadastro ou motorista diferente.
+Configurações
+Ferramentas / Usuários / aba Perfil / aba Carregamento
+Pode fazer portaria de Entrada sem biometria do Motorista: 
+marcar 
+caso
+ o usuário possa realizar Portaria de Entrada sem informar a biometria.
+Para mais informações, ver 
+Configurações de usuário
+Arquivo / Depósito / Aba Dados Adicionais
+Quadro Biometria: 
+preencher as seguintes informações
+Dll Portaria:
+ informar o diretório onde se encontra a DLL da 
+BiometriaHenry.dll - Biometria 
+Digital
+IP:
+ IP do aparelho de biometria.
+O IP do aparelho de Biometria deve ser fixo
+Porta:
+ porta onde se encontra o aparelho de biometria
+Usuário Aparelho Biometria: 
+informar o usuário configurado no aparelho da Biometria. 
+Obs.: geralmente, já vem configurado o usuário 
+Admin
+ porém é interessante verificar no manual do aparelho em  questão.
+Senha Aparelho Biometria: 
+informar a senha do usuário acima no aparelho configurado 
+Quadro Carregamento/Descarga
+Exige Biometria (Tipo): 
+informar a Biometria 1 - Digital
+Ação para Problema de comunicação ou Motorista sem cadastro:
+ define a ação será realizada
+Avisa
+Bloqueia
+Ação para Motorista diferente da Fila:
+ define a ação a ser realizada 
+Avisa
+Bloqueia
+Para mais informações, ver 
+Configurações de Depósito
+Quando utilizado a ação 
+Avisa
+ e a resposta da biometria se enquadrar em um dos perfis acima, será apresentado uma mensagem para o usuário questionando se ele quer parar o processo ou dar continuidade. 
+Quando utilizado a ação 
+Bloqueia
+ e a resposta da biometria se enquadrar em um dos perfis acima, não será possível dar continuidade no processo ate que seja obtido um valor valido de biometria.
+Botão 
+Testar biometria: 
+ao acionar o botão 
+Testar biometria 
+será apresentado a tela de Leitura de Biometria onde o usuário pode realizar testes de conexão com o aparelho de biometria.
+Leitura Biométrica
+Com o depósito da OC selecionada configurado para realizar a biometria, o SisPetro apresentará a tela de Leitura Biométrica ao acionar um carregamento seja ele manual ou via automação.
+Na tela de Leitura Biométrica teremos as informações da comunicação com o aparelho de Leitura, será apresentado qual Motorista o SisPetro está aguardando.
+Na tela de Leitura de Biometria teremos 3 quadros sendo eles 
+Comunicação, Aguardando Confirmação de Transportadora 
+e
+ Dados Recebidos.
+Comunicação:
+ no quadro de comunicação teremos os dados de comunicação com o aparelho de Biometria, tais como IP, Porta e Status da Conexão. O status de Conexão vai ficar sempre como 
+Desconectado
+, isso porque a comunicação só é realizada quando o usuário clica no botão 
+Conectar
+ e o aparelho de biometria envia uma leitura de biometria para o SisPetro.
+Aguardando Confirmação de Transportadora: 
+informa o motorista que é aguardado a confirmação da biometria.
+Dados Recebidos:
+ nesse quadro são apresentados os dados obtidos pelo aparelho de biometria.

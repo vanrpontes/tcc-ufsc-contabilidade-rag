@@ -1,0 +1,77 @@
+TITULO: Serviço de Licenciamento (SL)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919334713
+--------------------------------------------------
+Visando aumentar a segurança do SisPetro, a partir da versão 8.8, é obrigatório obter o arquivo de licenciamento de versão através do Serviço de Licenciamento (SL).
+A partir da versão 8.15 o Arquivo de Licenciamento terá 
+data de validade
+. 
+O funcionamento do arquivo nada mudou. Para mais informações, ver abaixo.
+A função desta ferramenta é obter e validar um arquivo de licenciamento de versão do Banco de dados.
+Veja na prática mais detalhes abaixo:
+Salve as DLL 
+SisPetroControl.dll
+ e 
+borlndmm.dll
+ sempre com os executáveis dos 
+Servidores Hermes
+.
+No 
+:
+Configure os dados de licenciamento clicando em 
+Obtenha o arquivo de licenciamento clicando em 
+Valide o arquivo de licenciamento obtido clicando em 
+Dados do Cliente - ID Cliente e Senha
+: fornecidos pela Futura via e-mail
+Nº de Dias para Aviso da Validade do Licenciamento: 
+número de dias para que o SisPetro avise sobre o prazo que vai expirar o arquivo de licenciamento.
+Ambiente: 
+ambiente válido para o arquivo de licenciamento. Este item deve ser
+ 
+sempre
+ 
+considerado como 
+Produção
+ - não deve ser utilizado como homologação sem orientação do Suporte da Futura.
+Obter Arq. Licenciamento:
+  ferramenta para se obter arquivo de licenciamento. Será gerado um com o nome 
+VersãoX.X.ver 
+ sugerido como padrão.
+Validar Arquivo de Licenciamento: 
+verifica se o arquivo de licenciamento obtido está válido
+Obter e validar arquivo:
+Na primeira vez ao atualizar para versão 8.8 ou posteriores, siga os seguintes passos:
+No e-mail recebido pelo KeyUser 
+[Sistema Licenciamento] Envio de Dados do Cliente
+ o ID e Password.
+ 
+No 
+, 
+ botão 
+ preencha os campos ID Cliente e Senha com os dados recebido do e-mail
+ 
+O ID e Password (senha) é de uso exclusivo da Empresa. Sem eles não será possível obter um arquivo válido para o banco.
+Após obter o arquivo, clique no botão 
+Será gravado junto com o executável do 
+Servidor Hermes S3
+, o arquivo do licenciamento com o nome 
+Versao9.9.9.ver.
+Para verificar se o arquivo de licenciamento está válido, clique no botão 
+Caso o arquivo esteja válido,
+ 
+será apresentado uma mensagem que o arquivo foi validado com sucesso.
+Validade do Arquivo de Licenciamento
+Ver 
+,
+ quadro Servidores, coluna Validade Arq Lic do 
+ definido como 
+S3
+.
+Caso rejeite o arquivo de licenciamento de versão(seja porque o arquivo de licenciamento não é compatível com o banco ou as métricas enviadas do banco não são compatíveis com as informações que estão cadastradas no servidor de licenciamento), será apresentada uma mensagem que não foi possível validar o arquivo e indicará uma ação ser tomada. 
+Observe que existem dois tipos de mensagem indicando a ação a ser tomada, uma que é 
+entrar em contato com o 
+Administrativo da Futura
+ e outra 
+com o 
+Suporte da Futura.
+ 
+ 

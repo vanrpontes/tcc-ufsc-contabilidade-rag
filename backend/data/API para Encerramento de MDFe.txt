@@ -1,0 +1,145 @@
+TITULO: API para Encerramento de MDFe
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4899864577
+--------------------------------------------------
+Objetivo
+Fazer o encerramento de um MDFe.
+1. Obter token autenticação
+Introdução
+Qualquer webservice do projeto 
+SispetroWeb 
+exigirá um token de autenticação. Este token é gerado a partir deste webservice e será válido por 24 horas. Assim, recomendamos que o sistema consumidor dos webservices aqui descritos salvem o token armazenando também a data e hora em que ele foi gerado para que, quando chegar próximo de sua validade, seja obtido novo token.
+Para mais informações, ver 
+Documentação - API Obtenção de Token
+Para se encerrar o MDFe de forma síncrona, o Sispetro 
+deverá estar na versão 10.60
+ 
+ou superior. 
+Caso contrário, será registrada somente a solicitação de encerramento e o serviço de encerramento (no Hermes) irá executar o encerramento conforme sua programação de atividade.   
+2. 
+Encerramento MDFe
+Introdução
+Este webservice tem por finalidade o encerramento de um MDFe conforme seu Id. Ele realiza todo o processamento junto a SEFAZ e retorna um status 200 caso tenha conseguido realizar o encerramento ou status 400 com algum descritivo do erro.
+Para que essa API funcione, o usuário do token obtido no passo 1 (obtenção do token) em 
+Perfil de usuários / aba SispetroApp / grupo Papel Motorista
+ deve ter o papel de motorista habilitado e no campo Motorista Associado ao Usuário deve ser informado o cadastro de um motorista válido. Para mais informações, ver 
+SispetroApp (Usuários)
+ 
+Além disso, somente MDFes com o campo StatusProcessamento  = 4 (pendente encerramento) serão válidos para encerramento. 
+Endereço
+<endereço do SispetroWeb>/mdfe/solicita_encerramento
+Parâmetros
+Será necessário enviar um header com o token e no corpo do webservice o id do MDFe que se deseja encerrar.
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+ 
+Content-Type
+tipo do formato de envio
+application/json
+ 
+Accept
+tipo do formato de envio
+application/json
+ 
+Body
+Layout abaixo em formato JSON.
+ 
+Chave
+Conteudo
+Pai
+Obrigatório
+id
+Número do ID do MDFe na tabela MDFe 
+-
+Sim
+placa
+placa do frota principal do MDFe
+opcional. Caso seja passada, a placa deverá ser igual à do frota principal do MDFe. 
+Método
+POST
+Exemplo de chamada de WebService
+curl -H "Content-Type: application/json" -H "Accept: application/json" -X POST -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM" http://localhost/mdfe/solicita_encerramento -d '{"id":"8383", "placa":"KLV-4127"}'
+Retorno Bem Sucedido
+Será retornado um objeto JSON com o registro do MDFe encerrado e o status 200. 
+O status da resposta sempre será 200.
+"MDFeID": 1,
+    "CodEmpresa": 1,
+    "ChaveAcesso": "123456789123456789123456789123456789",
+    "Modelo": 1,
+    "Serie": "1",
+    "NumeroMDF": 11,
+    "DataMDF": "2024-09-10",
+    "HoraMDF": "2000-01-01T11:25:08.420-02:00",
+    "SituacaoMDF": 1,
+    "CodigoDNCCarrega": "410.180-4",
+    "CodigoDNCDescarrega": "355.030-3",
+    "SeqFrota": 10041,
+    "SeqFrotaCarreta": null,
+    "SeqFrotaTrem": null,
+    "CodTranspMotorista": "00004",
+    "CodTransp": "13328",
+    "DataInclusao": "2024-09-10T11:25:10.000-03:00",
+    "UsuarioInclusao": "ROOT",
+    "DataEncerramento": null,
+    "UsuarioEncerramento": null,
+    "SeqMotivoCancto": null,
+    "UsuarioCancelamento": null,
+    "NumeroRecibo": null,
+    "DataProcessamentoRecibo": null,
+    "NumeroProtocolo": "",
+    "XMLProtocolo": ,
+    "DataProcessamentoProtocolo": "2024-09-10T11:25:13.000-03:00",
+    "CodMsgSefaz": null,
+    "MsgSefaz": null,
+    "NumeroProtocoloCancelamento": null,
+    "XMLAutorizacaoCancelamento": null,
+    "DataProcessamentoCancelamento": null,
+    "SeqEventoCancelamento": null,
+    "Ambiente": 0,
+    "XMLSolicitacaoCancelamento": null,
+    "Cancelado": 0,
+    "StatusProcessamento": 4,
+    "CanceladoSefaz": 0,
+    "QtdCTe": 0,
+    "QtdCTRC": 0,
+    "QtdNFe": 1,
+    "QtdNF": 0,
+    "XMLRecibo": ,
+    "InfoAdic": null,
+    "InfoCompl": null,
+    "NumProtocoloEncerramento": null,
+    "XMLEncerramento": null,
+    "SeqEventoEncerramento": null,
+    "ValorTotalCarga": "1515.0",
+    "PesoBrutoCarga": "404.5",
+    "CodigoDNCDescarregaEnc": "355.030-3",
+    "XMLAutorizacaoEncerramento": null,
+    "DataProcessamentoEncerramento": null,
+    "DataIncEncerramento": null,
+    "DataCancelamento": null,
+    "ES": "S",
+    "Tipo": 0,
+    "MDFe_RegraRespTecnico": 1,
+    "MDFe_RegraCSRT": 0,
+    "MDFe_RegraQRCode": 1,
+    "AssinaturaChaveAcesso": "",
+    "CodProd": null,
+    "CEP_Carrega": null,
+    "CEP_Descarga": null,
+    "Latitude_Carrega": null,
+    "Longitude_Carrega": null,
+    "Latitude_Descarga": null,
+    "Longitude_Descarga": null,
+    "MDFe_RegraProdPredominante": 0,
+    "TipoNF": "NF",
+    "EncerramentoAutomatico": 1,
+    "StatusEncerramentoAutomatico": 0
+Retorno Sem Sucesso
+Será retornado um objeto JSON com o motivo do não processamento (poderá ser um erro de autenticação caso o token tenha expirado ou seja inválido ou alguma regra de negócio não atendida. 
+O status da resposta sempre será diferente de 200 (normalmente entre 400 e 410 conforme o erro).
+{"error":"Erro Requisicao: MDFe não encontrado ou com status inválido para encerramento","status":400}

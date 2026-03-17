@@ -1,0 +1,303 @@
+TITULO: Painel Compras
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921073500
+--------------------------------------------------
+none
+Objetivo
+As 
+configurações do módulo de Compras do SisPetro
+, acessado pelo menu 
+Ferramentas / Sistemas / Compras
+. Aborda parâmetros padrão para inclusão de PMM (depósito, pagamento, natureza, moeda), envio de cotações por e-mail, regras de 
+adiantamentos
+, vínculos entre 
+fornecedores, grupo econômico e PMM
+, além de bloqueios e validações obrigatórias (centro de custos, estoque e valores). Detalha o 
+controle financeiro do PMM
+, com verificação por item ou total, percentuais de discrepância, tratamento de NF e adiantamentos, e flexibilizações permitidas. Inclui opções de 
+características de produtos
+, grupos/subgrupos de despesas, layouts de impressão, controle de saldo excedente, indicação de vendedor/corretora/representante e validação de código produto-fornecedor. Por fim, contempla configurações de 
+IPI
+, 
+almoxarifado
+, 
+histórico de estoque
+ e 
+cotação
+ (layout e quantidade mínima).
+Aba Compras
+Acesso a essa tela se dá através do Menu 
+Ferramentas / Sistemas / Compras 
+Depósito Padrão, Condições Pagamento, Natureza de Operação e Moeda: 
+são utilizados na inclusão do PMM.
+Configuração e-mail padrão:
+ este perfil de sistema, permite a empresa configurar uma 
+Conta de E-mail
+, apenas para enviar Cotação de PMM por e-mail. Para mais informações, ver 
+Manutenção de Cotações
+. Os passos para configuração são os mesmos que é necessário para configurar o envio de NF-e por e-mail. Porém depois de configurada, basta vir neste perfil ,acima, e indicar a nova conta configurada
+Padrão para inclusão de fornecedores (adiantamento): 
+define se a inclusão de um adiantamento movimenta ou não estoques.
+Adiantamento não movimenta estoque
+Usuário escolhe se movimenta ou não no PMM/Adto
+Adiantamento sempre movimenta estoque
+Fornecedores X Entradas (Adiantamento e NF): 
+foi implementado a possibilidade de utilizar adiantamentos somente para Fornecedores que pertencem ao mesmo Grupo Econômico. Para mais informações, ver 
+Grupo Econômico - Fornecedores
+Só permite do mesmo Fornecedor:
+ utilizando essa opção tanto no recebimento da nota quanto na inclusão de adiantamento com PMM, o usuário só conseguira incluir utilizando o mesmo Fornecedor.
+Permite Fornecedor Responsável do Grupo Econômico:
+ utilizando essa opção, o SisPetro irá limitar a utilização somente para fornecedores do mesmo Grupo Econômico. Dessa forma ao incluir uma Nota de recebimento ou um Adiantamento, será possível alterar o Fornecedor. Essa alteração só será possível caso o Fornecedor comprador seja o responsável pelo Grupo Econômico.   
+Bloqueia Requisição Compras e PMM (Direto Forn.) sem Centro Custos: 
+este perfil impede a inclusão de PMM do tipo recebimento direto do fornecedor e requisições sem Centro de Custo informado.
+Trabalha com Características de Produtos: 
+este perfil indica se na inclusão de Ordem de Serviço (O.S), Requisição de Material ou Pedido de Movimentação de Material (PMM) o usuário irá informar ou não a Característica do Produto. Há três opções:
+Não Trabalha: 
+as características não irão aparecer para o usuário
+Trabalha com Multi Características: 
+o u
+suário poderá digitar o valor desejado após escolher características, caso ela seja Aberta ou irá escolher os valores pré-cadastrados após escolher característica caso ela seja Fechada.
+Trabalha escolhendo uma Única Característica: 
+se aberta, o usuário deverá escolher a característica e não terá valor. Caso fechada, o u
+suário deverá escolher a característica em conjunto de um dos valores pré-cadastrados
+Mais informações sobre, ver 
+Características dos Produtos
+Trabalha com Grupo/Subgrupo de empresas: 
+Quando marcado irá trabalhar com Grupo e Subgrupo de despesas exclusivamente nos processos de Compras: produtos, requisições, PMM e notas. Para mais informações, ver 
+Configuração Inicial Grupos e Subgrupos de Despesas
+Arquivo LayOut PMM: 
+impressão do Pedido de Compra, deve ser informado o nome e caminho do arquivo de Layout do Pedido de Compra. O SisPetro utiliza o arquivo 
+pedidocompra.rtm 
+no mesmo diretório do executável. Para editar o layout existe o botão 
+Edita
+. Deve ser indicado o número de Vias do Pedido a serem impressas.
+ 
+ 
+Controla Pedido de Movimentação de Material: 
+se a Empresa deseja controlar PMM, esta opção deve ser marcada.
+Obriga informar Depósito Destino no PMM: 
+obriga o usuário na inclusão do PMM informar o depósito de destino
+Verifica Saldo Financeiro do PMM x Títulos Vinculados: 
+se esse perfil estiver marcado, o SisPetro irá controlar o valor da Nota de Entrada de acordo com o valor do PMM.
+Não verifica:
+ selecionada esta opção, não será realizado a verificação de valores.
+Verifica analisando por item do PMM:
+ selecionada esta opção, o SisPetro irá controlar o valor da Entrada de acordo com o valor do PMM, analisando por item do PMM.
+Verifica analisando o total do PMM:
+ selecionada esta opção, o SisPetro irá controlar o valor da Entrada de acordo com o valor do PMM, analisando pelo total do PMM. 
+Abaixo temos um exemplo da verificação quando analisado o total do PMM:
+PMM
+Item
+Valor 
+Desconto
+Valor Final
+Produto A
+100,00
+10,00
+90,00
+Produto B
+70,00
+7,00
+63,00
+Total
+170,00
+17,00
+153,00
+Recebimento Parcial
+1a. NF Recebida 
+Item
+Valor 
+Desconto
+Valor Final
+Valor Acumulado
+Produto A
+30,00
+2,00
+28,00
+28,00
+Produto B
+-
+-
+-
+0,00
+Total
+30,00
+2,00
+28,00
+28,00 
+Será aceita pois está dentro do valor total do PMM
+2a NF Recebida
+Item
+Valor 
+Desconto
+Valor Final
+Valor Acumulado
+Produto A
+70,00
+4,00
+66,00
+94,00
+Produto B
+50,00
+3,00
+47,00
+47,00
+Total
+90,00
+7,00
+113,00
+141,00 
+Será aceita pois está dento do valor total do PMM
+3a NF Recebida
+Item
+Valor 
+Desconto
+Valor Final
+Valor Acumulado
+Produto A
+-
+-
+94,00
+Produto B
+20,00
+3,00
+17,00
+64,00
+Total
+20,00
+3,00
+17,00
+158,00 
+Não será aceita, pois ultrapassou o valor total do PMM.
+O valor considerado do PMM é o 
+valor que foi aprovado
+Percentual de Discrepância para PMM: 
+o SisPetro faz o controle do valor da Nota X PMM, explicado acima, de acordo com o percentual que consta nesse campo.
+Exemplo
+No perfil Percentual de Discrepância de PMM foi inserido o valor de 10%.
+É feito um PMM de material de escritório com quantidade = 1,2 e preço = R$ 1,00.
+Se calcularmos, 10% de 1,2 =  0,12. Somado com 1,2 = 1,32.
+Com isso, no momento de inclusão da NF, será aceito o valor de até 1,32, que corresponde à 10% a mais do valor do PMM.
+Essa opção é útil em casos onde é feito um PMM e, até a chegada do material e entrada da Nota, esse produto sofreu alteração de preços. Com isso, é possível haver um controle de preços, mas também há uma flexibilidade para não ser necessária a alteração do PMM já aprovado.
+Validação de valores do PMM
+Indicará qual será o tratamento do SisPetro quanto a validação do Saldo financeiro do PMM x Notas que serão vinculadas a ele. As opções são: 
+Verifica somente NF que movimentam estoque:
+ ou seja, somente naturezas de operação cuja movimentação de estoque está ticada igual a sim.  Para mais informações, ver 
+Dados Gerais (Painel Geral)
+.
+Verifica todas as NF vinculadas ao PMM: 
+vai verificar todas as notas vinculadas ao PMM. 
+Valor de Pré-Adiantamento e Adiantamento X PMM: 
+ flexibiliza a validação de valores nos adiantamentos e pré-adiantamentos em relação ao PMM, permitindo que o valor total dos adiantamentos possa ser maior que o valor do PMM, conforme necessário.
+Exigir que o valor total de adiantamentos não seja maior que o valor total do PMM (padrão):
+ valor do adiantamento não pode ser maior que o do PMM.
+Permitir que o valor total de adiantamentos seja maior que o valor total do PMM:
+ permitir que o valor do adiantamento seja maior que o do PMM.
+Permitir que o valor total de adiantamentos seja maior que o valor total do PMM conforme um percentual indicado:
+ permitir definir um percentual para o adiantamento ser maior que o PMM.
+O campo para indicar o percentual permitido de aumento no valor do adiantamento em relação ao PMM, com até duas casas decimais, variando de 0 a 1000%.
+Exemplo:
+Descrição
+Valor (R$)
+Cálculo
+Resultado (R$)
+Valor total do PMM
+50.000,00
+-
+50.000,00
+Percentual de discrepância (10%)
+10%
+10% de 50.000,00 = (50.000,00 × 10/100)
+ 5.000,00
+Valor máximo permitido (PMM + 10%)
+-
+50.000,00 + 5.000,00
+ 55.000,00
+Explicação:
+O 
+valor total do PMM
+ é R$ 50.000,00.
+O 
+percentual de discrepância configurado
+ é de 10%, o que resulta em R5.000,00(105.000,00(10 50.000,00).
+O 
+valor máximo permitido
+ para adiantamentos ou inclusão da Nota Fiscal (NF) é a soma do valor do PMM com o percentual de discrepância, totalizando R$ 55.000,00.
+Utilidade:
+Essa funcionalidade permite que, em casos de alterações de preços ou custos adicionais após a aprovação do PMM, o sistema aceite valores até 10% acima do valor planejado, sem a necessidade de ajustes no PMM já aprovado. Isso garante flexibilidade e controle simultaneamente.
+Vincula Despesas ao PMM: 
+Se marcado, é possível que sejam vinculadas as Despesas a um PMM, o vínculo poderá ser feito durante a inclusão do PMM ou após, via Manutenção de PMM. Para mais informações, ver 
+Controle de Despesas no PMM
+.
+Quantidade Pendente no PMM: 
+sugere a forma pela qual o PMM considerará a quantidade pendente:
+Pela quantidade do pedido
+: ao incluir o PMM  preenche a quantidade pendente com o total do pedido.
+Pela quantidade paga (Adiantamento Quantificado)
+: só preenche a quantidade pendente na inclusão do adiantamento quantificado e quantidade paga
+Permite a utilização de Saldo Excedente no PMM: 
+caso esteja marcada, informa que a empresa trabalhará com Saldo Excedente. Para mais informações, ver 
+Saldo excedente para PMM
+, para maiores informações.
+Indica Vendedor na Inclusão do PMM: 
+caso esteja marcado, permite informar vendedor na inclusão do PMM. Para mais informações, ver 
+Tabela Vendedores
+ e 
+Corretora no PMM
+.
+Indica Corretora na Inclusão do PMM: 
+caso esteja marcada, permite informar corretora na inclusão do PMM. Para mais informações, ver 
+Observações - Fornecedores
+ e 
+Corretora no PMM
+.
+Indica Fornecedor de carregamento diferenciado no PMM: 
+caso esteja marcada, permite informar um fornecedor diferente do fornecedor do PMM. Para mais informações, ver 
+Corretora no PMM
+.
+Pode indicar a criação de Pré-Adiantamento a partir do PMM: 
+possibilita indicar a criação de Pré-Adiantamento a partir de um PMM.
+Na inclusão avisa se tiver adiantamentos pendentes: 
+caso esteja marcada, ao efetuar a inclusão de um Pedido de movimentação de material, será avisado na tela a soma dos adiantamentos e pré-adiantamentos para o fornecedor selecionado. O saldo apresentado é a soma dos adiantamentos e pré-adiantamentos de todas as empresas
+Informação de Representante no PMM: 
+Não informa
+Permite informar mas não obriga
+Obriga informar Representante
+Verificação Código Produto Fornecedor (De/Para de Produto)
+Sempre Valida: 
+essa configuração irá validar se há um Código do Produto do Fornecedor cadastrado no De/Para. Caso haja um cadastro, o SisPetro permite a inclusão do item do PMM. Caso não tenha o SisPetro exibe uma mensagem de erro no momento da gravação do PMM. Para mais informações sobre PMM, ver 
+Pedido de Movimentação de Material
+Nunca Valida: 
+o SisPetro não faz a validação acima. 
+Atualização de data de entrega na aprovação
+Atualiza com Data Aprovação + Prazo de Entrega: 
+ao habilitar esta opção, quando um pedido é aprovado, o sistema atualiza a 
+Data Início Entrega 
+do pedido de movimentação de material, somando a data da aprovação com o prazo de entrega.
+Exemplo: 
+Data de Início de Entrega Original no PMM = 19/10/2018
+Prazo de entrega = 15 dias
+Data de Aprovação do PMM = 18/10/2018
+Nova Data de Início de Entrega = 02/11/2018
+IPI: 
+permite indicar se no PMM poderá informar ou não alíquota de IPI
+Informa dados de IPI no PMM ?
+Se marcada, permitirá ao usuário informar a alíquota de IPI. O valor do IPI é calculado automaticamente
+Se desmarcada, o PMM não terá dados de IPI
+Sugere Alíquota de IPI conforme cadastro de Produtos ?
+Se marcada, utilizará a alíquota conforme código de IPI cadastrado no produto. Para mais informações, ver 
+Tabela de Produtos
+ (campo Código IPI) e 
+Tabela IPI
+Se desmarcada, a alíquota será 0 (zero)
+Almoxarifado
+Depósito: 
+código do depósito que representa o almoxarifado, utilizado como depósito padrão quando usuário libera produtos em estoque a partir da requisição.
+Histórico para Movimentação de Estoque: 
+esse Histórico é utilizado na Liberação de Estoque de Requisição Direta 
+Análise Estoque - Liberação
+ (sem necessidade de cotação). Devido a liberação ser uma movimentação de ajuste de estoque, é importante configurar no Histórico se deve Participar do CMV ou não.
+Cotação
+Arquivo LayOut Cotação: 
+pasta onde se encontra o rtm da Cotação. Permite edição.
+Qtde de Cotações para Requisição:
+ define o número de cotações por requisição.

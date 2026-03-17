@@ -1,0 +1,535 @@
+TITULO: API Incluir / Alterar Clientes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4893147137
+--------------------------------------------------
+ Objetivo
+Incluir ou alterar o cadastro de um cliente. 
+Uso Geral
+Obter token autenticação
+Introdução
+Qualquer webservice do projeto 
+SispetroWeb 
+exigirá um token de autenticação. Este token é gerado a partir deste webservice e será válido por 24 horas. Assim, recomendamos que o sistema consumidor dos webservices aqui descritos salvem o token armazenando também a data e hora em que ele foi gerado para que, quando chegar próximo de sua validade, seja obtido novo token.
+Para mais informações, ver 
+API Obtenção de Token
+ 
+Métodos de Cadastros
+1. Inclusão ou edição de clientes
+Introdução
+Este webservice tem por finalidade a inclusão ou alteração de 
+UM
+ cliente. Como alguns campos são preenchidos conforme o perfil de empresas, é necessário informar a empresa ao obter o token.
+Para utilizar esta API, o usuário deve ter permissão para incluir clientes. Para verificar esta permissão, ele deve acessar a manutenção de usuários, localizar o usuário que está utilizando na API e ver na aba SispetroApp como está a configuração para inclusão de clientes (não pode, ver sistema ou pode). 
+Para mais informações, ver
+ 
+Painel SispetroApp
+ 
+Caso o valor seja 
+Ver Sistema
+, ir na manutenção de empresas, aba SispetroApp e ver qual valor está configurado para a permissão de inclusão de clientes (pode ou não pode).  
+Para mais informações, ver 
+SispetroApp (Usuários)
+ 
+Endereços
+Inclusão: 
+<endereço do SispetroWeb>/entidade
+Alteração: 
+<endereço do SispetroWeb>/entidade
+/
+<campo CodEnt da entidade>
+Parâmetros
+Será necessário enviar um header com o token e no corpo do webservice (body) os dados relativos ao cliente que se deseja incluir ou alterar.
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+Content-Type
+tipo do formato de envio
+application/json
+Accept
+tipo do formato de envio
+application/json
+Body
+Layout abaixo em formato JSON. O formato é o mesmo tanto para inclusão como para alteração 
+sendo que se deve enviar somente os campos que se deseja preencher na inclusão ou alterar na edição
+. 
+Os campos do tipo list são matrizes. Assim, caso se deseje alterar algum item, deve-se enviar a totalidade de itens mesmo os inalterados pois o que for enviado será integralmente respeitado. Por exemplo, se existem três endereços cadastrados para o cliente e se deseja alterar o segundo endereço, deve-se enviar uma matriz com os três itens sendo o segundo com as alterações. Itens sem a chave serão considerados inclusões.
+Chave
+Conteudo
+Pai
+Obrigatório 
+entidade
+fixo
+-
+Sim
+CGC
+CNPJ ou CPF com máscara 
+entidade
+Sim se dentro País
+NomeUsual
+Nome Usual do Cliente
+entidade
+RzSocial
+Razão Social
+entidade
+Sim
+IE
+Inscrição Estadual
+entidade
+Sim
+ConsumidorFinal
+0 - Não, 1 - Sim (se não informado será preenchido com 0)
+entidade
+InscricaoMunicipal
+Inscrição Municipal
+entidade
+Endereco
+Endereço
+entidade
+Sim
+Numero
+Número com até 8 caracteres
+entidade
+Sim
+Complemento
+Complemento do Endereço
+entidade
+Bairro
+Bairro
+entidade
+Sim
+CodigoDNC
+Código IBGE do Município (formato 999.999-9)
+entidade
+Sim
+Municipio
+Descrição do Município
+entidade
+Sim
+UF
+UF
+entidade
+Sim
+CEP
+Formato 99999-999
+entidade
+Sim
+Latitude
+Latitude do endereço
+entidade
+Longitude
+Longitude do endereço
+entidade
+CodPais
+Código do País (se não informado será 1058 - Brasil)
+entidade
+Fone
+Telefone (com DDD)
+entidade
+OutrosFones
+Campo texto contendo os demais telefones
+entidade
+EMail
+E-mail de uso geral
+entidade
+Sim
+Bloqueado
+0 - Não, 1 - Sim
+entidade
+SeqBloqueio
+Código do bloqueio para uso na inclusão via API
+entidade
+Sim se Bloqueado for 1
+DtCad
+Data do Cadastro
+entidade
+DataAlteracaoCad
+Data de Alteração do Cadastro
+entidade
+DPMP_CodigoInstalacao
+Código Instalação na ANP
+entidade
+HorarioEntregaInicial
+Horário Inicial para Entrega
+entidade
+HorarioEntregaFinal
+Horário Final para Entrega
+entidade
+LimCred
+Limite de Crédito
+entidade
+Este campo só será alterado ou preenchido caso o usuário tenha permissão conforme perfil 
+'ckbAlteraLimiteCredito'
+CodPg
+Código da Condição de Pagamento
+entidade
+CodTpCobr
+Código do Tipo de Cobrança
+entidade
+Vendedor
+Código do Vendedor
+entidade
+AtividadeEconomica
+Uma letra que representa a Atividade econômica de uso exclusivo do Sispetro  (P - Posto, G - Consumidor Final, T - TRR, C - Congênere e O - Órgão Público)
+entidade
+SubstitutoTributario
+Código da Categoria do Estabelecimento (uso no Scanc)
+entidade
+SeqTipo
+Código do Tipo de Cliente
+entidade
+BloqueiaEntregaRetira
+0 - Não bloqueia, 1 - Bloqueia Entrega, 2 - Bloqueia Retira
+entidade
+IDRegiaoVendas
+Código da Região de Vendas
+entidade
+PermiteEntregaCarreta
+Permite entrega de carreta ( 0 - Não, 1 - Sim)
+entidade
+CdPrefFat
+Sequencial do Endereço de faturamento (conforme lista Enderecos)
+entidade
+CdPrefEnt
+Sequencial do Endereço de faturamento (conforme lista Enderecos)
+entidade
+CdPrefCob
+Sequencial do Endereço de faturamento (conforme lista Enderecos)
+entidade
+Enderecos
+list
+entidade
+Seq
+Id do endereço
+Enderecos
+Sim no caso de edição. Na inclusão, não enviar. 
+Endereco
+Endereço
+Enderecos
+Numero
+Número com até 8 caracteres
+Enderecos
+Complemento
+Complemento do Endereço
+Enderecos
+Bairro
+Bairro
+Enderecos
+CodigoDNC
+Código IBGE do Município (formato 999.999-9)
+Enderecos
+Municipio
+Descrição do Município
+Enderecos
+UF
+UF
+Enderecos
+CEP
+Formato 99999-999
+Enderecos
+CodPais
+Latitude do endereço
+Enderecos
+Latitude
+Longitude do endereço
+Enderecos
+Longitude
+Código do País (se não informado será 1058 - Brasil)
+Enderecos
+Fone
+Telefone (com DDD)
+Enderecos
+CNPJ
+CNPJ do endereço
+Enderecos
+documento
+IE do endereço
+Enderecos
+RzSocial
+Razão Social para o endereço
+Enderecos
+galonagens
+list
+entidade
+Sequencial
+ID da Galonagem (chave primária)
+galonagens
+Sim no caso de edição. Na inclusão, não enviar.
+Produto
+Código do Produto no Sispetro
+galonagens
+Qtde
+Qtde em Litros
+galonagens
+M3
+Qtde em M3
+galonagens
+comprador
+Código do Cliente que é o responsável pelo Grupo Econômico. Se não informado será o próprio cliente.
+entidade
+layout_estendido
+0 = retorna somente dados do registro (padrão), 1 = retorna dados adicionais do cliente (layout descrito abaixo)
+entidade
+Métodos
+Inclusão: POST
+Alteração: PUT
+Exemplo de arquivo json para envio em 
+  .
+Exemplo de chamada de WebService
+# alteração do cliente código 6426
+curl -H "Content-Type: application/json" -H "Accept: application/json" -H 
+"Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAzLjk4MC43NTQvMDAwMy0wNSIsImRlcG9zaXRvX3BhZHJhbyI6IjEiLCJleHAiOjE3MjMxMjc2MzF9.-lJY1DvvjMPd9W1zc2j1ZPBIZHfIT4j_r881t8BibPI" 
+-X PUT http://localhost/entidade/6426 -d@entidade.json
+
+#inclusão de um cliente novo
+curl -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAzLjk4MC43NTQvMDAwMy0wNSIsImRlcG9zaXRvX3BhZHJhbyI6IjEiLCJleHAiOjE3MjMxMjc2MzF9.-lJY1DvvjMPd9W1zc2j1ZPBIZHfIT4j_r881t8BibPI" 
+-X POST http://localhost/entidade -d@entidade.json
+Retorno Bem Sucedido
+Serão retornados os dados do cliente se ele for incluído com sucesso. 
+O status da resposta sempre será 200. 
+Layout abaixo em formato JSON:
+Chave
+Conteudo
+Pai
+Obrigatório
+entidade
+fixo
+CodEnt
+Código da Entidade
+entidade
+CGC
+CNPJ
+entidade
+NomeUsual
+Nome Usual do Cliente
+entidade
+RzSocial
+Razão Social
+entidade
+IE
+Inscrição Estadual
+entidade
+ConsumidorFinal
+0 - Não, 1 - Sim
+entidade
+InscricaoMunicipal
+Inscrição Municipal
+entidade
+Endereco
+Endereço
+entidade
+Numero
+Número com até 8 caracteres
+entidade
+Complemento
+Complemento do Endereço
+entidade
+Bairro
+Bairro
+entidade
+CodigoDNC
+Código IBGE do Município (formato 999.999-9)
+entidade
+Municipio
+Descrição do Município
+entidade
+UF
+UF
+entidade
+Latitude
+Latitude do endereço
+entidade
+Longitude
+Longitude do endereço
+entidade
+CodPais
+Código do País (se não informado será 1058 - Brasil)
+entidade
+Fone
+Telefone (com DDD)
+entidade
+OutrosFone
+Outros telefones
+entidade
+CEP
+Formato 99999-999
+entidade
+EMail
+E-mail principal
+entidade
+Bloqueado
+0 - Não, 1 - Sim
+entidade
+DtCad
+Data de Cadastro
+entidade
+dataAlteracaoCad
+Data de Alteração do Cadastro
+entidade
+DPMP_CodigoInstalacao
+Código Instalação na ANP
+entidade
+HorarioEntregaInicial
+Horário de Entrega Inicial
+entidade
+HorarioEntregaFinal
+Horário de Entrega Final
+entidade
+LimCred
+Limite de Crédito
+entidade
+CodPg
+Código da Condição de Pagamento vinculada ao cliente
+entidade
+CodTpCobr
+Código do Tipo de Cobrança
+entidade
+Vendedor
+Código do Vendedor
+entidade
+AtividadeEconomica
+Uma letra que representa a Atividade econômica de uso exclusivo do Sispetro (P - Posto, G - Consumidor Final, T - TRR, C - Congênere e O - Órgão Público)
+entidade
+SubstitutoTributario
+Código da Categoria do Estabelecimento (uso no Scanc)
+Não é Substituto Tributário->0, Refinaria->1, Formulador->2, Importador->3, Outros->4, Armazenador->5, Consumidor Final Não Contribuinte->6, Central Petroquímica->7, Distribuidor->8, Posto Varejista->9, Transportador e Revendedor Retalhista->10, Usina->11, Consumidor Final Contribuinte->12, Varejista de GLP->13, Empresa Comercializadora de Etanol->14
+entidade
+SeqTipo
+Código do Tipo de Cliente
+entidade
+BloqueiaEntregaRetira
+0 - Não bloqueia, 1 - Bloqueia Entrega, 2 - Bloqueia Retira
+entidade
+IDRegiaoVendas
+Código da Região de Vendas
+entidade
+PermiteEntregaCarreta
+0 - Não Permite Entrega, 1 - Permite Entrega de Carreta
+entidade
+CdPrefFat
+Sequencial do Endereço de faturamento (conforme lista Enderecos)
+entidade
+CdPrefEnt
+Sequencial do Endereço de faturamento (conforme lista Enderecos)
+entidade
+CdPrefCob
+Sequencial do Endereço de faturamento (conforme lista Enderecos)
+entidade
+enderecos
+list
+entidade
+Seq
+Id do endereço
+enderecos
+Sim no caso de edição. Na inclusão, não enviar. 
+Endereco
+Endereço
+enderecos
+Numero
+Número com até 8 caracteres
+enderecos
+Complemento
+Complemento do Endereço
+enderecos
+Bairro
+Bairro
+enderecos
+CodigoDNC
+Código IBGE do Município (formato 999.999-9)
+enderecos
+Municipio
+Descrição do Município
+enderecos
+UF
+UF
+enderecos
+CEP
+Formato 99999-999
+enderecos
+CodPais
+Latitude do endereço
+enderecos
+Latitude
+Longitude do endereço
+enderecos
+Longitude
+Código do País (se não informado será 1058 - Brasil)
+enderecos
+Fone
+Telefone (com DDD)
+enderecos
+CNPJ
+CNPJ do endereço
+enderecos
+documento
+IE do endereço
+enderecos
+RzSocial
+Razão Social para o endereço
+enderecos
+galonagens
+List da galonagem cadastrada para esse cliente
+Produto
+Código do Produto
+galonagens
+Qtde
+Quantidade em Litros
+galonagens
+M3
+Quantidade em M3
+galonagens
+empresas
+List das empresas permitidos para venda
+CodEmpresa
+Código da Empresa
+empresas
+NomeUsual
+Nome Usual da Empresa
+empresas
+RestringeVendaDeposito
+0 = Não restringe, 1 = Restringe conforme lista de depósitos abaixo
+entidade
+depositos
+List dos depósitos permitidos para venda
+entidade
+CodDep
+Código do Depósito
+depositos
+Descricao
+Descrição do Depósito
+depositos
+condicoes_pagto_possiveis
+List das Condições de Pagamento com prazo médio menor ou igual à Condição de Pagamento vinculada ao cliente
+entidade
+CodPgPossivel
+Código da Condição de Pagamento
+condicoes_pagto_possiveis
+PrazoCPPossivel
+Prazo
+condicoes_pagto_possiveis
+Comprador
+Código do Cliente que é o responsável pelo Grupo Econômico
+entidade
+dataLiberacao
+Data da Liberação Financeira do Cadastro
+entidade
+valorpendente
+Valor pendente do cliente
+entidade
+valorCredito
+Saldo em Adiantamento para esse cliente
+entidade
+ValorAtrasado
+Valor pendente em atraso do cliente
+entidade
+Exemplo de arquivo JSON de retorno em   
+ 
+{"CodEnt":1,"CNPJ":01.000.000/0001-99,"RzSocial":FULANO DE TAL,...
+Retorno Sem Sucesso
+Será retornado um objeto JSON com o motivo da não inclusão (poderá ser um erro de autenticação caso o token tenha expirado ou seja inválido ou alguma regra de negócio não atendida. 
+O status da resposta sempre será diferente de 200.
+{"error":"Cliente... e valido","status":422}
+ 

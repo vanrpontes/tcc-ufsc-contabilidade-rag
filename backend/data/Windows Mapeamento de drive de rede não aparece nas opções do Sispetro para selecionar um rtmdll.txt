@@ -1,0 +1,17 @@
+TITULO: Windows Mapeamento de drive de rede não aparece nas opções do Sispetro para selecionar um rtm/dll
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926186242
+--------------------------------------------------
+Nas versões do Windows a partir do Vista quando um mapeamento de drive de rede é feito por um usuário não administrador (mesmo que pertença ao grupo Administrador) ao selecionar um caminho para esse drive mapeado o mesmo não aparece.
+Aparece somente UNC ou seja //numeroip/pasta/arquivo.dll mas isso pode apresentar problemas caso na rede tenha máquinas com windows XP (que reconhece drives de rede sem problemas).
+Solução:
+- Alterar o registro do Windows através do REGEDIT:
+ 
+HKEY_LOCAL MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\
+Dentro de System crie a chave (DWORD - 32 bits) EnableLinkedConnections e dê o valor 1.
+Reinicie a máquina. Com os drives mapeados aparecerão no Sispetro ou em qualquer outro software que precise acessar um drive de rede mapeado.
+Fonte:
+ 
+https://social.technet.microsoft.com/forums/en-us/49e551df-8e18-45fa-b4bf-923b5a317337/windows-8-issue-with-drive-mapping-and-uac-enabled-enablelinkedconnections?forum=w81previtpro
+Fonte:
+ 
+https://technet.microsoft.com/pt-br/library/ee844140(v=ws.10).aspx

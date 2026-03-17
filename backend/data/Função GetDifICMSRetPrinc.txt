@@ -1,0 +1,25 @@
+TITULO: Função GetDifICMSRetPrinc
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/6019121161
+--------------------------------------------------
+Histórico
+Utilizada para mensagem em notas de saída de B100 e calcula a diferença de ICMS Retido do produto principal 
+Configurada na natureza de operação, aba Por Filial, aba Impressão NF.
+Verifica se o ICMS Retido do Produto Principal está configurado pela UF de Destino ou Origem. Se sim, obtém o percentual do inverso e calcula o valor usando a Alíquota AdRem configurada.
+Exemplo de uso:
+ICMS Retido pela UF de Origem para o B100 (1000 litros):
+No XML vai 1000 * (0,9456 * 0,6667) = 630,43
+A função calcula o ICMS da UF de Destino: 1000 * (0,9456 * 0,3333) = 315,17
+<infCpl>Valor ICMS UF Destino: [GetDifICMSRetPrinc(<729>,<730>,<731>)] </infCpl>
+Parâmetros:
+<729> ItensNF.CodEmpresa
+ = Código da empresa onde foi incluída a nota fiscal
+<730>
+ 
+ItensNF.Sequencial
+ = Sequencial da nota fiscal
+<731>
+ 
+ItensNF.NumItem
+ = Número do item na nota fiscal
+Nota: 
+os campos numéricos podem ser diferentes em diferentes bancos de dados. A pesquisa deve ser sempre pelo nome do campo e pelo nome da tabela.

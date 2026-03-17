@@ -1,0 +1,35 @@
+TITULO: API de inclusão automática de OC Web (congêneres)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926193277
+--------------------------------------------------
+O processo de geração da OC automaticamente pode ser feito de duas formas:
+Com troca de arquivos:
+ onde o sistema da congênere gera um arquivo que é importado pela armazenadora
+Usuário na congênere, através de seu sistema, salva um arquivo na sua pasta 
+Processar
+.
+SispetroMon lê o arquivo
+Se os dados estiverem corretos, o SisPetro inclui a OC na base de dados da Armazenadora com os dados passados (as regras de validação são as mesmas do SisPetro Normal) e o SispetroMon move arquivo original para pasta 
+processados
+,
+ criando um novo arquivo com extensão _<numeroOC> com o conteúdo da OC incluída.
+Caso dê algum erro, move o arquivo para a pasta 
+Erros
+, 
+criando um novo arquivo com o mesmo nome do original com uma extensão _ERR, salvando o erro dentro dele.
+Para verificar o layout do arquivo a ser gerado, acesse 
+Layout de arquivo de inclusão de OC automática
+.
+O SispetroMon monitora, a cada uma hora, os arquivos das pastas 
+processados
+ e 
+erros
+, mantendo apenas os gravados a menos de 24 horas.
+Via WebService:
+ onde o sistema da congênere passa as informações para a API, que faz as verificações nos dados passados e retorna com o ok da inclusão da OC ou com os erros de validação. Caso alguma regra de inclusão de OC impeça inclusão automática, o SispetroWeb retorna os erros.
+Para mais informações técnicas sobre a integração via WebService, ver 
+API de inclusão e cancelamento via WebService
+.
+Para que um usuário possa incluir as ordens de carregamento por essa integração, deve ter seu perfil de usuário configurado (para mais informações, ver 
+Painel Carregamento
+).
+As demais configurações serão feitas em conjunto com a Futura.

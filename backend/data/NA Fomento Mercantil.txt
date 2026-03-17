@@ -1,0 +1,80 @@
+TITULO: NA Fomento Mercantil
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918973854
+--------------------------------------------------
+Dados Gerais
+O Banco NA Fomento Mercantil trabalha em conjunto com o Banco Bradesco (237). Assim, a empresa tem conta no Banco NA Fomento Mercantil, onde adquire o produto Cobrança Eletrônica, porém, ao imprimir o boleto, o imprime com as características do Banco Bradesco. Dessa forma, o cliente que recebe o boleto não precisa localizar uma agência do Banco NA Fomento Mercantil para efetuar o pagamento, podendo fazer isso perfeitamente no Banco Bradesco, que tem muito mais agências disponíveis em todo o país. Para ajudar na configuração abaixo apresentamos os dois modelos de configuração a configuração de Banco Correspondente do SisPetro.
+Painel Cobrança Eletrônica - Próprio
+Convênio:
+ informar o número do convênio.
+Conta:
+ e digito: informar o número da conta e digito no banco NA Fomento Mercantil.
+CNPJ:
+ informar o CNPJ da conta.
+Nos campos 
+Banco Oficial
+ e 
+#Banco
+ (e digito do número do banco, se tiver) informar 998 - NA Fomento Mercantil
+Como este banco não é registrado na Febraban, assumiremos como código de Banco 998, visto que o código 999 já está sendo utilizado para o banco 
+Sifra
+. 
+Nos campos 
+Agência
+ e 
+digito
+ (se tiver), informar.
+Carteira:
+ informar o código correto da carteira. Não tendo essa informação, o Sispetro assumirá a carteira padrão 9.
+Se desejar pode utilizar a opção 
+Pode indicar sacador/avalista
+, se marcá-la deverá então informar o 
+CNPJ do sacador/Avalista
+ e a 
+razão social.
+Se desejar você pode utilizar a opção 
+Pode indicar #docto na remessa
+, escolhendo a opção que melhor atender a empresa.
+A opção 
+Informação de juros no Arquivo Remessa
+ e multa não serão gerados no arquivo de remessa.
+A opção 
+Descont Cond. Arquivo Remessa
+ também poderá ser definida como Desconto ou Abatimento, dependerá da forma que a empresa e o banco irão trabalhar. Reforçando que, se o título/ lançamento não possuir informação de Desconto Condicional, a baixa por arquivo de retorno do título não terá informação de desconto, mesmo que no arquivo de retorno venha com a informação.
+Painel Informações sobre a Cobrança - Correspondente
+Marcar
+ a opção 
+Utiliza Banco Correspondente
+Informar no 
+Banco Encarregado da cobrança:
+ informar o banco correspondente.
+Informar o número do banco no campo 
+#Banco
+ e no campo 
+Dig
+ o digito.
+Informar 
+Nome Banco
+ o nome do banco correspondente.
+Informar o número da agência no campo 
+#Agencia
+ e o seu digito no campo 
+dígito
+ (esta é a agência do Banco Bradesco onde o banco Rendimento tem conta)
+Informar o 
+Número Conta
+ e seu 
+dígito
+ (esta é a conta do banco Rendimento no Banco Bradesco)
+Informar a 
+Carteira
+ com o código correto da carteira. Não tendo essa informação, o Sispetro assumirá a carteira padrão 9.
+As demais informações não precisam ser preenchidas.
+Faixa Nosso Número
+Preencher de acordo com as informações fornecidas pelo banco.
+Linha Digitável
+A Linha Digitável para o banco Rendimento será montada conforme o banco correspondente configurado, que no caso deverá ser o 
+. Veja maiores informações sobre a montagem da linha digitável através do tópico 
+Transformação de Arquivo
+Necessário configurar na Transformação de Arquivo o código do Banco para o arquivo de retorno. Como o NA Fomento Mercantil não possui código da Febraban, ele assume automaticamente o código 999 (o que vem informado no arquivo de retorno). Como no Sispetro já estamos utilizando o 999 para outro banco, então configuramos este para 998. Por isso, crie na Transformação de Arquivo do Retorno, nas posições 77 a 79 o código 998. Veja maiores informações no tópico 
+Aba Transformações Arquivo Cobrança
+).

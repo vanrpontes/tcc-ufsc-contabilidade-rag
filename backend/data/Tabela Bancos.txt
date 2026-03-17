@@ -1,0 +1,317 @@
+TITULO: Tabela Bancos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5211586562
+--------------------------------------------------
+none
+Objetivo
+Nesta tabela são cadastrados os bancos a serem utilizados no SisPetro.
+A tela que permite manipular esta tabela é acionada a partir do Menu principal com as opções - 
+Tabelas Auxiliares / Financeiro / Bancos
+Itens inativos agora ficarão destacados em 
+vermelho
+O SisPetro já pré-cadastrou os bancos cadastrados na Febraban até junho/2002.
+Para acrescentar um novo banco, quando necessário, acione o botão de inclusão de registro. 
+ .
+Será exibida a tela para preenchimento dos novos dados.
+Para trabalhar com a Manutenção de DDA é necessário que o Banco em questão precisa estar com a opção ‘
+habilita?’
+ marcado.
+Atualmente o SisPetro possui integração de DDA com os bancos 
+001 - Banco do Brasil
+ e 
+341 - Itaú
+.
+Abas
+ Detalhes
+Dados Gerais
+Informe o dígito do banco e a descrição.
+Para trabalhar com 
+Conciliação Automática
+ é necessário configurar o campo 
+Arquivo de Importação de Extrato Bancário
+ com um arquivo de extensão DLL. Atualmente o SisPetro está preparado para trabalhar com conciliação automática para o 
+Banco do Brasil
+. A dll para este banco é 
+SispetroBanco001.dll
+Dados do Protesto: 
+As informações deste painel são úteis quando o Banco exige códigos específicos para instrução de Protesto. As opções 
+Sempre
+, 
+Nunca
+ e 
+Convênio
+ correspondem a forma que o cliente está configurado para indicação de Protesto. Para mais informações, ver 
+Padrão p/ Vendas
+.
+Um banco que atualmente requer essa configuração é o Banco 
+Safra
+.
+Acione o botão 
+OK
+ para atualizar os dados. Retorna para a tela de navegação.
+Pagamento Eletrônico
+Para trabalhar com pagamento eletrônico, deve-se ativar a opção, podendo ser definido de forma separada para Pagamento de Fornecedores e de Tributos os layouts de 
+exportação
+ (Remessa) e de 
+importação 
+(Retorno).
+Para mais informações, ver 
+Pagamento Eletrônico
+.
+Quadro Formas de Pagamento
+Boletos Próprio Banco:
+ Indicar o código de pagamento correto para permitir o agendamento de boletos do próprio banco. 
+Boletos Outros Bancos: 
+ Indicar o código de pagamento correto para permitir o agendamento de boletos de outros bancos. 
+OBS: 
+Este quadro refere-se às configurações de pagamento eletrônico para programação automática proveniente do arquivo DDA. Para mais detalhes ver:
+Manutenção de DDA
+ 
+Cobrança Eletrônica
+Permite processamento automático:
+ ao definir esta opção, a empresa opta por realizar o processo de retorno de cobrança eletrônica como serviço. Para mais informações, ver 
+Serviço de leitura para Retorno de Cobrança Eletrônica
+.
+Tipo Cobrança
+: selecione o tipo de cobrança eletrônica previamente cadastrado em 
+Tabela de Tipos de Cobrança
+Empresa
+: defina qual empresa utilizará este processo de cobrança eletrônica automática
+Usa data de ocorrência: 
+indica se é Permitido usar Data Ocorrência do arquivo como Data Movimento no Serviço de Cobrança
+Tipo data movimento: 
+permite que seja definida a data da movimentação
+Data de efetivação do crédito obtida do arquivo
+: utiliza a data que consta no arquivo de retorno do banco
+Data atual
+: utiliza a data atual como data de movimentação
+Data útil anterior a data atual
+ - utiliza o último dia útil anterior a data atual
+Se a 
+Cobrança Eletrônica
+ estiver ativada para este banco, marque a opção 
+Existe definição arquivos cobrança eletrônica
+, no entanto, os dados de layout não estão sendo utilizados atualmente. Para ver os bancos já configurados no SisPetro para utilizar a cobrança eletrônica, vá ao tópico 
+Bancos com Cobrança Eletrônica configurada no SisPetro
+.
+Os campos 
+CNAB240
+ e 
+CNAB400
+ não ficam disponíveis, sendo tratados internamente pelo SisPetro. Estes campos são utilizados somente para cobrança eletrônica do Banco do Brasil. Nesta tabela tem caráter meramente informativo. 
+Permite fazer baixa de abatimento na confirmação do registro:
+ não fica disponível, sendo tratado internamente pelo SisPetro. Este campo é utilizado somente para cobrança eletrônica do Banco do Brasil. Nesta tabela tem caráter meramente informativo.
+Pode considerar acréscimo na liquidação do valor principal do título:
+ com esta opção selecionada, se o valor do movimento for maior do que o valor original do título, o SisPetro irá considerar a diferença como sendo acréscimo.
+Permite multa na remessa?: 
+permite que seja definida a forma de envio da multa na remessa (se em valor ou em percentual). Esta opção está habilitada somente para alguns bancos (Banco do Brasil, Nordeste, Meridional, Banespa/Santander, Bradesco, Paraná, Bic, Santander, HSBC, Sicred, Sicoob).
+Depósito Identificado
+Trabalha com Depósito Identificado: 
+define se o Banco selecionado utiliza Depósito Identificado;
+Layout de Importação a ser utilizado: 
+permite que o usuário informe um dos Layouts existentes para a Importação do arquivo de retorno do Depósito Identificado;
+Ação caso não seja identificada a empresa na Conta Banco: 
+permite ao usuário definir a ação que o SisPetro irá toma caso não identifique a empresa no Conta Banco informada no arquivo de retorno;
+Não inclui o adiantamento
+Inclui o adiantamento na empresa indicada
+Empresa padrão para casos de não identificação: 
+permite ao usuário definir qual a empresa padrão deve ser utilizada em caso de não identificar a Conta Banco;
+Dados para Adiantamento
+Histórico: 
+permite ao usuário escolher um histórico para o Adiantamento;
+Tipo de Documento: 
+permite ao usuário escolher um tipo de documento para o Adiantamento.
+Tipo de Antecipação do Depósito Identificado:
+ permite ao usuário definir se o Adiantamento gerado será
+SEM ANTECIPAÇÃO
+ANTECIPADO
+Para mais informações, ver: 
+Adiantamentos de Clientes
+]
+API´S
+Atualmente o PIX dinâmico esta disponível apenas para o Banco Itaú.
+API PIX Recebidos, no momento, apenas para o Banco Bradesco e Banco do Brasil. Antes de implementar entre com contato com  a Futura para acompanhamento técnico.
+Implementado no Sispetro: 
+será informada pela Futura quando implementar para o banco em questão.
+Exige Certificado Digital?: 
+será informado pela Futura quando houver necessidade.
+Habilita?: 
+por padrão desmarcado. Deverá ser marcado para indicar que se deseja utilizar a API do banco.
+Para comunicação com a API, o Banco 
+Bradesco e Itau
+ exigem certificado. Porém o Bradesco necessita que o certificado pertença àquela filial que fará a consulta. 
+Exemplo: 
+CNPJ Raiz = 00.000.000/0001-00
+CNPJ FILIAL = 00.000.000/0237-94
+O certificado digital deve ser exclusivo do CNPJ 00.000.000/0237-94
+Cód. Histórico p/ Adto.: 
+código do histórico para inclusão de adiantamento via PIX Recebidos.
+Tipo Docto. p/ Adto:
+ tipo do documento para inclusão de adiantamento via PIX Recebidos.
+Cód. Histórico p/ Baixa: 
+código do histórico para inclusão de baixa via PIX Recebidos.
+Tipo Docto. p/ Baixa: 
+tipo do documento para inclusão de Baixa via PIX Recebido.
+Quadro Parâmetros Necessários: EM DESUSO. 
+Para mais informações, ver 
+Tabela Configuração API Banco x Empresa
+. 
+API
+.
+Qr Code com Vencimento: 
+utilizada para gerar PIX com data de vencimento e outras informações. Para mais informações ver 
+PIX
+ 
+PIX Configurações Iniciais
+ 
+Implementado no Sispetro: 
+será informada pela Futura quando implementar para o banco em questão.
+Habilita?: 
+por padrão desmarcado. Deverá ser marcado para indicar que se deseja utilizar essa API.
+API de Extrato: 
+utilizada para obter extrato bancário via API. Para mais informações, ver 
+Conciliação Automática via API - Itaú
+ 
+Implementado no Sispetro: 
+será informada pela Futura quando implementar para o banco em questão.
+Habilita?: 
+por padrão desmarcado. Deverá ser marcado para indicar que se deseja utilizar essa API.
+Controle de Garantia
+Prazo inicial e Final: 
+Indica qual o intervalo de prazo médio (obtido pela Condições de Pagamento usada no Pedido de Vendas) pode ser aceito nesse tipo de cobrança destino. Alguns bancos só aceitam títulos com vencimento após 3 dias.
+Ver mais detalhes 
+Manutenção Filtro Tipo de Cobrança
+Comandos
+Para bancos que têm a cobrança eletrônica habilitada o painel 
+Comandos
+ estará visível. Ao clicar nele será apresentada a tela a seguir:
+Nesta tela poderão ser cadastrados comandos específicos da cobrança eletrônica do banco selecionado. Com estes comandos cadastrados, é possível na Manutenção do Contas a Receber, através do botão 
+Comando
+ escolher um dos comandos cadastrados para um título específico. Este comando será acrescentado no arquivo de remessa deste banco juntamente com os títulos que serão enviados para recebimento. Este comando será útil para solicitação de protesto de títulos, etc.
+Além disso, é possível trocar o portador de um título de acordo com o comando recebido do banco, utilizado normalmente para controle de Desconto de Títulos.
+Ao clicar em Incluir o SisPetro apresentará a tela abaixo:
+Descrição:
+ informe a descrição do comando a ser enviado/recebido
+Comando:
+ defina o comando a ser enviado/recebido
+Ação durante o Retorno:
+ ação que será tomada com a leitura do arquivo de retorno
+Ignora - não faz nada:
+ não tomará nenhuma ação
+Baixa pelo valor do título
+: baixará o título com o valor do mesmo
+Baixa pelo valor de pagamento vindo do arquivo:
+ baixará o título com o valor do pagamento, recebido no arquivo de retorno
+Envio/Retorno:
+ permite definir se o comando será enviado no momento do Envio ou do Retorno do arquivo
+Troca Portador Retorno:
+ permite que, ao receber este comando, o SisPetro troque o portador do título
+Novo Portador no Retorno:
+ ao trocar o portador, este será o portador definido
+Troca Cobrança Normal:
+ permite que, ao receber este comando, o SisPetro troque a cobrança de eletrônica para cobrança normal.
+Para que o SisPetro processe os comandos extras, deve realizar as configurações que estão em 
+Aba Processamento Retorno
+.
+Nosso Número
+Clicando no painel 
+Nosso Número
+ será apresentada a seguinte tela:
+Nela é possível especificar como será feita a geração do nosso número dos títulos do Contas a Receber para este banco. O nosso número é o número que vinculará os lançamentos no contas a receber (cada um deles recebe um nosso número diferente) com as baixas que receberemos do banco. Assim, quando registramos os títulos, enviamos este campo - junto com outros campos - para o banco e quando eles recebem os valores, informam isso vinculando este número ao valor recebido.
+Sendo permitida várias faixas de numeração para o banco, sendo que a faixa utilizada virá em função do tipo de cobrança especificado para a empresa.
+Ex.
+Podemos ter duas faixas cadastradas para o "Banco do Brasil S.A":
+Faixa 1
+Atual: 102
+Inicial: 100
+Final: 10000
+Faixa 2
+Atual: 300
+Inicial: 200
+Final: 2000
+No tipo de cobrança eletrônica definimos que para a empresa Matriz e filial utilizará a faixa 1 e na empresa transportadora será utilizada a faixa 2, sendo assim ao gerar os lançamentos no contas a receber tanto da matriz quanto da filial será seguida a numeração da faixa 1 enquanto que os lançamentos no contas a receber com o mesmo tipo de cobrança onde a empresa é a transportadora será empregada a faixa 2.
+Aviso Fim da Faixa de Cobrança:
+Quando a faixa de cobrança atinge um determinado valor para o seu fim, o SisPetro começa a emitir um alerta ao usuário no momento da impressão da cobrança, avisando-o que o fim da faixa está se aproximando. O SisPetro tem um valor padrão que pode ser alterado acessando o Menu 
+Ferramentas / Sistema / painel Financeiro
+, opção:
+Para evitar problemas no faturamento e no financeiro, é imprescindível que se faça a manutenção dessa faixa o mais rápido possível assim que o SisPetro começar a emitir os avisos.
+Lembrando que a faixa Nosso Número a ser utilizada pelo SisPetro, nos casos da Cobrança Eletrônica utilizar Banco Correspondente, será a faixa definida para o tipo de cobrança. Para mais informações, ver 
+Cobrança Eletrônica
+.
+Independente do tipo de faixa escolhido, clique no botão 
+Salva Dados
+ após completar as alterações.
+A faixa do Nosso Número, pode ter até 2100000000, como sendo sua faixa final.
+Por exemplo:
+Atual:  1000014878
+Inicial: 1000000000
+Final:   2100000000 
+Tipo Lançamento
+No painel 
+Tipo Lançamento
+, o usuário poderá cadastrar os tipos de lançamentos que serão utilizados na 
+Conciliação Automática
+ e na 
+Conciliação Automática via API - Itaú
+ 
+Para incluir um novo tipo de lançamento, o usuário deve utilizar o botão 
+Incluir.
+ Abrirá a tela de inclusão.
+O usuário deve cadastrar as seguintes informações:
+#Tipo Lançamento:
+ esse campo será preenchido automaticamente pelo SisPetro.
+Banco:
+ será informado o banco que o usuário selecionou na tela de navegação.
+Tipo de Lançamento:
+ um código criado pelo usuário, ou no caso da utilização da API já definido pelo banco. Pode ser número ou letras.
+Operação: 
+ou seja, esse tipo de lançamento entrará na conciliação bancária sendo um crédito ou um débito.
+Despesa extra
+Receita extra
+Adiantamento de Cliente
+Adiantamento não Identificado
+Moeda:
+ tipo de moeda que se refere o tipo de lançamento (normalmente Real).
+Conta Contra Partida:
+ conta contábil que será utilizada de contra partida.
+Tipo Documento:
+ tipo de documento (
+Tabela Tipo de Documento
+) que estará vinculado a esse tipo de lançamento.
+Centro Custo:
+ centro de custo (
+Tabela Centro de Custo
+) que estará vinculado a esse tipo de lançamento.
+Código Histórico:
+ código do histórico (
+Tabela Histórico Padrão
+) que estará vinculado a esse tipo de lançamento.
+Histórico:
+ descrição do histórico que estará vinculado a esse tipo de lançamento. Ao informar o código do histórico, irá preencher a descrição, porém, o usuário poderá alterar.
+Quadro Pode Contabilizar: 
+se marcado, o lançamento será contabilizado. 
+Código de Contabilização:
+ código de contabilização que será utilizado quando se utilizar esse tipo de lançamento.
+Os códigos mostrados para contabilização obedecem o seguinte filtro: 
+Despesas / Receitas extras
+serão apresentado apenas códigos do grupo 7 (por padrão a 
+Futura 
+envia o código 10 (despesas extras
+Adiantamento de Cliente ou não Identificado
+serão apresentados apenas códigos do grupo 4 (por padrão a 
+Futura 
+envia o código 05 (Adiantamento de Clientes / Fornecedores).
+Para mais informações, ver 
+Incluindo Códigos de Contabilização
+ 
+Para salvar o registro, deve-se utilizar o botão 
+Gravar
+.
+O usuário poderá alterar o tipo de lançamento cadastrado através do botão 
+Editar
+ ou se for o caso, apagar o registro utilizando o botão 
+Excluir
+.
+Para retornar ao Menu principal acione o botão 
+Sair
+.
+Classificação de Pagamentos

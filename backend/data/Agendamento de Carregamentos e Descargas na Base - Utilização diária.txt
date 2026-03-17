@@ -1,0 +1,41 @@
+TITULO: Agendamento de Carregamentos e Descargas na Base - Utilização diária
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2941190667
+--------------------------------------------------
+Após as configurações relativas ao processo de agendamento mencionadas em 
+Agendamento de Carregamentos e Descargas na Base
+Na tela de 
+Inclusão de Ordem de Carregamento
+ poderá ser feita a tentativa de Agendamento:
+Se o Depósito tiver uma 
+Tabela Parâmetros de Agendamento
+ vinculado e o mesmo estiver com a opção "Permite Agendamento Manual" marcada, o botão Agendamento, na parte inferior da tela, estará habilitado.
+Ao clicar no botão 
+Agendamento
+  será exibida a tela para que o usuário possa escolher entre os horários disponíveis
+Caso o depósito tenha várias baias e contiver mais que uma baia com o mesmo horário disponível, ainda assim o horário só será apresentado uma única vez.
+Os horários disponíveis dependerão:
+Da data da OC
+Se é Carregamento ou Descarga (já que as baias podem ter tempos diferentes para essas operações)
+O número de compartimentos do caminhão (devido o tempo de troca de compartimentos e remanejamento de braços)
+O volume de produto a ser carregado ou descarregado
+Independente do parâmetro de agendamento vinculado ao depósito permitir agendamento em dias posteriores, na tela de Inclusão da OC sempre só será considerada a data da OC.
+A escolha do horário disponível não garante o agendamento nesse horário, devido a possibilidade de inclusões simultâneas e alterações de dados da OC até a finalização da mesma. Porém, esse horário escolhido servirá como parâmetro para que só seja providenciado o Agendamento a partir desse horário e não a partir do primeiro horário disponível
+ Independente do Agendamento Manual, ao clicar em OK, será feita a tentativa de agendamento:
+Serão utilizadas as regras citadas acima para o agendamento manual, em especial a busca de horários somente na Data da OC.
+Caso não seja encontrado horário disponível, a OC ficará pendente de Agendamento, e caso a mesma não esteja em Fila, será providenciado o agendamento da mesma pelo 
+Serviço de Agendamento de OC
+ para Dias Posteriores conforme configurado na 
+Tabela Parâmetros de Agendamento
+Na tela 
+ é possível:
+Verificar as OC já agendadas, programadas e não carregadas e OC já carregada
+Providenciar cancelamento ou inclusão de agendamentos
+Via tela de 
+Manutenção de OC, 
+, também teremos algumas operações disponíveis, mas nesse caso, sempre direcionado para uma OC específica:
+Visualizar dados do agendamento da OC
+Cancelar ou incluir agendamento
+Via SispetroWeb / SisPetroApp temos também:
+Inclusão de Ordem de Carregamento APP
+Inclusão de OC Web (congêneres)
+Manutenção de Ordens de Carregamento APP

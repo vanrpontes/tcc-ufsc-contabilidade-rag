@@ -1,0 +1,371 @@
+TITULO: Versão 7.27
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2907635760
+--------------------------------------------------
+Dados
+Informações
+Início
+21/02/2012
+Final
+02/04/2012
+Scripts
+CMD727.sql (cmd2880 a cmd2956)
+Itens
+67
+Implementações
+35
+Correções
+32
+Anexos
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+Razao.rtm
+DLLInscE32.dll
+ScancRefAnexo6_v727.rtm
+ 
+RazaoCCusto.rtm
+ 
+Scanc_v727.rtm
+ 
+TipoMovtoImobilizado.rtm
+ 
+DIME-SC_v727.rtm
+ 
+ 
+ 
+GIA-SP_v727.rtm
+ 
+ 
+ 
+Sintegra-DIC_v727.rtm
+ 
+ 
+ 
+Sintegra-MS_v727.rtm
+ 
+ 
+ 
+Sintegra-SEF_v727.rtm
+ 
+ 
+ 
+Sintegra-PR_v727.rtm
+ 
+ 
+ 
+Sintegra-GRF_v727.rtm
+ 
+Sybase 12
+Conforme e-mail do dia 01/12/2011: "
+A primeira versão a partir de 01/04/2012 será exclusiva para utilização na versão 12 do SQLAnywhere sem garantia de compatibilidade ou funcionamento na versão 7
+." essa versão 7.27 ainda está compatível com o Sybase 7, porém 
+a partir da próxima versão o Sispetro suportará apenas o Sybase 12
+. É fundamental que a migração seja realizada evitando assim problemas futuros. Caso tenha dúvidas de como realizar a migração veja o 
+.
+LMP
+Na próxima versão estaremos removendo do SisPetro as rotinas do LMP por ter entrado em desuso. Caso alguma empresa ainda utilize esse recurso, entrar em contato urgente com a Futura Tecnologia.
+Geral
+Configurações do INI para Instalação do SisPetro em Máquinas Novas
+Foram alteradas as rotinas de instalação do SisPetro na parte em que é gerado o ODBC para conexão com o banco de dados. A partir dessa versão será possível informar o nome do serviço do banco na rede e o nome do database que será conectado. 
+Com essa alteração, mesmo que o serviço da rede não se chame ScgWin ou se estiver configurando um servidor de testes, bastará ajustar essas configurações no arquivo INI para conexão do SisPetro. 
+Help: 
+ e 
+. 
+UPA (CCF 15788)
+Tela de Ocorrências e Pendências
+ 
+Foi incluído um campo Data, que gravará somente a Data sem o Horário, nas telas de Ocorrências e Pendências. CPC (CCF 13897)
+Migração dos Grids Utilizados no SisPetro
+Nessa versão finalizamos o processo de migração dos grid's do SisPetro Normal para a versão mais atualizada desses grids. UPA (CCF 15749)
+Tela de Ocorrências e Pendencias
+Incluídos os campos Razão Social e Tipo da Entidade e o campo Observações da Ocorrência/Pendências na aba de Navegação. CPC (CCF 14954)
+Pendências Financeiras do Cliente
+No cadastro de clientes existe a aba Pendências Financeiras onde são listados os títulos do cliente selecionado. O grid que listava esses dados foi migrado para a versão mais recente de grids utilizados pela Futura e com isso é possível agora filtrá-lo, ordená-lo, alterar o layout, etc. 
+Help: 
+. UPA (CCF 14851) 
+Reorganização e inclusão de novos campos no Cadastro de Clientes
+A aba Cadastro Detalhado do cadastro de Clientes foi reorganizada, agrupando os perfis relacionados. Além disso, foram criados novos campos para possibilitar registrar mais informações sobre os Postos de Combustíveis. Entre eles Detalhes de Galonagem, Horário de Funcionamento, Horário de Entrega, Frotas Permitidos para entrega e se possui Descarga Selada. 
+Help:
+ 
+. CPC (CCF 13948)
+Impressão da Aba Movimentação do Produto no Cadastro de Produtos.
+A partir dessa versão, quando for solicitada a impressão dos dados da aba Movimentação do Produto no Cadastro de Produtos, será impresso no cabeçalho do relatório o produto, o período e o tipo de movimentação solicitado. UPA (CCF 15315)
+Remover Componente TTable do SisPetro
+Estamos fazendo um trabalho de remoção do componente TTable do SisPetro. Esse componente, na hora de sua execução cria e deleta uma nova conexão com o banco de dados, utilizando assim recursos do banco de dados. Esse trabalho será feito aos poucos e em diversas versões. UPA (CCF 15962)
+Access Violation no Log do Servidor SisPetro
+Foi detectado que de tempos em tempos estava sendo gerado um erro de "access violation" no log do Servidor SisPetro. Esse problema foi corrigido. 
+UPA (CCF 16229)
+Configurações do Sistema – aba Livro Eletrônico
+Ajustes no processo de edição de Benefícios Fiscais para não apresentar erro do campo Sequencial. 
+CPC (CCF 16011)
+Função de Arredondamento no Banco de Dados
+A função de arredondamento de valores no banco de dados (ArredondaDelphi) foi alterada para utilizar a mesma regra de arredondamento especificada na ABNT. Não será necessário alterar os pontos que utilizam essa função pois os seus parâmetros permanecem os mesmos. 
+Essa correção tem como intuito sanar os problemas de arredondamento dos códigos de contabilização, por exemplo, que são executados no banco de dados e seus lotes geram valores diferentes (R$ 0,01) dos valores gerados pelo SisPetro
+. 
+HELP:
+ 
+ 
+UPA (CCF 15859)
+Título da tela de Alteração de dados de Clientes em Lote
+Ajustado o título da tela de Alteração de dados de Clientes em Lote.
+ 
+GSN (CCF 16469)
+Manutenção de Licenciamento
+Na tela de Manutenção de Licenciamento, os itens existentes na opção Tipo de Licenciamento do grupo Licenciamento Atual e Licenciamento Proposto estavam diferentes e por conta disso, dependendo do tipo de licenciamento selecionado, ao carregar um arquivo de licenciamento poderia ser exibido um valor diferente do selecionado. Esse problema foi corrigido. 
+UPA (CCF 16498)
+Configurações da Aprovação por Alçada
+As configurações de Aprovação de Alçada na tela de configurações de empresa não estavam sendo exibidas ao usuário. Essas configurações estão gravadas no banco mas o SisPetro não estava exibindo-as ao entrar nessa aba. Esse problema foi corrigido. 
+UPA (CCF 16521)
+Atualização da DLL de validação de Inscrição Estadual
+Atualização da DLL que faz a validação de Inscrição Estadual, permitindo validação da nova regra de IE da Bahia e de Tocantins. 
+Necessário atualizar o arquivo DLLInscE32.dll no caminho do executável do Sispetro.
+ 
+GSN (CCF 16276)
+Compras
+Pesquisa de Etapa de PMM
+Corrigido erro ao apresentar a tela de Pesquisa de Etapas de PMM ao vincular uma Etapa de PMM ao Contas a Pagar. 
+GSN (CCF 16460)
+Contabilidade 
+Razão
+Alterados os rtm's utilizados na impressão do Relatório do Razão para que seja impresso todo o conteúdo do campo Histórico e foi aumentado o tamanho dos campos de débito e crédito para que valores muito longos não sejam truncados. 
+Para que essa atualização funcione, será necessário atualizar os rtm's Razão.rtm e RazaoCCusto.rtm.
+UPA (CCF 15713)
+Tela de Código de Contabilização
+Foi criado um processo de validação dos campos obrigatórios (Descrição, Grupo Contábil, Fórmula para Data, DC, Conta e Valor) no cadastro e na edição do Código de Contabilização. CPC (CCF 15705)
+Cancelamento de Encerramento de Resultado Gerencial
+Corrigido o processo de cancelamento de Encerramento de Resultado Gerencial para estornar o lote da empresa do Encerramento de Resultado. CPC (CCF 15752)
+DT_ALT no Registro I050 do SPED ECD
+Alterada a fórmula do campo Data de Alteração do Registro I050 para colocar no máximo a data inicial do período, evitando erros na validação. GSN (CCF 16197).
+Estoque
+Manutenção de Carga/Descarga – botão Altera Data
+O processo do botão Altera Data foi ajustado para não apresentar o erro na formatação do campo data; o campo Data foi alterado para o componente de Data que apresenta o calendário e o horário; foi incluído um tratamento para o sistema emitir uma mensagem e não alterar a data caso ocorra algum problema na atualização do campo na tabela. 
+CPC (CCF 15648)
+Saldo insuficiente indevido na execução da OF
+Ajustado o processo de execução da OF para não apresentar saldo insuficiente devido diferença de 0.001 litro na distribuição proporcional entre os produtos do tanque.
+ 
+GSN (CCF 15310)
+ 
+Telas Rateio de Estoque e Distribuição de Bombeio
+Alteradas telas de Rateio de Estoque e Distribuição de Bombeio para apresentarem somente registros de empresas que estejam Ativas no Sispetro. CPC (CCF 15314)
+Tela de Consulta de Fechamento de Estoques
+A tela de Consulta de Fechamento de Estoques estava permitindo informar somente produtos que fossem do tipo combustível, porém, na tela de Fechamento de Estoque, estavam liberados todos os produtos marcados para fechamento. A partir dessa versão, a tela de Consulta de Fechamento de Estoques irá ter a mesma regra para filtro de produtos da tela de Fechamento de Estoques. 
+UPA (CCF 14561)
+Faturamento
+Validação da Chave de Acesso nas Notas Fiscais de Terceiros
+A partir dessa versão estaremos validando a chave de acesso informada nas NFe de terceiros. Essa validação será feita com base na chave de acesso informada e nos dados da nota fiscal que está sendo digitada/importada pelo usuário. 
+Help:
+ 
+. UPA (CCF 15388)
+Geração de Título de Desconto x Contabilização
+Ao tentar gerar o título de desconto automático com uma Natureza cuja opção "Pode Contabilizar" esteja DESMARCADA, e a opção "Desconsidera Código de Contabilização" também esteja DESMARCADA era apresentada indevidamente uma mensagem de aviso que o título de desconto automático não seria gerado. A partir dessa versão a opção "Desconsidera Contabilização" da Natureza será verificada na geração de título de desconto automático somente quando o perfil da natureza "Pode Contabilizar" esteja marcado.
+ 
+Help:
+ 
+. CPC (CCF 15628)
+Base de IPI na Nota Fiscal
+A partir dessa versão, quando o usuário informar um valor na Base do IPI na emissão de uma nota fiscal, mesmo recalculando os valores da nota fiscal esse valor será mantido, não sobrepondo-o mais, como já ocorre com a Base do ICMS. 
+UPA (CCF 13877)
+Incorporação do Valor do Frete na Base ICMS da Nota Fiscal
+Temos uma opção na Natureza de Operação que é "Incorpora Valor do Frete na Base de ICMS". Ela funciona quando o frete já vem informado nos itens da NF (por exemplo vindo do pedido de Venda). Porém quando o usuário informa esse valor na hora da inclusão, o valor do frete só era considerado caso se altere outra informação do item da nota fiscal, como preço ou quantidade. Esse problema foi corrigido. 
+UPA (CCF 15383)
+.
+Cancelamento de Nota Fiscal de aquisição de Imobilizado
+O processo de cancelamento de Nota Fiscal foi alterado para excluir automaticamente os bens vinculados a essa nota. Caso algum dos bens dessa nota estiver participando de algum movimento ativo (depreciação, CIAP, baixa, alteração de valor ou fechamento financeiro), o usuário será alertado e o cancelamento da Nota não será efetivado. CPC (CCF 15459)
+Notas Fiscais sem Condição de Pagamento
+Na tela de emissão de notas fiscais é possível configurar o sistema para não exibir a condição de pagamento por usuário. Quando um usuário nessa configuração emitia uma nota fiscal de outras entradas/saídas ou devolução a fornecedor, o sistema não estava pegando a condição de pagamento cadastrada para a entidade, deixando a nota fiscal sem condição de pagamento. Esse problema foi corrigido. 
+UPA (CCF 15836)
+Uso da Tag <infCpl> nas Observações da Nota Fiscal
+As observações das notas que utilizam a tag <infCpl> e demais tag's, informadas manualmente pelo usuário no cadastro de natureza de operação, caso não sejam informadas corretamente (grafia das Tag's devem ser escritas com letras minúsculas e maiúsculas caso tenham e devem ter as Tag's para abertura e fechamento), não serão retornadas e não gerarão erros. 
+UPA (CCF 15916)
+Visualização da Nota Fiscal
+Ao visualizar os itens da Nota Fiscal, via botão Visualizar da tela de Manutenção de NFs, estava sendo gerado um erro informando ao usuário que o dataset não estava em estado de edição. Esse problema foi corrigido. 
+UPA (CCF 16131)
+Agrupamento de Notas Fiscais Duplicadas como única
+O sistema foi alterado para agrupar Notas Fiscais lançadas duplicadas como única. O agrupamento é feito por Número da Nota, Entidade (Cliente/Fornecedor) e Data, tornando mais simples os processos de obrigações fiscais. Na tela de manutenção de Notas Fiscais, aba Diversos, foi criada uma nova aba NFs Duplicadas, para visualizar e dar manutenção a essas notas. 
+Este agrupamento será utilizado no SPED e no Sintegra na versão 7.28. 
+Help:
+ 
+NF com mais de um CFOP / Natureza de Operação
+. 
+CPC (CCF 13458)
+Tela Natureza de Operação - aba Detalhes - aba Dados Adicionais
+Foram alteradas as opções do campo Registro LPC para retirar as opções que estão em desuso e incluir as novas opções.  (
+Opções Excluídas: C180 - NFe emitidas pela Empresa e C190 - NFe recebidas pela Empresa; Opções Incluídas: C100 - NFe emitidas pela Empresa e C100 - NFe recebidas pela Empresa
+). CPC (CCF 16338)
+Cálculo de Alíquota na inclusão de Nota Fiscal
+O sistema foi alterado para permitir a definição de Fórmula para Alíquota de Outros Impostos. Dessa forma será possível definir qual a fórmula a ser utilizada para calcular a Alíquota da Nota Fiscal.  A manutenção desse campo é permitida através da tela de Natureza de Operação - Detalhes - por Filial - Outros Impostos. 
+Com essa alteração será possível indicar a alíquota correta e evitar que o Sispetro tenha problemas de arredondamento na alíquota devido o cálculo entre o valor do imposto e a base de cálculo
+. CPC (CCF 15573)
+Tela de Edição de Outros Impostos pela Natureza de Operação e Manutenção de Nota Fiscal
+Ao definir o campo Código Outros Impostos, preencher os demais campos em comum entre as tabelas, com valores previamente configurados na tabela de Outros Impostos. CPC (CCF 15630)
+Tela Atualização de Dados PIS/COFINS
+  
+O SisPetro foi alterado para gravar corretamente os dados de CST de PIS e COFINS seguindo a regra configurada na tabela de Natureza de Operação e os campos Alíquota PIS, Base de Cálculo PIS, Alíquota COFINS, Base de Cálculo COFINS foram incluídos na tela de Atualização de Dados PIS/COFINS. CPC (CCF 15125)
+Perfil de Usuário Sobre Cancelamento de Nota Fiscal
+Ao habilitar o perfil "Desconsidera #Dias Cancto do usuário e Considera o Perfil da Empresa", os perfis "Pode cancelar NFs Próprias?" e "Pode cancelar NFs de Terceiros?" estavam sendo desabilitados e vice-versa. Essa regra não estava correta e foi removida, deixando cada um desses perfis independente. 
+Help:
+ 
+. UPA (CCF 16326)
+Fina
+nceiro
+Cancelamento de Lote de Inadimplência de Vendor
+Corrigido o processo de cancelamento da Inadimplência de Vendor para que estornasse o lote gerencial gerado pela Inadimplência e não o lote gerencial do Vendor como estava fazendo.
+ 
+GSN (CCF 15919)
+Fiscal
+Valores de Impostos a Recolher ST Saindo Incorretos na Impressão da Apuração
+Alteradas as rotinas para recalculo da apuração pois foi detectado um problema nessas rotinas que deixa o valor apurado final do ST discrepante dos valores da apuração que está sendo calculada. 
+UPA (CCF 15695)
+Ajustes no layout dos
+ Arquivos Sintegra - Registro 71
+Os arquivos Sintegra - Registro 71 foram alterados para incluir a verificação se o Tomador é Consignatário. Agora, o sistema vai verificar se o Tomador é o Remetente, Destinatário ou Consignatário. 
+Necessário atualizar os layouts de Exportação do Mato Grosso do Sul com o arquivo Sintegra-MS_v727, 
+do SEF com o arquivo Sintegra-SEF_v727, 
+do Paraná com o arquivo Sintegra-PR_v727, do GRF 
+com o arquivo
+ Sintegra-GRF_v727 e do DIC com o arquivo Sintegra-DIC_v727
+.
+ CPC (CCF 15399)
+Sped EFD - 
+ Bloco E
+ 
+A Apuração Fiscal foi alterada para conter informações necessárias para preenchimento dos Registros de Obrigações a Recolher do SPED EFD (E116 e E250). Para isso será necessário configurar 
+Cód. Receita ICMS Próprio e Cód. Receita ICMS ST na Tabela de UF's e o Código da Obrigação e Processos na 
+Tela de Configurações de Sistema (aba Livro Eletrônico)
+. 
+Além disso estamos preenchendo os registros E210 e E220 com dados da Apuração ST por UF. 
+As fórmulas dos Registros citados foram alteradas.
+ 
+Help:
+ 
+Tabela Unidades Federativas - UF's
+, 
+Painel Livro Eletrônico
+, 
+Configurações de Dados de Obrigações a Recolher
+, 
+Inclusão de Apuração Fiscal
+ e 
+Bloco E
+ 
+CPC (CCF 15846)
+Preenchimento  
+Bloco M do Sped PIS/COFINS
+A partir dessa versão o Sispetro está fazendo 
+o preenchimento completo dos registros do Bloco M do Sped PIS/COFINS
+. Para isso é importante indicar na Configuração do Sistema o Método de Apropriação e se o Sispetro deve ou não ratear os créditos de Tributação Mista (CST's 53 e afins). 
+Help:
+ 
+Painel Livro Eletrônico
+ 
+CPC (CCF 16174)
+Ajustes no layout da GIA SP
+Alterado o layout da GIA-SP para atualização para a versão 02.09 exigida em janeiro/2012. 
+Necessário atualizar o layout de Exportação da GIA com o arquivo GIA-SP_v727.rtm.
+ 
+GSN (CCF 15596)
+Empresa sem movimento - DIME-SC
+Alterado o processo de geração de arquivo da DIME-SC para não gerar dados nos Registros 30 e 32 caso no campo Movimento da tela seja informado "Sem movimento e sem saldos". 
+Necessário atualizar o layout de Exportação da DIME com o arquivo DIME-SC_v727.rtm. 
+Help:
+ 
+DIME-SC
+ 
+GSN (CCF 14178)
+DPMP 
+No DPMP há uma rotina interna que verifica todas as notas fiscais com itens com produtos repetidos e os transforma em um só item para entrega do arquivo no validador do SIMP. Isso porque o SIMP não permite duplicidade de produtos em uma mesma nota fiscal e é normal se ter produtos no SisPetro com códigos diferentes mas relacionados ao mesmo código DPMP. Porém, com a migração do Sybase 12 a rotina parou de funcionar e isso está sendo corrigido nessa versão.
+ 
+UPA (CCF 15926)
+ 
+SCANC Refinaria - Quadro 6.2 
+Alterada a forma de obtenção de informações do Quadro 6.2, a partir de agora o valor Provisionado do Anexo V será colocado no Quadro 6.2 na UF de Origem e na UF de Destino, consequentemente no Quadro 2.3 nas duas UFs terá a soma desses valores. 
+Necessário atualizar o arquivo de exportação referente ao Anexo 6 e 7 com o arquivo ScancRefAnexo6_v727.rtm.
+ 
+GSN (CCF 16116)
+ 
+Valor Operação nos Registros Analíticos (C190 e outros) do SPED EFD
+Ajustada a fórmula do Valor de Operação para que calculem o valor corretamente em NFs com Desconto, IPI e ICMS Subst (independente das configurações da Natureza de Operação).
+ 
+As fórmulas do campo VL_OPR dos Registros C190, C590, D190 e D590 foram alteradas.
+ 
+GSN (CCF 15555)
+ 
+ 
+Aba de Detalhes da tela de Tipo de Apuração
+Retirados os campos duplicados da aba de Detalhes da Tela de Manutenção de Tipos de Apuração. 
+GSN (CCF 16475)
+Geração de Mídia Sintegra
+O processo de geração do Sintegra foi corrigido para gerar corretamente os dados do Inventário no Registro 74.
+ CPC (CCF 16220)
+Registro G125 do SPED EFD - Movimentação de CIAP
+Ajustadas as fórmulas para o Registro G125 do SPED EFD de movimentação de CIAP conforme os diversos tipos de movimentação existentes. 
+GSN (CCF 15928)
+Registro 0175 do SPED EFD - Alteração de Participantes
+Retirados os caracteres especiais do Registro 0175 do SPED EFD quando alterado o código DNC. 
+GSN (CCF 15928)
+Registro 0140 e 0141 do SPED EFD - Faturas
+Alterado para não considerar títulos de Retenção nos Registros 0140 e 0141 do SPED EFD. 
+GSN (CCF 15928)
+Registro C160 e C165 do SPED EFD - Transporte
+Retirados os caracteres especiais do Registro C160 e C165 do SPED EFD nos campos de Placa.
+ 
+GSN (CCF 15928)
+SCANC - Valor total do ICMS
+Alterado o campo 23 do Registro 40 (Valor Total do ICMS) para que some o Valor do ICMS Próprio ao ICMS ST. 
+Anteriormente só estava sendo enviado o ICMS ST. Necessário atualizar o arquivo SCANC_v727.rtm no layout de Exportação.
+ 
+Help:
+ 
+. GSN (CCF 16556)
+SPED PIS/COFINS - Chave acesso no Registro C100
+Alterada a fórmula do campo Chave de Acesso no Registro C100 para que seja enviada sempre.
+ GSN (CCF 15927)
+SPED PIS/COFINS - Arredondamento de Valores
+Alteradas as fórmulas e configurações para ajustar os campos com 2 casas decimais nos Registros M410, M810 e C170.
+ 
+GSN (CCF 15927)
+SPED PIS/COFINS - Registro 0200
+Corrigido para gerar corretamente o Registro 0200 de produtos quando utilizadas NFs de Serviço.
+ GSN (CCF 15927)
+SPED PIS/COFINS e EFD - Situação do Frete
+Ajustados os Registros de NFS no SPED PIS/COFINS e EFD para considerar os novos valores de Situação do Frete.
+ GSN (CCF 15745)
+Patrimônio
+CIAP
+Foram incluídas no processo de CIAP a opção de se fazer a apropriação do ICMS de Substituição e Diferencial de Alíquota da mesma forma como já é feito para o ICMS Próprio. 
+Help:
+ 
+. UPA (CCF 15479)
+Cancelamento de Depreciação e CIAP
+O processo foi alterado para centralizar a validação e apresentar de uma só vez a lista com todos os Bens que inviabilizam o cancelamento da movimentação CIAP e Depreciação. 
+Help: 
+. CPC (CCF 15741)
+Transferência de Bem para outro Produto
+Foi criada uma nova tela para permitir a troca do Produto vinculado ao Bem. Dessa forma, será possível dar manutenção no vinculo de produtos a bens sem perder o histórico das movimentações realizadas. 
+ 
+Necessário atualizar o arquivo TipoMovtoImobilizado.rtm referente ao relatório de Movimento Imobilizado. 
+ 
+Help:
+ 
+. CPC (CCF 15428)
+Vendas
+Alteração de Preços
+ 
+Melhoria no desempenho do filtro de clientes na tela de Alteração de Preços. CPC (CCF 15664)
+Consulta da Tabela de Preços
+Ao solicitar os dados para Consulta da Tabela de Preços, nos bancos Sybase 12, estava sendo gerado um erro que impedia que o usuário visualizasse os dados. Esse problema foi corrigido. 
+UPA (CCF 16497)
+Transportes
+Relatório de Fretes
+No relatório de fretes, a partir dessa versão serão apresentados somente os dados das notas fiscais não canceladas. UPA (CCF 15876)
+Dados do Frota na Tela de inclusão de OC
+Ao incluir uma OC, e clicar no botão "Altera Transportadora", caso o frota da OC seja diferente do frota vinculado a Transportadora, será questionado ao usuário se deseja trocar o frota para o vinculado a transportadora. Com isso evitará o problema de utilizar na Nota Fiscal o Frota vinculado à Transportadora, ao invés de utilizar o Frota da OC/Pedido.
+ CPC (CCF 15823)
+Melhorias no sistema para Vincular o Frete ao Contas a Paga
+r
+Foram criados dois novos campos na tabela de frete para registrar o usuário e o momento do vínculo com o contas a pagar; 
+Na Tela de Manutenção de Frete: Aba Frete, foram adicionado os campos Placa da Nota Fiscal, Usuário e Momento do vínculo ao Contas a Pagar; Aba Contas a Pagar/Lançamentos, foi adicionado o campo Número da Nota Fiscal; Aba Ordem Carregamento, foi incluído o campo Placa e foi criado uma grid para mostrar os itens da Ordem de Carregamento posicionada. 
+Help:
+ 
+. CPC (CCF 15973)

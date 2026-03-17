@@ -1,0 +1,86 @@
+TITULO: Tabela de Baias
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936703135
+--------------------------------------------------
+Essa tabela é acionada pelos botões 
+Inclui
+ e 
+Altera
+ da sub-aba Baias do Cadastro de 
+Depósitos - Aba Agendamento
+. É responsável por armazenar as características de cada Baia da Base.
+Os campos dessa tabela são os seguintes:
+Descrição: 
+identificação da Baia
+Qtde Braços: 
+indica o número de Braços utilizado para o Carregamento/Descarga.
+Permite agendar carregamento?: 
+indica se a baia realiza Carregamentos (OC dos tipos: Carregamento Próprio, Carregamento de Terceiros e Vendas). 
+Permite agendar descarga?:
+ indica se a baia realiza Descargas (OC dos tipos: Descarga Própria, Descarga de Terceiros e Transferência entre Depósitos)
+Essas configurações trabalharão em conjunto com a 
+Tabela Parâmetros de Agendamento
+. Caso a Baia permita Carregamento, mas na Tabela de Parâmetros não permita, essa baia nunca será utilizada, a não ser que ela permita também Descargas.
+Ou seja, a Tabela de Parâmetros de Agendamento indica o que pode ser agendado, já a Tabela de Baias indica quais baias podem ser utilizadas
+Permite carregamento simultâneo?:
+ quando marcado, indica que pode ser carregado mais de um compartimento por vez (todos os braços carregam ao mesmo tempo).
+Essa informação é 
+fundamental
+  para o cálculo do tempo de um agendamento, principalmente em baias onde há muitos braços ou no caso de caminhões com muita compartimentação
+Padrão de Tempo de Carregamento
+  e 
+Padrão de Tempo de Descarga
+: são escolhidos entre aqueles pré-cadastrados na 
+Tabela Padrões de Tempo
+Veja um exemplo do impacto da 
+Qtde de Braços
+ e o campo 
+Permite carregamento simultâneo? 
+marcado/desmarcado:
+Uma Baia tem 3 Braços e possui os seguintes tempos cadastrados:
+- Operação: 16,666 litros/segundo (60.000 litros por hora)
+- Troca de Compartimentos: 2 minutos
+- Remanejamento de Braços: 5 minutos
+Caminhão de 30.000 litros com 6 compartimentos
+Permite carregamento simultâneo DESMARCADO
+ 
+Tempo de Operação: 30.000 / 16,666  = 1.800 segundos  = 
+30 minutos
+Tempo de Troca de Compartimentos: 6 compartimentos * 2 minutos = 
+12 minutos
+Remanejamento de Braços: 6 compartimentos / 3 braços = 2 operações = 1 remanejamento (a primeira operação não conta como remanejamento) = 
+5 minutos
+Total:
+  30 + 12 + 5 = 
+47 minutos
+Permite carregamento simultâneo MARCADO
+ 
+Tempo de Operação para 1 compartimento: 5.000 / 16,666  = 300 segundos  = 5 minutos por compartimento
+Quantidade de operações: 6 compartimentos / 3 braços = 2 operações * 5 minutos = 
+10 minutos
+Tempo de Troca de Compartimentos: 6 compartimentos * 2 minutos = 
+12 minutos
+Remanejamento de Braços: 6 compartimentos / 3 braços = 2 operações = 1 remanejamento (a primeira operação não conta como remanejamento) = 
+5 minutos
+Total:
+  10+ 12 + 5 = 
+27 minutos
+Tipo de Carregamento: 
+para informar qual o tipo de carregamento da Baia. A baia pode ser:
+Somente Top (padrão SisPetro)
+Somente Bottom
+Top / Bottom 
+O Tipo de Carregamento 
+Somente Bottom 
+é restritivo, ou seja, se o usuário informar 
+Somente Bottom
+ no Tipo de Carregamento, os 
+frotas
+ que não são Bottom 
+não vão 
+carregar nessa baia.
+Os 
+frotas
+ compostos (cavalo + carreta e etc..) caso um seja bottom o conjunto será considerado bottom. 
+Para saber mais
+Agendamento de Carregamentos e Descargas na Base
+ 

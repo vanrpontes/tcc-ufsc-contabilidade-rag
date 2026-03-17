@@ -1,0 +1,181 @@
+TITULO: Envio de Estoque Diário ANP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4225728525
+--------------------------------------------------
+Objetivo
+Permitir o envio de Estoque 
+Diário
+ para a ANP. A ideia é, através de um WebService,
+ transmitir os dados do estoque e, após um tempo, retornar a situação desses dados analisados pela ANP. Esses dados podem ser tanto aceitos e validados quanto rejeitados pela ANP. Na manutenção de Envio de Estoque Diário da ANP todas essas informações serão disponibilizadas. Para mais informações, ver 
+Manutenção de Envio de Estoque Diário
+As URL dos WebServices de Produção e de Homologação estão no código do SisPetro. Caso haja alterações nas URL, a Futura deve ser notificada.
+As informações referentes ao estoque serão: 
+Estoque em Tanque
+Será o saldo final 
+Escritural a 20 graus
+ do Fechamento de Estoque do 
+dia anterior
+ de todos os produtos/depósitos das empresas com o mesmo 
+ARI,
+ exceto os depósitos trânsito (Tipo Indisponível) e os depósitos Usina. Para mais informações, ver 
+Roteiro de Fechamento Estoque Diário
+.
+Estoque em Trânsito
+Nacional:
+ é o estoque de produto que será da empresa e ainda não chegou, que engloba a retirada de produto da usina e as transferências entre filiais. Ele virá das OC de Transferência entre Depósitos e / ou Descarga Própria. O SisPetro irá considerar OC com data menor ou igual a do preenchimento e com a 
+Data Previsão Chegada
+ preenchida, que pode ser informada durante a 
+Inclusão de Ordem de Carregamento
+, ou pode ser alterada acessando a tela de Manutenção de Ordem Carregamento, através do botão 
+Altera
+. Para mais informações, ver 
+Manutenção de Ordem de Carregamento
+Caso venha OC com Datas anteriores, é exibido para o cliente verificar o que realmente tem em trânsito e providenciar mudanças se necessário
+Apesar da ANP exigir que a quantidade a ser utilizada deva ser a 20c, temos as seguintes regras para as Ordens de Carregamentos:
+Transferências entre Depósitos: 
+será considerada a 
+quantidade confirmada 
+(em litros) que costuma ser a 
+Quantidade a 20C 
+passada pela Usina.
+Descargas Próprias: 
+será considerada a 
+quantidade da OC
+ (em litros)
+,
+ que é a 
+Quantidade Ambiente.
+Caso seja necessário alterar a Quantidade utilizar a tela de 
+Manutenção de Envio de Estoque Diário ANP
+.
+Caso a OC tenha sido feita em outra unidade (m3 por exemplo) o SisPetro irá utilizar o fator de conversão informado na unidade adicional do produto e enviar a quantidade convertida para ANP
+Importações:
+ é o estoque do produto cuja importação está em andamento. Nesses casos temos essa informação nos PMM de Importação.
+Nessa primeira fase 
+não
+ iremos gerar os dados das 
+Importações 
+automaticamente, ou seja, eles deverão ser incluídos manualmente na via Manutenção.
+ 
+Na comunicação com a ANP o SisPetro irá encaminhar um XML contendo:
+Data de referência:
+ data que o arquivo foi gerado
+Código da Operação:
+ 
+Estoque em Tanque
+Estoque em Trânsito
+Estoque em Trânsito - Importação
+Código de Instalação 1:
+ código de Instalação do Cadastro de Empresas ou, no caso de Estoque em Trânsito, o código da entidade de origem 
+Código de Instalação 2:
+ preenchido apenas para Estoque em Trânsito. Será o Código de Instalação da Empresa.
+Raiz CNPJ do proprietário:
+ no caso do Estoque em Tanque será a raiz do CNPJ da Empresa. No Trânsito será a raiz do CNPJ da Entidade.
+Código SIMP (DPMP) do Produto: 
+é o código DPMP informado no cadastro do produto.
+Quantidade do produto: 
+será a quantidade calculada no fechamento de estoque ou informada manualmente. 
+No caso de ter mais que um produto no SisPetro com 
+o mesmo Código DPMP,
+ na hora do envio os dados eles serão agrupados e a quantidade somada pois a ANP 
+recusa
+ dados repetidos. 
+Estoque em Tanque:
+ é o saldo final do estoque escritural a 20 graus
+Estoque em Trânsito:
+ ver item Estoque em Trânsito.
+Data de Chegada:
+ previsão da chegada do Produto em Trânsito
+Código do Modo de Transporte:
+ somente nos casos de Produto em Trânsito, sendo possível ser:
+Rodoviário
+Ferroviário
+RodoFerroviário
+Aquaviário
+DutoViário.
+Configurações 
+Ferramentas / Sistema / aba Estoque / grupo DPMP - 
+o usuário deverá informar:
+ARI
+Código Instalação ANP
+Ferramentas / Sistema / aba Estoque / grupo ANP - Estoque Diário - 
+o usuário deverá informar:
+Ambiente 
+Login  
+Senha  
+Caso o login e senha sejam alterados na ANP, 
+o serviço do Hermes deve ser desativado,
+ o login e senha devem ser alterados e o serviço reestabelecido. Esse procedimento evita o bloqueio durante o período de troca da senha. 
+O Login e Senha são obtidos entrando em contato com a ANP. As informações para cadastro podem ser vistas em 
+Dados Envio Estoque Diário ANP
+.
+Para mais informações, ver 
+Ferramentas / Usuário
+Aba Acesso Menu
+Envio Estoque ANP: 
+marcar
+Aba Perfil / aba inferior Estoque / grupo ANP - Estoque Diário:
+Pode dar manutenção?: 
+marcar
+Pode imprimir/gerar planilha?: 
+marcar
+Para mais informações, ver 
+Painel Estoque (Usuários)
+Tabela de Depósitos / aba Detalhes:
+Selecionar uma das opções abaixo:
+Envia Estoque em Tanque e Trânsito. 
+Envia só Estoque em Tanque. 
+Envia só Estoque em Trânsito. 
+Para mais informações, ver 
+Depósitos - Aba Detalhes
+Tabela de Depósitos / aba OC 
+ARI Responsável:
+ informar o código ARI responsável pelo envio dos estoques diários
+Para mais informações, ver 
+Depósitos - Aba OC
+Tabela Produtos / Aba Detalhes 
+Aba inferior Bloqueio:
+DPMP Bloqueado
+ deverá estar 
+desmarcada
+.
+Aba inferior DPMP
+Informar o Código DPMP do produto
+Participa do Envio de Estoque Diário ANP 
+deverá estar marcado.
+Para mais informações, ver 
+Tabela de Produtos
+, 
+Configurações Iniciais - DPMP
+Servidor Hermes
+ANP - Envio Estoque: 
+habilitar serviço
+Para mais informações, ver 
+Serviço de ANP - Estoque
+Utilização
+O procedimento para envio do estoque diário está sendo demonstrado em 
+Como Enviar Estoque Diário para ANP
+. 
+Utilize a tela de 
+Manutenção de Envio de Estoque Diário ANP
+ para as operações complementares.
+Dúvidas Frequentes ANP
+Separamos algumas respostas de perguntas frequentes feitas à ANP sobre o envio de Estoque Diário. Elas foram retiradas do link 
+https://dpp.hml.anp.gov.br/
+, dia 16/11/2022. 
+Devo enviar diariamente os dados de estoques das instalações que não estiverem operando?
+Resposta: 
+sim. Os dados devem ser enviados durante todo o período em que a instalação estiver autorizada pela ANP, mesmo que o volume em estoque esteja zerado.
+Os dados de estoque em dias não úteis devem ser enviados em um único arquivo ou separadamente?
+Resposta: 
+cada data de referência deve ser enviada em um arquivo diferente. Cabe ressaltar que, de acordo com a RANP 868/2022, apenas os estoques em tanque relativos aos dias não úteis devem ser enviados. Logo, na segunda-feira, a empresa deve enviar um arquivo com os estoques em tanque de sexta, um arquivo com os estoques em tanque de sábado e um arquivo com os estoques em tanque de domingo. No total, deverão ser enviados 3 arquivos na segunda-feira, um para cada data de referência. Quando ocorrer um feriado na segunda-feira, a mesma regra se aplica ao próximo dia útil seguinte.
+Quando o estoque da minha empresa estiver armazenado em instalação de terceiros, quem deve declarar esse estoque?
+Resposta: 
+nesse caso, o estoque deverá ser declarado 
+apenas pelo terceiro
+. Você não deve declarar esse estoque. De acordo com o art. 7º da RANP 868/2022, os estoques em tanque devem ser declarados pelo operador da instalação onde o produto se encontra armazenado ou pelo administrador, no caso de base compartilhada.
+Os aditivos para óleo diesel, gasolina e etanol devem ser declarados na planilha de estoque diário?
+Resposta: 
+não. Devem ser declarados apenas os combustíveis citados no art. 3º. São eles: biodiesel, gasolina A comum, gasolina A premium, gasolina C comum, gasolina C premium, gasolina de aviação (GAV), gás liquefeito de petróleo (GLP), óleo diesel A S10, óleo diesel A S500, óleo diesel A não rodoviário, óleo diesel B S10, óleo diesel B S500, óleo diesel B não rodoviário, óleo diesel marítimo, etanol anidro, etanol hidratado, óleo combustível, óleo combustível marítimo, querosene de aviação (QAV) e outros combustíveis substitutos ou complementares aos combustíveis anteriores.
+Nos casos em que a UPGN e a Refinaria estiverem no mesmo espaço físico e possuírem o mesmo CNPJ, ambas devem enviar os dados de estoque?
+Resposta: 
+não. Nesses casos, a Refinaria deve ser responsável por enviar os dados dos estoques totais (estoques UPGN + estoques Refinaria) da instalação, a fim de evitar duplicação das quantidades

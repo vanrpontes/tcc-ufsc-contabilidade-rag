@@ -1,0 +1,71 @@
+TITULO: Contabilização Auxiliar
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210935
+--------------------------------------------------
+A Contabilização Auxiliar é um recurso adicional de contabilização gerencial da nota fiscal, possibilitando inclusive uma forma mais flexível para a geração da movimentação contábil.
+A contabilização auxiliar pode ser extremamente útil em diversas situações, como por exemplo:
+Se uma nota fiscal gera impostos a pagar, além de contabilizar a conta do cliente devidamente com o valor do financeiro, podemos debitar e creditar ainda as contas relativas a impostos.
+Na contra partida da contabilização, onde um dos lançamentos é a conta da entidade, podemos informar mais que uma conta.
+A configuração da contabilização auxiliar é feita através da manutenção da natureza de operação, aba 
+Contabilização
+, na parte inferior do grupo Contabilização Gerencial.
+O campo 
+Utiliza Contabilização Auxiliar
+ é verificado no momento da inclusão da nota fiscal, para que caso esteja marcado, gere a movimentação da contabilização auxiliar. Portanto, este campo somente deve ser marcado após finalizar e certificar-se da correta configuração da contabilização auxiliar, pois passará imediatamente a influenciar no faturamento.
+Para utilizar Contabilização Auxiliar o campo Tipo de Contabilização tem que estar com a opção 
+Manual (Definido pela Natureza) 
+e nos campos Debito, Credito ou ambos, dependendo de como vai contabilizar, tem que estar com a opção 
+Desabilitado 
+para poder utilizar a Contabilização Auxiliar.
+O botão 
+Desdobramento de Contas
+ abre a tela de Contabilização Auxiliar Gerencial, que pode ser configurada independentemente do campo 
+Utiliza Contabilização Auxiliar
+ estar marcado.
+Na parte superior da tela é apresentada a natureza de operação para a qual será feita a configuração das fórmulas.
+Ao clicar no grid é inserido um registro para informar os dados para a contabilização.
+No primeiro campo deve informar se o lançamento é de débito ou crédito, já nos demais campos pode ser informado uma fórmula ou um valor fixo.
+Os três primeiros campos, débito/crédito, conta e o valor são obrigatórios, sendo que os demais não.
+Clicando no botão ao lado da coluna, abrirá a tela auxiliar de fórmula de contabilização, como mostrado abaixo.
+Selecione o(s) campo(s) desejados para a fórmula da coluna e confirme. Utilize este recuros para cada uma das colunas que desejar.
+Utilize o botão 
+Testa Fórmula
+ para abrir a tela abaixo, para certificar-se de que as fórmulas configuradas estão corretas.
+ A partir da versão 8.32 foi adicionado no grid a descrição da Conta contábil "Descrição CC"
+Esta tela é semelhante a de 
+Teste de Fórmulas
+, com poucas diferenças como o campo para filtrar 
+Natureza de Operação Especifica
+, que por padrão traz a natureza que está sendo configurada, para filtrar as notas fiscais apenas desta natureza. Outra diferença é que além de mostrar os dados da NF, mostra também os itens da nota.
+Selecione uma NF e faça o teste da contabilização auxiliar através do botão 
+Teste NF Selecionada
+.
+Verifique se os dados do(s) lançamento(s) apresentado(s) na parte inferior, estão de acordo com a contabilização auxiliar desejada.
+Um outro recurso existente na tela de Contabilização auxiliar gerencial, é o de cópia de contabilização auxiliar de outra natureza, que é feita através do botão 
+Copia
+.
+Através deste botão, será aberta a tela de Cópia de Contabilização Auxiliar. Caso tenha alguma fórmula informada, antes de abrir a tela de cópia, irá questionar se deseja sobrepor os dados existentes.
+Após informar a natureza de operação de origem e confirmar, a contabilização auxiliar existente nela será copiada para a natureza de destino. Este recurso é interessante quando se precisa configurar mais de uma natureza com a mesma contabilização auxiliar.
+Exemplo de uma contabilização auxiliar no qual a Armazenadora controle os estoques de cada Congênere que armazena nela.
+A configuração acima está buscando as contas que estão cadastradas em cada cliente(congênere) da Armazenadora. Para maiores informações: 
+Contabilização para Natureza de Saída
+ContaGerencialAuxProduto(<732>,<574>,<556>,'S')
+<732>: 
+campo CodProd da tabela ItensNF
+<574>: 
+campo CodEnt da tabela NotaFiscal
+<556>:
+ campo CodEmpresa da tabela Notafiscal
+'S': 
+são as contas que estão na coluna NF Saída no cadastro de clientes. Para maiores informações: 
+Contabilização para Natureza de Entrada
+ContaGerencialAuxProduto(<732>,<574>,<556>,'E')
+<732>: 
+campo CodProd da tabela ItensNF
+<574>: 
+campo CodEnt da tabela NotaFiscal
+<556>:
+ campo CodEmpresa da tabela Notafiscal
+'E': 
+são as contas que estão na coluna NF Entrada no cadastro de clientes. Para maiores informações: 
+Nota:
+ os campos numéricos podem ser diferentes dependendo de cada banco de dados. Procure sempre pelo nome do campo e nome da tabela.

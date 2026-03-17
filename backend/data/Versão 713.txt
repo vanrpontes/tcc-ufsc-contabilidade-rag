@@ -1,0 +1,276 @@
+TITULO: Versão 7.13
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2898657941
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 17/01/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 01/02/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd713.sql (cmd2553 a cmd2562) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 14 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 6 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 8 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Layouts de Exportação 
+
+
+
+
+
+
+ Sintegra-2010-SEF.rtm 
+
+
+
+
+
+
+Como informado na versão passada, estamos implementando nesta versão o faturamento simultâneo no SisPetro. Para que esse processo seja possível, fizemos algumas alterações/validações no cadastro. Por favor, leiam com atenção os itens alterados do Faturamento e já saibam quais serão essas alterações/validações.
+
+
+Geral
+
+
+
+
+Erro ao Fechar Tela de Login sem Entrar no Sistema
+
+Ao iniciar o SisPetro mas cancelar a sua abertura na tela de senha (teclar ESC) era gerado um erro do sistema. Esse erro foi corrigido. 
+UPA (CCF 11693)
+
+
+Geração de Título de Desconto por Nota Fiscal de Saída
+
+
+Nessa versão será possível gerar um Título de Desconto Automático através da emissão de uma Nota Fiscal de Saída.
+ 
+Essa alternativa só era possível para Notas Fiscais de Entrada, e agora esse recurso pode ser utilizado, por exemplo, para a geração de um título de retenção de ICMS Subst. (GARE).
+ 
+ALP (CCF 10698)
+
+
+
+
+Contabilidade
+
+
+
+
+Erro ao incluir Fornecedor via inclusão de Livro Fiscal
+
+Foi corrigido o erro que ocorria ao tentar incluir um Fornecedor pela tela de Manutenção de Livros Fiscais. 
+ALP (CCF 11390)
+
+
+
+
+Estoque
+
+
+
+
+Acerto em Fechamento Estoque Custo
+
+Foi corrigido o nome de um campo no banco de dados, cujo nome estava acentuado na letra "i", mas não impedia o levantamento dos dados. 
+ALP (CCF 11451)
+
+
+Pedido de Outras Saídas (OS) na Transferência de Adiantamentos
+
+
+Ao realizar uma Transferência de Adiantamento Quantificado de Fornecedores, o sistema irá gerar um Pedido de OS no depósito usina e diminuir a quantidade paga no PMM vinculado à transferência (caso houver).
+ 
+Dessa forma, a parte transferida para conta contábil é compensada no estoque pelo Pedido de OS gerado.
+ 
+Importante: Caso a empresa estiver ajustando o depósito usina manualmente, este processo deve ser interrompido, pois agora será automático.
+ 
+Help:
+ 
+Transferindo um Crédito de um Fornecedor para Outro
+ 
+ALP (CCF 11503)
+
+
+
+
+Faturamento
+
+
+
+
+Faturamento Simultâneo
+
+
+A partir dessa versão, será possível dois ou mais usuários faturarem ao mesmo tempo utilizando o SisPetro. Na tela de consulta de pedidos pendentes de faturamentos, caso o usuário selecione um pedido que esteja sendo emitido OC ou mesmo já esteja sendo faturado por outro terminal, o SisPetro irá emitir um aviso informando o endereço da máquina que está efetuando o procedimento informado.
+ 
+Help:
+ 
+Faturamento Simultâneo
+ 
+UPA (CCF 7478)
+
+
+Validação do Tipo de Emissão da Série da NF x Tipo de Emissão da Natureza de Operação
+
+
+Na emissão da nota fiscal e nas alterações do cadastro da natureza de operação, para que o faturamento simultâneo seja possível, estamos validando o tipo de emissão da série da nota fiscal com o tipo de emissão da natureza de operação que devem ser iguais (Emissão Própria ou de Terceiros).
+ 
+Caso não sejam, tanto a emissão da nota fiscal quanto as alterações da natureza de operação serão barradas até que o cadastro de séries seja corrigido.
+ 
+UPA (CCF 7478)
+
+
+Erro ao Enviar um Lote com mais de 50 Notas a Sefaz
+
+Ao enviar um lote com mais de 50 notas a Sefaz, está sendo gerado o erro "Resource governor for prepared statements exceeded". Esse problema foi corrigido não tendo mais limite ao número de notas que serão enviadas. 
+UPA (CCF 11726)
+
+
+
+
+Fiscal
+
+
+
+
+UF EX na Geração do Sintegra
+
+Na versão passada adicionamos no cadastro de UF a sigla "EX" (Exterior), porém, na tela de Geração do Sintegra ela não estava disponível para geração de uma UF específica e nem quando era Geral. Esse problema foi corrigido incluindo na lista de seleção essa nova UF. 
+Necessária a atualização do layout de exportação utilizando o arquivo Sintegra-2010-SEF.rtm
+ 
+UPA (CCF 11654)
+
+
+SPED-EFD - Valor Operação no Registro C190
+
+Corrigido o problema de arredondamento de centavos do campo Valor Operação do Registro C190 e o Valor da Nota no Registro C100. 
+A fórmula desse campo foi alterada.
+ 
+GSN (CCF 11739)
+
+
+SPED-EFD - Registro E250
+
+Retirados os títulos de pagamentos de documento de arrecadação do Registro E250, que é responsável pela Obrigação a Recolher do ICMS ST. Será gerado um único Registro quando a Apuração de ICMS ST for devedora. 
+Importante: Esse registro precisa ser complementado pelo usuário no validador do SPED, como já é feito com o Registro E111, preenchendo Código da Receita e Data de Vencimento da Obrigação. As fórmulas do Registro E250 foram alteradas.
+ 
+GSN (CCF 11739)
+
+
+SPED-EFD - Registros D160 e D162 - Conhecimento de Frete de Empresas Transportadoras
+
+Ajustados os comandos dos Registros D160 e D162, que são responsáveis pelo detalhamento de conhecimentos de frete emitidos pelo Sispetro por Empresas Transportadoras.
+Importante: Esses registros estão em fase de avaliação e tiveram suas fórmulas alteradas.
+ 
+GSN (CCF 11739)
+
+
+SPED-EFD - Nova Versão Layout
+
+
+Alterada a fórmula do campo Código da Versão do Registro 0000 para prever o código válido a partir de 2011.
+ 
+GSN (CCF 11739)
+
+
+
+
+Vendas
+
+
+
+
+Visualização de Custos
+
+
+Disponibilizamos um perfil de usuário para permitir/proibir a visualização de custos nas telas de Simulação de Preço de Venda, Aba Preços do Cliente e Cadastro de Alteração de Preços de Pedidos.
+ 
+Help:
+ 
+Perfil para visualizar Custos
+ 
+ALP (CCF 11012)
+

@@ -1,0 +1,103 @@
+TITULO: Monitoramento de Viagem
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4126933056
+--------------------------------------------------
+Objetivo
+Com o monitoramento de cargas é possível  acompanhar a situação da carga, do veículo que a transporta e do motorista responsável pelo transporte, desde o momento do carregamento até a entrega no destino final. Atentos às necessidades de nossos clientes, desenvolvemos a Integração do Monitoramento de Veículos, operador logístico, que permite a integração das informações que já fazem parte da operação no SisPetro. Este desenvolvimento transmite automaticamente os dados registrados no SisPetro a saber: Agendamento de Viagens, Cancelamento de Viagem e Solicitação de Status. Este procedimento 
+poupa um trabalho em duplicidade do usuário. 
+A vantagem em mensurar essas informações é determinar se os procedimentos e as atividades estão sendo realizadas de maneira adequada, quais são os resultados obtidos e quais são as oportunidades de melhoria, permitindo maior transparência nos deslocamentos e entregas das cargas.
+Atualmente temos no SisPetro os seguintes gerenciadores: 
+ANGELLIRA
+ENGERISCO (TRAFEGUS)
+M3Risk
+O processo segue o fluxo abaixo:
+As operações serão monitoradas a partir do fechamento das cargas para as Frotas que estejam marcadas para Monitoramento. 
+É possível fazer a inclusão do Agendamento da viagem.
+Efetuar o cancelamento do Agendamento da viagem, assim como um novo agendamento, via Manutenção de Cargas.
+A consulta dos Status das cargas, com agendamento, viagem em curso e ou encerrada, via Manutenção de Monitoramento de Viagens.
+Para que as operações sejam executadas é necessário realizar os seguintes cadastros:
+Cadastro de Frota.
+Cadastro de Clientes.
+Cadastro de Fornecedores
+Para o Monitoramento e Integração com o
+ gerenciador, 
+são necessárias efetuar as seguintes 
+configurações:
+Perfil de Sistema > Painel Transportes > quadro Monitoramento
+Integração com Sistema de Monitoramento:
+ por padrão é desmarcado. Se marcado, permite integrar o SisPetro com um sistema de monitoramento.
+Gerenciador de Monitoramento:
+ selecionar qual será o gerenciador 
+Padrão
+ sugerida no fechamento da carga. 
+Para mais informações, ver 
+ e 
+Perfil de Usuário > Aba Carga:
+Pode alterar carga se Requer Monitoramento:
+ por padrão é desmarcado. Se marcado, o usuário poderá alterar a carga informando se ela será monitorada.
+Pode Incluir/Cancelar Monitoramento:
+ por padrão é desmarcado. Se marcado, o usuário poderá incluir e cancelar uma carga monitorada.
+Para mais informações, ver 
+Painel Carga (Usuários)
+Tabelas Auxiliares > Transportes > Frota > aba Detalhes > Quadro Monitoramento 
+Sempre: 
+ o frota sempre será monitorado.
+Depende do valor da Carga: 
+caso o valor da carga atinja o valor estipulado no perfil 
+Valor mínimo
+ da tela de Gerenciador de Monitoramento, será sugerido o valor da carga ao realizar a composição da carga.
+Nunca:
+ caso essa opção seja escolhida, o frota 
+não terá monitoramento.
+ 
+Para mais informações, ver 
+Tabela Manutenção de Frota
+, 
+Composição de Carga
+ e 
+Tabelas Auxiliares > Transportes > Gerenciador de Monitoramento
+Selecionar o Gerenciador
+ANGELLIRA
+ENGERISCO (TRAFEGUS)
+M3Risk
+Preencher as informações solicitadas
+Para mais informações, ver 
+Serviços Automáticos - configurar em 
+Controlador Hermes
+.
+Serviço de Mon. Viagem: Cadastro
+Serviço de Mon. Viagem: Consulta
+Para utilização diária.
+Na inclusão de carga, 
+Controle de Carga
+, 
+através da tela de 
+Composição de Carga
+, para os frotas que estejam marcados se 
+Requer Monitoramento. 
+Caso a quantidade da OC esteja informada em m3, deve-se informar a unidade como m3 e o produto deve estar com a unidade adicional cadastrada. Com isso, a quantidade enviada para o Monitoramento será em litros. Para mais informações, ver 
+Várias unidades de compra para um mesmo produto
+ - item 
+Cadastro de Unidades e fator de conversão no Produto.
+No 
+Fechamento de Carga
+, 
+confirme a informação se 
+Requer Monitoramento
+. Podendo informar um número de rota, se necessário. 
+Os 
+Serviço de Mon. Viagem: Consulta
+ e 
+Serviço de Mon. Viagem: Cadastro
+ 
+providenciarão a comunicação com o gerenciador, agendando as viagens das novas cargas fechadas ou consultando o status de viagens em andamento. Consulte essas informações através da tela de 
+Manutenção de Monitoramento de Viagens
+Via tela de 
+Controle de Carga
+ 
+também será possível cancelar e reagendar viagens de uma carga.
+Veja se o perfil de Sistema > aba Frete > Quadro Considera Passível de Utilização na Composição de Carga 
+Status de Viagem
+ está marcado para 
+Somente Aqueles que estão em viagem
+. Isso impede que um frota em viagem seja selecionado erroneamente. Para mais informações, ver 
+Ao término da viagem, essa informação será obtida via serviço de consulta de Status e a carga no SisPetro será automaticamente encerrada. Está ação ainda poderá ser realizada pelo usuário ao consultar o Status o tempo de resposta do serviço ainda não tenha sido realizada.

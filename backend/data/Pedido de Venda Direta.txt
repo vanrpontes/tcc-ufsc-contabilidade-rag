@@ -1,0 +1,29 @@
+TITULO: Pedido de Venda Direta
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440022
+--------------------------------------------------
+O SisPetro disponibiliza o recurso de Pedido de Venda Direta. Este tipo de Pedido segue os mesmos trâmites de um Pedido de Venda Normal, até sua aprovação. Ou seja:
+Pode ter valor diferenciado entre 
+Financeiro e Faturamento
+Segue os mesmos critérios de 
+Aprovação de Pedidos
+Alteração
+ dos dados do pedido
+Controle de vendedor e tabela de preços, etc
+Um pedido de "Venda Direta" não necessita da emissão de Ordem de carregamento, o usuário deve faturá-lo diretamente. Este recurso é útil para venda de produtos que não sejam combustíveis, ou seja, que dispensam OC.
+Porém são necessárias algumas configurações:
+Marcar no perfil do sistema (painel Nota Fiscal) que se vai trabalhar com Venda Direta. 
+A partir da versão 8.25 deverá informar no produto qual Natureza de Operação o sistema deverá usar, podendo variar de acordo com o Tipo de Cliente e se a operação for estadual ou interestadual. Veja mais informações em
+ Natureza de Operação
+.
+Configurar o layout do pedido de venda indicando o RTM que será responsável pela sua impressão.
+Configurar perfil do Usuário (painel Vendas) permitindo-o incluir Pedido de Venda Direta e configurar produto, se necessário:
+Configurar no cadastro de 
+, os produtos que são exclusivos de Venda Direta, ou seja, ou o produto será para a venda normal (com OC) ou para Venda Direta (sem OC);
+Configurar a 
+Natureza de Operação
+ que poderá ser utilizada para Venda Direta. Não é uma configuração exclusiva, aquela que for marcada para venda direta, poderá ser utilizada para outros fins.
+A emissão de um "pedido de vendas direta" é igual ao pedido de vendas normal, apenas o usuário precisa identificar que o pedido se refere a venda direta marcando o campo "Venda Direta" na emissão do pedido.
+Dessa forma, no pedido de vendas, no momento de incluir o produto, o sistema 
+só irá permitir que seja selecionado
+ os produtos que estiverem configurados para permitirem venda direta.
+O mesmo filtro será feito na tela de pesquisa de produto, caso o usuário necessite dessa pesquisa.

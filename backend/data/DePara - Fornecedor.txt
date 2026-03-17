@@ -1,0 +1,63 @@
+TITULO: De/Para - Fornecedor
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919990628
+--------------------------------------------------
+A partir do painel 
+Detalhes
+ é possível acionar o painel 
+De/Para
+ localizado no menu inferior da tela.
+Nessa tela, o SisPetro permitirá que seja indicado o 
+De/Para
+ que será utilizado para este fornecedor na Importação de XML. 
+Para que o usuário possa realizar alterações no 
+De/Para
+ ele deve estar com o perfil
+ 
+Pode Informar De/Para para Fornecedor e Cliente 
+em
+ 
+.
+Caso não seja informado nessa tela o De/Para, o SisPetro assumirá o informado na tela de 
+Importação de NF-e
+ como padrão.
+Caso queira utilizar o informado na tela de Importação basta limpar o campo pressionando a tecla 
+backspace
+ do teclado. 
+Para facilitar após ter informado o De/Para e haja a necessidade de editar, clique no botão 
+ e será levado direto para a tela do item selecionado.
+Será permitido informar De/Para os seguinte itens:
+Natureza de Operação:
+ este de/para poderá ser um criado exclusivamente para este fornecedor ou um geral.
+Série:
+ um Fornecedor pode utilizar diversas séries, e como este campo faz parte da chave de acesso de uma NF-e ou CT-e, tem que ser indicado a 
+Série
+ correta.
+Transportadora:
+ este será identificado automático pelo CNPJ conforme configuração da 
+Natureza de Operação
+.
+Frota:
+ este será identificado automático pela placa conforme configuração da 
+Natureza de Operação
+.
+Tipo de cobrança:
+ poderá utilizar um De/Para do Geral pois esta informação é obrigatória na inclusão da nota fiscal ou um exclusivo para este fornecedor.
+Vendedor:
+ poderá utilizar um De/Para do Geral pois esta informação é obrigatória na inclusão da nota fiscal.
+Produto: 
+pode ser informado um de/Para com os códigos do produto do fornecedor.
+Unidade e medida:
+ poderá utilizar um De/Para do Geral pois esta informação é obrigatória na inclusão da nota fiscal.
+Situação do Frete: 
+poderá informar 
+um De/Para da
+ situação do frete da nota. 
+Além dos De/Para, a partir da versão 10.24, foi criado o campo 
+Verificação Código Produto Fornecedor (De/Para de Produto) no PMM
+. Há duas opções:
+Segue perfil do Sistema: 
+irá seguir a opção que foi selecionada no 
+Perfil de Sistema - Aba Compras - Campo Verificação Código Produto Fornecedor (De/Para de Produto) no PMM
+Nunca Valida:
+ na inclusão de um PMM para esse fornecedor o campo Código Produto Fornecedor não será validado na inclusão do item do PMM. Para mais informações, ver 
+Pedido de Movimentação de Material

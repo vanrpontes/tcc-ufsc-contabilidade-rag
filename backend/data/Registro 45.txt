@@ -1,0 +1,158 @@
+TITULO: Registro 45
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4396744705
+--------------------------------------------------
+Este é o registro do item da Nota Fiscal, ou seja, deverá ter um registro para cada produto da Nota Fiscal (se tiverem dois itens do mesmo produto irá uma única linha). Foi criado para conter os dados da Tributação Monofásica (AdRem) em Maio/2023 para Diesel e em Junho/2023 para Gasolina, quando foi então extinto o Registro Tipo 40. Os dados a serem preenchidos nesse registro são:
+01 - Tipo de registro - 45
+02 - Mês/Ano Apuração
+03 - CNPJ
+04 - Inscrição Estadual
+05 - UF
+06 - Data emissão/recebimento - Data de emissão na saída ou recebimento na entrada
+07 - Modelo - código do modelo da nota fiscal cadastrado na 
+Tabela Natureza Operação
+08 - Série da Nota Fiscal - séria cadastrada na 
+Tabela Série NF
+09 - Número da Nota Fiscal
+10 - CFOP
+11 - Tipo Frete (Conforme Situação do Frete da NF)
+12 - CNPJ/CPF Transportador
+13 - UF Transportador
+14 - Primeira Placa Veículo
+15 - Segunda Placa Veículo
+16 - Terceira Placa Veículo
+17 - Código do Produto - código da ANP conforme campo Código DPMP em 
+DPMP - Produtos
+18 - Quantidade Total de Produto - quantidade constante na NF (em litros)
+19 - Quantidade de Produto Principal (Gasolina "A" ou Diesel "A")
+20 - Quantidade do Biocombustível (B100 ou Anidro)
+21 - Alíquota AdRem
+22 - Valor do ICMS sobre Produto Principal (Gasolina "A" ou Diesel "A")
+23 -  Valor do ICMS sobre Biocombustível (B100 ou Anidro)
+24 - Informação do ICMS na NF - 0 → cobrado anterior, 1 → cobrado na operação)
+25 - UF de Consumo
+26 - Origem do produto - 0 → Nacional, 1 → Importado
+27 - UF de Origem do Produto
+28 - Percentual da UF de Origem
+Esses 3 campos se repetem conforme o número de UFs constantes para a NF
+Explicações Adicionais
+Os 
+campo 19 e 20
+, Quantidades do Produto Primário e Biocombustível, dependem do % da Composição do Produto (Fiscal ou uso do estoque quando não tiver fiscal) para o produto biocombustível.
+É importante que os produtos tenham o campo 
+Tipo (Tributação AdRem)
+ preenchidos devidamente em 
+Dados Adicionais em Produtos
+.
+O 
+campo 21
+, Alíquota AdRem, utiliza a
+ Alíquota de ICMS Retido
+ ou 
+Próprio
+ do Item da Nota Fiscal.
+Nos casos da Alíquota estar com valor 0, temporariamente, enviaremos, exceto para o Anidro, a Alíquota AdRem configurada no Produto.
+Os 
+campos 22 e 23
+ referentes aos impostos possuem a seguinte regra:
+Notas de 
+Emissão Própria
+Utilizam o imposto salvo em decorrência da configuração do grupo 
+AdRem
+ da Natureza de Operação
+Dependem do CST
+061
+Obtém o valor do ICMS Retido da Composição do Produto (vide Manutenção de NF, aba Itens, aba Composição).
+Campo 22
+ →  ICMS Próprio do Produto Primário
+Campo 23
+ → ICMS Retido do Produto Biocombustível
+Para os casos de Diesel A ou B que não tinham Composição Fiscal, temporariamente se obtém o ICMS Retido do Item (que é total) e aplica a proporção configurada na Composição do Produto (Fiscal ou uso do estoque quando não tiver fiscal) para o produto biocombustível.
+Campo 22
+ → ICMS Retido * Percentual de Diesel / 100
+Campo 23
+ → ICMS Retido * Percentual de B100 / 100
+002 ou 015 
+Obtém o valor do ICMS Próprio ou Subst da Composição do Produto (vide Manutenção de NF, aba Itens, aba Composição).
+Campo 22
+ → ICMS Próprio do Produto Primário
+Campo 23
+ → ICMS ST do Produto BioCombustível
+053
+ 
+Obtém o valor do ICMS Diferido da Composição do Produto (vide Manutenção de NF, aba Itens, aba Composição).
+Campo 22
+ → 0 (pois esse CST é usado para notas de Biocombustível)
+Campo 23
+ →  ICMS Original do Produto BioCombustível
+041 ou 060
+ 
+São os casos de Notas recebidas na virada da tributação. Portanto é um tratamento temporário.
+Campo 22
+ → ICMS Retido * Percentual de Diesel / 100
+Campo 23
+ → ICMS Retido * Percentual de B100 / 100
+Notas de 
+Emissão de Terceiros
+Utilizam o imposto salvo conforme a configuração da Natureza de Operação 
+Valores ST p/ SCANC
+ onde pode ser configurado para obter do ICMS ST, ICMS Retido ou Preço de Pauta. Veja o tópico específico 
+Informações para o Anexo
+ a partir da 
+Tabela Natureza de Operação
+. Isso porque no XML da NF-e não vem os valores desmembrados entre Produto Primário e Biocombustível. O Sispetro utiliza o valor total vindo, aplica o % e distribui conforme exigido pelo SCANC.
+ICMS ST
+Essa opção deve ser utilizada em notas de Compra de Gasolina "A" ou Diesel "A" da Refinaria que usam o CST 015 enviando tanto o ICMS Próprio como o ICMS ST 
+Campo 22
+ → ICMS Próprio (que é correspondente ao Produto Primário)
+Campo 23
+ → ICMS ST (que é correspondente ao Produto BioCombustível)
+ICMS Retido
+Essa opção deve ser utilizada em notas de Compra de Gasolina "A" ou Diesel "A" de Congêneres ou Transferências Recebidas que usam o CST 061 enviando tanto o ICMS Retido 
+Campo 22
+ → ICMS Retido * Percentual do Produto Primário /100 (que é correspondente ao Produto Primário)
+Campo 23
+ → ICMS Retido * Percentual do Biocombustível /100  (que é correspondente ao Produto BioCombustível)
+Pauta ou Próprio Total
+Essa opção deve ser utilizada em notas de Compra do Biocombustível com Imposto Diferido
+Campo 22
+ → 0 (já que é nota de Biocombustível)
+Campo 23
+ → ICMS Original (que é correspondente ao Produto BioCombustível)
+Próprio Total diminuído do ICMS Diferido
+Opção disponível a partir da versão 10.46. Essa opção deve ser utilizada em notas de Compra do Biocombustível com Imposto Diferido
+Campo 22
+ → 0 (já que é nota de Biocombustível)
+Campo 23
+ → ICMS Próprio (que é o valor do ICMS Original - ICMS Diferido)
+O 
+campo 24
+ (Informação do ICMS) vai utilizar a configuração constante no campo 
+Origem dos valores ST
+ da 
+Tabela Natureza de Operação
+. Veja no tópico específico 
+Informações para o Anexo
+.
+Os campos 
+26, 27 e 28
+, correspondentes aos dados da origem do produto possuem as seguintes regras:
+Só serão exibidos para produtos cujo campo 
+Envia na NF-e a Tag <origComb> com o % Originário por UF?
+ esteja marcado. Ver 
+Dados Adicionais em Produtos
+.
+Notas de 
+Emissão Própria
+Utiliza as UFs e Percentuais (Nacional e/ou Importado) configurados em 
+Margem Subst. Tributária
+ e salvos nos Itens da NF.
+Na ausência dessas informações é enviada a UF da empresa com 100% Nacional.
+Notas de 
+Emissão de Terceiros
+A partir da versão 10.46 utilizará as UFs e Percentuais (Nacional e/ou Importado) obtidos do XML da NF-e durante a importação e salvos nos Itens da NF.
+Na ausência dessas informações é enviada a UF do Fornecedor com 100% Nacional.
+Para mais informações de configurações que devem ser feitas antes da geração do arquivo, vide tópico 
+Configurações Necessárias - Anexo
+, a partir da tela 
+Manutenção de Anexos - Distribuidora
+.

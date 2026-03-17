@@ -1,0 +1,98 @@
+TITULO: Consulta Pedidos aprovados para Faturamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918974347
+--------------------------------------------------
+Após aprovar um Pedido de Vendas pelas área de 
+Vendas
+, 
+Financeiro
+ e 
+Transporte
+, ele ficará disponível para ser faturado na tela de Pedidos Aprovados e não Faturados, que poderá ser acessada via menu
+ Consulta / Pedidos Aprovados p/ Faturamento.
+Os Pedidos Aprovados serão mostrados na tela de acordo com o perfil de Grupo de Usuários utilizado. Para mais informações, ver 
+Visualização de Movimentação por Grupo de Usuários
+.
+É possível visualizar a legenda do tipo de cliente, cadastrado em 
+Tabela Tipo de Entidade
+ de acordo com a parametrização realizada em 
+Painel Vendas
+.
+Essa tela é dividida em Quadros, Abas e alguns botões: 
+Quadro Pedidos: 
+apresentará todos os pedidos emitidas na empresa, já aprovados e que ainda não foram totalmente faturados. Além disso, possui um botão 
+Legenda
+, onde define-se a situação de cada pedido.
+Abas  
+Itens Pedido: 
+apresentará os itens do pedido selecionado no quadro Pedidos
+Botões
+Legenda: 
+mostra a situação de cada item do pedido. 
+ 
+OC's Pedido
+: apresentará as OC já incluídas e vinculadas com o pedido selecionado no quadro Pedidos. 
+Botões: 
+Imprime OC:
+ para imprimir OC's que já foram incluídas no Sistema vide tópico explicativo 
+Impressão de OC
+.
+Compartimentação:
+ para alteração de produtos na compartimentação da OC, vide tópico 
+Alterando Compartimentos, Lacres e Envelopes na OC
+Cancela OC:
+  possibilita ao usuário cancelar a ordem de carregamento, desde que não tenha vínculos com outros processos, e baseado nesses vínculos a OC não será cancelada para preservar a segurança das informações. Ou seja, a Ordem de Carregamento que o usuário deseja cancelar estiver atrelada a uma nota fiscal, o sistema irá solicitar que a nota fiscal seja cancelada antes. Estando cancelada, a OC será apresentada na cor Vermelha. Além disso, se a OC já estiver na fila da Portaria de Entrada, será necessário cancelar a fila da Portaria para poder efetuar o cancelamento da OC.
+Faturamento:
+ acionando essa opção será realizado a inclusão da nota para o item da OC selecionado no grid de OC´s Pedidos.
+Cancela Fila:
+ permite ao usuário cancelar a fila da portaria das OC's que estão na fila da portaria de Entrada. Veja maiores detalhes em 
+Cancelamento de Fila
+Quadro Observações Pedido:
+ apresentará as informações já preenchidas como observações na inclusão do pedido de venda.
+Quadro Pesquisa: 
+contém os filtros e informação de condição de pagamento e tipo de cobrança do pedido selecionado
+ 
+Pesquisa
+: o critério de localização dependerá do usuário, podendo ser através do número do pedido, a data ou até pela razão social. Basta clicar na coluna correspondente que o cursos ficará disponível neste campo da tela. Assim, bastaria ao usuário digitar a informação desejada conforme a coluna selecionada.
+Entrega/Retira
+: apresentará a informação do Pedido de Venda selecionado, conforme o que foi definido na inclusão do mesmo.
+Data Entrega
+: quando o pedido de venda for do tipo Entrega, este campo apresentará a data de entrega definida na emissão do mesmo.
+Val. Total Seguro: Preço Final somado com o Valor Unitário do Seguro e também com o Valor Unitário do Frete de cada item.
+Val Unit. Seguro
+: valor unitário do seguro
+Cond. Pagto
+: apresentará a informação do Pedido de Venda selecionado, conforme o que foi definido na inclusão do mesmo.
+Tipo Cobrança
+: apresentará a informação do Pedido de Venda selecionado, conforme o que foi definido na inclusão do mesmo.
+Mostra somente fora Estado
+: este perfil quando marcado apresentará na tela somente os pedidos de vendas fora do estado, se baseando pelo estado da empresa conectada.
+Perfil 
+Mostra somente Usinas/Dep 3os
+: este perfil quando marcado apresentará na tela somente os pedidos feitos para usinas e depósitos de terceiros.
+Botões:
+Visualiza:
+ permitirá ao usuário ver o pedido de venda emitido na própria tela, facilitando a localização de informações.
+Faz OC
+: permitirá ao usuário incluir uma Ordem de Carregamento para o pedido de venda selecionado. Só será possível emitir a ordem de carregamento caso o pedido de venda ainda tenha quantidade alocada. A compartimentação da OC poderá vir sugerida da 
+Composição de Carga
+ caso o pedido já tenha carga definida.
+Muda Transp
+: permitirá ao usuário alterar a transportadora informada no pedido de venda.
+Fatura
+: permitirá ao usuário faturar o pedido de venda que já possuir ordem de carregamento emitida em algum volume. Só será possível faturar um pedido de venda que possuir ordem de carregamento e ainda tenha quantidade separada. Para mais informações, ver 
+Faturamento Manual de Notas Fiscais de Venda
+.
+Fat.Automático
+: se configurado, permitirá ao usuário emitir várias notas fiscais de venda de uma única vez, sem passar pelas várias telas da emissão de nota fiscal. Para mais informações, ver 
+Faturamento Automático de Notas Fiscais de Venda
+.
+Canc. Pedido
+: permitirá ao usuário cancelar o pedido de venda, considerando que o mesmo não possui OC vinculada e nem nota fiscal emitida. Havendo nota fiscal e/ou Ordem de Carregamento, será necessário cancelar a nota fiscal, cancelar a ordem de carregamento e depois cancelar o pedido de venda.
+Atualiza
+: permitirá ao usuário atualizar as informações apresentadas em tela, mantendo-se sempre com os pedidos pendentes de faturamento em tela, assim como seus respectivos saldos.
+Sair
+: Para sair da tela, deve-se clicar neste botão.
+Mais informações:
+Como emitir NF-e Venda
+Faturamento Manual de Notas Fiscais de Venda
+Faturamento Automático de Notas Fiscais de Venda

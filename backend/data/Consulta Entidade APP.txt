@@ -1,0 +1,76 @@
+TITULO: Consulta Entidade APP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2965439057
+--------------------------------------------------
+Através do menu: 
+Início > Vendas > Consulta Entidade
+, podemos consultar as últimas NFs, verificar títulos em aberto, simular preço de venda e visualizar algumas informações dos Clientes vinculados ao usuário:
+Para visualizar os detalhes dos Clientes, acesse conforme abaixo:
+DADOS BÁSICOS
+Nessa opção, podemos visualizar:
+Limite Crédito:
+ limite de Crédito do Cliente
+Utilizado:
+ limite Utilizado
+A utilizar:
+ limite de Crédito a utilizar
+LC Grupo:
+ limite de Crédito do Grupo Econômico do Cliente
+Util. Grupo:
+ utilização do Limite de Crédito utilizado pelo Grupo Econômico
+A utilizar:
+ limite de Crédito do Grupo Econômico a utilizar
+PREÇOS
+Nessa tela, podemos simular o preço de venda de um determinado produto, com base na Condição de Pagto, Tipo de Cobrança, Depósito e Data de Saída a serem utilizados.
+Produto:
+ informe o produto a ser utilizado para simulação
+Preço Retira:
+ nesse campo será informado pelo Sistema o Preço como Retira
+Frete:
+ nesse campo será informado pelo Sistema o Valor do Frete
+Preço Entrega:
+ nesse campo será informado pelo Sistema o Preço como Entrega
+Cond. Pagto:
+ informe a Condição de Pagamento para simulação
+Tipo Cobrança:
+ informe o Tipo de Cobrança para simulação
+Depósito:
+ informe o Depósito para simulação
+Data Saída:
+ informe a Data de Saída para simulação
+Após informar os dados necessários, clique no botão 
+Calcular Preços.
+NOTAS FISCAIS
+Clicando na opção Notas Fiscais, podemos imprimir e efetuar o download do XML e do PDF do DANFE, além de visualizar alguns campos, tais como:
+ 
+Número NF, Data NF, Valor NF, Produtos, Chave de Acesso, Empresa, CFOP e Entidade.
+TÍTULOS ABERTOS
+Na opção Títulos Abertos, podemos imprimir e efetuar o download do boleto e também visualizamos os campos: 
+Número NF, Data Emissão, Data Vencto, Valor Original, Saldo, Empresa, Histórico e Nosso Número.
+Também é possível, efetuar alguns filtros marcando individualmente cada uma das 3 opções existentes no centro da tela: 
+Vencidos
+, 
+Dia
+ ou 
+Vencer
+.
+Observação:
+ Para ativar um dos 3 filtros citados acima, é necessário clicar no mesmo e caso queira desfazer o filtro ou alterar para um novo filtro é necessário clicar novamente no último filtro efetuado para desativar o mesmo antes de efetuar um novo filtro.
+Todos os
+ 
+Servidores Hermes
+ 
+no campo em 
+Configurações Gerais
+ > 
+Campo Pasta DLL Cobrança
+ dentro do controlador 
+Controlador 
+Hermes
+ 
+devem estar apenas com o caminho da pasta onde se encontram as DLL dos bancos utilizados.
+Para que seja possível efetuar o download do XML, PDF do DANFE ou do Boleto, é necessário efetuar algumas configurações, conforme abaixo:
+No 
+, devemos validar a configuração do caminho dos arquivos RTM, DLL e habilitar o Serviço do WebService.
+No 
+ é necessário 
+Habilitar o Webservice para Sispetro Web APP

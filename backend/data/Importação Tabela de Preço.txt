@@ -1,0 +1,63 @@
+TITULO: Importação Tabela de Preço
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2880798762
+--------------------------------------------------
+A partir da versão 10.01 a utilização desta 
+função caiu em desuso. Para maiores detalhes veja 
+Nova Tabela de Preço
+Existem algumas empresas que trabalham com mais de uma tabela de preço, ou os preços podem variar conforme o cliente, município, estado e/ ou produto. Desta forma, seria muito trabalhoso informar cada tabela de preço e suas respectivas informações.
+Visando o auxílio aos nossos usuários de forma que facilite na inclusão destes dados, o Sispetro possui o recurso de importação de tabela de preço, que pode ser acessado através do menu 
+Ferramentas/ Importação de Dados/ Importação Tabela de Preço
+.
+Assim, o usuário deverá informar no campo 
+Arquivo Origem
+ o nome do arquivo com o seu respectivo diretório. 
+Este arquivo deve possuir a extensão CSV.
+O arquivo deverá possuir 
+as seguintes informações em cada linha e na seguinte ordem:
+Código Empresa;
+Código Tabela;
+Código PRoduto;
+UF;
+Data VIgência;
+Preço;
+Preço Mínimo;
+Preço Máximo;
+Preço CF;
+Preço Mínimo CF;
+Preço Máximo CF.
+Reforçando que o separador a ser utilizado deverá ser o ponto-e-vírgula ( ; )
+Deve-se definir os seguintes perfis:
+Exclui itens não presentes no arquivo origem que estejam no arquivo destino
+;
+Visualiza os dados antes de transferí-los para o arquivo destino
+;
+Em seguida, informar 
+Data de Vigência Padrão
+ para os preços que serão importados.
+Após isso, clicar no botão 
+Continuar
+ - 
+ - para que se inicie o processo de importação dos dados de tabela de preço.
+Repare que a visualização do processo é mostrado em três abas e que dependerá muito dos perfis definidos anteriormente.
+Aba Etapas
+Permitirá ao usuário identificar em qual etapa o processo está, podendo ser:
+Excluir dados do arquivo temporário
+: Irá identificar a importação anterior gravada em um arquivo temporário e excluir, para que efetue a nova importação. Dependerá do perfil 
+Exclui itens não presentes no arquivo origem que estejam no arquivo destino
+, que deverá estar habilitado.
+Importar para arquivo temporário
+: Irá importar os dados do arquivo atual para um local temporário.
+Visualizar Dados
+: Permitirá ao usuário visualizar os registros a serem importados, podendo conferir se tudo está correto. Mas somente se o perfil 
+Visualiza os dados antes de transferí-los para o arquivo destino
+ estiver habilitado.
+Transferir para Tabela Destino
+: irá transferir os dados do local temporário para sua respectiva tabela real.
+Aba Dados
+Permitirá ao usuário visualizar os dados existentes antes da importação.
+Aba Erros
+Existindo erros de informações no arquivo CSV, o sispetro irá aponta-los nesta aba, para conferência do usuário.
+Ao finalizar o processo, o usuário deverá clicar no botão 
+OK
+Para cancelar o processo, o usuário deverá clicar no botão 
+Cancelar

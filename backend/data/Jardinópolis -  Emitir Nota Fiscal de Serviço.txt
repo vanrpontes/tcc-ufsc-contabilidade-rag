@@ -1,0 +1,109 @@
+TITULO: Jardinópolis -  Emitir Nota Fiscal de Serviço
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4693262340
+--------------------------------------------------
+none
+Objetivo
+A emissão da NFS-e, utilizada por Armazenadoras para cobrança do Serviço de Armazenagem e por outras empresas do grupo que, por ventura, emita NF de Serviços diversos.
+A NF de Serviços é de âmbito municipal e a inclusão da Nota Fiscal de Serviço é realizada através da tela de 
+Outras Saídas
+. Para mais informações, ver 
+Como emitir Nota Fiscal Outras Entradas/Outras Saídas
+. 
+Configurações
+Ferramentas / Sistema / Aba NF-e/CT-e 
+Habilita NFS-e
+Produção
+Homologação: caso queira emissão em ambiente de teste
+Layout de impressão
+Informe o caminho do layout do RTM 
+Para mais informações, ver 
+Painel NF-e/CT-e
+Ferramentas / Sistema / Aba Livro Eletrônico
+Inscrição Municipal: 
+informar o número da inscrição
+Ferramentas / Sistema / Aba Fiscal / Quadro Uso na NFS-e
+Incentivador Cultural: 
+marcar caso seja
+Regime Tributação Especial: 
+informar caso tenha
+Tabelas Auxiliares / Faturamento / Série de Nota Fiscal 
+Cadastrar uma série específica para nota de serviço
+Para mais informações, ver 
+Tabela Série Nota Fiscal
+Tabelas Auxiliares / Faturamento / Cidades
+Aba Detalhes / Quadro URL
+informar a URL de comunicação com a prefeitura
+Produção
+Homologação: caso queira emissão em ambiente de teste
+Tipos de Layout:
+GINFES
+Envio Tag de Desc Incondicionado
+Envia com Valor Zero:
+ a tag é enviada com valor zerado. 
+Não Envia: 
+a Tag não é enviada
+Envio Tag de Desc Condicionado
+Não Envia
+Envio informações de Contato:
+Envia:
+ as informações de telefone e e-mail do cadastro de clientes são enviadas
+Não envia: 
+as informações não são enviadas. 
+Para mais informações, ver 
+Tabela Cidades
+Tabelas Auxiliares / Faturamento / Outros Impostos
+O cadastro dos impostos INSS, IRRF, CSLL, COFINS, PIS e ISS, é realizado através da 
+Tabela Outros Impostos
+, e vinculado com a Natureza de operação na aba 
+Outros Impostos (Painel Por Filial)
+.
+Para mais informações, ver 
+Exemplos de cadastros de Outros Impostos para NFS-e
+ e 
+Outros Impostos
+ 
+Tabelas Auxiliares / Faturamento / Natureza de Operação / Aba lateral Geral / Aba rodapé Dados Gerais 
+Em alguns casos o valor total da nota não condiz com o valor cobrado do cliente, onde é enviado para o cliente um boleto sem o valor dos impostos. Para esses casos indicamos a utilização um desconto nas notas. Para isso, basta informar o Tipo do Documento.
+Para mais informações, ver 
+Configuração de Desconto na Nota Fiscal
+ e 
+Tabela Tipo de Documento
+Tabelas Auxiliares / Faturamento / Natureza de Operação / Aba lateral Por Filial / Aba 
+Dados Gerais (Painel Por Filial)
+Habilita NF-Eletrônica 
+Selecione a opção 
+É NFS-e
+Quadro de NFS-e: 
+no quadro de NFS-e selecione o código a ser utilizado na nota. Cada município utiliza seu próprio código, e informe o CNAE. 
+Para mais informações, ver 
+Código Serviço NFS-e
+Código Natureza Operação NFs-e
+Código Tributação NFS-e
+CNAE: 
+O código CANE é cadastrado no 
+Painel IE Substituição/CNAE
+Para mais informações 
+Dados Gerais (Painel Por Filial)
+Cada município vai apresentar os códigos correspondentes as regras do seu município.
+As informações desses campos só serão apresentadas se o município da Empresa tiver liberada para emissão da NFS-e.
+Tabelas Auxiliares / Faturamento / Natureza de Operação / Aba lateral Por Filial / Aba ImpressãoNF
+A discriminação do serviço será obtida das observações da nota. Ela pode ser pré-cadastrada na Natureza de operação ou na emissão da Nota Fiscal.
+Para mais informações, ver 
+Impressão NF (Painel Por Filial)
+Tabelas Auxiliares / Faturamento / Natureza de Operação / Aba lateral Por Filial / Aba Outros Impostos
+Incluir os impostos que serão destacados no xml são vinculados nessa aba.
+Para envio dos impostos na nota fiscal de serviço 
+Envia Imposto na NFS-e
+ precisa estar habilitado.
+Para mais informações, ver 
+Outros Impostos (Painel Por Filial)
+ e 
+Tabela Outros Impostos
+Avisos e informações importantes:
+Para NFS-e não temos:
+Envio de E-mail (com XML) automaticamente
+Inutilização de Número
+Geração de XML Distribuição
+Emissão de MDF-e
+No telefone do cadastro do cliente não pode ter espaços ou carácter especial eles aceitam somente números
+Após a emissão da Nota Fiscal de Serviço, caso tudo esteja configurado corretamente, será enviado um e-mail com cópia do DANFE em PDF da sua nota fiscal ao cliente faturado/transportadora

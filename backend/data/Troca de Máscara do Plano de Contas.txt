@@ -1,0 +1,186 @@
+TITULO: Troca de Máscara do Plano de Contas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2883125358
+--------------------------------------------------
+Essa tela pode ser acessada pelo Menu 
+Ferramentas / Contabilidade / Troca de Máscara do Plano de Contas
+.
+
+
+O principal objetivo desta tela é permitir que a troca de máscara do Plano de Contas seja feita de forma bem avaliada pelo usuário. É possível simular máscaras, ajustar possíveis códigos extendidos que não se adaptem à nova máscara, para só depois aplicá-la no sistema.
+
+
+Além disso é possível replicar o novo código extendido nas contas gerenciais vinculadas.
+
+
+Esta não é uma tela para ser utilizada com frequência.
+ Sua maior utilização deve se dar em uma implantação ou em mudanças radicais do Plano de Contas, como no enquadramento de uma empresa na Lei Societária, que exige um plano de contas padronizado.
+
+
+Cabe lembrar que a máscara informada é geral, sendo aplicada à todas as contas (Patrimoniais, de Resultado e demais).
+
+
+Para ter acesso a essa tela é preciso dar a permissão ao usuário no menu 
+Ferramentas / Usuário / aba Contabilidade
+:
+
+
+
+
+Veja tela:
+
+
+
+
+Informe inicialmente:
+
+
+
+
+Máscara Nova
+
+Cada letra é uma posição da máscara antiga. Somente o último nível tem letras repetidas, pois tem um tratamento especial.
+
+Conforme for posicionando as letras será feita a montagem do novo código extendido. Veja alguns exemplos
+
+
+
+
+
+Máscara antiga
+
+
+Conta na máscara antiga
+
+
+ Nova máscara
+
+
+ Conta na máscara nova
+
+
+Observações
+
+
+
+
+
+
+A.B.C.DE.FFFFF
+
+
+1.1.2.01.47651
+
+
+A.B.C.ED.FFFFFF
+
+
+1.1.2.10.047651
+
+
+Repare que o 4º nível teve as posições trocadas e o último nível um zero à esquerda
+
+
+
+
+
+
+A.B.C.DE.FFFFF
+
+
+1.1.2.01.47651
+
+
+A.B0.C.E.FFFFF
+
+
+1.10.2.1.47651
+
+
+Repare que o 2º nível teve um zero à direita e o 4º nível perdeu o zero à esquerda
+
+
+
+
+
+
+A.B.C.DE.FFFFF
+
+
+1.1.2.01.47651
+
+
+A.B.E.C.FFFFF
+
+
+1.1.1.2.47651
+
+
+Repare que o 3º e o 4º nível foram trocados, tirando o zero à esquerda do antigo 4º nível 
+
+
+
+
+
+
+Caso a nova máscara propicie códigos extendidos duplicados, o que não é permitido no Plano de Contas Real, será apresentada uma mensagem e a alteração da máscara não será permitida. Essas contas duplicadas serão apresentadas em vermelho e é possível, porém, alterar manualmente os códigos extendidos duplicados de forma ser aceita a nova máscara. Faça isso alterando diretamente o dado na coluna 
+Cód. Conta Novo
+. Após alteração não clique novamente em 
+Visualizar
+, clique em 
+Validar
+ para ver se ainda sobrou uma conta duplicada.
+
+No último nível não será permitido ter menos que 4 dígitos. No entanto, recomendamos 5 dígitos, porque como cada entidade (cliente e fornecedor) tem a sua conta, com 4 dígitos ficaria limitado a 9.999 entidades.
+
+
+
+
+Altera código extendido de conta gerencial vinculada
+
+Com esta opção é possível que, após ajustar o Plano de Contas Real, trocando os códigos extendidos conforme a nova máscara, este código extendido seja salvo no Plano de Contas Gerencial, conforme o vínculo entre a conta real e a gerencial.
+
+Por isso, caso haja alguma conta gerencial que não tenha vínculo com a real, será apresentada uma mensagem de alerta e estas contas no painel 
+Contas Gerenciais sem Vínculo
+. Afinal essas contas ficarão com o código extendido antigo, incompatível com a nova máscara do Plano de Contas Gerencial, que será igual à máscara do Plano de Contas Real.
+
+
+
+
+
+
+Exibe contas de entidades
+
+Esta opção, quando desmarcada, somente permite uma visualização mais enxuta por não apresentar as contas de entidade. 
+Atenção: Todas as contas sempre terão seu código extendido alterado, independente de estarem sendo apresentadas! Assim, se uma conta de entidade tiver o código extendido duplicado com a nova máscara, apesar de não ser apresentada, impedirá a alteração da máscara!
+ 
+
+
+Botão 
+Visualizar
+
+Permite a visualização das contas com a nova máscara digitada. Clique neste botão quando e somente quando trocar a nova máscara.
+
+
+Botão 
+Validar
+
+Útil quando é feito algum ajuste no 
+Cód. Conta Novo
+ para se saber se ainda há alguma conta duplicada.
+
+
+Botão 
+Alterar
+
+É o que faz a troca efetiva da máscara e ajusta os códigos extendidos das contas. Sem clicar nele só estavam sendo feitas simulações.
+
+
+Botão 
+Imprimir
+
+Permite a impressão das contas apresentadas para possíveis conferências.
+
+
+
+
+Para desfazer uma máscara, basta, depois da alteração, colocar na nova máscara a máscara anterior.

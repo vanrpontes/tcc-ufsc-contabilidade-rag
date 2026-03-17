@@ -1,0 +1,124 @@
+TITULO: Versão 7.10.1
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2896298232
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 26/10/2010 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 28/10/2010 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ não existe 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 4 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 1 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 3 
+
+
+
+
+
+
+Geral
+
+
+
+
+Uso da CPU Constante no Windows
+
+Após atualização do Servidor SisPetro para a versão 7.10, os clientes que estão utilizando as rotinas de envio de e-mail perceberam um alto uso da CPU do servidor em que o Servidor SisPetro estava sendo executado. Isso estava acontecendo devido o Servidor SisPetro ficar verificando se existe algum e-mail a ser enviado mas não afetava a performance do servidor. Nessa versão estamos otimizando essa rotina e com isso ela não ficará carregada constantemente no processador do Servidor. 
+UPA (CCF 10817)
+
+
+
+
+Faturamento
+
+
+
+
+Rejeição da NF-e - "Não é permitido a presença de caracteres de edição no inicio/fim da mensagem ou entre as tags da mensagem"
+
+
+A Sefaz de São Paulo alterou as rotinas de recebimento das NF-e's em homologação e com isso, a rejeição 588(informada no título) começou a ser apresentada aos usuários. Essa alteração não foi implementada em produção, somente no ambiente de homologação e também não foi informada pela Sefaz. Alteramos as rotinas de envio e com isso a partir dessa versão é possível enviar as NF-e's de São Paulo tanto em homologação quanto em produção. UPA (CCF 10814)
+
+
+Erro ao Gerar Nota Fiscal de Devolução de Cliente
+
+Uma alteração da versão 7.10 danificou a rotina de geração de adiantamentos quando vindo de uma nota fiscal de devolução de cliente, com isso, como o sistema não conseguia gerar o adiantamento não era possível entrar com a nota fiscal. Esse problema foi corrigido. 
+UPA (CCF 10833)
+
+
+Erro ao Sair da Tela de Compartimentação de OC (Somente no Cancelamento)
+
+Foi detectado um problema ao entrar na tela de compartimentação de OC e cancelar o processo (não efetuar a compartimentação). Quando isso acontecia, o processo continuava normalmente mas era apresentado um erro ao usuário. Esse problema foi corrigido. 
+UPA (CCF 10858)
+

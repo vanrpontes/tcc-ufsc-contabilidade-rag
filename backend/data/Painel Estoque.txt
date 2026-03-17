@@ -1,0 +1,142 @@
+TITULO: Painel Estoque
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909897259
+--------------------------------------------------
+Através desse menu iremos parametrizar todas as opções relacionadas ao estoque.
+O acesso a essa tela se dá através de 
+Ferramentas / Sistemas / Estoque
+Subtrai o Lastro do Tanque no Rateio de Estoque: 
+com esse perfil marcado, ao realizar o rateio de estoque o lastro informado no cadastro de tanques não será considerado. 
+Mostra saldo de produtos de todas as empresas: 
+marcando essa opção o SisPetro mostrará o saldo de produtos de todas as empresas. 
+Informa Cód. Do Setor no Pedido de Outras Saídas:
+Preenche Gênero do Produto a partir do Código NCM: 
+marcando este perfil, ao informar o Código do NCM no cadastro de produtos, o campo 
+Gênero do Item no Livro Eletrônico 
+será preenchido automaticamente.
+Quadro Tela Consulta Movimento Estoque Base
+Mostra coluna Perda/Sobra:
+ marcando essa opção o SisPetro mostrará a coluna Perda/Sobra.
+Mostra coluna de Leitura de Fechamento de Tanque: 
+marcando essa opção o SisPetro mostrará a coluna Leitura de Fechamento de Tanque.
+Mostra entradas e saídas pelo volume programado: 
+marcando essa opção o SisPetro mostrará entradas e saídas pelo volume programado. 
+Código de produto atual: 
+mostra qual o código do último produto para o SisPetro utilizar como parâmetro para incluir o código do próximo produto. 
+Quadro Bombeio
+Não Insere Bombeio Escritural automaticamente na entrada do Bombeio Físico: 
+marcando essa opção o SisPetro não Insere Bombeio Escritural automaticamente na entrada do Bombeio Físico
+Movimenta estoque na confirmação de bombeio:
+ 
+marcando essa opção o SisPetro movimenta estoque na confirmação de bombeio
+Esse perfil não interfere nos pedidos de 
+bombeio 
+já incluídos
+, ou seja, caso o perfil esteja desmarcado o pedido já incluído 
+não
+ vai movimentar estoque na confirmação. 
+Altera data de Distribuição do Bombeio feita através de programação de bombeio:
+ 
+marcando essa opção o SisPetro Altera data de Distribuição do Bombeio feita através de programação de bombeio
+Redistribui o bombeio físico sem checar com o total do bombeio inicial:
+ 
+marcando essa opção o SisPetro Redistribui o bombeio físico sem checar com o total do bombeio inicial
+Quadro Fator de Conversão
+Pega fator de conversão exato (sem intervalo 0,5 na temp. e 0,005 na densidade da tabela): 
+ 
+marcando essa opção o SisPetro pega o valor exato ao invés de pegar o mais próximo da temperatura ou densidade. 
+Calcula fator de conversão do álcool pela densidade a 20 graus:
+ marcando essa opção o SisPetro fará a conversão do álcool pela densidade a 20 graus. 
+Obter fator da próxima densidade 20c caso não exista densidade exata:
+ 
+ 
+marcando essa opção o SisPetro obtém o fator da próxima densidade a vinte graus. 
+Fator de Conversão para Derivados de Petróleo: 
+no SisPetro existe uma tabela interna para fator de conversão de 
+Derivados de Petróleo
+, que não pode ser utilizada para 
+Álcool (Produtos Claros)
+. Para que o SisPetro entenda qual tabela deve ser utilizada, é necessário configura este perfil informando 
+Cálculo através de fórmula.
+Versão Fórmula Fator de Conversão Produtos Derivados de Petróleo: 
+o SisPetro possui duas fórmulas para realizar a conversão algumas diferenças de cálculo sendo elas:
+Versão 1.0 - Original - 
+implementada há mais de vinte anos.
+Versão 2.0 - 2023 - 
+a versão 2023 tem diferença na utilização de casas decimais na fórmula, o que causa pequenas alterações no fator de conversão e densidade a 20 encontrados.
+Depósito Trânsito Padrão: 
+informar o código do depósito que será sugerido como padrão, por exemplo, em OC de Transferência entre Depósitos. 
+Depósito Padrão para Custo de Produto: 
+para gerar os registros K200 no SPED Fiscal, em empresas armazenadoras com base secundária é obrigatório informar o depósito em todas as empresas congêneres e nela própria.
+Quadro DPMP
+ARI: 
+informar o Código ARI da Empresa
+Código Instalação ANP: 
+informar o Código de instalação ANP da Empresa
+ARI de Distribuidor de Produtos Asfálticos?: 
+marcar este perfil caso a empresa trabalhe com produtos asfálticos. Desta forma, na geração do DPMP serão geradas informações especificas para estes produtos. Para mais informações, ver 
+.
+Soma Percentual Produto Primário no Produto Composto:
+ na composição do produto composto (Gasolina C por exemplo) escolher se o SisPetro irá:
+Permite valor diferente de 100% (não faz ajuste): 
+o SisPetro permitirá composição com 101% no produto, por exemplo a Gasolina C aditivada. 
+Permite valor diferente de 100% (faz ajuste no último item): 
+fará o ajuste no último item. 
+Cód. de Operação dos Ajustes Manuais:
+ informar qual será o código Cód. de Operação dos Ajustes Manuais
+Cód. Operação de Entrada para Produto Composto: 
+informar qual será o código Cód. Operação de Entrada para Produto Composto:
+Cód. Operação de Saída para produto Básico: 
+informar qual será o código Cód. Operação de Saída para produto Básico
+Layout de Exportação do DPMP: 
+informar qual será o código do Layout de Exportação
+Força dados de Clientes/Fornecedores p/ uso DPMP: 
+no cadastro de Clientes ou Fornecedores, o SisPetro irá obrigar informar os dados que são utilizados no DPMP
+Código de Instalação ANP de Clientes e Fornecedores: 
+nesse Perfil definimos a regra para gravação do código de Instalação ANP de Clientes e Fornecedores, onde podemos bloquear, avisar ou permitir o cadastro utilizando um código de Instalação já existente: 
+Permite Livremente:
+ permite incluir ou alterar clientes e fornecedores utilizando códigos de Instalação da ANP repetidos. 
+Não Permite Duplicidade: 
+ao utilizar essa opção, o sistema não permitira incluir ou alterar um cliente caso já exista um cliente utilizando o mesmo código de instalação, a regra é a mesma para a inclusão/alteração de fornecedor.
+Avisa Caso Encontre Duplicidade:
+ utilizando essa opção o sistema permite incluir um Cliente ou Fornecedor com código de Instalação da ANP repetido.
+Para mais informações, ver  
+ e 
+.
+Proporção de Instalação na Gasolina C (%):
+ nesse campo é definido a proporção de anidro utilizada na Gasolina C.
+Quadro CMV
+Gera Lote de Apuração do CMV no Fechamento Estoque: 
+marcando essa opção o SisPetro Gera Lote de Apuração do CMV no Fechamento Estoque
+Utiliza data do fechamento estoque no cancelamento Lote CMV:
+ marcando essa opção, o SisPetro utilizará a data do fechamento do estoque no cancelamento do Lote CMV
+Qtde utilizada para valorização de estoque: 
+informar qual será a quantidade utilizada. Ela pode ser: 
+Ambiente
+20c
+Quadro Fechamento de Estoque
+Trava quando existir fechamento de estoque posterior ao movimento: 
+realiza o travamento quando existir um fechamento de estoque posterior ao movimento.
+Fecha estoque de todas as empresas de uma vez: 
+realiza o fechamento de estoque de todas as empresas de uma vez só.
+Dias anteriores permitidos para abertura do estoque/custo:
+ informar nesse campo o número máximo de dias permitidos para realizar abertura de fechamentos de estoque e fechamento de custo.
+ 
+Tipo de Fechamento de Estoque: 
+nesse perfil iremos informar como iremos trabalhar no fechamento de estoque podendo ser
+:
+Vinculado:
+ realiza o Fechamento de Estoque Escritural, Master e Físico juntos.
+Desvinculado:
+ realiza o Fechamento de Estoque Escritural, Master e Físico separadamente conforme configuração de usuário. Utilizando essa opção a empresa tem a opção de trabalhar com o Fechamento de Estoque separados podendo ser realizado o fechamento de estoque Escritural para depois Fechar o Físico, ou podemos Fechar o Fechamento Físico para depois o Escritural.
+Quadro ANP - Estoque Diário
+Aqui serão incluídas as informações de acesso para envio do Estoque Diário para ANP. Abaixo as informações: 
+Ambiente: 
+o usuário deverá selecionar para qual ambiente serão enviadas as informações do estoque, sendo eles:
+Produção
+Homologação
+Login: 
+o usuário deverá informar o login cadastrado na ANP. Geralmente é o CPF de quem fez o cadastro. 
+Senha: 
+o usuário deverá informar a senha cadastrada na ANP
+Para mais informações, ver 
+Envio de Estoque Diário

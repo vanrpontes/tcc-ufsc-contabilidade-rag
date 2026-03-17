@@ -1,0 +1,452 @@
+TITULO: Versão 6.21.00
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2882863142
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 13/02/2009 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 20/03/2009 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd62100.sql (cmd2078.sql a cmd2099.sql) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 34 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 14 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 20 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+ Cheques.rtm, Sintegra-SEF-2008.rtm
+
+
+
+
+
+
+Geral
+
+
+
+
+Autenticador NFe - Instalação do Certificado Digital SIMPLIFICADA
+
+
+ A partir dessa versão, a instalação do certificado digital para NFe está muito mais simples e mais rápida.
+ Para instalação dos certificados você precisará somente cadastra-los no Servidor SisPetro e com isso eles já estaram liberados para utilização do SisPetro Normal. Não será preciso mais nada. 
+Após a atualização do sistema, será necessário efetuar esse processo de cadastrar os certificados no Servidor SisPetro para que suas notas possam ser emitidas.
+ UPA (CCF 5489).
+
+
+Help:
+ 
+4. Processos/ Processos - Faturamento/ NF-e - Nota Fiscal Eletrônica/ Configuração de Certificado Digital
+
+
+Alteração no Cadastro de Clientes em Lote
+
+
+Foi disponibilizada no sistema uma tela em que o usuário pode selecionar um ou mais clientes, executando filtros definidos por ele, e executar nesse lote de clientes a alteração de algumas informações cadastrais (ou mesmo só efetuar uma consulta aplicando um filtro mais refinado).
+ Por exemplo, podemos selecionar um grupo de clientes, criando um filtro por vendedor e alterar de todos os clientes selecionados o código da transportadora, tipo de cobrança ou até mesmo o próprio vendedor.
+ 
+Para poder executar a alteração dos dados, o usuário deve ter o parâmetro "Altera dados dos clientes em lote" habilitado.
+ 
+UPA (CCF 4842)
+
+
+Help:
+ 
+Ferramentas/ Cadastro de Clientes/ Alteração de Dados  dos Clientes em lote
+
+
+Campo "Gênero do Item no Livro Eletrônico" no Cadastro de Produtos
+
+O campo "Gênero do Item no Livro Eletrônico" no cadastro de produtos, ao entrar na tela para consultas, estava exibindo o código interno do item selecionado. Essa rotina foi alterada e será exibida a descrição do item. 
+UPA (CCF 4736)
+
+
+Help:
+ 
+Arquivos/ Produtos/ aba Dados Adicionais
+
+
+Campo "Tipo de Item no Livro Eletrônico" nos cadastros de Produtos e Classificação de Produtos
+
+
+Nos cadastros de Produtos e Classificação de Produtos foi adicionado o campo "Tipo de Item no Livro Eletrônico".
+ 
+EPQ (CCF 5485)
+
+
+Help:
+ 
+Arquivos/ Produtos/ aba Dados Adicionais
+
+
+Exibição de valores não-monetários por extenso no Gerenciador de Relatórios
+
+
+Nova função "ExtensoNaoMonetario" mostra um valor não monetário por extenso.
+ 
+EPQ (CCF 5490)
+
+
+Help:
+ 
+4. Processos/ Gerenciador de Relatórios/ Funções Futura/ Extenso Não Monetário
+
+
+
+
+Estoques
+
+
+
+
+Consulta Movimento de Estoque Físico
+
+Foram removidas dessa consulta todas as movimentações que foram canceladas facilitando a consulta das movimentações que realmente foram efetivadas. 
+UPA (CCF 5337)
+
+
+Casas decimais nas quantidades do custo
+
+Nas telas de Consulta de Fechamento de Estoque e Fechamento de Custo, as quantidades listadas referentes a custos, estão sendo apresentada sem formatação, exibindo assim seu real valor sem arredondamentos. 
+UPA (CCF 5313)
+
+
+Inversão na Tela de Descarga
+
+
+A tela de descarga a partir desta versão está com seus valores para cálculo invertidos, onde antes era feito Qtde OC - Qtde Real, agora esta calculando Qtde Real - Qtde OC, evitando com isso valores negativos nas diferenças apuradas. UPA (CCF 2915)
+
+
+Help:
+ 
+4. Processos/ Controles de Base/ Roteiro de Entrada para Descarga na Base
+
+
+Informação de Temperatura de Produtos
+
+Quando o sistema estava configurado para não parar pela portaria, em algumas situações a saída não estava adquirindo a temperatura diretamente do tanque. Situação corrigida. 
+UPA (CCF 5361)
+
+
+Fechamento de Custos
+
+No fechamento do custos de produtos compostos, o custo que estava sendo utilizado era sempre do último produto utilizado e não apresentava a somatória de todos os produtos. A partir dessa versão o sistema soma o custo de todos os produtos e depois grava o custos real no produto composto. 
+UPA (CCF 5405)
+
+
+Tela de Consulta de Temperatura e Densidade dos Produtos
+
+A tela para consulta de temperatura e densidade dos produtos, caso o sistema estivesse configurado para pegar sempre a temperatura do tanque estava pegando indevidamente o temperatura via cadastro de produtos. Esse problema foi corrigido. 
+UPA (CCF 4292)
+
+
+Campo Observação na Impressão da Ordem de Carregamento
+
+
+Foi disponibilizado o campo Observação das Ordens de Carregamento no layout de impressão da OC. UPA (CCF 5531)
+
+
+
+
+Faturamento
+
+
+
+
+Atualização da cor do lacre
+
+
+Quando um faturista alterar a cor do lacre a ser utilizado, essa alteração já ficará visível a todos os outros faturista, sem a necessidade de entrar e sair do sistema.
+ 
+UPA (CCF 4122)
+
+
+Help:
+ 
+4. Processos/ Processos - Faturamento/ Alterar cor do lacre
+
+
+Parâmetro para Acesso a Tela de NFe
+
+
+Foi criado o parâmetro "Acesso a tela de Manutenção de NFe" nas configurações do usuário para que sejam informados quais os usuários que poderam acessar a tela de manutenção de NFe.
+
+
+Como padrão este parâmetro foi criado desabilitado e com isso nenhum usuário possui direito a acessar essa tela. Por favor, configurem os usuários com acesso a esta tela, para que possam trabalhar normalmente.
+ 
+UPA (CCF 5262)
+
+
+Help:
+ 
+4. Processos/ Processos - Faturamento/ Manutenção de Nota Fiscal
+
+
+Geração de XML para Distribuição de NFe
+
+A geração dos XML de Distribuição estava com problemas em seu cabeçalho em algumas situações, impedindo a abertura desses arquivos. Esse problema foi corrigido, inclusive para as notas já emitidas pelo sistema, sendo possível gerar a distribuição a qualquer momento dessas notas. 
+UPA (CCF 5366)
+
+
+Nova Série de Nota para DPMP
+
+
+Adicionada a Série de Nota para DPMP "1 e subséries".
+ 
+EPQ (CCF 5442)
+
+
+
+
+Vendas
+
+
+
+
+Inclusão de Pedido de Venda sem Liberação Financeira
+
+No SisPetro Remoto, se a opção de usuário "Não inclui pedido de venda sem liberação financeira" estivesse habilitada, mesmo que o usuário que está incluindo o pedido possa aprovar o financeiro, o pedido de venda não estava sendo incluído. Essa validação agora está sendo feita após todas as aprovações do pedido. 
+UPA (CCF 5064)
+
+
+Diferença no Custo Financeiro do SisPetro Normal e Remoto
+
+No SisPetro Remoto, o Pedido de Vendas, estava calculando o valor do custo financeiro mesmo se ele fosse zero (o que não acontece no SisPetro Normal) com isso, os pedidos com valores iguais poderão ser lançados diferentes entre Sispetro Normal e Remoto. 
+UPA (CCF 5388)
+
+
+
+
+Transportes
+
+
+
+
+Validação da Modalidade de Frete da Transportadora Selecionada
+
+
+Assim como já é feito no Pedido, Nota Fiscal e Ordem de Carregamento, estamos verificando a modalidade de frete nas telas de Alteração de Transportadora do Pedido, Alteração de Transportadora da Nota Fiscal, Alteração de Transportadora da Ordem de Carregamento. UPA (CCF 4680)
+
+
+Salvar posição dos Campos do Grid da tela de Manutenção de Fretes
+
+O sistema salva as posições do grid para o usuário. 
+EPQ (CCF 5447)
+
+
+Ativar/Inativar cadastros nas Tabelas Auxiliares de Transportes
+
+
+Os seguintes cadastros podem ser ativados/inativados: Eventos, Locais Eventos, Grupo de Despesas, SubGrupo de Despesas, Aplicação, Funcionários.
+
+Na janela de manutenção de Funcionários, ao visualizar os detalhes do registro selecionado e clicar em OK sem que o cadastro estivesse em edição, o sistema apresentava uma mensagem de erro. Este problema foi corrigido.
+
+Na janela de inclusão de Contas a Pagar, após incluir um Evento relacionado ao frota que pede Funcionário e confirmar a inclusão do título o sistema apresentava um erro indicando que o funcionário não foi informado. Este problema foi corrigido. 
+EPQ (CCF 5259)
+
+
+Help:
+ 
+3. Manutenção de Tabelas no Sistema / Transportes/ Frota
+
+
+
+
+Fiscal
+
+
+
+
+Sintegra - Placa do Treminhão
+
+
+Na geração do arquivo do Sintegra, no transporte, caso esteja usando o cavalo e treminhão, colocará a placa do treminhão no lugar da carreta não ficando mais essa informação em branco. UPA (CCF 3803)
+
+
+DPMP - Código de Operação de Agente não Regulado
+
+
+Conforme a nova regra da ANP precisamos informar um código de operação para agentes regulados e outro para os agentes não regulados.
+ Para que não seja necessário duplicar as naturezas de operação para termos uma natureza para agente regulado e outra natureza para agente não regulado essa informação (o código para não regulado pois a operação para agentes regulados já existia) foi criada na natureza de operação bastando somente a sua configuração. No momento da geração do DPMP, o sistema irá verificar se o cliente é ou não regulado e selecionar o código de operação compatível com o cliente.
+ 
+UPA (CCF 4304)
+
+
+Help:
+ 
+3. Manutenção de Tabelas no Sistema / Tabela Clientes/ Observações - CLiente/ DPMP - Clientes
+
+
+Sintegra - Dados do Contador
+
+
+Os dados do contador, a partir dessa versão, podem ser definidos por empresa. Os dados do contador existente no Sistema foram copiados para todas as empresas e sua configuração continua na aba Fiscal das configurações do Sistema. A finalidade dessa alteração foi para que no Sintegra, empresas que trabalhem com contadores diferentes por filial possam informar o nome correto do contador daquela filial. No Sintegra, os registros: 10, 88_05, 88_10_10, 88_10_20, 88_10_30 foram alterados para pegar a informação do contador por empresa. UPA (CCF 4876)
+
+
+Help:
+ 
+5. Ferramentas/ Configurações de Sistema/ Painel Fiscal
+
+
+Log de Alteração do SPED
+
+A partir dessa versão, somente será marcado como alteração (clientes e produtos) os dados que forem realmente alterados. Na versão passada, se o usuário alterasse o endereço, mas não o nome de um cliente, o nome também era passado como alteração. Os campos que hoje não estão preenchidos, caso sejam, também não precisam ser marcados para envio. 
+UPA (CCF 5462)
+
+
+Help:
+ 
+6. Dicas/ 6.5. Fiscal/ SPED - Roteiro para utilização no Sispetro/ 5. SPED Fiscal/ Log de Alteração do SPED
+
+
+Geração do Livro Fiscal em Duas Empresas
+
+As fórmulas antigas do livro fiscal que geravam livros em duas empresas e que foram alteradas para gerar em somente uma, estavam apresentando problemas devido a geração de códigos para duas filiais. Esse problema foi detectado e corrigido. 
+UPA (CCF 5353)
+
+
+SPED Fiscal
+
+
+Feitos diversos ajustes no SPED-Fiscal devido divulgação dos Atos Cotepe nº 
+19/2008
+, 
+30/2008
+ e 
+45/2008
+, que estipulavam diversas alterações como acréscimos de registros, mudanças de campos, etc. Além disso foram feitas modificações conforme solicitações coletadas dos diversos usuários. 
+ATENÇÃO: As fórmulas alteradas serão divulgadas num script separado permitindo que a empresa possa escolher se utilizará as fórmulas da Futura, sobrescrevendo suas fórmulas. Recomendamos a utilização deste novo script, que deverá ser solicitado ao Suporte da Futura (suporte@futuranet.com.br) devido o grande número de mudanças. 
+DPM e GFP (CCFs 5030, 5111, 5234, 5280, 5304, 5305, 5306, 5326, 5404)
+
+
+
+
+Financeiro
+
+
+
+
+Barra de Rolagem na Tela de Relatório do Financeiro
+
+Em alguns computadores, devido a configuração de tela do Windows XP/Vista, a tela do Relatório de Contas a Receber aparecia com barra de rolagem lateral. Essa tela foi alterada para que isso não mais aconteça. 
+UPA (CCF 5324)
+
+
+Cobrança da Nossa Caixa Nosso Banco
+
+No arquivo de retorno da Nossa Caixa Nosso Banco, caso o banco retorne alguma rejeição, dependendo da posição da rejeição, o campo que recebe esta informação estava tento seu limite estourado. Essa informação foi divida em partes evitando assim esse tipo de problema. 
+UPA (CCF 4544)
+
+
+Transferência de Adiantamento
+
+Nas transferência de adiantamento (transferência normal, transferência em lote e transferência entre empresas) a informação de Retira/Entrega do adiantamento original não estava sendo repassada para o adiantamento de destino. Processo corrigido. 
+UPA (CCF 5450)
+
+
+Bloqueado Vendor para Contas a Pagar
+
+O sistema permitia que um título do contas a pagar fosse mantido como Vendor, caso o Tipo de Cobrança do título permitisse Vendor. Situação corrigida. 
+EPQ (CCF 5491)
+
+
+Inclusão de Contas a Pagar com Centro de Custo Desvinculado
+
+Na inclusão de contas a pagar com centro de custo desvinculado, caso fosse informado um numero ímpar de centros de custos para rateio e o valor do título fosse baixo, o lote contábil gerado estava com um diferença de centavos devido arredondamento e por isso ele não era contabilizado e o título não estava sendo gravado. 
+UPA (CCF 5526)
+
+
+Relatório de Cheques - Ordenação por Banco
+
+Em casos onde o Código da Conta de Banco possuía caracteres maiúsculos e minúsculas a ordenação por Conta de Banco fazia várias quebras indevidas, o que foi corrigido. 
+ Necessário atualizar o arquivo Cheques.rtm no caminho do executável (ou caminhos auxiliares).
+ 
+UPA (CCF 3958)
+
+
+Arredondamento no Vendor
+
+Na tela de Efetivação de Vendor, não era permitido digitar uma taxa de juros com mais de três decimais. Este problema foi corrigido.
+
+Na tela de Manutenção de Vendor, o sistema apresentava um Valor de Juros diferente do mostrado na tela de Efetivação, devido a problemas de arredondamento. Este problema foi corrigido. 
+EPQ (CCF 3945)
+

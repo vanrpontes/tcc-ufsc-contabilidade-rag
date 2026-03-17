@@ -1,0 +1,76 @@
+TITULO: Alteração DANFE - Versão 8.8
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919335221
+--------------------------------------------------
+Histórico
+Recentemente foram disponibilizadas as informações de Entrada de Contingência no DANFE e DACTE, porém após esta atualização f
+oi identificado um erro na impressão do DANFE. E também as mensagens no rodapé do DANFE não estavam sendo apresentadas corretamente quando o DANFE era impresso em modo de contingência e cancelado.
+Objetivo
+ 
+Corrigir o problema quando tentamos visualizar uma impressão do DANFE no Sispetro Remoto e apresentar corretamente as mensagens no rodapé do DANFE quando este foi impresso em modo de contingência e cancelado. 
+Solução
+1.
+ Acessar o layout do Danfe:
+Menu Ferramentas/ Sistema/ aba Nota Fiscal
+Localizar no quadro de NF-Eletrônica o campo 
+Caminho de arquivo de layout do Danfe
+Clicar no botão
+ Edita Layout do Danfe
+LEMBRAR DE TER UM BACKUP DO ARQUIVO .RTM
+2.
+ Na tela de Edição do layout do Danfe
+ 
+ Ir em 
+cálculo/ header/ before print.
+3.
+ No quadro abaixo, copiar o seguinte código
+procedure HeaderBeforePrint;
+var
+ strCancelada: String;
+begin
+barNFeAdic.Data := NFESituacao['CodBarraAdicNFe'];
+strCancelada := '';
+LblMsgContingencia.Visible := ( NFESituacao['Offline'] = 1 );
+if NF['Cancelada'] = 1 then begin
+ strCancelada := '* * * C A N C E L A D O * * * ';
+ end;
+Case NFESituacao['DANFEImpressaoCodBarras'] of
+ 0 : begin
+ Label50.Visible := True;
+ barNFeAdic.Visible := True;
+ mmEndPortal.Visible := False;
+ lblMsgContingencia.Visible := True;
+ lblMsgContingencia.Caption := strCancelada + 'DANFE em Contingência. Impresso em decorrência de problemas técnicos.';
+ LblCaptionProtocolo.Caption := 'DADOS DA NF-E';
+ LblProtocolo.Caption := Trim(NFESituacao['CodBarraAdicNFEFormatado']);
+ end;
+ 1 : begin
+ Label50.Visible := False;
+ barNFeAdic.Visible := False;
+ mmEndPortal.Visible := True;
+ lblMsgContingencia.Visible := NF['Cancelada'] = 1;
+ lblMsgContingencia.Caption := strCancelada;
+ LblCaptionProtocolo.Caption := 'PROTOCOLO DE AUTORIZAÇÃO DE USO';
+ LblProtocolo.Caption := NFESituacao['NumeroProtocolo'] + ' ' +
+ DateTimeToStr(NFESituacao['DataProcessamentoProtocolo']);
+ end;
+ 2 : begin
+ Label50.Visible := False;
+ barNFeAdic.Visible := False;
+ mmEndPortal.Visible := True;
+ lblMsgContingencia.Visible := True;
+ lblMsgContingencia.Caption := strCancelada + 'DANFE impresso em contingência - DPEC regularmente recebida pela Receita Federal do Brasil.';
+ LblCaptionProtocolo.Caption := 'NÚMERO DE REGISTRO DPEC';
+ LblProtocolo.Caption := NFESituacao['codigoDPEC'] + ' ' +
+ DateTimeToStr(NFESituacao['DataProcessamentoDPEC']);
+ end;
+ end;
+if NF['ES'] = 'E' then begin
+ Label48.Caption := '0';
+ end else begin
+ Label48.Caption := '1';
+ end;
+end;
+Feito isso, clicar com o botão direito do mouse, e ir em compilar (para garantir que não há nenhum erro no relatório)
+ 
+Verificar se já há algum código de programação para outros fins. Se houver, decidir o que se fazer ou entrar em contato com o Suporte.
+Caso haja algum erro, na hora da compilação entrar em contato com o Suporte.

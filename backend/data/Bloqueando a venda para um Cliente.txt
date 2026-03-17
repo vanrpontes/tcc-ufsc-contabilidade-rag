@@ -1,0 +1,148 @@
+TITULO: Bloqueando a venda para um Cliente
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440134
+--------------------------------------------------
+O Sistema permite bloquear as vendas para um determinado cliente. Mesmo bloqueado, o cliente continua constando da lista de clientes cadastrados e da lista de clientes compradores (tela de pedido de venda), porém, não será possível emitir um pedido de venda para ele. 
+
+
+Existem duas maneiras de bloquear um cliente, manual e automaticamente. Para mais detalhes de como realizar um bloqueio automático, veja o tópico 
+Bloqueio Automático de Clientes.
+
+
+Neste tópico abordaremos 4 pontos:
+
+
+
+
+Bloqueando um cliente manualmente;
+
+
+Desbloqueando um cliente;
+
+
+Visualizando o histórico de bloqueios;
+
+
+Cadastrando um tipo de bloqueio manual.
+
+
+
+
+Para bloquear as vendas de um cliente manualmente, deve-se acessar a tela de manutenção de clientes, Menu 
+Principal, Arquivos / Clientes
+. 
+
+
+
+
+O Sistema exibe a tela com a lista dos Clientes cadastrados, selecione o Cliente que será bloqueado, clique no painel Detalhes, localizado na parte superior da tela. O Sistema irá exibir a tela com os dados gerais do Cliente. 
+
+
+Clique no painel Padrão p/ Vendas localizado na parte inferior da tela. 
+
+Localize o painel 
+Bloqueio Cliente
+. 
+
+
+
+
+Note que o perfil 
+Vendas bloqueadas
+ não permite que seja marcado ou desmarcado (a partir da versão 7.3), esse perfil será marcado automáticamente a partir do momento que for incluído um motivo de bloqueio manual. Através do botão 
+Ver Bloqueios
+ será aberta a tela 
+Bloqueios do Cliente
+.
+
+
+
+
+Bloqueando um Cliente
+
+
+Abaixo a tela Bloqueios do Cliente:
+
+
+
+
+Utilize o botão 
+Bloqueia
+ que abrirá um novo painel onde será colocado o código do tipo de bloqueio manual cadastrado (veremos mais abaixo como cadastrá-lo). É possível que seja incluído mais de um motivo para o mesmo cliente.
+
+
+
+
+Insira o código do Tipo de Bloqueio e pressione OK.
+
+
+Os bloqueios serão exibidos na tela, para inserir outros motivos de bloqueio, repita os passos anteriores.
+
+
+Ao fazer um pedido de vendas, para um cliente que esteja com suas vendas bloqueadas, o sistema exibe a seguinte mensagem, impedindo que o pedido de vendas seja finalizado: 
+
+
+
+
+Mais informações sobre pedido de vendas e cadastro de clientes, nos tópicos 
+Como fazer um Pedido de Venda
+ e 
+Tabela Clientes
+. 
+
+
+Desbloqueando um Cliente
+
+
+Abaixo, exemplo de um cliente onde existem dois bloqueios manuais:
+
+
+
+
+Na tela acima, selecione o tipo de bloqueio desejado e utilize o botão 
+Desbloqueia
+, será exibido uma mensagem de confirmação, após confirmá-la o processo estará concluído.
+
+
+Nessa tela, além dos bloqueios manuais, também serão listados todos os bloqueios gerados de forma automática, e pelo mesmo processo será possível desbloqueá-los.
+
+
+Histórico de bloqueios
+
+
+Para um melhor controle e gerenciamento dos clientes, é possível analisar um histórico de todos os bloqueios já realizados para determinado cliente.
+
+
+Essa funcionalidade e o período de consulta do histórico, somente estarão disponíveis a partir da data de instalação ou atualização do sistema para a versão 7.3, clientes bloqueados anteriormente não serão exibidos no histórico.
+
+
+Para visualizar o histórico, acesse a tela 
+Bloqueios do Cliente
+ conforme já orientado anteriormente e no lado direito da tela selecione a aba vertical 
+Histórico de Bloqueios
+, conforme figura abaixo:
+
+
+
+
+Selecione um período de consulta desejada e clique em 
+atualizar
+.
+
+
+Cadastrando um Tipo de Bloqueio Manual
+
+
+Acesse o menu 
+Ferramentas / Cadastro Clientes / Tipos de Bloqueio de Clientes
+, será exibida a tela abaixo:
+
+
+
+
+Note que os registros de número 1 até 11 estarão em 
+itálico
+. Isso significa que são tipos de bloqueios automáticos, não sendo possível removê-los nem alterá-los, já são pré-cadastrados no sistema.
+
+
+Para incluir um novo Tipo de Bloqueio Manual, utilize o botão adicionar 
+ preencha a descrição e pressione OK.

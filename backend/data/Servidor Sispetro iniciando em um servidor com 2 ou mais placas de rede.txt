@@ -1,0 +1,48 @@
+TITULO: Servidor Sispetro iniciando em um servidor com 2 ou mais placas de rede
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926196552
+--------------------------------------------------
+A alteração abaixo NÃO PODE ser realizada sem que o departamento responsável seja consultado, pois isso pode afetar serviços e/ou aplicações que dependam de resoluções DNS e outras situações. É uma alteração que pode ser revertida sem maiores problemas para o sistema operacional mas deve levar em consideração particularidades de cada empresa.
+ 
+É comum máquinas servidoras utilizarem 2 ou mais placas de rede.
+Na maioria dos casos, os endereços IP pertencem ao mesmo range.
+Porém, pode acontecer de ter 2 ou mais placas de redes com ranges de IP diferente (redes distintas).
+Durante o boot, o sistema operacional carrega as placas de rede em uma determinada ordem - BIND ORDER.
+ 
+Bind Order
+ é a ordem que o Sistema Operacional carrega as placas de rede durante o Boot. Dependendo de como tiver configurado poderá impactar no tempo que um servidor demora para inicializar, aplicar as políticas de grupo, resolução DNS, etc. 
+ 
+E isso pode afetar a execução do Servidor Sispetro (somente ao iniciar).
+Servidor Sispetro
+Máquina com 2 placas de rede com IPs diferentes: Conexão Local com IP 192.168.0.21 e Conexão Local 2 com IP 10.1.1.50
+Conexão Local
+Conexão Local 2
+Sistema Operacional Windows Server 2008 ou 2012
+Servidor Sispetro definido para usar a Conexão Local com IP 192.168.0.21
+No boot do sistema operacional, está definida como placa de rede principal a Conexão Local 2
+Ao iniciar o Servidor Sispetro apresenta o erro de BIND:
+Servidor Sispetro definido para subir utilizando a Conexão Local
+O sistema operacional carrega como placa principal a Conexão Local 2
+Como o Servidor Sispetro faz a verificação da placa carregada como principal pelo sistema operacional mas está definido para subir em outra placa, gera erro de BIND.
+Resolvendo o problema
+A solução é colocar a placa onde sobe o Servidor Sispetro como placa principal (isso não é somente para o Servidor Sispetro - ver 
+Bind Order
+): os testes abaixo foram feitos em um servidor Windows 2008.
+1 - Acessar a Central de Redes e Compartilhamentos e clique em Alterar as configurações do adaptador
+2 - Pressione a tecla ALT e solte:
+3 - Abrirá o menu conforme abaixo:
+4 - No menu que abre selecione Avançado e Configurações Avançadas:
+5 - Na tela que abre mostra todas as placas instaladas em Conexões e a ordem delas para o Bind:
+A primeira placa na lista é a placa principal definida pelo Sistema Operacional
+6 - Mudando o 
+Bind Order
+ - selecione a placa e clique nos botões laterais para mudar a ordem
+Assim, para o sistema operacional (ver 
+Bind Order
+) a primeira placa da lista será utilizada para diversos serviços.
+No exemplo acima, o Servidor Sispetro está configurado para subir na Conexão Local e o sistema operacional está definido como placa principal a Conexão Local 2 e com isso gera erro. Alterando o 
+Bind Order
+ e colocando como placa principal a Conexão Local, o Servidor Sispetro é iniciado sem problemas.
+ 
+Fonte: 
+https://engdanielsantos.wordpress.com/2014/02/04/como-alterar-o-bind-order-de-rede-ordem-das-placas-de-rede-no-windows-server-2008-e-2012/
+ 

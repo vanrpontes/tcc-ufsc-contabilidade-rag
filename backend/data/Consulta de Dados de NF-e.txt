@@ -1,0 +1,56 @@
+TITULO: Consulta de Dados de NF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899399
+--------------------------------------------------
+Na tela de 
+Manutenção de NF´s
+, painel 
+Fiscal
+, sub painel 
+NF-e
+ é possível consultar informações da NF-e de cada nota.
+Nesta tela serão apresentadas toda a comunicação enviada e recebida do processamento da nota fiscal eletrônica.
+ Os campos apresentados na Grid são:
+ID: Identificação do documento
+Comando:
+ indica os tipos de comandos (serviços) que foram solicitadas ou não, como recibo, protocolo, cancelamento ou inutilização.
+Status:
+ indica a situação do comando, que podem ser: não solicitado, em processamento, autorizado ou erro.
+Status Resposta:
+ é o código de status de resposta retornada após processar o serviço solicitado. Estes status estão cadastrados no Sispetro, ver em 
+Tabela Status NF-e
+.
+Descrição Status Resposta:
+ é a descrição do status de resposta.
+Data Processamento:
+ data que foi processada e retornada do comando solicitado.
+Número do Recibo:
+ ao enviar a(s) nota(s) fiscal(is), é retornado o número de recibo desta(s) notas(s).
+Número do Protocolo:
+ indica que a nota fiscal foi registrada com este número de protocolo. Este número pode ser o número de protocolo ou número de protocolo de cancelamento, ou número de protocolo de inutilização.
+DPEC - Declaração Prévia de Emissão em Contingência, 
+é um processo de contingência eletrônico alternativo ao uso do formulário de segurança
+.
+EPEC - Evento Prévio de Emissão em Contingência, 
+é apenas um Evento da NF-e para ser utilizado como contingência
+, não é uma NF-e de fato.
+Numero Protocolo Ent. Contingencia - Será apresentado o número do protocolo quando estiver em contingência
+Cod Sefaz - Código apresentado pela SEFAZ
+Mensagem Sefaz - Retorno ao qual a SEFAZ apresenta uma mensagem sobre o documento
+Ambiente:
+ indica em que ambiente a nota fiscal foi gerada, podendo ser Homologação, Produção ou Contingência.
+O botão 
+"Edita Prot. Inutiliz."
+ permite que o usuário informe o número de protocolo de inutilização manualmente. Ver detalhes em 
+Editando Protocolo de Inutilização
+.
+O botão 
+"Limpa Recibo"
+ foi retirado da tela, pois o processo será feito automaticamente. Vide tópico 
+Limpar Recibo da NF-e
+.
+Ao clicar nos botões 
+"XML Enviado"
+ e 
+"XML Retorno"
+, será apresentada uma tela com o arquivo XML que foi enviada / recebida:
+Poderá salvar o XML clicando no botão "Salvar".

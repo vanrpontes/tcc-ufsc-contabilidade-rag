@@ -1,0 +1,379 @@
+TITULO: Hierarquia de Centros de Custos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892890844
+--------------------------------------------------
+Com a funcionalidade de Centros de Custos aperfeiçoada, vamos entender como irá funcionar a hierarquia a partir da versão 7.6:
+
+
+Vamos utilizar como exemplo a hierarquia do Plano de Contas:
+
+
+Atualmente a identificação do número de níveis de contas depende da máscara do plano de contas. Assim, na máscara normalmente utilizada: 9.9.9.99.99999, teremos 5 níveis, então consequentemente teremos 4 campos como Conta Nível 1 até 4 e o último nível, que é a conta analítica, é a própria conta onde foi feito o lançamento.
+
+
+Vejamos um exemplo de Plano de Contas:
+
+
+
+
+
+
+Máscara Ordenação
+
+
+Descrição Plano de Contas
+
+
+Sintético?
+
+
+
+
+
+
+1.0.0.00.00000
+
+
+ATIVO
+
+
+Sim
+
+
+
+
+
+
+1.1.0.00.00000
+
+
+ATIVO CIRCULANTE
+
+
+Sim
+
+
+
+
+
+
+1.1.1.00.00000
+
+
+DISPONÍVEL
+
+
+Sim
+
+
+
+
+
+
+1.1.1.02.00000
+
+
+BANCOS C/ MOVIMENTO
+
+
+Sim
+
+
+
+
+
+
+1.1.1.02.00001
+
+
+BANCO ITAÚ
+
+
+Não
+
+
+
+
+
+
+1.1.1.02.00002
+
+
+BANCO BRADESCO
+
+
+Não
+
+
+
+
+
+
+
+
+Teríamos para movimentações no Banco Itaú:
+
+
+
+
+
+Nível
+
+
+Máscara de Ordenação
+
+
+Descrição
+
+
+
+
+
+
+Nível 1
+
+
+1.0.0.00.00000
+
+
+ ATIVO
+
+
+
+
+
+
+Nível 2
+
+
+1.1.0.00.00000
+
+
+ATIVO CIRCULANTE
+
+
+
+
+
+
+Nível 3
+
+
+1.1.1.00.00000
+
+
+DISPONIVEL
+
+
+
+
+
+
+Nível 4
+
+
+1.1.1.02.00000
+
+
+BANCOS C/MOVIMENTO
+
+
+
+
+
+
+-
+
+
+1.1.1.02.00001
+
+
+ BANCO ITAÚ
+
+
+
+
+
+
+
+
+
+
+ou
+
+
+
+
+Para movimentações no Banco Bradesco
+
+
+
+
+
+Nível
+
+
+Máscara de Ordenação
+
+
+Descrição
+
+
+
+
+
+
+Nível 1
+
+
+1.0.0.00.00000
+
+
+ ATIVO
+
+
+
+
+
+
+Nível 2
+
+
+1.1.0.00.00000
+
+
+ATIVO CIRCULANTE
+
+
+
+
+
+
+Nível 3
+
+
+1.1.1.00.00000
+
+
+DISPONIVEL
+
+
+
+
+
+
+Nível 4
+
+
+1.1.1.02.00000
+
+
+BANCOS C/MOVIMENTO
+
+
+
+
+
+
+-
+
+
+1.1.1.02.00002
+
+
+ BANCO BRADESCO
+
+
+
+
+
+
+
+
+
+
+
+
+Para o Centro de Custos será a mesma coisa, vejamos:
+
+
+
+
+
+
+Código Centro Custo
+
+
+Descrição
+
+
+Máscara Ordenação
+
+
+Sintético?
+
+
+
+
+
+
+1
+
+
+Matriz
+
+
+1.0.000
+
+
+Sim
+
+
+
+
+
+
+4
+
+
+Departamento Técnico
+
+
+1.1.000
+
+
+Sim
+
+
+
+
+
+
+3
+
+
+Rede
+
+
+1.1.001
+
+
+Não
+
+
+
+
+
+
+2
+
+
+Suporte a Sistema
+
+
+1.1.002
+
+
+Não
+
+
+

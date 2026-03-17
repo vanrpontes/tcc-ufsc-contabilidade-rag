@@ -1,0 +1,94 @@
+TITULO: Mapeamento de Contas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899097
+--------------------------------------------------
+O mapeamento de contas pode ser feito pela manutenção do 
+Plano de Contas
+. Ele é útil para definir quais contas do Plano de Contas que devemos fazer o orçamento ou 
+. Podemos dar vários exemplos de cenários onde o mapeamento pode ser útil:
+
+
+
+
+A empresa tem conta de custo de produtos separada por produto, porém ao fazer o orçamento não interessa informar um valor para cada conta de custos, mas sim para uma conta de custos geral.
+
+
+ 
+Ação:
+
+1. Tenha uma conta de Custos Geral.
+
+2. Mapeie as contas de custos por produto para esta conta geral.
+
+3. Informe na edição da previsão orçamentária um valor somente para a conta geral. As demais não precisam ter valor.
+
+
+ 
+Resultado:
+ 
+
+Ao 
+consolidar o realizado
+ e consultar a 
+comparação entre previsto e realizado
+, todos os valores de custos de produtos serão transferidos para a conta geral.
+
+
+
+
+
+
+A empresa quer trabalhar com a fonte "Recebimento" para Receitas por desejar utilizar o regime de caixa.
+
+Neste caso ao configurar este tipo de fonte não se deseja os lançamentos feitos na conta de Receitas no momento do Faturamento, mas sim na Baixa. Porém, na Baixa o lançamento contábil é entre a conta do cliente e o banco, o que não seria apresentado no lançamento (por não envolver conta de receita).
+
+
+ 
+Ação:
+
+1. Tenha uma conta de Receita de Vendas Geral.
+
+2. Configure o mapeamento das contas de clientes para esta conta de receita.
+
+3. Configure a fonte de Receitas para Recebimento.
+
+4. Informe na edição da previsão orçamentária um valor somente para a conta geral. As demais contas de receita não precisam ter valor.
+
+
+ 
+Resultado:
+
+Ao 
+consolidar o realizado
+ e consultar a 
+comparação entre previsto e realizado
+, todos os valores de baixas do Contas a Receber serão transferidos para a conta geral e conforme a data do pagamento efetuado pelo cliente e não pela data do faturamento.
+
+
+
+
+
+
+A empresa quer que compra de ativo permanente seja apresentada na comparação do previsto com o realizado, mas não trabalha com a Contabilização devida, inclusive não trabalhando com Depreciação.
+
+
+ 
+Ação:
+
+1. Tenha uma conta de Compra de Ativo Permanente do tipo Despesa.
+
+2. Mapeie as contas de Ativo referentes a Ativo Permanente para esta nova conta.
+
+3. Informe na edição da previsão orçamentária um valor para esta conta, pois ela será apresentada por ser do tipo 
+Despesa
+.
+
+
+ 
+Resultado:
+
+Ao 
+consolidar o realizado
+ e consultar a 
+comparação entre previsto e realizado
+, todos os valores lançados nas contas de ativo Permanente serão transferidos para a conta criada.
+

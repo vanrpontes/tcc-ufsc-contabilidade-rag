@@ -1,0 +1,106 @@
+TITULO: Crítica
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898593
+--------------------------------------------------
+O painel de críticas é útil para se antecipar as críticas que seriam apresentadas pelo SIMP (Sistema de Informações de Movimentação de Produtos), disponibilizado pela ANP. Toda vez que utilizar o botão Gera DPMP, será questionado se quer fazer a crítica na sequência. Se responder 
+NÃO
+ é possível acionar a crítica manualmente por este painel:
+Clique no botão 
+Verifica Inconsistências
+ para que sejam verificadas as inconsistências no DPMP corrente. Caso possua inconsistências elas serão mostradas abaixo, com a descrição e principalmente a ação a ser tomada. Através do produto e do Sequencial DPMP é possível localizar este registro no painel de 
+Visualização
+ e providenciar a ação.
+Para imprimir o conteúdo deste painel, utilize o botão: 
+Descrição das críticas cadastradas:
+Código ARI (Agente Regulado Informante) não informado para a Empresa
+ 
+Ação
+: Informe o Código ARI na configuração da empresa
+ Esta é a informação principal sobre a empresa, juntamente com o código de Instalação e foi explicado no tópico 
+Configurações Iniciais
+.
+Campo "Código Instalação 1" não informado
+ 
+Ação
+: Informe o Código de Instalação na configuração da empresa
+ Esta é a informação principal sobre a empresa, juntamente com o ARI e foi explicado no tópico 
+Configurações Iniciais
+.
+A Chave de Acesso <número da chave de acesso> foi encontrada em mais de uma nota fiscal e isso não é aceito pelo validador
+Ação
+:
+ Verifique qual das notas é a incorreta e a exclua ou a retire do DPMP
+A duplicidade de chave de acesso ocorre na inclusão de notas fiscais, quando a mesma chave é informada para mais de uma nota. Para evitar que isso ocorra, configure em Menu Ferramentas > Sistema > aba NF-e/CT-e > quadro NF-e MARQUE a opção VALIDA CHAVE DE ACESSO INFORMADA EM NFs DE TERCEIROS.
+Campo "Cód. Municipio Terceiro" não informado
+ 
+Ação
+: Informe o Código DPMP do Município no cadastro da entidade
+ Quando o Cliente ou Fornecedor não tem um código de instalação registrado na ANP é necessário que se preencha os campos: Identificação de Terceiro (CNPJ), CNAE e Município. Neste caso, a localidade do cliente ou fornecedor deste registro não foi informada ou para ela não está cadastrado um código ANP. O primeiro passo é verificar no cadastro do 
+Cliente
+ ou 
+Fornecedor
+ a Localidade. O segundo passo, caso essa localidade não tenha código DPMP, é cadastrar o código na tabela 
+Cidades
+.
+Campo "CNAE Terceiro" não informado
+ 
+Ação
+: Informe o CNAE no cadastro da entidade, ou o Código Instalação se tiver.
+ Segue a mesma regra do item anterior: Cadastrar o código de Instalação ou o CNAE no cadastro do 
+Fornecedor
+ ou 
+Cliente
+ deste registro.
+Campo "Série NF" não informado
+ 
+Ação
+: Informe a Série da Nota na manutenção da natureza de operação.
+ A série é configurada a partir da 
+Natureza de Operação
+.
+Campo "Data NF" não informado
+ 
+Ação
+: Informe a Data da Nota Fiscal
+ Provavelmente este erro é de um registro manual, já que Notas Fiscais sempre possuem data e isso já é verificado no momento da inclusão da Nota Fiscal. Cabe lembrar que registros totalizadores ou referentes a produto composto também devem ter datas.
+Campo "Código Método" não informado
+ 
+Ação
+: Informe o Método de Aferição da Característica no cadastro de produtos
+ Se num registro for informado um código de Característica, então deve ser informado o método e o valor. A unidade de medida é opcional.
+Campo "Valor da Característica" não informado
+ 
+Ação
+: Informe o Valor da Característica no cadastro de produtos
+ Se num registro for informado um código de Característica, então deve ser informado o método e o valor. A unidade de medida é opcional. O valor da característica pode ter até 5 casas decimais.
+Campo "Qtde" não pode ser negativo
+ 
+Ação
+: Analise a operação para descobrir o motivo e corrija o problema
+ Este é um dos problemas com causas mais variadas e a primeira análise é verificar qual a operação. Com base na operação teríamos algumas possibilidades:
+ 
+Estoque Inicial Próprio
+: Se a quantidade está negativa é porque no mês anterior o estoque final foi negativo. Acerte o estoque final do mês anterior e gere novamente o DPMP deste mês, pois o estoque final corrigido será transferido corretamente para o estoque inicial.
+ 
+Estoque Final Próprio
+: Para chegar nesta quantidade é feito o cálculo-> Estoque Inicial + Entradas - Saídas. Assim, a quantidade de saídas deve estar maior que o estoque Inicial somado às entradas. Verifique os registros referentes às operações de entrada e saída para localizar alguma quantidade discrepante. Pode ser também que alguma nota deveria constar no DPMP, mas não está constando. Neste caso, devem ser verificadas as 
+naturezas
+ de operação que não tenham código de Operação do DPMP e as notas do mês que utilizaram esta natureza. Não tem como só uma nota da Natureza participar do DPMP e outras não. Assim, restam duas opções: Atualizar a natureza de operação e depois excluir as notas que não te interessam ou não atualizar a natureza e incluir a nota desejada manualmente.
+ 
+Remessa/Retorno para a Unidade Interna do Informante
+: Estas quantidades dependem das saídas e entradas do produto composto, pois para chegar nela é subtraído das saídas as entradas. Assim, se o produto composto (como Gasolina C) tiver a quantidade de entradas maior que a de saídas, estas operações ficarão com quantidade negativa. Para produto composto a ANP não permite essa situação.
+ 
+Outras operações
+: Verifique a quantidade da Nota Fiscal pelo painel 
+, a proporção do Produto ou se esta quantidade foi informada manualmente.
+Campo "QtdeKg" não pode ser negativo
+ Idem a Qtde.
+Campo "Massa Específica" não informada
+ 
+Ação
+: Informe a Massa Específica
+ Quando a quantidade for igual a quantidade em quilos ou não se souber a massa específica esta então deverá ser igual a 1, mas não pode ser igual a 0 (zero). Verifique temperatura, densidade no painel 
+ e na tela de 
+.
+Cabe lembrar que as ações aqui sugeridas referem-se principalmente aos registros vindos de NF, caso sejam registros manuais, basta ir no campo criticado e preencher a informação.
+A 
+, é um recurso que pode ser usado, caso se tenha a necessidade de alterar algum campo da nota fiscal.

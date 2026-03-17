@@ -1,0 +1,104 @@
+TITULO: Vinculando Nota Fiscal e Ordem de Carregamento pela Manutenção de Ordem de Carregamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440402
+--------------------------------------------------
+Pela manutenção de Ordem de Carregamento (menu 
+Movimentação / Faturamento / Manutenção Ordem Carregamento
+), através do painel "Faturamento", o usuário consegue visualizar o vínculo entre a ordem de carregamento e a Nota fiscal.
+
+
+
+
+O usuário pode alterar o vínculo já existente desde que esse vínculo não tenho sido feito por um processo automático do sistema. Por exemplo, um vínculo gerado por uma nota fiscal de vendas ou recebimento de nota através de ordem de carregamento.
+
+
+A inclusão de um vínculo não será possível, caso a ordem não esteja vinculada. Para incluir um vínculo a uma ordem de carregamento o usuário deverá fazê-lo pela manutenção de nota fiscal, porém, a alteração para Ordens que já possuam um vínculo MANUAL, será possível através do botão 
+"Altera Vínculo"
+.
+
+
+Mais informações no tópico 
+.
+
+
+O sistema abrirá a tela de "Vinculo NF/OC":
+
+
+
+
+No exemplo acima é exibido no grid "Vínculo NF/OC", o vínculo da ordem de carregamento que foi selecionada pelo usuário, mostrando as informações referentes a esse vínculo. Lembrando que não é possível incluir um vínculo por essa tela quando a ordem de carregamento não possuir nenhum vínculo, portanto, esse vínculo foi feito pela manutenção de nota fiscal.
+
+
+Para alterar esse vínculo o usuário deve utilizar o botão "Altera Vínculo", marcando o registro que se queira alterar, já que uma ordem de carregamento pode estar vinculada a mais de uma nota fiscal.
+
+
+
+
+O sistema abrirá a tela de "Vinculo NF/OC".
+
+
+
+
+Deve-se notar que ao entrar nessa tela, o sistema mostrará no grid "Itens de OC vínculada", todos os vínculos que a nota fiscal possui, portanto, pode haver mais de uma ordem vinculada.
+
+
+Na parte superior da tela, o sistema exibirá as informações referentes a nota fiscal.
+
+
+
+
+Pode-se selecionar Ordens de Outra empresa ou mesmo de um produto especifico, utilizando os filtros específicos "Filtra Empresa" ou "Produto específico".
+
+
+
+
+Após selecionar o período desejado, se realmente isso for necessário, para atualizar as informações, o usuário deve clicar no botão 
+"Atualiza"
+, assim, o sistema atualizará o grid "Itens da OC a serem Vinculados", na parte inferior da tela, do lado direito, mostrando outras ordens de 
+carregamento
+ que estão disponíveis para serem vinculadas, isso se a nota fiscal selecionada for de saída, caso contrário serão apresentadas as ordens de 
+descarga
+.
+
+
+
+
+Lembrando que serão apresentadas todas as Ordens que não tenham vínculo com alguma nota fiscal ou não seja a última, caso esteja vinculada.
+
+
+Para vincular, o usuário deverá utilizar o botão 
+"Vincula Item"
+:
+
+
+
+
+Ao utilizar esse botão, o item selecionado no grid "Itens da OC a serem Vinculados", será adicionado ao grid "Itens de Oc Vinculado"
+
+
+
+
+Para remover o item do painel "Itens de Oc Vinculado", o usuário deve utilizar o botão "Remove o vínculo":
+
+
+
+
+Ao fazer o vínculo, ou seja, selecionar a OC e transferir essa OC para o painel "Itens de OC vinculado", o sistema automaticamente marca essa OC como 
+"FINAL"
+.
+
+
+
+
+Quando a OC está marcada como final, ela não poderá ser mais utilizada para vínculo com outra nota fiscal. Isso quer dizer que ela não apareceria em uma eventual pesquisa. Para que ela pudesse ser vinculada a outra nota fiscal e aparecer em outra pesquisa, ela não pode estar marcada como final. Para mudar o "status" de uma Ordem, o usuário deve selecionar a OC e utilizar o botão 
+"Marca/Desmarca Finalização"
+.
+
+
+Deve-se atentar que o sistema não valida se a Ordem de Carregamento tem o mesmo produto que a Nota fiscal e se as quantidades estão iguais, por isso, pode-se vincular ordens com quantidades e produtos diferentes da nota fiscal.
+
+
+Para finalizar o vínculo o usuário deverá utilizar o botão 
+.
+
+
+O sistema voltará para o painel "Faturamento", exibindo o vínculo no grid " Vínculo NF/OC". 

@@ -1,0 +1,67 @@
+TITULO: Serviços Automáticos que Apresentam Erros na Execução
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2947712625
+--------------------------------------------------
+Na versão 10.11 foi implementada a desativação automática de um serviço que apresente erros consecutivos em sua execução. Foi implementada também a reativação automática de um serviço que foi desativado por erros consecutivos. Não existem configurações para a desativação e reativação automáticas de um serviço.
+Desativação Automática
+Um serviço será desativado quando:
+Erro de configuração:
+ uma configuração incorreta dos parâmetros desativará o serviço.
+Ação:
+ corrigir a configuração incorreta
+Quantidade de erros de um serviço:
+Quando um serviço apresentar 6 erros consecutivos, será desativado automaticamente.
+Quando um serviço apresentar menos de 6 erros e o problema foi corrigido, a coluna
+ Qtde Erros
+ é zerada.
+Ação:
+ verificar no 
+ o último erro apresentado: quadro 
+Informações Serviços
+ > campo 
+Último Erro 
+e/ou na aba 
+Log 
+e/ou no
+ log do 
+. Sendo o caso, fazer as correções necessárias e ativar manualmente o serviço se o serviço já foi reativado 6 vezes consecutivamente.
+Observar que os problemas podem ser externos: problemas de conexão à internet, problemas nos servidores da Sefaz, etc. Nesses casos, deve aguardar a regularização desses problemas e só então ativar o serviço novamente.
+Reativação Automática
+O tempo de reativação é o dobro do tempo de execução definido para o serviço. Após 6 reativações consecutivas, o serviço ficará desativado. 
+Um serviço será reativado automaticamente quando:
+Nos parâmetros de execução do serviço, a opção 
+Executar Automaticamente Quando Servidor for Iniciado 
+estiver
+ marcada. 
+O serviço ficará com o status
+ Em Reativação.
+Quando o serviço é reativado com sucesso, a coluna 
+Qtde Realizações
+ é zerada
+Caso a opção esteja 
+desmarcada, 
+o serviço não será reativado automaticamente. Nesse caso, o usuário deve ativar manualmente após corrigir os erros de execução.
+Na aba Log são apresentados os logs do serviço selecionado e, caso tenha, os erros.
+Notificação de Serviço Desativado
+É possível configurar o 
+ para que seja enviado um e-mail avisando que um serviço foi desativado automaticamente.
+Para isso é necessário que o SisPetro esteja configurado para envio de email:
+Será utilizada a conta de e-mail informada no perfil de sistema 
+, quadro Configurações da Conta de Envio, campo Configuração de e-mail padrão
+A configuração do e-mail padrão é feita em 
+Configuração de Conta de E-mail
+Com o SisPetro configurado para envio de e-mail, no 
+ em 
+Configurações Gerais
+ ativar a notificação de serviço desativado e informar a conta ou contas de e-mail que deverão receber a notificação.
+Serão 
+notificados
+ os serviços 
+desativados automaticamente
+, ou seja, por erros apresentados na execução e somente após 6 reinicializações seguidas, quando então o serviço é desativado necessitando de intervenção por parte do usuário.
+Serviços 
+desativados manualmente não
+ serão 
+notificados.
+Exemplo de e-mail enviado quando o Serviço de Consulta de Destinatário foi desativado automaticamente após apresentar 6 reinicializações consecutivas:
+Outro exemplo de e-mail enviado quando o Serviço de Consulta ANP foi desativado automaticamente após apresentar 6 reinicializações consecutivas:
+O conteúdo dos e-mails é o mesmo que está na aba Log do quadro Informações Serviços no 

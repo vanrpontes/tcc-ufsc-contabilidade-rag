@@ -1,0 +1,109 @@
+TITULO: Alteração de Depósito em Nota Fiscal de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921074653
+--------------------------------------------------
+Durante o processo de Venda o depósito é indicado no Pedido e na NF é utilizado o mesmo depósito. Às vezes, após faturar, existe a necessidade de alterar o local de carregamento. Atualmente, sem cancelar a NF (o que é inviável devido autorização da SEFAZ), o usuário pode fazer a troca somente no estoque, através da tela de 
+Movimento entre Depósitos
+. E essa alteração não fica documentada no Pedido de Venda e na Nota Fiscal.
+Os dados do depósito de Carregamento são enviados no arquivo .XML da NF-e. 
+É 
+RESPONSABILIDADE DA EMPRESA
+ fazer a correção da NF-e, uma vez que não há qualquer tipo de comunicação com a SEFAZ para informar a alteração dos dados do depósito de Carregamento.
+A alteração de depósito IMPLICA em alteração dos estoques dos depósitos envolvidos. Portanto, o uso deste recurso deve ser utilizado com muito critério.
+O SisPetro garante uma integridade entre Pedido, OC e NF de Venda no que se refere a Depósito. A alteração do Depósito abrange essas 3 instâncias. Além disso, há a possibilidade de vincular em uma mesma OC vários pedidos. Se trocar o Depósito de uma OC, tem que trocar também o Depósito dos Pedidos envolvidos nessa OC. Se trocar o depósito de outros Pedidos, tem que trocar também o depósito de outras OC vinculadas a esses outros Pedidos. E também trocar o depósito nas notas fiscais vinculadas a essas OC e Pedidos.
+Exemplo:
+ trocando o Depósito do 
+Pedido de Venda #1
+No cenário acima, temos a alteração do Depósito nos Pedidos de Venda/OC/Notas:
+Ligados diretamente ao Pedido de Venda 1:
+Pedido de Venda 1
+OC 25 e 26
+NF 102, 105 e 106
+Ligados indiretamente:
+Pedido de Venda 2 (por fazer parte da OC 25) e Pedido de Venda 3 (por fazer parte da OC 26)
+OC 27 (por ter dados do Pedido de Venda 2)
+NF 107 (por vir da OC 26), NF 101 (por vir da OC 25) e NF 103 e 104 (por virem da OC 27)
+Em Menu Movimentação / Vendas / 
+Alteração Depósito Pedido de Venda:
+Não podem ser alterados:
+Pedidos que não sejam de Venda;
+Cancelados
+Com Carregamento (ou já com Fila).
+Caso seja informado um pedido em uma das condições acima, será apresentada mensagem de erro.
+Para que o usuário possa alterar o deposito ou até mesmo tenha acesso a tela de alteração de deposito o perfil de usuário
+ Permite alterar depósito do Pedido
+ deve estar devidamente configurado. 
+Para mais informações, ver 
+Painel Vendas (Usuários)
+Alteração do Depósito:
+CodProd:
+ código do produto - não permite edição
+Descrição:
+ descrição do produto - não permite edição
+Quantidade:
+ quantidade do produto - não permite edição
+Depósito do pedido:
+ depósito atual do pedido - não permite edição
+Novo Depósito:
+ informar o novo depósito -
+ editável
+Dados do Pedido - não permite edição:
+Data do Pedido
+Valor do Pedido
+Valor do Frete
+Data de Entrega
+Código do Cliente
+Razão Social do Cliente
+Checkbox - as informações abaixo serão marcadas/desmarcadas automaticamente, permitindo que o usuário tenha uma visão da abrangência da alteração:
+Adiantamento Quantificado
+: se vier marcado, o pedido tem adiantamento quantificado
+Carga
+: se vier marcado, o pedido faz parte de uma carga montada
+Outros Pedidos
+: se vier marcado, indica que há pedidos vinculados ao pedido a ser alterado (ver exemplo acima)
+Ordem de Carregamento
+: se vier marcado, o pedido possui ordem de carregamento
+Nota Fiscal
+: se vier marcado, o pedido já foi faturado
+Aba OC e NF do Pedido: 
+Mostra as OC e NF que também terão o depósito alterado. A 
+Aba OC e NF de Outros Pedidos 
+mostra as OC e NF de Outros Pedidos que também terão o depósito alterado.
+Motivo da Alteração:
+Preenchido automaticamente conforme está configurado no perfil de Sistema em 
+, podendo ser alterado pelo usuário.
+Ao clicar em OK para confirmar a alteração, são feitas as validações:
+Pedido com OC e/ou NF:
+Não permite informar depósitos diferentes para os itens do pedido.
+Pedido com Carga, OC e/ou NF:
+Altera o depósito no Pedido de Venda atual
+Altera o depósito do Adiantamento Quantificado vinculado ao Pedido (caso tenha sido informado depósito, já que essa é uma informação opcional)
+Altera o depósito das OC vinculadas ao Pedido 
+Altera o depósito dos Itens da NF (atualmente o SisPetro não permite nota de venda com mais de 1 item, porém, já deixamos previsto)
+Se o produto for Composto, altera o depósito do Pedido e seus Itens de Outras Saídas.
+Altera o depósito dos itens da Cópia da NF (uso do DPMP e SCANC)
+Atualiza o saldo do produto em relação ao Depósito Antigo e ao Depósito Novo conforme tabela abaixo:
+Quantidade
+O que deve ser verificado
+Depósito Antigo
+Depósito Novo
+Pendente
+Quantidade pendente do item do pedido
+Separada
+Quantidade separada do item do pedido
+Disponível
+Quantidade do item do Pedido - 
+Quantidade NF (não cancelada) que 
+NAO movimenta estoque vinculada ao item
+Disponível 20c
+Quantidade NF (não cancelada) que 
+movimenta estoque vinculada ao item
+Estando todas as validações corretas, a alteração do depósito é efetuada no Pedido, OC e Nota Fiscal e nos seus vínculos (Outros Pedidos, OC e NF).
+As alterações feitas nos pedidos são registradas e mostradas na 
+aba Log de Alterações da
+ tela de 
+Manutenção do Pedido
+.
+Informações importantes
+Quando a natureza de operação de uma nota fiscal de venda estiver marcada para movimentar estoque mesmo fechado e tem fechamento de estoque (sem fechamento de custos), a alteração de depósito é feita sem problemas, desde que atendida as validações. Caso contrário, será mostrada mensagem de erro informando que existe fechamento de estoque.
+Quando a natureza de operação de uma nota fiscal de venda estiver marcada para movimentar estoque mesmo fechado e tem fechamento de estoque e de custos, a alteração de depósito não é feita, mostrando mensagem de erro informando que existe fechamento de estoque/custo.
+O desmembramento de pedido não sofreu qualquer alteração em razão deste novo recurso. O desmembramento de pedido é recomendado quando o pedido foi aprovado e não tem OC/NF vinculada.

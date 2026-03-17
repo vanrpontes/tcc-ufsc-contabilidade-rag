@@ -1,0 +1,21 @@
+TITULO: Estoque em Toco
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4942528513
+--------------------------------------------------
+Objetivo
+Por ter pouco espaço nas bases, há o armazenamento de produto em caminhão. Isso é uma operação recorrente e este estoque é tratado como 
+Estoque em Toco
+. Algumas empresas utilizam uma planilha que registra os dias dessas ocorrências. 
+Enquanto o produto fica no caminhão aguardando liberar espaço para ser descarregado é importante que ele 
+já fique disponível para ser vendido
+, agilizando o processo. O mesmo vale para os casos que tem espaço, mas que o processo de descarga está lento. O SisPetro já tem uma opção para usar o produto em trânsito considerando a data de previsão de chegada, mas em casos  que a empresa queira considerar somente o produto que 
+efetivamente chegou (pegou fila)
+, foi criada uma nova configuração para 
+Considera as OCs de Descarga em Trânsito que já estejam na fila da Portaria
+Configurações
+Arquivos / Depósitos / Aba Detalhes
+Estoque em Trânsito (OCs de Descarga) na Disponibilidade do Produto
+Considera as OCs de Descarga em Trânsito que já estejam na fila da Portaria: 
+marcar
+Após realizar as configurações acima, na consulta 
+ e na 
+ o SisPetro já vai considerar o estoque de qualquer caminhão cuja OC esteja em trânsito e ele já esteja na fila. 

@@ -1,0 +1,92 @@
+TITULO: Processamento do SPED/Reinf
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927263743
+--------------------------------------------------
+Após o preenchimento dos dados, o Sispetro gera o xml e envia os dados para a Receita através da opção 
+Processa
+.
+Empresa
+: sisPetro apresenta a empresa dos dados que serão transmitidos.
+Mês/Ano
+: informação sobre o período a que se referem os dados a serem transmitidos.
+Ambiente
+: informação sobre para qual ambiente os dados serão transmitidos. Esta definição é feita em 
+Painel Livro Eletrônico
+.
+Operação
+: permite definir qual a operação será enviada
+Informações Contribuinte
+: envia para a Receita o registro de informações do Contribuinte (R-1000).
+Eventos
+: envia para a Receita o registro dos eventos (R-2010, R-2020, R-2040, R-2070, R-4010, R-4020, R-4040 e R-4080).
+Solicitação de Fechamento
+: envia para a Receita o registro de fechamento de eventos periódicos (R-2099 e R-4099), das suas respectivas séries.
+Reabertura
+: envia para a Receita o registro de abertura de eventos periódicos (R-2098 e R-4099), das suas respectivas séries.
+Exclusão de Eventos
+: envia para a Receita o registro de exclusão de eventos (R-9000).
+Encerramento:
+ encerra o processo não permitindo mais qualquer operação. Este item não consta nos manuais do REINF. 
+Ação
+: permite que seja definido se será somente gerado o xml ou se gerado e transmitido.
+Gerar XML e Transmitir
+: com esta opção, o sistema gerará o xml e já transmitirá para a Receita.
+Somente Gerar XML
+: neste caso, será somente gerado o xml para conferência. Caso haja necessidade de alterações, as mesmas devem ser feitas nos registros para nova geração e envio do xml.
+Nome do arquivo
+: informação do local de gravação, bem como o nome do arquivo a ser gerado para que seja conferido.
+Por exemplo: C:\Reinf\05_2018.xml
+Processar
+: confirma o processamento de geração do xml e transmissão dos dados.
+O envio e retorno do 
+Fechamento (R-2099)
+ segue algumas condições determinadas pela Receita Federal. Para mais informações, ver 
+ - item 
+Evento de fechamento R-2099
+.
+Sair
+: sai da tela de processamento
+Detalhamento dos Registros:
+R-1000: 
+informações do Contribuinte (a ser enviado uma única vez no mês que começar a trabalhar com REINF)
+R-2010
+: registro que aponta os valores de Contribuição Previdenciária sobre Serviços tomados (como obra)
+R-2020
+: registro de Retenção de Contribuição Previdenciária - Serviços Prestados
+R-2040
+: registro dos valores decorrentes de recursos passados para Associações Desportivas (doações)
+R-2070
+: registro que envia, por beneficiário, quais as retenções feitas das contribuições citadas (Retenções na Fonte - IR, CSLL, Cofins, PIS/Pasep) - 
+removido pela Receita Federal para remodelação
+R-2098:
+ reabertura e a Consulta de Dados de Fechamento
+R-4010: 
+registro que aponta pagamentos, créditos a beneficiário pessoa física
+R-4020:
+ 
+registro que aponta pagamentos, créditos a beneficiário pessoa jurídica
+R-4040:
+ 
+registro que aponta pagamentos, créditos a beneficiários não identificados
+R-4080:
+ 
+registro de Retenção no recebimento
+R-4099:
+ 
+fechamento/reabertura dos eventos da série R-4000
+R-5011
+: retorno da Consulta de Dados (em desuso)
+R-2099: 
+fechamento dos Eventos
+R-9000: 
+exclusão de Eventos
+Implementamos o R-2020, porém
+ não foi possível sua transmissão de dados
+. É fundamental verificar a disponibilidade e prazos da Receita para esse registro antes de preenchê-lo.
+Para habilitar o acesso para geração de xml e transmissão dos dados, acesse 
+Painel Fiscal (Usuários)
+.
+Para mais informações:
+SPED REINF - Configurações
+Painel Livro Eletrônico
+Manutenção do Reinf
+Preenchimento Automático REINF - R2010

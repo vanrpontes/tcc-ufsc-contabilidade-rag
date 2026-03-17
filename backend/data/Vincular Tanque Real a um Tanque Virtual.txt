@@ -1,0 +1,56 @@
+TITULO: Vincular Tanque Real a um Tanque Virtual
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921074700
+--------------------------------------------------
+Vínculo de tanque real a um tanque cadastrado como tanque virtual.
+No menu 
+Movimentação / Base / Manutenção de Tanque / Aba Tanques Vinculados . 
+Esta aba só será acessada quando o tanque for do tipo Virtual.
+Para mais informações veja 
+.
+Inclui: 
+Permite incluir um tanque real a um tanque virtual.
+Tanque:
+ Já traz preenchido com o tanque selecionado.
+Tanque Vinculado:
+ Permite escolher um tanque Real a ser vinculado
+Proporção:
+ Quantidade em porcentagem que será movimentada no tanque que está sendo vinculado.
+A proporção dos tanques vinculados não é validada. É de 
+responsabilidade do usuário
+ informar as proporções corretas até 100%. Caso informe proporções maiores ou menores que 100%, a movimentação ficará incorreta para os produtos. Para correção, deve excluir a movimentação através da tela de 
+, corrigir as proporções e fazer novamente a movimentação. 
+Altera: 
+Permite fazer alteração no cadastro de um vínculo já existente de um tanque real.
+Exclui:
+ Permite a exclusão de um vínculo já existente.
+Após cada vínculo ou desvínculo, o saldo do tanque virtual receberá a soma ou subtração dos tanque reais.
+Exemplo:
+Dados de tanque real:
+Tanque
+Capacidade
+Lastro
+D01
+1.000.000
+100
+D02
+700.000
+50
+Os tanque D01 e D02 serão vinculados ao Tanque D03 que ficará:
+Tanque
+Capacidade
+Lastro
+Tipo Tanque
+D01
+1.000.000
+100
+Real
+D02
+700.000
+50
+Real
+D03
+1.700.00
+150
+Virtual
+Observe que os saldos do tanque virtual é a soma dos saldos dos tanques reais vinculados a ele.
+ 

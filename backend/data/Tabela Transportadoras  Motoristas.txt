@@ -1,0 +1,383 @@
+TITULO: Tabela Transportadoras / Motoristas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878211022
+--------------------------------------------------
+none
+Objetivo
+Esta tabela arm
+azena o cadastro das empresas de transporte ou motoristas que executam o serviço de retirar o produto do depósito onde está armazenado, e transportá-lo até o destino (endereço do cliente cada
+strado para a entrega, distribuidora ou usina).
+Esta tabela armazena também todo o histórico de fretes executados pela transportadora / motorista.
+Para acessar a tabela de Transportadoras / Motoristas do SisPetro, acione a partir do Menu principal
+ Tabelas Auxiliares / Transportes / Transportadoras
+É possível na aba 
+Navegação 
+filtrar ou não os cadastros que estão 
+Inativos
+. Visualizar os cadastros inativos, basta marcar a opção 
+Visualiza Inativos 
+e os cadastros aparecerão em vermelho.
+O usuário só conseguirá incluir uma transportadora caso o perfil de usuário 
+Permissão no Cadastro de Transportadora/Motorista 
+esteja configurado como 
+Só transportadora
+ ou 
+Ambos
+. O mesmo vale para o cadastro de um Motorista, o usuário só conseguirá cadastrar um motorista caso o perfil esteja configurado como 
+Só Motorista
+ ou 
+Ambos
+. Essa regra vale também para edição e exclusão. Para mais informações, ver 
+Painel Fretes (Usuários)
+Para inserir uma nova Transportadora no SisPetro, acione o botão 
+.
+No painel Detalhe: 
+Digite os dados do novo transportador/ motorista:
+Código: 
+sequencial do SisPetro. Usuário não precisa digitar. 
+Razão Social: 
+informe a razão social. Preenchimento se torna obrigatório caso o perfil 
+Obriga Dados Básicos Transportadora 
+esteja marcado. Para mais informações, ver 
+Painel Fretes
+.
+Tipo Pessoa:
+ Física ou Jurídica
+Endereço
+: informe o endereço do Motorista/Transportadora. Preenchimento se torna obrigatório caso o perfil 
+Obriga Dados Básicos Transportadora 
+esteja marcado e o campo 
+Tipo Pessoa
+ esteja selecionado 
+Jurídica
+. Para mais informações, ver 
+Painel Fretes
+.
+Número: 
+informe o número do endereço do Motorista/Transportadora. Preenchimento se torna obrigatório caso o perfil 
+Obriga Dados Básicos Transportadora 
+esteja marcado e o campo 
+Tipo Pessoa
+ esteja selecionado 
+Jurídica 
+. Para mais informações, ver 
+Painel Fretes
+.
+Complemento: 
+informe o complemento do endereço. Seu preenchimento não é obrigatório.
+Município: 
+informe o município do Motorista/Transportadora. Ao selecionar o município o SisPetro preenche automaticamente a UF de acordo com o município selecionado.
+Estado: 
+informe a UF do Motorista/Transportadora. Seu preenchimento é obrigatório e realizado automaticamente de acordo com o município informado.
+CNPJ / CPF:
+ o SisPetro valida este campo (dígito verificador). Caso seja pessoa física, preencha com o número do CPF, senão digite o CNPJ da Empresa. Para que o SisPetro realize a validação do preenchimento do campo, o perfil de sistema 
+Verifica CPF Transportadora
+ deve estar marcado e para que seja verificado se o conteúdo do campo está correto, é necessário marcar o perfil de sistema 
+Valida Documento Transportadora
+. Para mais informações, ver 
+Painel Vendas
+.
+Inscrição Estadual:
+ informe a Inscrição Estadual, caso tenha.
+ 
+A validação da Inscrição Estadual não está mais sendo feita por conta das alterações ocorridas nas SEFAZ. Para mais informações, ver 
+Painel Fretes
+.
+Bairro: 
+informe o Bairro do Motorista/Transportadora. Preenchimento se torna obrigatório caso o perfil 
+Obriga Dados Básicos Transportadora 
+esteja marcado e o campo 
+Tipo Pessoa
+ esteja selecionado
+ Jurídica
+. Para mais informações, ver 
+Painel Fretes
+.
+CEP: 
+informe o CEP do Motorista/Transportadora. Preenchimento se torna obrigatório caso o perfil 
+Obriga Dados Básicos Transportadora 
+esteja marcado e o campo 
+Tipo Pessoa
+ esteja selecionado
+ Jurídica
+. Para mais informações, ver 
+Painel Fretes
+.
+SUFRAMA: 
+nesse campo é informado o código da
+ Superintendência da Zona Franca de Manaus (Suframa), para as Transportadoras que possuem a mesma. Caso a Transportadora não tenha basta deixar em branco.
+Inscrição Municipal: 
+informe a inscrição municipal da transportadora, caso tenha.
+Telefone
+: informe o número de telefone. Preenchimento se torna obrigatório caso o perfil 
+Obriga Dados Básicos Transportadora 
+esteja marcado. Para mais informações, ver 
+Painel Fretes
+.
+Tipo: 
+Motorista:
+ caso seja marcado indica que é um 
+Motorista 
+e será permitido vincular a um registro do tipo 
+Transportadora.
+Transportadora
+: caso seja marcado que é uma 
+empresa transportadora
+ e será permitido vínculo entre este e um registro do tipo 
+Motorista
+. Além disso, se selecionado esta opção, nas telas de inclusão de pedido de venda, ordem de carregamento e nota fiscal, não serão mostradas. Serão mostradas somente se tipo for Motorista ou Livre.
+Livre:
+ se o registro for marcado como 
+Livre,
+ poderá ser vinculado tanto Transportadora quanto Motorista, porém não é seguro, pois por descuido um motorista pode ser vinculado a outro motorista, uma transportadora a outra transportadora.
+Caso seja configurada a Transportadora sendo do tipo 
+Transportadora
+ e o perfil de sistema estiver marcado 
+Permite somente Tipo Motorista ou Livre
+, nas telas de pesquisa onde há o campo transp./motorista a mesma Transportadora não aparecerá, pois permitirá apenas os cadastros do tipo motorista e Livre
+Bloqueada:
+ esta opção é marcada automaticamente quando o usuário realiza o bloqueio da transportadora via aba de bloqueio. O bloqueio é muito utilizado quando queremos realizar um bloqueio por um motivo que pode ser revertido (como por exemplo a ausência de algum documento).
+Não apropria Frete:
+ permitir que na emissão do Conhecimento do Frete só gere Frete caso a transportadora e/ou o motorista não sejam próprios. Necessário ter o perfil 
+Permite não apropriar frete à transportadora
+ marcado. Para mais informações, ver 
+Painel Fretes
+.
+Esta opção é aplicada somente a empresas transportadoras. Não se aplica a distribuidoras.
+Ativo:
+ esta opção deve ser desmarcada quando houver a necessidade de não usar mais essa Transportadora, porém, por já ter sido utilizada, ela não pode ser excluída. Ou seja, representa uma situação de impossibilidade de utilização definitiva.
+Código Entidade que representa a Transportadora/Motorista:
+ utilizado em várias situações, onde é preciso indicar o fornecedor que representa a transportadora/motorista.
+Modalidade:
+ indica o tipo de modalidade dessa transportadora. Para mais informações, ver 
+Verificação da modalidade de frete da Transportadora
+. 
+As opções podem ser:
+Permite qualquer tipo de modalidade
+Somente Entrega (CIF)
+Somente Retira (FOB)
+O controle de modalidade de frete permitida para a transportadora no momento da inclusão de novas transportadoras deve ser configurada através do perfil 
+Modalidade Padrão Inclusão Transportadora.
+ Para mais informações, ver 
+Painel Fretes
+.
+A verificação da modalidade de frete permitido para a transportadora que está vinculada à transportadora informada no pedido de venda (ou OC ou Nota Fiscal oriunda de venda) deve ser configurada através do perfil 
+Verificação Modalidade
+. Para mais informações, ver 
+Painel Fretes
+A verificação da modalidade frete em processos de vendas ou em todos os procedimentos necessários deve ser configurada através do perfil 
+Verificação da Modalidade de Frete. 
+ Para mais informações, ver 
+Painel Fretes
+.
+E-mail:
+ é preciso cadastrar o e-mail para a transportadora também receber a NF-e, atendendo a 
+norma SINIEF 08/2010
+ e também habilitar a opção envia e-mail de NF-e. O campo possui tamanho de 250 caracteres, possibilitando ao usuário cadastrar vários e-mails para recebimento do XML. Para mais informações, ver 
+Serviço de E-mail
+.
+Envia e-mail de NF-e
+: caso esta opção esteja habilitada envia e-mail a transportadora na emissão da nota fiscal.
+Quadro Envio SMS/Mensagens
+Celular SMS:
+ campo a ser preenchido com o número de celular para qual será enviado a Mensagem.
+Envio preferencial de Mensagem:
+ escolher qual será a forma que o SisPetro enviará mensagem ao motorista. Para mais informações ver 
+Envio de Mensagem via SMS / WhatsApp na chamada do Motorista
+Ver sistema: obedecerá o padrão escolhido no 
+https://futura.atlassian.net/wiki/spaces/SPT/pages/5071732764
+ 
+Sms
+WhatsApp
+RNTRC: 
+R
+egistro Nacional de Transportador de Carga , Código do registro do frota obtido na ANTT. Também conhecido com RNTRC ou RNTT.
+Visando facilitar o processo, a partir da versão 8.11, empresas transportadoras podem cadastrar seus RNTRC no Perfil de Sistema, não precisando replicar o dado nos demais frotas ou transportadoras. Para mais informações, ver 
+Possíveis maneiras de configurar o RNTRC
+CNAE
+: informação do CNAE da empresa
+Tipo Registro ANTT: 
+permite definir o tipo de registro na ANTT, que pode ser: 
+Equiparada ao TAC – Transporte autônomo de carga
+ETC – Empresa de transporte de carga
+CTC – Cooperativa de transporte de carga
+CNH:
+ número Carteira Nacional Habilitação do motorista. É possível realizar a verificação do preenchimento desse campo marcando o perfil de Sistema 
+Controla CNH Motorista. 
+Dessa forma será realizada a verificação no cadastro, ao emitir Ordem de Carregamento e Pedido de Venda. Para mais informações, ver 
+Painel Vendas
+.
+Categoria CNH:
+ nesse campo informamos a categoria da CNH do motorista e, caso o perfil de sistema 
+Valida Categoria do CNH do Motorista com o Tipo de Frota 
+esteja para validar, só será possível incluir uma ordem de carregamento caso a categoria da CNH do Motorista esteja de acordo com os tipos de Frotas utilizado na OC. Para mais informações, ver 
+Manutenção de Categorias CNH
+ e em 
+Painel Fretes
+.
+Ação Motorista sem vínculo c/ Transportadora: se trata de bloquear a movimentação dos registros que não tenham algum vínculo com transportadoras. Podendo ser configurado de duas formas, veja abaixo.
+Assume que é autônomo: 
+caso seja configurado desta forma o SisPetro não bloqueará nenhum registro. Assim podendo ser utilizado os registros que não tenham quaisquer vínculos com transportadoras ou motoristas.
+Bloqueia ação: 
+caso seja configurado desta forma, o SisPetro não deixará ser utilizado registros que não tenham vínculo. Ou seja, caso haja algum motorista sem vínculo com transportadora, este não poderá ser utilizado.
+No caso de uma nova transportadora ou motorista, este perfil será sugerido da forma que foi indicado no perfil de sistema 
+Painel Fretes
+.
+Caso haja algum motorista que é uma exceção a regra da distribuidora, por exemplo, todos os demais motoristas precisam ter vínculos com transportadoras. Porém há um que, por qualquer motivo, não precise, neste caso basta marcar que "Assume que é autônomo". Desde modo este motorista, mesmo não tendo vínculo, poderá ser utilizado. 
+Data Nascimento: 
+permite informar a data de nascimento do motorista ou do contato da transportadora para o vale pedágio
+Estado civil: 
+estado civil (opções de solteiro, casado, divorciado ou viúvo) do motorista ou do contato da transportadora para o vale pedágio
+Sexo: 
+sexo (opções de masculino e feminino) do motorista ou do contato da transportadora para o vale pedágio
+RG: 
+rg do motorista ou do contato da transportadora para o vale pedágio (informar sem pontos ou traços)
+Órgão Emissão RG: 
+órgão emissor do RG do motorista ou do contato da transportadora para o vale pedágio
+Data Emissão RG: 
+data de emissão do RG do motorista ou do contato da transportadora para o vale pedágio
+Nacionalidade: 
+nacionalidade do motorista ou do contato da transportadora para o vale pedágio
+Naturalidade: 
+naturalidade do motorista ou do contato da transportadora para o vale pedágio
+Nome do Pai:
+ informação do nome do pai do motorista (utilizado para compras de vale pedágio em cartão)
+Nome da Mãe:
+ informação do nome da mãe do motorista (utilizado para compras de vale pedágio em cartão)
+Tem Frota?:
+ este perfil permitirá vincular uma frota ao cadastro principal, habilitando o campo Frota.
+Frota: 
+quando informamos que a transportadora/motorista tem frota próprio, o SisPetro habilita este campo para que seja feito o vínculo. Após o vínculo, serão apresentadas, automaticamente, as informações de quantidade de lacres, capacidade KG e as placas.
+Altera dados Frota:
+ se a transportadora/motorista tem frota próprio e o mesmo está selecionado, ao clicar nesta opção, é possível fazer alteração nos dados do frota.
+Compartimentação
+: a transportadora/motorista tem frota próprio, é possível alterar a compartimentação dos frotas vinculados.
+Pertence a uma empresa Transportadora:
+ caso o motorista pertence a uma empresa transportadora, poderá ser indicado, porém, para o SisPetro serão utilizadas as empresas transportadoras que estiverem vinculadas no painel 
+Empresa Transportadora
+.
+Recebe diária?:
+ com esta opção selecionada, o SisPetro apresenta em relatórios a quantidade de diárias dos motoristas em viagens, para que seja feito o cálculo e pago o valor ao mesmo.
+Permite Averbação:
+ indica se permite que a carga seja assegurada. Caso esteja marcado, este campo permite a geração do valor da fatura no arquivo RTM de Averbação para notas não canceladas, e que não sejam do tipo retirada/venda.
+Salário: 
+informação do salário do motorista para fins de relatórios
+% Desconto de frete:
+ valor padrão para a Transportadora. O SisPetro possibilita que o desconto possa ser informado por transportadora e filial, não apenas por transportadora. Para mais informações, ver 
+Painel Empresa Transportadora (vínculo Transportadora x Motorista)
+.
+Controle de Descargas - % Diferença Permitido: 
+é possível informar um limite de diferença entre o volume programado e efetivamente descarregado, nas Descargas. Tal informação será utilizada na Apuração
+ valores de Frete a Pagar
+.
+Quaro Tabela de Distância
+Tabela de Distância:
+ indica a tabela de distância que será considerada quando for utilizada essa transportadora nos processos, como Pedido, Nota, etc. Para mais informações, ver 
+Tabela de Distância por Transportadora
+Descarta Tabela de Distâncias da Transportadora
+: quando o cenário é de um motorista vinculado a uma transportadora, a tabela de Distâncias normalmente utilizada seria a da Transportadora (que estabelece os preços que serão utilizados por seus motoristas). Nesse cenário esse campo deve ficar desmarcado. Porém, pode se ter um caso onde o Motorista terá uma tabela específica para ele, então se marca esse campo para que o SisPetro descarte a tabela da Transportadora vinculada ao Motorista e use a tabela dele. Para mais informações, ver 
+Tabela de Distâncias
+ 
+Quadro Uso em Transportadoras
+Quadro CIOT
+Utilização CIOT:
+ indica se a transportadora irá ou não trabalhar com CIOT.
+Utiliza CIOT: 
+utilizando essa opção, ao realizar a 
+inclusão da carga
+, o campo de 'CIOT Requerido?' virá 
+marcado 
+e permitirá ao usuário incluir uma carga com CIOT. A opção de 'CIOT Requerido?' pode ser alterada pelo 
+usuário
+ caso o mesmo tenha as devidas permissões.
+Não Utiliza CIOT: 
+utilizando essa opção ao realizar a 
+inclusão da carga
+ o campo de 'CIOT Requerido?' virá 
+desmarcado
+, dessa forma não gerando o CIOT para a carga. A opção de 'CIOT Requerido?' pode ser alterada pelo 
+usuário
+ caso o mesmo tenha as devidas permissões.
+Dispensada CIOT ANTT:
+ indica se a transportadora é dispensada ou não do CIOT. Esta opção será automaticamente atualizada após execução da Consulta Situação do Transportador, executada antes do envio do CIOT, caso configurada no 
+Painel Fretes
+.
+Data/Hora última consulta de Situação: 
+indica Data/Hora da última execução da Consulta Situação do Transportador.
+Quadro Averbação 
+Encaminha Averbação.: 
+indica se a transportadora tem gerenciadora de averbação, se irá enviar 
+Não encaminha para Averbação: 
+o SisPetro não enviará nenhuma informação a Gerenciadora
+Encaminha p/ Averbação c/ Gerenciadora do perfil de Empresas: 
+encaminhará o CT-e ou MDF-e para gerenciadora indicada no perfil da empresa
+Encaminha p/ Averbação c/ Gerenciadora do perfil específica: 
+o CT-e ou MDF-e será encaminhado para gerenciadora informado no campo 
+Gerenciadora Averbação
+Gerenciadora Averbação: 
+selecionar qual será a gerenciadora que o SisPetro irá enviar. 
+Para mais informações, ver 
+Gerenciadora de Averbação
+Quadro Seguro de Carga
+Valida Valor Carga no Fechamento de Carga: 
+verificar o valor da carga com o valor máximo permitido para transportadora, somente para os cadastros do tipo Transportadora ou Livres. Para mais informações, ver 
+Validação de Valor Carga para Seguro de Transportadora
+.
+Segue configuração de sistema
+: aplica a regra conforme parametrizado no perfil de sistema, 
+Painel Fretes
+.
+Não valida o valor da carga
+: não faz validação do valor da carga no momento do fechamento.
+Valida o valor da carga conforme o valor máximo
+: faz a validação do valor máximo cadastrado na transportadora com o valor da carga a ser fechada.
+Valor Máximo Permitido para Carga
+: valor máximo do seguro de cada carga por transportadora.
+Quadro Auto Atendimento Base (usuário externo)
+Login Usuário: 
+será utilizado no login do 
+atendimento do SisPetroApp para os motoristas que vão carregar numa distribuidora que tem base própria. 
+Verificar status Sistema:
+ irá verificar se o perfil de sistema 
+Ação para Login Motorista 
+está como permitir ou não permitir. Para mais informações, ver 
+Painel Dados Gerais
+Habilitado: 
+irá habilitar o motorista para acessar o Auto Atendimento
+Não Habilitado: 
+não habilita o motorista ao Auto Atendimento. 
+Gerar nova Senha
+: irá gerar e apresentar a senha que o motorista em questão utilizará. 
+O usuário poderá 
+Confirmar Geração nova senha 
+ou 
+Cancelar
+ e permanecer com a última senha gerada ou sem senha. 
+A SENHA SÓ SERÁ VISUALIZADA UMA VEZ!
+Tipo Envio:
+ o usuário escolherá se o SisPetro enviará ou não a senha do Auto Atendimento gerada na opção anterior. Vem com duas opções:
+Email:
+ enviará ao endereço de e-mail cadastrado no campo 
+E-mail, 
+a senha gerada e visualizada na opção 
+Gerar nova Senha
+. A senha será enviada apenas se o serviço de e-mail esteja configurado e ativo. Para mais informações, ver 
+Serviço de E-mail
+.
+Não enviar:
+ o SisPetro não enviará a senha.
+Permite Cadastrar Biometria:
+ 
+Ver Sistema:
+ quando habilitado seguira a configuração do perfil de sistema. Para mais informações, ver 
+Painel Comunicações
+ 
+Sim:
+ será permitido o cadastro de biometria
+Não:
+ não será permitido o cadastro de biometria
+Status Biometria: 
+quando cadastrado será possível realizar Exclusão dos dados biométricos para o acesso facial ao SisPetroAPP.
+Clique em 
+OK
+ ao finalizar o cadastro.
+Para deixar a tela de transportadoras, basta clicar no botão 

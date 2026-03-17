@@ -1,0 +1,189 @@
+TITULO: Redistribuição de Bombeio - sem bombeio físico
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892890261
+--------------------------------------------------
+Atualmente na tela de 
+ é permitido fazer a distribuição para o saldo total do bombeio. Mas existe a necessidade do Sispetro permitir que a distribuição do saldo remanescente de um bombeio seja feita sem a figura de um novo bombeio físico.
+
+
+Agora, a partir da versão 7.6, o Sispetro permitirá que a distribuição seja feita para o saldo remanescente de um bombeio.
+
+
+Como funcionará? Vejamos a seguir.
+
+
+Na tela de Bombeio Físico, ao validar as informações em tela, o Sispetro permitirá que o usuário informe um valor de carregamento zerado. As informações de régua poderão ser repetidas no quadro Inicial e Final, pois não haverá mudança no tanque.
+
+
+Já na tela de Distribuição de Bombeio o usuário precisará informar apenas a quantidade remanescente do bombeio e efetuar a distribuição. 
+
+
+Vejamos um exemplo a seguir de como trabalhar com Redistribuição de Bombeio:
+
+
+Exemplo: programação e pedido de 1.000.000 de litros, com distribuição a menor
+
+
+
+
+Incluir um Pedido de Programação:
+
+
+
+
+
+
+
+
+Incluir um Pedido de Bombeio:
+
+
+
+
+
+
+
+
+Confirmar o pedido de bombeio:
+
+
+
+
+
+
+
+
+Após confirmação, incluir bombeio físico:
+
+
+
+
+
+
+
+
+
+
+Vejamos a posição de estoque escritural e físico após a confirmação do bombeio:
+
+
+
+
+
+
+
+
+Distribuir o bombeio a menor, ficando a diferença na Armazenadora:
+
+
+
+
+Na distribuição o campo Saída na Armazenadora deve ser Bombeio Físico
+
+
+
+
+
+
+
+
+
+
+
+
+Vejamos a posição de estoque escritural e físico após a distribuição:
+
+
+
+
+
+
+Agora vamos ver como funcionará a Redistribuição de Bombeio para o saldo remanescente:
+
+
+
+
+Distribuir o saldo do bombeio: incluir pedido de programação sem quantidade:
+
+
+
+
+
+
+
+
+Incluir pedido de bombeio sem quantidade, já confirmando:
+
+
+
+
+
+
+
+
+
+
+Incluir bombeio físico sem quantidade:
+
+
+
+
+As informações de régua podem ser repetidas no quadro Inicial e Final, pois não há mudança no tanque.
+
+
+
+
+
+
+Confirmar a inclusão de bombeio físico com quantidade zerada.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Vejamos a posição de estoque escritural e físico após a inclusão de bombeio físico com quantidade zerada não se altera:
+
+
+
+
+
+
+
+
+Distribuir o saldo do bombeio físico:
+
+
+
+
+Informe os ajustes do volume físico
+
+
+Na distribuição o campo Saída na Armazenadora deve ser Bombeio Físico + Ajuste
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Agora vejamos a posição de estoque escritural e físico após a inclusão do saldo do bombeio físico:
+
+
+
+
+

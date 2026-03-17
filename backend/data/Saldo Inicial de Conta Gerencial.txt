@@ -1,0 +1,58 @@
+TITULO: Saldo Inicial de Conta Gerencial
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898212
+--------------------------------------------------
+A função disponibilizada para retornar o saldo inicial de uma conta contábil gerencial numa determinada data é a CalculaSaldoInicialConta. Ela retorna um valor do tipo Extended que é o saldo da conta. Pode-se ter um saldo por empresa, grupo empresa ou Geral. 
+
+
+Esta função tem a seguinte estrutura de parâmetros: 
+
+
+CalculaSaldoInicialConta(<
+Código da Conta
+>,<
+Complemento da Conta
+>,<
+Data
+>,<
+Somente Conciliado
+>,<
+Código da Empresa
+>, <
+Código do grupo Empresa
+>) 
+
+
+Código da Conta:
+ é o código da conta no plano de contas, texto com 7 caracteres. 
+
+
+Ex.: PlanoContas['CodConta'] 
+
+
+Complemento da conta:
+ é o código de complemento da conta no plano de contas. Contas de entidade tem no código de complemento o código da entidade. As demais contas sempre têm código de complemento igual a zero (0). 
+
+
+Ex.: PlanoContas['CodCompl'] 
+
+
+Data
+: A data para o qual se quer o saldo inicial da conta 
+
+
+Somente Conciliado:
+ Indica se quer o saldo considerando somente os lançamentos conciliados ou todos. Assim, coloque 0 se for todos ou 1 se for somente os conciliados. 
+
+
+Código da empresa:
+/ Código da empresa para o qual se quer o saldo, caso se opte pelo saldo geral ou de um grupo empresa, colocar 0. 
+
+
+Código do grupo empresa:
+ Código do grupo empresa para o qual se quer o saldo, caso se opte pelo saldo geral ou de uma empresa, colocar 0. 
+
+
+Eis um exemplo da utilização da função para o saldo por grupo empresa: 
+
+
+Variable1.Value := CalculaSaldoInicialConta(PlanoContas['CodConta'],       PlanoContas['CodCompl'], xData, 0, 0, GrupoEmpresa['SeqGrupoEmpresa']); 

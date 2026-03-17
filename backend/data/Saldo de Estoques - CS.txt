@@ -1,0 +1,47 @@
+TITULO: Saldo de Estoques - CS
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899777
+--------------------------------------------------
+A tela de consulta de Saldo de Produto fornece os saldos escriturais dos produtos (obtidos da tabela SaldoProduto), temperatura ambiente e a 20 graus separado por depósito, informando o saldo disponível pendente e separado, além do crédito provisório (quantidade que a base informa para ser somado ao disponível, porém sem respaldo real somente para liberação).
+Fornece também um detalhamento da movimentação (filtrada por período) sempre do movimento escritural.
+Para que o Produto seja mostrado na tela, na tela do Cadastro de Produtos (aba Detalhes > aba inferior Ficha Produto), a opção 
+Participa do Fechamento de Estoque 
+deve estar 
+marcada.
+É possível que alguns produtos que eram apresentados antes não sejam mais apresentados devido essa nova regra. Nesses casos verifiquem o campo indicado e ajuste-o conforme a necessidade.
+O painel 
+Movimento Estoque
+, apresenta toda a movimentação de um determinado período que pode ser informado para consulta.
+O painel 
+PMM Previsto em 3ºs
+, apresenta os pedidos de movimentação de material previsto em terceiros do produto e depósito selecionado no painel 
+Saldo Produto
+, cuja quantidade foi comprada, mas que não foi paga.
+Os dados do painel acima somente serão apresentados se o depósito selecionado no painel 
+Saldo Produto
+ tiver configurado para considerar a quantidade prevista em terceiros. Esta configuração se encontra no 
+Cadastro de Depósito
+, painel 
+Detalhes
+, opção 
+Quantidade prevista em terceiros em PMM
+.
+Tanto no painel 
+Saldo Produto
+ ou 
+Movimento Estoque
+, existe a possibilidade de imprimir um relatório com as informações apresentadas na tela.
+O usuário tem a possibilidade de verificar as informações de todas as filiais, marcando a opção:
+Porém, para que este perfil esteja disponível e habilitado, deve-se marcar nas configurações da empresa, Menu 
+Ferramenta / Sistema / Estoque
+, o perfil:
+E dar permissão para o usuário (Menu 
+Ferramenta / Usuário / Estoque
+), através do perfil:
+Pode-se também consultar outros tipos de produtos que não sejam apenas combústivel, para isso, o usuário deve ter os produtos cadastrados de forma correta e desmarcar a opção:
+Para facilitar a consulta, o usuário poderá utilizar o recurso de agrupar as informações. Para isso, basta arrastar as colunas até o cabeçalho da tela (parte amarela da tela).
+No exemplo acima, as informações estão sendo agrupadas por empresa e tipo de produto.
+Clicando no botão 
++
+, localizado ao lado esquerdo de cada grupo, as informações daquele grupo especifico serão mostradas.
+Caso deseje voltar a tela no formato padrão, basta o usuário clicar no botão 
+.

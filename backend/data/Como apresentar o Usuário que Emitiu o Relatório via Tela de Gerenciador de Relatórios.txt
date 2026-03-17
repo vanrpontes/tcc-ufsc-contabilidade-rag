@@ -1,0 +1,32 @@
+TITULO: Como apresentar o Usuário que Emitiu o Relatório via Tela de Gerenciador de Relatórios
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2954363103
+--------------------------------------------------
+Hoje temos no SisPetro o nome do usuário que está conectado no sistema. Essa pagina tem como objetivo auxiliar à disponibilizar no gerenciado de relatórios uma função que informe o nome do usuário conectado.
+No 
+Gerenciador de Relatórios, 
+nos Cálculos (parte onde há a programação) usar a função GetNomeUsuario para setar texto com Usuário conectado.
+Exemplo de uso em Label:
+procedure Label1OnGetText(var Text: String);
+begin
+Text := GetNomeUsuario;
+end;
+Veja maiores detalhes logo abaixo
+1º Passo: 
+Incluir um Label no relatório.
+Clica no botão Texto, e depois no relatório para inserir um Label novo.
+Observação: O label pode ser adicionado em qualquer parte do relatório.
+2º Passo - Acionando o evento na aba de Cálculo.
+Clica na Aba Cálculo
+Clica com botão direito, e seleciona a opção 'Eventos'.
+3º Passo - Incluindo a função no label
+.
+Seleciona o Label, criado anteriormente.
+Em eventos Para Label... Seleciona o evento 
+'OnGetText'
+.
+Nas abas inferiores a direita, seleciona a aba de Linguagem.
+Acima na 'Caixa de Ferramentas para código Linguagem', seleciona a opção 'Futura'.
+Procura o código 'GetNomeUsuario', seleciona e arrasta esse código para a caixa em branco a esquerda.
+4º Passo - Salvando as alterações
+Após a inclusão do evento, basta acionar o menu arquivos e clicar em Salvar
+Resultado:

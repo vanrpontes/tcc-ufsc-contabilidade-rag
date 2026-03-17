@@ -1,0 +1,94 @@
+TITULO: Análise de Vendas-Movimento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440164
+--------------------------------------------------
+A partir da versão 8.0 do Sispetro, essa tela de consulta não esta mais disponível. Uma nova tela de consulta tridimensional foi disponibilizada para que o usuário possa personalizar suas consultas. Acesse o menu 
+Consulta / Análise Vendas / 
+ 
+Com o propósito de suprir a necessidade de uma melhor visualização e análise das informações de pedidos de vendas e faturamento o sistema Sispetro disponibiliza a tela de Analise Vendas / 
+Movimento (Consulta / Analise Vendas Movimentos
+), sendo possível ao usuário realizar diversos tipos de consultas, são elas:
+Analítico Pedido
+Analítico Faturado
+Resumido Pedido
+Resumido Faturado
+Analítico Pendente
+Resumido Pendente
+Resumido Faturado por Estado
+Pedido por Base
+Faturado por Base
+Pedido Pendente por Base
+Resumido Pedido por Estado
+Pedido Cancelado por Vendedor
+Resumido Pend. Por Base / Data Entrega
+Pedido Cancelado p/ Dta Cancelamento
+Analítico por data de entrega
+Resumido Pedido Pendente
+Analítico Pedido
+ 
+ Através desta consulta será apresentada uma coluna para cada produto vendido no período, apresentando inicialmente algumas informações básicas sobre o pedido de venda e na coluna do produto sua quantidade preço, unitário e valor total, não sendo apresentados pedidos de venda cancelados
+Analítico Faturado
+ 
+ Através desta consulta será apresentada uma coluna para cada produto faturado através de um pedido de venda no período, apresentando inicialmente algumas informações básicas sobre a nota fiscal e na coluna do produto sua quantidade preço, unitário e valor total.
+Resumido Pedido
+ 
+ Através desta consulta será apresentada uma coluna para cada produto vendido no período, apresentando inicialmente somente o vendedor e na coluna do produto sua quantidade preço, unitário e valor total, não sendo apresentados pedidos cancelados.
+Resumido Faturado
+ 
+ Através desta consulta será apresentada uma coluna para cada produto faturado através pedido de venda no período, apresentando inicialmente somente o vendedor e na coluna do produto sua quantidade preço, unitário e valor total
+Analítico Pendente
+ 
+ Através desta consulta será apresentada uma coluna para cada produto vendido no período e que não tenha sido faturado, apresentando inicialmente algumas informações básicas sobre o pedido de venda e na coluna do produto sua quantidade preço, unitário e valor total.
+Resumido Pendente
+ 
+ Através desta consulta será apresentada uma coluna para cada produto vendido no período, apresentando inicialmente somente o vendedor e na coluna do produto sua quantidade preço, unitário e valor total, não sendo apresentados pedidos cancelados e faturados.
+Resumido Faturado por Estado
+ 
+ Através desta consulta será apresentada uma coluna para cada produto faturado através pedido de venda no período agrupando por estado, apresentando inicialmente somente o vendedor, Estado e na coluna do produto sua quantidade preço, unitário e valor total.
+Pedido por Base
+ 
+ Através desta consulta será apresentada uma coluna para cada produto vendido no período agrupando por base (Depósito), apresentando inicialmente somente o vendedor, Depósito e na coluna do produto sua quantidade preço, unitário e valor total.
+Faturado por Base
+ 
+ Através desta consulta será apresentada uma coluna para cada produto faturado através pedido de venda no período agrupando por base (Depósito), apresentando inicialmente somente o vendedor, Depósito e na coluna do produto sua quantidade preço, unitário e valor total.
+Pedido Pendente por Base
+ 
+ Através desta consulta será apresentada uma coluna para cada produto vendido no período que não tenha sido faturado, agrupando por base (Depósito), apresentando inicialmente somente o vendedor, Depósito e na coluna do produto sua quantidade preço, unitário e valor total.
+Resumido Pedido por Estado
+ 
+ Através desta consulta será apresentada uma coluna para cada produto vendido no período agrupando por estado, apresentando inicialmente somente o vendedor, Estado e na coluna do produto sua quantidade preço, unitário e valor total.
+Pedido Cancelado por Vendedor
+ 
+ Através desta consulta será apresentada uma coluna para cada produto que esteja em um pedido de venda cancelado agrupando por vendedor, apresentando inicialmente o vendedor e na coluna do produto sua quantidade preço, unitário e valor total.
+Resumido Pend. Por Base / Data Entrega
+ 
+ Através desta consulta será apresentada uma coluna para cada produto com data de entrega no período que não tenha sido faturado, agrupando por base (Depósito), apresentando inicialmente somente o vendedor, Depósito e na coluna do produto sua quantidade preço, unitário e valor total.
+Pedido Cancelado p/ Dta Cancelamento
+ 
+ Através desta consulta será apresentada uma coluna para cada produto com data de cancelamento no período que não tenha sido faturado, agrupando por base (Depósito), apresentando inicialmente somente o vendedor, Depósito e na coluna do produto sua quantidade preço, unitário e valor total.
+Analítico Pedido por data de entrega
+ 
+ Através desta consulta será apresentada uma coluna para cada produto vendido com data de entrega no período, apresentando inicialmente algumas informações básicas sobre o pedido de venda e na coluna do produto sua quantidade preço, unitário e valor total, não sendo apresentados pedidos de venda cancelados
+Resumido Pedido Pendente por data Entrega
+ 
+ Através desta consulta será apresentada uma coluna para cada produto com data de entrega no período, apresentando inicialmente somente o vendedor e na coluna do produto sua quantidade preço, unitário e valor total, não sendo apresentados pedidos cancelados e faturados.
+Existem três opções de filtragem válida para todos os tipos de consulta: 
+ 
+Valores com Complemento / Ressarcimento
+ : Este filtro recalcula o preço médio do pedido/Nota Fiscal somando o complemento ou subtraindo o ressarcimento de acordo com o tipo de produto e Estado do cliente. Assim, caso a empresa trabalhe com o ressarcimento ou complemento (isto é, já incluindo no preço de venda o ressarcimento ou complemento) pode-se equalizar os preços praticados para ver a média real praticada pelos vendedores. 
+ 
+Preço faturado com Frete
+ : Agrega ao valor do item o valor do frete, conforme parâmetro definido pela empresa ( Ferramentas / Sistema / Frete campo "Destaca Frete na Nota Fiscal?")
+(Ex. Suponhamos que a empresa esteja definida para "Destacar o frete na Nota Fiscal" neste caso o valor do frete será agregado ao valor do item no momento da consulta quando esse item estiver marcado, logo se temos um item com valor de 0,10 centavos e frete de 0,02 seu valor na consulta será de 0,12, contudo caso a empresa esteja com o item "Destacar o frete na Nota Fiscal" desmarcado o valor do frete quando esse item estiver desmarcado será abatido do valor do produto, isto é, para o mesmo exemplo quando desmarcamos essa opção na tela de consulta o valor apresentado será o valor do item menos o frete, que seria 0,08)
+ 
+Inclui Custo Financeiro
+: trabalha com a diferença entre o preço a vista e o preço com o custo financeiro da condição de pagamento escolhida no pedido de venda.
+ 
+Para realizar a consulta, selecione o período para a consulta, clicando nos campos Data 
+Inicial e Data Final
+. Clique na seta posicionada no extremo direito do campo e selecione as datas no calendário apresentado. 
+ Após selecionado o período para a consulta, selecione o Tipo de Pesquisa, clicando na seta posicionada no extremo direito do campo Tipo. O Sistema exibe a lista contendo os tipos disponíveis de consulta, basta clicar sobre a linha desejada.
+Acione o botão Atualiza para que seja exibido o resultado da pesquisa.
+A consulta efetuada na tela pode ser impressa, basta acionar o botão Imprime localizado no inferior da tela.
+Para retornar ao Menu principal acione o botão 
+Fecha
+.

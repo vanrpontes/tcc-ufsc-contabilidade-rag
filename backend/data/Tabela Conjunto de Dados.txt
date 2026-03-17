@@ -1,0 +1,39 @@
+TITULO: Tabela Conjunto de Dados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879390353
+--------------------------------------------------
+A tabela de Conjunto de Dados será utilizada para configurar o caminho da DLL utilizada para gerar o arquivo para o SPED.
+A tela de manutenção pode ser acessada através do menu 
+Tabelas Auxiliares / Controladoria / Conjunto Dados
+.
+Nesta tela são armazenados as seguintes informações:
+Sequencial:
+ número sequencial interno controlado pelo SisPetro - não editável
+Descrição:
+ descrição do conjunto de dados - não editável
+Pré-Comando:
+ oré-comando utilizado para o conjunto de dados - não editável
+Pós-Comando:
+ pós-comando utilizado para o conjunto de dados - não editável
+Tabela Parâmetro:
+ tabela utilizada como parâmetro para utilização do conjunto de dados - não editável
+DLL Arquivo de Exportação:
+ informe a pasta onde se encontra Dll utilizada para gerar o arquivo do conjunto de dados
+Quando a estrutura do SisPetro (executáveis) estão em uma máquina e o banco de dados em outra máquina é obrigatório:
+Servidor Hermes e DLLs dos SPEDs devem estar na mesma máquina onde se encontra o banco de dados
+O caminho da DLL obrigatóriamente deve ser a pasta onde se encontram o Servidor Hermes e as DLLs 
+Manutenção Própria
+: informa se o conjunto de dados é gerado em tela própria ou não - não editável
+ATENÇÃO: Nenhum usuário tem a permissão de incluir ou excluir os registros configurados nesta tabela, pois são atualizados pela Futura sempre que houver uma nova funcionalidade. 
+Caso tente incluir um novo conjunto de dados, o SisPetro emitirá a mensagem de:
+Caso tente excluir um conjunto de dados, o SisPetro emitirá a mensagem de:
+As 
+alterações
+ necessárias nesta tela serão feitas pela Futura 
+quando houver necessidade.
+ 
+Somente o campo 
+DLL Arquivo de Exportação
+ estará disponível para digitação. A DLL é necessária para gerar os arquivos dos SPEDs e cada conjunto de dados tem sua própria DLL.
+Os dados desta tela são utilizados na 
+Manutenção de Conjunto de Dados
+.

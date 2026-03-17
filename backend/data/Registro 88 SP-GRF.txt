@@ -1,0 +1,74 @@
+TITULO: Registro 88 SP-GRF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210456
+--------------------------------------------------
+O Registro 88 de São Paulo é exigido pela Secretaria da Fazenda do Estado de São Paulo para movimentações com combustíveis e validado pelo software Gerador de Registro Fiscal - GRF, fornecido por ela.
+
+
+A exigência deste registro surgiu na Portaria CAT 095/03 (2003), mas de lá para cá sempre há novas Portarias regularizando alguma alteração neste registro. Estas portarias podem ser consultadas no próprio software GRF.
+
+
+Por se tratar de movimentações com combustíveis, algumas informações só estão constantes na Origem, ou seja, na Nota Fiscal emitida pelo SisPetro, e não estão presentes no Livro Fiscal. Sendo assim, não serão gerados registros 88 para movimentações oriundas de dados de livro fiscal lançados de forma manual na
+ 
+Manutenção de Livros Fiscais
+.
+
+
+O arquivo tem a mesma estrutura do Sintegra, excetuando o registro 88 que possui algumas características específicas do Estado de São Paulo.
+
+
+O registro 88 possui alguns tipos, sendo eles:
+
+
+
+
+Registro 88 C - Detalha os itens da nota (equivalente ao Registro 54 do Sintegra)
+
+
+Registro 88 D - Detalha o cabeçalho da nota (equivalente ao Registro 50 do Sintegra)
+
+
+Registro 88 E - Detalha os produtos envolvidos nas notas (equivalente ao Registro 75 do Sintegra)
+
+
+Registro 88 T - Detalha os dados de transportadora da nota (equivalente ao Registro 50 do Sintegra, complementando o registro 88 D)
+
+
+
+
+Para o Registro 88 E, cada produto deverá ter um código da Secretaria da Fazenda. Sendo assim, é necessário cadastrar esse código via tela de Manutenção de Produtos do SisPetro Normal, painel Dados Adicionais, no campo
+ 
+Código SEFAZ
+. A alteração de código é refletida na próxima geração do Sintegra, não sendo necessário reprocessar as notas.
+
+
+Para o Registro 88 T é necessário indicar como será o preenchimento dos campos de CPF e IE de transportadoras que sejam Pessoa Física (PF), isto porque temos alguns detalhes:
+
+
+
+
+O RG do Motorista não é aceito como IE e geralmente, no cadastro de Transportadoras, o campo IE é preenchido com o RG do Motorista.
+
+
+O manual dá duas possibilidades de preenchimento, sendo uma delas preencher o campo CPF com o CPF do Motorista e o campo IE colocando a palavra "ISENTO". A segunda forma é não informar o CPF, sendo assim o campo IE não será exigido, podendo ficar em branco.
+
+
+
+
+Cada empresa deverá optar por algum tipo de preenchimento, lendo atentamente o manual do GRF. Para configurar sua opção:
+
+
+No menu
+ 
+Ferramentas / Sistema
+, vá ao painel Fiscal e configure os campos de Documentação da Transportadora, conforme figura abaixo:
+
+
+
+
+Para o campo CPF temos três opções:
+
+
+
+
+Para o campo IE, temos outras três opções:
+

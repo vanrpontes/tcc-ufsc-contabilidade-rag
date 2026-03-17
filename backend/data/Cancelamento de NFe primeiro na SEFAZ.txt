@@ -1,0 +1,36 @@
+TITULO: Cancelamento de NFe primeiro na SEFAZ
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2915467376
+--------------------------------------------------
+O cancelamento da NF até a versão 8.4 se dá primeiro cancelando a NF no Sispetro e depois tentando processar esse cancelamento na SEFAZ. Porém o cancelamento na SEFAZ pode apresentar erros e aí não tem como reverter o cancelamento feito no Sispetro. Pensando nisso, a partir da versão 8.5 o Sispetro primeiro fazo cancelamento na SEFAZ e, se autorizado, faz o cancelamento no Sispetro.
+Porém, para que isso seja possível, é necessário garantir que todas as validações que impedem o cancelamento da NF no Sispetro sejam feitas antes do envio do pedido de cancelamento à SEFAZ. Vejamos o fluxo até a versão 8.4 e o novo fluxo a partir da 8.5:
+Após clicado no botão 
+Cancela
+ e informado o motivo do cancelamento, o fluxo acima (Versão 8.5) será acionado. Veja 
+.
+Se um ou mais processos verificados para o cancelamento não for aprovado será exibida uma tela informando qual o processo que impede o cancelamento dessa nota.
+Vejamos um exemplo:
+A Nota Fiscal 1448 foi incluída no dia 18/04/2013, e ao final desse dia o Fechamento de Estoque foi realizado para o Produto ou Depósito utilizado nessa nota. Ao realizar o cancelamento será exibida a tela abaixo:
+Note que o Processo Fechamento de Estoque não foi Aprovado, com isso a nota não será cancelada.
+Vimos no exemplo acima que temos duas colunas, 
+Valor Esperado
+ e 
+Valor Obtido
+, sendo que o Valor Esperado é a condição necessária para que esse processo seja aprovado, ou seja, que 
+NÃO
+ exista Fechamento de Estoque, porém o valor obtido foi 
+SIM
+ que existe fechamento de Estoque, impedindo o cancelamento dessa NF.
+Além disso, na tela acima ainda poderá ser percebido que temos duas Abas, 
+Análise para Cancelamento na Sefaz
+ e 
+Análise para Cancelamento no Sispetro
+. No fluxo ilustrado acima (versão 8.5), existem duas vezes o 
+Verifica todos  os Processos do Sispetro ref. NF
+, o primeiro deles é executado antes do Envio a SEFAZ e o segundo após o processamento com sucesso da SEFAZ.
+Após o cancelamento da NF, esses mesmos processos podem ser verificados na Manutenção de NFs, aba 
+Diversos / Análise para o Cancelamento.
+ 
+Quando se tratar de Nota Fiscal DENEGADA deve cancelar a nota no Sispetro que reverterá todos os processos internos mas não enviará qualquer solicitação à Sefaz, onde a nota denegada ficará ativa.
+Neste caso, o processo de validação NÃO VERIFICARÁ se a nota está cancelada na Sefaz.
+Na página 
+ daremos mais informações sobre cada uma das validações realizadas.

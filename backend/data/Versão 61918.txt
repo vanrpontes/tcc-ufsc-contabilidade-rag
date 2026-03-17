@@ -1,0 +1,208 @@
+TITULO: Versão 6.19.18
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2880176192
+--------------------------------------------------
+
+
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 03/11/2008 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 11/11/2008 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd61918.sql (cmd2045 a cmd2046.sql) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 9 
+ 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 3 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 6 
+ 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+ scanc.rtm 
+
+
+
+
+
+
+
+
+ALTERAÇÕES
+
+
+Financeiro
+
+
+
+
+Vencimento de título criado na 6ª feira
+
+
+Na manutenção de tipos de cobrança, aba por Empresa, foi criado o campo "Nº mínimo de dias úteis" esse campo, quando utilizado, ira controlar a data de vencimento do 1º título gerado, através de NF. ECJ (CCF 2857)
+
+
+Help: Manutenção de Tabelas no Sistema/ Vendas/ Tabela Tipo de Cobrança
+
+
+Relatório de Cheques, ordenação por Banco
+
+
+No relatório de cheques, (menu: Relatórios/Financeiro), foi criada uma nova opção de ordenação: "Banco", sendo que esta ordenação será feita somente por este campo (Banco), sem classificar por filial, (como é feito pelas demais opções de ordenação deste relatório). ECJ (CCF 3958)
+
+
+Help: Roteiro para área de Financeiro/ Relatórios Financeiros/ Cheques
+
+
+
+
+Controladoria
+
+
+
+
+Desconsiderar Encerramentos no Balancete
+
+
+Na aba Balancete, dos relatórios contábeis, foi criado o campo "Valores de Encerramento", para controlar a emissão, ou não, dos valores de encerramentos no relatório de balancete. ECJ (CCF 4077)
+
+
+Help Controladoria: Roteiros/ Relatórios/ Balancete
+
+
+
+
+Fiscal
+
+
+
+
+Scanc
+
+Retificamos as alterações das últimas versões referente a Quantidade de Gas A/Diesel de Biodiesel no Registro 40, campos adicionais no Registro 60 e campo Substituto do Registro 62. 
+É necessário atualizar o arquivo SCANC.RTM no layout de Exportação de Dados utilizado para este fim.
+ 
+GMS (CCF 4501)
+
+
+
+
+Faturamento
+
+
+
+
+Natureza de Operação - tela Processos Referenciados não fecha
+
+Na manutenção da tabela de Natureza de Operação, ao entrar em Processos Referenciados e abrir, não permitia fechar, a menos que fosse incluído um registro. Para resolução do problema foram adicionados botões para Gravar/Cancelar registros na aba de Processos Referenciados. 
+ECJ (CCF 4398)
+
+
+Salvar corretamente Situação do Documento LFE
+
+No cancelamento da NF. o campo: 
+Cod_Sit
+ não estava sendo gravado corretamente; também foi efetuada a atualização da tabela LFESituacaoDocumento, que estava desatualizada com relação ao manual SPED vigente. 
+ECJ (CCF 4492)
+
+
+Filtro de Data na tela de Manutenção de NF-e
+
+Alterada mensagem no botão atualiza, na tela de manutenção de NF-e, 
+Data Inicial deve ser maior ou igual a Data Final.
+ 
+ECJ (CCF 4509)
+
+
+NF Cancelada na Sefaz e não cancelada no sistema
+
+
+Corrigido erro no processo de cancelamento de NF, que numa rara situação e com determinado filtro de tela, causava divergência entre o cancelamento da NF no SisPetro e seu respectivo cancelamento na Sefaz.
+ 
+ECJ (CCF 4485)
+
+
+Erro na tela de complemento de preço
+
+Corrigido erro que ocorria ao gerar nota de complemento de preço, no SisPetro Remoto. 
+ECJ (CCF 4474)
+
+
+

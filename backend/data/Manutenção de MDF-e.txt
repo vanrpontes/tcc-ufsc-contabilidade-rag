@@ -1,0 +1,167 @@
+TITULO: Manutenção de MDF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919992493
+--------------------------------------------------
+SOMENTE para o 
+cancelamento de MDF-e a Sefaz valida o fuso horário
+. Assim, para quem emite MDF-e deve configurar o fuso horário em 
+Tabela Unidades Federativas - UF
+ na aba Detalhes, aba inferior DADOS GERAIS, campo Fuso Horário. Caso não tenha fuso horário cadastrado, incluir em Menu Tabelas Auxiliares / Faturamento / Fusos Horários.
+O menu será liberado somente se o usuário tiver o perfil 
+Pode incluir/processar MDF-e
+ marcado. 
+Para mais informações ver
+ 
+Perfil de Usuário - Painel Faturamento
+.
+Menu Movimentação / Faturamento / Manifesto Eletrônico / Manutenção de MDF-e:
+Manutenção de MDF-e: 
+é
+ a tela que centraliza todas as operações relacionadas a MDF-e. Apresenta na parte superior da tela o ambiente configurado para a empresa e como está o perfil Off-line.
+              
+Botões
+Inclui: 
+veja o tópico 
+Inclusão de MDF-e
+. Habilitado caso perfil de usuário 
+Pode incluir/processar MDF-e
+ esteja marcado.
+Inclui Avulso:
+ veja o tópico 
+Inclusão de MDF-e
+. Habilitado caso perfil de usuário 
+Pode incluir/processar MDF-e
+ esteja marcado.
+Altera: 
+permite a
+lterar dados de Motorista/Transportadora/Frotas em MDF-e não processados na SEFAZ, mediante a permissão de usuário.
+Cancela
+: aciona o cancelamento do MDF-e:
+Habilitado caso perfil de usuário 
+Pode Cancelar MDF-e
+ esteja marcado.
+Verificações:
+MDF-e tiver com 
+status Ativo.
+MDF-e NÃO pode estar cancelado.
+MDF-e NÃO pode estar encerrado.
+MDF-e NÃO pode estar pendente de protocolo.
+Prazo de cancelamento:
+ o prazo é configurado no perfil de sistema - 
+.
+MDF-e autorizado:
+ intervalo entre Data/Hora de Autorização e a Data/Hora atual do servidor
+MDF-e NÃO autorizado:
+ intervalo entre Data/Hora de Inclusão e a Data/Hora atual do servidor
+Imprime
+: imprime o DAMDFE do MDF-e posicionado na tela. 
+Para estar habilitado ele depende dos perfis de usuário 
+Pode Imprimir MDF-e autorizado Não Encerrado
+ ou 
+Pode imprimir MDF-e não autorizado. Para mais informações, ver: 
+Painel Faturamento (Usuários)
+. 
+Caso os 2 perfis estejam desmarcados, o botão ficará desabilitado.
+Apresenta mensagem se o MDF-e está autorizado ou não, e não permite a impressão de acordo com o a configuração dos perfis de usuário.
+ 
+Permite indicação da impressora caso o perfil de usuário 
+Direciona Impressão
+ esteja marcado.
+Visualiza Impressão:
+ permite a visualização do DAMDFE do MDF-e posicionado na tela. 
+Segue as mesmas regras do botão 
+Imprime,
+ quanto ao perfil de usuário e mensagem se o MDF-e está autorizado ou não.
+Sincroniza
+: 
+p
+ermite a consulta na SEFAZ desse MDF-e, através da Chave de Acesso. 
+Habilitado caso perfil de usuário 
+Pode incluir/processar MDF-e
+ esteja marcado.
+O resultado da consulta é gravado na aba Processamento SEFAZ. 
+Pendente
+: 
+abre a tela 
+Manutenção de MDF-e Pendentes
+ 
+ para enviar MDF-e pendentes de processamento (entre eles os que precisam de Encerramento) na SEFAZ. 
+Para mais informações, ver 
+Manutenção de MDF-e Pendentes
+Habilitado caso perfil de usuário 
+Pode incluir/processar MDF-e 
+ou o perfil
+ 
+Pode encerrar MDF-e? 
+ esteja marcado.
+Atualiza
+: atualiza os dados da tela conforme os filtros de período e status indicados.
+Altera
+No botão altera é possível realizar alteração de motorista e de transportadora, 
+Se o box processa estiver habilitado a alteração será encaminhada para a Sefaz assim que clicar em OK.
+Necessário ter o perfil habilitados no usuário: 
+Pode alterar Motorista em MDF-e processado 
+Necessário adicionar o campo 
+UltimoMotorista 
+ao rtm, para que seja possível impressão do ultimo motorista caso utilize a função alterar motorista.
+Filtros
+De/Até:
+ o
+ 
+período
+ sugerido será de 7 dias anteriores da data atual.
+Status:
+Todos: 
+t
+odos os MDF-e serão mostrados na tela.
+Ativos: 
+mostra os MDF-e pendentes de recibo, pendentes de protocolo e pendentes de encerramento.
+Encerrados: 
+mostra somente os MDF-e pendentes de encerramento.
+Cancelados: 
+mostra somente os
+ MDF-e cancelados.
+Abas
+MDF-e
+: exibe os MDF-e da empresa conectada conforme filtro de período e status indicado na tela.
+          
+Documentos Vinculados
+: exibe os dados dos CT-e/NF-e vinculados ao MDF-e posicionado na aba MDF-e.
+          
+Botão Desvincular NF:
+ esse botão desvincula a nota do MDF-e, permitindo incluir a nota a outro MDF-e. Para habilitar o botão, veja mais informações no perfil 
+Pode desvincular NF após encerramento
+ na tela de Perfil de Usuário. Só é possível desabilitar notas de MDF-e que estejam encerrados.
+Percurso
+: exibe as cidades de percurso desse MDF-e.
+         
+Processamento SEFAZ: 
+exibe todas as comunicações com a SEFAZ para esse MDF-e (similar à aba NF-eletrônica da Manutenção de NF)
+A partir da versão 10.23 
+ é possível gerar XML de Distribuição.
+O XML Distribuição será gerado nas seguintes situações: MDF-e autorizado, autorizado e cancelado e autorizado e encerrado
+         
+Na Aba Eventos é possível identificar pendências como a de 
+Eventos de Condutor
+ ou de 
+Documentos
+  
+Diversos:
+Aba Averbação
+Aqui é possível verificar os status de comunicação com a Gerenciadora de Averbação, cancelar ou reenviar o MDF-e.  Mais informações sobre, ver 
+Averbação de CT-e e NF-e via Integração
+Aba Análise Cancelamento
+ 
+Análise para cancelamento na Sefaz: 
+dados referentes ao cancelamento na Sefaz.
+Análise para cancelamento no SisPetro:  
+dados referentes ao cancelamento no SisPetro.
+Para mais informações:
+MDF-e - Manifesto Eletrônico de Documentos Fiscais
+Inclusão de MDF-e
+Manutenção de MDF-e Pendentes
+Consulta Status Serviço do MDF-e
+Tabela Unidades Federativas - UF's
+Configuração da UF
+Natureza de Operação - Dados Gerais (Painel Por Filial)
+Perfil de Empresa - Painel MDF-e
+Perfil de Usuário - Painel Faturamento

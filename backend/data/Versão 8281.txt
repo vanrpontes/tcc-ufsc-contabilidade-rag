@@ -1,0 +1,49 @@
+TITULO: Versão 8.28.1
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924286069
+--------------------------------------------------
+Versão 8.28.1
+Dados
+Informações
+Início
+16/09/2015
+Final
+21/09/2015
+Scripts
+CMD8281.sql (Sem Numeração)
+Itens
+8
+Implementações
+1
+Correções
+7
+Avisos importantes
+É fundamental a atualização para essa versão caso a empresa já tenha atualizado para a versão 8.28.
+Geral
+Cadastro de Clientes
+Corrigido o problema no Cadastro de Clientes que quando estava configurado para filtrar os clientes inativos estava gerando erro ao usuário e não exibia nenhum cliente.
+ UPA (CCF 29337)
+Faturamento
+Consulta de NF-e do Destinatário
+Alterado o processo de Consulta de NF-e do Destinatário para desconsiderar a ordem que os eventos são informados pela Sefaz. Em algumas UF's, a Sefaz erroneamente enviava o Resumo da NF-e depois do protocolo e por isso gerava o erro no SisPetro. UPA (CCF 29162)
+Vinculo de NF-e na importação de CT-e
+Na versão passada foram implementadas rotinas para vincular as NF-e's aos CT-e's no momento da importação. Porém essas rotinas apresentaram um problema que a NF-e está sendo vinculada a todos os CT-e importados. Nessa versão, esse problema foi corrigido. 
+CPC (CCF 29309/29313)
+ 
+Cancelamento de NF e Vinculo com Ordem Carregamento
+O processo de cancelamento de Nota Fiscal não estava cancelando o vinculo com a Ordem de Carregamento, dessa forma a OC não poderia ser cancelada. Após correção, o cancelamento será efetivado corretamente. Além disso, foi incluído mais um registro de log, no final da procedure de banco, para corrigir o erro que ocorria em um banco específico.  
+PRFC (CCF 29361) CPC (CCF 29376)
+Agrupamento de e-mail para Notas com mais de um item
+Com a implementação de Faturar uma Nota Fiscal com mais de um item, o agrupamento de e-mail passou a dar problemas, multiplicando os arquivos .XML e detalhes no corpo do e-mail pela quantidade de itens. Nessa versão, esse problema foi corrigido. 
+CCP (CCF 29319)
+ 
+ 
+Transporte
+Controle de Diferença de Descarga
+Alterado o procedimento que calcula as quantidades para o procedimento de Diferença de Descarga para que utilize os valores por item do carregamento, evitando assim que quando um carregamento tenha duas vezes o mesmo produto, tenha as quantidades duplicadas. 
+UPA (CCF 29344)
+Fator de Referência na Apuração do Frete Liquido
+O processo de apuração do Frete Liquido e Diferença de Descarga foi alterado para permitir que os campos de Fator de Referência possam ter mais casas decimais. 
+PRFC (CCF 29340)
+Volume de Tolerância na Apuração do Frete Liquido
+O processo de apuração do Frete Liquido foi alterado para que o Volume de Tolerância seja considerado corretamente para a Valorização do Excedente. 
+PRFC (CCF 29314)

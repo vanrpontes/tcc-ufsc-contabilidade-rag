@@ -1,0 +1,48 @@
+TITULO: Regras para CT-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936701016
+--------------------------------------------------
+Nesta tela é possível definir os parâmetros que variam de acordo com a UF, para CT-e.
+Responsável Técnico
+Dados do Responsável Técnico:
+ h
+abilitando essa opção serão incluídas, no xml, as tags referente aos dados do responsável técnico (FUTURA). Todos os dados referente ao responsável técnico são gravados internamente no SisPetro, pela Futura.
+CSRT (Código Segurança): 
+marcando essa opção, caso a empresa responsável técnica (FUTURA) tenha um código CSRT para a UF em questão, será informado o código nas tags idCSRT e hashCSRT.
+O perfil CSRT se trata de um código de Segurança enviado pela Sefaz para a Futura e só pode ser marcado como 
+Envia
+ com a autorização da Futura.
+Serviço de Inutilização:
+Ativo: 
+utilizado se as configurações de webservice estiverem para versão 
+3.00
+Exinto:
+ 
+utilizado se as configurações de webservice estiverem para versão 
+4.00
+Anulação  de CT-e
+Ativo: 
+utilizado se as configurações de webservice estiverem para versão 
+3.00
+Exinto:
+ 
+utilizado se as configurações de webservice estiverem para versão 
+4.00
+QR Code:
+ habilitando essa opção o SisPetro ira informar no xml o QR Code e disponibilizar a impressão do mesmo no DaCTe, lembrando que o layout do Dacte  que esta sendo utilizado já deve estar devidamente configurado. 
+Para maiores detalhes de como incluir o QR Code no Dacte. Para mais informações, ver 
+O QR Code veio como um facilitador para a consulta do CTe, após realizar a leitura do código de QR Code impresso no DaCte utilizando um dispositivo com leitura de QR Code, o dispositivo irá direcionar para um link da receita contendo os dados do CT-e.
+Configuração do webservice do QR: 
+deve ser configurada na aba 
+Endereços URL p/ CTe
+: 
+Envia dados de ICMS Desoneração: 
+habilitando essa opção o SisPetro envia a Tag 
+vICMSDeson
+  contendo o valor de ICMS de Desoneração. O SisPetro envia sempre zero. Para mais informações, ver 
+Como emitir nota fiscal de venda a órgão público com ICMS Desonerado no estado do Rio de Janeiro
+Envia Código do Benefício Fiscal: 
+habilitando essa opção o SisPetro envia a Tag 
+cBenef
+ contendo o valor do Código do Benefício Fiscal definido na 
+Natureza de Operação / Dados Gerais (Painel Por Filial)
+. O SisPetro envia sempre zero. 

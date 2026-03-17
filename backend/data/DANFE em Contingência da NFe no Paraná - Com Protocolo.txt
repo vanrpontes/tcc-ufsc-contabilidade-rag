@@ -1,0 +1,177 @@
+TITULO: DANFE em Contingência da NFe no Paraná - Com Protocolo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2888204283
+--------------------------------------------------
+A partir de abril de 2009 a SEFAZ do Paraná exigiu que a empresa, ao entrar em contingência própria necessitando imprimir o DANFE em Formulário de Segurança, que:
+
+
+
+
+Acesse o site da SEFAZ para obter um número de protocolo;
+
+
+Informe o número do protocolo no campo <Z02> do arquivo digital da NF-e;
+
+
+Imprima o número do protocolo no DANFE, campo Dados Adicionais - Reservado ao Fisco.
+
+
+
+
+Para os usuários do Sispetro iremos detalhar o procedimento a ser seguido em 
+Sistema de Contingência dos usuários do Estado do Paraná - sem conexão à internet
+.
+
+
+
+
+Acessar o menu Ferramentas/ Sistema/ aba Nota Fiscal
+
+
+No quadro de NF-Eletrônica localizar o campo 
+Caminho do Arquivo de Layout do Danfe
+ e clicar no botão 
+Edita Layout do Danfe
+ - 
+
+
+Na tela de Edição do layout do Danfe, identifique as alterações a serem feitas no quadro 
+Reservado ao Fisco
+, conforme imagem abaixo:
+
+
+
+
+
+
+Inserir um novo objeto Label dentro do quadro Reservado ao Fisco, através do menu de Componentes Padrão:
+
+
+
+
+
+
+Alinhe o novo objeto de forma que fique abaixo do 
+RESERVADO AO FISCO
+, porém na mesma direção:
+
+
+
+
+
+
+Altere o nome e a descrição do Label através das propriedades 
+Username = LblProtocoloContingência
+ e 
+Caption = Protocolo de Contingência
+):
+
+
+
+
+
+
+Inserir um novo objeto DBText dentro do quadro Reservado ao Fisco, através do menu de Componentes Padrão:
+
+
+
+
+
+
+Alinhe este novo objeto de forma que fique ao lado do Label 
+Protocolo de Contingência
+ e na mesma linha:
+
+
+
+
+
+
+Altere o nome do DBText através da Propriedade 
+Username = ppNumProtocoloContigencia
+, assim como as propriedades: 
+DataPipeline = NFESituacao
+ e 
+DataField = NumeroProtocoloEntContigencia
+;
+
+
+
+
+
+
+Acessar a aba 
+Cálculos
+, e através do menu 
+Visualizar
+ clicar na opção 
+Eventos
+;
+
+
+No quadro de Objetos Relatórios, localize a banda 
+Group
+ abaixo da banda 
+Report
+;
+
+
+
+
+
+
+Em seguida, no quadro Eventos para Rodapé do Grupo, localize e selecione o evento 
+BeforePrint
+
+
+
+
+
+
+Dê um clique no quadro de Programação, abaixo do quadros Objetos Relatórios e Eventos para Rodapé de Grupo. Irá aparecer o código:
+
+
+procedure GroupFooterBand2BeforePrint;
+begin
+
+end;
+
+
+
+
+
+
+
+Copie o código abaixo entre os comando 
+begin
+ e 
+end
+:
+
+
+ppNumProtocoloContigencia.Visible := (NFESituacao['OffLine'] = 1) and (NFESituacao['NumeroProtocoloEntContigencia'] <> '');
+LblProtocoloContigencia.Visible := ppNumProtocoloContigencia.Visible;
+
+
+
+
+
+
+
+O resultado final deve ser:
+
+
+procedure GroupFooterBand2BeforePrint;
+begin
+  ppNumProtocoloContigencia.Visible := (NFESituacao['OffLine'] = 1) and (NFESituacao['NumeroProtocoloEntContigencia'] <> '');
+  LblProtocoloContigencia.Visible := ppNumProtocoloContigencia.Visible;
+end;
+
+
+
+
+
+Volte para a aba Desenho, e vá ao menu Arquivo > Salvar
+
+
+Por fim, feche a tela de Edição do Layout do Danfe.
+

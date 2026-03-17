@@ -1,0 +1,56 @@
+TITULO: Regras e Definições para configurar e utilizar o Roteador do Servidor Sispetro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926203241
+--------------------------------------------------
+Em desuso. A partir da versão 10 foi substituído pelo 
+.
+Para utilizar o roteador de controle de acesso ao Servidor Sispetro existem algumas regras e definições que devem ser seguidas.
+Abaixo detalhamos as informações:
+A empresa deve ter
+ no mínimo
+ 2 Servidores Sispetro (além do servidor S3), sendo 1 configurado como primário e 1 configurado como secundário.
+O servidor primário é o servidor base de conexão dos usuários. Todos serão direcionados para este servidor desde que o mesmo esteja ativo. O secundário é como se fosse um servidor de backup. Quando o servidor primário estiver inativo, os usuários serão direcionados para o servidor secundário.
+Podemos ter vários servidores primários e, desta forma, o roteador distribuirá os acessos entre esses servidores primários.
+Servidor Sispetro S3 continua sendo obrigatório, independente de uso de Servidor Roteador ou não, devendo SEMPRE ser o primeiro a ser iniciado. Os demais podem ser iniciados em qualquer ordem.
+O S3 
+não deve 
+ser um servidor roteador.
+O direcionamento de acesso pode ser feito através da definição por empresa/setor ou de forma automática (definida internamento no Servidor Roteador).
+Para o direcionamento através de empresa/setor, os parâmetros informados nas configurações dos Servidores Sispetro primário e secundário devem ser 
+exatamente iguais
+ nos arquivos INI do Sispetro Normal e Controladoria. 
+Assim, podemos definir no INI do Sispetro Normal e/ou Controladoria de um determinado usuário que ele pertence a Empresa X e ao Setor Y. No logon, de acordo com a definição dos parâmetros do Roteador, o mesmo direcionará o controle do acesso deste usuário para este Servidor Sispetro.
+Caso deseje que o Servidor Roteador direcione os acessos, 
+não
+ é necessário realizar nenhuma configuração nos arquivos INI (exceto a configuração do parâmetro 
+Rotear
+)
+Parâmetros que são utilizados nos arquivos INI do Sispetro Normal e Controladoria são:
+IP
+: endereço IP da máquina onde está sendo executado o Servidor Roteador.
+Porta
+: porta onde o Servidor Roteador está sendo executado. Como nos demais Servidores Sispetro, não pode ser repetida.
+Empresa
+: descrição 
+exatamente igual
+ ao que foi definido nos parâmetros do Servidor Roteador (não obrigatório).
+Setor
+: descrição 
+exatamente igual
+ ao que foi definido nos parâmetros do Servidor Roteador (não obrigatório).
+Rotear
+: pode ser 0 (para que não utilize como roteador, trabalhando como um Servidor Sispetro qualquer) ou 1 (para rotear, definindo a rota de acesso de acordo com as configurações feitas) - sendo este exclusivo do arquivo INI.
+No parâmetro Máscara IP, tanto para Servidores Sispetro primários quanto para os secundários, deve-se informar o range de IP da empresa e sempre 
+1/24
+ no final - exemplo 
+192.168.0.1/24
+ ou 
+10.0.0.1/24
+. Isso significa que todas as máquinas cujo endereço IP inicie em 1 até 255 serão aceitos naquele Servidor Roteador - exemplos de 192.168.0.1, 192.168.0.250 até 192.168.0.255.
+Caso não tenha necessidade dessa definição, pode-se deixar o parâmetro sem preencher. Este parâmetro é definido nas configurações dos Servidores Sispetro primários e secundários.
+O Servidor Roteador pode ser executado em qualquer máquina da rede, desde que os arquivos INI do Sispetro Normal e Controladoria estejam apontando para o IP e PORTA do Servidor Roteador.
+Nas configurações do Servidor Roteador somente o 
+serviço
+ de roteador deve estar habilitado. Os demais serviços devem ser ativados nos outros Servidores Sispetro.
+Para configurar o Servidor Roteador, acesse 
+Servidor Sispetro Roteador - Configurações
+.

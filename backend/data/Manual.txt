@@ -1,0 +1,45 @@
+TITULO: Manual
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899351
+--------------------------------------------------
+Em 2008 o Estado de São Paulo aboliu o envio de CODIF para distribuidoras devido a implementação da NF-e. A partir da versão 8.11 toda a estrutura do CODIF foi removida.
+Para adaptar o SisPetro ao método manual de solicitação de autorização no CODIF não há muito a que ser feito.
+Configuração do texto exigido na natureza de operação
+ Configure na 
+Natureza de Operação
+, no campo de Observação da NF, o texto exigido pela Secretaria da Fazenda de SP: 
+ "OPERAÇÃO REGISTRADA SOB Nº ... - Portaria CAT /06" 
+ Faça isso com todas as naturezas envolvidas, porém uma única vez para cada natureza.
+A cada nota que precisar emitir: 
+ 
+1º
+ Entre no site da CODIF, informando o seu usuário e senha.
+2º
+ Escolha a opção de Autorização Individual
+3º
+ Na nova tela apresentada, informe o combustível, os dados do destinatário e o volume seta. Clique em "Solicitar". 
+ Será informada na tela um Código de Autorização que contém 20 números. Anote-o!
+4º
+ Acesse o SisPetro e inicie o processo de inclusão da Nota Fiscal, quando chegar na aba (painel) de Observações, complemente a frase "OPERAÇÃO REGISTRADA SOB Nº " com o número de autorização recebido. Conclua a nota e a imprima. 
+ Se a nota não for concluída e impressa com sucesso, repita este 4º passo até ter uma Nota OK.
+5º
+ Acesse o site da CODIF e escolha então a opção Autorização Individual
+6º
+ Na nova tela apresentada escolha Listar Autorizações para o dia. Serão apresentadas as solicitações feitas no dia. 
+ Localize o cliente e o produto para o qual você acabou de fazer a nota.
+7º
+ Posicionado na linha que apresenta o cliente e o produto da nota realizada, clique em "Registra NF".
+8º
+ Na nova tela, informe então os dados da NF e clique em "Alterar".
+Se a nota for 
+Interestadual
+, faça os passos a seguir: 
+ 
+1º
+ Acesse o site da CODIF e escolha então a opção Autorização Individual
+2º
+ Na nova tela apresentada, no quadro "Passe Fiscal Interestadual" informe o código de autorização que foi dado para a NF e clique em "Solicitar".
+3º
+ Na próxima tela informe os dados de transporte e clique em "Solicitar" 
+ Será então apresentada uma tela com um link para que seja salvo o arquivo .PDF. É este arquivo que precisa ser impresso.
+Atenção:
+ Apesar de ser possível solicitar a autorização já registrando a Nota, esta não é uma opção recomendável. Afinal, se você tiver algum problema com o seu formulário de NF ou alguém utilizar o Número de Nota reservado para outro cliente, você terá complicações a resolver na Secretaria da Fazenda.

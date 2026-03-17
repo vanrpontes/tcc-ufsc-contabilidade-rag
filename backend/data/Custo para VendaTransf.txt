@@ -1,0 +1,119 @@
+TITULO: Custo para Venda/Transf.
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878211000
+--------------------------------------------------
+none
+Objetivo
+É através do Cadastro de Produtos que se define os 
+Custos para Venda
+ de cada 
+produto
+, para cada 
+empresa
+ configurada no SisPetro e por 
+Depósito
+.
+Sendo assim, a partir do painel 
+Detalhes
+ é possível acionar o painel 
+Custos para Venda
+ no menu inferior da tela para cadastrar os custos de um produto. Os custos padrões (tributários, frete, Prazo de Pagamento e Inicial) são calculados internamente no SisPetro, conforme os parâmetros cadastrados na 
+Natureza de Operação
+, para os demais, deverão ser pré-cadastrados os seus tipos na 
+Tabela de Custos
+, e na tela a seguir deve ser indicado quais deles deverão ser calculados para o produto em questão.
+É possível realizar o cálculo do custo para notas de Outras Saídas, para isso os custos externos informados no produto devem estar com o tipo igual à 
+Transferência
+ ou 
+Ambos
+. 
+Aba Custo Padrão ⁣
+Na aba lateral 
+Custo Padrão
+ deve-se definir o custo que deve ser considerado para o produto selecionado. Informando também o valor ou o percentual para ele. Este valor é cadastrado por empresa, portanto 
+atente-se para qual empresa será cadastrado este custo
+.
+A coluna 
+Filtra UF
+, se informada, indica que os custos serão calculados somente se a UF informada para este custo for a mesma UF do destino. Este filtro deve ser utilizado 
+raramente
+, nos casos em que existem um desconto ou acréscimo na venda, partindo de uma filial para um determinado Estado. Este custo não é o custo de impostos tradicionais, pois estes o SisPetro já calcula normalmente.
+A coluna 
+Filtra Depósito
+, se informada, indica que os custos serão calculados por Depósito, sendo possível informar determinados custos especificamente para um depósito. Caso tenha escolhido um depósito e não queira mais que o custo tenha depósito específico, basta selecionar o item e clicar no botão 
+Limpa Filtra Depósito
+.
+Vendas:
+ para notas de venda
+Transferências (Outras Saídas):
+ para notas de transferência
+Ambas:
+ para notas de venda e de transferência, a coluna 
+Tipo 
+indica o tipo do custo usado em: 
+Ainda nesta aba de 
+Custo Padrão
+, deve-se informar qual o 
+Custo Médio utilizado
+, podendo ser:
+Custo Manual:
+ esta opção obriga o usuário a informar qual será o 
+Custo do Produto para cada depósito
+ na aba lateral 
+Custo por Depósito
+. Além disso, só será alterado quando algum usuário providenciar a alteração, aí será necessário recalcular o custo das notas que se deseje que pegue esta alteração, uma a uma.
+Custo pelo últº fechamento:
+ esta opção obriga o usuário a informar somente o campo 
+Depósito Padrão para Custo de Produto
+. Neste caso, a cada fechamento de estoque, os custos de vendas das Notas Fiscais do tipo 
+CUSTO INICIAL
+ serão atualizados automaticamente.
+Também é possível trabalhar ou não com 
+controle de vigência
+ para custos. A vigência padrão é 
+31/12/1990
+ e para optar pelo Controle de Vigência acione o Menu Ferramentas / Sistema / Nota Fiscal e marque a opção Controla Custos por Data de Vigência
+  
+Caso venha a desinteressar por este controle, desmarque-o, mas indique qual a vigência a ser utilizada pelo SisPetro a partir de então.
+A vigência de custos é por produto e empresa
+ e segue os mesmos critérios das vigências no painel de Margem Subst. Tributária: utilização dos botões 
+Inclui Vigência
+, 
+Exclui Vigência
+ e 
+Mostra Vigência
+, porém estes botões só estarão visíveis quando se optar pelo 
+Controle de Vigência
+.
+Aba Custo por Depósito
+Na aba 
+Custo por Depósito
+ deve-se incluir os custos (podendo até repetir o custo já informado na aba Custo Padrão) do produto por depósito e empresa, sendo que para isso o 
+Custo Médio utilizado
+ deve estar configurado como 
+Manual
+.
+Deve-se selecionar a empresa que será configurada, e em seguida selecionar o 
+Depósito
+. Após isso, deve-se definir o campo 
+Custo CIF do Produto
+.
+Custo CIF do Produto:
+ é utilizado no cálculo do Custo Inicial e nos custos cujo tipo seja Percentual por Custo do Produto. O padrão é que ele seja atualizado pelo 
+último Fechamento de Estoque
+ do produto quando é feita a 
+apuração do CMV
+.
+Caso seja a primeira configuração desse Produto para esse Deposito, é fundamental informar no campo 
+Custo CIF do Produto 
+o número ZERO, conforme a imagem acima. Caso deixe em branco, não calculará o custo. Fazer essa configuração somente uma vez quando for cadastrar o Custo, depois o SisPetro faz o cálculo automaticamente.
+Após isso, deve-se definir o campo 
+%ICMS de Compra
+.
+% ICMS de Compra: 
+será utilizado sobre o valor do Custo CIF para abater o valor do ICMS calculado, já que representa um crédito.
+O Custo CIF e o % ICMS de Compra são cadastrados também por empresa e também são por vigência.
+Por último, através do botão 
+Incluir 
+ou
+ Alterar 
+(caso já exista um) informar os códigos dos custos para aquele produto. O usuário poderá cadastrar vários custos para o depósito e a empresa selecionada. 

@@ -1,0 +1,44 @@
+TITULO: Recálculo de Custo de Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2880798776
+--------------------------------------------------
+Objetivo
+Permite ao usuário recalcular o custo de notas fiscais já emitidas e em maior volume.
+Para isso, deve-se acessar a tela através do menu 
+Movimentações / Faturamento / Recálculo de Custos NF Venda.
+Como Utilizar: 
+Na tela de recálculo, o usuário deverá informar:
+Empresa:
+ informando este perfil o SisPetro filtra a 
+Empresa
+ que deseja recalcular os custos. Caso queria recalcular o custo de todas as empresas, basta deixar o combo em branco.
+Produto:
+ informando este perfil  o SisPetro filtra o 
+Produto
+ que deseja recalcular os custos. Caso queria recalcular o custo de todos os produtos, basta deixar o combo em branco.
+Cliente: 
+informando este perfil  o SisPetro filtra o 
+Cliente
+ que deseja recalcular os custos. Caso queria recalcular o custo de todos os clientes, basta deixar o combo em branco.
+Período:
+ informar o período desejado para recalcular os custos. Lembrando que, dependendo o banco de dados, um período muito grande poderá causar lentidão nos demais processos.
+Notas para recálculo
+: marcar as notas fiscais que poderão ser recalculadas além das notas de venda. 
+Considera NF de Devolução?
+Considera NF de Complemento?
+Clique em 
+Recalcular 
+para efetuar o recálculo.
+Uma mensagem de confirmação será emitida: 
+Recalcula os custos para as Notas no período informado?
+Importante
+Quando está ferramenta é utilizada o CUSTO INICIAL, que é configurado na Natureza de Operação aba 
+Custo
+ 
+Salva Custo Inicial Aquisição
+, não será alterado, pois o mesmo depende do Fechamento de Custo.
+Cálculo do CUSTO INICIAL
+O custo de aquisição CUSTO INICIAL da nota fiscal será recalculado apenas se a configuração 
+Custo Médio utilizado 
+estiver apontada para Custo Manual.  
+Caso a opção estiver como Custo pelo últº Fechamento o custo inicial não será recalculado. Para mais informações, ver 
+Custo para Venda/Transf.

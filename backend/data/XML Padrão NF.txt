@@ -1,0 +1,138 @@
+TITULO: XML Padrão NF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2881257666
+--------------------------------------------------
+Este modelo foi projetado pela Futura Tecnologia com a finalidade de importar notas a partir do XML de Distribuição da NFe.
+Layout
+Campo Origem (XML)
+Campo Destino (Sispetro)
+Observações
+Informa na Manutenção De/Para
+dest.CNPJ ou dest.CPF
+CNPJDestinatario
+Não
+emit.CNPJ
+CNPJEmitente
+Não
+prod.cProd
+Produto
+Podem ter vários itens no destino
+Sim
+prod.CFOP
+CodigoOperacao
+Podem ter vários itens no destino
+Não
+ide.nNF
+NumeroNF
+Não
+ide.dEmi
+DataEmissao
+Não
+ide.dSaiEnt
+DataMovto
+Não
+prod.qCom
+Qtde - (inteira)
+Não
+prod.vUnCom
+PrecoUnitario - (utilizar vírgula para separar decimais, com seis decimais)
+Não
+ICMS..pICMS
+AliquotaICMS - Próprio (utilizar vírgula para separar decimais, com duas decimais)
+Não
+ICMS..vBC
+BaseICMS - Próprio (utilizar vírgula para separar decimais, com duas decimais)
+Não
+ICMS..vICMS
+ICMSProprio - (utilizar vírgula para separar decimais, com duas decimais)
+Não
+ICMS..vBCST
+BaseICMSSubst - (utilizar vírgula para separar decimais, com duas decimais)
+Não
+ICMS..vICMSST
+ICMSSubst - (utilizar vírgula para separar decimais, com duas decimais)
+Não
+Não tem
+TipoCobranca
+Sim
+Não tem
+Vendedor
+Sim
+Não tem
+TabelaPreco
+Sim
+transporta.CNPJ ou transporta.CPF
+Transportadora
+Sim
+veic.Transp.placa
+Frota
+Sim
+Não tem
+Tipo de Documento
+Sim
+Nao tem
+Portador
+Sim
+Não tem
+Histórico
+Sim
+Não tem
+Centro de Custo
+Sim
+Data Vencimento1
+Data de Vencimento da parcela 1
+Não
+Data Vencimento2
+Data de Vencimento da parcela 2
+Não
+Data Vencimento3
+Data de Vencimento da parcela 3
+Não
+Data Vencimento4
+Data de Vencimento da parcela 4
+Não
+Data Vencimento5
+Data de Vencimento da parcela 5
+Não
+Data Vencimento6
+Data de Vencimento da parcela 6
+Não
+Valor1
+Valor da parcela 1
+Não
+Valor2
+Valor da parcela 2
+Não
+Valor3
+Valor da parcela 3
+Não
+Valor4
+Valor da parcela 4
+Não
+Valor5
+Valor da parcela 5
+Não
+Valor6
+Valor da parcela 6
+Não
+Sendo importante ressaltarmos algumas regras:
+a) As NFe's (XML's) poderão ser importadas um a um ou todos de uma única vez.
+b) O campo DE é sempre único (XML). O campo PARA pode ser repetido (SisPetro).
+c) Deve atentar para o campo Transportadora e Frota ao importar várias NFe's (XML's) juntas. Sendo um campo único, ao importar várias NFe's (XML's), poderá ocorrer erros, devendo os mesmos serem corrigidos na Manutenção DE/PARA. O erro pode ocorrer em função das NFe's (XML's) terem diferentes transportadoras e frotas.
+d) Cada NFe poderá ter, no máximo, até 6 parcelas. Mais que 6 parcelas, a nota deverá ser lançada manualmente. Isso ocorre somente na 
+4. Importação Manual de Notas Fiscais.
+ Na 
+5. Importação de Nota Fiscal via Serviço
+ não existe restrição quanto ao número de parcelas.
+A partir da versão 7.17, foi disponibilizado:
+Alterar a data, podendo escolher entre : Data atual, data fixa e a data informada no arquivo - 
+informada na tela de importação.
+Perfil de Empresas > aba Importação de NF:
+A alteração mais importante foi o cálculo para se chegar nos valores unitários. Temos duas formas:
+Pelo valor unitário informado no arquivo - 
+Padrão do SisPetro.
+Pelo valor total da NF informado dividido pela quantidade
+Diferença entre os modos:
+Pelo valor unitário informado no arquivo:
+ é o mesmo processo que o sistema, fazia anteriormente, ou seja partimos do preço unitário para chegar no valor total da nota.
+Pelo valor total da NF informado dividido pela quantidade:
+ A conta feita, neste caso, é: suponhamos que o valor da NF é de 1.000,00 reais , e foram faturados 357 litros, assim é divido 1000/357 resultando em 2,8011204 reais por litro. É este valor que vai sair como valor unitário.

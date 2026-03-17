@@ -1,0 +1,63 @@
+TITULO: Depósitos - Aba Empréstimos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4335337473
+--------------------------------------------------
+Aba Empréstimos
+Nessa aba são feitas as configurações para empréstimos Manuais e Automáticos. 
+Exige Aprovação cedente?: 
+marcar caso o empréstimo precise ser aprovado por um usuário da empresa Cedente
+Exige Aprovação armazenadora?: 
+marcar caso o empréstimo precise ser aprovado por um usuário da Armazenadora. 
+Será considerada como Empresa Armazenadora a empresa que estiver configurada no Depósito (aba OC) com o Tipo de Participação como Administradora. Caso, por erro, tenha mais que uma empresa nessa situação (as demais donas deveriam ser Sócias Proprietárias e não Administradora) será considerada a empresa com menor código. Além do perfil, o usuário deve ter acesso empresa correspondente.
+Histórico de Carregamento: 
+selecionar qual será o histórico utilizado na OC de Carregamento
+Histórico de Descarga: 
+selecionar qual será o histórico utilizado na OC de Descarga
+Inclusão Após: 
+selecionar em qual momento as OC de Carregamento e de Descarga serão incluídas
+Tipo de Movimento: 
+selecione qual a ação que o SisPetro fará após a aprovação do empréstimo
+Quadro Empréstimo Automático: 
+contém as informações que o SisPetro utilizará na inclusão de um 
+Empréstimo Automático. 
+O Empréstimo será incluído através de uma OC de 
+Carregamento de Terceiros, 
+utilizando o Histórico de Gatilho.
+Ao clicar no botão 
+incluir/alterar 
+Empresa Cedente: 
+selecionar qual será a Congênere que irá fazer o empréstimo do produto
+Empresa Tomadora: 
+selecionar qual será a Congênere que irá receber o empréstimo
+Produto: 
+selecionar o produto que será emprestado pela Empresa Cedente
+Histórico de Gatilho:
+ selecionar qual será o histórico de Gatilho. Na inclusão da OC de Carregamento de Terceiros, com o histórico informado aqui, o SisPetro incluirá um Empréstimo Automático com as condições informadas nessa tela
+Para mais informações, ver 
+Como utilizar o Empréstimo Automático entre Congêneres
+NF Retorno Armazenagem para OC de Origem: 
+marcar, caso queira que a OC que 
+gerou o empréstimo automático
+ apareça na tela de Retorno de Armazenagem
+NF Retorno Armazenagem para OC de Carregto: 
+marcar, caso queira que a OC de 
+Carregamento
+ gerada automaticamente através do Empréstimo apareça na tela de Retorno de Armazenagem
+NF Retorno Armazenagem para OC de Descarga: 
+marcar, caso queira que a OC de 
+Descarga
+ gerada automaticamente através do Empréstimo apareça na tela de Retorno de Armazenagem
+Para mais informações, ver 
+Nota Fiscal Eletrônica gerada pelas telas de Remesa e Retorno de Armazenagem
+Ativo:
+ por padrão marcado. Desmarque caso queira 
+desativar 
+a configuração do Empréstimo. 
+Para salvar as informações, clique no botão 
+Salvar
+Para sair sem gravar nada, clique no botão 
+Cancelar 
+Ao clicar no botão 
+Excluir 
+o SisPetro mostra a mensagem se deseja excluir o registro: 
+Para mais informações, ver 
+Empréstimo de Produto entre Congêneres

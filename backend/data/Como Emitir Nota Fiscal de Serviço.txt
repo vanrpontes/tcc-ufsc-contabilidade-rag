@@ -1,0 +1,39 @@
+TITULO: Como Emitir Nota Fiscal de Serviço
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926195428
+--------------------------------------------------
+none
+Objetivo
+A emissão da NFS-e, utilizada por Armazenadoras para cobrança do Serviço de Armazenagem e por outras empresas do grupo que, por ventura, emita NF de Serviços diversos.
+A NF de Serviços é de âmbito 
+municipal
+. Atualmente o SisPetro atende as cidades de: 
+São Paulo (SP)
+ Guarulhos (SP
+ Paulínia (SP)
+Jardinópolis (SP
+Rondonópolis (MT)
+Sinop (MT)
+Informações relevantes 
+Aba Outros Impostos
+Os impostos que serão destacados no xml são vinculados nessa aba. 
+Numeração da Nota Fiscal:
+A numeração da nota fiscal de serviço é diferente das notas fiscais eletrônicas onde o usuário informa a numeração e envia para a SEFAZ.
+Nas notas fiscais de serviço a numeração é controlada pela prefeitura e 
+só saberemos a real numeração da nota após receber o retorno da nota já autorizada
+.
+No SisPetro não há como obter essa numeração antes da autorização da nota. O que indicamos é consultar na prefeitura qual o último número de nota e ajustar o Número da próxima nota na 
+Tabela Série Nota Fiscal
+.
+ Dessa forma a numeração das notas no SisPetro ficará igual à numeração das notas emitidas pela prefeitura.
+Em casos de cancelamento ou alteração de numeração de notas na prefeitura, o usuário deve se atentar a ajustar a numeração na 
+Tabela Série Nota Fiscal
+. 
+Caso não seja feito isso a numeração da nota fiscal do SisPetro ficará diferente da numeração da nota que a prefeitura enviou.
+Exemplo: emissão de 2 Notas
+A primeira nota (2842) foi verificada a última nota emitida na prefeitura e ajustado na a numeração na 
+Tabela Série Nota Fiscal
+. Ao processar a nota e autorizar a numeração obtida pela prefeitura ficou igual a do SisPetro.
+A segunda nota (2846), o usuário realizou o cancelamento e exclusão de 3 notas (2843, 2844 e 2845) no SisPetro sem enviar para a prefeitura. Após emitir a nota 2846, enviou para a prefeitura que autorizou a nota. Veja que o retorno da prefeitura foi a numeração de nota 2843 que é o real numero da nota.
+Para emissão dessa segunda Nota (2846) o correto seria após emitir a nota e por algum motivo tiver que cancelar e excluir a mesma antes de autorizar na prefeitura, deve-se ir na 
+Tabela Série Nota Fiscal
+ e ajustar a última numeração, para quando for emitir a próxima nota, a numeração da mesma ficar compatível com a numeração retornada pela prefeitura.

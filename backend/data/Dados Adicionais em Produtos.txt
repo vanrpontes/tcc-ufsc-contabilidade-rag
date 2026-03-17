@@ -1,0 +1,393 @@
+TITULO: Dados Adicionais em Produtos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210984
+--------------------------------------------------
+none
+Objetivo
+A aba 
+Dados Adicionais
+ do cadastro de produtos reúne diversas configurações fiscais essenciais para obrigações como SCANC, DPMP, DIC-SE, Sintegra, SPED, ANP e NF-e. Nela são informados códigos específicos — como Anexo, DCP, NBM, NCM, CEST, códigos ANP, SICOPI, DAC e DNF — além de parâmetros de origem do produto, composição fiscal e filtros por depósito ou empresa. Também permite configurar regras de apuração de PIS/COFINS, CST de entrada e saída, natureza da receita e observações adicionais que serão enviadas ao XML da NF-e. Outras funções incluem ajustes para ressarcimento SP, REINF, participação em ressarcimentos estaduais e definição das novas alíquotas IBS/CBS previstas na reforma tributária. Essas informações garantem o correto enquadramento fiscal do produto e o atendimento das obrigações acessórias vinculadas ao setor de combustíveis.
+Arquivo / Produtos / aba Detalhes / aba Dados Adicionais
+          No painel 
+Dados Adicionais
+, podem ser informados os códigos complementares para o produto selecionado:
+Para o Anexo / SCANC é necessário preencher as informações abaixo corretamente. 
+Manutenção de Anexos - Distribuidora
+.
+Os códigos do anexo são separados em nacional e importado e são utilizados no arquivo texto gerado pelo SisPetro, separando, caso tenha, o produto nacional do produto importado. Tem efeito somente para o SCANC e sendo necessário ter uma natureza de operação para o produto nacional e uma natureza para o produto importado.
+Anexo
+Categoria do Produto:
+ 
+Utilizado para agrupar os produtos nas categorias de anexo existentes: Gasolina, Gasolina A, Álcool Hidratado, Álcool Anidro, Biodiesel misturado (sem estoque), Gasolina Aviação, GLP, Óleo Combustível, Querosene Aviação, Querosene, Óleo Diesel/Biodiesel adquirido Misturado, Biodiesel B100 (a partir de 01/08/2015 foi separada a categoria para o Diesel conforme tabela abaixo).
+Caso o produto não se enquadre em nenhuma das categorias (não deva sair no Anexo), escolha 
+Não participa
+.
+Código Anexo:
+ código a ser utilizado no 
+Registro 40
+ do SCANC (Sistema de Captação e Auditoria dos Anexos de Combustíveis).
+Nacional:
+ código para produtos fabricados no Brasil.
+Importado:
+ código para produtos importados.
+Produto
+Código Anexo
+(SCANC CTB versão 3.0.51) 
+Categoria
+GLP - Gás Liquefeito de Petróleo
+22403
+GLN – Gás Liquefeito de Gás Natural
+22450
+DSM - ÓLEO DIESEL MARÍTIMO(DMA-MGO,DMB-MDO)
+42020
+19 - Óleo Diesel Marítimo
+GSL - GASOLINA A
+62006
+03 - Gasolina A
+GASOLINA B
+62103
+GSC - GASOLINA C
+62154
+01 - Gasolina C
+GASOLINA C ADITIVADA
+62155
+GASOLINA DE AVIAÇÃO
+62308
+GASOLINA A PREMIUM,62Y
+62448
+GASOLINA C PREMIUM
+62456
+QUEROSENE ILUMINANTE
+63991
+QUEROSENE DE AVIAÇÃO
+64106
+DSL – ÓLEO DIESEL A (SEM ADIÇÃO DE B100)
+64300
+16 - Óleo Diesel S500
+S10 - ÓLEO DIESEL A S10 (SEM ADIÇÃO DE B100)
+64301
+02 - Diesel (Demais)
+BIODIESEL B100
+64432
+14 - Biodiesel B100
+BIODIESEL B100 IMPORTADO
+64433
+14 - Biodiesel B100
+BXD – ÓLEO DIESEL B S500 COMUM
+64440
+17 - Biodiesel S500 Composto
+BXD – ÓLEO DIESEL B S500 ADITIVADO
+64475
+BXD – ÓLEO DIESEL B S10 COMUM
+64483
+07 - Biodiesel Composto (Demais)
+BXD – ÓLEO DIESEL B S10 ADITIVADO
+64491
+ÓLEO COMBUSTÍVEL TIPO 1A
+66575
+ÓLEO COMBUSTÍVEL TIPO 1B
+66664
+ÓLEO COMBUSTÍVEL TIPO 2A
+65583
+ÓLEO COMBUSTÍVEL TIPO 3A
+66591
+ÓLEO COMBUSTÍVEL TIPO 3B
+66680
+ÓLEO COMBUSTÍVEL TIPO 4A
+66605
+ÓLEO COMBUSTÍVEL TIPO 4B
+66699
+ÓLEO COMBUSTÍVEL TIPO 5B
+66702
+ÓLEO COMBUSTÍVEL TIPO 6A
+66621
+ÓLEO COMBUSTÍVEL TIPO 6B
+66710
+ÓLEO COMBUSTÍVEL TIPO 7A
+66630
+ÓLEO COMBUSTÍVEL TIPO 7B
+66729
+ÓLEO COMBUSTÍVEL TIPO 8A
+66648
+AEA - ÁLCOOL ANIDRO
+99600
+05 - Alcool Anidro
+ÁLCOOL ANIDRO IMPORTADO
+99610
+05 - Alcool Anidro
+ÓLEO FUSEL
+99900
+DCP
+Código DCP:
+ código a ser empregado no relatório de DPMP.
+Proporção DCP:
+ fator multiplicador que será empregado no DPMP. 
+Para mais informações, ver
+ 
+DPMP
+.
+Utiliza código DCP de outro produto:
+ quando se tem dois ou mais produtos com o mesmo código ANP, deve-se marcar essa opção nos produtos com esses mesmos códigos. Na tela de geração do 
+DPMP
+, esses produtos serão agrupados em um único código DPMP. Caso a opção não esteja marcada, o mesmo produto aparecerá 2 ou mais vezes na tela.
+Nota:
+ trata-se apenas de visualização na tela do 
+DPMP
+. Os dados desse produto são gerados corretamente, independente se na tela mostre repetido mais de uma vez.
+Uso na DIC-SE
+Cód. Produto Relevante:
+ informe o código do produto relevante conforme a DIC-SE
+Diversos
+Código NBM:
+ codificação da Nomenclatura Brasileira de Mercadorias, utilizada no registro 75 e 88 - Subtipo 74 - Detalhe 00 do SEF.
+Código NCM:
+ codificação da Nomenclatura Comum do Mercosul deve ser informada para uso no Registro 75 do Sintegra (campo 05). No manual do Sintegra é informado que este campo não é obrigatório, mas alguns estados (exemplo Pernambuco) estão o exigindo.
+O código NCM, normalmente, é preenchido com 8 dígitos, porém no caso de serviços deve ser preenchido com 2 dígitos.
+Código TIPI NCM:
+ código para uso no Livro Eletrônico
+Código SEFAZ: 
+código dado pela Secretaria da Fazenda a ser utilizado no Registro 88 do Sintegra, para o Estado de São Paulo, atendendo a Portaria CAT-95 (dados sobre notas de combustíveis).
+Código CEST: 
+caso o produto seja utilizado com substituição tributária, o CEST, código especificador da substituição tributária, divulgado em ato COTEPE conforme código NCM do produto, deve ser preenchido.
+Código Barras: 
+código de barras do produto. Para mais informações, ver 
+Código de Barras do Produto Tags, <cEAN> e <cEANTrib> na NF-e.
+Gênero do Item no Livro Eletrônico:
+ descrição do gênero do item para o produto em questão. 
+Informação importante para o SPED. 
+Caso o perfil 
+Preenche Gênero do Produto a partir do Código NCM
+ em 
+Painel Estoque
+ esteja habilitado, ao informar
+ 
+o campo NCM este campo será preenchido automaticamente.
+Código Serviço: 
+campo utilizado para a geração do SPED
+Cód. Importação: 
+campo utilizado para a geração do SPED
+Cód. Exportação:
+ código de produto utilizado em processos de exportação
+Tipo do Item no Livro Eletrônico:
+ tipo do item para o produto em questão. Este campo é atualizado automaticamente conforme o conteúdo do campo 
+Tipo Produto
+. 
+Esta informação é importante para o SPED.
+Ao atualizar o SisPetro, esse campo será atualizado para todos os produtos conforme a tabela abaixo:
+Tipo Produto
+Tipo de Item no Livro Eletrônico
+Imobilizado
+Ativo Imobilizado
+Serviços
+Serviços
+Para os demais
+Mercadoria para Revenda
+Participa da DNF
+A DNF é uma obrigação fiscal específica para empresas que atuam como Refinaria. Para mais informações, ver 
+Geração DNF
+Código DNF:
+ deve ser informado o código que está definido na documentação do DNF para cada produto.
+DAC
+Código DAC: 
+código do Produto para Alagoas, para ser utilizado na obrigação fiscal específica.
+ANP
+Código Comercialização na ANP: 
+informação do código de comercialização do produto na ANP para que seja enviado o arquivo semanal com a variação de preços praticada para cada produto. Para mais informações, ver 
+Geração Arquivo de comercialização ANP
+.
+Descrição do Produto na ANP: 
+descrição do produto que consta no site da ANP. Para mais informações, ver  
+Consulta ANP
+.
+SICOPI
+Código SICOPI:
+ código utilizado para informações relativas às operações interestaduais com combustível
+NF-e
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+utilizado nas operações com produtos primários e biocombustíveis com tributação monofásica
+Se marcada a opção, no XML serão enviadas tags referentes à composição do biocombustível no produto composto/misturado ou no produto primário
+Tipo (Tributação AdRem): 
+selecione conforme o tipo de produto
+Produto Primário
+Biocombustível
+Envia tag <pBio> com Perc. de BioCombustível
+Não Envia (padrão)
+Envia Percentual de BioCombustível conforme Composição do produto
+Origem do Produto
+Nacional:
+ produto adquirido no mercado nacional
+Importado:
+ produto adquirido no exterior 
+Nota:
+ para um produto ser considerado de origem nacional ou de origem importado, atentar para a Nota Técnica 2023.001 versão 1.20 página 14 publicada em 11/04/2023 - 
+http://www.nfe.fazenda.gov.br/portal/listaConteudo.aspx?tipoConteudo=04BIflQt1aY=
+0 - Nacional, exceto as indicadas nos códigos 3, 4, 5 e 8;
+1 - Estrangeira - Importação direta, exceto a indicada no código 6; 
+2 - Estrangeira - Adquirida no mercado interno, exceto a indicada no código 7; 
+3 - Nacional, mercadoria ou bem com Conteúdo de Importação superior a 40% e inferior ou igual a 70%; 
+4 - Nacional, cuja produção tenha sido feita em conformidade com os processos produtivos básicos de que tratam as legislações citadas nos Ajustes; 
+5 - Nacional, mercadoria ou bem com Conteúdo de Importação inferior ou igual a 40%; 
+6 - Estrangeira - Importação direta, sem similar nacional, constante em lista da CAMEX e gás natural; 
+7 - Estrangeira - Adquirida no mercado interno, sem similar nacional, constante lista CAMEX e gás natural. 
+8 - Nacional, mercadoria ou bem com Conteúdo de Importação superior a 70%;
+Origem por Depósito / Empresa: 
+caso um mesmo produto tenha sua origem (nacional ou importado) em diferentes depósitos e/ou diferentes empresas, deve-se informar o campo Origem. Caso contrário, não é necessário nenhum procedimento.
+Filtros
+Depósito: 
+informe o depósito. Caso não seja selecionado um depósito, serão considerados todos os depósitos ativos.
+Empresa:
+ informe a empresa. Caso não seja selecionada uma empresa, serão consideradas todas as empresas ativas.
+Caso sejam selecionados depósito e empresa, serão mostrados somente o depósito e a empresa selecionados.
+Caso seja selecionado o depósito mas não selecionada a empresa, serão mostradas todas as empresas do depósito selecionado.
+Caso seja selecionada a empresa mas não selecionado o depósito empresa, serão mostrados todos os depósitos da empresa selecionada.
+Caso não sejam selecionados depósito e empresa, serão mostrados todos os depósitos e todas as empresas.
+Campo Origem:
+ selecione a origem
+Nacional
+Importado
+Conforme o Produto (padrão)
+Ao clicar no botão 
+Inclui Depósitos / Empresas, 
+serão incluídos conforme as opções dos filtros.
+Composição para Efeito Fiscal:
+ neste quadro informamos a composição do produto para cálculos do ICMS monofásico
+Composição:
+ selecione a composição fiscal conforme cadastrado em 
+Tabela Composição de Produtos
+. Nessa tabela são cadastrados os percentuais de composição do produto, que devem ser os mesmos cadastrados em 
+Composição
+.
+Os aditivos, caso tenham, não devem ser informados na composição para efeito fiscal
+Composição de Produtos:
+ abre a tela da 
+Tabela Composição de Produtos
+.
+Nota:
+ a composição para efeito fiscal deve ser cadastrada para todos os produtos que tenham composição (produto primário e biocombustível) ou cujos cálculos do ICMS monofásico exijam uma composição.
+Exemplos:
+Diesel B com composição
+Diesel B misturado
+Diesel A
+ 
+Para mais informações, ver 
+Configurações necessárias para emissão de notas com tributação monofásica
+.
+Sintegra MS
+Informações específicas para a geração do Sintegra do MS
+Código SERC MS
+Tipo Substituição Tributária
+ST no contribuinte substituto - encerrado
+ST no destinatário - produtos farmacêuticos
+ST no destinatário - demais produtos farmacêuticos
+Classificação
+Lista Negativa
+Lista Positiva
+Lista Neutra
+Não listado
+Apuração de PIS/COFINS
+Dados utilizados em relatórios de apuração de PIS e COFINS e também podendo ser utilizado nas fórmulas de Outros Impostos. Para mais informações, ver 
+Outros Impostos (Painel Por Filial)
+Geral - Débito e Crédito:
+ para demais empresas
+Valor fixo PIS por m3:
+ informe o valor do PIS em m3
+Alíquota PIS:
+ informe percentual
+Valor fixo COFINS por m3: 
+informe o valor da COFINS em m3
+Alíquota PIS:
+ informe percentual
+Congêneres - Débito e Crédito:
+ para empresas que possuem este perfil. Para mais informações, ver 
+Painel Dados Gerais
+.
+Valor fixo PIS por m3:
+ informe o valor do PIS em m3
+Alíquota PIS:
+ informe percentual
+Valor fixo COFINS por m3: 
+informe o valor da COFINS em m3
+Alíquota PIS:
+ informe percentual
+Os valores a serem utilizados também dependerão das configurações do 
+Cliente
+/
+Fornecedor
+Respeita a configuração para a empresa
+: os valores para PIS e COFINS utilizados serão conforme a configuração de empresa. Para mais informações, ver 
+Perfis de Empresa - Painel Fiscal
+.
+Tributado por Alíquota
+: os valores para PIS e COFINS utilizados serão dos campos 
+Alíquota PIS
+ e 
+Alíquota COFINS
+.
+Tributado por Valor Fixo por m3
+: os valores para PIS e COFINS utilizados serão dos campos 
+Valor Fixo PIS por m3
+ e 
+Valor Fixo COFINS por m3
+.
+Possibilita emitir notas fiscais com diferentes produtos utilizando uma mesma natureza de operação com dados de CST de PIS e COFINS diferentes
+Saída
+CST PIS: 
+informar o código de situação tributária para o PIS.
+CST COFINS: 
+informar o código de situação tributária para o COFINS.
+Entrada
+CST PIS: 
+informar o código de situação tributária para o PIS.
+CST COFINS: 
+informar o código de situação tributária para o COFINS.
+Só serão considerados os códigos informados, caso o perfil, 
+Obtenção do CST PIS/COFINS
+ na natureza de operação, aba 
+Impostos (Painel Por Filial)
+ esteja parametrizado para utilizar 
+Conforme o configurado no produto
+.
+Para mais informações, ver 
+Apuração de PIS e COFINS
+.
+Natureza da Receita
+Caso no produto não tenha nada preenchido para a Natureza da Receita, o SisPetro utilizará a informação que está na Natureza de Operação.
+Observações
+Campo livre para que sejam inseridas informações específicas de produtos combustíveis na Nota Fiscal. Pode ser utilizado para inserir informações solicitadas pela ANTT, por exemplo.
+Esse campo estará disponível para que seja inserido no DANFE, através do condutor de dados ItensNF, campo Observações. A informação que for adicionada nesta tag, irá para também para o .XML.
+Para inserir alguma informação adicional sobre o produto o procedimento é o mesmo que o usado na 
+Configuração da Natureza de Operação
+. Utilizar:
+<infAdProd>
+ texto livre sobre as informações desejadas 
+</infAdProd>
+Relatório de Ressarcimento SP
+Ressarcimento: 
+informar 
+Proporção: 
+definir a quantidade do produto que será gerada no relatório. 
+Exemplo:
+No caso de Gasolina A informar a proporção usada referente ao período do relatório.
+Exemplo:
+ 75%  informar 0,75.
+Caso seja Gasolina C, informar 1.
+Para mais informações, ver 
+Ressarcimento de Substituição Tributária do ICMS - e‑Ressarcimento SP
+.
+Tipo Serviço REINF
+Utilizado no evento 2010 do Reinf
+Caso seja selecionada uma das opções e preencher o REINF, irá preencher o campo de infoTpServ_tpServico com o serviço selecionado. 
+Natureza do rendimento (Registro 4020)
+Apresenta as Naturezas de Rendimento para o Registro R-4020.
+Para mais informações, ver 
+Preenchimento Automático REINF - R2010
+.
+Participação no Ressarcimento SC/PR
+Informar
+Para mais informações, ver 
+DRCST-SC
+ / 
+ADRC-ST PR
+.
+Quadro Alíquotas
+Nesse quadro o usuário irá apontar as alíqutoas de IBS e CBS cadastradas para nova 
+Roteiro de utilização - Reforma Tributária 2026

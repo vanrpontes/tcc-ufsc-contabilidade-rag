@@ -1,0 +1,20 @@
+TITULO: Perfil Segurança
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898200
+--------------------------------------------------
+O perfil de segurança é o que define qual e como cada relatório ou pasta será acessado pelo usuário. Normalmente, somente usuários proprietários de pastas ou relatórios podem alterar este perfil.
+*É de extrema importância que somente super usuários ou gerentes possam alterar o perfil de segurança dos relatórios (pois mesmo definindo que o usuário pode alterar somente a segurança de seus próprios relatórios, isso pode criar uma falha na segurança pois ele pode permitir a terceiros acesso à definição de seus relatórios fazendo com que terceiros possam acessar informações confidenciais).
+Para ter acesso ao perfil de segurança de uma pasta ou relatório, basta clicar com o botão da direita em cima da respectiva pasta ou relatório. Aparecerá um menu, cujo último item, será 'Segurança'. Clicando em cima deste item, será aberta a tela de perfil de segurança (da pasta ou relatório) conforme abaixo.*
+Existem dois painéis lado a lado, que administram a execução e a alteração dos relatórios (no caso de pastas somente Execução ou acesso).
+Quem pode Acessar ou Modificar
+Pode-se atribuir aqui um dos três valores:
+Qualquer um:
+ É o padrão. Do lado esquerdo (acesso ou execução), permite que qualquer usuário execute o relatório ou acesse a pasta. Do lado direito (modificação), permite que qualquer usuário possa abrir o relatório em modo Design e alterá-lo. Dando aos usuários somente possibilidade de execução, faz com que, caso o usuário clique duas vezes em cima do relatório ou tente abri-lo, o Sispetro execute o relatório sem permitir acesso à página de Design do mesmo.
+Somente eu:
+ Do lado esquerdo (acesso ou execução), permite somente ao proprietário executar o relatório ou acessar a pasta. Do lado direito (modificação), permite somente ao proprietário abrir o relatório em modo Design e alterá-lo.
+Somente estes:
+ Do lado esquerdo (acesso ou execução), permite somente aos usuários selecionados executar o relatório ou acessar a pasta. Do lado direito (modificação), permite somente aos usuários selecionados abrir o relatório em modo Design e alterá-lo. Note que, ao selecionar esta opção, sempre que for selecionar algum usuário e o proprietário não estiver selecionado, o Sispetro perguntará se Deseja incluir o proprietário na lista de seleção.
+Senha Execução / Modificação
+Permite ao proprietário atribuir uma senha de acesso ou modificação. Sempre que for atribuida uma senha (para acesso ou modificação), o Sispetro, ao executar o relatório ou quando for modificá-lo, irá perguntar a quem estiver realizando tal procedimento qual a senha (conforme abaixo).
+Deve-se para realizar cada procedimento (alteração ou execução) digitar a senha corretamente.
+Existem ainda dois botões para facilitar a cópia dos usuários selecionados do painel de usuários selecionados (acesso) para o de usuários selecionados para modificação. Assim, um painel como o abaixo
+Ao se clicar no botão 'Usuários Execução => Modificação' irá copiar os usuários selecionados no painel de Usuários selecionados de execução para o painel de usuários selecionados de Modificação (conforme abaixo).

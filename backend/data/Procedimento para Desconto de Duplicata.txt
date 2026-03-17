@@ -1,0 +1,110 @@
+TITULO: Procedimento para Desconto de Duplicata
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879389971
+--------------------------------------------------
+Pode ser considerado um 
+Desconto de Duplicata
+ quando uma empresa quer negociar valores com banco, como um "empréstimo", porém um pouco diferenciado. Em troca do valor que o banco passará para a empresa, ela dará como garantia duplicatas de seus clientes.
+Exemplo:
+A empresa entrega ao banco 20 duplicatas de clientes a vencer, totalizando R$ 150.000,00 e o banco lhe entrega a vista esse valor, descontando um percentual de juros. Apesar de ter negociado a duplicata com o banco, esta duplicata ainda é de responsabilidade da empresa. Quando chega o vencimento da duplicata, se o cliente não pagar, o banco cobrará da empresa!
+Como fazer este procedimento no Sispetro?
+Veja os passos abaixo:
+Vá em Movimentação / Financeiro / Contas a Receber / Manutenção de Lançamentos
+1. Identificar os títulos que serão descontados
+a.
+ Defina um portador padrão para os títulos incluídos via Nota Fiscal no menu Ferramentas / Sistema / aba Financeiro 
+"Portador padrão para os títulos gerados por NF Venda"
+b.
+ Cadastrar portadores denominados "Desconto Banco X", este portador é necessário e importante e deve ser feito para cada banco utilizado neste caso;
+(Para maiores informações, vide tópico do Help de 
+Tabela Portadores
+)
+c.
+ A cada vez que ocorrer o desconto (Para maiores informações, vide tópico de 
+Manutenção do Contas a Receber
+), selecione os títulos desejados e clique no botão "Portador":
+d.
+ Na tela de Mudança de Portador, indique o Portador correspondente ao banco em que foi feito o Desconto dos títulos selecionados (o Portador "Desconto Banco X").
+2. Dar entrada no valor recebido antecipado
+a.
+ É necessário ter uma conta do tipo Banco para cada banco, denominada "Títulos descontados Banco x";
+Cadastrar as contas na Tabela de Plano de Contas (Para maiores informações, vide tópico do Help de 
+);
+b.
+ A cada vez que ocorrer o desconto, acesse a tela de 
+Manutenção de Bancos
+ (Movimentação/ Financeiro/ Manunteção de Bancos):
+Defina a conta de Desconto definida no 
+item d do tópico anterior (1)
+, no campo Conta - Conta Origem;
+Clique no botão 
+Transfcia
+:
+Na tela de Transferência, informe os dados necessários:
+– 
+Data da transferência
+;
+– 
+Conta Destino
+ onde foi creditado o valor do desconto da duplicata - Conta Destino;
+– 
+Valor Total
+ Valor do desconto da duplicata;
+– Moeda;
+– #Documento;
+– Tipo Documento;
+– Código Histórico;
+– Histórico;
+– Informações Adicionais;
+– Pode Contabilizar e o Código de Contabilização;
+– 
+Desconta valores (juros, etc)
+ deve estar habilitado para o caso de haver juros;
+– 
+Conta Juros
+;
+– 
+Valor Juros
+ que o banco cobrou nesta operação.
+3. Fazer as baixas periodicamente dos títulos
+a.
+ Utilize o 
+Relatório do Contas a Receber
+, indicando o vencimento e filtrando o portador conforme o banco desejado para saber os títulos descontados;
+b.
+ Faça uma baixa indicando a conta de Desconto deste banco (criada no 
+item a do tópico 2
+).
+4. Controlar os valores ainda pendentes referente a títulos "descontados"
+a.
+ A conta de Desconto do banco, ao fazer a operação de desconto, vai ficar com o saldo negativo. A cada baixa que você fizer o saldo negativo diminuirá, devendo chegar a zero caso todos os clientes paguem. Ou seja, através do saldo da conta, você saberá quanto ainda tem "sem pagar". Para visualizar o saldo da conta, vide tópico do Help de 
+.
+5. Controlar títulos descontados inadimplentes
+a
+. Utilize o 
+Relatório do Contas a Receber
+, indicando o vencimento e filtrando o portador conforme o banco desejado para saber os títulos descontados.
+6. Conciliar cobrança de título não pago que foi debitada da sua conta-corrente
+a
+. Cada vez que o banco lhe cobrar o valor de um título não pago, faça uma transferência entre bancos, colocando como origem a conta de Banco. No destino indique a conta de Desconto correspondente.
+Defina a conta de Desconto no campo Conta - Conta Origem
+Clique no botão Transfcia:
+Na tela de Transferência, informe os dados necessários:
+– 
+Data
+ da transferência;
+– 
+Conta Destino
+ onde foi creditado o valor do desconto da duplicata - Conta Destino;
+– 
+Valor Total
+ Valor do desconto da duplicata;
+– 
+Desconta valores (juros, etc)
+ deve estar habilitado para o caso de haver juros;
+– 
+Conta Juros
+;
+– 
+Valor Juros
+ que o banco cobrou nesta operação.
+Em suma, o controle de títulos será conforme o Portador e o controle de valores será conforme a conta de Desconto.

@@ -1,0 +1,47 @@
+TITULO: Depósitos - Depósitos Vinculados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909339849
+--------------------------------------------------
+Aba Depósito Vinculado
+Ao acessar a aba Depósito Vinculado, a tela abaixo será exibida:
+Atualmente, temos no SisPetro um procedimento chamado Venda direta em Usina. Este procedimento serve basicamente para controlar uma venda onde o caminhão irá carregar diretamente na Usina (normalmente álcool) e descarregar direto no cliente. É diferente, portanto, da venda onde o caminhão é carregado na base, pois terá de fazer o procedimento de emissão de nota fiscal de venda e depois carregar na Usina (onde terá de fazer o procedimento de ordem de carregamento de transferência simulando que este produto será descarregado na base sem efetivamente realizar esta descarga).
+O problema deste procedimento reside no fato de não ter um controle mais rígido sobre o saldo disponível para venda durante o processo. O controle ocorre somente no final, isto é, após dar entrada na nota fiscal no depósito espelho, é que o saldo efetivamente fecha.
+Com o 
+Depósito Virtual
+ é possível somar o saldo disponível de vários depósitos participantes (vinculados ao depósito virtual), de forma que todos apareçam com o mesmo saldo disponível.
+O usuário deve ter permissões para incluir/alterar depósitos virtuais e/ou vincular/desvincular depósitos, através do Menu Ferramentas / Usuário / Estoque, as opções:
+Incluindo um depósito virtual:
+As opções obrigatórias são: 
+Código
+, 
+Descrição
+, 
+Tipo
+ e 
+Ativo
+, as demais opções não influenciam mesmo que informadas.
+Vinculando Depósitos:
+Clique na aba 
+Depósitos Vinculados.
+Clicando no botão 
+Incluir
+, abrirá a tela para escolher o depósito a ser vinculado.
+Os depósitos devem ser obrigatoriamente do tipo Disponível.
+Somente os depósitos do tipo 
+Disponível
+ serão mostrados para seleção.
+Na tela abaixo são mostrados os depósitos vinculados a um depósito virtual:
+Desvinculando Depósitos:
+Selecione o depósito que deseja desvincular e clique no botão 
+Excluir
+ e na mensagem que aparece confirme a operação.
+Para consultar se um depósito está vinculado a um depósito virtual, basta selecionar o depósito e clicar na aba 
+Depósitos Vinculados
+.
+Depósito Trânsito
+Normalmente depósito Trânsito é do tipo 
+Indisponível
+. Na utilização de depósito virtual, caso queira incluir um depósito Trânsito, o mesmo deve ter seu tipo alterado para 
+Disponível
+ para que seja considerado no cálculo de saldo disponível.
+Depósitos Base Própria ou Usinas
+Através das configurações dos depósitos vinculados é que o SisPetro verifica ou não se há saldo de estoque para atender uma venda. Na inclusão do pedido de venda, a verificação do estoque é feita no depósito informado e de acordo com que está configurado nesse depósito.

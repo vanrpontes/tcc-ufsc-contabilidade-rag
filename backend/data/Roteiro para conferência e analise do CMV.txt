@@ -1,0 +1,64 @@
+TITULO: Roteiro para conferência e analise do CMV
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5614993409
+--------------------------------------------------
+Este roteiro visa orientar os usuários na conferência das movimentações do 
+CMV
+ e da 
+Contabilidade
+, garantindo a consistência das informações e o correto fechamento dos dados.
+Pré-requisito para esta conferência: 
+as fórmulas de CMV devem estar devidamente configuradas, em pleno funcionamento e marcadas para participação no CMV e fechamento de estoque do período analisado. Para mais informações ver 
+Configurações para CMV
+Fechamento CMV
+Via Sispetro Normal, menu  
+Movimentação/ Estoque/ Fechamento de Custo/ Fechamento Por Depósito.
+Informe o depósito e data para o fechamento, selecione o produto e filial a ser analisada e clique na aba Custo.
+Todas as notas que participam do CMV serão exibidas na tela, os valores levados para apuração será o resultado da fórmula vinculada a sua natureza de operação, ou seja valor da nota mais frete da OC.
+A composição do custo, precisa seguir a contabilização dos valores na conta de estoque do produto, NFe + Frete CT-e.
+Para facilitar a conferência, você pode imprimir o relatório da tela de fechamento, clicando no botão imprime.
+Utilizaremos essas informações para fazer a conferência das movimentações.
+Relatório Razão
+Via Sispetro Controladoria, menu, relatório, Razão. Para mais informações, ver 
+Razão
+Faça o filtro utilizando a mesma data de movimentação do fechamento.
+Comparando os relatórios, iremos notar algumas diferenças.
+Apuração do CMV
+Razão da Conta de Estoque
+Documento 470255 | Valor 
+190.246,32
+ 
+Documento 470255 | Valor 
+184.961,70
+Ajuste de temperatura 20º | Valor 
+324,00
+Documento 9332 | Valor 
+5.284,62
+Vamos analisar, cada movimentação.
+Valor da NF-e, está diferente entre a apuração e contabilidade.
+Isso ocorre, pois a fórmula que compõe o CMV, carrega outras informações, que não está necessariamente destacado no valor da NF-e, no caso em questão, estamos embutindo o frete, que por sua vez foi informado na Ordem de Carregamento.
+Então o valor que levamos na apuração nesse caso, é o valor da NF-e + Frete da Ordem de Carregamento.
+Caso o frete não seja informado na OC, pode ocorrer uma diferença na conta quando o conhecimento for escriturado, pois o valor do frete será contabilizado.
+Existe um documento na contabilidade que não aparece na apuração.
+Conhecimento vinculado a NF-e de entrada, geralmente é contabilizado na conta de estoque. Para mais informações, ver 
+Contabilização de Frete
+O Frete precisa ser escriturado com a 
+mesma data de movimento da NF-e
+, pois a contabilização deve acompanhar os valores apurados da NF-e de entrada, caso isso não ocorra, os saldo não irão bater.
+Essa analise leva em conta a contabilização do frete na mesma conta do produto, caso ocorra a contabilização seja feita em uma outra conta, será necessário analisar também a conta apontada na soma dos valores da apuração.
+Existe um ajuste na apuração, mas não aparece na contabilidade.
+Todo ajuste que participa do CMV, não é contabilizado de forma automática, essa diferença será apresentada no relatório de Movimentação de Estoque Escritural Contábil, para que o usuário possa lançar um lote de forma manual na conta para igualar os saldos da Apuração com a Conta.
+Relatório Movimentação  de Estoque Escritural Contábil (Kardex)
+Via Sispetro Controladoria, menu, 
+Relatórios/ Auxiliares/ Contábil/ Movimentação de Estoque Escritural Contábil
+. Para mais informações, ver 
+Movimentação de Estoque Escritural Contábil
+O relatório vai exibir as notas que participam do fechamento de estoque, os valores apresentados são os valores da composição do custo, ou seja, o valor obtido através da fórmula atribuída a sua natureza.
+Se você analisar o valor da NF-e x Contabilização da NF-e, serão valores distintos, pois valor apurado do CMV, vem da fórmula que busca o frete informado na Ordem de Carregamento.
+Essa diferença será apontada no campo Diferença a Contabilizar, com essa informação, iremos comparar com o relatório Razão, para identificar se os saldos estão coerentes.
+Neste caso, ainda temos o ajuste de temperatura compondo a diferença que não consta na contabilidade e necessita se lançado de forma manual para bater os saldos das contas.
+Atualização do Custo Médio
+Via Sispetro Normal, menu, 
+Ferramentas/ Atualização de Custo Médio
+Essa ferramenta é útil para conferência dos valores que compões o Custo da NF-e, com base na fórmula atribuída a sua Natureza.
+A tela serve tanto para analisar os valores que compõe o CMV que será levado para apuração, quanto para atualizar os valores de forma manual ou caso altere a fórmula utilizada na NF-e. Para mais informações, ver 
+Atualização de Custo Médio

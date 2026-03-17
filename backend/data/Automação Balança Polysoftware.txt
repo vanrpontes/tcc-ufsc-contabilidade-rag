@@ -1,0 +1,111 @@
+TITULO: Automação Balança Polysoftware
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4887576577
+--------------------------------------------------
+Objetivo
+A Polisoftware é uma desenvolvedora de solução para identificação de placas e pesagem de caminhões. Essa automação de balança na 
+Integração com Sistema de Automação
+ irá obter os pesos de Entrada e Saída do Caminhão na portaria de saída. Ela se comunicará via API com o SisPetro e essa integração atua em conjunto com a 
+Zylix - Integração com Polysoftware
+.
+A dll dessa integração é a 
+BalancaPolisoftware.dll
+Para mais informações sobre a configuração da balança,  
+Zylix - Integração com Polysoftware
+.
+Abaixo um exemplo do JSON que a API retorna ao SisPetro para fazer a integração
+{
+        
+"numero"
+: 
+24363
+,
+        
+"datacriado"
+: 
+"2024-08-23T14:42:59"
+,
+        
+"data"
+: 
+"2024-08-14T00:00:00"
+,
+        
+"placa"
+: 
+"AFF0001"
+,
+        
+"codigoproduto"
+: 
+4
+,
+        
+"descricaoproduto"
+: 
+"ALCOOL ANIDRO"
+,
+        
+"nomemotorista"
+: 
+"FUTURA MOTORISTA"
+,
+        
+"cpfmotorista"
+: 
+"99999999999"
+,
+        
+"cancelado"
+: 
+false
+,
+        
+"datacancelado"
+: 
+"2024-08-19T15:47:13"
+,
+        
+"nomeempresa"
+: 
+"7-Polysft- ZLIX"
+,
+        
+"cnpjempresa"
+: 
+"99999999999999"
+,
+        
+"status"
+: 
+0
+,
+        
+"datapesagem1"
+: 
+2024-08-14T09:50:00"
+,
+        
+"peso1"
+: 
+20500.0
+,
+        
+"datapesagem2"
+: 
+2024-08-14T10:00:00"
+,
+        
+"peso2"
+: 
+30500.0
+,
+        
+"destino"
+: 
+1
+,
+        
+"datafinalizada"
+: 
+null
+    },

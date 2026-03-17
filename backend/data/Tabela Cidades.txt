@@ -1,0 +1,85 @@
+TITULO: Tabela Cidades
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210594
+--------------------------------------------------
+Esta tabela é divulgada pela ANP (Agência Nacional de Petróleo) e contém os seguintes dados do município: código DNC, nome, UF e o preço máximo permitido para o Óleo Diesel para o cálculo do ICMS retido.
+Nessa tabela também é possível cadastrar Regiões para que elas sejam utilizadas em 
+ para definir a região do cliente dentro do município, e na 
+Tabela de Distâncias
+ para o cálculo de frete por região.
+A tela para manipulação desta tabela é acionada a partir 
+Tabelas Auxiliares > Faturamento > Cidades.
+Para inserir um novo registro nesta tabela, acione o botão de inclusão.
+O Sistema exibe a tela para preenchimento dos dados da cidade.
+Preencha os campos: 
+Código DNC
+, 
+Nome do Município
+, 
+UF
+ que pertence o município, 
+Preço Máximo Cidade
+ (o preço máximo do diesel para cálculo do ICMS retido).
+Importante
+: o campo 
+Código do Município
+ é empregado na geração de mídia magnética do Sintegra, GIA´s e etc, para mais detalhes veja o manual do módulo de Controladoria.
+O 
+Código DPMP
+ é utilizado no momento em que se escolhe a localidade de um 
+cliente
+ ou 
+fornecedor
+. Sendo este código transferido para o 
+. 
+Para mais informações, ver
+ 
+Geração dos Dados DPMP
+O 
+Código DNC (uso da NF-e)
+ deve ser sempre informado, exceto se a opção 
+Representa uma Região
+ estiver marcado. Este código deve ser informado conforme a tabela de Munícipios do IBGE e é usado na montagem do XML para envio da nota fiscal eletrônica.
+O campo 
+Fórmula de #NF a partir do #NF Estendido (ex. Substr(%NUM%,5,9), 
+é utilizado para definir um padrão numérico a ser salvo no SisPetro de Notas Fiscais de Serviços. 
+Para mais informações, ver
+ 
+Número de Nota Fiscal Estendido para Nota Fiscal de Serviço
+.
+Quando não preenchido o campo Fórmula e o perfil 
+Habilita digitação de Número NF Estendido (maior que 9 dígitos) quando o município da Entidade possuir Fórmula?
+ esteja marcado em 
+, na inclusão da Nota Fiscal de terceiros o campo 
+Número Estendido ficara desabilitado e a inclusão exigirá o preenchimento do Numero NF.
+Caso for uma região, marque a opção 
+Representa uma Região
+.
+Região Urbana
+: esse campo é usado para indicar se a cidade é uma região urbana. Na geração do arquivo RTM de Averbação esse campo indica que a cidade é uma região urbana somente quando este estiver assinalado e a UF de origem for igual à UF de destino.
+O SisPetro permite a inclusão de uma nova cidade mesmo com o dígito verificador diferente. Será exibida uma mensagem alertando que o dígito está incorreto, porém a inclusão será permitida.
+O quadro 
+Geração Automática de Título de Contas a Pagar
+, como o nome diz, é utilizada na geração automática de título de contas a pagar oriundo de retenção. Caso na 
+Tabela Geração de Títulos de Desconto Automático
+ esteja configurada para obter a faixa para cálculo e/ou fornecedor do município, serão utilizados os campos 
+Faixa para Cálculo Vencimento de Desconto
+ e 
+Fornecedor
+ da própria tabela de cidades.
+Aba NFS-e
+É possível informar a URL de comunicação para emissão de notas fiscais de serviço.
+Para mais informações, ver
+ 
+Como Emitir Nota Fiscal de Serviço
+.
+Aba Exigência em Operações
+Algumas UF ou municípios exigem de transportadoras algumas licenças. Para cumprir essa exigência, temos a 
+Aba Exigências em Operações
+ por cidade, onde é possível vincular um controle de vencimento, para que ele seja obrigatório.
+Para habilitar essa exigência, acesse as configurações em 
+.
+Acione o botão 
+OK
+ para atualizar os dados no Sistema.
+O Sistema retorna à tela de navegação.
+Para retornar ao Menu principal, acione o botão Sair.

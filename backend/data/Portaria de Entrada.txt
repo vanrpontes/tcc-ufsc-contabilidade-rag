@@ -1,0 +1,144 @@
+TITULO: Portaria de Entrada
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2896298060
+--------------------------------------------------
+É possível separar a obtenção de Peso e Volume, nas portarias de Entrada e Saída. 
+Para mais informações, ver
+ 
+Pesagem e Obtenção do Volume Separados
+ 
+Portaria de entrada, é onde começa a movimentação do
+ estoque físico
+ e serve para controle da base tanto para os caminhões que entram para carregamento quanto para descarga. Os pedidos de movimentações precisam ter uma 
+Ordem de Carregamento
+, são as Ordens de Carregamento que movimentam esta tela, que estão vinculadas ou com Pedido de Venda ou Pedido de Compra (PMM) pois a medida que são aprovadas, entram na fila. Apenas quando as 
+Ordens de Carregamento
+ são aprovadas o caminhão aparece nesta tela, assim podendo o motorista, por exemplo 3 ficar na frente do motorista 1, que chegou antes.
+É possível indicar no frota o carregamento/descarga do
+ tipo 
+Bottom Loading
+, onde, através da portaria de entrada é possível visualizar o lado do Bottom do caminhão, agilizando desta forma o encaminhamento a baia de carregamento/descarga. Para mais informações, ver 
+Tabela Manutenção de Frota
+.
+As portarias de entrada e saída poderá trabalhar com a integração de balanças diferentes para um mesmo deposito. 
+Veja que os pedidos podem ser ordenados por número de fila. Este é um sequencial que o SisPetro controla de acordo com a chegada do motorista na base, assumindo que:
+Carregamento através de uma Venda
+: processo oriundo do pedido de venda e notas fiscais.
+Carregamento através de Transferência entre Empresas
+: processo oriundo de transferência entre empresas, onde a Ordem de Transferência é emitida na chegada a base.
+Carregamento através de Carregamento Avulso
+: ordem de Carregamento Avulsa foi emitida no momento da chegada do motorista na base
+O usuário deve selecionar o pedido de carregamento do motorista (na parte de cima da tela).
+Caso a empresa possua programação 
+via cartão(smartcard)
+ deve clicar no botão 
+Programa Cartão
+ para que o SisPetro carregue as informações do carregamento no cartão.
+Caso a empresa possua 
+Integração com Sistema de Automação
+ deve clicar no botão 
+Automação Via Arquivo 
+para que o SisPetro gere o Ticket e dê início a integração.
+Caso a empresa não possua carregamentos do tipo Smartcard ou BaseCom/Infitech, o usuário deve clicar no botão 
+Carregamento Manual
+ para que o SisPetro atualize seus controles informando-o que este caminhão entrou na base.
+Caso a empresa trabalhe com a obtenção de Peso e Volume separadamente, o botão 
+Obtém Peso
+ estará habilitado para assim indicá-lo. Para liberar a OC será necessário obter peso e fazer o Carregamento Manual, podendo ser em ordem diferente, porém se os dois processos não forem feitos, não será liberado. Para mais informações, ver 
+Pesagem e Obtenção do Volume Separados
+Ao efetuar a Portaria de Entrada, o Peso Inicial será registrado na OC em questão, conforme configuração da empresa para controle de Pesos. Para mais informações, ver 
+Automação Balança
+.
+Em ambos os casos, o SisPetro retira este carregamento da tela de portaria de entrada, incluindo-o na portaria de saída, atualizando a data de entrada na base do carregamento.
+É importante que o usuário, caso deixe esta janela aberta todo o tempo, aperte o botão 
+Atualiza
+ para que o SisPetro possa atualizar a tela com novos carregamentos oriundos do módulo de faturamento.
+É possível realizar a validação da data da OC com relação à data atual, impedindo a entrada na Base caso a data da OC seja anterior à data atual. Para utilizar essa função basta configurar o perfil de depósito 
+Portaria de Entrada - Validação da Data da OC.
+É possível realizar a chamada do motorista acionando o botão 
+Chama Motorista. 
+Para mais informações, ver 
+Chamada de Motorista na Portaria
+.
+É possível filtrar as OC utilizando uma ou mais opções do quadro Filtros. 
+Mostra: 
+filtra as OC pelo tipo. O usuário pode escolher:  
+Todos
+Carregamento
+Descarga
+Só avulsos
+Situação:
+ filtra as OC pela ação que falta ser feita. O usuário pode escolher:
+Todos
+Pendente de Peso
+Pendente de Dados
+Produto:
+ filtra as OC por produto
+Para as empresas que configurar Inspeção de Auto Tanque (Bola Preta), as OC (frotas) de carregamento serão selecionadas ou não para sorteio no momento que confirmar o carregamento. Para mais informações, ver 
+Inspeção de Auto Tanque - Sorteio de Bola Preta
+Caso o perfil de depósito 
+Exigência de Faturamento antes do Carregamento/Descarga
+ esteja com a opção 
+Exige na Portaria de Entrada
+ será realizado a validação das Ordens de Carregamento, exigindo o faturamento da mesma. Para mais informações, ver 
+Exigência do Faturamento na Portaria de Entrada/Saída
+.
+A verificação de faturamento não é feita para OC de Carregamento ou Descarga de Terceiros.
+Quando o frota for do tipo 
+Bottom Loading, 
+será mostrado no 
+quadro Carregamentos/Descargas 
+nas colunas 
+Frota Bottom, Carreta Bottom e Trem Bottom
+ na portaria de entrada da seguinte forma:
+Texto com os dados da OC em vermelho.
+O lado do Bottom do frota para carga\descarga.
+Balança
+No SisPetro é possível trabalhar com balanças diferentes para um mesmo depósito nas operações de portarias de entrada e saída. Para mais informações, ver 
+Depósitos - Aba Dados Adicionais
+ e 
+Gerenciamento de Balanças
+Na portaria de entrada, no quadro 
+Carregamento/Descarga,
+ é mostrada na coluna 
+Balança,
+ a balança padrão definida no depósito informada na OC
+.
+Para alterar a balança, o usuário precisará ter o perfil 
+Pode alterar a balança na portaria de entrada 
+habilitado em seu usuário. Habilite o perfil em 
+Ferramenta / Usuário / aba superior Perfil / aba inferior Carregamento.
+ Para mais informações, ver 
+Painel Carregamento (Usuários)
+.
+Ao clicar no botão 
+, o SisPetro abrirá a tela 
+Alteração de Balança na Portaria
+Balança: 
+nome usual informado no cadastro da balança no depósito. Para mais informações, ver 
+Gerenciamento de Balanças
+.
+DLL: 
+caminho do arquivo de comunicação entre o SisPetro e a balança.
+Caso não tenha balança cadastrada no depósito em 
+Gerenciamento de Balanças
+, o SisPetro emitira a seguinte mensagem:
+Botão Biometria
+Ao selecionar o botão 
+Biometria 
+na tela de Portaria de Entrada, o SisPetro irá exibir uma tela que exibira a ultima foto capturada nos ultimos 10 minutos, que poderá ser vinculada diretamente ao carregamento/ descarregamento realizado, desta forma o motorista terá sua biometria facial cadastrada diretamente no SisPetro, sendo reconhecido automaticamente no futuro.
+Selecionado o carregamento: correspondente ao último motorista que teve sua imagem capturada
+Após clicar no botão 
+Biometria, 
+será exibida a tela abaixo onde será possível prosseguir com o cadastramento.
+Botões
+Leitor:
+ irá exibir a última imagem capturada dentro dos últimos 10 minutos no leitor de biometria facial
+Arquivo: 
+poderá incluir uma imagem que estiver disponível localmente
+Gravar: 
+quando selecionado irá salvar e vincular a imagem ao motorista selecionado.
+Cancelar:
+ quando selecionado irá cancelar a operação de vínculo da imagem ao motorista.
+Para mais informações, ver: 
+https://futura.atlassian.net/wiki/spaces/SPT/pages/2926189620/Biometria+FACIAL+dos+Motoristas+na+Portaria+de+Entrada#Cadastramento-Biometria-Facial.
+ 

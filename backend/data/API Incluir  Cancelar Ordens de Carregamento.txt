@@ -1,0 +1,188 @@
+TITULO: API Incluir / Cancelar Ordens de Carregamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926195130
+--------------------------------------------------
+Objetivo
+Detalhar a API de inclusão de ordens de carregamento de terceiros.
+1. Uso Geral
+Obter token autenticação
+Introdução
+Qualquer webservice do projeto SispetroWeb exigirá um token de autenticação. Este token é gerado a partir deste webservice e será válido por 24 horas. Assim, recomendamos que o sistema consumidor dos webservices aqui descritos salvem o token armazenando também a data e hora em que ele foi gerado para que, quando chegar próximo de sua validade, seja obtido novo token.
+Para mais informações, ver 
+Documentação - API Obtenção de Token
+2. Inclusão Ordem de Carregamento
+Introdução
+Este webservice tem por finalidade a inclusão de uma ordem de carregamento na empresa conectada ao token, obtido no passo anterior.
+Endereço
+<endereço do SispetroWeb>/ordem_carregamento/create_from_api
+Parâmetros
+Será necessário enviar um header com o token e, no corpo do webservice, os dados relativos à OC que se deseja incluir.
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+Content-Type
+tipo do formato de envio
+application/json
+Accept
+tipo do formato de envio
+application/json
+Body
+Layout abaixo em formato JSON.
+Chave
+Conteúdo
+Pai
+Obrigatório
+ordem_carregamento
+fixo
+-
+Sim
+CnpjEmpresa
+CNPJ da empresa Congênere
+ordem_carregamento
+Sim
+Tipo
+"D" descarga ou "C" carregamento
+ordem_carregamento
+Sim
+data
+Data da Ordem Carregamento dd/mm/aaaa
+ordem_carregamento
+Sim
+CodTransp
+CPF ou CNPJ da empresa transportadora exatamente como está no cadastro de transportadoras do SisPetro
+ordem_carregamento
+Depende. Se passar parâmetro CNHMotorista, não é necessário passar este campo.
+SeqFrota
+Placa do veículo transportador (cavalo) exatamente como está registrado no cadastro de frotas do SisPetro
+ordem_carregamento
+Sim
+SeqFrotaCarreta
+Placa do veículo transportador (carreta) exatamente como está registrado no cadastro de frotas do SisPetro
+ordem_carregamento
+Não
+SeqFrotaTrem
+Placa do veículo transportador (treminhão) exatamente como está registrado no cadastro de frotas do SisPetro
+ordem_carregamento
+Não
+SeqFrota4
+Placa do veículo transportador (frota 4) exatamente como está registrado no cadastro de frotas do SisPetro
+ordem_carregamento
+Não
+CAPACIDADE
+Capacidade da OC original
+ordem_carregamento
+Não
+CNHMotorista
+CNH do motorista. Caso seja passado, será utilizado como primeiro método de pesquisa para preencher CodTransp (mais acima). 
+Caso seja passado e motorista não seja encontrado, API realizará a procura pelo CPF passado no parâmetro CodTransp e será retornado erro caso motorista não seja encontrado. 
+ordem_carregamento
+Depende (ver nota no campo CodTransp)
+ColetaAmostra
+Se coleta Amostra Testemunha ao carregar ou descarregar produto. 0 = Sem definição (padrão), 1 = Coleta, 2 = Não coleta.
+ordem_carregamento
+Não
+webNumeroOCCliente
+Número da OC em seu sistema. Caso seja preenchido, será validado e não será permitido incluir duas OCs com este número igual. Campo String
+ordem_carregamento
+Não
+Observacao
+Campo livre para inclusão de observação
+ordem_carregamento
+Não
+DepositoOrigem
+Código do depósito no qual será incluída esta OC 
+(é opcional, se não for passado, pega o código do depósito de vendas da empresa).
+ordem_carregamento
+Não
+compartimentacao_oc
+fixo
+ordem_carregamento
+Sim
+Compartimento
+Número do compartimento
+compartimentacao_oc
+Sim
+CodProd
+Código do Produto (pode ser utilizado o código do produto do Sistema da congênere pois será cadastrado um de-para no SisPetro para cada produto da Congênere
+compartimentacao_oc
+Sim
+Qtde
+Quantidade movimentada
+compartimentacao_oc
+Sim
+Observacao
+Observação para o compartimento (será utilizada na impressão da OC somente)
+Máximo 10 caracteres.
+Por segurança, para preencher este campo, deve-se preencher o campo 
+ObsNoCompartimento
+com 1 na tabela 
+Deposito 
+(no depósito em que este campo estará disponível)
+compartimentacao_oc
+Não
+Método
+POST
+Exemplo de chamada de WebService
+# oc1.data é um arquivo com o formato JSON e conteúdo conforme abaixo
+#{"ordem_carregamento": {"CnpjEmpresa": "01.999.999/0001-99", "Tipo": "D", "data": "25/04/2017",  "CodTransp": "12345678901", "SeqFrota": "AAA-9999", "SeqFrotaCarreta": "BBB-9999", "SeqFrotaTrem": "CCC-9999",  #"ColetaAmostra": 1,  "webNumeroOCCliente": "1010", "compartimentacao_oc": [{"Compartimento": 1, "CodProd": "OLEODIESEL", "Qtde": "5000", "Observacao": "Aditivado" }]}}
+ 
+curl -H "Content-Type: application/json" -H "Accept: application/json" -X POST -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTQ5OTk2MDYzOX0.ab6PXQRfG_-lAVz6te4wZPZpx5xsm6ncc_LQ9zHeGJI" http://192.168.0.33:80/ordem_carregamento/create_from_api -d@oc1.data
+Retorno Bem Sucedido
+Será retornada todos os dados relativos à Ordem de Carregamento incluída com sucesso. 
+O status da resposta sempre será 200.
+{"CodEmpresa":1,"NumeroOC":8412,"Tipo":"D",...etc}
+Retorno Sem Sucesso
+Será retornado um objeto JSON com o motivo da não inclusão (poderá ser um erro de autenticação, caso o token tenha expirado ou seja inválido, ou alguma regra de negócio não atendida. 
+O status da resposta sempre será diferente de 200.
+{"error":"Frota deve ser preenchido e valido","status":422}
+Caso a quantidade informada na OC seja superior a capacidade permitida em algum dos Frotas utilizados, será exibida a mensagem abaixo:
+{"error":"Volume da OC deve ser menor ou igual à capacidade dos Frotas","status"
+3. Cancelamento de Ordem de Carregamento
+Introdução
+Este webservice tem por finalidade o cancelamento de uma ordem de carregamento, conforme seu número e empresa do token, obtido em passo anterior.
+Endereço
+<endereço do SispetroWeb>/ordem_carregamento/cancel_from_api
+Parâmetros
+Será necessário enviar um header com o token e, no corpo do webservice, o número da ordem de carregamento que se deseja cancelar.
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+Content-Type
+tipo do formato de envio
+application/json
+Accept
+tipo do formato de envio
+application/json
+Body
+Layout abaixo em formato JSON.
+Item
+Chave
+Conteúdo
+Pai
+Obrigatório
+1
+id
+Número da OC no Sispetro
+-
+Sim
+Método
+POST
+Exemplo de chamada de WebService
+curl -H "Content-Type: application/json" -H "Accept: application/json" -X POST -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM" http://192.168.0.33:80/ordem_carregamento/cancel_from_api -d '{"id":"8383"}'
+Retorno Bem Sucedido
+Será retornado um objeto JSON com uma mensagem fixa e o status 200. 
+O status da resposta sempre será 200.
+{"mensagem":"ordem carregamento cancelada com sucesso","status":200}
+Retorno Sem Sucesso
+Será retornado um objeto JSON com o motivo da não inclusão (poderá ser um erro de autenticação caso o token tenha expirado ou seja inválido ou alguma regra de negócio não atendida). 
+O status da resposta sempre será diferente de 200.
+{"error":"Não é possível cancelar esta OC (já cancelada, sem permissão, na fila ou carregada)","status":400}

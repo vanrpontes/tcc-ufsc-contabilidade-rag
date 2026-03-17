@@ -1,0 +1,330 @@
+TITULO: Versão 8.0
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909897033
+--------------------------------------------------
+Dados
+Informações
+Início
+03/04/2012
+Final
+02/07/2012
+Scripts
+CMD80.SQL (Do cmd2957 a cmd3001)
+Itens
+60
+Implementações
+28
+Correções
+32
+Anexos
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+Razao.rtm
+MSXML5.DLL
+Sintegra-SEF_v8.rtm
+ 
+RazaoCCusto.rtm
+ 
+MSXML5R.DLL
+Sintegra-DIC-SE_v8.rtm
+ 
+balanco.rtm
+ 
+ 
+ 
+demonstrativo.rtm
+ 
+ 
+ 
+apuracao.rtm
+ 
+ 
+ 
+Danfe.rtm
+ 
+ 
+ 
+Danfe_Itens.rtm
+ 
+ 
+ 
+Sybase 12
+Essa nova versão do SisPetro é exclusiva para uso no banco de dados Sybase 12
+, muito mais moderna e que possui inúmeros recursos que serão fundamentais para um melhor desempenho e segurança do sistema. Conforme avisado anteriormente, o banco de dados Sybase na versão 7 não será mais compatível. Caso ainda não tenha feito a migração do banco de dados para a versão 12 faça o quanto antes (vide 
+) ou mantenha contato com o Suporte Futura.
+LMP
+As rotinas do Livro de Movimentação de Material (LMP) foram removidas do sistema.
+Geral
+Tela de Abertura do SisPetro
+Alterada a tela de abertura do SisPetro para versão 8.0. UPA (CCF 16707)
+Tela de Tipo de Documentos
+No SisPetro Remoto, ao executar a busca de registros utilizando o campo Descrição, estava sendo apresentada uma mensagem de erro. Esse problema foi corrigido. 
+CPC (CCF 16565)
+Procedure de banco de dados que realiza o Agendamento de Backup
+No Sybase 12, a procedimento que executa o agendamento de Backup do Banco de dados estava apresentando um erro. Esse problema foi corrigido nessa versão. 
+CPC (CCF 16503)
+Fechamento de tabelas ao fechar a tela
+No SisPetro, cada vez que uma tela é aberta, as tabelas do banco de dados relacionadas a esse tela são carregadas em memória, ao fechar a tela, as mesmas tabelas também devem ser fechadas da memória, mas em algumas telas isso não estava sendo feito corretamente. Nessa versão, as telas que estavam com esse problema foram corrigidas. 
+CPC (CCF 16619)
+Cadastro de Produtos
+ 
+aba Margem Substituição Tributária
+No Cadastro de Produtos, aba Margem Substituição Tributária, quando a empresa tem poucos dados, apresenta lentidão de alguns segundos para apresentar os dados. Nessa versão, foi criado um novo índice na tabela ValorAgregado para otimizar essa consulta de dados. 
+CPC (CCF 16597)
+Bloqueio da Versão do Sybase 7
+A versão 7 do banco Sybase foi bloqueada no SisPetro e com isso, não será possível 
+atualizar os scripts
+ se o banco não for migrado para a versão 12 do Sybase. Isso se tornou necessário para permitir a utilização dos novos recursos do Sybase 12 que contribuirão para uma melhor performance do sistema. UPA (CCF 16940)
+Regra de Arredondamento
+Alterada a regra de arredondamento dos calculos feitos pelos executáveis do SisPetro para que utilize as regras da ABNT de arredondamento (
+ABNT NBR 5891)
+. Anteriormente, alguns valores (quando a terceira casa decimal é 5) apresentavam diferença de um centavo no arredondamento. 
+UPA (CCF 16717, 16714)
+Aba Bloqueio
+ 
+no Cadastro de Cliente
+A aba Bloqueio no cadastro de Cliente estava apresentando lentidão. Nessa versão, essa tela foi melhorada para solucionar esse problema. 
+CPC (CCF 16770)
+Servidor SisPetro aba Certificado Digital (NF-e) botão Verifica Conexão
+Com a atualização da Nota Fiscal Eletrônica para a versão 2.0, o botão “Verifica Conexão” passou a funcionar de forma incorreta, emitindo sempre a mensagem "Falha na consulta ao servidor". Nessa versão, esse problema foi corrigido e esse botão passou a funcionar corretamente com a NF-e 2.0. 
+CPC (CCF 16540)
+Cadastro de Produtos, aba Detalhes/Dados Adicionais
+Os campos “Código TIPI NCM” e “Cód. Importação” estavam sendo gravados no mesmo campo no banco de dados. Nessa versão foi feita uma correção para gravar cada valor em seu respectivo campo.
+ CPC (CCF 17195)
+Cor dos Registros Apresentados nos Grids
+Temos um recurso no SisPetro que permite definir cor de fundo e de frente (fonte) para a apresentação de dados num grid. Isso ocorre com os históricos para apresentação das movimentações de estoque e com os tipos de clientes para apresentação dos clientes. Na versão passada alteramos o tipo de editor das cores nas manutenções de tipo de entidade e históricos e isso causou um problema nas cores salvas a partir de então. Esse problema foi corrigido e agora configurações novas e antigas funcionaram sem problemas. 
+UPA (CCF 17137)
+Compras
+Contabilidade 
+Natureza das Contas Reais para ECD
+No Sispetro, a Natureza do Plano de Contas Real era limitada em alguns valores fixos, mas, devido a necessidade de no SPED ECD o Registro I050 ser obrigatório informar a Natureza da Conta conforme uma tabela pré-estabelecida no manual, foi criado um novo campo na tabela para informar a Natureza da Conta para o uso do SPED ECD. 
+Help: 
+Tabela Plano de Contas Real
+. 
+CPC (CCF 15108)
+Razão
+Alterada a rotina de impressão do razão pois uma alteração da versão 7.27 não estava respeitando a quebra de página por conta. 
+Para que essa atualização funcione, será necessário atualizar os arquivos Razao.rtm e RazaoCCusto.rtm.
+ 
+UPA (CCF 16628)
+Nível no Balanço Patrimonial
+ 
+Em alguns relatórios contábeis é possível indicar até que nível de conta será apresentado para que o relatório fique menos poluído. O Balanço Patrimonial foi ajustado para ter esse recurso. 
+Para que essa atualização funcione, será necessário atualizar o arquivo Balanco.rtm.
+  CPC (CCF 16629)
+Atualização do Plano de Contas Referenciado
+Incluídas e alteradas algumas contas do Plano de Contas Referenciado, para uso no SPED-ECD e FCONT, para que fique atualizado conforme o último plano divulgado pela Receita. GSN (CCF 16833)
+Estrutura Sintética no Demonstrativo de Resultados Real
+Corrigido para que sejam impressos os itens sintéticos da estrutura do Demonstrativo de Resultados Real. 
+Necessário atualizar o arquivo Demonstrativo.rtm.
+  
+Help: 
+Emitindo Demonstrativo de Resultado Real
+. 
+GSN (CCF 16495)
+Cancelamento de Encerramento de Contas de Resultados Gerencial
+Corrigido para que o lote de estorno do encerramento das contas de receita da contabilidade gerencial tenha a mesma data que o lote de origem, anteriormente ele estava sendo gerado com a data atual. 
+GSN (CCF 17033
+)
+Estoque
+Tela de Livro de Movimentação de Produtos (LMP)
+As rotinas do Livro de Movimentação de Material (LMP) entraram em desuso no SisPetro, devido a isso, nessa versão elas foram removidas do sistema. CPC (CCF 15798)
+Quantidade a 20º
+A rotina que arredonda os campos de quantidade a 20º sofreu uma alteração na versão 7.27 que cancelou o seu arredondamento, gerando casas decimais. Esse problema foi corrigido. 
+UPA (CCF 16636)
+Alteração do Item de Menu
+O item Tabelas Auxiliares \ Estoques \ Manutenção Posição da OC a partir dessa versão passa a ser chamar Posição da OC. 
+Em alguns casos será necessário reiniciar o menu para que a alteração surta efeito.
+ 
+Help: 
+ e 
+Indicação da Posição de OC
+. 
+UPA (CCF 16894)
+Pesquisa com F4
+Os campos referentes ao DPMP (
+ARI, Cód. de Instalação e Soma Percentual do Produto Primário) 
+não estavam sendo listados na pesquisa com F4 nas configurações de empresa. Esse problema foi corrigido. 
+UPA (CCF 16657)
+Atualização do Fator de conversão e Qtde 20c no estoque escritural pelo estoque físico.
+Corrigido para que só atualize o fator de conversão (e consequentemente a Quantidade a 20c) no estoque escritural com dados do estoque físico somente quando o perfil da empresa/depósito esteja configurado para fazê-lo. Em algumas situações o fator de conversão era atualizado mesmo quando o perfil da empresa/depósito estava desmarcado.
+ GSN (CCF 16675)
+Controle de Vencimento para Transportadoras
+No SisPetro é possível ter controle de vencimentos que são válidos para Frotas e Transportadoras. A validação do Controle de Vencimento é feita no momento da emissão da OC, sendo verificado se a transportadora informada (o motorista) e o frota (bem como seus frotas vinculados: carreta e treminhão) estão com os controles a vencer. Nesta verificação ficou pendente a transportadora vinculada ao motorista, para a qual não estavam sendo verificados os controles de vencimento. Foi incluída nessa versão a terceira verificação que estava pendente. CPC (CCF 16729)
+Quantidades de Produtos Compostos no DPMP
+No DPMP, durante o processo de 
+ são calculadas as quantidades de saída de produtos básicos e entrada de produtos compostos conforme a movimentação dos produtos compostos. Porém, após o Sybase 12, caso não tenha configurado no perfil da empresa o Cód. de Operação dos Ajustes Manuais (aba estoque) essas quantidades não estavam sendo calculadas devidamente. Problema corrigido. 
+UPA (CCF 16876).
+Faturamento
+Validação do Schema dos XML's da NFe
+A partir dessa versão,  os XML’s gerados para envio de NFe, solicitação de cancelamento, solicitação de inutilização e carta de correção serão validados dentro do SisPetro com as mesmas regras básicas feitas pela Sefaz. 
+Com essa alteração, não deverão mais ocorrer as rejeições da Sefaz sobre nossas notas fiscais informando falha de schema pois o schema será validado antes do envio, informando o problema ao usuário e solicitando que o problema seja corrigido. 
+Help:
+ 
+ CPC (CCF 16792)
+Carta de Correção
+Até o advento do projeto da nota fiscal eletrônica, determinadas operações realizadas na nota fiscal posteriormente à sua emissão eram permitidas através de um documento chamado Carta de Correção. Este documento era impresso em impressora simples, porém continham dados oficiais sobre determinadas alterações realizadas na nota fiscal. O SisPetro foi alterado para atender à legislação da Carta de Correção Eletrônica de forma a permitir registrar as alterações realizadas na SEFAZ. A tela foi reformulada e passou a ser utilizada em todos os locais possíveis de se gerar uma carta de correção. 
+Help:
+ 
+ CPC (CCF 13522)
+Valor total do Item da NF
+Alterado o campo ValorTotal da tabela de Itens da NF (ItensNF) para que, ao calcular o preço multiplicado pela quantidade, utilize as regras da ABNT de arredondamento (
+ABNT NBR 5891)
+. Anteriormente, alguns valores (quando a terceira casa decimal é 5) apresentavam diferença de um centavo no arredondamento.
+ Help:
+ 
+Regras para Arredondamento de Casas decimais no Sispetro
+ 
+GSN (CCF 16804)
+Impressão do DANFE
+ 
+No xml da NFe, desde o início do projeto, o código do produto na ANP é enviado junto com os itens da NF, porém no DANFE, por não haver um espaço físico específico para essa informação, esse código não estava sendo impresso. Agora, uma resolução da ANP obriga a impressão no DANFE. Nessa versão do SisPetro, esse campo será impresso na região de Informações Complementares. 
+Para que essa atualização funcione, será necessário atualizar os rtm's Danfe.rtm e Danfe_Itens.rtm.
+ 
+Help:
+ 
+. CPC (CCF 16857)
+Número de Telefone com 9 Dígitos no XML da NFe
+Por uma decisão da Anatel, através da Resolução nº 553/10, para aumentar a disponibilidade de números de telefones móveis (celulares) e atender à crescente demanda de novos usuários, a partir de 29 de julho de 2012 todos os clientes de telefones móveis (celulares) terão seus números alterados para 9 (nove) dígitos. No XML da NFe enviado a Sefaz, limitávamos o número de telefone a 10 dígitos. A partir dessa versão, esse campo irá comportar até 14 dígitos. UPA (CCF 17066)
+Tag URI Indevida no XML de Distribuição de Notas Fiscais Enviadas em Lote
+No final do arquivo xml há uma tag denominada 
+Reference URI
+. Nela é enviada a chave de acesso da NF. O SisPetro gera essa tag devidamente, inclusive no caso de envio de notas fiscais em lote, colocando em cada parte do xml referente a uma NF esta tag com a devida chave de acesso da nota. O problema ocorre quando o SisPetro desmembra esse único arquivo gerado em lote em arquivos individuais para cada nota fiscal. Neste processo de desmembramento, a tag 
+Reference URI
+ estava sendo preenchida indevidamente, pegando sempre a chave de acesso da primeira nota do lote. Esse problema foi corrigido. 
+UPA (CCF 17037)
+Fina
+nceiro
+Controle de Operações Simultâneas
+Foram feitas algumas alterações internas visando evitar problemas em operações simulatâneas como a alteração de um mesmo título por dois usuários ao mesmo tempo. 
+Com essa alteração caso um usuário esteja fazendo uma baixa de um título e outro usuário tente fazer qualquer alteração no mesmo título ao mesmo tempo, o usuário que mandar salvar os dados primeiro terá sua ação concluída, já o segundo, receberá uma mensagem de erro informando que o lançamento foi alterado por outro usuário.
+Não houve nenhuma alteração funcional nas telas alteradas. UPA (CCF 15520)
+Filtro Adicional na Tela de Transferência em Lote
+Por conta da alteração acima, o filtro adicional efetuado na tela de transferência em lote, a partir dessa versão só poderá ser efetuado após o usuário clicar no botão Atualiza
+. UPA (CCF 15520)
+Tela de Baixa – grupo Baixa em Cheques
+Na baixa do Contas a Pagar, o campo Nominal é preenchido com a Razão Social do Fornecedor. Esse campo estava limitado ao tamanho de 20 caracteres, com isso o seu preenchimento estava ficando incompleto. Nessa versão, o sistema foi alterado para garantir que esse e outros campos da baixa sejam preenchidos de forma correta. CPC (CCF 16510)
+Baixa de Títulos
+Há algumas versões foi implementada a possibilidade de utilizar adiantamentos de outras empresas. Sendo assim, após escolher o adiantamento, além de salvar o Sequencial do Crédito é salvo também o código da empresa desse crédito. Porém, se o usuário selecionar o código do adiantamento sem abrir o combo, apenas navegando com as setas do teclado, o campo do código da empresa do crédito não está sendo preenchido. Nessa versão, foi realizada uma alteração para garantir a gravação correta do código da empresa do adiantamento. 
+CPC (CCF 16764)
+Baixa de Títulos
+Na versão 7.24 fizemos uma implementação na baixa de títulos, para não permitir ao usuário informar o mesmo adiantamento de outra filial em dois títulos diferentes, porém, a mesma ficou com a verificação invertida, causando assim problemas nas baixas com adiantamento de outra filial. Esse problema foi corrigido nessa versão. 
+Help:
+ 
+ CPC (CCF 16897)
+Baixa de Títulos
+Na baixa de títulos o usuário escolhe o adiantamento e em seguida o valor do crédito a utilizar. Porém, caso ele não informe o valor, o Sispetro deixava concluir a baixa e não utilizava o adiantamento. Nessa versão, foi realizada uma alteração para não permitir essa situação. 
+Help: 
+.
+ CPC (CCF 15103)
+Efetivação de Títulos Recorrentes do Contas a Pagar
+Nessa versão foram realizadas algumas melhorias internas para tornar esse processo mais seguro, mas não houve nenhuma alteração nas funcionalidades da tela. CPC (CCF 16781)
+Geração de arquivo de cobrança
+Nos arquivos de cobrança eletrônica geralmente é possível o envio do valor de multa, porém essa informação é nova no Sispetro e foi implementada para apenas alguns bancos conforme a solicitação das empresas usuárias. Nessa versão, foi incluído o envio do valor da multa para o banco HSBC (399). 
+Help: 
+Banco HSBC
+ CPC (CCF 16244)
+Número de Casas Decimais no Campo Taxa de Juros
+O campo Taxa de Juros na tela de Nova Taxa de Juros foi aumentado para permitir até 6 casas decimais. UPA (CCF 16840)
+Cancelamento de Item de Baixa Contas a Pagar e Contas Receber
+Temos no Sispetro a opção de Cancelar um dos itens de uma baixa. O problema é que quando a baixa possui somente um item é apresentado erro de contabilização porque terá o débito/crédito no banco, mas não terá débito/crédito na entidade. Nessa versão foi realizada uma alteração para quando a Baixa tiver apenas um item, não permitir que o usuário utilize o Cancelamento do Item da Baixa e alertar para utilizar o 
+Cancelamento da Baixa
+. 
+Help: 
+. CPC (CCF 15826)
+Fiscal
+Tela de Geração de mídia magnética - SINTEGRA
+No Sintegra há um campo “Natureza das Operações” que indica se no arquivo contém notas dentro do estado, interestaduais ou todas. No Sispetro esse campo fica na parte inferior da tela e é sugerido com a opção "Interestaduais somente operações sujeitas ao regime de Substituição Tributária”. Essa tela foi alterada para ter uma melhor apresentação, esse campo foi colocado na parte superior da tela e a opção sugerida foi alterada para “Totalidade das operações do informante”. CPC (CCF 16440)
+Formatação CFOP no Relatório de Apuração 
+Ajustada a formatação dos campos de CFOP no Relatório de Apuração do ICMS próprio para ser no formato 9.999. 
+Necessário atualizar o arquivo Apuracao.rtm
+.
+ GSN (CCF 15851)
+NFs Duplicadas devido terem CFOP's diferentes no SPED-EFD
+Na versão passada foi implementado o vínculo entre NFs duplicadas devido terem CFOP's diferentes. Nesta versão ajustamos os comandos e fórmulas do SPED-EFD para que essas NF's duplicadas sejam apresentadas como uma única nota fiscal. 
+Diversas fórmulas dos Registros que utilizam dados de Notas Fiscais foram alteradas.
+ GSN (CCF 16522)
+Documento de arrecadação SPED
+No SPED EFD há uma grande variedade de Registros, a maioria que é necessária para o ramo de Distribuidoras já é atendida pelo Sispetro, porém, ainda há alguns pendentes. Nessa versão, iremos permitir ajustar a geração dos registros “C112 - Documentos de arrecadação vinculados à NF” e “E230 - Valores ST pagos antecipadamente”. Na tabela de Tipo de Documento, foi criado um novo campo para configurar o tipo de participação do Documento no SPED EFD (Não participa; Registro C112; Registro E230). Na Natureza de Operação, foi criada a opção para configurar se a Natureza permite ou não o vinculo de documentos manuais de Arrecadação do SPED. E na emissão e manutenção de Notas Fiscais, foi criada uma tela para possibilitar o lançamento dos títulos vinculando-os a nota fiscal. 
+Ajustado comandos e formulas do Registro C112 no SPED EFD. O Registro E230 ficou pendente para a próxima versão.
+ 
+Help:
+ 
+. CPC (CCF 11380)
+Valor das Operações nos Registros C190 e afins do SPED-EFD 
+Ajustado para que o Valor da Operação nos registros C190, C590 e D190 não apresentem diferenças devido arredondamento.
+ 
+Alteradas as fórmulas dos registros citados.
+ GSN (CCF 16580)
+Ajustes no layout do Sintegra SEF - PE
+Feitas algumas alterações para que o arquivo gerado seja compatível com o layout atual do SEF I - PE, em especial nos Registros 70 e 75 (com adição de campos) e 88 (ordenação por CFOP quando necessário) . 
+Necessário atualizar o layout de Exportação com o arquivo Sintegra-SEF_v8.rtm.
+ GSN (CCF 16715)
+Ajustes no layout do Sintegra DIC-SE
+Feitas algumas alterações para que o arquivo gerado seja compatível com o layout atual da DIC-SE no Registro 88-05. 
+Necessário atualizar o layout de Exportação com o arquivo Sintegra-DIC-SE_v8.rtm.
+ GSN (CCF 16578)
+Chave de Acesso no Registro D100 - SPED EFD
+Alterada a fórmula do Campo Chave de Acesso do Registro D100 para sempre enviar a chave de acesso informada pelo usuário na inclusão da NF de Outras Entradas, devido obrigatoriedade do SPED EFD. 
+GSN (CCF 16821)
+Ajustes no SPED-EFD - Registro C100
+Ajustado para preencher o campo IND_PGTO do Registro C100 com 9 quando a NF não gerar Contas Pagar/Receber. 
+GSN (CCF 16926)
+Ajustes no SPED-EFD - Registro G125
+Ajustadas as fórmulas do Registro G125 para se adaptar a nova estrutura de salvamento de dados do CIAP para ICMS Próprio, ST e Diferencial de Alíquota. 
+G
+SN (CCF 16926)
+Ajustes no SPED-PIS/COFINS - Registro C100, A100 e D100
+Ajustado para preencher o campo IND_PGTO dos Registros C100, A100 e D100 com 9 quando a NF não gerar Contas Pagar/Receber. 
+G
+SN (CCF 16927)
+Ajustes no SPED-PIS/COFINS - Registro F100
+Criado comando e fórmulas para permitir que o Registro F100 (Outros Créditos) seja gerado pelo Sispetro com NFs configuradas para ele.
+ 
+G
+SN (CCF 16927)
+Ajustes no SPED-PIS/COFINS - Diversos
+Acertada a configuração dos valores monetários dos Registros C100 e C170 para que tenham sempre 2 casas decimais.
+ 
+G
+SN (CCF 16927)
+Patrimônio
+Transportes
+Modelo Correto das Notas Fiscais que Acobertam o Conhecimento de Frete
+Na tela de Conhecimento de Frete, as notas que acobertam o conhecimento que estava sendo emitido, estavam vindo com o modelo '1' fixo. A partir dessa versão, o modelo será pego da própria nota fiscal que foi associada, evitando assim que o usuário tenha que fazer essa alteração manualmente. 
+Help: 
+ 
+UPA (CCF 16933)
+Sequencial da Carga no Pedido de Venda
+Corrigido para que salve devidamente o Sequencial da Carga no Pedido de Venda, o que não estava sendo feito desde a atualização do banco de dados para o Sybase 12
+. 
+GSN (CCF 16872)
+Vendas
+Dados da Transportadora na Impressão do Pedido de Vendas
+Corrigido para que apresente devidamente os dados da Transportadora na impressão do Pedido de Vendas pelo Sispetro Normal. Antes só apresentava os dados da transportadora quando tinha uma empresa transportadora vinculada
+. GSN (CCF 16548)
+Pedido de Vendas
+Devido a diferença de custos entre as bases (depósitos) é necessário que a tabela de preços seja diferenciada entre as bases. O Sispetro tem uma tabela de Tipos de Clientes que permite o agrupamento de clientes com características similares, iremos aproveitar essa tabela para agrupar os clientes que compartilhariam a mesma tabela de preço. Na tabela de Depósitos, será  indicado qual Tabela de Preço deve ser utilizada por Tipo de Cliente em cada base. 
+ 
+Help: 
+Tabela de Preço por Tipo Cliente
+, 
+Inclusão de Pedido de Venda
+ 
+CPC (CCF 16843)
+Consulta Pedidos Venda
+Temos no SisPetro várias telas de Consultas Tridimensionais, porém não temos uma tela desse tipo para os Pedidos de Venda. Atualmente é possível consultar pedidos pela tela Movimento no menu Análise de Vendas, que possui layouts fixos e engloba também NFs de Venda. Nessa versão, foi criada uma tela de Consulta Tridimensional para os Pedidos de Vendas 
+e
+ 
+a tela de Movimento foi desativada. Necessário resetar os menus em Ferramentas / Reseta Menus para que a nova tela fique disponível. 
+Help: 
+.
+ CPC (CCF 16958)
+Valor do Seguro nas Informações do Pedido de Vendas
+A partir dessa versão, o valor do seguro está sendo incorporado ao valor total do pedido para que seja levado em consideração na tela de Informações do Grupo Econômico, Aprovação Financeira Automática do Pedido de Vendas, Aprovação Manual do Pedido de Vendas e na tela de Consulta de Pedidos Pendentes. 
+UPA (CCF 17029)
+Custos de Venda por Depósito
+No SisPetro, é possível configurar o cálculo de Custo de Aquisição por Produto/Empresa/Depósito e os demais Custos podem ser configurados por Produto/Empresa ou para uma UF específica. Nessa versão foi implementada a opção de configurar Custos Externos por Depósito como por exemplo custos de frete, de armazenagem, entre outros. 
+Help: 
+. CPC (CCF 17107)

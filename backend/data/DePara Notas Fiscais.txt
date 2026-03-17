@@ -1,0 +1,294 @@
+TITULO: De/Para Notas Fiscais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921073022
+--------------------------------------------------
+Para o sistema interpretar as informações contidas no arquivo a ser importado, o usuário deve definir parâmetros de transformação através da manutenção do De/Para, ou seja, informar para o sistema que determinado valor no arquivo equivale a outro valor válido dentro do Sispetro.
+Para acessar a tela de o usuário deve entrar no menu 
+Ferramentas > Importação de Dados > 
+Manutenção De/Para
+Para o usuário ter acesso a tela de Manutenção de De/Para, é necessário que a tela esteja marcado como
+ Visível 
+e
+ Habilitado
+ no
+ 
+Acesso de Menus
+. 
+O mesmo vale para o botão
+ De/Para
+ acionado via tela de Importação de NF, para que o botão fique habilitado é necessário que o usuário tenha acesso a Manutenção de De/Para.
+Para incluir um novo De/Para clique no botão 
+O sistema entrará no painel 
+Detalhes
+ esperando que seja informada uma descrição.
+'
+O Próximo passo é ir na aba De/Para Itens e configurar os itens do XML ou TXT, por meio desta tela, o usuário definirá os parâmetros de transformação para o item (veja abaixo a lista dos itens disponíveis). O usuário deve configurar as opções necessárias para a importação desejada, como estamos configurando a importação de XML de Notas Fiscais os campos que são obrigatórios seguem abaixo:
+Produto -
+ Deve ser informado o produto que está vindo na nota no campo 
+"De"
+, e no campo 
+"Para"
+, deve ser informado o código do produto no Sispetro que corresponde ao produto da nota. No exemplo abaixo o Produto está como "Gasolina Comum " na nota fiscal, no Sispetro o código correspondente a esse produto é o 01. 
+          
+Natureza de Operação -
+O cadastro do De/Para da Natureza de Operação difere dos demais itens, pelo fato do usuário ter que cadastrar além do De e Para, o tipo de Nota Fiscal ao qual se refere a natureza de operação, deve também informar o 
+Tipo NF 
+e 
+ICMS Retido.
+          
+                    Produto - 
+Esse
+ 
+permitirá a indicação do produto no De/Para da Natureza de Operação, isso facilitará caso se tenha o mesmo CFOP para natureza diferente.; 
+                        Exemplo:
+  Quando se compra do mesmo Fornecedor Gasolina e Diesel, que na entrada da nota fiscal e o CFOP for por exemplo 1655 e estiver duas naturezas de operação era                               preciso criar dois "De/Para". Com este recurso agora, é só seta - lo para cada Natureza no mesmo De/Para.
+                   TipoNF -
+ Deve ser informado o tipo da nota fiscal correspondente ao De/Para que está sendo criado. É de extrema importância ressaltar que algumas validações serão aplicadas a                          determinados tipos de nota, além é claro de definir para o arquivo como será realizada a conferência do Emitente e Destinatário;
+Para mais detalhes sobre o campo 
+ICMS Retido
+ encontrado na edição do De/Para da Natureza de Operação, veja o tópico 
+ICMS Retido como ICMS ST na Importação de NF por XML
+Tipo de Cobrança - 
+ Essa informação não vem no XML, porém na importação de Notas Fiscais é obrigatório. Nesse caso é necessário fazer um 
+DE/PARA
+ onde 
+DE
+ ficará em branco e o 
+PARA
+ o Tipo de Cobrança que está cadastrado no Sispetro;
+Vendedor - 
+Essa informação não vem no XML, porém na importação de Notas Fiscais é obrigatório. Nesse caso é necessário fazer um 
+DE/PARA
+ onde
+ DE 
+ficará em branco e o
+ PARA
+ o vendedor que está cadastrado no Sispetro;
+Transportadora -  
+Caso a transportadora que está no XML esteja cadastrada no Sispetro, não sera necessário utilizar o DE/PARA, o Sispetro irá buscar no cadastro de transportadoras o CNPJ da transportara que está no XML. Não é necessário excluir os DE/PARA já existentes, porém são desnecessários para os casos em que são os mesmos dados cadastrados. 
+Nas versões anteriores na importação da NF o campo motorista é preenchido de acordo com o vinculo no cadastro no Sispetro.Se a nota que for importada tiver vinculo com OC, o motorista que será utilizado na importação será o da OC. Abaixo seguem as imagens ilustrando as mudanças no processo:                          
+ A partir da versão 8.11 não será mais verificado o vinculo entre Transportadora e Motorista
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+Anteriores
+7
+  Na imagem acima, o Xml que está sendo importado possui a transportadora 02, no Sispetro a transportadora 02 está vinculado a transportadora 01. Quando é concluída a importação, o Sispetro normalmente insere somente a transportadora sem o motorista (antes o sispetro esperava o motorista no XML, como não existe a TAG o sispetro mantém a transportadora). No exemplo acima existe uma transportadora vinculada a outra transportadora. Por esse motivo é importado o xml com o vinculo.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+Antes quando a transportadora tinha mais de um motorista vinculado, o Sispetro verificava a empresa conectada e utilizava o motorista cadastrado para a empresa. Hoje esse vinculo não é mais verificado.
+ 
+Importação Atualmente
+11
+                                                                                                                           
+Na imagem acima, o XML que está sendo importado possui a transportadora 01, o Sispetro hoje não verifica esse vinculo e, caso não exista informação no XML da NFe sobre o motorista, nada é preenchido.                                                                                                                                                                                                                                                                                              
+Atual
+8
+Na imagem acima seguindo no mesmo exemplo, a imagem retrata a seguinte situação: o XML está com a Transportadora 01, utilizando o exemplo anterior a transportadora 01 está vinculada ao motorista 02 no Sispetro. Porém esse XML será vinculado a uma OC, nesse caso o motorista que será utilizado será o da OC.Como o Sispetro está utilizando o  motorista da OC, após a conclusão da importação a nota fiscal sera importada com a Transportadora 01 e o motorista 04. Para utilizar essa configuração é necessário ir na natureza de operação > aba detalhes > quadro
+ importação de NF's
+ selecionar a opção 
+Utiliza motorista da OC independente da NF.
+Frota - 
+Como no SisPetro já temos frotas cadastrados, se no XML estes dados forem os já cadastrados não é necessário utilizar o DE/PARA. Não é necessário excluir os DE/PARA já existentes, porém são desnecessários para os casos em que são os mesmos dados cadastrados.
+Estando o campo Via Transporte (DCP/Sintegra) configurado como Sem Transportes, as informações do XML de Transportadora e Frota não serão exigidas.
+Tabela de Preço -   
+Essa informação não vem no XML, porém na importação de Notas Fiscais é obrigatório. Nesse caso é necessário fazer um DE/PARA onde DE ficará em branco e o PARA o Tabela de Preço que está cadastrado no Sispetro.
+Série Nota Fiscal
+ - 
+ 
+A aplicação do De/Para na Série da Nota Fiscal poderá ser aplicada ou não, existe um perfil de
+ Natureza de operação
+ no quadro 
+Importação NF´s
+, onde pode ser definido se a série sera utilizada 
+do DE/PARA
+ ou da
+ natureza de operação que está sendo utilizada na importação
+.
+Unidade de Medida - 
+O Usuário pode fazer um DE/PARA da unidade de medida que veio no XML para uma que está cadastrada no Sispetro. No exemplo abaixo, a unidade de medida que está no XML é L., já no Sispetro essa unidade esta cadastrada com o código LT
+Situação do Frete da NF 
+- O Usuário pode criar um DE/PARA da Situação do Frete da NF ou manter o que consta no arquivo XML. No cadastro da 
+Natureza de Operação
+ existe uma configuração onde pode ser definido se 
+"Utiliza informação do arquivo"
+ ou 
+"Aplica De/Para"
+. 
+Incluindo De/Para - modelo XML
+No processo de importação, o SisPetro lê um arquivo XML para obter os dados da nota fiscal. Porém, nem sempre o arquivo a ser importado tem dados comuns nos diferentes sistemas.
+Exemplo:
+ 
+No sistema da Petrobrás a Gasolina A está com o código GASO-A e no SisPetro a mesma Gasolina A possui o código 05).
+Para que o SisPetro saiba interpretar os dados contidos no arquivo a ser importado, o usuário deve definir parâmetros de transformação através da manutenção do De/Para, ou seja, informar que determinado valor no arquivo equivale a outro valor válido para o SisPetro.
+Para acessar a tela de o usuário deve entrar no menu 
+Ferramentas > Importação de Dados > 
+Manutenção De/Para
+Para iniciar o cadastro do De/Para, o usuário deve clicar no botão 
+No painel
+ 
+Detalhes
+ 
+informe uma descrição.
+Estando no painel Detalhes, o usuário só conseguirá voltar para o painel
+ 
+Navegação
+ ou
+ 
+De/Para Itens
+, cancelando ou salvando as alterações desse painel.
+Uma vez cadastrada a descrição, permite que sejam cadastrados os Itens do De/Para, através do painel
+ 
+De/Para Itens
+.
+Por meio deste painel, o usuário definirá os parâmetros de transformação para o item (veja abaixo a lista dos itens disponíveis). Configurar as opções necessárias para a importação desejada, podendo ser:
+Produto
+Natureza de Operação
+Tipo de Cobrança
+Vendedor
+Transportadora
+Frota
+Tabela de Preço
+Tipo de Documento
+Portador
+Histórico
+Centro de Custo
+Conta Gerencial
+Série da Nota Fiscal
+Unidade de Medida
+É importante ressaltar que nem todas as opções são necessárias para todos os casos de importação. Portanto, vejamos algumas situações:
+Importação de Notas Fiscais:
+Produto
+Natureza de Operação
+Tipo de Cobrança
+Vendedor
+Transportadora:
+ c
+omo no SisPetro já temos transportadoras cadastrados, quando na importação estes dados forem os já cadastrados não é necessário utilizar o DE/PARA. 
+Não é necessário excluir
+ os DE/PARA já existentes, porém são desnecessários para os casos em que são os mesmos dados cadastrados. Na importação da NF o campo motorista é preenchido com a transportadora. 
+Frota:
+ 
+como no SisPetro já temos frotas cadastrados, quando na importação estes dados forem os já cadastrados não é necessário utilizar o DE/PARA. 
+Não é necessário excluir
+ os DE/PARA já existentes, porém são desnecessários para os casos em que são os mesmos dados cadastrados.
+Estando o campo Via Transporte (DCP/Sintegra) configurado como Sem Transportes, as informações do XML de Transportadora e Frota não serão exigidas.
+Tabela de Preço
+Série da Nota Fiscal:
+ a
+ aplicação do De/Para na Série da Nota Fiscal poderá ser aplicada ou não, isso depende de um perfil de 
+Natureza Operação
+ no quadro 
+Importação NF´s.
+Unidade de Medida
+Importação de Títulos
+Tipo de Cobrança
+Vendedor
+Tipo de Documento
+Portador
+Histórico
+Centro de Custo
+Conta Gerencial
+Importação de Lote 
+Conta Gerencial
+Histórico
+Vale lembrar que as informações aqui cadastradas irão influenciar no processo final de importação. O cadastramento incorreto pode fazer com que o SisPetro importe informações erradas ou até mesmo não importe.
+Inclusão de De/Para:
+Para a inclusão de um De/Para, o usuário deve escolher o item através do campo Item e clicar no botão 
+ 
+Abrirá a tela para inclusão dos dados no campo
+ 
+De
+ 
+e campo
+ 
+Para
+De:
+ O código de origem, ou seja, o que vem do arquivo.
+Exemplo:
+Arquivo de Origem:  
+O.DIESEL AUT. INTERIOR(B)
+Para:
+ O código de destino existente no Sispetro.
+Exemplo:
+Cadastro existente: 09 (Referente ao óleo Diesel B)
+Em qualquer item do "De/Para", o usuário pode utilizar a tela de pesquisa quando for cadastrar o "Para", se isso for necessário.
+Basta posicionar o cursor no campo
+ 
+Para
+ e teclar <ENTER>. Lembre-se que o campo Para tem que estar em branco.
+Para confirmar a inclusão, o usuário deve clicar no botão
+ 
+Retorna para o painel
+ 
+De/Para Itens
+, mostrando o item salvo.
+Esse processo deve ser repetido para todos os itens.
+O cadastro do De/Para da Natureza de Operação difere dos demais itens, pelo fato do usuário ter que cadastrar além do De e Para, o tipo de Nota Fiscal ao qual se refere aquela natureza de operação, deve também informar o
+ 
+Tipo NF 
+e 
+ICMS Retido.
+Para mais detalhes sobre o campo
+ 
+ICMS Retido
+ 
+encontrado na edição do De/Para da Natureza de Operação, veja o tópico
+ 
+9. ICMS Retido como ICMS ST na Importação de NF por XML
+O campo
+ 
+Produto
+ 
+permitirá a indicação do produto no De/Para da Natureza de Operação.
+Isso facilitará caso se tenha o mesmo CFOP para natureza diferente.
+Exemplo:
+ 
+ Quando se compra do mesmo Fornecedor Gasolina e Diesel, que na entrada da nota fiscal e o CFOP for por exemplo 1655 e estiver duas naturezas de operação era preciso criar dois "De/Para". Com este recurso agora, é só setar para cada Natureza no mesmo De/Para.
+O campo
+ 
+Tipo NF
+ 
+possui as seguintes opções:
+Complemento Preço/Imposto
+Devolução de Clientes
+Devolução p/ Fornecedor
+Outras Entradas
+Outras Saídas
+Venda
+Compras
+É de extrema importância ressaltar que algumas validações serão aplicadas a determinados tipos de nota, além de definir para o arquivo como será realizada a conferência do Emitente e Destinatário
+Exemplo:
+ 
+Para Notas onde a Natureza de Operação estiver com o Tipo "Entrada" o Emitente será o fornecedor e o Destinatário a filial, enquanto que para as Notas onde a natureza de operação estiver como o tipo "Saída" o Emitente será a filial e o Destinatário o Cliente.
+Excluindo e Editando um De/Para:
+Para excluir qualquer item do De/Para, o usuário deve se posicionar sobre o registro e clicar no botão
+ 
+ 
+Solicitará uma confirmação de exclusão, antes de apagar o registro:
+O usuário clicando no botão
+ 
+Sim
+ 
+o registro será apagado, caso contrário, o sistema volta para o painel
+ 
+De/Para Itens
+.
+Para editar o registro, o usuário deve seguir o mesmo procedimento, posicionando sobre o registro e clicando no botão 
+Abrirá a tela de alterações, onde o usuário poderá alterar as informações.
+Configurando De como Nulo ou Branco:
+Nos arquivos importados, algumas informações podem não vir preenchidas, até por não fazerem parte do layout.
+Exemplo:
+No layout da Petrobrás não há tipo de cobrança e nem transportadora, no layout da Futura há os dois campos, mas não necessariamente podem estar preenchidos.
+Esse procedimento pode ser feito para todos os itens do De/Para, caso haja necessidade. Apenas o campo
+ 
+De
+ poderá ficar em branco.
+Importante:
+Não será permitido o cadastro de mais de um registro usando um conteúdo do campo
+ 
+De
+ 
+igual.
+Exemplo:
+ 
+De GASI Para 03 e De GASI Para 05
+O usuário deve ter muita atenção no momento de cadastrar a descrição dos itens do "De/Para", campo "De". Dependendo do arquivo a ser importado, os campos podem estar em código, porém, outros arquivos podem ter esses mesmos campos descritos em palavras, o que torna o processo de importação mais sensível no momento de comparar a informação do arquivo com a informação do item do "De/Para".
+Exemplo:
+Editando um arquivo texto pelo bloco de notas, a posição que trás o produto, tem como valor "O.DIESEL AUT. INTERIOR(B)".
+Para esse caso, o usuário precisa ter atenção redobrada para cadastrar o campo "De" nos itens do De/Para. Note que no arquivo há um espaço entre a palavra "AUT." e a palavra "INTERIOR(B)", esse detalhe faz com que o sistema veja diferença entre a frase escrita no arquivo e a frase escrita no item do De/Para - campo "De", se o usuário escrever "O.DIESEL AUT.INTERIOR(B)" sem o espaço, não localizando o produto em questão e invalidando a importação da Nota Fiscal.

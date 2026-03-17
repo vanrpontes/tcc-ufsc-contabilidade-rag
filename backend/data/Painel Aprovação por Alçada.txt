@@ -1,0 +1,85 @@
+TITULO: Painel Aprovação por Alçada
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926188591
+--------------------------------------------------
+A configuração é feita em 
+Ferramentas > Sistema > Aprovação por Alçada
+:
+Pode ser configurado Aprovação por Alçada por empresa, ou seja a empresa inteira irá trabalhar com a aprovação por alçada configurada, por setor, de acordo com cada setor configurado será utilizado a aprovação por alçada, ou até mesmo aprovação dupla, utilizando simples para empresa e alçada por setor.
+Pedido de Movimentação de Material - PMM:
+Perfis de Aprovação:
+ define quais são os perfis necessários para aprovação dos PMM's.
+ Aprovação:
+ determina qual é método utilizado para aprovação.
+Sem aprovação
+Aprovação por Alçada
+Aprovação Simples
+Data de Referência para Aprovação:
+ especifica a data base para cálculo dos limites de aprovação. 
+Transferência de Aprovação do PMM para o Contas a Pagar: 
+Caso a empresa trabalhe com aprovação por Alçada no 
+PMM
+ e no 
+Contas a Pagar
+, tanto os títulos do Contas a Pagar gerados por Notas vinculadas a PMM, como títulos de Notas não vinculadas exigirão a aprovação devida.
+Porém, pode ser que a empresa configurou os mesmos perfis de aprovação para o PMM e para o Contas a Pagar.
+Ex.: Gerência e Diretoria
+Se o Gerente e o Diretor aprovaram o PMM, pode ser que eles não queiram ter que aprovar novamente os títulos do Contas a Pagar gerados pela Nota deste PMM. Assim, para que esta aprovação não seja necessária, pode marcar na configuração do Sistema, painel Aprovação por Alçada, a opção:
+Quando esta opção está marcada e um PMM é aprovado, todas as aprovações do PMM são transferidas para o Contas a Pagar. Se essas aprovações forem suficientes os títulos são aprovados, se faltar alguma aprovação o título será apresentado na tela de Aprovação, mostrando como faltante somente esta aprovação.
+Ex.:
+Perfis de Aprovação configurados para PMM:
+Gerência
+Diretoria
+Perfis de Aprovação configurados para Contas a Pagar:
+Diretoria
+Tesoureiro
+Ao aprovar o PMM serão transferidos as aprovações da Gerência e Diretoria. Porém, no Contas a Pagar ficará pendente a aprovação do Tesoureiro e será descartada a aprovação da Gerência, que não é necessária
+Contas a Pagar:
+Perfis de Aprovação:
+ define quais são os perfis necessários para aprovação do Contas a Pagar.
+Aprovação:
+ determina qual é método utilizado para aprovação.
+Sem aprovação
+Aprovação por Alçada
+Aprovação Simples
+Data de Referência para Aprovação:
+ especifica a data base para cálculo dos limites de aprovação. 
+Botão Configurar Perfis:
+Padrão: 
+Empresas: 
+define por empresa os perfis de aprovação.
+Perfis de Aprovação:
+ este perfil indica quem pode aprovar e é para todas as empresas. Para que um PMM seja aprovado, todos os perfis de aprovação cadastrados devem aprovar o PMM.
+Perfis de Aprovação de PMM emergencial: 
+caso o PMM tenha sido marcado como emergencial, define quais os perfis que podem aprovar. Para que o PMM emergencial seja aprovado, é necessário que todos os perfis cadastrados aprovem.
+Por Setor: 
+define os perfis de aprovação por setor, independente de empresa.
+Caso a empresa esteja configurada para trabalhar com 
+Aprovação Simples
+, mas um determinado Setor trabalhar com Aprovação por Alçada, será necessário indicar no campo 
+Tipo de Aprovação 
+a opção necessária. Para isso selecione o setor e  clique no botão 
+ e escolha a opção Alçada conforme imagem.
+Respeita Perfil da Empresa: 
+será aprovado conforme o perfil que estiver configurado na Aba Por Empresa.
+Alçada:
+ será necessário configurar Perfil de Aprovação.
+Perfis de Aprovação: 
+este perfil indica quem pode aprovar para cada setor (todas as empresas). Para que um PMM seja aprovado, todos os perfis de aprovação cadastrados devem aprovar o PMM.
+Perfis de Aprovação de PMM emergencial: 
+caso o PMM tenha sido marcado como emergencial, define quais os perfis que podem aprovar. Para que o PMM emergencial seja aprovado, é necessário que todos os perfis cadastrados aprovem.
+Quadro Requisição de Compras
+A partir da versão 9.21 foi criado a aprovação por alçada de requisição de compras. A regra segue a mesma coisa que as citadas acima do PMM.
+Botão Configurar Perfis
+: define a Configuração dos Perfis de aprovação da Requisição de Compra. A configuração do mesmo é igual ao do botão 
+Configurar Perfis
+ citado mais acima.
+Aprovação:
+ nesse perfil definimos o tipo de aprovação que a empresa ira trabalhar, podendo optar por Aprovação Simples ou Aprovação por Alçada.
+Para todos os Perfis de Aprovação, onde constem os campos Qtde e Distinto.
+Qtde: 
+quantidade de aprovações necessárias para liberar o PMM, por exemplo: perfil3 com a quantidade de 3, nesta situação precisa ter 3 liberações de usuários que façam parte do Perfil3.
+Distinto:
+ se marcado os perfis para liberação deverão ser diferentes, por exemplo: perfil3 com a quantidade de 3 e a opção distinto marcada, nesta situação precisa ter 3 liberações de usuários diferentes que façam parte do Perfil3. Caso a opção distinto esteja desmarcado, o mesmo usuário pode fazer as 3 liberações.
+Valor de alçada é exclusivo para PMM e não tem relação com Requisição de Compras.
+A requisição é algo que pode demandar somente uma movimentação interna e em outros casos demandar compra. Na verificação de alçada temos (valor por usuário) no PMM e não na requisição, pois ainda não tem o valor do produto. Já no PMM temos o valor do produto, pois é a fase que envolve o fornecedor.
+O valor Limite de aprovações está dentro do quadro PMM, ou seja, é exclusivo para ele, não seria usado para a Requisição.

@@ -1,0 +1,189 @@
+TITULO: Inclusão de Contas a Receber manual
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440369
+--------------------------------------------------
+Para incluir manualmente no Sistema, um registro de Conta a receber, acione a partir do Menu
+ 
+Movimentação / Financeiro / Contas a Receber /
+ 
+Inclusão Lançamento
+.
+Entre com os dados solicitados nesta tela:
+Lançamento Identificado:
+ 
+Esta opção deve estar habilitada caso você saiba a qual cliente deseja impor este título. Na grande maioria dos casos, você deve saber. Porém, no caso de cheques devolvidos - por exemplo, e este cheque ainda não tenha chegado às suas mãos (impossibilitando a conciliação bancária caso o movimento não seja lançado) não permitindo a identificação da origem do débito, você pode lançar um débito não identificado (para uma conta contábil). Para maiores detalhes sobre quando utilizar débitos não identificados, veja o tópico
+ 
+.
+Lançamento Previsto:
+ 
+Quando se deseja apenas provisionar um valor (tanto no contas a pagar quanto a receber), podemos habilitar esta opção. Assim, este lançamento poderá ser modificado a vontade (ao contrário do lançamento "real" que, após efetivado, não pode ser mais alterado). Porém, este lançamento deve ser efetivado (ver tópico
+ 
+Efetivar lançamento Previsto
+) antes de ser baixado. Vide help 
+Mantém os dados da última inclusão efetuada? -
+ 
+Está opção permite que as informações que estão sendo digitadas (dados do cabeçalho e painéis), sejam repetidas para o próximo lançamento a ser digitado, evitando assim que o usuário tenha que digitar tudo novamente, no caso de vários lançamentos que tenham os seus dados iguais, mudando apenas o valor e vencimento, por exemplo.
+ 
+ 
+Para que esta opção esteja habilitada, é necessário configurar no perfil da empresa, Menu
+ 
+Ferramentas / Sistema / Financeiro
+, os seguintes perfis:
+A opção
+ 
+"Após inclusão, mostra nova tela de inclusão lançamento"
+, serve para deixar aberta a tela de inclusão de lançamentos, assim que o usuário termina de lançar um registro, evitando assim, que seja necessário o usuário abrir a tela através do menu, toda a vez que terminar de fazer um lançamento. Portanto, é necessário que seja habilitado os dois perfis, para que a tela permaneça aberta e a opção "
+Mantém os dados da última inclusão efetuada?"
+ 
+esteja habilitada.
+Código da Entidade:
+ 
+código do Cliente devedor do título. O Sistema permite a consulta da lista dos Clientes cadastrados, basta acionar a tecla <Enter>.
+Código do Comprador:
+ 
+Normalmente o mesmo código do Cliente devedor do título. O Sistema permite a consulta da lista dos Clientes cadastrados, basta acionar a tecla <Enter>. A figura do comprador normalmente é associada a empresa que se responsabiliza pelo pagamento do lançamento (ou o intermediário entre a empresa e o cliente faturado).
+Data da Emissão:
+ 
+O Sistema sugere a data corrente.
+Data Vencimento Original:
+ 
+É a data de vencimento original do título. Notar que, caso o título seja posteriormente postergado, esta data não muda (muda-se a data Data Vencimento Atual). Note também que o Sistema, na inclusão, repete esta data na data de vencimento atual do título.
+Data Vencimento Atual
+ 
+- É a data de vencimento do título. O sistema não permite que a data de vencimento atual a ser lançada, seja menor que a data de emissão do título, a menos que o perfil localizado nas configurações da empresa -
+ 
+Menu
+ 
+Ferramentas / Sistema / Financeiro
+, esteja desmarcado
+ 
+ 
+ 
+Código do Histórico:
+ 
+Acione a tecla <Enter> e selecione da lista o código adequado.
+Código do Portador:
+ 
+Código do portador do título (onde fisicamente o título está). Acione a tecla <enter> para pesquisar caso não saiba o código.
+Histórico:
+ 
+Histórico da Ocorrência.
+Código do Tipo de Cobrança:
+ 
+Código do tipo de cobrança do lançamento (como se pretende receber este lançamento ou de que forma o cliente pretende quitá-lo). Aperte <enter> para abrir a janela de pesquisa caso não saiba o código.
+Código do Tipo de Documento:
+ 
+Código do tipo de documento que originou este lançamento (normalmente uma nota fiscal porém pode ser recibo, rpa, etc). É importante que se escolha aqui o tipo de documento correto pois ao tipo de documento está associado um conjunto de descontos (que podem modificar o valor líquido do lançamento). Aperte <enter> para abrir a janela de pesquisa de tipos de documento caso não saiba seu código. Ver mais detalhes sobre descontos em
+ 
+[
+Como cadastrar descontos automáticos
+|geração automática de título de desconto oriundo de retenção].
+Competência:
+ 
+Mês e Ano da competência do lançamento. Serve basicamente para emissão de relatórios de despesas/receitas incorridas pelo mês de competência.
+Número do Pedido:
+ 
+Digite o número do Pedido de Venda.
+Número do Documento
+: Caso necessário, entre com um número de documento que identifique este lançamento (número do cheque devolvido, Nota Fiscal, etc).
+Número da Nota Fiscal:
+ 
+O Sispetro pode eventualmente (caso no perfil da empresa esteja habilitada esta opção) bloquear lançamentos com o mesmo número de nota fiscal.
+Moeda
+: Código da moeda do lançamento. Aperte <enter> para abrir janela de pesquisa de moedas.
+Valor Bruto:
+ 
+Digite o valor do título a receber. Note que caso o tipo de documento esteja configurado de maneira a reter alguns descontos, o valor do título (valor líquido) será diferente do valor bruto digitado.
+Valor Líquido:
+ 
+Valor efetivo do título. A diferença entre este valor e o bruto são os descontos retidos através de cálculos configurados no cadastro de tipos de documento.
+Observações:
+ 
+Informe as observações necessárias.
+Código Vendedor:
+ 
+Código do vendedor responsável pelo cliente (e por seus títulos). Aperte <enter> para abrir janela de pesquisa de vendedores.
+Valor Desconto Condicional:
+ 
+Valor do desconto do título a ser concedido ao cliente. Somente poderá informar este campo se na
+ 
+, painel
+ 
+, o campo seguinte deve estar marcado:
+ 
+ 
+Conta Contábil de Despesa
+ 
+- No painel Principal acione a tecla <Enter> e selecione da lista a conta contábil adequada. Na verdade, esta conta será a contrapartida para o lançamento contábil com a entidade (cliente), podendo ser contas de receita ou uma conta do tipo Banco quando for um lançamento referente a cheque devolvido.
+Lança na Contabilidade Real
+ 
+- Opção de contabilizar ou não o lançamento na Contabilidade Real. Para isso a empresa já deve trabalhar com a Contabilidade Real habilitada e no perfil do usuário, menu Ferramentas / Usuário / painel Contabilidade, marcar a opção abaixo que dará ao usuário a permissão de marcar e desmarcar quando for necessário.
+ 
+ 
+ 
+ 
+ 
+Os lançamentos que forem incluídos com a opção desmarcada, ou seja, que não serão contabilizados na Contabilidade real, aparecerão na cor azul-marinho na tela da Manutenção do Contas a Pagar/Receber.
+ 
+ 
+Caso seja marcada esta opção, a contabilização real se fará de acordo com a distribuição entre contas informadas no painel
+ 
+Conta Contábil
+.
+No painel
+ 
+Conta Gerencial
+ 
+devem ser informadas as contas de contrapartida na contabilidade gerencial para a conta da entidade, podendo fazer o rateio entre mais que uma conta.
+O painel
+ 
+Conta Contábil
+ 
+só estará visível para empresas que utilizem a contabilidade real, nele
+ 
+devem ser informadas as contas de contrapartida na contabilidade real para a conta da entidade, podendo fazer o rateio entre mais que uma conta. Inicialmente o sistema sugere as contas reais vinculadas as contas gerenciais escolhidas no painel
+ 
+Conta Gerencial
+, porém poderão ser alteradas.
+O painel
+ 
+Juros e Multa
+ 
+ define o percentual de juros ao dia para cálculo de mora diária e percentual de Multa a ser calculada em títulos com data de vencimento atrasada.
+ 
+ 
+ 
+ Note que o Sispetro pode calcular antecipadamente os valores para simulação dos Juros e Multa dos títulos em atraso de determinado cliente. Mais detalhes no tópico 
+. Estes juros também podem ser recalculados no momento da baixa ver tópico 
+ 
+ O painel
+ 
+Desc/Acrésc.
+ 
+mostra os Descontos/Acréscimos calculados para este título a partir do
+ 
+Tipo de Documento
+ 
+informado. Observe a coluna Tipo Cálc para saber se o valor informado será acrescido, diminuído ou indiferente em relação ao valor bruto informado, de acordo com estes valores será calculado o valor líquido do título. Maiores detalhes vide tópico
+ 
+Cálculos de Descontos/Acréscimos no Contas Pagar/Receber
+.
+O painel
+ 
+Devolução Cheque
+ 
+é utilizado quando este lançamento representar um cheque devolvido. Veja maiores detalhes em
+ 
+Controle de Cheque Devolvido
+.
+Veja outras regras no tópico
+ 
+Regras de Inclusão do Contas a Pagar/Receber
+.
+Acione o botão OK para a inclusão do registro no Contas a receber do Sistema.
+O título de desconto (retenção) pode ser gerado automaticamente, se nos descontos estiver configurado para gerar título automático. Mais informações em
+ 
+.
+Após a inclusão do Contas a Receber a data e a hora da inclusão será armazenada para auxiliar nas consultas pela tela de Manutenção do Contas a Receber.
+O Sistema irá incluir este título no Contas a Receber e fazer a contabilização do mesmo de acordo com o tópico
+ 
+.

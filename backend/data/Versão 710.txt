@@ -1,0 +1,595 @@
+TITULO: Versão 7.10
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2896297986
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 06/09/2010 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 15/10/2010 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd710.sql (cmd2427 a cmd2457) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 41
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 21 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 20 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Relatórios 
+
+
+ Layouts de Exportação 
+
+
+ DLL's 
+
+
+ Outros 
+
+
+
+
+
+
+ 
+
+
+ PagForBradesco-Remessa.rtm 
+
+
+ 
+
+
+ Apuracao_PIS_COFINS.rtm 
+
+
+
+
+
+
+ 
+
+
+ Scanc.rtm 
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+ ScancRefAnexo6.rtm 
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+ DIME-SC.rtm 
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+Servidor SisPetro
+A partir dessa versão, o Servidor SisPetro se torna obrigatório para a execução do SisPetro Normal.
+
+
+Geral
+
+
+
+
+Envio de E-mails Automaticamente pelo SisPetro
+
+
+A partir dessa versão é possível enviar pelo SisPetro via e-mail o XML das NF-e geradas / canceladas e também a cobrança.
+ 
+O e-mail da NF-e será enviado para o cliente e para a transportadora (caso configurados) atendendo a exigência da Sefaz para o envio dessas informações.
+ 
+Help:
+ 
+Serviço de E-mail
+ 
+UPA (CCF 10328)
+
+
+Endereços de e-mail
+
+
+A partir dessa versão estaremos validando os e-mails digitados no sistema, por exemplo o endereço de e-mail da NF-e no cadastro de clientes, nesses campos só poderão ser digitados endereços de e-mail compatíveis com os padrões de endereço de e-mail.
+ 
+Não poderão mais ser informados e-mails inválidos do tipo NÃO POSSUI, NÃO INFORMADO, ETC@ETC, por exemplo.
+ 
+UPA (CCF 10328)
+
+
+Casas decimais invertidas na função CurrencyToChar
+
+Na função de banco CurrencyToChar, nos casos em que o valor decimal do valor enviado na função era menor que R$ 0,10, dependendo do campo utilizado no banco de dados, a função não estava adicionando os zeros a esquerda necessários. 
+UPA (CCF 10495)
+
+
+Padronização de Tela
+
+
+A tela de Importação de Ordem de Carregamento teve as imagens dos seus botões atualizados para a versão 7 do SisPetro. UPA (CCF 10496)
+
+
+Telas de Manutenção na Aba de Itens
+
+As telas de Manutenção de Inventário e Manutenção de Carregamento/Descarga, ao serem exibidas estavam mostrando a aba de itens ao invés de abrir em sua aba principal, facilitando assim a seleção do item pelo usuário. Essas telas foram alteradas. 
+UPA (CCF 10496)
+
+
+Gravar Data Mínima de Movimentação
+
+
+Na tela de Cadastro de Clientes fizemos uma implementação ao escolher a data para filtrar as movimentações.
+ 
+Antes, o sistema sempre sugeria 30 dias anteriores para filtrar. Mas a partir dessa versão, após escolher a data, a mesma será gravada no arquivo do usuário para ser utilizada na próxima consulta
+. 
+Este recurso estará sendo utilizado nas abas: Movimento Faturado, Movimento Pedidos e Movimento Financeiro.
+ 
+Help:
+ 
+Consultas
+ 
+ALP (CCF 9948)
+
+
+Pesquisa de Perfis
+
+Alguns perfis na tela de configuração de empresas e usuários que são em forma de check não estavam sendo localizados pela opção de pesquisa de perfis (F4). Esse problema foi detectado e corrigido. 
+UPA (CCF 10415)
+
+
+
+
+Compras
+
+
+
+
+Vínculo de Pedido de Movimentação de Material (PMM) com Contrato de Venda
+
+
+Na tela de Inclusão de um PMM foi implementada uma opção para poder incluir o Contrato de Venda ao término do cadastro do PMM. Dessa forma o PMM fica vinculado ao Contrato de Venda automaticamente.
+ 
+Também será possível realizar esse vínculo através da tela de Manutenção de Contrato de Venda.
+ 
+Help:
+ 
+Pedido de Movimentação de Material
+ 
+ALP (CCF 10148)
+
+
+Depósito Destino no Pedido de Movimentação de Material (PMM)
+
+
+Disponibilizamos na tela de Inclusão de PMM uma opção para informar o Depósito Destino. Juntamente a isso, o sistema passará a fazer uma verificação na tela de Inclusão de Ordem de Carregamento (OC).
+ 
+Caso um item da OC seja vinculado a um PMM (escolhendo a opção "Informa Pedido Mov. Mat.") o sistema não permitirá que o Depósito Destino da OC seja diferente do Depósito Destino do PMM informado no item (caso o PMM possua um Depósito Destino).
+ 
+O Depósito Destino (código e descrição) e o Nome Usual da Entidade do PMM foram disponibilizados na tela de Consulta de PMM Pendentes.
+ 
+Para visualizá-los é necessário clicar no botão "Layout Default".
+ 
+Help:
+ 
+Pedido de Movimentação de Material
+,
+ 
+Transferências efetuadas de depósito da mesma empresa
+ 
+ALP (CCF 10147)
+
+
+Pedido de Movimentação de Material (PMM) gravado indevidamente na Ordem de Carregamento (OC)
+
+Na tela de inclusão de OC, caso seja selecionada a opção "Informa Pedido Mov. Mat." o sistema abre um campo na parte de baixo da tela, onde são informados os itens da OC, permitindo vincular um PMM ao mesmo. Se isso for feito e, em seguida, essa opção for desmarcada, o sistema deixava o campo de PMM invisível, mas estava gravando o PMM no item da OC. Esse problema foi corrigido. 
+ALP (CCF 10561)
+
+
+
+
+Estoque
+
+
+
+
+Ordem de Carregamento sem itens
+
+A tela de inclusão de Ordem de Carregamento (OC) estava permitindo a inclusão de uma OC sem itens. Esse problema foi corrigido. 
+ALF (CCF 10583)
+
+
+Consulta de Fechamento de Estoques
+
+Na aba de custos na tela de consulta de fechamento de estoques, os valores e quantidades não estavam sendo formatados apresentando assim valores fora dos padrões do SisPetro. Essa aba foi totalmente formatada. 
+UPA (CCF 10492)
+
+
+Transportadora vinculada ao Motorista
+
+
+Alteramos a nomenclatura dos campos referentes a Transportadora nas telas de Manutenção de Ordem de Carregamento (OC), Portaria de entrada e Portaria de Saída.
+ 
+Agora esses campos serão exibidos como "Transportadora (Motorista)" para melhorar a identificação em casos em que o Motorista é autônomo. Também adicionamos a visualização do campo de Transportadora Vinculada.
+ 
+ALP (CCF 9293)
+
+
+
+
+Faturamento
+
+
+
+
+Campos do Boleto no Layout da Nota Fiscal
+
+
+No condutor de dados ContasPagarReceber do layout da nota fiscal, foram disponibilizados todos os campos que hoje são disponibilizados no boleto de cobrança. UPA (CCF 10467)
+
+
+Endereço de e-mail da NF-e em Branco no Cadastro de Clientes
+
+Após apagar o endereço de e-mail da NF-e no cadastro de clientes, se for emitida alguma NF-e para esse cliente, a Sefaz recusa a NF-e gerando o erro de falha no schema. Esse erro era gerado porque o email era enviado em branco. Esse problema foi corrigido, caso o usuário apague o endereço do e-mail, nós não enviaremos mais essa informação. 
+UPA (CCF 10328)
+
+
+Novas URL's para Nfe 2.0
+
+
+A Sefaz disponibilizou os endereços de WebServices para NFe 2.0 para o estado do Amazonas. Algumas UF's não foram testadas pela Futura por não possuírmos certificados de todas as UF's. 
+Caso o recebimento dos dados seja rejeitado pela Sefaz, será necessário voltar a versão 1.0 e comunicar a Futura Tecnologia.
+ UPA (CCF 10737)
+
+
+
+
+Financeiro
+
+
+
+
+Arquivo de pagamento eletrônico Bradesco
+
+
+Foi implementado nessa versão, na geração do arquivo de pagamento eletrônico do banco Bradesco, uma verificação da modalidade "Crédito em Conta Real Time" (cód 05) para que a mesma atenda as mesmas condições da modalidade "Crédito em Conta-Corrente ou Poupança".
+ 
+É necessário atualizar o arquivo PagForBradesco-Remessa.rtm.
+ 
+ALP (CCF 9918)
+
+
+Correção na gravação do CPF no arquivo de pagamento eletrônico Bradesco
+
+Corrigimos a gravação do CPF no arquivo de pagamento eletrônico Bradesco, onde estava sendo gerado sem os dois dígitos verificadores. 
+ALP (CCF 10418)
+
+
+Erro na geração do Arquivo de pagamento eletrônico Bradesco
+
+A tela de Geração de Arquivo de Pagamento Eletrônico utiliza um arquivo de layout para geração do arquivo texto. Quando esse layout era gravado através do Gerenciador de Relatórios ou da tela de Exportação de Dados, a tela de Geração de Arquivo de Pagamento Eletrônico, em alguns casos, não estava verificando uma determinada propriedade desse layout, e exibia uma mensagem de erro. Esse problema foi corrigido. 
+ALP (CCF 10598)
+
+
+Vínculo de receitas de cartório no Contas a Receber
+
+
+Na tela de seleção de títulos para vincular receitas de cartório foi incluído o campo "Número NF" para facilitar a identificação dos títulos.
+ 
+Também foram disponibilizados outros campos, mas como padrão, os mesmos não serão exibidos. Contudo, será possível o usuário adicionar esses novos campos no grid.
+ 
+Help:
+Vínculo receitas extraordinárias com títulos a receber
+* 
+ALP (CCF 10156)
+
+
+Campo Taxa de Juros ao Dia no Boleto
+
+
+Disponibilizado no layout do boleto o campo taxa de juros ao dia. UPA (CCF 104441)
+
+
+Melhora de Performance na Tela de Baixa
+
+
+Na tela de baixa do financeiro, foi melhorada a performance ao acessar essa tela, principalmente com relação a seleção dos adiantamentos disponíveis para uso do usuário na baixa. UPA (CCF 10333)
+
+
+Confirmação do Usuário para Conciliar/Desconciliar Movimentos Bancários
+
+
+Foi criado um perfil de sistema que solicita a confirmação do usuário para conciliar/desconciliar os movimentos bancários. Como padrão esse perfil está desmarcado, não solicitando assim qualquer confirmação do usuário.
+ 
+Help:
+ 
+Conciliação Bancária
+ 
+UPA (CCF 10030)
+
+
+Validação de Grupo Econômico em Adiantamento de Clientes
+
+
+Disponibilizamos um perfil de sistema que permite realizar uma validação entre entidades, verificando se as mesmas pertencem ao mesmo Grupo Econômico.
+ 
+Essa validação está sendo feita nas telas de Inclusão de Adiantamento de Cliente, Transferência de Crédito de Cliente e Transferência de Crédito de Cliente em Lote
+. 
+Help:
+ 
+Validação Adiantamento de Cliente e Grupo Econômico
+ALP (CCF 9114)
+
+
+Mudança de Portador
+
+Na tela de mudança de portador, caso o usuário já soubesse o código do novo portador e o digitasse, mesmo assim a tela de pesquisa de portador era aberta, deixando assim o processo de troca mais lento. Esse problema foi corrigido. 
+UPA (CCF 10569)
+
+
+Banco Rendimento não utilizará mais Banco Bradesco como correspondente
+
+
+Fizemos uma implementação nessa versão onde é possível emitir arquivos de cobrança eletrônica e boletos (Cobrança) do Banco Rendimento sem haver a necessidade de configurar o tipo de cobrança com banco correspondente (como exemplo, o Banco Bradesco). 
+Importante: Faça testes com o banco antes de colocar em produção!!.
+ 
+Help:
+Banco Rendimento
+ ALP (CCF 10164)
+
+
+Erro ao Mudar de Empresa
+
+Ao trocar de empresa diretamente pela seleção de empresas(canto superior direito da tela), após o usuário rodas algumas rotinas do financeiro, em alguns casos era gerado um erro de "access violation", esse erro foi mapeado e tratado. 
+UPA (CCF 10613, 10630)
+
+
+Erro ao Transferir Adiantamento
+
+Esse erro só foi simulado na seguinte situação, gerando o erro corrigido acima e após isso tentar executar a transferência de adiantamentos. O primeiro erro deixava sujeira na memória o que causava esse segundo. Estamos tratando para caso exista sujeira na memória do computador não gere mais esse erro. 
+UPA (CCF 10735)
+
+
+
+
+Fiscal
+
+
+
+
+Relatório para apuração de PIS/COFINS
+
+
+Implementamos um novo relatório para apuração dos valores de PIS e COFINS, onde será possível comparar os valores entre os dois modos de apuração (metro cúbico e Alíquota).
+ 
+Esse relatório não está disponível no menu do sistema. Apenas será disponibilizado o arquivo para ser utilizado no Gerenciador de Relatórios
+ 
+através do arquivo Apuracao_PIS_COFINS.rtm.
+ 
+ALP (CCF 8398)
+
+
+SPED
+
+Corrigida a geração do Registro C113 no SPED-EFD para que as notas referenciadas fossem apresentada devidamente, já que a apresentação estava invertida. 
+GSN (CCF 10431)
+
+
+Conferência Livro Entrada/Saída
+
+
+Foram disponibilizados nesse relatório os campos CNPJ, IE, Código do Produto e Nome do Produto.
+ 
+Help:
+ 
+Conferência Livro Entrada/Saída
+ 
+UPA (CCF 10473)
+
+
+SPED-EFD Dados da Ultima Nota Fiscal de Entrada (C176)
+
+
+O Registro C176 do SPED-EFD deve ser preenchido para notas que possam permitir pedido de Ressarcimento de ICMS ST, sendo preenchido com dados da última nota Fiscal de Compra do produto. A partir dessa versão, será possível vincular uma nota de saída a uma nota de entrada, de forma automática via natureza de operação ou manualmente através da manutenção de notas fiscais.
+ 
+Já ajustamos a fórmula do Registro C176 para utilizar os dados da última nota fiscal.
+ 
+Faça o quanto antes a configuração na Natureza de Operação!
+ 
+Help:
+ 
+Vínculo de NF com Última NF de Entrada
+ 
+UPA (CCF 10379)
+
+
+SPED-EFD Registro por UF (C176)
+
+
+Implementamos uma nova funcionalidade que permite escolher uma lista de UFs para os registros do SPED,
+ 
+de forma que as UFs não sejam consideradas na geração dos arquivos. Esse recurso é importante porque o Registro C176 só deve ser gerado para alguns estados. Veja com a SEFAZ.
+ 
+Help:
+ 
+Configuração de Campos
+ 
+ALP (CCF 10379)
+
+
+SPED-EFD Registro C190 para Notas com mais de um item
+
+Ajustamos a fórmula do campo Valor da Operação do Registro C190 para que não apresente valores duplicados em notas com mais de um item.
+GSN (CCF 10663)
+
+
+Reabertura e Alteração da Apuração do Livro Fiscal
+
+Na versão passada colocamos um bloqueio no sistema para não permitir dois usuários incluirem ao mesmo tempo uma apuração no mesmo período. Essa validação está impedindo os usuários de gravar as alterações em apurações que foram reabertas. Esse problema foi corrigido. 
+UPA (CCF 10633)
+
+
+Quantidades Zeradas no DPMP
+
+Corrigido problemas de quantidade de produtos zeradas em algumas notas do DPMP. Esse problema estava vinculado às correções de faturamento feitas na versão 7.9.2. 
+UPA (CCF 10622)
+
+
+Scanc
+
+Adicionado ao campo TotalImposto o valor do ICMS (ValICMS) no pipeline NotaFiscalFechamento do Scanc. 
+É necessário a atualização do rtm Scanc.rtm para a alteração ficar disponível.
+ 
+UPA (CCF 10605)
+
+
+Scanc - Refinaria
+
+No quadro 3 do anexo 6, estávamos listando os valores de ICMS por nota ao invés de somar e agrupar todos os itens do mesmo produto. Esse problema foi corrigido. 
+UPA (CCF 10654)
+
+
+DIME-SC - Regime Especial
+
+Ajustamos o layout da DIME para enviar o valor a recolher do ICMS de Substituição no campo 73 do quadro 11 quando a empresa estiver configurada como Regime Especial. Consequentemente, nesta situação, não será gerado o campo 170. 
+Necessário atualizar o arquivo DIME-SC no layout de exportação.
+ 
+GSN (CCF 10091)
+
+
+
+
+Vendas
+
+
+
+
+Simulador de Preços
+
+
+Foram implementadas duas novidades na tela de simulação do preço de vendas, uma sobre o preço unitário final, a partir dessa versão esse preço será sugerido ao usuário com base na tabela de preços do cliente selecionado.
+ 
+Caso o usuário queira ver o valor unitário do produto utilizando uma outra tabela de preços e o usuário tenha permissão para essa alteração, será possível alterar a tabela de preços e o usuário já verá o valor unitário do produto para a tabela selecionada.
+ 
+A outra alteração diz respeito ao custo do produto,
+ 
+a partir dessa versão o usuário poderá selecionar o preço a ser utilizado no calculo do custo, se o preço a vista ou o preço final do produto.
+ 
+Essa opção do usuário será salva no arquivo ini e na próxima vez que o usuário acessar essa tela a ultima seleção do usuário será utilizada como padrão.
+
+
+Help:
+ 
+Simulador Preço de Venda
+ 
+UPA (CCF 10550, 10549)
+

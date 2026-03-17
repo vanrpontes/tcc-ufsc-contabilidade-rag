@@ -1,0 +1,58 @@
+TITULO: Como emitir uma OC de Carregamento de Terceiros
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701925
+--------------------------------------------------
+Este procedimento visa emitir ou incluir uma Ordem de Carregamento realizada por terceiros. Estes "terceiros" podem ser clientes de uma armazenadora, por exemplo. 
+O usuário do SisPetro recebe uma Ordem de Carregamento que é impressa no formulário do cliente e precisa incluir esta OC no Sistema. 
+Deve-se incluir esta ordem de carregamento de terceiros no sistema, para que o mesmo possa preparar a entrada deste caminhão na base e movimentar estoque.
+Para incluir esta OC, o usuário deve utilizar o botão Inclui da tela de 
+Manutenção de Ordens de Carregamento
+ ou acessar a tela de inclusão, através do Menu 
+Movimentação / Estoque / Ordem de Carregamento
+.
+Alterar o campo 
+Tipo Ordem Carregamento
+ para 
+Carregamento de Terceiros 
+(nota-se que o Sistema habilita e desabilita diversos campos de acordo com o tipo escolhido):
+O usuário deve incluir as seguintes informações
+:
+Entidade
+: Informe a Entidade. O sistema traz como padrão o campo entidade desabilitado para este tipo de ordem de carregamento, porém caso a empresa deseje habilitar, basta ir em 
+Ferramentas / Sistema / Ordem Carregto
+ e marcar o perfil 
+Informe entidade na OC de descarga de terceiros
+.
+Depósito Origem:
+ Código do Depósito de onde sairá este produto. Deve-se corresponder à base de carregamento.
+Código Transportadora:
+ Código do motorista ou transportadora.
+Código Frota:
+ Veículo que entrará na base.
+Escolha os produtos e quantidades para carregamento
+. Estas quantidades são à temperatura ambiente (na realidade, o Sistema assume neste momento quantidades iguais à temperatura ambiente e a 20 graus pois ainda não possui dados suficientes para realizar a conversão).
+O valor do frete unitário pode ou não ser informado pelo usuário na inclusão da OC. Caso a empresa opte por não permitir que o usuário informe o valor do frete, deve-se desmarcar (por padrão pode informar) o perfil do Usuário, localizado através do Menu 
+Ferramentas / Usuário /Carregamento / 
+Pode informar o frete na inclusão da OC (qualquer tipo)
+:
+Veja maiores informações no tópico sobre 
+Inclusão de Ordem de Carregamento
+.
+Compartimentação: 
+Caso deseje, o usuário poderá introduzir a compartimentação deste carregamento apertando o botão 
+Compartimentação
+. Este procedimento deve ser realizado se for imprimir uma Ordem de Carregamento ou documento que conste esta compartimentação. 
+Para distribuição de produtos na compartimentação da OC, vide tópico
+ 
+Compartimentação de OC
+.
+Após o preenchimento correto das compartimentações acione o botão 
+OK
+ para finalizar.
+O usuário pode configurar o sistema para verificar o estoque no momento de finalizar a ordem de carregamento através do Quadro
+ Verif. de estoque negativo na OC Carregto Terceiros,
+ veja maiores informações no tópico 
+.
+Em ordens de carregamento de terceiros, independente da configuração, os campos Série de Lacre e Série de Envelope não são habilitados.
+Com a OC incluída, o SisPetro irá, de forma automática, subtrair da quantidade disponível do estoque escritural do Depósito Origem a quantidade informada na OC.
+Após inclusão, a OC entrará na fila da Portaria de Entrada, veja maiores informações no tópico 
+.

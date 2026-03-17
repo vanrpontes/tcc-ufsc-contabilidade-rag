@@ -1,0 +1,61 @@
+TITULO: 1.5 Nota Fiscal Eletrônica - Configurações básicas e erros frequentes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913599810
+--------------------------------------------------
+Quais são as configurações básicas para emitir uma NF-e?
+1) Ter um
+ 
+Certificado Digital configurado
+ válido.
+2) Ter uma 
+ Série Nota Fiscal
+ configurada.
+3) Fazer as configurações BÁSICAS na natureza de operação
+Modelo da NF-e 
+Marcar o perfil "Habilita emissão NF-e"
+Tipo de emissão deve estar como "Própria"
+Escolher a série da NF (já configurada anteriormente) 
+Para informações sobre 
+Tabela Natureza Operação
+.
+4) Ter o perfil de
+ SISTEMA
+ "
+Habilita emissão NF-e
+" marcado, sem ele nenhuma das configurações acima funcionam.
+Para informações sobre 
+Painel Nota fiscal eletrônica/Conhecimento de frete eletrônico
+ 
+Principais erros
+1) "Falha de schema":
+Ocorre quando algum 
+dado da nota
+, dados do cliente, fiscais, CFOP, modelo da NF-e... entre outros, não esta correto, 
+esta é uma validação da SEFAZ
+. Para saber qual dado esta incorreto recomendamos o uso do 
+ 
+ 
+2) Emiti uma nota em 
+contingencia
+ e não consigo processa-la em 
+produção
+A nota vai ser processada no ambiente em que foi feita, ou seja, se foi feita no ambiente de contingencia vai ser processada no mesmo, mesmo que o SisPetro esteja no modo de produção. Sendo assim se o ambiente não estiver disponível a nota não vai ser processada.
+3) "
+Assinatura Difere do Calculado
+"
+Ocorre quando algum carácter, nas observações da nota por exemplo, não é válido. São eles
+ ç ,acentuação no geral, 
+&, aspas
+ , apóstrofe, sinal de maior, sinal de menor 
+... 
+são alguns dos caracteres que a SEFAZ não aceita. Nesse caso também é necessário passar o XML no 
+4
+)
+ "
+Total do BC ICMS difere da somatória dos itens
+" / "
+Total da NF difere do somatório dos valores compõe os valores total da NF
+"
+São mensagens diferentes mas erros parecidos, ocorre quando é indicado algum imposto errado, ou seja CST que não gera imposto, porém a nota é emitida com imposto, ICMS errado. Deve ser verificado na 
+Tabela Natureza Operação
+ se está tudo configurado corretamente. 
+ 

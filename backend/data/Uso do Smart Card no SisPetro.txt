@@ -1,0 +1,71 @@
+TITULO: Uso do Smart Card no SisPetro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439922
+--------------------------------------------------
+A automação utilizando Smart Card é uma das mais utilizadas em armazenadoras. Por isso, temos algumas orientações a passar antes de iniciar as configurações.
+Verificar a Versão
+Antes de seguir as orientações contidas no Help do SisPetro, é preciso ter certeza que a versão adquirida do SmartCard é compatível com a versão implementada no SisPetro. Essa verificação deve ser feita junto à empresa fornecedora do equipamento.
+1.
+ A integração do SisPetro é feita a partir do arquivo 
+Eyecon.ocx
+ com a seguinte versão:
+ 
+2.
+ No microcomputador que utilizar o SisPetro para gravar ou ler o cartão é necessário registrar esse arquivo através do comando:
+ 
+regsvr32 <path>\EyeCon.ocx
+Fazer esse procedimento via menu Executar (ou Run) do Windows
+ 
+Quando o leitor de cartões Smart for USB, o Windows irá emular a porta COM. Para descobrir qual porta configurar acesse o gerenciador de dispositivos do Windows,  expanda a opção (Portas COM & LPT) e localize a opção USB Serial Port <nome da porta> . A porta que será exibida deverá ser configurada no perfil de Sistema.
+Mais informações 
+Automação Smart Card
+Na imagem acima a porta que será selecionada no perfil de sistema é a COM3.
+Configuração dos produtos nas colunas do cartão:
+Atualmente o Sispetro possui a seguinte configuração de produtos para Smart Card referente a quantidade:
+Coluna
+Produto
+0
+Oleo Diesel
+1
+Oleo Diesel Adit.
+2
+BioDiesel
+3
+Alcool Hidratado
+4
+Alcool Hidr. Adit.
+6
+Gasolina Comum
+7
+Alcool Anidro
+8
+Gasolina Aditiv.
+10
+00300
+11
+Gasolina A
+12
+ 
+13
+Diesel Metropolit.
+Para temperatura essa é a configuração:
+Coluna
+Produto
+0
+Oleo Diesel
+1
+Alcool Hidratado
+2
+Gasolina Comum
+3
+Alcool Anidro
+4
+Diesel Metropolit.
+5
+Biodiesel
+6
+Gasolina Aditivada
+As colunas 5 e 6 quando não podem ser acessadas usamos a posição 0 do Óleo Diesel
+Estando tudo correto, agora já pode seguir as orientações do Help, conforme tópico de
+ 
+Automação Smart Card
+ 

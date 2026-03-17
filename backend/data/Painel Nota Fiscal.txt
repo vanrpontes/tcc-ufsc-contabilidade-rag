@@ -1,0 +1,337 @@
+TITULO: Painel Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2904621875
+--------------------------------------------------
+Acesso a essa tela se dá através do Menu 
+Ferramentas / Sistemas / aba Nota Fiscal.
+Pode Realizar Venda Direta:
+ caso este perfil não esteja marcado, a empresa não poderá emitir Pedidos de Venda Direta. 
+Para mais informações, ver em
+ 
+Troca Natureza de Operação NF x Natureza do Produto (Venda Direta e VEF ):
+ nos Pedidos de Venda, 
+ ou 
+ (VEF) há duas opções no faturamento, quando há itens com naturezas de operações diferentes.
+Seleciona somente os produtos configurados para natureza informada: 
+caso esta opção esteja marcada, o SisPetro agrupará os itens por naturezas de operação iguais. Veja o exemplo:
+Venda Direta com 3 itens  
+                                                                                                                                                                                                                                                                                    Produto A - V01     
+Produto B - V02      
+Produto C- V01 
+Com esta opção de perfil, o SisPetro agrupará os produtos A e C e depois será faturado o item B. Ou se preferir faturar o produto B antes, basta trocar a natureza para a cadastrada para este produto. Caso a natureza seja alterada, para uma que não seja a dos produtos A, B ou C, não será possível faturar esta NF.                                              
+Seleciona todos os produtos, independente da natureza:
+ com esta opção marcada, o SisPetro irá agrupar os produtos por natureza, caso seja alterada, para qualquer outra que não a sugerida pelo SisPetro, todos os itens do Pedido serão faturados. Se precisar faturar algum item posteriormente, basta tira-lo do pedido (CTRL + DELETE), veja o exemplo abaixo.
+Venda Direta com 3 Itens 
+                                                                                                                                                                                                                                                                                       
+Produto A - V01                                                                                                                                                                                                                                                                                               
+Produto B - V02                                                                                                                                                                                                                                                                                                 
+Produto C- V01 
+Com esta opção de perfil o SisPetro agrupará os produtos A e C (assim como no exemplo acima), porém se a natureza for alterada, para qualquer que seja, todos os itens serão inclusos na NF. com esta opção o usuário tem uma maior flexibilidade, pois se for preciso alterar a natureza para uma que não esteja cadastrada no produto, será possível faturar o pedido. Deverá prestar atenção, pois o SisPetro não destingirá os produtos e naturezas envolvidas. 
+                                                                                                                                             
+Quadro Numeração NF 
+Bloqueia #NF duplicado:
+ com está opção marcada, não permitirá fazer o lançamentos com o mesma numeração de notas.
+Quando puder duplicar nº NF/Conhecimento usar regra: 
+irá definir como será a configuração quando puder duplicar Números de Nota.
+Regra Padrão: 
+ao utilizar está opção, irá fazer a validação apenas pelo Número da Nota e Série.
+Regra por Série da Nota Fiscal/Conhecimento: 
+ao utilizar está opção, irá fazer a validação de acordo com o que for configuração nas Séries. Para mais informações, ver 
+Tabela Série Nota Fiscal
+Quadro Impostos
+% Alíquota PIS: 
+aqui poderá ser informado a alíquota de PIS a ser utilizada.
+% Margem p/ PIS/COFINS Substituição: 
+aqui poderá ser informado a alíquota de PIS/COFINS Substituição a ser utilizada.
+% Alíquota COFINS: 
+aqui poderá ser informado a alíquota de COFINS a ser utilizada.
+Utiliza Substituição Tributária: 
+com está opção marcada, utilizará Substituição Tributária.
+Na Venda Estado, desconta ICMS próprio do ICMS Retido:
+  em desuso.
+Definição da Alíquota do Adrem:
+ permite definir como o SisPetro irá verificar qual Adrem utilizar da 
+. Pode ser: 
+Por UF: 
+padrão. O SisPetro irá utilizar a alíquota informada na UF. 
+Por Empresa: 
+i
+ndependente da UF da empresa ou da Entidade, localiza a Alíquota AdRem pela Empresa. Caso não tenha, a alíquota irá zero.
+Por empresa, se zero, por UF: 
+v
+erifica primeiro se a Empresa tem alíquota AdRem informada. Caso tenha, usa, caso não tenha (ou seja zero), aí localiza pela UF da empresa e da Entidade.
+Essa opção é útil para quem deseja informar Alíquota somente para algumas empresas. Para mais informações, ver 
+Configurações necessárias para emissão de notas com tributação monofásica
+Quadro Vínculo de Cheque à NF
+Nº de dígitos do código de leitura do cheque: 
+informa quantos dígitos terá na leitura do cheque.
+#Dígitos Iniciais Inválidos na leitura do cheque: 
+ 
+#Dias a maior p/ aceitar cheque no vínculo c/ NF: 
+Dar <ENTER> ao final da leitura do cheque
+Aceita caracteres menores que <ESC> pela porta Serial
+Configuração da leitura de cheques por Usuário
+Testa Vencto NF c/ Bom Para no Vínculo de Cheques
+Quadro Natureza Operação
+Verifica Entrada/Saída NF x Natureza Operação:
+ perfil para validar se as informações da NF de Entrada/Saída estão de acordo com a Natureza de Operação.
+Verifica operação fora estado NF x Nat. Operação (somente para Notas Fiscais):
+ perfil para validar nas Notas Fiscais, se são de Operação Interestadual.
+Quadro Dados da NF
+Espécie: 
+definição de espécie do produto, a ser sugerido na emissão das notas fiscais.
+Marca:
+ definição padrão de marca do produto, a ser sugerido na emissão das notas fiscais.
+#Máximo Itens (0 = Ilimitado)
+Controla seguro carga?: 
+com este perfil marcado, irá controlar seguro carga. Para mais informações, ver 
+.
+Sugere data entrega pedido p/ data saída NF: 
+se perfil marcado e 
+DtEntrega >= Data Atual (Hoje)
+, 
+Data de Movimento
+ da Nota será igual 
+DtEntrega
+.
+Controla selo: 
+com este perfil marcado, na Tabela Séries Nota Fiscal, habilitará os campos pertinentes para preenchimento. Para mais informações, ver 
+Tabela Série Nota Fiscal
+.
+Tela de Conferência para Nf Entrada?:
+ com este perfil marcado, ao dar entrada em uma nota irá abrir a tela de 
+Dados para conferência da Nota Fiscal
+, 
+terá um botão 
+Conferência
+, permitindo visualizar os dados lançados, 
+no qual ao final do lançamento será feito a conferência se foi lançado a Nota conforme os dados informados no inicio e caso não esteja correto não será dado entrada da Nota informando o motivo.
+Nº dias p/ pesquisa de NF por Entidade:
+ 
+é escolhido o número de dias que as NF serão apresentadas nas manutenções e telas de conhecimento de frete.
+Quadro Financeiro
+Sequencial Cobrança:
+Acrescentar nosso número de Boletos nas Obs. Nota Fiscal: 
+com este perfil marcado, irá acrescentar na observação das Notas Fiscais o Nosso Número dos Boletos.
+Faturamento Automático:
+Permite Faturamento Automático:
+ 
+será habilitado o botão 
+Fat.Automático
+ na tela de 
+. 
+Para mais informações, ver em
+ 
+Faturamento Automático de Notas Fiscais de Venda
+Não Permite Faturamento Automático: 
+o botão 
+Fat. Automático 
+ficará desabilitado. 
+Itens na Nota Fiscal:
+ 
+p
+ara permitir ou não emissão de notas fiscais de venda de combustíveis com mais de 1 item. 
+Para mais informações, ver em
+ 
+Como configurar uma Natureza de Operação de Venda para mais de um produto
+ e 
+.
+Um item por Nota Fiscal: 
+com este perfil selecionado, só permitirá um item por nota fiscal.
+Todos os itens com a mesma Natureza de Operação: 
+com este perfil selecionado, permitirá mais de um item com a mesma Natureza operação.
+Calcula ICMS Interestadual para não Contribuinte com Partilha Percentual de Partilha do ano:
+ 
+com este perfil selecionado, deixará 
+disponível a opção de emissão de ICMS interestadual para não contribuintes.
+Percentual de Partilha do Ano:
+ é
+ possível configurar o percentual de partilha do ICMS Interestadual.
+Vínculo de CT-e com NF-e de Terceiros:
+ e
+ste perfil foi implementado para garantir que uma NF-e só seja referenciada a um único CT-e, e pode ser configurado de 3 formas (está configuração funcionará se o perfil de usuário 
+Executa verificação vínculo NF-e na inclusão de CT-e
+ 
+estiver habilitado. 
+Para mais informações, ver em
+ 
+Perfil de Usuário
+.):
+Não Verifica:
+ 
+nada será verificado.
+Alerta caso NF-e esteja vinculada a outro CT-e:
+ c
+aso a NF esteja vinculada a outro CT-e, o SisPetro emitirá um alerta ao usuário, possibilitando a continuidade do processo.
+Bloqueia caso NF-e esteja vinculada a outro CT-e:
+ caso a NF esteja vinculada a outro CT-e, o SisPetro bloqueará e não permitirá que seja concluído o processo.
+Quadro Serviço de Armazenagem
+Produto para NF de Armazenagem: 
+determina o produto que será utilizado na 
+Emissão de NF de Serviço de Armazenagem
+.
+Quadro Consumidor Final
+Não gera ICMS Substituição p/  Consumidor Final:
+ com este perfil marcado, não irá gerar ICMS Substituição quando consumidor final.
+Calcula ICMS para Consumidor Final conforme Revenda: 
+com este perfilo marcado irá realizar o calculo de ICMS para Consumidor Final conforme Revenda
+Quadro CFOP Venda Consumidor Final 
+Habilita mudança de CFOP automática: 
+com este perfil marcado, 
+quando um consumidor final PF não contribuinte, o SisPetro utiliza a natureza padrão parametrizada no produto e troca apenas o CFOP por se tratar de consumidor final. 
+Quadro Custo
+Calcula custo de CPMF através de: 
+d
+efine a forma como o custo de CPMF será calculado, podendo ser:
+Custos com incidência de CPMF:
+Valor NF:
+Calcula custo de frete pelo valor do frete negociado: 
+com este 
+p
+erfil marcado, todas as empresas irão trabalhar com cálculo de custo de frete pelo valor do frete negociado, e não o padrão.
+Salva Custos na NF de Venda/ Devolução:
+ com este 
+perfil marcado salvará o custo em todas as notas fiscais de venda e de devolução da empresa em questão.
+Controla Custos por Data de Vigência: 
+com este perfil marcado, o usuário deverá informar a data de vigência no cadastro do custo. Caso esteja desmarcado, o usuário deverá informar no campo 
+Data de Vigência Padrão
+ a data da vigência que irá trabalhar.
+Pega vigência dos Custos pela Data de Emissão da NF:
+ 
+com este perfil marcado, a data de vigência do custo será atualizada automaticamente conforme a data de emissão da nota fiscal.
+Quadro Período para exibição de dados na Man. de Notas Fiscais 
+Esse parâmetro de configuração é usado na tela de 
+Manutenção de Nota Fiscal
+, serve para definir qual a data inicial e final de exibição das notas, ao entrar na tela.
+O Campo 
+Data Inicial (nº de dias anteriores a data atual)
+ equivale ao campo 
+De
+, do grupo 
+Período para exibição de dados
+, ou seja, o que for cadastrado nas configurações da empresa, no campo 
+Data Inicial
+, será sugerido ao usuário quando ele entrar na Manutenção de Nota Fiscal, a mesma regra será usada para o campo 
+Data Final (nº de dias posteriores a data atual)
+ e o campo 
+Até
+.
+Quadro Motivo Devolução
+Pode indicar motivo da devolução: 
+com este perfil marcado, poderá indicar o motivo da devolução da Nota.
+Na NF de devolução de Clientes informa NF de Origem (Terceiros): 
+com este perfil marcado, poderá vincular a NF de Origem. Para mais informações ver, 
+Como emitir Nota Fiscal de Devolução de Cliente ou Fornecedor
+, ou 
+Importação de NF de Devolução de Cliente
+Quadro Averbação
+Envio de NFe/CTe para Averbação:
+Nunca: 
+SisPetro não irá enviar dados para AT&M ou XPert
+Sempre: 
+irá enviar para 
+Gerenciadora Averbação
+ indiferente da configuração feita no 
+Cliente 
+ou 
+Transportadora
+Conforme indicado na Transportadora / Cliente: 
+irá enviar os dados respeitando a configuração feita no 
+Cliente 
+ou 
+Transportadora. 
+Para mais informações ver, 
+Envio de NF-e via Integração API Xpert
+ e 
+Averbação de CT-e e MDF-e via Integração API AT&M
+Caso a empresa trabalhe tanto com a AT&M quanto com a XPert, no perfil de empresa deve ser configurado 
+AT&M
+ e no cadastro do cliente deve ser apontado a Xpert. 
+Quadro Impressão NF
+Imprime dados empresa na NF?:
+ com este perfil marcado, irá imprimir os dados da Empresa na Nota Fiscal.
+Arquivo LayOut NF Padrão: 
+i
+nforme o caminho e nome do arquivo .rtm que será utilizado na emissão da NF-e.
+Quadro Carta de Correção
+Layout Carta Correção:
+ Informe o caminho e nome do arquivo .rtm que será utilizado na emissão da CCE
+Número de Cópias da Carta de Correção:
+ Quantas cópias serão impressas na emissão da carta de correção. 
+Quadro Temperaturas e Densidades
+Temperatura e densidade que será salvo na NF
+Conforme cadastro de produtos:
+ o SisPetro utilizará as informações cadastradas no produto. Caso não se tenha nenhuma informação de 
+temperatura do tanque
+, 
+temperatura da amostra
+ e a 
+densidade do produto
+, o usuário não terá essas informações para serem utilizadas na nota fiscal. 
+Para mais informações, ver
+ 
+cadastro de Produtos
+.
+Sempre conforme tanque:
+ serão utilizadas as informações cadastrada no tanque. Não tendo informações cadastradas, o usuário não terá essas informações para serem utilizadas na nota fiscal, mesmo tendo informações no produto. 
+Para mais informações, ver em
+ 
+Manutenção de Tanques
+.
+Conforme o tanque. Depósito sem tanque, cadastro de produtos:
+ o SisPetro utilizará as informações cadastradas no tanque, caso não tenha, o usuário não terá essas informações para serem utilizadas na nota fiscal. 
+Não tendo tanque para o produto utilizado, o SisPetro utilizará as informações cadastradas no produto, isso se houver
+.
+No Cadastro de Produtos, cadastrar :
+Por Depósito:
+ o vínculo da densidade e temperatura será feito por depósito
+Por Empresa: 
+o vínculo da densidade e temperatura será feito por empresa
+Verifica dados de densidade e temperatura no cadastro de produtos
+Não verifica, permite qualquer valor: 
+com este perfil selecionado, não fará nenhuma verificação, permitindo assim qualquer valor digitado.
+Verifica e só avisa ao usuário: 
+com este perfil selecionado, irá verificar e apenas avisar ao usuário.
+Verifica e não permite densidade a 20c igual a zero: 
+com este perfil selecionado, irá verificar e não permitir densidade a 20c igual a zero.
+Atualiza fator de conversão e quantidade  20c nas NFs entrada
+Nunca atualiza:
+ 
+o SisPetro nunca atualizará o fator de conversão e consequentemente a quantidade 20c nas Notas Fiscais de saídas
+Sempre Atualiza:
+ o SisPetro sempre atualizará o fator de conversão e quantidade 20c nas Notas Fiscais de saída.
+Respeita Configuração do Depósito:
+ s
+e no depósito estiver marcado que é para atualizar o fator de conversão e quantidade 20c, o SisPetro fará, caso contrário não.
+Atualiza fator de conversão e quantidade  20c nas NFs saída
+Nunca atualiza:
+ o SisPetro nunca atualizará o fator de conversão e consequentemente a quantidade 20c nas Notas Fiscais de entrada
+Sempre Atualiza:
+ o SisPetro sempre atualizará o fator de conversão e quantidade 20c nas Notas Fiscais de entrada
+Respeita Configuração do Depósito:
+ se no depósito estiver marcado que é para atualizar o fator de conversão e quantidade 20c, o SisPetro fará, caso contrário não.
+Para mais informações, ver em
+ 
+Atualização de Fator de Conversão do Estoque
+Quadro Cancelamento de NF
+No cancelamento da NF verifica Portaria Saída e carregamento na base:
+ c
+om este perfil habilitado, o SisPetro irá verificar se a nota já foi para a portaria de saída e se já foi carregada, caso sim não deixará cancelar a Nota. 
+N
+ão é recomendado marcá-lo.
+ 
+Notas Próprias
+#Dias limite para cancelamento da NF:
+ 
+este parâmetro a princípio, vai definir como toda a empresa vai trabalhar com relação aos dias para cancelamento de NF. Com isso a quantidade de dias preenchido será o permitido para fazer o cancelamento.
+Informa a data de cancelamento da NF
+:
+ c
+aso o perfil esteja marcado, será necessário no momento do cancelamento, informar a data para o cancelamento da Nota Fiscal.
+Notas de Terceiros
+#Dias limite para cancelamento da NF:
+ 
+este parâmetro a princípio, vai definir como toda a empresa vai trabalhar com relação aos dias para cancelamento de NF. Com isso a quantidade de dias preenchido será o permitido para fazer o cancelamento.
+Informa a data de cancelamento da NF:
+ 
+c
+aso o perfil esteja marcado, será necessário no momento do cancelamento, informar a data para o cancelamento da Nota Fiscal.

@@ -1,0 +1,60 @@
+TITULO: Utilização do Crédito Fornecedor (Adiantamento)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701960
+--------------------------------------------------
+A partir da versão 9.12 é possível definir que 
+na hora da baixa, traga somente o adiantamento que esteja vinculado com o PMM da NF que gerou o título, veja maiores detalhes no tópico 
+Títulos gerados por NF com PMM x Adiantamentos
+.
+Pode-se utilizar o crédito de fornecedor para efetuar baixas de títulos no contas a pagar, ou ainda, transferir esse crédito para outro fornecedor ou empresa.
+Para maiores informações sobre inclusão de créditos (adiantamento) para fornecedor, acesse o tópico 
+Roteiro de Inclusão de Adiantamento a Fornecedores
+.
+Utilizando o crédito para baixa de títulos:
+Havendo crédito(s) para este fornecedor, o sistema automaticamente habilitará os campos 
+#Recibo
+ e 
+Valor
+ na parte de Utilização de Crédito, permitindo ao usuário clicar no campo recibo para escolher qual crédito deseja utilizar para baixar o título.
+A partir da versão 9.22 é possível selecionar adiantamentos não só do fornecedor do título mas também do fornecedor responsável do grupo econômico. Veja maiores detalhes em 
+Grupo Econômico - Fornecedores
+O campo 
+Valor
+ deve ser preenchido com o montante que se deseja utilizar do crédito escolhido.
+Após lançar o valor, o sistema irá atualizar a coluna 
+Valor Créd.Utilizado
+ e a coluna 
+Saldo Final
+ deve refletir a situação real do título, mostrando o valor zero se o titulo está sendo quitado integralmente pelo crédito ou mostrando o saldo desse titulo caso o valor do crédito utilizado não seja suficiente para quitá-lo. Portanto, a menos que se esteja utilizando outro recurso além do crédito para efetuar a baixa desse titulo, o valor do campo 
+Valor Movimento
+ deve estar preenchido com zero.
+Na tela acima, o valor do titulo é de R$13.000,00, está sendo utilizado um crédito no valor de R$ 10.000,00. Neste caso, a baixa é parcial, já que o valor do crédito é menor que o valor do título e isso irá gera um saldo para esse titulo, portanto, o usuário deve "zerar" o valor do campo 
+Valor Movimento
+ para que o sistema entenda que não há nenhum outro recurso (dinheiro ou cheque) que fará parte dessa baixa e atualize o saldo desse título (Campo Saldo Final).
+Caso a baixa fosse total, ou seja, o valor do crédito fosse suficiente para quitar o título, o valor da coluna saldo final, seria zero.
+O Sistema automaticamente vincula esta utilização no crédito do fornecedor baixando o saldo utilizado para aquele crédito (se foi totalmente utilizado, ele muda o Status do crédito para Quitado e não mais Crédito Pendente).
+Diferente dos adiantamentos quantificados para clientes, que só podem ser utilizados para os titulos que estão vinculados a eles, os adiantamentos quantificados para fornecedor podem ser utilizados para qualquer titulo daquele fornecedor ou um fornecedor cuja Nota fiscal o tenha como 
+Comprador.
+Pela tela de manutenção de adiantamentos de Fornecedores (menu 
+Movimentação / Financeiro / Contas a Pagar / Manutenção de Adiantamento de Fornecedores
+), pode-se realizar uma série de procedimentos com os créditos de Fornecedores.
+Para transferir o crédito de um fornecedor para outro ou para uma conta contábil, basta clicar no botão 
+Transfere
+.
+O Sistema mostra a origem do crédito (o crédito que o usuário deseja transferir) e fica a cargo do usuário escolher o destino do crédito, se é uma entidade (fornecedor ou cliente) ou uma conta contábil. Deve-se selecionar a data da transferência, o valor a ser transferido (que pode ser total ou parcial), histórico da transferência e caso o usuário desejar, poderá realizar a contabilização real do adiantamento, sendo neste caso necessário informar um código de contabilização que pertença ao grupo "Inclusão de crédito".
+Baixa de Títulos gerados por NF com PMM x Adiantamentos
+Os títulos gerados por Notas Fiscais com PMM podem ser baixados por qualquer adiantamento, mas na maioria das vezes o correto seria baixar esses títulos utilizando adiantamentos vinculados ao PMM em questão. Pensando nisso foi disponibilizado a opção de na hora da baixa, trazer somente o adiantamento que está vinculado com o PMM da Nota Fiscal que gerou o título. 
+As configurações para utilizar essa funcionalidade são bem simples, sendo apenas necessário configurar perfil de Sistema e usuário.
+Configurações de Sistema:
+Configurações de Sistema / Aba Financeiro / Perfil Vínculo Títulos a Pagar e Adiantamentos pelo PMM
+Na configuração de Sistema podemos optar por sugerir os adiantamentos vindo do PMM ou simplesmente deixando a escolha livre
+.
+Permite livremente para o Fornecedor:
+ Permite utilizar qualquer adiantamento para o fornecedor na hora da baixa.
+Sugere Adiantamento ao Título pelo PMM:
+ Sugere o adiantamento vindo do PMM que gerou a Nota.
+Configurações Usuário / Aba Financeiro / Perfil Vínculo Títulos a Pagar e Adiantamentos pelo PMM
+Na configuração do usuário será definido se o usuário terá permissão para escolher qualquer adiantamento ou se o mesmo ira respeitar as configurações de sistema. 
+Respeita perfil da empresa para uso de Adiantamentos de outro PMM:
+ Utilizando essa opção, vai respeitar o que está definido no Perfil de Sistema.
+Pode escolher Adiantamentos de outro PMM, independente perfil da empresa:
+  Utilizando essa opção o usuário vai poder escolher o adiantamento que ira realizar a baixa.

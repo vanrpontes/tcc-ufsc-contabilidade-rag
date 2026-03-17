@@ -1,0 +1,188 @@
+TITULO: E-Ressarcimento SP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899989
+--------------------------------------------------
+O relatório e a geração do arquivo de Ressarcimento de Imposto pode ser acionado pelo Menu 
+Relatórios / Controladoria / Ressarcimento Imposto
+:
+Antes de gerar o relatório, algumas configurações são necessárias, para isso veja o tópico 
+Ressarcimento de Substituição Tributária do ICMS - e‑Ressarcimento SP
+.
+O relatório/arquivo de Ressarcimento de Impostos é utilizado em SP e tem como função identificar o valor a ser ressarcido pelo Estado ou complementado a ele quanto a diferença de arrecadação de impostos.
+Regras
+Entradas
+ 
+Qtde:
+ caso seja um produto composto, será a quantidade informada na nota fiscal. Caso seja um produto básico, será quantidade da nota fiscal dividida pela proporção informada na aba 
+Dados Adicionais
+ do Cadastro de Produtos.
+Valor Total do ICMS suportado na Ret. ou Antecip:
+ é sempre o valor total do ICMS (próprio mais ST) ou o valor do ICMS Retido informados na nota fiscal, independente se a quantidade informada for proporcional ou total.
+Nota de devolução a fornecedor:
+ no Relatório a nota é lançada nas Entradas com valores negativos - quantidade e valor, com os mesmos valores da nota de entrada (devolução total ou parcial). No arquivo a nota é lançada sem valor negativo
+Saídas
+Qtde:
+ caso seja um produto composto, será a quantidade informada na nota fiscal. Caso seja um produto básico, será quantidade da nota fiscal dividida pela proporção informada na aba 
+Dados Adicionais
+ do Cadastro de Produtos.
+Valor Unitário do ICMS  Suport.:
+ valor unitário calculado pela média ponderada de saldos iniciais mais as entradas menos as saídas (quantidades e valores)
+Saídas a Consumidor ou Usuário Final:
+ código de enquadramento legal 1. É a quantidade total ou proporcional da operação multiplicada pelo 
+Valor Unitário do ICMS Suport.
+Valor do Confronto:
+Valor Constante na NF:
+ 
+utiliza valor total da operação para calcular o ICMS multiplicado pela alíquota interna
+Custo Médio Aquisição:
+ 
+utiliza o custo médio calculado pelo SisPetro para calcular o ICMS.  Quantidade total ou proporcional da operação multiplicada pelo custo médio de aquisição e
+ multiplicada pela alíquota interna.
+Fato Gerador Não Realizado:
+ 
+código de enquadramento legal 2. 
+É a quantidade total ou proporcional da operação multiplicada pelo 
+Valor Unitário do ICMS Suport.
+Valor do Confronto: 
+ quantidade total ou proporcional da operação multiplicada pelo 
+Valor Unitário do ICMS Suport. 
+e multiplicada pela alíquota interna
+Lançamentos de ajustes:
+  são enquadrados como fatos geradores não realizados mas não é calculado valor de confronto. Impactam na quantidade e valor total. Necessário configurar um histórico padrão para que os ajustes participem do Ressarcimento - mais informações ver em 
+Tabela Histórico Padrão
+Saída com Isenção ou Não Incidência: 
+código de enquadramento legal 3. 
+É a quantidade total ou proporcional da operação multiplicada pelo 
+Valor Unitário do ICMS Suport.
+Valor do Confronto: 
+ quantidade total ou proporcional da operação multiplicada pelo 
+Valor Unitário do ICMS Suport. 
+e multiplicada pela alíquota interna
+Saída para Outro Estado: 
+código de enquadramento legal 4. 
+É a quantidade total ou proporcional da operação multiplicada pelo 
+Valor Unitário do ICMS Suport.
+Valor do Confronto: 
+ quantidade total ou proporcional da operação multiplicada pelo 
+Valor Unitário do ICMS Suport. 
+e multiplicada pela alíquota interna
+Saída para Comercialização Subsequente: 
+código de enquadramento legal 0. 
+É a quantidade total ou proporcional da operação multiplicada pelo 
+Valor Unitário do ICMS Suport. 
+Valor do Confronto: 
+ não tem
+Nota de devolução de cliente:
+ no Relatório a nota é lançada nas Saídas com valores negativos - quantidade e valor, com os mesmos valores da nota de saída (devolução total ou parcial), inclusive o código de Enquadramento Legal. No arquivo a nota é lançada sem valor negativo. 
+Importante:
+ os códigos de enquadramento das naturezas de operação de devoluções devem ser os mesmos códigos das naturezas de operação de saídas.
+Valor de Confronto:
+ depende da configuração da natureza de operação - campo Valor a ser utilizado nos Demais Confrontos (ver 
+Ressarcimento de Substituição Tributária do ICMS - e‑Ressarcimento SP
+)
+Valor do Confronto
+ICMS Efetivo na Saída: Consumidor Final ou Saída Subsequente
+Saídas a Consumidor ou Usuário Final:
+  quantidade total ou proporcional da operação multiplicada pelo 
+Valor Unitário do ICMS Suport. 
+e multiplicada pela alíquota interna
+Saída com Isenção ou Não Incidência: 
+quantidade total ou proporcional da operação multiplicada pelo 
+Valor Unitário do ICMS Suport. 
+e multiplicada pela alíquota interna
+ICMS Efetivo na Entrada, nas Demais Hipóteses
+Fato Gerador Não Realizado:
+ quantidade total ou proporcional da operação multiplicada pelo 
+Valor Unitário do ICMS Suport. 
+e multiplicada pela alíquota interna
+Saída para Outro Estado: 
+quantidade total ou proporcional da operação multiplicada pelo 
+Valor Unitário do ICMS Suport. 
+e multiplicada pela alíquota interna
+Saída para Comercialização Subsequente: 
+não tem
+Saldos
+Qtde:
+Saldo Inicial:
+ informado na tela de geração do relatório
+Qtde:
+ Saldo Inicial + Qtde (Entradas) - Qtde (Saídas)
+Valor Unit.:
+Valor Inicial:
+ informado na tela de geração do relatório
+Valor Unit.:
+ Valor Total dividido pela Qtde
+Valor Total:
+Valor Total Inicial:
+ Saldo Inicial multiplicado pelo Valor Inicial - calculado pelo SisPetro na tela de geração do relatório
+Valor Total:
+ Valor Total Inicial + Valor Total ICMS Suportado (Entradas) - Valor Total ICMS Suportado (Saídas)
+Apuração
+Valor do Ressarcimento:
+ Valor Total ICMS Suportado (Saídas - exceto Saídas para Comercialização Subsequente) menos Valor Total do Confronto - valor Saídas é maior que o Valor Confronto
+Valor do Complemento:
+ Valor Total do Confronto menos Valor Total ICMS Suportado (Saídas - exceto Saídas para Comercialização Subsequente) - valor Saídas é menor que o Valor Confronto
+ICMS - Crédito da Operação Própria (art. 271 RICMS):
+ não é calculado
+Notas de devolução:
+ no Relatório os valores de Confronto e Apuração são lançados negativos. No arquivo os valores são lançados sem negativo.
+A partir da versão 9.42 o Relatório Resumo não é mais emitido. Os dados de apuração constam no Relatório Principal.
+É emitido um relatório no padrão estabelecido pelo Estado e gerada uma mídia em layout específico, por produto e mensal, para indicação destes dados.
+Algumas configurações são feitas na 
+Natureza de Operação
+ para direcionar como as notas devem ser consideradas.
+Os campos de 
+Base de Cálculo
+ são utilizados no Relatório. 
+Selecione os produtos que deseja gerar o relatório/arquivo:
+Informando os valores de Saldos Iniciais e Alíquota interna, caso tenha. 
+Por padrão, as alíquotas informadas são as alíquotas cadastradas na tabela ICMS.
+Selecione o produto e 
+clique
+ no 
+botão Informa Saldo. 
+Informados os campos Qtde, Valor Unitário e caso necessário, a Alíquota, 
+clique
+ no 
+botão Gravar
+Os campos de informações da empresa e o 
+nome do arquivo
+ são utilizados para geração do arquivo.
+Em desuso
+ 
+O campo 
+ possui a seguinte regra:
+Quando desmarcado
+:
+Será totalizado no campo 6 - Total da base de cálculo de retenção todos os valores acima (de 1 a 5).
+Saídas fora do estado serão somadas no campo 8 - Base de cálculo das entradas nas demais hipóteses.
+Consequentemente o Valor do Complemento ou Ressarcimento será feito englobando também saídas que não sejam para Consumidor Final.
+Quando marcado
+:
+Será totalizado no campo 6 - Total da base de cálculo de retenção somente o campo 1 - Saídas para Consumidor Final.
+Saídas fora do estado não serão somadas no campo 8 - Base de cálculo das entradas nas demais hipóteses.
+Consequentemente o Valor do Complemento ou Ressarcimento será feito englobando somente saídas para Consumidor Final.
+Gerando o arquivo
+Campo Nome Arquivo:
+ selecione o nome do arquivo e a pasta onde será gravado
+Campo Finalidade Arquivo:
+ selecione a opção desejada
+Clique no botão 
+ para gerar a mídia.
+Editar layout
+Caso seja necessário, é possível editar o relatório clicando no botão 
+Edita Layout
+: formatações, tamanhos de fonte, tornar campos invisíveis/visíveis, adicionar campos (desde que estejam disponíveis no condutor de dados), etc.
+Clicando no botão Edita Layout há 3 opções:
+Ressarcimento:
+ edita o relatório analítico
+Resumo:
+ edita o relatório sintético - 
+não é mais emitido
+Cancela:
+ volta para a tela de geração do arquivo de ressarcimento
+Os relatórios de Ressarcimento, analítico e sintético, NÃO PODEM ser editados através do Gerenciador de Relatórios.
+Os campos que constam nos relatórios NÃO PODEM ser apagados. Caso necessite, deve-se editar o campo e, no menu, desmarcar a opção VISÍVEL.
+Imprimindo o relatório
+Não é necessário selecionar os campos Nome Arquivo e Finalidade do Arquivo
+Clique no botão 
+ para imprimir o relatório

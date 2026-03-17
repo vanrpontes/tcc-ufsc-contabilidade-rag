@@ -1,0 +1,55 @@
+TITULO: Painel Aprovação por Alçada (Usuários)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899588
+--------------------------------------------------
+Na Configuração do Perfil de Usuário / 
+Painel Compras (Usuários)
+ é necessário habilitar o perfil 
+Aprova Pedidos de Movimentação de Material
+, aba 
+Aprovação por Alçada
+ é possível indicar limites e parâmetros do usuário para Aprovação por Alçada do 
+Contas a Pagar
+ e também do 
+PMM
+.
+Geral
+Para PMM's de uso geral da empresa, que em sua criação não será definido 
+Setor, 
+é preciso que se tenha um responsável pela aprovação dos mesmos, para este responsável é preciso marca a opção 
+Seleciona lançamentos sem setor para aprovação 
+Contas a Pagar
+O valor limite, no caso dos 
+Perfis de Aprovação
+ ter regra por valor, dependerá do valor especificado no campo:
+Cabe lembrar que o usuário poderá ter um valor limite para o Contas a Pagar e outro para o PMM.
+Perfis de Aprovação
+Para que a tela de Aprovação saiba que tipo de aprovação o usuário pode fazer, é preciso configurar para os usuários que façam aprovação os 
+perfis de aprovação
+ compatíveis com ele:
+Neste caso o usuário tem um mesmo perfil para o Contas a Pagar que tem para o PMM.
+Pedido de Movimentação de Material (PMM)
+Após a definição do perfil de aprovação, e conforme já mencionado, no Sispetro é possível definir o valor de limite para o PMM, o campo 
+Valor Limite de Aprovações (Geral), 
+irá limitar a aprovação de PMM quando o mesmo não possuir 
+Setor 
+ou 
+Tipo de PMM 
+definido em sua criação.
+Além disso, é possível definir os perfis de aprovação, em função dos parâmetros cadastrados em 
+Aprovação por Alçada - Perfis de Aprovação
+.
+Valores Limites de Aprovação por Tipo de PMM
+Disponível a partir da Versão 10.16 do Sispetro
+ 
+Permite definir o lime de aprovação do PMM pelo seu 
+Tipo. 
+Dessa forma, quando um PMM é gerado com o seu tipo de compra informado, caso o usuário tenha o parâmetro de limite definido, na aprovação do PMM o Sispetro ira verificar qual o valor de limite de aprovação definido para o usuário. Caso o usuário não tenha parâmetro por 
+Tipo de PMM, 
+a validação da aprovação do PMM será com base no campo 
+Valor Limite de Aprovações (Geral).
+Setores de Aprovação (PMM)
+É possível informar o setor (ou os setores, no caso do Contas a Pagar) que o usuário pertence e pode atuar com relação à aprovação de PMM:
+Com base nestes setores serão apresentados na tela de Aprovação somente os PMM´s ou Títulos do Contas a Pagar autorizados.
+Porém, caso a empresa trabalhe com PMM´s e Títulos do Contas a Pagar sem setor, alguém precisará aprová-los. Neste caso o usuário responsável por esta aprovação deverá ter marcada a opção:
+Setores de Aprovação (Requisição de Compras)
+É possível informar o setor que o usuário pertence e pode atuar com relação à aprovação das requisições:

@@ -1,0 +1,123 @@
+TITULO: Log de Tabelas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903998714
+--------------------------------------------------
+O LOG de Tabelas tem o intuito de auxiliar o Sispetro a gerenciar quem efetuou alguma alteração em relação aos dados do sistema.
+Atualmente temos assim dois tipos de LOG'sa dos dados:
+Movimentações
+Cadastros
+A maioria das movimentações e dos cadastros efetuadas pelo usuário são salvas na tabela Log.
+Até a versão 9.10, temos as seguintes tabelas salvas no LOG:
+NOME DA TABELA PARA PESQUISA
+ACESSO SISPETRO
+Entidade
+Arquivos > Clientes
+ 
+Arquivos > Fornecedores
+PlanoContas
+Arquivos > Plano de Contas
+Vendedor
+Arquivos > Vendedores
+Deposito
+Arquivos > Depósitos
+ProdutoCusto
+ProdutoComposto
+ProdutoEmpresa
+ProdutoAtividadeNatureza
+ProdutoCreditoProvisorio
+ProdutoCustoMercadoria
+ProdutoDeposito
+ValorAgregado
+Arquivo > Produtos > Aba Margem Subst. Trib
+DepositoEmp
+CondicoesPagto
+Tabelas Auxiliares > Vendas > Condições Pagamento
+CondicoesPagtoPreco
+Tabelas Auxiliares > Vendas > Condições Pagamento > aba Preço
+TipoCobranca
+Tabelas Auxiliares > Vendas > Tipo Cobrança
+TipoCobrancaEmp
+Tabelas Auxiliares > Vendas > Tipo Cobrança > aba Por Empresa
+TipoCobrancaProduto
+TipoCobrancaEmpTransformacao
+Tabelas Auxiliares > Vendas > Tipo Cobrança > aba Por Empresa > aba Transformações Arquivos Cobrança
+PeriodoDCPComposto
+Tabelas Auxiliares > Estoque > Período DCP > aba Composição
+SerieNF
+Tabelas Auxiliares > Faturamento > Série Nota Fiscal
+NaturezaOperacao
+Tabelas Auxiliares > Faturamento > Natureza Operação
+NaturezaOperacaoEmpProcessoReferenciado
+Tabelas Auxiliares > Faturamento > Natureza Operação > aba Detalhes > aba lateral Por Filial > aba inferior Processos Referenciados
+NaturezaOperacaoEmpUF
+Tabelas Auxiliares > Faturamento > Natureza Operação > aba Detalhes > aba lateral Por Filial > aba inferior UF's
+OutrosImpostosNatOp
+Tabelas Auxiliares > Faturamento > Natureza Operação > aba Detalhes > aba lateral Por Filial > aba inferior Outros Impostos
+UF
+Tabelas Auxiliares > Faturamento > UF
+Cidade
+Tabelas Auxiliares > Faturamento > Cidades
+TabelaProgressiva
+Tabelas Auxiliares > Controladoria > Tabela Progressiva
+TabelaProgressivaItens
+Tabelas Auxiliares > Controladoria > Tabela Progressiva > aba Faixas
+ConjuntoDados
+Tabelas Auxiliares > Controladoria > Conjunto de Dados
+TipoDesconto
+Tabelas Auxiliares > Controladoria > Tipo Desconto
+TipoDocumento
+Tabelas Auxiliares > Financeiro > Tipo Documento
+TipoDocumentoTipoDesconto
+Tabelas Auxiliares > Financeiro > Tipo Documento > aba Detalhes > quadro Calcula Desconto
+Feriado
+Tabelas Auxiliares > Financeiro > TFeriados
+BancoFaixa
+Tabelas Auxiliares > Financeiro > Bancos >
+BancoComando
+Tabelas Auxiliares > Financeiro > Bancos > aba Comandos
+BancoFaixaNossoNumero
+Tabelas Auxiliares > Financeiro > Bancos > aba Nosso Número
+TipoDescontoConfigContasPagarFaixa
+Tabelas Auxiliares > Financeiro > Faixa para Cálculo de Vencimento de Desconto
+Unidade
+Tabelas Auxiliares > Estoque > Unidades
+PeriodoDCP
+Tabelas Auxiliares > Estoque > Período DCP
+Distancias
+Tabelas Auxiliares > Transportes > Distâncias
+TranspControleAmarracao
+Tabelas Auxiliares > Transportes > Transportadora/Motorista > aba Controle Vencimentos
+FrotaControleAmarracao
+Tabelas Auxiliares > Transportes > Frotas > Manutenção Frota > aba Controle Vencimentos
+Custo
+LFiscalFormula
+UFEmp
+ConciliacaoBancariaTipoLancamento
+TipoDescontoConfigContasPagar
+FrotaControle
+NFEInutilizacao
+Movimentação > Faturamento > Nota Fiscal Eletrônica > Manutenção de Inutilização de NF-e
+Pedido
+Movimentação > Vendas > Manutenção de Pedidos
+IESubst
+Ferramentas > Sistemas > aba IE Substituição
+Código de Contabilização
+Sispetro Controladoria > Arquivos > Códigos Contabilização
+Plano de Contas Real
+Sispetro Controladoria > Arquivos > Plano de Contas
+Formula do Livro Fiscal
+Sispetro Controladoria > Arquivos > Fórmulas para Livro Fiscal
+IPI
+Tabelas Auxiliares > Faturamento > IPI
+ICMS
+Tabelas Auxiliares > Faturamento > ICMS
+Transportadora / Motorista
+Tabelas Auxiliares > Transportes > Transportadora/Motorista 
+Frota
+Tabelas Auxiliares > Transportes > Frotas > Manutenção de Frotas
+vwLogConexao
+Grava o número IP e usuário do Sispetro Controladoria e 
+Sispetro Normal  
+Colunas disponíveis para consulta 
+SQL
+: Data,DataHoraEvento,Projeto,Usuario,Tipo,DescTipo,IPInterno,IPExterno,Sequencial. 
+Veja maiores detalhes de como consultar os Log´s em 

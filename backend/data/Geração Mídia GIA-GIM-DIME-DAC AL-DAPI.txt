@@ -1,0 +1,82 @@
+TITULO: Geração Mídia GIA-GIM-DIME-DAC AL-DAPI
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210460
+--------------------------------------------------
+No SisPetro Controladoria, através do menu
+ 
+Ferramentas / Geração Mídia GIA/GIM/DIME/DAC/DAPI
+ 
+é possível acessar a tela para geração de algumas mídias especificas.
+: atualmente gera a mídia para GIA do Paraná
+: gera a mídia da GIA de São Paulo
+: gera a mídia da GIA do Mato Grosso
+: gera o DMA da Bahia
+: gera o arquivo DIME de Santa Catarina
+: gera a mídia da DAC de Alagoas
+: gera a mídia da GIA do Rio de Janeiro
+: 
+gera a mídia da GIA de Minas Gerais
+O usuário deverá preencher os dados que serão utilizados na geração da mídia:
+Período:
+ 
+A geração da mídia deveria estar sempre amarrada a uma apuração fiscal, que por sua vez é mensal. No entanto, caso não haja apuração para o período informado, o usuário será avisado e questionado sobre a continuidade do processo. Cabe lembrar que as GIAS necessitam de dados da apuração que serão zerados caso não tenha apuração para o período.
+Gerar para uma UF específica:
+ 
+é possível que a mídia contenha dados somente de uma UF, marcando-se esta opção e escolhendo a UF, senão conterá dados de todas as UF´s movimentadas. Esta opção só deve ser marcada no caso de se analisar a real utilidade em usá-la, pois geralmente serão dados de todas as UF´s.
+Dados do arquivo:
+ 
+Informe o
+ 
+layout de exportação
+ 
+cadastrado para a GIA do estado desejado. Este layout de exportação é cadastrado na
+ 
+Manutenção de Exportação de Dados
+ 
+utilizando um arquivo .rtm. Informe também o nome do arquivo onde serão gravados os dados, clique nos ... para que seja exibida a árvore de diretórios para escolha.  
+Os dados que constarão na GIA selecionada dependerão da
+ 
+configuração de data a ser utilizada na Apuração
+.
+Atualmente, junto com a versão do Sispetro, é disponibilizado o layout do Estado do Paraná, São Paulo e Mato Grosso, porém será possível desenvolver novos layouts de outros estados, inclusive por funcionários da própria empresa. Para isso é necessário seguir algumas regras, conforme Detalhamento Técnico explicado abaixo.
+ATENÇÃO: A geração da mídia da GIM para o Estado da Paraíba é feito através da
+ 
+geração da mídia do Sintegra
+, marcando-se inclusive o registro 88.
+Detalhes Técnicos para utilização do painel GIA´s (o painel GIA-SP é específico para este Estado):
+O arquivo .rtm a ser utilizado no layout de exportação deve seguir alguns moldes pré-definidos, portanto, o ideal é que um novo que tenha que ser criado seja sempre copiado do nosso layout original
+ 
+GIA_PR.rtm.
+Os pipelines ou dados deverão ter a seguinte ordem na solicitação de dados para a aba localizar (filtro).
+      
+1.
+ 
+Código da empresa
+      
+2.
+ 
+Código da empresa
+      
+3.
+ 
+Data inicial
+      
+4.
+ 
+Data final
+      
+5.
+ 
+Código da empresa
+      
+6.
+ 
+Data inicial
+      
+7.
+ 
+Data final
+      
+8.
+ 
+UF (só será preenchido se na tela for escolhido para gerar para uma UF específica)
+Cabe lembrar que para o AutoSearchs o primeiro item é considerado como 0 (zero). Qualquer alteração neste sentido deve ser solicitado com antecedência à equipe de desenvolvimento para avaliação.

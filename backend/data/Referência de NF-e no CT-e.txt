@@ -1,0 +1,45 @@
+TITULO: Referência de NF-e no CT-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927274105
+--------------------------------------------------
+Nas emissões de CT-e Normais, o Sispetro obriga a referenciar uma nota fiscal, além de validar que a mesma não seja referenciada mais de uma vez mediante ao perfil 
+“Valida se NF-e referenciada consta em outro CT-e,”
+Na versão 10.9 foi implementado o perfil 
+“Valida se NF-e referenciada consta em outro CT-e,”
+quando desabilitado 
+permite informar uma Nota Fiscal já utilizada em outro Cte.
+ Perfil deve ser desmarcado esporadicamente, pois foi desenvolvido para casos bem específicos em que a Sefaz faz cancelamento extemporâneo do Cte e necessita utilizar a NF em um novo Cte. 
+Para habilitar o perfil 
+“Valida se NF-e referenciada consta em outro CT-e,” acesse o perfil de Sistemas, 
+, quadro Conhecimento. 
+No caso de emissão de outro tipo de CT-e ou Tipo de Serviço diferente do normal, existe a possibilidade de não referenciar uma nota fiscal ou também referenciar uma nota fiscal mais de uma vez, como é o caso de um CT-e complementar.
+Temos os seguintes Tipos de CT-e e Serviços com a obrigatoriedade de referenciar uma nota fiscal e se ela pode ser repetida ou não, que listamos abaixo:
+0 - Normal
+0 - Normal
+1 - Subcontratação
+2 - Redespacho
+3 - Redespacho intermediário
+4 - Serviços vinculados a multimodal
+1 - Complementar
+Independente
+2 - Anulação
+0 - Normal
+regra G105 - pag. 48
+1 - Subcontratação
+2 - Redespacho
+3 - Redespacho intermediário
+4 - Serviços vinculados a multimodal
+3 - Substituição
+0 - Normal
+1 - Subcontratação
+2 - Redespacho
+3 - Redespacho intermediário
+4 - Serviços vinculados a multimodal
+Tipo Ct-e
+Tipo Serviço
+Ref. NF-e?
+Pode ser repetido?
+Legenda:
+ - Sim
+ - Não
+ - Não se aplica
+No caso de Tipo de CT-e ou Tipo de Serviço que não exigem referência a Nota Fiscal, só poderão ser utilizados o CT-e Avulso, já que o CT-e de Venda e de Transferência sempre vinculam uma Nota Fiscal.

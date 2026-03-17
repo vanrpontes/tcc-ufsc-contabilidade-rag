@@ -1,0 +1,38 @@
+TITULO: Evento de Manifestação do Destinatário do CT-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2949416671
+--------------------------------------------------
+Uma NF-e pode ser manifestada de 4 formas: Ciência da Operação, Confirmação da Operação, Operação Não Realizada e Desconhecimento da Operação. E pode ser manifestada para uma mesma NF-e, sendo obrigatória a primeira manifestação como Ciência, todas as operações e em qualquer ordem, não podendo repetir.
+Um CT-e só pode ser manifestado se a Prestação de Serviço estiver em desacordo, não tendo mais nenhuma possibilidade como ocorre na manifestação de uma NF-e.  Portanto, caso a empresa seja a tomadora do serviço de transporte, e não esteja de acordo, poderá enviar uma manifestação de desacordo. Uma vez enviada a manifestação, não há mais possibilidades. Para um CT-e não existem outras operações como ocorre na NF-e.
+No SisPetro, a manifestação de um CT-e pode ser realizada somente através da tela 
+Manutenção Chaves de Acesso
+.
+Consulta de Destinatário de CT-e: 
+a
+través deste webservice é possível consultar os CT-es emitidos para um determinado CNPJ, seja a empresa tomadora ou não do serviço de transporte. Para mais informações, ver 
+Consulta de Destinatário de NF-e/CT-e
+Como cada CT-e tem um Número Sequencial Único que a identifica (NSU), é possível  indicar a partir de qual NSU deve ser feita a consulta, para evitar a consulta indevida. No retorno, serão enviados os dados principais desses documentos, como a Chave de Acesso, dados do Emitente, Data, Valor Total, Tipo de Operação (Entrada ou Saída), Dados da autorização, Dados da Manifestação, Dados do possível Cancelamento e Dados de possíveis Carta de Correção.
+Esse webservice será útil para a empresa verificar se algum CT-e foi emitido para o seu CNPJ indevidamente ou se falta cobrar o arquivo .XML de algum fornecedor.
+Para informações sobre a Consulta, veja o help: 
+Consultas de Destinatário Efetuadas
+Funcionamento no SisPetro
+Com base nesses webservices, teremos o seguinte fluxo no SisPetro:
+Identificação da empresa que trabalhará com Manifestação
+Há um perfil de empresa que, quando marcado, permite a configuração e o envio do Evento de Manifestação do Destinatário. Assim, empresas sem essa obrigatoriedade como Transportadoras, Representantes Comerciais e outros podem deixar esse perfil desmarcado. Veja mais detalhes em 
+Painel Serviço Sefaz
+.
+Na 
+Natureza de Operação
+, aba por Filial, o campo 
+Envia Manifestação do Destinatário
+ 
+não
+ deve ser 
+marcado
+ quando se tratar de 
+CT-e
+. Veja detalhes da Natureza de operação em 
+Dados Gerais (Painel Por Filial)
+.
+Envio de evento de um CT-e: 
+somente quando a prestação de serviço estiver em desacordo
+É possível configurar o SisPetro para que seja enviado automaticamente o evento de Prestação de Serviço em Desacordo. Para mais informações, ver 

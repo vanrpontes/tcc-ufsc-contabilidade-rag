@@ -1,0 +1,78 @@
+TITULO: SVC - Sefaz Virtual de Contingência
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919991202
+--------------------------------------------------
+Quando a Sefaz-Origem estiver fora de operação, a Sefaz-Origem acionará o SVC-AN (Sefaz Virtual de Contingência do Ambiente Nacional - NF-e), SVC-SP (Sefaz Virtual de Contingência de São Paulo - CT-e) ou SVC-RS (Sefaz Virtual de Contingência do Rio Grande do Sul - NF-e/CT-e) para que ative o serviço de recepção e autorização de NF-e/CT-e em seu lugar.
+1. Serviços disponibilizados pela SVC:
+a) Serviço de Recepção:
+ o serviço de recepção e autorização de NF-e pela SVC somente estará disponível conforme decisão sobre a ativação ou não da SVC pela SEFAZ-Origem.
+b)
+ 
+Serviço de Retorno da Recepção: 
+estará disponível para consultar o resultado do processamento dos Lotes enviados para a SVC.
+c) Serviço de Registro de Eventos - Cancelamento: 
+estará disponível somente para as NF-e autorizadas pela própria SVC, dentro das regas definidas para a operação normal de cancelamento.
+d) Serviço de Registro de Eventos - CC-e e Outros: 
+inicialmente não estará disponível para atendimento pela SVC.
+e) Serviço de Inutilização: 
+não deverá ser oferecido pela SVC. Quando da utilização da SVC pela empresa, uma eventual necessidade de inutilização de numeração, deverá enviar comando posterior no ambiente de autorização normal da SEFAZ-Origem.
+Nessa situação -
+ item e
+ - no Sispetro deve configurar o perfil de sistema em Menu Ferramentas / Sistema / NF-e/CT-e / quadro Cancelamento de NF-e / opção Ação no Cancelamento de NFe sem protocolo = Não Processa Nada na Sefaz (Mantém Numeração Ativa) e fazer o cancelamento da nota, que é cancelada somente no Sispetro - mais informações ver 
+. Após cancelar a nota e configurando o ambiente para PRODUÇÃO, enviar o comando de inutilização através da tela de 
+.
+f) Serviço de Consulta Situação NF-e: 
+estará disponível somente para as NF-e autorizadas pela própria SVC, dentro das regras definidas para a operação normal desta consulta.
+g) Serviço de Consulta Status do Serviço:
+ sempre deverá estar disponível na SVC. No caso de indisponibilidade do ambiente normal de autorização da SEFAZ-Origem, consultar este Web Service para trocar o ambiente normal de autorização para utilização da SVC-XX. O serviço poderá retornar os seguintes códigos de situação:
+107 - Serviço SVC em Operação;
+113 - SVC em processo de desativação. SVC será desabilitada para a SEFAZ-XX em dd/mm/aa às hh:mm horas;
+114 - SVC desabilitada pela SEFAZ-Origem.
+A empresa somente deverá consultar o Status do Serviço da SVC no casod e indisponibilidade do ambiente normal de autorização da SEFAZ. E somente poderá utilizar os serviços de recepção e autorização de NF-e da SVC quando obtiver o status "107 = Serviço SVC em Operação".
+h)
+ 
+Compartilhamento das NF-e autorizadas pela SVC: 
+todas as NF-e autorizadas pela SVC serão automaticamente disponibilizadas para o Ambiente Nacional da NF-e e, consequentemente, distribuídas para as SEFAZ envolvidas na operação.
+Nota:
+ as informações acima - item 1 e sub-itens - foram retiradas da 
+Nota Técnica 2013/007 de 12/2013
+. Eventuais dúvidas sobre a referida NT devem ser feitas diretamente à SEFAZ-Origem.
+2. Como proceder no Sispetro:
+a) Consultar o status de serviço da NF-e/CT-e
+ no ambiente de contingência, acessando a tela de 
+ ou ;
+b)
+ 
+Caso retorne Ok na consulta status
+, alterar o ambiente para 
+contingência
+, na 
+. Todas as notas emitidas neste ambiente serão enviadas para o SVC-XX.
+ATENÇÃO:
+ No cadastro de UF cadastrar os endereços URL para contingência. Atualmente estão cadastradas as URL do SCAN. Caso a SEFAZ-Origem utilize o SVC-XX, deve alterar para as URL da SVC. 
+As URL da SVC estão disponíveis no Portal Nacional da NF-e e também na NT 2013/007 de 12/2013.
+c)
+ 
+Séries da NF-e válidas:
+ diferentemente do SCAN, na SVC a série da NF-e é a mesma utilizada no ambiente de Produção, ou seja, não é mais necessário utilizar séries específicas.
+d) As notas que foram emitidas no ambiente anterior
+, mas que ainda não receberam o número do protocolo, caso deseje, podem ser canceladas no Sispetro, podendo ser reemitidas no ambiente de contingência.
+ATENÇÃO:
+ Monitorar a disponibilidade da Sefaz-Origem (através da 
+), para determinar o momento de voltar a operar com a Sefaz-Origem.
+A desativação do serviço de recepção e autorização de NF-e pela SVC será precedida por um período de 15 minutos, em que ambos os ambientes estarão simultaneamente disponíveis - ver NT 2013/007 de 12/2013.
+O 
+ será desativado até 30/06/2014, entrando em seu lugar a SVC - Sefaz Virtual de Contingência, 
+implantada a partir de 
+01/12/2013 (Homologação) e 
+03/01/2014 (Produção)
+. Até a desativação do ambiente de autorização SCAN, ambos estarão disponíveis (SCAN e SVC). A determinação do uso 
+ou
+ do ambiente 
+de autorização 
+SCAN 
+ou
+ do ambiente 
+de autorização 
+SVC é de competência da Sefaz autorizadora - ver NT 2013/007 de 12/2013.
+ 
+ 

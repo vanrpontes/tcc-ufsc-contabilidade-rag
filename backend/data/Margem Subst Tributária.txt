@@ -1,0 +1,154 @@
+TITULO: Margem Subst. Tributária
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210996
+--------------------------------------------------
+A partir do painel 
+Detalhes
+ é possível acionar o painel 
+Margem Subst. Tributária
+ localizado no menu inferior da tela.
+Para facilitar a manutenção de valores de PMPF/MVA, foi implementada a tela de 
+Manutenção de PMPF / MVA
+Nesta tela serão cadastrados os valores para 
+base de cálculo do ICMS de Substituição
+ no caso de combustíveis do tipo gasolina e diesel, a 
+margem do Valor Agregado
+ no caso do álcool  e para 
+cálculos do ICMS para tributação monofásica
+, isso para cada UF, podendo diferenciar estes valores para cada empresa do grupo. Para mais informações, ver 
+Cálculos Impostos Faturamento
+.
+As colunas
+ %Orig. Nac., %Orig, Imp.,  %ICMS UF Dest. (Nac.) e %ICMS UF Dest. (Imp.):
+ são utilizadas nos produtos com tributação monofásica
+%Orig. Nac.:
+ informar o percentual da UF do produtor (UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do produtor.
+%Orig. Imp.:
+ informar o percentual da UF do importador UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do importador.
+Nota:
+ a UF do importador (UF de Origem) refere-se à UF onde o produto importado foi descarregado
+Exemplo:
+ sobre a proporção do B100 de 13% em uma venda de 10.000 litros de Diesel B
+Parte do B100 foi adquirido de um produtor de Minas Gerais: 23%
+Parte do B100 foi importado e o produto foi descarregado no porto de Vitória-ES: 77%
+Os 1.300 litros (13% de 10.000 litros de Diesel B) serão informados no XML:
+UF de Origem: MG
+Percentual: 23
+UF de Origem: ES
+Percentual: 77
+%ICMS UF Dest. (Nac.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de produtor nacional.
+%ICMS UF Dest. (Imp.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de importador.
+Produto
+Cadastro de Produto - %UF ICMS DEST
+Natureza Operação - quadro AdRem - Produto Primário
+Natureza Operação - quadro AdRem - Produto Biocombustível
+Diesel A
+0
+ICMS Retido % UF Origem
+ICMS Retido % UF Destino
+Gasolina A
+0
+ICMS Retido % UF Origem
+ICMS Retido % UF Destino
+Anidro
+100
+ICMS Retido % UF Origem
+ICMS Retido % UF Destino
+B100
+33,33
+ICMS Retido % UF Origem
+ICMS Retido % UF Destino
+Gasolina C
+0 (Gasolina A) + 100 (Anidro)
+ICMS Retido 100%
+ICMS Retido 100%
+Diesel B
+0 (Gasolina A) + 33,33 (B100)
+ICMS Retido 100%
+ICMS Retido 100%
+Obs.:
+ a distribuição dos percentuais Orig. Nac. e Orig. Imp. entre as UFs dos produtores/importadores deve 
+somar 100%, sempre.
+Percentuais de ICMS para operações com BioCombustível
+Nota: 
+os percentuais do ICMS para UF Origem e UF Destino estão informados  Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro)
+BioCombustível
+Origem
+%UF Origem do BioCombustível (Produtor/Importador)
+%UF Destino
+Observações
+B100
+Importado
+22,22
+77,78
+B100
+Nacional: operações originadas em MG/PR/RJ/RS/SC/SP
+38,89
+61,11
+Não destinadas a nenhuma dessas UFs
+B100
+Nacional
+66,67
+33,33
+Todos os casos que não se encontram na linha acima
+* Valores extraídos do Convênio ICMS 199/22. 
+É fundamental que o responsável da área Fiscal da empresa valide essas informações.
+Para mais informações, ver 
+Configurações necessárias para emissão de notas com tributação monofásica
+As colunas 
+%Comp.PMPF na UF, %Comp.PMPF Fora UF e %Comp.PMPF Import.
+ são utilizadas para quem tem operações com etanol hidratado com o Estado de Minas Gerais, sejam operações internas ou interestaduais. São preenchidas com percentuais determinados pela Sefaz de MG. Para mais informações, ver
+ 
+Cálculo de ICMS ST utilizando MVA ou PMPF nas operações com etanol hidratado para o Estado de Minas Gerais
+.
+A coluna Preço Partida (Anexo II), serve para configurar o valor unitário de partida que sairá no anexo II para cada Estado. Esse recurso é muito útil, porque permite, por exemplo, alterar o preço de partida durante o mês, sem perder o valor de partida de notas que já foram emitidas antes de alterar esse valor, já que o sistema salva essa informação para cada nota fiscal. Para que o sistema utilize os valores lançados nessa coluna ao invés de utilizar um valor fixo que é lançado na inclusão ou alteração do anexo, deve-se marcar a opção 
+Informa preço partida Anexo II na tabela de Produtos 
+em 
+Menu Ferramentas / Sistema / Fiscal.
+Para uma melhor visualização do quadro UF, marque a opção 
+Apresenta somente UFs com valor
+:
+Obs.:
+ caso a opção seja marcada e produza efeito, pelo menos uma das seguintes colunas deve conter um valor: Base Cálculo Destino (PMPF), % Margem Valor Agregado, Preço Partida (Anexo II) ou Campo Livre (Valor).
+O SisPetro permite que um produto utilize o valor de partida de outro produto. Por exemplo, podemos informar que a Gasolina "C", utilize o mesmo valor da Gasolina "A", evitando assim informar o valor para todos os produtos compostos. Para isso, basta marcar a opção 
+Utiliza Preço Partida Produto Simples
+ e informar o código do Produto.
+Para mais informações, ver 
+Manutenção de Anexos - Distribuidora
+.
+Existem certos cálculos na emissão da nota fiscal que dependem de valores, às vezes, complicados de se calcular e impossíveis de serem obtidos no momento do faturamento. Normalmente, estes valores são informados pelo faturista no campo de observações. Isso traz um certo desconforto ao gestor do faturamento pois está transferindo uma responsabilidade de alguém da área gerencial (que cuida desse cálculos) para alguém da área operacional que não tem responsabilidade para efetuar estes cálculos. Para isso, deve ser informado um valor na coluna 
+Campo Livre (Valor)
+, para que seja utilizado em cálculos no layout da nota fiscal/Danfe. Ao faturar uma nota, o valor informado neste cadastro será automaticamente gravado no item da nota.
+Através do botão 
+Copia Valores p/ Outra Empresa
+ é possível repetir valores para facilitar o processo de digitação, já que na maioria das vezes são semelhantes entre as empresas do grupo e no caso de ser a primeira vez que estes valores serão cadastrados é possível já cadastrar todos os estados clicando no botão 
+Inclui UF's
+.
+Estes valores são alterados periodicamente, mas é necessário ter os valores anteriores para recálculos de notas com datas também anteriores, sendo assim é possível trabalhar com 
+vigências
+. O sistema sempre vai sugerir para os primeiros dados cadastrados a vigência a partir de 31/12/1990. A partir daí será possível incluir novas vigências, informando sempre a data a partir de qual estes dados valerão. A indicação da 
+data de vigência é por empresa
+. Ou seja, se for incluída uma nova vigência, todos os produtos receberão esta vigência para a empresa que foi escolhida para inclusão.
+No canto inferior direito da tela sempre é exibida qual a data de vigência dos dados que estão sendo apresentados em tela.
+Atente-se para esta informação!
+Utilize o botão 
+Inclui Vigência
+ para criar uma nova vigência. Será apresentada a tela a seguir:
+É apresentada a data de vigência atual (da qual o sistema vai fazer cópia dos dados) e é solicitada qual vai ser a nova data de vigência. Clique no botão 
+OK
+ para confirmar.
+Para excluir uma vigência clique no botão 
+Exclui Vigência
+ e escolha a vigência a ser excluída.
+Para visualizar os dados de outras vigências utilize o botão 
+Mostra Vigência
+.
+Atente-se para esta informação! 
+O tipo de cálculo de substituição tributária foi removido, passando a utilizar as configurações feitas na natureza de operação.
+Agora é utilizado para o estado do Rio Grande do Sul para definir o fator de ajuste a ser utilizado para o produto.
+Para os demais estados, não configurar esta aba.
+Para mais informações, ver:
+Cálculo de Imposto - Exemplo Prático
+Configurações necessárias para nota e produto
+Configurações necessárias para emissão de notas com tributação monofásica

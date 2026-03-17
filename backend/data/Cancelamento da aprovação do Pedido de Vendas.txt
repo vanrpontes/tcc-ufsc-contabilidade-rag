@@ -1,0 +1,60 @@
+TITULO: Cancelamento da aprovação do Pedido de Vendas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440105
+--------------------------------------------------
+O SisPetro permite que um pedido de vendas, que esteja aprovado em todas as áreas (Vendas, Financeiro e Transporte) ou em algumas, tenha a aprovação cancelada para cada setor ou para todos os setores.
+Para mais informações sobre Aprovação de Pedido de Venda, ver 
+Aprovação do Pedido de Venda
+ e 
+Aprovação Automática do Pedido de Venda
+.
+Para mais informações sobre Aprovação de Financeiro, ver 
+Aprovação Financeira
+.
+Para mais informações sobre Aprovação de Transporte, ver 
+Aprovação de Transporte
+.
+Acesso a essa tela se dá através de
+ 
+Movimentação / Vendas / Cancela Aprovação
+O usuário deve informar no campo 
+Pedido
+, o número de um pedido que esteja totalmente ou parcialmente aprovado. Caso seja selecionado um que não tenha nenhuma aprovação, o SisPetro emitirá uma mensagem de aviso:
+O mesmo acontecerá se o pedido selecionado estiver cancelado:
+Ao selecionar um pedido válido, o SisPetro apresentará alguns dados do pedido e mostrará na tela o status de aprovação para cada setor.
+Na tela acima, o pedido está aprovado apenas para o setor de Financeiro. Apenas o setor com aprovação poderá ter o seu status modificado.
+No próprio grupo 
+Status da Aprovação
+, é possível verificar informações referentes ao usuário que aprovou o pedido e a sua data de aprovação:
+Para alterar o status de aprovação do pedido, o usuário deverá possuir permissão, que poderá ser configurada através do menu 
+Ferramentas / Usuário / Vendas
+. Para mais informações, ver 
+Painel Vendas (Usuários)
+:
+Cada perfil do grupo 
+Cancelamento de Aprovação
+, equivale a permissão de cancelamento de aprovação de um setor (Vendas, Financeiro e Transporte). Caso o usuário não tenha permissão para cancelar nenhum setor, no grupo 
+Status da Aprovação
+, o campo 
+Ação
+ estará desabilitado.
+Lembrando que o campo 
+Ação
+ também estará desabilitado se o status de algum setor não estiver aprovado. Através deste mesmo campo, que o usuário poderá mudar o status de aprovação do pedido para um determinado setor.
+Para isso, o usuário deverá escolher o setor desejado e mudar o valor do campo 
+Ação
+ para 
+Cancelar a aprovação
+ e clicar no botão 
+Executa
+.
+O SisPetro emitirá uma mensagem confirmando o cancelamento da aprovação:
+Neste exemplo, o pedido voltará a ser um pedido pendente, sem a aprovação do setor de transportes. Podendo ser consultado na manutenção de pedido de vendas. Para mais informações, ver 
+Manutenção de Pedidos de Venda
+:
+Ou tela de 
+ para aprovação:
+Para sair da tela de Cancelamento de Aprovação, o usuário deve utilizar o botão 
+Fecha
+.
+Pedido com PIX, atentar-se ao tentar fazer o cancelamento, pois não pode ter a aprovação de venda cancelada: 
+Pedido com PIX vinculado não podem ter a aprovação de vendas cancelada!

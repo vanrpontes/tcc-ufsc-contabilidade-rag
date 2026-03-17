@@ -1,0 +1,103 @@
+TITULO: Como controlar PMM e NF referentes a serviços
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/3949232141
+--------------------------------------------------
+Este documento visa orientar como controlar contratação de serviços através de PMM.
+Para que o controle funcione corretamente é necessário fazer as seguintes configurações.
+Perfil de Sistema
+No menu
+ 
+Ferramenta/Sistema/Aba Compras 
+configurar os seguintes perfis (maiores informações de 
+Perfil de Sistema - Compras
+):
+Verifica Saldo Financeiro do PMM x Títulos Vinculados
+ 
+Escolher uma das opções que verifica o saldo, pois assim evita de receber o PMM além do valor dele.
+"
+Validação de valores": 
+Não interferirá, pois a NF movimentará estoque (ver maiores detalhes no tópico da Natureza
+Produto
+No menu 
+Arquivo/Produto/Aba Detalhes/Dados Gerais
+O 
+produto
+ a ser utilizado no PMM deve ter o perfil 
+Participa do Fechamento de Estoque, 
+desmarcado 
+em seu cadastro, para que não interfira no Fechamento de Estoque do depósito escolhido ao lançar a NF
+Natureza de Operação
+No menu
+ 
+Tabelas Auxiliares/Faturamento/Natureza Operação/Aba Dados Gerais é
+ importante que a natureza utilizada para lançar a NF de serviço, esteja com os seguintes perfis marcados:
+Movimenta Estoque - 
+Para que o controle de quantidade seja realizado, opção tem apenas a função de movimentar as quantidades no PMM, já que o produto não utilizado não participará do fechamento de estoque não tendo impacto no estoque do depósito selecionado na Nota Fiscal.
+Obriga a informar número do pedido de compra - 
+Para que o vínculo do PMM seja efetuado no momento da inclusão da nota de serviço.
+Inclusão de PMM
+Menu
+ 
+Movimentação/Movimentação de Material/Pedido de Movimentação de Material/
+Pedido de Movimentação de Material
+Como se trata de prestação de serviço, o campo tipo de recebimento deve ser Via recebimento direto do fornecedor.
+O campo Contrato de prestação de Serviço é opcional, para saber mais sobre o recurso acesse 
+Contratos de Prestação de Serviços
+.
+É possível trabalhar de duas maneiras:
+Percentual
+: no campo quantidade, utilizar o valor total da prestação de serviço, dividido por 100. Assim, nos recebimentos parciais o usuário digita na quantidade o % recebido.
+Quantidade 
+: no campo Qtde Pedida, utilizar quantidade que representa o valor descarregado e o preço unitário deve ser 1,00, conforme o exemplo abaixo.
+Avance até concluir a inclusão do PMM.
+Inclusão da Nota Fiscal de Serviço
+Menu
+ 
+Movimentação//Estoque/Entradas/Recebe
+Deverão ser informados os seguintes dados:
+Com pedido anterior:
+ para que seja liberada a opção de informar o número do PMM.
+Natureza de Operação:
+ informe a natureza de operação, criada para inclusão da nota fiscal de serviço.
+Número do Pedido:
+ número do PMM relacionado ao serviço tomado.
+Avance preeenchendo os demais dados da nota fiscal até tela de itens.
+O item será sugerido automaticamente carregando os dados do PMM.
+Recebimento parcial por percentual: 
+em caso de recebimento parcial, no caso o exemplo que utilizamos no PMM acima, 
+de R$ 50.000,00, receberemos R$10.000,00, por se tratar de 20% o usuario deve digitar, 20,
+ no campo Qtde no item da nota fiscal.
+Recebimento total por percentual: 
+no campo Qtde, informar 100 para recebimento total do serviço.
+Recebimento parcial por quantidade: 
+em caso de recebimento parcial, no caso o exemplo que utilizamos no PMM acima, 
+de R$ 50.000,00, receberemos R$10.000,00, basta informar 10.000 no campo Qtde no item da nota fiscal, o valor unitário será carregado do PMM.
+Recebimento Total por quantidade: 
+exemplo que utilizamos no PMM acima, 
+de R$ 50.000,00, receberemos o valor total, basta informar 50.000, no campo Qtde no item da nota fiscal, o valor unitário será carregado do PMM.
+Por se tratar de uma Nota Fiscal de serviço, a quantidade e o preço não constam do documento fiscal, sendo importante o Valor Total do serviço estar correto.
+Avance preenchendo os dados das demais telas até finalizar a inclusão da nota.
+Controle do PMM
+Menu
+ 
+Movimentação/Movimentação de Material/Pedido de Movimentação de Material/Manutenção 
+Pedido de Movimentação de Material
+PMM com recebimento parcial
+Qtde Pedido: 
+quantidade original do pedido.
+Qtde Alocada: 
+quantidade disponível do pedido.
+Qtde Faturada: 
+quantidade do pedido já faturado.
+Finalizado?: 
+indica se o PMM foi totalmente faturado, no caso desmarcado.
+PMM com recebimento total
+Qtde Pedido: 
+quantidade original do pedido.
+Qtde Alocada: 
+quantidade disponível do pedido.
+Qtde Faturada: 
+quantidade do pedido já faturado.
+Finalizado?: 
+indica se o PMM foi totalmente faturado, no caso marcado.
+Fechamento de Estoque
+A operação demonstrada nesse documento, não tem impacto no fechamento de estoque, ou seja as movimentações de quantidade é apenas no PMM e Nota Fiscal.

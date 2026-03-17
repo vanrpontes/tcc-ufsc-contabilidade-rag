@@ -1,0 +1,30 @@
+TITULO: PIS e COFINS no XML da NFe
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903998893
+--------------------------------------------------
+Histórico
+No início da NFe, para identificar qual Outro Imposto que deveria ser enviado no XML, foi criado um perfil de empresa, 
+Painel Nota Fiscal
+. Neste perfil o usuário indicava o Código do Outro Imposto referente ao PIS e o Código do Outro Imposto referente à COFINS. Porém, com o advento do SPED PIS/COFINS foi necessário criar um campo na tabela de Outros Impostos com a indicação se é PIS, COFINS ou nenhum dos dois.
+Dessa forma os dois perfis tinham que ser configurados em conjunto. Se o usuário indicasse no perfil de sistema do PIS um Outro Imposto que não fosse PIS, o Sispetro enviaria esse Outro Imposto sem verificar sua configuração.
+O problema surgiu quando uma empresa teve que criar 2 códigos de outros impostos diferenciados. Um para os produtos que tem alíquota percentual de PIS e COFINS e outro para os produtos que tem alíquota por m3. Nesta situação, não é possível enviar no XML os dois códigos do PIS ou da COFINS, pois no perfil de empresa só pode indicar um de cada.
+Objetivo
+Enviar o PIS e COFINS no XML conforme configuração dos Outros Impostos vinculados à Nota Fiscal.
+Solução
+No perfil de empresa, 
+Painel Nota Fiscal
+, 
+não terão mais os campos PIS e COFINS no grupo Outros Impostos
+.
+Nota:
+ para 
+quem não utiliza a tabela de Outros Impostos, e utiliza o atual perfil de empresa, serão salvos os códigos do PIS e COFINS informados no perfil
+. Com isso, não afetará quem utiliza esse perfil.
+Alterada a tela de Manutenção de Outros Impostos para apresentar e permitir edição os campos faltantes referentes a PIS/COFINS (os mesmos disponíveis na configuração de Outros Impostos na Natureza de Operação e servirá como valor padrão para novas configurações).
+ 
+Com este procedimento evita que caso a empresa tenha indicado um código de Outro Imposto no perfil como PIS/COFINS, mas não os tenha configurados, esses valores deixem de ir na NFE.
+Importante
+No caso da empresa configurar para uma mesma natureza dois Outros Impostos como PIS ou como COFINS o Sispetro enviará no XML o que tiver maior código.
+No XML, os dados do PIS e COFINS vão nos itens e no total da NF
+Para mais informações acesse:
+Tabela Outros Impostos
+Tabela Natureza de Operação - Outros Impostos

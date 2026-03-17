@@ -1,0 +1,469 @@
+TITULO: Emitindo um Conhecimento de Transporte CT-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878900025
+--------------------------------------------------
+1
+4
+false
+none
+list
+true
+Objetivo
+Na tela de Conhecimento de Transporte Eletrônico (CT-e) tem como objetivo a implantação de um modelo nacional de documento fiscal eletrônico para a substituição dos conhecimentos de frete em papel que acobertam os serviços de transporte interestadual e intermunicipal.
+Para emitir o Conhecimento de Frete, a filial deverá ser uma empresa 
+transportadora
+ ou 
+Conjugada. 
+O usuário irá acessar a tela de Emissão de Conhecimento através do menu Movimentação / Faturamento / Emissão de Conhecimento.
+O conhecimento de frete poderá ser dividido em três tipos de movimento, sendo eles:
+São 5 Tipos de NF para Vinculo
+1.
+ 
+Venda:
+ útil para empresas que queiram vincular as notas de venda da Distribuidora a este conhecimento. Assim, a Entidade Remetente seria a Distribuidora e a Entidade Destinatária o cliente da nota de venda a ser vinculada. O usuário deverá informar a empresa da nota de venda a ser vinculada e o número da nota, sendo os dados desta nota já sugeridos na tela, facilitando a inclusão do conhecimento. O valor de frete sugerido na tela dependerá do frete cadastrado na nota de origem. Para mais informações, ver 
+Referência de NF-e no CT-e
+Importante:
+ será permitido informar somente uma nota fiscal de venda onde o tipo de entrega informada venha a ser 
+Entrega.
+2.
+ 
+Transf. Base:
+ similar ao processo do conhecimento de Venda, porém utilizado para notas de transferência da Distribuidora. Sendo a filtragem da Nota Fiscal a ser vinculada conforme o tipo de transferência:
+Transferência de Base: 
+quando o produto encontra-se na base da empresa e será transferido para outro local, neste caso as notas serão filtradas em função da entidade Destinatária, isto porque são notas de transferência geradas pela Empresa Distribuidora (que para esse contexto atuará como remetente).
+3. Transferência de Usina: 
+quando o produto é proveniente da usina e será recebido pela empresa, neste caso as notas serão filtradas em função da entidade Remetente, isto porque as notas foram emitidas pela usina.
+4.
+ 
+Avulso:
+ utilizado quando a empresa for emitir um conhecimento para notas que não estão cadastradas no SisPetro em sua empresa ou outras empresas.
+O usuário deverá clicar no botão 
+Seleciona NF-e: 
+. 
+Através do botão Seleciona NF-e é possível realizar o preenchimento dos dados do conhecimento a partir de um XML de uma NF-e, dessa forma agilizando o processo de inclusão e preenchimento de boa parte dos campos. Para mais informações, ver 
+Inclusão de conhecimento a partir de um XML da NF-e
+. Caso a NF-e importada tenha o CPF do motorista na tag transp, será preenchido automaticamente o motorista no cadastro.
+Uma vez selecionado NF-e: 
+ Na Emissão de CT-e foi implementado uma função para sugerir dados já existentes na NF e assim tornar o processo mais simples e rápido.
+O SisPetro irá, através do CPNJ do emitente da nota, sugerir o remetente, destinatário e o Produto caso haja um De/Para cadastrado na entidade cujo CNPJ seja igual ao emitente da nota.  Exemplo: 
+Se o emitente identificado for um cliente, basta cadastrar o De/Para do produto no cadastro do Cliente, Aba De/Para. Para mais informações, ver 
+De/Para (Clientes)
+Se o emitente identificado for um fornecedor, basta cadastrar o De/Para do produto no cadastro do Fornecedor, Aba De/Para. Para mais informações, ver 
+De/Para - Fornecedor
+5. Outras Sispetro: 
+Para que uma Nota Fiscal apareça na busca quando a opção Outras Sispetro for selecionada
+Ela deve atender a um critério de configuração prévia:
+Natureza de Operação:
+ É necessário ir no cadastro da Natureza de Operação (aba 
+Por Filial / Dados Gerais
+, grupo 
+Frete
+) e marcar o novo checkbox: 
+Permite disponibilizar NF para emissão de CT-e
+. para mais informações veja
+ 
+Dados Gerais (Painel Por Filial)
+Caso o emitente da nota esteja cadastrado tanto como cliente quanto fornecedor, o De/Para deve ser vinculado ao cliente. 
+Caso os dados não sejam identificados, deve-se preencher os campos, conforme o tipo do movimento:
+Entidade Remetente:
+ entidade que está remetendo o produto para o qual está sendo gerado o Conhecimento de Frete
+Entidade Destinatário:
+ entidade que receberá o produto transportado, ao ser informado poderá carregar automaticamente uma Natureza de Operação. Para mais informações, ver 
+Configurações Complementares
+.
+Natureza Operação Frete:
+ natureza a ser empregada no Conhecimento de Frete que está sendo cadastrado. A natureza é sugerida automaticamente se o perfil responsável estiver devidamente configurado nas configurações da empresa menu Ferramentas / Sistema / Frete / Quadro Conhecimento:
+Apenas Naturezas de Operação com o Tipo de Emissão sendo 
+própria 
+poderão incluir conhecimentos de frete.
+Na fórmula da contabilização do frete o campo Entrada / Saída 
+deve estar vazio. 
+Para mais informações, ver 
+Contabilização de Frete
+ e 
+Tabela de Fórmula para Livro Fiscal
+Caso o Tipo de emissão da Natureza de Operação seja diferente do Tipo de emissão da Série, o Sispetro emitirá um aviso e não permitirá a finalização do Conhecimento.
+No perfil da empresa, o usuário deve informar a natureza de operação de conhecimento de frete para dentro e fora do estado. Assim, o Sispetro verifica a localizada da empresa destinatária para sugerir a natureza de operação correta.
+Depósito:
+ de onde está saindo o produto a ser transportado.
+Série NF:
+ será preenchida automaticamente pelo Sispetro conforme a série configurada na natureza de operação utilizada. Para mais informações, ver 
+Tabela Natureza Operação
+ e 
+Tabela Série Nota Fiscal
+.
+# Conhecimento:
+ será gerado automaticamente pelo SisPetro, conforme numeração da série NF.
+Não será possível alterar o número do Conhecimento via tela, caso seja necessário a alteração, fazê-la via 
+Série Nota Fiscal
+.
+Data Emissão:
+ data de emissão do conhecimento. 
+Data Prestação: 
+nesse campo poderá ser informada a data de entrega do frete.
+Nota Fiscal de Origem:
+ estará disponível apenas para os Conhecimento de Frete do tipo 
+Venda
+ e 
+Transferência
+. O usuário deverá vincular o conhecimento a empresa e ao número da nota fiscal pelo qual deve-se vincular o conhecimento, através dos campos 
+Empresa
+ e 
+NúmeroNF
+. Quando o conhecimento for do tipo 
+Avulsa
+, o usuário deve informar as notas vinculadas no campo 
+Notas Fiscais Números
+. 
+Produto:
+ informe neste campo o produto que e será transportado e para o qual está sendo gerado o conhecimento de frete.
+Qtde:
+ quantidade do produto a ser transportado, também empregado no calculo do Valor total do frete.
+Preço Total:
+ valor total da fiscal
+Na aba 
+Geral
+ 
+Transp./Motorista:
+ transportadora/Motorista responsável pela realização do transporte do Conhecimento de Frete.
+Frota:
+ frota empregada no transporte do Conhecimento.
+Tem Carreta:
+ poderá ser informado se foi utilizada uma carreta no frota selecionado, devendo ser informada a carreta, caso o campo tenha sido marcado.
+Tem Treminhão:
+ poderá ser informado se foi utilizado um treminhão no frota selecionado, devendo ser informada a carreta, caso o campo tenha sido marcado.
+Frete:
+ neste grupo quando a filial tratar-se de uma transportadora será por meio do valor total que poderemos ter um Frete a Pagar, conforme configuração definida por ela. Para mais informações, ver 
+Configurações Complementares
+. Quando marcada a opção 
+Frete a Pagar?
+ será gerado um registro para controle na 
+Manutenção de Fretes
+. O valor do frete nos casos onde o tipo de Conhecimento venha a ser de Venda será o frete unitário do item da nota de venda, para os outros tipos será empregado o cálculo de Frete Padrão (Para mais informações, ver 
+Tabela Distâncias
+)
+Empresa que trabalham com a entidade retira (campo 
+Informa entidade de retirada da mercadoria no Conhecimento de Frete
+ presente na aba 
+Frete
+ da Configuração de Sistema deverá estar marcado) será calculada a distância entre a Retirante e o Destinatário
+Empresa não trabalha com entidade retira, será calculada a distância entre o Remetente e o Destinatário.
+Despesas Acessórias:
+ campo para cálculo da base de cálculo de ICMS no conhecimento de frete. Para mais informações, ver 
+Despesas Acessórias
+.
+ICMS Frete:
+ conforme o produto predominante ele localiza a tabela de ICMS e sugere o % do ICMS de frete cadastrado.
+CST:
+ o CST será sugerido conforme cadastrado na 
+Natureza Operação
+. Para mais informações, ver 
+Validação do CST e formação do XML no conhecimento de frete
+.
+Para informar o valor do frete unitário ou total, há um perfil de empresa, veja informações em 
+Painel Fretes
+ 
+Quadro Gerar Contas a Receber:
+ quando esse campo estiver marcado será gerado um contas a receber em função do 
+Valor Total do Frete
+ definido para o Conhecimento de Frete.
+O SisPetro irá sugerir automaticamente para quem será gerado o contas a receber seguindo a seguinte regra:
+Remetente: 
+quando o conhecimento ser do tipo venda
+Destinatário: 
+quando o conhecimento for do tipo 
+Outras
+Os demais seguirão o perfil 
+Responsável do Contas a Receber a ser sugerido
+ do painel Transportes
+É importante também observar que para a geração correta do contas a receber esse processo irá funcionar em conjunto com o campo Gera Contas Receber p/ afim de definir a quem será gerado o contas a receber e o responsável pelo CT-e. Para habilitar a marcação do campo, ver  
+Configurações Complementares
+.
+Se marcado indique o responsável:
+Remetente: indica que o responsável pelo contas a receber será o remetente. Quando não configura em perfil de sistema, o remetente será o padrão selecionado em todo novo conhecimento de frete.
+Destinatário: indica que o responsável pelo contas a receber será o destinatário.
+Consignatário: indica que o responsável pelo contas a receber será o consignatário informado na aba outras informações.
+Caso queira que a indicação do responsável pela cobrança do frete  seja diferente do Remetente, alterar no perfil de sistema no 
+Painel Fretes
+, quadro Conhecimento, opção 
+Responsável do Contas a Receber a ser Sugerido
+.
+Se desmarcado, a contabilização pode ser feita ou não conforme configurado no perfil de empresa, menu Ferramentas/ Sistemas/ painel Contas Contábeis, campo 
+Ação Contábil em Conhecimento.
+Ao selecionar a opção 
+Contabiliza na conta configurada
+, deverá ser informada a conta contrapartida, que será contabilizada na conta de débito:
+Base ICMS Retido:
+ informe o valor da base de cálculo do ICMS retido. Utilizado para CST 060.
+%: 
+informe a alíquota referente ao ICMS Retido. Utilizado para CST 060.
+Nota:
+ a natureza de operação deve estar configurada para Gerar ICMS Retido Fonte.
+Código do Histórico:
+ através do código de histórico será sugerido o texto do campo Histórico a ser utilizado na contabilização gerencial e real.
+Receita Transportes:
+ conta de Receita que será utilizada na geração do lançamento gerencial. Para mais informações, ver 
+Configurações Complementares
+.
+Tipo Cobrança:
+ empregado para definir o tipo de cobrança que será realizada no contas a receber.
+Condição de Pagamento:
+ empregado para geração das parcelas no contas a receber.
+Na aba 
+Outras Inf.
+Observações:
+ neste campo poderão ser lançados dados a serem impressos na nota fiscal conforme o layout configurado.
+Entidade Retirada:
+ na emissão de conhecimento de transporte com o tipo de serviço de redespacho. Utilizado também na campo utilizado na 
+Emissão de Conhecimento de Transporte Utilizando Recebedor ou Expedidor
+. Para mais informações, ver 
+Tipos de Conhecimento e Tipos de Serviços
+, 
+Configurações Complementares
+.
+Valor p/ Contas a Receber:
+ por padrão será o mesmo valor total do frete, sendo permitido caso a filial necessite alterar para gerar um valor diferente no contas a receber. Para mais informações, ver 
+Configurações Complementares
+.
+Responsável pelo Seguro:
+ possibilidade de informar quem é o responsável pelo seguro, podendo ser: Remetente, Expedidor, Recebedor, Destinatário, Emitente do CT-e, Tomador de Serviço.
+Tipo de Carga:
+ possibilidade de informar qual o Tipo de Carga que se se trata o serviço, podendo ser:
+Lotação:
+ quando em uma mesma carga tem um único tomador do serviço, independente do número de CT-e emitidos.
+Na impressão do DACTE, o quadro específico de Lotação ficará disponível na parte inferior do layout, conforme Manual do CT-e:
+Fracionada:
+ quando em uma mesma carga tem dois ou mais tomadores do serviço diferentes.
+Na impressão do DACTE, o quadro específico para transporte Fracionado ficará disponível na parte inferior do layout, conforme Manual do CT-e:
+No
+ XML
+, será gerada a tag 
+lota
+, podendo ser 0 - Fracionada ou 1 - Lotação.
+Comissão Motorista:
+ para mais informações, ver 
+Configurações Complementares
+Consignatário:
+ definição da empresa que paga o conhecimento de frete mas que não está fazendo parte das entidades envolvidas no frete, que atualmente são a entidade remetente, a destinatária e a de retirada.
+Transp. Redespacho:
+ uma outra transportadora responsável pelo transporte. Normalmente ocorre quando uma transportadora contrata outra transportadora para efetuar o transporte em seu lugar. Ou seja, durante o percurso, o transporte é feito por mais de uma transportadora. Utilizado também na 
+Emitindo um CT-e com Recebedor ou Consignatário Diferente do Destinatário ou Expedidor diferente do Remetente
+.
+Quadro Notas Fiscais que acobertam o Conhecimento:
+ nesta tela poderão ser lançadas todas as notas fiscais que serão transportadas pelo Conhecimento e os dados necessários para a emissão do Sintegra. No caso de notas de venda ou transferência, alguns dados já serão sugeridos. Caso necessite que o usuário sempre informe no mínimo uma nota será necessário configurar na empresa. Para mais informações, ver 
+Configurações Complementares
+.
+O preenchimento dessa informação se dará de acordo com o Tipo Movimento selecionado, que segue:
+Tipo Movimento VENDA: 
+os dados da NF serão preenchidos automaticamente de acordo a Nota Fiscal vinculada. Sem possibilidade de alteração.
+Tipo Movimento TRANSF: 
+os dados da NF serão preenchidos automaticamente de acordo a Nota Fiscal vinculada. Sem possibilidade de alteração.
+Tipo Movimento AVULSO: 
+utilizando os Botões de Incluir, Editar e Excluir, as NFs deverão ser lançadas manualmente, na tela abaixo, levando em consideração as observações logo abaixo:
+Tipo Movimento OUTRAS SISPETRO: 
+NF com a Natureza configurada para seleção no CT-e conforme a Empresa informada e Entidade Destinatária, os dados serão preenchidos automaticamente de acordo com a Nota Fiscal vinculada. Sem possibilidade de alteração
+Modelo NF será sugerido automaticamente como 55 e a Série será sugerida automaticamente como 1 (normalmente utilizada), com possibilidade de alteração.
+Caso o Modelo seja 55, serão validados os campos Chave de acesso, Valor do Produto e Número NF para que estejam preenchidos.
+Caso o Modelo seja diferente de 55, serão validados os campos CFOP, Valor Produto e Número NF para que estejam preenchidos.
+A 
+Chave de Acesso
+ da Nota Fiscal vinculada ou informada neste campo, poderá ser acrescentada no quadro 
+Documento Originários
+ do Dacte.
+Para isso, na edição do RTM, acesse o SubReport1: ConhecimentoItens, acrescente um novo objeto de texto do Banco de dados, e informe o campo ChaveAcesso. Em caso de dúvida, conte o 
+Suporte Futura Tecnologia
+Caso o perfil de empresa 
+Vincula Frete ao Contas a Pagar na entrada do CT-e
+ (
+Painel Fretes
+) esteja marcado, na 
+Inclusão de NF
+ de entrada do tipo Conhecimento,  o Sispetro verifica as Notas Fiscais vinculadas a esse conhecimento, seja vinculada pelo usuário ou pela leitura do XML do CT-e, e vincula o Contas a Pagar do CT-e aos fretes gerados por essa Nota Fiscal.
+Aba Classif. CT-e
+Tipo de Conhecimento:
+ informar qual o tipo do conhecimento.
+Normal
+Complemento de Valores
+Anulação
+Substituto
+Tipo de Serviço:
+ informar o tipo do serviço.
+Normal
+Sub Contratação
+Redespacho
+Redespacho Intermediário
+Para mais informações, ver 
+Conhecimento de Anulação, Substituição, Redespacho e Subcontratação
+CT-e Referenciado:
+ quando o CT-e for do tipo 
+Normal
+ não há motivos para referenciar outro CT-e. Assim este campo estará disponível caso o 
+Tipo de Conhecimento
+ seja Complemento de Valores, Anulação ou Substituto e quando o CT-e for do tipo 
+Normal
+ e o tipo de serviço for 
+SubContratação
+ (neste caso, a chave de acesso do CT-e emitido pela transportadora contratante). Para buscar o Conhecimento no SisPetro, basta clicar no botão 
+Busca CT-e
+, será apresentado uma tela de pesquisa com todos os CT-es dentro do período configurado no perfil de sistema 
+Painel Nota Fiscal
+. Caso o CT-e seja de uma transportadora contratante, basta informar a chave de acesso desse CT-e.
+CT-e/NF-e Anulação:
+ este campo estará disponível quando o CT-e for do tipo Substituto. Para buscar o Conhecimento ou Nota Fiscal no SisPetro, basta clicar no botão 
+Busca CT-e/NF-e
+. O SisPetro irá mostrar a mensagem 
+Deseja pesquisar entidade do CT-e ou NF-e? 
+Caso clique em CT-e será apresentado uma tela de pesquisa com todas as NF-e / CT-es dentro do período configurado no perfil de sistema 
+Painel Nota Fiscal
+, filtrando a entidade Destinatária. Caso clique em NF-e será apresentado uma tela de pesquisa com todas as NF-e / CT-es dentro do período configurado no perfil de sistema 
+Painel Nota Fiscal
+, 
+filtrando a entidade Pagadora.
+Entidade Documento Anterior: 
+o usuário deve escolher a entidade anterior nos casos do Tipo de Serviço Sub Contratação.
+Data Decl. não Contr.: 
+só estará habilitada quando o Tipo de Conhecimento for 
+Anulação
+.
+Transportadora de Redespacho: 
+informar a empresa de redespacho.
+Transportadora Redespachante: 
+informar a empresa redespachante.
+Aba Comp.:
+No SisPetro há a possibilidade de informar componentes referentes a prestação de serviços, entre os quais o Vale Pedágio. Para mais informações, ver 
+Tabela Componentes da Prestação de Serviço
+.
+É necessário que o usuário tenha perfil para fazer as inclusões, alterações e exclusões dos componentes que podem fazer parte do conhecimento. Em Menu Ferramentas / Usuário / aba Frete / opção Pode Informar/Alterar Componentes no Conhecimento. Para mais informações, ver 
+Painel Fretes (Usuários)
+.
+Para alterar os dados dos componentes, é preciso que na tabela de Componentes a opção Usuário pode alterar esteja marcado. Para mais informações, ver 
+Tabela Componentes da Prestação de Serviço
+.
+Os componentes cadastrados na tabela de Componentes e vinculados à empresa conectada, são carregadas automaticamente. E, tendo o usuário perfil para tal, podem ser editadas, incluindo, alterando ou excluindo componentes.
+Quando o 
+campo Origem do Valor
+ for Valor Fixo, preenche conforme indicado na 
+aba Componentes por Empresa
+.
+Quando o 
+campo Origem do Valor
+ for Pedágio da Tela de Distâncias preenche com o valor do Pedágio da tabela de Distâncias (considerando como origem o endereço da Entidade de Retirada - na ausência dela, o endereço da Entidade Remetente - e Destino o endereço da Entidade Destinatária).
+Os componentes do tipo OUTROS são enviados os campos Nome Fisco e Valor. Para os componentes do tipo VALE PEDÁGIO, são enviados os campos Nome Fisco, CNPJ Fornecedor, CNPJ Pagante, Número Comprovante Vale Pedágio e Valor, sendo neste tipo TODOS os campos validados pela SEFAZ.
+Botão Inclui: 
+permite incluir um outro componente que esteja cadastrado mas não vinculado à empresa conectada.
+Botão Edita: 
+permite editar os dados de um componente.
+Botão Exclui: 
+permite excluir um componente.
+Aba Dados para MDF-e:
+Com a implementação da versão 3.00 do MDF-e, para emitentes de CT-e é obrigatório informar os dados abaixo.
+CIOT:
+ informar o número
+CNPJ CIOT:
+ traz o CNPJ da empresa responsável pelo CIOT automaticamente
+Seguradora:
+ escolher a seguradora previamente preenchida em 
+Manutenção de Seguradora
+Num. Averbação:
+ informar o número
+Responsável Seguro:
+Emitente do MDF-e
+Responsável pela contratação do serviço de transporte
+Painel Dados Comprovante de Entrega
+Passível de Compr. Entrega: 
+habilitando essa opção o conhecimento ira gerar um comprovante de entrega. Essa opção só ira vir habilitado caso o perfil de Sistema 
+Envia comprovante de Entrega
+ esteja habilitado.
+Nome do Recebedor:
+ nome do Recebedor da Entrega, o preenchimento desse campo vira de acordo com os dados preenchidos no 
+cadastro de cliente
+ no campo Nome do Recebedor.  
+Documento do Recebedor:
+ o campo Documento do Recebedor será preenchido automaticamente de acordo com os dados preenchidos no cadastro de cliente no campo Documento do Recebedor. Para mais informações, ver 
+Tabela Clientes
+Data/Hora Entrega:
+ nesse campo informamos a data de Entrega para o comprovante de entrega. Seu preenchimento dependera do perfil de Sistema 
+#Dias padrão para Data Entrega (a partir da Data da Prestação)
+. Para mais informações, ver 
+Painel NF-e/CT-e
+.
+Latitude:
+ latitude da coordenada de onde será realizado à entrega, seu preenchimento será sugerido com a Latitude informada no 
+cadastro do cliente
+.
+Longitude:
+ longitude da coordenada de onde será realizado à entrega, seu preenchimento será sugerido com a Longitude informada no 
+cadastro do cliente
+.
+Informações de Pagamento do CIOT:
+No XML, será enviado banco e agencia ou chave pix.
+Banco: 
+informar o banco
+Agencia:
+ informar agencia
+Chave PIX:
+ informar chave pix para pagamento.
+O usuário só conseguira editar os dados do painel de Dados Comprovante de Entrega caso o 
+perfil de Sistema
+ 
+Dados para Comprovante de Entrega na Inclusão do CT-e
+ esteja marcada a opção 
+Sugere Preenchido e permite usuário alterar
+, e o usuário esteja com o 
+perfil de usuário
+ 
+Pode incluir/alterar/cancelar dados de Entrega
+ marcado.
+Veja também 
+Como Emitir Comprovante Eletrônico de Entrega CT-e
+É possível realizar a alteração dos dados acima utilizados no MDF-e, após já ter emitido o Conhecimento. Para isso basta acionar o botão 
+ na tela de 
+Manutenção de Nota Fiscal
+. 
+A tela só será acionada caso o conhecimento 
+NÃO 
+esteja cancelado, e 
+NÃO 
+tenha um MDF-e emitido para o conhecimento.
+Para incluir um conhecimento de frete a partir de um xml, acesse
+ 
+Inclusão de conhecimento a partir de um XML da NF-e
+.
+Para mais informações:
+MDF-e - Manifesto Eletrônico de Documentos Fiscais
+Inclusão de MDF-e
+Manutenção de MDF-e
+Tabela Unidades Federativas - UF
+Visualização 
+Durante a visualização de um conhecimento via Manutenção de Notas Fiscais é possível navegar entre os Conhecimentos de Frete, diretamente pela tela, os quais estão ordenados pelo campo Sequencial. Basta utilizar os botões 
+Anterior
+ e 
+Próximo
+O frete gerado pelo conhecimento de frete, poderá ser consultado na manutenção de frete. Para mais informações, ver 
+Manutenção de Frete
+.
+CONTABILIZAÇÃO
+Para contabilizar um conhecimento, na Natureza de Operação, aba Contabilização, a Contabilidade Gerencial deve estar como AUTOMÁTICO e a Contabilidade Real deve informar o Código de Contabilização. No perfil de sistema, aba Contas Contábeis, quadro Contabilização em Conhecimento de Frete, deve informar a conta contábil da receita no campo REC.TRANSPORTES. Caso 
+gere contas a receber
+, a contrapartida sempre será a entidade pagadora.
+Caso 
+não gere contas a receber
+, pode optar por não contabilizar ou contabilizar utilizando uma conta específica: campo AÇÃO CONTÁBIL EM CONHECIMENTO (Não Contabiliza ou Contabiliza na conta específica) e campo CONTRA PARTIDA TRANSPORTES.
+Todas as informações preenchidas para a emissão de um conhecimento de frete são gravadas para que seja possível consultar os dados do momento da emissão.
+QR Code
+O QR Code foi incluído na ultima nota técnica (
+AJUSTE SINIEF 12/19
+) e veio como um facilitador na realização da consulta do CTe, para realizar a consulta do CTe basta utilizar um dispositivo que tenha a função de leitura de códigos QR Code que após realizar a leitura será direcionado para a consulta do CTE em questão.
+Configurações necessárias: 
+1 - Perfil de Sistema:
+ 
+no Perfil de Sistema aba NFe/CTe deve ser informado a URL para realizar a consulta no campo URL Consulta Publica CT-e.
+2 - Manutenção de UF´s:
+ na tela de Manutenção de UF, aba Regras para Ct-e, deve ser selecionado a opção 
+Envia XML e imprime o DACTE
+. 
+Peso obtido no conhecimento
+É possível obter o peso da carga através dos dados da nota de venda/Transferência ou XML. Veja mais no perfil 
+Envio de Informações da Carga (tag qCarga)
+ no 
+Painel Fretes
+.

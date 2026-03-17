@@ -1,0 +1,93 @@
+TITULO: Arquivo de Layout de Importação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899299
+--------------------------------------------------
+O arquivo de Layout de Importação a ser informado na 
+Manutenção de Importação de Dados
+ deve ter as seguintes seções (similar a um arquivo .ini):
+Commom
+ - que indica dados gerais deste arquivo, atente-se para os campos Specification (descrição) e DataSetKeys (que deve ser sempre Linha)
+[ Common ]
+App=Project1
+Description=SMImport: specification
+Specification=Retorno
+DatasetKeys=Linha
+Mode=0
+TableType=Text
+SourceFileName=C:\BradPFRt.txt
+CharacterSet=0
+ 
+Mappings
+ - onde deve ser informado em que posição o campo da Tabela de Retorno está sendo representado no arquivo de retorno. Não altere os campos, altere somente as posições.
+Count=15
+Map0=Linha=Texto495-500
+Map1=NumeroPagamento=Texto120-135
+Map2=ValDocumento=Texto195-204
+Map3=ValPagamento=Texto205-219
+Map4=ValDesconto=Texto220-234
+Map5=ValAcrescimo=Texto235-249
+Map6=TipoMovimentoBanco=Texto289-289
+Map7=Situacao=Texto277-278
+Map8=Ocorrencia1=Texto279-280
+Map9=Ocorrencia2=Texto281-282
+Map10=Ocorrencia3=Texto283-284
+Map11=Ocorrencia4=Texto285-286
+Map12=Ocorrencia5=Texto287-288
+Map13=DataPagamento=Texto266-273
+Map14=IdRegistro=Texto1-1
+Text
+ - Dados do arquivo texto, não precisa de alteração.
+[ Text ]
+FieldDelimiter=3B
+TextQualifier=27
+RecordSeparator=0D0A
+Fixed=1
+RowFirst=1
+RowLast=2147483647
+DataFormat
+ - Configurações de dados, não requer alteração.
+[ DataFormat ]
+DateOrder=1
+DateSeparator=2F
+TimeSeparator=3A
+ThousandSeparator=2E
+DecimalSeparator=2C
+CurrencyString=R$
+FourDigitYear=1
+LeadingZerosInDate=1
+TipoMovimento
+ - Dados para conversão de campos ou códigos de tipo de movimento do banco para o SisPetro.
+ 
+ Em 
+Situacao
+ indique o campo da Tabela Retorno que trará o código de retorno de cada registro.
+ Indique qual o IDRegistro é válido para Registro de Transação/Detalhe, assim é possível desconsiderar headers (cabeçalhos) e traillers (rodapés) no 
+RegistroValido
+.
+ Então para cada código de Retorno do Sispetro (100 a 106) indique quantos códigos o banco possui e os detalhe a seguir utilizando _nº item, começando sempre do 0.
+Ex. Se para o código 100 há dois retornos (01 e 02) faça 
+100_0=01
+ e 
+100_1=02
+.
+O detalhe de cada código do SisPetro está entre parêntesis. 
+Não o coloque no seu arquivo
+.
+ 
+[ TipoMovimento ]
+Situacao=Ocorrencia1
+RegistroValido=1
+100Count=1 (Confirmação agendamento)
+101Count=1 (Confirmação pagamento)
+102Count=1 (Confirmação cancelamento agendamento)
+103Count=1 (Confirmação exclusão agendamento)
+104Count=0 (Problema agendamento)
+105Count=0 (Problema pagamento)
+106Count=0 (Problema cancelamento agendamento)
+100_0=BD
+101_0=BW
+102_0=BT
+103_0=BV
+Acesse 
+Tipos de movimento para Pagamento Eletrônico
+ para maiores detalhes sobre os tipos de movimentos.
+ 

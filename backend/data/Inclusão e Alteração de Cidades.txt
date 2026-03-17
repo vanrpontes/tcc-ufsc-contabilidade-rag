@@ -1,0 +1,121 @@
+TITULO: Inclusão e Alteração de Cidades
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2886959102
+--------------------------------------------------
+A tabela de Cidades é atualizada conforme a divulgação do IBGE, contendo os principais dados do município: código DNC, nome e UF. 
+
+Mas podem existir alterações para cidades já cadastradas.
+
+
+Devido o fato do 
+Código DNC
+ ser único, o Sispetro não permite que este campo sofra alterações. Com base nisso, para a NF-e foi criado o campo 
+Código DNC (uso da NF-e)
+.
+
+
+Porém, ainda assim, existem cidades que sofreram alterações no DNC.
+
+
+No Sispetro não é possível excluir estas Cidades, pois podem existir movimentações antigas que utilizam. Neste caso, deve-se seguir o procedimento abaixo:
+
+
+
+
+Alterar o nome da Cidade "antiga"
+
+
+
+
+Acessar a Tabela de Cidades (
+Tabelas Auxiliares > Faturamento > Cidades
+).
+
+
+Localizar a Cidade em questão
+
+
+Na aba Detalhes, alterar o campo Nome Município desta cidade. Acrescente a palavra INATIVA ao lado do nome.
+
+Exemplo:
+
+VARZEA GRANDE - INATIVA
+
+
+Clicar no botão OK para salvar a alteração.
+
+
+
+
+
+
+
+Criar a nova Cidade
+
+
+
+
+Acessar a Tabela de Cidades (
+Tabelas Auxiliares > Faturamento > Cidades
+).
+
+
+Clicar no botão + (Incluir)
+
+
+Informar o 
+Código DNC
+ da cidade, o atual.
+
+
+Informar os demais dados do município, tais como: Nome Município, UF, entre outros.
+
+De preferência, cadastre conforme a anterior.
+
+
+Clique no botão OK para salvar a nova cidade.
+
+
+
+
+
+
+
+Alterar cadastro de clientes e fornecedores que utilizam a cidade antiga
+
+A alteração deverá ser feita cliente a cliente e fornecedor a fornecedor. Mas existe uma forma de localizar todos os clientes que possuem essa Cidade em seu cadastro.
+	
+
+
+Acessar a tela de 
+Alteração de Dados do Cliente em Lote
+.
+
+
+Filtrar os clientes pelo código DNC ou pelo nome do município, através das colunas 
+#Cod Municipio
+ e 
+Descrição Município
+.
+
+
+Após identificar os clientes que utilizam desta cidade, deve-se acessar a tela de Cadastro de Clientes (
+Arquivos > Clientes > aba Detalhes > aba inferior Dados Gerais
+), e alterar para a nova cidade criada.
+
+
+Para os fornecedores, identifique no cadastro de fornecedores quais são os que utilizam a cidade em questão, e efetue as respectiva alteração (
+Arquivos > Fornecedores > aba Detalhes > aba inferior Dados Gerais
+), e alterar para a nova cidade criada.
+
+
+
+
+
+
+
+
+
+Este processo deverá ser efetuado sempre que houver uma situação igual a citada no início deste tópico.
+
+
+Boa sorte!

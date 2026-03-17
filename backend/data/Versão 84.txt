@@ -1,0 +1,191 @@
+TITULO: Versão 8.4
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913895074
+--------------------------------------------------
+Dados
+Informações
+Início
+18/02/2013
+Final
+14/03/2013
+Scripts
+CMD84.SQL (Do cmd3149 a cmd3187)
+Itens
+29
+Implementações
+20
+Correções
+9
+Anexos
+ 
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+FichaBem.rtm
+ 
+ 
+ 
+ExtratoCliFor.rtm
+ 
+ 
+ 
+Geral
+Copiar todos os dados e tabelas complementares ao cadastrar um novo usuário
+Ao criar um novo usuário alguns dados do usuário posicionado são copiados, mas não todos, como por exemplos dados das Empresas Selecionadas para o Fechamento de Carga. Nessa versão é garantido que ao incluir um novo usuário, seja copiado todos os dados do usuário posicionado inclusive as tabelas complementares ao cadastro. 
+AO (CCF 15174)
+Problema ao abrir uma Tela de Pesquisa e a mesma não possua dados cadastrados
+Em algumas telas do Sispetro, caso seja acionada a Tela de Pesquisa e a mesma não possua dados cadastrados na sua respectiva tabela, o SisPetro abre a tela em branco e não permite fechá-la. Nessa versão, esse problema foi ajustado em: Novo registro pela tela de Manutenção de Eventos Frota; Relatório Composição de Pendência; Inclusão de Itens no Extrato.  
+CPC (CCF 16452)
+Lentidão para Gerar Credencial do SisPetro
+Foi detectado em algumas máquinas aparentemente com problemas em seu disco rígido e/ou sistema operacional uma lentidão para a máquina gerar a credencial e o usuário conectar o sistema. A partir dessa versão estaremos utilizando outra forma de gerar a credencial da máquina e esse novo formato deixará o processo mais rápido. 
+UPA (CCF 19460)
+Contabilidade 
+Manutenção de Lote
+Na tela de Manutenção de Lote, tem um recurso para exibir somente os lotes de um número para frente "Mostrar # Lote > :". Ao abrir a tela, esse número já é sugerido, mas permite a edição pelo usuário. Quando esse campo é preenchido com um valor negativo ou fica em branco, é apresentada uma mensagem de erro durante a navegação pelas abas da tela. Nessa versão, esse problema foi ajustado. 
+CPC (CCF 19156)
+Conta Real da Entidade no Relatório Financeiro
+Disponibilizado o campo SeqConta (Conta Real da Entidade) nos relatórios de Contas a Pagar e de Contas a Receber. 
+É responsabilidade da empresa editar seu layout acrescentando em seu campo.
+ GSN (CCF 19425)
+Vínculo automático de Conta Referencial de Contas de Entidades
+O SPED ECD e o FCont exigem que contas sejam vinculadas a uma conta do Plano de Contas Referencial da Receita conforme perfil do sistema, não precisando fazer esse processo manualmente. Nessa versão é feito o vínculo automático da conta referencial nas contas reais de entidade. 
+Help:
+ 
+. 
+AO (CCF 16967)
+Estoque
+Maior espaço para o Estoque Escritural na tela de Fechamento de Estoque
+Nessa versão foi alterada a tela para ter a opção de aumentar e diminuir o espaço de apresentação dos dados do Fechamento Físico e Escritural.
+ 
+AO (CCF 18389)
+Incluir novos campos na tela de consulta de fechamento de estoque
+No SisPetro, melhoramos a tela de consulta para Fechamento de Estoque incluindo novos campos referentes ao Fechamento de Custo para que possamos ter a informação de forma mais completa.
+ 
+AO (CCF 18959)
+ 
+Duplicação de operações de Estoque de DPMP
+Na versão 8.3 corrigimos uma situação onde o Sispetro permitia que o usuário 
+incluísse 
+operações repetidas de controle de saldos iniciais e finais de Estoque. Porém, isso causou um problema na inclusão e edição das outras operações de ajustes. Nessa versão corrigimos esse problema. 
+CPC (CCF 19559, CCF 
+19647
+) 
+Reorganizar os perfis de sistema da aba Ordem de Carregto
+Os perfis estavam mal distribuídos, principalmente os da coluna da direita que tem um espaçamento muito grande. Nessa versão os perfis foram reorganizados. 
+AO (CCF 15936)
+Faturamento
+Motivo de Devolução de Nota Fiscal
+Quando uma Nota Fiscal é cancelada permitimos que seja informado um motivo de cancelamento, porém quando uma NF é devolvida (o que é equivalente a um cancelamento, exceto que a NF já foi movimentada) não temos um campo para essa indicação. Nessa versão é permitido que seja informado o motivo da Devolução em NFs de Devolução.
+ 
+Help:
+ 
+ 
+AO 
+(CCF 16203) 
+Filtro por CFOP no Relatório de NFs Emitidas
+O relatório de NFs Emitidas é bem utilizado para conferência de NFs, porém para conferir NFs de Remessa e Retorno de Armazenagem só o filtro de Tipo de NF não é suficiente, pois mistura com outras NFs. Por isso, nessa versão, foi incluída uma opção de filtro por CFOP para permitir listar só esses tipos de NFs no relatório NF emitidas que será util para conferir NFs Remessa/Retorno Armazenagem. CPC 
+Help:
+ 
+ (CCF 18462)
+Impressão da data e a hora na impressão do DANFE 
+No SisPetro, existe um perfil de empresa para perguntar ao usuário se ele quer que seja impresso a data e a hora na NF. Este perfil é da época que se imprimia a NF em formulário. Depois da implementação da NFE, mesmo o usuário escolhendo a opção que não quer que seja impressa essas informações, o sistema está imprimindo no DANFE. Nessa versão, esse perfil foi desabilitado da tela e será removido na próxima versão. CPC (CCF 17979)
+Não exigir De/Para de Frota e Transportadora na Importação de NF's
+A partir dessa versão não será necessário utilizar De/Para 
+de Frota e Transportadora na Importação de NF's
+. Na ausência de De/Para o Frota será localizado 
+pela placa obtida no arquivo. No caso da Transportadora será localizada pelo CNPJ ou CPF obtido no arquivo. No caso de ter De/Para o mesmo será respeitado. CPC
+ Help: 
+ (CCF 18651)
+Condição de Pagamento na Importação de NFs
+Na Importação de NF´s será permitida a alteração da Condição de Pagamento (obtida do Cadastro do Fornecedor ou Cliente) nas telas de edição antes da NF ser importada. 
+Help:
+ 
+Manutenção de Importação de Notas Fiscais
+ 
+CPC (CCF 18592)
+Evento de Manifestação do Destinatário da NFe
+Foi implementada toda a estrutura necessária para o Evento de Manifestação do Destinatário da NF-e, cuja especificação está na 
+Nota Técnica 2012.002 da NF-e
+,
+ obrigatório para empresas Distribuidoras de Combustíveis a partir de 01/03/2013.
+ O envio do evento poderá ser feito de várias formas: Via Importação de NF's - Principal forma de utilização, Inclusão Manual da NF-e - Para empresas que não importam o xml, Tela de NF-e Pendentes - Forma alternativa de utilização, Manutenção de NFs - Utilização nota a nota, sempre considerando a exigência da manifestação configurada na Natureza de Operação. 
+Numa segunda fase implementaremos a consulta de NF-s emitidas para o CNPJ da empresa permitindo o envio do Desconhecimento da Operação. 
+Help:
+ 
+  
+UPA, CPC, AO (CCF 18823)
+Cadastro de vários e-mails para envio do arquivo XML - Clientes e Fornecedores
+No cadastro de Cliente e Fornecedor do SisPetro, é possível cadastrar mais de um endereço de e-mail para  envio dos arquivos de XML. Nessa versão é garantido que o XML da Nota Fiscal seja enviado corretamente para o 1º endereço de e-mail cadastrado na tabela de Entidade para não exceder caracteres exigidos pela NFe. 
+Help:
+ 
+E-mail no Cadastro de Clientes
+, 
+E-mail no Cadastro de Fornecedores
+ e 
+E-mail no Cadastro de Transportadoras
+. 
+AO (CCF 18730)
+Pesquisa e ordenação na tela de pesquisa de Codigo de ICMS
+Nessa versão, a tela pesquisa de Codigo de ICMS usado no código de produtos foi melhorada para mostrar alguns campos importantes e funcionar corretamente a ordenação e pesquisa.
+ AO (CCF 18411)
+Frete Unitário da OC na NF importada
+Na versão 8.2 implementamos o vínculo da OC na tela de Importação de NF usando sempre o frete do xml, só que faz falta para algumas empresas que usavam frete OC. Nessa versão é permitido utilizar o Frete da OC ou do PMM numa NF importada.
+ Help:
+ 
+ 
+AO (CCF 19450)
+Dados de Filtro na Manutenção de NF's
+A partir dessa versão as opções "Visualiza NF canceladas?" e "Visualiza somente NF fora do estado?"  serão salvas no arquivo do usuário. Dessa forma, na próxima vez que entrar na tela, a opção virar marcada ou não conforme a última utilização.
+ 
+AO (CCF 17473)
+Fina
+nceiro
+Agrupamento pela Chave no Extrato de Clientes/Fornecedores
+O Extrato de Clientes e Fornecedores é bastante utilizado para analisar o andamento das pendências e créditos de um cliente ou fornecedor. Essa análise geralmente é feita pelo agrupamento por Entidade, sendo que para cada entidade é ordenado por data. Porém às vezes é necessário entender o que aconteceu com determinado título ou adiantamento, só que como a ordenação secundária é por data, as informações de cada título ou adiantamento acabam ficando espalhadas. A idéia é ter a possibilidade de ordenar informações de um título ou adiantamento, que é a chave das informações. Nessa versão é permitido o agrupamento pela Chave no Extrato de Clientes/Fornecedores.
+ 
+Necessário atualizar o arquivo ExtratoCliFor.rtm.
+ 
+Help:
+ 
+, 
+ 
+AO (CCF 18203)
+Tela de inclusão de adiantamento a fornecedor, aba Utilização Qtde, campo Data Movto Estoque
+Na tela de inclusão de adiantamento a fornecedor, aba Utilização QTDE, campo Data Movto Estoque, está sempre sendo apresentado com o fundo cinza, sendo que ele só deveria ficar cinza quando não editável. Nessa versão é apresentado corretamente a configuração do campo Data Movto. 
+AO (CCF 17310)
+Linha Digitável da GNRE com tamanhos diferentes
+Na versão passada fizemos a implementação da Linha Digitável da GNRE e limitamos o tamanho de campo para 44 caracteres, porém o normal é ter 48 caracteres e em alguns estados até mais. Nessa versão, é possivel digitar a Linha Digitável GNRE com tamanhos diferentes.
+ 
+AO (CCF 17508)
+Agrupamento pelo Comprador do Cadastro no Extrato Clientes/Fornecedor
+O Extrato de Clientes e Fornecedores, no passado, teve uma implementação permitindo a ordenação pelo Comprador do Cadastro da Entidade que não estava sendo considerada e foi corrigido nessa versão.
+ 
+AO (CCF 18203)
+Fiscal
+Código da Entidade para Livro Eletrônico com CNPJ diferente.
+No cadastro de Clientes e Fornecedores temos um campo para indicar o Código da Entidade para uso no Livro Eletrônico. Nessa versão não será permitido vincular um código da Entidade para Uso no Livro Eletrônico com uma entidade que tenha CNPJ diferente. 
+Help:
+ 
+Cadastro de Clientes
+, 
+Cadastro de Fornecedores
+ 
+AO (CCF 19144)
+Patrimônio
+Relatório de Ficha de Bens
+Criado um relatório de bens que apresente todos os dados cadastrais de bem em formato ficha
+. 
+Necessário atualizar o arquivo FichaBem.rtm no caminho do executável (ou conforme caminhos auxiliares) .
+Help: 
+ 
+AO (CCF 15814)
+Vendas
+NF de Devolução na Análise Geral de Vendas
+ 
+Na tela de Análise Geral de Vendas são apresentadas todas as NF's de Venda, independente de serem devolvidas ou não, porém, para uma análise gerencial o fato de não desconsiderar NF's de Devolução pode gerar distorção na análise. Nessa versão, pode ser desconsiderado NF's de Devolução na Análise Geral de Vendas.
+ Help
+:
+ AO (CCF 16603)
+Nome Usual de Clientes na Tela de Pedidos Aprovados e Não Faturados.
+No Cadastro de Clientes há a Razão Social e o Nome Usual, sendo comum se conhecer o cliente pelo Nome Usual. Porém na tela de Pedidos Aprovados e Não Faturados apresenta somente a Razão Social, deixando o faturista com dúvidas sobre quem é o cliente. Nessa versão é apresentado o Nome Usual do Cliente na tela de Pedidos Aprovados e Não Aprovados. 
+AO (CCF 17515)

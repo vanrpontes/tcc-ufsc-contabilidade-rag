@@ -1,0 +1,39 @@
+TITULO: Configurar CloudBerry Externo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4505960449
+--------------------------------------------------
+Objetivo 
+Baixar e instalar o client CloudBerry Drive
+Configurar acesso ao Bucket externo 
+Siga os passo para instalar e configurar
+Realize o Download do client CloudBerry drive através do link: 
+CloudBerry
+Forneça seu endereço de e-mail e clique em download para iniciar.
+(Conforme imagem abaixo): 
+Após realizar o download execute o aplicativo para instalação e siga os passos solicitados, ao final da instalação será solicitado para executar o programas desmarcaremos a opção de iniciar, pois o computador precisa ser reiniciado.
+(Conforme Imagens baixo):
+Após instalar e reiniciar o computador iniciaremos o programa CloudBerry Drive para efetuar as configurações de conta.
+(Conforme Imagem abaixo):
+Quando o programa for aberto pela primeira vez é solicitado o e-mail e license key, preencha as informações conforme licença adquirida.
+(Conforme imagem abaixo):
+Com as informações fornecidas o programa não será aberto automaticamente, será preciso ir ao canto inferior direto da barra de tarefas do Windows e clicar em mostrar ícones ocultos, selecionar o ícone do CloudBerry-drive, clicar com botão direito ou esquerdo do mouse sobre ele e iremos selecionar options.
+(Conforme imagens baixo):
+Agora com o programa aberto selecione "Storage Accounts” e clique em "Add", em seguida configuraremos os campos abaixo:
+Storage Provider = Amazon S3
+Display name = S3
+Account type = Amazon S3
+Access key = Fornecido pela futura
+Secret key = Fornecido pela futura
+Após preencher os campos, clique em “Test Connection" se as informações estiverem corretas ira aparecer uma tela com a informação de "Connection success" clique em "close" depois em "OK" e por fim "Apply", ira aparecer uma janela informando que o serviço do Cloudberry será reiniciado para mapear a unidade de rede clique em “sim”.
+(Conforme imagens abaixo):
+Neste passo mapearemos o bucketS3 para acesso, selecione "Mapped Drivers" e clique em "Add"  agora preencha os campos com as seguintes informações:
+Storage Account = S3
+Drive letter = Letra de sua preferência sendo “D, E, F, etc..."
+Volume label  = Nome de sua preferência ex: cliente externo.
+Path = sispetroclienteexterno (será fornecido para o cliente o nome do bucket)
+Marcar as opções: 
+"Mount this account as virtual disk at system startup"
+Network Mapped Drive (recommended)
+Clique em "OK", será exibido uma janela informando para salvar o mapeado da unidade Ex: "E" para todos os usuários clique em "Sim".
+(Conforme imagem abaixo):
+Após essas configurações o programa deve ficar com a unidade mapeada clique em "OK" com isso o acesso para o drive externo está pronto e ira fica no atalho de Locais de rede no Windows.
+(Conforme imagens abaixo):

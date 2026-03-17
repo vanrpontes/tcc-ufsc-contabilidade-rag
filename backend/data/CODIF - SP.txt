@@ -1,0 +1,32 @@
+TITULO: CODIF - SP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899211
+--------------------------------------------------
+Em 2008 o Estado de São Paulo aboliu o envio de CODIF para distribuidoras devido a implementação da NF-e. A partir da versão 8.11 toda a estrutura do CODIF foi removida.
+ 
+A Secretaria da Fazenda do Estado de São Paulo está exigindo, a partir de janeiro de 2007, que as vendas de combustíveis sejam feitas após uma solicitação de autorização ao Sistema CODIF (criado pela Secretaria). Esta solicitação pode ser feita de duas formas:
+ a)  Solicita autorização com dados do destinatário e volume desejado num passo e depois, num segundo passo, atualiza, nesta autorização os dados da NF utilizada (número e data).
+ b)  Solicita autorização com dados do destinatário e dados da NF utilizada num único passo. Após solicitar autorização, será informado um código de autorização, o qual deve ser impresso na NF.
+Caso a NF seja interestadual deve ser solicitado também um passe fiscal, que é um arquivo PDF que deve ser impresso em duas vias, ficando uma via na Empresa e a outra via sendo entregue ao Motorista, para que seja apresentada nas barreiras.
+Todo esse processo é feito via Internet e a Secretaria disponibilizou três métodos diferentes de obtermos este código de autorização:
+1.   
+ Acessando o site da CODIF e informando os dados, um a um, manualmente. Na tela do site é apresentado o código de autorização. Na tela do site é possível salvar o arquivo PDF referente ao passe Fiscal.
+Para saber como configurar o SisPetro para se adaptar a este método, vá ao tópico 
+.
+2.
+    Acessando o site da CODIF, porém ao invés de informar nota por nota, digitando cada dado, carregando um arquivo que contém os dados das notas desejadas. Isso retornará um arquivo que conterá a resposta para cada nota (erro ou seu código de autorização).
+ Este processo consiste em:
+Incluir uma ou mais notas no SisPetro.
+Gerar um arquivo no SisPetro contendo as solicitações de autorização destas notas.
+Carregar esse arquivo no Site do CODIF e salvar o arquivo de retorno disponibilizado por eles.
+Ler o arquivo disponibilizado pelo CODIF no SisPetro, o que salvará o código de autorização para cada nota.
+Imprimir a nota fiscal, contendo o código de autorização disponibilizado pelo CODIF.
+Para saber como configurar o SisPetro para se adaptar a este método, vá ao tópico 
+Semi-Automático
+.
+3.
+  Ter uma conexão com a Internet e o próprio sistema da Empresa (no caso, o SisPetro) utiliza um serviço do CODIF (chamado WebService) informando e recebendo os dados de autorização para cada nota fiscal. Neste caso, o usuário não interfere no processo, tudo é feito entre CODIF e SisPetro.
+ Assim, o usuário fará o faturamento no SisPetro, assim, que a nota for incluída, internamente, via Servidor SisPetro, é feito o acesso ao WebService do CODIF. Após alguns segundos (de 2 a 5), caso tudo esteja em funcionamento (WebService do CODIF e Internet no Servidor), a nota é liberada para impressão.
+Para saber como configurar o SisPetro para se adaptar a este método, vá ao tópico 
+.
+Veja gráfico que esclarece as diferenças entre os três processos:
+A rotina do CODIF foi desabilitada na versão 8.9, pois está em desuso.

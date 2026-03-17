@@ -1,0 +1,72 @@
+TITULO: Versão 8.8.2
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919989646
+--------------------------------------------------
+Versão 8.8.2
+Dados
+Informações
+Início
+23/10/2013
+Final
+14/11/2013
+Scripts
+CMD882.sql
+Itens
+10
+Implementações
+01
+Correções
+09
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+Layout de Impressão
+ 
+SisPetroControl.DLL
+DPMP_v882
+.rtm
+ 
+ 
+ 
+Banco254.dll
+ 
+ 
+ 
+Geral
+Registros Duplicados nos Relatórios
+Na versão 8.8 atualizamos todas as ferramentas de relatório do SisPetro. Após essa atualização, alguns relatórios, com quebra de página, começaram a duplicar o seu ultimo registro. Esse registro era impresso na ultima linha da página e não primeira linha da próxima página. Seguindo as orientações do fornecedor dessa ferramenta, atualizamos novamente essas ferramentas e o problema foi corrigido.
+ UPA (CCF 22369)
+Erro na geração do arquivo DPMP
+Correção no layout de exportação do DPMP. A somatória de linhas do arquivo não estava correta.
+ Baixar o arquivo: DPMP_v882
+.rtm.
+ PRFC (CCF 22438)
+Exclusão dos E-mails Enviados
+Os logs dos e-mails enviados pelo SisPetro não estavam sendo apagados, mesmo se a empresa estivesse configurado para isso e o e-mail já tivesse alcançado seu prazo para exclusão. Esse problema foi corrigido. 
+UPA (CCF 22449)
+Faturamento
+Agrupar itens na tela de Remessa e Retorno de Armazenagem
+Na tela de Remessa e Retorno de Armazenagem era possível selecionar várias OC's para gerar uma única NF. Porém, ao fazer isso, o número de itens dessa NF fica correspondente ao número de itens da OC selecionadas. Foi implementada uma funcionalidade, Agrupa Itens da NF por Produto, que faz com que o número de itens da NF seja um para cada produto diferente nas OC's selecionadas, ou seja agrupa os itens da OC por Produto na NF. PRFC (CCF 21550) 
+Apresentação duplicada de Itens em  da OC na tela de NF Remessa/Retorno de Armazenagem
+Correção de erro ao selecionar dados na tela de NF Remessa/Retorno de Armazenagem, onde, dados dos itens da OC estavam sendo apresentados duplicados.
+ PRFC (CCF 21819)
+Erro ao Consultar NFs de Entrada na Tela de Manutenção de Notas do Remoto
+O sistema estava exibindo um massagem de erro ao tentar exibir Notas de Entradas que tinha sido importadas, uma vez que não existida dados para sua situação. A rotina de pesquisa recebeu um tratamento e a massagem não mais será exibida nestes casos.
+ PRFC (CCF 22418)
+Sincronização de CT-e
+O processo de sincronização de CT-e estava apresentando  um problema no XML gerado e com isso esse processo não estava sendo concluído. Esse problema foi corrigido. 
+UPA (CCF 22496, 22461)
+Financeiro
+Erro ao imprimir cobrança quando não é Cobrança Eletrônica
+A impressão de cobranças foi corrigida para que considere a opção "Cobrança Eletrônica" do cadastro de Tipo de Cobrança.
+ PRFC (CCF 22405)
+Erro ao ler data do crédito no arquivo de Retorno do Banco Paraná (254).
+A biblioteca do banco Paraná foi alterada para corrigir erro ao ler a data do credito do arquivo de retorno, isto estava impedindo a baixa dos títulos.
+ 
+Baixar a biblioteca (DLL): Banco254
+.dll.
+ PRFC (CCF 22439)
+Transportes
+Travamento da Impressão da Composição de Carga
+Foi feita correção na impressão do relatório de Composição de Carga, que ao ser executa trava e exibia uma unica pagina em branco.
+ PRFC (CCF 22450)

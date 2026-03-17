@@ -1,0 +1,140 @@
+TITULO: Cobrança Eletrônica - Cenário de cálculo de dias úteis para prazo de vencimento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927266405
+--------------------------------------------------
+Abaixo apresentamos alguns cenários que são considerados pelos Sispetro para o cálculo da data de vencimento, com base no campo "
+Nº mínimo de dias úteis
+" constante no 
+Aba Cobrança Eletrônica
+ do Tipo de Cobrança.
+ 
+Exemplo 1:
+Situação 1
+Condição de Pagamento com prazo de 3 dias e 1 parcela.
+Data de Emissão = 14/11/2008 (sexta-feira).
+Normalmente, ao emitir uma Nota Fiscal nestas condições teríamos:
+Data de Emissão da Nota Fiscal= 14/11/2008 (sexta-feira)
+Data de Vencimento do título = 17/11/2008 (segunda-feira) 
+ O cálculo do vencimento será a partir da data de emissão, considerando os finais de semana e feriados. Seria considerado sábado (1º dia da parcela), domingo (2º dia da parcela) e segunda-feira (3º dia da parcela). E assim, a parcela teria seu vencimento para segunda-feira.
+Situação 2
+Condição de Pagamento com prazo de 3 dias e 1 parcela.
+Número mínimo de dias úteis = 2.
+Data de Emissão = 14/11/2008 (sexta-feira).
+Ao emitir uma Nota Fiscal nestas condições teríamos:
+Data de Emissão da Nota Fiscal= 14/11/2008 (sexta-feira)
+Data de Vencimento do título = 18/11/2008 (terça-feira) 
+ O cálculo do vencimento será a partir do primeiro dia útil, desconsiderando finais de semana e feriados. Seria considerado sábado (1º dia da parcela) um dia NÃO útil, domingo (2º dia da parcela) um dia NÃO útil, segunda-feira (3º dia da parcela) primeiro dia útil e terça-feira segundo dia útil, conforme configuração de Número Mínimo de dias úteis. E assim, a parcela teria seu vencimento para terça-feira.
+Situação 3
+Condição de Pagamento com prazo de 3 dias e 1 parcela.
+Número mínimo de dias úteis = 2.
+Feriado configurado no Sispetro = 17/11/2008 (segunda-feira)
+Data de Emissão = 14/11/2008 (sexta-feira).
+Ao emitir uma Nota Fiscal nestas condições teríamos:
+Data de Emissão da Nota Fiscal= 14/11/2008 (sexta-feira)
+Data de Vencimento do título = 19/11/2008 (quarta-feira) 
+ O cálculo do vencimento será a partir do primeiro dia útil, desconsiderando finais de semana e feriados. Seria considerado sábado (1º dia da parcela) um dia NÃO útil, domingo (2º dia da parcela) um dia NÃO útil, segunda-feira (3º dia da parcela) um dia NÃO útil pois é feriado, terça-feira (1º dia útil), e quarta-feira (2º dia útil) , conforme configuração de Número Mínimo de dias úteis. E assim, a parcela teria seu vencimento para quarta-feira.
+Exemplo 2:
+Situação 1
+Condição de Pagamento com prazo de 3 dias e 3 parcela.
+1ª parcela = 1 dia
+2ª parcela = 2 dias
+3ª parcela = 3 dias
+Data de Emissão = 14/11/2008 (sexta-feira).
+Normalmente, ao emitir uma Nota Fiscal nestas condições teríamos:
+Data de Emissão da Nota Fiscal= 14/11/2008 (sexta-feira)
+Data de Vencimento da 1ª parcela do título = 17/11/2008 (segunda-feira) 
+ O cálculo do vencimento da 1ª parcela será calculado a partir da data de emissão, considerando os finais de semana e feriados. Para a 1ª parcela seria considerado o primeiro dia após a emissão, sábado (1º dia da parcela). Como sábado NÃO é dia útil, o sistema pulará para o domingo, que também NÃO é dia últil, e pulará para o próximo dia, segunda-feira. Neste caso, como é dia últil, a parcela terá seu vencimento para segunda-feira.
+Data de Vencimento da 2ª parcela do título = 17/11/2008 (segunda-feira)
+ O cálculo do vencimento da 2ª parcela será calculado a partir da data de emissão, considerando os finais de semana e feriados. Para a 2ª parcela seria considerado o segundo dia após a emissão, domingo (2º dia da parcela), sendo sábado o 1º dia da parcela. Como domingo NÃO é dia útil, o sistema pulará para o próximo dia, segunda-feira. Neste caso, como é dia últil, a parcela terá seu vencimento para segunda-feira.
+Data de Vencimento da 3ª parcela do título = 17/11/2008 (segunda-feira)
+ O cálculo do vencimento da 3ª parcela também será calculado a partir da data de emissão, considerando os finais de semana e feriados. Para a 3ª parcela seria considerado o terceiro dia após a emissão, segunda-feira (3º dia da parcela), sendo sábado o 1º dia da parcela e domingo o 2º dia da parcela. E assim, a parcela teria seu vencimento para a segunda-feira, que é dia útil.
+Situação 2
+Condição de Pagamento com prazo de 3 dias e 3 parcela.
+Número mínimo de dias úteis = 2.
+Data de Emissão = 14/11/2008 (sexta-feira).
+Normalmente, ao emitir uma Nota Fiscal nestas condições teríamos:
+Data de Emissão da Nota Fiscal= 14/11/2008 (sexta-feira)
+Data de Vencimento da 1ª parcela do título = 18/11/2008 (terça-feira)
+ O cálculo do vencimento da 1ª parcela será calculado a partir da data de emissão, desconsiderando os finais de semana e feriados. Para a 1ª parcela seria considerado o primeiro dia após a emissão, porém como existe a configuração mínima de dias úteis, o cálculo será para o 2º dia útil após a emissão. Assim, temos sábado (1º dia da parcela) que NÃO é dia útil. Como sábado não é dia útil, o sistema pulará para o próximo dia, domingo. Mas domingo também NÃO é um dia útil, e pulará para o segunda-feira (1º dia útil), e em seguida pulará para terça-feira (2º dia útil). E assim, a parcela terá seu vencimento para terça-feira.
+Data de Vencimento da 2ª parcela do título = 18/11/2008 (terça-feira)
+ O cálculo do vencimento da 2ª parcela será calculado a partir da data de emissão, desconsiderando os finais de semana e feriados. Para a 2ª parcela seria considerado o segundo dia após a emissão, porém como existe a configuração mínima de dias úteis, o cálculo será para o 2º dia útil após a emissão. Assim, temos sábado (1º dia da parcela) que NÃO é dia útil, e domingo (2º dia da parcela) que também NÃO é dia útil. Como domingo não é dia útil, o sistema pulará para o próximo dia, segunda-feira (1º dia útil), e em seguida pulará para terça-feira (2º dia útil). E assim, a parcela terá seu vencimento para terça-feira.
+Data de Vencimento da 3ª parcela do título = 18/11/2008 (terça-feira)
+ O cálculo do vencimento da 3ª parcela também será calculado a partir da data de emissão, desconsiderando os finais de semana e feriados. Para a 3ª parcela seria considerado o terceiro dia após a emissão, porém como existe a configuração mínima de dias úteis, o cálculo será para o 2º dia útil após a emissão. Assim, temos sábado (1º dia da parcela) que NÃO é dia útil, e domingo (2º dia parcela) que também NÃO é dia útil, e segunda-feira (3º dia da parcela) que é dia útil. Como é necessário 2 dias úteis, conforme configuração, o sistema pulará para o próximo dia, terça-feira (2º dia útil). E assim, a parcela terá seu vencimento para terça-feira.
+Situação 3
+Condição de Pagamento com prazo de 3 dias e 3 parcela.
+Número mínimo de dias úteis = 2.
+Feriado configurado no Sispetro = 17/11/2008 (segunda-feira)
+Data de Emissão = 14/11/2008 (sexta-feira).
+Normalmente, ao emitir uma Nota Fiscal nestas condições teríamos:
+Data de Emissão da Nota Fiscal= 14/11/2008 (sexta-feira)
+Data de Vencimento da 1ª parcela do título = 19/11/2008 (quarta-feira)
+ O cálculo do vencimento da 1ª parcela será calculado a partir da data de emissão, desconsiderando os finais de semana e feriados. Para a 1ª parcela seria considerado o primeiro dia após a emissão, porém como existe a configuração mínima de dias úteis, o cálculo será para o 2º dia útil após a emissão. Assim, temos sábado (1º dia da parcela) que NÃO é dia útil. Como sábado não é dia útil, o sistema pulará para o próximo dia, domingo. Mas domingo também NÃO é um dia útil, e pulará para o segunda-feira, um dia NÃO útil pois é feriado, e pulará para terça-feira (1º dia útil). Como é necessário 2 dias úteis, conforme configuração, o sistema pulará para o próximo dia, quarta-feira (2º dia útil). E assim, a parcela terá seu vencimento para quarta-feira.
+Data de Vencimento da 2ª parcela do título = 19/11/2008 (quarta-feira)
+ O cálculo do vencimento da 2ª parcela será calculado a partir da data de emissão, desconsiderando os finais de semana e feriados. Para a 2ª parcela seria considerado o segundo dia após a emissão, porém como existe a configuração mínima de dias úteis, o cálculo será para o 2º dia útil após a emissão. Assim, temos sábado (1º dia da parcela) que NÃO é dia útil, e domingo (2º dia da parcela) que também NÃO é dia útil. Como domingo não é dia útil, o sistema pulará para o próximo dia, segunda-feira, um dia NÃO útil pois é feriado, e pulará para terça-feira (1º dia útil). Como é necessário 2 dias úteis, conforme configuração, o sistema pulará para o próximo dia, quarta-feira (2º dia útil). E assim, a parcela terá seu vencimento para quarta-feira.
+Data de Vencimento da 3ª parcela do título = 19/11/2008 (quarta-feira)
+ O cálculo do vencimento da 3ª parcela também será calculado a partir da data de emissão, desconsiderando os finais de semana e feriados. Para a 3ª parcela seria considerado o terceiro dia após a emissão, porém como existe a configuração mínima de dias úteis, o cálculo será para o 2º dia útil após a emissão. Assim, temos sábado (1º dia da parcela) que NÃO é dia útil, e domingo (2º dia parcela) que também NÃO é dia útil, e segunda-feira (3º dia da parcela) um dia NÃO útil pois é feriado, e pulará para terça-feira (1º dia útil). Como é necessário 2 dias úteis, conforme configuração, o sistema pulará para o próximo dia, quarta-feira (2º dia útil). E assim, a parcela terá seu vencimento para quarta-feira.
+Exemplo 3:
+Situação 1
+Condição de Pagamento com prazo de 3 dias e 1 parcela.
+Data de Emissão = 13/11/2008 (quinta-feira).
+Normalmente, ao emitir uma Nota Fiscal nestas condições teríamos:
+Data de Emissão da Nota Fiscal= 13/11/2008 (quinta-feira)
+Data de Vencimento do título = 17/11/2008 (segunda-feira)
+ O cálculo do vencimento será a partir da data de emissão, considerando os finais de semana e feriados. Seria considerado sexta-feira (1º dia da parcela), sábado (2º dia da parcela) e domingo (3º dia da parcela). Como domingo NÂO é dia útil, o sistema pulará para o próximo dia, segunda-feira, que é dia útil. E assim, a parcela teria seu vencimento para segunda-feira.
+Situação 2
+Condição de Pagamento com prazo de 3 dias e 1 parcela.
+Número mínimo de dias úteis = 2.
+Data de Emissão = 13/11/2008 (quinta-feira).
+Ao emitir uma Nota Fiscal nestas condições teríamos:
+Data de Emissão da Nota Fiscal= 14/11/2008 (sexta-feira)
+Data de Vencimento do título = 17/11/2008 (segunda-feira)
+ O cálculo do vencimento será a partir do primeiro dia útil, desconsiderando finais de semana e feriados. Seria considerado sexta-feira (1º dia da parcela e 1º dia útil), sábado (2º dia da parcela) e domingo (3º dia da parcela). Como domingo NÂO é dia útil, o sistema pulará para o próximo dia, segunda-feira, que é o 2º dia útil, conforme configuração de Número Mínimo de dias úteis. E assim, a parcela teria seu vencimento para segunda-feira.
+Situação 3
+Condição de Pagamento com prazo de 3 dias e 1 parcela.
+Número mínimo de dias úteis = 2.
+Feriado configurado no Sispetro = 17/11/2008 (segunda-feira)
+Data de Emissão = 13/11/2008 (quinta-feira).
+Ao emitir uma Nota Fiscal nestas condições teríamos:
+Data de Emissão da Nota Fiscal= 14/11/2008 (sexta-feira)
+Data de Vencimento do título = 18/11/2008 (terça-feira)
+ O cálculo do vencimento será a partir do primeiro dia útil, desconsiderando finais de semana e feriados. Seria considerado sexta-feira (1º dia da parcela e 1º dia útil), sábado (2º dia da parcela) e domingo (3º dia da parcela). Como domingo NÂO é dia útil, o sistema pulará para o próximo dia, segunda-feira, que é feriado, portanto NÃO é dia útil. Sendo assim, o sistema pulará para terça-feira (2º dia útil), conforme configuração de Número Mínimo de dias úteis. E assim, a parcela teria seu vencimento para terça-feira.
+Exemplo 4:
+Situação 1
+Condição de Pagamento com prazo de 3 dias e 3 parcela.
+1ª parcela = 1 dia
+2ª parcela = 2 dias
+3ª parcela = 3 dias
+Data de Emissão = 13/11/2008 (quinta-feira).
+Normalmente, ao emitir uma Nota Fiscal nestas condições teríamos:
+Data de Emissão da Nota Fiscal= 13/11/2008 (quinta-feira)
+Data de Vencimento da 1ª parcela do título = 14/11/2008 (sexta-feira)
+ O cálculo do vencimento da 1ª parcela será calculado a partir da data de emissão, considerando os finais de semana e feriados. Para a 1ª parcela seria considerado o primeiro dia após a emissão, sexta-feira (1º dia da parcela). Neste caso, como é dia últil, a parcela terá seu vencimento para sexta-feira.
+Data de Vencimento da 2ª parcela do título = 17/11/2008 (segunda-feira)
+ O cálculo do vencimento da 2ª parcela será calculado a partir da data de emissão, considerando os finais de semana e feriados. Para a 2ª parcela seria considerado o segundo dia após a emissão, sábado (2º dia da parcela), sendo sexta-feira o 1º dia da parcela. Como sábado NÃO é dia útil, o sistema pulará para o próximo dia, domingo. Como domingo também NÃO é dia útil, o sistema pulará para o próximo dia, segunda-feira. Neste caso, como é dia útil, a parcela terá seu vencimento para segunda-feira.
+Data de Vencimento da 3ª parcela do título = 17/11/2008 (segunda-feira)
+ O cálculo do vencimento da 3ª parcela também será calculado a partir da data de emissão, considerando os finais de semana e feriados. Para a 3ª parcela seria considerado o terceiro dia após a emissão, domingo (3º dia da parcela), sendo sexta-feira o 1º dia da parcela e sábado o 2º dia da parcela. Como domingo NÃO é dia útil, o sistema pulará para o próximo dia, segunda-feira. E assim, a parcela teria seu vencimento para a segunda-feira, que é dia útil.
+Situação 2
+Condição de Pagamento com prazo de 3 dias e 3 parcela.
+Número mínimo de dias úteis = 2.
+Data de Emissão = 13/11/2008 (quinta-feira).
+Normalmente, ao emitir uma Nota Fiscal nestas condições teríamos:
+Data de Emissão da Nota Fiscal= 13/11/2008 (quinta-feira)
+Data de Vencimento da 1ª parcela do título = 17/11/2008 (segunda-feira)
+ O cálculo do vencimento da 1ª parcela será calculado a partir da data de emissão, desconsiderando os finais de semana e feriados. Para a 1ª parcela seria considerado o primeiro dia após a emissão, porém como existe a configuração mínima de dias úteis, o cálculo será para o 2º dia útil após a emissão. Assim, temos sexta-feira (1º dia da parcela e 1º dia útil), o sistema pulará para o próximo dia, sábado. Como sábado não é dia útil, o sistema pulará para o próximo dia, domingo. Mas domingo também NÃO é um dia útil, e pulará para o segunda-feira (2º dia útil). E assim, a parcela terá seu vencimento para segunda-feira.
+Data de Vencimento da 2ª parcela do título = 17/11/2008 (segunda-feira)
+ O cálculo do vencimento da 2ª parcela será calculado a partir da data de emissão, desconsiderando os finais de semana e feriados. Para a 2ª parcela seria considerado o segundo dia após a emissão, porém como existe a configuração mínima de dias úteis, o cálculo será para o 2º dia útil após a emissão. Assim, temos sexta-feira (1º dia da parcela e 1º dia útil), e sábado o 2º dia. Como sábado NÃO é dia útil, o sistema pulará para o próximo dia, domingo. Mas domingo também NÃO é um dia útil, e pulará para o segunda-feira (2º dia útil). E assim, a parcela terá seu vencimento para segunda-feira.
+Data de Vencimento da 3ª parcela do título = 17/11/2008 (segunda-feira)
+ O cálculo do vencimento da 3ª parcela também será calculado a partir da data de emissão, desconsiderando os finais de semana e feriados. Para a 3ª parcela seria considerado o terceiro dia após a emissão, porém como existe a configuração mínima de dias úteis, o cálculo será para o 2º dia útil após a emissão. Assim, temos sexta-feira (1º dia da parcela e 1º dia útil), sábado o 2º dia e domingo o 3º dia. Como domingo não é dia útil, o sistema pulará para o próximo dia, segunda-feira (2º dia útil). E assim, a parcela terá seu vencimento para segunda-feira.
+Situação 3
+Condição de Pagamento com prazo de 3 dias e 3 parcela.
+Número mínimo de dias úteis = 2.
+Feriado configurado no Sispetro = 17/11/2008 (segunda-feira)
+Data de Emissão = 13/11/2008 (quinta-feira).
+Normalmente, ao emitir uma Nota Fiscal nestas condições teríamos:
+Data de Emissão da Nota Fiscal= 13/11/2008 (quinta-feira)
+Data de Vencimento da 1ª parcela do título = 18/11/2008 (terça-feira)
+ O cálculo do vencimento da 1ª parcela será calculado a partir da data de emissão, desconsiderando os finais de semana e feriados. Para a 1ª parcela seria considerado o primeiro dia após a emissão, porém como existe a configuração mínima de dias úteis, o cálculo será para o 2º dia útil após a emissão. Assim, temos sexta-feira (1º dia da parcela e 1º dia útil), o sistema pulará para o próximo dia, sábado. Como sábado NÃO é dia útil, o sistema pulará para o próximo dia, domingo. Mas domingo também NÃO é um dia útil, e pulará para o segunda-feira que também não é dia útil pois é feriado. Assim, o sistema pulará para terça-feira (2º dia útil). E assim, a parcela terá seu vencimento para terça-feira.
+Data de Vencimento da 2ª parcela do título = 18/11/2008 (terça-feira)
+ O cálculo do vencimento da 2ª parcela será calculado a partir da data de emissão, desconsiderando os finais de semana e feriados. Para a 2ª parcela seria considerado o segundo dia após a emissão, porém como existe a configuração mínima de dias úteis, o cálculo será para o 2º dia útil após a emissão. Assim, temos sexta-feira (1º dia da parcela e 1º dia útil), e sábado o 2º dia. Como sábado não é dia útil, o sistema pulará para o próximo dia, domingo. Mas domingo também NÃO é um dia útil, e pulará para o segunda-feira. Como segunda-feira também NÃO é dia útil, pois é feriado, o sistema pulará para o próximo dia, terça-feira (2º dia útil). E assim, a parcela terá seu vencimento para terça-feira.
+Data de Vencimento da 3ª parcela do título = 17/11/2008 (segunda-feira)
+ O cálculo do vencimento da 3ª parcela também será calculado a partir da data de emissão, desconsiderando os finais de semana e feriados. Para a 3ª parcela seria considerado o terceiro dia após a emissão, porém como existe a configuração mínima de dias úteis, o cálculo será para o 2º dia útil após a emissão. Assim, temos sexta-feira (1º dia da parcela e 1º dia útil), sábado o 2º dia e domingo o 3º dia. Como domingo não é dia útil, o sistema pulará para o próximo dia, segunda-feira. Como segunda-feira também NÃO é dia útil, pois é feriado, o sistema pulará para o próximo dia, terça-feira (2º dia útil). E assim, a parcela terá seu vencimento para terça-feira.
+Importante: Este recurso foi desenvolvido após requisição de que, em determinados dias (normalmente às sextas) caso o vencimento ocorresse em 3 dias (portanto caísse na segunda-feira), o Sispetro automaticamente prorrogasse por mais um dia o vencimento.

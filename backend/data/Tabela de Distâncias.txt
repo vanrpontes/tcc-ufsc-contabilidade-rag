@@ -1,0 +1,159 @@
+TITULO: Tabela de Distâncias
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878211020
+--------------------------------------------------
+Objetivo
+Nela é informado um código DNC origem (base armazenadora) ou o código DNC da região ou ainda o código DNC do depósito (
+dependendo da configuração da empresa, mais detalhes no tópico
+ 
+Tabela Depósitos
+), que foi previamente cadastrada na 
+Tabela Cidades
+, com um código DNC destino, município de cada cliente, ou DNC da região, ou seja, a região que foi definida na 
+Clientes - Painel Detalhes
+ painel 
+Rotas (Clientes)
+, a distância entre eles e o fator de correção (Km por litro). 
+O intuito desta tabela é armazenar as distâncias entre cidades e/ou regiões para controle de frete padrão.
+Cálculo de frete padrão:
+ a empresa que desejar trabalhar com cálculo do frete por Região deverá habilitar no 
+Menu Ferramentas / Sistema / 
+painel Fretes
+ a opção Permite Cálculo de Frete por Região
+Quando marcada essa opção será permitido o cadastro de distâncias para Regiões e utilizará o campo DNC da Região do cadastro do Cliente e não do município para os cálculos de frete do Pedido de Venda, Análise de Custos, Simulação de Acréscimo e Conhecimento de Frete. Essa opção é útil para que o cálculo do frete seja de acordo com a região onde o cliente se localiza, pois no caso de municípios extensos, exemplo São Paulo, a distância varia muito.
+É possível incluir mais de uma Tabela de Distância e cadastrá-las em diversas transportadoras. Para mais informações, ver 
+Tabela de Distância por Transportadora
+.
+Aba Navegação
+Nesta aba são apresentadas todas as tabelas cadastradas, se estão ativas, se fazem ou servem de referência a outras. 
+Aba Detalhes
+Nesta aba são apresentadas as seguintes informações:
+Descrição: 
+descrição da tabela
+Ativo: 
+se está ativo ou não
+Copia dados de outra Tabela: 
+na inclusão, se irá copiar de outra tabela já criada.
+Tabela de Distância para Referência ou Cópia: 
+informe o código da tabela 
+Mantêm origem como referência:
+ se deve manter a tabela de origem como referência.
+Para mais informações, ver item 
+incluindo uma Nova Tabela
+Aba Valores Origem Destino
+O SisPetro sugere como código DNC Origem, que é o código da empresa que o usuário está conectado (empresa que selecionou quando entrou no SisPetro).
+Caso esteja errado (o usuário quer cadastrar a distância entre uma Usina e uma base armazenadora, por exemplo, ou cadastrar distâncias entre regiões), limpe o campo e aperte <enter> para abrir uma janela de pesquisa de municípios.
+O SisPetro abre uma janela com as cidades e/ou regiões já cadastradas como destino para a origem selecionada pelo usuário.
+Para 
+pesquisar 
+uma determinada cidade e ou região, digite na coluna desejada (código DNC, Cidade Destino ou outra qualquer) o texto a ser procurado. Para ordenar por uma determinada coluna, clique no cabeçalho dessa coluna.
+Para 
+alterar 
+dados de uma determinada cidade e ou região, posicione sobre a mesma acione o botão alterar, o Sistema acionara a tela de alteração de valores por distância, após alterar os seus dados na parte inferior da tela, clique no botão 
+OK
+.
+Para 
+excluir
+, posicione corretamente sobre ela e clique no botão 
+Exclui
+. Para mais informações, ver 
+Painel Fretes (Usuários)
+.
+Para 
+incluir 
+uma nova cidade, clique primeiramente no botão 
+Inclui
+. O SisPetro acionará a tela de Inclusão de Valores por Distâncias. 
+Campos a serem preenchidos:
+Código DNC Destino: 
+através deste campo será estabelecida a cidade destino, empregada para o calculo da distância informada.
+Distância Real: 
+distância em KM entre as duas cidades selecionadas efetivamente.
+(Ex. A distância efetiva entre cidade de São Paulo e Paulínia é de 118 KM)
+Distância p/ Cálculo Frete: 
+distância em KM entre as duas cidades selecionadas contudo para uso no calculo do frete, podendo ser diferente da distância real quando necessária para calculo .
+Ex. A distância para cálculo de frete empregada entre cidade de São Paulo e Paulínia é de 120 KM, em virtude da necessidade de uma rota complementar)
+Fator de Conversão:
+ esse campo será empregado no calculo do valor unitário do frete, somente quando o item Pode calcular frete diretamente da tabela de distância (Ferramentas / Sistema / Frete) estiver DESMARCADO, realizando assim o seguinte calculo: Fator de Conversão + Fator Frete Padrão por KM / Litro (Ferramentas / Sistema / Frete) (com um fator para cada tipo de frota) multiplicado pela Distância (Distância p/ Calculo Frete).
+Valor Pedágio: 
+esse valor será utilizado para emissão de Conhecimento de Frete - no caso de Transportadoras - para cálculo da base de cálculo de ICMS e se cadastrado na 
+Tabela Componentes da Prestação de Serviço
+ poderá ser mostrado no DACTE e enviado no XML. Para mais informações, ver 
+Emitindo um Conhecimento de Transporte CT-e
+.
+Valor de Frete Sugerido: 
+esse campo informamos o valor do frete que será sugerido na inclusão do pedido/oc.
+Obs.: É possível incluir também um fator de correção de frete e atrelar ele ao frota. Para mais informações, ver 
+Bitruck - Valor de Frete diferenciado
+Valores de Frete Mínimo e Máximo: 
+para habilitar a utilização desses campos o 
+perfil de Sistema
+ 
+Trabalha com Frete Mínimo e Máximo na Tabela Distância?
+ deve estar marcado. Para mais informações, ver 
+Como trabalhar com Frete Mínimo e Máximo
+.
+      
+O SisPetro utiliza essas informações para realizar o cálculo do frete, porém em casos de mercadorias sendo carregadas por conjuntos como 
+Carreta + Treminhão 
+entre outros, o SisPetro considera o frete do primeiro carro após o 
+cavalo
+. Tomando os valores da imagem acima como exemplo: 
+Conjunto
+Frete Cobrado
+Cavalo + Carreta + Treminhão
+Frete da Carreta = 0,56
+Cavalo + Treminhão + Tritrem
+Frete do Treminhão = 0,65
+Após terminar, clique no botão 
+OK
+ para providenciar a inclusão dos dados.
+A tabela de distância é útil no cálculo do frete por tipo de Ordem de Carregamento. ´Para mais informações, ver 
+Controle de Frete por tipo de Ordem de Carregamento
+.
+Nesta tela existe a opção de 
+impressão
+ dos dados.
+Como incluir uma Nova Tabela
+Para incluir uma nova tabela clicar no botão 
+Incluir
+:  
+É preciso indicar:
+Descrição: 
+informe uma descrição
+Ativo: 
+se marcado, está ativo
+Copia dados de outra Tabela: 
+caso deseje copiar os dados de distância de outra tabela, marcar este perfil e indicar no campo abaixo de qual tabela será copiado.
+Tabela de Distância para Referência: 
+se o perfil acima for marcado é preciso indicar qual tabela será usada na cópia
+Mantém origem como referência: 
+Para usar uma tabela como Referência é preciso ter copiado os dados de outra
+A aba Valores Origem Destino estará vazia, pois usará os dados da tabela Herdada ou Referenciada
+Sendo assim, nesta nova tabela, podemos dizer que só conterá as exceções. Veja o exemplo
+  Tabela 1
+Origem
+Destino
+Valor do Frete
+SP
+MG
+500,00
+SP
+RJ
+300,00
+SP
+BA
+750,00
+Tabela 2
+Origem
+Destino
+Valor do Frete
+SP
+MG
+500,00
+SP
+RJ
+300,00
+SP
+BA
+1.000,00
+Notem que os dois primeiros fretes são iguais, apenas o último é diferente. A referencia foi criada para estes casos. Fazendo a referencia será necessário cadastrar apenas o frete diferente, para os outros destinos será utilizado os valores da tabela 1.

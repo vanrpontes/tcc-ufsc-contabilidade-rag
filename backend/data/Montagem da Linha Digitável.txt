@@ -1,0 +1,95 @@
+TITULO: Montagem da Linha Digitável
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2888204369
+--------------------------------------------------
+Cada banco possui uma característica na montagem da linha digitável. Este tópico irá contemplar a diferença para cada banco.
+Pode ocorrer na implantação de um novo Tipo de Cobrança o Banco informar que a 
+Linha Digitável
+ está incorreta. Para corrigí-las é importante que saibamos como ela é composta. Este tópico apresentará essa composição e a partir dela é possível localizar as informações na configuração do 
+Tipo de Cobrança
+ para a devida correção.
+Vejamos a seguir a linha digitável:
+Banco
+Moeda
+CL 1-5
+DV
+CL 6-15
+DV
+CL 16-25
+DV
+DV
+FV
+VALOR
+1 2 3
+4
+5 6 7 8 9
+0
+1 2 3 4 5 6 7 8 9 0
+1
+2 3 4 5 6 7 8 9 0 1
+2
+3
+4 5 6 7
+8 9 0 1 2 3 4 5 6 7
+Legenda
+:
+CL
+ - Campo Livre (varia de banco a banco).
+DV
+ - Dígito Verificador (padrão Febraban)
+FV
+ - Fator de Vencimento
+Máscara da linha digitável
+ - 99999.9999
+9
+ 99999.99999
+9
+ 99999.99999
+9
+ 
+9
+ 99999999999999 (os dígitos estão em negrito).
+Com exceção do Campo Livre as demais informações são sempre as mesmas, independente do banco:
+Banco
+: Sempre o código do banco com 3 dígitos. O Bradesco é 237, Itaú é 341 e assim por diante. Veja mais em 
+Bancos
+Moeda
+: É um código fixo para a moeda utilizada. Atualmente todos os bancos usam 9 para o Real
+Fator de Vencimento
+: Indica o vencimento, pois é o nº de dias entre 
+07/10/97
+ até o vencimento. Entre 07/10/1997 e 29/06/2009 são 4283 dias, nesse caso o fator de vencimento para um boleto que vença em 29/06/2009 será 4283.
+A partir de 22/02/2025 ficou assim: 
+Vencimento 23/02/2025 = Fator 1001.
+Vencimento 19/10/2025 = Fator 1239.
+Valor
+: É o valor do documento com 10 dígitos sendo 8 inteiros e 2 decimais sem vírgulas ou pontos. Se o valor for 2.578,37 teremos 0000257837
+O Campo Livre, que contém 25 dígitos, aí sim varia de banco para banco e é esse o grupo de informações que pode dar problema numa implantação de cobrança eletrônica. Veja, em cada banco, como esse campo livre é composto.
+Detallhamento do Campo Livre (CL) para cada Banco:
+356 - ABN Amro (Real)
+001 - Banco do Brasil (Convênio com 7 Dígitos)
+001 - Banco do Brasil (convênio 6 dígitos)
+453 - Banco Rural (cobrança simples)
+453 - Banco Rural (cobrança vinculada)
+041 - Banrisul
+641 - BBV
+320 - BIC Banco
+237 - Bradesco (Banco Correspondente)
+237 - Bradesco (Banco Correspondente JSafra)
+237 - Bradesco (Banco Correspondente BIC)
+237 - Bradesco (Banco Correspondente Daycoval)
+237 - Bradesco (Banco Correspondente Rural)
+237 - Bradesco (s/ Banco Correspondente)
+104 - Caixa Econômica Federal
+745 - CitiBank
+399 - HSBC (usado pelo Sofisa)
+074 - JSafra
+389 - Mercantil
+008 - Meridional
+151 - Nossa Caixa
+275 - Real
+633 - Rendimento
+353 - Santander
+347 - Sudameris - Layout antigo
+347 - Sudameris - Layout novo
+409 - Unibanco
+705 -Daycoval

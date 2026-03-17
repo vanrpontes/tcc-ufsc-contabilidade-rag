@@ -1,0 +1,63 @@
+TITULO: Automação Balança Jundiaí
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2910486879
+--------------------------------------------------
+A integração com a balança poderá acontecer de duas maneiras, sendo:
+Portarias Manuais (Sem SmartCard):
+ se dá pela configuração de um arquivo 
+BalancaJundiai.DLL
+ que fará a leitura gerada através da DLL fornecida pela Balanças Jundiaí (peso32.dll) com o peso do caminhão.
+Portarias Automáticas (com Automação SmartCard): 
+se dá pela configuração de um arquivo 
+BalancaJundiaiTxt.DLL
+ que fará a leitura gerada através de um arquivo TXT contendo o peso do caminhão.
+Veja as configurações:
+É necessário que seja configurado o 
+perfil de sistema
+ e de 
+deposito
+, podendo ser definido para sempre realizar a integração ou somente para um determinado tipo de movimentação. Também é necessário colocar o caminho da DLL no perfil de Sistema, conforme imagem abaixo:
+Veja maiores detalhes em 
+Depósitos - Aba Dados Adicionais
+ e no 
+.
+Para obter a DLL da balança, entre em contato com o suporte.
+Para trabalhar com a DLL 
+BalancaJundiai.DLL
+ é 
+necessário ter um arquivo BalancaJundiai.ini no mesmo caminho do arquivo .dll:
+Nesse arquivo .ini teremos os seguintes parâmetros:
+[GERAL]
+DLL=C:\peso32.dll
+[COMUNICACAO]
+Porta=COM1    ==> esta opção depende da porta serial na qual a balança foi conectada.
+Velocidade=9600
+Paridade=e
+BitsDados=8
+BitsParada=2
+NOTA: a conexão física da balança funciona com Terminal Server, desde que esteja devidamente configurado para assumir as portas seriais da máquina local.
+Para trabalhar com a DLL 
+BalancaJundiaiTxt.DLL
+ é necessário ter um arquivo BalancaJundiaiTxt.ini no mesmo caminho do arquivo .dll:
+Nesse arquivo .ini teremos os seguintes parâmetros:
+"Arquivo Texto da Balança" onde será informado o caminho e o nome do arquivo correspondente.
+Abaixo um exemplo de como deverá ser criado o conteúdo do arquivo BalancaJundiaiTxt.ini:
+[Geral]
+ArquivoTexto=c:\peso.txt
+
+É possível indicar diretórios diferentes para arquivos de entrada e saída.
+Segue exemplo:
+[Geral]
+ArquivoTextoEntrada=c:\Entrada\peso.txt
+ArquivoTextoSaida=c:\Saida\peso.txt
+O arquivo TXT deverá conter somente o valor referente ao peso, por exemplo:
+14250
+Ao ser configurada a integração com a balança, essa será acionada em dois pontos:
+Na Portaria de Entrada, onde o peso do caminhão será salvo como Peso Inicial
+Na Portaria de Saída, onde o peso do caminhão será salvo como Peso Final
+A partir da obtenção do peso do caminhão é possível utilizar esse peso para saber o volume ambiente carregado/descarregado.
+Peso do caminhão:
+Descargas = ( Peso Inicial - Peso Final )
+Carregamentos = ( Peso Final - Peso Inicial )
+Volume ambiente:
+= ( Peso do caminhão / Densidade ambiente )
+Essa densidade é a cadastrada no Tanque, através da última leitura de tanque.

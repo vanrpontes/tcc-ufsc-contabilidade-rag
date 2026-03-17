@@ -1,0 +1,39 @@
+TITULO: FAQ NF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2528674192
+--------------------------------------------------
+Dúvidas Frequentes
+Qual layout da NF-e devo usar?
+A partir do dia 01/04/2011 o layout exigido pelo Governo é o 2.0, lembrando que este está disponível a partir da versão 7.7 do SisPetro.
+Aonde é configurado este layout?
+É um perfil de sistema, acessado por: Ferramenta/ Sistema/ Aba nota fiscal / Versão dos dados SEFAZ.
+Qual é o modelo de NF que preciso usar?
+Para notas fiscais eletrônicas é preciso usar o modelo 55, acessado por Tabelas Auxiliares / Faturamento / Natureza de Operação / aba detalhes, aba Dados adicionais => Modelo NF.
+Quando utilizava a versão 1.0, nenhuma nota eletrônica ocorria erros, depois que mudei o layout ocorrem erros frequentes.
+Sim, isso pode acontecer pois na versão 1.0 não eram validados muitos registros que a versão 2.0 valida.
+Como posso identificar os erros da NF-e, falha de schema , base de cálculo difere do calculado...?
+Os erros são identificados pela própria Sefaz, o SisPetro não valida se todos os campos estão de acordo com a legislação e produto. Aconselhamos a instalarem o programa da Sefaz do Rio Grande do Sul, chamado AssinadoRS, baixado pelo 
+AssinadorRS
+ , nós temos um "passo a passo" de como configurar e validar o arquivo .XML, vide help 
+AssinadorRS
+Os erros mais corriqueiros são: CFOP, NCM, CST configurados errados, assim gerando erros de ICMS Subst, base ICMS errada, PIS e CONFIS...
+Errei ao inserir uma nota de emissão própria e já passou o prazo para cancelmento e inutulização, se cancelar no SisPetro meu problema está resolvido?
+NÃO
+ , após o prazo 
+NÃO
+ basta cancelar a nota no SisPetro, é necessário entrar em contato com a Sefaz para eles passarem os 
+procedimentos legais
+. Caso a nota se apenas cancelada no SisPetro ela 
+CONTINUARÁ ativa
+ na Sefaz, 
+tendo validade legal
+ .
+Tenho uma nota de entrada, de emissão de terceiros e preciso digitar a chave de acesso, como faço?
+Para digitar a chave de acesso, é preciso que a 
+Natureza de Operação
+ esteja configurada como sendo 
+emissão de terceiros
+ e Habilitado a opção 
+Habilita NF-e eletrônica
+ . Assim ao dar entrada na nota será disponibilizado a chave de acesso.
+Depois de arrumados os campos necessários para o processamento, preciso fazer outra nota?
+SIM

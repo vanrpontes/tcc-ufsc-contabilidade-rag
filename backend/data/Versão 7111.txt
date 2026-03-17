@@ -1,0 +1,191 @@
+TITULO: Versão 7.11.1
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2897870988
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 15/12/2010 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 03/01/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd7111.sql 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 9 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 2 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 7 
+
+
+
+
+
+
+Geral
+
+
+
+
+Erro ao Excluir Dois LayOut's de Usuário Seguidos
+
+Nas consultas tridimensionais do SisPetro, com a opção do usuário de salvar diversos layout's, caso o usuário tentasse excluir dois layout's seguidos, era gerada uma mensagem de erro e o segundo layout não era excluído. A partir dessa versão esse problema não ocorrerá mais. 
+UPA (CCF 11462)
+
+
+
+
+Compras
+
+
+
+
+Seleção do Depósito Virtual no PMM
+
+
+Na tela de Pedido de Movimentação de Material (PMM) alteramos os campos de "Depósito" e "Depósito Destino" para que filtrem apenas os depósitos disponíveis.
+ 
+Dessa forma, não será possível selecionar os depósitos virtuais.
+ 
+ALP (CCF 11476)
+
+
+
+
+Estoques
+
+
+
+
+Possibilidade de Salvar os Layouts de Usuário nas Consutas de Estoque que Envolvem Depósito
+
+
+Nas consultas de disponibilidade e saldo de estoques, foi habilitada a opção de salvar o layout dos dados exibidos por usuário. Com esse recurso será possível montar layouts, filtrando por depósitos específicos e com isso, exibir por exemplo o total de produtos de um determinado grupo de depósitos, como é feito quando se é utilizado o Depósito Virtual. UPA (CCF 11462)
+
+
+
+
+Financeiro
+
+
+
+
+Contra-Partida dos Títulos a pagar X Contabilização Auxiliar
+
+Nos casos em que a Natureza de Operação estava configurada para Contabilização Auxiliar o título do Contas a Pagar ficava com a contabilização auxiliar nas contas de contra-partida (aba Conta Gerencial na visualização do título). Este caso foi corrigido, porém 
+Não será permitido escolher a opção Desabilitado na configuração da Contabilização na Natureza de Operação.
+. 
+GSN (CCF 11501)
+
+
+Devolução de Adiantamento de Fornecedor vinculado a PMM
+
+Criado um perfil de sistema Permite fazer transferência de Adiantamentos com PMM Vinculado na aba Financeiro. Quando marcado permitirá que Adiantamentos de Fornecedor vinculados a PMM sejam transferidos 
+somente
+ para Conta Contábil.
+Caso o adiantamento transferido seja quantificado inclua manualmente um Pedido de Outras Saídas para ajustar o estoque do depósito usina.
+ 
+Help:
+ 
+Transferindo um Crédito de um Fornecedor para Outro
+ 
+GSN (CCF 11502)
+
+
+
+
+Fiscal
+
+
+
+
+Ajustes no SPED-EFD - Duplicidade no Registro C190
+
+Corrigido o erro de duplicidade no Registro C190.
+A fórmula do Registro C190 foi alterada.
+. 
+GSN (CCF 11472)
+
+
+Ajustes no SPED-EFD - Duplicidade nos Registros 0150 e 0200
+
+Corrigido o erro de duplicidade nos Registros 0150 e 0200.
+GSN (CCF 11472)
+
+
+Ajustes no SPED-EFD - Erro de Estrutura
+
+Corrigido o erro de estrutura causado pela geração invertida dos registros iniciais (0150, 0200, etc). 
+GSN (CCF 11472)
+
+
+Ajustes no SPED-EFD - Registro C170 indevido
+
+Corrigido para que não exiba o Registro C170 para notas de emissão própria quando não tiver registro C176. 
+GSN (CCF 11472)
+

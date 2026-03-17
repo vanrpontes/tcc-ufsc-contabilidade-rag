@@ -1,0 +1,54 @@
+TITULO: 1. Processo de Produção de Ordem de Fabricação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2899608410
+--------------------------------------------------
+Apenas tanque que sejam do tipo "Formulação" poderão ser utilizados na Ordem de Fabricação. Veja mais informações sobre o Tipo do Tanque em 
+Manutenção de Tanques
+Pré-requisitos:
+A execução de alguns pré-requisitos se torna necessária antes do inicio do processo de produção, segue abaixo:
+Cadastro de Produtos Primarios e Produto Tanque (Produto a ser produzido)
+ - Veja os tópicos 
+ e 
+Cadastro de Depósito e Tanques para os respectivos produtos
+ - Veja os tópicos 
+Tabela Depósitos
+ e 
+Manutenção de Tanques
+Definição de Fórmulas
+: Veja o tópico 
+Manutenção de Formulação de Produtos
+Produção
+Ao acessar a tela de Manutenção de Ordem de Fabricação no caminho descrito anteriormente, será apresentada a tela a seguir:
+Utilize o botão 
+ 
+ 
+para emitir a Ordem de Fabricação (OF):
+ Usuário selecionará o produto destino, tanque, quantidade a ser produzida (a temperatura ambiente) e uma das fórmulas vinculadas ao produto destino em seu cadastro.
+   
+Após a inclusão dos dados acima, o usuário deverá selecionar o botão 
+, o Sispetro abrirá uma tela contendo todos os 
+produto tanque
+, seus percentuais, volumes necessários.
+  
+É possível alterar as proporções de cada produto primário, para isso utilize o botão 
+.
+Certifique-se que a soma dos percentuais seja sempre 100%.
+Em seguida, o usuário passará a escolher os tanques para atender cada produto necessário a realização da OF, será mostrado o saldo do estoque atual para elaborar a composição, porém este saldo poderá ser alterado no momento da execução da OF.
+Para isso, selecione o produto 
+materia-prima
+ que no grid abaixo serão exibidos todos os tanques disponíveis para ele, selecione o tanque desejado e através do botão 
+, informe o volume a ser utilizado desse tanque.
+É possível que seja utilizado mais de um tanque, para isso informe os volumes proporcionais de cada tanque, marque a opção 
+Utilizar
+ dos tanques desejados e certifique-se que a soma de todos os tanques seja igual ao volume requerido daquele produto.
+Após informar o valor do 
+Volume a Utilizar
+, caso seja desmarcado o campo 
+Utilizar
+, o Volume a Utilizar ficará com o valor zerado.
+Após concluído o preenchimento de todas as informações, finalize a inclusão através do botão 
+Salvar
+. A OF ficará pendente de aprovação para ser executada.
+A OF será executada num único tanque destino, isto é, não poderemos ter uma OF gerando produtos para mais de um tanque.
+Aprovação da Ordem de Fabricação
+: Através do botão 
+, o usuário com perfil adequado, efetuará a aprovação da OF. Sem esta aprovação, a OF não pode ser executada. O nome e data/hora da aprovação da OF serão salvos na própria OF.

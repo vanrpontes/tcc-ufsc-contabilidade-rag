@@ -1,0 +1,70 @@
+TITULO: Manutenção de Importação de Saldos de Contas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899976
+--------------------------------------------------
+none
+Objetivo 
+Após realizarmos todas pré-configurações necessárias para realização da importação (maiores informações veja 
+Manutenção Importação de Dados
+, 
+Manutenção De/Para
+ e 
+Manutenção de Processos
+) iremos finalmente realizar o processo de importação da saldo de contas por meio do arquivo magnético (maiores informações veja 
+Estrutura do Layout de Importação
+).
+Para acessar a Importação de Saldos de Contas, deve acessar o 
+Menu Ferramentas / Importação de Dados / Importação de Saldos de Contas
+:
+Para iniciar a importação dos saldo de contas informe o processo que será realizado (ao definir o processo será carregada a Importação que será utilizada e o De/Para a ser empregado, bem como os saldos de contas que tiveram sua importação iniciada mas não tiveram seus dados totalmente validado ou não foram processados).
+No painel 
+Informações Complementares
+, deverão ser preenchidos alguns campos antes de iniciar a importação:
+Deste ponto em diante para melhor compreensão do processo, a importação será dividida em 3 etapas (maiores informações veja 
+Importação de Saldo Final de Contas
+):
+1ª ETAPA - IMPORTAÇÃO DO ARQUIVO:
+Nesta etapa da importação iremos realizar a importação do arquivo para o SisPetro, fazendo uso de uma das estruturas de layout disponíveis atualmente pelo SisPetro para importação de saldos de contas (maiores informações veja 
+Estrutura do Layout de Importação
+).
+Essa primeira etapa poderá ser realizada simplesmente pressionando o botão 
+.
+Ocorrendo algum problema na importação do arquivo por meio do uso do modelo, serão apresentadas as mensagens de erro no painel 
+Erros de Importação
+ presente na tela, caso contrário a importação automaticamente prosseguirá para a segunda etapa.
+2ª ETAPA - VALIDAÇÃO DO ARQUIVO IMPORTADO:
+Os registros que não puderam ser validados, serão apresentadas na aba 
+Dados a serem validados
+, com o(s) respectivo(s) problema(s).
+Após edições ou até mesmo novos cadastros no De/Para (que poderá ser acessado por meio do botão 
+De/Para
+ presente na tela) o usuário poderá pressionar o botão 
+,
+ sendo neste momento realizado novamente o processo da 2ª Etapa para o registro em questão.
+Importante: Essa etapa poderá ser passada automaticamente, caso o arquivo importado não apresente nenhuma inconsistência.
+ 
+3ª ETAPA - PROCESSAMENTO DOS SALDOS DE CONTAS:
+Nesta etapa os dados que foram validados encontram-se disponíveis para gerar os saldos dos mesmos, passando pela última crítica finalmente os saldos das contas serão lançados no SisPetro.
+Todas os registros que foram validados, contudo não foram processadas permanecerão no painel 
+Saldos a serem processadas
+.
+Todos os dados presentes na aba 
+Saldos a serem processados
+ poderão ser editados por meio do botão 
+, sendo importante alguns detalhes quanto a edição:
+Para se realizar a edição dos dados de cabeçalho deverá ser selecionado o registro do saldo da conta, sendo apresentada a seguinte tela:
+No caso da ocorrência de erro(s) no processamento o saldo da conta em questão não será importado, contudo o processo irá continuar para os demais saldos.
+Para realizar o processo de importação , cabe ao usuário pressionar o botão 
+, sendo iniciado registro a registro o processo de importação e para os casos que ocorram problemas quanto a importação será apresentada no registro do saldo de conta o motivo a ser analisado.
+Observações gerais:
+Na tela de Importação de Saldos de Contas é possível realizar algumas tarefas complementares para auxiliar a importação dos dados, dentre elas está realizar a impressão das inconsistência, por meio do botão 
+ (sendo esse sensível ao contexto, isto é, serão impressos os dados conforme a aba que encontrar-se ativa), outra disponibilidade presente nesta tela é o acesso direto ao Cadastro de 
+De/Para
+ do processo selecionado, por meio do botão 
+ (maiores informações veja 
+Manutenção De/Para
+).
+No caso da importação de saldo de contas não será preciso utilizar o 
+De/Para
+, pois a conta gerencial será localizada conforme o código enviado no arquivo texto, no campo 
+Código Exportação
+ do Plano de Contas. Com isso, ao migrar o Plano de Contas do sistema antigo para o SisPetro, já pode ser preenchido o Código de Exportação correspondente. Se houver mais que uma conta gerencial com o mesmo código de exportação, será utilizada umas das contas, sem critério de seleção.

@@ -1,0 +1,214 @@
+TITULO: Balancete
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210291
+--------------------------------------------------
+Emita o balancete de verificação a partir do menu 
+Relatórios / Balancete de Verificação
+A impressão do balancete será gerada conforme o arquivo 
+balancete.rtm
+ que estiver no caminho do executável ou nos caminhos auxiliares. Para alterar o layout utilize o botão 
+Importante: atentar-se as atualizações do arquivo .rtm a cada atualização do SisPetro. Para que as alterações feitas sejam consideradas, é necessário sobrepor o .rtm existente pelo atual.
+Para incluir informações sobre o Responsável Legal pela empresa, veja 
+Dados do Responsável Legal pela empresa nos Relatórios Contábeis
+.
+Informe a 
+filial
+ ou desmarque a opção 
+Filial específica
+ para emitir o balancete de todas as filiais. No caso de desmarcar esta opção é possível informar se é para 
+Detalha por filial
+. Ou seja, pode imprimir o balancete com os valores somados de todas as filiais ou ter detalhado o valor de cada filial.
+Para emitir o balancete por intervalo de contas, basta marcar a opção 
+Intervalo de Contas
+ e selecionar as contas. Na tela é informado o código reduzido da conta, mas internamente o SisPetro utiliza o código estendido para executar a seleção.
+Emite Contas de Fornecedor e Clientes:
+ permite que as contas de fornecedores, clientes, adiantamento de clientes e adiantamento de fornecedores sejam impressas no balancete. Caso não marque a opção, imprimirá somente as contas sintéticas.
+No perfil de sistema, 
+ tem a mesma opção, que virá sugerida na tela de opções do Balancete.
+No perfil de sistema, 
+Painel Codificação Contas
+, para que as contas de Adiantamento sejam ou não impressas, no quadro Adiantamento Cliente/Fornecedor, deve estar selecionada a opção Uma Conta por Entidade
+Emite Contas de Entidade ordenadas pela descrição:
+ tem por finalidade a ordenação das contas de Clientes, Fornecedores, Adiantamentos de Clientes e Adiantamentos de Fornecedores pela Razão Social.
+Esta opção é habilitada somente se a opção 
+Emite Contas de Fornecedor e Clientes 
+estiver marcada
+Emite somente contas com movimentação:
+ emite somente as contas que foram movimentadas. 
+Nota:
+ esta opção torna a emissão do balancete mais demorada
+Considera contas inativas:
+ Permite que seja emitido o relatório considerando inclusive as contas inativas do plano de contas e seus saldos.
+Nota:
+ é obrigatório marcar esta opção
+Valores de Encerramento:
+ permite ao usuário definir se 
+Considera encerramento
+, se 
+Desconsidera no Saldo Inicial e Movimentação do período
+ ou se 
+Desconsidera somente na Movimentação do período
+.
+Exemplos:
+Considera Encerramento:
+ o SisPetro irá gerar o balancete considerando o encerramento efetuado nas contas de resultado.
+Em 2006 começamos a operação da empresa e tivemos uma movimentação de Crédito na conta Receita A de $50.000, e uma movimentação de Débito na conta Despesa D de $30.000. No final de 2006 teremos o seguinte balancete:
+Conta
+Saldo Inicial
+Débito
+Crédito
+Saldo Final
+Receita A
+0,00
+0,00
+50.000,00
+50.000,00
+Despesa D
+0,00
+30.000,00
+0,00
+30.000,00
+Após efetuar o encerramento e com esta opção de 
+Considera Encerramento
+, teremos o seguinte balancete:
+Conta
+Saldo Inicial
+Débito
+Crédito
+Saldo Final
+Receita A
+0,00
+50.000,00
+50.000,00
+0,00
+Despesa D
+0,00
+30.000,00
+30.000,00
+0,00
+Desconsidera no Saldo Inicial e Movimentação do período:
+ o SisPetro não irá considerar o encerramento efetuado nas contas de resultado no Saldo Inicial e nem nas movimentações do período.
+Considerando a mesma operação do exemplo anterior: em 2006 começamos a operação da empresa e tivemos uma movimentação de Crédito na conta Receita A de $50.000, e uma movimentação de Débito na conta Despesa D de $30.000. No final de 2006 teremos o seguinte balancete:
+Conta
+Saldo Inicial
+Débito
+Crédito
+Saldo Final
+Receita A
+0,00
+0,00
+50.000,00
+50.000,00
+Despesa D
+0,00
+30.000,00
+0,00
+30.000,00
+Após efetuar o encerramento e com esta opção de "Desconsidera no Saldo Inicial e Movimentações do período", teremos o seguinte balancete:
+Conta
+Saldo Inicial
+Débito
+Crédito
+Saldo Final
+Receita A
+0,00
+0,00
+50.000,00
+50.000,00
+Despesa D
+0,00
+30.000,00
+0,00
+30.000,00
+No entanto, iniciamos a operação para o ano de 2007 e tivemos uma movimentação de Crédito na conta Receita A de $80.000, e uma movimentação de Débito na conta de Despesa D de $ 40.000. Ao efetuarmos o encerramento para o ano, e considerando a opção de 
+Desconsidera no Saldo Inicial e Movimentações do período
+, teremos o seguinte balancete:
+Conta
+Saldo Inicial
+Débito
+Crédito
+Saldo Final
+Receita A
+50.000,00
+0,00
+80.000,00
+130.000,00
+Despesa D
+30.000,00
+40.000,00
+0,00
+70.000,00
+Desconsidera somente na Movimentação do período:
+ o SisPetro não irá considerar o encerramento efetuado nas contas de resultado nas movimentações do período.
+Ainda considerando a mesma operação dos exemplos anteriores: em 2006 começamos a operação da empresa e tivemos uma movimentação de Crédito na conta Receita A de $50.000, e uma movimentação de Débito na conta Despesa D de $30.000. No final de 2006 teremos o seguinte balancete:
+Conta
+Saldo Inicial
+Débito
+Crédito
+Saldo Final
+Receita A
+0,00
+0,00
+50.000,00
+50.000,00
+Despesa D
+0,00
+30.000,00
+0,00
+30.000,00
+Após efetuar o encerramento e com esta opção de "Desconsidera somente na Movimentações do período", teremos o seguinte balancete:
+Conta
+Saldo Inicial
+Débito
+Crédito
+Saldo Final
+Receita A
+0,00
+0,00
+50.000,00
+50.000,00
+Despesa D
+0,00
+30.000,00
+0,00
+30.000,00
+No entanto, iniciamos a operação para o ano de 2007 e tivemos uma movimentação de Crédito na conta Receita A de $80.000, e uma movimentação de Débito na conta de Despesa D de $ 40.000. Ao efetuarmos o encerramento para o ano, e considerando a opção de 
+Desconsidera somente na Movimentações do período
+, teremos o seguinte balancete:
+Conta
+Saldo Inicial
+Débito
+Crédito
+Saldo Final
+Receita A
+0,00
+0,00
+80.000,00
+80.000,00
+Despesa D
+0,00
+40.000,00
+0,00
+40.000,00
+Detalha Centro de Custo:
+ será apresentado o valor total de débitos e créditos de cada centro de custo para todas as contas sintéticas e analíticas, que tiverem alguma movimentação em centro de custos no período especificado.
+Essa opção não pode ser utilizada em conjunto com a opção 
+Balancete Real Comparativo
+Balancete Real Comparativo: 
+permite a emissão de um Balancete Comparativo para a Contabilidade Real, onde apresentará o saldo de dois determinados mês/anos e mostrará a variação em valor e percentual.
+Essa opção não pode ser utilizada em conjunto com a opção 
+Detalha Centro de Custo
+Período de:
+ mês/ano ao qual se refere o balancete desejado.
+É importante lembrar que, se a empresa trabalha com códigos estendidos, a partir do processamento dos novos códigos estendidos, o período da emissão dos relatórios deve ser em função da data inicial deste período. Não é recomendado emitir um relatório com um período que contemple dois ou mais códigos estendidos diferentes, pois os resultados podem ser afetados.
+Para mais informações, ver 
+Manutenção de Códigos Estendidos
+Periodo de Verificação 
+Se o usuário quiser comparar o mês de Março de 2012 com o mês de Abril de 2012 ele deve colocar no filtro do período: 03/12 a 03/12, pois para o mês/ano inicial é colocado o saldo inicial, ou seja, o saldo final do mês 03/12.
+Nível:
+ a emissão das contas analíticas dependerá do nível solicitado. O SisPetro sugerirá o maior nível do plano de contas, o que indica que as contas analíticas serão emitidas. Ao diminuir um nível as contas analíticas já não serão emitidas. Selecione o nível conforme queira para analisar os saldos e movimentações de forma analítica ou sintética.
+Clique em 
+OK
+ para confirmar e o relatório será apresentado em tela.
+Para desfazer o processo, clique no botão 
+Cancelar.
+Para imprimir clique no botão 

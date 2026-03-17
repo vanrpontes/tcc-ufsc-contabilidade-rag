@@ -1,0 +1,64 @@
+TITULO: Extrato de Fornecedores
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898892
+--------------------------------------------------
+O Relatório de Extrato de Fornecedores apresenta os movimentos realizados para cada fornecedor no período especificado, com apresentação de saldo inicial e final.
+Este relatório é útil para simulação/conferência do Fechamento Financeiro - Versão 2.0.
+O acesso a esse relatório é através do Menu 
+Relatórios / Financeiro / Contas a Pagar / 
+Extrato de Fornecedores
+:
+Este relatório também pode ser acessado pela 
+Manutenção de Fechamento Financeiro
+. A tela deste relatório não é exibida, mas na tela do 
+ pode selecionar a ordenação desejada e o relatório apresenta a movimentação realizada entre um fechamento e outro. Através deste relatório pode-se emitir o Extrato do Contas a Pagar e o Extrato de Fornecedores, filtrando pelo campo 
+Fonte
+.
+Pode ser realizado filtros por:
+Unidade de Negócios:
+ onde pode ser selecionado uma Filial específica, um Grupo de Filiais, um Conglomerado ou mesmo todas as Filiais cadastradas. 
+Filial:
+ caso tenha sido selecionado 
+Filial (escolher)
+ em 
+Unidade de Negócios
+, será habilitado este campo onde pode ser informada ou selecionada uma filial. O relatório apresentará a posição dos saldos das contas relativas a esta filial.
+Caso o usuário não tenha acesso a filial escolhi, a geração do relatório não trará nenhum resultado
+Grupo de Filiais:
+ caso tenha sido selecionado 
+Grupo de Filiais (escolher)
+ em 
+Unidade de Negócios
+, será habilitado este campo onde pode ser informado ou selecionado um grupo de filiais. O relatório apresentará a posição dos saldos das contas relativas a este grupo de filiais.
+Conglomerado de Filiais:
+ caso tenha sido selecionado 
+Conglomerado de Filiais (escolher)
+ em 
+Unidade de Negócios
+, será habilitado este campo onde pode ser informado ou selecionado um conglomerado de filiais. O relatório apresentará a posição dos saldos das contas relativas a este conglomerado de filiais.
+Considera regra de fechamento financeiro:
+ se marcado esta opção, será considerado no relatório somente as empresas que não estejam configuradas como fechamento exclusivo.
+Filtra Fornecedor:
+ se marcado esta opção, será habilitado o campo 
+Fornecedor
+ para que seja selecionado um determinado fornecedor.
+Fornecedor:
+ deve ser informado ou selecionado um fornecedor que deve ser filtrado. O relatório apresentará as movimentações relativas a este fornecedor.
+Filtra por entidade faturada:
+ Será apresentado os títulos apenas da entidade faturada do título
+Filtra por entidade compradora do título:
+ Será apresentado os títulos apenas da entidade compradora do título
+Período:
+ deverá ser informado o período ao qual se deseja imprimir o relatório.
+Fonte:
+ apresenta os títulos e/ou adiantamentos.
+Agrupamento:
+ apresenta os movimentos e os saldos inicial e final do tipo de agrupamento escolhido. 
+ Quando agrupado por data, a cada dia é apresentado o saldo inicial na data, a movimentação do dia e o saldo a cada movimentação. A movimentação é separada em Título e Adiantamento. 
+ 
+ No caso do agrupamento por entidade, é apresentado o saldo do cliente na data inicial do período informado e a movimentação ocorrida para este cliente, com o saldo a cada movimentação. Esta movimentação também é separada em Título e Adiantamento. Ao final é calculado o saldo, que é a posição desta entidade na data final. Ou seja, esse relatório pode ser utilizado para posição, no entanto, a entidade só é apresentada se teve movimentação no período especificado.
+O layout do relatório será gerado conforme o arquivo 
+ExtratoCliFor.rtm
+ que estiver no caminho do executável. É possível editar o Layout do relatório através do botão 
+Edita Layout
+:
+ 

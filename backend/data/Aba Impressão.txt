@@ -1,0 +1,32 @@
+TITULO: Aba Impressão
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892890531
+--------------------------------------------------
+Impressão:
+ Este painel receberá as configurações referentes ao layout da cobrança.
+Vale lembrar que os dados preenchidos serão configurados por empresa.
+Local Impressão:
+ em que impressora e local esta cobrança irá ser impressa. Lembre-se que normalmente este local deve ser diferente do local onde a nota fiscal irá ser impressa (pois a nota fiscal normalmente é formulário contínuo e a ficha de compensação uma folha em branco - que o SisPetro irá preenchê-la completamente). Você pode clicar no botão 
+Procura Impressora
+ para escolher as impressoras disponíveis no seu computador 
+(lembre-se que pode ser que esta configuração seja utilizada por um outro computador e que esta impressora/local deve, portanto, deve estar disponível para o computador que irá imprimir a ficha de compensação)
+.
+Arquivo layout:
+ arquivo de layout pré-definido para o banco. Caso não possua ou não tenha certeza se é o correto, entre em contato com o suporte.
+Este caminho deve ser um caminho de rede ao qual tanto o cliente Sispetro (executável do Sispetro) quanto o servidor Sispetro acessem pois tanto um quanto outro emitem boletos e devem obter o mesmo arquivo.
+Mensagem de impressão da Cobrança na Emissão NF:
+ ao terminar a impressão da Nota Fiscal, o sistema tem como padrão exibir uma mensagem perguntando se o usuário deseja imprimir a cobrança vinculada a nota fiscal. O usuário pode configurar o tipo de cobrança para exibir ou não essa mensagem através desse campo, utilizando as seguintes opções:
+Sempre Exibe a mensagem questionando a impressão
+;
+Imprime a cobrança sem exibir mensagem
+;
+Não imprime a cobrança e nem exibe a mensagem
+.
+Mensagem Ficha Compensação:
+ neste campo pode ser configurada uma mensagem que poderá ser utilizada no layout da cobrança.
+O botão 
+Edita layout
+, permite ao usuário configurar o layout da cobrança.
+Porém, é necessário informar o local onde se encontra o layout. Lembrando que este local 
+deve ser comum entre o executável do Sispetro - este que está sendo executado neste momento - e o servidor sispetro
+. Encontrando o layout, o sistema abrirá a tela do Gerenciador de Relatórios, onde será possível configurar o documento.
+Utilize o Manual do Gerenciador de Relatórios para edição do Layout.

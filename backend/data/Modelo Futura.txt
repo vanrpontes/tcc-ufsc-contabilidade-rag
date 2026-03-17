@@ -1,0 +1,373 @@
+TITULO: Modelo Futura
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899631
+--------------------------------------------------
+Este modelo foi projetado inteiramente pela Futura Tecnologia com a finalidade de importar outros tipos de notas como: Notas de Venda, Outras Entradas, Devolução de Cliente, Devolução de Fornecedor.
+
+
+Layout do Segundo Modelo - Futura
+
+
+
+
+
+
+ CNPJ Destinatário 
+
+
+ CNPJ Destinatário com ou sem máscara 
+
+
+
+
+
+
+ CNPJ Emitente 
+
+
+ CNPJ do Emitente NF com ou sem máscara 
+
+
+
+
+
+
+ Produto 
+
+
+ Produto 
+
+
+
+
+
+
+ Código da Operação 
+
+
+ Código Fiscal de Operação (até 5 caracteres) 
+
+
+
+
+
+
+ Numero 
+
+
+ Numero da Nota 
+
+
+
+
+
+
+ Data Emissão 
+
+
+ Data de Emissão NF dd/mm/yyyy 
+
+
+
+
+
+
+ Data Movto 
+
+
+ Data de Movimento dd/mm/yyyy 
+
+
+
+
+
+
+ Qtde 
+
+
+ Qtde (inteira) 
+
+
+
+
+
+
+ Preço 
+
+
+ Preço unitário (utilizar vírgula para separar decimais, com seis decimais) 
+
+
+
+
+
+
+ Alíquota ICMS 
+
+
+ Alíquota de ICMS Próprio (utilizar vírgula para separar decimais, com duas decimais) 
+
+
+
+
+
+
+ Base ICMS 
+
+
+ Base de Cálculo de ICMS Próprio (utilizar vírgula para separar decimais, com duas decimais) 
+
+
+
+
+
+
+ ICMS Próprio 
+
+
+ Valor de ICMS Próprio (utilizar vírgula para separar decimais, com duas decimais) 
+
+
+
+
+
+
+ Base ICMS Substituição 
+
+
+ Base de ICMS Subst (utilizar vírgula para separar decimais, com duas decimais) 
+
+
+
+
+
+
+ ICMS Substituição 
+
+
+ Valor de ICMS Subst (utilizar vírgula para separar decimais, com duas decimais) 
+
+
+
+
+
+
+ Tipo de Cobrança 
+
+
+ Tipo de Cobrança 
+
+
+
+
+
+
+ Vendedor 
+
+
+ Vendedor 
+
+
+
+
+
+
+ Tabela de Preço 
+
+
+ Tabela de Preço 
+
+
+
+
+
+
+ Transportadora 
+
+
+ Transportadora 
+
+
+
+
+
+
+ Frota 
+
+
+ Frota 
+
+
+
+
+
+
+ Data Vencimento1 
+
+
+ Data de Vencimento da parcela 1 dd/mm/yyyy 
+
+
+
+
+
+
+ Data Vencimento2 
+
+
+ Data de Vencimento da parcela 2 dd/mm/yyyy 
+
+
+
+
+
+
+ Data Vencimento3 
+
+
+ Data de Vencimento da parcela 3 dd/mm/yyyy 
+
+
+
+
+
+
+ Data Vencimento4 
+
+
+ Data de Vencimento da parcela 4 dd/mm/yyyy 
+
+
+
+
+
+
+ Data Vencimento5 
+
+
+ Data de Vencimento da parcela 5 dd/mm/yyyy 
+
+
+
+
+
+
+ Data Vencimento6 
+
+
+ Data de Vencimento da parcela 6 dd/mm/yyyy 
+
+
+
+
+
+
+ Valor1 
+
+
+ Valor da parcela 1 
+
+
+
+
+
+
+ Valor2 
+
+
+ Valor da parcela 2 
+
+
+
+
+
+
+ Valor3 
+
+
+ Valor da parcela 3 
+
+
+
+
+
+
+ Valor4 
+
+
+ Valor da parcela 4 
+
+
+
+
+
+
+ Valor5 
+
+
+ Valor da parcela 5 
+
+
+
+
+
+
+ Valor6 
+
+
+ Valor da parcela 6 
+
+
+
+
+
+
+Sendo importante ressaltarmos algumas regras:
+
+a) Cada linha do arquivo poderá ter até 6 parcelas, podendo ser geradas "n" linhas por nota.
+
+b) A chave que relaciona as próximas linhas a nota é composta pelos campos: CNPJ do emitente, CNPJ do destinatário, Número da NF e Código da Operação. Assim, sempre é necessário ter uma primeira linha com os dados de cabeçalho de nota, como tipo de cobrança, vendedor, etc, contudo não será necessário para as demais linhas.
+
+c) Os dados de itens só serão reconhecidos se na linha for informado o produto, a quantidade e o preço unitário. Os dados de impostos (ICMS e ICMS Subst) são considerados para o item da nota.
+
+d) Os dados de parcelas só serão reconhecidos se for informado um vencimento e o seu respectivo valor.
+
+
+
+
+Exemplo:
+
+1. NF com 10 parcelas:
+
+*Uma linha com todos os dados da nota e as 6 primeiras parcelas.
+
+Outra linha com a chave (CNPJs, Número da NF e Código da Operação) e as 4 parcelas pendentes.
+
+
+2. NF com 20 parcelas e 3 itens:
+
+Forma nº 1
+
+Uma linha com dados da nota, o primeiro item e parcelas de 1 a 6.
+
+Outra linha com a chave (CNPJs, Número da NF e Código da Operação), segundo item e parcelas de 7 a 12.
+
+Outra linha com a chave (CNPJs, Número da NF e Código da Operação), terceiro item e parcelas de 13 a 18.
+
+Outra linha com a chave (CNPJs, Número da NF e Código da Operação) parcelas de 19 a 20.
+
+
+Forma nº 2
+
+Uma linha com dados da nota, o primeiro item.
+
+Outra linha com a chave (CNPJs, Número da NF e Código da Operação), segundo item.
+
+Outra linha com a chave (CNPJs, Número da NF e Código da Operação), terceiro item.
+
+Outra linha com a chave (CNPJs, Número da NF e Código da Operação) e parcelas de 1 a 6.
+
+Outra linha com a chave (CNPJs, Número da NF e Código da Operação) e parcelas de 7 a 12.
+
+Outra linha com a chave (CNPJs, Número da NF e Código da Operação) e parcelas de 13 a 18.
+
+Outra linha com a chave (CNPJs, Número da NF e Código da Operação) e parcelas de 19 a 20.

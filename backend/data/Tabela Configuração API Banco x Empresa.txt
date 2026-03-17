@@ -1,0 +1,67 @@
+TITULO: Tabela Configuração API Banco x Empresa
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4089872385
+--------------------------------------------------
+none
+Objetivo
+Com a integração da modalidade de pagamento 
+PIX
+ e com a integração da comunicação com os bancos via serviços WEB (API), foi criada no SisPetro uma tabela para guardar o usuário, senha de acesso, entre outras informações para cada banco e empresa. 
+Essa tela é acessada através do menu 
+Tabelas Auxiliares / Financeiro / Configuração API Banco x Empresa
+Campos a serem preenchidos:
+Empresa: 
+selecione de qual empresa será cadastrado os parâmetros para comunicação com a API do banco
+Banco: 
+qual banco será cadastrado, os parâmetros para comunicação com a API do banco
+Ambiente: 
+escolha qual ambiente será configurado a API
+Homologação: 
+para testes
+Produção: 
+irá consultar ou utilizar os dados reais. 
+API: 
+escolha qual API será utilizada
+PIX
+: 
+para geração de PIX dinâmico ou consulta
+EXTRATO
+: para consulta de extrato bancário
+Uso de certificado (quando necessário): 
+Conforme vinculado na empresa para uso geral: 
+padrão. Caso o banco exija um certificado igual ao utilizado para emissão de nota, o SisPetro utilizará o configurado para tal. 
+Conforme vinculado em PIX Recebidos: 
+certificado para uso exclusivo da API do Pix do banco que está sendo configurado. Esse certificado é previamente configurado no 
+Hermes Controlador
+ com uso exclusivo para o PIX. Quando exclusivo, o certificado tem que ser apontado no campo 
+Certificado Digital
+Certificado Digital: 
+caso necessário, selecionar o certificado digital previamente cadastrado no 
+Hermes Controlador
+Situação da API
+: mostra se os dados em questão estão ativos ou inativos / não cadastrados
+Ativa / Inativa: 
+botão para ativar ou inativar o cadastro. Caso a empresa por algum motivo não quiser realizar a consulta dos PIX Recebidos via API por um determinado tempo, ao invés de apagar os dados ela inativa o cadastro. Assim mesmo que o serviço do banco estiver ativo a consulta para esse banco não será feita.
+Dll Configuração (Em Desuso - Não informar): 
+apenas para quem utiliza a API do Banco do Brasil V2 
+informar a DLL PIXRecebidoBanco001.dll. Além disso essa DLL deve estar no mesmo diretório que as DLL de cobrança informada nas configurações gerais do 
+Hermes Controlador
+.
+Quadro Parâmetros: 
+as informações abaixo são disponibilizadas pelo banco e elas são utilizadas para que o SisPetro acesse a API do banco. 
+Clientkey
+ClientSecret
+Key application 
+Editar Valores: ⁣
+Empresa: 
+Empresa selecionada para utilização da API do Banco
+Banco: 
+Selecione o Banco que ira utilizar a API
+Ambiente: 
+São ser 2 tipos Homologação e Produção
+Parâmetro:
+ São 3 tipos dependendo de cada banco, ClientKey, ClientSecret, KeyApplication
+Valor: 
+Valor a ser inserido conforme o retorno de cada banco
+A consulta é feita com base no último ID de PIX recebido
+Para Saber Mais
+PIX

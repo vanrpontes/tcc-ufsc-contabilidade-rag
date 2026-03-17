@@ -1,0 +1,112 @@
+TITULO: PIX com recebimentos antecipados e a vista (Adiantamento)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2962358349
+--------------------------------------------------
+Nessa fase do PIX usaremos o QR Code Estático que pode ser gerado pela própria empresa, conforme determinação do Banco Central. Futuramente podemos trabalhar com o QR Code Dinâmico, que exige a comunicação com o banco para a geração. 
+Para o recebimento Antecipado (via Adiantamento) o envio do QR Code será pelo Pedido de Venda, sendo gerado após a aprovação de Vendas do Pedido.
+Abaixo temos o fluxo de trabalho e a configuração para cada etapa
+Emite Pedido Venda:
+ p
+rimeiro passo é emitir um 
+pedido de venda
+ utilizando um 
+tipo de cobrança
+ configurado para geração do PIX.
+Configurações no 
+Tabela de Tipos de Cobrança
+ 
+A opção 
+Habilita PIX
+ deve estar habilitada.
+A opção de Envio de QR Code deve estar com a opção 
+Pelo Pedido de Venda
+.
+No quadro de 
+Dados por Empresas
+ a empresa que vai emitir o pedido deve estar com uma 
+chave de PIX
+ salva. Para mais informações, ver 
+.
+Envia QR Code:
+ a
+pós a aprovação de vendas do pedido (pois é a garantia que o valor do pedido não será alterado),
+ é gerado o QR Code e enviado para o Cliente via e-mail. A geração do QR Code e envio do e-mail são realizados através do 
+Serviço de PIX: Geração QR Code
+.
+Configurações no 
+Painel PIX - Tipo de Cobrança
+Para o envio automático do QR Code por e-mail para o cliente a opção 
+Envia Pedido de Venda Após Geração do QR Code
+ deve ficar habilitada. 
+Configuração do 
+Serviço de PIX: Geração QR Code
+Intervalo de execução
+Horário de execução
+Marcar a opção Executar Automaticamente Quando Servidor for Reiniciado
+Usuário para execução do Serviço
+Pasta RTMs: 
+caminho que indica onde encontra-se o rtm para geração do PDF do pedido.
+ 
+Pasta Email Saída: caminho que indica onde os arquivos serão gerados (DACTE/DANFE, XML e Boletos que serão enviados aos destinatários da nota fiscal).
+ Após clicar em Ativar.
+Realiza Pagto instantâneo:
+ nesse ponto o 
+Cliente
+ 
+realiza o pagamento via PIX usando o QR Code que foi enviado para ele (no valor do pedido)
+.   
+Recebimento Manual:
+ após a empresa ser notificada pelo banco do recebimento do PIX, normalmente via extrato do Banco, o seu registro é realizado através da tela de 
+Manutenção de PIX
+.
+Tela de 
+Manutenção de PIX
+Através da tela de 
+Manutenção de PIX
+ o usuário pode incluir um recebimento, cancelar um recebimento não processado e imprimir o QR Code. Para mais informações, ver 
+Manutenção de PIX
+.
+Recebimento via serviço API:
+ através do 
+Serviço de PIX Recebidos - Bancos
+, o SisPetro faz a comunicação com API do Banco e localiza os pagamentos PIX. Seu registro é processado também via 
+Serviço de PIX Recebidos - Processa
+, os registros ficam exibidos na tela de 
+Manutenção de PIX
+.
+Configuração do 
+Serviço de PIX Recebidos - Bancos
+Intervalo de execução
+Horário de execução
+Marcar a opção Executar Automaticamente Quando Servidor for Reiniciado
+Usuário para execução do Serviço
+Horas Anteriores a Consulta
+ Após clicar em Ativar.
+Necessário configurar os dados de comunicação com a API através da 
+Tabela Bancos
+ 
+e 
+Tabela Configuração para Consulta de PIX Recebidos
+Emite Adiantamento para o Cliente:
+ a
+ inclusão do adiantamento para o cliente ocorrerá através do 
+Serviço de PIX Recebidos - Processa
+, usando as informações do registro do recebimento feito no passo anterior (via tela 
+Manutenção de PIX
+). 
+Para que o adiantamento seja gerado, será necessário configurar o Histórico e Tipo de Documento na
+ 
+, aba PIX.
+Caso o perfil de empresa 
+Analisa Pedidos não Aprovados após Inclusão Adiantamento
+ esteja marcado, será realizada a reanálise de aprovação, o que poderá aprovar o pedido (se o mesmo estiver pendente por falta de pagamento e o adiantamento incluído suprir o saldo necessário).
+Configuração do 
+Serviço de PIX Recebidos - Processa
+Intervalo de execução
+Horário de execução
+Marcar a opção Executar Automaticamente Quando Servidor for Reiniciado
+Usuário para execução do Serviço
+ Após clicar em Ativar.
+Para mais informações, ver 
+PIX Configurações Iniciais
+Para mais informações, ver 
+.

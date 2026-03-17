@@ -1,0 +1,118 @@
+TITULO: Controle de Despesas no PMM
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903081157
+--------------------------------------------------
+No processo de compra de álcool é comum ter empresas de corretagem que intermediam o comércio entre a Usina e a Distribuidora. O valor dessa corretagem geralmente é definido por um % sobre o preço e varia conforme cada corretor. Esse valor é pago pela Distribuidora e consequentemente empresas desse ramo querem controlar esse pagamento, bem como considerá-lo como custo. O objetivo dessa funcionalidade é controlar esse e quaisquer outros tipos de despesas envolvidas nos processos de compras.
+Para que o processo possa ser concluído, passamos por algumas etapas, a saber:
+none
+Abaixo Detalharemos cada um dos itens anteriores:
+1. Cadastro das Despesas nas Tabelas Auxiliares
+No menu 
+Tabelas Auxiliares \ Movimentação de Material \ Manutenção dos Tipos de Despesas
+, temos um cadastro de Tipos de Despesas, conforme imagem abaixo:
+Selecionando a Despesas desejada, na aba detalhes temos:
+Descrição dos campos:
+ Código
+: Preenchido automaticamente pelo Sispetro, sem interação do usuário;
+ 
+Descrição
+: Descrição da Despesas (máx. de 40 caracteres e de preenchimento obrigatório);
+ 
+Tipo
+: Percentual ou Valor, indicará se ao informar essa despesa no PMM o usuário deverá informar um valor unitário de despesa ou o percentual que deverá ser aplicado ao preço unitário;
+ 
+Participa do CMV
+: Caso o campo seja marcado, essa despesa será ser acumulada ao PMM quando o mesmo for recebido com uma NF como Despesa de CMV.
+2. Vínculo das Despesas a um fornecedor (opcional)
+Uma despesa pode ser oriunda de um fornecedor pré-cadastrado, como uma Corretora ou Armazenadora, ou não ter nenhum vínculo com Fornecedor. De qualquer forma, caso tenha vínculo com Fornecedor é possível já deixar pré-cadastrado o valor/percentual das despesas para ele. Com isso, no Cadastro de Fornecedores temos uma nova aba 
+Vínculo Tipo de Despesas
+.
+Acesse o cadastro de 
+Fornecedores
+, na aba Detalhes, sub-aba Vínculo Tipos d e Despesas:
+Ao selecionar o botão 
+Incluir
+, a tela abaixo será exibida:
+O botão 
+Incluir
+ somente estará disponível caso o Perfil de Usuário \ aba Compras \ Pode Vincular Tipo de Despesa a Fornecedor esteja habilitado.
+ 
+Informe a Despesa desejada e o valor unitário (Atente-se para o campo Tipo, se será percentual ou valor).
+3. Vínculo das Despesas a um PMM
+Nesse estágio do processo, é possível que sejam vinculadas as Despesas a um PMM, o vínculo poderá ser feito durante a inclusão do PMM ou após, via Manutenção de PMM.
+Para tanto será necessário habilitar o perfil de Sistema, que é gravado por Empresa, 
+Vincula Despesas ao PMM
+. Esse perfil fica no 
+Painel Compras
+ da Configuração da Empresa.
+ 
+Com o perfil acima habilitado, durante a inclusão do PMM, uma das etapas será a inclusão das despesas, como na imagem abaixo: 
+Os mesmos dados poderão ser visualizados, editados ou excluídos na 
+Manutenção de Pedidos de Movimentação de Material
+, aba Despesas Vinculadas \ Despesas Vinculadas:
+Após clicar no botão 
+Incluir
+, a tela abaixo será exibida:
+Descrição dos Campos:
+Despesa
+: Informe a Despesa (pré-cadastrada nas Tabelas Auxiliares)
+Informa Fornecedor
+: Caso já possua um cadastro das Despesas associadas a um fornecedor, marque essa opção e informe o código do fornecedor. Os campos de Valor serão preenchidos automaticamente com o valor do cadastro de Fornecedores.
+Tipo
+: Somente para visualização do tipo de cálculo definido para essa Despesa.
+Valor Previsto
+: Mostra o valor original da Despesa, caso a mesma esteja pré-cadastrada em um fornecedor. Esse campo tem o intuito apenas de utilização em Relatórios, não é efetuado nenhum cálculo à partir dele.
+Valor Real
+: Valor que será utilizado para os cálculos.
+Gera Contas a Pagar 
+Quando selecionado assim que o PMM for aprovado automaticamente vai gerar um 
+Contas a Pagar
+Data de Emissão: 
+data de emissão do contas a pagar
+Data de Vencimento: 
+data de vencimento do contas a pagar
+Cód. Histórico: 
+histórico que será gravado no contas a pagar para a identificação.
+Histórico: 
+a ser identificado no contas a receber.
+Tipo Docto: 
+identificação do tipo de documento.
+Observações:
+ campo disponível para informar a origem do custo.
+Existe um perfil, por usuário, que possibilita a alteração do valor do campo 
+Valor Previsto
+. O perfil é o 
+Pode alterar Valor Previsto da Despesa
+ e fica na aba 
+Compras
+.
+ 
+Na Manutenção de PMM, somente poderá ser alterado dados de Despesas de Pedidos que não estejam faturados.
+Ainda na Manutenção de PMM, na Aba 
+Despesas Vinculadas \ Valor por Itens
+, poderemos visualizar as Despesas associadas já com os valores finais calculados.
+4. Vínculo das Despesas a uma NF de Compra
+Após feito o Recebimento do PMM através da inclusão de uma NF de entrada as despesas vinculadas ao PMM, automaticamente serão vinculadas a NF, porém sem opção de inclusão ou alteração, poderemos observar esses dados na Manutenção de NF´s aba Itens NF, conforme imagem abaixo:
+Valor das Despesas
+: É a soma dos valores reais de todas as despesas vinculadas. Lembrando que se a despesa for do tipo Percentual o mesmo (indicado no campo valor real) deverá ser aplicado ao preço do item, de forma a ter um valor monetário (com até 6 casas decimais). Caso a despesa seja valor, nenhum tipo de cálculo será feito, utilizando diretamente o valor real.
+ 
+Valor Despesas CMV
+: É a mesma idéia do valor das Despesas, porém somente englobará despesas que estejam marcadas para participar do CMV.
+Mais detalhes sobre as Despesas ainda poderão ser observados na aba 
+Financeiro \ Despesas de PMM
+:
+5. Utilização no CMV
+As informações referentes as Despesas poderão ser usadas para cálculo do CMV (Custo Médio para Venda). Para mais detalhes sobre configuração veja o tópico 
+Participação no CMV
+.
+Na fórmula do CMV definida na aba 
+Custos
+ da Natureza de Operação, os campos descritos abaixo estão disponíveis para uso.
+#Campo
+Nome do Campo
+Tabela
+21101
+ValorDespesas
+ItensNF
+21102
+ValorDespesasCMV
+ItensNF

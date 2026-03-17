@@ -1,0 +1,38 @@
+TITULO: Configuração Nota de Retorno de Armazenagem sem Transportador
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/3957719044
+--------------------------------------------------
+Histórico
+Algumas armazenadoras, por uma questão fiscal, adotan a emissão da nota fiscal a modalidade de transporte igual a 9 - Sem Transporte. Para isso será preciso realizar algumas configurações.
+Perfil de Sistema 
+Ferramentas / Sistemas / Remessa/Retorno de Armazenagem 
+Nesta aba no grupo “Retorno“, configurar  o perfil 
+Informação da transportadora e frota
+ com a opção: “Conforme informado nesta tela“.
+Deixe em branco os perfis:
+Transportadora
+Frota
+Natureza de Operação
+Tabelas auxiliares / Faturamento / Natureza Operação
+Na natureza de operação de retorno de armazenagem na aba “Dados Gerais” selecione no perfil: 
+Via Transporte (DCP / Sistegra)
+ a opção: Sem Transporte.
+Emissão Nota Fiscal de Retorno
+Movimentação / Faturamento / Retorno de armazenagem
+Na tela de emissão de retorno de armazenagem aba Principal os campos 
+Transp./ Motorista
+  e 
+Frota 
+deverão já ser apresentados em branco após a seleção da OC.
+Já na aba Dados Adicionais o campo 
+Situação Frete
+ virá sugerido 9 - Sem Transporte.
+Estrutura do XML 
+Na TAG 
+<modFrete>
+ correspondente a modalidade frete no xml deverá ficar da seguinte forma:
+<transp>
+  <modFrete>9</modFrete> 
+Impressão do Danfe
+NA impressão do Danfe, no grupo 
+TRANSPORTADOR/VOLUMES TRANSPORTADOS, 
+deverá ser apresentado todo em branco com modalidade preenchida com 9.

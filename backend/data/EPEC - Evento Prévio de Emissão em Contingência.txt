@@ -1,0 +1,58 @@
+TITULO: EPEC - Evento Prévio de Emissão em Contingência
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2887417850
+--------------------------------------------------
+Conforme Nota Técnica 2014/001 a antiga DPEC foi desativada e em seu lugar entrou o EPEC. O modo de funcionamento não foi alterado em nada, apenas é necessário alterar a URL.
+A antiga DPEC (Declaração Prévia de Emissão em Contingência) era uma das alternativas que o contribuinte tinha quando a emissão da NF-e estava em contingência. Era transmitido algumas, poucas, informações da NF-e para o ambiente da Receita Federal e assim era possível emitir o DANFE em papel comum, sem a necessidade de emiti-lo em papel moeda. Posteriormente a NF deveria ser processada na SEFAZ competente.
+Porém as informações ficavam desencontradas, uma parte com a Receita Federal e outra com a SEFAZ. Para isso foi criado o EPEC (Evento Prévio de Emissão em Contingência), um ambiente único aumentando o poder de rastreamento do Fisco. Veja abaixo como colocar o SisPetro em EPEC.
+Vale lembrar que quando a empresa estiver trabalhando em EPEC não será possível cancelar ou inutilizar a NF-e. Deverá ser processada, quando a SEFAZ estiver disponível e posteriormente é feito o cancelamento ou inutilização.
+A Nota Fiscal, deverá ser processada na SEFAZ, assim que essa estiver disponível. 
+A partir da versão 9.12 foi disponibilizado a possibilidade de emissão de EPEC para CT-e também.
+Habilitando o EPEC para NF-e
+ 
+Perfil de Sistema. 
+Ferramentas/ Sistema/ NF-e/CT-e/ Situação Sistema Contingência Eletrônica (EPEC)
+Selecione a opção 
+Ativo
+Informar os endereços WebService solicitação EPEC corretos.
+Clique no botão 
+OK
+ e pronto, a partir desse ponto seu sistema estará em EPEC.
+ 
+Habilitando o EPEC para CT-e
+ 
+Perfil de Sistema. 
+Ferramentas/ Sistema/ NF-e/CT-e/ Situação Sistema Contingência Eletrônica (EPEC)
+Selecione a opção 
+Ativo
+Informar os endereços WebService solicitação EPEC corretos.
+Informar o Código do IBGE para EPEC de CT-e
+Clique no botão 
+OK
+ e pronto, a partir desse ponto seu sistema estará em EPEC.
+ 
+A utilização do processo de EPEC é permitida em dois tipos de ambiente:
+Homologação:
+ quando se quer testar seu uso, isto é, o procedimento não terá valor fiscal e normalmente é utilizado para se aprender como utilizar ou quando estamos no processo de desenvolvimento ou validação.
+Produção:
+ o acesso é real e terá valor fiscal 
+(este é o ambiente que deve ser utilizado normalmente pelo cliente quando for utilizar o EPEC)
+.
+O sistema processará a Nota Fiscal/CT-e em EPEC, como na imagem abaixo.
+Logo em seguida será realizada a impressão do DANFE, note que o número do EPEC será exibido no DANFE (Para isso é necessário que o RTM do DANFE esteja atualizado conforme 
+Alteração do layout do DANFE - Nota Técnica 2014/001
+)
+Não será necessário a impressão do DANFE em papel moeda, desde que contenha o número do EPEC. Veja como alterar o DANFE 
+Alteração do layout do DANFE - Nota Técnica 2014/001
+A NF-e criada poderá ser visualizada via 
+Manutenção NFs
+, note que ela ficará pendente de envio de recibo a SEFAZ, não será possível processá-la nem cancelá-la enquanto o sistema estiver em modo contigência DPEC.
+É importante ressaltar que, após o serviço principal ter voltado ao ar, estas NFes devem ser processadas normalmente através da tela 
+Manutenção de NF-e Pendentes
+.
+Para conferir o número do EPEC, acesse as abas 
+Fiscal\NF-Eletrônica
+:
+Sincronização do protocolo
+Durante o processamento do protocolo do EPEC, bem como qualquer outro protocolo, pode haver algum problema no meio de comunicação (internet) e o retorno do protocolo não ser recebido com sucesso pelo SisPetro, dessa maneira ficaria sem o protocolo sendo que o mesmo existe na SEFAZ. Para resolver esse problema existe um botão na tela de Manutenção de NFe Pendentes chamado Sincroniza que fará o sincronismo do SisPetro com a SEFAZ e atualizará o número do protocolo no sistema.
+Marque a nota correspondente e clique em Sincroniza:
+Esse procedimento não processa novamente o protocolo, apenas verifica na SEFAZ se já existe um protocolo para a nota selecionada e atualiza-o no SisPetro

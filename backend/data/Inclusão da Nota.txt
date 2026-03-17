@@ -1,0 +1,20 @@
+TITULO: Inclusão da Nota
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879390019
+--------------------------------------------------
+Ao incluir a Nota Fiscal será apresentada uma tela para aguardar a solicitação de Recibo da NF-e.
+Através do Servidor SisPetro, serão enviados os dados da NF e será recebido um Número de Recibo que indica que a Nota foi recebida.
+ Após o processamento, será retornado na tela a resposta deste processamento:
+Em seguida, caso o processamento do passo anterior tenha ocorrido com sucesso, será apresentada uma nova tela, para que aguarde a Solicitação do Protocolo, também através do Servidor SisPetro.
+No caso da Nota estar 
+OK
+ será recebido o Número de Protocolo e o arquivo xml contendo dados da autorização. Após o processamento, será retornado na tela a resposta deste processamento:
+A Nota (Danfe) poderá ser impressa contendo a chave de acesso da Nota. Para consultar essas informações posteriormente veja o tópico 
+Consulta de Dados de NF-e de uma Nota Fiscal
+.
+Se no perfil de empresas (Menu 
+Ferramentas / Sistema / painel Faturamento / caixa Nota Fiscal Eletrônica
+), a flag 
+Trabalha off-line (sem conexão a Internet)
+ tiver marcada, o pedido não será processado na NF-e, portanto a nota estará marcada para solicitação de recibo, podendo solicitar o processamento acessando a tela de 
+Manutenção de NF-e
+ (após o restabelecimento da Internet).

@@ -1,0 +1,32 @@
+TITULO: Registro 60A
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899500
+--------------------------------------------------
+No SisPetro, temos a emissão de Cupom Fiscal pela impressora Bematech, mas como essa funcionalidade está em desuso pelos nossos clientes, a partir da versão 8.6 foi retirada do sistema. Sendo assim a DLL da Bematech não esta mais funcionando, para gerar dados para Registro 60, deve-se incluir via 
+Inclusão Manual - 60
+ ou 
+Importação - Registro 60
+.
+ 
+A tela de Inclusão/Alteração e Visualização do Registro 60A é a seguinte:
+A Inclusão deve ser feita sempre para a 
+Empresa Conectada
+.
+A Data de Emissão é a data dos dados do Cupom Fiscal. Através desta data será feita a seleção de dados na Geração do Sintegra.
+Informe os dados Analíticos do Cupom Fiscal:
+#Série:
+ Número de Série do Emissor de Cupom Fiscal (ECF)
+Situação Tributária:
+ Indica a situação tributária que será detalhada. Escolha entre uma das situações disponíveis ou 
+digite a informação desejada, sendo ela VÁLIDA
+.
+ 
+Valor Acumulado:
+ É o valor da situação tributária escolhida no dia.
+Clique em 
+OK
+ para confirmar os dados. Não pode ter mais que um registro para a mesma data, #Série e Situação Tributária.
+No caso de inclusão, eles serão apresentados com a 
+Origem: Manual
+. No caso de alteração, será apresentado como 
+Registro Alterado
+, isso para que tenhamos o controle quando os Registros Importados ou oriundos de ECF sejam alterados, já que isso é permitido.

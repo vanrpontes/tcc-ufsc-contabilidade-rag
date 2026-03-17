@@ -1,0 +1,44 @@
+TITULO: Log Eventos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898288
+--------------------------------------------------
+Através da tela de Log Eventos é possível analisarmos as principais alterações realizadas nas tabelas do Sispetro, como por exemplo alteração do pedido de venda, alteração da nota fiscal, etc. Além disso, também é apresentado o dia e a hora que o usuário conectou e desconectou do Sispetro. Para mais informações sobre log de acesso, ver 
+Consulta ao log de acesso dos Usuários.
+Para acessar essa tela, o usuário deve entrar no menu 
+Ferramentas/ Log Eventos.
+Nesta tela são apresentadas as seguintes informações:
+Data:
+ Data e hora que foi realizada a alteração da informação. 
+Usuário:
+ Nome do usuário logado, responsável pela alteração 
+Tabela/Procedimento:
+ Nome da tabela onde foi realizada a alteração da informação 
+Campo:
+ Nome do campo onde foi realizada a alteração
+Para alguns casos das tabelas Usuários e Empresa será apresentado o nome do campo presente na tela, para os demais casos é apresentado o nome do campo na tabela em questão.
+Quando o log for na tabela Conexão, será apresentado na coluna Campo o sistema que o usuário logou, se Normal, Remoto ou Controladoria.
+Valor Anterior:
+ Neste campo irá constar o valor anteriormente presente no registro alterado.
+Para alguns casos de exclusão de registro, para determinadas tabelas esse campo será preenchido como NULL, mas para outros casos será preenchido com o valor excluído. Este procedimento está em análise para padronização.
+Valor Atual:
+ Neste campo irá constar o novo valor presente no registro alterado, sendo importante atentarmos para casos onde será lançado um único registro onde o campo será o campo chave, que estará em branco, sendo esse cenário gerado para casos exclusão do registro.
+Para alguns casos de exclusão de registro, para determinadas tabelas esse campo será preenchido como NULL, mas para outros casos será preenchido com o valor excluído. Este procedimento está em análise para padronização.
+Chave:
+ Valor utilizado na chave da tabela, sendo importante notarmos que nos casos onde a tabela possui mais de uma chave existirá um espaço entre os valores. 
+Tipo:
+ Utilizado para controle interno do sistema, a fim de saber a origem da informação gerada. 
+Log:
+ O log é utilizado para agruparmos melhor a origem do log, podendo ter quatro tipos:
+Perfil de Empresa:
+ Utilizada para todas as alterações de perfil presentes na Empresa.
+Perfil de Usuário:
+ Utilizada para todas as alterações de perfil presentes no Usuário.
+Geral:
+ Utilizada para todas as demais alterações realizadas por meio do Sispetro.
+Conexão:
+ Apresenta as conexões feitas pelos usuários ao acessar, tentativa de acesso e saída do Sispetro.
+Data Simples:
+ Disponível somente via banco de dados, para consulta de data sem informações de horário.
+Importante: Em determinadas tabelas as operações de Inclusão não serão logadas, somente a alteração da informação.
+Na parte inferior da tela, podemos filtrar a consulta, informando os campos e logo após clicar no botão "Atualiza".
+Veja quais são as tabelas que possuem LOG no Sispetro através do Link: 
+Log de Tabelas

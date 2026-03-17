@@ -1,0 +1,79 @@
+TITULO: API para Pegar Fila da OC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5565153282
+--------------------------------------------------
+Objetivo
+Alterar ordem de carregamento via API para que a fila seja obtida. 
+1. Obter token autenticação
+Introdução
+Qualquer webservice do projeto 
+SispetroWeb 
+exigirá um token de autenticação. Este token é gerado a partir deste webservice e será válido por 24 horas. Assim, recomendamos que o sistema consumidor dos webservices aqui descritos salvem o token armazenando também a data e hora em que ele foi gerado para que, quando chegar próximo de sua validade, seja obtido novo token.
+Para mais informações, ver 
+Documentação - API Obtenção de Token
+2. 
+Obter fila
+Introdução
+Este webservice serve para que serviços externos forcem a obtenção da fila para uma determinada ordem de carregamento. 
+Endereço
+<endereço do SispetroWeb>/ordem_carregamento/pega_fila
+Parâmetros
+Será necessário enviar um header com o token e no corpo do webservice o número da ordem de carregamento que se deseja obter a fila.
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+ 
+Content-Type
+tipo do formato de envio
+application/json
+ 
+Accept
+tipo do formato de envio
+application/json
+ 
+Body
+Layout abaixo em formato JSON.
+ 
+Item
+Chave
+Conteudo
+Pai
+Obrigatório
+1
+id
+Número da OC no Sispetro
+-
+Sim
+Método
+POST
+Exemplo de chamada de WebService
+wide
+760
+curl -H "Content-Type: application/json" -H "Accept: application/json" -X POST -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM" http://localhost/ordem_carregamento/pega_fila -d '{"id":"8383"}'
+Validações
+OC não pode estar cancelada.
+OC não pode ter sido carregada/descarregada.
+OC deve ser para um depósito do tipo base própria.
+Se for OC de Transferência, usuário deve ter permissão apropriada (ckbPegaFilaOCTransf).
+Retorno Bem Sucedido
+Será retornado um objeto JSON com dados da fila e oc e o status 200. 
+O status da resposta sempre será 200.
+wide
+760
+{"id_empresa":1,"id_fila":8642,"numero_oc":8769}
+Retornos Sem Sucesso
+Será retornado um objeto JSON com o motivo do não processamento (poderá ser um erro de autenticação caso o token tenha expirado ou seja inválido ou alguma regra de negócio não atendida. 
+O status da resposta sempre será diferente de 200.
+Exemplos: 
+A OC já foi processada, consta na Portaria de Saída e a API ser requisitada novamente para mesma OC
+{
+    "erro": {
+        "A ordem de carregamento selecionada já encontra-se na portaria de saída ERRO_OC_JA_PROCESSADA."
+    }
+}
+A OC não consta no banco de dados
+{"erro":"OC não encontrada"}

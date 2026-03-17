@@ -1,0 +1,33 @@
+TITULO: Utilização do Crédito Cliente (Adiantamento)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701833
+--------------------------------------------------
+Além da possibilidade de se cadastrar um crédito manualmente para o cliente, há situações que o sistema gera um crédito de forma automática, por exemplo, quando se há uma devolução de uma venda já faturada ou ainda quando o valor pago é maior que o valor do título. Pode-se verificar os crédito através do menu 
+Movimentação / Financeiro / Contas a Receber / Manutenção de Adiantamento de Clientes
+.
+Para baixar um título total ou parcial, a condição será de acordo com a configuração da 
+, ou seja, no caso de contabilização por comprador, onde o comprador do título (Campo Comprador na tela de manutenção do Contas a Receber) seja igual ao comprador do crédito (Campo Comprador, na tela de manutenção de Adiantamentos) e no caso de contabilização por entidade faturada, onde a entidade do título (campo Razão Social, na tela de manutenção do Contas a Receber), seja igual a entidade do crédito (Campo Razão Social na tela de manutenção de adiantamentos) . Assim, pode-se proceder normalmente como se fosse uma baixa normal.
+Havendo crédito(s) para esse cliente, o sistema automaticamente habilitará os campos 
+#Recibo
+ e 
+Valor
+ na parte de Utilização de Crédito, permitindo ao usuário clicar no campo recibo para escolher qual crédito deseja utilizar para baixar o título.
+O campo 
+Valor
+ deve ser preenchido com o montante que se deseja utilizar do crédito escolhido.
+Caso seja informado o número do Recibo do Adiantamento, mas não seja informado o valor correspondente, não será possível concluir a baixa, será apresentado um erro como no exemplo abaixo:
+Após lançar o valor, o sistema irá atualizar a coluna 
+Valor Créd.Utilizado
+ e a coluna 
+Saldo Final
+ deve refletir a situação real do título, mostrando o valor zero se o titulo está sendo quitado integralmente pelo crédito ou mostrando o saldo desse titulo caso o valor do crédito utilizado não seja suficiente para quitá-lo. Portanto, a menos que se esteja utilizando outro recurso além do crédito para efetuar a baixa desse titulo, o valor do campo 
+Valor Movimento
+ deve estar preenchido com zero.
+Na tela acima, o valor do titulo é de R$13.000,00, está sendo utilizado um crédito no valor de R$ 10.000,00. Neste caso, a baixa é parcial, já que o valor do crédito é menor que o valor do título e isso irá gera um saldo para esse titulo, portanto, o usuário deve "zerar" o valor do campo Valor Movimento para que o sistema entenda que não há nenhum outro recurso (dinheiro ou cheque) que fará parte dessa baixa e atualize o saldo desse título (Campo Saldo Final).
+Caso a baixa fosse total, ou seja, o valor do crédito fosse suficiente para quitar o título, o valor da coluna saldo final, seria zero.
+O Sistema automaticamente vincula esta utilização no crédito do cliente baixando o saldo utilizado daquele crédito (se foi totalmente utilizado, ele muda o Status do crédito para Quitado e não mais Crédito Pendente). Cabe lembrar que a utilização de adiantamentos quantificados só será permitida para títulos que estejam definido este determinado adiantamento (vindo do pedido de venda).
+Quando houver a necessidade de se utilizar o crédito de um cliente em um título de outro cliente (por exemplo, quando os dois fazem parte de uma rede de postos), deve-se antes de utilizar esse crédito, transferi-lo para o cliente que se desejas utilizar. Maiores detalhes no tópico 
+.
+Quando houver mais de um título a ser baixado utilizando o mesmo adiantamento, o usuário deverá selecionar os dois títulos e clicar no botão Baixa, de forma que os dois títulos possam ser visualizados na tela de baixa:
+Após informar a Conta Destino/Origem, o usuário deverá vincular o adiantamento aos dois movimentos a serem baixados. Para isso, selecione o primeiro registro e vincule ao adiantamento desejado, ajustando o Valor Movimento se necessário. Em seguida, repita o processo para o segundo registro.
+Importante informar que, quando o adiantamento for de outra filial, a baixa não poderá ser efetuada para mais de um título.
+ Para isso, o Sispetro apresentará a mensagem abaixo:

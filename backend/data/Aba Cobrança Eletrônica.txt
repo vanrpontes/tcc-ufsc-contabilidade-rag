@@ -1,0 +1,115 @@
+TITULO: Aba Cobrança Eletrônica
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892890508
+--------------------------------------------------
+Cobrança Eletrônica:
+Tipo / Número Convênio:
+ número informado pelo Banco e utilizado para agrupamento dos dados na geração do arquivo de Remessa.
+Número Conta/Dígito:
+ número da conta da empresa onde serão creditados os valores recebidos da cobrança eletrônica.
+CNPJ/CPF Conta:
+ documento do titular da conta informada.
+Banco Oficial:
+ escolha o código dentre os bancos previamente cadastrados na tabela 
+Bancos
+.
+Número do Banco:
+ normalmente, o mesmo número escolhido acima (e preenchido automaticamente pelo SisPetro no momento da escolha do código do banco).
+Dígito do Banco:
+ dígito de controle para o código do banco. Normalmente, os funcionários de cobrança podem orientá-lo sobre qual é este dígito. Ele aparece logo em seguida do número do banco numa ficha de compensação.
+Nome Banco:
+ preenchido automaticamente pelo SisPetro na escolha do código do banco. É importante, após imprimir uma ficha de compensação de teste, que este nome seja adequado para o espaço na ficha de compensação.
+Número da Agência/Dígito:
+ agência onde a empresa possui a conta.
+Carteira:
+ código da carteira utilizado no banco para geração do arquivo de Remessa.
+Modo de Cobrança:
+ permite a diferenciar a cobrança eletrônica, 
+quanto ao cálculo do dígito verificador do nosso número e arquivo de remessa
+, devido diferenças entre a cobrança simples e vinculada 
+(usada apenas pelo Banco Rural)
+.
+Variação da Carteira:
+ informação utilizada em alguns bancos, acessar tópico 
+.
+Código do Serviço de Cobrança:
+ informação utilizada exclusivamente pela Cobrança do 
+ e 
+Caixa Econômica Federal - SICOB
+.
+Faixa Nosso Número:
+ utilize o botão 
+Definir Nosso Número
+ para acessar a Tela de 
+Manutenção da Tabela de Bancos
+, onde poderão ser atribuídos os valores para faixa.
+Sendo utilizado a sequência da geração do Nosso Número em função da faixa definida para o tipo de cobrança.
+Nº mínimo de dias úteis:
+ número de dias úteis para cálculo do vencimento com prazo muito curto para geração do boleto e pagamento do mesmo. Sendo assim, ao configurar este campo em um determinado Tipo de Cobrança, o Sispetro irá calcular a data de vencimento, podendo prorrogar a mesma caso exista finais de semana e os feriados no intervalo da data de emissão e a data de vencimento. Para mais detalhes sobre os cenários utilizados pelo Sispetro, acesse 
+Cobrança Eletrônica - Cenário de cálculo de dias úteis para prazo de vencimento
+.
+Importante: Este recurso foi desenvolvido após requisição de que, em determinados dias (normalmente às sextas) caso o vencimento ocorresse em 3 dias (portanto caísse na segunda-feira), o Sispetro prorrogasse automaticamente por mais um dia o vencimento.
+Indica Sacador/Avalista:
+ CNPJ/CPF e Razão Social do sacador/avalista responsável pela cobrança (*atualmente disponível apenas para cobrança eletrônica Bradesco);
+CNAB
+ - esta opção estará disponível somente para o 
+, ou seja, quando o campo Banco Oficial for igual a 001. Informar CNAB240 ou CNAB400 conforme a informação dada pela agência onde possui cobrança eletrônica.
+#Docto no Arquivo Remessa
+ - esta opção é permitida apenas para alguns bancos (ver em 
+), isto quer dizer que mesmo configurada para outro banco não entrará em vigor. Essa opção consiste em basicamente gerar no arquivo de cobrança com uma informação complementar na identificação que é o número da parcela. Sendo apresentada conforme configuração:
+Com parcela em forma numérica
+ - neste caso é adicionado ao final da identificação o número da parcela. 
+Ex.
+ suponhamos ter a Nota Fiscal 15675 - e estamos enviando a 4º parcela, neste caso no arquivo magnético será enviado 156754.
+Com parcela em forma alfabética
+ - neste caso é adicionada ao final da identificação a letra da parcela. 
+Ex.
+ suponhamos ter a Nota Fiscal 15675 - e estamos enviando a 4º parcela, neste caso no arquivo magnético será enviado 15675D.
+Informação de juros no Arquivo de Remessa
+ - esta opção é permitida apenas para alguns bancos como Bradesco, BIC, JSafra, Meridional, Safra, Santander, Sudameris, Brasil(Votorantim), isto quer dizer que mesmo configurada para outro banco (que não esteja nesta lista de bancos) não entrará em vigor. Essa informação consiste em definir qual valor será enviado no arquivo de remessa. Existem quatro possibilidades:
+Sem Informação
+ - o valor enviado de juros ao dia é zero.
+Informa taxa percentual
+ - gera o arquivo exatamente com o percentual informado no título a receber. Dependendo do banco, a taxa é diária ou mensal.
+Informa valor diário calculado pela taxa diária
+ - o sistema utiliza a taxa diária informada no título a receber e calcula o valor de juros ao dia a ser enviado no arquivo.
+Utiliza comissão permanência do banco por dia de atraso
+ - o valor enviado de juros ao dia é zero. Esta opção somente é utilizada para o banco Santander.
+Desconto Cond. Arquivo Remessa:
+ Em alguns casos há a necessidade de dar um abatimento ao cliente ao invés de desconto condicional. É importante que no ato do pedido de venda sabe-se o valor total do abatimento a ser concedido. Consequentemente, a Nota Fiscal de Venda e o título do Contas a Receber seriam gerados com o valor total e no arquivo de remessa será enviado o valor deste abatimento e a baixa deste arquivo de remessa (via Arquivo de Retorno) irá considerar devidamente o abatimento enviado.
+É importante ressaltar que o Desconto Condicional irá permanecer, no entanto, ao gerar o arquivo de remessa, esse desconto - abatimento será registrado conforme configuração do Tipo de Cobrança: como Desconto ou como Abatimento.
+O abatimento total a ser dado pelo cliente será dividido pela quantidade do pedido e registrado de forma unitário no campo "Desconto condicional", onde este procedimento será feito pelo usuário.
+O desconto condicional é utilizado na configuração de Tabela de Preços por cliente, e devido o fato de ser possível trabalhar com Tabelas de Preços por Cliente também é possível ter uma única tabela para uso de todos os clientes. E no caso do abatimento deve-se tomar cuidado, pois a tabela de preço não pode ser compartilhada caso contrário o abatimento também será compartilhado.
+As opções existentes para este perfil são:
+Informar como Desconto:
+ será informado no arquivo de remessa como desconto condicional.
+Informar como Abatimento: 
+será informado no arquivo de remessa como abatimento.
+Este campo só atende aos bancos: Santander, BB, Itaú e Bradesco.
+Informação de Multa no Arquivo de Remessa:
+ 
+ gera valores de multa  no arquivo de Remessa (Segmento R) para o padrão CNAB 240 (Banco do Brasil (001) e Santander (353,033 e 008). Para o padrão CNAB 400, será gerado na posição 67 a 70 (Bradesco (237). Para mais informações, veja o tópico 
+Multa no Contas a Receber e Cobrança Eletrônica
+.
+Essa funcionalidade somente está disponível para os seguintes bancos: 
+Banco do Brasil (001), Santander (353,033 e 008), Caixa Econômica (104) e Bradesco (237)
+DLL de Cobrança Eletrônica: 
+informe a pasta onde se encontra a DLL para gerar o arquivo de remessa e fazer a leitura do arquivo de retorno. Para mais informações veja os tópicos 
+Como configurar um Tipo de Cobrança
+, 
+Cobrança Eletrônica
+ e 
+Bancos com Cobrança Eletrônica configurada no SisPetro
+.
+Caso esteja utilizando cobrança eletrônica por banco correspondente, preencha os dados do painel 
+Informações sobre a Cobrança
+. Veja maiores detalhes no tópico 
+Aba Informações sobre a cobrança
+.
+Após preencher todos os campos necessários, clique no botão 
+Salva
+, para confirmar os dados cadastrados. Para mais informações, acesse o tópico 
+.
+Neste painel há as informações necessárias para o devido funcionamento da cobrança eletrônica. Porém, cada banco tem a sua particularidade, o que será explicado no tópico 
+.
+Clique no link a seguir para voltar ao Tópico 
+Painel Por Empresa

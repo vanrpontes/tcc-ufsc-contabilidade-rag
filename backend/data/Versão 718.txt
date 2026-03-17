@@ -1,0 +1,584 @@
+TITULO: Versão 7.18
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2901410246
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 26/04/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 15/06/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd718.sql (cmd2615 a cmd2658) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 43 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 22 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 21 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Relatórios 
+
+
+ DLLs 
+
+
+ Layouts de Exportação 
+
+
+
+
+
+
+ PosicaoEstoque.rtm  
+
+
+ SispetroBanco237_T240  
+
+
+ LoteGerencial.smi 
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+ DAC_AL.rtm 
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+ DIME-SC.rtm 
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+ DPMP.rtm 
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+ DNF.rtm 
+
+
+
+
+
+
+Geral
+
+
+
+
+Log de Alteração
+
+
+Estamos implementando em diversas tabelas do cadastro a rotina de log de alteração. Com isso, a partir dessa versão, as alterações efetuadas nos cadastros terão a sua data, hora e o usuário que a efetuou gravadas. UPA (CCF 12179)
+
+
+Inclusão de Parâmetro na Rotina de Criação de Empresas
+
+
+A rotina de criação de empresas foi alterada para receber também o nome de um usuário válido para que seja possível logar a criação da empresa. UPA (CCF 12179)
+
+
+Migração nos Grids
+
+
+Estamos em um processo de migração dos grids utilizados no SisPetro. Essa migração deixará nossos grids mais bonitos, práticos e com opções de filtros diversos para facilitar o trabalho de nossos usuários. UPA (CCF 12206)
+
+
+Criação das Views de E-Mail
+
+Foi criado no SisPetro um serviço de envio de e-mails que verifica os e-mails a serem enviados, porem foi detectado que no banco padrão essas views não existem. 
+TDM (CCF 12901)
+
+
+Função FormataString Travando
+
+A função FormataString é utilizada no Gerenciador de Relatórios para completar os campos texto com um determinado caracter, por exemplo, zeros as esquerda. Em alguns casos em que o campo a ser formatado e/ou a string a ser adicionada ao campo não são informados, a função FormataString estava travando o sistema. Problema corrigido. 
+UPA (CCF 13308)
+
+
+
+
+Contabilidade
+
+
+
+
+Importação de Lotes Contábeis
+
+
+Incluída nas rotinas de importações a importação de lotes contábeis gerenciais,
+ 
+com essa ferramenta, será possível importar no SisPetro informações contábeis de outros sistema.
+ 
+Existe também a opção nessa tela da contabilização real. UPA (CCF 11020)
+
+
+Estouro de Tamanho do Campo
+
+Na rotina responsável pela atualização de saldos da contabilidade real, caso o valor que estava sendo movimentado possuísse a sua parte inteira(valor antes da virgula) maior do que 12 dígitos, era gerado um erro informando ao usuário que o valor que estava sendo calculado era maior do que o suportado. Esse problema foi corrigido. 
+UPA (CCF 12605)
+
+
+
+
+Compras
+
+
+
+
+Mais informações na tela de Manutenção de Pedidos
+
+
+Disponibilizamos mais algumas informações na tela de Manutenção de Pedidos, na aba "Movto. Material - Financeiro". Além do campo "Quantidade" é possível visualizar a "Quantidade Pendente", "Quantidade Separada" e "Quantidade Faturada". ALP (CCF 12581)
+
+
+Alteração da Quantidade nos Pedidos Já Aprovados
+
+Estava sendo possível alterar a quantidade do pedido mesmo depois de aprovado. Esse falha na validação foi corrigida, não permitindo mais o usuário alterar as quantidades dos pedidos já aprovados. 
+ALP (CCF 12661)
+
+
+Módulo Compras. Alterações relacionadas a cotação
+
+
+Possibilitar vincular uma cotação a uma requisição de compras, permitindo também a visualização de todas as cotações de cada item do PMM na manutenção.
+ 
+Help:
+ 
+Requisição de Material
+ 
+TDM (CCF 12679)
+
+
+Alteracao de Quantidade no PMM aprovado
+
+Estava sendo possível alteração na quantidade do PMM após sua aprovação. 
+TDM (CCF 12661)
+
+
+Visualização do Depósito Destino do PMM
+
+Ao clicar em 
+Visualiza
+ na tela de 
+Manutenção de PMM
+ não era possível visualizar o Depósito de Destino. 
+RTS (CCF 12696)
+
+
+Código da Unidade nos PMM's Vindos de Requisição
+
+Os PMM's incluídos através da tela de requisição, não estavam sendo inseridos com o Código de Unidade nos Itens. 
+TDM (CCF 13301)
+
+
+Comparação do Depósito da OC com o Depósito do PMM está case sensitive
+
+Na Inclusão da OC, o depósito que esteja cadastrado em minúsculo e o usuário o digite em maiúsculo (ou vice-versa) serão convertidos automaticamente. 
+TDM (CCF 12693)
+
+
+
+
+Estoque
+
+
+
+
+Perfil de Usuário para Alteração do Peso Adquirido pela Balança
+
+
+Incluída nas configurações de usuário um novo perfil para permitir a alteração do peso adquirido pela balança. Quando o usuário tiver essa opção habilitada, será exibida ao usuário uma nova tela onde poderá ser alterado o peso inicial e final adquirido pela balança.
+ 
+Help:
+ 
+Automação Balança
+ 
+UPA (CCF 10343)
+
+
+Nova opção de agrupamento por classificação de produto no formulário (Relatório de Posição de Estoque).
+
+
+Três novos campos foram disponibilizados para inclusão no layout deste relatório: CodigoNCM, CodUnid e Classific.
+ 
+Para que essa alteração esteja disponível no relatório é preciso atualizar o arquivo PosicaoEstoque.rtm.
+ 
+Help:
+ 
+Posição de Estoque
+ 
+TDM (CCF 12651)
+
+
+Erro de Navegação no Grid de Detalhes da Tela de Fechamento de Estoque
+
+O grid de detalhes na tela de fechamento de estoques, em algumas situações, estava ficando congelado, impedindo a navegação do usuário nos registros. Esse problema foi corrigido. 
+UPA (CCF 12779)
+
+
+Ajuste na Portaria de Saída considerando densidade informada a 20 graus
+
+
+Para clientes que possuem medidores que informam automaticamente a densidade já convertida a 20 graus, basta informar esta condição no cadastro de depósito para que o sistema não faça os cálculos de conversão na tela de portaria de saída.
+ 
+Help:
+ 
+Tabela Depósitos
+ 
+RTS (CCF 12681)
+
+
+Recálculo do Volume Carregado/Descarregado quando há alteração na densidade
+
+Ao alterar o campo densidade na tela de Portaria de saída, não era recalculado o campo de Volume. Essa falha foi corrigida para que sempre que o campo densidade seja alterado, os cálculos de volume sejam refeitos. 
+RTS (CCF 12681)
+
+
+Agrupamento de dados na tela de fechamento de custo
+
+Ao abrir a tela de fechamento de custo o sistema mostra em uma linha o saldo inicial e final e em outra linha as entradas e saídas. Essa falha foi corrigida para sempre mostrar em apenas uma linha todos os dados solicitados. 
+RTS (CCF 12738)
+
+
+Totalização na tela de Consulta de Disponibilidade
+
+A tela de Consulta de Disponibilidade foi ajustada de forma que apresente os saldos totalizados apenas quando necessário. 
+Para que possa visualizar essa alteração é necessário que, antes de atualizar a tela, clique no botão "Layout Padrão" localizado no canto inferior esquerdo da tela.
+ 
+RTS (CCF 12305)
+
+
+
+
+Faturamento
+
+
+
+
+Novos Status de Erro da NFe
+
+
+Foram incluídos no SisPetro novos códigos de status de erro disponibilizados pela Sefaz, evitando assim que na manutenção de notas fiscais algumas notas fiquem sem o descritivo da sua rejeição, caso a Sefaz não aceite a nota. UPA (CCF 12529)
+
+
+Visualização do CST PIS/CONFINS na Manutenção de Notas Fiscais
+
+
+Incluídos na manutenção de notas, aba de itens, as informações de CST do PIS e COFINS. UPA (CCF 12403)
+
+
+Evitar o Erro de "Access Violation" na Emissão de Nota Fiscal
+
+
+Estamos incluíndo na emissão da nota fiscal algumas validações internas para evitarmos que seja gerado o erro "Access Violation" ao usuário. Caso seja gerado algum erro, esse erro deverá ser informado ao usuário de uma forma que seja possível a correção pelo próprio usuário. UPA (CCF 12580)
+
+
+Nota de entrada eletrônica com valor dos produtos zerado
+
+
+Implementamos nessa versão uma verificação na finalização da Nota Fiscal, onde se o "perfil permite NF com valor zerado" estiver habilitado a nota poderá ser finalizada mesmo com o valor zerado. ALP (CCF 12783)
+
+
+Despesas Acessórios e Seguro na Natureza
+
+Na tela de Natureza de Operação, o SisPetro estava habilitando ou desabilitando os campos de rateio incorretamente. 
+TDM (CCF 12541)
+
+
+Alíquota de Outros Impostos pode ser obtida pelo valor monetário
+
+
+Agora já é possível obter o valor monetário da alíquota de outros impostos, para isso basta cadastrar o novo imposto no cadastro
+ 
+Outros Impostos
+ 
+como do tipo
+ 
+Fórmula
+ 
+e
+ 
+Calculada como Valor Monetário
+ 
+e vincula-lo a uma
+ 
+Natureza de Operação
+. RTS (CCF 12758)
+
+
+Dados Adicionais para Recebimento de NFs
+
+
+Com o intuito de melhor identificar as notas recebidas, foi alterado o campo Número de Nota Fiscal da tela de Ordem de Carregamento para texto com até 80 caracteres, dessa forma será permitido informar várias NFs em apenas uma Ordem de Carregamento. RTS (CCF 11287)
+
+
+Ajustes nos Dados de Nota Fiscal de Importação
+
+
+A partir dessa versão, na aba de dados da importação, foi adicionado o botão "Replicar Dados nos Itens".
+ 
+Clicando nesse botão, todas as informações da importação do registro selecionado serão copiadas para todos os registros.
+ 
+O campo de Numero LI não é mais obrigatório a partir dessa versão. UPA (CCF 12649)
+
+
+Erro Access Violation no Processamento de Recibo da NFe com Muitos Itens
+
+Foi detectado que notas fiscais com mais de 50 itens ao ser enviada a Sefaz estava gerando um Access Violation no sistema. O ponto que estava gerando esse problema foi detectado e corrigido, acabando assim com esse limitação de itens na nota fiscal do sistema. 
+UPA (CCF 13318)
+
+
+
+
+Financeiro
+
+
+
+
+Transferência de Adiantamento Não Identificado
+
+Na transferência de adiantamentos, quando era selecionado um adiantamento não identificado para transferência, indevidamente o sistema estava verificando dados do grupo econômico desse adiantamento. Como o adiantamento não era identificado essa validação não faz sentido. Estamos desabilitando essa validação nessa situação. 
+UPA (CCF 12561)
+
+
+Conciliação Bancária Automática do Bradesco
+
+
+Disponibilizada dll para conciliação bancária automática do Bradesco com 240 posições
+ 
+(SispetroBanco237_T240) e para que essa dll não seja confundida com a de 200 posições, estamos renomeando a dll SispetroBanco237 para SispetroBanco237_T200.
+ 
+UPA (CCF 11938)
+
+
+Baixa de pagamento eletrônico
+
+A rotina de leitura de arquivo de baixa de pagamento eletrônico estava retornando erro de Violação de Acesso ao usuário, o mesmo foi corrigido.
+TDM (CCF 12895)
+
+
+Valores negativos na Contabilização de Títulos a Pagar oriundos de NF com Contabilização Auxiliar
+
+Ajustada a distribuição de valores na contabilização de Títulos a Pagar oriundos de NF com contabilização auxiliar (definida na Natureza de Operação).
+Todas as contas utilizadas na Contabilização auxiliar para débito serão consideradas como contra-partida do título a Pagar, porém com valor proporcional, de forma que a soma dos valores distribuídos nas contas seja igual ao valor do título.
+ Antes as contas eram utilizadas, mas como ultrapassava o valor do título acabava gerando valores negativos. 
+GSN (CCF 13079)
+
+
+Valores nulos na Contabilização de Títulos a Pagar oriundos de NF
+
+Ajustado para que valores nulos, na contabilização de Títulos a Pagar oriundos de NF, sejam considerados como zero. Isso geralmente ocorre quando a contabilização auxiliar na Natureza refere-se a valores não preenchidos na Nota Fiscal.
+GSN (CCF 13248)
+
+
+
+
+Fiscal
+
+
+
+
+Alteração no layout do arquivo de exportação - DIME-SC
+
+
+Incluído as informações do DCIP no layout do arquivo de exportação - DIME-SC com a finalidade de atender clientes que possuem regime especial de recolhimento .
+ 
+Para que essa alteração esteja disponível no relatório é preciso atualizar o arquivo DIME-SC.rtm.
+ 
+RTS (CCF 12140)
+
+
+Aumento no tamanho do Número da NF - DNF
+
+Alterado o layout de exportação da DNF para contemplar o aumento do tamanho do Número NF. 
+Necessário atualizar o arquivo DNF.rtm no Layout de Exportação.
+ 
+MSI/GSN (CCF 12995)
+
+
+Layout DPMP atualizado
+
+Devido as constantes solicitações para envio do layout do DPMP atualizado estamos liberando-o nesta versão, sem nenhuma alteração recente. A empresa que já o tiver atualizado não precisa atualizá-lo novamente. 
+Necessário atualizar o arquivo DPMP.rtm no Layout de Exportação.
+ 
+MSI/GSN (CCF 12822)
+
+
+Inclusão dos dados referente a Declaração Complementar Anual - DIME-SC
+
+
+Incluído no layout do arquivo de exportação - DIME-SC os registros referentes aos dados do Balanço e DRE exigidos anualmente.
+ 
+Para que essa alteração esteja disponível no relatório é preciso atualizar o arquivo DIME-SC.rtm.
+ 
+RTS (CCF 9803)
+
+
+DAC - Alagoas
+
+
+Atendendo as obrigações acessórias do estado de Alagoas estamos disponibilizando a DAC - Alagoas para informações dos dados fiscais de entrada e saída para apuração do ICMS. 
+Help:
+ 
+DAC-Alagoas
+.
+ 
+É necessário cadastrar o layout de exportação da DAC incluído no rtm DAC_AL.rtm
+. UPA (CCF 10107)
+
+
+Relatório de Ressarcimento ST
+
+
+O relatório de ressarcimento estava com códigos de produtos fixo (gasolina e diesel) impedindo que fosse utilizado por outros produtos que se enquadram nessa categoria.
+ 
+A partir dessa versão, é possível configurar no cadastro de produtos, os produtos que deverão ser listados nesse relatório.
+ 
+Help:
+ 
+Ressarcimento de Imposto
+,
+ 
+Ressarcimento SP
+ 
+UPA (CCF 12902)
+
+
+SPED PIS/COFINS
+
+
+Implementados vários ajustes durante o processo de validação do SPED PIS/COFINS antes do adiantamento.
+ 
+Não há nenhum problema caso sua empresa já tenha rodado algum script enviado sobre o SPED PIS/COFINS.
+ 
+Foram atualizadas várias fórmulas, retirados erros de estrutura devido número de casas decimais, além de permitir o preenchimento do Registro F120 baseado em Depreciações.
+ 
+Devido adiantamento da entrega, nas próximas versões liberaremos novas funcionalidades para facilitação do trabalho.
+ 
+GSN (CCF 12751)
+
+
+
+
+Patrimonio
+
+
+
+
+Visualização de Bens
+
+Na visualização do cadastro de bens, não estava sendo possível visualizar todas as informações sobre o bem pois a barra de rolagem no canto direito da tela estava congelada. Esse problema foi resolvido. 
+UPA (CCF 12437)
+

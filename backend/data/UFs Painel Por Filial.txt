@@ -1,0 +1,194 @@
+TITULO: UF's (Painel Por Filial)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2888597624
+--------------------------------------------------
+Para configurar as informações complementares que sairão na nota fiscal por UF, é necessário cadastrar na natureza de operação as UFs e suas respectivas mensagens. Desta forma, ao faturar para esta UF, as informações complementares respeitarão o cadastro feito natureza. Pode-se então usar uma mesma natureza de operação com duas ou mais mensagens fixadas nesta, pois na nota fiscal, sairá somente da UF faturada. Abaixo visualizaremos as configurações para estas funcionalidades a saber:
+No cadastro da natureza de operação: Tabelas Auxiliares > Faturamento > Natureza de Operação > Detalhes > Aba lateral Por Filial > Aba Inferior UF's
+Note que na figura acima temos dois campos: UF e Observação. As observações são por UF e sairão na nota fiscal conforme o cadastro.
+Botões e funcionalidades:
+Incluir UF:
+ usado toda vez que desejar incluir uma nova UF
+Exclui UF:
+ usado toda vez que desejar excluir uma nova UF
+Cópia:
+ tem como recurso a cópia da UF selecionada na tela para as outras empresas cadastradas no SisPetro. Ao usá-lo, será feito uma cópia desta UF selecionada e a Observação cadastrada para as demais empresas nesta natureza. Pegamos como exemplo o cadastro da imagem acima. Em todas outras empresas na natureza de operação V01 ficaria cadastrado esta UF e Observação selecionada.
+Edita: 
+ao acionar será apresentada uma tela para a busca e seleção de fórmulas que podem ser utilizadas na composição das observações.
+Testa :
+ ao acionar será apresentada uma tela onde pode-se realizar um teste da fórmula, para isso basta selecionar uma nota e clicar no botão 
+Testa NF Selecionada
+Geral
+Durante a versão 8.24 foi criada a possibilidade de incluir um Tipo de Documento para cada Estado. Isso se deve ao fato de ter sido criado, também, a Geração da DARJ. Para mais informações, ver 
+Manutenção de Documentos de Arrecadação.
+Basta posicionar em cima do estado que deseje um Tipo de Documento específico e informa-lo no campo "Tipo de Documento". Para os Estados que não estiverem na lista o Tipo de Documento será o cadastrado na aba 
+, campo 
+"Tipo Documento"
+. Para maiores informações sobre Tipo de Documento, veja o help: 
+Fundo Estadual de Combate à Pobreza - FCP
+A partir da versão 8.36 é possível indicar para quais Estados será enviada as informações referentes ao FCP. Para incluir uma UF, basta no quadro Geral incluí-la.  
+Após incluir a UF as opções do quadro Fundo Estadual de Combate à Pobreza - FCP serão habilitadas.
+Envio do FCP nas Informações Adicionais do XML da NF-e
+Não envia nunca:
+ com este perfil, independente da UF estar cadastrada, não será enviado.
+Nas informações adicionais do produto e Complementares da NF:
+ será enviado para as UFs cadastradas. 
+Para mais informações, ver 
+FCP - Operações com Gasolina no PR
+.
+Considera Natureza de Operação/Filial: 
+se o perfil na aba 
+Impostos 
+estiver marcado para enviar, será feito. Caso contrário não será enviado.
+Calcula FCP sobre ICMS Próprio?: 
+permite definir se será calculado ou não o FCP sobre notas com ICMS Próprio
+Não Calcula:
+ 
+não será calculado
+Calcula para uso nas Obrigações:
+ 
+calculará valores de FCP para envio no XML/DANFE e nas obrigações fiscais. Utilizado para as UFs que tem FCP sobre ICMS Próprio.
+Considera Natureza de Operação/Filial: 
+se o perfil na aba 
+Impostos 
+estiver marcado para enviar, será feito. Caso contrário não será enviado.
+Calcula para fins Informativos:
+ 
+calculará valores de FPC somente para a Apuração Fiscal. Não serão gerados valores de FCP no XML/DANFE. Utilizado para as UFs nas quais a alíquota do FCP é somada à alíquota do ICMS Próprio mas deve gerar lançamentos separados do ICMS Próprio e do FCP na Apuração Fiscal.
+Calcula FCP sobre ICMS Substituição?:
+ permite definir se será calculado ou não o FCP sobre notas com ICMS Substituição
+Não Calcula:
+ 
+não será calculado
+Calcula para uso nas Obrigações:
+ 
+calculará valores de FCP para envio no XML/DANFE e nas obrigações fiscais. Utilizado para as UFs que tem FCP sobre ICMS ST.
+Considera Natureza de Operação/Filial: 
+se o perfil na aba 
+Impostos 
+estiver marcado para enviar, será feito. Caso contrário não será enviado.
+Calcula para fins Informativos:
+ 
+calculará valores de FCP somente para a Apuração Fiscal. Não serão gerados valores de FCP no XML/DANFE. Utilizado para as UFs nas quais a alíquota do FCP é somada à alíquota do ICMS ST mas deve gerar lançamentos separados do ICMS ST e do FCP na Apuração Fiscal.
+Calcula FCP sobre ICMS Retido?: 
+ permite definir se será calculado ou não o FCP sobre notas com ICMS Retido.
+Não Calcula:
+ 
+não será calculado
+Calcula para uso nas Obrigações:
+ 
+calculará valores de FCP para envio no XML/DANFE. Utilizado para as UFs que tem FCP sobre ICMS Retido.
+Considera Natureza de Operação/Filial: 
+se o perfil na aba 
+Impostos 
+estiver marcado para enviar, será feito. Caso contrário não será enviado.
+Calcula para fins Informativos:
+ caso tenha, calculará valores de FCP somente para a Apuração Fiscal. Não serão gerados valores de FCP no XML/DANFE. Utilizado para as UFs nas quais a alíquota do FCP é somada à alíquota do ICMS Retido mas deve gerar lançamentos separados do ICMS Retido e do FCP na Apuração Fiscal.
+Desconto do FCP ICMS Próprio:
+Desconta do Valor do ICMS Substituição: 
+informando esta opção, o valor do FCP de ICMS Próprio será descontado do ICMS ST.
+Desconta do Valor do FCP sobre o ICMS Substituição:
+ informando esta opção, o valor do FCP de ICMS Próprio será descontado do FCP sobre o ICMS ST.
+Para mais informações, ver 
+DARJ
+Para mais informações, ver 
+Manutenção de Documentos de Arrecadação
+Neste painel é onde serão configuradas informações como ICMS, Natureza e Produto, data de vencimento do DARJ.
+O primeiro passo é saber se a nota gera 
+ICMS Próprio e Substituição
+, 
+apenas Próprio
+ ou 
+apenas Substituição
+.
+ICMS Próprio
+Emissão
+Não emite: 
+não considera o imposto na geração do DARJ
+ICMS Próprio na NF: 
+será o valor do imposto na geração do DARJ. Não terá qualquer cálculo.
+ICMS Próprio pelo % Exigido e FCP: 
+ver os cálculos abaixo
+ICMS Próprio
+Valor do ICMS Próprio * 60% 
+A legislação que estipula que o valor deve ser 60% do valor devido
+Valor do FCP: Valor do ICMS Próprio / 24% * 60% * 1%
+Conforme legislação para base de cálculo deve ser considerado o imposto a uma alíquota de 24%, depois deve ser considerado 60% do valor. Então aplica-se 1% que é o percentual reservado para o FCP
+Valor do Imposto:
+ Valor Total do Pagamento - Valor do FCP 
+Usuário informa:
+ não será feito qualquer cálculo. O usuário deverá informar os valores na geração do DARJ
+Natureza:
+ deverá ser informada a qual natureza, dentre as cadastradas anteriormente em 
+Natureza/Receita arrecadação - DARJ
+, a NF pertence
+Produto:
+ deverá ser informado qual o produto, dentre os cadastrados anteriormente em 
+Produto Arrecadação - DARJ
+, a NF pertence.
+Vencimento
+Data da Emissão da NF:
+ no boleto e DIP será a data de emissão da Nota Fiscal que será informada como sendo Data de Vencimento.
+Último Dia do Mês Seguinte:
+ caso a empresa opte por trabalhar desta forma, o vencimento será o último dia do próximo mês. Uma informação, durante os testes a SEFAZ não aceitou uma data de vencimento maior que 30 dias.
+Dia Específico do Mês Seguinte:
+ com esta opção a empresa poderá escolher o dia de vencimento, seja ele útil ou não, do próximo mês.
+ICMS Substituição
+Emissão
+Não emite: 
+não considera o imposto na geração do DARJ
+ICMS ST na NF: 
+será o valor do imposto na geração do DARJ. Não terá qualquer cálculo.
+ICMS ST pelo % Exigido e FCP: 
+ver os cálculos abaixo
+ICMS Substituição
+Valor do ICMS ST
+Nesse caso é o valor do ICMS ST destacado na Nota Fiscal
+Valor do FCP: Valor do ICMS ST / 24% * 1%
+Conforme legislação para base de cálculo deve ser considerado o imposto a uma alíquota de 24%. Então aplica-se 1% que é o percentual reservado para o FCP
+Valor do Imposto
+: Valor Total do Pagamento - Valor do FCP 
+Usuário informa:
+ não será feito qualquer cálculo. O usuário deverá informar os valores na geração do DARJ
+Natureza:
+ deverá ser informada a qual natureza, dentre as cadastradas anteriormente em 
+Natureza/Receita arrecadação - DARJ
+, a NF pertence
+Produto:
+ deverá ser informado qual o produto, dentre os cadastrados anteriormente em 
+Produto Arrecadação - DARJ
+, a NF pertence.
+Vencimento
+Data da Emissão da NF:
+ no boleto e DIP será a data de emissão da Nota Fiscal que será informada como sendo Data de Vencimento.
+Último Dia do Mês Seguinte:
+ caso a empresa opte por trabalhar desta forma, o vencimento será o último dia do próximo mês. Uma informação, durante os testes a SEFAZ não aceitou uma data de vencimento maior que 30 dias.
+Dia Específico do Mês Seguinte:
+ com esta opção a empresa poderá escolher o dia de vencimento, seja ele útil ou não, do próximo mês.
+GNRE
+Antes de realizar as configurações abaixo, devesse selecionar a Filial que ira emitir a GNRE, e a UF para qual será gerada a GNRE.
+Para mais informações, ver 
+Manutenção de Documentos de Arrecadação
+GNRE
+Emissão GNRE ICMS ST
+Não emite: 
+caso seja marcado este perfil, não será feito nenhum cálculo o usuário deverá informar os valores na geração da GNRE
+ICMS ST da NF: 
+será o valor do imposto na geração do DARJ. Não terá qualquer cálculo.
+Usuário Informa: 
+não será feito qualquer cálculo. O usuário deverá informar os valores na geração da GNRE
+Tipo Período Apuração
+Mensal
+1ª Quinzena
+2ª Quinzena
+1º Decêndio
+2º Decêndio
+3º Decêndio
+Não deve ser informado
+Receita: 
+selecione uma receita na Natureza/Receita Arrecadação cadastrada para a UF posicionada.
+Produto:
+ selecione um Produto Arrecadação cadastrado para a UF posicionada.]
+SPED EFD ICMS/IPI
+Gera Registro 1400 para CT-e recebido de terceiros com origem nessa UF:
+ se marcada, os CT-es de terceiros serão informados nos registros 1400.
+ 
+Os registros 1400 para CT-e recebido de terceiros  são gerados para CT-e cujo município de início da prestação de serviço seja de Minas Gerais, a transportadora é sediada em UF diferente de MG e não tem IE Substituto.

@@ -1,0 +1,206 @@
+TITULO: Geração dos Dados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898589
+--------------------------------------------------
+A partir da versão 8.11 quando o perfil 
+Permite Valor Diferente de 100% (faz ajuste no último item) 
+estiver marcado, o SisPetro realizará o ajuste no produto que possui maior proporção na composição mantendo assim a quantidade do aditivo.
+Exemplo:
+Foram vendidos 10.000 litros de Gasolina C Aditivado, no DPMP os produtos ficarão da seguinte forma: 7.499 de Gasolina A ,2.500 de Álcool Anidro e 1 litro de Aditivo totalizando os 10.000 litros que foram vendidos.
+No menu 
+Movimentação / Estoque / DPMP
+ é onde se manuseia os dados do DPMP:
+Informe a 
+Empresa
+, o 
+mês
+ e o 
+ano
+ do DPMP. O SisPetro sugerirá automaticamente o primeiro e o último dia do mês como 
+data inicial
+ e 
+data final
+. Não será possível informar uma data fora do mês especificado. Clique no botão 
+Atualiza
+.
+Apesar da geração do DPMP ser por empresa, depois de todos os dados gerados é possível gerar a mídia magnética para as empresas com o mesmo Código ARI. Para mais informações, ver 
+Geração da mídia
+.
+Caso já tenha sido gerado o DPMP para este mês/ano, os dados serão apresentados, para que possam ser visualizados/alterados.
+Para gerar um novo DPMP ou sobrepor os dados de um DPMP que já foi gerado, utilize o botão 
+Gera DPMP
+.
+No caso de estar gerando para um período que já tinha dados, pode ser necessário manter os registros incluídos
+manualmente. Para isso há a opção 
+Mantém registros incluídos manualmente ao gerar o DPMP novamente
+ que, quando marcada, não exclui os registros manuais.
+A opção 
+Gerar dados de características dos produtos
+, se marcada, indica que serão gerados dados de características dos produtos para o DPMP. Porém, a partir de janeiro/2008, estas informações não precisarão ser mais geradas. Basta apenas informar o campo número do laudo (para mais informações, ver 
+, 
+Manutenção de Tanques
+, 
+, 
+Mudança de Temperatura e Densidade
+) que é o documento emitido pela base armazenadora que contém todas estas informações.
+A opção em tela 
+Visualiza agrupamento para o DPMP?
+ é em decorrência de uma norma da ANP. Segundo a ANP, numa mesma nota um código DPMP de Produto só poderá estar informado uma única vez, senão, no processo de crítica do validador será identificado como duplicidade. Então, vejamos o exemplo:
+Temos no cadastro do SisPetro dois produtos referentes a lubrificantes: LUBRIFICANTE I e LUBRIFICANTE II. Porém, ambos tem o mesmo código DPMP, por exemplo: 320102999. Ao fazer uma nota com estes dois produtos, ao declarar no DPMP, só podemos declarar um único item (somada as quantidades), pois, para a ANP, se declararmos os dois itens ela acusará como duplicidade.
+Então, ainda neste exemplo. a tela do DPMP apresentará os dois registros referentes aos dois itens de nota cadastrados no SisPetro. Porém, no arquivo gerado será mandado um único registro para esta nota com os valores somados e as características (se houverem) devidamente distribuídas. Como o que está sendo apresentado na tela é diferente do que vai para o arquivo, é possível marcar a opção 
+Visualiza Agrupamento para o DPMP
+. Quando marcada serão apresentados os registros da forma como será gerado o arquivo.
+Na geração do DPMP será feito o seguinte processo, internamente:
+Serão verificados os 
+produtos
+ que possuem Código DPMP.
+Serão localizadas notas destes produtos cuja 
+Natureza de Operação
+ tenha configurada o tipo de Operação.
+Serão localizados pedidos de outras entradas e outras saídas que utilizaram código de histórico configurado para participar do DPMP.
+Serão localizados dados da 
+empresa
+ (ARI e Código de Instalação 1), que são sempre os mesmos.
+Serão localizados os dados de 
+clientes
+ e 
+fornecedores
+. Se tiver o código de instalação, será o Código de Instalação 2, caso não tenha, será preenchido o campo de Identificação de terceiros (com o CNPJ ou CPF), o campo CNAE e o campo Localidade (código do Município na ANP).
+Para cada 
+produto
+, localiza-se a sua proporção e multiplicamos esse valor pela quantidade constante na NF (a maior parte dos produtos a proporção é 1, mas alguns lubrificantes têm outra proporção).
+Para cada nota produto e pedido OE e OS serão localizadas, pela data da nota e do pedido, as 
+vigências
+ de características, para que sejam preenchidos os campos de características e valores.
+Para cada nota e pedido será verificada a temperatura e a densidade da amostra, para que seja atualizado o campo Massa Específica com a densidade a 20C. Se as características Massa Específica a 20C e Teor Alcoólico estiverem configurados para obtenção automática a partir da NF no 
+Produto
+, seus valores também serão atualizados. Como a massa específica depende das temperaturas e densidade cadastradas na Nota, caso estas estejam incorretas é possível utiliza a tela de 
+Alteração de Dados Mídia Magnética - Anexo
+ no caso do pedidos gerados incorretamente devemos cancelar o pedido errado e criar um novo, o cancelamento pode ser feito pela tela de manutenção de pedidos e a criação por estoque outras entradas e outras saídas. Nos dois casos será necessário gerar novamente o DPMP.
+Tendo a Massa Específica preenchida é calculado então a Quantidade em Quilos, que é a Quantidade multiplicada pela Massa Específica a 20C.
+Para os produtos compostos será calculada, no produto composto, a quantidade de saídas subtraída pelas entradas. As operações de ajuste manual não serão incorporadas no cálculo, caso o sistema esteja configurado para 
+não fazer ajuste no último item
+ e conforme o 
+código de operação para ajuste manual
+ configurado. Com base nesta quantidade, será feito:
+Remessa para a unidade interna do informante no produto composto (por exemplo Gasolina C)
+Retorno para a unidade interna do informante no produto simples para os produtos básicos conforme a composição do produto composto cadastrada na tabela 
+Período DCP
+.
+Ex.: Gasolina C composta de 73% de Gasolina A e 27% de Anidro. Se o total de saídas da Gasolina C for 100.000 e o total de entradas for 5.000. Temos um saldo de 95.000.
+Na Gasolina C terá uma 
+Remessa para a unidade interna do informante
+ (entrada) de 95.000, zerando o estoque da Gasolina C, consequentemente. Na Gasolina A terá um 
+Retorno para a unidade interna do informante
+ (saída) de 95.000*0,75 = 69.350. No etanol Anidro terá um "Retorno para a unidade interna do informante" (saída) de 95.000*0,27 = 25.650
+Há outra situação que pode ser exemplificada, utilizando a gasolina C aditivada:
+Composição:
+GASOLINA A = 0,73 = 73%
+ETANOL ANIDRO = 0,27 = 27%
+ADITIVO GASOLINA = 0,0002 = 0,02%
+Totalizando essa composição chega-se no valor total de 100,02% de produto.
+Aplicando essa composição a uma saída de 20000 litros de gasolina C, teríamos:
+GASOLINA A: 20000 * 0,73 = 14600
+ETANOL ANIDRO: 20000 * 0,27 = 5400
+ADITIVO GASOLINA: 20000 * 0,0002 = 4
+Totalizando 20004, que é diferente do 20000 litros que serão lançados na entrada de Gasolina C. Dessa forma o sistema pode fazer o ajuste necessário de forma automática, diminuindo os 4 litros. Então, no aditivo a quantidade fica zerada. No final disso temos a garantia que a soma das saídas dos produtos básicos é igual a entrada do produto composto.
+Na figura acima, houve uma saída de gasolina C Aditivada. Ao gerar o DPMP, há 3 linhas referentes a Remessa para Unidade Interna do Informante. Uma linha referente a proporção do Etanol Anidro (Qtde 2500), outra linha referente a proporção da Gasolina A (Qtde 7500) e outra linha referente a proporção do aditivo que está zerada.
+Porém, há empresas que precisam declarar o aditivo, desta forma não seria possível. A recomendação da ANP é que a entrada no produto composto seja correspondente a sua composição e que depois seja feito um ajuste de saída justificando essa diferença devido o aditivo.
+Aplicando essa regra ao exemplo citado, na Gasolina C Aditivada, ao invés de dar entrada de 20000 litros, seria de 20004. Porém, ela ficaria com um estoque de 4 litros. Aí, se faz um ajuste manual de saída de 4 litros para zerar o estoque. Por sua vez, o SisPetro não faria o ajuste de forma automática, deixando a saída no Aditivo de 4 litros.
+Ao gerar o DPMP, há 1 linda em verde, referente a operação 1021004
+,
+  total de proporção por mistura somando a composição do produto principal agrupado.
+O SisPetro pode ser configurado para trabalhar com uma das situações exposta anteriormente. Para isso o usuário deve configurar o sistema, através do menu 
+Ferramentas / Sistema - Painel Estoque
+, selecionando uma das opções do campo 
+Soma Percentual Produto Primário no Produto Composto:
+Permite Valor Diferente de 100% (não faz ajuste)
+: Esta opção faz com que o sistema não faça nenhum ajuste nos produtos compostos, apresentando os produtos conforme a proporção cadastrada no produto principal, neste caso, cabe ao usuário fazer o ajuste manual.
+Ao fazer o ajuste manual no produto composto, para zerar o estoque, a quantidade informada, geralmente uma saída, não pode fazer parte do cálculo de decomposição deste produto, senão geraria entradas numa quantidade diferente e o ajuste poderia não ter efeito. Sendo assim, é necessário informar o 
+código de operação a ser utilizado no ajuste manual
+. Com base neste código, ao calcular a decomposição do produto composto, o sistema desconsiderará quaisquer lançamentos que sejam feitos com este código de operação. Os lançamentos de ajustes só serão considerados nos totalizadores de operação, saídas e entradas, zerando assim o estoque.
+Permite Valor Diferente de 100% (faz ajuste no último item)
+: Neste caso, o sistema pega o último item (o aditivo, que foi cadastrado na composição do produto por último) e faz o ajuste necessário. Então, no aditivo a quantidade fica zerada. No final disso se tem a garantia que a soma das saídas dos produtos básicos é igual a entrada do produto composto.
+Para cada grupo de operações será criado então um Registro Totalizador (operação com final 998), tendo inclusive um Total Geral de Entradas e um Total Geral de Saídas, por produto.
+Com base no DPMP anterior, será criado um registro para a operação de "Estoque Inicial Próprio" (tendo como quantidade o estoque final do mês anterior), somará o total geral de entradas, subtrairá o total geral de saídas, chegando a um registro para a operação de "Estoque Final Próprio".
+Importante:
+ mesmo quando o produto em uma nota venha a possuir a mesma quantidade esse será apresentado em outro registro para o DPMP, isto é, não será realizada uma somatória e apresentado com um único registro, sendo possível distinguir por meio do campo 
+Item NF
+.
+No DPMP, quando temos movimentação de Produto Composto, é necessário zerar o estoque deste produto composto e movimentar os produtos básicos. Para isso é feita uma operação de entrada no produto composto com um código de operação 
+Remessa de Unidade Interna do Informante" (1031001)
+ e uma operação de saída nos produtos básicos com um código de operação 
+Retorno de Unidade Interna do Informante (1032002). Este processo é feito automaticamente se o produto estiver com o campo Tipo composição igual a composição para movimentação.
+ Se o perfil estiver definido como 
+composição para estoque
+ mesmo que o produto seja composto ele terá estoque final caso isto aconteça realmente com sua movimentação durante o período de geração do DPMP.
+Na tela acima, para a gasolina C - Aditivada, há três linhas de Remessa para Unidade Interna do Informante - Código 1031001.
+Nesta outra tela, há um registro para gasolina A, referente a gasolina C - Aditivada da tela anterior, Retorno de Unidade Interna do Informante - Código 1032002.
+Deve-se notar que o SisPetro já sugere esses dois códigos, porém, a ANP pode sugerir outros códigos para essas operações. Neste caso, o usuário pode substituir esses códigos por outros, conforme orientação da ANP 
+(veja onde alterar esses códigos no tópico
+ 
+Configurações Iniciais - DPMP
+)
+, porém, para que esses códigos sejam alterados de fato, o usuário deve gerar novamente o DPMP, desmarcando na tela de geração do DPMP a opção:
+Dessa forma o SisPetro vai gerar novamente o DPMP utilizando os novos códigos configurados na empresa. Caso contrário, utilizará os códigos antigos, porém, como não haverá referência para esses códigos, irá considerar como códigos incluídos manualmente pelo usuário.
+Exemplo: Geração do DPMP com o código sugerido pelo SisPetro:
+Na tela acima, os registros referentes a 
+Remessa de Unidade Interna do Informante - Código 1031001
+, estão conforme sugeridos pelo SisPetro
+Nesta outra tela, a 
+Remessa de Unidade Interna do Informante - Código 1031001
+, foi alterado nas configurações da empresa para o código 
+1052001
+, porém, ao se gerar novamente o DPMP, não foi desmarcado a opção:
+Como não haverá referência para esses códigos, o SisPetro irá considerar como códigos incluídos manualmente pelo usuário.
+Já na tela acima, foi desmarcada a opção e gerado novamente o DPMP. Os registros com códigos de operação 
+1031001
+, foram substituídos pelo código 
+1052001
+, que está devidamente configurado na empresa.
+O processo do produto composto, totalizador e estoque serão refeitos toda vez que for clicado no botão:
+Existem algumas regras para esse botão 
+Recalcula Totais
+, bem como para o 
+Gera DPMP.
+ Para mais informações, ver 
+.
+Assim, qualquer alteração nos dados ou inclusão manual de novos registros pelo painel Edição requer que seja feito o recálculo dos totais.
+Após cada Geração de DPMP será questionado se deseja fazer a 
+Crítica
+, a ser explicada no tópico específico. Caso responda Não é possível acessar manualmente a opção de Crítica.
+Posicione, do lado esquerdo, em cada produto, para poder visualizar os seus dados. Posicionando em cada registro do painel Visualização é possível ver na parte inferior da tela a descrição da Operação.
+É possível mudar a posição das colunas arrastando-a pelo cabeçalho.
+Para agrupar por uma determinada coluna, arraste-a pelo cabeçalho até a parte amarela.
+Clicando sobre o cabeçalho é possível ordenar de forma ascendente ou descendente. Segurando a tecla <SHIFT> é possível ordenar utilizando mais de uma coluna.
+Para filtrar dados de uma determinada coluna clique na seta direcionada para baixo no lado esquerdo da coluna, como mostra a figura .
+Serão apresentadas as opções de filtro:
+A opção 
+All
+ mostra todos os registros. É utilizada principalmente quando já foi feito um filtro e você deseja desfazê-lo.
+A opção 
+Custom
+ permite que você configure a forma do filtro:
+Na tela acima está sendo solicitado que mostre todas as linhas onde a quantidade seja igual a 5000 ou que seja maior que 15000. É possível ir configurando conforme a necessidade.
+Utilize estes recursos para facilitar a pesquisa e conferência.
+Temos na tela o 
+Layout Grid
+, com as seguintes opções:
+Salva Layout:
+ Salva as alterações feitas no painel visualização para o usuário, sendo assim na próxima vez que entrar na tela, o painel estará com a mesma organização em relação as colunas.
+Não salva Layout:
+ Se por algum motivo foi feita alguma alteração indesejada, escolha esta opção para que na próxima vez que entrar na tela, o painel estará com o último layout salvo.
+Exclui Layout Atual:
+ Exclui o layout salvo para o usuário, voltando a configuração padrão para este painel.
+Para verificar o significado das fontes e cores utilize o botão: 
+Será apresentada a seguinte tela:
+A estrutura dos dados visualizados é correspondente ao layout do DPMP, para facilitar a associação. O DPMP é como uma cópia dos dados vindos da Nota Fiscal (Entidade, Natureza de Operação e etc.), por isso se for feita qualquer alteração na Nota (Entidade, Produto, etc.), então é necessário gerar novamente o DPMP através do botão 
+Importante: os registros incluídos manualmente e as alterações manuais serão sobrepostos quando se optar pela geração do DPMP.
+Para imprimir os dados do painel Visualização utilize o botão 
+Como cada empresa pode querer um layout diferente neste relatório, é possível modificar seu layout, acrescentar dados e tabelas, utilizando o botão 
+Se no painel de visualização você estiver posicionado num registro oriundo de uma NF do SisPetro (o campo Sequencial NF está preenchido), é possível utilizar o painel 
+ para ver os detalhes da Nota. Havendo necessidade de alterar algum campo da nota fiscal, por exemplo, natureza de operação, o usuário poderá fazê-lo através da 
+Alteração de Dados Mídia Magnética - Anexo
+.
+O painel 
+Edição de Informações do DPMP
+ permite alteração nos dados ou inclusão manual de informações. É importante que as alterações sejam sempre feitas na origem (nota, natureza, produto, etc.) para garantir que no próximo mês não haja erros reincidentes, mas se for preciso utilize então a alteração direta no DPMP.

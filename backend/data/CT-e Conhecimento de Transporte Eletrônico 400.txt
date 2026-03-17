@@ -1,0 +1,59 @@
+TITULO: CT-e Conhecimento de Transporte Eletrônico 4.00
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4550623233
+--------------------------------------------------
+Objetivo
+O Conhecimento de Transporte Eletrônico (CT-e) tem como objetivo acobertar o transporte de cargas e agilizar a alguns processos de fiscalização junto a SEFAZ.
+Comparação das alterações entre  versão 
+3.00
+ e versão 
+4.00
+: 
+Item
+Versão 3.00
+Versão 4.00
+O que muda?
+Obtenção do Protocolo
+A comunicação era assíncrona: primeiro se obtém o recibo para depois obter o protocolo.
+A comunicação é síncrona: numa única comunicação se obtém o protocolo.
+O SisPetro fará a primeira comunicação como se fosse obter o Recibo. Ao salvar os dados, salvará também o Protocolo.
+A comunicação para obter o Protocolo só será feita se tiver recibo e não tiver protocolo (o que atende UF que estejam na versão 3.00 e nunca acontecerá quando estiverem na versão 4.00)
+Denegação (CT-e emitido para entidades com problemas na SEFAZ)
+Ao enviar para SEFAZ o CT-e retornava como Denegado, não podendo ser cancelado (pois era equivalente ao CT-e autorizado).
+O CT-e não será autorizado e será tratado como os demais casos sem autorização, não precisando ficar armazenado.
+o SisPetro só grava como CT-e denegado quando é retornado o Status 301 ou 302 e a SEFAZ retornará outro status.
+Inutilização (por intervalo ou no cancelamento de CT-e não autorizado)
+Havia um serviço específico para inutilização. Ele é automático quando um CT-e não autorizado é cancelado e o usuário não alterou a opção para Não processar na SEFAZ.
+Não há serviço de inutilização. 
+Utilizando a versão 4.00 não haverá CT-e de inutilização.
+CT-e anulação
+Para substituir um CT-e era necessário ter uma Anulação do CT-e original (NF-e ou CT-e) para depois se emitir um CT-e de Substituição.
+Não será mais necessário ter um CT-e de Anulação.
+Utilizando a versão 4.00 não haverá CT-e de anulação.
+CT-e substituição
+O CT-e de Substituição tinha que se referenciar a uma NF-e ou a um CT-e de Anulação.
+Não será mais necessário ter a referência a um CT-e de Anulação.
+Só deverá ser emitido quando o CT-e anterior não puder ser cancelado ou ajustado via carta de correção.
+Utilizando a versão 4.00 não haverá  a necessidade de referenciar um CT-e de anulação, a menos que o CT-e anterior não puder ser cancelado ou ajustado via carta de correção.
+Configurações para Migração do CT-e 3.00 para 4.00:
+Na aba de Endereços URL p/CTe em 
+Na aba 
+Regras p/ CT-e
+, selecionar as opções conforme abaixo:
+Serviço de Inutilização:
+Ativo:
+ utilizar quando os webservices estiverem configurados para 3.00
+Extinto:
+ utilizar quando os webservices estiverem configurados para 4.00
+Anulação de CT-e
+, :
+Ativa:
+ utilizar quando os webservices estiverem configurados para 3.00
+Extinta:
+ utilizar quando os webservices estiverem configurados para 4.00
+Botões:
+Última Versão:
+ responsável por atualizar os webservices para a ultima versão configurada previamente no SisPetro 
+4.00
+Versão Anterior:
+ responsável por atualizar os webservices para a versão anterior configurada previamente no SisPetro, neste caso 
+3.00

@@ -1,0 +1,78 @@
+TITULO: Introdução
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898935
+--------------------------------------------------
+A finalidade básica do fechamento é armazenar os dados do módulo Financeiro em determinada data (data referência do fechamento), afim de comparar estes dados com os do fechamento anterior, comparando-os com os dados do faturamento para comprovar se a diferença entre as duas situações se justifica através do próprio faturamento e dos pagamentos realizados.
+
+
+Os dados que o fechamento salva são:
+
+
+
+
+Pendências a Receber
+ do módulo Financeiro que se refiram a fatos geradores com datas anteriores ou iguais ao do fechamento.
+
+
+Créditos identificados
+ pendentes (não utilizados) de clientes.
+
+
+Créditos não identificados
+.
+
+
+Saldo de cada banco conciliado
+ ( comprovado pelo extrato ) e 
+não conciliado
+ (cheques recebidos e emitidos e ainda não acusados pelo banco).
+
+
+Cópia dos títulos pendentes a receber e pagar
+ do módulo Financeiro que se refiram a fatos geradores com datas anteriores ou iguais a do fechamento, caso seja marcada a opção Salva dados detalhados do Contas Pagar/Receber.
+
+
+
+
+Resumidamente, o fechamento do financeiro faz parte de uma estratégia que visa garantir que o montante que se está faturando está indo para as pendências do Contas a Receber no módulo Financeiro, que estas pendências só serão baixadas mediante comprovação de movimento bancário, que os créditos de clientes serão justificados através de notas fiscais de devolução ou de movimentação bancária (crédito através de depósito anterior) conforme gráfico abaixo.
+
+
+
+
+Note que o saldo financeiro só é alterado por três procedimentos:
+
+
+
+
+Faturamento de uma Nota Fiscal de Venda (gera pendência).
+
+
+Faturamento de uma Nota Fiscal de Devolução (gera crédito).
+
+
+Pagamento a fornecedores (subtrai do saldo banco).
+
+
+
+
+Por exemplo, uma baixa realizada somente transfere o montante da baixa da pendência para o banco, não alterando o saldo financeiro do dia, assim como a utilização de um crédito préviamente cadastrado em uma baixa somente diminui o valor do crédito pendente diminuindo também o valor pendente no financeiro (como são valores com sinais complementares o saldo permanece o mesmo).
+
+
+Deve-se notar que estes movimentos que alteram o saldo financeiro são facilmente comprováveis, pois são ou documentos fiscais (notas) ou existem cópias de cheque assinadas autorizando o pagamento.
+
+
+Veja também:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

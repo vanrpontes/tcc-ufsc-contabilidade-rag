@@ -1,0 +1,47 @@
+TITULO: Fator de correção de Frete
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4412506113
+--------------------------------------------------
+O objetivo é permitir valores diferenciados de frete vinculados a um ou mais frotas.
+Por exemplo, a empresa possui um frota que é do tipo 
+Bitruck
+. Ele será cadastrado com um tipo já existente, por exemplo, Truck e nele será indicado qual o fator de correção deve ser usado para chegar ao valor do frete desejado.
+Ou seja, se o valor do frete do Truck é 0,003 (definido na 
+Tabela de Distâncias
+) por litro e o valor do Bitruck é 0,002, nele indicaríamos um Fator de Correção de -0,001.
+Com isso, nos pontos que calcula o frete, além de obter o frete da Tabela de Distâncias, sempre somaria esse fator. No exemplo citado 0,003 somado a -0,001 daria o 0,002 esperado.
+Configurações
+Ferramentas /
+ Sistema / Aba Fretes
+Utiliza Tabela de Fator de Correção de Frete: 
+marcar
+Para mais informações, ver 
+Ferramentas /
+ Usuários / Fretes
+Pode dar manutenção em Fator de Correção de Frete: 
+marcar
+Para mais informações, ver 
+Painel Fretes (Usuários)
+Tabelas Auxiliares / Transportes / Tabela de Fator de Correção de Frete:
+Cadastrar um fator de correção
+Para mais informações, ver 
+Tabela de Fator de Correção de Frete
+Tabelas Auxiliares / Transportes / Frota
+Fator de correção de Frete: 
+selecionar o fator cadastrado na 
+Tabela de Fator de Correção de Frete
+Para mais informações, ver 
+Informações importantes
+Assim que realizar os cadastros, o valor do frete será calculado conforme informado na tabela Distâncias + Fator de Correção.
+É possível verificar o valor alterado no: 
+Pedido de Venda
+Ordem de Carregamento
+Simulação de Frete
+Conhecimento de Frete
+Mudança de Transportadora do Pedido
+Simulação de Preço de Venda
+Alteração de Frete da OC
+Validação de Frete no Fechamento de Carga
+Custo de Venda em: 
+Itens do Pedido
+Simulação de Venda
+Preço da Nota Fiscal de Outras Saídas

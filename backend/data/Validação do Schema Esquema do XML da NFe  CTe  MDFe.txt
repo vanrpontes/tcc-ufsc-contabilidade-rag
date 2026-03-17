@@ -1,0 +1,120 @@
+TITULO: Validação do Schema (Esquema) do XML da NFe / CTe / MDFe
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909339758
+--------------------------------------------------
+Para o funcionamento correto da ferramenta, todos os arquivos baixados do site da Receita Federal devem estar na mesma pasta. Da mesma maneira que foram baixados, pois para a validação o SisPetro utiliza todos, e não apenas o selecionado.
+Um arquivo do tipo XML possui uma estrutura fixa, determinada pelo seu criador. O criador do XML pode fornecer um schema (arquivo com extensão xsd) que faça a validação de um XML gerado por terceiros. Por exemplo, o criador do XML solicita que no XML existam 3 informações, Código, Nome e CEP. No arquivo xsd o criador do XML pode especificar quais desses campos são obrigatórios, seu tamanho, os valores válidos e a máscara de preenchimento desses campos.
+Essa função está disponível para emissão de Notas Fiscais eletrônicas (NF-e) e Conhecimento de Frete eletrônico (CT-e).
+A configuração do Sispetro para essa funcionalidade depende de algumas configurações principais:
+Verificar perfil de Sistema
+Criar o diretório para os arquivos de Schema
+Configurar o ServidorSispetro
+Configurar DLL
+Utilizando a validação
+Veremos mais abaixo detalhes sobre cada item.
+Verificar perfil de Sistema
+Para NFe/CTE o perfil de 
+Sistema \ aba NFe/CTe, Valida Schema NFe/CTe
+ deverá estar habilitado.
+Para MDF-e o perfil de 
+Sistema \ aba MDFe, Valida Schema MDFe?
+ deverá estar habilitado.
+Criar o diretório para os arquivos de Schema
+A SEFAZ nos disponibiliza esses arquivos de Schema (.xsd) para download e eventualmente os atualiza em seu website, para mais detalhes sobre como efetuar o download veja o tópico 
+Baixando corretamente o Esquema para validação de XML
+.
+Após efetuado o download dos arquivos será necessário descompactá-los, e em seguida copiar apenas os arquivos necessários para o diretório onde os mesmos serão armazenados.
+Os arquivos necessários são:
+NF-e
+Carta de Correção
+Operação
+Envio
+Cancelamento
+Inutilização
+EPEC
+Evento Carta de Correção
+Nome do arquivo
+enviNFe_v2.00.xsd
+envEventoCancNFe_v1.00.xsd
+inutNFe_v2.00.xsd
+envEPEC_v1.00.xsd
+envCCe_v1.00.xsd
+CT-e
+Operação
+Envio
+Cancelamento
+Inutilização
+EPEC
+Consulta Destinatário
+Carta de Correção
+Prest. Serv. Desacordo
+Nome do arquivo
+enviCte_v1.04.xsd
+cancCte_v1.04.xsd
+inutCte_v1.04.xsd
+evEPECCTe_v3.00.xsd
+consStatServCTe_v3.00.xsd
+evCCeCTe_v3.00.xsd
+evPrestDesacordo_v3.00.xsd
+Manifestação NF-e
+Operação
+Manifestação de NF-e
+Cons. NFe Destinatário
+Nome do arquivo
+envConfRecebto_v1.00.xsd
+consNFeDest_v1.01.xsd
+MDF-e
+Operação
+Envio
+Cancelamento
+Nome do arquivo
+enviMDFe_v1.00.xsd
+evCancMDFe_v1.00.xsd
+NFS-e
+Operação
+Envio 
+Cancelamento
+Nome do arquivo - GINFES
+servico_enviar_lote_rps_envio_v03.xsd
+servico_cancelar_nfse_envio_v03.xsd
+Nome do arquivo - NFS-e SP
+PedidoEnvioNFTS_v01.xsd
+PedidoCancelamentoNFTS_v01.xsd
+SPED REINF
+Operação
+Lote Eventos
+Nome do arquivo
+envioLoteEventos-v1_04_00.xsd
+Após localizar os arquivos, criar uma pasta com o nome "schema" (ou o que preferir), e de preferência dentro da pasta "Sispetro" no servidor, e copiar TODOS os arquivos para lá. 
+Novamente, caso não seja copiado TODOS os arquivos da pasta baixada, a validação de schema não funcionará
+Os arquivos .xsd informados acima devem, OBRIGATORIAMENTE, ser confrontados com os arquivos liberados através do site da Receita Federal, pois são atualizados com uma certa frequência.
+Configurando os Schemas
+Abra o 
+ e clique em 
+ 
+Para cada comando de NF-e, como os listados na imagem acima, relacionaremos com o arquivo .xsd correspondente, para isso, selecione a comando desejado e clique no botão 
+. Será aberta a janela abaixo, localize o arquivo e clique em OK.
+Após selecionar todos os arquivos, a tela do Servidor Sispetro ficará assim:
+Configurar DLL
+Para que o processo funcione corretamente, no servidor onde será executado o 
+, será necessário registrar uma dll no windows, siga os passos abaixo:
+Baixar as dll´s 
+ e 
+ (clique nos links para efetuar o download).
+Salvá-las no diretório 
+%windir%\System32
+No Windows ir no menu iniciar \ executar e digitar o seguinte comando:
+regsvr32 msxml5.dll
+Deverá ser exibida uma mensagem que o processo foi concluído com exito.
+Caso seu sistema operacional seja 64 bits as dll´s devem ser copiadas para a pasta 
+%windir%\SysWOW64 
+e no menu executar digitar o comando 
+regsvr32 %windir%\SysWOW64\msxml5.dll
+Em algumas versões do Windows pode ser necessário registrar a DLL com conta de Administrador. Nesses casos, utilizar o Prompt de Comando em modo Administrador e registrar a DLL conforme indicado acima, executando o comando regsvr32 dentro da pasta onde está a DLL ou indicando a pasta.
+Utilizando a validação
+Quando todo o processo foi configurado corretamente, ao emitir, cancelar, inutilizar ou emitir carta de correção, caso os dados que compõem a Nota Fiscal tenha alguma inconsistência, será gerado uma mensagem de erro dos padrões da que veremos abaixo:
+Vimos no caso acima que o campo com dados inválido é o CEP, mas em alguns casos o nome do campo pode não ser muito sugestivo, nesse caso, sugerimos que utilize o
+ 
+Manual de Integração do Contribuinte (disponível para download no site da 
+NF-e
+) e pesquise pelo nome do campo onde encontrará mais detalhes sobre o mesmo.
+Na maioria dos casos, quando são gerados problemas como o acima, será necessário cancelar a NF, corrigir os dados no cadastro e refazê-la.

@@ -1,0 +1,73 @@
+TITULO: Cancelamento (estorno) de lote
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210358
+--------------------------------------------------
+Por padrão o cancelamento de um lote não o exclui, mas sim providencia o estorno deste lote. O estorno é o lançamento inverso, ou seja, se foi debitada a conta A e creditada a conta B, no estorno será creditada a conta B e debitada a conta A. Este é o padrão por questões de segurança, porém há empresas que consideram esta opção inviável, pois no cancelamento de um lote, a conta envolvida terá dois lançamentos quando poderia ter nenhum.
+
+
+Assim, na configuração do Sistema (Sispetro Normal - menu Ferramentas/Sistema - painel Contab.Real) há a opção
+
+
+
+
+Quando marcada, no momento do cancelamento do lote não é feito o Estorno, mas sim a exclusão do lote, mesmo que o usuário não tenha permissão para Exclusão de Lotes, basta que ele tenha permissão para Cancelamento de Lotes. Quando o lote é excluído ele é armazenado a parte, conforme detalha melhor o item
+ 
+.
+
+
+Outra regra para cancelar/excluir lotes é que, por padrão, só é permitido cancelar/excluir lotes que são do tipo Normal e se a opção no perfil do Sistema, citada acima, estiver marcada. Caso as duas condições forem verdadeiras o sistema irá cancelar/excluir o lote.
+
+
+Se o tipo do lote for diferente do tipo Normal o lote não poderá ser cancelado/excluído, ao menos que, a empresa habilite no perfil do Sistema (Sispetro Normal - menu Ferramentas/Sistema - painel Contab.Real) a opção
+
+
+
+
+Case a opção desmarcada (padrão) o processo para cancelar/excluir o lote deve-se partir da origem e depois, na Manutenção de Lançamentos, selecionar o lote oriundo dessa origem e cancelar/excluir o mesmo. Isto é, deve-se primeiro cancelar a origem, no nosso exemplo é a Nota Fiscal, e depois cancelar/excluir o lote que gerou essa Nota
+.
+
+
+Com essa opção marcada, quando fizer o cancelamento/exclusão do lote o sistema não irá
+
+
+cancelar a origem desse lote, ou seja, se esse lote foi gerado por uma Nota Fiscal, quando cancelar/excluir o lote a Nota Fiscal (origem) não será cancelada.
+
+
+Além desse perfil, o usuário deve ter a permissão de excluir lotes, vide tópico
+ 
+.
+
+
+Ao fazer o cancelamento de um lançamento o sistema pode assumir duas configurações de data para a geração do lote de estorno. A configuração padrão é assumir a
+ 
+data de emissão do lançamento
+ 
+quando é feito o cancelamento do mesmo. A outra configuração é assumir a
+ 
+data de cancelamento do movimento original
+, ou seja, a data que for informada para data de cancelamento será a data do estorno do lote de cancelamento na contabilidade real.
+
+
+Para configurar essa opção basta acessar o menu Ferramentas / Sistema / painel Contab. Real / opção:
+
+
+
+
+Também existem outras configurações que devem ser levadas em conta nas configurações do menu Ferramentas / Sistema / painel Contab. Real /:
+
+
+Se a flag
+ 
+Excluir lote no Cancelamento ao invés de Estornar
+ 
+estiver marcada, a exclusão estará liberada para lotes dentro do período válido de cancelamento. Se a flag
+ 
+Verifica Data Original no Cancelamento do Lote
+ 
+estiver marcada e a flag
+ 
+Excluir lote no Cancelamento ao invés de Estornar
+ 
+estiver desmarcada, os lotes com data de origem travadas não poderão gerar estorno.
+
+
+

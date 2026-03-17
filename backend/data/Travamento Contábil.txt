@@ -1,0 +1,48 @@
+TITULO: Travamento Contábil
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899937
+--------------------------------------------------
+O travamento contábil possibilita que os lançamentos sejam realizados apenas em períodos definidos. Configurado de forma correta, o travamento evita que um usuário digite, por exemplo, um lançamento para ano de 0204 ou um lançamento com data muito superior ao ano corrente.
+O usuário pode acessar a tela de Travamento Contábil pelo Menu 
+Movimentação / Controladoria / Travamento Contábil
+:
+O travamento é configurado por empresa, portanto, deve-se informar a empresa que receberá a configuração através do campo "Empresa". O próximo passo será informar a data de inicio e a data final, ou seja, dentro de qual intervalo de data que serão aceitos os lançamentos, isso deve ser configurado através do grupo 
+Menor data para Lançamentos
+ e 
+Data Máxima para Lançamentos
+.
+Exemplo:
+A empresa limitou os lançamentos entre 01/01/2005 e 31/12/2006, ou seja, não poderá ser realizado nenhum lançamento anterior a 01/01/2005 e nem superior a 31/12/2006. No grupo "Menor data para Lançamentos", o usuário deve preencher o Campo "Indique data de travamento" com a data de "01/01/2005" e no painel "Data Máxima para Lançamentos", o campo "Indique data de travamento" deve ser preenchido com a data de "31/12/2006".
+Para confirmar a alteração, deve-se clicar no botão 
+OK
+. O sistema mostrará uma mensagem solicitando a confirmação do usuário.
+Clicando no botão 
+YES
+, o sistema irá salvar as alterações, clicando no botão 
+NO
+, as alterações serão abortadas.
+Acessando novamente a tela, o usuário poderá observar que no grupo 
+Menor data para lançamentos
+, o campo 
+Data Anterior de travamento
+ mostrará a última alteração feita (data 01/01/2005), esse campo indica a data inicial do travamento e no campo 
+Indique data de travamento
+ (que seria o campo da nova data, caso o usuário fosse alterar novamente a data inicial do travamento), o sistema sugere a mesma data do campo 
+Data Anterior de travamento
+. A mesma regra se aplica no grupo 
+Data máxima para lançamentos
+, isso se a 
+Data anterior de travamento
+ não for menor ou igual a data atual do sistema. Caso a data seja a data atual, por exemplo, o sistema sugere automaticamente no campo 
+Indique data de travamento
+ (que seria o campo da nova data, caso o usuário fosse alterar novamente a data final do travamento), a data atual mais 1 dia.
+Na tela acima, o usuário fez a configuração do travamento colocando o campo 
+Indique data de travamento
+ como dia 15/05/2005, porém, a data atual do sistema é 17/05/2005, ou seja, a data que foi lançada como data final do travamento é uma data menor que a data atual do sistema. Embora o sistema aceite esse procedimento, ao entrar novamente na tela, o sistema sugere a data atual mais um dia como data final de travamento.
+O sistema não permitirá que a data final do travamento que é indicada no Grupo 
+Data máxima para lançamentos
+, campo 
+Indique data de travamento
+, seja menor que a data inicial do travamento, indicada no grupo 
+Menor data para lançamentos
+. Caso isso aconteça, o usuário será advertido com a seguinte mensagem:
+As empresas que utilizam o módulo Contábil do SisPetro, devem atentar que o módulo Contábil também possue um travamento. Esse travamento pode influenciar os lançamentos gerenciais.

@@ -1,0 +1,39 @@
+TITULO: Fechamento de Carga
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898402
+--------------------------------------------------
+No fechamento de carga temos a validação da transportadora/motorista. Para mais informações, ver 
+O fechamento de carga encerra o vínculo de pedidos à Carga. Para completar a operação o usuário deve ter marcado em seu perfil  a opção 
+Pode fechar carga. 
+Para mais informações, ver 
+Painel Carga (Usuários)
+Se a carga a ser fechada tiver pedidos ainda não aprovados, só poderá ser fechada dependendo do perfil da empresa do 
+ com a opção 
+Fechar carga com pedidos não aprovados 
+marcada. Para mais informações, ver 
+Se o perfil do usuário 
+Permite ao usuário escolher transportadora / frota ao criar Carga?
+ estiver marcado, o usuário poderá informar transportadora e frota da Carga. Para mais informações, ver 
+Painel Carga (Usuários)
+Se o perfil de sistema 
+Valida documentos de Frotas e Transportadoras no Fechamento 
+estiver marcado, caso um dos documentos do frota ou do motorista ou da transportadora estiverem vencidos, o SisPetro não permite concluir o fechamento e mostra a mensagem de erro informando que um ou mais dos documentos atrelados a um dos agentes informados está vencido e qual documento está vencido. Para mais informações, ver 
+, 
+ e 
+Para concluir o fechamento, a carga deverá ter frota e transportadora definidos. Será questionado se o usuário deseja continuar o fechamento, caso a quantidade de pedidos para a carga esteja diferente da capacidade da frota. Estes dados são apresentados no painel Cargas da tela de 
+Composição de Carga
+.
+Validação de Valor Carga para Seguro de Transportadora
+Temos a validação de seguro de carga por transportadora, para que a carga não seja fechada com valor superior ao do seguro contratado. Para mais informações, ver 
+Validação de Valor Carga para Seguro de Transportadora
+.
+Aviso
+Há perfis de Frota específicos para utilização do Monitoramento de Viagem. Para mais informações, ver 
+A carga fechada, para o usuário com perfil  marcado se 
+Requer Monitoramento 
+e 
+Pode Incluir/Cancelar Monitoramento
+, confirma se requer o monitoramento.
+Caso o perfil de sistema 
+Verifica se foi fechada a carga na Confirmação de OC
+ 
+estiver marcado só será possível cancelar o fechamento de carga caso a OC não esteja confirmada.

@@ -1,0 +1,63 @@
+TITULO: Adiantamento entre Filiais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701949
+--------------------------------------------------
+Além do Adiantamento de Clientes e Adiantamento de Fornecedores presentes atualmente no sistema, existe o Adiantamento entre Filiais que basicamente trata da automação do processo de um lançamento de um adiantamento a um fornecedor em uma filial e um adiantamento a cliente em outra filial, tirando assim erros por informações dúbias, visto que a partir do momento que o lançamento se dá, automaticamente o sistema irá gerar um lançamento usando o mesmo documento em ambas as filiais, contudo em adiantamentos contrapostos (Cliente/Fornecedor).
+Para realização deste processo, abra a janela de Adiantamento Entre Filiais (
+Movimentação / Financeiro / Adiantamento Entre Filiais
+).
+Informe no painel Adiantamento os campos:
+Adiantamento a Fornecedor
+ - Neste grupo de informações deverão ser lançados os dados que alimentarão o adiantamento a fornecedor no momento de sua geração.
+Filial:
+ Empresa onde deverá ser gerado o Lançamento do Adiantamento a fornecedor. Uma vez informado, o campo cliente presente no grupo de Adiantamento a Cliente, será automaticamente atualizado em função da configuração da empresa (
+Ferramentas/Sistema/Cliente
+, campo 
+Código da Entidade
+ que representa a filial - Será automático, desde que a entidade seja do tipo Fornecedor).
+CCBanco:
+ Conta Contabil do Banco por meio do qual deverá ser gerado o adiantamento do fornecedor (Neste caso serão listadas apenas as contas contábeis do tipo Banco).
+Fornecedor:
+ Entidade que para a empresa selecionada representa seu fornecedor, sendo gerado o adiantamento a fornecedor para o mesmo.
+Histórico:
+ Código do Histórico que deverá ser empregado no momento da geração do Adiantamento a Fornecedor.
+Informações Adicionais:
+ Utilizado para complementar o histórico.
+Código de Contabilização Real:
+ O código da fórmula de contabilização que é usada no lançamento do Adiantamento a Fornecedor.
+Adiantamento a Cliente
+ - Neste grupo de informações deverão ser lançados os dados que alimentarão o adiantamento a cliente no momento de sua geração.
+Filial:
+ Empresa onde deverá ser gerado o Lançamento do Adiantamento a cliente. Uma vez informado, o campo fornecedor presente no grupo de Adiantamento a Fornecedor será automaticamente atualizado em função da configuração da empresa (
+Ferramentas/Sistema/Cliente
+, campo 
+Código da Entidade
+ que representa a filial).
+CCBanco:
+ Conta Contabil do Banco por meio do qual deverá ser gerado o adiantamento do cliente (Neste caso serão listadas apenas as contas contábeis do tipo Banco).
+Cliente:
+ Entidade que para a empresa selecionada representa seu cliente, sendo gerado o adiantamento a cliente para o mesmo.
+Histórico:
+ Código do Histórico que deverá ser empregado no momento da geração do Adiantamento a Cliente.
+Informações Adicionais:
+ Utilizado para complementar o histórico.
+Código de Contabilização Real:
+ O código da fórmula de contabilização que é usada no lançamento do Adiantamento a Cliente.
+ 
+Informe no painel Dados Gerais os campos:
+Data:
+ Nesse campo deverá ser informada a data que será gerado o lançamento do Adiantamento do Fornecedor e o Adiantamento do Cliente.
+Valor:
+ Nesse campo deverá ser informado o valor que será empregado no lançamento do Adiantamento do Fornecedor e o Adiantamento do Cliente.
+Bloqueio:
+ Caso for marcado o campo 
+Bloqueia o adiantamento ao cliente
+, o lançamento do Adiantamento do Cliente não irá atualizar os documentos a receber mesmo que na empresa possa estar configurado que verifique nos débitos na inclusão dos adiantamentos (
+Ferramenta/Sistema/Financeiro
+).
+Caso o crédito tenha sido recebido em cheque, habilite o controle 
+Em Cheque
+ para incluir o cheque ou utilize o botão 
+Lista Cheques Recebidos
+ para vincular mais de um cheque. Maiores detalhes em 
+.
+Os campos Valor, Tipo de Documento, Histórico, Cliente, Fornecedor, CCBanco e Filial serão de preenchimento obrigatório.

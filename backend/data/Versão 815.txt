@@ -1,0 +1,45 @@
+TITULO: Versão 8.15
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921693227
+--------------------------------------------------
+Dados
+Informações
+Início
+01/08/2014
+Final
+12/08/2014
+Scripts
+CMD815.sql (3527 a 3532)
+Itens
+4
+Implementações
+1
+Correções
+3
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+ 
+SisPetroControl.Dll
+ 
+ 
+Geral
+Data de Validade para o Arquivo de Licenciamento
+A partir dessa versão estamos implementando um sistema de controle de data de validade para o arquivo de licenciamento do SisPetro. Quando essa data de validade for alcançada, será necessário através do Servidor SisPetro obter um novo arquivo de licenciamento. 
+Antes da data de vencimento, será informado aos usuários quando se conectarem ao SisPetro que a data de validade do arquivo está próxima, podendo o usuário se antecipar e solicitar um novo arquivo antes do vencimento
+. 
+Help:
+ 
+UPA (CCF 25250)
+Vendas
+Inclusão de Pedido de Venda Sem Saldo
+Ao inserir um novo Pedido de Venda, o Sispetro não estava validando algumas informações e com isso possibilitava que fosse incluído o pedido com saldo indisponível. Após correção, as validações são feitas corretamente.
+ PRFC (CCF 25256)
+Estoque
+Ajuste de Arredondamento nos Tanques Virtuais
+Feita correção para considerar a diferença de arredondamento do item de carregamento proporcional referente ao tanque virtual no último item lançado do mesmo carregamento.
+ PRFC (CCF 25298)
+Erro ao Alterar Itens na Manutenção de Carregamento
+O SisPetro estava apresentando erro ao tentar alterar um item de carregamento. Feita correção.
+ PRFC (CCF 25296) 
+ 

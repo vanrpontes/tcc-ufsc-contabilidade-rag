@@ -1,0 +1,64 @@
+TITULO: Controle de Bombeio - visão Armazenadora
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899850
+--------------------------------------------------
+Para 
+controlar Bombeio sobre a ótica de uma Armazenadora
+, responda primeiramente as seguintes perguntas:
+A sua empresa quer controlar as Notas de Remessa de Armazenagem?
+A Nota de Retorno de Armazenagem é feita com que quantidade (20c ou ambiente)?
+As congêneres acessarão o SisPetro para cadastrar Pedido de Bombeio?
+Deseja disponibilizar a quantidade solicitada para bombeio num depósito trânsito para a Congênere?
+Configurações iniciais:
+Cadastre a sua base como Filial no SisPetro (entrar em contato com Suporte) e marque a opção 
+Acesso Restrito a Clientes de Armazenadoras
+.
+Cadastre um 
+Depósito
+ com o nome da Base, configurando-o como 
+Base Própria
+.
+Cadastre todas as congêneres como filial no SisPetro (entrar em contato com Suporte).
+Caso a resposta da questão 1 é para o controle das notas, cadastre todas as Congêneres como 
+Clientes
+ e 
+Fornecedores
+.
+Configure no perfil da empresa (para todas as filiais), painel Estoque, grupo Bombeio, as opções:
+Utilização de Bombeio:
+ Controla bombeio físico-
+Movimenta estoque na Confirmação de Bombeio:
+ Conforme resposta da questão 4.
+Configure os usuários de Congênere e suas permissões no perfil do usuário, painel Estoque, grupo Bombeio, conforme resposta da questão 3.
+A cada bombeio que for solicitado
+Abra uma 
+ conectado na filial que representa a base e avise as Congêneres.
+Conforme resposta da questão 3, se as congêneres não cadastrar os 
+pedidos de bombeio
+, cadastre-os para cada uma das filiais (congêneres) que desejarem participar do bombeio.
+Entre em contato com a Petrobrás e verifique as quantidades que poderão ser bombeadas. Faça a 
+confirmação do pedido de bombeio
+ para cada uma das filiais (congêneres) que desejarem participar do bombeio, nesta tela, deixe como sugerido a opção 
+Movimenta Estoque
+. Trave a 
+.
+Após receber o bombeio Físico (ter as medidas das réguas de leitura antes e após o bombeio), se conecte na filial que representa a base e inclua o 
+.
+No dia seguinte, após receber a D3 da Petrobrás, se conecte na filial que representa a base e faça a 
+Distribuição do Bombeio
+. Marque a opção 
+Zera Provisório
+ conforme a resposta da questão 4 (se disponibilizou o estoque na 
+Confirmação de Pedido de Bombeio
+ é necessário zerar o provisório).
+Ao receber a Nota de Remessa de Armazenagem
+Se a resposta da questão 1 for controlar as Notas de Remessa de Armazenagem utilize a tela de 
+Remessa de Armazenagem
+ para vincular essa Nota à 
+OC de Descarga de Terceiros
+ gerada pela 
+Distribuição de Bombeio
+. Conforme resposta da questão 2, indique nesta tela se vai ou não 
+utilizar a quantidade da portaria
+.
+Se não controlar, dê entrada na nota conforme a opção 
+.

@@ -1,0 +1,328 @@
+TITULO: Alteração do layout do Danfe - Nota Técnica 2009-003
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2886959431
+--------------------------------------------------
+Conforme Nota Técnica 2009/003, que determina que os contribuintes emitentes de Nota Fiscal Eletrônica - NF-e devem implementar as alterações definidas até o dia 31 de agosto de 2009.
+A 
+Futura Tecnologia
+ disponibilizou um novo layout, porém pode ser que cada empresa tenha personalizado seu Danfe.
+ Nesses casos a empresa tem duas opções:
+ 
+1ª: Utilizar o Danfe da Futura e repetir as customizações da empresa nesse novo layout. Customizações estas, que podem ser o logotipo da empresa, campos para cálculo do ICMS retido, Peso Bruto e Peso Líquido.
+ 
+2ª: Fazer as alterações da nova Nota Técnica no Danfe customizado da empresa. Este tópico ajudará a fazer esse trabalho.
+IMPORTANTE: ANTES DE INICIAR AS ALTERAÇÕES CRIE UM BACKUP (CÓPIA) DO ARQUIVO DANFE.RTM ATUAL.
+Para efetuar as devidas alterações, siga os passos abaixo:
+1. Editar o layout do Danfe configurado na empresa
+ 2. Alterar o tamanho e posição dos campos do Canhoto
+ 3. Quadro de Dados do Emitente
+ 4. Novo quadro de Descrição do Danfe
+ 5. Códigos de Barras e Chave de Acesso
+ 6. Novos campos referente ao Código de Barras Adicional
+ 7. Alinhamento do quadro de Natureza de Operação
+ 8. Alinhamento dos quadros de Inscrição Estadual, Inscrição Estadual Subst. Tributária e CNPJ.
+Editar o layout do Danfe configurado na empresa:
+Acessar o menu Ferramentas/ Sistema/ aba Nota Fiscal
+No quadro de NF-Eletrônica, clicar no botão 
+Edita Layout do Danfe
+ - 
+Na tela de Edição do layout do Danfe, identifique as alterações a serem feitas, conforme imagem abaixo:
+ 
+Alterar o tamanho e posição dos campos do Canhoto
+Vide quadro 1 da imagem de Edição do Danfe-
+Selecione o quadro referente ao 
+Recebimento
+, conforme o quadro 1 da imagem do item de Edição
+No quadro de Propriedades do objeto - Shape - localize a propriedade 
+Height
+ e informe o tamanho de 
+11,113
+ 
+ Não se esqueça de ajustar a localização dos objetos existentes no Shape
+Agora, selecione os quadro abaixo do Recebimento, que são referentes a 
+Data de Recebimento
+ e 
+Identificação e Assinatura
+Na propriedade 
+Height
+ e informe o tamanho de 
+10,583
+ Novamente, não se esqueça de ajustar a localização dos objetos existentes nos quadros - Shapes
+Para selecionar os dois Shapes, clique no shape referente a Data, segure a tecla SHIFT e selecione o shape referente a Assinatura.
+Efetue o mesmo procedimento para o quadro de 
+NF-e
+Na propriedade 
+Height
+ e informe o tamanho de 
+21,695999
+ Novamente, não se esqueça de ajustar a localização dos objetos existentes no Shape
+Selecione o objeto referente a linha tracejada e posicione-o logo abaixo dos objetos shape referente a 
+Data de Recebimento
+ e 
+Identificação e Assinatura
+Resultado: Alterar o tamanho e posição dos campos do Canhoto
+Quadro de Dados do Emitente
+Vide quadro 2 da imagem de Edição do Danfe
+Deixar o shape dos dados do emitente invisível
+Selecione o objeto shape que fica junto aos dados
+Desmarque a propriedade 
+Visible
+ 
+Alinhe as posições dos objetos de imagem do logo e os campos de dados do emitente para que fique conforme imagem abaixo:
+Resultado: Quadro de Dados do Emitente
+Novo quadro de Descrição do Danfe
+Vide quadro 3 da imagem de Edição do Danfe
+Adicione um novo objeto Polígono, através do menu de Componentes Padrão:
+ 
+#* Na propriedade 
+Shape
+ defina como 
+stRoundRect
+Altere a propriedade 
+Height
+ do objeto para 
+38,629002
+ 
+Posicione o objeto em torno dos dados do Danfe, que fica entre os dados do emitente e o código de barras, e alinhe sua posição superior igual ao shape utilizado para o primeiro código de barras.
+Este quadro deve estar alinhado junto aos quadros de: Código de Barras, Chave de Acesso NF-e e Código de Barras Adicional.
+Altere a descrição do label de 
+1 - Entrada
+ para 
+0 - Entrada
+Altere a descrição do label de 
+2 - Saídas
+ para 
+1 - Saídas
+Resultado: Novo quadro de Descrição do Danfe
+Códigos de Barras e Chave de Acesso
+Vide quadro 4 da imagem de Edição do Danfe
+Selecione o quadro 
+rgDadosNFE
+, visível somente no modo de edição do layout, e o arraste para cima de forma que fique logo abaixo da linha tracejada.
+Selecione o objeto 
+barNFE
+, referente ao código de barras e diminua seu tamanho
+Na propriedade 
+Height
+ e informe o tamanho de 
+10,054
+Selecione e redimensione o objeto shape referente ao código de barras, de forma que fique proporcional ao tamanho do 
+barNFE
+ - código de barras
+Selecione e posicione o objeto shape referente a Chave de Acesso NF-e de forma que fique logo abaixo ao quadro de Códigos de Barras
+ Não se esqueça de ajustar a localização dos objetos existentes no Shape referente a Descrição e Conteúdo da Chave de Acesso da NF-e
+Resultado: Códigos de Barras e Chave de Acesso
+Novos campos referente ao Código de Barras Adicional
+Vide quadro 5 da imagem de Edição do Danfe
+Adicione um novo objeto Polígono, através do menu de Componentes Padrão
+ 
+#* Na propriedade 
+Shape
+ defina como 
+stRoundRect
+Mantenha a altura de 
+7,9380002
+, através da propriedade 
+Height
+ do objeto
+ 
+Redimensione o objeto de forma que fique na mesma largura que o objeto superior, e posicione o mesmo logo abaixo do objeto superior, além de alinha-lo a esquerda conforme o objeto superior. Sua altura (
+Height
+) deverá ser igual ao shape do código de barras superior
+Adicione um novo objeto Label, através do menu Componentes Padrão e o posicione dentro do objeto shape recém adicionado
+ 
+#* Altere sua descrição para 
+CONTROLE DO FISCO
+ através da propriedade 
+Caption
+Altere o nome do objeto Label para 
+LblContFisco
+ através da propriedade 
+UserName
+ 
+Posicione o objeto na parte superior do Shape e o alinhe a esquerda conforme o objeto Controle do Fisco referente ao código de barras superior.
+Adicione um novo objeto Código de Barras, através do menu Componentes Padrão, e o posicione dentro do objeto shape recém adicionado
+ 
+#* Posicione o objeto logo abaixo do objeto label de Controle do Fisco e o alinhe a esquerda conforme o objeto de Código de Barras superior.
+Marque a propriedade 
+AutoEncode
+Desmarque a propriedade 
+AutoSizeFont
+Altere a propriedade 
+BarCodeType
+ para 
+brCode128
+Marque a propriedade 
+PrintHumanReadable
+Altere o nome do objeto 
+barNFEAdic
+ através da propriedade 
+UserName
+Desmarque a propriedade 
+AutoSize
+ 
+Adicione um novo objeto Memo, através do menu Componentes Padrão, posicione e o alinhe dentro do objeto shape recém adicionado, em cima do objeto de Código de Barras Adicional
+ 
+#* Altere o nome do objeto Memo para 
+MMEndPortal
+ através da propriedade 
+UserName
+Na propriedade 
+Lines
+ digite o texto abaixo:
+Consulta de autenticidade no portal nacional da NF-e
+www.nfe.fazenda.gov.br/portal ou no site da Sefaz Autorizadora
+
+Adicione um novo objeto Polígono, através do menu de Componentes Padrão
+ 
+#* Na propriedade 
+Shape
+ defina como 
+stRoundRect
+Mantenha a altura de 
+7,9380002
+, através da propriedade 
+Height
+ do objeto
+ 
+Redimensione o objeto de forma que fique na mesma largura que o objeto shape utilizado para Chave de Acesso NF-e, e posicione o mesmo logo abaixo do objeto superior, além de alinha-lo a esquerda conforme o objeto superior. Sua altura (
+Height
+) deverá ser igual ao shape do Chave de Acesso da NF-e
+Adicione um novo objeto Label, através do menu Componentes Padrão, e o posicione dentro do objeto shape recém adicionado
+ 
+#* Posicione o objeto na parte superior do Shape, e o alinhe a esquerda conforme o objeto label utilizado para a Chave de Acesso NF-e.
+Altere o nome do objeto Label para 
+LblCaptionProtocolo
+ através da propriedade 
+UserName
+ 
+Adicione um novo objeto Label, através do menu Componentes Padrão, e o posicione e o alinhe dentro do objeto shape recém adicionado, logo abaixo do Label 
+LblCaptionProtocolo
+ 
+#* Altere o nome do objeto Label para 
+LblProtocolo
+ através da propriedade 
+UserName
+Altere sua descrição para 
+00.0000.00.000.000/0000-00-00-000.000.000.000.000.000.000-0
+ através da propriedade Caption
+ 
+Todos estes novos objetos deverão estar dentro do objeto 
+rgDadosNFE
+.
+Acesse a aba Cálculos, no quadro de Objetos Relatórios localize a banda 
+Header
+ abaixo da banda 
+Report
+No quadro Eventos para Cabeçalho localize o evento 
+BeforePrint
+Dê um clique no quadro de Programação, abaixo Objetos Relatórios e Eventos para cabeçalho, e irá aparecer o código:
+procedure HeaderBeforePrint;
+begin
+
+end;
+
+Copie o código abaixo entre os comando 
+begin
+ e 
+end
+:
+barNFeAdic.Data := NFESituacao['CodBarraAdicNFe'];
+
+  Case NFESituacao['DANFEImpressaoCodBarras'] of
+    0 : begin
+          LblContFisco.Visible             := True;
+          barNFeAdic.Visible          := True;
+          mmEndPortal.Visible         := False;
+
+          LblCaptionProtocolo.Caption := 'DADOS DA NF-E';
+          LblProtocolo.Caption        := Trim(NFESituacao['CodBarraAdicNFEFormatado']);
+        end;
+    1 : begin
+          LblContFisco.Visible             := False;
+          barNFeAdic.Visible          := False;
+          mmEndPortal.Visible         := True;
+
+          LblCaptionProtocolo.Caption := 'PROTOCOLO DE AUTORIZAÇÃO DE USO';
+          LblProtocolo.Caption        := NFESituacao['NumeroProtocolo'] + ' ' +
+            DateTimeToStr(NFESituacao['DataProcessamentoProtocolo']);
+        end;
+    2 : begin
+          LblContFisco.Visible             := False;
+          barNFeAdic.Visible          := False;
+          mmEndPortal.Visible         := True;
+
+          LblCaptionProtocolo.Caption := 'NÚMERO DE REGISTRO DPEC';
+          LblProtocolo.Caption        := NFESituacao['codigoDPEC'] + ' ' +
+            DateTimeToStr(NFESituacao['DataProcessamentoDPEC']);
+        end;
+  end;
+
+Acesse a aba Cálculos, no quadro de Objetos Relatórios localize o objeto 
+lblNFe
+, abaixo das bandas 
+Report > Header
+ e do objeto 
+rgDadosNFE
+.
+No quadro Eventos para Cabeçalho localize o evento 
+OnGetText
+Dê um clique no quadro de Programação e irá aparecer o código:
+procedure lblNFeOnGetText(var Text: String);
+begin
+
+  Text :=
+
+end;
+
+Copie o código abaixo entre os comando 
+begin
+ e 
+end
+, logo após o 
+Text:=
+:
+Trim(NFESituacao['ChaveAcessoFormatado']);
+
+Ficará da seguinte forma:
+procedure lblNFeOnGetText(var Text: String);
+ begin
+ Text := Trim(NFESituacao'ChaveAcessoFormatado');
+ end;
+Resultado: Novos campos referente ao Código de Barras Adicional
+Alinhamento do quadro de Natureza de Operação
+Vide quadro 6 da imagem de Edição do Danfe-
+Certique-se de que o shape da Natureza de Operação e seus respectivos campos estejam alinhados com o quadro do label 
+LblCaptionProtocolo
+.
+Resultado: Alinhamento do quadro de Natureza de Operação
+Alinhamento dos quadros de 
+Inscrição Estadual
+, 
+Inscrição Estadual Subst. Tributária
+ e 
+CNPJ
+.
+Vide quadro 7 da imagem de Edição do Danfe-
+Alinhe os três quadros e seus respectivos campos de forma que ocupem toda a linha, conforme imagem abaixo:
+Para os objetos shape, utilize para a propriedade 
+Height
+ o tamanho de 
+7,9380002
+ para cada.
+Resultado: Alinhamento dos quadros de 
+Inscrição Estadual
+, 
+Inscrição Estadual Subst. Tributária
+ e 
+CNPJ
+.
+Códigos de Barras e Chave de Acesso
+Novos campos referente ao Código de Barras Adicional
+Alinhamento do quadro de Natureza de Operação
+Alinhamento dos quadros de 
+Inscrição Estadual
+, 
+Inscrição Estadual Subst. Tributária
+ e 
+CNPJ
+.

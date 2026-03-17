@@ -1,0 +1,27 @@
+TITULO: Incluindo novos campos no relatório
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921696106
+--------------------------------------------------
+Incluir novos campos em algum relatório é muito simples e a operação sempre será igual. Apenas mudará o nome do condutor de dados e dos campos. Veja abaixo como fazer.
+O exemplo que se segue é do relatório de
+ "Movimentação de Material - Geral"
+. Porém poderia ser com qualquer relatório disponibilizado no SisPetro, passível de alteração. Incluiremos os campos de "Representante" e "Tipo de PMM" no relatório. Para tal é preciso localizar o condutor de dados em que se encontram as informações (veja o passo 3) e depois localizar os campos (veja passo 4). 
+Os passos serão os mesmos para qualquer relatório, o que mudará será os campos incluídos. Então tome este help como base para as próximas alterações...
+Incluir Campos de "Representante" e "Tipo de PMM"
+Clicar no botão "Edita Layout"
+Abrirá a seguinte tela:
+Selecionar 
+"Pedido"
+ em 
+"Estruturas de Dados"
+ e localizar os campos 
+PMM_Tipo
+ - Trará o número referente ao Tipo do PMM
+CodEntRepresent
+ - Trará o Código do SisPetro, referente ao representante
+DescriTipoPMM
+ - Trará a descrição do Tipo do PMM
+NomeUsualRep
+ - Trará o nome Usual cadastrado no Sispetro do Representante.
+Feito isso, basta escolher o melhor lugar e "Arrastar" os campos para o relatório.
+Este RTM encontra-se na mesma pasta do executável do SisPetro ou, caso esteja usando, conforme estiver definido no 
+.

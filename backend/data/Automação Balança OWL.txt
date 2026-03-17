@@ -1,0 +1,56 @@
+TITULO: Automação Balança OWL
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4915724289
+--------------------------------------------------
+Objetivo
+O SisPetro já possui 
+Integração com Sistema de Automação
+ que otimizam o processo de carregamento e descarga.
+Surgiu a necessidade de automatizar
+ a utilização da balança com a API da OWL, e para isso foi desenvolvida a dll 
+BalancaOWL.dll
+ que fará integração com a API para receber o peso do caminhão na entrada e na saída. 
+Configurações
+Configurações de Sistema
+Ferramentas / Sistema / aba Ordem Carregto / quadro Balança
+Obtenção do Peso do Caminhão através de balanças nas Portarias
+Tem integração Total: 
+marcar
+Configurações de Depósito
+Depósitos / aba Dados Adicionais 
+Quadro Balança
+: 
+Obtenção de peso do caminhão através de balança nas portarias:
+Tem Integração Total: 
+marcar
+Forma de Pesagem nas Portarias: 
+escolher qual será a forma do peso
+Obtenção do Peso nas Portarias: 
+escolher como será a obtenção do peso
+Faz registro da OC para uso da Balança?: 
+escolher quando o SisPetro irá enviar o registro da OC para OWL
+Ao pegar Fila
+Na portaria de Entrada
+Volume a ser utilizado configurado para Balança:
+Usa sempre Volume da Balança: 
+marcar
+Configuração de Balança
+Segue Perfil da Empresa: 
+caso a automação seja única para as bases, marcar essa opção. No perfil de Sistema / aba Ordem Carregto / quadro Balança preencher a dll BalancaOWL.dll
+Utiliza configuração do Depósito: 
+quando a empresa trabalha com mais de uma automação, deverá utilizar esta opção para tratar cada depósito com sua automação. 
+Botão Gerenciamento de Balanças:
+ 
+caso utilize essa opção, preencher a dll BalancaOWL.dll e marcar a balança como 
+principal
+ 
+Token Fixo: 
+informar o token que será informado pela OWL. 
+Quadro Sistema de Automação de Portaria
+URL Registro de OC: 
+preencher informação passada pela OWL
+URL Cancelamento de OC: 
+preencher informação passada pela OWL
+URL Leitura de Peso: 
+preencher informação passada pela OWL
+URL Obtenção Token: 
+caso não for trabalhar com Token Fixo, preencher informação passada pela OWL

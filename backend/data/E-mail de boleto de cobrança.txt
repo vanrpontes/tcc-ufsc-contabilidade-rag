@@ -1,0 +1,101 @@
+TITULO: E-mail de boleto de cobrança
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913239434
+--------------------------------------------------
+Durante a emissão de NF-e ou CT-e, ao final da inclusão deles, é possível que o Boleto seja enviado automaticamente para o e-mail cadastrado do cliente. 
+Para configurações gerais do Serviço de E-mail, veja o help 
+Serviço de E-mail
+A partir da versão 8.32 é possível agrupar o envio da cobrança por Ordem de Carregamento, ou seja, os boletos só serão enviados quando TODAS as Notas Fiscais da Ordem de Carregamento forem faturadas e autorizadas na SEFAZ. 
+Para que o agrupamento de boleto funcione, as configurações abaixo devem ser feitas:
+Marcar os perfis: 
+Sitema: 
+a
+ba NF-e/CT-e
+ 
+, 
+escolher a opção
+ 
+"Agrupa o Envio do E-mail por OC"
+Cadastro de Clientes: 
+a
+ba Cadastro detalhado
+, marcar a opção
+ "
+Agrupa envio de e-mail conforme perfil de sistema"
+. 
+1 - Cadastro de Cliente
+Em 
+Arquivo/Clientes
+, aba 
+Detalhes
+, aba de rodapé 
+Cadastro Detalhado p
+reencher o campo
+ E-mail de Envio de Boleto
+ e marcar a opção 
+Envia e-mail com o boleto gerado
+.
+ 
+Dúvidas veja o tópico 
+.
+2 - Configuração do Tipo de Cobrança
+Em 
+Tabelas Auxiliares/Vendas/Tipos de cobrança 
+aba 
+Por empresa
+ aba de rodapé 
+Informações sobre a Cobrança.
+O campo 
+envio de e-mail no Tipo de Cobrança
+ deve estar habilitado na empresa correta. Dúvidas veja o tópico 
+Aba Informações sobre a cobrança
+.
+Na aba de 
+impressão
+, o perfil "Mensagem de Impressão da Cobrança na Emissão NF" deve estar selecionado com a opção 
+Sempre Exibe a mensagem questionando a impressão. 
+Dúvidas veja o tópico 
+Aba Impressão
+.
+Na aba 
+Cob. Eletrônica 
+deve ser informado apenas o nome da DLL correspondente ao banco utilizado.
+Dúvidas sobre qual DLL utilizar veja o tópico 
+Bancos com cobrança eletrônica configurada no SISPETRO
+3 - Emitindo a Nota Fiscal ou Conhecimento de Frete
+Ao final da emissão da NF ou Conhecimento de Frete, será questionado se deseja Imprimir a Cobrança Agora?
+Selecione 
+Sim 
+e a tela abaixo será exibida:
+Impressão:
+ será aberta a tela de seleção de impressora para impressão em papel do Boleto
+E-mail:
+ será enviado o boleto por e-mail em formato PDF.
+Caso opção 
+E-mail 
+esteja desabilitada verifique a configuração do item 2.
+Deseja alterar o corpo da mensagem: 
+com
+ esta opção é possível incluir um destinatário em cópia e também como cópia oculta, alterar o assunto e também a mensagem. Veja abaixo:
+Em Arquivo:
+ selecionando essa opção é possível salvar em forma de arquivo PDF, para isto basta selecionar um diretório em Arquivo de Destino.
+Por padrão o SISPETRO informa a descrição do arquivo a nomenclatura: boleto + Código da Empresa + Numero do Lançamento.
+Resolução de possíveis problemas:
+Se no momento do envio do e-mail aparecer a mensagem de erro 
+Erros/Avisos na geração do e-mail de cobrança 
+Verifique: 
+Se em 
+Tabelas Auxiliares/Vendas/Tipos de cobrança
+ guia Por
+ empresa 
+no campo 
+DLL de Cobrança Eletrônica 
+deve estar o nome
+ 
+da DLL utilizada pelo banco.
+Todos os 
+Servidores Hermes 
+no campo em 
+configurações Gerais/
+Pasta DLL cobrança
+ dentro do controlador Hermes deve estar apenas com o caminho da pasta onde está a DLL utilizada pelo banco.
+Vale salientar que o SISPETRO lê a configuração do Hermes no momento que o usuário faz sua autenticação no sistema. Caso haja alteração, o usuário deve sair do sistema e entrar novamente para que a nova configuração faça efeito. 

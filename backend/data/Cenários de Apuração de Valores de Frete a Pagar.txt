@@ -1,0 +1,183 @@
+TITULO: Cenários de Apuração de Valores de Frete a Pagar
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4306403329
+--------------------------------------------------
+Temos 3 cenários onde a apuração de valores de frete a pagar pode ser feita:
+1 - 
+Empresas com base própria, que tem o volume descarregado no processo de Portaria do SisPetro
+2 - 
+Empresas que utilizam base própria de uma base parceira ou do grupo, que conseguiria ter acesso ao volume descarregado de forma mais padronizada
+3 - 
+Empresas que utilizam base de terceiros, recebendo relatórios diários sobre o volume efetivamente descarregado
+Para cada um dos cenários é possível fazer a apuração  dos valores de fretes a pagar conforme segue:
+Pela Diferença de Descarga Base Própria:
+ a apuração é feita conforme as configurações no depósito e da unidade adicional do produto. Além disso, deve informar as OC que terão os fretes apurados pela Diferença de Descarga. Normalmente utilizado nos cenários 1 e 2. Para mais informações, ver 
+Apuração de Valores de Fretes a Pagar por Diferenças de Descarga Base Própria
+.
+Pela Diferença via Fechamento de Estoque:
+ a apuração é feita conforme as configurações de depósitos e as opções de volume descarregado. É apurada com base na diferença entre a quantidade ambiente e a quantidade a 20C (diferença em litros) e a Tolerância permitida em litros, informada pelo usuário na nota fiscal na tela de fechamento de estoque. Para que a apuração do valor do frete seja feita, é obrigatório ter fechamento do estoque. Normalmente utilizado no cenário 3. Para mais informações, ver 
+Apuração de Valores de Fretes a Pagar pela Diferença via Fechamento de Estoque
+.
+Pela Capacidade do Caminhão:
+ nesta opção, a apuração será feita com base na capacidade do caminhão (quantidade confirmada da OC). Depende somente da configuração do depósito indicando se será pela Capacidade do Caminhão (as demais opções não são utilizadas) e da configuração de unidade adicional no produto (caso receba volumes com unidade diferente de litro).  Pode ser utilizado em qualquer cenário. Para mais informações, ver 
+Apuração de Valores de Fretes a Pagar pela Capacidade do Caminhão
+.
+Para informações das configurações do depósito, ver 
+Depósitos - Aba Dados Adicionais
+.
+Configurações para Apuração de Frete via Fechamento de Estoque
+Dependem das configurações:
+Perfil de sistema  
+, 
+quadro 
+Lançamento/Vínculo de Pagamento ao Frete, 
+opção
+ 
+Exige que o frete esteja apurado?
+Perfil de sistema  
+, 
+quadro 
+Cálculo de Frete, 
+opção
+ 
+Vincula Frete ao Contas a Pagar na entrada do CT-e
+Tabela 
+Depósitos - Aba Dados Adicionais
+, 
+quadro 
+Apuração de Descargas
+, opções 
+Origem da Apuração de Frete de Entrada, 
+quadro 
+Valorização Diferença Frete,
+ opções 
+Ação a ser tomada para o Valor da Diferença de Frete
+ e 
+Uso de Pré-Adiantamento
+, 
+quadro 
+Valorização Diferença Produto,
+ opções 
+Ação a ser tomada para o Valor da Diferença de Produto 
+e
+ Uso do Pré-Adiantamento.
+Tabela 
+Observações -
+ Fornecedores
+, 
+quadro 
+Apuração de Frete, 
+opções 
+Diferença de Produto
+ e 
+Diferença de Frete.
+Cenário 1
+Configurações:
+Perfil de sistema  
+, 
+quadro 
+Lançamento/Vínculo de Pagamento ao Frete, 
+opção
+ 
+Exige que o frete esteja apurado? 
+Exige Apuração antes de vincular o Pagamento
+Perfil de sistema  
+, 
+quadro 
+Cálculo de Frete, 
+opção
+ 
+Vincula Frete ao Contas a Pagar na entrada do CT-e
+Não tem efeito mesmo se marcada
+Tabela 
+Observações - Fornecedores
+, 
+quadro 
+Apuração de Frete:
+Diferença de Produto
+Não é responsável
+É responsável
+Diferença de Frete
+Não é responsável
+É responsável
+Tabela 
+Depósitos - Aba Dados Adicionais
+, 
+quadro 
+Apuração de Descargas
+ 
+Origem da Apuração de Frete de Entrada: 
+diferença via Fechamento de Estoque
+Valorização Diferença Frete
+Ação a ser tomada para o Valor da Diferença de Frete: 
+Salva  no Frete para uso nos Pagamentos:
+ o Devedor (responsável) pela diferença sempre será a transportadora
+Gera Pré-Adiantamento ao Devedor: 
+Quadro Uso do Pré-Adiantamento:
+Devedor:
+Sempre Transportadora
+Conforme indicado no Fornecedor da Nota Fiscal
+Valorização Diferença Produto
+Ação a ser tomada para o Valor da Diferença de Produto: 
+Salva  no Frete para uso nos Pagamentos:
+ o Devedor (responsável) pela diferença sempre será a transportadora
+Gera Pré-Adiantamento ao Devedor: 
+Quadro Uso do Pré-Adiantamento:
+Devedor:
+Sempre Transportadora
+Conforme indicado no Fornecedor da Nota Fiscal
+Cenário 2
+Configurações:
+Perfil de sistema  
+, 
+quadro 
+Lançamento/Vínculo de Pagamento ao Frete, 
+opção
+ 
+Exige que o frete esteja apurado? 
+Exige Apuração antes do Pagamento
+Perfil de sistema  
+, 
+quadro 
+Cálculo de Frete, 
+opção
+ 
+Vincula Frete ao Contas a Pagar na entrada do CT-e
+Marcada
+Tabela 
+Observações - Fornecedores
+, 
+quadro 
+Apuração de Frete:
+Diferença de Produto
+Não é responsável
+É responsável
+Diferença de Frete
+Não é responsável
+É responsável
+Tabela 
+Depósitos - Aba Dados Adicionais
+, 
+quadro 
+Apuração de Descargas
+ 
+Origem da Apuração de Frete de Entrada: 
+diferença via Fechamento de Estoque
+Valorização Diferença Frete
+Ação a ser tomada para o Valor da Diferença de Frete: 
+Salva  no Frete para uso nos Pagamentos:
+ o Devedor (responsável) pela diferença sempre será a transportadora
+Gera Pré-Adiantamento ao Devedor: 
+Quadro Uso do Pré-Adiantamento:
+Devedor:
+Sempre Transportadora
+Conforme indicado no Fornecedor da Nota Fiscal
+Valorização Diferença Produto
+Ação a ser tomada para o Valor da Diferença de Produto: 
+Salva  no Frete para uso nos Pagamentos:
+ o Devedor (responsável) pela diferença sempre será a transportadora
+Gera Pré-Adiantamento ao Devedor: 
+Quadro Uso do Pré-Adiantamento:
+Devedor:
+Sempre Transportadora
+Conforme indicado no Fornecedor da Nota Fiscal
+Apesar dos cenários apresentados serem para Apuração de Frete após o Fechamento de Estoque, podem ser utilizados também para Capacidade do Caminhão e Descarga Própria.

@@ -1,0 +1,11 @@
+TITULO: Cálculos Impostos Faturamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440430
+--------------------------------------------------
+Introdução
+Os cálculos dos impostos incidentes em uma Nota Fiscal são controlados através de cinco tabelas conforme gráfico abaixo:
+Assim, para calcular estes impostos, o Sistema obtem informações das seguintes tabelas:
+Pedido: Se existe um pedido de venda gerador (pois a NF pode não ser de Venda - neste caso, não existe um pedido anterior e o usuário deve informar os dados), o Sistema obtém os dados do cliente, produto, preço de venda e quantidades dele. Caso contrário, o usuário deve informar estes dados nos campos apropriados.
+Clientes: UF do cliente faturado e se ele é consumidor final ou não.
+Produtos: Tabela de margem (valor agregado) fixa ou percentual do preço de venda (caso alcool), código do ICMS e código da natureza de operação estadual e interestadual de venda para cada produto .
+ICMS: Através do código do ICMS (do cadastro de produtos), da UF do cliente (destino) e da UF origem (da empresa), o SIstema encontra as alíquotas de ICMS e ICMS Substituição.
+Natureza Operação: Toda Nota Fiscal deve ter uma natureza de operação definida. Quando a NF for de venda, o Sistema automaticamente busca a natureza de operação correta, baseando-se no produto a ser faturado e se a operação é estadual ou interestadual (comparando a UF da empresa com a do cliente). Esta escolha é de fundamental importância pois esta tabela controla se a operação gerará ICMS / ICMS substituição, se gerará contas a receber, se movimentará estoque, etc.

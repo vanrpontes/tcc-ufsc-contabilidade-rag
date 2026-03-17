@@ -1,0 +1,125 @@
+TITULO: Tabela de Gerenciador de Pedágio
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926196421
+--------------------------------------------------
+none
+Objetivo
+O Sispetro também trabalha com a emissão de vale pedágio da Target.
+A tabela de Gerenciadores de Pedágio permite cadastrar e integrar o Sispetro com serviços como DBTrans e Target, incluindo detalhes do gerenciador, URLs, localidades e dados de identificação. Na aba Detalhes, são informados descrição, fornecedor correspondente e status ativo/inativo. A aba URL registra os endereços de comunicação de produção e homologação, variando conforme cada gerenciador. A aba Localidade apresenta cidades usadas no vale pedágio, preenchidas automaticamente ou manualmente. Nas abas de Identificação e Empresas são configurados login, senha, token, códigos específicos e o vínculo das empresas ao gerenciador, permitindo incluir, alterar ou excluir cadastros.
+Nesta tabela são cadastradas os gerenciadores de pedágio, onde o sistema poderá realizar a integração do Sispetro com o gerenciador. Atualmente no Sispetro temos disponível a integração com a DBTrans e Target.
+A tela que permite manipular esta tabela é acionada a partir do Menu principal com as opções - 
+Tabelas Auxiliares / Transportes / Manutenção de Gerenciador de Pedágio.
+Itens inativos agora ficarão destacados em 
+vermelho
+Aba Detalhes
+Para acrescentar um novo Gerenciador de Pedágio acione o botão 
+Incluir
+O Sistema exibe a tela para preenchimento dos novos dados, painel 
+Detalhes
+:
+Informe os dados necessários:
+Descrição:
+ Neste é cadastrado a descrição do gerenciador de pedágio.
+Fornecedor Correspondente:
+ Esse campo define qual o Fornecedor correspondente que ira sair nas observações da Nota Fiscal.
+Ativo:
+ Este campo define se o gerenciador ficara ativo ou inativo.
+Ao finalizar cadastro, clique no botão 
+Ok.
+Para abortar o processo, clique no botão
+ Cancela.
+Para sair, acione o botão 
+Sair
+wide
+1800
+Informações do Vale Pedágio Adiantado ao Transportador - Fornecedor: xx.xxx.xxx/xxxx-xx- Comprovantes: 000.421.17-10 - Responsável: xx.xxx.xxx/xxxx-xx - Valor: 114.60
+Aba URL
+Na aba de URL serão cadastrados as URL de comunicação com o gerenciador de pedágio. As URLs utilizadas variam de acordo com o gerenciador de Pedágio.
+Para incluir uma URL basta clicar no botão 
+inclui
+.
+O Sistema exibe a tela para preenchimento dos novos dados referente a URl de comunicação.
+Tipo: 
+Aqui definimos o tipo de de comunicação. O tipo de comunicação a ser utilizada vai variar de gerenciador para gerenciador.
+Tempo de Espera:
+ Define o tempo de espera para realizar a comunicação.
+URL WebService: 
+Nesse campo é definido a url de comunicação do ambiente de 
+Produção.
+URL WebService Homologação: 
+Nesse campo é definido a url de comunicação do ambiente de 
+Homologação.
+ 
+URL DBTrans
+Produção: 
+http://ws.rodocred.com.br/ValePedagio.asmx
+Homologação: 
+http://homologacao.ws.rodocred.com.br/ValePedagio.asmx
+URL Target
+Produção: 
+https://transportesbra.com.br/frete/tms/FreteService.svc
+Homologação: 
+https://dev.cartaovectio.com.br/frete/TMS/FreteService.svc
+Aba Localidade
+Na aba de Localidade são apresentado as localidades e seu código da cidade do gerenciador de pedágio.
+Essa tabela é preenchida de duas formas:
+Automaticamente
+: onde a cidade e seu código é preenchido automaticamente quando é realizado a emissão de um vale pedágio, o gerenciador retorna as cidades e suas localidades utilizadas para o vale pedágio em questão.
+Manualmente:
+ onde o usuário inclui a cidade e seu código da Cidade do gerenciador de Pedágio, acionando o botão 
+Inclui.
+Aba Identificação
+Na aba de identificação são informados os dados de identificação da Empresa, para que sejam realizados a autenticação entre o Sispetro e o Gerenciador de Pedágios.
+Para incluir uma URL basta clicar no botão 
+inclui
+.
+O Sistema exibe a tela para preenchimento dos dados de identificação:
+Código de identificação: 
+Nesse campo é informado o código de identificação, cada empresa de gerenciamento de pedagio tem sua própria regra, sendo obrigatorio ou não o seu preenchimento. Hoje trabalhamos com 2 empresas de Gerenciamento de pedágios sendo a DBTrans e a Target, veja abaixo as forma de preenchimento para cada gerenciador:
+DBTrans: 
+O Preenchimento do campo é obrigatorio e deve ser informado um codigo de identificação pre-cadastrado no Site da DBTrans.
+Target:
+ A Target não realiza a validação desse campo, o seu preenchimento é opicional podendo ser informado qualquer coisa. 
+Login:
+ Nesse campo é informado o Login de auteuticação com o gerenciador de pedágios, cada empresa tem seu próprio login. 
+Senha de Autenticação:
+ Nesse campo informamos a senha referente ao usuário informado no campo login.
+O campo de 
+Token de Autorização
+ é preenchido automaticamente quando realizado uma comunicação com o gerenciador de pedágio.
+O campo de 
+Validade do Token
+ é preenchido automaticamente quando realizado uma comunicação com o gerenciador de pedágio.
+O campo 
+Token de Autorização 
+e
+ Validade do Token 
+só são utilizados para pedágios emitidos para a 
+DBTrans.
+ 
+Aba Empresas
+Na aba Empresas serão apresentados os gerenciadores de pedágio configurados na tela de Gerenciador de Pedágios X Empresas para o Gerenciador deste cadastro:
+Renova Token:
+ permite a renovação do token do Gerenciador de Pedágios (habilitado somente quando o Gerenciador for DbTrans)
+Inclui Empresa:
+ abrirá a tela abaixo, onde deve-se preencher as informações abaixo:
+Empresa
+: empresa informada pelo usuário
+Identificação do Gerenciador de Pedágio
+: já virá preenchido conforme o gerenciador posicionado
+Identificação do Gerenciador de Pedágio Responsável
+: vínculo da identificação com a empresa em questão.
+Ambiente
+: informação sobre o ambiente que está sendo utilizado o gerenciador, se de produção ou de homologação
+Ativo
+: informação se esta empresa está ativa para este gerenciador
+Obtém Vale Pedágio?
+: informação se deverá obter vale pedágio ou não para este gerenciador x empresa.
+Altera Empresa: 
+permite alteração do cadastro
+Exclui Empresa:
+ permite exclusão da empresa selecionada, solicitando confirmação do usuário.
+Veja também
+Gerenciamento de Pedágios automatizados.
+Tabela Gerenciador de Pedágio X Empresa
+Manutenção de Pedágios
+ 

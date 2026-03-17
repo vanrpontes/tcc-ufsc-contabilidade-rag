@@ -1,0 +1,51 @@
+TITULO: Valor aprovado de PMM X Recebimento de NF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2949416536
+--------------------------------------------------
+Nos PMM com Tipo Recebimento igual a Direto do Fornecedor permitimos a aprovação parcial de PMM. Por esse motivo, ao receber uma Nota Fiscal, analisamos se é permitido receber considerando o valor aprovado, o valor dessa Nota Fiscal e o valor de Notas  recebidas anteriormente. A partir da versão 10.12 passaremos a considerar esse Percentual de Discrepância também sobre o valor aprovado.
+Configuração
+Na tela de
+ 
+Configuração de Sistema,
+  aba Compras, opção 
+Verificação de Saldo Financeiro do PMM X NF Recebidas
+.
+Regra
+Na
+ 
+Inclusão de NF vinculada a PMM Direto do Fornecedor
+Ao validar se o valor da Nota Fiscal (somado ao valor de NF anteriores) em relação ao valor aprovado do Pedido, é considerado também o perfil Verificação de Saldo Financeiro do PMM X NF Recebidas, caso esteja configurado para validar (por total ou por item), aplicar o Percentual de Discrepância configurado sobre o valor aprovado (mesmo que parcial)
+Exemplo:
+PMM
+Item
+Valor 
+Valor Aprovado
+PMM 01
+1500,00
+800,00
+Percentual de discrepância = 10%
+Valor disponível para recebimento = 880,00 (800+10%)
+Recebimento 
+Primeiro exemplo 
+:
+Item
+Valor 
+Nota Fiscal 01
+500,00
+Será aceita pois está dentro do valor total do PMM aprovado mais percentual de discrepância. 
+Item
+Valor 
+Nota Fiscal 02
+380,00
+Será aceita pois está dentro do valor total do PMM aprovado mais percentual de discrepância. 
+Segundo exemplo 
+: 
+Item
+Valor 
+Nota Fiscal 01
+500,00
+Será aceita pois está dentro do valor total do PMM aprovado mais percentual de discrepância.
+Item
+Valor 
+Nota Fiscal 02
+400,00
+A segunda nota não será possível incluir já que seu valor fica superior ao valor total aprovado disponível. Como já foi realizado a entrada de uma nota com valor de 500,00 o valor disponível seria de apenas 380,00.

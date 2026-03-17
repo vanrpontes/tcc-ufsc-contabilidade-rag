@@ -1,0 +1,58 @@
+TITULO: Geração de Título de Desconto por Nota Fiscal de Saída
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2898658125
+--------------------------------------------------
+A partir da versão 7.13, é possível emitir uma nota de saída e gerar um desconto automaticamente.
+O processo é muito parecido com a Geração de títulos de Descontos Automático.
+No caso de Notas de Saídas, é utilizado para gerar títulos de retenção automática.
+Numa venda de álcool, é gerado um contas a receber 
+valor da venda
+, e um contas a pagar 
+ICMS Subst.
+, esse valor a pagar, antes não era possível ser gerado automaticamente, era preciso incluir um lançamento manualmente, agora depois de configurado é lançado automaticamente.
+Para configurar corretamente a Geração de Título de Desconto, vide os passos em 
+Configurando Geração de Título de Desconto Automático
+.
+O que muda nas configurações em relação à configuração padrão
+Geração de Título de Desconto Automático
+Campo CONTA CONTÁBIL: 
+informar a conta contábil gerencial de Despesas com ICMS ST ou equivalente
+Opção Conta Débito Acompanha Conta Título Original: 
+DESMARCAR.
+Tipo de desconto 
+Campo TIPO: 
+configurar como FÓRMULA
+Campo CÁLCULO A EFETUAR:
+ configurar como INDIFERENTE (com isso não interfere no valor da nota fiscal)
+Quando for nota fiscal de venda, o campo CÁLCULO A EFETUAR 
+NÃO PODE SER MANUAL
+, para não informar descontos indevidos.
+Tipo de documento
+Quadro Calcula Desconto:
+Informe o código de desconto cadastrado com as configurações acima:
+Campo Base Cálculo:
+ informar o campo BaseICMSSubst da tabela NotaFiscal
+Campo Desconto: 
+informar o campo ICMSSubst da tabela NotaFiscal
+Exemplo:
+Venda de etanol hidratado:
+Base de cálculo do ICMS Próprio: 11.881,07
+Valor do ICMS Próprio: 2.138,59
+Base de cálculo do ICMS ST: 22.512,00
+Valor do ICMS ST: 2.363,81
+Valor dos produtos: 13.201,19
+Valor total da NF (gerado contas a receber): 15.565,00
+Título gerado no contas a pagar pelo valor do ICMS ST: 2.363,81
+Para quem contabiliza ICMS Próprio e ICMS ST
+ICMS Próprio: 
+Natureza de Operação > aba Contabilização > 
+ utilizar Contabilização Auxiliar:
+Informar os códigos das contas gerenciais a débito e a crédito referentes à contabilização de ICMS Próprio.
+ICMS ST:
+ é contabilizado de acordo com as configurações feitas para geração de título de desconto.
+Para configurar a emissão de 
+DARJ
+ ou 
+GNRE
+ para o ICMS ST veja 
+Manutenção de Documento de Arrecadação
+.

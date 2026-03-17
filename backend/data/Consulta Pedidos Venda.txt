@@ -1,0 +1,130 @@
+TITULO: Consulta Pedidos Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909340365
+--------------------------------------------------
+A tela de Consulta de Pedidos de Venda tem como objetivo permitir ao usuário efetuar 
+ referentes aos Pedidos de Venda.
+A mesma poderá ser acessada no menu Consulta / Análise Vendas / Consulta Pedidos Venda.
+Essa tela tem como objetivo substituir a antiga 
+Análise de Vendas-Movimento
+ que entrou em desuso no Sispetro na versão 8.0. Para quem utilizava a antiga tela, veja como migrar para a nova consulta na página 
+.
+Caso deseje consultar sobre Faturamento, utilize a tela 
+.
+Os campos a serem disponibilizados e a área onde devem participar estão sendo esclarecidos conforme tabela abaixo:
+A tabela abaixo pode conter dados um pouco técnicos para usuários comuns do Sispetro, solicite ajuda ao departamento de TI de sua empresa caso tenha dúvidas.
+Informação
+Linha
+Coluna
+Valor
+Filtro
+Tabela/Campo
+Vendedor
+Pedido.Vendedor e Vendedor.Descricao
+Assistente de Vendas
+Pedido.CodVendAssist e Assist.Descricao
+Tabela Preço
+Pedido.TabPreco e TabelaPreco.Descricao
+Cliente Comprador
+Pedido.CodEnt e Entidade.RazaoSocial
+UF Cliente Comprador
+Pedido.UFFat
+Cliente Faturado
+ItensPedido.CodEntFaturada e Entidade.RazaoSocial
+UF Cliente Faturado
+ItensPedido.UFCliente
+Fora Estado
+Pedido.ForaEstado
+Depósito
+Pedido.DepositoPadrao e Deposito.Descricao
+Retira/Entrega
+Pedido.RetiraEntrega
+Transportadora
+Pedido.CodTransp e Transportadora.Descricao
+Frota
+Pedido.SeqFrota e Frota.Placa
+Tipo de Cobrança
+Pedido.CodTpCobr e TipoCobranca.Descricao
+Condições de Pagamento
+Pedido.CodPg e CondicoesPagto.Descricao
+Prazo
+Pedido.PrazoPagto
+Produto
+ItensPedido.CodProd e Produto.DescricaoCompleta
+Filial
+Pedido.CodEmpresa 
+Número do Pedido
+Pedido.NumPed
+Data do Pedido
+Date(Pedido.DataPed) 
+Data de Entrega
+Pedido.DtPrevFat
+Data Cancelamento
+Date(Pedido.DataCancelamento)
+Cancelado
+if Pedido.StatusPedido = 'C' then 'S' else 'N' endif
+Aprovado Geral
+Pedido.Aprovado
+Aprovado Vendas
+Pedido.LibVendas
+Aprovado Financeiro
+Pedido.LibFinanc
+Aprovado Transportes
+Pedido.AprovTransp
+Quantidade
+ItensPedido.Qtde
+Quantidade Pendente
+ItensPedido.QtdePendente
+Quantidade Separada
+ItensPedido.QtdeSeparada
+Quantidade Faturada
+ItensPedido.QtdeFaturada
+Preço Tabela
+ItensPedido.PrecoFOB
+Preço Pedido
+ItensPedido.PrecoCIF
+Frete Unitário
+ItensPedido.FreteUnitReal
+Custo Financeiro
+ItensPedido.CustoFinancReal
+Preço + Frete
+ItensPedido.PrecoCIF + ItensPedido.FreteUnitReal
+Preço A vista
+ItensPedido.PrecoCIF - ItensPedido.CustoFinancReal
+Total (preço + frete)
+ItensPedido.Qtde * <campo correspondente>
+Total (preço)
+ItensPedido.Qtde * <campo correspondente>
+Total (preço a vista)
+ItensPedido.Qtde * <campo correspondente>
+Total dos Produtos
+INF.PrecoPedido * INF.Qtde
+Grupo Econômico
+Entidade.CodEnt e Entidade.RazaoSocial
+Conforme Entidade.Comprador vinculado ao Pedido.CodEnt
+Total Pendente (preço + frete)
+ItensPedido.QtdePendente * <campo correspondente>
+Total Preço Pendente
+ItensPedido.QtdePendente * <campo correspondente>
+Total a Vista Pendente
+ItensPedido.QtdePendente * <campo correspondente>
+Total Faturado (preço + frete)
+ItensPedido.QtdeFaturada * <campo correspondente>
+Total Preço Faturado
+ItensPedido.QtdeFaturada * <campo correspondente>
+Total a Vista Faturado
+ItensPedido.QtdeFaturada * <campo correspondente>
+Status OC
+Pedido.StatusRecebto
+N: Pendente
+P: Parcial
+T: Total
+Demais: Indefinido
+Status Faturamento
+Pedido.StatusFat
+N: Pendente
+P: Parcial
+T: Total
+Demais: Indefinido
+ Área padrão onde deve ficar a informação (consequentemente essa área é permitida para coluna)
+ Área não permitida para informação
+ Área permitida para informação

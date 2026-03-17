@@ -1,0 +1,381 @@
+TITULO: Incluindo Apuração de Frete
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924285139
+--------------------------------------------------
+none
+Objetivo
+A apuração de frete permite calcular e tratar diferenças de valores de frete e produto, conforme regras e perfis configurados no sistema. O usuário precisa ter permissão específica e cumprir procedimentos prévios conforme a origem do frete (capacidade do caminhão, diferenças de descarga ou fechamento de estoque). Na Manutenção de Frete, o usuário define período, depósito, critérios de agrupamento e ações sobre as diferenças, podendo gerar pré-adiantamentos. O sistema processa, resume, valida e registra a apuração, indicando status, responsáveis e valores apurados. Após a apuração, é possível consultar detalhes completos, cálculos, ações tomadas e vínculos com CT-e, fretes e pré-adiantamentos.
+Veja o processo de Apuração completo em 
+Como Apurar Valores de Frete a Pagar
+. 
+Para incluir uma apuração de frete é necessário:
+Perfil de Usuário aba 
+Fretes 
+Pode Apurar Frete:
+ para incluir qualquer apuração o usuário precisa ter este perfil habilitado.
+Procedimentos necessários:
+Fretes gerados pela Capacidade do Caminhão
+ (para mais informações, ver 
+Apuração de Valores de Fretes a Pagar pela Capacidade do Caminhão
+): não é necessário qualquer procedimento anterior.
+Fretes gerados pelas Diferenças de Descarga
+ (para mais informações, ver 
+Apuração de Valores de Fretes a Pagar por Diferenças de Descarga Base Própria
+): incluir as 
+Diferenças em Descargas
+ desses fretes.
+Fretes gerados pela Diferença via Fechamento de Estoque
+ (para mais informações, ver 
+Apuração de Valores de Fretes a Pagar pela Diferença via Fechamento de Estoque
+): fazer o fechamento de estoques dos depósitos ou dos produtos com a mesma data dos fretes gerados.
+Responsável pelas diferenças de frete/produto
+ (para mais informações, ver 
+Observações -
+ Fornecedores
+): se o responsável pelas diferenças não for a transportadora, deve indicar no fornecedor da nota fiscal.
+Na 
+Manutenção de Frete
+ e clicar no botão 
+Apuração
+:
+Data Inicial: 
+a partir de qual dia os fretes serão apurados
+Data Final:
+ até qual dia os fretes serão apurados
+Depósito:
+ selecione o depósito para apurar os fretes
+Ação a ser tomada p/ o Valor da Diferença do Produto: 
+ não selecionável. Essa informação é oriunda da configuração em 
+Depósitos - Aba Dados Adicionais
+Ação a ser tomada p/ o Valor da Diferença do Frete: 
+ não selecionável. Essa informação é oriunda da configuração em 
+Depósitos - Aba Dados Adicionais
+Origem da Apuração de Frete de Entrada:
+ não selecionável. Essa informação é oriunda da configuração em 
+Depósitos - Aba Dados Adicionais
+Agrupamento do Pré-Adiantamento: 
+opção já vem sugerida da configuração do 
+Depósitos - Aba Dados Adicionais
+, mas é possível alterar na tela.
+Não Agrupa - gera um por frete: 
+gera um pré-adiantamento para cada  diferença de frete e/ou  diferença do produto
+Agrupa por Fornecedor:
+ gera apenas um pré-adiantamento no valor total das diferenças de fretes e/ ou das diferenças dos produtos, agrupando por transportadora/fornecedor
+Dados para o Pré-Adiantamento:
+Data Movto.:
+ por padrão, é informada a data atual
+Histórico:
+ obrigatório informar um histórico
+Rever Fretes Apurados?
+Ignorar Fretes apurados anteriormente: 
+caso escolhida esta opção, a apuração será somente dos frete que não foram apurados anteriormente.
+Apurar também Frete já apurados: 
+com esta opção todos os fretes, dentro da Data Inicial e Final, serão apurados. Pode ser útil caso a empresa tenha alterado a forma de trabalhar, como os perfis 
+% Diferença Permitido
+ ou 
+Volume descarregado 
+maior
+ que programado 
+ou 
+Volume descarregado 
+menor
+ que programado (dentro ou fora do limite)
+. Para mais informações, ver 
+Depósitos - Aba Dados Adicionais
+.
+Botão Traz Dados: 
+selecionadas as opções acima e clicando no botão, serão apresentados os fretes.
+Botão Desmarca Todos:
+ por padrão, todos os fretes estão marcados. Clicando neste botão, os fretes serão desmarcados e não serão apurados. Pode também marcar ou desmarcar individualmente.
+Botão Ver Resumo:
+ apresenta o Resumo das diferenças dos valores por transportadora/fornecedor.
+Botão Layout Padrão:
+ clicando neste botão, caso o usuário tenha alterado, retorna o layout padrão da Futura.
+Botão Processa
+: faz o processamento da apuração dos fretes. Após realizar o processamento e estando tudo correto, apresenta a mensagem:
+Botão Sai: Sai da tela
+Verificando a Apuração
+Verificando se a Apuração foi realizada e quais os valores nela contidos - 
+Manutenção de Frete
+:
+Itens inativos agora ficarão destacados em 
+vermelho
+Aba Frete - coluna Status Apuração
+Apurado Automaticamente: 
+quando a apuração de Frete é feita pelo SisPetro.
+Não Apurado: 
+o frete em questão ainda não tem apuração.
+Considerado Apurado - Alterado pelo Usuário: 
+o usuário alterou o Status deste frete, para ser considerado Apurado. Para isso é preciso dar permissão em 
+Painel Fretes (Usuários)
+, quadro Fretes, opção Pode Alterar Status do Frete.
+Aba Frete - Depósito, Origem da Apuração de Frete, Ação Tomada para Valor da Diferença de Frete, Sequencial Pré-Adiantamento (Frete),  Devedor da Diferença de Frete, Ação Tomada para Valor da Diferença de Produto, Sequencial Pré-Adiantamento (Produto) e Devedor da DIferença de Produto
+Mostra os dados da apuração de frete:
+Depósito:
+ depósito para o qual foram apurados os fretes 
+Origem da Apuração do Frete
+Capacidade do Caminhão: 
+para mais informações, ver 
+Apuração de Valores de Fretes a Pagar pela Capacidade do Caminhão
+.
+Diferenças de Descarga Base Própria: 
+para mais informações, ver 
+Apuração de Valores de Fretes a Pagar por Diferenças de Descarga Base Própria
+.
+Diferença via Fechamento de Estoque: 
+para mais informações, ver 
+Apuração de Valores de Fretes a Pagar pela Diferença via Fechamento de Estoque
+.
+Ação Tomada para Valor da Diferença de Frete
+Sem ação - só calcula: 
+apenas calcula a diferença
+Salva no Frete para uso nos Pagamentos:
+ calcula o valor da diferença para uso no pagamento
+Gera Pré-Adiantamento de Fornecedor:
+ calcula o valor da diferença e gera um pré-adiantamento
+Sequencial Pré-Adiantamento (Frete):
+ código do pré-adiantamento gerado
+Devedor da Diferença de Frete:
+ indica o responsável pela diferença de frete
+Transportadora
+Fornecedor (da nota fiscal)
+Ação Tomada para Valor da Diferença de Produto
+Sem ação - só calcula: 
+apenas calcula a diferença
+Salva no Frete para uso nos Pagamentos:
+ calcula o valor da diferença para uso no pagamento
+Gera Pré-Adiantamento de Fornecedor:
+ calcula o valor da diferença e gera um pré-adiantamento
+Sequencial Pré-Adiantamento (Produto):
+ código do pré-adiantamento gerado
+Devedor da Diferença de Produto:
+ indica o responsável pela diferença de produto
+Transportadora
+Fornecedor (da nota fiscal)
+Apuração de Frete
+Aba Apuração de Frete Líquido
+Nesta aba são apresentadas todas as informações referentes a apuração de Frete.
+Conhecimentos Recebidos 
+Mostra os Conhecimentos de Frete vinculados ao frete em questão. A partir da versão 8.27 na importação do CT-e o SisPetro vinculará automaticamente o CT-e a NF-e e, por consequência, ao Frete gerado. Para mais informações, ver 
+Vinculo automático CT-e e frete gerado
+ e 
+Manutenção de Importação de Notas Fiscais
+Nota:
+ o vínculo automático de CT-e terá efeito somente se no perfil de empresas 
+Painel Fretes
+,
+ quadro 
+Lançamento/Vínculo de Pagamento ao Frete,  
+o perfil 
+Exige que o frete esteja apurado? 
+esteja selecionado 
+Exige Apuração Antes do Pagamento.
+Apuração de Frete Líquido: 
+são apresentadas as informações da Apuração de Frete.
+# Apuração: 
+campo referente ao sequencial da apuração de frete. Único por Ordem de Carregamento. Preenchido somente para 
+Diferenças de Descargas Base Própria.
+# Frete Apuração: 
+sequencial automático da apuração de frete realizada
+Diferença Descarga: 
+quantidade de Diferença na descarga do produto. Obtida através da 
+Diferenças em Descargas
+ 
+ ou do 
+Fechamento de estoque
+. Caso seja descarregado produto a mais, este campo terá valor negativo.
+Fator Ref. Frete(A): 
+caso seja marcado o perfil de 
+Produto - Unidade Adicional
+ - 
+Forma de Valorização do Frete Real
+, para 
+reconverter
+ o valor do frete na apuração, o SisPetro fará o cálculo e encontrará um Fator que será utilizado no cálculo da apuração.
+Fator Ref. Dif. Frete (B): 
+caso seja marcado o perfil de
+ 
+Produto - Unidade Adicional
+ - 
+Forma de Valorização da Diferença do Frete
+, para 
+reconverter
+ a Diferença encontrada no Frete, o SisPetro fará o cálculo e encontrará um Fator que será utilizado no cálculo da apuração.
+Diferença Frete (C): 
+quantidade de diferença entre o volume programado e volume descarregado.
+Frete Unitário (D):
+ valor do frete unitário
+Valor Diferença Frete (C/B) * (D*A): 
+valor obtido através da multiplicação entre a 
+Diferença Frete/Fator Ref. Dif. Frete
+ e 
+Frete Unitário/Fator Ref. Frete
+ . Este valor é o que será deduzido ou acrescentado no frete.
+Fator Ref. Dif. Produto (F):
+ caso seja marcado o perfil de 
+Produto - Unidade Adicional
+ - 
+Forma de Valorização da Diferença do Excedente
+ para 
+reconverter
+ o excedente para o Produto , o SisPetro fará o cálculo e encontrará um Fator que será utilizado no calculo da apuração.
+Diferença Produto (G): 
+caso o perfil no 
+Depósitos - Aba Dados Adicionais
+ - 
+Utiliza diferença total 
+ou 
+Utiliza como diferença o Volume além do limite
+ esteja selecionado para valorizar o produto, este campo será preenchido com a diferença, em litros, que foi descarregada, a menos ou a mais (neste caso, não calculará o valor da diferença do produto).
+Preço Produto (H): 
+preço unitário do produto
+Valor Dif. Produto (G/F)*H : 
+é a divisão dos campos 
+Diferença Produto
+ por 
+Fator Ref. Dif. Produto
+ multiplicado pelo 
+Preço unitário
+Valor Diferença Total: 
+é a soma dos campos 
+Valor Diferença Frete
+ e 
+Valor Dif. Produto
+. Lembrando que este último só será calculado se no perfil 
+Depósitos - Aba Dados Adicionais
+ - 
+Utiliza diferença total 
+ou 
+Utiliza como diferença o Volume além do limite
+ esteja selecionado para valorizar o produto.
+# Diferença Descarga: 
+número sequencial referente ao 
+Controle de Diferenças em Descargas.
+Usuário Apuração: 
+usuário que realizou a apuração de frete
+Data Apuração: 
+data e hora que foi realizada a apuração de frete
+Origem da Apuração de Frete:
+ indica qual a origem da apuração do frete
+Capacidade do Caminhão
+Diferenças de Descarga Base Própria
+Diferença via Fechamento de Estoque
+Valor Dif. Apurado (Frete):
+Valor Dif. APurado (Produto):
+Ação Diferença Frete: 
+Sem ação: 
+somente calcula a diferença do valor do frete
+Ajusta valor do Frete Líquido:
+ desconta ou acresce a diferença do valor do frete ao valor do frete real
+Gera Pré-Adiantamento:
+ gera um pré-adiantamento ao devedor da diferença do valor do frete
+Devedor Dif. Frete: 
+responsável pela diferença do valor do frente
+#Pré-Adto. Frete: 
+código do pré-adiantamento gerado da diferença do valor do frete
+Ação Diferença Prod.:
+ 
+Sem ação: 
+somente calcula a diferença do valor do produto
+Ajusta valor do Frete Líquido:
+ desconta ou acresce a diferença do valor do produto
+Gera Pré-Adiantamento:
+ gera um pré-adiantamento ao devedor da diferença do valor do produto
+Devedor Dif. Produto: 
+responsável pela diferença do valor do produto
+#Pré-Adto Produto: 
+código do pré-adiantamento gerado da diferença do valor do produto
+Outros Fretes vinculados à mesma apuração: 
+caso haja mais OCs vinculadas ao mesmo frete estas serão apresentadas. 
+# Apuração: 
+campo referente ao sequencial da apuração de frete. Único por Ordem de Carregamento. Preenchido somente para 
+Diferenças de Descargas Base Própria.
+# Frete Apuração: 
+sequencial automático da apuração de frete realizada
+Diferença Descarga: 
+quantidade de Diferença na descarga do produto. Obtida através da 
+Diferenças em Descargas
+ 
+ ou do 
+Fechamento de estoque
+. Caso seja descarregado produto a mais, este campo terá valor negativo.
+Diferença Frete: 
+quantidade de diferença entre o volume programado e volume descarregado.
+Frete Unitário:
+ valor do frete unitário
+Valor Diferença Frete: 
+valor obtido através da multiplicação entre a 
+Diferença Frete
+ e 
+Frete Unitário
+. Este valor é o que será deduzido ou acrescentado no frete.
+Diferença Produto: 
+caso o perfil no 
+Depósitos - Aba Dados Adicionais
+ - 
+Utiliza diferença total 
+ou 
+Utiliza como diferença o Volume além do limite)
+ esteja selecionado para valorizar o produto, este campo será preenchido com a diferença, em litros, que foi descarregada, a menos ou a mais (neste caso, não calculará o valor da diferença do produto)..
+Preço Produto: 
+preço unitário do produto
+Valor Diferença Produto: 
+caso o perfil no 
+Depósitos - Aba Dados Adicionais
+ - 
+Utiliza diferença total 
+ou 
+Utiliza como diferença o Volume além do limite)
+ esteja selecionado para valorizar o produto. O SisPetro para valorizar a perda ou ganho do produto, multiplicará a 
+Diferença Produto
+ pelo 
+Preço Produto
+.
+Valor Diferença Total: 
+é a soma dos campos 
+Valor Diferença Frete
+ e 
+Valor Diferença Produto
+. Lembrando que este último só será calculado se no perfil 
+Depósitos - Aba Dados Adicionais
+ - 
+Utiliza diferença total 
+ou 
+Utiliza como diferença o Volume além do limite)
+ esteja selecionado para valorizar o produto.
+# Diferença Descarga: 
+número sequencial referente ao Controle de 
+Diferenças em Descargas
+Usuário Apuração: 
+usuário que realizou a apuração de frete
+Data Apuração: 
+data em que foi realizada a apuração de frete
+Origem da Apuração de Frete:
+ indica qual a origem da apuração do frete
+Capacidade do Caminhão
+Diferenças de Descarga Base Própria
+Diferença via Fechamento de Estoque
+Valor Dif. Apurado (Frete):
+Valor Dif. APurado (Produto):
+Ação Diferença Frete: 
+Sem ação: 
+somente calcula a diferença do valor do frete
+Ajusta valor do Frete Líquido:
+ desconta ou acresce a diferença do valor do frete ao valor do frete real
+Gera Pré-Adiantamento:
+ gera um pré-adiantamento ao devedor da diferença do valor do frete
+Devedor Dif. Frete: 
+responsável pela diferença do valor do frente
+#Pré-Adto. Frete: 
+código do pré-adiantamento gerado da diferença do valor do frete
+Ação Diferença Prod.:
+ 
+Sem ação: 
+somente calcula a diferença do valor do produto
+Ajusta valor do Frete Líquido:
+ desconta ou acresce a diferença do valor do produto
+Gera Pré-Adiantamento:
+ gera um pré-adiantamento ao devedor da diferença do valor do produto
+Devedor Dif. Produto: 
+responsável pela diferença do valor do produto
+#Pré-Adto Produto: 
+código do pré-adiantamento gerado da diferença do valor do produto

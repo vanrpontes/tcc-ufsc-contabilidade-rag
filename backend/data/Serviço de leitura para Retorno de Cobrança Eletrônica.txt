@@ -1,0 +1,34 @@
+TITULO: Serviço de leitura para Retorno de Cobrança Eletrônica
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926187547
+--------------------------------------------------
+A partir da versão 9.3 foi implementado o serviço de leitura para retorno de cobrança eletrônico, onde o Sispetro realizara a leitura dos aquivos de retorno do banco automaticamente através de um serviço.
+Veja abaixo as configurações:
+1 - Configuração do Sistema 
+A primeira configuração a ser realizada é a do sistema onde iremos informar qual usuário para geração do retorno, Qual a data do movimento do serviço e o intervalo de execução da leitura, para realizar as configurações basta ir em: 
+Ferramentas / Sistema / aba Financeiro / Grupo Serviço de Cobrança eletrônica.
+Data de Movimento do Serviço de Leitura: 
+Nesse campo é definido de onde sera pego a data de movimento, onde o usuário pode definir se vai pegar a data vinda do arquivo, a data atual ou a data configurada na 
+.
+Intervalo para Execução do Serviço (em minutos): 
+Nesse campo definimos o intervalo de tempo que será realizado a execução do serviço, podendo ser de 3 a 1440 minutos.
+Tipo de Documento para baixa automática
+É necessário informar no perfil de sistema um tipo de documento valido para a baixa, para isto basta ir em 
+Ferramentas / Sistema / aba Financeiro / Tipo de Documento para baixa automática
+2 - Configuração Bancos
+Na tabela Bancos deve-se configurar:
+Tipo Cobrança:
+ Campo onde é definido o tipo de cobrança a ser utilizado para o banco selecionado, lembrando que nesse campo deve-se informar um tipo de cobrança esteja ativo e que esteja marcada como tipo de cobrança eletrônica.
+Empresa:
+ Empresa da onde serão obtidas as informações para a leitura dos arquivos.
+Tipo Data Movimento
+: definição de qual data será feita a movimentação.
+Para maiores informações, acesse 
+.
+Sempre que for realizado alguma alteração nos perfis acima, deve-se parar o serviço e iniciá-lo novamente para que as configurações sejam carregadas novamente.
+Lançamentos Movimentados 
+Assim como na leitura do arquivo de retorno manual, o sistema só realiza a movimentação do lançamento uma vez ignorando as movimentações dos demais arquivos de retorno.
+Exemplo:
+Caso tenha 2 arquivos de retornos dentro da pasta onde contem um mesmo lançamento nos 2 arquivos com a instrução de baixa, o Sispetro ira realizar a leitura do primeiro arquivo e ira baixar o lançamento, ao ler o segundo arquivo o Sispetro vai ignorar a movimentação do segundo arquivo.
+Para mais informações sobre a configuração do serviço no Servidor Sispetro, acesse 
+Serviço de Retorno de Cobrança Eletrônica - Servidor Sispetro
+.

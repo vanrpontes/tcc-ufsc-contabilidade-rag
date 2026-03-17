@@ -1,0 +1,47 @@
+TITULO: Inclusão do Rateio
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879127778
+--------------------------------------------------
+Objetivo
+Por meio da tela de inclusão do Rateio que será lançada a distribuição do rateio para todas as empresas. 
+Ela pode ser chamada pela tela de Manutenção de Rateio de Estoque ou pelo menu 
+Movimentação / Base / Rateio Estoque
+ diretamente.
+Para iniciar o rateio o usuário deve selecionar:
+Depósito
+Produto
+Data de leitura do tanque
+Data do fechamento
+Após isso apertar o botão 
+atualiza.
+Aparecerão o volume ambiente e a 20 graus da leitura do tanque e os dados do fechamento de estoque físico e ambiente.
+Mais abaixo é mostrado a diferença entre a leitura e os totais do fechamento físico e escritural ambiente e a 20 graus.
+Estas diferenças devem ser 
+sempre pequenas
+ ocasionadas por perdas nos dutos, pois caso contrário, deve-se procurar a causa podendo ser por falta de algum movimento, lançamentos errados ou até algum vazamento no tanque.
+Para se ratear a diferença encontrada existem duas colunas de 
+Rateio (%)
+ uma para o físico e outra para o escritural. 
+Pode-se informar manualmente, se desejar, a porcentagem a ser rateada para cada empresa devendo totalizar 
+100%,
+ ou então, pode-se informar o volume a 20C nas colunas Físico Rateio Volume 20C e Escritural Rateio Volume 20C, automaticamente o percentual será atualizado de acordo com esse volume informado.
+Para efetuar o ajuste do estoque através do rateio, é necessário que a soma total do volume 20c informado seja igual à diferença a 20 graus a ser rateada, tanto para o estoque físico quanto para o escritural, porém existe um método que permite ajustar o rateio automaticamente através de um dos critérios definidos. 
+Para isto deve-se informar um período a ser analisado (Data Inicial e Data Final) e o critério de rateio a ser utilizado: Movimentação de Saída, Movimentação de Entrada, Entradas + Saídas ou Saldo Inicial + Entradas + Saídas, Movimentações de Saídas - Ajustes, Movimentações de Entradas - Ajustes.
+Depois através dos botões 
+Rateio Físico
+ e 
+Rateio Escritural
+ o SisPetro analisa o volume de movimentação (Entrada e/ou Saída) de cada empresa para determinar uma forma de rateio justa.
+Porém somente será finalizado os ajustes através do botão 
+Ajusta Estoque Empresas
+. Antes disso ainda deve ser informado o tipo de ajuste, se somente Físico ou Escritural ou ambos, e um histórico para o ajuste.
+Por último, caso queira, o 
+Custo Médio
+ do produto que está sendo rateado pode ser modificado.
+Para alterar o custo o perfil 
+Pode alterar custo médio
+ na Aba Carregamento, quadro Rateio de Estoque. Para mais informações, ver 
+Painel Carregamento (Usuários)
+O valor apresentado é utilizado, por exemplo,  no pedido de OE quando há ganho. Para mais informações, ver 
+Custo de Produtos (CMV)
+Após finalizado o processo o sistema terá ajustado o estoque das empresas.
+Caso esteja marcado em determinado empresa para não ratear, os valores de rateio informados para esta empresa serão automaticamente zerados.

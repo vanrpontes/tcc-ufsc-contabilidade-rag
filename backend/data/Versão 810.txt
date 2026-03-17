@@ -1,0 +1,157 @@
+TITULO: Versão 8.10
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919992564
+--------------------------------------------------
+Versão 8.10
+Dados
+Informações
+Início
+06/01/2014
+Final
+06/02/2014
+Scripts
+cmd810.sql (3340 a 3391)
+Itens
+20
+Implementações
+14
+Correções
+6
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+DAMDFe_v810.rtm
+SisPetroControl.Dll
+GIA_SP_v810.rtm
+Migração para o CT-e 2.00
+Lembrando que todos os CT-e's devem estar quites com a SEFAZ, ou seja, se tiver que cancelar, sincronizar ou processar algum, faça-o na versão em que foi emitido antes da migração para a versão 2.00 pois a SEFAZ poderá validar alguns campos que são novos ou que não existem mais na versão 2.0. Caso isso aconteça, poderão ocorrer erros nesses CT-e's.
+Perfil de Grupo de Usuários
+A permissão dada a um usuário perfil valerá para todos os usuários vinculados a ele, inclusive as operações configuradas na Segurança de Relatórios.
+Geral
+Perfil de Grupo de Usuários
+Foi implementado um tipo diferenciado de usuário, que permitirá o uso e organização de Grupos de usuários no Sispetro. 
+Este recurso permitirá o gerenciamento de grupos de usuários com nível de acesso semelhante. O intuito é evitar o retrabalho de configurar permissões para cada usuário individualmente. 
+ 
+Help:
+ 
+Painel Grupos de Usuários
+, 
+Perfil de Usuário
+ PRFC (CCF 22086)
+Nono digito nos Contatos
+O campo de celular nas telas de Contato tiveram seu tamanho alterado para permitir ao usuário digitar números de celulares com nove dígitos. PRFC (CCF 21876 e CCF 20684).
+Inclusão de campos das URL do MDF-e no Cadastro de UF
+Inclusão de nova aba no Cadastro de UF para manutenção dos endereços URL do MDF-e. 
+Help:
+ 
+Configuração da UF
+ PRFC (CCF 23049)
+Rotina de Geração de Chave de Acesso
+Foi alterada a rotina de geração de chave de acesso (NF-e e CT-e) para remoção do caracter especial 
+\
+ (barra invertida). Foi detectado que caso o usuário, erroneamente, utilizasse esse caracter na mascara do CNPJ da empresa, as chaves de acesso não eram geradas corretamente. 
+UPA (CCF 22882)
+Tela de Perfil de Usuário - troca de componente
+Foi feita uma alteração na tela de Perfil de usuário para usar um componente de dados mais atualizado sem alterar os procedimentos atuais. AO(CCF 23256)
+Botão Desaloca na Manutenção de Pedidos (Vendas e Movimentação de Material)
+Na tela de Manutenção de Pedidos o botão Desaloca estava sempre habilitado. Corrigido para que o botão Desaloca só fique habilitado quando estiver na aba de "Itens" e o usuário tiver permissão (Perfil "Pode desalocar Item" para Vendas e "Pode Desalocar Item PMM" para Movimentação de Material). 
+GSN (CCF 23083)
+Contabilidade
+Exclusão de Conta Auxiliar e Adiantamento na Exclusão de
+ 
+Entidades
+Ao excluir um Cliente ou Fornecedor a Conta Auxiliar e a Conta de Adiantamento vinculadas sempre eram excluídas. Nessa versão essas contas só serão excluídas caso não tenham movimentação. Assim evitaremos a exclusão de contas de uso compartilhado entre várias entidades.
+ GSN (CCF 20040)
+Faturamento
+Data de Referência diferenciada na Nota Fiscal
+Na Natureza de Operação foi criado um perfil "Data de Referência na NF" para quando for NF: Entrada ou Saída, o 
+Sispetro possa permitir que a Nota Fiscal tenha uma Data de Referência diferente do especificado no perfil de Sistema. 
+Help:
+ 
+AO (CCF 22311)
+Reposicionamento de Perfis na Aba de NF-e/CT-e
+Devido a possibilidade de algumas empresas emitirem NF-e e CT-e ao mesmo tempo, reorganizamos os perfis da aba NF-e/CT-e, deixando mais claro ao usuário os perfis que atendem somente NF-e ou somente CT-e e os perfis que atendem a ambos. 
+Help:
+ 
+ AO (CCF 22828)
+Empresa emissora de NF-e e CT-e
+A partir dessa versão a mesma empresa poderá ser emissora de NF-e e CT-e, sem ter que optar por somente um dos documentos. 
+Esse recurso será útil para empresas transportadoras que precisam emitir NF-e ou para empresas cujo CNAE permite as atividades de distribuidora e transportadora
+. Help: 
+ AO (CCF 19503)
+Importação de Notas Fiscais
+Na importação de NF's através de arquivos textos (Layout Petrobrás ou Futura), devido não conter a informação de série, era apresentado erro e não deixava concluir a importação, o que foi resolvido.
+ No caso de arquivos textos da Petrobrás recomendamos a importação de arquivos .xml por conterem mais informações e serem mais utilizados.
+ 
+GSN (CCF 23284)
+MDF-e - Manifesto 
+Eletrônico de
+ Documentos Fiscais 
+Foi implementado o MDF-e, através do vínculo com NF-e's e CT-e's emitidos no Sispetro, com todo o processamento necessário com a SEFAZ (Recibo, Protocolo, Encerramento, Cancelamento, Sincronização), similar ao processo de NF-e e CT-e. 
+Esse recurso será útil para empresas obrigadas à emissão de MDF-e a partir de 03/02/2014 conforme as legislações estaduais (em especial São Paulo).
+ 
+ Verifique a legislação estadual da sua empresa sobre a obrigatoriedade. N
+ecessário baixar o rtm DAMDFe_v810.rtm e colocar na mesma pasta do executável do Sispetro ou caso utilize, nos Caminhos Auxiliares, podendo ser configurado no Perfil de Empresa, aba MDF-e.
+ 
+Help:
+ 
+MDF-e - Manifesto Eletrônico de Documentos Fiscais
+.
+ 
+UPA/PRFC (CCF 22884)
+ 
+Financeiro
+Código de Contabilização padrão para Inclusão de Adiantamentos
+A partir dessa versão será permitido a indicação de um Código de Contabilização padrão para Inclusão de Adiantamentos. 
+Help:
+ 
+ AO (CCF 22830)
+Impressão indevida no Extrato
+ 
+Conta
+Corrigida a apresentação do Extrato Conta para não exibir dados de diversas contas indevidamente quando alterna as opções em tela de impressão de Intervalo de Contas ou Entidades
+. GSN (CCF 22940)
+Fiscal 
+Dados de Serviços de Transporte - GIA SP
+Implementação do Registro 30 na GIA SP que detalha as prestações de Serviço de Transportes por Município cuja Natureza de Operação esteja configurada para fazer o detalhamento. 
+Esse recurso será útil para Empresas Transportadoras que precisam gerar arquivo para GIA SP.
+ 
+Necessário atualizar o arquivo GIA_SP_v810.rtm no Layout de Exportação usado na GIA SP
+. Help: 
+ e 
+ PRFC (CCF 19318)
+Crítica para Chave de Acesso duplicada no DPMP
+Foi implementada nova critica para indicar, durante a geração do DPMP, a existência de mais de uma Nota Fiscal com a mesma Chave de Acesso. 
+Help: 
+Críticas do DPMP
+. 
+PRFC (CCF 17162)
+Transporte
+CT-e 2.00
+Atendendo a solicitação da Sefaz, estamos disponibilizando a partir dessa versão a migração do CT-e da versão 1.04c para a versão 2.0. 
+Antes de fazer essa migração, verifique se a Sefaz do seu estado já está apta da receber os dados do CT-e na versão 2.0
+. 
+Help:
+ 
+UPA (CCF 22538)
+Emissão de Carta de Correção
+Estamos impedindo a geração de carta de correção para CT-e pois esse processo não está configurado para envio de dados a Sefaz. Nas próximas versões, com o surgimento do CT-e 2.0 que habilitou carta de correção para CT-e, disponibilizaremos essa funcionalidade. UPA (CCF 22962)
+Duplicação de Registros no Relatório de Fretes com NF canceladas
+No relatório de Frete não será mais apresentado duplicidade de registros quando uma OC for utilizada 
+em uma nota fiscal cancelada e depois utilizada em outra nota fiscal. AO (CCF 22876)
+Vendas
+Vínculo de Arquivos no Cadastro de Cliente/
+Fornecedor
+Foi implementado nos cadastros de cliente e fornecedor, aba para controle e armazenamento de documentos e arquivos. Agora os documentos podem ser cadastrados para clientes, fornecedor ou ambos.
+ Esta implementação já havia sido feita no cadastro de Produtos e Processo de Compras e tem o intuito de auxiliar na organização de arquivos.
+ 
+Help: 
+,
+ 
+ 
+,
+  
+PRFC (CCF 22714 e CCF 21103)
+Erro na Manutenção de Pedidos de Venda
+Corrigido erro apresentado na tela de Manutenção de Pedidos quando o usuário estava com perfil "Filtra Vendas por Vendedor" marcado. 
+GSN (CCF 23257)

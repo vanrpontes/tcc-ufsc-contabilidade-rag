@@ -1,0 +1,133 @@
+TITULO: Composição
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210994
+--------------------------------------------------
+A partir do painel 
+Detalhes
+ é possível acionar o painel 
+Composição
+ para cadastrar os produtos que compõe o produto selecionado. Será apresentada a tela a seguir:
+ 
+Informe os produtos e a quantidade para montagem de um kit em cada produto. Atente-se para que a soma seja sempre igual a 1. Informe a quantidade de composição específica para o DCP/DPMP. No caso do DCP/DPMP, ela servirá como sugestão de composição para cada período DCP/
+ incluído, ou seja, poderá ser alterado.
+Nos cálculos de quantidade com base na composição informada, pode-se optar por três tipos de arredondamento:
+Arredonda:
+ esta é a forma padrão e fará o arredondamento da quantidade para a unidade anterior, caso o valor seja menor ou igual a 4 e para a próxima unidade, caso o valor seja maior ou igual a 5. Ou seja, se o valor for 4501,40, será arredondado para 4501 e, se for 4501,70, o valor será arredondado para 4502.
+Arredonda a maior:
+ será arredondada a quantidade para a próxima unidade do valor encontrado, ou seja, se o valor for 4501,40, ele será arredondado para 4502.
+Arredonda a menor:
+ será arredondada a quantidade para a unidade anterior ao valor encontrado, ou seja, se o valor for 4501,70, ele será arredondado para 4501.
+Não Arredonda:
+ o valor não será arredondado. Essa opção é útil, por exemplo, para o aditivo que possui uma quantidade pequena. Nesses casos, ao ser arredondada, a quantidade pode ser 
+zerada
+, sendo que, com a opção "
+Não arredonda
+", ele grava o valor que no total geral pode fazer diferença. Ao informar essa opção, o sistema irá consultar o campo 
+Arredondamento de qtde movimentada
+ do cadastrado do produto configurado com essa opção. Para mais informações, acesse 
+.
+Exemplo: Na Gasolina C Aditivada, o Aditivo foi configurado com a opção "Não Arredonda". O sistema irá no cadastro do produto consultar o campo "Arredondamento de qtde movimentada" do produto Aditivo. 
+ 
+O ideal é configurar um dos produtos básicos para arredondar a maior e outro a menor.
+Veja abaixo exemplo utilizando somente a opção de arredonda e utilizando a opção de arredonda a maior/menor:
+Ambos produtos configurados para 
+Arredondar
+:
+Quantidade na OC 15.050
+ = (15.050*0,77 = 10.986,5) 10.987 GA + (15.050*0,27 = 4.063,5) 4.064 AA = 
+15.051
+Um produto configurado para
+ Arredondar a Maior
+ e outro para 
+Arredondar a Menor:
+Quantidade na OC 15.050
+ = (15.050*0,77 = 10.986,5) 10.987 GA + (15.050*0,27 = 4.063,5) 4.063 AA = 
+15.050
+O campo 
+Arredondamento de Qtde Movimentada
+ possui as seguintes opções:
+Inteira, arredonda possíveis decimais:
+ o sistema arredonda os valores com casas decimais.
+Permite decimais, não arredonda:
+ o sistema não irá arredondar o valor encontrado, assumindo o valor com as devidas casas decimais.
+Portanto, se a 
+Gasolina C
+ aditivada tiver o produto 
+Aditivo
+ configurado para não arredondar, e no cadastro do produto 
+Aditivo
+, o campo "Arredondamento de Qtde Movimentada" estiver com a opção "Inteira, arredonda possíveis decimais", o sistema irá arredondar os lançamentos referente ao produto Aditivo. Para que o sistema não arredonde e utilize as devidas casas decimais, deve-se configurar no cadastro do 
+Aditivo
+ o campo "Arredondamento de Qtde Movimentada" com a opção: "Permite decimais, não arredonda". Isso permite ao usuário utilizar um produto que faça parte da composição de outros dois produtos, onde um se deseja arredondar e no outro produto não.
+Recomenda-se que, caso o usuário opte que um produto seja arredondado a maior, que o outro produto da composição seja arredondado a menor, para que a soma das quantidades de cada produto da composição atinja a quantidade exata movimentada do produto composto.
+O campo 
+Tipo de Composição
+ possui as seguintes opções:
+Composição para movimentação
+: deve ser marcado para que o Sispetro proceda automaticamente, zerando o estoque final dos produtos compostos no DPMP.
+Composição para estoque
+: deve ser marcado para que o Sispetro mantenha o estoque dos produtos compostos no DPMP.
+A coluna 
+Não entra na Portaria
+ determina se o produto composto será incluído ou não nos itens da portaria, como no caso da Gasolina Aditivada, onde o aditivo não é necessário ser incluído como item na tela de 
+Portaria
+, pois só devem entrar na portaria os produtos que tenham tanques ativos.
+Caso a opção para dados de temperatura e densidade na 
+Impressão da Nota Fiscal
+ seja por tanque, informe de qual produto deverá ser obtida a leitura do tanque.
+Automação Base
+Volume (carregamento):
+ categoria de volume de saída a ser gravada no Smart Card.
+Volume (descarga):
+ categoria de volume de entrada a ser gravada no Smart Card.
+Temperatura:
+ categoria de temperatura a ser gravada no Smart Card.
+Tipo de Fator de Conversão:
+ produtos claros (alcoois) e produtos escuros (gasolina/diesel).
+Produto armazenado no tanque:
+ qual o produto armazenado no tanque para o produto selecionado (principalmente no caso de produtos compostos). 
+Código de Automação:
+ Nesse campo é inserido a sigla utilizada para identificar o produto na automação do BaseCom.
+Estas informações serão utilizadas na gravação/leitura do Smart Card, sendo que a cada produto novo, basta ajustar estas informações para que o produto seja tratado como um produto compatível com o Smart Card.
+Produto Aditivado:
+ indica se o produto é aditivado.
+O botão 
+Configuração de Coluna da OC no Depósito
+ permite que seja definido o depósito que o produto pertence e suas colunas, respectivamente, da Compartimentação da OC por Depósito.
+Ao clicar nesse botão, o sistema abre a tela acima e é possível inserir os depósitos que o produto selecionado pertence.
+Para incluir os depósitos e informar suas respectivas colunas, clique no botão 
+Inclusão
+, para incluir um a um, ou então clique no botão 
+Inclui Todos
+, para que o sistema informe todos depósitos ativos na tela, facilitando assim a inclusão, sendo necessário apenas vincular as colunas pertencentes a cada um.
+Para excluir produtos, basta clicar no botão 
+Exclusão
+.
+Se informados depósitos duplicados, o sistema emitirá uma mensagem de aviso, informando que 
+Existem depósitos duplicados
+, e em seguida permitirá que seja corrigido.
+Para a definição das colunas, só é permitido colunas de 0 a 6.
+Porém, se for informado uma coluna igual a 0 (zero) e clicar no botão 
+Salva
+, o sistema emitirá uma mensagem informando que 
+Existem depósitos sem colunas definidas! Deseja continuar?. 
+Se a resposta for 
+Yes
+ o sistema finaliza e não salva a inclusão desse depósito que foi informada a coluna zero, caso contrário, se a resposta for 
+No,
+ é permitido fazer a alteração dos dados e informar uma coluna com numeração válida.
+Importante: Se a definição da configuração das colunas para os depósitos for feita primeiramente nos produtos, ao acessar o depósito pela tela
+ 
+Manutenção de Depósitos / painel Cadastro Layout OC
+, a configuração da mesma deve ser igual a do produto e vice-versa.
+Consulte o tópico 
+Tabela Depósitos
+ para saber mais informações e para distribuição de produtos na compartimentação da OC, veja maiores detalhes em 
+Compartimentação de OC
+.
+Diferença entre Produtos Compostos e Produtos Correlatos:
+Produtos Correlatos
+ por suas composições serem parecidas, podem ser armazenados num mesmo tanque. Exemplo: 
+Benzeno A e Benzeno B
+Produtos Compostos
+ são constituídos de produtos primários, ou seja, são composições de um ou mais produtos, e normalmente são elaborados durante o processo de carregamento. Exemplo: Gasolina C, composta por 
+gasolina A e álcool anidro.

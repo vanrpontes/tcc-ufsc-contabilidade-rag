@@ -1,0 +1,369 @@
+TITULO: Versão 7.5
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2890596425
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 29/11/2009 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 29/01/2010 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd75.sql (cmd2244 a cmd2255) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 30 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 06 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 24 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+ Scanc.Rtm
+
+Sintegra-2010-DIC-SE.rtm
+
+Sintegra-2010-PR.rtm
+
+Sintegra-2010-SEF.rtm
+
+Danfe.rtm
+
+
+
+
+
+
+Contabilidade
+
+
+
+
+Relatórios de Patrimônio
+
+As telas dos relatórios de patrimônio Posição do Imobilizado e Movimentação do Imobilizado estavam as figuras dentro dos botões de Imprimir e Sair da tela com sombras o que dificultava a sua visualização. Problema corrigido. 
+UPA (CCF 7939)
+
+
+Cadastro de Bens
+
+No cadastro de bens é verificado se a data de aquisição do bem é maior que a data do ultimo fechamento financeiro. Se não for é gerada uma mensagem ao usuário informando sobre o fechamento financeiro. Essa mensagem de informação ao usuário estava sendo substituída pela mensagem "Erro de seqüencia de função" o que estava dificultando ao usuário identificar esse problema. Essa rotina foi corrigida e a mensagem do fechamento financeiro voltou a ser exibida ao usuário. 
+UPA (CCF 8183)
+
+
+Layouts Sintegra
+
+Na versão do 7.4.1, os Layouts do Sintega em alguns registros não eram gerados, pois o ReportBuilder passou a trabalhar de forma diferente com algumas propriedades dos subreports. O erro mais comum era a falta de registros filhos para os registros pai. Esse problema foi corrigido com os novos Layouts que estão anexos. 
+ Atualizar os layouts de exportação do SINTEGRA com os arquivos: Sintegra-2010-DIC-SE.rtm, Sintegra-2010-PR.rtm, Sintegra-2010-SEF.rtm. 
+DPM (CCF 8235)
+
+
+
+
+Estoque
+
+
+
+
+Erro na inclusão de bombeio físico
+
+Na inclusão de bombeio físico era gerado um erro de banco de dados quando não era informado o tanque. É obrigatório informar o tanque. Agora quando não é informado o tanque, o sistema apresenta uma mensagem amigável. 
+FLA (CCF 7998)
+
+
+
+
+Faturamento
+
+
+
+
+Alteração no vínculo NF com outra NF
+
+Ao excluir uma nota fiscal que possui outras notas fiscais vinculadas a ela o sistema não informava ao usuário e esse vinculo permanecia internamente impedindo outras ações no sistema. Esse problema foi corrigido e ao tentar cancelar uma nota com vínculos, será solicitado ao usuário o cancelamento do mesmo. 
+UPA  (CCF 7714)
+
+
+Mostrar a unidade de medida na tela de Manutenção de NFs, aba Itens NF, botão # Série no rodapé da tela
+
+A Unidade (s) de medida ex: (LT, KG, CX), não estava sendo apresentada corretamente. Este problema foi corrigido e agora é possível visualizar a informação do campo. 
+FLA (CCF 7940)
+
+
+Dados da NF na mensagem de confirmação de exclusão de notas
+
+Na tela de manutenção de NFs ao excluir uma nota foi trocada a mensagem de confirmação de exclusão, informando os dados : 
+Número da NF, data de emissão e Razão Social do cliente ou fornecedor.
+ 
+FLA (CCF 7406)
+
+
+Layout do DANFE padrão
+
+No layout do DANFE padrão, distribuído ao clientes na instalação do SisPetro, o campo situação do frete (se por emitente ou por destinatário) estava saindo incorreto. O correto seria sair 0 para emitente e 1 para destinatário e isso estava invertido. Problema corrigido.
+ 
+Atualizar o layout do DANFE com o arquivo que está anexo: Danfe.rtm.
+ 
+ 
+GFP (CCF 7685)
+
+
+Erro ao Tentar Acessar o Campo de Numero da Nota Fiscal
+
+Na emissão da nota fiscal, se o usuário não tivesse permissão para alterar a série da nota fiscal e o sistema não permitisse a alteração do numero da nota fiscal, quando o usuário chegava na tela onde se encontra o numero da nota fiscal, era emitida uma mensagem de erro avisando que não era possível focar uma janela não visível. Esse erro não impedia o faturamento da nota fiscal e já foi corrigido. 
+UPA (CCF 8332)
+
+
+Importação de Notas Fiscais
+
+A rotina de importação de notas fiscais estava com um arredondamento indevido na comparação do valor da nota com a somatória das parcelas das notas e com isso, algumas notas fiscais não estavam podendo ser importadas. Problema corrigido. 
+UPA (CCF 8103)
+
+
+Envio de Nota Fiscal Eletrônica
+
+As notas fiscais eletrônicas, quando processadas em lote, estavam acumulando todas as assinaturas das notas na primeira nota. Esse problema foi corrigido e a assinatura das notas está sendo gravada e enviada individualmente. As notas enviadas com esse problema no XML  foram processadas normalmente pela SEFAZ. As notas enviadas em lote a partir dessa versão não apresentaram esse problema e poderão ser distribuídas normalmente. 
+UPA (CCF 7989)
+ 
+
+
+
+
+Financeiro
+
+
+
+
+Relatório de Contas a Pagar / Receber
+
+O relatório de contas a pagar e o de contas a receber, caso o usuário clicasse no botão Edita Layout sem possuir o rtm desse relatório, gerava uma mensagem de erro ao usuário e não permitia a edição do mesmo. Esse problema foi corrigido. 
+UPA (CCF 7942)
+
+
+Baixa de Títulos
+
+Na tela de baixas, em algumas situações de arredondamento com valores decimais, o sistema não estava permitindo a baixa e emitia a mensagem "Baixa está gerando crédito e utilizando crédito ao mesmo tempo." mesmo sem ter um valor de crédito visível. Esse problema foi corrigido. 
+UPA (CCF 8111)
+
+
+
+
+Fiscal
+
+
+
+
+SCANC
+
+Após a atualização da ferramenta de extração de dados na versão 7.4, a validação do SCANC para o registro 70 ficou inconsistente. Basta atualizar o layout de exportação com o arquivo enviado anexo para correção deste problema. 
+ Atualizar o layout de exportação do SCANC com o arquivo que está anexo: Scanc.rtm. 
+UPA (CCF 8108)
+
+
+DPMP
+
+Na validação da movimentação duplicada não estava sendo filtrada a empresa e o mês ano que o usuário estava gerando e com isso era gerado um erro ao usuário caso também  existisse a mesma movimentação em de produto outra empresa.  
+UPA (CCF 8191)
+
+
+
+
+Geral
+
+
+
+
+Inclusão de Campos na Consulta de Grupos Econômicos no cadastro de Clientes
+
+No cadastro de Clientes na aba Grupos Econômicos foram adicionados os campos 
+UF, Município, Insc. Estadual e Contato.
+ 
+FLA (CCF 7507)
+
+
+Inclusão e Ordenação de Campos na Consulta de Pendências Financeiras no cadastro de Clientes
+
+
+No cadastro de Clientes na aba Pendências Financeiras foram adicionados os campos
+ 
+Nosso Número, Banco, Convênio e Parcela (refere-se a parcela atual).
+ 
+As colunas principais agora podem ser ordenadas em ordem crescente.
+ 
+FLA (CCF 7612)
+
+
+Inclusão de Campos na Consulta de Adiantamentos Pendentes no cadastro de Clientes
+
+No cadastro de Clientes na aba Adiantamentos Pendentes foram adicionados os campos 
+Entidade, Razão Social, Comprador, Razão Social Comprador, Info. Adic., Núm. Lote, Seq. Lote Real, Data Desbloqueio, Desbloqueado Em, Desbloqueado Por.
+ 
+FLA (CCF 7692)
+
+
+Atualização do Dicionário de Dados
+
+
+O procedimento de atualização do dicionário de dados foi otimizado e com isso agora está muito mais rápido. 
+ Essa alteração deixará mais rápida a atualização da versão para todos os nossos clientes.
+ UPA (CCF 7617)
+
+
+Controle de Procedimentos
+
+
+A partir dessa versão, todos os campos incluídos no controle de procedimentos estarão disponíveis ao usuário antes das liberação da próxima versão do SisPetro, desde que seja executada a rotina AtualizaDicionario do SisPetro. 
+Caso a rotina AtualizaDicionario não for executada pelo cliente, na próxima atualização do SisPetro ela será efetuada e os campos incluídos no controle de procedimento ficarão disponíveis aos usuários. 
+ UPA (CCF 7617)
+
+
+Pesquisa de Perfis
+
+
+As telas de configuração de usuários e sistema ganharão um novo recurso para pesquisa de perfis de configuração do sistema. 
+Apertando a tecla F4 é exibida ao usuário uma tela onde ele pode digitar uma parte do nome do perfil e ele será pesquisado na tela em questão
+. Clicando em OK o sistema irá posicionar a tela sobre o parâmetro selecionado. UPA (CCF 5679)
+
+
+Cadastro de Clientes
+
+Na tela de cadastro de clientes, se o usuário acessar o cadastro de clientes e for direto para a aba Rede Própria (ultima aba do cadastro) e voltar abrindo as abas de forma decrescente, era gerado um erro ao usuário de estouro de memória. Esse erro foi corrigido. 
+UPA (CCF 7776)
+
+
+Cadastro de Cliente
+
+No cadastro de cliente, em máquinas com sistema operacional Windows XP com o tema do Windows configurado para XP (e não o esquema Clássico do Windows), na aba Padrão para Vendas, em determinados momentos algumas etiquetas de campos não estavam ficando visíveis aos usuários por conta do Windows ter que redesenhar a tela. Esse problema foi corrigido. 
+UPA (CCF 8127)
+
+
+Manutenção de Tipos de Cobrança no SisPetro Remoto
+
+Na tela de manutenção de tipos de cobrança no SisPetro Remoto, os tipo de cobrança definidos como cobrança eletrônica não estavam com esse parâmetro marcado para exibição ao usuário. Esse problema era somente de visualização e todos os títulos gerados com esses tipos de cobrança estão corretos. Problema de visualização corrigido. 
+UPA (CCF 8234)
+
+
+Cadastro de Clientes
+
+No cadastro de clientes, ao desabilitar a opção Pertence ao Grupo Econômico(Para Crédito, Faturamento), o código do grupo que o cliente estava associado não estava sendo limpo e com isso, na aba Grupo Econômico, esse cliente ainda constava como pertencente ao grupo ao qual estava associada. O grupo econômico a partir dessa versão será limpo automaticamente e os clientes alterados em versões anteriores do SisPetro serão corrigidos. 
+UPA (CCF 8197)
+
+
+Cadastro de Produtos
+
+Na versão passada corrigimos alguns eventos no cadastro de produto e com isso, se o usuário não gravasse manualmente os dados da margem de substituição tributária, a alteração efetuada não estava sendo salva. Esse problema foi corrigido. 
+UPA (CCF 8097)
+
+
+Cadastro de Clientes
+
+No cadastro de clientes, na aba Grupo Econômico, os clientes que não estavam associados a nenhum grupo econômico exibiam nessa aba todos os clientes que também não possuíam grupo econômico associado. Esse problema foi corrigido. 
+UPA (CCF 8329)
+
+
+
+
+Transporte
+
+
+
+
+Lançamento do Contas a Pagar Através da Manutenção de Fretes
+
+Ao criar um contas a pagar através da tela de manutenção de fretes, na tela do contas a pagar se o usuário clicasse no botão de Inclusão de Despesas do Frota ou no botão de Seleção de Despesas do Frota, ao sair da tela de seleção ou inclusão, era gerado um erro ao usuário, avisando que um componente não estava visível na tela. Esse erro foi corrigido. 
+UPA (CCF 7779)
+
+
+
+
+Vendas
+
+
+
+
+Atualização da Qtde a 20c com dados da NF
+
+
+Agora pode-se configurar o sistema para que alguns depósitos tenham atualização da Quantidade20c e outros não. Os perfis "Atualiza fator de conversão e quantidade 20c nas NFs saída" e "Atualiza fator de conversão e quantidade 20c nas NFs Entrada" foram tranformados em combos com 3 opções (Nunca atualiza, Sempre atualiza, Respeita configuração do Depósito). 
+No cadastro de Depósitos foi acrescentado dois novos checks para atualizar o fator de conversão e quantidade 20c nas saídas e nas entradas. Na finalização da nota fiscal ocorrerá a atualização da Qtde a 20c conforme os perfis selecionados.
+ FLA (CCF 7284)
+
+
+Seguro no Pedido de Vendas x Modalidade de Frete
+
+
+Na versão passada, implementamos no pedido de vendas uma forma de controlar o seguro por pedido. Nessa versão estamos incluindo uma forma validar para que somente pedidos de uma modalidade de frete (Retira, Entrega ou Ambos) possa possuir seguro. Essa configuração é por empresas e como padrão qualquer modalidade de frete poderá ter seguro. Essa validação só servirá para os novos pedidos, incluídos após a atualização da versão. UPA (CCF 7874)
+

@@ -1,0 +1,99 @@
+TITULO: Configuração de Conta de E-mail
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2896035907
+--------------------------------------------------
+Acesso a essa tela se dá
+ através do 
+Menu / 
+Ferramentas 
+/ Manutenção de e-mail
+A partir da versão 8.12 esta tela 
+também
+ usada para configuração da conta de e-mail referente ao envio de cotação. Veja mais informações em 
+Para criar uma nova conta de -email, utilize o botão 
+Incluir
+:
+Informe os dados de cadastro da conta na tela de Alteração/ Criação de Conta de E-mail. Abaixo estão os dados de configuração das contas do Gmail 
+como um exemplo
+. Caso utilize outro servidor de e-mail as informações podem mudar.
+Esta tela é onde são configuradas as contas de e-mail para envio e recebimento.
+Configurações da Conta (envio):
+Os campos 
+Usuário
+ e 
+From 
+devem ser preenchidos com o usuário utilizado para fazer o login na conta (Usuário) e o endereço de e-mail utilizado como remetente (From). Na maioria dos casos o usuário é o próprio endereço de e-mail, o que deixa os campos preenchidos com a mesma informação.
+Configuração de SMTP - servidor de envio de e-mail:
+Informar as configurações do servidor SMTP utilizado.
+SMTP SispetroWeb (Somente se configurações diferente SMTP normal)
+Informar as configurações do servidor SMTP caso seja diferente para o SispetroWeb. Se esta opção não for marcada o SispetroWeb utilizará a mesma do Sispetro Normal.
+Configurações de OAuth
+Perfil OAuth
+NENHUM: 
+quando não for utilizar nenhuma validação de OAuth
+GOOGLE: 
+selecionar quando for utilizar a autenticação OAuth do Google (Gmail)
+Refresh token: 
+token de autenticação com o google para realizar envios de e-mail.
+Para mais informações ver
+ 
+Configuração e-mail Google (oAuth)
+Token é obtido ao Selecionar 
+Autorizar Sispetro, 
+para limpar a autorização de envio de e-mail utilizar o botão
+ Limpar Autorização.
+Botão Autorizar SisPetro
+ irá exibir a tela abaixo para dar ciência e continuidade na conta Google.
+Vai apresentar a tela de login do Google para realizar autenticação e login
+Configuração de POP - servidor de recebimento de e-mail:
+Informar as configurações do Servidor POP utilizado.
+EXCLUIR E-MAIL's LIDOS:
+ esta opção deve ser marcada quando o servidor de e-mail utilizado não exclui automaticamente os email's lidos ou não tem uma configuração para tratá-los, permanecendo na caixa postal e sendo baixados a cada leitura feita pelo Sispetro. 
+Servidor Hermes
+:
+Informar o endereço IP e a porta utilizada pelo Servidor Hermes.
+Pode ser utilizado um Servidor Hermes EXCLUSIVO para o serviço de e-mail.
+Para utilização do servidor de e-mail com o serviço de e-mail do 
+office365
+ é necessário configurar o 
+campo SSL
+ como 
+Explícito
+ na 
+Configuração de SMTP
+Preencha as informações conforme a configuração da conta de e-mail a ser utilizada para envio dos e-mails. Para testarmos se o endereço é válido, basta clicar no ícone ao lado. Após fazer as configurações, clique em GRAVAR. 
+A mesma tela poderá ser utilizada quando clicar no botão 
+Alterar
+Os testes de recebimento de e-mail foram feitos com os serviços de e-mail GMAIL, YAHOO, BOL, IG e HOTMAIL. Todos configurados como POP. Podem existir outros servidores de e-mail que tenham configurações diversas das testadas. É de responsabilidade do usuário analisar e testar as configurações do serviço de e-mail antes de colocar em produção no Sispetro.
+Existe um 
+site
+ onde estão descritas as configurações dos servidores de e-mail mais comuns do mercado (GMail, HotMail, etc).
+Para quem utiliza o GMAIL - p
+ode ocorrer em alguns casos, problemas de login gerados pelo Google/Gmail:
+Caso isso ocorra, o Google enviará um email informando o problema. 
+Para que o SisPetro possa acessar a conta cadastrada para envio/recebimento de email, deve proceder conforme mostra o email do Google.
+Tentativa de login impedida
+Olá Fulano,
+Alguém acabou de tentar fazer login na sua Conta do Google 
+fulano@gmail.com.br
+ de um aplicativo que não atende aos padrões de segurança modernos.
+Detalhes:
+terça-feira, 28 de junho de 2016 10:08 (Horário Padrão de Brasília)
+São Paulo - SP, Brasil*
+Recomendamos que você use um aplicativo seguro, como o Gmail, para acessar sua conta. Todos os aplicativos desenvolvidos pelo Google atendem a esses padrões de segurança. Por outro lado, o uso de um aplicativo menos seguro pode deixar sua conta vulnerável.
+ 
+Saiba mais
+.
+O Google interrompeu esta tentativa de login, mas você deve revisar seus dispositivos usados recentemente:
+REVISAR SEUS DISPOSITIVOS AGORA
+Atenciosamente,
+Equipe das Contas do Google
+*O local é aproximado e determinado pelo endereço IP de origem.
+Não responda a este e-mail. Para ver mais informações, visite a 
+Central de Ajuda das Contas do Google
+.
+Ver também:
+Serviço de E-mail
+Configuração de "Filial x Conta"
+Configurações Gerais
+Possíveis formas de configurar os vínculos do sistema
+Habilitando Serviço de E-mail

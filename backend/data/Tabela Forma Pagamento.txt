@@ -1,0 +1,124 @@
+TITULO: Tabela Forma Pagamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210612
+--------------------------------------------------
+none
+Objetivo
+A tabela de Formas de Pagamento permite cadastrar e configurar opções utilizadas no Pagamento Eletrônico, acessada pelo menu Financeiro. Ao incluir uma forma, o usuário informa dados obrigatórios conforme exigências do banco e do tipo de pagamento (fornecedores ou tributos). Cada campo marcado passa a ser obrigatório durante a Inclusão do Pagamento Eletrônico, garantindo consistência das informações. Após preencher e confirmar, o SisPetro grava os dados e retorna à tela de navegação.
+Navegação
+Nesta tabela são cadastradas as Formas de Pagamento a serem utilizadas no 
+Pagamento Eletrônico
+.
+A tela que permite manipular esta tabela é acionada a partir do Menu principal com as opções
+ - 
+Tabelas Auxiliares / Financeiro / Forma Pagamento
+:
+Para acrescentar uma nova forma de pagamento, acione o botão de inclusão de registro 
+O SisPetro exibe a tela para preenchimento dos novos dados.
+Detalhes
+No Sispetro ao invés de informar 
+Código Banco 
+e 
+Código Banco Adicional
+ na Classificação de Pagamento, esses campos já estão com os códigos definidos conforme consta nos manuais de pagamento eletrônico dos Bancos.
+Para mais informações, ver: 
+Tipos de pagamento por Banco
+Informe os dados necessários, para isso consulte antes o manual de instruções do banco correspondente:
+Marque os dados necessários para esta forma de pagamento. Estes dados, quando marcados, serão exigidos na 
+Inclusão de Movimento do Pagamento Eletrônico
+. Lembrando que todos os campos marcados aqui, seja para pagamentos a fornecedores ou Tributos, serão exigidos na Inclusão, não deixando finalizar sem que todos sejam preenchidos.
+Descrição:
+ denominação para esta forma de pagamento.
+Verificar: CNPJ, Endereço, CEP:
+ o campo que estiver selecionado, será verificado na utilização para esta forma de pagamento.
+Marque qual dado do fornecedor a ser pago deve ser verificado quando for esta forma de pagamento: 
+CNPJ
+, 
+Endereço
+ e 
+CEP
+.
+Banco:
+ banco onde vai ser utilizada esta forma de pagamento.
+Tipo de Pagamento: 
+a partir da versão 8.36 é possível pagar tributos com o Pagamento Eletrônico. Para isso foram criadas novos campos com informações referentes a este processo. O usuário precisa dizer ao SisPetro qual é o Tipo de Pagamento, a Fornecedores (PagFor) ou pagamento de Tributos (PagTrib).
+Cód. Banco:
+ código que identifica esta forma de pagamento no banco conveniado, em alguns bancos é chamado de 
+modalidade
+ de pagamento.
+Cód. Banco Adic.:
+ no caso do banco ter um código complementar para o código citado acima.
+Classificação de Pagamento: 
+lista com tipos de pagamentos habilitados para pagamento eletrônico. Para mais informações, ver 
+Tipos de pagamento por Banco
+Informa
+Geral
+Linha digitável: 
+com esta opção marcada será obrigatório preencher a linha digitável, no momento da Inclusão do Pagamento Eletrônico.
+Chave do PIX: 
+com esta opção marcada será obrigatório preencher a chave PIX, no momento da Inclusão do Pagamento Eletrônico.
+QrCode do PIX: 
+com esta opção marcada será obrigatório preencher o QrCode PIX, no momento da Inclusão do Pagamento Eletrônico.
+Pagamento Fornecedores
+Agência: 
+com esta opção marcada será habilitado e obrigatório preencher a agência, no momento da Inclusão do Pagamento Eletrônico.
+Dígito Agência: 
+com esta opção marcada será habilitado e obrigatório preencher o dígito da agência, no momento da Inclusão do Pagamento Eletrônico.
+Conta: 
+com esta opção marcada será habilitado e obrigatório preencher a conta, no momento da Inclusão do Pagamento Eletrônico.
+Dígito Conta: 
+com esta opção marcada será habilitado e obrigatório preencher a dígito da conta, no momento da Inclusão do Pagamento Eletrônico.
+Finalidade: 
+com esta opção marcada será habilitado e obrigatório preencher o campo Finalidade, que já tem uma lista pré-definida no momento da Inclusão do Pagamento Eletrônico.
+Instruções: 
+com esta opção marcada será habilitado e obrigatório preencher o campo Instruções, no momento da Inclusão do Pagamento Eletrônico.
+Tipo DOC/TED: 
+com esta opção marcada será habilitado e obrigatório selecionar um tipo de DOC/TED, no momento da Inclusão do Pagamento Eletrônico.
+Tipo C: 
+quando o tipo do documento é para CNPJ de mesma titularidade.
+Tipo D: 
+quando o tipo do documento é para CNPJ de terceiros.
+Tipo Documento: 
+com esta opção marcada será habilitado e obrigatório selecionar a Finalidade, que já tem uma lista pré-definida, no momento da Inclusão do Pagamento Eletrônico.
+Tipo Conta: 
+com esta opção marcada será habilitado e obrigatório selecionar o Tipo de Conta, que já tem uma lista pré-definida, no momento da Inclusão do Pagamento Eletrônico.
+Banco: 
+com esta opção marcada será habilitado o campo #Banco, no momento da Inclusão do Pagamento Eletrônico.
+Pagamento Tributos
+Código da Receita/INSS: 
+com esta opção marcada será obrigatório informar o Código da Receita/INSS, no momento da Inclusão do Pagamento Eletrônico.
+Valor da Receita Bruta: 
+com esta opção marcada será habilitado o campo Valor da Receita Bruta, no momento da Inclusão do Pagamento Eletrônico.
+Tipo de DARF: 
+com esta opção marcada será habilitado o campo tipo de DARF será utilizado, no momento da Inclusão do Pagamento Eletrônico.
+Valor Acréscimo Financeiro: 
+com esta opção marcada será habilitado o campo Valor Acréscimo Financeiro, no momento da Inclusão do Pagamento Eletrônico.
+Período de Apuração: 
+com esta opção marcada será obrigatório informar o Período de Apuração, no momento da Inclusão do Pagamento Eletrônico.
+Valor de Honorários Advocatícios: 
+com esta opção marcada será habilitado o campo Valor de Honorários Advocatícios, no momento da Inclusão do Pagamento Eletrônico.
+Percentual da DARF: 
+com esta opção marcada será habilitado o campo Percentual da DARF, no momento da Inclusão do Pagamento Eletrônico.
+Valor Outras Entidades: 
+com esta opção marcada será habilitado o campo Valor de Outras Entidades, no momento da Inclusão do Pagamento Eletrônico.
+Número de Referência: 
+com esta opção marcada será obrigatório informar o Número de Referência da DARF, no momento da Inclusão do Pagamento Eletrônico.
+Inscrição Estadual: 
+com esta opção marcada será obrigatório informar a Inscrição Estadual, no momento da Inclusão do Pagamento Eletrônico.
+Número Parcelamento: 
+com esta opção marcada será obrigatório informar o Número do Parcelamento, no momento da Inclusão do Pagamento Eletrônico.
+Inscr. na Dívida Ativa: 
+com esta opção marcada será obrigatório informar a Inscrição da Dívida Ativa, no momento da Inclusão do Pagamento Eletrônico.
+Caso a Forma de Pagamento que está sendo cadastrada não tenha um Banco Adicional, preencha o campo Cód. Banco Adic. com 0 (zero).
+Acione o botão 
+OK
+ para atualizar os dados no SisPetro.
+O SisPetro retorna a tela de navegação.
+Para retornar ao Menu principal acione o botão 
+Sair
+ 
+Para mais informações, ver: 
+Configurações de Forma de Pagamento para Multipag
+.
+Bancos com Pagamento Eletrônico Habilitado
+.
+Configurações de Forma de Pagamento para Multipag

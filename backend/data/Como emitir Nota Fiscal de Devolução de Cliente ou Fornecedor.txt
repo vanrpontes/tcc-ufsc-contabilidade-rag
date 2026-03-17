@@ -1,0 +1,122 @@
+TITULO: Como emitir Nota Fiscal de Devolução de Cliente ou Fornecedor
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440342
+--------------------------------------------------
+Para emitir Nota Fiscal de Devolução, a partir do menu 
+Movimentação / Faturamento
+ utilize uma das telas: 
+Devolução de Cliente
+ ou 
+Devolução de Fornecedor.
+É possível indicar o motivo da devolução, para ter um melhor controle sobre este processo. Para que o campo esteja disponível é necessário habilitar o
+ perfil de sistema
+ "
+Pode indicar motivo da devolução
+", fica na aba nota fiscal.
+O processo de inclusão das duas notas, Cliente e Fornecedor, são semelhantes. Utilizaremos a Devolução de Cliente como exemplo.
+Ao selecionar o menu Devolução de Clientes a mensagem abaixo será exibida;
+O processo de Devolução de Cliente normalmente não envolvia a devolução do produto no tanque. Geralmente o produto devolvido ficava no caminhão e era reaproveitado numa próxima venda. Porém isso mudou com o passar do tempo, sendo normal descarregar o produto no tanque. Neste cenário de descarga é necessário ter uma Ordem de Carregamento para movimentação na Portaria.
+Caso seja utilizada uma ordem de carregamento selecione a opção 
+Sim
+, e a tela de seleção será exibida:
+As OC´s exibidas deverão respeitar o seguinte critério:
+Devolução de Cliente somente OC´s de Descarga Própria
+Devolução de Fornecedor somente OC´s de Carregamento Próprio.
+Apenas o Filtro por entidade estará disponível para Notas de Devolução
+Apenas um item por OC poderá ser escolhido, isso significa que a opção 
+Seleciona mais de um item da OC
+ não estará disponível.
+As entidades a serem escolhidas só podem ser Clientes (quando Devolução de Cliente) ou só Fornecedores (quando Devolução de Fornecedores)
+Após selecionar a OC e clicar no Botão 
+Avança
+, a tela de inclusão da Nota Fiscal será exibida.
+É possível que o usuário altere o campo "
+Descrição do Histórico
+" caso ele tenha permissão e esteja configurado na na Natureza de operação/ 
+ que é do tipo "
+Código Histórico
+" . Veja mais informações em 
+Painel Faturamento (Usuários)
+, perfil "
+Pode alterar histórico NF (exceto NF de Venda)
+" e 
+, campo 
+Tipo de Histórico
+. O histórico alterado ou não, pode ser conferido na Manutenção do Contas a Pagar e Manutenção do Contas a Receber e 
+Manutenção de Lotes
+ dependendo do tipo da nota.
+PARA O SPED
+Ao informar a natureza de operação, o sistema irá verificar se a mesma possui configuração para Processo Referenciado e para Situação do Documento, para gerar o arquivo SPED. Para isso, é importante o preenchimento correto desses campos. Para maiores informações, vide tópico de 
+ e/ ou a aba 
+ da Tabela Natureza de Operação.
+Caso o usuário tenha dúvidas em relação ao correto preenchimento de notas fiscais, vide o tópico 
+.
+O sistema permite controlar no momento do preenchimento da nota fiscal de devolução, o vinculo dessa devolução com a nota fiscal original. Para isso, a empresa deve ter configurado o perfil localizado no menu 
+Ferramentas / Sistema / 
+Nota Fiscal
+ 
+a opção: 
+Na NF de devolução de cliente informa NF de Origem
+. 
+Para mais informações, ver
+ 
+Estando desmarcada, essa opção nas configurações da empresa, no momento de preencher a nota fiscal de devolução, o sistema não irá exigir o número da nota original.
+O usuário tem a liberdade de informar ou não o número da nota de origem. 
+Para mais informações, ver 
+Painel Faturamento (Usuários)
+, opção 
+Pode escolher se informa NF original da devolução
+Essa opção habilita o campo 
+Informa NF Original
+, permitindo que o usuário marque ou desmarque essa opção. Estando marcada, o sistema exige o preenchimento do número da Nota Fiscal de origem.
+Para os casos de Empresas 
+Transportadoras, no campo 
+INFORMA NF ORIGINAL 
+será permitido o vinculo de CT-e emitidos pela transportadora para atender situações de Devoluções de Frete. A
+lém do vínculo, serão gerados adiantamentos para poder quitar o título do CT-e original.
+Caso o usuário não habilite o campo
+ Informa NF Original 
+ele poderá efetuar o vinculo com outras notas fiscais manualmente
+. Para mais informações, ver 
+Preenchimento de Dados para Nota Fiscal
+.
+Caso deseje cancelar as movimentações referente ao frete da nota original, o usuário deve marcar a opção 
+Cancela Frete?
+.
+O usuário tem a liberdade de marcar e desmarcar a opção de 
+Cancela Frete?
+ caso o perfil de usuário 
+Pode Alterar Cancela Frete na NF
+ esteja marcado.
+A opção de 
+Cancela Frete?
+ vem marcada ou desmarcada de acordo com o perfil de 
+Cancelamento de Frete na Devolução
+ que é definido na Natureza de operação. 
+Se a Nota Fiscal original estiver com o frete vinculado ao contas a pagar, a emissão não será concluída. Para terminar o processo será necessário desmarcar a opção 
+Cancela Frete
+ ou cancelar o vinculo do frete com o contas a pagar da Nota Fiscal de origem.
+No caso de Devolução de Clientes, quando vinculada a uma Ordem de Carregamento, não devem ser aceitas NF de Venda Direta como NF Original. Nesses casos, será exibida a mensagem abaixo:
+ Será sugerido para a nota fiscal de devolução, os mesmos valores de Condição de Pagamento, Tipo de Cobrança, Tabela de preço, vendedor, transportadora e frota, que a nota fiscal de origem, além dos mesmos itens, isto se a nota fiscal de origem for informada.
+É importante salientar que a emissão da Nota Fiscal de Devolução de Cliente irá gerar um adiantamento para o cliente de acordo com o Valor Financeiro da Nota Fiscal de Venda de Origem (que será utilizado em alguma venda futura, na quitação da NF Venda que originou a devolução ou mesmo para gerar um cheque deste montante para pagar o cliente, caso já tenha ocorrido a baixa no módulo financeiro e o cliente necessite do montante). Portanto, o valor que foi lançado no contas a receber através da Nota Fiscal de Venda Original será o valor do adiantamento. 
+Para mais informações, ver
+ 
+.
+O sistema permite que ao emitir a nota fiscal de devolução vinculando a nota fiscal de origem, o título vinculado a nota de origem seja quitado de forma automática no financeiro. Para isso, deve-se marcar a opção 
+"Faz Baixa Aut. de Devolução"
+, localizada no menu 
+Ferramentas / Sistemas / Financeiro
+.
+Algumas regras devem ser levadas em consideração no preenchimento da nota fiscal de devolução:
+Quando informada uma nota fiscal de origem, o produto não poderá ser alterado, nem ser acrescentado outro item;
+A quantidade pode ser alterada, porém, não poderá ser maior que a quantidade da nota fiscal de origem;
+O usuário deve preencher a nota de devolução, sem vincular a nota de origem, quando a nota de devolução for referente a duas notas fiscais, já que o sistema não permite vincular mais de uma nota fiscal de origem. Porém, nesse caso, o sistema não controla os créditos pelo valor financeiro (não existe nota de origem para esse caso).
+Para notas de devolução a Fornecedor que movimentam estoque, será realizado a movimentação do saldo no PMM, disponibilizando o saldo para a utilização novamente. 
+Para mais informações, ver
+ 
+Saldo de PMM na Devolução de Fornecedores
+Veja também:
+Roteiro de inclusão de crédito (adiantamentos)
+.
+Preenchimento de Dados na Nota Fiscal
+Contabilização de NF de Devolução
+: Que mostra como fica a Contabilização desde a Venda até a Baixa utilizando o Adiantamento gerado.

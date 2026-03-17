@@ -1,0 +1,8 @@
+TITULO: Regra para cancelamento de nota fiscal com frete vinculado
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919990827
+--------------------------------------------------
+Antes quando uma nota fiscal de venda era cancelada, o Sispetro permitia o cancelamento do frete mesmo estando vinculado ao contas a pagar, hoje é feita a validação se o frete está vinculado. Se estiver o Sispetro não permite o cancelamento, na analise de cancelamento mostra que a nota possui frete vinculado ao contas a pagar.
+Para cancelar essa nota fiscal é necessário cancelar o vinculo do frete com o contas a pagar, após cancelar o vinculo a nota fiscal podera ser cancelada normalmente.
+ 
+Caso o usuário esteja recebendo uma nota de devolução, e vinculando esse lançamento a nota de venda, se a opção cancela frete estiver marcada e o frete da nota de venda já estiver vinculado ao contas a pagar, o Sispetro não permitira o cancelamento exibindo a mensagem abaixo:
+Nesse caso o usuário tem duas opções: cancelar o vinculo do frete da NF de venda com o contas a pagar ou desmarcar a opção cancela frete que foi marcada no inicio do lançamento.

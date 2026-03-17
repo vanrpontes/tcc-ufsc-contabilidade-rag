@@ -1,0 +1,22 @@
+TITULO: Dúvida Credencial mais Recente
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879128274
+--------------------------------------------------
+Caso fique em dúvida com relação à credencial mais recente de determinada estação de trabalho, siga os procedimentos abaixo relacionados.
+A partir da versão 9.30, o Sispetro não utilizará mais a tela de licenciamento por máquina. No Servidor Sispetro, configurado com S3, deverá ser informado o seu número de licenças. 
+Caso não seja informado o número de licenças do Sispetro, não será permitido a nenhum usuário se conectar no Sispetro
+.
+1. Abra a tela de manutenção de licenciamento.
+2. Clique no botão 
+Exclui Log Usuários.
+ Este procedimento irá limpar o arquivo de log de estações de trabalho que já fizeram conexão de alguma forma no Sispetro. Não se preocupe pois isso não irá afetar em nada o arquivo de licenciamento.
+3. Exclua todas as entradas desta estação de trabalho, exceto a credencial habilitada (cuja coluna Ativado está marcada).
+4. Peça ao usuário para entrar no Sispetro.
+5. Clique em 
+Atualiza.
+Irá aparecer além da credencial habilitada a última credencial desta estação.
+Uma outra forma mais rápida para visualizar a última credencial da estação de trabalho é acessar via menu (menu principal: Ajuda / sub item Sobre) a tela de Atualização do Sispetro.
+Clique no menu principal a opção 
+Ajuda
+ e, em seguida, no sub item 
+Sobre.
+Note na tela acima que o Sispetro mostra o nome da estação na rede (no caso Futura-VM), que ele não está usando o Sispetro via Terminal Server (TS: Não) e mostra ainda o número de série do computador utilizado para compor a credencial do mesmo (DC097DBB).

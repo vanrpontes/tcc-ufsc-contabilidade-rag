@@ -1,0 +1,77 @@
+TITULO: Multa no Contas a Receber e Cobrança Eletrônica
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892890377
+--------------------------------------------------
+Até o presente momento tínhamos no Contas a Receber o recurso de mora diária, conhecido no Sispetro como %Tx. Juros Dia.
+
+Porém de um modo geral, quando há atraso no pagamento, é normal as empresas cobrarem um % fixo de multa sobre o valor e % mora diária, que dependerá do número de dias em atraso. Vejamos um exemplo:
+
+
+Valor do título: 1.000,00
+
+% Juros Dia: 1%
+
+% Multa: 10%
+
+Vencimento: 01/03/2009
+
+
+1º cenário - Data do Pagamento: 05/03/2009 - 5 dias de atraso
+
+1.000,00 + (1.000,00 * 10%) + ((1.000,00 * 1%) * 5 )
+
+1.000,00 + 100,00 + 50,00 = 1.150,00
+
+
+2º cenário - Data do Pagamento: 31/03/2009 -  30 dias de atraso
+
+1.000,00 + (1.000,00 * 10%) + ((1.000,00 * 1%) * 30 )
+
+1.000,00 + 100,00 + 300,00 = 1.400,00
+
+
+ Esses valores são meio discrepantes do cenário econômico atual, porém foram utilizados somente para fins ilustrativo, facilitando a compreensão do cálculo.
+
+
+A partir da versão 7.6 foi incorporada no cálculo de acréscimo do SisPetro esse recurso de Multa e que este valor seja enviado no arquivo de cobrança eletrônica do Banco do Brasil e do Santander no Segmento R.
+
+
+Para mais detalhes de como configurar e utilizar esse recurso, veja os tópicos abaixo:
+
+
+
+
+
+
+Configuração do arquivo de Remessa
+
+
+Para que os valores de multa sejam gerados no arquivo de Remessa (Segmento R) deve-se configurar o Tipo de cobrança.
+
+
+Essa funcionalidade somente está disponível para os seguintes bancos: 
+Banco do Brasil (001), Santander (353,033 e 008) e Bradesco (237)
+
+
+Acesse 
+Tabelas Auxiliares \ Vendas \ Tipo de Cobrança \ aba Por empresa
+, no campo 
+Informação de Multa no Arquivo de Remessa
+ e selecione uma das 3 opções:
+
+
+
+
+Não informa
+
+
+Informa percentual
+
+
+Informa valor monetário calculado
+
+
+
+
+Por trabalhar com CNAB400 o banco BRADESCO não gera a linha do segmento R, será gerado na posição de 67 a 70 o valor percentual da multa. Devido a isso, no perfil citado acima, somente funcionará para o BRADESCO o perfil 
+Informa Percentual
+, caso seja selecionado o outro perfil os valores de multa serão zerados.

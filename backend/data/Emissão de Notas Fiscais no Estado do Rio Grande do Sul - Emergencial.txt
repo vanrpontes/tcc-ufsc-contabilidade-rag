@@ -1,0 +1,54 @@
+TITULO: Emissão de Notas Fiscais no Estado do Rio Grande do Sul - Emergencial
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4702306305
+--------------------------------------------------
+Em razão dos inúmeros problemas ocasionados pelas chuvas no Estado do Rio Grande do Sul, a ANP alterou a composição de produtos combustíveis comercializados nesse Estado.
+Para mais informações, ver 
+https://www.gov.br/anp/pt-br/canais_atendimento/imprensa/noticias-comunicados/anp-atua-para-garantir-o-abastecimento-de-combustiveis-no-rio-grande-do-sul-diante-da-grave-crise-causada-pelas-intensas-chuvas
+ 
+Alterações:
+Gasolina C contendo no mínimo 21% de etanol anidro, em substituição ao percentual de 27% hoje vigente;
+Óleo diesel S10 contendo no mínimo 2% de biodiesel, em substituição ao percentual de 14% hoje vigente;
+Óleo diesel S500 sem nenhuma mistura de biodiesel. 
+No SisPetro, para atender as alterações nos produtos compostos comercializados dentro do Rio Grande do Sul, deverão configurar conforme segue:
+Cadastro de Composição Fiscal
+Cadastrar novas composições fiscais:
+Gasolina C:
+ 21% Anidro e 79% Gasolina A
+Tipo de Cálculo:
+ Simples para ambos os produtos
+Diesel BS10:
+ 2% B100 e 98% Diesel AS10
+Tipo de Cálculo:
+ Simples para ambos os produtos
+Diesel BS500:
+ 100% Diesel AS500
+Tipo de Cálculo:
+ Simples
+Cadastro de Produtos
+Cadastrar novos produtos compostos - utilizar o recurso de Cópia, copiando os atuais produtos compostos:
+Selecione o produto composto e clicar no ícone de Cópia:
+Confirme e anote o código do novo produto cadastrado
+Selecione o novo produto cadastrado e altere a descrição: informe uma descrição que permite identificar claramente e seja distinto do atual produto composto. Clique em OK para salvar a alteração.
+Clique na aba Detalhes e depois na aba 
+Composição
+:
+Altere as composições conforme permitido pela ANP:
+Gasolina C:
+ 21% Anidro e 79% Gasolina A
+Diesel BS10:
+ 2% B100 e 98% Diesel AS10
+Diesel BS500:
+ 100% Diesel AS500
+Excluir o produto B100
+Aba Dados Adicionais
+Quadro NF-e:
+Para Gasolina C e Diesel BS10:
+ sem alterações
+Para Diesel BS500:
+ opção Envia tag (pBio) com Perc. de Biocombustível selecione Não Envia
+Quadro Composição para Efeito Fiscal:
+Altere para as novas composições fiscais cadastradas
+Nota:
+ todas as demais configurações no cadastro de produto permanecem as mesmas (caso os novos produtos tenham sido criados através do recurso de Cópia com base nos atuais produtos compostos)
+DPMP
+Para o DPMP cadastrar os novos produtos na tabela Período DCP informando a data de vigência conforme determinado pela ANP.

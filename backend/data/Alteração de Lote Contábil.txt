@@ -1,0 +1,108 @@
+TITULO: Alteração de Lote Contábil
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899579
+--------------------------------------------------
+A alteração de um lote contábil gerencial não altera o lote real vinculado automaticamente. O lote real deve ser alterado manualmente também.
+Para alteração de lotes contábeis, utilize o Menu 
+Movimentação / Controladoria / Alteração de Lote Contábil
+:
+Para alterar um lote, deve-se primeiramente preencher o campo 
+número do lote
+. Este número poderá ser encontrado nas telas de manutenções específicas (como de Notas, de Bancos, de Contas a Receber, etc) ou na tela de 
+Manutenção de Lotes
+.
+Após o preenchimento do campo 
+número do lote
+, o sistema apresentará os dados do lote na parte superior da tela e na parte inferior, em 
+Dados alterados
+, serão apresentados os dados passíveis de alteração.
+Para que se possa alterar um lote, deve-se seguir algumas regras:
+Não pode ter 
+Travamento Contábil
+ para a data do lote, já que a data não pode ser alterada, permanece a mesma;
+O lote não pode ser um originado por Baixa do Contas a Pagar/Receber, Transferências entre Bancos ou Adiantamentos de Clientes/Fornecedores;
+Não pode ser alterado contas do tipo Banco e nem Entidades (Clientes ou Fornecedores);
+O valor final do lote não poderá ser alterado, mas sim a composição das contas para atingir o valor original;
+O histórico do lote deverá ser alterado pela tela 
+Muda Histórico
+, posteriormente à alteração do lote.
+No painel 
+Movimento
+, serão apresentadas as contas que podem ser alteradas.
+Através dos botões 
+Incluir
+, 
+Excluir
+ e 
+Editar
+, o usuário poderá incluir, excluir ou alterar as informações da(s) conta(s) apresentadas nesse painel.
+Para incluir uma nova conta no lote, o usuário deverá clicar no botão 
+Inclui
+.
+O sistema abrirá a tela de 
+Inclusão de movimento
+, onde o usuário deverá informar a 
+Conta Contábil
+ a ser incluida e informar o 
+Valor Crédito
+ ou 
+Valor Débito
+ que será vinculado a essa conta. Para gravar a informação deve-se clicar no botão 
+Salva
+, assim o sistema voltará a tela de alteração de dados e mostrará a nova conta no painel 
+Movimento
+.
+Deve-se atentar que a soma dos débitos e a soma dos créditos devem ser iguais ao valor total do lote. As contas que não podem ser alteradas participam da somatória com os seus valores originais.
+Para fazer ajustes nos valores das contas ou até mesmo trocar as contas que podem ser alteradas do lote, o usuário pode utilizar o botão 
+Editar
+.
+O sistema abrirá a tela de 
+Alteração do Movimento
+, onde o usuário poderá selecionar uma nova Conta Contábil e alterar o valor do crédito ou débito, conforme a conta original que foi seleciona para ser alterada.
+Importante:
+ As contas contábeis a serem informadas não poderão ser do tipo sintética. Caso o usuário informe um número de conta sintética diretamente no campo, o Sispetro irá abrir a tela de pesquisa de contas automaticamente.
+E caso a Conta Contábil seja do tipo banco, o Sispetro irá emitir a mensagem a seguir:
+Caso seja necessário, é possível excluir a conta selecionada clicando no botão 
+Exclui
+.
+O sistema emitirá uma mensagem ao usuário. O registro só será excluido se for clicado no botão 
+Yes
+.
+No painel 
+Centro de Custo
+, será apresentado as informações referente ao centro de custo que está vinculado ao lote.
+Lembrando que poderá haver mais de um centro de custo vinculado ao lote. Independente do número de centro de custos, o usuário poderá Incluir, excluir e alterar os registros, através dos botões 
+Incluir
+, 
+Excluir
+ e 
+Editar
+.
+O usuário deve lembrar que a somatória do centro de custo deve ser igual ao valor original do lote.
+No painel 
+Histórico dos itens
+, será apresentada as informações referentes ao histórico dos itens vinculados ao lote.
+Clicando no botão 
+Editar
+, será possível alterar o histórico do item selecionado.
+Será mostrada a tela de 
+Alteração do histórico e informações adicionais
+, onde o usuário poderá preecher o novo histórico e a nova informação adicional. Caso o lote tenha históricos diferentes para os seus itens e na alteração seja necessário que os históricos sejam iguais, o usuário pode selecionar a opção 
+Altera o histórico de todos os itens
+, no primeiro item que está sendo alterado. Dessa forma, ao clicar no botão 
+Salva
+, o sistema copiará o mesmo histórico e informações adicionais para os demais itens, evitando ter que se fazer o mesmo processo de digitação para cada item. Para gravar as alterações, deve-se clicar no botão 
+Salva
+.
+Na alteração do histórico dos itens, o botão 
+Editar
+ só estará habilitado se o usuário tiver o pefil localizado nas configurações do usuário marcado. Este perfil pode ser acessado pelo Menu 
+Ferramentas / Usuário / Contabilidade
+:
+Para que as alterações do lote seja realmente gravadas no sistema, o usuário deve clicar no botão 
+Altera
+.
+O sistema armazenará os dados do lote original no painel 
+Alterações
+ da tela de 
+Manutenção de Lotes
+.

@@ -1,0 +1,48 @@
+TITULO: Consulta ao log de acesso dos Usuários
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2965440627
+--------------------------------------------------
+A partir da versão 10.24 foi anexado ao log de eventos 
+os dados de Login e Logout dos usuários. 
+A view 
+vwLogConexao 
+foi criada para facilitar a extração dos dados da conexão e também para facilitar a criação de relatórios, auditoria de uso e etc. 
+O log da conexão pode ser visto tanto por:
+Via consulta Log de Eventos: 
+filtrando pelo campo 
+Tabela/Procedimento = Conexao. 
+Mais informações sobre log de Eventos, ver 
+Via Banco de dados: 
+via consulta SQL na view 
+vwLogConexao. 
+Abaixo há uma tabela explicando o que contém em cada campo
+vwLogConexao 
+Coluna
+Tipo
+O que ela grava
+Data
+Date
+Data (dia/mes/ano) que a log(in/out) foi feito
+DataHoraEvento
+Timestamp
+Data e hora que a log(in/out) foi feito
+Projeto
+Char
+Se o log foi realizado no SisPetro Normal (scg.exe) ou Controladoria (sptconti.exe)
+Usuario
+Char
+Nome do usuário
+Tipo
+smallint
+1 - Conexão; 2 - Tentativa sem êxito; 3 - Desconexão
+DescTipo
+Char
+A descrição da Coluna Tipo
+IPExterno
+long varchar
+O nº IP da máquina que efetou o acesso
+IPInterno
+long varchar
+Será diferente do externo quando o usuário utilizar maq. virtual por exemplo. 
+Sequencial
+Interger
+Sequencial numérico do log das conexões

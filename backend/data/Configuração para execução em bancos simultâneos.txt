@@ -1,0 +1,48 @@
+TITULO: Configuração para execução em bancos simultâneos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210497
+--------------------------------------------------
+As vezes, é necessário configurar dois bancos de dados para que sejam expostos aos clientes simultaneamente (cada executável apontando para um servidor diferente).
+
+Este tipo de configuração normalmente é utilizado quando se deseja expor um banco de dados de teste e outro de produção.
+
+
+Assim, para tanto, devemos primeiramente ter duas conexões ODBC configuradas corretamente. Um teste para ver se ambas as conexões funcionam corretamente é executar o Sispetro apontando para uma conexão e depois para a outra conexão (ou ter dois executáveis trabalhando simultaneamente). Para tanto, acesse a sessão 
+.
+
+
+Para configurar o Servidor Sispetro, faça o seguinte:
+
+
+1) Pare o servidor Sispetro apertando o botão 
+Parar Servidor
+.
+
+
+
+
+2) Aperte o botão "Escolha de DataSource".
+
+
+
+
+3) Preencha as informações de Conexão escolhendo a conexão ODBC correta, o nome (por padrão deve ser DBA) e a senha do banco de dados.
+
+
+4) Aperte OK.
+
+
+5) Inicie novamente o servidor apertando a tecla 
+Iniciar Servidor
+.
+
+
+
+
+Note que o nome da fonte de dados aparece na linha de Status (DataSource).
+
+
+Para acessar dois bancos de dados de forma simultânea, basta renomear o executavel do servidor Sispetro para um outro nome e executá-lo novamente 
+alterando somente a porta de escuta do segundo servidor pois cada servidor deve escutar uma porta diferente.
+
+
+Cada executável terá as suas próprias configurações. 

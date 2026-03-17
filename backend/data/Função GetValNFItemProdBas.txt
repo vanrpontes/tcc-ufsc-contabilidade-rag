@@ -1,0 +1,35 @@
+TITULO: Função GetValNFItemProdBas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/6016663619
+--------------------------------------------------
+Função GetValNFItemProdBas e GetCCEstoqueByProd
+Descrição:
+GetValNFItemProdBas retorna o valor do produto básico, na proporção cadastrada, quando na nota fiscal tem um produto composto. Se na nota tem o próprio produto básico, então retorna o valor integral.
+GetCCEstoqueByProd retorna a conta contábil de estoque do produto básico informado.
+É possível utilizar as funções tanto na Contabilidade Gerencial como na Contabilidade Real.
+Nas funções não é possível utilizar códigos de produtos compostos. Deve informar somente códigos de produtos básicos.
+Exemplo:
+Gasolina C não deve informar 01. Informe 05 (Gasolina A) e 04 (Etanol Anidro)
+ 
+Exemplo GetValNFItemProdBas:
+GetValItemProdBas(<729>,<730>,<731>,'07')
+ 
+Parâmetros:
+<729>
+ = Código da Empresa
+<730>
+ = Sequencial da Nota Fiscal
+<731>
+ = Número do Item
+'07'
+ = Produto básico que faz parte da composição do Produto Composto
+Onde:
+<729>
+ = Código da Empresa na Tabela ItenNF
+<730>
+ = Sequencial da Nota Fiscal na Tabela ItenNF
+<731>
+ = Número do Item na Tabela ItenNF
+ 
+Exemplo GetCCEstoqueByProd:
+GetCCEstoqueByProd('07')
+O campo '07' é o código do produto básico que faz parte da composição do produto composto, esse Get vai buscar a conta que está no cadastro do produto CCEstoque

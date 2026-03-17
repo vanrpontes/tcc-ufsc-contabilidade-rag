@@ -1,0 +1,421 @@
+TITULO: Movimentações de Estoque via OC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2883944465
+--------------------------------------------------
+Processo: Entrada de Produto da Usina para a Base
+Fase
+Processo
+Movimenta Estoque
+Operação
+Depósito
+Quantidade
+Estoque
+Empresa
+1.
+Inclusão de PMM
+Não
+Usina
+PMM
+Conectada
+2.
+Inclusão de Adto Qtdo c/ Vinc. PMM
+Sim
+E
+Usina
+Adto
+Escritural
+Conectada
+3.
+Inclusão de OC Transf. Depósitos
+Não
+Usina
+Trânsito
+Base
+OC
+Conectada
+4.
+Confirmação de OC
+Sim
+S 
+E
+Usina
+Trânsito
+OC
+Escritural
+Conectada
+5.
+Pega Fila Portaria
+Não
+6.
+Recebimento da NF
+Sim
+S
+E
+E
+Trânsito 
+Base
+Usina
+OC 
+NF
+OC - NF
+Escritural
+Conectada
+7.
+Portaria de Entrada
+Não
+8.
+Portaria de Saída
+Sim
+E
+Base
+Real
+Físico
+OC
+Processo: Venda de Produto da Base
+Fase
+Processo
+Movimenta Estoque
+Operação
+Depósito
+Quantidade
+Estoque
+Empresa
+1.
+Inclusão de Pedido Venda
+Não
+Base
+PV
+Conectada
+2.
+Aprovação de Pedido de Venda
+Não
+Conectada
+3.
+Inclusão de OC Venda
+Não
+Base
+OC
+Conectada
+4.
+Pega Fila Portaria
+Não
+Conectada
+5.
+Fatura NF
+Sim
+S
+Base
+NF
+Escritural
+Conectada
+6.
+Portaria de Entrada
+Não
+Conectada
+7.
+Portaria de Saída
+Sim
+S
+Base
+Real
+Físico
+Conectada
+Processo: Venda de Produto direto da Usina
+Para este processo é importante ter cadastrado dois depósitos para a Usina em questão, sendo que um deles deverá ter o perfil 
+Permite Venda?
+ marcado. Este depósito não pode estar marcado como 
+Base Própria
+.
+Fase
+Processo
+Movimenta Estoque
+Operação
+Depósito
+Quantidade
+Estoque
+Empresa
+1.
+Inclusão de PMM
+Não
+Usina
+PMM
+Conectada
+2.
+Inclusão de Adto Qtdo c/ Vinc. PMM
+Sim
+E
+Usina
+Adto
+Escritural
+Conectada
+3.
+Inclusão de OC Transf. Depósitos
+Não
+Usina
+OC
+Conectada
+4.
+Confirmação de OC
+Sim
+S 
+E
+Usina 
+Trânsito
+OC
+Escritural
+Conectada
+5.
+Inclusão de Pedido Venda
+Não
+Usina VDA
+PV
+Conectada
+6.
+Aprovação de Pedido de Venda
+Não
+Conectada
+7.
+Inclusão de OC Venda
+Não
+Usina VDA
+Conectada
+8.
+Fatura NF Venda (item 7)
+Sim
+S
+Usina VDA
+NF
+Escritural
+Conectada
+15.
+Recebimento da NF
+Sim
+S
+E
+E
+Trânsito 
+Usina VDA
+Usina
+OC 
+NF
+OC - NF
+Escritural
+Conectada
+Processo: Transferência de Produtos entre Empresas (Filiais - Carregamento e Descarga Próprias)
+Fase
+Processo
+Movimenta Estoque
+Operação
+Depósito
+Quantidade
+Estoque
+Empresa
+1.
+Inclusão de Carregamento Próprio
+Não
+S
+Origem
+OC
+Conectada
+2.
+Inclusão de Descarga Própria
+Não
+E
+Destino
+OC
+Filial
+3.
+Pega Fila Portaria (item 1)
+Não
+4.
+NF OS Transferência
+Sim
+S
+Origem
+NF
+Escritural
+Conectada
+5.
+Portaria de Entrada (item 1)
+Não
+6.
+Portaria de Saída (item 1)
+Sim
+S
+Origem
+Real
+Físico
+Conectada
+7.
+NF OE Transferência
+Sim
+E
+Destino
+NF
+Escritural
+Filial
+8.
+Pega Fila Portaria (item 2)
+Não
+9.
+Portaria de Entrada (item 2)
+Não
+10.
+Portaria de Saída (item 2)
+Sim
+E
+Destino
+Real
+Físico
+Filial
+Processo: Carregamento Próprio
+Fase
+Processo
+Movimenta Estoque
+Operação
+Depósito
+Quantidade
+Estoque
+Empresa
+1.
+Inclusão de OC Carregamento Próprio
+Não
+S
+Origem
+OC
+Conectada
+2.
+Pega Fila Portaria (item 1)
+Não
+3.
+NF OS Transferência
+Sim
+S
+Origem
+NF
+Escritural
+Conectada
+4.
+Portaria de Entrada (item 1)
+Não
+5.
+Portaria de Saída (item 1)
+Sim
+S
+Origem
+Real
+Físico
+Conectada
+Processo: Descarga Própria
+Fase
+Processo
+Movimenta Estoque
+Operação
+Depósito
+Quantidade
+Estoque
+Empresa
+2.
+Inclusão de Descarga Própria
+Não
+E
+Destino
+OC
+Filial
+3.
+NF OE Transferência
+Sim
+E
+Destino
+NF
+Escritural
+Filial
+4.
+Pega Fila Portaria (item 2)
+Não
+5.
+Portaria de Entrada (item 2)
+Não
+6.
+Portaria de Saída (item 2)
+Sim
+E
+Destino
+Real
+Físico
+Filial
+Processo: Remessa de Armazenagem para Congênere
+Fase
+Processo
+Movimenta Estoque
+Operação
+Depósito
+Quantidade
+Estoque
+Empresa
+1.
+Inclusão OC de Descarga de Terceiros
+Não
+E
+Base
+OC
+Conectada
+2.
+Pega Fila Portaria
+Não
+3.
+Portaria de Entrada
+Não
+4.
+Portaria de Saída
+Sim
+E
+Base
+Real
+Escritural
+Físico
+Conectada
+5.
+Entrada da NF Remessa da Congênere
+Não
+E
+Base
+Real
+Conectada
+Processo: Retorno de Armazenagem da Congênere
+Fase
+Processo
+Movimenta Estoque
+Operação
+Depósito
+Quantidade
+Estoque
+Empresa
+1.
+Inclusão OC de Carregamento de Terceiros
+Sim
+S
+Origem
+OC
+Escritural
+Conectada
+2.
+Pega Fila Portaria
+Não
+3.
+Portaria de Entrada
+Não
+4.
+Portaria de Saída
+Sim
+S
+Origem
+Real
+Físico
+Conectada
+5.
+NF Retorno - NFe
+Não
+S
+Origem
+Real
+Conectada

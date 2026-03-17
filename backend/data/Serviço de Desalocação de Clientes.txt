@@ -1,0 +1,168 @@
+TITULO: Serviço de Desalocação de Clientes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5233246209
+--------------------------------------------------
+A funcionalidade de 
+Desalocação de Cliente
+ no SisPetro tem como objetivo automatizar a gestão de clientes inativos, promovendo duas ações principais:
+Aviso ao vendedor: 
+quando um cliente permanece sem realizar compras por um período definido (X dias antes da data de corte), o SisPetro envia um aviso ao vendedor responsável, alertando sobre a possível desalocação.
+Desalocação automática: 
+caso o cliente atinja o limite de inatividade configurado (Data de Corte), o SisPetro desaloca o cliente do vendedor, alterando seu status para 
+Livre
+ ou 
+Potencial
+.
+Essas ações podem ser realizadas automaticamente pelo serviço 
+Hermes
+ ou de forma manual, conforme as configurações definidas no SisPetro.
+Para ocorrer a alteração pelo serviço ou manual, no cadastro do Cliente / Aba Cadastro Detalhado a opção 
+Não alterar status por procedimento automático
+, precisa estar desmarcada.
+none
+1. Configuração de Sistema
+Objetivo:
+ definir as regras e critérios para que o SisPetro realize a desalocação automática de clientes inativos e envie avisos aos vendedores.
+Local:
+ acesse 
+Configuração de Sistema
+ e vá até a aba 
+Vendas
+.
+Passos:
+Encontre o grupo 
+Desalocação de Cliente (Status Ativo)
+.
+Configure os seguintes campos:
+No. Dias para Data de Corte:
+ defina o número de dias que um cliente pode permanecer inativo antes de ser considerado para desalocação. O valor padrão é 
+90 dias
+.
+Faz desalocação de cliente via Serviço?
+: marque essa opção para ativar o processo automático de desalocação pelo serviço Hermes. Por padrão, ela vem 
+desmarcada
+.
+No. Dias antes Data de Corte p/ aviso: 
+informe quantos dias antes da data de corte os vendedores serão avisados. O valor padrão é 
+30 dias
+. Se for 
+0
+, nenhum aviso será enviado.
+Novo Status:
+ escolha o status que o cliente receberá após a desalocação:
+Livre
+ (padrão): o cliente fica sem vínculo com um vendedor.
+Potencial
+: o cliente ainda é visto como uma oportunidade futura.
+2. Configuração de Vendedores
+Objetivo:
+ Garantir que os vendedores recebam avisos por e-mail sobre a desalocação dos seus clientes.
+Local:
+ acesse 
+Vendedores
+ e vá até a aba 
+Detalhes
+.
+Passos:
+No campo 
+E-mail
+, insira um ou mais endereços de e-mail dos vendedores. Esse e-mail será usado para o envio dos avisos automáticos.
+Marque o checkbox 
+Recebe e-mail Serviço Desalocação de Cliente?
+ para que o vendedor seja notificado quando um cliente dele estiver próximo da data de corte. Por padrão, essa opção vem 
+desmarcada
+.
+Exemplo de e-mail: 
+3. Desalocação de Clientes Manual
+Objetivo:
+ Realizar a desalocação de clientes de forma manual, caso necessário.
+Local:
+ Acesse o menu 
+Ferramentas > Cadastro de Clientes > Desalocar entidade do Vendedor
+Passos:
+No campo 
+Data Última Venda
+, o SisPetro sugerirá automaticamente a data de corte com base no número de dias configurados para desalocação (data atual menos o número de dias).
+No campo 
+Muda Vendedor
+, selecione uma das opções:
+Não muda
+: mantém o vendedor atual.
+Muda para o vendedor abaixo
+: permite selecionar um novo vendedor.
+Deixa sem vendedor
+ (padrão): remove o vínculo do cliente com qualquer vendedor.
+Clique em 
+Traz Dados
+ para exibir a lista de clientes afetados. Os clientes que atendem ao critério de desalocação, mas estão marcados como 
+Não muda Status
+ no cadastro, serão destacados em 
+negrito
+.
+Por fim, clique em 
+Desaloca
+ para confirmar a operação.
+4. Configuração do Serviço Hermes
+Objetivo:
+ automatizar o processo de desalocação de clientes inativos.
+Local:
+ configuração do serviço 
+Hermes
+.
+Passos:
+Defina o 
+Intervalo entre execuções
+ como 
+02:00:00
+. O SisPetro não permitirá intervalos menores que 2 horas.
+Configure o 
+Horário de Execução
+ para o período entre 
+22:00 e 23:59
+ para evitar impacto durante o horário comercial.
+Intervalo Entre as Execuções
+: informar o intervalo de tempo que o serviço será executado. O tempo mínimo que pode ser definido é de 2 horas.
+Horário de Execução
+: definição do período que o serviço será executado, respeitando o tempo de intervalo entre as execuções.
+Executar Automaticamente Quando Servidor for Iniciado
+: parâmetro que define se o serviço deve ser iniciado sempre que o 
+Servidor Hermes
+ for iniciado. 
+Usuário
+: deve-se indicar um usuário para gravar nas tabelas de log. Esta informação não afetará em nada o funcionamento ou quaisquer outras funções deste usuário.
+Para habilitar o 
+Desalocação de Clientes
+ deve-se acessar o 
+Controlador Hermes
+, na aba
+ Informações Serviços,
+ selecionar 
+Desalocação de Clientes 
+e clicar em  
+Clique em 
+ para salvar as configurações e sair da tela.
+Clique em 
+ para não salvar as configurações e sair da tela.
+Após configurado o serviço, na tela principal do 
+Controlador Hermes
+, clique em 
+ 
+para verificar se todas as configurações estão corretas.
+Clique em 
+ para ativar o serviço. Caso a opção 
+Executar Automaticamente Quando Servidor for Iniciado 
+estiver 
+desmarcada
+, ao reiniciar o 
+Servidor Hermes
+, o serviço ficará desativado.
+Clique em
+ 
+ para desativar o serviço. Caso a opção 
+Executar Automaticamente Quando Servidor for Iniciado 
+estiver 
+marcada
+, ao reiniciar o 
+Servidor Hermes
+, o serviço ficará ativado.
+Clique em 
+ para forçar a execução do serviço, independente do intervalo e do horário de execução.

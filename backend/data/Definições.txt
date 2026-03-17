@@ -1,0 +1,97 @@
+TITULO: Definições
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701743
+--------------------------------------------------
+O controle de estoque é todo organizado através de 
+depósitos
+.
+
+
+Os depósitos são os locais onde estão armazenados os produtos. Cada depósito guarda o saldo à temperatura ambiente e à 20 graus de cada produto armazenado.
+
+
+Assim, qualquer movimentação de mercadoria deve informar o depósito origem ou destino dela. O Sistema controla o saldo de cada produto em cada depósito de cada empresa.
+
+
+Para tornar mais eficiente e informativa, a quantidade de estoque foi dividida em quatro tipos diferentes:
+
+
+
+
+Disponível
+ (ou Indisponível conforme o tipo de depósito, ver tópico 
+Depósitos
+): É a quantidade disponível para venda ou movimentação do produto no depósito.
+
+
+Pendente
+: É a quantidade que está alocada para os pedidos de venda já digitados (mas ainda não faturados). Assim, quando um vendedor digita um pedido de venda, o Sistema subtrai da quantidade disponível, a quantidade do pedido, somando-a na quantidade Pendente do depósito. Portanto, para saber rapidamente a quantidade de produto que ainda não foi faturada em determinado depósito (que está alocada para os pedidos mas ainda não saiu da base, por exemplo), basta verificar na tabela de produtos a coluna Saldo Pendente ou, nas consultas gerenciais, qualquer consulta de pedidos pendentes.
+
+
+Em Carregamento
+: Quantidade de produtos que já foi emitida Ordem de Carregamento mas ainda não foi faturada. No momento que o faturista emite uma Ordem de Carregamento de Venda, o Sistema subtrai da quantidade pendente do pedido a quantidade da Ordem de Carregamento e soma esta quantidade à quantidade Em Carregamento existente. Isso serve mais como um controle para o Sistema não emitir Nota Fiscal de Venda sem Ordem de Carregamento anterior, do que algum tipo de informação realmente relevante ao usuário, visto que o faturista normalmente emite as Notas Fiscais após (logo em seguida) à emissão da respectiva Ordem de Carregamento, portanto, esta quantidade normalmente tende a zero. Entretanto, caso esta quantidade esteja com algum valor positivo, significa que existe Ordem de Carregamento de venda sem faturamento.
+
+
+
+
+A soma das três quantidades citadas acima dá a quantidade em estoque da Empresa no depósito, isto é, a quantidade em poder da empresa.
+
+
+Temos ainda um quarto tipo de quantidade que é a 
+Comprada
+. Esta quantidade é a soma das quantidades de produtos para os quais foram emitidas Ordem de Compra mas ainda não foi recebida pela empresa. Esta quantidade não é somada à quantidade total da empresa visto que não está ainda nas dependências da própria empresa.
+
+
+Exemplo
+
+
+Por exemplo, após criarmos um estoque XX, digitamos uma Nota Fiscal de entrada de produto na quantidade 100. Assim, a quantidade 100 é a quantidade disponível do produto, 0 é a quantidade pendente e 0 é a quantidade em carregamento.
+
+
+D = 100
+
+P = 0
+
+C = 0
+
+Total = 100
+
+(onde D = Disponivel, P = Pendente, C=Em Carregamento)
+
+
+Posteriormente, foi emitido um Pedido de Venda de quantidade 10. Assim, a quantidade disponível do produto cai para 90 e a quantidade pendente é acrescida de 10.
+
+
+D = 90
+
+P = 10
+
+C = 0
+
+Total = 100
+
+
+Então, após o pedido aprovado, foi emitida a Ordem de Carregamento do produto (total com 10 unidades). Assim, a quantidade pendente é subtraida de 10 unidades e a quantidade em carregamento é acrescida de 10 unidades.
+
+
+D = 90
+
+P = 0
+
+C = 10
+
+Total = 100
+
+
+Note que a quantidade total da empresa permanece em 100 unidades pois a mercadoria ainda não saiu da posse da empresa (o caminhão ainda não carregou).
+
+
+Por fim, após a emissão da(s) Nota Fiscal(is), o Sistema subtrai da quantidade "Em Carregamento" a quantidade faturada (10). No final, temos disponível 90 unidades, 0 pendentes (pois não existe nenhum pedido pendente), 0 em Carregamento (pois também não temos mais nenhuma Ordem de Carregamento sem faturar) totalizando 90 unidades totais em poder da empresa.
+
+
+D = 90
+
+P = 0
+
+C = 0
+
+Total = 90 

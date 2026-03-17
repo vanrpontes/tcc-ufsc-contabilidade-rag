@@ -1,0 +1,101 @@
+TITULO: Número de Nota Fiscal Estendido para Nota Fiscal de Serviço
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/3961651233
+--------------------------------------------------
+Funcionalidade criada para atender as escriturações e as obrigações fiscais de notas fiscais de serviços que possuem numeração maior que 09 dígitos, uma vez que várias obrigações fiscais (registro C100 do SPED Fiscal por exemplo) aceitam apenas 09 dígitos no campo direcionado ao número da nota fiscal.
+Cada prefeitura pode ter um padrão de numeração diferente, como exemplo, numeração iniciada pelo ano.
+Ex.: 201800000000645
+Com essa mudança é possível reduzir a numeração, por exemplo, extraindo os últimos 09 dígitos. Esse número ficará visível na coluna 
+Numero NF
+ na 
+Manutenção de Notas Fiscais
+Na obrigação fiscal EFD-Contribuições, no registro A100, o SisPetro enviará a numeração completa. 
+Para mais informações, ver
+ 
+EFD Contribuições - Bloco A
+Configurações
+Em Tabelas Auxiliares > Natureza de Operação > Aba Dados Gerais habilite o perfil
+ 
+Habilita digitação de Número NF Estendido (maior que 9 dígitos) quando o município da Entidade possuir Fórmula?
+.
+ 
+Para mais informações, ver 
+Em Tabelas Auxiliares > Faturamento > Cidades > Aba Detalhes informe a 
+Fórmula de #NF a partir do #NF Estendido 
+Para mais informações, ver 
+Manutenção de Cidades
+.
+Aplicação de Fórmula
+A fórmula utiliza o método 
+SUBSTR
+, este método retornará parte da numeração da Nota Fiscal seguindo os parâmetros passado para o método.
+Exemplo de Fórmula:
+Substr(%NUM%,1,4)
+Parâmetros da fórmula SUBSTR
+O método é definido por 3 parâmetros:
+A expressão 
+%NUM% 
+deve ser fixa. Isso significa o número digitado no campo N
+úmero Estendido
+ na inclusão de Nota Fiscal Manual
+O segundo número 
+(1)
+ define a posição inicial para começar a extrair o número.
+O terceiro 
+(4)
+ define quantas posições serão extraídas após o parâmetro da posição inicial.
+O campo em questão permite também a combinação de fórmulas através do operador
+ E
+ representado pela expressão de dois caracteres Pipe 
+||
+. 
+Exemplo: 
+Substr(%NUM%,1,4)||Substr(%NUM%,11,5)
+Exemplos de aplicação de fórmula:
+A prefeitura gerou um Número da NF: 
+201800000000645, 
+padrão que iniciada com o número do ano, com o tamanho de 15 dígitos.
+Para gravar o número da nota fiscal considerando apenas os 5 últimos dígitos da numeração
+Aplicar a 
+fórmula
+ 
+Substr(%NUM%,11,5)
+Gravar o número da nota fiscal desconsiderando os 4 dígitos iniciais que representa o ano
+Aplicar a fórmula 
+Substr(%NUM%,5,11)
+Gravar 
+o número da nota fiscal considerando os 4 dígitos iniciais que representa o ano e os 5 dígitos finais que representa o número da nota fiscal:
+Aplicar a Fórmula: 
+Substr(%NUM%,1,4)||Substr(%NUM%,11,5)
+ 
+Teste de Fórmula
+Acesse o Menu
+ 
+Tabelas Auxiliares \ Faturamento \ Cidades \ Aba Detalhes. 
+Para mais informações, ver
+ 
+Ao cadastrar uma fórmula na Cidade é possível verificar se ela está correta e se o resultado é o esperado. 
+Clicando no botão 
+ 
+na tela de Manutenção de Cidades, o SisPetro irá abrir a tela Fórmula de Número Estendido para Número NF.
+Cidade: 
+cidade selecionada em Manutenção de Cidade
+Fórmula: 
+fórmula que foi cadastrada na cidade selecionada em Manutenção de Cidade
+#NF Estendido: 
+campo para digitar o padrão numérico da cidade a ser testada.
+#NF: 
+resultado da fórmula aplicada para teste do padrão numérico informado.
+Para testar informe no campo 
+#NF Estendido
+ o padrão numérico a ser testado e, clique no botão 
+Testar. 
+O resultado será mostrado no campo 
+#NF
+ 
+Quando não preenchido o campo Fórmula e o perfil 
+Habilita digitação de Número NF Estendido (maior que 9 dígitos) quando o município da Entidade possuir Fórmula?
+ esteja marcado em 
+, na inclusão da Nota Fiscal de terceiros o campo 
+Número Estendido ficará desabilitado e a inclusão exigirá o preenchimento do 
+Número
+ NF.

@@ -1,0 +1,114 @@
+TITULO: Controle de Cota - Contrato de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898645
+--------------------------------------------------
+Para o Contrato de Venda é necessário indicar a cota de venda e o fluxo de caixa.
+O fluxo de caixa previsto é gerado normalmente pelas condições de pagamento estipulada, porém poderá ser alterado para que acompanhe o fluxo de entrega das cotas.
+É imprescindível que se informe como será o controle de cota diária, cuja soma deverá ser igual a quantidade informada no contrato.
+Ao finalizar um Contrato de Venda, será apresentada a tela a seguir:
+Através do botão 
+Inclui Cota Rápida
+ é possível estipular como o SisPetro pode preencher a cota automaticamente. Para isso será necessário informar os dados  na seguinte tela:
+É possível que o SisPetro divida a quantidade total entre o período informado, ou então que se fixe a cota diária, onde o SisPetro, a partir da data inicial irá lançar a cota diária até atingir a quantidade total.
+Clique em OK após definir a opção mais adequada.
+O SisPetro apresentará a distribuição que ele fez automaticamente, porém esta distribuição poderá ser alterada à vontade, desde que a quantidade da soma das cotas seja sempre igual à quantidade total informada no contrato.
+Pelo botão 
+Cria fluxo p/ cota
+ é possível ajustar o fluxo de caixa previsto que foi gerado inicialmente pelas condições de pagamento para que seja de acordo com as cotas diárias. Sendo assim, será gerado para cada dia de retirada informado um fluxo equivalente à quantidade vezes o valor unitário do produto. Este processo será útil quando foi informada uma determinada condição de pagamento, mas o pagamento será feito de acordo com a retirada do produto (não condizendo com a condição informada).
+Pelo botão 
+Atualiza Valores
+ é possível atualizar os valores de cota retirada a partir de Notas Fiscais, Bombeios, e OC de transferência.
+Controle de cota no contrato de Venda
+A partir da versão 8.42 é possível realizar a validação das cotas diárias informadas no contrato de venda.
+Para realizar o controle das cotas no contrato de venda primeiramente é necessário marcar o perfil de sistema 
+Bloqueia Cota do Contrato de Venda. 
+Para mais informações, ver 
+.
+Com o Bloqueio de Cota ativo o SisPetro validará as cotas diárias impedindo a venda de um pedido com uma quantidade superior ao disponível na cota diária.
+Exemplo de como o SisPetro ira proceder:
+Feito o primeiro Pedido de venda dia 01/07 de 2.500 l. A consulta de cota apresentaria:
+Dia
+Qtde Prevista
+Qtde Prevista Acum.
+Qtde Pendente
+Qtde Separada (OC)
+Qtde Faturada (NF)
+Utilizado Dia
+Saldo do Dia
+Saldo Acumulado
+01/07
+10.000
+10.000
+2.500
+2.500
+7.500
+7.500
+02/07
+10.000
+20.000
+10.000
+17.500
+03/07
+10.000
+30.000
+10.000
+27.500
+04/07
+10.000
+40.000
+10.000
+37.500
+05/07
+10.000
+50.000
+10.000
+47.500
+ 
+No dia 02/07 será feito um novo pedido. Para esse pedido poderá ser feito um contrato até 17.500, pois é o saldo acumulado até o dia 02/07. Porém, digamos que foi feito 15.000 l. Veja como ficaria a consulta de cota:
+Dia
+Qtde Prevista
+Qtde Prevista Acum.
+Qtde Pendente
+Qtde Separada (OC)
+Qtde Faturada (NF)
+Utilizado Dia
+Saldo do Dia
+Saldo Acumulado
+01/07
+10.000
+10.000
+2.500 
+2.500
+7.500
+7.500
+02/07
+10.000
+20.000
+15.000
+15.000
+-5000
+2.500
+03/07
+10.000
+30.000
+10.000
+12.500
+04/07
+10.000
+40.000
+10.000
+22.500
+05/07
+10.000
+50.000
+10.000
+32.500
+No dia 03/07 o novo pedido só poderá ser feito até 12.500. E assim, sucessivamente.
+Alteração de Cotas
+É possível alterar o valor e a data das cotas, para que seja possível realizar essa alteração é necessário habilitar o perfil de usuário
+ 
+Altera Cota dia e Fluxo Financeiro no Contrato de Venda.
+ Para mais informações, ver 
+Painel Vendas (Usuários)
+.
+Com o perfil de usuário devidamente habilitado na tela de Manutenção Contrato de Venda na aba de Cota Dia será habilitado o botão 
+, permitindo assim realizar as alterações das cotas. 

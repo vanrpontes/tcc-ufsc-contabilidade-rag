@@ -1,0 +1,144 @@
+TITULO: Grupo Econômico: formato antigo e formato novo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926203401
+--------------------------------------------------
+Até a versão 7.5 no SisPetro era possível configurar uso de Grupo Econômico de uma única forma. Em alguns casos, essas configurações não atendiam algumas empresas.
+Na versão 7.6 foram feitas novas configurações de Grupo Econômico que atendessem essas empresas.
+Resumo: 
+Novidades no Grupo Econômico
+Neste tópico, trataremos como funcionam Grupos Econômicos usando os perfis antigos e os perfis novos.
+Os perfis antigos e novos são excludentes: ou utiliza Grupo Econômico no formato antigo ou formato novo. Assim, devem configurar o SisPetro conforme deseja utilizar Grupo Econômico: formato antigo ou formato novo. 
+Configurações para o formato antigo
+Perfil de Sistema
+Marcar
+ a opção:
+Cliente Faturado pode ser diferente do pedido ?
+Desmarcar
+ as opções:
+Verifica Limites e Valores do G. Econômico para Aprovação
+Utiliza Adiantamento Comprador da Entidade
+Perfil de Usuário
+Desmarcar
+ as opções:
+Visualiza Informações do Grupo Econômico 
+Cadastro de Clientes
+Definindo os clientes que pertencem a Grupo Econômico: 
+Comprador e Entidade Faturada
+Comprador: deve existir 1 único comprador por Grupo Econômico
+Entidade Faturada: tantos quantos pertençam ao Grupo Econômico
+Indicando o Comprador do Grupo Econômico: 
+marcar as duas opções e indicar o mesmo Comprador do Grupo Econômico em ambas
+Indicando as entidades faturadas pertencente ao mesmo Grupo Econômico:
+Pedidos de Venda
+Incluindo um pedido de venda - na primeira tela deve ser sempre para o cliente Comprador da Entidade Faturada
+Informe o código do cliente Comprador - pedido 1:
+Na tela de itens, informe o código do cliente Entidade Faturada, que no exemplo é o próprio Comprador - pedido 1:
+Informe o código do cliente Comprador - pedido 2:
+Na tela de itens, informe o código do cliente Entidade Faturada, que é diferente do Comprador - pedido 2:
+Feito o faturamento, serão gerados os títulos a receber no Financeiro em nome das Entidades Faturadas pertencentes a Grupo Econômico
+Financeiro
+Adiantamento em nome do Comprador do Grupo Econômico OU em nome das Entidades Faturadas pertencentes ao Grupo Econômico
+Em nome do Comprador - para utilizar nos títulos a receber das Entidades Faturadas, o adiantamento deve ser transferido para essas entidades faturadas
+Em nome da Entidade Faturada - não é necessária qualquer ação no adiantamento para utilização na baixa do título a receber - NÃO RECOMENDADO por não gerar corretamente informações de Grupo Econômico
+Incluindo adiantamento em nome do Comprador e baixando títulos do próprio Comprador ou incluir em nome da Entidade Faturada e baixar os títulos da própria Entidade Faturada:
+Baixando o título a receber gerado para o Comprador do Grupo Econômico usando o próprio adiantamento
+Informe os dados para a baixa: observar que para baixa com uso de adiantamentos no campo CC Destino/Origem pode ser colocado qualquer conta.
+Selecione o adiantamento - observar que aparecem somente os adiantamentos em nome do cliente do título
+ 
+Estando todos os dados informados corretos, confirmar a baixa:
+Incluindo adiantamento em nome do Comprador e baixando títulos da Entidade Faturada:
+Baixando título da entidade faturada usando adiantamento do Comprador:
+Passo 1: 
+transferir o adiantamento do Comprador para a Entidade Faturada
+Selecione o adiantamento do Comprador e clique no botão TRANFERE:
+Informa o código da Entidade Faturada (mesma do título a receber a ser baixado):
+Informe a data e o valor do Adiantamento a ser transferido:
+É gerado um novo adiantamento para a Entidade Faturada:
+Passo 2: feita a transferência do adiantamento do Comprador para a Entidade Faturada, fazer a baixa do título normalmente
+Selecione o título a baixar da Entidade Faturada
+Informe os dados
+Selecione o adiantamento gerado pela transferência - observe que aparece somente o adiantamento da entidade faturada
+Estando todos os dados informados corretos, confirmar a baixa:
+Análise do Grupo Econômico
+Os dados para análise de Grupo Econômico estão separados em abas no cadastro de Clientes e considera somente o limite cadastral do Comprador.
+Configurações para o formato novo
+A partir da versão 10.30, a aprovação de pedidos em lotes passa a ser mais flexível com a implementação do perfil de sistema "
+Agrupamento permitido na Aprovação em Lote de Pedidos
+", antes a aprovação em lote somente era permitidos para os pedidos de mesmo cliente comprador, agora é possível a aprovação em lote através de pedidos de clientes comprador do mesmo grupo econômico, ou de forma livre onde sem analise do cliente comprador ou grupo econômico. Veja abaixo a configuração do perfil implementado. 
+Para mais informações, ver 
+, 
+Aprovação de Pedido de Venda em Lote
+ 
+Perfil de Sistema
+Selecionar
+ uma das opções do perfil 
+Agrupamento permitido na Aprovação em Lote de Pedidos
+:
+Mesmo Cliente Comprador no Pedido: 
+permite a seleção de pedidos de um único cliente.
+Mesmo Grupo Econômico do Cadastro: 
+permite a seleção de pedidos de clientes que fazem parte do mesmo grupo econômico.
+Livre: 
+não é feito analise da seleção dos pedidos referente ao seu grupo ou pedidos para um determinado cliente em especifico. 
+Desmarcar
+ a opção:
+Cliente Faturado pode ser diferente do pedido ?
+Marcar
+ as opções:
+Verifica Limites e Valores do G. Econômico para Aprovação
+Utiliza Adiantamento Comprador da Entidade
+Perfil de Usuário
+Para os usuários que têm permissão para analisar dados de Crédito e Financeiro dos clientes para o novo formato, 
+marcar
+ a opção 
+Visualiza Informações do Grupo Econômico
+Cadastro de Clientes
+Definindo os clientes que pertencem a Grupo Econômico: 
+Comprador e Entidade Faturada
+Comprador: deve existir 1 único comprador por Grupo Econômico
+Entidade Faturada: tantos quantos pertençam a Grupo Econômico
+Definindo o comprador do Grupo Econômico - basta informar o próprio código do cliente Comprador na opção indicada:
+Definindo cliente pertencente a Grupo Econômico que não é Comprador:
+Grupo Econômico criado:
+Para análise das informações do Grupo Econômico ver help: 
+Informações do Grupo Econômico
+Pedidos de Venda
+Incluindo um pedido de venda - deve ser sempre para o cliente a faturar (Entidade Faturada pertencente a Grupo Econômico)
+Informe o código do cliente a ser faturado:
+Observe que, na tela de itens do pedido, no formato novo, não aparece o campo para informar o código do cliente a faturar
+Feito o faturamento, será gerado o título a receber no Financeiro em nome da Entidade Faturada pertencente a Grupo Econômico
+Financeiro
+Incluindo adiantamento em nome do Comprador do Grupo Econômico
+Adiantamento incluído em nome do Comprador do Grupo Econômico
+Baixando o título a receber gerado para a Entidade Faturada pertencente a Grupo Econômico usando o adiantamento em nome do Comprador do Grupo Econômico
+Selecione o título e clique no botão BAIXA - na tela de baixa informe os dados e selecione o adiantamento que será usado para baixar o título:
+Selecionado o adiantamento e informado o valor, automaticamente será colocado no campo Valor Créd. Utilizado:
+Estando todos os dados informados corretos, confirmar a baixa
+Resumo das diferenças nas operações
+Operação
+Formato Antigo
+Formato Novo
+Clientes
+Configurar as 2 opções
+Configurar 1 opção
+Pedidos
+Incluir sempre pelo Comprador - 1ª tela de inclusão do pedido
+Uso somente de Entidade Faturada
+Financeiro: limites de crédito
+Análise pelo Comprador: o limite de crédito deve ser colocado somente no Comprador
+Análise pela somatória dos limites dos clientes, independente ser Comprador ou Entidade Faturada
+Financeiro: adiantamentos
+Inclusão pelo Comprador: obrigatória transferência para Entidade Faturada
+Inclusão pelo Comprador: sem necessidade de transferência
+Financeiro: baixa de títulos com uso de adiantamento
+Se adiantamento em nome do Comprador, obrigatório transferir para baixar título de Entidade Faturada ou adiantamento deve ser incluído em nome da Entidade Faturada (não recomendado utilizar)
+Adiantamento pode ser incluído sempre em nome do Comprador. É possível baixar título de Entidade Faturada sem necessidade de transferir o adiantamento
+Análise das informações de Grupo Econômico
+Análise das informações somente através do Cadastro de Clientes - Comprador
+Informações espalhadas entre as diversas abas
+Sem restrições de acesso às informações (depende da combinação de vários perfis de usuários para restrição).
+Análise das informações através de:
+Cadastro de Clientes
+Tela de Inclusão de Pedido de Venda
+Tela de Pedidos Pendentes para Aprovação
+Informações concentradas em uma única tela, de forma sintética e analítica
+Acesso às informações de Grupo Econômico restritas (depende de um único perfil de usuário)

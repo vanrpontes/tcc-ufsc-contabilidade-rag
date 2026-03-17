@@ -1,0 +1,121 @@
+TITULO: Versão 8.27
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924285407
+--------------------------------------------------
+Dados
+Informações
+Início
+01/08/2015
+Final
+02/09/2015
+Scripts
+CMD827.sql (3803 a 3868)
+Itens
+ 20
+Implementações
+ 13
+Correções
+7 
+DLLs
+SisPetroControl.Dll
+SispetroBancos.dll
+Avisos importantes
+O Controle de Diferenças de Descargas foi reformulado e foi retirada a possibilidade de Incluir Adiantamento de Fornecedores a partir dele. Veja maiores detalhes do tópico correspondente no documento da versão.
+Geral
+Verificação de Conexão da NF-e/CT-e no Servidor Sispetro
+Corrigido para que seja feito o processo de Consulta de Status de Serviço devidamente através do botão "Verifica Conexão" no Servidor SisPetro. A consulta estava sendo feita na versão 2.0 e apresentava erro nas UF que só tinham a consulta na versão 3.0, como é o caso da Bahia. 
+GSN (CCF 28994)
+Estoque
+Compartimentos e Lacres
+Corrigido o problema que não vinculava corretamente os lacres e compartimentos, quando na Ordem de Carregamento havia produtos simples e compostos. 
+FLS (CCF 28915)
+Controle de Diferença de Descargas
+O Controle de Diferença de Descargas foi reformulado para que calcule somente a Diferença de Estoque nas Descargas, independente se descarregou a mais ou a menos que o programado. No Cadastro de Depósitos e nas Unidades de Medidas Adicionais dos produtos (no caso de Recebimento em Outras Unidades de Medida - como m3 ou KG) podem ser feitas configurações para uma melhor apuração. 
+Retirada a possibilidade de Incluir Adiantamento de Fornecedores a partir do Controle de Diferença de Descargas.
+ 
+Esse novo formato será integrado com a Apuração de Frete Líquido.
+ 
+Help: 
+Controle de Diferenças em Descargas
+ (CCF 28771)
+Faturamento
+Leitura de e-mail
+Implementado na leitura de e-mails do Servidor SisPetro suporte a leitura de e-mails do tipo ESMTPS. Com essa alteração, e-mails recebidos de servidores que enviam e-mails com essa configuração serão lidos e seus anexos salvos normalmente. UPA (CCF 28322)
+Lacres no XML da NF-e
+A informação dos lacres no XML da NF-e foi ajustado para uma melhor distribuição
+. 
+Help:
+ 
+ e 
+Inclusão de Ordem de Carregamento
+ 
+FLS (CCF 28959)
+Nota Fiscal de Venda com mais de um item
+O processo de faturamento manual e automático de Pedido de Venda foi alterado para permitir a emissão de notas com mais de um item, desde que tenham a mesma Natureza de Operação, #Pedido e #OC (mediante perfil de empresa). 
+Esta alteração visa facilitar o processo de faturamento, bem como minimizar as despesas referentes ao processo.
+ 
+Help: 
+, 
+Como configurar uma Natureza de Operação de Venda para mais de um produto
+, 
+. 
+PRFC (CCF 23668)
+Preenchimento de Outros Endereços utilizados para Faturamento automático
+Os dados dos endereços preenchidos na Nota Fiscal utilizarão prioritariamente os endereço informados no pedido venda para faturamento. 
+FLS (CCF 28917)
+ 
+Validação da modalidade de Frete da Transportadora
+Acrescentada a validação da Modalidade de Frete na Inclusão da Ordem de Carregamento dos tipos "Transferência Entre Depósitos", "Carregamento Próprio" e "Descarga Própria" (mediante perfil de Sistema "Verificação Modalidade de Frete"), considerando sempre essas OC's como Entrega (já que geralmente o frete é de responsabilidade da Distribuidora). Esse mesmo perfil de Sistema validará também que a Nota Fiscal de Emissão Própria tenha o campo Retira/Entrega igual ao da OC vinculada (se essa existir). 
+Com isso, mesmo em casos onde, na prática, o tipo de transporte é Retira, mas de responsabilidade da Distribuidora, as operações serão consideradas como Entrega, evitando o uso de transportadoras indevidas.
+ GSN (CCF 23994)
+ 
+Data e hora na importação XML de NFe
+Ajuste no processo de importação do XML de NFe  versão 3.1 para os dados de Data e Hora caso a opção Data/Hora de movimento informado seja "Data de Movimento informada no arquivo". 
+FLS (CCF 29033)
+ 
+Financeiro
+Segmento R - Cobrança Banco Santander
+O Segmento R, com dados de desconto e multa, da Cobrança Eletrônica do Banco Santander (033), estava sendo sempre enviado, porém a regra é que ele seja enviado somente quando é feita a Entrada do Título (comando 01). Foi corrigido para que, no arquivo de Remessa, não seja enviado o Segmento R quando o comando não for Entrada de Titulo (por exemplo Baixa ou Alteração de Vencimento), independente do título ter multa.
+ Necessário atualizar na pasta do Sispetro Normal o arquivo SispetroBancos.dll
+. 
+GSN (CCF 28940). 
+Help: 
+Santander - Banespa
+ e 
+Bancos com Cobrança Eletrônica configurada no SisPetro
+Patrimônio
+Motivo da Baixa
+O processo de baixa do bem no Sispetro Controladoria foi alterado permitindo também que o usuário indique o motivo da baixa do mesmo. 
+Esse campo será útil para uma melhor informação no Registro G125 do SPED EFD ICMS/IPI.
+ PRFC (CCF 25283)
+Sispetro Web
+Perfil de Usuário para Inclusão de Pedido WEB
+Incluído nos perfis de usuário a opção de definir se um usuário pode incluir pedidos no SisPetro via WEB ou somente consultá-los. UPA (CCF 29083)
+Lógica para escolha de transportadoras nos pedidos do tipo Retira
+Foi criado um filtro para escolha das transportadoras e/ou motoristas vinculados ao cliente (caso assim esteja configurado no Sispetro) e somente estes são mostrados nos pedidos cuja modalidade de frete é do tipo Retira.
+Impressão do Pedido de Venda
+Melhorado o layout da impressão de forma a reduzir o consumo de páginas.
+Mensagem de erros
+As mensagens de erros relativos à campos preenchidos de forma errada exibem textos mais claros. 
+Transporte
+Placas na Manutenção de Frete
+A tela de manutenção de Frete foi alterada para exibir as Placas do Frota, Carreta e Treminhão devidamente, independente de ter Nota Fiscal ou de ser um frete Manual. PRFC (CCF 28777)
+Apuração de Frete Líquido
+Implementada a Apuração de Frete Líquido que permite valorizar as diferenças obtidas do Controle de Diferenças de Descargas, conforme configurações no Cadastro de Depósitos e Unidades de Medidas Adicionais dos Produtos (no caso de recebimento em outra unidade de medida, como m3 ou Kg). Com a valorização das diferenças o valor do frete a pagar é ajustado. Cada frete terá um status de Apuração e Vínculo com o Conhecimento Recebido (vinculado automaticamente na importação do CT-e), permitindo, através de perfil de empresa, que o frete só seja pago após ter sido apurado e vinculado com um conhecimento. 
+Esse recurso visa otimizar o processo de apuração de Fretes a Pagar, em especial os fretes oriundos de NF de Entrada, que dependem do volume efetivamente descarregado. 
+As cores do grid principal foram alteradas, ver botão Legenda. 
+Help: 
+ 
+(CCF 28771)
+Vendas
+ 
+Campo Permite Bloqueio no Cadastro de Clientes
+Ao incluir um novo cliente via SisPetro Normal ou Remoto, não estava indicando o valor correto para o campo "Permite Correio", após correção será indicado o valor padrão para o mesmo. 
+PRFC (CCF 28857)
+Vários contratos de venda em um só
+Adicionado o campo "Número do documento" no Contrato de Venda para que este possa ser utilizado para se referenciar a um outro Contrato de Venda com o mesmo número de documento. 
+FLS (CCF 28537) 
+Help: 
+Endereços preferenciais no Pedido Venda
+Habilitada a opção "Seleciona" endereços (somente endereços pré-cadastrados) em Pedido de Vendas quando não trabalhar com a opção "Cliente Faturado Pode Ser Diferente do Pedido?". Quando utilizar a opção "Cliente Faturado Pode Ser Diferente do Pedido?" haverá uma validação no endereço da entidade faturada para que os endereços preferencias não sejam diferentes no mesmo pedido. 
+FLS (CCF 28974) 
+ 

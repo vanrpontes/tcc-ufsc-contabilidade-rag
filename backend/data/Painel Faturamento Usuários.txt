@@ -1,0 +1,321 @@
+TITULO: Painel Faturamento (Usuários)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2915467314
+--------------------------------------------------
+O acesso a essa tela se dá através de Ferramentas / Usuário / painel Perfil / painel inferior Faturamento.
+    
+C
+onhecendo os perfis existentes:
+Perfil Acesso a tela de Manutenção de NFe
+Permite ao usuário acessar a tela de Manutenção de Nota Fiscal Eletrônica. Para mais informações, ver 
+Manutenção de Notas Fiscais Eletrônica
+.
+Pode Imprimir cobrança:
+ permite ao usuário imprimir cobrança.
+Exclui Cheque vinc NF?:
+ permite ao usuário imprimir cheque vinculado na NF. 
+Permite excluir cheque Vinc. de qq dia: 
+permite a exclusão de cheques vinculados de qualquer dia.
+Pode incluir/cancelar Carta de Correção:
+ permite ao usuário incluir Carta de Correção nas Manutenções de NFs e Carta de correção e para cancelar somente na Manutenção de NFs
+Pode visualizar/imprimir Carta de Correção:
+ permite ao usuário visualizar Carta de Correção na tela de Manutenção de NFs
+Pode dar manutenção em Observações da NF:
+ pode incluir/excluir Observações na NF (aba Observações Gerais).
+Pode alterar Outros Impostos da NF:
+ permite ao usuário alterar Outros Impostos na NF. 
+Pode mudar Transportadora/Frota na NF:
+ permite ao usuário alterar a Transportadora/Frota na NF.
+Pode mudar notas fiscais através da mudança transportadora na OC: 
+permite alterar também nas notas a transportadora quando mudar na OC. Para mais informações, ver 
+Pode alterar próximo número de Selo na reemissão da Nota: 
+permite alterar próximo número de selo na reemissão da NF.
+Acesso a tela de Manutenção de NFe:
+ permite ao usuário acessar a tela de Manutenção de NFe.
+Altera layout NF?:
+ permite ao usuário alterar o layout da NF.
+Pode alterar dados contábeis na Natureza de Operação: 
+permite alterar dados contábeis na Manutenção de Natureza de Operação. Caso esse perfil não for habilitado não será possível alterar os seguintes itens na natureza de operação:
+Aba Contabilização
+Será permitido consultar os dados, exceto o botão de Desdobramento de Contas que, por estar desabilitado, não permitirá apresentar como foi feita a contabilização auxiliar
+Aba Centro de Custos
+Aba Dados Gerais
+Campos Histórico Padrão e Participa do CMV
+Grupo Composição do Histórico
+Aba Por Filial/Custos
+Grupo Custo Médio p/ NF Entrada
+Pode cancelar vínculo de NF referenciadas?: 
+se marcado, habilita ao usuário na Manutenção de Notas Fiscais > Aba Fiscal cancelar o vínculo de uma nota referenciada. Para mais informações, ver 
+Abas da Manutenção de Notas Fiscais
+Quadro Inclusão de NF
+Incluir/exclui itens na NF c/ Pedido:
+ permite incluir e excluir itens em NFs que possuem pedido vinculado na inclusão de NF.
+Pode alterar fator de conversão de unidade:
+ permite alterar o fator de conversor de unidade na inclusão de NF.
+Pode incluir desconto/acréscimo:
+ permite incluir desconto/acréscimo na inclusão de NF.
+Altera dados Conferência NF?:
+ permite alterar dados de Conferência na inclusão de NF.
+Executa verificação vínculo de NF-e na inclusão de CT-e:
+ na inclusão de uma CT-e o SisPetro irá verificar os vínculos com a NF-e. Caso a importação do CT-e seja primeiro, desmarcar este perfil e configurar na Natureza Operação para realizar o vinculo. Para mais informações, ver 
+No final, mostra tela resumo dados NF:
+ apresenta um resumo com os dados da NF ao concluir a inclusão.
+Permite alterar transportadora NF:
+ permite alterar transportadora na inclusão de NF.
+Permite alterar descrição na nota fiscal (Exceto NF de venda): 
+p
+ermite ao usuário alterar a descrição das notas fiscais de entrada e saída no momento da digitação da mesma.
+Quadro Histórico na NF
+Pode alterar histórico NF (Exceto NF de Venda):
+ permite o usuário alterar o campo Histórico e Descrição do Histórico em Notas Fiscais que não sejam de venda. 
+Pode alterar histórico em NF de Venda Direta:
+ permite o usuário alterar o campo Histórico e Descrição do Histórico em Notas Fiscais de venda.
+Os perfis trabalham juntos com o perfil 
+Tipo de Histórico, 
+em 
+, só deixará alterar o campo Descrição do Histórico, caso seja do tipo 
+Código Histórico
+.
+Quadro Notas Próprias
+ 
+Altera hora de saída das mercadorias na emissão da NF
+: 
+permite ao usuário alterar o campo hora na digitação da nota fiscal com tipo de emissão Própria.
+Pode alterar data de emissão da NF:
+ permite que o usuário altere a data de emissão das notas Próprias.
+Pode alterar data de movimento da NF:
+ permite que o usuário altere a data de movimento das notas Próprias.
+Alteração de Situação do Frete
+Nunca: 
+não permite que o usuário altere a situação do frete das notas próprias.
+Sempre:
+ permite que o usuário altere a situação do frete das notas próprias.
+Somente se não tiver informação anterior: 
+permite que o usuário altere a situação do frete das notas Próprias, caso não tenha vinculo com OC.
+Quadro Notas Terceiros
+Altera hora de entrada das mercadorias na emissão da NF
+: 
+permite ao usuário alterar o campo hora na digitação da nota fiscal com tipo de emissão de terceiros.
+Pode escolher se informa NF original na devolução:
+ o usuário tem a liberdade de informar ou não o número da nota de origem nas devoluções
+Pode alterar data de emissão da NF:
+ permite que o usuário altere a data de emissão das notas de terceiros.
+Pode alterar data de movimento da NF:
+ permite que o usuário altere a data de movimento das notas de terceiros.
+Quadro Parcelas
+Permite ao usuário alterar as datas de vencimento (por exemplo, mercadoria chegou atrasada ou antes do prazo combinado, no caso de notas de recebimento de mercadorias). 
+Para notas fiscais cuja Natureza de Operação possui o perfil 
+Tipo Emissão
+ como 
+Terceiros
+, utilize o quadro de 
+Notas de Emissão para Terceiros
+.
+Já para notas fiscais cuja Natureza de Operação possui o perfil 
+Tipo Emissão
+ como 
+Própria
+, utilize o quadro de 
+Notas de Emissão Própria
+.
+Para mais informações, ver 
+Tabela Natureza de Operação
+.
+Quadro Mostra na tela da NF c/ Pedido
+Condições Pagamento: 
+permite visualizar o campo de condição de pagamento na emissão da nota fiscal vinculada ao pedido de venda.
+Vendedor: 
+permite visualizar o campo de vendedor na emissão da nota fiscal vinculada ao pedido de venda.
+Transportadora: 
+p
+ermite visualizar o campo de transportadora na emissão da nota fiscal vinculada ao pedido de venda.
+Tabela Preços: 
+permite visualizar o campo de tabela de preço na emissão da nota fiscal vinculada ao pedido de venda.
+Tipo de Cobrança:
+ permite visualizar o campo de tipo de cobrança na emissão da nota fiscal vinculada ao pedido de venda.
+Série Nota Fiscal:
+ permite visualizar o campo de série na emissão de nota fiscal vinculada ao pedido de venda.
+#Pedido Cliente:
+ permite visualizar o número do pedido do cliente na emissão da nota fiscal vinculada ao pedido de venda.
+Quadro Impressão de Nota Fiscal
+Pode imprimir NF?: 
+permite ao usuário imprimir a nota fiscal logo em seguida ao fim da digitação da mesma. O mesmo valerá para Nota Fiscal Eletrônica, permitindo enviar a solicitação desejada a Sefaz.
+Permite impressão por Intervalo
+: 
+permite ao usuário imprimir várias notas fiscais por intervalo.
+Direciona impressão NF?
+: 
+permite ao usuário direcionar a impressão da nota fiscal.
+Quadro Remessa / Retorno Armazenagem
+Pode alterar Tipo de Quantidade
+: 
+permite ao usuário alterar o tipo de quantidade no lançamento de remessa e retorno de armazenagem.
+Pode alterar Entidade na NF Remessa/Retorno Armazenagem?:
+ permite ao usuário alterar a Entidade no lançamento da Remessa e retorno de armazenagem. 
+Pode alterar campo Desmembramento itens vinculados a mais de uma NF:
+ permite ao usuário alterar o campo Desmembramento itens vinculados a mais de uma NF, na tela de Remessa e Retorno de Armazenagem. 
+Pode escolher natureza de Operação de Retorno de Armazenagem?: 
+quando habilitado vai permitir a edição da natureza de operação na tela de retorno de armazenagem.
+Pode alterar campo Gera itens da NF c/Produtos Primários do Produto Composto: 
+quando habilitado irá permitir edição de gerar itens da NF com produtos primarios.
+Pode alterar campo agrupa itens da NF por Produto?: 
+quando habilitado permitirá alterar o agrupamento de NF por produto.
+Para mais informações, ver 
+Quadro Cancelamento de NFs
+Desconsidera #Dias Cancto do usuário e Considera o Perfil da Empresa 
+Com este perfil habilitado, o SisPetro irá desconsiderar os dias configurados retroativos configurados e respeitará o perfil de empresa. Para mais informações, ver 
+Notas Próprias / Notas de Terceiros
+Permite exclusão de NF canceladas
+Com este perfil habilitado, o usuário poderá excluir do SisPetro as notas já canceladas.
+Pode cancelar NF
+Se este perfil não estiver marcado, o usuário não conseguirá cancelar nenhuma nota independente dos outros perfis.
+#Dias para Cancto NF
+Quantidade de dias retroativos ao atual que o usuário pode cancelar nota fiscal. 
+As regras de cancelamento de nota fiscal podem ser vistas em 
+.
+Quadro Manifestação Destinatário
+Permite alterar evento nos processos automáticos
+: 
+permite ao usuário alterar evento de notas manifestadas automaticamente.
+Permite excluir evento de Manifestação
+: 
+permite ao usuário excluir evento de nota manifestada.
+Permite incluir evento manualmente
+: 
+permite ao usuário incluir evento manual na nota.
+Pode acionar manualmente o Serviço de Manifestação:
+ permite que o usuário acione o serviço de manifestação, via botão de 
+Aciona Serviço
+.
+Para mais informações, ver 
+Manutenção Chaves de Acesso
+Quadro MDF-e
+Pode incluir/processar MDF-e
+: 
+se marcado, permite ao usuário fazer todo o processo de MDF-e. Caso esteja desmarcado, o usuário não terá acesso aos processos de MDF-e, podendo somente efetuar Consulta Status Serviço do MDF-e.
+Pode alterar dados Motorista/Frota em MDF-e não processado: 
+permitir que sejam alterados os dados de Motorista/Transportadora/Frotas em MDF-e não processados na SEFAZ.
+Pode cancelar MDF-e
+: 
+se marcado, permite ao usuário cancelar um MDF-e.
+Pode Considerar/desconsiderar NF no MDF-e: 
+por padrão o perfil é desabilitado. Quando habilitado dará a opção ao usuário de considerar ou desconsiderar a NF nas telas de 
+Manutenção de Notas Fiscais
+(aba Frete) e 
+Inclusão de MDF-e
+Pode imprimir MDF-e autorizado Não Encerrado
+: 
+se marcado, permite ao usuário imprimir o DAMDFE, dos MDF-e autorizados e não encerrados.
+Pode imprimir MDF-e Encerrado: 
+se marcado, permite ao usuário imprimir o DAMDFE, dos MDF-e encerrados.
+Pode Encerrar MDF-e:
+ se marcado, permite ao usuário encerrar o MDF-e.
+Direciona impressão MDF-e
+: 
+se marcado, permite ao usuário escolher uma impressora.
+Pode desvincular NF após encerramento:
+ permite desvincular a nota de um MDF-e desde que o mesmo esteja encerrado.
+Para mais informações, ver 
+Manutenção de MDF-e
+.
+Pode imprimir MDF-e não autorizado
+: 
+se marcado, permite ao usuário imprimir o DAMDFE, dos MDF-e não autorizados.
+Pode encerrar MDF-e
+Não pode Encerrar:
+ usuário não tem privilegios para encerramento de MDF-e
+Encerra MDF-e não passível de Encerramento Automático:
+ usuário pode encerrar apenas MDF-e que não sejam de entrada passível de encerramento automático.
+Encerra qualquer MDF-e:
+ pode encerrar todas as modalidades de MDF-e, essa opção deve ser vinculado ao usuário do serviço que fará o encerramento automático.
+Pode Alterar Motorista em MDF-e Processado (inclusão de Condutor)?:
+ permite realizar alteração de motorista e transportadora
+Se, após marcar os perfis de usuário e perfil de empresa, o menu Manifesto Eletrônico não habilitar, entrar no perfil de usuário, aba Acesso Menus, desmarcar HABILITAR, depois clicar no botão OK e marcar HABILITAR novamente.. Após clicar no botão OK e sair. O menu será habilitado, caso o usuário tenha as devidas permissões.
+Quadro Importação de Notas Fiscais
+Entradas
+Exibe OC's com Data Maior ou Igual a NF: 
+quando esse perfil estiver marcado, serão mostradas na tela de vínculo com a NF somente as OC's com Data Menor ou Igual a Data da NF, ou seja, OC's com data maior que a data da NF não estarão mais disponíveis para vínculo.
+Exibe OC's com a mesma Placa da NF: 
+quando esse perfil estiver marcado, serão mostradas na tela de vínculo com a NF somente as OC's que tenham o mesmo Frota utilizado na Nota Fiscal
+.
+Para mais informações, ver 
+Vínculo de OC e PMM em Notas Fiscais Importadas
+.
+Processamento de NF
+Não Processa, aguarda serviço: 
+quando esse perfil estiver selecionado, o usuário deve aguardar a 
+execução do serviço via Servidor Hermes
+ para processamento das NFs.
+Pode acionar recurso "Processa Agora": 
+q
+uando esse perfil estiver selecionado, o usuário pode executar o processamento da NF imediatamente através do botão 
+Processa Agora
+Libera Processamento?: 
+permite usuário liberar NF-e/CT-e para processamento na tela de monitoramento de importação. Para mais informações, ver 
+Monitoramento da Importação de NF-e/CT-e
+Pode carregar XML's manualmente: 
+q
+uando habilitado ativar o 
+Carrega XML
+ na tela 
+Monitoramento da Importação de NF-e/CT-e
+Pode Editar dados?: 
+permite usuário editar dados da nota fiscal
+Pode Excluir registros não processados?: 
+define qual ação o usuário poderá fazer sobre as notas/itens das notas da fila de processamento:
+Não pode excluir: 
+não irá excluir nenhuma nota/itens
+Pode excluir só quando o XML gera somente uma nota ou uma nota com itens: 
+o
+ usuário só poderá excluir todas as notas geradas e/ou todos os itens das notas. Caso um XML importado gere 3 notas ou 1 nota com 3 itens, o usuário deverá selecionar as três notas/os 3 itens de uma nota e clicar para excluir. 
+Pode excluir qualquer Nota Fiscal não processada: 
+o 
+usuário, mesmo que o XML gerar duas notas/itens das notas, poderá excluir uma nota/um item e deixar a outra nota/outro item caso queira.
+Um XML pode ter vários itens com CFOP diferentes. Se o De Para estiver apontado para Naturezas diferentes, no SisPetro, os itens desse XML irá gerar várias notas.
+Pode Vincular PMM/OC: 
+permite usuário a efetuar vinculo de PMM/OC
+Pode Vincular NF?: 
+permite usuário a efetuar vinculo de NF a outra NF
+Pode Vincular Título Recorrente?:
+ permite usuário a efetuar vinculo de PMM/OC
+Autoriza Discrepância de Pagamento da NF
+: usuários com este perfil habilitado terão permissão para alterar o valor total da NF no momento da importação.
+Pode alterar o Número da NF no Monitoramento de NF: 
+usuário consegue altera o número da NF no monitoramento da NF.
+Pode alterar a Entidade no no Monitoramento de NF: 
+usuário pode alterar a entidade no monitoramento da NF.
+Pode alterar os itens no Monitoramento de NF: 
+usuário tem acesso a alterar os itens no Monitoramento NF.
+Quadro Documento Arrecadação
+Pode processar Documento de Arrecadação: 
+caso este perfil não esteja habilitado o usuário não poderá sincronizar a DARJ junto a SEFAZ nem acessar a tela de
+ 
+Documentos de Arrecadação Pendentes
+Pode alterar o valor de arrecadação e natureza/produto: 
+caso este perfil não esteja habilitado o usuário não poderá alterar os valores de imposto, natureza e produto da DARJ.
+ 
+Pode imprimir documento de arrecadação: 
+caso este perfil não esteja habilitado o usuário não poderá imprimir tanto o boleto quando a DIP
+Pode alterar valor quando usuário informa:
+ caso este perfil não esteja habilitado o usuário não poderá alterar o valor dos impostos, quando a DARJ foi gerada com a opção 
+usuário informa
+, na natureza de operação. 
+Cancela NF com Documento de Arrecadação Processado:
+ caso este perfil esteja habilitado o usuário vai poder cancelar notas fiscais com documentos de arrecadação já processados. Após a nota ser cancelada o documento de arrecadação em questão ficará com status de 
+NF Cancelada
+. 
+Pode informar Código de Barras GNRE:
+ caso este perfil esteja habilitado o usuário vai poder informar o Código de Barras/Linha Digitável do GNRE na Manutenção de Documento de Arrecadação finalizando manualmente o Documento.
+Para mais informações, ver 
+Manutenção de Documentos de Arrecadação
+É de responsabilidade do usuário ver o que fazer com o documento, já que o mesmo pode ter sido processado e já estar pago. Para mais informações, ver 
+Processos e Validações para Cancelamento de Nota Fiscal
+.
+Quadro Consulta Destinatário
+Não altera:
+ não permite alterar o numero do NSU.
+Só para menor:
+ permite alterar o NSU para um valor menor que o ultimo NSU.
+Só para maior:
+ permite alterar o NSU para um valor maior que o ultimo NSU.
+Para maior ou menor:
+ permite alterar o NSU para um valor menor ou maior que o ultimo NSU.

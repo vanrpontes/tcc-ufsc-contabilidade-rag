@@ -1,0 +1,86 @@
+TITULO: PIX com recebimentos a Prazo (Títulos)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2962358355
+--------------------------------------------------
+Nessa fase do PIX usaremos o QR Code Estático que pode ser gerado pela própria empresa, conforme determinação do Banco Central. Futuramente podemos trabalhar com o QR Code Dinâmico, que exige comunicação com o banco para a geração do mesmo
+Para recebimentos a prazo / parcelados 
+o envio do QR Code será pelo Faturamento (Contas a Receber), 
+o QR Code é gerado após o Faturamento, um para cada parcela do Contas a Receber, sendo enviado no layout de Cobrança (seja somente com o QR Code, seja no Boleto). Ao ser recebido o pagamento, o SisPetro baixará o título do Contas a Receber correspondente. Se esse título for de Cobrança Eletrônica, gera um Comando de Baixa para o Banco.
+Abaixo temos o fluxo de trabalho e as configurações para cada etapa:
+Emite Nota Fiscal:
+ o
+ p
+rimeiro passo é emitir uma Nota Fiscal utilizando um 
+tipo de cobrança
+ configurado para geração do PIX.
+Configurações no
+ 
+Tipo cobrança:
+ 
+A opção 
+Habilita PIX
+ deve estar habilitada.
+A opção de Envio de QR Code deve estar com a opção 
+Pelo Contas a Receber
+.
+No quadro de 
+Dados por Empresas
+ a empresa que vai emitir o pedido deve estar com uma 
+chave de PIX
+ salva. Para mais informações, ver 
+.
+Envia Cobrança QR Code:
+ 
+o envio do QR Code para o cliente ocorre após a inclusão da nota fiscal e de suas parcelas. 
+Realiza Pagamento instantâneo:
+ nesse ponto o 
+Cliente
+ 
+realiza o pagamento via PIX usando o QR Code que foi enviado para ele (no valor do título)
+.   
+Recebimento Manual:
+ após a empresa ser notificada pelo banco do recebimento do PIX, normalmente via extrato do Banco, o seu registro é realizado através da tela de 
+Manutenção de PIX
+.
+Tela de 
+Manutenção de PIX
+Através da tela de 
+Manutenção de PIX
+ o usuário pode incluir um recebimento, cancelar um recebimento não processado e imprimir o QR Code. Para mais informações, ver 
+Manutenção de PIX
+.
+Recebimento via serviço API:
+ através do 
+Serviço de PIX Recebidos - Bancos
+, o SisPetro faz a comunicação com API do Banco e localiza os pagamentos PIX. Seu registro é processado também via 
+Serviço de PIX Recebidos - Processa
+, os registros ficam exibidos na tela de 
+Manutenção de PIX
+.
+Configuração do 
+Serviço de PIX Recebidos - Bancos
+Intervalo de execução
+Horário de execução
+Marcar a opção Executar Automaticamente Quando Servidor for Reiniciado
+Usuário para execução do Serviço
+Horas Anteriores a Consulta
+ Após clicar em Ativar.
+Necessário configurar os dados de comunicação com a API através da 
+ e 
+Tabela Configuração para Consulta de PIX Recebidos
+Baixa Contas a Receber:
+ a inclusão da baixa do título 
+ocorrerá através do 
+Serviço de PIX Recebidos - Processa
+, usando as informações do registro do recebimento feito no passo anterior (via tela 
+Manutenção de PIX
+). 
+Caso o tipo de cobrança esteja configurado para gerar cobrança eletrônica, será adicionado um comando de baixa para o título.  
+Configuração do 
+Serviço de PIX Recebidos - Processa
+Intervalo de execução
+Horário de execução
+Marcar a opção Executar Automaticamente Quando Servidor for Reiniciado
+Usuário para execução do Serviço
+ Após clicar em Ativar.
+Para mais informações, ver 
+PIX Configurações Iniciais

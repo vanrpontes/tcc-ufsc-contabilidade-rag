@@ -1,0 +1,46 @@
+TITULO: UF do Tomador no Livro Fiscal de Entrada de CT-e - Operação Interna e Interestadual
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2946564659
+--------------------------------------------------
+Objetivo
+A operação, se interna ou interestadual, é determinada pela origem e destino da prestação de serviço  e independe da UF da transportadora. O SisPetro interpreta como uma operação interna ou interestadual em relação à UF da transportadora e à UF do tomador do serviço. Com isso estava salvando. em alguns casos, um conhecimento de forma incorreta, por conta da UF. Para resolver essa questão foi criada a função 
+GetUFLFCTe
+ para ser utilizada na fórmula para o Livro Fiscal vinculada a natureza de operação utilizada na inclusão do CT-e.
+Para que funcione corretamente, é obrigatório incluir o CT-e utilizando a importação de XML.
+A  
+GetUFLFCTe
+  
+função irá verificar quem é o tomador, se o tomador é o destinatário, a UF do Livro é a da origem, se for o remetente, a UF do livro é a do destino, conforme o exemplo a seguir:
+Exemplo: 
+Frete Compra de fornecedor MG, (considerando que a UF da distribuidora é SP) e Transportadora SP - Frete por conta do destinatário (Distribuidora)
+ORIGEM = MG
+DESTINO = SP
+Operação interestadual:
+Com a função 
+GetUFLFCTe 
+será considerado a UF da operação e não a do fornecedor
+Sendo assim a UF que será levada para o livro será = MG
+Fórmula para Livro Fiscal
+SisPetro Controladoria > Menu 
+Arquivos  > Fórmulas para Livro Fiscal  - Aba Detalhes:
+Quadro Dados Complementares - campo UF
+Um exemplo de fórmula com a função GetUFLFCTe:
+GetUFLFCTe(<556>,<557>)
+Onde:
+<556>:
+ campo CodEmpresa da tabela NotaFiscal
+<557>:
+ campo Sequencial da tabela NotaFiscal
+Nota:
+ os códigos numéricos dos campos podem ser diferentes, dependendo de cada banco de dados. Pesquise sempre pelo nome do campo e nome da tabela para saber qual o código numérico do campo.
+Após corrigir a fórmula utilizar a ferramenta:
+Menu Ferramentas >  Reprocessamento de NFs para Livros Fiscais:
+Informe as opções desejadas
+Deixe marcada a opção Sobrepõe Notas Fiscais já lançadas no Livro Fiscal ?
+Clique em Visualiza Dados
+Estando tudo correto clique em Executa Importação
+Aviso
+Para os conhecimentos incluídos antes da função GET, será necessário o 
+Reprocessamento de NF para Livros Fiscais
+.
+Importante:
+ não pode ter apuração fiscal no período desejado.

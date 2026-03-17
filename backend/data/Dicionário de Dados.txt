@@ -1,0 +1,74 @@
+TITULO: Dicionário de Dados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879128137
+--------------------------------------------------
+O dicionário de dados é um repositório onde podemos consultar as tabelas utilizadas no Sispetro. Pode ser acessado pelo menu 
+Ferramentas / Manutenção Dicionário de Dados.
+Além de servir para consultas, o dicionário pode ter configurações em campos e relacionamentos a serem utilizadas na 
+Manutenção de Conjunto de dados.
+Painel Tabelas:
+Através desse painel, o usuário poderá visualizar as tabelas cadastradas no banco de dados utilizado pelo Sispetro, atualmente com o nome de SCGWIN, no Sybase.
+Botão Edita para o painel "Tabelas":
+ Apresentará a tela para Edição, onde o usuário poderá alterar alguns dados da tabela.
+Por questões de segurança, o usuário não poderá alterar o nome da tabela e nem o seu código, por outro lado, poderá trocar o nome que será exibido para o usuário nas telas de Edição de dados, além de trocar o tipo e o módulo.
+Para que a tabela possa ser utilizada, ou seja, os dados possam ser alterados, incluidos ou excluidos nas tabelas dentro da 
+Manutenção de Conjunto de dados
+, é necessário configurar as opções 
+"Alteração", "Inclusão" e "Exclusão".
+Painel Campos:
+Ao acessar o painel "Campos", serão apresentados os campos cadastrados para a tabela selecionada no painel "Tabelas".
+Botão "Edita" para o painel "Campos":
+Ao clicar no botão "Edita" , o sistema abrirá a seguinte tela:
+Por segurança, os campos "SeqCampo" e "Tabela" não poderão ser alterados, os demais campos podem ser alterados e terão a seguinte utilização na tela de 
+Manutenção de Conjunto de dados.
+:
+Pesquisável:
+ Indica se o campo deve ser apresentado no "Combo de pesquisa" e em que coluna. O combo de pesquisa é apresentado quando a tabela fornece informações para outra tabela. Para isso é necessário ter um relacionamento não selecionável entre as duas tabelas - a que precisa da informação e a que fornece a informação.
+O combo seria apresentado da seguinte forma, em determinadas telas 
+Manutenção de Conjunto de dados:
+Editável:
+ Indica que este campo pode ser preenchido pelo usuário, exceto nas seguintes situações: Quando o campo estiver marcado como auto-incremento ou estiver marcado como filtro.
+Filtro:
+ Ao ser marcada, indica que para editar / visualizar dados da tabela da 
+Manutenção de Conjunto de dados,
+ antes o usuário deverá digitar uma informação neste campo. Se este campo tiver relacionamento com outra tabela configurada como selecionável, além do usuário ter que digitar a informação, ela deverá existir na tabela relacionada.
+Selecionável:
+ Quando esta opção está marcada, o campo será apresentado no grid de dados da tabela e na tela de edição de dados da 
+Manutenção de Conjunto de dados.
+Agregação nos grids:
+ Indica se haverá um cálculo no rodapé do grid de uma apresentação dos dados da tabela na coluna referente a este campo. Poderá ser feita a soma, contagem ou média dos dados apresentados. Um campo formatado para fazer a soma de um campo, por exemplo, seria apresentado dessa forma na visualização dos dados da tabela da 
+Manutenção de Conjunto de dados:
+Painel Relacionamentos:
+Ao acessar o painel "Relacionamentos", serão apresentados os relacionamentos das tabelas selecionadas no painel "Tabelas".
+Um relacionamento pode existir pelos seguintes motivos:
+A tabela é dependente de outra tabela;
+A tabela utiliza informações de outra tabela.
+Para o primeiro motivo, devemos marcar a opção selecionável e para o segundo desmarcá-la. Exemplos de relacionamentos selecionáveis:
+Nota fiscal e Itens nota fiscal:
+ Um dado na tabela de itens de nota fiscal só pode existir se tiver uma nota fiscal vinculada. Usa-se dizer que nota fiscal é a tabela "Pai" e Itens da Nota Fiscal é a tabela "Filha". Partindo do pressuposto que a tabela nota fiscal tem uma chave que seria o campo sequencial, se tem o seguinte relacionamento:
+Na tabela itensNF, localiza-se o relacionamento entre a tabela ItensNF e Nota fiscal.
+Selecionamento o relacionamento, o usuário deve clicar no botão "Edita". O sistema irá apresentar os detalhes do relacionamento.
+Lote e itens do Lote:
+ Similar ao caso da nota fiscal e seus itens. Há um relacionamento entre as tabelas Lote e Itens, ou seja, para se ter um registro na tabela itenslote, deve-se primeiramente, ter um registro relacionado na tabela Lote.
+Selecionando o relacionamento na tabela itensLote, e clicando no botão "Edita", o sistema mostrá os detalhes do relacionamento:
+Exemplos de relacionamentos não selecionáveis:
+Itens da Nota fiscal e produto:
+ Ao incluir um item de nota fiscal , deve ser escolhido um produto válido na tabela de produtos. Ao editar o campo de produtos do item da nota, será apresentado o combo de pesquisa quando se estiver acessando os dados da tabela na 
+Manutenção de Conjunto de dados:
+O relacionamento seria da seguinte forma:
+Na tela do dicionário de dados, o usuário ainda encontrará os botões 
+"Carrega", "Atualiza" e "Layout Default":
+Botão Carrega:
+ A função deste botão é atualizar as tabelas, campos e relacionamentos do dicionário de dados, conforme a estrutura do banco de dados.
+Informações Técnicas: Os relacionamentos que serão atualizados são decorrentes das foreign Keys cadastradas no sistema.
+Botão LayOut Padrão:
+ Este botão serve para aplicar a configuração original das ordens das colunas e filtros utilizados na tela, já que o layout da tela será salvo para cada usuário que acessá-la.
+Exemplo:
+ Para facilitar a consulta das informações em tela, o usuário agrupou os dados da tabela Produto, para consultar os produtos pelo seu tipo. No painel "Campos", da tabela produto, o usuário arrastou para o cabeçalho a coluna "Tipo":
+Os dados são agrupados pelo tipo:
+Após pesquisar os dados, ou trabalhar com os dados fazendo alterações, exclusões ou inclusões, caso o usuário não queira continuar com esse tipo de apresentação em tela, pode-se clicar no botão "LayOut Default" para retornar a apresentação padrão do sistema:
+Para sair da tela, basta o usuário utilizar o botão "Sair".
+A partir da versão 9.21 é possivel deixar obrigatorio o preenchimento dos campos do produto e do fornecedor. Para isso basta acionar o suporte da Futura solicitando o bloqueio. 
+ 
+ 
+ 
+ 

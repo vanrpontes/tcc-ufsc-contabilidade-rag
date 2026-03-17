@@ -1,0 +1,195 @@
+TITULO: Manutenção de Frete
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440519
+--------------------------------------------------
+none
+Objetivo
+Os fretes controlados pelo SisPetro podem ser consultados, alterados ou até incluídos manualmente, pela tela de Manutenção de Frete.
+Essa tela é acessada através do menu 
+Movimentação/Transporte/Manutenção de Fretes
+.
+Implementado o perfil de sistema (
+Painel Fretes
+), onde o valor do frete real líquido pode ser gerado considerando ou não o valor do pedágio.
+O campo 
+Valor Frete Real Líquido,
+ é o valor a pagar caso haja algum desconto de ICMS ou valor de pedágio, dependendo do perfil de sistema 
+Painel Fretes
+. Veja a diferença abaixo dos campos:
+Exemplos:
+Frete por litro: 0,25  
+NF tem 35.000
+ICMS Frete: 12%
+O perfil de sistema 
+Painel Fretes
+, Gera frete sem ICMS quando autônomo ou Fora do Estado 
+está habilitado, assim gerando ICMS para o frete nessas duas situações.
+Valor Frete Nominal:
+ é o valor indicado no pedido de venda, sem descontos. Será 0,25 * 35.000 = 8.750,00
+Valor Frete Real:
+ será 8.750,00 - 1.050,00 (ICMS Frete) = 7.700,00
+Valor Frete Real Líquido:
+ é o valor que, de fato, será pago pelo frete. Neste caso 7.700,00. Quando não há ICMS frete, é igual ao Frete Nominal.
+Frete por litro: 0,25  
+NF tem 35.000
+Vale pedágio: 500,00. Para mais informações, ver
+ 
+Gerenciamento de Pedágios automatizados
+.
+O perfil de sistema 
+Painel Fretes
+, Impacto Valor de pedágio no Valor do Frete 
+está selecionado 
+Diminui o valor do Frete
+.
+Valor Frete Nominal:
+ é o valor indicado no pedido de venda, sem descontos. Será 0,25 * 35.000 = 8.750,00
+Valor Frete Real:
+ será 8.750,00
+Valor Frete Real Líquido:
+ é o valor que, de fato, será pago pelo frete. Neste caso 8.750,00 - 500,00 = 8.250,00
+Os dados na tela são apresentados conforme:
+Situação:
+ indica a situação dos fretes gerados
+Somente Pendentes: 
+apresenta os fretes que não tenham vínculo com lançamentos do contas a pagar.
+Todos: 
+apresenta todos os fretes
+Status
+Inativos: 
+apresenta os fretes inativados
+Ativos: 
+apresenta os fretes ativos
+Frota
+Todos
+Somente Terceiros
+Somente Próprios
+Período para exibição de dados:
+Esse intervalo é sugerido automaticamente quando o usuário entra na tela. Para alterar esse período conforme a necessidade da empresa ou do usuário, deve-se entrar nas configurações da empresa, menu 
+Ferramentas / Sistema / Frete
+ e configurar a opção:
+A vantagem dessa configuração, é a possibilidade do usuário poder escolher um período para a apresentação dos dados na tela que não seja nem muito longo, nem muito pequeno, evitando que o usuário tenha que ficar filtrando esse período toda a vez que acessar a tela. Isso facilitará a consulta e deixará, dependendo do período configurado, a tela com menos registros.
+Nesta tela são apresentados os fretes que foram lançados automaticamente através de Notas Fiscais ou Conhecimentos de Frete. Além disso, fretes manuais podem ser incluídos. Através desta tela pode se ter um controle dos valores de fretes praticados por transportadora, sendo muito útil para pagamento de transportadoras terceirizadas ou controle de comissão de motoristas próprios.
+Caso o usuário não tenha permissão para incluir o frete, a mensagem será exibida, para mais informações veja: 
+Painel Financeiro (Usuário)
+ 
+Botão Inclui:
+ pelo botão Inclui, é possível incluir um frete manual.
+Data:
+ data do frete 
+Motorista:
+ informe o motorista
+Transportadora:
+ informe a transportadora
+Frota:
+ informe o frota
+Carreta:
+ sugerido automaticamente de acordo com o frota informado, podendo ser alterado.
+Treminhão:
+ sugerido automaticamente de acordo com o frota informado, podendo ser alterado
+Valor Frete Real Líquido:
+ valor do frete a ser pago
+Observação:
+ para qualquer informação que o usuário desejar
+# OC:
+ sem informação
+# Lançamento Pagar:
+ sem informação
+Frete Altera
+Botão Altera:
+ modifica um lançamento que está cadastrado no SisPetro.
+Só é 
+permitido alterar
+ o 
+Valor do Frete Real Líquido
+ e a 
+Observação
+. Isso porque, o valor de Frete Nominal representa o valor de frete original, muito útil em lançamentos que vieram de forma automática de notas fiscais e conhecimentos de frete. O usuário pode alterar o valor que será pago à transportadora (valor real), porém temos um histórico do frete original (valor nominal).
+Apenas os lançamentos de frete que não tenham vínculo com o contas a pagar poderão ser alterados.
+Botão Cancela:
+ o usuário pode cancelar o lançamento através desse botão, desde que esse lançamento não tenha nenhuma Ordem de Carregamento vinculado ou um lançamento no contas a Pagar que já tenha baixa efetuada.
+Botão Lança Pagto:
+ permite que seja feito o lançamento no contas a Pagar, para determinada entidade, pelo valor do frete do lançamento.
+O 
+valor do frete
+ e o 
+histórico
+ já vêm preenchidos, 
+sendo possível apenas a alteração do histórico
+. Os lançamentos de frete que tem vinculo com lançamentos do contas a pagar serão exibidos em negrito.
+Botão Altera Status: 
+permite alterar o status da apuração de frete e do conhecimento. O usuário deve ter permissão para alterar o status: 
+Painel Fretes (Usuários)
+, quadro Fretes, opção Pode Alterar Status do frete.
+Status Apuração
+Não Apurado: 
+o frete ainda não foi apurado
+Apurado Automaticamente: 
+depois que a apuração foi realizada, o SisPetro altera automaticamente para este status.
+Considerado Apurado - Alterado pelo Usuário: 
+caso não queira que seja considerado na apuração. Nas próximas apurações, os fretes com este status, não serão considerados.
+Status Conhecimento
+Não Vinculado: 
+os Conhecimentos de Frete não foram vinculados aos fretes gerados.
+Vinculado Automaticamente: 
+o SisPetro vincula automaticamente os Conhecimentos de Frete aos Fretes gerados através das chaves de acessos das notas fiscais.
+Para mais informações, ver 
+Vinculo automático CT-e e frete gerado.
+Considerado Vinculado - Alterado pelo Usuário: 
+caso queira, o usuário pode considerar que o frete gerado já está vinculado ao Conhecimento de Frete.
+Botão Inativa:
+ através do botão Inativa é possível realizar a inativação de um Frete, para que o usuário tenha acesso a essa opção, é necessário marcar o perfil de usuário 
+Pode Inativar Frete
+.
+ 
+Após realizar a inativação de um Frete não é possível ativá-lo novamente.
+Botão Cancela Pagto:
+ os lançamentos de frete que possuem vínculo com lançamentos do contas a pagar, podem ser cancelados, desde que os lançamentos no contas a pagar não tenham sidos baixados.
+Botão Imprime:
+ caso o usuário necessite, pode-se imprimir o documento do contas a pagar (Autorização de Pagamento), porém, esse botão só ficará habilitado para os fretes que possuírem vínculos com os lançamentos do contas a pagar.
+Botão Atualiza:
+ esse botão serve para atualizar a tela, caso o usuário esteja com a tela aberta durante muito tempo e precise atualizar as informações. 
+Botão Localiza:
+ esse botão permite ao usuário, procurar determinado registro, utilizando os campos que fazem parte da tela.
+Botão Legenda:
+ mostra o significado das cores que são apresentados os registros na tela.
+Abas
+Através de cada aba da tela de Manutenção de Frete, o usuário pode verificar se há registros vinculados ao frete em questão.
+Frete:
+ todas as informações referente ao frete como data, nota fiscal que gerou o frete, dados da transportadora, valor do frete, nº da ordem de carregamento e outros dados são mostrados nesse painel. Para as empresas transportadoras, é possível gerar o conhecimento de frete e fazer a consulta procurando o conhecimento pelo campo 
+#Conhecimento
+.
+Ordem de Carregamento:
+ detalha informações referente as Ordens de carregamento que estão vinculadas a registro selecionado na aba 
+Frete
+.
+Contas a Pagar:
+ mostra informações do lançamento do contas a pagar vinculados ao frete, inclusive baixas, se houver.
+Conhecimento:
+ apresenta os lançamentos de conhecimento de frete vinculados ao frete. O usuário pode encontrar informações referentes a empresa tomadora do frete e a empresa transportadora do frete. Para as empresas transportadoras, essa aba informa a nota fiscal vinculada ao conhecimento de frete.
+  
+Somente se a empresa estiver configurada como transportadora no SisPetro. Para mais informações, ver 
+Painel Dados Gerais
+.
+Itens Carta Correção:
+ mostra informações referentes a todas as cartas de correções que foram feitas e estão vinculadas ao frete. Na aba Frete, no campo Qtde Carta Correção, o usuário pode verificar a somatória das cartas que foram feitas para esse frete. Os fretes que tiverem alguma carta de correção vinculada, serão exibidos em itálico pelo SisPetro.
+Apuração Frete líquido: 
+são as diferenças apuradas dos valores de fretes. Para mais informações, ver 
+Incluindo Apuração de Frete
+.
+No SisPetro é possível fazer apuração de diferenças nos valores de frete de 3 formas:
+Capacidade do Caminhão:
+ para mais informações, ver 
+Apuração de Valores de Fretes a Pagar pela Capacidade do Caminhão
+.
+Diferenças de Descarga Base Própria:
+ para mais informações, ver 
+Apuração de Valores de Fretes a Pagar por Diferenças de Descarga Base Própria
+.
+Via Fechamento de Estoque:
+ para mais informações, ver 
+Apuração de Valores de Fretes a Pagar pela Diferença via Fechamento de Estoque
+.
+ 
+Para sair da tela, basta o usuário clicar no botão 
+SAIR
+.

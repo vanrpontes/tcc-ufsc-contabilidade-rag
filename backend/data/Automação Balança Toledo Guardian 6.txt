@@ -1,0 +1,105 @@
+TITULO: Automação Balança Toledo Guardian 6
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927264709
+--------------------------------------------------
+A integração com a balança se dá pela configuração de um arquivo 
+BalancaToledo_G6.dll
+ que fará a leitura do arquivo texto gerado pela balança com o peso do caminhão.
+Veja as configurações:
+É necessário que seja configurado o 
+perfil de sistema
+ e 
+Depósitos - Aba Dados Adicionais
+, podendo ser definido para sempre realizar a integração ou para um determinado tipo de movimentação. Também é necessário colocar o caminho da DLL no perfil de Sistema, conforme imagem abaixo:
+Para mais informações ver 
+Depósitos - Aba Dados Adicionais
+ e no 
+.
+Para obter a DLL da balança, entre em contato com o Suporte.
+Além disso é necessário ter um arquivo 
+BalancaToledo_G6.ini
+ no mesmo caminho do arquivo .dll com o caminho de onde se encontra o arquivo .txt:
+O conteúdo do arquivo .ini  contém informações que irão determinar como será realizada a leitura das informações, no arquivo .txt:
+[Geral]
+CaminhoArquivos
+= Informar o diretório onde será localizado o arquivo .txt para leitura da balança.
+PosicaoPeso= 
+ Informando a posição nesta linha, o
+ 
+sistema irá realizar a leitura da mesma posição para as linhas de pesagem, tanto para Pesagem Inicial quanto para Pesagem Final
+. Por padrão, caso não seja definido, será lido o peso informado na posição 11 do arquivo. 
+PosicaoPesoEntrada=
+  
+Posição de leitura do Peso da linha que identifica a "Pesagem Inicial". 
+Por padrão caso não seja definido, será lido o peso informado na posição 11 do arquivo.
+PosicaoPesoSaida= 
+Posição de leitura do Peso da linha que identifica a "Pesagem Final" . 
+Por padrão caso não seja definido, será lido o peso informado na posição 11 do arquivo.
+PosicaoData= 
+Informando a posição nesta linha, o sistema irá realizar a leitura da mesma posição tanto para Data de Entrada quanto para Data de Saída
+.
+ 
+Por padrão caso não seja definido, será lido a posição 20 do arquivo.
+PosicaoDataEntrada=
+ 
+Posição de Leitura da Data e Hora de Entrada. 
+Por padrão caso não seja definido, será lido a posição 20 do arquivo.
+PosicaoDataSaida=
+ 
+Posição de Leitura da Data e Hora de Saída. 
+Por padrão caso não seja definido, será lido a posição 20 do arquivo.
+ 
+A linha 
+PosicaoPeso,
+ se informada, fará com que as linhas 
+PosicaoPesoEntrada
+ e 
+PosicaoPesoSaida
+ sejam desconsideradas na leitura do arquivo.
+ 
+A linha 
+PosicaoData,
+ se informada, fará com que as linhas 
+PosicaoDataEntrada
+ e 
+PosicaoDataSaida
+ sejam desconsideradas na leitura do arquivo.
+Abaixo um exemplo do arquivo BalancaToledo_G6.ini.
+[Geral]
+CaminhoArquivos=C:\Balanca\ToledoG6
+
+
+Tag=[Operacoes]
+PosicaoTextoTipoPeso=25
+TextoPesoInicial=Pesagem Inicial
+TextoPesoFinal=Pesagem Final
+
+
+PosicaoPeso=12
+PosicaoPesoEntrada=12
+PosicaoPesoSaida=12
+
+
+PosicaoData=20
+PosicaoDataEntrada=20
+PosicaoDataSaida=20
+O Layout do arquivo texto gerado pela nova versão da Balança Toledo é composto por linhas e seções que contém informações separadas por  " 
+; " 
+(Ponto e Vírgula). Desta forma, a separação por ponto e virgula é considerado uma posição no arquivo.
+O Arquivo da balança dever ser gerado no seguinte padrão para que o SisPetro leia: [PLACA]Ticket.txt Exemplo: [AAAA-0101]Ticket.txt
+Importante que seja gerado um único arquivo com a linha de peso inicial e final conforme o layout abaixo: 
+[Ticket]
+ABC-1234;0000015;0;1;0,00000;0,00000;0,00000;;;;;0;;0;;;-100;;15;;;;;;;;0,00000;ABC-1234;PF_FINAL_CHECKOUT;0;0;3
+[Operacoes]
+43;ABC-1234;;;;;;0;0,00000;0,00000;62110,00000;0,00000;0,00000;0,00000;0,00000;0,00000;0,00000;0,00000;administrador;20/08/2018 16:04:38;BALANÇA 02;BALANÇA_CHECK IN;WKSRJ1090;2;BLA;BLA;1;78
+43;ABC-1234;;;;;;0;0,00000;0,00000;62110,00000;0,00000;0,00000;0,00000;0,00000;0,00000;0,00000;0,00000;administrador;20/08/2018 16:10:38;BALANÇA 02;BALANÇA_CHECK IN;WKSRJ1090;2;BLA 2;BLA 2;1;78
+43;ABC-1234;;;;;;0;0,00000;0,00000;15110,00000;25111,00000;0,00000;0,00000;0,00000;0,00000;0,00000;0,00000;administrador;28/08/2018 16:55:00;BALANÇA 02;BALANÇA_CHECK IN;WKSRJ1090;2;Pesagem Inicial;PI_INICIAL_CHECKIN;1;78
+44;ABC-1234;;;;;;0;0,00000;0,00000;25100,00000;27111,00000;0,00000;37010,00000;0,00000;0,00000;0,00000;0,00000;administrador;28/08/2018 16:05:07;BALANÇA 01;BALANÇA_CHECKOUT;WKSRJ1089;3;Pesagem Final;PF_FINAL_CHECKOUT;1;78
+No Exemplo acima, o arquivo possui 4 linhas distintas na seção 
+Operações
+, onde 2 delas na posição 25, contém os textos que identificam "Pesagem Inicial" e "Pesagem Final", desta forma serão lidas apenas as linhas 3 para a portaria de entrada  e 4 para a portaria de saída.
+Nestas linhas nas posições indicadas no arquivo INI, o sistema irá realizar a leitura do Peso Inicial e Final  e as respectivas Datas de Entrada e Saída da portaria de acordo com as posições informadas no arquivo  BalancaToledo_G6.ini.
+Ao ser configurada a integração com a balança, essa será acionada em dois pontos:
+Na saída da Portaria de Entrada, onde o peso do caminhão será salvo como Peso Inicial. 
+O Peso só será aceito se a data retornada for maior ou igual à data de Entrada da base.
+Na Portaria de Saída, onde o peso do caminhão será salvo como Peso Final.
+O Peso só será aceiro se a data retornada for maior ou igual à data de Recepção

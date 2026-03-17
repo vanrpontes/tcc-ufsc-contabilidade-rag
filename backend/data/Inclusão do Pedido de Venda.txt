@@ -1,0 +1,454 @@
+TITULO: Inclusão do Pedido de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439874
+--------------------------------------------------
+none
+Objetivo
+Informar ao usuário como incluir um pedido de venda. O Pedido de Venda no SisPetro é dividido em cinco etapas: identificação do cliente, informações negociadas, dados de transporte, itens do pedido e observações.
+Para fazer um pedido de venda, acesse o menu 
+Movimentação / Vendas / Pedido de Venda.
+Como incluir o pedido
+Na 1ª etapa, são definidos cliente, endereços e limitações como crédito e filtragem por vendedor. Na 2ª etapa são conferidos depósito, tabela de preços, vendedor, condição e tipo de cobrança. Na 3ª etapa, registram-se transportadora, frota, tipo de carga, data de entrega e regras de aprovação. Na 4ª etapa são incluídos os itens, com preços, quantidades, frete e possibilidade de uso de adiantamento ou contrato. A 5ª etapa finaliza o pedido, realizando validações como saldo, ANP e condições financeiras. Após a conclusão, o Sispetro reserva estoque, inicia análise de aprovação e pode envolver checagem de crédito pela Gerenciadora.
+A Tela de inclusão de Pedido de Venda é dividida 05 (cinco) etapas. Então vamos entender cada uma delas.
+1ª Etapa: Cliente e Informações cadastrais.
+Informar o código do Cliente
+ no campo 
+Código Cliente
+Nesta primeira etapa da inclusão do pedido de venda, observe que existem informações pertinentes a Situação do Cliente, tais como Crédito e Valores do Pedido. E também o campo para digitação do código do cliente, trazendo automaticamente os dados de endereço de Cobrança, Faturamento e Entrega. 
+É possível incluir um 
+Pedido de Venda de Entrega Futura
+. Veja mais informações de como emitir um Pedido de Venda de Entrega Futura e Pedido de Remessa Futura em 
+Inclusão de pedidos VEF e REF
+É possível vincular uma Condição de Pagamento a um Tipo de Cobrança. Ao selecionar uma Condição de Pagamento que esteja vinculada a um Tipo de Cobrança, automaticamente será alterado o tipo de Cobrança atual pelo que está vinculado no Cadastro da Condição de Pagamento. Para mais informações veja 
+Tabela Condições Pagamento
+ / 
+Painel Vendas
+ / 
+Painel Detalhes - Tipo de Cobrança
+Dúvidas
+: veja mais informações sobre a 
+Tela de Pesquisa
+Importante:
+ a tela de pesquisa trará somente os clientes que seguem as regras da 
+Filtragem de Cliente por Vendedor / Filial
+.
+Observe que, após informar o código do Cliente, os dados informativos como Limite de Crédito, Pedidos em Aberto ficarão disponíveis no quadro superior da tela. 
+É permitido efetuar alteração das informações do cliente no pedido, não realizando nenhuma alteração no cadastro do cliente. Para mais informações da origem destes dados veja 
+Clientes - Painel Detalhes
+.
+Importante:
+O SisPetro poderá verificar a existência de pendências financeiras emitindo um aviso de alerta para o vendedor "Existem pendências financeiras atrasadas para este cliente". caso necessite, bastando para habilitar a funcionalidade marcar o perfil 
+Avisa quando cliente tiver débitos atrasados
+ que pode ser acessado pelo menu Ferramentas / Sistema painel Vendas.
+ A data do pedido de venda estará disponível conforme a permissão do usuário (Para atribuir permissão de alteração da data do pedido, marque o perfil 
+Muda Data Pedido
+ presente no painel Vendas no cadastro do usuário)
+Dependendo de outras configurações, o SisPetro valida a situação financeira do cliente comprador, chegando a bloquear o pedido se for o caso. Para saber mais sobre a Situação Financeira do Cliente e configurações para bloqueio por limite de crédito, acesse o tópico 
+Situação Financeira x Saldo Cliente
+.
+Ainda nesta primeira etapa temos dois botões que são apresentados mediante o perfil localizados nas configurações da empresa menu 
+Ferramentas / Nota Fiscal 
+opção 
+Cliente Faturado Pode ser diferente do Pedido
+O mesmo ocorrerá com os dados de endereços serão apresentados na tela automaticamente no quadro inferior ao Código do Cliente. 
+Caso seja necessário, altere os Endereços informados automaticamente através dos botões 
+Seleciona: 
+permite ao usuário selecionar um outro endereço de Faturamento, desde que esteja previamente cadastrado para o cliente comprador
+Limpa: 
+traz o endereço de faturamento padrão que foi definido no perfil cliente
+Para definir o endereço padrão de venda, basta escolher mediante o perfil, localizado no menu 
+Ferramentas / Sistema / Cliente
+O SisPetro possibilita que se possa indicar se o clientes faturados é diferente do cliente do pedido, localizado no menu Ferramentas / Sistema / Aba Vendas / Quadro Cadastro de Clientes
+ 
+Com este perfil marcado, o SisPetro possibilita que os endereços de Entrega, Cobrança e Faturamento sejam definidos na tela de itens do Pedido. Com o Perfil desmarcado, a opção de definição do cliente faturado a cada item não fica disponível nos itens, sendo o pedido para um único cliente os endereços são definidos no início do pedido.
+Acione o botão 
+Avança
+ para ir para a 2ª etapa da inclusão do pedido.
+2ª Etapa: Informações negociadas 
+Após avançar para a 2ª etapa, ainda é possível voltar para a 1ª etapa e alterar o cliente. Utilize o botão 
+Volta
+Nesta segunda etapa o SisPetro já traz os dados pré-configurados no cadastro de Cliente.
+Dúvidas
+: veja mais informações em 
+Padrão para Vendas (Clientes)
+Observe que os mesmos dados continuarão a aparecer no quadro superior da tela, conforme citado no item 2 da 1ª etapa.
+Importante:
+ você deve verificar estes dados pois o faturamento se baseará neles para a emissão das Notas Fiscais, para emitir a cobrança, depósito, etc.
+Os campos abaixo deverão ser verificados com muita 
+atenção
+ e 
+cuidado
+:
+#Pedido do Cliente:
+ se o cliente deseja que seu pedido seja controlado de alguma maneira através de um número fornecido por ele, será neste campo lançado tal informação, sendo possível exibi-la pelo SisPetro nas várias telas de controle do pedido de venda.
+Depósito: l
+ocal físico de onde deve ser retirado o produto que está sendo vendido a este cliente.
+Ao informar o Depósito, o Sispetro automaticamente irá validar as seguintes informações configuradas na 
+Tabela Depósitos
+:
+Perfil
+ Ativo
+ está marcado?
+Perfil
+ Permite Venda
+ está marcado?
+Este depósito 
+Controla Empresa?
+Se 
+Sim, 
+qual (is) empresa (s)?
+Este depósito faz 
+Verificação de Saldo do Produto
+?
+Se 
+Sim, 
+é somente Avisa ou é para Bloquear?
+Este depósito possui
+ Tabela de Preço vinculada com Tipo Cliente?
+Se 
+Sim, 
+considere a Tabela de Preço configurada para o Tipo Cliente que o Cliente deste Pedido possui (veja mais informações em 
+Depósitos - Tabela de Preços / Tipo Cliente
+). 
+Para identificar o Tipo Cliente, veja mais informações em 
+Padrão para Vendas (Clientes)
+.
+Tabela de Preços:
+ por meio da tabela de preço informada neste campo serão realizados os cálculos do valor do produto (mais informações sobre a forma do cálculo veja  
+Manutenção de Preços por Tabela
+)
+Inicialmente será sugerida a Tabela de Preço informada no cadastro de Cliente, 
+Preços (Clientes)
+.
+Caso o depósito selecionado contenha uma tabela de preço informada para o mesmo Tipo de Cliente que o que esta cadastrado no cliente, ou no depósito esteja marcado para utilizar a tabela de preço padrão quando não localizado um tipo de cliente cadastrado no depósito, a tabela que ira prevalecer é a do depósito, somando o valor da tabela vinculada ao cliente caso a mesma seja do tipo vinculada. Veja mais detalhes em 
+Manutenção de Preços por Tabela
+Vendedor:
+ código do Vendedor associado ao cliente. Caso o status do cliente seja LIVRE, o vendedor pode alterar livremente este campo, para os demais casos, o SisPetro não permite tal mudança, forçando que o vendedor associado ao cliente seja o vendedor para este pedido de venda.
+Condições de Pagamento:
+ neste campo deverá ser informado o prazo para o pagamento do pedido de venda. Lembrando que a condição de pagamento pode ou não, estar habilitada para vendas (mais informações veja Tabela 
+Condições Pagamento
+) e que a escolha da mesma poderá acrescer um custo ao valor da venda (mais informações veja 
+Calculo do Acréscimo do Custo Financeiro
+).
+Tipo de Cobrança:
+ neste campo deverá ser informada a forma da cobrança (Ex. Duplicata, Arquivo Magnético, DOC, ficha de compensação, etc), sendo em alguns casos responsável por um acréscimo ou decréscimo no valor do produto conforme configurado na mesma (Para mais informações sobre o valor que poderá ser agregado ao produto no pedido de venda veja 
+Tabela Tipos de Cobrança
+).
+Assistente Vendedor:
+ neste campo será lançado o vendedor que dentro da empresa atua no cadastro do pedido de venda.
+Ex. Podemos ter uma venda onde o vendedor de campo (ou externo) realizaria toda negociação e após fechar a venda este entra em contato com o vendedor interno o qual lança o pedido no Sispetro, já permitindo assim a reserva de tais produtos e até mesmo enviar um fax do pedido ao cliente.
+Venda Direta:
+ esta opção só estará habilitada conforme configurações do Pedido de Venda Direta.
+Importante:
+ esse campo será apresentado somente para as empresas com o perfil "Controla Assistente de Vendas" presente na Configuração de Empresa painel "Vendas" marcado.
+Acione o botão Avança, para ir para a 3ª etapa da inclusão do pedido.
+3ª Etapa: Dados de Transporte e Entrega
+Após avançar para a 3ª etapa, ainda é possível voltar para a 2ª etapa e dados do pedido. Utilize o botão 
+Volta
+Observe que os mesmos dados continuarão a aparecer no quadro superior da tela, conforme citado no item 2 da 1ª etapa.
+Nesta terceira etapa deverão ser preenchidos os dados concernentes à entrega/retirada do produto, sendo composta pelos campos:
+Transportadora:
+ quem será o motorista/empresa de transporte responsável pelo deslocamento do produto até o endereço de entrega. O Sispetro trará automaticamente a transportadora, caso esta esteja devidamente vinculada a entidade no seu cadastro. Veja mais informações em 
+Tabela Transportadoras / Motoristas
+Transp. vinc.:
+ é possível restringir as Transportadoras/Motoristas para um determinado cliente para pedidos do tipo 
+Retira
+. Acesse 
+Transportadoras/Motoristas Permitidos
+ para mais informações.
+Frota:
+ veículo responsável pela entrega. Normalmente, o SisPetro irá sugerir o veículo associado ao motorista selecionado anteriormente. (mais informações sobre a associação da Transportadora ao Frota veja 
+Tabela Transportadora
+) Note que ele mostra os dados do veículo. Caso algo esteja discrepante ou não preenchido, aperte o botão correspondente (Frota ou Transportadora) para que o Sispetro mostre o respectivo cadastro para atualização. Os tipos de frotas permitidos no pedido de venda são Toco, Truck, Cavalo ou Vagão, isto porque nos casos de treminhão e carreta informa-se o cavalo e através dele se chega à carreta ou ao treminhão.
+Frota vinc.:
+ é possível restringir os Frotas para um determinado cliente para pedidos do tipo 
+Retira
+. Acesse 
+Frotas Permitidos
+ para mais informações.
+Quadro Dados Adicionais Frota: 
+observe que os dados da Transportadora e Frota vinculada a transportadora serão apresentados automaticamente na tela (considerando que foram cadastrados corretamente). Os dados apresentados serão:
+Qtde Lacres: número de lacres utilizados nas bocas de saída do produto no caminhão.
+Capacidade KG: volume total da capacidade do caminhão.
+Placas Cavalo, Carreta e Treminhão: placas do Cavalo, Carreta e Treminhão vinculados a Transportadora/Motorista
+Botão Compartimentação
+: mostra a compartimentação das placas já somados.
+Quadro Placas para este Pedido
+Placas Cavalo, Carreta e Treminhão: placas do Cavalo, Carreta e Treminhão utilizados no pedido
+Retira/Entrega: 
+define se comprador será o responsável pela retirada do produto, ou se a venda inclui a entrega do produto ao cliente. Caso você tenha selecionado modalidade Entrega, o Sispetro abrirá, na janela de produtos, um campo relacionado ao frete unitário para preenchimento. Se já houver itens no pedido, não será possível trocar de modalidade (de Entrega para Retira ou vice-versa), devem ser excluídos para que se processe a troca e novamente incluídos.
+É possível bloquear o Pedido de Venda, conforme pré-configuração realizada na transportadora quanto a forma de entrega selecionada no pedido de venda (mais informações veja 
+Verificação da modalidade de frete da Transportadora
+).
+Data Entrega:
+ data de entrega/retira do produto conforme acordado. O SisPetro irá sugerir a data corrente. Essa informação poderá ser utilizada de diversas formas, uma delas seria conferir se o pedido ainda não foi faturado e tenha passado a data de entrega definida por meio das telas de análise de vendas (mais informações veja 
+Análise de Vendas/Movimento
+)
+O campo data entrega do pedido, só poderá ser informado quando o perfil 
+Preenche Data Prevista Entrega?
+ presente na Configuração da empresa no painel 
+Vendas
+ estiver marcado.
+Tipo de Carga: 
+definição para a Composição de Carga e definição de rota de entrega do Pedido. Este campo só ficará habilitado quando o campo 
+Retira/Entrega for do tipo Entrega
+. As opções existentes são:
+Compartilhada c/Outros Pedidos:
+ este pedido poderá compor a carga junto com outros pedidos.
+Fechada neste Pedido:
+ este pedido não poderá compor carga com outros pedidos.
+Pedido segurado:
+ existe seguro contratado para o transporte do produto até o cliente. Na Nota Fiscal, aparecerá automaticamente uma tarja constando que esta carga foi segurada.
+Aguardar para aprovar:
+ caso o vendedor, por hora, necessite "segurar" o pedido, ou seja, não quer liberá-lo para aprovação, habilite esta opção. Esta opção é necessária pois se o pedido for aprovado (seja automaticamente pelo SisPetro ou manualmente por algum usuário) este não poderá ser mais modificado. Marcando Aguardar para aprovar, o pedido não terá liberação automática em nenhuma das áreas (vendas, financeiro e transporte), devendo ser aprovado de forma manual posteriormente após desmarcar esta opção. mais informações sobre aprovação manual e automática veja 
+Aprovação do Pedido de Venda
+ e 
+Aprovação Automática do Pedido de Venda
+. 
+Esta opção pode estar habilitada ou desabilitada. Quando habilitada, o Sispetro permite que seja configurada de modo a sugerir que determinado usuário já tenha essa opção marcada ou desmarcada, quando for emitir o pedido de vendas
+. Para isso, é necessário marcar nas configurações do usuário, menu Ferramentas > Usuário > Vendas > quadro Aprovação de Vendas > perfil Habilita opção Aguardar Aprov. Pedido e Aguardar para aprovar:
+Ao marcar o campo 
+"Habilita opção Aguardar Aprov. Pedido"
+, selecione uma das opções do perfil 
+"Aguarda para aprovar", 
+sendo elas:
+Sugere desmarcado:
+ ao fazer o pedido de vendas, a opção "Aguardar para aprovar", estará desmarcada.
+Sugere marcado: 
+ao fazer o pedido de vendas, a opção "Aguardar para aprovar", estará marcada.
+Caso o campo 
+Habilita opção Aguardar Aprov. Pedido
+, dentro do grupo 
+Aprovação de Vendas
+ , estiver desmarcado, no Pedido de vendas, o campo Aguardar para aprovar, estará desabilitado.
+Urgência na Aprovação:
+ esta opção pode ser habilitada para, caso o pedido tenha de ser aprovado manualmente, apareça destacado na tela de Consulta de Pedidos Pendentes (mais informações veja 
+Aprovação do Pedido de Venda
+).
+Esse recurso apenas para os pedidos realmente que necessitem de aprovação rápida.
+Acione o botão 
+Avança
+, para ir para a 4ª etapa da inclusão do pedido.
+4ª Etapa: Itens do Pedido
+Conferidos os campos, acione o botão 
+Avança
+ para ativar a próxima tela do pedido de vendas.
+Após avançar para a 4ª etapa, ainda é possível voltar para a 3ª etapa e alterar dados de transportes. Utilize o botão 
+Volta
+Observe que os mesmos dados continuarão a aparecer no quadro superior da tela, conforme citado no item 2 da 1ª etapa.
+Na quarta etapa que será lançado o produto no pedido de venda, sendo imprescindível o preenchimento dos campos:
+Código Produto: 
+neste campo deverá ser informado o código do Produto a ser vendido (caso não se saiba o código do produto, pressione a tecla <Enter>, o SisPetro exibirá uma janela de pesquisa de produtos). Ao definir o produto, será exibido automaticamente o preço de tabela associado ao cliente e ao produto.
+só poderão ser vendidos produtos nas seguintes condições:
+Produto pode sair na lista de preço (mais informações veja 
+Tabela Produtos
+)
+Para pedidos de venda direta (mais informações veja 
+Pedidos de Venda Direta
+), onde será permitida somente a venda dos produtos com o campo "Permite venda direta" marcado (mais informações veja 
+Preços/Bloqueio
+). 
+Produto tenha bloqueio por venda em município, e o município do cliente do pedido seja o mesmo bloqueado para o produto, o SisPetro emitindo a seguinte mensagem de alerta, no momento da inclusão de um pedido de vendas para um produto bloqueado.
+Mais detalhes do cadastro de produtos e sobre pedido de vendas, nos tópicos de 
+Venda Município
+ da Tabela de Produtos.
+Cliente Faturado:
+ código do cliente para o qual será realizado o faturado o item do pedido de venda (mais informações veja 
+Clientes - Painel Detalhes
+).
+A validação da situação financeira da entidade faturada, para efeito de bloqueio depende diretamente da configuração definida para a empresa (mais informações veja Situação 
+Financeira X Saldo Cliente
+)
+Caso a empresa trabalhe com 
+controle de documento
+, e o cliente faturado tenha algum documento irregular, o SisPetro não permitira salvar o pedido. Veja mais detalhes em 
+Controle de Documento
+.
+UF Cliente Faturado: 
+a finalidade deste campo é diminuir a probabilidade de erro na seleção de um cliente incorreto, principalmente nos casos onde temos dois ou mais cliente com a mesma razão social, contudo de estados diferentes, sendo realizada uma validação do estado digitado com o estado do cliente selecionado.
+Para realização desta consistência é necessário marcar o perfil "Força digitação/validação UF cliente nos itens pedido" presente na Configuração do Sistema Ferramentas / Sistema painel Vendas.
+Qtde Pedida:
+ quantidade solicitada pelo cliente. É possível informar uma quantidade com casas decimais (mais informações veja 
+Pedido de Venda com Quantidades em Decimais
+). Sendo interessante ressaltar que o SisPetro permite o faturamento parcial do item, isto é, gerar mais de uma nota fiscal para o item do pedido de venda, desde que este não tenha sido totalmente faturado ou cancelado ou desalocado.
+Preço Tabela:
+ é o preço definido pela empresa através da 
+Tabela de Preço
+.
+se a empresa trabalha com preços diferentes para o Faturamento e para o Financeiro, configuração que deve ser definida no perfil da empresa, vide detalhes no tópico...deve-se digitar, conforme esse perfil, se a coluna Preço Tabela será o preço/valor que irá para o Faturamento (NF) ou para o Financeiro, e vice-versa para a coluna Preço.
+% Desc: 
+caso tenha sido negociado com o cliente um preço diferente ao de tabela, indicar o percentual de desconto. Quando o usuário preenche o campo preço negociado, o SisPetro automaticamente calcula o percentual de desconto. O usuário pode também preencher o campo %Desc que o Sispetro calcula o valor negociado.
+o Desconto máximo poderá ser configurado para que o vendedor não ultrapasse o limite de desconto a ser concedido na venda (mais informações veja 
+Tabela Vendedores
+).
+Total:
+ valor total do item do pedido sem o frete (preço multiplicado pela quantidade).
+Preço Unit. Frete:
+ somente para os pedido que serão entregues, o usuário deve informar o frete unitário (por litro) para esta entrega. O SisPetro irá acumular os fretes de cada item e somar ao total do pedido. O valor deste campo é calculado automaticamente obedecendo algumas regras (mais informações veja 
+Tabela Distâncias
+ e 
+Cálculo do Valor do Frete
+).
+Frete Total Item:
+ valor total do frete por item.
+Valor Total com Frete:
+ soma do valor total do item do pedido mais o frete.
+Data de Entrega: 
+será possível o lançamento de datas distintas para cada produto, desde que a empresa não controle a vigência na Tabela de Preço (Na Configuração da Empresa painel "Dados gerais" perfil "Controla Tabela de Preços por Data de Vigência" marcado). Sendo sugerida sempre a data informada no pedido.
+note que na parte inferior do pedido, o SisPetro registra algumas informações referentes ao preço da tabela de preços e o praticado nesta venda. De acordo com o usuário, este preço poderá ser modificado para mais ou menos e o SisPetro automaticamente calcula o preço a prazo e a vista (de acordo com as condições de pagamento informadas anteriormente e o custo financeiro diário cadastrado na mesma condição de pagamento). Caso o pedido seja do tipo "Entrega", o usuário poderá observar o preço do frete somado com o valor unitário do pedido. Essas informações são apresentadas no grupo "Cálculo Preço" somente quando o perfil "Informa preços (a vista/prazo) no Pedido Venda" presente na Configuração da Empresa painel "Vendas" estiver marcado.
+Ao incluir um item do pedido, na caixa "Cálculo Preço" apresenta os cálculos dos preços à vista, frete, entre outros:
+O valor do desconto condicional será apresentado se no perfil do cadastro de cliente estiver habilitado e ter informado o valor unitário para o produto (mais informações em 
+Tabela Clientes / Preços
+).
+O pedido de venda pode ser composto de um ou vários itens (produtos). É importante ressaltar que o usuário poderá alterar o endereço de faturamento por item, caso a empresa permita um cliente comprador diferente do cliente faturado, sendo apresentado neste caso a opção de selecionar um endereço de faturamento específico por item.
+Vinculando Adiantamento Quantificado
+É possível determinar o produto e preço para o pedido conforme um 
+Adiantamento Quantificado
+ nos casos de Pedidos que não sejam de 
+Venda Direta
+. Para isso utilize o botão 
+Adto
+Importante: o Adiantamento Quantificado só será permitido ser selecionado conforme o tipo de cobrança definido (mais informações 
+Tabela Tipos de Cobrança
+)
+Escolha o adiantamento e produto desejado e verifique o tipo do pedido se é Entrega ou Retira, pois essa opção já vem definida no momento da inclusão do adiantamento, vide mais detalhes no tópico 
+Adiantamento Quantificado de Clientes
+.
+O preço será preenchido de acordo o preço que foi informado no momento da inclusão do adiantamento, não sofrendo nenhum tipo de validação em relação à tabela de preços, pois valerá o preço negociado no momento da inclusão do adiantamento. 
+A quantidade pode ser menor ou igual ao saldo do produto no adiantamento escolhido. 
+Este pedido só poderá ter um item, ou seja, só um produto escolhido do adiantamento e mais nenhum outro.
+Caso o pedido com adiantamento quantificado deva ser aprovado automaticamente (referente a Vendas e Financeiro) marque a opção 
+"Aprova automaticamente pedidos com adiantamento quantificado"
+ no Menu Ferramentas > Sistema > aba Financeiro, pois se este perfil não estiver marcado, será necessário fazer aprovação manual do pedido.
+Ao ser concluído o pedido de venda, a quantidade informada do produto será abatida do seu saldo para consulta/utilização do adiantamento quantificado. O valor financeiro equivalente a esta quantidade só será abatido quando for baixado o título gerado pela nota que faturar este pedido.
+Vinculando Contrato de Venda
+É também possível vincular o pedido conforme um 
+Contrato de Venda
+ nos casos de Pedidos que não sejam de Venda Direta. Para isso utilize o botão 
+Contrato
+.
+Seleciona o contrato de venda que deseja vincular ao Pedido que o Sispetro irá trazer preenchido o produto, preço e frete de acordo com o mesmo.
+Importante:
+ o Contrato de Venda só poderá ser vinculado ao pedido de venda caso o perfil "Controla Contrato de Venda" presente na Configuração da empresa e no painel "Vendas" venha a estar marcado, indicando assim que a empresa irá controlar seus contratos vinculando-os ao pedido de venda.
+A partir da versão 9.20 foi implementado recurso permitindo que o Contrato de Venda seja mais flexível, ou seja, usar um contrato de uma entidade do mesmo grupo econômico. Porém, nem todas as empresas permitem essa situação. 
+Na versão 9.22 foi implementado um perfil de sistema, 
+Painel Vendas
+, que permite as empresas escolherem qual cenário desejam trabalhar com 
+Contrato de Venda
+:
+Só utiliza contratos da própria entidade faturada
+ (padrão)
+Utiliza contratos próprios ou do comprador do grupo econômico
+Alterando Endereço de Cliente Faturado
+É possível alterar o endereço de cobrança, entrega e/ou faturamento do item do pedido, considerando que a empresa trabalha com Cliente Faturado.
+Seleciona:
+ permite ao usuário selecionar um outro endereço de Faturamento, desde que esteja previamente cadastrado para a entidade em questão no cadastro de Outros Endereços
+Limpa:
+ trazendo para o endereço de faturamento o endereço padrão da entidade, para mais informações sobre o endereço padrão vide Tabela Clientes.
+Após avançar para a 4ª etapa e incluir um item (um produto) 
+não será mais
+ 
+possível voltar
+ para a 3ª etapa e alterar qualquer informação. O botão Volta estará desabilitado.
+É possível visualizar os arquivos anexados nos produtos (
+só habilitado para usuários que tenham o perfil 
+Pode visualizar conteúdo do arquivo?
+ da aba vendas marcado).
+Acione o botão 
+Avança
+, para ir para a 5ª etapa da inclusão do pedido.
+5ª Etapa: Observações
+Informe qualquer observação relevante ao pedido. Esta observação será visualizada tanto na tela do responsável pela aprovação do pedido quanto pelo faturista.
+O Sispetro, após verificação dos dados relacionados ao cliente faturado, habilita o botão Finaliza.
+O usuário tem a opção de voltar às telas anteriores (botão Volta) para verificações e possíveis alterações. Acione o botão Finaliza, quando pedido estiver com suas devidas informações preenchidas.
+Na finalização do pedido, são feitas algumas validações, mais informações em 
+Condição de Pagamento por Produto
+, 
+Controle de preços abaixo do custo
+.
+Será mostrado o resultado da inclusão do pedido no SisPetro.
+Se o Depósito estiver configurado para Avisar Saldo Negativo, ou bloquear quando Saldo Negativo, a tela abaixo será apresentada:
+Quando Depósito configurado para Bloquear, a mensagem será a mesma, porém o botão Continua estará desabilitado.
+Caso a funcionalidade 
+Consulta ANP
+ esteja em uso e o Cliente Faturado esteja com seu Status configurado para 
+Não Permitir a Inclusão, 
+será mostrada a tela abaixo, informando o motivo da não inclusão do Pedido.
+Caso as seguintes configurações: 
+Perfil de Sistema / aba Clientes, campo Verifica os produtos permitidos dos clientes na Consulta ANP
+ = Verifica no Pedido de Vendas.
+Perfil de Clientes / grupo Consultas ANP/Sintegra, campo Verificação dos produtos permitidos conforme Consulta ANP =
+ Conforme perfil de sistema
+.
+Além disso se cliente não puder vender o produto, ou a descrição do produto não estiver condizente com a descrição da ANP o SisPetro irá barrar a inclusão do pedido de vendas e mostrará a mensagem 
+Produto Não liberado na ANP para Entidade. 
+Para mais informações, ver 
+Consulta ANP
+.
+Se o Cliente tiver um Status que não esteja configurado para Bloquear a inclusão, não será mostrada nenhuma mensagem e o Pedido irá para o próximo passo, de Análise de Aprovação.
+ O Resultado da Análise do Pedido de Venda será apresentado conforme imagem abaixo:
+Para entender a análise do pedido de venda, veja mais informações sobre 
+Aprovação de Vendas
+, 
+Aprovação de Transporte
+ e 
+Aprovação Financeira
+.
+Ao Sair da tela de Resultado de Análise do Pedido de Venda, a mensagem de impressão será apresentada:
+Sendo permitida a impressão do pedido de venda em outro momento, mais informação veja 
+Imprimindo um Pedido de Venda
+.
+Quando o pedido for finalizado com sucesso, o SisPetro irá alocar (reservar) a quantidade indicada de cada item, subtraindo ao saldo disponível esta quantidade e somando-o ao saldo pendente do produto no depósito indicado pelo usuário.
+Aviso de Manifestações Pendentes
+É possível habilitar uma opção para apresentar uma tela de aviso de manifestações pendentes, para quando o cliente utilizado no pedido estiver com manifestações pendentes no Sispetro.
+Para habilitar essa opção basta acessar o perfil de Sistema e ajustar o perfil 
+Avisa Manifestações Pendentes na Inclusão de Pedido
+. Para mais informações, ver 
+Painel Vendas
+Cliente:
+ razão social e código da entidade faturada
+Empresa:
+ código da empresa onde foi emitida a nota de venda
+Número da NF:
+ número da nota fiscal
+Data:
+ data de emissão da nota
+Chave Acesso:
+ chave de acesso da nota fiscal
+Abaixo do campo Cliente, mostra a 
+quantidade total
+ de notas fiscais 
+sem manifestação
+Gerenciadora de Análise de Crédito
+Na versão 9.42 foi implementada a Gerenciadora de Análise de Crédito. Se a empresa optar por utilizar esse recursos, a inclusão de pedidos terá alterações, conforme segue:
+Cliente configurado para realizar consulta
+Nunca realizou uma consulta:
+ pedido ficará pendente e o SisPetro enviará uma solicitação de consulta à Gerenciadora. O usuário, tendo perfil, deverá liberar ou não manualmente o pedido
+Consulta expirada:
+ pedido ficará pendente e o SisPetro enviará uma solicitação de consulta à Gerenciadora. O usuário, tendo perfil, deverá liberar ou não manualmente o pedido
+Consulta com restrição:
+ pedido ficará pendente. O usuário, tendo perfil, deverá liberar ou não manualmente o pedido
+Cliente não configurado para realizar consulta:
+ não realizará a verificação de consultas à Gerenciadora e continuará nos procedimentos já existentes. Caso queira, é possível realizar uma consulta manual e ter dados de consulta mas na inclusão de pedido de venda não será feita qualquer verificação desses dados.
+Importante
+O perfil de sistema, no 
+Painel Clientes
+, 
+Forma de Consulta
+ indica como serão feitas as consultas. Caso selecione a opção 
+Qualquer entidade habilitada 
+permitirá fazer consultas manuais através do cadastro de Clientes - ver 
+Clientes - Painel Navegação
+O perfil de sistema, no 
+Painel Clientes
+, 
+Forma de Consulta
+ indica como serão feitas as consultas. Caso selecione 
+Somente para pedidos com consulta pendente (padrão), 
+ será desabilitada a consulta através do cadastro de clientes, permitindo a consulta somente através da inclusão de pedidos de venda. Nesta opção, as consultas são feitas automaticamente para os clientes que estejam configurados para consultar, utilizando o Serviço de Análise de Crédito no Servidor.
+Ao incluir um pedido de venda e caso não tenha uma consulta válida ou tenha uma consulta vencida, automaticamente será feita uma solicitação de consulta e o pedido ficará pendente. Após retornar o resultado da consulta e o cliente não tendo restrições na Serasa, o usuário pode fazer nova análise na tela de Manutenção de Pedidos - botão Análise e neste caso, o SisPetro fará todo o processo de análise de aprovação de pedido gravando os dados ou liberar através da tela de pedidos pendentes e neste caso, o SisPetro não fará a análise de aprovação.
+Os pedidos incluídos via SisPetro Normal e ficam pendentes 
+não são analisados
+ pelo Serviço de Análise de Aprovação de Pedido, que é usado exclusivamente para pedidos incluídos via SisPetroWeb - ver 
+Aprovação Automática Pedido de Venda incluídos via SispetroWeb
+Para mais informações ver 
+Gerenciadora de Análise de Crédito - GAC

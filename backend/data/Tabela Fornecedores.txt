@@ -1,0 +1,209 @@
+TITULO: Tabela Fornecedores
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210175
+--------------------------------------------------
+none
+Objetivo
+É denominado Fornecedor qualquer entidade que venda matéria-prima básica, produtos para consumo ou revenda e serviços diversos (transporte, imprensa, informática, segurança, etc.)
+Nesta tabela devem estar cadastradas todas as pessoas físicas e jurídicas que cumprem este papel junto à Empresa.
+Para acessar a tabela de Fornecedores do SisPetro, acione a partir do Menu principal
+ Arquivos/ Fornecedores
+Itens inativos agora ficarão destacados em 
+vermelho
+É possível na aba 
+Navegação 
+filtrar ou não os cadastros que estão 
+Inativos
+. Visualizar os cadastros inativos, basta marcar a opção 
+Visualiza Inativos 
+e os cadastros aparecerão em vermelho
+Na aba Ocorrências/Pendências, será mostrada a observação cadastrada em manutenção de ocorrência e na manutenção de pendência. 
+Para mais informações, ver 
+Ocorrências
+ / 
+Pendências
+.
+No cadastramento de um 
+Fornecedor
+, devemos fazer sua associação com as seguintes tabelas
+do Sistema:
+Tabela de Condições de Pagamento
+: condição de prazos que a Empresa terá junto a este fornecedor.
+Tabela Moedas
+Tabela Plano de Contas
+: cada fornecedor deve possuir sua conta contábil composta por um código de conta fixo + código do fornecedor no Sistema. Desta tabela também será selecionada a Conta Contábil de Despesa. O usuário somente necessita escolher a conta contábil de despesas associada ao fornecedor. O SisPetro cria e gerência automaticamente a conta contábil do fornecedor.
+Perfil de Sistema que impactam no cadastro
+Verifica CGC:
+ Podemos forçar a digitação e também validar esse campo, utilizando o mesmo perfil do cadastro de clientes, localizado em Ferramentas/Sistema - painel Clientes.
+Vale lembrar que não é permitido o cadastro de duas entidades ativas com o mesmo CNPJ/CPF, a menos que uma delas esteja inativa e o perfil 
+Permite duplicação CGC inativo
+, em Ferramentas/Sistema - painel Clientes,
+ esteja marcado.
+Valida Inscrição Estadual Clientes:
+ o SisPetro valida a lei de formação para a IE, que varia conforme a localização (estado). Utilize o RG quando for pessoa física, senão digite a Inscrição Estadual. Igual ao campo CNPJ/CPF, pode-se forçar a digitação e validar a Inscrição Estadual, configurando o perfil da empresa localizado em Ferramentas/Sistema - painel Clientes.
+Verifica Formato Inscrição Estadual?:
+ para adotar a máscara de inscrição estadual de cada UF, é necessário que o perfil localizado em Ferramentas/Sistema - painel Clientes esteja marcado.
+Perfil de Usuário
+Para que o usuário possa incluir, alterar ou excluir um fornecedor, o usuário deve ter as devidas permissões de usuário. Para mais informações, ver 
+Painel Segurança (Usuários)
+.
+Caso a entidade seja definida como Órgão Público, o SisPetro não fará nenhuma validação e também não forçará a digitação do campo IE, mesmo que o perfil na configuração da empresa esteja marcado.
+É possível deixar como obrigatório o preenchimento dos campos na inclusão e na edição, para isso basta acionar o suporte da Futura solicitando o bloqueio dos campos desejados. Para visualizar os campos obrigatórios basta acionar a tabela de 
+Dicionário de Dados
+.
+Para incluir um novo registro, acione o botão 
+Incluir
+O SisPetro ativa a tela que permite o cadastramento de um novo Fornecedor, painel 
+detalhes / Dados Gerais
+:
+Código: 
+sequencial numérico definido pelo SisPetro.
+Nome Usual:
+ como o fornecedor é conhecido ou nome fantasia.
+Razão Social: 
+nome constante nos documentos oficiais (contrato social, ata, etc.)
+Classificação:
+Pessoa Jurídica: 
+se não marcada, é 
+Pessoa Física
+Órgão Público: 
+se marcada, permite incluir sem informar o CNPJ
+Consumidor Final:
+ se marcada, é utilizado em NFs de produtos importados e como os fornecedores 
+não são contribuintes
+ devem ser marcados como consumidor final.
+Investidor: 
+usado na inclusão do PMM
+Endereço:
+ rua ou avenida onde a empresa do fornecedor se localiza.
+Número: 
+número do prédio onde a empresa se localiza. Se não tiver numeração coloque S/N
+Complemento:
+ dados complementares do endereço
+CEP:
+ CEP referente ao endereço da empresa
+Bairro:
+ local do município onde a empresa se localiza
+Cidade:
+ município onde a empresa se localiza
+Estado:
+ estado onde a empresa se localiza
+CNPJ / CFP:
+ o SisPetro verifica o que foi marcado no campo "Pessoa Jurídica" e assume automaticamente o formato de CPF, caso seja pessoa física, ou CNPJ para pessoa jurídica. Caso o fornecedor seja de outro pais, o SisPetro não colocará restrição de máscara. 
+Inscrição Estadual/RG: 
+informe a IE. Se pessoa física ou pessoa jurídica isenta, deixe em branco
+País: 
+padrão 1058 (Brasil). Altere somente se for um fornecedor estrangeiro.
+Latitude:
+ nesse campo informamos a latitude da localização do Fornecedor. 
+Longitude:
+ nesse campo informamos a longitude da localização do Fornecedor. 
+Ao utilizar os campos de Latitude e Longitude a busca no mapa utilizará as coordenadas informadas no mesmo. A utilização desse recurso só é permitida quando informamos os 2 campos
+Telefone: 
+informe o telefone do fornecedor
+Fax: 
+informe o fax do fornecedor
+E-mail:
+ utilizado para compor dados do Registro 20 do SCANC, campo 11, envio de 
+PMM
+ e também para o 
+Envio de Ordem de Carregamento por e-mail
+.
+Nome do Contato: 
+nome do contato no fornecedor
+Envia Ordem de Carregamento por e-mail:
+ a partir da versão 8.23 é possível enviar OCs de Transferência entre Depósitos, automaticamente, por e-mail. 
+Para mais informações, ver 
+Envio de Ordem de Carregamento por e-mail
+.
+ Para que este receba as OCs é preciso informar o e-mail de recebimento (campo acima) e também habilitar este perfil, caso contrário não será enviada.
+Apuração de PIS/ COFINS:
+ campo específico para definir como o fornecedor trabalha com relação à Apuração de PIS e COFINS, considerando que a partir de 2009 a Apuração de PIS e COFINS do Álcool passou às opções 
+Alíquota
+ e 
+Valor fixo por m³
+ (metros cúbicos). Portanto, temos:
+Respeita a configuração para a empresa
+Tributado por Alíquota (opção padrão do sistema)
+Tributado por Valor Fixo por m3
+Para mais informações, ver 
+Apuração de PIS e COFINS
+.
+Número PIS: 
+caso tenha, informe.
+Número INSS: 
+caso tenha, informe.
+Inativo:
+ perfil que define se o fornecedor está ativo ou não na empresa.
+Quadro Anexos
+Para os Anexos III e V, deve ser configurado, o tipo de Substituto Tributário na opção 
+Categoria do Estabelecimento
+, para que no Quadro 5 (Resultado da Apuração) de ambos os relatórios, o imposto a ser repassado ou provisionado possa ser impresso de acordo e também para sair no 
+Registro 20
+ do SCANC.
+Categoria do Estabelecimento: 
+o padrão é Posto Varejista, porém quando o cliente não é posto varejista, deve ser alterada essa informação, para sair corretamente na geração dos dados para Anexo/SCANC. Utilizado no registro 20, campo 12 (Categoria) do arquivo do SCANC.
+0 = Não é Substituto Tributário:
+ caso utilize esta opção, o campo 12 não será preenchido
+1 = Refinaria:
+ será preenchido com REF
+2 = Formulador:
+ será preenchido com FOR
+3 = Importador:
+ será preenchido com IMP
+5 = Armazenador:
+ será preenchido com ARM
+6 = Consumidor Final Não Contribuinte:
+ será preenchido com CNF
+7 = Central Petroquímica:
+ será preenchido com CPQ
+8 = Distribuidor:
+ será preenchido com DIS
+9 = Posto Varejista:
+ será preenchido com PRV
+10 = Transportador e Revendedor Retalhista:
+ será preenchido com TRR
+11 = Usina:
+ será preenchido com USI
+12 = Consumidor Final Contribuinte:
+ será preenchido com CFC
+13 = Varejista de GLP:
+ será preenchido com VGL
+14 = Empresa Comercializadora de Etanol:
+ será preenchido com ECE
+Também para os Anexos III e V, existe a possibilidade de se trocar os dados do destinatário do relatório. Sendo o fornecedor um importador ou formulador, o relatório deverá receber os dados da refinaria como destinatário. Para isso, basta alterar o campo 
+Fornecedor Destinatário Anexos
+IE Subst:
+ código da Inscrição Estadual de Substituição da entidade.
+Para mais informações, ver 
+Manutenção de Anexos - Distribuidora
+.
+Após a inclusão dos dados do novo Fornecedor acione o botão OK.
+Abas inferiores
+O SisPetro permite o cadastramento de outros dados considerados importantes para o Fornecedor. Os botões do menu inferior da tela permitem acionar as telas para a entrada desses dados.
+Dados Gerais:
+ são os preenchidos no momento da inclusão da entidade.
+Padrão para Compras
+:
+ são os dados que serão sugeridos no momento da inclusão de um pedido de compra.
+Outros Endereços
+:
+ são os endereços alternativos da entidade.
+Observações
+:
+ campos livres para preenchimento, normalmente são outros telefones, observações sobre perfil da entidade, etc - elas aparecem na tela principal de navegação.
+Contas Auxiliares
+:
+ são normalmente utilizadas para a contabilização real de transferências de produtos entre filiais.
+Controle de Despesas no PMM
+:
+ uma despesa pode ser oriunda de um fornecedor pré-cadastrado, como uma Corretora ou Armazenadora, ou não ter nenhum vínculo com Fornecedor. De qualquer forma, caso tenha vínculo com Fornecedor, é possível já deixar pré-cadastrado o valor/percentual das despesas para ele. 
+De/Para - Fornecedor
+:
+ permite que seja indicado o De/Para que será utilizado para o fornecedor na Importação de XML.
+Controle Documentos (Fornecedores)
+:
+ permite controlar os documentos do fornecedor de posse da empresa.
+Nessa tela de fornecedores também é possível visualizar movimentações de determinado fornecedor. Para mais informações, ver 
+Consultas
+.
+O SisPetro retorna a tela de navegação no cadastro de Fornecedores, acione o botão Sair para retornar ao Menu principal.

@@ -1,0 +1,118 @@
+TITULO: Controle de Projetos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927269388
+--------------------------------------------------
+Objetivo
+As Distribuidoras, conforme vão crescendo, investem em projetos grandes, que movimentam um grande volume financeiro. Tais projetos podem ser de investimento em postos, construção de bases ou sede próprias. E com isso há a necessidade de acompanhar os recursos gastos nesses projetos.
+Com isso surgiu a necessidade de um controle de Projetos no SisPetro, controlando os gastos e validando o valor teto do projeto através dos PMM, Notas fiscais e Títulos e Despesas Extraordinárias vinculadas a ele. Além disso, utilizar a 
+estrutura de custos
+ para poder identificar os valores por projeto de cada setor. 
+Abaixo um exemplo de como os valores são controlados
+Um projeto de R$ 100.000,00 reais
+Ação
+Valor Utilizado do Projeto
+Saldo
+Emissão de PMM (x) (qtde 50.000 a R$ 1,00)
+R$ 50.000,00
+R$ 50.000,00
+Emissão de PMM (y) (qtde 30.000 a R$ 1,00)
+R$ 80.000,00
+R$ 20.000,00
+Inclusão de NF vinc. ao projeto R$ 10.000,00
+R$ 90.000,00
+R$ 10.000,00
+Inclusão NF vinc. ao PMM (x) (qtde 50.000 a R$ 1,00) *
+R$ 90.000,00
+R$ 10.000,00
+Inclusão NF vinc. a OC do PMM (x) (qtde 20.000 a R$ 2,10)
+R$ 91.000,00
+R$ 9.000,00
+Inclusão de NF vinc. ao PMM (y) (qtde 30.000, a R$ 0,99) **
+R$ 90.700,00
+R$ 9.300,00
+ * A nota vinculada ao PMM gerou financeiro mas não movimentou estoque por isso 
+não altera
+ o valor utilizado do projeto
+** A nota vinculada ao PMM gerou financeiro 
+e movimentou estoque
+. Como o valor da unidade é menor que o valor da unidade do PMM, o SisPetro recalcula o valor utilizado, diminuindo o valor alocado do PMM (y) ao projeto e 
+aumenta 
+o saldo a ser utilizado. 
+Configurações
+Para utilizar o Controle de Projetos nos diversos pontos do SisPetro, são necessárias as seguintes configurações:
+Ferramentas / Sistema
+ 
+/
+ 
+Painel Dados Gerais
+Utiliza Controle de Projetos:
+ marcar essa opção para habilitar a informação do projeto em vários pontos do SisPetro.
+Ferramentas / Usuário / 
+Painel Compras (Usuários)
+Pode alterar Projeto de PMM: 
+marcar para habilitar o botão Projeto na tela de 
+Manutenção de Pedidos de Movimentação de Material
+.
+Tabelas Auxiliares / 
+Projetos
+Cadastrar os projetos
+Informar se estão ativos
+Informando o valor
+Marcar para controlar valor (caso necessário).
+Escolher se são ou não restritos a empresas.
+Indicando os projetos
+Definidos os perfis e cadastrados os projetos, então é possível indicá-los nas seguintes telas:
+Movimentação / Movimentação de Material / Pedido de Movimentação de Material / Pedido de Movimentação de Material
+Depende do perfil de sistema estar marcado para habilitar o campo Projeto na inclusão do PMM. Definindo o projeto no PMM, ele será transferido para as notas fiscais de entradas importadas manualmente ou via serviço.
+Caso seja necessário alterar o projeto após a inclusão do PMM, acesse a tela de 
+Manutenção de Pedidos de Movimentação de Material
+. 
+O 
+botão Projeto
+ estará 
+habilitado
+ caso o
+ usuário
+ tenha 
+perfil
+ para alterar - ver 
+Painel Compras (Usuários)
+.
+Selecione o
+ PMM 
+ e clique no botão 
+Projeto 
+e faça a alteração desejada:
+Na aba 
+Pedidos
+ foram disponibilizados os campos 
+#Projeto (código do projeto) e Projeto (descrição do projeto):
+Movimentação / Faturamento / Outras Entradas  
+Depende do perfil de sistema - 
+Painel Dados Gerais
+ - estar marcado para habilitar o campo Projeto fica habilitado na inclusão de uma nota fiscal manual. Caso seja informado um PMM com projeto indicado, não é permitido alterar o projeto. Para as notas fiscais de entradas importadas manualmente ou via serviço será usado o projeto que está no PMM, caso tenha.
+Caso o valor da nota exceder o valor do projeto (independente da nota gerar t
+ítulo de desconto ou não
+, o SisPetro faz a validação e mostra uma mensagem similar a abaixo
+Movimentação / Faturamento / Manutenção de Notas Fiscais
+ foram disponibilizados os campos 
+#Projeto (código do projeto) e Projeto (descrição do projeto):
+Movimentação / Financeiro / Manutenção de Bancos / botão Pagamentos / aba Despesas Extraordinárias
+Depende do perfil de Sistema - 
+Painel Dados Gerais
+ - estar marcado para habilitar o campo Projeto, nas 
+Despesas Extraordinárias
+ é possível selecionar o projeto. 
+Movimentação / Financeiro / 
+Manutenção de Utilização de Cheques / Despesas Extraordinárias
+Movimentação / Financeiro / Contas a Pagar / Inclusão Lançamento  
+Depende do perfil de sistema - 
+Painel Dados Gerais
+ - estar marcado para habilitar o campo Projeto.
+Movimentação / Controladoria / Manutenção de Lotes (lotes gerenciais)
+Na aba 
+Navegação
+ foram disponibilizados os campos 
+#Projeto (código do projeto) e Projeto (descrição do projeto). 
+Os lotes contábeis gerenciais oriundos de notas fiscais de entrada manuais, despesas extraordinárias e títulos a pagar manuais que foram vinculados a projetos, terão as informações dos projetos.
+Consulta / Movimentação de Centro de Custo x Conta Contábil
+Esta consulta permite analisar a distribuição das despesas entre os Centros de Custos e os projetos, caso tenham. Se não tiver projeto, mostrará como Não Definido.

@@ -1,0 +1,247 @@
+TITULO: Depósito Identificado
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2930081789
+--------------------------------------------------
+Uma forma de controle utilizada pelos Bancos onde existe um grande volume de depósitos, é o Depósito Identificado, onde a empresa recebe um código.
+A empresa informa ao cliente esse código que será o utilizado para efetuar o depósito. Com isso é possível identificar cada depósito analisando seu extrato e desta forma saber quem depositou.
+Realizando a leitura de um Arquivo de Retorno específico, é possível que o SisPetro identifique os lançamentos
+, gere um Adiantamento e faça a Baixa Automática com os depósitos identificados. 
+No 
+SisPetro
+ temos 
+implementado
+ o depósito identificado para o 
+Banco do Brasil, 
+e para o 
+Banco Bradesco.
+Número Banco
+Banco
+OBS
+Layout Importação 
+001
+Banco do Brasil
+O BB não disponibiliza no arquivo o CNPJ da empresa, caso a 
+Conta Banco
+ não seja exclusiva para uma empresa, o SisPetro acabará utilizando a configuração. (Tabela Bancos / Detalhes / Depósito Identificado). Para mais informações ver 
+.
+Não Tem
+237
+Bradesco
+-
+Layout DP06: 
+DepositoIdent_Bradesco.smi Configurar em 
+Manutenção Importação de Dados
+O Processo no SisPetro é feito em 3 partes:
+Leitura:
+ será feita a leitura do arquivo de retorno e identificar quantas linhas possui e os campos: 
+código do Banco, Tipo de Depósito, Data, Número do Depósito e Valor
+;
+Pré-Processamento:
+ será feita a análise geral do arquivo e se o status da leitura for 
+2 - Concluído Ok
+, identificará em cada linha do arquivo qual o cliente que efetuou o depósito.
+Processamento:
+ serão incluídos os Adiantamentos para os registros encontrados, se o status do pré-processamento for 
+2 - Concluído Ok
+. Caso utilize a Baixa Automática, e estiver devidamente configurado, executará também este processo. Para mais informações, ver 
+Baixa Automática utilizando Adiantamentos
+Configuração
+Para utilizar o Depósito Identificado, é necessário que configure:
+Banco:
+ deve estar configurado que utiliza o Depósito Identificado. 
+Para mais informações, ver
+ 
+.
+Tipo de Cobrança:
+ deve estar vinculado a um Banco que utilize o Depósito Identificado. 
+Para mais informações, ver 
+.
+Plano de contas:
+ devemos habilitar a opção 
+Uso em depósito identificado
+, para que o mesmo seja identificado ao realizar a leitura dos arquivos. 
+Para mais informações, ver 
+.
+Serviço de Depósito Identificado:
+ necessário realizar a configuração do serviço de rotina de leitura do arquivo. Para mais informações, ver 
+Serviço de Depósito Identificado
+Caso a empresa trabalhe com mais de um banco, na pasta apontada deve-se incluir uma subpasta com o código do banco
+Geração do Código de Depósito Identificado
+No momento da emissão da NF, utilizando 
+Tabela de Tipos de Cobrança
+ configurado com o Depósito Identificado, o SisPetro irá gerar o Código conforme definido no cadastro.
+O Bradesco possui duas formas de gerar o código de Depósito Identificado, u
+ma delas é o próprio CNPJ e a outra um código de escolha da empresa (Número da NF) que deve ser acompanhado de um Dígito Verificador, em um dos padrões disponibilizados pelo banco.
+No layout da NF é possível incluir um campo com o código de Depósito Identificado, facilitando para o cliente realizar o depósito no banco. 
+Manutenção de Depósito Identificado
+Para fazer a Leitura do Arquivo de Retorno de Depósito Identificado, vá em 
+Movimentação / Financeiro / Depósito Identificado.
+Na tela é possível selecionar que campos podem ser mostrados. Para isso basta clicar no botão conforme indicado abaixo e selecionar os campos desejados.
+Ler arquivo
+Esta tela é onde será importado o arquivo de retorno do Banco com as informações de Depósitos Identificados.
+Selecione o 
+Banco
+ e o 
+Diretório
+ onde está o arquivo de retorno, em seguida clique em 
+Ler Arquivo.
+Na tela 
+Dados Lidos
+, serão apresentadas as informações referentes aos registros identificados no arquivo e caso todos estejam corretos, alterará o status de Leitura para 
+2- Lido Ok
+, apresentando a mensagem:
+ 
+Ao clicar em 
+“Sim”
+, o SisPetro irá iniciar o Pré-Processamento, fazendo as seguintes validações:
+Analisa se encontra uma única Conta para o Banco obtido no Plano de Contas;
+Analisa se a Conta encontrada é restrita à empresa, caso não seja, verifica se o Banco foi configurado para usar uma empresa padrão;
+Analisa cada linha para identificar o cliente;
+Se o arquivo tiver o Tipo de Depósito 011 é por Número NF:
+Procura em NF da empresa do arquivo, com Data de Emissão maior ou igual à Data do Arquivo, cujo Tipo de Depósito é Número NF, que tenha o Número do Depósito igual ao obtido no arquivo;
+Salva o Código do Cliente da NF na linha;
+Se o arquivo tiver o Tipo de Depósito 017 é por CPF/CNPJ:
+Procura no Cadastro de Clientes Ativos aquele cujo CPF ou CNPJ seja igual ao obtido no arquivo;
+Salva o Código do Cliente da NF na linha;
+Clicando em Processar, o SisPetro irá gerar os Adiantamentos referentes a estes Registros, realizando as seguintes ações:
+Só irá executar as ações se o Status de Pré-Processamento do arquivo estiver como 
+2 - Concluído OK
+;
+Analisa cada linha com Status de Pré-Processamento 
+2 - OK
+:
+Inclui um Adiantamento para o Cliente, preenchendo:
+Histórico e Tipo de Documento:
+ conforme preenchido no Banco;
+Pode Contabilizar e Código de Contabilização:
+ conforme perfil de sistema;
+#Docto:
+ sequencial do arquivo de Retorno;
+Data:
+ data do Arquivo;
+Cliente:
+ cliente do Arquivo;
+Empresa:
+ conforme salvo para o arquivo (obtido da Conta ou do Banco);
+CCBanco:
+ conforme a conta salva para o arquivo (obtido através do convênio no arquivo);
+Moeda:
+ conforme cadastrado no perfil da empresa;
+Valor:
+ valor vindo no arquivo;
+ID da Linha de Retorno:
+ campo novo que deve ser a chave da linha de retorno que gerou esse adiantamento;
+Marca no Cliente o Acionamento de Baixa Automática.
+No Pré-Processamento do Depósito Identificado, com base nas informações do arquivo, será localizado o 
+Banco
+,
+ Agência e Número de Conta
+, e 
+sugerido o plano de contas
+. Só serão localizados os planos de conta, que se encontram com o perfil 
+Uso em depósito identificado
+ marcado. Para mais informações, ver 
+.
+Quando tiver mais de um plano de contas com perfil 
+Uso em depósito identificado
+ 
+marcado e com mesmo banco, agência e conta, será pego sempre o menor código de plano de contas.
+Ex. Se houver 3 contas cadastradas conforme abaixo:
+BC00005 - Banco 237 Ag 3333 Conta 12345-7
+BC00003 - Banco 237 Ag 3333 Conta 12345-7
+BC00008 - Banco 237 Ag 3333 Conta 12345-7
+A conta a ser utilizada será a BC00003, porque tem o código menor que a BC00005 e BC00008
+Layout do Arquivo Banco Bradesco
+Seguem dados que compõe o arquivo de retorno do Depósito Identificado. Com essas informações, é possível uma melhor compreensão e agilidade na solução de eventuais problemas.
+Linha
+Posição
+Informação
+​1ª
+90 a 103​
+CNPJ da empresas​
+1ª
+104 a 106
+Código do Banco. Ex. 237 (Bradesco)
+1ª
+119 a 123
+Agência (código da Agência)
+1ª
+124 
+Dígito da Agência
+1ª
+129 a 138
+Número da Conta Bancária
+1ª
+139 a 140
+Dígito da Conta
+1ª
+141 a 147
+Código do Cliente no Banco
+1ª
+148 a 161
+Data/Hora do Arquivo
+1ª
+162 a 169
+Nº Arquivo
+1ª
+234 a 240
+Nº Linha
+Demais Linhas
+2 a 9
+Data do depósito
+Demais Linhas
+48 a 61
+CNPJ do Cliente
+Demais Linhas
+93 a 105
+Valor do depósito
+Demais Linhas
+107 a 114
+Nº Documento
+Layout do Arquivo Banco do Brasil
+Seguem dados que compõe o arquivo de retorno do Depósito Identificado. Com essas informações, é possível uma melhor compreensão e agilidade na solução de eventuais problemas.
+Campo
+Início 
+Fim
+Tamanho
+Tipo de Registro
+1
+1
+1
+Cabeçalho (1ª linha)
+Campo
+Início 
+Fim
+Tamanho
+Código do Banco
+10
+12
+3
+Número Arquivo
+195
+200
+6
+Detalhe (1 linha por Depósito)
+Campo
+Início 
+Fim
+Tamanho
+Número da Linha
+10
+15
+6
+CNPJ/CPF Cliente (Número Depósito)
+16
+29
+14
+Valor
+80
+96
+17
+Data (AAAAMMDD)
+02
+09
+8
+Número Documento
+125
+134
+10

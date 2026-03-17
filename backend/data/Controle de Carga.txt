@@ -1,0 +1,76 @@
+TITULO: Controle de Carga
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898383
+--------------------------------------------------
+none
+Objetivo
+O controle de carga foi criado com o intuito de auxiliar o Setor de transportes na 
+composição de Cargas.
+ O controle visa apresentar os pedidos para entrega, a rota de cada cliente e outros dados complementares, agilizando o processo de agrupamento.
+As cargas podem ser visualizadas acessando o menu 
+Movimentação / Transportes / Manutenção de Cargas
+, apresentando a seguinte tela:
+Nesta tela será possível além de visualizar, dar manutenção nas cargas, estando disponíveis as seguintes opções:
+Composição de cargas
+:
+ montagem da carga de acordo com os pedidos disponíveis.
+Cancelamento
+:
+ desvincula dos pedidos a carga cancelada.
+Fechamento
+:
+ fecha a carga, não permitindo mais alteração.
+Cancelamento do Fech.:
+ volta a carga para o status pendente.
+Encerra
+:
+ encerra a operação, não permitindo mais alteração.
+Canc.  Enc.:
+ desfaz o encerramento e volta a carga para o status Fechado.
+Ag. Viag.: 
+s
+erá usado em carga fechada, mas que não tenha um agendamento.
+Canc.  Viag.: 
+s
+erá usado em carga fechada e que tenha um agendamento 
+cuja viagem ainda não esteja Em Viagem 
+ou
+ Finalizada
+. 
+Autoriza: 
+irá realizar a autorização do frete da carga, no perfil de usuário 
+autoriza/desautoriza carga (valor do frete).
+ Para mais informações, ver 
+Painel Fretes (Usuários)
+Canc.Autor: 
+irá realizar a cancelamento do frete da carga, no perfil de usuário 
+autoriza/desautoriza carga (valor do frete).
+ Para mais informações, ver 
+Painel Fretes (Usuários)
+Impressão:
+ permite imprimir documento com dados da carga e pedidos vinculados. Necessário ter o arquivo de layout Controle Carga.rtm no mesmo diretório que o executável.
+Filtros
+A tela é filtrada por:
+Tipos de Carga
+:
+Pendentes:
+ ainda não foi fechada, podendo ser acionada pela composição para que seja alterada.
+Fechadas: 
+não pode mais ser alterada, ou seja, retirar/incluir pedidos.
+Canceladas:
+ cargas canceladas que já não estão mais vinculadas aos pedidos.
+Encerradas:
+ cargas Fechadas com o processo já encerrado.
+Data: 
+mostra as cargas a partir de uma determinada data
+Definindo Permissão de usuário para Fechamento de Carga
+Acesse o 
+perfil de usuário
+ Ferramentas > Usuário.
+1) Selecione o usuário desejado e vá na aba 
+Filiais para Carga
+.
+2) Selecione as empresas que deseja dar a permissão, conforme imagem abaixo:
+Desta forma, só serão apresentadas apenas as Cargas que o usuário conectado tem a permissão de Fechar a Carga.
+Para Saber Mais
+Tabela Transportadoras / Motoristas
+Monitoramento de Viagem

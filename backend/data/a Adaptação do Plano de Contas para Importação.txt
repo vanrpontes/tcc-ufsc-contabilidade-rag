@@ -1,0 +1,157 @@
+TITULO: a. Adaptação do Plano de Contas para Importação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879390068
+--------------------------------------------------
+1. Adaptação do Plano de Contas para que seja importado no Sispetro
+
+
+
+
+
+
+ 
+Descrição
+ 
+
+
+ 
+Ação
+ 
+
+
+ 
+Quem
+ 
+
+
+ 
+Prazo
+ 
+
+
+
+
+
+
+ 
+a)
+ Identificação da máscara a ser utilizada
+
+O Sispetro trabalha com a máscara desejada pela empresa, preenchendo com zeros a direita os dígitos não válidos. Porém, para as contas de Clientes e Fornecedores (sintéticas) é necessário deixar os 5 últimos dígitos livres para que as contas analíticas criadas (uma para cada entidade, independente da empresa) preencha estes 5 últimos dígitos com o código da entidade ou sequencialmente. 
+Ex.: Conta Sintética de Cliente: 1.1.001.00000, então a conta analítica do Cliente 5481 poderá ser: 1.1.001.05481.
+ 
+
+
+ Identificar máscara para o plano de contas real 
+
+
+ Setor Contábil 
+
+
+ 
+
+
+
+
+
+
+ 
+b)
+ Ajuste, se necessário, do código extendido da conta de acordo com a máscara a ser utilizada pelo SisPetro. Se a máscara anterior era 1.1.01.0000 e passará para 1.1.001.00000 deverá ser indicado onde deverá ser acrescentado o zero a cada grupo, quando não indicado acrescentaremos o zero a esquerda do grupo. 
+
+
+ Identificar no plano real onde será realizada cada modificação da máscara 
+
+
+ Setor Contábil 
+
+
+ 
+
+
+
+
+
+
+ 
+c)
+ Identificação de contas que são separadas por filial e redução para somente uma conta genérica.
+
+
+IMPORTANTE: Todas as contas (inclusive de clientes e fornecedores) não devem ser separadas por filial, isto é, não se deve ter uma conta na filial A e outra conta para o mesmo fim na filial B. O próprio SisPetro separa os movimentos de cada filial automaticamente e os mostra de maneira independente em qualquer tela de análise ou relatório (inclusive separando os saldos automaticamente).
+ 
+
+
+ Identificar as contas que são separadas por filial e reduzir para somente uma conta, ajustando o código extendido das contas, conforme necessário. 
+
+
+ Setor Contábil 
+
+
+ 
+
+
+
+
+
+
+ 
+d)
+ Identificação da conta sintética de cliente e fornecedor, seguindo as instruções dadas no item a.
+
+As contas analíticas de clientes e fornecedores serão geradas automaticamente pelo SisPetro, tanto para as entidades novas como para as antigas.
+
+
+IMPORTANTE: As contas de clientes e fornecedores (assim como todas as outras) não são separadas por filial, conforme explicado no item c.
+ 
+
+
+ Identificar onde ficará dentro da hierarquia do plano de contas as contas de clientes e fornecedores. 
+
+
+ Setor Contábil 
+
+
+ 
+
+
+
+
+
+
+ 
+e)
+ Identificação do modo de contabilização das contas de adiantamento.
+
+O SisPetro permite que se contabilize os adiantamentos de clientes/fornecedores de três formas: pela própria conta da entidade (atualmente utilizada no gerencial), por uma conta de adiantamento criada especificamente para cada entidade ou por uma conta genérica de adiantamento para todas as entidades. Caso seja escolhida a opção de conta de adiantamento para cada entidade deverão ser identificadas as contas sintéticas de adiantamento de clientes e fornecedores, seguindo as mesmas instruções de deixar os 5 últimos dígitos livres. 
+
+
+ Identificar as contas de adiantamento de clientes e fornecedores dentro do plano de contas e maneira de criação das mesmas. 
+
+
+ Setor Contábil 
+
+
+ 
+
+
+
+
+
+
+ 
+f)
+ Preenchimento dos campos básicos: Natureza (Ativo, Passivo,Receita ou Despesa), Se sintética ou não. Contas sintéticas não recebem lançamentos.
+
+O código reduzido é dado automática e seqüencialmente pelo sistema. 
+
+
+ Identificar a natureza e se é analítica ou sintética. 
+
+
+ Setor Contábil 
+
+
+ 
+
+
+

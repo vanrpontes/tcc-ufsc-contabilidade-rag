@@ -1,0 +1,84 @@
+TITULO: Mudar Transportadora e Frota da OC e da NF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440507
+--------------------------------------------------
+Aviso
+A partir da versão 10.10 as alterações realizadas em 
+Dados de Transportes em NF-e de Emissão própria
+ substituirão as informações Originais.
+Por meio deste recurso no sistema é possível realizar a alteração da transportadora empregada na Ordem de Carregamento e Nota Fiscal.
+Exemplo:
+Supondo que, inicialmente, a nota tenha sido emitida para a transportadora "ABC", contudo o cliente mudou de ideia e solicitou que fosse realizada a entrega pela transportadora "DEF". 
+Analisando o exemplo acima, se a solicitação foi feita antes da emissão da Nota Fiscal, basta acessar a tela de 
+Manutenção de Ordem de Carregamento
+, selecionar a OC e optar por Mudar a Transportadora, e assim emitir a NF corretamente. 
+Neste caso, a tela de mudança de transportadora já irá sugerir a OC e os dados atuais da mesma:
+No quadro 
+Atual
+ os dados da OC serão apresentados. O usuário deverá informar a nova transportadora e o novo frota no quadro 
+Nova
+.
+Caso a OC já tenha uma Nota Fiscal e Frete gerados, o usuário poderá optar por mudar também nesses locais. Neste caso, marque o perfil 
+M
+uda também nas notas fiscais e fretes
+. Este perfil só estará disponível para uso caso o perfil de Sistema 
+Pode mudar dados nas Notas Fiscais através da mudança de transportadora na OC 
+esteja
+ 
+marcado. Veja maiores informações no tópico 
+. Além disso, o usuário deverá ter o perfil 
+Pode mudar nota fiscais através da mudança de transportadora na OC
+ marcado. Veja maiores informações no tópico 
+Painel Faturamento (Usuários)
+.
+Com a implementação do 
+, quem optar por utilizar, deverá tomar os devidos cuidados na mudança de transportadora na OC. É feita uma validação permitindo a troca de frota somente se o número total de lacres do frota anterior for igual ao do novo frota. 
+A quantidade de lacres por compartimento é configurada na 
+.
+O número total de lacres é calculado multiplicando a quantidade total de compartimento do frota (truck, toco, carreta e treminhão) pela quantidade de lacres por compartimento.
+Exemplo:
+Carreta com 6 compartimentos e 3 lacres por compartimento = 18 lacres
+Treminhão com 6 compartimentos e 3 lacres por compartimento = 18 lacres
+Total = 36 lacres
+Pode ser alterado para um outro frota que tenha um total de 36 lacres:
+Truck com 9 compartimentos e 4 lacres por compartimento = 36 lacres.
+Nesse caso, a mudança do frota será feita. 
+Caso a nota fiscal já tenha sido emitida, é possível incluir a Carta de Correção através do botão 
+Carta de Correção
+ localizado no painel interno Nota Fiscal. Maiores informações, veja o tópico 
+Carta de Correção Eletrônica
+.
+Agora, considerando que a 
+nota fiscal já tenha sido emitida, 
+bastaria acessar a tela Muda Transportadora Nota Fiscal através do menu 
+Movimentações / Faturamento.
+Os dados do
+ 
+Transp./Motorista Original
+ 
+serão exibidos na tela, sendo possível a identificação do mesmo. 
+Os dados da nova
+ 
+Transp./Motorista Nova
+ 
+serão preenchidos pelo 
+usuário deverá informar a nova transportadora e o novo frota no quadro.
+É possível a alteração para NF-e de Emissão Própria, mesmo que já processada.
+Não é permitido a alteração de fretes pagos e/ou apurados.
+As alterações irão refletir em todos os recursos que utilizam os dados pertinentes ao Frete.
+O usuário deve emitir a Carta de Correção utilizando a própria tela de Mudança de Transportadora na NF clicando no botão :
+Os dados referente a Nova Transportadora já estarão disponíveis, bastando ao usuário transcrever os dados para os campos correspondentes.
+ 
+Quando essa alteração é feita para um motorista que está vinculado a uma determinada transportadora, a transportadora na nota também é atualizada de acordo com esse vínculo. Caso não haja vínculo, as informações de motorista e transportadora serão as mesmas.
+Ao alterar a transportadora de uma OC de Carregamento próprio que tenham vínculo com OC de descarga própria, o sistema alterará automaticamente a OC de descarga.
+ 
+Se os perfis de sistema e do cliente comprador "Restringe Frotas no Pedido de Venda Retira" estiverem marcados, o sistema validará se o frota principal e os 3 frotas vinculados a ele (se existirem), estão vinculados para a Entidade. Veja maiores informações em 
+Frotas Permitidos
+Se os perfis de sistema e do cliente comprador "Restringe Transportadoras/Motoristas no Pedido de Venda Retira" estiverem marcados,  o sistema validará se a transportadora/motorista estão vinculados para a Entidade. Veja maiores informações em 
+Transportadoras/Motoristas Permitidos
+.
+Ao ser informada uma nova Transportadora Vinculada, se for diferente do motorista, o sistema valida seus controles de vencimento, indicando vencidos e a vencer como é feito na Inclusão da Ordem de Carregamento.
+Esse processo gera um log da alteração realizada na Nota Fiscal. Veja maiores informações no tópico 
+.
+Importante: Ao alterar a transportadora será realizada a validação da modalidade de frete (maiores informações veja 
+Verificação da modalidade de frete da Transportadora
+).

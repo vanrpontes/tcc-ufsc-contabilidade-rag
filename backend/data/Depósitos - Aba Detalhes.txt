@@ -1,0 +1,181 @@
+TITULO: Depósitos - Aba Detalhes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909339817
+--------------------------------------------------
+none
+Aba Detalhes
+Ao acessar a aba Detalhes,  a tela abaixo será exibida:
+Deve ser atribuído ao novo Depósito:
+Código:
+ código ou sigla (2 dígitos).
+Descrição:
+ uma descrição ou nome para o depósito.
+Ativo:
+ quando está opção estiver marcada, o depósito está disponível para utilização no SisPetro.
+Controla Empresa:
+ essa opção permite controlar o acesso ao depósito por empresa. Estando marcada, apenas a(s) empresa(s) cadastrada(s) na 
+aba Empresas p/ Movto
+ terá acesso ao depósito. Para mais informações, ver 
+Depósitos - Aba Empresas p/ Movto
+.
+Permite venda:
+ quando está opção estiver marcada, o depósito estará disponível no pedido de vendas.
+Usina?:
+ quando está opção estiver marcada, irá identificar que é um depósito usina.
+Base Própria:
+ quando essa opção estiver marcada, o SisPetro permite que as OC sejam movimentadas na portaria de entrada.
+Habilita Tanque Virtual: 
+quando esta opção estiver marcada, será permitido que seja criado neste deposito um tanque virtual. Para mais informações, ver 
+Tanque Virtual
+Tipo: 
+um depósito pode ser de dois tipos:
+Disponível: 
+depósitos que no momento de uma movimentação de entrada, tornam a quantidade movimentada disponível para venda.
+Exemplo: depósito de Base Primária, Usinas, e etc.
+Indisponível: 
+a quantidade armazenada neste tipo de depósito não pode ser vendida.
+Exemplo: criamos um depósito fictício com o nome Trânsito que irá armazenar os produtos durante as transferências de álcool de uma usina para a base armazenadora. Toda quantidade transferida para este depósito será somada na quantidade indisponível para venda
+Virtual:
+ depósito no qual são vinculados os depósitos de base primária, usinas e trânsito, para calcular os estoques disponíveis dos produtos. Para mais informações, ver 
+Depósito Virtual
+.
+O depósito virtual tem a única finalidade de agrupar vários depósitos para calcular saldo disponível dos produtos. Não é utilizado para vendas, para relatórios ou qualquer outra situação além da descrita anteriormente.
+Tipo Fechamento:
+ define se o depósito irá realizar o fechamento de estoque por produto ou por depósito.
+Depósito:
+ as movimentações serão baseadas no depósito. E o Depósito em questão não ficará mais disponível na tela de fechamento de estoque por produto
+Produto:
+ as movimentações serão baseadas no Produto. E o Depósito em questão não ficará na tela de fechamento de estoque por depósito, sendo assim, não será possível mais selecionar o depósito para realizar seu fechamento sozinho.
+ 
+Antes de realizar a mudança do 
+Tipo de Fechamento 
+todos os depósitos estejam com uma data de fechamento igual, isto é, recomenda-se fazer a mudança após o fechamento de estoque de todos os depósitos que fecham por produto e depois fechar o depósito em questão na mesma data.
+Quadro Disponibilidade do Produto
+Verificação de Estoque: 
+esta opção serve para bloquear ou simplesmente avisar na inclusão do pedido de vendas ou inclusão de NF, caso não se tenha saldo em estoque disponível para o produto, empresa e depósito informados. Onde será realizado a validação podendo ser no pedido de venda ou na inclusão de notas de venda vai depender do perfil 
+Tipo de verificação a Ser Feita
+.
+Não Verifica:
+ o SisPetro não fará nenhuma verificação no estoque durante o processo de emissão do pedido de vendas, nem na inclusão de NF.
+Avisa no pedido quando estoque estiver negativo:
+ o usuário receberá uma mensagem de aviso na tela quando estiver incluindo o pedido de vendas/Incluindo NF, podendo optar por continuar ou não o lançamento, quando não houver saldo suficiente. 
+Bloqueia pedido de venda quando estoque negativo: 
+este perfil é utilizado no pedido de vendas, na tela de 
+Análise Estoque - Liberação
+ e na inclusão de Nota fiscal de vendas, caso a movimentação utilize uma quantidade que o depósito não tem, o SisPetro barrará. 
+Pode-se habilitar por usuário a permissão de alterar o controle de verificação de estoque, marcando a opção Menu Ferramentas / Usuário / aba Perfil / aba Inferior Estoque, o perfil
+ Pode alterar no depósito verificação estoque
+O perfil Avisa no pedido quando estoque estiver negativo é usado no 
+pedido de Vendas
+ e na 
+Inclusão de Notas Fiscais de Venda
+. Para notas fiscais de venda emitidas via faturamento automático, não será apresentado o aviso e o processo 
+será barrado.
+Tipo de verificação a Ser Feita: 
+é possível definir onde será realizado a validação do estoque, podendo ser a partir do Pedido, ou a partir da nota fiscal:
+Com reserva antecipada a partir do Pedido:
+ realiza a verificação do estoque na inclusão do Pedido de venda.
+Somente a partir da Movimentação de NF: 
+realiza a verificação do estoque na inclusão da Nota Fiscal de venda, ao utilizar essa opção o estoque a ser levado em consideração para análise será apenas o estoque disponível real sem levar em consideração o que esta pendente (pedidos) ou Separados (OC). Essa opção é muito utilizada por Empresas que não controlam o estoque a partir dos pedidos, podendo emitir inúmeros pedidos e validar somente o estoque disponível na inclusão da Nota de Venda.
+Quantidade prevista em terceiros em PMM:
+ define se o depósito considera ou não a quantidade prevista em terceiros.
+Não utiliza: 
+com essa opção selecionada não utilizará a quantidade prevista em terceiros no PMM.
+Considera Qtde Pendente - Qtde Paga: 
+possibilidade de
+ 
+nas consultas de 
+Saldo Depósito
+, 
+Saldos Estoque
+ e Estoque atual, apresentar a quantidade prevista em terceiros e somada esta quantidade no saldo disponível. Ao incluir um pedido de venda para um determinado produto e informar uma quantidade que não esteja disponível no estoque, se o produto tiver PMM, o pedido não será bloqueado ou emitido aviso de saldo insuficiente. Esse perfil também habilita mostrar a informação na tela de 
+Consulta Disponibilidades
+.
+Reserva de Produto na Disponibilidade do Produto. 
+Não considera a Reserva de Produtos: na verificação do estoque o SisPetro não irá considerar a reserva do produto para venda. 
+Considera a Reserva de Produtos: na verificação do estoque o SisPetro 
+irá
+ considerar a reserva do produto para venda. A reserva só é considerada caso a 
+Verificação de Estoque
+ esteja 
+diferente 
+de 
+Não Verifica.
+Para mais informações, ver 
+Reserva de Produto por Estoque
+Estoque em Trânsito (OCs de Descarga) na Disponibilidade do Produto
+Não considera as OCs de Descarga em Trânsito
+Considera todas as OCs de Descarga em Trânsito: considera todas as OC em Transito
+Considera as OCs de Descarga em Trânsito pelo nº de dias indicado para Chegada: irá considerar as OC considerando a quantidade de dias informada no campo 
+Nº de dias indicado para Chegada
+Considera as OCs de Descarga em Trânsito que já estejam na fila da Portaria: considerará a OC que pegou fila, que entrou na Portaria, mas ainda não saiu
+Para mais informações, ver 
+Consulta Disponibilidade
+, 
+Estoque em Toco
+ 
+Nº de dias indicado para Chegada: 
+será utilizado caso a opção acima seja igual a 
+Considera as OCs de Descarga em Trânsito pelo nº de dias indicado para Chegada. 
+Por padrão, o SisPetro irá sugerir 03 dias, mas o usuário poderá indicar o número de dias desejado.
+Quantidade da Distribuição do Bombeio na OC de Descarga de Terceiros: 
+na distribuição do bombeio, o SisPetro gera uma OC de Descarga de Terceiros, para que seja feito o vínculo com a nota fiscal de remessa gerada. Neste parâmetro é definida qual a quantidade que será utilizada.
+Física Ambiente:
+ a OC será gerada com base na quantidade física ambiente
+Física 20c:
+ a OC será gerada com base na quantidade física a 20c.
+Envia Estoque p/ ANP?:
+ 
+Não envia:
+ padrão
+. 
+O SisPetro não enviará informações desse depósito para ANP
+Envia Estoque em Tanque e Trânsito:
+ enviará as informações do estoque em tanque ( saldo a 20c obtidas no fechamento de estoque) e das OC
+Envia só Estoque em Tanque:
+ enviará as informações do saldo a 20c obtidas no fechamento de estoque
+Envia só Estoque em Trânsito:
+ enviará apenas as informações das OC de Transferência entre Depósitos e Descarga Própria.
+P
+ara mais informações, ver 
+Envio de Estoque Diário ANP
+ 
+Quadro Liberação de Estoque Físico 
+Bloquear descarga real fora do limite permitido: 
+marcando essa opção, tanto manual como por automação via Smart Card, o SisPetro irá bloquear a descarga fora do limite permitido mediante liberação via senha
+Senha para liberação de descarga fora do limite permitido: 
+informar a senha para liberação
+Confirmação da Senha: 
+informar a mesma senha informada no campo anterior
+Bloquear carregto. real fora do limite permitido:
+ marcando essa opção, tanto manual como por automação via Smart Card, o SisPetro irá bloquear a carga fora do limite permitido mediante liberação via senha
+Senha para liberação de carregto. forra do limite permitido: 
+informar a senha para liberação
+Confirmação da Senha: 
+informar a mesma senha informada no campo anterior
+Para mais informações, ver 
+Limitação de Quantidade Real na Portaria de Saída
+Quadro Fechamento de Custo
+Contabiliza em Centro de Custo?: 
+quando marcado,
+ as saídas que forem referentes à Liberação de Estoque feita através de Requisições de Compras, será utilizada a distribuição dos Percentuais de Centro de Custos informada da Requisição para contabilizar por Centro de Custos. Caso não seja informado nenhum Centro de Custo, o SisPetro contabilizará pelo Centro de Custo informado na opção 
+Centro de Custo para Saídas sem Centro de Custos.
+Centro de Custo para Saídas sem Centro de Custos: 
+informar qual será o Centro de Custo padrão do depósito. 
+Como nem sempre todas as saídas do Depósito são referentes à Liberação de Estoque com Requisições, o SisPetro utilizará o Centro de Custos informado aqui para as demais saídas, por exemplo, pedido de Outras Saídas. 
+Quadro Remessa Conta e Ordem x Retorno Armazenagem
+ 
+Emite NF de Remessa por Conta e Ordem: 
+quando marcado, em conjunto com a opção 
+Emite NF de Remessa por Conta e Ordem
+ do 
+Cadastro Detalhado (Clientes)
+ permite que a OC de Carregamento de Terceiros possa realizar a 
+Emissão Automática de Nf de Remessa Conta e Ordem por Armazenadoras para transportar produto vendido pela Usina / Distribuidora
+ 
+Volume a ser utilizado para a NF
+: Define qual será a quantidade utiliza na emissão da NF. Pode ser:
+Volume da OC
+Volume Real Ambiente
+Volume Real 20c (padrão)
+Para utilizar o depósito na Venda Spot é necessário criar um depósito para cada caminhão Tanque. Para mais informações ver, 
+Modo Venda Spot

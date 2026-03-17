@@ -1,0 +1,76 @@
+TITULO: Controle de Entrega e Viagens - SisPetro App
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4615897110
+--------------------------------------------------
+Objetivo
+O objetivo geral é poder controlar melhor as viagens dos frotas de forma a saber aonde eles estão, seu status (se estão viajando, se estão voltando, etc) e alguns parâmetros destas viagens (datas previstas x reais, quilometragem além dos canhotos que servem para outras finalidades).
+Alguns conceitos:
+Uma viagem = uma OC:
+ o frota sai com uma OC para uma viagem (sempre 1 x 1).
+Uma viagem pode ter uma ou mais entregas:
+ assim, numa venda, podem ser várias entregas enquanto que numa transferência é somente uma.
+O número de entregas é definido pela quantidade de entidades envolvidas: 
+assim, novamente, se tivermos várias vendas para um único cliente, só teremos uma entrega (para este cliente).
+Uma entrega pode ter um ou mais canhotos
+ (ou notas fiscais): 
+irá depender da quantidade de notas emitidas para cada cliente.
+Uma viagem pode ter 3 status diferentes:
+Antes de sair:
+ permitido informar dados previstos de horários de saída e chegada.
+Entregando:
+ permitido informar dados reais de entregas e captura de canhotos.
+Viagem Finalizada:
+ permitido informar quilometragem final, hora de retorno à base.
+Futuramente será implementado um controle da posição do frota que é saber seu estado conforme os vários eventos que irão ocorrer com ele além de saber se ele estará disponível para viagens ou não.
+Para facilitar, iremos implementar tudo isso no App e também no SisPetro através do 
+ de forma que, caso o motorista tenha dificuldade em utilizar o App, poderá continuar informando estes dados para um funcionário interno da empresa que utilizará o SisPetro para incluir ou editar as informações.
+O controle é feito através do Serviços Motoristas e o acesso é feito através do 
+Menu
+ 
+Início / Serviços Motorista
+Abaixo o Passo a Passo de como preencher as informações da entrega. O usuário irá preencher as informações na seguinte ordem:
+Na 
+Manutenção de Viagens
+, no botão 
+Informar Dados Previstos da Viagem
+ preencher datas e horários
+ 
+previsto
+ 
+de saída e retorno à base e de cada entrega que compõem a OC.
+Com as informações já preenchidas e caminhão carregado, antes de sair da base, 
+ainda na 
+Manutenção de Viagens
+, clicar no botão 
+Iniciar Viagem
+ 
+e preencher a
+ 
+Quilometragem Inicial.
+No decorrer das entregas, 
+na 
+Manutenção de Viagens
+, no botão
+ 
+informar Dados Entregas 
+informar os dados de 
+cada entrega e, na 
+Manutenção de Entregas
+, incluir os dados do: 
+Cliente
+Nome do Recebedor
+RG do Recebedor
+No botão 
+Busca Coordenadas
+, trazer os dados de latitude e longitude da entrega. 
+Após clicar no botão próximo, no botão 
+Incluir Canhoto, 
+será possível digitar a chave de acesso e uma foto do canhoto da nota. 
+Clicar no botão 
+Salvar Dados Entrega
+Enviar a entrega salva. 
+Assim que concluída todas as entregas, clicar no botão 
+Finalizar Viagem.
+A entrega deve ser iniciada e finalizada no mesmo dispositivo, visto que os dados ficam salvos no dispositivo antes da entrega ser enviada. 
+Para saber mais, ver
+Manutenção de Entregas - Sispetro App
+Manutenção de Viagens - SisPetro App

@@ -1,0 +1,221 @@
+TITULO: Nova Tabela de Preço
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2934538251
+--------------------------------------------------
+ O que é?
+A nova Tabela de Preço é uma forma simples de salvar os preços. Basicamente tem os produtos e para cada produto os preços Sugestão, Mínimo e Máximo. Possui uma estrutura de vigência geral, ou seja, todas as tabelas de preço possuem as mesmas vigências.
+ O que tem de novo?
+Além da forma simplificada, a grande novidade é a possibilidade de 
+vincular uma Tabela de Preços (tabela vinculada) à outra (tabela principal) de forma que, ao alterar a tabela principal, o preço final é automaticamente alterado também. Podemos utilizar este vínculo numa configuração simples (tabela principal avulsa + tabela vinculada cadastrada no cliente) ou, num cenário mais complexo, amarrar uma tabela de preços principal à um depósito - sem alterar a tabela vinculada no cliente - de forma que, ao vender neste depósito específico, a tabela deste depósito seja considerada como principal. 
+Lembrando que, como já era antes, uma Tabela de Preços Principal indicada no Depósito prevalece sobre a Tabela de Preços Principal do Cliente.
+ 
+Vejamos alguns exemplos (considerando Álcool Hidratado (02) na empresa Matriz (1)):
+1. CONFIGURAÇÃO ATUAL - TABELA PREÇO NO CLIENTE (SÓ PRINCIPAL)
+Tabelas de Preço
+ID
+Tipo
+Tabela Vinculada
+Preço Sugestão
+1
+Principal
+2,50
+SIMPLES
+4
+2. CONFIGURAÇÃO SIMPLES  - TABELA DE PREÇO NO CLIENTE (PRINCIPAL E VINCULADA)
+Tabelas de preço:
+ID
+Tipo
+Tabela Vinculada
+Preço Sugestão
+1
+Principal
+2,50
+2
+Vinculada por Valor 
+1
+0,02
+SIMPLES2
+3
+3. CONFIGURAÇÃO INTERMEDIÁRIA - TABELA DE PREÇO DEPÓSITO (SÓ PRINCIPAL) E CLIENTE (PRINCIPAL + VINCULADA)
+ 
+Tabelas de Preço
+ 
+ID
+Tipo
+Tabela Vinculada
+Preço Sugestão
+1
+Principal
+2,50
+2
+Vinculada por Valor
+1
+0,02
+3
+Principal (depósito)
+2,45
+COMPLEXO1
+6
+4. CONFIGURAÇÃO COMPLEXA - TABELA DE PREÇO NO DEPÓSITO (PRINCIPAL E VINCULADA POR TIPO DE CLIENTE) E CLIENTE (VINCULADA)
+Tabelas de Preço
+ 
+ID
+Tipo
+Tabela Vinculada
+Preço Sugestão
+1
+Principal
+2,50
+2
+Vinculada por Valor
+1
+0,02
+3
+Principal (depósito)
+2,45
+4
+Vinculada por Valor (depósito por tipo de cliente)
+3
+0,01
+complexo 2
+3
+Em resumo, será possível
+:
+Criar uma tabela de preços que represente os Custos do Depósito → essa será a tabela principal
+Criar uma tabela de preços que seja um valor adicional ou percentual sobre a tabela do depósito → essa será a tabela vinculada à tabela principal. No depósito, por Tipo de Cliente e Empresa, será possível informar essa tabela de preço vinculada.
+Criar uma tabela de preços que seja um valor adicional ou percentual vinculada a um cliente específico que será aplicada sobre o preço final do depósito → essa será uma tabela vinculada. Será informada no Cadastro do Cliente (por empresa). No momento  da Venda, a partir do preço final do depósito será acrescido esse valor ou percentual do cliente.
+No caso de Clientes que possuam desconto, basta informar na sua tabela vinculada valores negativos, isso diminuirá o preço final do Depósito.
+ Como será a migração para a nova tabela?
+Será automática na atualização da Versão 10.1. Inicialmente nenhum Cliente ou Depósito terá tabela vinculada, somente a principal. 
+O que antes era uma Tabela de Preço com valores por Empresa e UF, agora haverá uma tabela de preço para cada combinação de Empresa e UF. Veja um exemplo:
+ANTES
+ 
+Tabela de Preço: 01 - Geral
+Preços nas Empresas/UF: 1 em SP e PR. ,2 em SP e 3 em PR e MG
+AGORA
+ 
+Tabelas de Preço:
+1 - Geral 1/SP → tabela com os valores da empresa 1 para clientes de SP
+2 - Geral 1/PR → tabela com os valores da empresa 1 para clientes de PR
+3 - Geral 2/SP → tabela com os valores da empresa 2 para clientes de SP
+4 - Geral 3/PR → tabela com os valores da empresa 3 para clientes de PR
+5 - Geral 3/MG → tabela com os valores da empresa 3 para clientes de MG
+Os clientes ou depósitos já serão vinculados automaticamente às novas tabelas de preço. Agora o vínculo será por empresa.
+Continuando com o exemplo acima:
+O Cliente de SP será vinculado às tabelas:
+Na Empresa 1 → Tabela 1
+Na Empresa 2 → Tabela 3
+No Cadastro de Depósito, aba 
+Tabela de Preços por Tipo Cliente
+, o campo "Ação quando não encontrar a tabela de Preço para o Tipo Cliente" estará configurado como "Utiliza a Tabela de Preço do Cliente" e é isso que garantirá a continuidade do  esquema existente até a versão 10,0 em que, caso o Depósito/Tipo Cliente/Empresa tenha uma tabela de preço indicada, a mesma será utilizada. Caso não tenha, utilizará a tabela de preço do Cadastro do Cliente (na empresa da venda).
+São as outras opções que permitirão o novo esquema de Tabela Vinculada.
+ O que requer atenção?
+1. Tabela de Preço Por Depósito
+ 
+Caso a tabela tenha preço para mais de uma UF na mesma empresa,
+ só foram migrados os preços da mesma UF do Depósito
+. Caso não se sinta confortável em refazer essas tabelas, acione o Suporte da Futura.
+2. Tabela de Preço por Cota (percentual) vinculada a Usuários
+ 
+Anteriormente havia o campo "
+Tabela Preços por Cota" 
+no perfil do usuário. Caso algum usuário tivesse utilizando essa opção, 
+n
+enhuma das tabelas de preços utilizadas nesse campo foi migrada (era a Tabela de Preço do tipo Percentual)
+. Mas rapidamente será possível criar uma Tabela de Preço Vinculada (uso em Aprovações), agora, além de percentual, também por valor.
+3. Telas de Alteração de Preço
+As telas de Alteração de Preço foram substituídas por telas novas (exceto a do Cadastro de Clientes) como 
+Manutenção de Preços por Tabela
+ e 
+Manutenção de Preços por Produto
+. Use a opção
+ Reseta Menus no menu Ferramentas
+ para visualizar as novas telas no menu
+. Veja o tópico abaixo "O que não tem mais?" para saber as telas que foram retiradas.
+4. Vigências
+Só foram migradas as vigências atuais e futuras na data da atualização da versão. A atual será com data de 01/01/2019. 
+5. Tabela de Preços no Sispetro Web
+Caso utilize o Sispetro Web para inclusão de Pedidos, se faz necessário configurar o Sispetro Web para que o mesmo se comunique com o Servidor Hermes, pois o Hermes realizará o calculo e gerará o preço para ser apresentado no Sispetro Web.
+A configuração necessária se dá em 2 pontos:
+No Controlador de Servidores Hermes, botão 
+SisPetro WEB
+, definido a porta 
+No SispetroMon, em 
+Servidor Sispetro / Manutenção
+, definindo dados do Servidor Sispetro.
+Caso a configuração não esteja correta, o Sispetro Web não identificará a tabela de preço e o valor do produto cadastrado, apresentando assim o valor zero e não deixará incluir o pedido porque não tem preço definido.
+ O que não tem mais?
+Há muito mais benefícios do que pontos que foram retirados. De qualquer forma, vamos listar o que não tem mais:
+Possibilidade de alterar o código da tabela de Preço do Cliente pelas telas:
+Alteração de Dados dos Clientes em lote
+Muda Tabela de Preço por Vendedor (menu Ferramentas)
+Manutenção
+ e Consulta de Preços por UF
+Alteração de Valores nas Tabelas de Preços em Lote
+Utilização de Tabela de Preço em Notas de Terceiros, o que abrange:
+A não exigência na Inclusão da NF manual
+A não utilização do De/Para na Importação de NF
+No Cadastro de Produtos
+Ao desmarcar um produto para não permitir mais venda, os preços não serão mais excluídos automaticamente. Será possível fazer a exclusão através de uma nova tela acionada no menu Ferramentas / Exclusão de Preços de Produtos.
+Perfis de empresa e sistema 
+Painel Controle Preços
+Não é mais possível escolher se altera preços de Combustíveis ou de Produtos permitidos para a venda. 
+A partir de agora sempre serão apresentados todos os produtos permitidos para a venda nas telas de alteração de preço. Revise seu cadastro.
+Não é mais possível indicar se trabalha ou não com vigência de preços. O SisPetro sempre terá vigência para preços e caso a empresa não queira trabalhar com vigência, basta manter uma única vigência.
+Tabela de Preço por Fornecedor
+ Como melhorar a Manutenção de Preços usando os novos recursos?
+1. Usar a tabela de preços definindo preço para o Depósito e Margem para os Clientes
+ 
+Perfis de usuário envolvidos (aba Vendas):
+"Edita tabela preços / Aprova Mudanças": permite alterar preços e informar tabelas de Preços nos Clientes
+"Visualiza painel Preços no Cadastro de Clientes": sem essa permissão o usuário não verá a aba Preços nem as tabelas de preços vinculadas ao Cliente
+"Pode Alterar Tabela de Preços por Tipo de Cliente": permite alterar preços nos Depósitos
+Habilitar os menus referentes às novas telas 
+Tabela Manutenção de Tabela de Preços
+, 
+Manutenção de Preços por Tabela
+ e 
+Manutenção de Preços por Produto
+.
+Perfis de sistema envolvidos (aba Controle Preços):
+"Altera preços via Cadastro de Clientes": se desmarcado, independente do perfil do usuário, os preços não serão alterados via Cadastro de Clientes. Necessário utilizar as telas de Manutenção de Preços.
+Configurando o Depósito
+É necessário ter uma tabela do tipo Principal para conter os preços de Venda para o Depósito. Pode ser uma tabela já cadastrada ou uma nova (é possível criar através da tela de 
+Tabela Manutenção de Tabela de Preços
+).
+Configure seu Depósito indicando por Tipo de Cliente e Empresa a tabela de preço a ser utilizada, definida no passo anterior em 
+Depósitos - Tabela de Preços / Tipo Cliente
+. 
+Para não ter que configurar todos os Tipos de Cliente (caso possua mais que um), configure um deles e então, no campo "Ação ao não encontrar Tabela de Preço para um Tipo Cliente" coloque "Usa a Tabela de Preço de um Tipo Cliente Específico" e informe ao lado o Tipo Cliente que foi configurado. Ou seja, independente do Tipo Cliente, todos utilizarão os preços do único Tipo Cliente configurado.
+P.S. Pode ser utilizada uma tabela do tipo Principal ou do tipo Vinculada (seja por Valor ou Percentual), mas se for Vinculada é necessário que ela esteja vinculada a uma tabela Principal. 
+Para alterar ou conferir os preços utilize 
+Manutenção de Preços por Tabela
+.
+Configurando os Clientes
+Crie uma Tabela de Preço nova e indique no campo Tipo "Vinculada por Valor" (pode ser nomeada como Margem Normal). Vincule ou não a uma tabela principal conforme a necessidade. Ver 
+Tabela Manutenção de Tabela de Preços
+.
+Configure os seus clientes que usarão essa margem, indo em 
+Preços (Clientes)
+, indicando a tabela criada para as empresas desejadas.
+A margem pode ser alterada em um dos clientes que possuem o vínculo com essa tabela ou de forma geral na tela de 
+Manutenção de Preços por Produto
+.
+2. Usar a tabela de preços para Margem de Aprovação do Usuário
+ 
+Crie uma Tabela de Preço nova e indique no campo Tipo "Vinculada por Valor" ou "Vinculada por Percentual". Não esqueça de mudar o campo Uso para "Aprovação". Não vincule a uma tabela principal. Ver 
+Tabela Manutenção de Tabela de Preços
+.
+No perfil do usuário, aba Vendas, no campo Tabela Preços Auxiliar para Aprovação indique essa nova tabela (será usada somente em Aprovações Manuais). Na Aprovação Manual, sobre os preços Mínimo e Máximo de Tabela do Pedido (que pode ser Depósito + Cliente ou só Depósito ou só Cliente) será adicionada a Margem configurada na Tabela desse usuário. Sendo assim, ele não só pode aprovar preços até a margem definida para ele.
+3. Criar novas vigências
+ 
+A vigência padrão é 01/01/2019. Para criar novas vigências, vá na 
+Tabela Manutenção de Vigência de Preços
+. Uma nova vigência será sempre a cópia de outra vigência. Depois de criada essa cópia, providencie as alterações de preços desejadas usando as telas 
+Manutenção de Preços por Tabela
+, 
+Manutenção de Preços por Produto
+ ou Cadastros de Clientes (aba 
+Preços (Clientes)
+).
+4. Excluir preços de produtos não mais vendidos
+No menu Ferramentas foi adicionada uma opção"Exclusão de Preços de Produtos". Ao entrar na tela serão apresentados os produtos não mais marcados para Venda, mas que possuem preços cadastrados. Excluindo esses preços os processos de inclusão e exclusão de vigências torna-se mais rápido.

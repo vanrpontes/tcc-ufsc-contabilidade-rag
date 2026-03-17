@@ -1,0 +1,319 @@
+TITULO: Pedido de Movimentação de Material
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701606
+--------------------------------------------------
+none
+Objetivo
+O Pedido de Movimentação de Material pode ser feito para compras corriqueiras de produtos diversos (Normal), bem como para acompanhar Contratos de Compra com 
+controle de cota diário
+.
+Em ambos os casos, a tela inicial para inclusão dos dados é a seguinte:
+Deverão ser informados os seguintes dados:
+Fornecedor:
+ que deverá estar cadastrado no sistema pela tela de Fornecedores.
+Data Inclusão:
+ data em que está sendo feito o pedido.
+Data Emissão:
+ data em que deve ser processado este pedido.
+Moeda
+Condições de Pagamento:
+ que deve estar previamente cadastrada no sistema na Tabela de Condições de Pagamento. Através da condição de pagamento e da data de entrega do pedido será gerado um fluxo de caixa previsto, que é como e quanto este pedido vai ser pago. Cabe lembrar que mesmo com datas de entrega diferenciadas nos produtos (no caso de pedidos normais), o fluxo de caixa previsto será sempre calculado a partir da data de início de entrega informado nesta tela.
+Prazo Entrega:
+ o prazo dado pelo fornecedor para a entrega
+Data Início Entrega:
+ a partir de quando vai ser entregue o produto. Caso a opção de 
+Atualiza com Data Aprovação + Prazo de Entrega
+ esteja habilitada no perfil de sistema (
+Painel Compras
+), ao aprovar o PMM, o SisPetro atualizará esta data, somando a data da aprovação ao prazo de entrega.
+Data Fluxo Caixa: 
+é possível escolher a data de fluxo de caixa, há casos que o fornecedor exige o pagamento antecipado ou um sinal, nestes casos indicar esta data para que o fluxo de caixa fique correto.
+#Pedido Fornecedor:
+ número de referência para localização deste pedido no fornecedor ou em outros controles da empresa que possua um número diferenciado do número de pedido atribuído automaticamente pelo sistema.
+Representante: 
+ é o cliente que foi definido como representante para ser informado no PMM. Para mais informações, ver 
+Cenário 5: Controle de Representantes
+.
+Controla Cota:
+ ele irá definir se o pedido será normal ou com controle de cota, atente-se bem para marcá-lo corretamente, Para mais informações, ver  
+controle de cota diário
+.
+Controla Adiantamento Quantificado:
+ marque essa opção para vincular o PMM ao Adiantamento.
+Gera Contrato de Venda:
+ marque essa opção para que ao final da inclusão do PMM seja gerado um contrato de venda e vinculado ao PMM. Para mais informações, ver 
+Manutenção de Contrato de Venda
+ e 
+Manutenção de Pedidos de Movimentação de Material
+Contrato de Prestação de Serviço: 
+é utilizado quando há um contrato de prestação de serviço. Para mais informações, ver
+ 
+Contratos de Prestação de Serviços
+Liberação da Quantidade Pendente:
+ controlar a liberação dos PMMs:
+Pela quantidade do pedido: 
+Esta a maneira usual de se trabalhar, o usuário poderá movimentar o PMM até que toda a quantidade pedida tenha sido utilizada. 
+Pela quantidade paga: 
+com este perfil só será possível liberar o PMM quando este tiver um adiantamento quantificado vinculado ao PMM. Para mais informações, ver
+ 
+Controle de PMM pela Quantidade Paga
+Tipo de Recebimento:
+ Informe a forma como serão recebidos os materiais deste pedido.
+Via transferência entre depósitos: 
+OC de transferência entre depósitos
+Direto do fornecedor:
+ ver help 
+Pedido de Movimentação de Material Direto do Fornecedor
+.
+Importação:
+ caso esse PMM seja feito para um produto importado é possível fazer o controle dos 
+Processos de Importação
+. Para mais informações, ver 
+Compra de Produtos Importados
+.
+Importante:
+ Apenas os pedidos de movimentação de material que sejam do tipo de recebimento 
+Direto do Fornecedor
+, poderão ser vinculados ao bombeio. Para mais informações, ver 
+Confirmação de Bombeio
+.
+Força Depósito Destino:
+ permite a indicação do depósito destino a ser utilizado na OC de 
+transferência entre depósitos
+.
+É possível fazer com que esse campo torne-se obrigatório na inclusão do PMM, para isso, habilite o perfil de Sistema na aba Compras  
+Obriga informar Depósito Destino no PMM
+Emergencial: 
+habilitado somente se a empresa for configurada para trabalhar com 
+Aprovação por Alçada
+. 
+Inclui Pré-Adiantamento:
+ se habilitado permite ao usuário incluir um 
+pré-adiantamento
+ vinculado ao fornecedor. 
+Caso o perfil de sistema 
+Na inclusão avisa se tiver adiantamentos pendentes
+ 
+ao informar o fornecedor será apresentado uma tela de aviso informando a soma de todos os adiantamentos e pré-adiantamentos para o fornecedor selecionado.
+ 
+Clique em 
+Avança
+.
+O perfil 
+Bloqueia Requisição Compras e PMM (Direto Forn.) sem Centro Custos
+ impede inclusão de PMM do tipo Direto do Fornecedor e requisição que não possua Centro de Custo Informado.
+Para habilitar o perfil, basta acessar o  
+Painel Compras
+O recurso que amarra o tipo de PMM, por Setores associados ao usuário.
+Para utilizar o recurso deve-se marcar o perfil de usuário 
+Painel Compras (Usuários) 
+Obriga Informar tipo de PMM
+Amarrar os setores ao 
+Tipos de PMM
+ 
+Vincular os setores permitidos ao usuário: 
+Painel Compras (Usuários) 
+Restringe visualização/Inclusão PMM/Requisição para Setores permitidos:
+Vendedor:
+ quando está utilizando Corretora, pode-se informar o Vendedor do contrato com a Usina. Serão apresentados somente os Vendedores cujo campo Uso do Vendedor esteja como Vendas e Compras. Para mais informações, ver 
+Tabela Vendedores
+ e 
+Corretora no PMM
+.
+Investidor: 
+na emissão do PMM além de informar o Fornecedor é possível informar qual o investidor relacionado ao contrato. Para informar o investidor no PMM é necessário que no cadastro de Fornecedor informe se ele é ou não investidor. Para mais informações, ver 
+Tabela Fornecedores
+.
+É necessário habilitar um perfil de Sistema na aba compras 
+Indica investidor na inclusão do PMM
+. Para mais informações, ver 
+Painel Compras
+Corretor:
+ informe o Corretor. Serão apresentados somente os fornecedores que estejam com a opção Pode Ser Corretora? marcada. Para mais informações, ver 
+Observações - Fornecedores
+ e 
+Corretora no PMM
+.
+Representante:
+ uma empresa pode trabalhar com Representantes no PMM. Caso trabalhe, informe o representante. Para mais informações, ver 
+Cenário 5: Controle de Representantes
+.
+Setor da Empresa: 
+selecione o setor que originou o PMM, caso tenha. 
+Manutenção de Setores
+ 
+Painel Compras (Usuários)
+Filial Origem:
+ quando utiliza PMM entre Transferência entre Filiais. O PMM deve ser incluído na filial de destino, informando a filial de origem.
+Tipo do PMM
+: permite classificar esse PMM conforme os 
+Tipos de PMM
+ cadastrados.
+Projeto:
+ permite informar se o PMM participa ou não de um projeto. Para mais informações, ver 
+Controle de Projetos
+.
+Clique em 
+Avança
+.
+Valor do Frete no PMM: 
+O ultimo perfil selecionado será reexibido como o selecionado na próxima utilização da tela.
+Considera no Valor do Pedido:
+ frete será considerado no valor do pedido
+Não considera no Valor do Pedido (uso na Manut. Fretes): 
+não irá considerar o frete no valor do pedido
+Fornecedor do Carregamento: 
+caso utilize, deve marcar as opções no perfil de sistema (
+Painel Compras
+) e perfil de usuário (
+Painel Compras (Usuário)
+). Caso não utilize, será utilizado sempre o fornecedor do PMM. Para mais informações, ver 
+Padrão para Compras
+ e 
+Corretora no PMM
+.
+ 
+Fornecedor configurado para escolher somente entre os endereços cadastrados:
+ caso não informe, será utilizado o endereço preferencial de entrega do fornecedor do Carregamento. Se não existir esse endereço, será utilizado o endereço principal cadastrado na aba Dados Gerais (
+Tabela Fornecedores
+). Nessa configuração, o usuário pode selecionar qual endereço utilizar:
+Fornecedor configurado para usar o endereço principal do fornecedor:
+ será utilizado o endereço principal do fornecedor do Carregamento:
+Fornecedor configurado para usuário informar o endereço de carregamento:
+ caso não informe, será utilizado o endereço preferencial de entrega do fornecedor do Carregamento. Se não existir esse endereço, será utilizado o endereço principal cadastrado na aba Dados Gerais (
+Tabela Fornecedores
+):
+Os dados do endereço de carregamento são salvos nos campos do endereço de entrega do PMM, ficando disponíveis para uso no layout da OC (
+Depósitos - Aba Layout OC
+) e no layout do pedido de compra (
+Painel Compras
+).
+Clique em 
+Avança
+.
+Alíquota de IPI e Valor IPI serão mostrados na inclusão do PMM mediante configuração de perfil de sistema 
+Painel Compras
+Nesta tela será(ão) informado(s) o(s) produto(s) do pedido. Caso o usuário tenha permissão (
+Painel Compras (Usuários)
+, poderá definir a unidade de compra do produto, desde que ela esteja cadastrada previamente no produto (
+Tabela de Produtos
+).
+O Código Produto Fornecedor pode ser informado desde que o perfil de usuário 
+Pode informar o Código Produto Fornecedor (De/Para de Produto) 
+estiver marcado. Para mais informações sobre 
+De/Para, 
+ver 
+De/Para - Fornecedor
+. 
+Este campo irá lista todos os códigos cadastrado para o produto, podendo ser cadastrado outros códigos para o produto na inclusão do produto ao PMM caso necessário.
+Esse campo será validado pelo SisPetro caso Perfil de Sistema - Aba Compras - Campo 
+Verificação Código Produto Fornecedor (De/Para de Produto) no PMM estiver como 
+Sempre Valida 
+e o 
+Cadastro de Fornecedor - aba Detalhes - sub aba De/Para - campo Verificação Código Produto Fornecedor (De/Para de Produto) no PMM estiver como 
+Segue Perfil da Empresa
+O SisPetro não vai finalizar a inclusão do PMM e irá mostrar uma mensagem de erro: 
+Existe(em) produto(s) no pedido que não...
+ conforme imagem abaixo
+O valor unitário do frete deverá ser informado na coluna 
+Frete Unit
+, porém, existe a possibilidade do sistema sugerir o valor unitário, assim evitando que o usuário esqueça de informá-lo. Para isso deve-se marcar a opção no perfil da empresa, menu Ferramentas / Sistema / Fretes, a opção:
+O frete unitário informado em um PMM do tipo Recebimento Direto do Fornecedor, pode ser transferido para os itens da Nota Fiscal de Compra, no momento do recebimento, inclusive, se o sistema estiver configurado de forma correta, os valores do frete serão transferidos para Manutenção de fretes. Mais informações no campo Transfere frete unitário do PMM para a Nota fiscal, no tópico
+ 
+Tabela Natureza Operação
+ 
+. Veja também
+ 
+Recebimento Material
+.
+Nesta tela também será possível incluir o valor máximo do frete através da coluna *Frete Padrão/Máx. Unit* , para isso deve-se marcar a opção no perfil da empresa, 
+menu Ferramentas / Sistema / Fretes
+, a opção:
+Nesta tela também será possível incluir a alíquota de IPI. O valor do IPI é calculado automaticamente, não sendo possível sua alteração. Para isso no perfil da empresa, 
+menu Ferramentas / Sistema / Compras
+, deve marcar as opções:
+Informa dados de IPI no PMM ?
+Sugere Alíquota de IPI conforme cadastro de Produtos ? (opcional)
+Se o pedido for normal, poderão ser incluídos quantos produtos forem necessários. Se o pedido for com controle de cota diária, somente poderá ser informado um único produto. E se o pedido for vinculado ao adiantamento quantificado, o preenchimento do produto será simplificado, pois o preenchimento será automático, de acordo com os dados do adiantamento e o usuário deverá apenas informar a quantidade. Para mais informações, ver 
+Adiantamento Quantificado de Fornecedor
+.
+O produto deverá estar previamente cadastrado na tela de 
+Produtos
+, podendo para cada produto ter uma data de entrega diferenciada. Lembre-se que esta data de entrega informada para o produto não interferirá no fluxo de caixa previsto.
+É possível também informar as características do produto, caso o perfil de Sistema esteja configurado para 
+Multi 
+ou 
+Mono Características.
+ Para mais informações, ver 
+Características dos Produtos
+.
+Também é possível informar o Grupo Despesa e SubGrupo Despesa em cada produto do PMM. Para mais informações, ver 
+Consulta de Despesas
+.
+Clique em 
+Avança
+.
+Após salvar o Pedido a observação informada será gravada na tabela de 
+Observações do PMM
+, que pode ser visualizada através da aba de Observações na tela de Manutenção de Pedido de Movimentação de Material. Para mais informações, ver 
+Inclusão de Observações no PMM
+Informe as observações que forem necessárias e caso tenha, pode-se vincular arquivos. Para mais informações, ver 
+Inclusão de Anexos ao PMM, Requisição de Material e Produtos
+.
+Clique em 
+Avança
+.
+Caso a opção 
+Inclui Pré-Adiantamentos
+ foi marcada o usuário poderá incluir, Alterar ou Excluir um Pré-Adiantamento. 
+Caso o SisPetro esteja configurado para vincular despesas ao PMM, o usuário pode incluir, excluir e alterar. Para mais informações, ver 
+Controle de Despesas no PMM
+.
+Nessa tela serão apresentados os centros de custos, podendo ser alterados via botão de 
+Altera Distribuição
+. O botão só vai ficar habilitado para usuários com o perfil de usuário 
+Pode distribuir Centro de Custos em Compras
+ marcados.
+Os Centros de Custos apresentados nessa tela vão ser sugeridos conforme o Setor informado na inclusão do PMM, ou o Setor Requisitante que foi informado na requisição. O Setor informado no PMM sempre ira prevalecer sobre a requisição.
+Lembrando que para serem informados os centros de custos os 
+Setores
+ a serem utilizados devem estar devidamente configurados com o 
+padrão contábil
+. Para mais informações, ver 
+Critérios para Utilização de Centro de Custo
+. 
+Clique em 
+Finaliza.
+Após concluir o pedido, o SisPetro abrirá a tela de 
+Impressão de PMM
+Através da tela de impressão de PMM, temos as seguintes opções:
+Impressão: 
+caso selecionado será realizado a impressão de PMM.
+Em Tela: 
+abre a tela de visualização de impressão.
+E-mail:
+ caso essa opção esteja selecionada, será enviado um arquivo em pdf do PMM para o cliente. Para utilizar esse serviço veja mais em 
+Configuração de Conta de E-mail
+Deseja alterar corpo da Mensagem?:
+  com esta opção é possível incluir um destinatário em cópia e também como cópia oculta, alterar o assunto e também a mensagem. Para isso basta marcar o perfil de usuário 
+Altera Destinatários do Pedido de Compras. 
+Veja maiores detalhes em 
+Painel E-mail (Usuários)
+Em Arquivo:
+ selecionando essa opção é possível salvar em forma de arquivo PDF o PMM, para isto basta selecionar um diretório em Arquivo de Destino.
+Por padrão o SisPetro informa a descrição do arquivo a nomenclatura: PMM + Código da empresa + Numero da OC.
+O SisPetro permite a impressão do pedido em outro momento, na tela de 
+Manutenção de Pedidos
+. Para mais informações, ver 
+Painel Compras
+.
+É possível também que seja enviado email para o fornecedor contendo a impressão do PM. Para mais informações, ver 
+Envio de E-mail para PMM
+.
+No caso dos 
+pedidos normais
+ o processo é encerrado neste ponto. No caso dos pedidos com controle de cota a continuidade do processo será explicada no item específico a 
+pedidos com controle de cota
+.
+Se o usuário tiver autorização para aprovar pedidos, o pedido sai automaticamente aprovado. Se no perfil do usuário estiver marcado que sempre será pedido a aprovação, este pedido ficará pendente para aprovação. De qualquer forma, confira as 
+configurações necessárias
+ no perfil do usuário.

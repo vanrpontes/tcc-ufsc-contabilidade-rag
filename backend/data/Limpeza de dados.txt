@@ -1,0 +1,188 @@
+TITULO: Limpeza de dados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924283029
+--------------------------------------------------
+none
+Objetivo
+A Limpeza de Dados reduz o espaço ocupado no banco, preservando apenas informações necessárias e mantendo integridade e auditoria. O processo é ativado pelo menu Ferramentas, onde o usuário define dia, hora e quantidade de dias a preservar. Cada tipo de dado possui um período padrão, que pode ser alterado conforme necessidade. Após configurado, o SisPetro executa a limpeza automaticamente, removendo dados antigos segundo os critérios definidos.
+Limpeza de Dados
+O processo de 
+Limpeza de Dados foi desenvolvido para 
+reduzir espaço ocupado pelo banco de dados, permitindo manter um período de dados íntegros e auditáveis.
+A ferramenta 
+Limpeza de Dados 
+é acessada através do menu 
+Ferramentas / Limpeza de Dados
+.
+ 
+No blog 
+Limpeza de Banco de Dados
+ 
+há mais detalhes sobre o processo aplicado em um banco de 180Gb cuja limpeza diminuiu em praticamente 50% o tamanho dos dados ocupados no HD.
+Permissão
+Para ativar a limpeza é preciso: 
+Dar permissão para o usuário ter acesso à tela, através do Menu 
+Ferramentas/ Usuário
+, 
+habilitar a tela 
+Limpeza de Dados
+, conforme imagem abaixo.
+Marcar a opção 
+Ativar Limpeza de Dados
+Informar o 
+Dia do Mês
+ que o SisPetro executará a limpeza de dados.
+Informar a quantidade de 
+Dias para Preservar,
+ que são os dias anteriores a data da limpeza que 
+não serão apagados
+. Quando o valor informado for 
+igual a zero, 
+a limpeza será ignorada.
+Hora:
+ é referente a hora que a ferramenta entrará em funcionamento. 
+Na tabela abaixo temos a descrição, tabelas envolvidas e o tempo proposto (padrão da ferramenta), para manter as informações dentro delas. Caso queira, o usuário pode modificar o campo 
+Dias a Preservar,
+ clicando nas setas para cima ou para baixo ou digitar o número que deseja no campo 
+Dias a Preservar. 
+ 
+  
+ 
+ID
+Descrição
+Tabelas envolvidas
+Dias
+Tempo
+1
+Log eventos
+Log
+180
+6 meses
+2
+Log comunicação NF-e
+Nfe
+90
+3 meses
+3
+Cópia NF uso Scanc/DPMP
+NotaFiscalFechamento /  ItensNFFechamento
+2000
+5 anos
+4
+Analise de aprovação de pedido
+PedidoAnaliseAprovacao
+90
+3 meses
+5
+Log Saldo Estoque
+SaldoHistorico
+365
+1 ano
+6
+Consulta Destinatário
+NFeConsDestinatario/NFeConsDestinatarioItens
+90
+3 meses
+7
+PMPF/MVA
+ValorAgregado
+365
+1 ano
+8
+Log processamento MDF-e
+MDFeProcessamento
+90
+3 meses
+9
+Log Process. Vale Pedágio
+GerenciadorPedagiosComunicacao
+90
+3 meses
+10
+Cópia Outros Impostos NF
+OutrosImpostosNFOriginal / OutrosImpostosNFOriginalItens
+2000
+5 anos
+11
+Log Cancelamento NF-e
+NotaFiscalCancAnalise
+90
+3 meses
+12
+SPED ECD
+LCE0000
+2.000
+5 anos
+13
+SPED EFD
+LFE0000
+2.000
+5 anos
+14
+SPED Contribuições
+LPC0000
+2.000
+5 anos
+15
+Log Cancelamento MDF-e
+MDFeCancAnalise
+90
+3 meses
+16
+Consulta Cad. Contrib. SEFAZ
+EntidadeCCCSefaz
+180
+6 meses
+17
+Consulta de Chave de Acesso para Imp. NF
+ChaveAcessoConsulta
+90
+3 meses
+18
+Log Proces. Averbação NF-e/CT-e/MDF-e
+GerenciadoraAverbacaoProc
+90
+3 meses
+19
+Tabela de Consulta ANP via Planilha
+ANPConsulta
+180
+6 meses
+20
+Processamento PIX Recebidos
+PIXRecebidoAPIProc
+180
+6 meses
+21
+Leitura de Arquivo de Pagamento Eletrônico
+PagForRetornoItens_Imp
+PagForRetorno_Imp
+90
+3 meses
+22
+ANP - Envio de Estoque Dário, Comunicação
+ANPEstoqueDiarioComunicacao
+90
+3 meses
+23
+Monitoramento de Viagem - Comunicação 
+GerenciadorMonitoramentoComunicacao
+90
+3 meses
+24
+Processamento de Nf - Atualização de Cuto Médio
+ValorAgregado
+365
+12 meses
+25
+Controle de alterações
+Pedido_UltAlteracao  / 
+Entidade_UltAlteracao
+180
+06 meses
+26
+Consultas GAC
+PedidoVendaGAC 
+100
+3,3 meses
+Nota: 
+itens 3 e 10 devem ser alterados pelos usuários. O padrão é somente para banco de dados novos.

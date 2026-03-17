@@ -1,0 +1,75 @@
+TITULO: Distribuição do Bombeio - Ajustes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2888204461
+--------------------------------------------------
+Na Distribuição de Bombeio é possível fazer ajustes em relação ao Bombeio Físico. Geralmente esses ajustes ocorrem quando o Bombeio Físico vem com uma quantidade e no momento da Distribuição a quantidade é diferente. 
+
+
+Nessa situação a movimentação, na Distribuição de Bombeio, é a seguinte:
+
+
+
+
+Saída da empresa Armazenadora: Qtde do Bombeio Físico
+
+
+Entrada nas empresas da Distribuição: Qtde do Bombeio Físico + Ajuste informado
+
+
+
+
+
+
+Há uma situação de ajuste que não se enquadra no item acima. Às vezes a Petrobrás avisa sobre um Bombeio Físico, mas no momento de bombear envia uma quantidade maior, que não vai ser distribuída para nenhuma das congêneres, devendo ficar na Armazenadora. Essa quantidade é conhecida depois do Bombeio Físico, ou seja, no processo de Distribuição, como a situação anterior. Nesta fase, a quantidade enviada a maior será distribuída para a empresa Armazenadora, resultando na seguinte movimentação:
+
+
+
+
+Saída da empresa Armazenadora: Qtde do Bombeio Físico
+
+
+Entrada nas empresas da Distribuição: Qtde do Bombeio Físico
+
+
+Entrada na empresa Armazenadora: Ajuste informado (quantidade enviada a maior)
+
+
+
+
+
+
+Porém, essa quantidade que foi enviada a maior, numa operação futura será utilizada num bombeio enviado a menor. A Petrobrás enviará um bombeio com uma quantidade, mas na hora de distribuir a quantidade entre as congêneres utiliza inclusive aquela reserva que tinha deixado com a Armazenadora. Veja a movimentação necessária:
+
+
+
+
+Saída da empresa Armazenadora: Qtde do Bombeio Físico
+
+
+Entrada nas empresas da Distribuição: Qtde do Bombeio Físico + Ajuste informado referente a reserva
+
+
+Saída da empresa Armazenadora: Ajuste informado (resultante da reserva de um bombeio anterior)
+
+
+
+
+
+
+O SisPetro permite que seja informado um ajuste referente a reserva e este ajuste seja utilizado na entrada das empresas utilizadas para Distribuição. Antes no Sispetro não era possível fazer a saída da empresa Armazenadora referente a esta quantidade de ajuste.
+
+
+O Sispetro agora permite, na tela de Distribuição de Bombeio, que seja feita a saída da quantidade informada para ajuste na empresa Armazenadora.
+
+
+Na tela de Distribuição de Bombeio, no grupo Correção do volume físico ter um novo campo com duas opções:
+
+
+
+
+Considera qtde na Distribuição somente
+
+
+Considera qtde na Distribuição e na saída da empresa do Bombeio Físico
+
+
+

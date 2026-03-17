@@ -1,0 +1,165 @@
+TITULO: Saldos de Cliente e Grupo Econômico na Consulta de Pedidos  Pendentes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2895446037
+--------------------------------------------------
+Foram reorganizados e melhorados na tela de Consulta de Pedidos Pendentes os dados financeiros e informações adicionais do cliente e do Grupo Econômico (caso o cliente participe de um).
+
+
+Aba Cliente
+
+
+
+
+Pendências Financeiras:
+
+
+
+
+Em aberto:
+ soma dos títulos do Contas a Receber em aberto do cliente.
+
+
+Bloqueado:
+ soma dos títulos do Contas e Receber baixados e bloqueados do cliente.
+
+
+Créd.Liberados:
+ soma de todos os adiantamentos em aberto do cliente.
+
+
+Créd.Bloqueados:
+ soma de todos os adiantamentos do cliente que estão bloqueados.
+
+
+Lim.Crédito:
+ limite de crédito do cliente.
+
+
+Lim.Aprovado:
+ limite definido conforme perfil de usuário 
+%Limite Excesso Crédito para Aprovação
+.
+
+
+Atrasado:
+ soma de todos os títulos que estão em atraso do cliente.
+
+
+Saldo Final:
+ cálculo feito conforme segue:
+
+ Saldo Final = Lim.Crédito + Créd.Liberados¹ - (Pedidos Aprovados e Não faturados²)
+ - Pedido Posicionado³ - Em aberto - Bloqueado 
+
+Onde:
+
+
+¹ Créd.Liberados:
+ serão considerados os adiantamentos não bloqueados, pois adiantamentos bloqueados são utilizados para cheques ainda não compensados.
+
+
+² Pedidos Aprovados e Não faturados:
+ serão considerados os pedidos aprovados e não faturados ao menos no Financeiro, conforme o perfil de empresa 
+Verificação de limite de crédito em relação aos pedidos
+.
+
+
+³ Pedido Posicionado:
+ pedido selecionado na tela.
+
+
+
+
+Informações Adicionais:
+
+
+
+
+Saldo Diminuindo Pedidos Pendentes de Aprov.:
+ Saldo Final menos os pedidos pendentes de aprovação do cliente.
+
+
+Valor Pedidos Aprov.(Financ.) e Não Faturados:
+ soma dos pedidos aprovados e não faturados do cliente.
+
+
+Valor Total Pedidos Pendentes para Aprovação:
+ soma dos pedidos pendentes para aprovação do cliente.
+
+
+
+
+Aba Grupo Econômico
+
+
+
+
+Pendências Financeiras:
+
+
+
+
+Em aberto:
+ soma dos títulos do Contas a Receber em aberto de todos os clientes que fazem parte do mesmo Grupo Econômico.
+
+
+Bloqueado:
+ soma dos títulos do Contas e Receber baixados e bloqueados de todos os clientes que fazem parte do mesmo Grupo Econômico.
+
+
+Créd.Liberados:
+ soma de todos os adiantamentos em aberto de todos os clientes que fazem parte do mesmo Grupo Econômico.
+
+
+Créd.Bloqueados:
+ soma de todos os adiantamentos de todos os clientes que fazem parte do mesmo Grupo Econômico que estão bloqueados.
+
+
+Lim.Crédito:
+ soma de todos os limites de crédito de todos os clientes que fazem parte do mesmo Grupo Econômico.
+
+
+Atrasado:
+ soma de todos os títulos que estão em atraso de todos os clientes que fazem parte do mesmo Grupo Econômico.
+
+
+Saldo Final:
+ cálculo feito conforme segue:
+
+ Saldo Final = Lim.Crédito + Créd.Liberados¹ - (Pedidos Aprovados e Não faturados²)
+ - Pedido Posicionado³ - Em aberto - Bloqueado 
+
+Onde:
+
+
+¹ Créd.Liberados:
+ serão considerados os adiantamentos não bloqueados, pois adiantamentos bloqueados são utilizados para cheques ainda não compensados.
+
+
+² Pedidos Aprovados e Não faturados:
+ serão considerados os pedidos aprovados e não faturados ao menos no Financeiro, conforme o perfil de empresa 
+Verificação de limite de crédito em relação aos pedidos
+.
+
+
+³ Pedido Posicionado:
+ pedido selecionado na tela.
+
+
+
+
+Informações Adicionais:
+
+
+
+
+Saldo Diminuindo Pedidos Pendentes de Aprov.:
+ Saldo Final menos os pedidos pendentes de aprovação de todos os clientes que fazem parte do mesmo Grupo Econômico.
+
+
+Valor Pedidos Aprov.(Financ.) e Não Faturados:
+ soma dos pedidos aprovados e não faturados de todos os clientes que fazem parte do mesmo Grupo Econômico.
+
+
+Valor Total Pedidos Pendentes para Aprovação:
+ soma dos pedidos pendentes para aprovação de todos os clientes que fazem parte do mesmo Grupo Econômico.
+

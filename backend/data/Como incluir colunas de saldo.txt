@@ -1,0 +1,12 @@
+TITULO: Como incluir colunas de saldo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4229300387
+--------------------------------------------------
+Para incluir colunas de saldo em um relatório, seguir os seguintes passos:
+Passo 1: definir um campo do tipo variável
+Passo 2: definir o nome do campo e acertar o tipo de dado que será calculado o saldo (dtInteger, dtExtended, dtDouble, etc)
+Passo 3: declarar uma variável global para armazenar o saldo
+Passo 4: inicializar a variável criada a cada quebra do grupo 
+Se for uma totalização por relatório, utilizar o evento Report.BeforePrint
+Passo 5: executar o cálculo necessário com a variável criada, o que ocorre geralmente no evento AfterGenerate do detalhe
+Este exemplo é uma maneira de calcular um saldo somando cada registro da consulta e quebrando pelo grupo definido, o que em geral é feito.
+Passo 6: no evento OnCalc do campo de tela criado, atribuir a variável criada

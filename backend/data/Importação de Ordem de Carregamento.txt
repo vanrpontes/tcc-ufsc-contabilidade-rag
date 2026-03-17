@@ -1,0 +1,41 @@
+TITULO: Importação de Ordem de Carregamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898412
+--------------------------------------------------
+Função removida da manutenção de ordem de carregamento a partir da versão 10.20
+A importação de Ordem de Carregamento é interessante para bases que armazenam produtos de terceiros eliminando a necessidade de digitação e agilizando o processo das 
+Ordens de Carregamento
+.
+A importação de ordens de carregamentos, do tipo exclusivamente de carregamento ou descarga de terceiros será feita através de um arquivo em formato texto utilizando um 
+Layout
+ definido. Portanto, a base armazenadora deverá fornecer para as empresas o layout disponibilizado no Sispetro para que o arquivo texto contendo as OC´s seja feito com base nesse layout e então possa ser importado corretamente para o Sistema.
+Através da tela de Manutenção de Ordem de Carregamento (Menu 
+Movimentação / Estoque / Manutenção Ordens Carregamento
+) é possível fazer a importação ao acionar o botão 
+Manut. Importação OC
+, porém para que o botão esteja habilitado é necessário dar permissão no perfil do Usuário, Menu 
+Ferramentas / Usuário / painel Estoque
+, opção:
+Depois de acionar o botão aparecerá a seguinte tela de Manutenção de Importação de Oc's:
+Nessa tela é mostrado através dos painéis 
+Informações sobre a importação da Ordem de Carregamento
+. Os painéis são:
+OC's não importadas:
+ Mostra as Oc's que não foram importadas por algum motivo de rejeição.
+Itens:
+ Mostra os itens da Oc que foi rejeitada.
+Compartimentação:
+ Mostra as compartimentações que fazem parte dessa Oc rejeitada.
+Para dar início ao processo de importação primeiramente deve-se fazer a leitura do arquivo através do botão 
+Lê Arquivo
+. Se no processo de leitura do arquivo não for encontrado nenhuma ocorrência a importação será realizada, o contrário ocorrerá se o arquivo apresentar inconsistência de dados.
+Exemplos de inconsistência: Se foi informado a data com outro formato diferente do definido no layout padrão ou se deixou de informar qualquer outra informação corretamente, o sistema não realizará a importação mostrando através de uma mensagem o motivo da rejeição.
+Nessa tela de manutenção de importação de ordem de carregamento é possível visualizar todos os registros que não foram importados e o motivo de rejeição.
+Para alterar os registros rejeitados selecione o registro e acione o botão 
+Altera
+, aparecerá a seguinte tela:
+Os campos de "#Empresa OC Origem" e "#OC Origem" só podem ser preenchidos com números.
+Depois de fazer a alteração clique em 
+OK
+. Será apresentada novamente a tela de manutenção de importação de ordem de carregamento, selecione o registro que foi alterado e clique no botão 
+Importa OC
+ para fazer a importação desse registro, agora com os dados corretos.

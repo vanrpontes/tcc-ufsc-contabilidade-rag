@@ -1,0 +1,41 @@
+TITULO: Encerramento Automático de MDF-e pela NF-e Entrada
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4270817297
+--------------------------------------------------
+O responsável por emitir o MDF-e é o responsável pelo Frete. Portanto, na compra de usinas, quando a distribuidora busca o produto com o seu caminhão, ela é a responsável por emitir o MDF-e. Porém, esse MDF-e só pode ser encerrado quando o produto chega na empresa.
+Ao dar entrada na NF-e vinculada ao MDF-e, o SisPetro via serviço fará o encerramento automático do MDF-e. 
+Configurações
+Perfil de Sistema
+Ferramentas > Sistema 
+Aba MDF-e > Quadro Encerramento Automático. 
+ Para mais informações, ver 
+Selecionar a opção em Encerramento Automático como 
+Habilitado para MDF-e Entrada.
+Perfil de usuário
+Ferramentas > Usuário 
+Aba Perfil > aba inferior
+ Faturamento > Quadro MDF-e. 
+Para mais informações, ver 
+Painel Faturamento (Usuários)
+.
+Encerra qualquer MDF-e: 
+pode encerrar todas as modalidades de MDF-e. Essa opção deve ser vinculada ao usuário do serviço que fará o encerramento automático.
+Servidor Hermes
+Habilitar o serviço
+ Encerramento de MDF-e. 
+Para mais informações, ver 
+Serviço de Encerramento de MDF-e
+Encerramento
+Os MDF-e que forem passíveis de encerramento automático 
+estarão identificados
+ na coluna 
+Passível Encerramento Automático, 
+na tela de manutenção de MDF-e. Para mais informações, ver 
+Manutenção de MDF-e
+MDF-e que sejam passíveis de Encerramento Automático, cujo campo Status Encerramento Automático esteja como Encerramento Não Permitido, são 
+todas as NF-e vinculadas ao MDF-e que tiver Data de Movimento menor à Data de Autorização do MDF-e.
+Ao dar entrada na NF-e referenciada ao MDF-e, o SisPetro fará o vinculo automático. 
+Se todas as NF-e vinculadas ao MDF-e tiver Sequencial de NF e a maior Data de Movimento dentre as NF seja posterior ou igual à Data de Autorização do MDF-e, o 
+Status Encerramento será permitido.
+A data de encerramento do MDFe no serviço será atribuída com a data da última Nota Fiscal ou a data do sistema, levando em consideração a data do processamento do protocolo
+.
+Será gravado a Data e Hora do Processamento do Encerramento do MDF-e, na tela da manutenção de MDFe.

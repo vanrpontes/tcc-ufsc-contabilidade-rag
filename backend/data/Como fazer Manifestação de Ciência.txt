@@ -1,0 +1,49 @@
+TITULO: Como fazer Manifestação de Ciência
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927264034
+--------------------------------------------------
+Neste documento detalharemos como realizar o processo de Manifestação de Ciência.
+Incluindo uma Manifestação
+O evento de manifestação pode ser incluído de forma 
+Manual
+ ou 
+Automática
+, podendo ter integração com a 
+Consulta de Destinatário de NF-e/CT-e
+ ou não. Como a manifestação é incluída varia muito de acordo com cada Empresa.
+Pensando nisso, citaremos abaixo algumas configurações sugeridas pela Futura para 
+quem trabalha
+ e para 
+quem não trabalha
+ com a consulta de chave, e como utilizar a tela de 
+Consulta Chave Acesso 
+para facilitar no dia a dia.
+Recomendado para quem realiza Consulta de Destinatário
+Para as empresas que trabalham com a Consulta de Destinatário, realizam a ciência ao receber o resumo da nota, e realizam confirmação da manifestação ao dar entrada na nota, segue as configurações recomendadas pela Futura:
+Tipo Manifestação:
+ Confirmação da Operação
+Ação Automática após Ciência: 
+Não Faz Nada
+Ação Recebimento Resumo: 
+Manifesta Ciência
+Tipo Manifestação: 
+Não Faz Nada
+Exemplo ilustrativo:
+Para acessar a tela acima basta ir no menu Ferramentas / Sistemas / Aba 
+Serviços Sefaz
+Seguindo as configurações acima, o SisPetro realizará a manifestação da Ciência assim que o Serviço de Consulta destinatário obter o resumo do XML. Assim que for dado entrada na Nota Fiscal e a 
+Natureza de Operação
+ utilizada esteja configurada para realizar a manifestação, será adicionado um evento de Manifestação de Confirmação de Operação.
+Recomendado para quem NÃO realiza Consulta de Destinatário
+Para as empresas que não trabalham com a Consulta de Destinatário e realizam a ciência antes da confirmação da manifestação, segue as configurações recomendadas pela Futura:
+Tipo Manifestação: 
+Ciência
+Ação automática após Ciência: 
+Inclui evento de confirmação
+Ação Recebimento do resumo:
+ Não Faz Nada 
+Ação Recebimento NF-e: 
+Não Faz Nada
+Exemplo ilustrativo:
+Para acessar a tela acima basta ir no menu Ferramentas / Sistemas / Aba 
+Serviços Sefaz
+Seguindo as configurações acima, ao realizar a emissão da nota, será adicionado um evento de Ciência que, caso seja processado e autorizado, incluirá automaticamente um evento de Confirmação de operação.

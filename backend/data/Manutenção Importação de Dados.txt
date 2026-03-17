@@ -1,0 +1,48 @@
+TITULO: Manutenção Importação de Dados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899297
+--------------------------------------------------
+Nesta tabela existem layout's para Importação de Dados para 
+, 
+Tabelas de Preços
+, 
+Ordem de Carregamento
+, 
+Notas Fiscais
+, entre outros que possam ser disponibilizados no Sispetro.
+Para ter acesso a tela de Manutenção de Importação de dados, o usuário deve utilizar o menu principal com as opções 
+Ferramentas / Importação Dados / Manutenção Importação de Dados.
+Nesta tela não é permitida a inclusão de layouts pelo usuário. Na medida que novos layouts forem desenvolvidos, eles serão incluidos 
+automaticamente pela FUTURA
+. Apesar disso, algumas configurações podem ser alteradas pelo usuário.
+Painel Detalhes:
+Cada registro de importação (Tabela de Preços, Ordem de Carregamento, Notas Fiscais, Lotes Contábeis, etc.) possui o seu arquivo de layout (extensão *.SMI), isso pode ser conferido pelo campo 
+Arquivo Layout
+. O sistema depende desses arquivos para executar as importações de forma correta, portanto, esses arquivos devem estar em um local indicado no campo 
+Path Arquivo Layout
+.
+Regra para o campo Path Arquivo Layout:
+Estando preenchido corretamente, o sistema procurá os arquivos no caminho indicado;
+Não preenchido, o sistema procurá os arquivos no mesmo diretório do executável.
+O campo 
+Máscara de Diretório
+, tem a função de indicar para o usuário o tipo de arquivo que será importado para o registro que está sendo configurado.
+Exemplo:
+O usuário configurou aqui na manuteção de importação de dados para Notas Fiscais da Petrobrás que a Máscara Diretório será *.txt, já que todos os arquivos que ele recebe são nesse formato.
+No processo de importação, quando o usuário for selecionar o arquivo a ser importado, na tela de pesquisa de arquivos, só serão filtrados os arquivos com a extensão TXT.
+Isso facilita a localização do arquivo, no caso de existir outros tipos de arquivos dentro do diretório.
+Caso a última importação tenha travado ou interrompida no meio por algum motivo, o processo ficará preso a um determinado usuário, impossibilitando que outros usuários utilizem o mesmo processo posteriormente. Neste caso, o sistema salva o nome do usuário que detêm o processo no campo 
+Em uso Por
+. Para desbloquear e tornar acessível a outros usuários, deve-se clicar no botão 
+Limpa Em Uso Por.
+Painel Log:
+Informações referentes as importações são possíveis de serem visualizadas através deste painel.
+No momento o sistema só irá atualizar o campo
+ Em uso por 
+e o 
+Log,
+ nas importações para Ordem de Carregamento, Tabela de Preço e PagFor Bradesco.
+No caso do 
+, os detalhes da montagem do arquivo layout (.smi) podem ser vistos em 
+.
+Veja também:
+Importação de NF´s

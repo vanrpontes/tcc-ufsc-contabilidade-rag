@@ -1,0 +1,286 @@
+TITULO: Cadastro Detalhado (Clientes)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210638
+--------------------------------------------------
+none
+Objetivo
+O painel 
+Cadastro Detalhado
+ do SisPetro permite registrar informações completas do cliente, como dados do contrato social, atividade econômica, natureza jurídica e status cadastral. O acesso depende de permissões específicas de usuário. Também possibilita configurar regras fiscais (ICMS, ANP, SEFAZ), controle de crédito e grupos econômicos, envio automático de e-mails, boletos e SMS, além de parâmetros para averbação, galonagem e liberação de clientes. O sistema ainda integra consultas automáticas (ANP, Sintegra, SEFAZ) e define políticas de aprovação e bloqueio de cadastros conforme perfis de segurança.
+A partir do painel 
+Detalhes
+ é possível acessar o painel Cadastro Detalhado localizado no menu inferior da tela. Nesta guia, o usuário irá informar os dados normalmente encontrados no contrato social do cliente como por exemplo: atividade Econômica, Data de Fundação e etc.
+Para ter acesso a tela de Cadastro Detalhado, usuário precisa das seguintes combinações de permissões:
+Perfil de Usuário, Aba Segurança
+:
+Pode Incluir Clientes + Pode Alterar Cadastro Detalhado: 
+usuário poderá incluir um novo cliente e ter acesso a tela de Cadastro Detalhado.
+Pode Alterar Clientes + Pode Alterar Cadastro Detalhado:
+ usuário poderá alterar cliente e ter acesso a tela de Cadastro Detalhado, para alteração.
+Atividade Econômica: 
+define a atividade econômica da entidade, irá influenciar diretamente no 
+campo Código DCP
+, localizado no painel observações. Apenas as entidades que tiverem o campo
+ Atividade Econômica preenchido como Congênere,
+ terão esse campo habilitado. Para mais informações, ver 
+Observações
+.
+Posto p/ Revenda
+ Órgão Público
+ TRR
+ Congênere 
+Grande Consumidor
+Natureza Juridica: 
+informar a natureza juridica do cliente
+Contribuinte de ICMS: 
+ para definir se o cliente é contribuinte ou não do ICMS. Utilizado para operações interestaduais com consumidor final não contribuinte.
+Data Última alteração Cadastro
+: data em que este cadastro foi revisado pelo setor competente. É interessante começar a controlar esta data para depois emitirmos um relatório com os cadastros desatualizados. Cliente com cadastro desatualizado aparecerá na tela de pesquisa no formato itálico, para isso o SisPetro verifica essa data e o número de dias de bloqueio, que é definido no perfil da empresa, menu Ferramentas / Sistema / painel Vendas, opção # Dias para Bloqueio
+Para alterá-la o usuário deve ter o privilégio do perfil, 
+Alteração de Cliente, Pode Alterar Cadastro Detalhado Cliente, 
+ e ao perfil de usuário 
+Pode Alterar Data de Alteração do Cadastro de Clientes.
+ Para mais informações, ver 
+Painel Segurança (Usuários)
+.
+Por exemplo, o cadastro do cliente A foi atualizado no dia 01/01/2004 e foi definido 10 dias para o número de dias de bloqueio, portanto, a partir da data definida mais os 10 dias o cliente está com cadastro atualizado, após isso, o cliente passa a ter o cadastro desatualizado novamente, aparecendo em itálico na tela de pesquisa.
+Tipo Ente Governamental
+:
+Não se Aplica: Não se enquadra
+União: Representa o governo federal
+Estado: Possuem autonomia política, administrativa e financeira
+Distrito Federal: Reúne as competências dos 
+estados
+ e dos 
+municípios
+.
+Municipal: Têm autonomia local
+Data Liberação
+: quando o cliente está num determinado Status (
+livre ou potencial
+), pode-se usar esta data para controlar quanto tempo este cliente ficará neste Status, utilizando-se o procedimento de mudança de Status para comparar esta data com a data atual (mudando-se o status de todos os clientes com determinado Status para outro). Esta data/procedimento é interessante quando se deseja controlar o acesso dos vendedores a determinados clientes com determinado Status.
+Para alterá-la o usuário deve ter o privilégio do perfil, 
+Alteração de Cliente, Pode Alterar Cadastro Detalhado Cliente,
+ e ao perfil de usuário 
+Pode Alterar Data de Liberação do Cadastro de Clientes.
+ Para mais informações, ver 
+Painel Segurança (Usuários)
+.
+Quadro Consultas ANP/Sintegra
+Status ANP e Status Sintegra: estes campos são atualizados automaticamente quando é feita a Consulta On-Line Clientes. 
+Para mais informações, ver 
+Consulta On-Line Clientes
+.
+Verificação dos produtos permitidos conforme Consulta ANP: 
+influencia diretamente na inclusão de Pedido de Vendas
+.
+Conforme Perfil do Sistema
+Nunca Verifica
+Para mais informações, ver 
+Consulta ANP
+.
+Quadro Serviço de Consulta Cadastro Contribuinte SEFAZ
+É possível realizar a Consulta de Cadastro de Contribuinte na SEFAZ. Para mais informações, ver 
+Consulta Cadastro de Contribuinte na SEFAZ
+.
+Consulta Cadastro de Contribuinte:
+Obedece Configuração de Sistema: 
+respeitará o perfil 
+Executa Consulta Automática na SEFAZ, ou seja, fará a consulta automática deste cliente
+Consulta Cadastro de Contribuinte: 
+fará a consulta automática deste cliente, independente se o perfil de Sistema estiver marcado ou não
+Não entra na lista de Consulta
+: nunca fará a consulta daquele cliente, independente do perfil de sistema.
+Ação Quando Denegado na SEFAZ:
+Não faz nada:
+ não bloqueará nem desbloqueará o cliente caso seja denegado na SEFAZ.
+Bloqueia/ Desbloqueia o Cliente:
+ caso o cliente esteja denegado na SEFAZ será bloqueado. Se a consulta de um cliente Denegado retornar que este está válido, será desbloqueado.
+Última Consulta:
+ mostra ao usuário a última consulta realizada pelo sistema, seja esta automática ou manual.
+Quadro Análise de Crédito/Grupo Econômico
+Atravessador
+: essa opção controla se esse cliente é um atravessador ou não. Sendo um atravessador, esse cliente pode ser o comprador de qualquer outra entidade, mesmo não pertencendo ao mesmo grupo econômico e desde que a entidade faturada, não tenha a opção Não permite atravessador marcada. Caso a entidade faturada faça parte do grupo econômico desse cliente, o SisPetro não valida a opção 
+Não permite atravessador.
+Não permite atravessador
+: não permite que nenhuma entidade que esteja marcada como atravessador seja comprador desse cliente, desde que esse cliente não pertença ao Grupo Econômico do Atravessador, caso o cliente pertença, o sistema ignora esse setup permitindo que o Atravessador seja o comprador.
+Pode ser representante: 
+estando marcado, esse cliente passa a ser representante e pode ser informado no PMM e no 
+contrato de venda.
+Pertence a Grupo Econômico (para Crédito, Faturamento)
+: caso este cliente pertença a um grupo econômico, devemos indicar isso neste controle habilitando-o e depois preenchendo o código da entidade a que este cliente pertence. Isso irá fazer com que somente este grupo econômico possa ser o comprador responsável por vendas para este posto (além do próprio posto).
+Utilizado para os novos perfis de Grupo Econômico. Para mais informações ver 
+Grupo Econômico - Detalhamento
+ e 
+Informações do Grupo Econômico
+Também é necessário ter permissão para indicar a entidade, perfil de usuário, Vincula Entidade ao Comprador, em 
+Painel Segurança (Usuários)
+Para adicionar o cliente a mais de um Grupo Econômico, basta clicar no botão: 
+Pertence a Grupo Econômico (para Análise Vendas)
+: caso este cliente pertença a um grupo econômico, devemos indicar isso neste controle habilitando-o e depois preenchendo o código da entidade a que este cliente pertence. Neste caso, somente as análises de vendas serão alteradas para refletir a movimentação deste grupo de clientes, isto é, não será permitida a utilização deste cliente (indicado no campo) como comprador no momento do pedido de venda.
+Para que o SisPetro controle as operações por Grupo Econômico, é necessário configurar em Ferramentas/Sistemas - painel Vendas - Controle venda para Grupo Econômico.
+Utilizado em conjunto com 
+Pertence a Grupo Econômico (para Crédito, Faturamento) e é PARA QUEM UTILIZA OS ANTIGOS PERFIS de Grupo Econômico - Para mais informações ver 
+Incluindo Grupo Econômico
+Situação Comprador
+: Este campo possui quatro opções:
+Pode ser comprador
+: a entidade pode ser compradora de outra entidade e dela própria.
+Não pode ser comprador de outra entidade faturada
+: a entidade só pode ser compradora dela própria, ou seja, a entidade
+compradora e a entidade faturada devem ser iguais.
+Não pode ser comprador sob nenhuma hipótese
+: a entidade não pode ser compradora de nenhuma outra entidade e nem dela própria. Pertencendo a um grupo econômico, ao fazer o pedido de vendas onde essa entidade seja colocada como compradora, o sistema não permitirá que se finalize o pedido, mostrando na tela uma mensagem onde será exibido os compradores vinculados a essa entidade.
+ 
+Só pode ser comprador
+: a entidade não pode ser uma entidade faturada, nem dela mesma e nem de outras entidades, ela apenas poderá ser compradora.
+Ao cadastrar um novo cliente, o SisPetro irá preencher o campo Pode ser Comprador, conforme definido na configuração da empresa, Menu Ferramentas/Sistema/Clientes:
+Dessa forma, o usuário pode optar por definir que todo o cliente cadastrado, tenha ou não a permissão de ser comprador, até que seja melhor avaliada a situação da entidade.
+(**) É necessário marcar uma opção na configuração do sistema, localizada em Ferramentas/Sistemas / Aba Vendas opção 
+Permite compra de atravessador
+, para que o SisPetro valide as operações por atravessador.
+Aprovação automática para pedido de vendas: 
+caso no cadastro do cliente esteja selecionado a opção Aprovar Automaticamente, o pedido será aprovado automaticamente.
+Para alterar esse perfil é necessário ter permissão de usuário, 
+Pode alterar Aprovação Automática do Cliente, 
+Painel Segurança (Usuários)
+.
+Observação: esse perfil também estará funcionando em conjunto ao SispetroApp e o 
+Serviço de Análise de Aprovação de Pedido
+.
+Quadro Galonagem
+Poderá informar dados referente a Galonagem desse Cliente, ou seja qual o tamanho do tanque dele.
+Aqui é possível cadastrar:
+Produto: escolha um produto já cadsatrado
+Produto - Descritivo de uso livro
+Quantidade
+M3
+Qtde Potencial Compras: o potencial que o cliente tem para comprar (geralmente mensal). Essa informação é utilizada na 
+Consulta Potencial x Vendas
+Utilize os botões 
+Incluir
+, 
+Excluir
+ e 
+Editar
+ para gerenciar tai informações
+Horários: 
+nesses campos poderão ser informados os horários que o cliente pode receber produtos e o horário de funcionamento do estabelecimento.
+Frotas Permitidas para entrega: 
+informe os tipos de frotas que poderão fazer a entrega no estabelecimento.
+Esses campos, Frotas Permitidos, são apenas para fins informativos e relatórios, não tendo nenhum tipo de envolvimento operacional no Sispetro
+Quadro Livro Eletrônico:
+Nº PIS/PASEP:
+ informar, caso tenha;
+Cadastro Específ. INSS:
+ informar, caso tenha;
+Nº SUFRAMA:
+ informar, caso tenha. Utilizado no SPED, caso seja informado;
+Inscrição Municipal:
+ informar, caso tenha. Utilizado no SPED, caso seja informado.
+Código Entidade p/ uso no Livro Eletrônico: 
+informe qual a entidade que vai no SPED.
+O SPED permite somente um CNPJ por entidade, independente de ser cliente, fornecedor ou transportadora;
+Quando um cliente com o mesmo CNPJ de um fornecedor, deve-se definir qual deles será enviado no SPED: cliente ou fornecedor;
+No caso de Transportadoras, estas devem estar cadastradas no SisPetro como Cliente ou Fornecedor.
+Ao vincular a entidade, certifique-se que os CNPJ são iguais. Caso não sejam iguais, o SisPetro emitirá a mensagem 
+CNPJ Diferente da Entidade. Verifique Código Entidade p/ uso no Livro Eletrônico na aba Cadastro Detalhado
+, conforme imagem abaixo:
+Caso o usuário não altere, o campo código da Entidade para uso no Livro Eletrônico, o mesmo será preenchido automaticamente com o código da própria entidade.
+Quadro E-mails Automáticos:
+É possível enviar o e-mail referente a Nota Fiscal para a entidade compradora e também agrupar os e-mails pela ordem de carregamento. Para mais informações, ver 
+Enviar e-mail para Cliente Comprador
+ e 
+Agrupar e-mails por Ordem de Carregamento
+Quadro NF-e
+Email de Envio da NF-e:
+ campo a ser preenchido com o e-mail do cliente para que sejam enviados os arquivos XML de suas respectivas Notas Fiscais Eletrônicas. O campo possui tamanho de 250 caracteres, possibilitando ao usuário cadastrar vários e-mails para recebimento. Para mais informações, ver 
+Serviço de E-mail
+O e-mail no XML deve possuir um tamanho de até 60 caracteres. O SisPetro irá enviar no XML o primeiro e-mail cadastrado no campo, identificando como separador a vírgula ( , )
+Campo E-mail de envio da NF-e: 
+teste@futuranet.com.br
+,
+ fulano@futuranet.com.br
+,
+ beltrano@futuranet.com.br
+Campo E-mail NO XML irá conter: 
+teste@futuranet.com.br
+Envia e-mail com a NF-e:
+ caso não seja marcado este perfil, o SisPetro 
+não enviará o e-mail para o cliente
+, mesmo que todo o resto do Sistema esteja configurado.
+Recebe e-mail NF-e quando comprador: a partir da versão 8.12 é possível enviar o e-mail com o arquivo .XML para o comprador também. Para mais informações, ver 
+Enviar e-mail para Cliente Comprador
+Agrupa envio de e-mail conforme perfil de sistema: a partir da versão 8.12 é possível agrupar os e-mails por Ordem de Carregamento. Para mais informações, ver 
+Agrupar e-mails por Ordem de Carregamento
+Quadro Cobrança
+E-mail de Envio de Boleto:
+ campo a ser preenchido com o e-mail do cliente para que sejam enviados os arquivos de Boleto de suas respectivas Notas Fiscais Eletrônicas. O campo possui tamanho de 250 caracteres, possibilitando ao usuário cadastrar vários e-mails para recebimento do XML.
+Importante marcar a opção 
+envia NF-e por e-mail e envia boleto por e-mail
+, pois caso contrário o SisPetro não os enviará.
+O SisPetro não valida o tamanho do e-mail para envio no XML. Portanto, atente-se ao cadastrar o e-mail.
+Quadro Envio SMS/Mensagens
+Celular SMS: 
+campo a ser preenchido com o numero para qual será enviado o SMS/Mensagem.
+Permite Envio de SMS?: 
+campo que define se será enviado ou não a mensagem para esse cliente, caso essa opção seja selecionada, é necessário ter um numero cadastrado no campo 'Celular SMS'.
+Remessa para Armazenagem Automática
+Para configurar um cliente para fazer Armazenagem Automática, é necessário selecionar entre as opções Sempre ou Conforme configuração do usuário. Caso seja selecionada a opção Nunca, o cliente selecionado não fará Armazenagem Automática.
+Para mais informações, ver 
+Remessa para Armazenagem Automática
+.
+Quadro Consulta Análise de Crédito
+Caso o usuário tenha perfil (
+Painel Vendas (Usuários)
+) é possível selecionar se exigirá ou não consulta à Gerenciadora de Análise de Crédito (
+Gerenciadora de Análise de Crédito - GAC
+).
+Exige Consulta
+Respeita o perfil de sistema:
+ utilizará as configurações dos perfis de sistema/empresas - 
+Painel Clientes
+Não faz consulta:
+ não fará consulta quando for incluído um pedido de venda para esse cliente. Caso o usuário tenha perfil, poderá forçar uma consulta (
+Clientes - Painel Navegação
+)
+Dados da Última Consulta:
+ mostra os dados, caso tenha, da última consulta realizada para o cliente. Não permite selecionar consultas realizadas. Para mais informações, ver 
+Consulta Análise de Crédito
+Quadro Dados Entrega CT-e
+Nome do Recebedor:
+ Informamos o nome do recebedor.
+Documento do Recebedor:
+ Informamos o Documento do recebedor.
+Os dados de Entrega CT-e serão sugeridos na inclusão do comprovante de entrega, que pode ocorrer na 
+inclusão do conhecimento de entrega
+ ou manual via tela de 
+manutenção de nota fiscal
+.
+Quadro Averbação
+Encaminha Averbação:
+Não encaminha p/ Averbação: 
+o SisPetro não irá enviar dados para nenhuma gerenciadora
+Encaminha p/ Averbação c/ Gerenciadora do perfil de Empresa: 
+o SisPetro irá enviar os dados da NF-e, CT-e e ou MDF-e conforme configurado no Quadro Averbação do 
+Painel Nota Fiscal
+Encaminha p/ Averbação c/ Gerenciadora específica: 
+o SisPetro irá enviar os dados para gerenciadora específica indicada no campo 
+Gerenciadora Averbação
+Gerenciadora Averbação:
+ atualmente o SisPetro trabalha com
+AT&M
+XPert
+Recomendamos que no cadastro do cliente seja configurado apenas a gerenciadora 
+Xpert
+. 
+Caso a empresa trabalhe com a 
+AT&M
+ faça a configuração na 
+Transportadora. 
+Quadro Remessa Conta e Ordem x Retorno Armazenagem
+Emite NF de Remessa por Conta e Ordem
+: marcando essa opção juntamente com a mesma opção do Quadro Remessa Conta e Ordem x Retorno Armazenagem do
+Depósitos - Aba Detalhes
+ permite que a OC de Carregamento de Terceiros faça a 
+Emissão Automática de Nf de Remessa Conta e Ordem por Armazenadoras para transportar produto vendido pela Usina / Distribuidora
+ 

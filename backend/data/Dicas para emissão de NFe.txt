@@ -1,0 +1,57 @@
+TITULO: Dicas para emissão de NFe
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879653210
+--------------------------------------------------
+Este roteiro tem como objetivo alertar e orientar os procedimentos de NFe para algumas situações adversas de ambiente, visando a diminuição de retrabalhos e erros com Faturamento.
+Serão abordados 4 adversidades:
+Lentidão da Sefaz/Banco de Dados
+Contingência no ambiente da Sefaz(SCAN)
+Contingência por falhas técnicas do contribuinte
+DPEC - Declaração prévia de Emissão em contingência
+1.1 - Lentidão da Sefaz.
+No momento em que ocorrer uma lentidão por parte da Sefaz, irá ocorrer a mensagem de 
+Lote em processamento
+. Para entender o motivo dessa mensagem, é necessário entender o funcionamento do Sispetro.
+Ao processar a nota, o Sispetro faz uma conexão com a Sefaz e envia a NF;
+A Sefaz responde com o número do 
+recibo
+;
+Ao receber este número, automaticamente o Sispetro envia-o a Sefaz solicitando o protocolo referente a esse recibo;
+A Sefaz estando lenta, responde 
+Lote em processamento
+.
+Neste caso a melhor atitude a ser tomada realmente é aguardar o retorno da Sefaz, solicitando em intervalos de 5 minutos o Protocolo.
+Não cancele uma nota em processamento pois a mesma pode voltar a qualquer momento com o Status de "Autorizado o uso da NF-e" e permanecer no Sispetro como Cancelada
+. Trazendo assim, uma divergência de status com a Sefaz.
+Se acontecer isto, a nota terá que ser cancelada também na Sefaz e emitida uma nova nota. Para isso basta solicitar o cancelamento através da tela de 
+NF-e - Nota Fiscal Eletrônica
+.
+1.2 - Contingência pelo SCAN.
+Só pode entrar em Contingência pelo SCAN (Sistema de Contingência do Ambiente Nacional) quando é informado pela própria Sefaz que seu próprio ambiente (Próprio, Virtual Nacional ou Virtual RS) está fora do ar.
+Para isso troque o Perfil de Sistema para 
+CONTINGÊNCIA
+ em 
+Ferramentas / Sistema / Nota Fiscal
+A partir deste momento o Sispetro irá utilizar o webservice cadastrado na aba de URL 
+ALTERNATIVO
+ cadastrado em 
+Configuração da UF
+.
+É importante lembrar que quando utilizado o SCAN não é necessário imprimir DANFE em papel moeda, porém a Série de nota fiscal deve ser alterada para numeração de 900 a 999, vide 
+Configuração da Natureza de Operação
+.
+1.3 - Contingência por Falhas Técnicas do Contribuinte.
+É possível usar esta opção para 
+qualquer problema técnico
+ quem implica na emissão de NFe. Entretanto é importante lembrar que para esse tipo de emissão o ambiente no Perfil de sistema 
+NÃO DEVE SER TROCADO
+ ou seja, continua como 
+PRODUÇÃO
+.
+A diferença é que com ele você terá que emitir o DANFE em papel moeda e 2 vias, uma sua e outra do cliente, destacando a frase de que está com problemas técnicos, isso tudo é feito de forma 
+off-line
+, tendo que transmitir e autorizar esta nota assim que estabilizar seu sistema.
+Caso tenha erro na transmissão dessa NFe, será necessário emitir uma nova e enviar o novo DANFE ao cliente.
+1.4 - DPEC - Declaração Prévia de Emissão em Contingência
+Um novo método de emissão em Contingência, já disponível no Sispetro, mas a SERPRO que é responsável pelo projeto ainda não colocou no ar todas as ferramentas necessárias para uso. Quando tivermos novidades sobre a produção desse método será transmitida.
+Clique aqui
+ para ver os detalhes de configuração de Contingência no Sispetro

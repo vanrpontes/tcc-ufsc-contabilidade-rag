@@ -1,0 +1,113 @@
+TITULO: Como emitir nota fiscal de venda a órgão público com ICMS Desonerado no estado do Rio de Janeiro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/3990683649
+--------------------------------------------------
+Para operações interestaduais, nesta situação, no perfil de sistema 
+, a opção 
+Calcula ICMS Interestadual para Não Contribuinte com Partilha 
+não pode ser marcada.
+A operação do ICMS Desonerado diminuindo o valor da NF não deve ser utilizada nos casos onde há ICMS Substituição e dedução do imposto no Preço Unitário.
+Nesse tipo de venda o valor do ICMS Próprio deve ser descontado do valor total da nota.
+Configurações
+Arquivos > Clientes > Aba Detalhes > Aba 
+Marcar a opção 
+Consumidor Final 
+logo abaixo da opção Pessoa Jurídica. 
+Tabelas Auxiliares > Faturamento > ICMS - selecionar o código do ICMS do produto:
+Aba Alíquotas - selecionar a UF de origem ou a UF do RJ e selecionar a UF de Destino (RJ)
+Informar a alíquota do ICMS Próprio
+Informar a redução da base de cálculo: 100%
+Informar a alíquota do FCP
+Informar a alíquota do ICMS ST
+Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Por Filial > 
+ - selecione a Filial:
+Quadro Benefício Fiscal
+Código do Benefício:
+ selecione o código do benefício que será enviado na nota. O
+brigatório informar. É cadastrado em 
+Manutenção de Conjunto de dados para o SPED
+ - item EFD - Tabelas Auxiliares - tabela LFEAjusteInfo.
+Envio de Benefício nas Observações da Nota Fiscal - selecione:
+Nas informações complementares
+: envia a informação nas informações complementares da nota
+Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Por FIlial > 
+ - 
+selecione a Filial:
+Quadro ICMS / IPI
+Gera ICMS:
+ deve ser marcada 
+ICMS Diferenciado:
+Reduz Somente Base Cálculo ICMS Próprio
+Esta opção deve, obrigatoriamente, ser selecionada para vendas com ICMS Desonerado para o estado do Rio de Janeiro.
+ 
+Ação ICMS Desonerado na NF: 
+Diminui do Valor da NF:
+ 
+o valor do ICMS desonerado será descontado do valor total da nota fiscal. Cálculo efetuado:
+ 
+p
+reço = Preço Real / (1 - (Aliquota ICMS/100)).
+Esta opção deve, obrigatoriamente, ser selecionada para vendas com ICMS Desonerado para o estado do Rio de Janeiro.
+Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Por Filial > 
+ - selecione a Filial:
+Quadro UF
+ 
+Clique no botão 
+Incluir a UF
+Selecione RJ
+Para incluir dos dados de ICMS Desonerado nas Informações Adicionais da NF-e configurar no campo Observacao: tag 
+<infCpl> informe os dados </infCpl> 
+Quadro Fundo Estadual de Combate à Pobreza - FCP
+Envio do FCP nas Informações Adicionais do XML da NF-e:
+Não envia:
+ 
+não será enviada nenhuma informação sobre o FCP no XML.
+Nas informações adicionais do Produto e Complementares da NF:
+ 
+caso seja marcada esta informação será criada uma TAG no XML enviando o valor calculado para o FCP. Para mais informações, ver 
+FCP - Operações com Gasolina no PR
+. 
+Calcula FCP sobre ICMS Próprio?: 
+permite definir se será calculado ou não o FCP sobre notas com ICMS Próprio
+Não Calcula:
+ 
+não será calculado
+Calcula para uso nas Obrigações:
+ 
+calculará valores de FCP para envio no XML/DANFE e nas obrigações fiscais. Utilizado para as UFs que tem FCP sobre ICMS Próprio.
+Considera Natureza de Operação/Filial:
+ 
+se o perfil na aba 
+Impostos 
+estiver marcado para enviar, será feito. Caso contrário não será enviado.
+Calcula para fins Informativos:
+ 
+calculará valores de FPC somente para a Apuração Fiscal. Não serão gerados valores de FCP no XML/DANFE. Utilizado para as UFs nas quais a alíquota do FCP é somada à alíquota do ICMS Próprio mas deve gerar lançamentos separados do ICMS Próprio e do FCP na Apuração Fiscal.
+Esta opção deve, obrigatoriamente, ser selecionada para vendas com ICMS Desonerado para o estado do Rio de Janeiro.
+Exemplo de cálculo do valor de ICMS Desonerado
+Dados da nota fiscal:
+Qtde: 
+10.000
+Preço de Venda: 
+5,09
+Valor da Venda: 
+50.900,00
+Alíquota ICMS: 
+11%
+Alíquota de FCP: 
+2%
+Alíquota utilizada no cálculo:
+ 
+13%
+Cálculos realizados:
+Preço para o DANFE: 
+5,09 / (1-(13/100)) → 5,09 / (1-0,13) → 5,09 / 0,87 → 
+5,8505747
+Valor dos Produtos: 
+5,8505747* 10.000 = 
+58.505,75
+Base do ICMS: 
+58.505,75
+ICMS Desonerado: 
+58.505,75 * 13/100
+ → 7.605,75
+Valor Total da Nota: 50.900,00

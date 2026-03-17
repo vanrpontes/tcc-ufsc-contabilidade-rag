@@ -1,0 +1,362 @@
+TITULO: Versão 8.7
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918974148
+--------------------------------------------------
+Versão 8.7
+Dados
+Informações
+Início
+04/06/2013
+Final
+31/07/2013
+Scripts
+cmd87.sql (3232 a 3261)
+Itens
+43
+Implementações
+25
+Correções
+18
+Anteriormente a geração do XML da NF-e não enviava dados de Transporte quando a Natureza de Operação estava configurada para um Tipo de Transporte diferente de Rodoviário. A partir dessa versão os dados de Transporte na NF-e só não serão enviados quando a Natureza de Operação estiiver configurada como "Sem transporte".
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+Layout de Impressão
+Apuracao.rtm
+ 
+Sintegra-PR_v87.rtm
+ 
+DaCte.rtm
+ 
+ 
+Sintegra-SEF_v87.rtm
+ 
+ 
+ 
+ 
+Sintegra-GRF_v87.rtm
+ 
+ 
+ 
+ 
+GIA_SP_v87.rtm
+ 
+ 
+Geral
+Exibição do XML
+A partir dessa versão os pontos onde são exibidos o XML criado ao usuário, como por exemplo, na manutenção de notas ficais, aba NF-e, utilizará a mesma formatação do Internet Explorer, em níveis, com a opção do usuário poder suprimir a visualização de grupos. 
+Help:
+ 
+ e 
+Painéis - Manutenção de Notas Fiscais
+. 
+UPA (CCF 21003)
+Configuração de TimeOut nos WebServices
+Nas configurações da empresa o Sispetro não estava repassando a configuração de TimeOut para conexão de WebServices, que foi corrigido nessa versão.
+ 
+Help:
+ 
+Painel NF-e/CT-e - Sistemas
+. 
+AO (CCF 20361)
+Relacionamento incorreto na tabela PlanoContasReal FK_ECD_CODNAT com CODIGOOBRIG
+Correção da referência para a tabela de Natureza de Conta na tabela do Plano de Contas Real. 
+PRFC (CCF 20438)
+Rotinas de Impressão do DANFE e DACTE no Servidor SisPetro
+Foram feitas algumas mudanças na rotina de impressão do DANFE e DACTE, para atender as mudanças do Envio do arquivo do PDF do DANFE por e-mail. 
+Help:
+ 
+. 
+AO (CCF 19024)
+Envio do arquivo do PDF do DANFE por e-mail
+O servidor Sispetro tem a possibilidade de enviar um e-mail para os destinatários de uma NF-e emitida pela empresa com o arquivo .xml 
+e com o arquivo .PDF do DANFE/DACTE
+ 
+ao Destinatário da NF-e ou CT-e emitida pela empresa. 
+Help:
+ 
+. AO (CCF 19024)
+ 
+ 
+Data e hora da última conexão na Tela de Licenciamento
+A tela de licenciamento foi alterada para exibir data e hora do ultimo acesso, facilitando assim o processo de ativação. 
+Help:
+ 
+, 
+. 
+PRFC
+ (CCF 20835)
+ 
+Estoque
+Tipo de OC x Pedido de Venda
+Antes era possível ao entrar na tela de Emissão de OC trocar o tipo da OC e deixar vinculado o pedido de venda gerando uma inconsistência, e nessa versão isso foi corrigido garantido que somente OC's de venda tenham pedido de Vendas vinculados.
+ 
+Help:
+ 
+. 
+AO (CCF 18040)
+Aumento de Compartimentos e Colunas para a Ordem de
+ 
+Carregamento
+Foram realizada alterações, tanto em relatórios, como em formulários  que permitirão ao usuário a manutenção de N compartimentos por frota. O sistema permitia a manutenção de até 7 compartimentos, forçando o usuário em alguns casos, mesclar informações de compartimentos. 
+Help:
+ 
+. PRFC (CCF 16706)
+Faturamento
+Tela de Consulta de NF-e's Emitidas a Empresa
+Incluída no SisPetro a tela de consulta de NF-es emitidas para a empresa conectada. Essa tela buscará informações na Sefaz sobre as NF-es emitidas contra ela e exibirá ao usuário 
+possibilitando assim através desta mesma tela, enviar a Sefaz os comandos de manifestação dessas NF-e's sem ter dado entrada no SisPetro.
+ 
+Help:
+ 
+Consulta de NF-e emitida para um CNPJ
+. 
+UPA (CCF 20867)
+Dados de Transportadora e Frota na NF
+Antes todas as NFs exigiam Transportadora e Frota devido o transporte rodoviário. Então a partir dessa versão não será exigido dados de Transportadora e Frota quando não houver transporte. 
+ 
+É
+ necessário 
+atualizar o layout padrão da Futura favor baixar os arquivos: 
+Sintegra-PR_v87.rtm, 
+Sintegra-SEF_v87.rtm, 
+Sintegra-GRF_v87.rtm. 
+Help:
+ 
+Dados Gerais da Natureza de Operação
+, 
+.
+ 
+AO (CCF 16200) 
+Descrição do Produto na tela de Remessa/Retorno Armazenagem
+A partir dessa versão será apresentada a Descrição Completa no campo Descrição do Produto na tela de Remessa/Retorno Armazenagem, quando a opção para "Quando produto composto gera itens da NF com os produtos primários" estiver marcada. AO (CCF 20512)
+Acertos na Data do Cancelamento NF II
+O Sispetro estava sugerindo a Data de Emissão da NF como Data do Cancelamento NF, porém nem sempre a data de origem é a data de emissão, a partir dessa versão será sugerido 
+devidamente a data de cancelamento da NF, conforme a data em que ela foi contabilizada (perfil de Sistema da Data de Emissão nos Títulos). 
+Help:
+ 
+. AO (CCF 20394)
+Cancelamento de NF x NF Referenciada
+Anteriormente a Nota Fiscal de Devolução não podia ser cancelada por ter sido referenciada pela NF de Venda, e que nessa versão foi corrigido podendo a NF de Devolução ser cancelada mesmo sendo referenciada a uma NF de Venda.
+ 
+Help:
+ 
+. AO (CCF 19994)
+Situação de Frete nas NF's Remessa/Retorno Armazenagem
+Na tela de Remessa/Retorno de Armazenagem não estava sendo possível 
+indicar qual a Situação do frete (pago por destinatário, emitente, etc)
+, saindo sempre "Por conta do Destinatário", que foi resolvido nessa versão p
+ermitindo que seja indicada a Situação de Frete nas NF's de Remessa/Retorno de Armazenagem. 
+Help:
+ 
+. AO (CCF 20087)
+Novo código de retorno de Manifestação válido na NFe
+Em algumas situações a SEFAZ retorna o código 
+136 - Evento Registrado, mas n
+ã
+o vinculado a NF-e
+, que vem também com o número do Protocolo. A partir dessa versão será considerado 
+como válido o novo código de retorno de Manifestaç
+ã
+o da NFe. 
+Help:
+ 
+. AO (CCF 20419)
+Manutenção
+ de Ordem de Carregamento
+As Ordens de Carregamento com fila serão listadas com o texto na cor azul, corrigindo a situação anterior em que estava-se colocando em azul todas as ordens de carregamento quando o perfil de empresa "Não Pega Fila" estava marcado.
+ PRFC (CCF-20830)
+Erro na Análise de Cancelamento de NF
+Corrigido erro apresentado na Análise de Cancelamento de NF's que não permitia o cancelamento acusando movimentação de estoque físico quando a NF não tinha nenhum vínculo com Ordem de Carregamento.
+ GSN (CCF-20584)
+Numero OC na NF importada
+Na importação de NF's é possível vincular uma OC a NF a ser importada. Porém, ao concluir o processo, na NF, não ficava salvo o número da OC vinculada, que foi corrigido nesta versão. 
+Help:
+ 
+. 
+AO (CCF 20546)
+Critério para utilização de MVA ou PMPF diferenciado (MG)
+Foi implementado mecanismos para calculo referente ao MVA e PMPF de acordo com os dados fornecidos no cadastro de produtos. 
+Help:
+ 
+Cálculo de Imposto - Exemplo Prático
+, 
+Cálculo de ICMS ST utilizando MVA ou PMPF nas operações com etanol hidratado para o Estado de Minas Gerais
+. 
+PRFC (CCF 20954)
+Ajustes na Inclusão de Manifestação do Destinatário
+A Manifestação de Destinatário exige que ao escolher o Tipo "Operação não Realizada" seja informada uma justificava. 
+Help:
+ 
+Evento de Manifestação do Destinatário da NFe
+. 
+AO (CCF 21186)
+Erro no vínculo por Item da Nota Fiscal
+Correção de erro ao desvincular notas. Antes ao vincular e em seguida desvincular uma nota, o sistema exibia uma mensagem de violação de memória.
+ 
+Help:
+ 
+Seleção de Notas Fiscais para vínculos
+. 
+PRFC (CCF 21224)
+Informações do Transporte Ferroviário no XML para Sefaz
+Em alguns casos é utilizado o Transporte diferente do padrão, como Dutoviário ou Ferroviário, ou até não possuir Transporte. Com isso o XML da NF-e precisa ser enviado (ou não) com os dados de Transportes (Transportadora e Frota) específico para Transporte utilizado na NF. 
+Help:
+ 
+Natureza de Operação - Dados Gerais (Painel Geral)
+, 
+.
+ 
+AO (CCF 20693)
+Financeiro
+Sugerir Pode Contabilizar marcado nas telas de Baixas
+Sugerir sempre marcado o campo "Pode Contabilizar" nas telas de Baixa Rápida e Débito/Crédito. 
+Help:
+ 
+. AO (CCF 20230)
+Cobrança Eletrônica - Banco Nova América (998)
+Inclusão do novo banco e alterações nas rotinas de emissão de arquivo remessa/retorno para atender o mesmo. 
+Help:
+ 
+, 
+.
+ 
+PRFC (CCF 19020)
+Fiscal
+Legenda e cores no grid da tela do DPMP
+Ajuste na tela de DPMP para atender registros vinculados a pedidos e incluídos manualmente pelo usuário. PRFC (CCF-20705)
+Melhorias na tela de Inventário
+Melhorias na tela de lançamento e manutenção de Inventário, na navegação/usabilidade e adequação das mensagens de erro para o padrão "lista de erros". 
+Help:
+ 
+. PRFC (CCF-20737 CCF-20638 CCF-18480 CCF-20602)
+Registro 0175 no SPED-EFD
+Alterada a fórmula do campo CONT_ANT do Registro 0175 para, quando alterada a cidade do Cliente/Fornecedor, enviar o Código DNC de uso da NF-e, evitando recusa pelo validador.
+ GSN (CCF-20706)
+Registro G110 no SPED-EFD
+Alterada a fórmula do campo Valor Anterior do CIAP do Registro G110 para considerar somente a somatória o valor do mês anterior. Antes estava considerando a somatória de todos os meses anteriores.
+ GSN (CCF-20407)
+IE Substituição na Impressão da Apuracão Fiscal
+Alteração no arquivo rtm do relatório de "Apuração de Livros Fiscais" para que apresente na impressão a IE Substituição para cada estado de acordo com o cadastro da empresa.
+ É necessário 
+atualizar o layout  padrão da Futura favor baixar os arquivos: Apuracao.rtm.
+ 
+Help:
+ 
+Apuração Livros Fiscais - Relatórios
+. 
+PRFC (CCF-21038)
+Alterações na GIA-SP
+Realizadas algumas alterações no layout da GIA-SP como atualizaç
+ã
+o do código de vers
+ã
+o, ordenaç
+ã
+o dos registros CR14, dados de ICMS Substituído e o n
+ã
+o envio de NFs configuradas na Natureza de Operaç
+ã
+o para n
+ã
+o sair na GIA. 
+Necessário atualizar o arquivo GIA_SP_v87.rtm na Manutenç
+ã
+o de Exportaç
+ã
+o de Dados.
+ GSN (CCF-19558 CCF-20053)
+Registro C112 no SPED-EFD
+Alterada a fórmula do campo COD_DA (Código do Modelo de Documento de Arrecadação) no Registro C112 para ir de forma fixa 0, que indica Documento Estadual de Arrecadação. 
+GSN (CCF-20326)
+Registro C113 no SPED-EFD
+Alterada a seleção de dados no Registro C113 para considerar NF's vinculadas mesmo que não façam parte do mesmo mês de geração do SPED-EFD. 
+Help:
+ 
+Sped EFD Fiscal - Bloco C
+. 
+GSN (CCF-20510)
+Registro 0220 no SPED-EFD
+Incluído o Registro 0220 que apresenta os fatores de Conversão quando o produto está configurado para usar mais que uma Unidade de Medida.
+ 
+Help:
+ 
+SPED EFD Fiscal - Bloco 0
+. 
+GSN (CCF-20597)
+Transportes
+Manutenção Fretes X Frota Próprio
+Na Tela de Manutenção de Fretes foram feitas algumas alterações para facilitar a visualização das empresas que precisam controlar os pagamentos de frete, já que fretes de frotas próprios nao requerem pagamento. 
+Help:
+ 
+. AO (CCF 19221)
+Uso de Natureza Inativa no Conhecimento de Frete
+Correção de filtro da pesquisa "Natureza de Operações" na Emissão de Conhecimento, agora o sistema considerará invalido um código de natureza que esteja inativa, apresentando a lista de naturezas ativas para o usuário. 
+PRFC (CCF 20863)
+Dados de Frete na OC de Origem e Destino duplicados
+Alterado o processo de geração de frete 
+nas OC's de Carregamento Próprio e OC's de Descarga Própria quando vinculadas, permitindo que o usuário informe a responsabilidade do frete em relação as duas OC's, evitando 
+dados de Frete repetidos nas OC's
+. 
+Help:
+ 
+, 
+. 
+AO ( CCF 20166)
+Informações do Transporte Ferroviário no XML para Sefaz
+Em alguns casos é utilizado o Transporte diferente do padrão, como Dutoviário ou Ferroviário, ou até não possuir Transporte. Com isso o XML da NF-e precisa ser enviado (ou não) com os dados de Transportes (Transportadora e Frota) específico para Transporte utilizado na NF. 
+Help:
+ 
+Natureza de Operação - Dados Gerais (Painel Geral)
+, 
+.
+ 
+AO (CCF 20693)
+Envio de Imposto no XML do CT-e
+Garantir que o envio de valores de ICMS no XML do CT-e seja feito devidamente. Nessa versão foi corrigido o CST 090
+. 
+Help:
+ 
+Como emitir um Conhecimento de Frete
+. 
+AO (CCF 21056)
+Retira Conhecimento de Frete Automático
+Foi decidido retirar a geração do Conhecimento de Frete Automático,
+ 
+já que não era muito utilizado por nossos clientes. 
+Help: 
+, 
+.
+ 
+AO (CCF 19284)
+Lentidão na Inclusão de Conhecimento de Frete
+Melhorada a performance na Inclusão de Conhecimento de Frete em empresas que utilizam o preço de partida do Cadastro de Produtos no SCANC, isso porque o procedimento de busca do preço de partida (usado na inclusão de Conhecimento e de Nota Fiscal comum) estava mais lento do que deveria. 
+GSN (CCF-21009)
+Vínculo de NF's a Conhecimento pela Manutenção de NF's
+Na Manutenção de NF's temos a possibilidade de vincular NF's a um Conhecimento, quando ele é de venda ou Transferência. Porém, essa ação estava sendo permitida quando se posiciona numa NF que nao é Conhecimento, e que a partir dessa versão só será permitido o vínculo de NF's da Aba Transportes a NFs que sejam Conhecimento (emitidos). 
+Help:
+ 
+Painéis - Manutenção de Notas Fiscais
+. 
+AO (CCF 20773)
+Tipo de Carga Fracionada ou Lotação no Conhecimento de Frete 
+A partir dessa versão será permitido a indicação do tipo de Carga na emissão do Conhecimento de Frete e a definição do layout do DaCTe para impressão de forma automática. 
+É necessário atualizar o layout  padrão da Futura, favor baixar o arquivos 
+DaCTe.rtm. 
+Help:
+ 
+Como emitir um Conhecimento de Frete
+. 
+AO (CCF 21018)
+Vendas
+Erro de Filtro na Consulta de Pedidos Aprovados mas não Faturados do Remoto
+Na tela de Consulta de Pedidos Aprovados mas não Faturados, caso o usuário solicitasse que essa tela fosse filtrada por depósitos que fossem usina ou depósito de terceiros, no SisPetro Remoto, era gerado um erro ao usuário e os dados não estavam sendo exibidos. Esse problema foi corrigido.
+ UPA (CCF 20595)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

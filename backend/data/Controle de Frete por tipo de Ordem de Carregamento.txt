@@ -1,0 +1,46 @@
+TITULO: Controle de Frete por tipo de Ordem de Carregamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701974
+--------------------------------------------------
+O SisPetro permite o cálculo do frete padrão nas Ordens de Carregamento de Transferência, este cálculo será controlado através do perfil da empresa, Menu 
+Ferramentas / Sistema / Fretes
+, e somente para as ordens de Transferência entre Depósitos, CIF ou Avulsas. 
+
+
+
+
+As opções de controle para cada cada tipo de Ordem são: 
+
+
+Desabilitado
+: 
+
+Não controla o valor de frete na Ordem de Carregamento, sendo que essa pode ter ou não valor de frete. 
+
+
+Habilitado - deixa passar zerado
+: 
+
+Permite que o valor do frete na Ordem de Carregamento seja zerado. 
+
+
+Habilitado - não deixa passar zerado
+: 
+
+Exige que a Ordem tenha um valor de frete antes de ser finalizada. 
+
+
+Na inclusão da Ordem de Carregamento de Transferência entre Depósito, estando habilitado o perfil da empresa, o sistema já sugeri o valor de frete baseado na distância entre o DNC do depósito de origem e o DNC do depósito de destino e para as Ordens de Carregamento Avulsas, o calculo do frete é feito pela distância do DNC do depósito de origem e o DNC da Entidade. 
+Caso não tenha nenhuma distância cadastrada ou os depósitos não tenham nenhum código DNC, o valor de frete sugerido será zero
+. 
+
+
+O sistema permite alterar os valores de frete sugeridos, caso a Ordem de Carregamento seja vinculada a um PMM (Pedido de Movimentação de Material). O usuário tem a opção de trocar o valor do frete, pelo valor do frete do PMM. 
+
+
+
+
+Para melhores esclarecimentos sobre cadastro do código DNC do Depósito e cadastro de distância, vide tópicos 
+Tabela Depósitos
+ e 
+Tabela Distâncias
+. 

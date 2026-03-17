@@ -1,0 +1,615 @@
+TITULO: Versão 7.11
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2897281608
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 15/10/2010 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 20/12/2010 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd711.sql (cmd2452 a cmd2510) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 44 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 23 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 21 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Relatórios 
+
+
+ Layouts de Exportação 
+
+
+
+
+
+
+ ComissaoVendedor.rtm 
+
+
+ DIME-SC.rtm 
+
+
+
+
+
+
+ DPMP_Visualizacao.rtm 
+
+
+ 
+
+
+
+
+
+
+Para atualização para a versão 7.11, é necessário que não exista nenhuma pendência de envio a Sefaz.
+
+
+Geral
+
+
+
+
+Adaptação das Rotinas de E-mail
+
+
+Foram alteradas as rotinas de envio/exclusão de e-mails para ficarem compatíveis com todas as versões do Sybase. UPA (CCF 10766)
+
+
+Erro no momento de reabrir o fechamento de custo
+
+Foi corrigido nessa versão um problema que ocorreu ao reabrir o fechamento de custo devido ao banco de dados não conter alguns objetos. 
+Os objetos faltantes em questão serão recriados com o script dessa versão.
+ 
+ALP (CCF 10812)
+
+
+Email - Criar campo de data simples para agrupamento
+
+
+Na tela de manutenção de emails foi adicionado um campo "Data" cujo conteúdo é apenas a Data de inclusão do email (sem exibir o horário).
+ 
+Esse campo foi disponibilizado com a intenção de permitir um agrupamento de emails enviados na mesma data.
+ 
+ALP (CCF 10835)
+
+
+Ambiente da NF-e diferente do Ambiente de Envio de E-mail
+
+
+Foi criada nessa versão uma verificação, na tela de Emissão de Nota Fiscal, entre o ambiente de envio da Nota Fiscal Eletrônica (NF-e) e o ambiente de envio de Email.
+ 
+Se os ambientes forem diferentes, o SisPetro mostrará uma mensagem avisando sobre a diferença
+ 
+mas não impedindo a emissão da NF-e.
+ 
+Help:
+ 
+Mensagem de Alerta de Ambiente
+ 
+ALP (CCF 10915)
+
+
+
+
+Compras
+
+
+Contabilidade
+
+
+
+
+Problemas com Arredondamento no Código de Contabilização
+
+Em alguns raros casos em que o código de contabilização se baseava nos itens da nota e não na nota, estavamos tendo divergencias de valores pois nos itens da nota, o preço unitário possui mais do que duas casas decimais. Implementamos algumas rotinas de arredondamento e com isso esse problema não mais ocorrerá. 
+UPA (CCF 10837)
+
+
+Alteração de Lote em Lote
+
+
+Foi criada nessa versão uma tela que permite a alteração de vários lotes de uma vez.
+ 
+Poderão ser escolhidos Lotes a partir de um filtro que permite selecionar Notas Fiscais, Baixas, Adiantamentos, Transferências e Lotes Gerenciais
+.
+ 
+Help:
+ 
+Alteração de Lote em Lote
+ 
+UPA (CCF 10460)
+
+
+Ajustes na Depreciação
+
+
+Foram feitas algumas modificações na tela de Depreciação.
+ 
+Agora é possível alterar algumas informações dos Bens (Contas de Débito/Crédito e Valor) e decidir se essas alterações serão contabilizadas.
+ 
+Help:
+ 
+Depreciação
+ 
+ALP (CCF 11078)
+
+
+Ajustes nos Bens do Ativo Imobilizado
+
+
+Na rotina de Alteração de Valor de Bem foram implementadas algumas modificações que permitem a alteração de mais informações do Bem. Agora, além do valor do Bem, é possível alterar o valor do ICMS, os meses de Vida Útil e os meses de CIAP.
+ 
+Além disso, o usuário poderá optar se deseja contabilizar a alteração.
+ 
+ALP (CCF 9999)
+
+
+CIAP
+
+
+CIAP significa Crédito de ICMS do Ativo Permanente. Ele serve para controlar o crédito de ICMS de produtos caracterizados como Ativo Permanente, já que não é possível utilizar todo o valor referente ao ICMS num mesmo mês. Atualmente, o valor referente ao ICMS desse produto (bem) pode ser utilizado em 48 parcelas, tendo duas formas de utilização:
+
+
+a) Gerando uma Nota Fiscal específica para Crédito de ICMS, cujo valor de ICMS seria equivalente ao 1/48 do ICMS do bem, entrando como crédito normal na apuração.
+
+
+b) Colocando esse valor de 1/48 do ICMS do bem como Outros Créditos na apuração.
+
+
+A partir dessa versão, através do módulo de patrimonio, poderemos controlar os créditos de ICMS de cada produto no SisPetro.
+ 
+Help:
+ 
+Geração de Movimentação para o CIAP
+ 
+UPA (CCF 10094)
+
+
+Acessos às telas do SisPetro Controladoria
+
+
+Criados perfis de usuário para acesso às seguintes telas do Controladoria: "Plano de Contas Reais", "Código de Contabilização" e "Recontabilização de Lançamentos".
+Importante: Essas telas estarão desabilitadas a partir dessa versão, sendo necessário alterar o perfil dos usuários que podem acessá-las.
+ 
+Help:
+ 
+Alteração de Lote em Lote
+ 
+/ 
+Tabela de Plano de Contas Real
+ 
+/ 
+Tabela de Códigos de Contabilização
+ 
+*GSN (CCF 10739)
+
+
+Baixa de Item na manutenção de patrimonio
+
+
+Na tela de Baixa de Bens foi disponibilizada uma opção que permite escolher se o Bem será ou não contabilizado.
+ 
+Também foi criada uma opção para escolher entre a baixa pelo valor total do Bem ou a baixa apenas pelo valor não depreciado.
+ 
+Help:
+Baixa
+ 
+ALP(CCF 10103)
+
+
+Manutenção de Patrimônio
+
+
+Criamos na tela de Manutenção de Patrimônio um bloqueio na criação de novos movimentos caso haja algum movimento em aberto (sem efetivação).
+ 
+Com isso conseguimos impedir que, exemplificando, seja cadastrado um movimento de baixa de bem se houver um movimento de alteração de valor do bem que ainda não foi efetivado.
+ 
+Help:
+Manutenção de Patrimônio
+ 
+ALP (CCF 11382)
+
+
+
+
+Estoque
+
+
+
+
+Perfil Volume a ser utilizado para Carregamento / Descarga
+
+Na versão 7.9 foram criados os perfis Volume a ser utilizado para Carregamento / Descarga e nesse perfil existem 3 opções Volume Programado, Automação e Balança. O processamento das opções Programado e Automação estavam invertidas e foram corrigidos nessa versão. 
+UPA (CCF 10932)
+
+
+Alteração da Quantidade na Portaria de Saída
+
+
+A partir dessa versão, somente usuários com permissão poderão alterar a quantidade, temperatura e densidade na portaria de saída. O objetivo dessa alteração é dar mais segurança ao processo de portaria.
+ 
+Após a atualização, será necessário dar permissão aos usuários que poderão alterar as informações na portaria de saída.
+ 
+UPA (CCF 10962)
+
+
+Informação Manual da Densidade (Fator de Conversão da Unidade de Medida) na OC
+
+
+Na tela de ordem de carregamento, a partir dessa versão, caso o usuário tenha permissão para isso, será possível alterar/informar a unidade do produto que estão sendo utilizado e também o fator de conversão da unida. 
+Help:
+ 
+Como Emitir Ordem de Carregamento
+ 
+UPA (CCF 11176)
+
+
+Saldo de Produtos na Verificação de Estoque Negativo
+
+Atualizado os saldos de produtos básicos, envolvidos em produtos compostos, para correta apresentação na Verificação de Estoque Negativo na inclusão do Pedido de Venda. Essa atualização não interfere a movimentação dos produtos, nem o Fechamento de Estoque. 
+GSN (CCF 11258)
+
+
+Impressão de Boletim de Conformidade do Tanque
+
+Corrigido para que permita que o usuário informe o número de vias na impressão do Boletim de Conformidade do Tanque. Será apresentado o número de páginas a ser impresso de cada boletim, que corresponde ao número do produtos diferentes em relação ao produto básico. 
+Help:
+ 
+Como imprimir o Boletim de Conformidade
+ 
+GSN (CCF 9895)
+
+
+Verificação do Limite de Carregamento por Peso
+
+
+Nessa versão estamos liberando duas alterações com relação a portaria de saída para refinaria.
+ 
+Permitir que OCs com mais de um produto obtenham a quantidade real movimentada pelo Peso obtido na balança e Fazer a validação do limite permitido para variação na movimentação por peso.
+ 
+Help:
+ 
+Limitação de Quantidade Real na Portaria de Saída
+ 
+UPA (CCF 11176)
+
+
+Ajuste nas Rotinas de Liberação de Movimentação de Depósito por Senha
+
+Foram detectadas algumas inconsistências na rotina de liberação por senha na movimentação do depósito na portaria. Essas inconsistências são: Caso a saída da portaria exigisse liberação manual e o depósito não possuísse senha cadastrada, era solicitado ao usuário que informasse uma senha mas a mesma não era validada e liberava o processo. 
+A partir dessa versão, em situações como essa o sistema irá barrar a liberação e informar ao usuário que precisa ser cadastrada uma senha para o depósito.
+ Na alteração de um depósito (cadastro) se as senhas de liberação não fossem informadas, o sistema estava gravando uma sujeira no conteúdo do campo. Esse problema foi corrigido e o cadastro de depósito está sendo corrigido automaticamente. Código de depósitos, numéricos, começados com zero (01 por exemplo), não estavam conseguindo localizar senha de liberação no sistema. 
+A partir dessa versão, os depósitos nessa situação que possuírem senha cadastrada, caso seja necessário informar a senha de liberação na portaria, irá exigir a digitação da mesma.
+ 
+UPA (CCF 11373)
+
+
+
+
+Faturamento
+
+
+
+
+Natureza de Operação
+
+
+Implementamos uma alteração na maneira de buscar a Natureza de Operação ao efetuar Notas Fiscais. A Natureza de Operação que, antes de ser utilizada, já estava na memória, agora passará a ser utilizada apenas quando for necessária. Com isso resolvemos um problema, onde algumas informações da Natureza não eram preenchidas. ALP (CCF 10565)
+
+
+Cobrança Banco ABC - CNAB 400
+
+Foi corrigido nessa versão o cadastro do Banco ABC (código 246) para ficar marcada a opção de CNAB 400. 
+ALP (CCF 10765)
+
+
+Padronização de botões
+
+O botão "Layout Padrão" da tela de Manutenção de Inutilização de Numeração de Nota Fiscal Eletrônica foi colocado no mesmo padrão de outras telas que tem o mesmo botão. 
+Help:
+ 
+Manutenção de Inutilização de Numeração de NF-e
+ ALP (CCF 10855)
+
+
+Nota Fiscal de Venda Direta
+
+Na versão 7.10, ao faturar um pedido de venda direta, as quantidades do pedido não eram repassadas a nota fiscal. Esse problema foi corrigido nessa versão. 
+UPA (CCF 11162)
+
+
+Ajustes no XML da NFe para Importação
+
+
+Foi implementado nessa versão, na emissão da Nota Fiscal Eletrônica (NFe), algumas informações referentes a Notas Fiscais de Importação.
+ 
+Para isso disponibilizamos um perfil no cadastro de Natureza de Operação onde é possível configurar se a NFe possuirá dados de importação (que irão inclusive no arquivo de envio a SEFAZ). Essas informações serão solicitadas na emissão da NFe
+ 
+e estarão disponíveis para visualização na tela de Manutenção de Notas Fiscais.
+ 
+ALP (CCF 11218)
+
+
+
+
+Financeiro
+
+
+
+
+Agrupamento por Semana na Consulta de Fluxo de Caixa
+
+A partir desta versão, estaremos contando as semanas, não mais como semanas do mês, e sim, como semanas do ano.
+Help:
+ 
+Fluxo de Caixa
+. 
+UPA (CCF 10961)
+
+
+Pode Contabilizar - Baixa Eletrônica e Baixa Manual
+
+Foi identificada uma divergência no funcionamento da tela de Baixa Eletrônica referente ao campo "Pode contabilizar". Esse campo, que é uma opção de check (marcado/desmarcado) obedece uma configuração de perfil de sistema, que está funcionando corretamente na tela de Baixa Manual, mas não estava sendo obedecido na tela de Baixa Eletrônica. esse problema foi corrigido. 
+Help:
+ 
+Contabilização real durante baixas
+ 
+ALP (CCF 10166)
+
+
+Depósito no Adiantamento Quantificado de Fornecedor
+
+Nos adiantamentos quantificados de Fornecedores não será mais exigido que o depósito esteja configurado para permitir venda. 
+Help:
+ 
+Adiantamento Quantificado de Fornecedores
+ 
+GSN (CCF 11260)
+
+
+Cobrança Eletrônica Sofisa com Correspondente Bradesco
+
+
+Implementamos nessa versão a possibilidade de configurar a cobrança eletrônica para o Banco Sofisa (637) utilizando como correspondente o Banco Bradesco (237). 
+Help:
+Banco Sofisa
+ ALP (CCF 10590)
+
+
+Banco Rendimento com Correspondente Bradesco
+
+Corrigimos nessa versão o cálculo do Nosso Número para cobrança eletrônica do Banco Rendimento (633)utilizando como correspondente o Banco Bradesco (237). 
+ALP (CCF 11164)
+
+
+
+
+Fiscal
+
+
+
+
+Erro na impressão do DPMP
+
+A tela de DPMP estava apresentando uma mensagem de erro ao imprimir. Esse erro ocorria devido a um problema de conexão com o banco de dados. O problema foi corrigido. 
+É necessário atualizar o arquivo DPMP_Visualizacao.rtm
+. 
+ALP (CCF 10775)
+
+
+Otimização do preenchimento de dados do SPED-EFD
+
+
+Mudamos a ordem de preenchimento dos registros 0150, 0190, 0200, 0206, 0400, 0450 e 0460 para que ocorram após os blocos C, D, E e H, assim, ao invés de ter que selecionar as notas do Sispetro novamente, utiliza as notas apresentadas nos outros blocos, o que garante um ganho de performance.
+ 
+As fórmulas desses registros estão sendo alteradas para atender essa implementação.
+ 
+GSN (CCF 10933)
+
+
+Valor da Operação no Registro C190
+
+
+No registro C190 o campo Valor da Operação será o Valor dos Produtos somado ao ICMS Subst nos casos em que a Natureza de Operação não está marcada para desprezar ICMS Substituição no Valor da NF.
+ 
+A fórmula desse campo/registro está sendo alterada para atender essa implementação.
+ 
+GSN (CCF 10987)
+
+
+Registro C170 e C176 - Otimização
+
+
+Alterado o preenchimento dos registros C170 (itens da Nota) e C176 (ressarcimento ST) para propiciar melhor performance. GSN (CCF 10846)
+
+
+Alíquotas PIS, COFINS e IPI no Registro C170
+
+
+Alterado o preenchimento dos campos de Alíquota de PIS, COFINS e IPI do registro C170 (itens da Nota) para que seja 0 (zero) ao invés de vazio quando não tiver informação.
+ 
+As fórmulas desses campos estão sendo alteradas para atender essa implementação.
+GSN (CCF 10730)
+
+
+SPED PIS/COFINS
+
+
+Já existem implementações no SisPetro que possibilitam cadastrar valores e alíquotas nos produtos, indicar para clientes, fornecedores e empresas a opção de apuração (alíquota ou valor fixo), calcular esses valores nas notas fiscais através de outros impostos e utilizar funções que obtenham esses valores para uso em fórmulas, como SPED e Código de Contabilização. Agora implementamos mais informações necessárias para a Apuração de PIS e COFINS e envio do arquivo do SPED.
+ 
+Help:
+ 
+SPED PIS COFINS
+ 
+UPA (CCF 10376)
+
+
+Modelo com 2 dígitos - Registro 1700
+
+Ajustada a configuração do campo COD_MOD do registro 1700 para alinhar a direita, ter 2 caracteres e preencher com zeros. 
+GSN (CCF 11272)
+
+
+Ajustes na Apuração - Registro E111
+
+Corrigido para que no Registro E111 só sejam apresentados ajustes (Outros Débitos/Créditos e Estornos Débitos/Créditos) somente da Apuração de ICMS próprio e não mais do ICMS ST. 
+GSN (CCF 11398)
+
+
+Registros CIAP e Ajustes Fiscais (1900 e afins)
+
+
+Criados os registros 0300,0305,0500,0600, Bloco G e 1900/afins que são exigidos para dados a partir de Janeiro/2011. Algumas fórmulas já foram adicionadas, mas é importante que cada empresa já faça sua conferëncia antes da entrega final, considerando que são várias informações.
+ 
+Importante: Para o preenchimento dos registros do Bloco G é necessária a utilização do módulo de Patrimônio.
+ 
+GSN (CCF 10810)
+
+
+DIME-SC - Validador 5.0.06
+
+Ajustado o layout da DIME para que seja compatível com o Validador 5.0.06. Em especial o campo 170 do Registro 32 que precisou ser preenchido.
+Necessário atualizar o layout de Exportação DIME-SC.rtm.
+ 
+GSN (CCF 11215)
+
+
+
+
+Transporte
+
+
+Vendas
+
+
+
+
+Relatório de Comissão sobre Vendas - Totalizador de Comissão
+
+Foi encontrado um problema no Relatório de Comissão sobre Vendas. O totalizador de comissão por vendedor e por produto não estava sendo exibido corretamente em casos onde havia mudança de página. Esse problema foi corrigido. 
+É necessário atualizar o arquivo ComissaoVendedor.rtm.
+ 
+MCL (CCF 10783)
+
+
+Simulador de Preço de Venda e Análise de Custo do Produto
+
+Na tela do Simulador de Preços, quando o calculo escolhido era pelo preço final, o sistema não estava levando em consideração o tipo de transporte selecionado pelo usuário. Estava obtendo o tipo de transporte sempre do cadastro do cliente informado. A partir dessa versão, o tipo do transporte respeitará a opção selecionada pelo usuário na tela. 
+UPA (CCF 10861,11231)
+
+
+Separação de dados por código de Produto na Consulta Geral de Vendas
+
+Na tela de Consulta Geral de Vendas a coluna Produto acumulava valores de notas cujo produto continha o mesmo nomeusual. Alteramos para agrupar somente quando tiver o mesmo código de produto. 
+GSN (CCF 10877)
+
+
+Pedido de Alteração de Preços - Entidade e Empresa
+
+Não será mais permitido alterar a entidade e a empresa quando estiver alterando o Pedido de Alteração de Preços. 
+Help:
+ 
+Inclusão - Alteração Pedido Preços
+ 
+GSN (CCF 10910)
+
+
+Limitação de Vendas pelo saldo de vários depósitos
+
+
+Implementamos nessa versão uma nova opção no cadastro de depósito. Agora existe a opção de escolher o tipo "Depósito Virtual".
+ 
+Disponibilizamos uma tela onde é possível vincular vários depósitos ao depósito virtual, criando assim um agrupamento de depósitos.
+ 
+Dessa forma, o saldo disponível em vários depósitos será consolidado em apenas um depósito virtual. Este recurso é útil para processos de venda direta em usinas.
+ 
+Help:
+ 
+Depósito Virtual - Agrupamento de Depósitos para Cálculo de Saldo Disponível
+.
+ 
+ALP (CCF 10660)
+

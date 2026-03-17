@@ -1,0 +1,43 @@
+TITULO: Vínculo de NF com Última NF de Entrada
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2896035877
+--------------------------------------------------
+Este recurso foi implementado inicialmente para gerar os registros C176 do SPED Fiscal (EFD ICMS IPI), deve ser preenchido para notas que possam permitir pedido de Ressarcimento de ICMS ST, sendo preenchido com dados da última nota Fiscal de Compra do produto. Sendo assim, o objetivo desse vínculo é permitir salvar na nota fiscal a referência a última Nota Fiscal de Compra do Produto para notas que dão direito a pedido de Ressarcimento do ICMS ST. Porém, para as empresas que entregam o SCANC, não é necessário enviar os registros C176.
+Entretanto, para as empresas sediadas no Estado do Amazonas, para o ressarcimento do ICMS é necessário vincular as notas de saídas, normalmente de vendas, com as últimas notas de entradas dos produtos vendidos, podendo ser os produtos básicos ou o produto de maior composição (venda de produtos compostos).
+Configurações necessárias
+Natureza de Operação
+Na manutenção de Natureza de Operação 
+Tabelas Auxiliares \ Faturamento \ Natureza Operação
+, selecione a natureza correspondente e em 
+ localize o quadro Fiscal e a opção 
+Vincular NF Última Entrada:
+Não Salva:
+ 
+não vincula nota
+Salvar somente produto com maior composição:
+ 
+vincula a última nota de entrada do produto de maior composição.
+Exemplo:
+ 
+em nota de venda de gasolina C, será vinculada última nota de entrada da gasolina A
+Salvar todos os produtos primários:
+ 
+vincula as últimas notas de entrada dos produtos que compõe o produto composto.
+Exemplo:
+ 
+em nota de venda de gasolina C, serão vinculadas as últimas de entrada da gasolina A e do Etanol Anidro
+Configurando para Salvar, as notas de saída que utilizaram essa Natureza automaticamente serão vinculadas à última Nota Fiscal de Entrada (produto de maior composição ou os produtos primários)
+Manutenção de Notas Fiscais
+Na tela de 
+Manutenção de Nota Fiscal
+ na aba 
+Itens NF
+ é possível visualizar quais as notas de saída que estão vinculadas com a última ou as últimas notas de entrada.
+Na aba 
+Itens NF
+ é possível vincular ou desvincular manualmente as notas: selecione o item na aba inferior Itens NF e clique na aba inferior 
+Nota Fiscal de Entrada
+Ao clicar no botão 
+Selecione a nota que deseja vincular e clique em 
+ ou em 
+Para desvincular, selecione a nota vinculada, clique em 
+ e confirme ou não:

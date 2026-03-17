@@ -1,0 +1,129 @@
+TITULO: Nota Fiscal Eletrônica 4.0
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926206005
+--------------------------------------------------
+Abaixo detalharemos as principais mudanças realizadas no SisPetro para atender a SEFAZ, com relação a NF-e 4.0:
+Mudanças no SisPetro
+Ajustes de URL
+Necessário ajustar as URLs da 
+ para a versão 4.0, na Aba Endereços URL para NF-e.
+FCP (Fundo de Combate a Pobreza)
+Implementado o cálculo do FCP para ICMS Próprio e 
+Substituição 
+(Retido já existia)
+Implementados campos na tabela de Natureza de Operação (
+)
+Envio de valores do FCP no xml da nota.
+Com a necessidade do envio dos valores para a Sefaz, será necessário definir as alíquotas de ICMS Substituição e do FCP corretamente. Para maiores informações, acesse 
+Tabela Natureza Operação
+ e 
+.
+Para casos de emissão de nota fiscal com ICMS Próprio, caso a rejeição abaixo seja apresentada em sua validação:
+860 - [Simulacao] Rejeicao: Valor do FCP informado difere de base de calculo * aliquota
+Verifique se os valores estão corretos:
+Em estando corretos, consulte se a UF em questão aceita o FCP sobre ICMS Próprio
+Se não estiver correto, verifique as alíquotas cadastradas
+Descrição do produto para a ANP
+Implementada tabela interna com informações da descrição dos produtos, onde o código referência é o código DPMP do cadastro de 
+.
+Esta tabela não terá manutenção feita pelos usuários. Caso identifique necessidade de manutenção, acione o Suporte da Futura.
+O Sispetro não bloqueará a emissão em casos do código não existir na tabela. Para esses casos, o sistema da Sefaz retornará a informação de Falha de Schema, apresentando a informação de que a Tag da Descrição está vazia.
+Devido a alterações na Nota Técnica 2016.002 Versão 1.60, a partir da versão 9.30 a forma de pagamento "14 - Duplicata Mercantil" não sera mais utilizada, e foi adicionado a forma de pagamento "15 - Boleto Bancário".
+ 
+Forma de pagamento / Tipo de cobrança
+Implementado campo de Forma de Pagamento na tabela de Tipos de Cobrança (
+Painel Detalhes - Tipo de Cobrança
+).
+É importante revisar os tipos de cobrança no cadastro, para verificar se estão com a parametrização correta com relação a forma de pagamento, pois como padrão, todas foram definidas como '15 - Boleto Bancario':
+Código
+Descrição
+01
+Dinheiro
+02
+Cheque
+05
+Crédito Loja
+15
+Boleto Bancário
+90
+Sem Pagamento
+99
+Outros
+Situação do Frete
+Nas Configurações de Sistema (
+)
+Implementado campo 'Uso da Tabela de Fretes da NF-e' com duas opções, sendo:
+Até versão 3.0 NF-e (padrão)
+A partir da versão 4.0 NF-e
+Implementado campo de 'Situação do Frete para Venda Retira' com duas opções, sendo:
+Contratação do Frete por conta do Destinatário - (padrão)
+Transporte Próprio por conta do Destinatário
+Na emissão da 
+Nota Fiscal de Venda
+Se for Entrega
+Verifica o frota principal, vindo do Pedido
+Se for próprio para a empresa, define Situação do Frete como sendo 'Transporte Próprio por conta do Remetente'
+Se não for próprio, define como sendo 'Contratação conta remetente'
+Se for Retira
+Verifica o perfil de empresa '
+Situação do Frete para Venda Retira' 
+para setar como Contratação Conta Destinatário ou Transporte Próprio por conta do Destinatário
+Importação de NF:
+Para a importação das Notas Fiscais na vesão 4.0 o frota não vem mais no XML.
+Implementado um parâmetro na Natureza de Operação (
+Importação NF (Painel Geral)
+ / 
+Vínculo de OC e PMM em Notas Fiscais Importadas
+) que permite definir se a empresa deseja ou não 
+salvar na Nota Fiscal o frota indicada na OC na Importação de NF. 
+Para isso, além de marcar o Perfil na Natureza de Operação, pode-se desmarcar o perfil de usuário "Exibe OC's com a mesma Placa da NF" e ter um De/Para de "" (branco) para um frota Padrão.
+Mudanças no arquivo .XML 
+FCP (Fundo de Combate a Pobreza)
+Ajustes nas Tags de impostos, que variam de acordo com o CST utilizado nos itens
+Quando o CST for 060
+Se o produto for Combustível, enviar o grupo ICMSST
+Nos dados do Remetente será utilizado o PMPF da Origem
+Nos dados do Destinatário será utilizado o ICMS Retido
+Se o produto 
+NÃO
+ for Combustível, enviar o grupo ICMS60
+Para envio do ICMS Próprio as tags utilizadas serão FCP:
+vBCFCP - Base de Cálculo
+pFCP - Alíquota
+vFCP - Valor do FCP
+Para envio do ICMS Substituição, as tags utilizadas serão FCPST:
+vBCFCPST - Base de Cálculo
+pFCPST - Alíquota
+vFCPST - Valor do FCP
+Para envio do ICMS Retido (ICMS60), as tags utilizadas serão FCPRet:
+vBCFCPRet - Base de Cálculo
+pFCPRet - Alíquota
+vFCPRet - Valor do FCP
+Para envio do ICMS Retido (ICMSST) as tags utilizadas serão FCPSTRet:
+vBCFCPSTRet - Base de Cálculo
+pFCPSTRet - Alíquota
+vFCPSTRet - Valor do FCP
+Inclusão de totais, como Tags, com o Valor do FCP
+vFCP - Valor do FCP Próprio
+vFCPST - Valor do FCP ST
+vFCPSTRet - Valor do FCP Retido 
+Informação sobre dados dos veículos para casos de operações internas
+Descrição do produto na ANP
+Após a tag cProdANP, adicionada a tag descANP  com a informação do nome do produto cadastrado na ANP (vínculo feito através do código DPMP).
+Forma de Pagamento
+No grupo 'pag'
+adicionada a tag dup para casos de forma de pagamento = '15 - Boleto Bancário'.
+adicionadas tags específicas para casos de forma de pagamento com cartão
+Informações importantes sobre Testes realizados em ambiente de 
+Homologação
+Para casos onde a UF não exige alíquota, a mesma não deve ser cadastrada na 
+.
+Encontramos essa situação para os estados do Piaui e Santa Catarina.
+Para estados onde o processo de Nacionalização não tenha alíquota de FCP, a mesma não deve ser definida para o destino EX na 
+.
+Encontramos essa situação para o estado do Paraná.
+Avisos importantes
+Os testes da Nota Fiscal Eletrônica 4.0 foram realizados em ambiente de 
+Homologação 
+para as UFs listadas abaixo:
+BA, CE, GO, MA, MG, PB, PE, PR, RJ, RN, SC e SP
+É fundamental que sejam realizados testes para as UFs que não estão listadas e, caso haja problema, precisaremos do certificado digital para realizar os ajustes e testes em ambiente de Homologação.

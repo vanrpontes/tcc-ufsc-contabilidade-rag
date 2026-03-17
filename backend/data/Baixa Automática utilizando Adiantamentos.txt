@@ -1,0 +1,103 @@
+TITULO: Baixa Automática utilizando Adiantamentos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701592
+--------------------------------------------------
+A partir da versão 7.19, o SisPetro está preparado para utilizar os adiantamentos de outras filiais no processo de baixa automática, procure neste help por
+ 
+Baixa automática utilizando créditos de outras Filiais
+Para que a 
+Baixa Automática
+ funcione, é preciso configurar alguns parâmetros antes:
+Perfil de 
+Sistema / 
+Aba Financeiro
+É preciso habilitar o perfil: 
+Faz baixa automática
+Informar a 
+data da baixa
+ e 
+data fluxo
+, com as seguintes opções:
+- 
+Data Atual:
+ data do dia
+- 
+Maior entre
+ data crédito e data NF: maior data entre data crédito (Data do Fluxo do Adiantamento) e data NF (Data da Emissão do Título).
+- 
+Menor entre
+ data crédito e data NF: menor data entre data crédito (Data do Fluxo do Adiantamento) e data NF (Data da Emissão do Título).
+Verifica débitos na inclusão de adiantamentos
+Com este perfil habilitado, caso haja algum débito para o cliente ou fornecedor, quando for incluído um adiantamento o SisPetro verificará e se houver o quitará.
+Regra baixa grupo econômico
+Ao fazer o adiantamento para o cabeça do grupo econômico o SisPetro só faz analise de pendências do cabeça do grupo.
+Já ao fazer o adiantamento para o cliente faturado, SisPetro analisa as pendências do cliente faturado e obtém os adiantamentos do cabeça do grupo.
+Regra baixa título vinculado a mais de um PMM
+Caso o título esteja vinculado a 
+mais de um PMM
+ e o perfil de sistema estiver parametrizado conforme abaixo, SisPetro seguirá a seguinte  regra:
+Configurações de Sistema / Aba Financeiro / Perfil Vínculo Títulos a Pagar e Adiantamentos pelo PMM
+Permite livremente para o Fornecedor:
+ permite utilizar qualquer adiantamento para o fornecedor na hora da baixa.
+O titulo será baixado com o adiantamento mais antigo, não necessariamente o vinculado ao PMM.
+Sugere Adiantamento ao Título pelo PMM:
+ sugere o adiantamento vindo do PMM que gerou a Nota.
+O título não será baixado automaticamente.
+Aba Históricos
+Informar os códigos de Históricos a serem utilizados.
+Se o histórico permitir fórmula, a fórmula deste histórico será convertida no momento da baixa. Para mais informações, ver  
+Manutenção de Históricos
+.
+Aba Contab. Real
+Caso esteja utilizando o módulo de Controladoria
+, é necessário informar os códigos de contabilização.
+Perfil de 
+Natureza de Operação
+Aba Dados Gerais
+Utiliza Adiantamentos no Faturamento p/ quitação
+Com este perfil habilitado, ao emitir a nota fiscal o SisPetro verificará os adiantamentos pendentes, e baixa os títulos com os adiantamentos encontrados.
+Feita essas configuração o SisPetro está pronto para que a Baixa Automática seja feita na leitura do Arquivo de Cobrança para os registros do tipo Contra Recibo.
+Baixa automática utilizando créditos de outras Filiais
+A partir da versão 7.19, é possível configurar a 
+Baixa Automática
+ para utilizar créditos de outras filiais, lembrando que o cliente ou fornecedor deve ser o mesmo.
+É preciso habilitar em Perfil de Sistema/Financeiro o perfil 
+Permite Utilizar Adiantamento de Outras Filiais
+, depois de habilitado será possível utilizar os créditos nas seguintes situações:
+1. Ao incluir um título via nota fiscal, se a natureza de operação estiver configurada com o perfil 
+Utiliza Adiantamentos no Faturamento p/ quitação
+ 
+marcado, o SisPetro irá procurar por adiantamentos na empresa emissora da nota. Se não for encontrado vai buscar créditos nas outras empresas e, se for encontrado, 
+todo
+ adiantamento será transferido para a empresa emissora, quitando (parcialmente ou não) o título.
+Exemplo:
+Empresa 1:
+Nota Fiscal no valor de R$ 10.000,00
+Não há adiantamentos para o cliente faturado
+Empresa 2:
+Adiantamento(crédito) no valor de R$ 13.000,00
+Se o Perfil 
+Permite Utilizar Adiantamento de Outras Filiais
+ e o restante da baixa automática estiver configurado, o SisPetro vai transferir o adiantamento da empresa 2 para empresa 1, assim quitando o título em aberto. Lembrando que será transferido o adiantamento 
+TODO
+, e o cliente ficará com crédito, neste caso.
+2. Ao incluir um título manualmente, o SisPetro procederá da seguinte forma:
+O título não vai ser baixado como na inclusão de NF, pois não estaria correto. Quando o usuário for baixá-lo e quiser utilizar um adiantamento de outra empresa, será dada o possibilidade. Lembrando que se for utilizar um adiantamento de outra empresa, ele será transferido na sua 
+totalidade
+.
+Se o adiantamento puder ser utilizado, o quadro 
+#recibo
+ estará disponível
+Para baixar um título via tela de Bancos o procedimento é o mesmo.
+Processo de baixa automática:
+A primeira verificação do SisPetro é de como é feita a 
+Contabilização de Lançamentos Gerenciais
+, sendo:
+Por comprador;
+Por entidade faturada.
+Em seguida, o SisPetro verifica os títulos em aberto para a entidade, sendo:
+Comprador se a contabilização é por comprador
+Entidade Faturada se a contabilização é por Entidade Faturada
+Nota Fiscal, Adiantamento ou Pedido de Venda quando existe Contra recibo em ordem de recebimento.
+O SisPetro verifica os títulos mais antigos. O próximo passo é verificar se para a empresa onde tem o título em aberto, a entidade (com o mesmo critério: o comprador no caso de contabilização por comprador ou a entidade faturada no caso de contabilização por entidade faturada) possui um adiantamento cadastrado:
+Se sim, vai utilizando o adiantamento conforme o valor do título e do adiantamento.
+Caso não haja, e o SisPetro estiver configurado para utilizar créditos de outras filiais, o mesmo processo é feito, porém nas outras empresas.

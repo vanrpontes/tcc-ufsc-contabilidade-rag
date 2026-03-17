@@ -1,0 +1,54 @@
+TITULO: Contabilização de Estoque de Usina
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913894649
+--------------------------------------------------
+Configurações
+Crie um depósito para 
+cada fornecedor
+Crie
+ contas de estoque
+ para cada um dos fornecedores (usinas) desejados.
+Vá em cada fornecedor e na aba 
+Padrão p/ Compras
+ no campo CC Despesa informa a conta de estoque desse fornecedor (Não altere as demais contas!)
+Em cada Fornecedor o campo
+ Controla Qtde no Adiantamento
+ deve ser 
+"Usuário Escolhe"
+ ou 
+"Sempre"
+ (aba Padrão p/ Compras)
+Na Natureza de Operação da 
+NF Mãe
+ (que
+ Gera Contas a Pagar
+ e 
+não movimenta estoque
+) configure a Contabilização com:
+Débito: Conta de Despesa do Fornecedor (aí vai contabilizar na conta de estoque do fornecedor aquilo que já foi dado entrada pelo adiantamento)
+Crédito: Entidade
+Na Natureza de Operação da
+ NF Retirada
+ (que
+ não gera Contas a Pagar e movimenta Estoque
+), configure a Contabilização com:
+Débito: Conta de Estoque (vai contabilizar a entrada do produto no deposito destino, geralmente a base)
+Crédito: Conta de Despesa Fornecedor (vai contabilizar a saída do produto que já estava pago)
+A cada contrato
+Inclua um PMM para o contrato daquele fornecedor.
+Informe no depósito origem o depósito criado para este fornecedor
+Marque a opção Contral Adiantamento Quantificado
+A cada Pagamento
+Inclua um Adiantamento para este fornecedor, porém Informe o PMM e na aba Utilização Quantidade marque como Adiantamento Quantificado
+Com isso esse Adiantamento fará a entrada de produto no Depósito Usina (mas o pessoal do estoque já tem esse controle)
+Lance a
+ 
+NF Mae
+ com a Natureza configurada, pois assim a contabilização do estoque incluído no Adiantamento já será feita
+Baixe a NF Mae
+ utilizando o adiantamento quantificado.
+A cada Retirada de produto
+Inclua uma OC de Transferência entre Depósitos, informando no Depósito Origem o Depósito Usina referente ao Fornecedor. No depósito Destino é onde vai descarregar o produto. Marque para informar PMM e informe o PMM correspondente nos itens. Confirme a OC se necessário.
+Após confirmação da OC (ou inclusão) será feita a saída do Depósito Usina e a entrada no Depósito Transito
+A cada recebimento de NF
+Receba NF vinculando à OC, utilizando a Natureza configurada, assim será feita a contabilização da saída do depósito usina (cuja movimentaçào foi feita na OC) e a contabilização da entrada no depósito destino (cuja movimentação está sendo feita com esta NF)
+ 

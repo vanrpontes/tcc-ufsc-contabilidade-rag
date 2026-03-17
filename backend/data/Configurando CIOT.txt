@@ -1,0 +1,84 @@
+TITULO: Configurando CIOT
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927266491
+--------------------------------------------------
+none
+A integração hoje é feita com a empresa Target e pode ser enviada com ou sem vale pedágio.
+O que é o CIOT?
+O CIOT é um código de autorização para transporte, obtido na ANTT, que serve para regulamentar o processo de contratação de transporte de autônomos. Este código é obtido a partir de uma gerenciadora credenciada nessa agência.
+Uma dessas integradoras é a Target, que possui serviços onde a empresa fornece informações da viagem e ela retorna um número e um protocolo de CIOT. Esse número deve ser impresso nas Notas Fiscais que acompanham a carga. O CIOT é direcionado para TAC, que são empresas que possuem até 3 veículos registrados em seu RNTRC.
+Como configurar:
+1. 
+Configuração de Sistema:
+Na configuração de Sistema devemos informar se a empresa ira ou não trabalhar com CIOT, e qual a data base a ser utilizada para cálculo do pagamento do Frete.
+Marcar a opção 
+Trabalha com CIOT 
+no perfil 
+Utilização de CIOT. 
+Veja maiores detalhes no Quadro CIOT em 
+Painel Fretes
+.
+Definir qual a Data base para Pagamento do Frete no 
+Perfil Data Base para Pagamento do Frete
+, podendo ser pela 
+Data de Embarque 
+ou
+ Data de Entrega. 
+Veja maiores detalhes no Quadro CIOT em 
+Painel Fretes
+.
+2. 
+Configuração de Usuário:
+Na tela de Manutenção de Usuários, painel Frete definimos quais acessos o usuário terá para o CIOT. Veja maiores detalhes no quadro CIOT em 
+Painel Fretes (Usuários)
+.
+3. Tabela de Transportadoras/Motoristas:
+Na tela de Transportadoras/Motoristas temos que informar no campo Utilização CIOT se vai utilizar ou não o CIOT. Veja maiores detalhes em 
+Tabela Transportadoras / Motoristas
+.
+4. Tabela de 
+Fornecedores:
+Na tabela de Fornecedores, aba Padrão p/ Compras temos definir qual o Tipo de Pagamento, qual a data base para pagamento e informar o cartão a ser utilizado caso a forma de pagamento selecionada seja cartão. Veja maiores detalhes em 
+Padrão para Compras
+.
+A condição de pagamento informada deve conter somente 1 parcela, caso contrario o Sispetro validará e não permitirá a inclusão ou alteração da carga.
+Para uso de Tipo de Pagamento Deposito em Conta, os dados bancários devem estar devidamente preenchidos.
+ 
+Emitindo CIOT
+5. Composição/Fechamento da carga:
+ 
+Através da composição de carga que iremos definir quais pedidos/OC´s terão CIOT Requerido ou não. Todas as informações vindas na tela serão carregadas de acordo com os perfis configurados mais acima. Veja maiores detalhes em 
+Composição de carga
+.
+Todos os campos ficarão habilitados ou não para alteração, de acordo com os perfis definidos no usuário.
+Dependendo do tipo de pagamento do CIOT alguns dados do Fornecedor são obrigatórios o seu preenchimento, tais como dados bancário e dados do cartão. Veja maiores detalhes em 
+Vale Pedágio Target
+.
+O sistema validará os dados de CIOT e Vale Pedágio recebidos na integração, para que se vier somente número do CIOT ou de Vale Pedágio, estes sejam salvos e o processo seja concluído, mesmo que tenha sido solicitado o CIOT para uma transportadora que não tenha necessidade (nesses casos a Target manda somente o número do vale-pedágio).
+ 
+6.
+ 
+Manutenção de Pedágios
+Após incluir a carga o CIOT irá para a tela de Manutenção de Pedágios, e ficará com status de aguardando encerramento. Caso o mesmo não tenha sido processado ainda, basta processar para poder realizar o encerramento.
+ 
+Após encerrar o CIOT não será mais possível realizar o seu cancelamento.
+ 
+7.
+ 
+Tabela de Gerenciador de Pedágio
+É através da tabela de Gerenciadora de pedágio que iremos configurar os dados da gerenciadora, tais como URL, identificação, Empresa, etc... Veja maiores detalhes em 
+Tabela de Gerenciador de Pedágio
+.
+ 
+8. Natureza de Operação:
+Na Natureza de operação definimos através do perfil '
+Dados de pedágio/CIOT nas Observações da NF'
+ se iremos ou não informar os dados do CIOT nas Observações da Nota. Veja mais em 
+Dados Gerais (Painel Por Filial)
+.
+ 
+9. Nota Fiscal
+Se a OC vinculada à NF tiver carga com CIOT requerido, será salvo na Nota Fiscal o Número do CIOT e o valor do Frete, essas informações podem ser visualizadas na tela de 
+Manutenção de Nota Fiscal
+, e no XML caso a natureza de operação esteja configurada para mandar.
+ 
+ 

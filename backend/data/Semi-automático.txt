@@ -1,0 +1,37 @@
+TITULO: Semi-automático
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899357
+--------------------------------------------------
+Em 2008 o Estado de São Paulo aboliu o envio de CODIF para distribuidoras devido a implementação da NF-e. A partir da versão 8.11 toda a estrutura do CODIF foi removida.
+NOTA FISCAL SOLICITA AUTORIZAÇÃO
+ Ao gerar uma nota fiscal, se a natureza e empresa exigir autorização CODIF o SisPetro incluirá na tabela de Autorizações uma autorização, para que seja feita a solicitação, vincula com a nota, porém sem armazenar os dados da NF.
+A nota não poderá ser impressa logo após a inclusão, pois ainda não tem o Código de Autorização.
+Podemos fazer várias notas, sem imprimi-las.
+Tendo uma ou mais notas já incluídas, iremos à tela de Manutenção de Autorizações e solicitamos a geração de arquivo de Autorizações. Serão verificadas as autorizações que devem ser solicitadas ou as notas que precisam ser registradas e será gerado um arquivo .XML com estas informações no caminho informado.
+Tendo gerado esse arquivo, vá ao Site do CODIF e siga os passos: 
+ 1º Escolha a opção "Autorização Lote"
+2º Na tela apresentada utilize o botão "Procurar" para localizar o arquivo .XML gerado pelo SisPetro e o botão "Carregar" para confirmar.
+3º Na próxima tela será apresentado um link para que seja salvo o arquivo .XML.
+Volte ao SisPetro e acesse a tela de Manutenção de Autorizações. 
+ Nela, utilize o botão 
+Lê Arquivo de Autorização
+, informe o caminho do arquivo .XML recebido. Ele será lido e para cada autorização será gravado o retorno que pode ser o código de autorização ou um erro.
+Se a autorização foi devidamente aceita as notas que estavam naquele arquivo já poderão ser impressas. Para facilitar utilize a tela de 
+Impressão de Notas Fiscais constante no menu
+, onde podem ser impressas várias notas de uma só vez.
+No final do dia, repita o processo para que sejam registradas todas as notas ainda pendentes. Isso porque, ao gerar um segundo arquivo solicitando autorização, se as notas do primeiro arquivo já foram impressas elas já estarão sendo registradas neste segundo arquivo.
+Se a nota for 
+Interestadual
+, faça os passos a seguir para cada nota: 
+ 
+1º
+ Acesse o site da CODIF e escolha então a opção Autorização Individual
+2º
+ Na nova tela apresentada, no quadro "Passe Fiscal Interestadual" informe o código de autorização que foi dado para a NF e clique em "Solicitar".
+3º
+ Na próxima tela informe os dados de transporte e clique em "Solicitar" 
+ Será então apresentada uma tela com um link para que seja salvo o arquivo .PDF. É este arquivo que precisa ser impresso.
+Para 
+antecipação de Solicitação de Autorização
+ e 
+Cancelamento de Nota com vínculo com o CODIF
+ veja tópico correspondente.

@@ -1,0 +1,137 @@
+TITULO: 6. Contrato de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439661
+--------------------------------------------------
+none
+O contrato de vendas possibilita o controle dos pedidos futuros de tradings e/ou distribuidoras. Estes contratos são fechados entre a empresa e o cliente e garante um fluxo de venda constante e o cliente se compromete a retirar o produto e fazer o pagamento conforme estabelecido pelo contrato.
+Desta forma é possível ter uma previsibilidade de estoque a ser consumido na venda futura, auxiliando no processo de compras junto ao fornecedor da distribuidora.
+A manutenção do contrato de venda pode ser acessada em 
+Movimentação / Vendas / Manutenção Contrato Venda.
+A inclusão do contrato de venda pode ser realizada de forma manual acionando o botão 
+Inclui
+, ou ao gerar um 
+Pedido de Venda de Entrega Futura (VEF)
+. Para mais informações, ver 
+Inclusão de pedidos VEF e REF
+.
+Botões
+Incluir: 
+inclusão de um novo contrato de venda. Para mais informações, ver 
+inclusão de Contrato de Venda
+Visualiza:
+ visualização do contrato de venda já cadastrado.
+Cancela:
+ cancela o contrato de venda.
+O cancelamento do contrato é possível somente na quando não tivermos vinculo com OC e NF ao contrato. Neste caso, será necessário cancelar as OC e NF envolvidas antes de cancelar o contrato ou então zerar a quantidade pendente.
+Término: 
+através deste processo é desalocada a quantidade ainda não entregue deste contrato para que ele não possa ser utilizado.
+Na tentativa de finalizar o contrato sem qualquer nota fiscal vinculada, o SisPetro emitirá a mensagem abaixo:
+Caso o contrato já esteja em andamento, e queira finalizar, o SisPetro emitirá a mensagem abaixo:
+Ao clicar em Sim, o contrato é finalizado.
+Caso o contrato já esteja finalizado, o SisPetro emitirá a mensagem abaixo:
+Imprime: 
+impressão do Contrato de Venda. 
+Necessário que o contratovenda.rtm esteja no mesmo diretório do executável.
+Dep. Alternativo:
+ pode ser utilizado se for necessário informar um depósito alternativo para o contrato. Para mais informações, ver 
+Depósito Alternativo no Contrato de Venda
+.
+Altera: 
+permite que o usuário possa indicar um  texto livre de até 10 caracteres no campo #Docto, para identificar os contratos com mais de um produto, também pode ser realizado a alteração da data de revisão e do valor unitário.
+O pedido acatará a data limite de retirada informada no contrato de venda, não sendo possível realizar pedidos com data de entrega superior à vigência do contrato.
+Ativa/Inativa:
+ permite Ativar ou Inativar um contrato, sem que a quantidade total tenha sido utilizada, sem ter que cancelá-lo.
+Um contrato pode ser 
+inativado
+ ao desmarcar a opção 
+Ativo, 
+procedimento pode ser realizado para interrupção momentânea de um contrato, uma vez que não é possível cancelar o contrato com NF-es vinculadas ao contrato. Ex: 
+Pedido de Entrega Futura
+.
+Legenda:
+ definição de status de contratos de venda.
+Atualiza: 
+atualização dos contratos de venda na tela.
+Filtra: 
+permite filtrar os contratos em tela de forma específica.
+Localiza:
+ permite localizar um determinado contrato de forma rápida e prática.
+Sai:
+ para sair da tela de manutenção de Contrato de Venda.
+Para ter acesso a alguns menus é necessário perfil. Para mais informações, ver 
+Painel Vendas (Usuários)
+.
+Filtro da tela.
+Filtro de contratos emitidos por data em 
+A partir de
+:
+É possível também filtrar os contratos pelo status
+Todos os Contratos:
+ todos os contratos cadastrados.
+Pendentes:
+ todos os contratos incluídos e que continuam pendentes.
+Entrega Parcial:
+ todos os contratos incluídos e que já foram vinculados a uma venda.
+Entrega Total:
+ todos os contratos incluídos e que já foram totalmente utilizados.
+Cancelados: 
+todos os contratos cancelados.
+Abas
+Principal
+: serão apresentados os dados principais dos Contratos de Vendas.
+Utilização:
+ serão apresentadas as informações referentes a utilização do contrato de venda, podendo ser em OC's de Transferência ou Pedidos de Venda.
+Notas Fiscais Venda: 
+mostra as notas fiscais de venda que pertencem ao contrato selecionado.
+Pagamentos:
+ apresenta os pagamentos que já foram efetuados para o contrato de venda selecionado.
+Cota Dia:
+ mostra e Altera cota diária do contrato selecionado.
+Fluxo Financeiro:
+ mostra e Altera o fluxo financeiro do contrato selecionado.
+PMM Vinculado:
+ nesta tela é possível vincular e desvincular PMM ao contrato de venda. Com o PMM vinculado será mostrado em tela a movimentação de lançamentos já efetuados a este mesmo PMM (notas fiscais), assim o usuário terá um controle efetivo de lançamentos efetuados por PMM. 
+Log: 
+registra todas as alterações efetuadas no contrato de venda.
+Regras para vínculo de um contrato de venda a um pedido de venda:
+É possível permitir o uso de Contrato de Venda em pedidos com mais de um item:
+Na inclusão do pedido de venda - tela de Itens:
+Só escolhe contrato se não tiver itens.
+Pode incluir mais itens considerando as regras de preço do contrato vinculado.
+Na finalização da inclusão do pedido: 
+Valida se cada entidade informada é igual à entidade do contrato de venda.
+Valida se o produto é igual ao produto do contrato.
+Valida se o preço é igual ao preço do contrato (se o contrato exigir).
+Ajusta o preço do contrato no item do pedido (a partir do segundo item).
+Valida se o frete é igual ao frete do contrato (se o contrato exigir).
+Valida se o depósito é igual ao depósito original ou alternativo do contrato (dentro da validade)
+Valida se a somatória da quantidade dos itens é igual à quantidade do contrato.
+Valida se a cota diária agrupando as quantidades por Data Prevista de Entrega informada nos itens.
+É possível permitir que o Contrato de Venda possa ser utilizado conforme a entidade faturada ou a entidade compradora: 
+Na finalização da inclusão do pedido:  
+Valida se cada entidade informada é igual à entidade do contrato.
+Valida se o comprador de cada entidade informada é igual ao comprador do contrato.
+É possível avisar caso o Pedido de Venda não esteja vinculado ao contrato, mas exista contrato de venda pendente para o comprador, conforme perfil de sistema 
+Painel Vendas
+:
+Não verifica, permite livremente.
+Avisa caso exista Contrato com Saldo Pendente para a Entidade Compradora:
+Na finalização da inclusão do pedido:  
+Verifica para todos os itens se para o comprador de cada entidade informada existe algum Contrato de Venda com Saldo Pendente. Caso tenha, apresenta mensagem ao usuário, questionando se deseja continuar ou não.
+É possível utilizar, para uma entidade faturada, um contrato de venda do comprador do grupo econômico. Por padrão, o perfil de sistema é utilizar somente contratos da própria entidade faturada.
+Perfil 
+Só utiliza contratos da própria entidade faturada
+ - com esse perfil selecionado as regras na inclusão do pedido de venda são:
+Na tela de Pesquisa do Contrato de Venda serão apresentados somente os contratos da entidade faturada.
+Na finalização do pedido de venda, para cada item:
+Valida se a entidade faturada ou o comprador dela é igual à entidade do contrato utilizado.
+Caso esteja utilizando contrato do comprador, o comprador do pedido deve ser o comprador da entidade faturada ou ela própria.
+Para Saber mais
+Inclusão de Contrato de Venda
+ 
+Depósito Alternativo no Contrato de Venda
+ 
+Pedido de Venda com Contrato de Venda
+ 
+Adiantamento de Clientes
+ 
+Controle de Cota - Contrato de Venda

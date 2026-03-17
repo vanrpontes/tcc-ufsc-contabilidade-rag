@@ -1,0 +1,322 @@
+TITULO: Controle de Contrato com Usinas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899837
+--------------------------------------------------
+Para controlar o 
+Contrato feito com Usinas
+, primeiro você deve responder as seguintes perguntas:
+
+
+
+
+Vai ser controlada a cota diária, ou isso não será necessário?
+
+
+A Usina envia nota mãe ou somente as notas na retirada?
+
+
+Há compras em alguma Usina sem utilização de contrato?
+
+
+O contrato vai ter algum pagamento antecipado?
+
+
+Quem aprova o Contrato? O Contrato é incluído só depois de aprovado?
+
+
+A quantidade pendente da Usina pode ser considerada como Saldo para Venda?
+
+
+
+
+Depois de conhecer como é o Contrato com a Usina, siga os passos.
+
+
+
+
+Configurações iniciais
+
+
+
+
+Configure o perfil da Empresa, no painel Compras, 
+Controla Pedido de Movimentação de Material
+.
+
+
+Configure o perfil da Empresa, no painel Compras, 
+Obriga informar PMM na OC de Transferência
+ conforme a resposta da questão 3 (se pode não haver Contrato, não é possível obrigar).
+
+
+Configure o perfil da Empresa, no painel Compras, 
+Padrão para inclusão de Fornecedores (adiantamentos)
+ conforme resposta da questão 3 (se pode não haver Contrato o adiantamento não pode ser obrigatório).
+
+
+Configure o perfil da Empresa, no painel Ordem Carregto, marcando 
+Exige confirmação do carregamento nas OCs de Transferências
+.
+
+
+Configure o perfil da Empresa, no painel Aprovação por Alçada, como será a 
+Aprovação de PMM
+, conforme a resposta da questão 5.
+
+
+Cadastre a Usina como 
+Fornecedor
+ configurando a opção 
+Controla qtde no Adiantamento
+ conforme respostas das questões 3 e 4 (se o contrato vai ter algum pagamento antecipado é importante controlar a quantidade, se há compras sem contrato é interessante deixar o usuário optar).
+
+
+Cadastre um 
+Depósito
+ com o nome da Usina, configure-o como 
+Usina
+, 
+não Permitir Venda
+ e 
+Não Base Própria
+. Configure a opção de 
+Saldo Previsto em 3ºs
+ conforme a resposta da questão 6.
+
+
+
+
+
+
+
+
+
+
+A cada Contrato
+
+
+
+
+Inclua um 
+PMM
+ para o Fornecedor que representa a Usina, informando se 
+Controla Cota
+ conforme resposta da questão 1.
+
+Marque a opção 
+Controla Adiantamento Quantificado
+ conforme resposta da questão 4 (se houver pagamento antecipado deve controlar adiantamento).
+
+
+
+
+
+
+
+
+
+
+A cada Pagamento Antecipado
+
+
+
+
+Inclua um 
+ informando o valor pago e o Número do PMM.
+
+
+
+
+
+
+
+
+
+
+A cada retirada deste Contrato
+
+
+
+
+Emita uma Ordem de Carregamento de Transferência entre depósitos. Informe como depósito origem o depósito configurado para a Usina. Como depósito destino informe o depósito para onde o produto vai ser descarregado quando sair da Usina.
+
+Informe o número do PMM na OC.
+
+
+Envie essa OC para a Usina, solicitando o carregamento do produto.
+
+
+Ao receber a confirmação da Usina, vá na 
+ e confirme a quantidade desta OC pelo botão 
+Confirma
+.
+
+
+
+
+
+
+
+
+
+
+Ao chegar a nota da Usina
+
+
+
+
+Se a resposta da questão 2 for que 
+há Nota Mãe
+:
+
+
+
+
+Dê entrada na Nota Mãe utilizando uma 
+Natureza de Operação
+ que 
+Gere
+ Contas a Pagar, sem vincular essa nota a PMM ou OC (
+). Em seguida, dê 
+baixa
+ no título gerado utilizando o Adiantamento Quantificado que foi incluído.
+
+
+Dê entrada na Nota de Retirada utilizando uma 
+Natureza de Operação
+ que 
+NÃO Gere
+ Contas a Pagar, vinculando à OC de Transferência entre Depósitos (
+Recebimento de Material
+).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Se a resposta da questão 2 for que 
+NÃO há Nota Mãe
+:
+
+
+
+
+Dê entrada na Nota de Retirada utilizando uma 
+Natureza de Operação
+ que 
+Gere
+ Contas a Pagar, sinculando à OC de Transferência entre Depósitos (
+Recebimento de Material
+). Em seguida, dê 
+baixa
+ no título gerado utilizando o Adiantamento Quantificado que foi incluído.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ao fazer uma Retirada Mista de Contratos (fim de um contrato e início de Outro)
+
+
+
+
+Veja tópico 
+.
+
+
+
+
+
+
+
+
+
+
+Para ter acesso rápido às operações de Aprovar PMM, Incluir OC e Receber NF
+
+
+
+
+Utilize a tela de 
+Consulta de Pedidos de Movimentação de Material Pendentes
+.
+
+
+
+
+
+
+
+
+
+
+Para ver rapidamente quais os PMM's estão pendentes e tomar decisão de compra ou retirada de produto
+
+
+
+
+Utilize a tela de 
+Consulta de PMM's Pendentes
+.
+
+
+
+
+
+
+
+
+
+
+Para ver o saldo desta Usina
+
+
+
+
+Utilize a tela de 
+Consulta Disponibilidades
+, dependendo da resposta da questão 6 a quantidade pendente do contrato será apresentada como Saldo Previsto em 3ºs.
+
+
+
+
+
+
+
+
+
+
+Para saber a posição de um Contrato
+
+
+
+
+Utilize a tela de 
+Consulta Posição de PMM
+.
+
+
+
+
+

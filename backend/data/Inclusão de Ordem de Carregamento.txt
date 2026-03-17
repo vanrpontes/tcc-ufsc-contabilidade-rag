@@ -1,0 +1,414 @@
+TITULO: Inclusão de Ordem de Carregamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918974273
+--------------------------------------------------
+none
+É possível Importar/ Exportar arquivos com informações sobre Diferença de Descarga, possibilitando as empresas que não base própria calcular as diferenças nos fretes das descargas. 
+Para mais informações, ver
+ 
+Controle de Diferenças em Descargas
+.
+Objetivo
+Tratar sobre a inclusão da Ordem de Carregamento
+A inclusão de Ordem de Carregamento poderá ocorrer em diversos lugares no SisPetro, sendo cada uma com sua respectiva área em específico. Ela poderá ser incluída via Menu:
+Movimentação / Estoque / Ordem Carregamento: 
+é possível emitir todos os tipos de ordem de carregamentos do SisPetro. 
+Movimentação / Estoque / Manutenção de Ordem de Carregamento: 
+ é possível emitir todos os tipos de ordem de carregamentos do SisPetro
+. 
+Para mais informações ver, 
+Manutenção de Ordem de Carregamento
+.
+Consulta / Pedidos Aprovados para Faturamento
+: através da tela de Pedidos aprovados e não faturados, somente ordens de carregamento do tipo 
+vendas
+ a partir de um pedido. Para mais informações ver,  
+Como emitir Ordem de Carregamento de Venda
+.
+Consulta / Pedido de Movimentação de Materiais Pendentes: 
+através da tela de Pedido de Movimentação de Material Pendentes, somente ordens de carregamento do tipo vendas a partir de um pedido. Para mais informações ver,  
+Pedidos de Movimentação de Material Pendentes
+.
+Em todos os casos, a inclusão da OC terá os mesmos critérios em todas as telas. 
+Atente-se para os campos a serem informados em cada situação. 
+Abaixo os campos e cada uma das suas validações: 
+Na tela de Inclusão de Ordem de Carregamento:
+Tipo Ordem Carregamento
+O usuário poderá cadastrar Ordens de Carregamento dos tipos:
+Venda
+Para mais informações, ver
+ 
+ 
+Como emitir Ordem de Carregamento de Venda
+;
+Transferência entre Depósitos 
+Para mais informações, ver
+ 
+ 
+Como emitir OC de Transferências entre Depósitos
+;
+Carregamento Próprio 
+Para mais informações, ver
+ 
+ OC em 
+Como emitir OC de Carregamento Próprio
+;
+Descarga Própria
+ 
+Para mais informações, ver
+ 
+ 
+Como emitir OC de Descarga Própria
+Carregamento de Terceiros 
+Para mais informações, ver 
+Como emitir uma OC de Carregamento de Terceiros
+ 
+ 
+Descarga de Terceiros
+Para mais informações, ver 
+Como emitir OC de Descarga de Terceiros
+Para incluir as O.C o usuário necessita ter acesso. Para mais informações, ver 
+Painel Carregamento (Usuários)
+Ao informar o tipo de OC desejado, o SisPetro validará os campos que serão utilizados para o tipo escolhido. Caso haja informações na tela, elas serão limpas caso o usuário troque o tipo de ordem de carregamento antes de finalizar a inclusão.
+Empresa: 
+informar a Empresa que a OC foi emitida, mas este campo só estará habilitado para OC do tipo: Carregamento e Descarga de Terceiros. Neste caso (OC de Carregamento de Terceiros ou Descarga de Terceiros, ou seja, somente para empresas que armazenam para terceiros), este campo deverá ser informado com a empresa (cliente) que armazena na armazenadora. 
+Entidade: 
+informar a entidade a quem se refere a Ordem de Carregamento. 
+Histórico
+: informar o histórico para a operação. Neste caso, será sugerido automaticamente através do perfil de Sistema configurado em 
+Painel Históricos
+.
+#Pedido Venda:
+ ao indicar o Tipo de Ordem de Carregamento como Venda, o SisPetro irá habilitar este campo para que se vincule a OC ao respectivo Pedido de Venda do Cliente. Lembrando que se a entidade for trocada, este campo será limpo para novo vínculo.
+Data OC:
+ data da ordem de carregamento, sempre será sugerida com a data atual.
+Depósito Origem
+: informar o código de depósito que está movimentando o produto na origem. Dependendo do tipo de OC definido, deve-se ter muita atenção neste campo para não colocar informações erradas. Então vejamos:
+Venda:
+ depósito da empresa que está movimentando o produto na venda.
+Transferência entre Depósitos:
+ depósito onde a empresa comprou o produto. Normalmente é o depósito da usina onde a empresa comprou o produto.
+Carregamento e Descarga Própria:
+ depósito da empresa que está movimentando o produto.
+Carregamento e Descarga Terceiros:
+ depósito da empresa que está movimentando o produto.
+Depósito Destino
+: só será informado em um tipo de OC, Transferência entre Depósitos, pois o usuário deverá informar de onde o produto está saindo na compra (usina) e para onde o produto está indo para armazenar. Nos demais tipos, este campo ficará desabilitado.
+Depósito Trânsito
+: só será informado em um tipo de OC, Transferência entre Depósitos, pois o usuário deverá informar onde está o produto no trajeto Usina x Empresa. Nos demais tipos, este campo ficará desabilitado.
+Neste processo, podemos considerar que a movimentação de estoque será da seguinte maneira:
+Saída
+Entrada
+Depósito Origem
+Depósito Trânsito
+Motorista
+: informar a Transportadora/ motorista que efetuará o transporte do produto a ser definido. Caso o cadastro da transportadora/ motorista tenha controle de vencimento, o SisPetro irá validar as informações assim que sair deste campo. 
+Para mais informações, ver 
+Tabela Controle de Vencimentos
+.
+Caso o parâmetro de 
+Valida Controles de Vencimentos de Operações Internas/Interestaduais
+ esteja habilitado em 
+Painel Ordem Carregto
+, o SisPetro verificará as informações cadastradas como 
+Exigências em Operações
+ definidas em 
+Tabela Cidades
+ e 
+Tabela Unidades Federativas - UF
+, pois algumas UFs ou municípios exigem de transportadoras algumas licenças específicas.
+Transportadora: 
+neste campo será apresentada a transportadora vinculada ao motorista, caso tenha. Caso não tenha, mostrará a própria transportadora.
+ 
+A transportadora vinculada é salva também na OC. Caso o vínculo seja alterado, o SisPetro respeitará a informação inicial.
+ 
+Frota
+: informar o Frota que efetuará o transporte do produto a ser definido. Caso o cadastro do Frota tenha controle de vencimento, o SisPetro irá validar as informações assim que sair deste campo. Para mais informações ver, 
+Tabela Controle de Vencimentos
+Aceita Multimplas Entidade por Compartimento?:
+ quando o frota estiver habilitado para utilização de bomba de descarga e a composição de carga estiver configurada com mais de uma entidade este campo estará habilitado e selecionável. Para mais informações, ver 
+Composição de Carga - Pedidos de clientes diferentes no mesmo compartimento
+Capacidade
+: informa a capacidade do caminhão, considerando todas as placas vinculadas. Para mais informações, ver 
+Painel Compartimentos (Frotas)
+.
+Armazenagem Automática:
+ ao fazer uma venda para uma congênere, na Ordem de Carregamento de Venda, há a opção de fazer a remessa de armazenagem automaticamente. Para mais informações ver, 
+Remessa para Armazenagem Automática
+. Mas para trabalhar com esse recurso, é necessário indicar na tela de clientes, aba Cadastro Detalhado, que tipo de Armazenagem Automática o cliente deve ser configurado. 
+Para mais informações, ver
+ 
+Cadastro Detalhado (Clientes)
+.
+Informa Contrato Venda:
+ este campo será habilitado caso o Pedido de Venda vinculado tenha Contrato de Venda. Para mais informações ver, 
+Como emitir Ordem de Carregamento de Venda
+Na finalização da inclusão de uma ordem de carregamento, o SisPetro validará o tipo de frota principal para que, se o frota indicado for diferente de TOCO, TRUCK, CAVALO, VAGÃO ou PASSEIO, não permita a inclusão. Além disso, se os frotas vinculados ao frota principal forem diferente de CARRETA, TREMINHÃO, DOLLY ou TRITREM, também não será permitida a inclusão.
+Ao finalizar a OC caso o perfil de Sistema 
+Valida Categoria do CNH do Motorista 
+com o Tipo de Frota esteja para validar, o SisPetro ira realizar a validação da categoria do CNH com o tipo de Frota utilizado na OC.
+Para mais informações, ver 
+Tabela Transportadoras / Motoristas
+ e 
+Painel Fretes
+.
+Se os perfis de sistema e do cliente comprador 
+Restringe Frotas no Pedido de Venda Retira
+ estiverem marcados, o SisPetro validará se o frota principal e os 3 frotas vinculados a ele (se existirem), estão vinculados para a Entidade. Para mais informações ver, 
+Frotas Permitidos
+.
+Se os perfis de sistema e do cliente comprador 
+Restringe Transportadoras/Motoristas no Pedido de Venda Retira
+ estiverem marcados,  o SisPetro validará se a transportadora/motorista estão vinculados para a Entidade. Para mais informações ver, 
+Transportadoras/Motoristas Permitidos
+.
+Quadro Frota
+Neste quadro será possível visualizar as informações de placas de Cavalo, Carreta e Treminhão, desde que vinculadas corretamente no cadastro de frotas, além disso, será possível alterar informações da Transportadora e do Frota, através dos botões 
+Altera Transportadora
+ e 
+Altera Frota
+. Para mais informações ver, 
+Tabela Transportadoras / Motoristas
+ e 
+Tabela Manutenção de Frota
+. 
+Painel Principal
+ 
+Não entra na Fila
+: perfil que o usuário poderá definir se a OC entrará na fila ou não. Para mais informações ver, 
+Fila Automática na Portaria de Entrada
+.
+Informa Pedido Mov. Mat.
+: perfil que o usuário poderá definir se a OC será vinculada a um PMM. Ao marcar este perfil, o campo para vínculo com o PMM ficará disponível no quadro de Itens da OC.
+Série do Lacre:
+ para quem utilizar o 
+Controle de Lacres
+, será preenchido automaticamente ou manualmente, dependendo da configuração em 
+Depósitos - Aba Layout OC
+.
+Cor Lacre: 
+informa a cor do lacre que será colocado no caminhão, podendo ser alterada pelo usuário na emissão da OC. 
+Para mais informações, ver
+ 
+Alterar cor do lacre
+.
+Se utilizar o Controle de Lacres, será preenchido de forma automática pelo SisPetro.
+#Lacres
+: caso a numeração de Lacres seja manual é preciso muita atenção do usuário, pois o SisPetro não tem como validar tais informações. Se desejar que a numeração seja automática veja o help 
+Controle de Lacres
+. Os lacres que forem separados por vírgula, serão incluídos separados, também, no arquivo XML. Gerará a tag 
+nLacre
+ para cada lacre. O tamanho deste campo é de 60 caracteres por lacre, caso seja informado um lacre maior, será incluído na próxima Tag.
+Se utilizar o Controle de Lacres e utilizar uma série automática, será preenchido pelo SisPetro. Caso utilize uma série manual, o usuário deve informar a numeração, sem qualquer controle pelo SisPetro. Para mais informações ver, 
+Controle de Lacres
+ e 
+Tabela Série de Lacres
+.
+Envelope de Amostra: 
+informar a numeração do Envelope de Amostra. O usuário deverá ter atenção e usar algum critério para a numeração dos Envelopes, visto que tal informação, assim como a Cor e número de lacres também. Para mais informações ver, 
+Numeração de Lacre e Envelope de Amostra
+Em ordens de carregamento de terceiros, independente da configuração, os campos Série de Lacre e Série de Envelope não são habilitados.
+Botão Fator de Conversão: 
+permitirá ao usuário calcular o fator de conversão para lançamento de quantidade correta. Este botão só estará disponível para OC do tipo: Carregamento e Descarga Própria e Carregamento e Descarga de Terceiros.
+Endereço a ser utilizado:
+ nesse campo selecionamos o endereço de 
+retirada
+ para uso no XML da NF-e. Esse endereço é pre-cadastrado no depósito, para cadastrar um endereço novo para o depósito basta ir em Arquivos / Depósito / 
+Aba Endereços
+.
+Caso o depósito utilizado na OC não tenha uma lista de endereços cadastrados, será utilizado o endereço padrão do depósito. Para mais informações ver, 
+Depósitos - Aba Endereços
+.
+Data Previsão Chegada: 
+esse campo será utilizado para o Estoque em Transito no 
+Envio de Estoque Diário da ANP. 
+Na 
+Inclusão da OC de Transferência entre Depósitos 
+ou
+ Descarga Própria: 
+será sugerido com a data atual e poderá ser alterado pelo usuário. Ao deixar o campo data vazio, a OC não participará do envio de estoque diário.
+Na 
+Inclusão de OC de Carregamento Próprio: 
+ao apresentar a tela para geração da OC de Descarga Própria, abaixo do Responsável pelo Frete e acima do checkbox para salvar Chave de Acesso, esse campo também aparecerá com a data atual e poderá ser alterado pelo usuário. Para mais informações, ver 
+Envio de Estoque Diário
+O campo de Endereço a ser utilizado é uma opção muito útil para vendas onde a retirada do produto é realizada direto da usina.
+Painel Complementar
+É possível importar e exportar as 
+Diferenças em Descargas
+, para isso foi criado os campos 
+Empresa OC Origem e Número OC Origem
+. Para mais informações ver, 
+Importação/ Exportação de Diferenças de Descargas
+#Contrato de Frete: 
+informação do número do contrato de frete
+Valor Frete Transportadora
+: será preenchido automaticamente com o total do frete, conforme o usuário informar o valor unitário do Frete no quadro de Itens da OC.
+Número NF
+: este campo permite ao usuário já informar um número de nata fiscal, a quem se refere a OC.
+Empresa OC Origem: campo utilizado na 
+Importação/ Exportação de Diferenças de Descargas
+. Referente ao número sequencial da empresa que gerou aquela descarga. Campo obrigatório para a importação/ exportação do arquivo.
+Número Oc Origem: campo utilizado na 
+Importação/ Exportação de Diferenças de Descargas
+. Referente ao número sequencial da OC que gerou aquela descarga. Campo obrigatório para exportação/ importação do aquivo.
+Informações para Portaria/Adicionais
+: campo disponível para o usuário colocar informações específicas. Essas informações adicionais estão disponíveis nas portarias de entrada e saída e na tela de Manutenção de Ordens de Carregamento, podendo ser alteradas caso o usuário tenha perfil para tal.
+Inspeção Veicular
+: campo disponível ao usuário para informar dados sobre Inspeção Veicular, e assim imprimir no layout da OC.
+Coleta Amostra: 
+informação sobre coleta de amostra testemunho
+Sem definição
+: não informa se será ou não necessário coletar a amostra
+Coleta 1 amostra
+: necessário coletar 1 amostra por compartimento
+Coleta 2 amostras
+: necessário coletar 2 amostras por compartimento
+Não coleta
+: não é necessário coletar amostra para este carregamento.
+Quando se tratar de 
+Exportação de OC
+, na inclusão da OC na empresa de destino, caso o usuário escolher a opção 
+Coleta 2 amostras
+ o SisPetro irá enviar no 
+json 
+a opção 
+Coleta 1 amostra
+Observação
+: campo disponível para o usuário acrescentar informações importantes na emissão da Ordem de Carregamento.
+Painel Integração
+Participa da Exportação: 
+perfil marcado conforme o cadastro do Depósito caso ele esteja configurado para Exportar OC. Para mais informações ver, 
+Depósitos - OC
+.
+Requer Abastecimento?: 
+caso este perfil esteja marcado também será enviado para a Exportação Unibraspe o Abastecimento.
+Produto a ser Abastecido:
+ informa o produto que será enviado para o Abastecimento.
+Emite NF de Remessa por Conta e Ordem: 
+quando marcado, permite ao usuário realizar a 
+Emissão Automática de Nf de Remessa Conta e Ordem por Armazenadoras para transportar produto vendido pela Usina / Distribuidora
+. O SisPetro já marca essa opção quando o campo 
+Emite NF de Remessa por Conta e Ordem
+ do cadastro do cliente está marcado.
+ 
+O campo Requer Abastecimento? e Produto a ser Abastecido só estarão habilitados se a OC estiver com o campo 
+Participa da Exportação
+ marcado e a OC for de Vendas ou Carregamento Próprio.
+Quadro Itens Ordem de Carregamento
+Quadro Itens OC
+: neste quadro serão apresentados os itens da OC de carregamento. Caso a OC esteja vinculada a um Pedido de Venda ou PMM, as informações já serão sugeridas automaticamente, ficando sob responsabilidade do usuário ajustar a quantidade da OC.
+Código do Produto
+: código do SisPetro referente ao produto desejado.
+Descrição
+: descrição do produto definido, informado de forma automática.
+Qtde
+.: quantidade do produto a ser movimentado. Podendo ser alterada caso esteja vinculado a um Pedido de Venda ou um PMM.
+#Pedido Mov. Material
+: campo para o usuário informar o número do PMM a ser vinculado. Este campo só ficará disponível caso o perfil, já citado, 
+Informa Pedido Mo. Mat.
+ esteja marcado. Além disso, o PMM deverá estar aprovado para poder efetuar o vínculo.
+Frete Padrão/Máx. Unit
+: valor informativo do frete padrão no transporte do produto, ou valor máximo do frete caso tenha sido informado no PMM. Para mais informações ver, 
+Pedido de Movimentação de Material
+Frete Real Unit.
+: valor do frete negociado, que será calculado.
+Frete Total
+: valor total do frete negociado multiplicado pela quantidade.
+Informação do Frete na OC
+Há um perfil de empresa, na aba Fretes, quadro Cálculo de Frete / 
+Controle de Fretes por Tipo OC
+, que indicará se a OC terá frete ou não. Se não estiver configurado para a opção Desabilitado, o valor do frete poderá ser informado, variando somente se será obrigatório (não deixa passar zerado) ou não (deixa passar zerado).
+Considerando que o perfil acima indica o uso do frete, esse pode vir:
+Sugerido do Contrato de Frete. Para isso há um perfil de empresa, na aba Fretes, quadro Contrato de Frete / 
+Valor do Frete na OC vs Contrato de Frete
+ que indicará se pode ser utilizado e também se pode ser alterado pelo usuário. 
+Para mais informações, ver
+ 
+Contrato de Frete
+.
+Sugerido do PMM (se o PMM teve essa informação e não tem Contrato de Frete). Nesse caso, o mesmo será obrigatório se o perfil de empresa, na aba Fretes, quadro Cálculo de Frete / 
+Valida Frete da OC conforme Frete Indicado no PMM
+ estiver marcado.
+Ser calculado automaticamente, nos casos onde a OC não tem PMM com frete ou Contrato de Frete. O cálculo variará conforme o tipo de OC, mas sempre utilizando a 
+Tabela de Distância por Transportadora
+:
+Transferência entre Depósitos
+: 
+Origem: cidade do Depósito de Origem (Usina)
+Destino: cidade do Depósito de Destino (onde o produto será descarregado)
+Carregamento Próprio
+Origem: cidade do Depósito de Origem (de onde o produto será retirado)
+Destino: cidade da Entidade informada na OC (cliente (ou cliente que representa uma filial) que receberá o produto)
+Descarga Própria
+: não é usual, mas segue a mesma regra da OC de Carregamento Próprio
+Carregamento ou Descarga de Terceiros
+: não tem indicação de Frete
+Vendas
+: não se enquadra devido o frete vir do Pedido de Vendas.
+Além disso, para que o usuário possa informar/alterar o frete da OC  é necessário que o perfil de usuário, na aba Carregamento, quadro OC / 
+Pode informar o frete na inclusão da OC (qualquer tipo)
+ esteja marcado.
+Após informar todos os dados da OC, atente-se para o perfil da sua empresa com relação à Compartimentação. Para mais informações ver, 
+Painel Compartimentos (Frotas)
+ e 
+Compartimentação de OC
+.
+Tela de Compartimentação
+Na tela de compartimentação temos a opção de inserir e alterar os produtos e as quantidades dos compartimentos, e ainda podendo inserir a numeração de lacre para cada compartimento de forma manual ou automática.
+A validação do preenchimento dos lacres dependerá do perfil 
+Painel Ordem Carregto
+ 
+Valida o preenchimento de TODOS os lacres dos compartimentos
+Para mais informações ver,  
+Alterando Compartimentos, Lacres e Envelopes na OC
+Caso a OC esteja marcada para 
+Exportação
+, a Compartimentação será enviada conforme as seguintes regras:
+Não serão enviados compartimentos vazios;
+A Compartimentação da Frota sempre inicia com o sequencial 1
+Caso o Depósito esteja configurado para 
+Agendamento
+ e o perfil no cadastro de Frota, 
+Permite Agendamento estiver configurado,
+ o botão estará habilitado. 
+Selecione o horário disponível, clique em 
+ok
+. 
+Para mais informações ver, 
+Agendamento de Carregamentos e Descargas na Base
+.
+Retornando a tela de Ordem de Carregamento.
+Ao finalizar, clique no botão 
+Ok
+ 
+Para Ordens de Carregamento e Descarga de Terceiros, o SisPetro fará a validação do limite permitido para descarga, cadastrado na 
+Depósitos - Espaço Permitido Terceiros
+, caso o parâmetro de 
+Verificar espaço no Tanque para Descarga de Terceiros
+ esteja habilitado.
+Caso não tenha limite disponível, apresentará uma mensagem informando:
+Produto
+: informa o código do produto
+Saldo do produto com essa movimentação
+: informa o saldo atual do produto já com o saldo desta OC (Saldo Inicial + Entradas + Saídas + OCs de Descargas Previstas + Quantidade da OC )
+Limite de Descarga Cadastrado
+: informa o limite cadastrado para esta empresa neste depósito. Para mais informações ver, 
+Depósitos - Espaço Permitido Terceiros
+.
+Limite de Descarga Disponível
+: informa o limite disponível para descarga (Limite de Descarga - (Saldo Inicial + Entradas + Saídas + OC de Descargas Previstas+ OC Carregamento não carregadas))
+O SisPetro emitirá uma mensagem ao usuário para impressão da OC:
+O layout só será impresso caso o 
+Depósito Origem 
+tenha o RTM configurado. Para mais informações ver, 
+Depósitos - Aba Layout OC
+.
+Caso desista da emissão, clique no botão 
+Cancela
+Caso o perfil de sistema 
+Verifica se foi fechada a carga na Confirmação de OC
+ estiver marcado, será necessário marcar o perfil 
+Exige confirmação do carregamento nas OC de Transferência
+, 
+caso 
+contrário 
+não será possível incluir uma OC de Transferência entre Depósitos. 

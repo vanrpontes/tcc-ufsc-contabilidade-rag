@@ -1,0 +1,58 @@
+TITULO: Infraestrutura para uso do Servidor Hermes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913895186
+--------------------------------------------------
+Dependendo da infraestrutura de cada empresa, o 
+Servidor Hermes
+ poderá ser acessado de diferentes maneiras. Abaixo ilustramos um exemplo de infraestrutura que abrange a maioria das situações disponíveis para execução do SisPetro:
+No exemplo que mostramos acima, temos um Servidor Físico com dois 
+Servidores Hermes
+ em execução e duas placas de rede com endereçamentos diferentes, porém apenas um deles poderá ser o
+ 
+Servidor Hermes de Segurança (S3)
+.
+Apesar de ter dois 
+Servidores Hermes
+ no mesmo servidor Físico, neste desenho podemos enxergar três situações de conexão do SisPetro:
+Ambiente 01
+ - 
+Acesso Interno
+ - Esse é o tipo de acesso ao 
+Servidor Hermes
+ mais comum, quando é realizado via Rede Local e o 
+S3
+ está em execução no mesmo 
+Servidor Hermes
+.
+Nesse caso, nos parâmetros do INI será informado o IP local do 
+Servidor Hermes
+ e a porta, como pode ser visto na imagem.
+O Parâmetro
+ IP_PORTA
+, que pode ser observado no Ambiente 02 não é necessário nessa situação.
+Ambiente 02
+ - 
+Acesso Interno em Rede Diferente do S3
+ - Essa é uma situação menos comum, pode ocorrer principalmente em empresas Armazenadoras que possui clientes com escritório dentro da Base e utilizam uma rede local paralela a da Armazenadora criando o caso do Desenho acima.
+Nesse ambiente o tráfego com o banco de dados será realizado via rede local e apenas a conexão com o 
+S3
+ será realizada via internet, sendo necessário informar o parâmetro IP_PORTA, abaixo de [
+S3
+] como pode ser observado na imagem.
+O INI ficaria assim:
+[GERAL]
+IP=10.0.0.10
+PORTA=9001
+ 
+[S3]
+IP_PORTA=200.199.3.20:9000
+Lembrando que os exemplos do arquivo INI correspondem apenas aos parâmetros de conexão com o 
+Servidor Hermes
+, ainda poderá existir outros parâmetros necessários para configuração
+Caso a empresa tenha uma infraestrutura semelhante, porém, sem o acesso externo, o SisPetro não poderá ser executado.
+Ambiente 03
+ - 
+Acesso Externo
+ - É uma situação para acesso do SisPetro via internet, pode ser utilizado pelos clientes das Armazenadoras e também por filiais das Distribuidoras que não tem acesso a rede local. 
+Obs: Esse tipo de acesso somente poderá ser realizado através do SisPetro Controladoria.
+Aqui informamos o IP e PORTA externos para acesso via internet.
+Não é necessário o parâmetro IP_PORTA.

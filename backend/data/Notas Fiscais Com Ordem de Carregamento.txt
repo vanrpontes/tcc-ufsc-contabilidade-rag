@@ -1,0 +1,40 @@
+TITULO: Notas Fiscais Com Ordem de Carregamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921074122
+--------------------------------------------------
+Para notas que foram iniciadas através de 
+Ordem de Carregamento
+, como por exemplo Nota Fiscal de Saída para Transferências entre Filiais, o Sistema mostrará a tela abaixo:
+A partir da versão 8.11 foi alterado a validação da transportadora/motorista, para maiores informações veja o help 
+ 
+Introduza os seguintes campos:
+Filtro por Entidade:
+ Ao optar por este filtro, será habilitado o campo 
+Código Entidade
+ e deve informar o código do fornecedor/cliente da Nota Fiscal. Caso não saiba, aperte <enter> para abrir a janela de pesquisa. Escolha o fornecedor/cliente desejado.
+Filtro por Depósito Origem:
+ Ao optar por este filtro, será habilitado o campo 
+Depósito Origem
+ e deve informar o código do depósito que deseja filtrar. Caso não saiba, aperte <enter> para abrir a janela de pesquisa. Escolha o depósito desejado.
+"É o último item da OC":
+ Ao incluir uma nota fiscal, caso a 
+Natureza de Operação
+ 
+esteja definida para permitir associar uma OC em mais de uma NF
+, o usuário poderá informar se é ou não o último item da OC a ser faturado. Como padrão este perfil vem 
+marcado
+. Se houver mais notas fiscais a serem emitidas 
+através da mesma OC
+, basta 
+desmarcar a opção "É o último ítem da OC?"
+, e assim a OC continuará pendente até que seja incluída a última NF. Porém, não será controlado o saldo pendente desta OC a ser faturado, devendo esta opção, ser utilizada criteriosamente para não causar diferenças no estoque. Caso seja necessário cancelar uma das NFs vinculadas a determinada OC, deverá ser cancelada a
+ última NF
+ (aquela definida como último item da OC), antes de cancelar as demais, pois é através dela que são feitos os devidos ajustes de estoque no depósito de origem da ordem de carregamento de transferência. 
+Ao clicar no botão 
+Atualiza
+, será apresentado as ordens de carregamento em aberto para o filtro informado.
+Selecione a OC desejada.
+Dica
+: Procure a OC pelo nome do motorista para escolher a OC correta. Se for necessário, em casos de Notas Fiscais com mais de um item, é possível selecionar mais de um item da OC para receber a Nota. Para isso, marque a opção 
+"Selecionar mais de um item da OC"
+ e com auxílio da tecla CTRL marque os itens. Lembrando que só é possível marcar itens que pertence a mesma OC.
+Ao clicar no botão "Avança" os processos são os mesmos para NFs com ou sem Ordem de Carregamento. Vide help 

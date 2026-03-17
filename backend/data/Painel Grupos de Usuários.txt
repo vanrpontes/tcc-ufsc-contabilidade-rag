@@ -1,0 +1,110 @@
+TITULO: Painel Grupos de Usuários
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919991732
+--------------------------------------------------
+A partir da versão 8.10, a configuração para perfil de usuário fica mais fácil. 
+Anteriormente a configuração de perfil era totalmente individual, ou seja, caso quisesse alterar o perfil para 15 vendedores, era necessário configurar um por um. Isso era um processo muito demorado, que para empresas onde se tem muitos usuários, requeria um trabalho grande quando era necessário alterar permissões de um "grupo" de usuários.
+Então foi criado o 
+Perfil para grupos de usuários
+, 
+que nada mais é do que criar um 
+"usuário padrão"
+, com todas as permissões que o grupo ,de vendedores por exemplo, precisa ter. Assim quando for preciso tirar ou dar mais permissão para os vendedores, basta alterar este 
+"usuário padrão"
+ e a nova configuração valerá para os demais vinculado a este.
+Um exemplo:
+Usuário
+Função
+Grupo de usuários
+Miguel
+Vendedor
+Vendas
+José
+Vendedor
+Vendas
+João
+Faturista
+Faturamento
+Maria
+Gerente
+Maria
+Paulo
+Faturista
+Faturamento
+Marcos
+Faturista
+Faturamento
+Mara
+Vendedor
+Vendas
+Veja que neste exemplo temos as funções de: vendedor, faturista e gerente.
+Gerente
+:
+ como temos apenas UM gerente, este vai ser vinculado a ele mesmo
+Vendedor:
+ há 3 vendedores, criaremos um perfil padrão para Vendas e vincularemos os vendedores a este novo perfil.
+Faturamento:
+ há 3 faturistas, também criaremos um perfil padrão como no caso de Vendas, e vincularemos os faturistas à este novo perfil.
+Quando o usuário não pertence a nenhum grupo (
+gerente no exemplo acima
+) ou o administrador do sistema não acha necessário criar um usuário padrão para este, basta vincular o usuário a ele mesmo, veja abaixo como fazer, ou seja, no exemplo acima Maria seria vinculada a Maria.
+Veja abaixo como vincular os usuários.
+Criar um usuário padrão (nosso exemplo será vendas) então vamos copiar o perfil de algum vendedor, para poupar trabalho.
+Selecionar o usuário que deseja copiar, e clicar no 
+ (veja as setas)
+Com o perfil "Vendedor" criado vamos vincula-lo aos demais vendedores.
+No caso do usuário não ser vinculado a nenhum perfil padrão, deve selecionar o próprio usuário. No nosso exemplo, Maria não era vinculada a ninguém então, no campo 
+Perfil a ser Vinculado 
+selecionar Maria.
+Veja que o campo 
+Tipo Usuário 
+é do tipo
+ 
+e o 
+Perfil a ser Vinculado 
+é onde ocorre o vínculo
+, deverá ser preenchido com o
+ Usuário Perfil, 
+neste caso
+ Vendedor.
+Com o perfil do 
+Vendedor Miguel
+, vinculado ao 
+Vendedor
+ as configurações de Miguel, 
+não estão mais ativas,
+ o perfil que será validado pelo SisPetro 
+é o 
+Vendedor
+.
+Feito isso o vínculo foi efetuado. Para os demais vendedores basta repetir o passo número 2 e para criar os demais 
+usuários padrão
+, repetir todos os passos.
+Usuário Acesso e usuário Perfil
+Com a alteração foi necessário criar dois tipos de usuário, 
+Acesso
+ e 
+Perfil
+. Explicaremos as diferenças abaixo.
+Acesso:
+ Só entrará no SisPetro usuários do tipo Acesso, ou seja, os vendedores, faturistas e demais usuários do sistema, devem ser do tipo Acesso.
+Perfil:
+ Este é o tipo de usuário que o usuário Padrão deve ter, ou seja, o 
+Vendedor Padrão
+, 
+Faturista Padrão
+ e assim por diante. 
+As alterações feitas neste usuário padrão, serão replicadas para os demais usuários vinculados a ele
+. Este usuário 
+não tem acesso
+ ao SisPetro.
+ 
+Caso opte por utilizar o procedimento de Visualização de Movimentação por Grupo de Usuários, na aba 
+Grupos do Usuário
+, veja mais informações em 
+Visualização de Movimentação por Grupo de Usuários
+.
+ 
+ 
+ 
+ 
+ 

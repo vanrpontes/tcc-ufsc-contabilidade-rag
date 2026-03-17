@@ -1,0 +1,558 @@
+TITULO: Versão 7.9
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2895708913
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 13/08/2010 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 13/09/2010 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd79.sql (cmd2403 a cmd2426) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 45 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 21 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 24 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+ DPMP.rtm, BalancaToledo.dll, PosEst.rtm, Adiantamento.rtm 
+
+
+
+
+
+
+Servidor SisPetro
+A partir da próxima versão, o Servidor SisPetro se tornará obrigatório para a execução do SisPetro Normal.
+
+
+Geral
+
+
+
+
+Lentidão na Aba de Preços no Cadastro de Clientes
+
+
+A aba de Preços no Cadastro de Clientes lista os preços dos produtos para o cliente selecionado e lista também o custo desses mesmos produtos. Como o custo é calculado para cada produto na medida que é solicitado pelo usuário, em alguns clientes esse processo tem se tornado lento pois é analisada a vigência de cada produto para cálculo do custo. A partir dessa versão, só iremos exibir os preços de venda,
+ 
+caso o usuário necessite das informações de custos nessa aba, será necessário habilitar o parâmetro "Visualiza Informações de Custos" e com isso as informações ficarão sempre visíveis.
+ 
+UPA (CCF 10121)
+
+
+Campo de Observações sobrepondo outros campos
+
+Foi corrigido um problema no cadastro de Produtos, onde o campo de Observações estava sobrepondo os campos de COFINS. 
+ALP (CCF 10131)
+
+
+Mensagem desnecessária no Banco de Dados
+
+Retiradas algumas mensagens que eram apresentadas no banco de dados e que eram desnecessárias ("entrou no <", "entrou no ="). Importante: Essas mensagens não causavam nenhuma alteração de performance ou comportamento no banco de dados. 
+GSN (CCF 10195)
+
+
+Navegação na tela Manutenção de Processos de Importação
+
+Foi encontrado um problema na tela de Manutenção de Processos de Importação. Quando selecionada a aba "Detalhe" eram sempre exibidas as informações do primeiro registro. Foi corrigido para mostrar as informações do registro escolhido. 
+ALP (CCF 10291)
+
+
+SisPetro no Windows 7
+
+Em alguns casos onde os computadores que utilizam o SisPetro estejam utilizando o Windows versão 7, ocorre um problema de exibição dos botões que ficam na parte inferior da tela de Ordem de Carregamento. Diminuímos um pouco a tela para que os botões fiquem um pouco mais acima. Dessa forma procuramos minimizar o problema de exibição da tela no Windows 7 sem afetar os clientes que utilizam outras versões do Windows, onde o problema não ocorre. 
+ALP (CCF 10222)
+
+
+
+
+Contabilidade
+
+
+
+
+Estornos de Lotes Gerenciais Indevidos
+
+Corrigimos o sistema para realizar o estorno de Lotes Manuais, exibindo mensagens para as tentativas de estorno de Lotes Automáticos. 
+Também alteramos o sistema para emitir uma mensagem caso tente-se estornar um lote já estornado.
+ 
+Help:
+ 
+Manutenção de Lotes
+ 
+ALP (CCF 9738)
+
+
+Manutenção de Lotes - Problemas no Grid
+
+Ao navegar pelo grid da tela de Manutenção de Lotes, ao posicionar-se no último registro, se fosse pressionado "seta para baixo" no teclado, o sistema incluía um registro vazio e, após, emitia uma mensagem de erro apagando o registro. Esse problema foi corrigido. 
+Além disso, foi colocada uma verificação que impede o cadastramento do lote sem um Código de Histórico e sem, pelo menos, dois itens. Também foi implementado para que, ao cadastrar um novo lote, a moeda padrão já venha preenchida.
+ 
+ALP (CCF 7376).
+
+
+Fórmula do Histórico na Tela de Codigo de Contabilização
+
+Na versão 7.1 introduzimos no SisPetro o padrão de históricos com 250 caracteres, o que possibilita o usuário colocar muito mais informações nesses campos e para uma boa visualização, esses campos são exibidos em forma de pop-up. Porém, na tela de Código de Contabilização, apesar do campo ser "Histórico" esse campo não deveria ter sido alterado para essa nova forma de visualização, permanecendo o formato antigo que abria a tela de seleção de campos para o código de contabilização. Essa alteração foi desfeita, voltando ao seu funcionamento normal. 
+UPA (CCF 9758)
+
+
+Apuração do Livro Fiscal
+
+Ao incluir uma apuração do livro fiscal, o SisPetro verifica se já existe uma apuração no período informado. O problema está quando duas pessoas estão incluindo ao mesmo tempo a apuração, como no momento em que o sistema checou se já havia uma apuração, e nenhuma das duas apurações havia sido gravada, para o sistema elas não existem o que permite dois usuários estarem no mesmo processo e conseguirem depois gravar as apurações. A partir dessa versão estaremos validando também na gravação da apuração, impedindo que o usuário consiga incluir duas apurações para o mesmo período. 
+UPA (CCF 8653)
+
+
+Relatório de Ressarcimento de Impostos
+
+
+Foi melhorada a tela do Relatório de Ressarcimento de Impostos.
+ 
+No espaço onde é informado o Nome do Arquivo, ao clicar no botão "..." abrirá uma janela para informar um caminho e nome de arquivo
+. ALP (CCF 10064)
+
+
+Ajustes do SPED-ECD
+
+Ajustadas fórmulas para o campo Entidade Responsável do Registro 0007 e para o campo Código Conta Superior nos registros J100, I050, I155, I250 e I355. GSN (CCF 9863)*
+
+
+
+
+Estoque
+
+
+
+
+Cálculo de Fator de Conversão
+
+
+Foi corrigido no sistema o método de busca do Tipo de Produto para utilizar no cálculo do Fator, quando é acionada a tela de Ajuste.
+ 
+Os códigos que estavam fixos passaram a ser buscados do cadastro do próprio produto.
+ 
+ALP (CCF 9525)
+
+
+Calcular Custo de Produto mesmo que o Produto não Possua Custo de Aquisição e ICMS Compra
+
+
+Foi alterada a rotina para cálculo de custo para que, mesmo os produtos que não possuam Custo de Aquisição e ICMS de Compra tenham seus custos calculados, não dependendo assim que o usuário informe esses valores no cadastro de produtos. UPA (CCF 10055)
+
+
+Código de Produto Básico fixo no banco de dados - Estoque Físico
+
+
+Foi melhorada a verificação do código do produto básico, que antes estava fixa no banco de dados, o que poderia causar movimentos físicos no produtos errados. ALP (CCF 8841)
+
+
+Movimentação de Estoque em Unidade de Medida diferente do Faturamento
+
+
+Disponibilizadas configurações no Cadastro de Produtos e na Natureza de Operação para permitir a movimentação de estoque numa unidade de medida diferente da unidade de medida padrão (geralmente litro), nos casos onde a compra do produto é feita numa unidade de medida diferente da unidade padrão. Além disso foi permitido que o produto tenha várias unidades de medidas, com fatores de conversão diferenciados.
+ 
+Recurso útil em compra de produtos numa unidade e comercialização em outra ou em compra de combustíveis em KG.
+ 
+Help:
+ 
+Várias unidades de compra para um mesmo produto
+ 
+GSN (CCF 10215,10216)
+
+
+OC com Vários Produtos x Balança
+
+
+Quando foi implementada a Balança entendemos que se a OC tivesse produtos diferentes não teríamos como fazer a integração com a balança, já que cada produto tem uma densidade diferente. Porém, após utilização, o que foi identificado é que neste caso (de OC com mais produtos), até se pesa o caminhão (na portaria de entrada e saída) mas o que não se faz é usar o peso para chegar ao volume do produto. Por conta disso, estamos liberando a integração da balança, independente da OC ter vários produtos para obtenção do peso inicial e final do caminhão, porem não faremos a conversão do peso em volume nesses casos.
+ 
+Help:
+ 
+Roteiro de Entrada para Carregamento na Base
+ 
+UPA (CCF 10319)
+
+
+Ajustes Faturamento X Base
+
+
+Nessa versão colocamos uma verificação na Manutenção de Ordem de Carregamento (OC)
+ 
+que impede uma OC de pegar fila caso a mesma seja uma Transferência entre Depósitos não confirmada.
+ 
+O perfil "Volume a ser utilizado para Carregamento / Descarga" foi desmembrado em dois perfis, ficando um para Carregamento e outro para Descarga.
+ 
+Help:
+ 
+Manutenção de Ordem de Carregamento
+ 
+Help:
+ 
+Roteiro de Entrada para Carregamento na Base
+ 
+ALP (CCF 10271)
+
+
+
+
+Faturamento
+
+
+
+
+Mensagem "Não há cobrança a ser impressa" indevida
+
+Foi corrigido um erro na tela de Manutenção de Notas Fiscais, na tentativa de imprimir a cobrança. A mensagem "Não há cobrança a ser impressa" aparecia indevidamente em alguns casos. 
+ALP (CCF 10059)
+
+
+Grupo Econômico - Informações adicionais na aba Financeiro Pendente
+
+
+Foram disponibilizados novos campos para visualização na tela de Informações de Grupo Econômico.
+ 
+As novas informações são "Tipo de Cobrança", "Parcela" e "Total de Parcelas".
+ 
+Esses novos campos só estarão disponíveis para visualização após clicado no botão "Layout Padrâo".
+ 
+ALP (CCF 9794)
+
+
+Campo em desuso no cadastro de Produtos
+
+No Cadastro de Produtos foi desativado o uso do campo referente ao Tipo de Substituição Tributária do Produto. 
+É necessário atualizar o arquivo PosEst.rtm.
+ 
+ALP (CCF 9726)
+
+
+Erro ao Incluir Notas com Contabilização Manual
+
+Ao incluir notas fiscais com natureza configurada para contabilização manual, em algumas situações, por problemas de arredondamento, era gerado ao usuário a mensagem de erro "Total distribuído em conta gerencial difere do valor a ser lançado", esse problema acontecia pela diferença de R$ 0,01 por conta dos arredondamentos e foi corrigido. 
+UPA (CCF 9949, 9685)
+
+
+Faturamento a 20c com utilização de Balança
+
+
+Permitido o faturamento de Notas Fiscais utilizando a quantidade a 20c oriunda do Carregamento Físico. Além disso na Portaria de Entrada e Saída o volume carregado poderá ser obtido através da Integração com a Balança Toledo.
+Este recurso dispõe de várias flexibilidades como permitir o carregamento antes do faturamento e a utilização de automação de base via Smartcard e Balança simultaneamente.
+ 
+Para integração com a balança consulte antes o modelo atendido e é necessário utilizar o arquivo BalancaToledo.dll.
+ 
+Help:
+ 
+Faturamento a 20ºC - Refinaria
+ 
+Help:
+ 
+Automação Balança
+ 
+GSN (CCF 10214)
+
+
+Novas URL's para Nfe 2.0
+
+
+A Sefaz disponibilizou os endereços de WebServices para NFe 2.0 para o estado de Goiás.
+ 
+Algumas UF's não foram testadas pela Futura por não possuírmos certificados de todas as UF's. Caso o recebimento dos dados seja rejeitado pela Sefaz, será necessário voltar a versão 1.0 e comunicar a Futura Tecnologia.
+ 
+UPA (CCF 10053)
+
+
+Itens com Unidades Diferentes na Emissão da Nota Fiscal
+
+Na emissão de uma nota fiscal com vários itens que possuam unidades de medida diferentes, ao sair da página de itens, todos os itens eram alterados e ficavam com a mesma unidade. Esse problema foi corrigido. 
+UPA (CCF 10251)
+
+
+Observação da Nota Fiscal com o Número do Boleto
+
+
+Foi implementado nessa versão um perfil de sistema que permite configurar a gravação do campo "Nosso Número" (Boleto bancário) nas observações da Nota Fiscal (NF).
+ 
+Como padrão, o campo "Nosso Número" será gravado nas observações da NF.
+ 
+Na aba "Nota Fiscal" foi criado um novo grupo "Dados da NF" para agrupar alguns perfis que estavam na tela sem grupo.
+ 
+Help:
+ 
+Preenchimento de Dados na Nota Fiscal
+ 
+ALP (CCF 7591)
+
+
+Faturar Pedido com Mais de uma OC
+
+
+Foi implementado no SisPetro uma rotina para faturar cada OC isoladamente quando tivermos um pedido e várias OC's pendentes para este pedido. Para isso, na aba OC da tela de Pedidos Pendentes e Não Faturados, foi incluído o botão Fatura, nele será faturada somente a OC selecionada pelo usuário.  Help:* 
+Como emitir Nota Fiscal Venda
+ 
+UPA (CCF 10311)
+
+
+Temperatura e Densidade do Carregamento na Nota Fiscal
+
+
+A partir dessa versão, as temperaturas e densidade informadas no carregamento dos produtos estão sendo enviados para a nota fiscal.
+ 
+Help:
+ 
+Faturamento a 20ºC - Refinaria
+ 
+UPA (CCF 10312)
+
+
+
+
+Financeiro
+
+
+
+
+Não permitir Campos nulos na Baixa
+
+No momento de realizar uma baixa de um título, algumas informações poderiam ser deixadas sem preenchimento. Com isso, o sistema gerava erros. Corrigimos esse problema para que os campos necessários sejam sempre preenchidos. 
+Se houver um campo que não possa ser deixado "em branco" o SisPetro não vai finalizar a baixa e exibirá uma mensagem informando qual o nome do campo a ser preenchido.
+ 
+ALP (CCF 7772)
+
+
+Erro na Inclusão de Centro de Custos Duplicado - Contas a Pagar Receber
+
+Foi corrigido um problema que ocorria quando eram lançados títulos de Contas a Pagar Receber com Centros de Custo Desvinculados. Quando o usuário escolhia dois ou mais Centros de Custos iguais, o sistema gerava uma mensagem de erro em inglês. Isso devido a ser um erro no banco de dados que não havia sido tratado pelo SisPetro. 
+O mesmo problema ocorria com Centro de Custos Vinculados, em que a Conta e o Centro de Custos estivessem duplicados.
+ 
+ALP (CCF 10019)
+
+
+Ajustes de Arredondamento em Títulos Recorrentes
+
+Foi identificado um problema referente a Inclusão/Efetivação de um Título Recorrente que possua duas ou mais Contas Gerenciais e/ou Centros de Custos. Em alguns casos o arredondamento gerava uma diferença de R$ 0,01. Esse problema foi corrigido.
+ALP (CCF 9865)
+
+
+Problemas na captura do arquivo de Retorno - Banco Rendimento (633)
+
+Foi encontrado um problema na captura do arquivo de retorno do Banco Rendimento (633). Os dados referentes ao campo "Nosso Número" estavam considerando o dígito verificador (DV). 
+Dessa forma, o SisPetro não localizava o título, pois o campo Nosso Número é armazenado sem o DV.
+ Esse problema foi corrigido. 
+ALP (CCF 10158)
+
+
+Dados da Transferência de Adiantamentos entre Empresas
+
+
+Na tela de Manutenção de Adiantamentos (Clientes/Fornecedores) criamos mais uma aba chamada "Transf. Entre Empresas".
+ 
+Nela estão as informações de Origem e Destino das Transferências de Adiantamentos. No relatório de Transferências de Adiantamentos foi otimizada a seleção de dados, melhorando a performance do mesmo,
+ 
+e criamos mais dois condutores de dados que contém as informações de Origem e Destino da transferência. É necessário atualizar o arquivo Adiantamento.rtm.
+ 
+ALP (CCF 10028)
+
+
+Moeda no Lote Gerencial de Baixas
+
+
+No caso de ser feita uma baixa sem a indicação da Moeda será utilizada a Moeda cadastrada como padrão na Configuração da empresa.GSN (CCF 10218)
+
+
+
+
+Fiscal
+
+
+
+
+DPMP - Duplicidade de lançamentos
+
+Na geração do DPMP, foi identificado um problema que buscava o estoque final de um código DPMP do mês anterior e gerava o estoque inicial do mês seguinte para vários códigos DPMP, duplicando os valores. Esse problema foi corrigido. 
+ALP (CCF 10118)
+
+
+Serie 61 no DPMP - NFe
+
+
+Alteramos o layout do DPMP para que preencha a série com 61 quando a nota fiscal for NFe, conforme comunicado da ANP de 11/08/2010.
+ 
+É necessário atualizar o arquivo DPMP.rtm no Layout de Exportação.
+. GSN (CCF 10228, 10186)
+
+
+Estoque final de e em Terceiros
+
+No processo de geração do DPMP serão sempre recalculados os Estoques Final em Terceiros e Final de Terceiros para que sejam iguais ao respectivo Estoque Inicial. No processo de Recálculo de Totais essas duas operações não sofrerão alteração, já que podem ter sido alteradas pelo usuário. 
+Help:
+ 
+Saldos de Estoque no DPMP
+ 
+GSN (CCF 10283)
+
+
+
+
+Transporte
+
+
+
+
+Controle de Vencimentos na OC - SisPetro Remoto
+
+
+No SisPetro Remoto, nas telas de Ordem de Carregamento e Mudança de Transportadora, foi incluído o processo de Controle de Vencimento para Frotas e Transportadoras.
+ 
+Essa verificação já é feita no SisPertro Normal.
+ 
+ALP (CCF 9559)
+
+
+Composição de Carga - Campo de Observação
+
+
+O campo que fica na aba "Observações" da tela do Pedido de Venda foi disponibilizado na tela de Composição de Carga.
+ 
+Na mesma tela de Composição de Carga, também foram corrigidas algumas exibições de cores que não estavam de acordo com a legenda.
+ 
+O campo "Observações" não aparecerá nas configurações originais do SisPetro. Para visualizá-lo é necessário selecioná-lo na opção de exibição dos campos, que também foi disponibilizada nessa tela.
+ 
+ALP (CCF 8298)
+
+
+Mudança de Transportadora na OC e Controles de Vencimentos a Vencer
+
+Na mudança de Transportadora ou Frota na OC, caso estivesse configurado para avisar sobre Controle de Vencimentos a vencer a mensagem apresentada impedia a conclusão da mudança, o que foi corrigido.
+GSN (CCF 10054)
+
+
+Eventos do Frota vinculados indevidamente à Nota Fiscal
+
+Corrigido para não apresentar uma nota vinculada indevidamente quando esta tem o sequencial zero (casos raros em bancos de dados muito antigos).
+GSN (CCF 10183)
+
+
+
+
+Vendas
+
+
+
+
+Preço somado ao Seguro no Pedido de Venda
+
+
+No Pedido de Venda, foi feita uma implementação para que o preço do seguro seja somado ao preço final, apresentado pela coluna "Preço + Frete".
+ 
+Help:
+ 
+Preço Final com Seguro na inclusão do pedido de vendas
+.
+ 
+ALP (CCF 9054)
+
+
+Campo de Preço Tabela disponível no layout do Pedido de Venda
+
+
+Foi disponibilizado o campo de Preço Tabela na impressão do layout de Pedido de Venda.
+ 
+O novo campo foi apenas disponibilizado para que seja possível ter a opção de colocá-lo no layout de impressão. O layout de Pedido de Venda não foi alterado.
+ 
+ALP (CCF 9698)
+
+
+Data de Entrega do Pedido no SisPetro Remoto
+
+No SisPetro Remoto estava sendo possível alterar a Data de Entrega do Pedido de Venda, mesmo com o perfil "Preenche Data Prevista Entrega?" desmarcado. Esse problema foi corrigido. 
+ALP (CCF 10097)
+
+
+Controle de Procedimentos não está permitindo edição
+
+A aba "Controle Procedimentos" (Configuração de Empresas) não estava permitindo edição dos campos. Esse problema foi corrigido. 
+ALP (CCF 10337)
+
+
+Validações no Tipo de Cobrança
+
+Ao tentar alterar alguma informação da aba Empresas do Tipo de Cobrança estavam sendo validadas Informações referentes à cobrança Eletrônica mesmo quando o tipo de cobrança não estava configurado para tal, o que foi corrigido.
+GSN (CCF 10352)
+

@@ -1,0 +1,43 @@
+TITULO: ICMS Retido no XML da NF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892365881
+--------------------------------------------------
+No XML temos os campos com seus respectivos valores de ICMS Retido (162l e 162m).
+Por padrão no SisPetro, enviamos o ICMS Retido no Destino, porém como os campos seguintes são claramente denominados como ICMS Retido no Destino (tag ICMSST Operação Interestadual 162o e 162p), por solicitação de um contador de uma empresa usuária do SisPetro, alteramos para o seja possível optar por qual informação enviar nesses dois campos, se será o ICMS Retido no Destino ou na Origem. O mesmo ocorre em outros campos de ICMS Retido (216 e 217), que por padrão envia o Destino e será possível optar por ICMS Retido na Origem.
+Já referente a uma tag ICMSST Operação Interestadual (162o e 162p), por padrão os campos sempre são enviados, mas a alegação é que devem ir somente quando for operação interestadual. Dessa forma também será possível optar se será enviado sempre ou apenas quando operação interestadual. Para mais informações, ver Manual da NF-e v. 3.0 03/2009 (págs 106 a 112).
+Dessa forma foram criados alguns perfis de empresa que ajudarão o usuário a optar por qual informação deseja enviar nesses campos do XML. Para alterá-los, acesse o Menu 
+Ferramentas \ Sistema \ aba NF-e/CT-e
+:
+As opções disponíveis no quadro 
+Impostos, NF-e,
+ 
+ICMS Retido no XML
+ são:
+Tag ICMSCom - Valores ICMS Retido:
+ICMS Retido Destino (padrão)
+ICMS Retido Origem
+Tag Grupo de ICMSST de Operação Interestadual:
+Gerar sempre com UF Destino (padrão)
+Somente em Operações Interestaduais
+Tag CST 060 - Valores ICMS Retido
+, com duas opções:
+ICMS Retido Destino (padrão)
+ICMS Retido Origem
+Composição dos Valores de ICMS Retido:
+Tipo
+Base
+Valor
+Alíquota
+Origem
+PrecoMaxOrigem * Qtde
+PrecoMaxOrigem * Qtde * (Alíquota/100)
+AlicICMSOrigem
+Destino
+PrecoMaxDestino * Qtde
+PrecoMaxDestino * Qtde * (Alíquota/100)
+AlicICMSRet
+Destino
+BaseICMSRet
+ICMSRet
+AlicICMSRet
+Os valores de ICMS Retido só existirão na Nota Fiscal se na Natureza da Operação estiver configurada para Gerar ICMS Retido.
+Para o cálculo do ICMS Retido no Destino pode ser as duas opções, já que a BaseICMSRet é o resultado do cálculo PrecoMaxDestino * Qtde. Porém, em casos que a Natureza esteja configurada para o usuário informar a Base de ICMS Retido o valor informado pelo usuário será salvo somente no campo BaseICMSRet. Sendo assim, prefira sempre o campo BaseICMSRet.

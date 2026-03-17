@@ -1,0 +1,415 @@
+TITULO: Configurações necessárias para emissão de notas com tributação monofásica
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4324655105
+--------------------------------------------------
+Objetivo
+Detalha todas as configurações necessárias no SisPetro para emissão de NF-e com tributação monofásica de ICMS em combustíveis e biocombustíveis, incluindo ajustes em tabelas fiscais, CST, composições de produto, naturezas de operação, alíquotas AdRem e regras da NT 2023.001, adequação do Sispetro e às exigências dos Convênios 199/22 e 15/23, garantindo o correto cálculo, envio das tags XML (<pBio>, <origComb>) e aplicação das alíquotas específicas por UF, produto e período conforme Confaz/Scanc.
+O 
+AdRem
+ é o 
+ICMS monofásico calculado com base em valor fixo (R$/litro)
+ — diferente do percentual tradicional. No SisPetro, ele é controlado por 
+UF, produto e empresa
+, conforme a legislação e as médias ponderadas do SCANC.
+Como utilizar
+Configuração de Sistema / Aba Nota Fiscal / Grupo Impostos
+Campo: 
+Definição da Alíquota do AdRem
+Escolha uma das três opções:
+Por UF (padrão):
+ usa a alíquota da tabela de ICMS conforme a UF da empresa e do cliente.
+Por Empresa:
+ usa o valor da alíquota cadastrada especificamente por empresa.
+Por Empresa, se zero, por UF:
+ se a empresa tiver uma alíquota cadastrada, usa ela; se estiver zero, busca pela UF.
+Tabelas Auxiliares / Fatuamento / ICMS → Aba Alíquota AdRem por 
+Empresa
+Opções:
+Inclui Empresas:
+ adiciona todas as empresas ainda não cadastradas.
+Exclui:
+ remove uma linha específica do grid.
+Campos:
+Empresa
+Valor AdRem (exemplo: 0,1552)
+O valor informado deve ter 4 casas decimais, conforme exigência do Convênio e da NT 2023.001, cadastre o valor vigente do Confaz (disponível no portal SCANC).
+Ajuste as naturezas de operação  Tabela Auxiliares / Faturamento / 
+Natureza de Operação
+ → Aba 
+Por Filial
+ → Quadro 
+AdRem
+Habilita AdRem:
+ marque
+Para cada tipo (ICMS Próprio, ST, Retido, Diferido):
+Configure 
+100%
+, 
+%UF Origem
+ e 
+%UF Destino
+ conforme Margem Subst. Tributária.
+Se quiser que as informações sejam mostradas na NF-e:
+Configure o campo 
+“Dados Tributação Monofásica”
+:
+Envia nas tags infCpl e infAdProd.
+Configure os produtos Arquivo / Produtos / Aba Dados Adicionais
+Tipo (Tributação AdRem):
+ selecione:
+Produto Primário (Diesel A, Gasolina A)
+Biocombustível (B100, Anidro)
+Composição para Efeito Fiscal:
+Vincule à 
+Composição Fiscal
+ cadastrada na 
+Tabela Composição de Produtos
+.
+%ICMS UF Dest. (Nac./Imp.):
+ informe os percentuais de destino.
+Tag <pBio>:
+ marque se o produto for misto (Gasolina C, Diesel B).
+Tag <origComb>:
+ marque se deve enviar o percentual de origem por UF.
+Cadastre as alíquotas gerais em Tabelas Auxiliares / Faturamento / Tabela de ICMS / Aba Aliquotas
+Informe os percentuais normais de ICMS.
+No campo 
+Alíquota AdRem
+, cadastre o valor vigente (exemplo: 
+0,1552
+).
+Caso a definição de sistema esteja 
+“Por UF”
+, é aqui que o sistema buscará a alíquota.
+No XML, o sistema preencherá as 
+tags 
+<pBio>
+ e 
+<origComb>
+, e as informações adicionais poderão conter base, alíquota e valor do ICMS monofásico.
+Histórico
+A partir de 
+01/05/2023
+ foi alterada a tributação de ICMS para monofásica para os produtos abaixo - Convênio 199/22:
+Óleo diesel
+Biodiesel
+GLP
+GLGN
+A partir de 
+01/06/2023
+ foi alterada a tributação de ICMS para monofásica para os produtos abaixo - Convênio 15/23:
+Gasolina
+Anidro
+A base de cálculo passa a ser a quantidade do produto e a alíquota passa a ser um valor divulgado pela Confaz.
+A mudança da tributação foi publicada a Nota Técnica 2023.001 com as alterações necessárias para emissão de NF-e.
+A partir de 
+01/02/2024
+ a indicação da alíquota específica nas notas fiscais de saída deve ser - 
+No Convênio ICMS 199/22 e 15/23, cláusula décima quarta, parágrafo 2o: 
+I – do dia 1º até o dia 5 do mês, com base na média ponderada da alíquota específica apurada no 
+segundo mês imediatamente anterior ao da remessa;
+II – do dia 6 até o último dia do mês, com base na média ponderada da alíquota específica apurada 
+no mês imediatamente anterior ao da remessa.
+O que deve ser alterado no SisPetro para emitir notas com tributação monofásica?
+1 - 
+Tabela Composição de Produtos
+ - tela nova para ser cadastrada a composição fiscal de produtos utilizada para a tributação monofásica.
+Nesta tabela deve cadastrar a composição fiscal dos produtos primários. Deve seguir a composição do produto, cadastrada em 
+Composição
+. Deve ser informada no produto em 
+Composição para Efeito Fiscal
+Os produtos Diesel B/Gasolina C composto ou misturado e Diesel A/Gasolina A devem ter a composição fiscal cadastrada.
+Os %ICMS UF Destino devem ser informados somente nos produtos Diesel e B100
+2 - Cadastro de Produtos
+Dados Adicionais em Produtos
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+utilizado nas operações com produtos primários e biocombustíveis com tributação monofásica
+Se marcada a opção, no XML serão enviadas tags referentes à composição do biocombustível no produto composto/misturado ou no produto primário
+Tipo (Tributação AdRem): 
+selecione conforme o tipo de produto
+Produto Primário
+Biocombustível
+Envia tag <pBio> com Perc. de BioCombustível
+Não Envia (padrão)
+Envia Percentual de BioCombustível conforme Composição do produto
+Origem do Produto
+Nacional:
+ produto adquirido no mercado nacional
+Importado:
+ produto adquirido no exterior 
+Origem por Depósito / Empresa: 
+caso um mesmo produto tenha sua origem (nacional ou importado) em diferentes depósitos e/ou diferentes empresas, deve-se informar o campo Origem. Caso contrário, não é necessário nenhum procedimento.
+Filtros
+Depósito: 
+informe o depósito. Caso não seja selecionado um depósito, serão considerados todos os depósitos ativos.
+Empresa:
+ informe a empresa. Caso não seja selecionada uma empresa, serão consideradas todas as empresas ativas.
+Caso sejam selecionados depósito e empresa, serão mostrados somente o depósito e a empresa selecionados.
+Caso seja selecionado o depósito mas não selecionada a empresa, serão mostradas todas as empresas do depósito selecionado.
+Caso seja selecionada a empresa mas não selecionado o depósito empresa, serão mostrados todos os depósitos da empresa selecionada.
+Caso não sejam selecionados depósito e empresa, serão mostrados todos os depósitos e todas as empresas.
+Campo Origem:
+ selecione a origem
+Nacional
+Importado
+Conforme o Produto (padrão)
+Ao clicar no botão 
+Inclui Depósitos / Empresas, 
+serão incluídos conforme as opções dos filtros.
+Composição para Efeito Fiscal:
+ neste quadro informamos a composição do produto para cálculos do ICMS monofásico
+Composição:
+ selecione a composição fiscal conforme cadastrado em 
+Tabela Composição de Produtos
+. Nessa tabela são cadastrados os percentuais de composição do produto, que devem ser os mesmos cadastrados em 
+Composição
+.
+Os aditivos, caso tenham, não devem ser informados na composição para efeito fiscal
+Composição de Produtos:
+ abre a tela da 
+Tabela Composição de Produtos
+.
+Nota:
+ a composição para efeito fiscal deve ser cadastrada para todos os produtos que tenham composição (produto primário e biocombustível) ou cujos cálculos do ICMS monofásico exijam uma composição.
+Margem Subst. Tributária
+%Orig. Nac.:
+ informar o percentual da UF do produtor (UF de Origem) de BioCombustível.
+%Orig. Imp.:
+ informar o percentual da UF do importador UF de Origem) de BioCombustível.
+Devem ser cadastrados no produto da nota fiscal.
+Nota:
+ a UF do importador (UF de Origem) refere-se à UF onde o produto importado foi descarregado
+%ICMS UF Dest. (Nac.):
+ informar o percentual para a UF de Destino.
+%ICMS UF Dest. (Imp.):
+ informar o percentual para a UF de Destino.
+Os produtos Diesel B composto ou misturado e Diesel A devem ter a composição fiscal cadastrada. Os  campos %ICMS UF Dest. devem ser informados somente para o B100.
+Os produtos Gasolina C composto ou misturado e Gasolina devem ter a composição fiscal cadastrada. Os  campos %ICMS UF Dest. devem ser informados somente para o Anidro.
+A distribuição dos percentuais de Orig Nac. e Orig. Imp. entre as UFs dos produtores/importadores deve 
+somar 100%, sempre.
+3 - 
+Tabela ICMS
+Aba Detalhes
+Aba Alíquotas: 
+incluir/editar as alíquotas percentuais para alíquotas AdRem
+Tipo de ICMS:
+Próprio
+ST(Substituição)
+Frete
+FCP 
+(Fundo de Combate à Pobreza e às Desigualdades Sociais)
+UF de Origem: 
+por padrão, carrega a UF da empresa conectada
+UF de Destino: 
+selecione a UF de destino
+Alíquota (percentual): 
+informe a alíquota conforme o Tipo de ICMS
+% Red/Diferimento Base Cálculo: 
+caso tenha, informe o percentual de redução da base de cálculo ou do diferimento do ICMS
+Alíquota AdRem:
+ informe a alíquota AdRem (Valor), caso o produto esteja sujeito à tributação monofásica
+Nota: 
+deve ser cadastrada somente para Tipo de ICMS Próprio e/ou ST(Substituição).
+No AdRem, o ICMS Próprio difere do ICMS ST não pela alíquota, mas sim pelo produto que incide e consequentemente a participação do imposto entre as UF Origem e Destino.
+Utliza essa alíquota para outras UF? (Padrão): 
+Caso marcada, a alíquota será utilizada em outras UF.
+Caso não marcada, a alíquota será utilizada somente na UF selecionada
+Aba Alíquota Adrem Por Empresa: 
+essa aba foi criada para atender a fase de troca de alíquota 
+AdRem
+. O usuário deve incluir a alíquota por empresa, caso ela seja diferente da 
+alíquota
+ 
+média calculada pelo Scanc 
+, pois empresas da mesma UF podem ter a alíquota diferente. 
+O SisPetro só irá ler as informações dessa aba caso o perfil de sistema da Aba Fiscal / Quadro Impostos / opção Definição da Alíquota do Adrem for diferente de por UF. A 
+Futura
+ indica que, nessa fase, seja utilizada a opção 
+Por Empresa, se zero, por UF. 
+Para mais informações, ver 
+Painel Nota Fiscal
+4 - Tabela UF's
+Regras para NF-e
+NT 2023.001 - Tag pBio:
+ percentual do BioCombustível na composição do Produto Primário
+Não envia
+Envia para produtos compostos contendo BioCombustível
+O percentual do BioCombustível utilizado é o da composição fiscal informado no 
+produto
+ e na falta deste, utiliza a 
+Composição
+ do produto. 
+Nota:
+ o percentual do BioCombustível usa tanto da composição fiscal como da composição do produto, porém, nos 
+produtos compostos (Diesel B/Gasolina C) é obrigatório cadastrar a composição fiscal.
+NT 2023.001 - Tag origComb: 
+percentual do BioCombustível conforme a UF do produtor
+Não envia
+Envia para produtos com % Originário por UF
+Nota:
+ caso seja marcada essa opção, deve informar o percentual originário por UF em 
+Margem Subst. Tributária
+, nas colunas
+ %Orig.Nac. e %Orig. Imp.
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Não envia
+Envia quando o item conter o CST de Tributação Monofásica
+5 - Tabela Natureza de Operação
+Impostos (Painel Por Filial)
+ Quadro AdRem
+Habilita Ad Rem: 
+se marcada, os cálculos do ICMS serão conforme a tributação monofásica. 
+Produto Primário
+ICMS Próprio
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+ICMS ST
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+ICMS Retido
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+ICMS Diferido
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+Produto BioCombustível
+ICMS Próprio
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+ICMS ST
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+ICMS Retido
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+ICMS Diferido
+100%: 
+será calculado 100% do produto primário
+%UF Origem: 
+será calculado 100 - % UF de Destino (informado em 
+Margem Subst. Tributária
+)
+%UF Destino: 
+será calculado conforme percentual informado em 
+Margem Subst. Tributária
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?
+Respeita Cadastro de Produtos:
+ utiliza o que estiver configurado no 
+produto
+, quadro NF-e
+Envia sempre:
+ envia sempre independente da configuração no 
+produto
+, quadro NF-e
+Não envia nunca:
+ não envia independente da configuração no 
+produto
+, quadro NF-e
+Dados Tributação Monofásica
+Não envia:
+ as informações da tributação monofásica não serão enviadas
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+tag infCpl(NF): 
+ envia a base de cálculo e o valor do ICMS nas Informações Complementares
+tag infAdProd(Item NF):
+ envia a base de cálculo, a alíquota e o valor do ICMS nas Informações Adicionais do Produto
+Nota:
+ com esta opção, as informações são
+ automaticamente enviadas
+ no XML/DANFE.
+Em notas de saídas de B100, o valor do ICMS da UF Destino não é calculado e nem enviado no XML. Porém, esse valor deve ser informado nas Observações Complementares.
+No SisPetro deve configurar na natureza de operação, aba Por Filial,
+ aba Impressão NF
+, a função para que seja realizado o cálculo do ICMS da UF Destino.
+Para mais informações, ver 
+l. Funções GET
+, item 3 - Função GetDifICMSRetPrinc.
+Forma de Preenchimento de UF de Origem: 
+na emissão de nota fiscal o preenchimento de UF pode ocorrer automaticamente pelo cadastro do produto ou pela uf informada na remessa
+Incluída automaticamente: 
+quando selecionada esta opção, irá preenche a UF com a mesma realizada na configuração do Cadastro de Produtos.
+Obtida da NF de Remessa (se houver):
+ quando selecionada esta opção, irá utiliza a mesma UF de origem da nota de remessa para a nota de retorno.
+6 - Configurações dos CST (Códigos de Situação Tributária)
+Os CST podem ser configurados tanto no 
+cadastro de produto
+ como na 
+natureza de operação
+.
+Caso esteja informado na natureza de operação, este prevalecerá sobre o CST informado no produto
+Caso seja informado no produto e não informado na natureza de operação, assumirá o CST do produto
+Nos produtos sujeitos à tributação monofásica, os CST  devem ser alterados conforme segue:
+CST anterior
+CST monofásico
+000
+002
+010
+015
+051
+053
+060
+061
+Nota 1:
+ as validações ocorrem somente se faltar campo no XML. Validações de valores ainda não estão sendo feitas
+Nota 2:
+ atentar para as alíquotas adRem. Devem ser informadas com 4 casas decimais.
+Nota 3:
+ no SisPetro, feitas todas as configurações acima, os demais processos permanecem os mesmos, sem qualquer alteração.
+Nota 4:
+ é extremamente importante acompanhar as mudanças promovidas pela Confaz/SCANC, em especial, as Perguntas e Respostas sobre tributação monofásica. Para mais informações, ver 
+https://www.confaz.fazenda.gov.br/tributacao-monofasica
+O que fazer quando se utiliza uma Natureza única para Gasolina e Diesel?
+Deve separar em duas naturezas de operação.
+O que fazer quando o Código de ICMS é único para Gasolina e Diesel?
+Deve ter um código de ICMS para cada um dos produtos.
+Cálculos da Tributação Monofásica para cada CST
+Cálculos de ICMS para Tributação Monofásica de Diesel e afins conforme cada CST e o que configurar
+Cálculos de ICMS para Tributação Monofásica de Gasolina e afins conforme cada CST e o que configurar

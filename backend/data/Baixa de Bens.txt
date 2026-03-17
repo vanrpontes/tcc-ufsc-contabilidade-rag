@@ -1,0 +1,155 @@
+TITULO: Baixa de Bens
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210394
+--------------------------------------------------
+O processo de baixa de bens é feito a partir do botão 
+Baixa
+ da tela de 
+Manutenção de Patrimônio:
+ 
+Ao clicar no botão 
+Baixa
+, o sistema mostrará a seguinte tela:
+ 
+Os bens a serem baixados podem ser selecionados de duas formas:
+Bens totalmente depreciados:
+ através do botão 
+Preenche c/ bens totalmente depreciados
+, são apresentados todos os bens cujo valor de depreciação já tenham atingido o valor do bem. Para que um determinado bem que já esteja totalmente depreciado não seja baixado, selecione-o e clique no botão 
+Exclui Bem
+.
+Manualmente:
+ através do botão 
+Inclui bem
+, é possível escolher um bem específico a ser baixado, independente do valor de depreciação. Esta opção é útil quando ocorre a perda ou venda de um bem. É apresentada a tela para pesquisa do bem:
+O usuário deve escolher o bem desejado e clicar no botão 
+OK
+ para continuar.
+ 
+O campo Data da Baixa, permite que o usuário altere a data que o bem esta sendo baixa. A contabilização será feita com a mesma data informada.
+Após ter em tela somente os bens desejados para a baixa (para isso o bem deve estar ativo), é possível escolher por 
+contabilizar ou não contabilizar
+ a baixa do bem, isso é útil quando a contabilização já foi feita, seja por nota fiscal, ou lançamentos manuais (observe coluna do lado esquerdo).
+Nessa tela, o usuário tem agora 2 novos campos: 
+Status Depreciação
+ e 
+Status CIAP
+, que podem estar 
+CONCLUÍDAS, EM ANDAMENTO ou NÃO TEM
+, onde
+:
+CONCLUÍDA: 
+depreciação ou CIAP do bem já foi totalmente concluída.
+EM ANDAMENTO:
+ depreciação ou CIAP do bem ainda tem parcelas a serem efetivadas/apropriadas.
+NÃO TEM:
+ ainda não teve depreciação ou CIAP do bem.
+Com essas informações, o usuário pode decidir se continua ou não fazendo a baixa do bem.
+Decidindo continuar, é necessário escolher qual será o tipo da baixa (
+Tipo de Movimento
+), pode ser feita por:
+Valor total do bem desmembrado no Imobilizado
+Valor não Depreciado
+Valor total do bem direto no Imobilizado
+A contabilização para cada caso, será da seguinte forma:
+Tipo Movimento: Valor total do bem desmembrado no Imobilizado
+D/C
+Conta
+Valor
+D
+Custo de alienação
+Valor Atual - Valor Depreciação
+C
+Imobilizado
+Valor Atual - Valor Depreciação
+D
+Depreciação acumulada
+Valor Depreciação
+C
+Imobilizado
+Valor Depreciação
+Tipo Movimento: Valor não depreciado
+D/C
+Conta
+Valor
+D
+Custo de alienação
+Valor Atual - Valor Depreciação
+C
+Imobilizado
+Valor Atual - Valor Depreciação
+Tipo Movimento: Valor total do bem direto no Imobilizado
+D/C
+Conta
+Valor
+D
+Custo de alienação
+Valor Atual
+C
+Imobilizado
+Valor Atual
+D
+Depreciação acumulada
+Valor Depreciação
+C
+Custo de Alienação
+Valor Depreciação
+Exemplo:
+ Vejamos a situação abaixo nas três formas:
+ Valor Atual: R$ 1.000,00
+ Valor de depreciação: R$ 400,00
+ Valor Corrigido: R$ 600,00
+Tipo Movimento: Valor total do bem desmembrado no Imobilizado
+D/C
+Conta
+Valor
+D
+Custo de alienação
+R$ 1.000,00 - R$ 400,00 = 
+R$ 600,00
+C
+Imobilizado
+R$ 1.000,00 - R$ 400,00 = 
+R$ 600,00
+D
+Depreciação acumulada
+R$ 400,00
+C
+Imobilizado
+R$ 400,00
+Tipo Movimento: Valor Total do Bem
+D/C
+Conta
+Valor
+D
+Custo de alienação
+R$ 1.000,00 - R$ 400,00 = 
+R$ 600,00
+C
+Imobilizado
+R$ 1.000,00 - R$ 400,00 = 
+R$ 600,00
+Tipo Movimento: Valor total do bem direto no Imobilizado
+D/C
+Conta
+Valor
+D
+Custo de alienação
+R$ 1.000,00
+C
+Imobilizado
+R$ 1.000,00
+D
+Depreciação acumulada
+R$ 400,00
+C
+Custo de Alienação
+R$ 400,00
+Para efetuar a exclusão do bem e sua respectiva movimentação contábil, é preciso clicar no botão 
+Excluir Bem
+ 
+ Selecione o bem no quadro principal, e ao excluir Bem sua respectiva contabilização no quadro Resumo Contábil também será excluída.
+Baixas Parciais
+Para efetuar 
+Baixas Parciais
+, vide 
+Alteração de Valor do Bem

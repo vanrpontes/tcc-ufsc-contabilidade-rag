@@ -1,0 +1,224 @@
+TITULO: Processos e Validações para Cancelamento de Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2915467425
+--------------------------------------------------
+Essa página tem por objetivo dar maiores detalhes sobre cada processo de validação executado no momento do cancelamento da NF, maiores detalhes na página 
+.
+Análise para Cancelamento na SEFAZ
+NFe Cancelada
+Objetivo:
+ Para uma nota ser cancelada ela deve estar ativa, não cancelada. Não é possível cancelar uma nota já cancelada.
+Maiores informações:
+ 
+Empresa Off-Line(Sem Internet)
+Objetivo:
+ Não será possível cancelar um NFe enquanto o Sispetro estiver trabalho Off-line.
+Maiores informações:
+ 
+Sem Conexão a Internet
+Empresa Configurada para Emissão de DPEC
+Objetivo:
+ Não será possível cancelar um NFe enquanto o Sispetro estiver trabalho em contingência DPEC.
+Maiores informações:
+ 
+EPEC - Evento Prévio de Emissão em Contingência
+Servidor SisPetro com Acesso a Internet
+Objetivo:
+ Caso o Servidor Sispetro detecte que o ambiente está sem acesso a internet, será necessário aguardar a normalização para poder prosseguir com o cancelamento da NFe 
+Maiores informações:
+ Verificar com equipe de Infra-estrutura da empresa ou provedor de Internet.
+Análise para Cancelamento no Sispetro
+Nota Fiscal Cancelada
+Objetivo:
+ Para uma nota ser cancelada ela deve estar ativa, não cancelada. Não é possível cancelar uma nota já cancelada.
+Maiores informações:
+ 
+Cancelada na Sefaz
+Objetivo:
+ Para que a Nota Fiscal seja cancelada no Sispetro, primeiro ela deve ser cancelada na SEFAZ, conforme fluxo para cancelamento.
+Maiores informações:
+ 
+Quando se tratar de Nota Fiscal DENEGADA deve cancelar a nota no Sispetro que reverterá todos os processos internos mas não enviará qualquer solicitação à Sefaz, onde a nota denegada ficará ativa.
+Neste caso, o processo de validação NÃO VERIFICARÁ se a nota está cancelada na Sefaz.
+ 
+Itens comuns para Análise de Cancelamento SEFAZ e Sispetro
+Usuário Pode Cancelar Nota Fiscal de Terceiros/Própria
+Objetivo:
+ Usuário necessita de permissões para efetuar o cancelamento.
+Maiores informações:
+ 
+Usuário Utiliza nº de Dias para Cancelamento de Nota Fiscal de Terceiros/Própria da Empresa 
+Objetivo:
+ O número máximo de dias definidos para o usuário cancelar a NF não podem estar vencidos.
+Maiores informações:
+ 
+Nota Fiscal de Terceiros
+/Própria
+ Dentro do Prazo de Cancelamento da Empresa 
+Objetivo:
+ Caso o perfil de usuário 
+Desconsidera #Dias Cancto do usuário e considera o perfil da Empresa 
+estiver marcado, necessário verificar no perfil da Empresa se os dias estão vencidos.
+Maiores informações:
+ 
+Nota Fiscal sem Pendências na Sefaz ou Nota Fiscal
+Objetivo:
+ A nota para ser cancelada no Sispetro não poderá ter pendencias na SEFAZ, seja protocolo, recibo ou mesmo cancelamento. Ou no caso da NF não ser do tipo eletrônica.
+Maiores informações:
+ 
+Travamento Contábil Gerencial para o Período
+Objetivo:
+ Se a Nota Fiscal a ser cancelada estiver fora do período do Travamento Contábil Gerencial (Sispetro Normal), ela não poderá ser cancelada.
+Maiores informações:
+ 
+Travamento Contábil
+Travamento Contábil Real para o Período
+Objetivo:
+ Se a Nota Fiscal a ser cancelada estiver fora do período do Travamento Contábil Real (Sispetro Controladoria), ela não poderá ser cancelada.
+Maiores informações:
+ 
+Travamento Período
+Existem Restrições para Movimentação nas Contas Contábeis Gerenciais
+Objetivo:
+ Caso existam restrições para determinado usuário x conta ou empresa, a NF não poderá ser cancelada até que a restrição seja resolvida.
+Maiores informações:
+ 
+Existem Restrições para Movimentação nas Contas Contábeis Reais
+Objetivo:
+ Caso existam restrições para determinado usuário x conta ou empresa, a NF não poderá ser cancelada até que a restrição seja resolvida.
+Maiores informações:
+ 
+Fechamento Financeiro no Período
+Objetivo:
+ Nota Fiscal que gerou contas a pagar/receber em uma data que está dentro do fechamento financeiro não poderá ser cancelada até que o fechamento seja reaberto.
+Maiores informações:
+ 
+Manutenção de Fechamento Financeiro - Versão 2.0
+Apuração Fiscal no Período
+Objetivo:
+ Não será possível Cancelar uma NF dentro do Período de uma Apuração Fiscal Encerrada, será necessário reabri-la.
+Maiores informações:
+ 
+Apuração Livro Fiscal
+Baixas nos Lançamentos Financeiros Gerados por Essa Nota Fiscal 
+Objetivo:
+ Caso a NF a ser cancelada tenha gerado contas a pagar/receber e o mesmo já tenha sido baixado, seja parcial ou total, a NF não poderá ser cancelada até que a baixa seja cancelada.
+Maiores informações:
+ 
+Existem Lançamentos Vinculado a essa Nota Fiscal
+Objetivo:
+ Caso exista um título vinculado a NF, por exemplo GNRE, o vínculo deverá ser desfeito na Manutenção de Contas a Pagar ou Receber antes de efetuar o cancelamento da NF.
+Maiores informações:
+ 
+Inclusão de Contas a Pagar manual
+Adiantamento Gerado por Essa Nota Fiscal já Utilizado
+Objetivo:
+ Caso a Nota Fiscal tenha gerado um adiantamento (por exemplo NF de devolução) e o mesmo já tenha sido utilizado para a baixa de outro título, a baixa deverá ser cancelada.
+Maiores informações:
+ 
+Como Cancelar a Utilização do Crédito do Cliente
+Títulos com Vendor Vinculados a essa Nota Fiscal
+Objetivo:
+ Caso exista um contrato de Vendor vinculado a essa NF a mesma não poderá ser cancelada até que esse vinculo seja desfeito.
+Maiores informações:
+ 
+Acréscimos nos Títulos Vinculados a essa Nota Fiscal ou Esta NF gerou um crédito que já foi utilizado
+Objetivo:
+ Caso a NF tenha gerado contas a pagar/receber e o título tenha sofrido algum acréscimo ou postergação, será necessário desfazer a operação antes de cancelar a NF.
+Maiores informações:
+ 
+Postergação de Títulos
+Conhecimento de Frete Associado a Nota Fiscal
+Objetivo:
+ Caso um Conhecimento de Frete tenha sido incluído vinculado a nota fiscal que deseja cancelar, será necessário cancelar primeiramente o Conhecimento de Frete
+Maiores informações:
+ 
+Notas Fiscais Duplicadas para Uso do SPED/SINTEGRA
+Objetivo:
+ Antes de cancelar a NF deve-se desfazer o vínculo entre as notas ou cancelar primeiro a NF Associada.
+Maiores informações:
+ 
+NF com mais de um CFOP / Natureza de Operação
+Outras Notas Fiscais Vinculadas a OC de Transferência
+Objetivo:
+ Caso uma OC de Transferência seja faturada parcialmente, deve-se cancelar primeiro a Nota Fiscal marcada com a opção 
+É o último item da OC?
+Maiores informações:
+ 
+Nota Fiscal com Bombeio Associado
+Objetivo:
+ Se a NF a ser cancelada estiver vinculada a um Bombeio, antes de cancelar será necessário desfazer o vínculo.
+Maiores informações:
+ 
+Vínculo de bombeio com nota fiscal
+Nota Fiscal com Movimentação do Estoque Físico
+Objetivo:
+ Esse processo será travado caso a Ordem de Carregamento vinculada a Nota Fiscal já estivar passado para a portaria de saída, nesse caso será necessário Voltar a OC para a Entrada antes de cancelar a NF.
+Maiores informações:
+ 
+Portaria de Saída
+Notas Fiscais Referenciadas em outra Nota Fiscal
+Objetivo:
+ Necessário desfazer o vínculo antes do cancelamento da NF Principal
+Maiores informações:
+ 
+Seleção de Notas para Vínculos
+Fechamento de Estoque
+Objetivo:
+ Em uma nota fiscal podemos ter um item ou dois ou mais itens com produtos diferentes, além da possíbilidade desse produto ser composto, como por exemplo a Gasolina C. Nessa situação, se qualquer um dos produtos envolvidos, seja o produto simples, o composto ou os produtos básicos estiver participando de algum fechamento de estoque, a NF em questão não poderá ser cancelada até que o fechamento seja reaberto. 
+Maiores informações:
+ 
+Roteiro de Fechamento Estoque Diário
+Travamento de Estoque
+Objetivo:
+ Caso exista o travamento de estoque para o período da NF, a mesma não poderá ser cancelada.
+Maiores informações:
+ 
+Travamento de Movimentação de Estoque
+Bem em Depreciação
+Objetivo:
+ Se a Nota Fiscal gerou Bens e os mesmos foram depreciados, será necessário cancelar a depreciação.
+Maiores informações:
+ 
+ e 
+Manutenção Patrimônio
+Existe Baixa do Bem / Alteração do Valor
+Objetivo:
+ Se a Nota Fiscal gerou Bens e os mesmos sofreram alteração de valor ou baixa, será necessário cancelar a Baixa ou Alteração de Valor
+Maiores informações:
+ 
+ e 
+Manutenção Patrimônio
+Bem em Processo de CIAP
+Objetivo:
+ Se a Nota Fiscal gerou Bens e os mesmos sofreram processo de CIAP, será necessário cancelar o CIAP.
+Maiores informações:
+ 
+ e 
+Manutenção Patrimônio
+Bem Participa do Fechamento Financeiro
+Objetivo:
+ Se a Nota Fiscal gerou Bens e os mesmos participam do Fechamento Financeiro, será necessário reabrir o fechamento.
+Maiores informações:
+ 
+ e 
+Manutenção Patrimônio
+Frete Com Vínculo com contas a pagar
+           
+    
+Objetivo:
+ Se a nota fiscal estiver com o frete que foi gerado vinculado ao contas a pagar, será necessário cancelar o vinculo.
+               
+Maiores informações:
+ 
+Nota Fiscal com Documento de Arrecadação já Processado
+Objetivo:
+ Se a nota estiver vinculada a um documento de arrecadação que já se encontra processado, será necessário o usuário ter o perfil 
+C
+ancela NF com Documento de Arrecadação Processado 
+habilitado.
+Maiores informações:
+ 
+Painel Faturamento (Usuários)
+.
+ 
+ 

@@ -1,0 +1,137 @@
+TITULO: Versão 7.7.3
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2894726480
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 29/06/2010 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 22/07/2010 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd773.sql (sem numeração) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 04 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 01 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 03 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+ 
+
+
+
+
+
+
+Financeiro
+
+
+
+
+Remessa com multa Santander - Duplicidade do segmento Q
+
+Foi corrigida a geração do arquivo de remessa do banco Santander para os casos de títulos que tinham multa e estavam sendo gerados com duplicidade do segmento Q (duas linhas para o mesmo registro). 
+ALP (CCF 9747)
+
+
+Enviar dados de Multa na Remessa Bradesco
+
+
+Foi implementado o envio do percentual de Multa na geração do arquivo de cobrança para o banco Bradesco.
+ 
+Deve ser configurado no cadastro de tipo de cobrança para que seja enviado o Percentual de multa. Se for configurado o envio de Valor Monetário Calculado, as informações serão geradas com zero.
+ 
+Help:
+ 
+Multa no Contas a Receber e Cobrança Eletrônica
+ 
+ALP (CCF 9760)
+
+
+Cobrança eletrônica - Banco SIFRA
+
+Foi corrigido nessa versão o envio do Nosso Número no arquivo de remessa de cobrança eletrônica do Banco SIFRA. Além disso, o Nosso Número passou a ser formatado na emissão do boleto, separando o Dígito Verificador com um hífen. 
+ALP (CCF 9376)
+
+
+Arquivo de remessa - Transformação
+
+Nessa versão foi feita uma correção onde é permitido que uma transformação do arquivo de remessa seja configurada com conteúdo vazio (em branco). 
+ALP (CCF 9689)
+

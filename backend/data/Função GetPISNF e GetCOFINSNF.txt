@@ -1,0 +1,34 @@
+TITULO: Função GetPISNF e GetCOFINSNF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4075651073
+--------------------------------------------------
+Histórico
+Essas funções são utilizadas para pegar o valor do PIS e o valor da COFINS que está na NF, tanto NF de Entrada quanto de Saída.
+Pode ser usada tanto para CMV quanto para Contabilização.
+Para o funcionamento dessas Função é necessário configurar os seguintes parâmetros, tanto para PIS quanto para COFINS
+GetPISNF
+Empresa.ItensNF
+Sequencial.ItensNF
+NumItem.ItensNF
+Exemplo
+sql
+wide
+1800
+GetPISNF(<729>,<730>,<731>)
+<729> = CodEmpresa
+<730> = Sequencial da Nota Fiscal
+<731> =Numero do Item
+GetCOFINSNF
+Empresa.ItensNF
+Sequencial.ItensNF
+NumItem.ItensNF
+Exemplo
+sql
+wide
+1800
+GetCOFINSNF(<729>,<730>,<731>)
+<729> = CodEmpresa
+<730> = Sequencial da Nota Fiscal
+<731> =Numero do Item
+Para configurar as fórmulas: em Natureza de Operação, aba lateral por Filial, aba 
+Custos (Painel Por Filial)
+.

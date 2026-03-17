@@ -1,0 +1,9 @@
+TITULO: Como obter a data/hora atual do banco de dados Sybase 12
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2905869588
+--------------------------------------------------
+Current timestamp
+Com a migração para o Sybase 12 o ReportBuilder passou a não aceitar uma função interna que  retornava data e hora “current timestamp”.
+Para que a mesma funcione é necessário fazer o seguinte:
+- Criar um campo calculado no condutor de dados utilizando a coluna Função “Expressão”
+- Neste campo Criado acima em expressão onde anteriormente se utilizava a sintax  current timestamp iremos adicionar datetime(). A nova expressão ficará assim: datetime(current timestamp)
+ 

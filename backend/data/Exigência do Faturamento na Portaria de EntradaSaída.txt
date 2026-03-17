@@ -1,0 +1,56 @@
+TITULO: Exigência do Faturamento na Portaria de Entrada/Saída
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2949415240
+--------------------------------------------------
+A partir da versão 10.11 é possível exigir o faturamento da OC tanto na portaria de entrada quanto na portaria de saída.
+Configurações:
+Perfil de Empresa
+: 
+Perfil Exige faturamento antes do Carregamento/Descarga: 
+esse perfil deve ser habilitado quando a empresa trabalha, por padrão, com a opção de exigir o faturamento na portaria de entrada.
+Perfil de Depósito
+: 
+E
+xigência de Faturamento antes do Carregamento/Descarga: 
+através desse perfil definimos se para esse depósito é exigido o faturamento da OC antes de realizar a portaria de entrada ou antes de realizar a portaria de saída ou seguir o perfil de empresa.
+Regras:
+A configuração do perfil 
+E
+xigência de Faturamento antes do Carregamento/Descarga 
+do depósito prevalece sobre o perfil de empresa. Em resumo o SisPetro verifica primeiro o que está configurado no perfil de depósito, e vai utilizar a configuração do perfil de empresa caso a opção utilizada no perfil de depósito seja
+ 
+Segue perfil de empresa
+.
+Exemplo 1:
+Perfil de Deposito 
+E
+xigência de Faturamento antes do Carregamento/Descarga = 
+Não Exige
+Perfil de Empresa 
+P
+erfil Exige faturamento antes do Carregamento/Descarga = 
+Habilitado
+O SisPetro realizará a portaria de Entrada e a portaria de Saída sem exigir o faturamento da Nota
+Exemplo 2:
+Perfil de Deposito 
+E
+xigência de Faturamento antes do Carregamento/Descarga = 
+Portaria de Saída
+Perfil de Empresa 
+P
+erfil Exige faturamento antes do Carregamento/Descarga = 
+Habilitado
+O SisPetro realizará a portaria de Entrada e exigirá o faturamento antes de efetuar a portaria de saída.
+Exemplo 3:
+Perfil de Deposito 
+E
+xigência de Faturamento antes do Carregamento/Descarga = 
+Segue perfil de Empresa
+Perfil de Empresa 
+P
+erfil Exige faturamento antes do Carregamento/Descarga = 
+Habilitado
+O SisPetro exigirá o faturamento na portaria de Entrada.
+A verificação de faturamento não é feita para OC de Carregamento ou Descarga de Terceiros.
+Para mais informações, ver:
+Depósitos - Aba Dados Adicionais
+Portaria de Saída

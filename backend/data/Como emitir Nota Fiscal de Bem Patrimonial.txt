@@ -1,0 +1,42 @@
+TITULO: Como emitir Nota Fiscal de Bem Patrimonial
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440350
+--------------------------------------------------
+Antes da inclusão de Nota Fiscal de Bem Patrimonial e´ preciso habilitar o perfil de empresa 
+Habilita Modulo de Patrimônio 
+na aba Patrimônio.
+Acione, a partir do Menu principal, as opções: 
+Movimentação / Faturamento / Outras Entradas para emitir a Nota Fiscal
+ desejada:
+Preencha os dados solicitados ou selecione da lista que pode ser exibida, em cada campo, pelo Sistema. A Natureza de Operação deve ser adequada à esta Nota Fiscal.
+Acione o botão Avança para prosseguir com o preenchimento dos dados. Caso existam dúvidas quanto ao preenchimento vide maiores detalhes no tópico 
+.
+Os endereços são oriundos do cadastro de fornecedores e de acordo com a configuração serão apresentados nessa tela.
+Aperte o botão Avança.
+Preencha os dados solicitados ou selecione da lista que pode ser exibida, em cada campo, pelo Sistema.
+Aperte o botão Avança.
+Preencha os campos acima de acordo com as mercadorias recebidas.
+Aperte o botão Avança
+O Sistema exibe, de acordo com a Natureza de Operação, o texto que deve constar no corpo da Nota Fiscal. 
+O usuário deve conferir os dados apresentados, e havendo necessidade, completar o texto.
+Aperte o botão Avança
+Introduza os seguintes campos, dependendo do tipo da nota esses campos já são preenchidos automaticamente conforme a origem:
+Código do produto:
+ Digite o código do produto recebido ou aperte <enter> para que o Sistema abra uma janela de pesquisa.
+Importante: A descrição do produto só poderá ser alterada, caso o usuário possua permissão por meio do perfil "Permite alterar descrição produto na nota fiscal(exceto NF de venda)" definido no painel "Faturamento" do cadastro de usuário, lembrando que para as notas de venda mesmo com permissão não será possível realizar nenhuma mudança.
+Depósito:
+ Depósito para onde esta mercadoria está sendo recebida, no caso de notas de entradas ou depósito que sairá a mercadoria notas de saídas. Caso não saiba o código, aperte <enter> para que o Sistema abra uma janela de pesquisa.
+Quantidade:
+ Quantidade recebida conforme Nota Fiscal.
+Preço Unitário:
+ Preço unitário conforme Nota Fiscal.
+Verifique o cálculo do preço total
+.
+Verifique se os impostos (base, alícota e imposto) estão corretos
+Importante: para apresentação da colunas concernentes ao ICMS ou IPI existe uma configuração na Natureza de Operação para a empresa conectada, maiores informações veja Tabela Natureza Operação
+.
+Valor do Bem:
+ Quando o perfil "Permite alterar valor do bem na inclusão via NF" estiver marcado será possível informar o valor do bem para a conversão do produto em ativo fixo. E caso este valor seja igual a 0 (zero) o processo de importação de NF de entrada para geração automática de ativo fixo irá ignorar o fixo.
+Ex.: Uma Nota Fiscal de um produto que tenha um valor a ser retirado do valor total (por exemplo: ICMS).
+Neste caso o usuário deverá preencher o campo Valor do Bem seguindo a seguinte regra: Valor Total da NF - Valor A Ser Retirado. 
+Um outro exemplo é a de uma Nota Fiscal de um produto que tenha um valor a ser agregado ao Valor Total (por exemplo: serviços de uma montagem de móveis). 
+Neste caso o usuário deverá preencher o campo Valor do Bem seguindo a seguinte regra: Valor Total da NF + Valor A Ser Agregado.

@@ -1,0 +1,72 @@
+TITULO: Tabela Outros Impostos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210596
+--------------------------------------------------
+Há impostos que não são calculados na Nota Fiscal. Isso porque o imposto não interfere no valor da Nota Fiscal, mas é calculado com base nela, por exemplo, ISS, PIS e COFINS. O SisPetro permite armazenar as alíquotas, facilitando a apuração destes impostos pela alíquota vigente, por meio de relatórios.
+Vale lembrar, que isso só é necessário para notas emitidas pela própria empresa, pois para as notas recebidas (Notas de entrada) devem ser utilizados os recursos de desconto/acréscimo, quando envolver alteração do valor da NF ou simplesmente não precisa ser calculado.
+A partir da versão 9.3, é possível incluir Outros Impostos do tipo MANUAL, nos quais o usuário preenche manualmente os valores.
+Para cadastrar outros impostos o usuário deve acessar a tela de Manutenção de Outros Impostos, através do Menu 
+Tabela Auxiliares / Faturamento
+:
+Clicando no botão de inclusão 
+, o sistema entrará no painel Detalhes, onde o usuário poderá cadastrar a descrição do novo imposto.
+O campo 
+Tipo
+, define se o imposto será por alíquota, por fórmula ou manual:
+Um tipo de imposto com 
+alíquota fixa
+ é um imposto cujo cálculo é baseado numa alíquota (percentual) simples onde o SisPetro leva em consideração para o cálculo somente o valor da nota fiscal (ao qual é multiplicado pela alíquota definida na natureza de operação). Por exemplo, o ISS de uma determinada nota fiscal de serviços.
+O imposto
+ por fórmula
+ se baseia numa fórmula definida pelo usuário tanto para o cálculo da base de cálculo do imposto quanto para o valor do mesmo. O usuário tem acesso a todos os campos da tabela nota fiscal (e outras tabelas diretamente relacionadas a ela no momento do faturamento) para definir uma fórmula para estes cálculos. Estas fórmulas ficarão armazenadas na natureza de operação e serão utilizadas a cada emissão de nota fiscal.
+No imposto 
+manual,
+ o usuário informa os dados de base de cálculo, alíquota (percentual ou monetária) e valor do imposto manualmente, no momento da inclusão da nota.
+Em todos os casos, após a emissão da nota fiscal, o SisPetro armazena os impostos calculados/informados em tabela auxiliar para consulta e emissão de relatórios (tabela OutrosImpostosNF).
+Não é necessário informar o código, já que o sistema cria o código do novo imposto automaticamente. Para confirmar a inclusão do novo imposto, basta clicar no botão 
+OK
+ 
+ e para cancelar o processo de inclusão, o usuário deve utilizar o botão 
+Cancela
+ 
+.
+Tipo Alíquota
+: a partir da versão 7.18, o SisPetro pode calcular os impostos PIS/COFINS de duas formas:
+Taxa Percentual 
+- é o modo como era calculado anteriormente quando definido o imposto por alíquota, ou seja 
+(Valor/Base de cálculo)*100
+Valor Monetário
+ - quando o usuário definir que o imposto será calculado a partir do valor monetário, se a fórmula estiver correta, o SisPetro fará os cálculos com base na quantidade em metros cúbicos e no valor referente, definido pelo governo.
+Note que para estes campos estarem habilitados, o 
+TIPO
+ precisa estar definido como 
+"Por Fórmula"
+Nº de Decimais Alíquota: 
+o usuário pode informar o número de casas decimais que irá trabalhar na alíquota do imposto. O SisPetro mostrará sempre até 6 casas decimais, porém serão preenchidos conforme a configuração deste perfil.
+Os campos abaixo, se preenchidos, serão levados automaticamente quando incluir Outros Impostos na natureza de operação.
+Tipo de Imposto:
+ definir se o imposto/contribuição é PIS, COFINS, CIDE, ISS, INSS, IR, CSLL, Imposto de Importação ou Outros.
+Tipo Receita:
+ conforme for selecionado o campo 
+Tipo de Imposto
+, deve definir este campo. Se não for PIS ou COFINS, então deve escolher 
+NÃO É RECEITA
+. Se for PIS ou COFINS, deve selecionar 
+RECEITA NÃO CUMULATIVA
+ ou 
+RECEITA CUMULATIVA
+ - verifique com seu Departamento Fiscal para selecionar corretamente.
+Tipo Crédito:
+ preenchimento não obrigatório - verifique com seu Departamento Fiscal para selecionar corretamente.
+Base de Cálculo Crédito:
+ preenchimento não obrigatório - verifique com seu Departamento Fiscal para selecionar corretamente.
+Natureza Frete:
+ preenchimento não obrigatório - verifique com seu Departamento Fiscal para selecionar corretamente.
+Conta Contábil:
+ preenchimento não obrigatório - verifique com seu Departamento Fiscal para selecionar corretamente.
+Código de Contribuição:
+ preenchimento não obrigatório - verifique com seu Departamento Fiscal para selecionar corretamente.
+Uma vez criado o novo imposto, o usuário deve vincular e configurar as alíquotas desse imposto na natureza de operação. Lembrando, que uma vez vinculado a natureza de operação, o novo imposto não pode ser excluído da tabela de Outros Impostos.
+Caso deseje excluir algum imposto, o usuário deve verificar se não há vinculo com a natureza de operação.
+Para maiores esclarecimentos da configuração de Outros Impostos, na natureza de operação, acesse o tópico 
+Tabela Natureza de Operação - Outros Impostos
+.

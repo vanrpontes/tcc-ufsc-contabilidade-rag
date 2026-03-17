@@ -1,0 +1,22 @@
+TITULO: Utilização de Fórmulas para impressão de dados de transporte no DANFE
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927265825
+--------------------------------------------------
+Para configurar a impressão dos dados de transporte no DANFE, é possível configurar fórmulas através da Natureza de Operação.
+No cadastro de Natureza de operação acesse: 
+Por Filial  > Impressão NF
+No Campo 
+OBSERVAÇÃO NF, 
+utilize a  fórmula 
+GetTextoPlaca. 
+A fórmula deverá estar entre colchetes [  ] e com os seguintes parâmetros:
+[GetTextoPlacas(<Código Empresa>,<Sequencial NF>, <Inclui InfCPL>)]
+Código Empresa: 
+ Código da Empresa da emissão da NF
+Sequencial NF: 
+Sequencial da NF emitida.
+Inclui InfCPL: 
+Parâmetro para inclusão da TAG <infCPL> 0-Não Inlcui 1-Inclui
+Utilize o botão EDITA para informar os parâmetros.
+Após configurar a fórmula é possível realizar o teste, selecionando NF-e já emitidas e acionando o botão 
+TESTA
+.

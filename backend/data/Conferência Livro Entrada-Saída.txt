@@ -1,0 +1,78 @@
+TITULO: Conferência Livro Entrada-Saída
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210426
+--------------------------------------------------
+Acione este relatório pelo menu
+ 
+Relatórios / Auxiliares / Fiscal / Conf. Entrada/Saída
+. Sua finalidade é permitir a conferência dos livros de entrada e saída sem precisar fazer o encerramento da apuração fiscal.
+Filial específica:
+ caso marcada, selecione a filial
+Data Inicial:
+ informe a data inicial - é a data de referência da nota fiscal
+Data Final:
+ informa a data final - é a data de referência da nota fiscal 
+Tipo:
+Entrada
+Saída
+ICMS e ICMS ST:
+Mostra sempre
+Desconsidera conforme natureza
+Modelo:
+Detalhado
+Resumido
+Ordenar por:
+CFOP
+Código Entidade
+Número do Documento
+Data Emissão
+Data Movimento
+Data Referência
+UF
+Razão Social da Entidade
+Agrupa ? - se marcada:
+CFOP
+Entidade - código da entidade
+Data de Emissão
+Data de Movimento
+Data Referência
+UF
+Filtra CFOP ? - se marcada:
+Exatamente igual a:
+ filtra o CFOP informado.
+Exemplo:
+ se informar no campo CFOP 11210, no relatório será exibido somente os registros cujo CFOP é 11210.
+Inicia com:
+ filtra os CFOPs que começam com o código informado.
+Exemplo:
+ se informar no campo CFOP 12, no relatório será exibido os registros cujos CFOPs comecem com 12: 12001, 12102, 12303, ...
+Termina com:
+ filtra os CFOPs que terminam com o código informado.
+Exemplo:
+ se informar no campo CFOP 03, no relatório será exibido os registros cujos CFOPs terminem com 03: 11003, 12203, 22303, ...
+Contém o:
+ filtra os CFOPs que contenham o código informado.
+Exemplo:
+ se informar no campo CFOP 22, no relatório será exibido os registros cujos CFOPs contenham 22: 11223, 12220, 20223, ...
+Importante:
+ 
+Os dados que serão impressos dependerão da
+ 
+Data do Livro Fiscal a ser considerada na Apuração
+. Ou seja, se a apuração foi feita por data de emissão serão exibidos os dados cuja data de emissão atenda o período informado em tela.
+O layout do relatório será gerado conforme o arquivo
+ 
+ConfLivroEntSaida.RTM
+ 
+que deve estar localizado no mesmo diretório que o executável. Sua existência é
+ 
+imprescindível.
+Para alterar o layout utilize o botão 
+Dados como 
+Código e nome do produto
+ estão disponíveis para utilização no relatório.
+Porém para serem apresentados é necessário que a Fórmula para Livro Fiscal esteja configurada para 
+gerar por item
+.
+Maiores informações em 
+Fórmula para Livro Fiscal
+Clique no botão OK para confirmar e o relatório será apresentado em tela. Para imprimir clique no botão 

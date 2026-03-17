@@ -1,0 +1,19 @@
+TITULO: Vínculo do Usuário do Sispetro com o usuário do AD (Active Directory)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926193659
+--------------------------------------------------
+A partir da versão 9.12 é possível configurar o logon automático do Sispetro a partir de um usuário do AD.
+Para configurar, siga os passos abaixo:
+No perfil de Sistema (Ferramentas / Sistema), painel "Dados Gerais" defina os perfis em "Integração com Active Directory":
+Em "Integração com AD", defina como a empresa irá trabalhar:
+Não tem integração
+: sistema continuará com logon desvinculado do AD - como é atualmente;
+Só permite Usuários com Logon no AD
+: sistema não apresentará a tela de logon para nenhum usuário, sendo SEMPRE necessário o vínculo com o AD. Caso o usuário do AD não tenha usuário correspondente no Sispetro, o sistema apresentará uma mensagem informando e não apresentará a tela de logon.
+Em casos de logon somente com o AD, para eventuais manutenções no AD, sugerimos mudar o perfil da empresa para logon pelo Sispetro e AD. Caso contrário, se tiver algum problema nas configurações do AD, os usuários não conseguiram mais logar no Sispetro - sendo necessário o contato com o Suporte.
+Se Não Encontrado no AD Usa Logon Normal
+: sistema busca os usuários do AD e, se encontrar um usuário correspondente no Sispetro, loga no Sispetro com o usuário do AD. Caso o usuário do AD não tenha usuário correspondente no Sispetro, usuário deverá fazer o logon através do usuário do Sispetro, como faz atualmente.
+Para casos de logon pelo AD, o Sispetro irá logar na primeira empresa que o usuário tem acesso.
+Em "IP do AD", informe o IP do servidor do AD:
+No perfil de Usuário (Ferramentas / Usuário), painel "Detalhes", defina o nome deste usuário no AD:
+Mesmo que o usuário do Sispetro tenha vínculo com outro usuário ou vínculo com usuário de perfil, o usuário do AD deve ser definido no próprio usuário.
+ 

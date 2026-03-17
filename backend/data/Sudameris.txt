@@ -1,0 +1,438 @@
+TITULO: Sudameris
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439615
+--------------------------------------------------
+Dados Gerais
+
+O Banco ABN Amro adquiriu o Banco Sudameris, a partir de então o Banco Sudameris possui dois manuais:
+
+
+
+
+Antigo: Implementado no SisPetro até versão 6.17.01.
+
+
+- Atual: Implementado atualmente no SisPetro.
+
+
+
+
+Antes de utilizar, verifique com o Suporte Técnico qual o manual que o Gerente da sua agência está disponibilizando e sua compatibilidade com o SisPetro.
+
+
+O arquivo de remessa é semelhante ao layout do Banco ABN AMRO, mas não idêntico.
+
+
+Painel Cobrança Eletrônica
+
+
+
+
+No campo 
+banco
+ deve ser informado 347 - Bco. Sudameris.
+
+
+
+
+
+
+No 
+convênio
+ informe o Número do Contrato (com até 9 dígitos).
+
+
+
+
+
+
+A 
+carteira
+ deve ter 2 (dois) dígitos, que pode ser:
+	
+
+
+00 - Carteira do Convênio
+
+
+20 - Cobrança Simples
+
+
+31 - Cobrança Câmbio
+
+
+42 - Cobrança Caucionada
+
+
+47 - Cobrança Caucionada Crédito Imobiliário
+
+
+85 - Cobrança Partilhada
+
+
+
+
+
+
+
+
+
+
+Variação da Carteira:
+ deve ser colocado o número que identifica o tipo da carteira no arquivo de remessa, sendo 
+1-Cobrança Simples
+ e 
+5-Cobrança Escritural
+.
+
+
+
+
+
+
+O 
+modo de cobrança
+ deve ser configurado para 
+Simples
+.
+
+
+
+
+
+
+#Docto no Arquivo Remessa:
+ se informado a opção 
+Com Parcela...
+, será acrescentado no lado do campo 
+Número de Documento no Arquivo de Remessa
+, a identificação da parcela.
+
+
+
+
+
+
+Se desejar pode utilizar a opção 
+Pode indicar sacador/avalista
+, se marcá-la deverá então informar a razão social e CNPJ.
+
+
+
+
+
+
+O campo 
+Informação de juros no Arquivo Remessa
+ pode ser configurado com qualquer uma das opções, sendo utilizado no arquivo de remessa.
+
+
+
+
+
+
+A cobrança para o Banco Sudameris no SisPetro não permite utilização de desconto, então a opção 
+Utiliza desconto na baixa eletrônica
+ NÃO deve ser marcada.
+
+
+
+
+
+
+A 
+agência
+ tem 4 dígitos
+
+
+
+
+
+
+A 
+conta
+ tem 7 dígitos. O 
+dígito da conta
+ não está sendo utilizado.
+
+
+
+
+Painel Informações sobre a Cobrança
+
+
+
+
+A cobrança para o Banco Sudameris NÃO utiliza banco correspondente, portanto, a opção 
+Utiliza Banco Correspondente
+ NÃO deve ser marcada.
+
+
+
+
+Faixa Nosso Número
+
+Só deve ser informada uma faixa com até 7 dígitos.
+
+
+Linha Digitável
+
+
+
+
+347 -  Sudameris - Layout antigo
+
+
+
+
+
+
+ Conteúdo 
+
+
+ Tamanho 
+
+
+ Início 
+
+
+ Fim 
+
+
+
+
+
+
+Agência	
+
+
+3	
+
+
+1	
+
+
+3
+
+
+
+
+
+
+Conta	
+
+
+8	
+
+
+4	
+
+
+11
+
+
+
+
+
+
+Carteira	
+
+
+2	
+
+
+12
+
+
+	13
+
+
+
+
+
+
+Nosso número	
+
+
+6	
+
+
+14	
+
+
+19
+
+
+
+
+
+
+DV (carteira+nosso nº)	
+
+
+1	
+
+
+20	
+
+
+20
+
+
+
+
+
+
+Zeros	
+
+
+5	
+
+
+21	
+
+
+25
+
+
+
+
+
+
+
+
+
+
+Exemplo:
+
+Agência: 111
+
+Conta: 22222222
+
+Carteira: 33
+
+Nosso Número: 444444
+
+DV: 5
+
+
+Campo Livre:
+ 111 22222222 33 444444 5 00000
+
+
+Linha Digitável:
+ | 3 5 3 | 1 | 1 1 1 2 2 | 1 | 2 2 2 2 2 2 3 3 4 4 | 1 | 4 4 4 4 5 0 0 0 0 0 | 1 | 1 | 4 5 6 7 | 0 0 0 1 0 0 0 0 0 0 |
+
+
+
+
+347 -  Sudameris - Layout novo
+
+
+
+
+
+
+ Conteúdo 
+
+
+ Tamanho 
+
+
+ Início 
+
+
+ Fim 
+
+
+
+
+
+
+Agência	
+
+
+4	
+
+
+1	
+
+
+4
+
+
+
+
+
+
+Conta	
+
+
+7	
+
+
+5	
+
+
+11
+
+
+
+
+
+
+Digito	
+
+
+1	
+
+
+12	
+
+
+12
+
+
+
+
+
+
+Nosso número	
+
+
+13	
+
+
+13	
+
+
+25
+
+
+
+
+
+
+
+
+
+
+Exemplo:
+
+Agência: 1111
+
+Conta: 2222222
+
+Digito: 3
+
+Nosso Número: 4444444444444
+
+
+Campo Livre:
+ 1111 2222222 3 4444444444444
+
+
+Linha Digitável:
+ | 3 5 3 | 1 | 1 1 1 1 2 | 1 | 2 2 2 2 2 2 3 4 4 4 | 1 | 4 4 4 4 4 4 4 4 4 4 | 1 | 1 | 4 5 6 7 | 0 0 0 1 0 0 0 0 0 0 |
+
+
+Para informações sobre a montagem da linha digitável para este banco, veja o tópico 

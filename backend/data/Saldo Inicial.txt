@@ -1,0 +1,94 @@
+TITULO: Saldo Inicial
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899072
+--------------------------------------------------
+Para composição do saldo inicial é obtido o saldo das contas bancárias (que participem do fluxo) na data inicial informada na tela.
+
+
+Para uma conta participar do fluxo é preciso:
+
+
+
+
+Ter a opção 
+Participa do Fluxo de Caixa
+ marcada no 
+Plano de Contas
+
+
+Estar 
+ativa
+ no 
+Plano de Contas
+
+
+Ser do tipo 
+Banco
+ no 
+Plano de Conta
+
+
+
+
+Além disso, podemos ter uma consideração diferenciada para contas restritas, conforme a opção apresentada na tela:
+
+
+
+
+
+
+Todas as contas:
+ Indica que todas as contas na situação acima terão o seu saldo inicial compondo o saldo inicial do fluxo.
+
+
+Somente contas permitidas:
+ Indica que não serão apresentadas contas:
+	
+
+
+Restritas a usuário e que o usuário conectado não tem permissão.
+
+
+Restritas a um grupo empresa diferente do grupo de filiais informado na unidade de negócios.
+
+
+Restritas a um grupo empresa e que a filial informada na unidade de negócios não faça parte dele.
+
+
+Restritas a uma filial que não faça parte do grupo de filiais informado na unidade de negócios.
+
+
+Restritas a uma filial diferente da filial informada na unidade de negócios.
+
+
+
+
+
+
+
+
+Dessa forma, a 
+unidade de negócios
+ só é considerada para obtenção das contas se for optado por 
+Somente contas permitidas
+.
+
+
+A 
+unidade de negócios
+ não é utilizada para identificar o saldo de uma só filial ou um só grupo porque, na prática, se uma conta bancária é compartilhada por mais de uma filial (não tem restrição) não há como separar quem pode usar quanto da conta: os bancos não fazem esse tipo de controle, então o SisPetro também não o fará.
+
+
+Além do saldo das contas bancárias, pode compor o saldo inicial os valores atrasados do Contas a Pagar/Receber, conforme as opções disponíveis em tela:
+
+
+
+
+Ao optar por valor atrasado, serão considerados todos os títulos pendentes cujo vencimento seja menor que a 
+data inicial
+ informada na tela.
+
+
+Para títulos atrasados do contas a receber é possível aplicar ou não o 
+float de recebimento
+ conforme a opção disponível em tela:
+

@@ -1,0 +1,600 @@
+TITULO: API Incluir / Alterar / Cancelar de Pedido de Vendas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4894294018
+--------------------------------------------------
+Objetivo
+Essa API tem o objetivo de incluir, alterar ou até mesmo cancelar um pedido de venda a partir do ID do pedido. 
+Uso Geral
+Obter token autenticação
+Introdução
+Qualquer webservice do projeto 
+SispetroWeb 
+exigirá um token de autenticação. Este token é gerado a partir deste webservice e será válido por 24 horas. Assim, recomendamos que o sistema consumidor dos webservices aqui descritos salvem o token armazenando também a data e hora em que ele foi gerado para que, quando chegar próximo de sua validade, seja obtido novo token.
+Para mais informações, ver 
+API Obtenção de Token
+Métodos do setor de Vendas
+1. Inclusão/Alteração de Pedido de Venda
+Introdução
+Este webservice tem por finalidade a inclusão ou alteração de 
+UM 
+pedido de venda na empresa conectada ao token obtido no passo anterior.
+Endereço
+Inclusão: 
+<endereço do SispetroWeb>/pedido_venda
+Alteração: 
+<endereço do SispetroWeb>/pedido_venda/<ID do Pedido>
+Parâmetros
+Será necessário enviar um header com o token e no corpo do webservice (body) os dados relativos ao pedido que se deseja incluir.
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+Content-Type
+tipo do formato de envio
+application/json
+Accept
+tipo do formato de envio
+application/json
+Body
+Layout abaixo em formato JSON.
+Chave
+Conteudo
+Pai
+Obrigatório
+pedido_venda
+fixo
+-
+Sim
+id
+id do pedido (caso alteração)
+pedido_venda
+Se edição, é obrigatório. Se inclusão, deixar null ou não enviar. 
+CodEnt
+Código do Cliente
+pedido_venda
+Sim
+CodPg
+Código da Condição de Pagamento escolhida
+pedido_venda
+Sim
+RetiraEntrega
+"R" para pedidos do tipo RETIRA (cliente irá providenciar frete) ou "E" para pedidos do tipo ENTREGA (empresa irá enviar pedido por sua conta cobrando frete)
+pedido_venda
+Sim
+CodTransp
+Código da Transportadora escolhida 
+pedido_venda
+Sim
+SeqFrota
+Código do veículo escolhido
+pedido_venda
+Sim
+DepositoPadrao
+Código do depósito de onde o produto foi vendido
+pedido_venda
+Sim
+DtPrevFat
+Data de Entrega do Pedido no formato YYYY-MM-DD (2020-12-25 por exemplo)
+pedido_venda
+Sim
+Segurado
+Se pedido foi segurado ou não. 0 = não, 1 = sim
+pedido_venda
+Sim
+ObsLongo
+Observações genéricas no pedido
+pedido_venda
+Não
+SeqContrato
+Número do Contrato de Venda se houver
+pedido_venda
+Não
+RefPed
+Número de Referência do Pedido de uso livre.
+pedido_venda
+Não
+CdTpCobr
+Código do Tipo de Cobrança. Se não informado será usado o Tipo de Cobrança vinculado ao Cliente.
+pedido_venda
+Não
+Vendedor
+Código do Vendedor. Se não informado será usado o Código do Vendedor vinculado ao Cliente.
+pedido_venda
+Não
+CdPrefEnt
+Código do Endereço Preferencial de Entrega. Se não informado será usado o Endereço de Entrega configurado para o Cliente. 
+Se for passado 0 ou '0', será considerado como se não tivesse passado código nenhum (obtém o endereço do cadastro principal do cliente).
+pedido_venda
+Não
+CdPrefFat
+Código do Endereço Preferencial de Faturamento. Se não informado será usado o Endereço de faturamento configurado para o Cliente.
+Se for passado 0 ou '0', será considerado como se não tivesse passado código nenhum (obtém o endereço do cadastro principal do cliente).
+pedido_venda
+Não
+CdPrefCob
+Código do Endereço Preferencial de Cobrança. Se não informado será usado o Endereço de Cobrança configurado para o Cliente.
+Se for passado 0 ou '0', será considerado como se não tivesse passado código nenhum (obtém o endereço do cadastro principal do cliente).
+pedido_venda
+Não
+itensPedido
+fixo. Matriz contendo os itens do pedido
+pedido_venda
+Sim
+id
+id do item do pedido (somente edição)
+itensPedido
+Sim, se edição. Se inclusão, enviar null ou não enviar
+CodEntFaturada
+Código do cliente faturado caso seja diferente do cliente do pedido. Igualar ao cliente do pedido caso sejam iguais. 
+itensPedido
+Sim
+CodProd
+Código do Produto 
+itensPedido
+Sim
+Qtde
+Quantidade movimentada
+itensPedido
+Sim
+PrecoCIF
+Valor unitário do produto considerando frete e seguro
+itensPedido
+Sim
+FreteUnitReal
+Valor unitário do frete
+itensPedido
+Sim
+Seguro_Aliquota
+Valor percentual do seguro
+itensPedido
+Não
+PrecoFOB
+Preço de Tabela. Se não informado será usado o preço de tabela configurado para o depósito/cliente/produto.
+itensPedido
+Não
+versao_retorno_api
+0 = padrão (layout do registro), 1 = versão estendida com dados de NF, etc
+pedido_venda
+Não
+salva_custo
+0 = não salva custo (padrão), 1 = calcula e salva o custo total em cada item do pedido
+pedido_venda
+Não
+TipoOperacao
+Tipo de Operação do Pedido (0 - Venda Direta, 1 - Normal, 2 - VEF - Venda de Entrega Futura, 3 - REF - Retirada de Venda de Entrega Futura, 7 - Venda Cupom)
+Os tipos de operação listados acima (cada um deles), para ser utilizado,  (tanto via API quanto no App) deve ter o campo PermiteVenda da tabela TipoOperacao deve estar preenchido com 1. 
+pedido_venda
+Não
+Método
+Inclusão: 
+POST
+Alteração: 
+PUT
+Exemplo de arquivo JSON em  
+ 
+Exemplo de chamada de WebService
+# alteração
+curl  
+-H 'Content-Type: application/json' 
+-H 'Accept: application/json' 
+-H 'Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjo4NCwiY25waiI6IjAwLjAwMC4wMDAvMDAwMC0wMSIsImRlcG9zaXRvX3BhZHJhbyI6bnVsbCwiZXhwIjoxNzE3NzY3NDAyfQ.j_CChFzlGOMkfvQ1psP8gaxZiKQ8yiD1pJnyVeUWkg0' 
+-X PUT http://localhost/pedido_venda/55631 -d @inclusao_pedido.json
+
+# inclusão
+curl  
+-H 'Content-Type: application/json' 
+-H 'Accept: application/json' 
+-H 'Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjo4NCwiY25waiI6IjAwLjAwMC4wMDAvMDAwMC0wMSIsImRlcG9zaXRvX3BhZHJhbyI6bnVsbCwiZXhwIjoxNzE3NzY3NDAyfQ.j_CChFzlGOMkfvQ1psP8gaxZiKQ8yiD1pJnyVeUWkg0' 
+-X POST http://localhost/pedido_venda -d @inclusao_pedido.json
+Retorno Bem Sucedido
+Serão retornados todos os dados relativos ao Pedido de Venda incluído com sucesso. 
+O status da resposta sempre será 200. 
+Layout do arquivo Json
+Chave
+Conteudo
+Pai
+pedido_venda
+valor fixo
+ 
+CodEmpresa
+ Código da Empresa
+pedido_venda
+NomeUsualEmpresa
+Nome Usual da Empresa 
+pedido_venda
+NumPed
+ Número do Pedido
+pedido_venda
+RetiraEntrega
+R - Retira, E - Entrega 
+pedido_venda
+CodPg
+Código da condição de Pagamento 
+pedido_venda
+CodTransp
+Código do Motorista 
+pedido_venda
+DepositoPadrao
+Código do Depósito
+pedido_venda
+DtPrevFat
+Data de Previsão do Faturamento 
+pedido_venda
+CodEnt
+Código do Cliente do Pedido
+pedido_venda
+SeqFrota
+Sequencial do Frota Principal 
+pedido_venda
+segurado
+Indica se o pedido será segurado (0 - não segurado, 1 - Segurado) 
+pedido_venda
+CodTpCobr
+Código do Tipo de Cobrança 
+pedido_venda
+ObsLongo
+Observações do Pedido
+pedido_venda
+SeqContrato
+Sequencial do Contrato 
+pedido_venda
+ValFrete
+Valor total do Frete
+pedido_venda
+EnderecoEntrega
+Endereço de Entrega 
+pedido_venda
+NumeroEntrega
+Número do Endereço de Entrega 
+pedido_venda
+BairroEntrega
+Bairro da Entrega
+pedido_venda
+CEPEntrega
+CEP da Entrega 
+pedido_venda
+MunicipioEntrega
+Descrição do Município de Entrega 
+pedido_venda
+UFEntrega
+UF de Entrega
+pedido_venda
+EnderecoCobranca
+Endereço de Cobrança 
+pedido_venda
+NumeroCobranca
+Número do Endereço de Cobrança 
+pedido_venda
+BairroCobranca
+Bairro da Cobrança
+pedido_venda
+CEPCobranca
+CEP da Cobrança 
+pedido_venda
+MunicipioCobranca
+Descrição do Município de Cobrança 
+pedido_venda
+UFCobranca
+UF de Cobrança
+pedido_venda
+EnderecoFat
+Endereço de Faturamento
+pedido_venda
+NumeroFat
+Número do Endereço de Faturamento 
+pedido_venda
+BairroFat
+Bairro de Faturamento
+pedido_venda
+CEPFat
+CEP do Faturamento 
+pedido_venda
+MunicipioFat
+Descrição do Município de Faturamento 
+pedido_venda
+UFFat
+UF de Faturamento
+pedido_venda
+ValPedido
+Valor total do Pedido 
+pedido_venda
+LibFinancEm
+Data da aprovação financeira
+pedido_venda
+DataEntrega
+Data de Entrega
+pedido_venda
+IDTabelaPreco
+Id da Tabela de Preço
+pedido_venda
+StatusPedido
+Status do Pedido (C - Cancelado) 
+pedido_venda
+item_pedido
+list
+pedido_venda
+CodProd
+Código do Produto 
+item_pedido
+Qtde
+Quantidade
+item_pedido
+PrecoCIF
+Preço do Pedido 
+item_pedido
+CodEntFaturada
+Código do Cliente Faturado 
+item_pedido
+FreteUnitPadrao
+Frete unitário padrão 
+item_pedido
+FreteUnitReal
+Frete unitário do pedido
+item_pedido
+PrecoTabela
+Preço de Tabela 
+item_pedido
+Seguro_Aliquota
+Alíquota do Seguro 
+item_pedido
+Seguro_ValUnitario
+Valor unitário do Seguro 
+item_pedido
+id
+ID do item 
+item_pedido
+QtdeFaturada
+Quantidade Faturada 
+item_pedido
+CustoFinancReal
+Custo Financeiro do Item 
+item_pedido
+Custo
+Valor total do custo do item 
+item_pedido
+PercDesconto
+Percentual de desconto aplicado ao item
+item_pedido
+entidade
+grupo
+pedido_venda 
+RzSocial
+Razão Social
+entidade
+CGC
+CNPJ ou CPF
+entidade
+SeqTipo
+Sequencial do Tipo de Cliente
+entidade
+DescricaoTipoCliente
+Descrição do Tipo de Cliente
+entidade
+IdRegiaoVendas
+ID da Região de Vendas
+entidade
+produto
+grupo
+ pedido_venda
+NomeUsual
+Nome Usual do Produto
+produto
+CodigoNCM
+Código NCM do Produto 
+produto
+notas_fiscais
+list
+ pedido_venda
+CodEmpresa
+Código da Empresa
+notas_fiscais
+NumPed
+Número do Pedido 
+notas_fiscais
+id_pedido
+ID do Pedido 
+notas_fiscais
+id_nf
+ID da Nota Fiscal 
+notas_fiscais
+CodProd
+Código do Produto 
+notas_fiscais
+Descricao
+Descrição do Produto
+notas_fiscais
+qtde
+Quantidade 
+notas_fiscais
+ValorTotal
+Valor Total
+notas_fiscais
+PrecoReal
+Preço unitário 
+notas_fiscais
+NumeroNF
+Número da Nota Fiscal
+notas_fiscais
+DataNF
+Data da Nota Fiscal 
+notas_fiscais
+ValNF
+Valor da Nota Fiscal 
+notas_fiscais
+ChaveAcesso
+Chave de Acesso 
+notas_fiscais
+CodNatOp
+Código da Natureza de Operação 
+notas_fiscais
+TipoPedido
+Tipo da Nota Fiscal
+notas_fiscais
+Vendedor
+Código do Vendedor
+pedido_venda
+DataPed
+Data do Pedido
+pedido_venda
+PrazoPagto
+Prazo de Pagamento 
+pedido_venda
+RefPed
+Número de Referência do Pedido 
+pedido_venda
+TipoOperacao
+Tipo de Operação do Pedido (0 - Venda Direta, 1 - Normal, 2 - VEF - Venda de Entrega Futura, 3 - REF - Retirada de Venda de Entrega Futura, 7 - Venda Cupom)
+pedido_venda
+Exemplo de arquivo em   
+ 
+Exemplo de retorno de WebService
+  {
+    "pedido_venda": {
+        "CodEmpresa": 1,
+        "NumPed": 34613,
+        "CodEnt": 1,
+        "RefPed": "teste",
+        "DataPed": "2023-11-27T10:14:27.000+00:00",
+        "Usuario": "FUTURA",
+        "StatusPedido": "R",
+        "ValFrete": "0.0",
+        "CodTpCobr": "46",
+        "ValPedido": "20913.0",
+        "DtPrevFat": "2023-11-27",
+        "CodTransp": "00032",
+        "Vendedor": "0001",
+        "StatusFat": "T",
+        "RazaoSocial": "DEMO DISTRIBUIDORA LTDA",
+        "LibFinancEm": "2023-11-27T10:14:27.000+00:00",
+        "QtdeSeparada": "0.0",
+        "EnderecoCobranca": "Rua Carvalho",
+        "BairroCobranca": "Pinheiros",
+        "CEPCobranca": "05424-020",
+        "MunicipioCobranca": "SAO PAULO",
+        "UFCobranca": "SP",
+        "EnderecoEntrega": "Rua Carvalho",
+        "BairroEntrega": "Pinheiros",
+        "CEPEntrega": "05424-020",
+        "MunicipioEntrega": "SAO PAULO",
+        "UFEntrega": "SP",
+        "EnderecoFat": "Rua Carvalho",
+        "BairroFat": "Pinheiros",
+        "CEPFat": "05424-020",
+        "MunicipioFat": "SAO PAULO",
+        "UFFat": "SP",
+        "CodPg": "998",
+        "ObsLongo": null,
+        "RetiraEntrega": "R",
+        "Aprovado": 1,
+        "DepositoPadrao": "1",
+        "PrazoPagto": 10,
+        "segurado": 0,
+        "Documento": "07.452.833/0011-04",
+        "SeqFrota": 4,
+        "SeqContrato": null,
+        "VendaDireta": 0,
+        "NumeroEntrega": "64",
+        "NumeroCobranca": "64",
+        "NumeroFat": "64",
+        "Seguro_Perfil": 2,
+        "web_origem_pedido": 0,
+        "id": 55561,
+        "TipoOperacao": 1,
+        "IDTabelaPreco": 87,
+        "item_pedido": [
+            {
+                "CodProd": "01",
+                "Qtde": "15000.0",
+                "PrecoCIF": "1.3942",
+                "QtdeFaturada": "15000.0",
+                "PercDesconto": "0.0",
+                "CodEntFaturada": 1,
+                "FreteUnitPadrao": "0.0",
+                "FreteUnitReal": "0.0",
+                "PrecoTabela": "1.3942",
+                "Custo": "27572.64",
+                "Seguro_Aliquota": "0.0",
+                "Seguro_ValUnitario": "0.0",
+                "id": 56713,
+                "entidade": {
+                    "RzSocial": "DEMO DISTRIBUIDORA LTDA",
+                    "CGC": "07.452.833/0011-04",
+                    "SeqTipo": 1,
+                    "IDRegiaoVendas": 1,
+                    "DescricaoTipoCliente": "NORMAL"
+                }
+            }
+        ],
+        "nota_fiscal": [
+            {
+                "id_pedido": 55561,
+                "NumeroNF": 33397,
+                "DataNF": "2023-11-27",
+                "ValNF": "26163.0",
+                "CodNatOp": "V02",
+                "TipoPedido": "VD",
+                "ChaveAcesso": "35231103980754000305551030000333971631236090",
+                "id_itemnf": 41888,
+                "id_nf": 40111,
+                "NumPed": 34613,
+                "CodEmpresa": 1,
+                "CodProd": "01",
+                "Descricao": "GASOLINA C ",
+                "qtde": "15000.0",
+                "ValorTotal": "26163.0",
+                "PrecoReal": "1.7442"
+            }
+        ],
+        "NomeUsualEmpresa": "BASE DEMO"
+    }
+}
+Retorno Sem Sucesso
+Será retornado um objeto JSON com o motivo da não inclusão (poderá ser um erro de autenticação caso o token tenha expirado ou seja inválido ou alguma regra de negócio não atendida. 
+O status da resposta sempre será diferente de 200.
+{"error":"Frota deve ser preenchido e valido","status":422}
+2. Cancelamento do Pedido de Venda
+Introdução
+Este webservice tem por finalidade executar o cancelamento de um pedido de venda.
+Endereço
+<endereço do SispetroWeb>/pedido_venda/<ID do pedido>
+Parâmetros
+Será necessário enviar um header com o token. Como parâmetros enviar:
+Nome
+Descritivo
+Exemplo
+Observações
+versao_retorno_api
+0=(padrão) layout com registro do pedido, 1=layout estendido.
+1
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+Content-Type
+tipo do formato de envio
+application/json
+Accept
+tipo do formato de envio
+application/json
+Método
+DELETE
+Exemplo de chamada de WebService
+ curl  
+-H 'Content-Type: application/json' 
+-H 'Accept: application/json' 
+-H 'Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjo4NCwiY25waiI6IjAwLjAwMC4wMDAvMDAwMC0wMSIsImRlcG9zaXRvX3BhZHJhbyI6bnVsbCwiZXhwIjoxNzE3NzY3NDAyfQ.j_CChFzlGOMkfvQ1psP8gaxZiKQ8yiD1pJnyVeUWkg0' 
+-X DELETE http://localhost:3000/pedido_venda/55631?versao_retorno_api=1
+Retorno Bem Sucedido
+Será retornada todos os dados relativos ao Pedido de Venda cancelado com sucesso conforme layout do retorno da inclusão do pedido. 
+O status da resposta sempre será 200. 
+Retorno Sem Sucesso
+Será retornado um objeto JSON com o motivo da não alteração (poderá ser um erro de autenticação caso o token tenha expirado ou seja inválido ou alguma regra de negócio não atendida. 
+O status da resposta sempre será diferente de 200.
+{"error":"Pedido já tem nota fiscal vinculada","status":422}

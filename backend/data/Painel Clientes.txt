@@ -1,0 +1,324 @@
+TITULO: Painel Clientes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2922577917
+--------------------------------------------------
+O acesso a essa tela se da através de 
+Ferramentas > Sistema > Clientes
+Verifica CNPJ:
+ valida CNPJ.
+Verifica formato Inscrição Estadual:
+ valida formato digitado da Inscrição Estadual.
+Permite duplicação CNPJ inativo:
+ permite duplicar os CNPJ de clientes que estiveres desativados.
+Visualiza Portador em Clientes:
+ banco responsável pelo recebimento dos títulos.
+Valida Inscrição Estadual clientes:
+ valida Inscrição Estadual.
+CEP obrigatório no cadastro clientes:
+ esta opção marcada, se torna obrigatório o CEP preenchido no cadastro de clientes.
+Descritivo para Clientes com Status Livre: 
+por padrão é 
+LIVRE
+Visualização Resumo Financeiro por Status
+Potencial:
+ o Cliente acabou de ser cadastrado e seu cadastro precisa ser aprovado, isto é, o setor de cadastro necessita emitir Serasa ou equivalente, analisar o prazo de pagamento do cliente, sua capacidade de crédito, etc. Assim, quando o cliente está com este status, nenhuma venda pode ser realizada para ele.
+Livre:
+ o cadastro do cliente já foi aprovado, isto é, pode ser realizada uma venda para o mesmo, porém nenhum vendedor foi cadastrado para ele ou, mesmo que tenha sido, como nenhuma venda foi ainda realizada (nenhuma Nota Fiscal de Venda foi emitida contra este cliente), este cliente ainda não é exclusivo do vendedor que o cadastrou. Por isso, qualquer vendedor no pedido de venda, pode mudar o código do vendedor para o dele próprio. No momento da emissão da Nota Fiscal, o Sistema muda automaticamente o Status do cliente para o abaixo (Ativo) mudando o código do vendedor atribuído ao cliente para o vendedor que realizou esta venda.
+Ativo:
+ o cliente está ativo e com um vendedor exclusivo cadastrado para ele. Mesmo que outro vendedor faça um pedido de venda para este cliente, ele não poderá mudar o código do vendedor atribuído no cadastro do cliente para o dele, fazendo com que todos os controles e consultas indiquem o vendedor cadastrado como o que realizou a venda.
+Visualiza dados financeiro para clientes status Potencial:
+ quando o Status do cliente estiver como Potencial, se marcado pode visualizar os dados financeiro.
+Visualiza dados financeiros para clientes status Livre:
+ quando o Status do cliente estiver como Livre, se marcado pode visualizar os dados financeiro.
+Visualiza dados financeiros para clientes status Ativo:
+ quando o Status do cliente estiver como Ativo, se marcado pode visualizar os dados financeiro.
+Consulta de Clientes por Status
+Permite consulta dos clientes status Potencial:
+ se marcado pode consultar cliente com status Potencial.
+Permite consulta dos clientes status Livre:
+ se marcado pode consultar cliente com status Livre.
+Permite consulta dos clientes status Ativo:
+ se marcado pode consultar cliente com status Ativo.
+Utilização CEP padrão para envio arquivo CNAB
+Estipula CEP padrão para utilizar nos arquivos CNAB.
+Não pega o CEP padrão: 
+ não utiliza o CEP cadastrado como padrão.
+Pega CEP padrão do perfil da empresa:
+ utiliza o CEP padrão cadastrado no Perfil de Empresa.
+Pega CEP padrão pela UF do cliente:
+ utiliza CEP padrão de acordo com a UF do Cliente.
+CEP padrão para envio CNAB:
+ neste campo pode ser estipulado um CEP padrão para envio do CNAB.
+Endereço utilizado no bloqueio de movimentação do Produto (Município ou UF)
+Aqui estipula qual o tipo de endereço será utilizado para bloqueio de venda por município.
+Cadastro de Cliente; 
+Endereço de Entrega;
+Endereço de Cobrança;
+Endereço de Faturamento;
+Permissão de Comprador
+Pode Ser comprador:
+ se selecionado está opção, pode ser comprador.
+Não pode ser comprador de outra entidade faturada:
+ se selecionado está opção, não pode ser comprador de uma entidade faturada.
+Não pode ser comprador sob nenhuma hipótese:
+ se selecionado está opção, não pode ser comprador.
+Consulta On-Line Sintegra
+Permite Consulta On-Line para Sintegra:
+ permite ou não fazer a consulta online do cliente no Sintegra.
+Documento Sintegra:
+ estipula qual o documento será validado no Sintegra.
+No. Consultas Armazenadas por Cliente:
+ estipula a quantidade de consultas que será armazenada por cliente.
+Código da Entidade que Representa a Filial 
+Informar o código da entidade que irá representar a Filial ou Empresa Congênere.
+Endereço no Cálculo de Frete e outras validações vendas
+Do cadastro do cliente (conforme região ou município): 
+endereço que será utilizado como parâmetro para cálculo do frete, e o mesmo poderá ser utilizado junto com a Sobretaxa, cadastrada no Cliente. Para mais informações, ver 
+Rotas (Clientes)
+.
+Do endereço pref. entrega: 
+endereço que será utilizado como parâmetro para cálculo do frete, e o mesmo poderá ser utilizado junto com a Sobretaxa, cadastrada no Cliente. Para mais informações, ver 
+Outros Endereços (Clientes)
+.
+Do endereço pref. cobrança: 
+endereço que será utilizado como parâmetro para cálculo do frete.
+Do endereço pref. faturamento: 
+endereço que será utilizado como parâmetro para cálculo do frete.
+Restrição de Visualização de Clientes
+Controla vendedor por filial para os clientes: 
+se marcado, 
+controla de mais de um vendedor por cliente em filiais diferentes. 
+Para mais informações, ver 
+Controle de Vendedor por Filial
+Visualiza todos os clientes:
+ se marcado está opção não terá nenhuma restrição de visualização.
+Se opção acima desmarcada, habilita os campos abaixo:
+ Visualização de Clientes com Status Potencial.
+Visualização de Clientes com Status Livre.
+Visualização de Clientes com Status Ativo.
+Com três opções cada:
+Não Visualiza Clientes;
+Visualiza Clientes cujo vendedor seja o mesmo do usuário;
+Visualiza Clientes independente do filtro de vendedor;
+Para informações relacionadas a visualização dos Pedidos no SispetroApp, ver 
+Filtro para Visualização de Pedidos de Venda
+Padrão para Inclusão de Clientes
+Produtos permitidos para vendas
+Congênere: 
+se marcado pode realizar venda para clientes desse tipo.
+Grande Consumidor:
+ se marcado pode realizar venda para clientes desse tipo.
+Posto Revenda:
+ se marcado pode realizar venda para clientes desse tipo.
+T.R.R:
+ se marcado pode realizar venda para clientes desse tipo.
+Órgão Publico: 
+se marcado pode realizar venda para clientes desse tipo.
+Ramo de Atividade (Padrão p/ Clientes)
+Estipula ramo padrão para todos os clientes;
+Região de Vendas Padrão
+Perfil que permite definir qual é a região de vendas padrão para os clientes. Por padrão é Geral.
+Padrão para Protesto de Cobrança
+Perfil que, na inclusão do cliente, sugere qual será o padrão para protesto de cobrança eletrônica. Há três opções
+Sempre
+Nunca
+Depende do Convênio. 
+Consulta On-Line - ANP 
+Forma de Consulta ANP: 
+o SisPetro está habilitado para fazer as duas consultas. Ele pode fazer
+Pela tabela interna preenchida pela planilha da ANP:
+ a ANP disponibiliza uma planilha com todos os postos autorizados. O SisPetro importa essa planilha para sua base e através das informações contidas nela verifica a bandeira do cliente e se ele está autorizado (caso esteja na planilha). A importação dessa planilha é feita via serviço do Hermes. Para mais informações, ver 
+Serviço de Importação ANP
+.
+Importante:
+ essa consulta não traz os produtos permitidos, apenas a consulta ONLINE. 
+Via API:
+ verifica através da API disponibilizada pela ANP. Essa consulta pode ser feita através do botão 
+Consulta ONLINE no Painel Navegação
+ ou via 
+Serviço de Consulta ANP
+ trazendo as informações como bandeira, produtos permitidos e etc. Para mais informações, ver 
+Consulta ANP
+Importante: 
+Essa API só traz os revendedores autorizados, ou seja, se vir está autorizado, se não vier, não está. Como a consulta não traz mais os postos cuja permissão foi foi REVOGADA os perfis abaixo relacionados a revogação e candidato não são mais utilizados. 
+Consulta ANP URL Principal: 
+indisponível pela ANP.
+Consulta ANP URL Secundária:
+ indisponível pela ANP.
+Verifica os produtos permitidos dos clientes na Consulta ANP
+Não Verifica: 
+nesta situação não faz nada.
+Verifica no Pedido de Vendas: 
+define se na inclusão do pedido de venda o SisPetro irá verificar e barrar a inclusão do pedido de vendas caso a descrição do produto seja diferente. 
+Mais informações, ver 
+Consulta ANP
+.
+Importante: 
+a utilização da consulta via PLANILHA inviabiliza a validação desse perfil pois a planilha 
+não 
+traz a informação dos produtos permitidos. 
+Permite Consulta On-Line para ANP: 
+define se será habilitada a Consulta On-Line na ANP.
+Atualiza Bandeira do Cliente
+Caso as bandeiras estejam indicadas de forma correta na 
+Tabela Bandeiras
+, se o perfil for habilitado, ao realizar a consulta ANP, a bandeira do cliente será atualizada conforme o que está registrado na própria ANP.
+Consulta Via Cadastro de Cliente
+Ação sobre o cliente quando Bandeira da ANP inexistente na Tabela de Bandeiras: 
+durante o processo de revogação, por exemplo, o cliente fica sem bandeira na ANP. Durante a consulta ANP, neste caso, o cliente não ficará bloqueado, podendo emitir pedido de venda. Para impedir isso foi criado este perfil. Podendo ser configurado de três formas:
+Bloqueia:
+ caso não retorne nenhuma bandeira da consulta ANP ou inexistente no 
+cadastro de  Bandeiras
+, o cliente será bloqueado.
+Obs.: para bloquear o perfil 
+Cadastro Atualizado
+ do quadro ação sobre o cliente em relação ao status na ANP deve estar como INDIFERENTE. 
+Indiferente:
+ nada é feito
+Desbloqueia o Cliente:
+ o cliente será desbloqueado após a consulta.
+Ação sobre o Cliente em relação ao status na ANP
+Define qual decisão será tomada pelo SisPetro, de acordo com o Status do Cliente perante a ANP. Para mais informações, ver 
+Consulta On-Line na ANP
+.
+Cadastro Atualizado:
+ quando o cadastro do cliente é localizado na consulta ANP via API / planilha, é possível: 
+Bloqueia Cliente: bloqueia o Cliente
+Desbloqueia o Cliente: desbloqueia o Cliente.
+É Indiferente: não faz nada, ou seja, não bloqueia nem desbloqueia o cliente independente do resultado da consulta.
+Autorização Revogada:
+ quando autorização do cliente é revogada.
+ 
+Perfil descontinuado
+Processo de Revogação:
+ quando ocorre abertura de processo administrativo para revogação do processo.
+ Perfil descontinuado
+Candidato a Posto Revendedor / Aguardando publ. D.O.U.  Perfil descontinuado
+Não Localizado na Consulta:
+ quando o cadastro do cliente não é localizado na consulta ANP via API / planilha, é possível: 
+Bloqueia Cliente: bloqueia o Cliente
+Desbloqueia o Cliente: desbloqueia o Cliente
+É Indiferente: não faz nada, ou seja, não bloqueia nem desbloqueia o cliente independente do resultado da consulta.
+Exemplo:
+Caso o perfil do Cliente com 
+Autorização Revogada
+ esteja selecionado com 
+Bloqueia Cliente
+, se o Cliente estiver Bloqueado na ANP, ele será bloqueado automaticamente também no SisPetro se for selecionada a opção Consulta e Bloqueia Cliente conforme Status X perfil de Sistema
+Documento ANP: 
+define o documento que será consultado na ANP.
+Realiza Consulta ANP na inclusão do Pedido / NF de Venda: 
+define se será realizada a validação do Status do Cliente perante a ANP na inclusão do pedido ou NF.
+Não faz consulta:
+ ao incluir Pedido ou NF, não será realizado nenhum tipo de consulta.
+Só no pedido de vendas:
+ consulta só será realizada na inclusão do Pedido de Vendas.
+No pedido e na NF de vendas:
+ consulta será realizada no Pedido de Vendas e na emissão de NF-e.
+Só na NF de venda:
+ consulta só será realizada na emissão da NF-e.
+Validade da Consulta (URL) por Cliente em horas: 
+define um período em horas para a realização da próxima consulta.  
+Exemplo: caso no perfil esteja definido uma validade de 4 horas, e seja realizado uma consulta ANP para um determinado cliente as 13:00 horas, o SisPetro só ira realizar a consulta de forma automática após as 17:00. 
+Essa validade é aplicada tanto na consulta via API como via planilha.
+ 
+Validade da Consulta (Planilha) por Cliente em horas.  Perfil descontinuado
+Caso a Forma de Consulta ANP estiver configurada para realizar a consulta ANP pela tabela interna preenchida pela planilha ANP esse campo definirá uma validade, em horas, da planilha que foi importada.
+Para ficar mais claro, segue um exemplo: 
+A última planilha foi importada Sábado às 12:00;
+A validade está configurada para 46 horas;
+Logo a validade dos dados da planilha importada valerá até até segunda-feira às 10:00
+O valor máximo aceito nesse campo é 4320 horas (180 dias)
+Consulta da ANP na Inclusão do Pedido/NF de Venda para a Empresa
+Define como será realizado a consulta ANP na inclusão do Pedido/NF de Venda para a Empresa conectada. 
+Respeita Perfil de Sistema Geral:
+ caso utilize essa opção, será respeitado a regra do perfil de sistema geral 'Realiza Consulta ANP na inclusão do Pedido de Vendas'
+Sempre executa consulta:
+ ao utilizar essa opção SEMPRE será realizado a consulta ANP no Pedido e NF de venda. 
+Nunca executa consulta:
+ ao utilizar essa opção NUNCA será realizado a consulta ANP no Pedido e NF de venda.
+Ação quando não for possível fazer Consulta
+Define qual decisão será tomada quando não for possível efetuar a consulta do Cliente, como por exemplo, quando estiver sem acesso à internet.
+Não permite inclusão do Pedido:
+ não poderá incluir pedido, caso não ocorra a consulta ANP.
+Permite inclusão do Pedido s/ consulta:
+ irá permitir incluir pedido, mesmos sem a consulta ter sido realizada na ANP.
+Ação sobre o Pedido/NF de Venda em relação ao Status na ANP
+Define qual decisão será tomada para cada situação de Status de Clientes perante a ANP no processo de inclusão do Pedido.
+Os Status são:
+Cadastro Atualizado:
+ quando encontra alteração, atualiza o cadastro do cliente.
+A
+utorização Revogada:
+ quando autorização do cliente é revogada. 
+ Perfil descontinuado
+Processo de Revogação:
+ quando ocorre abertura de processo administrativo para revogação do processo. 
+ Perfil descontinuado
+Candidato a Posto Revendedor / Aguardando publ. D.O.U.  Perfil descontinuado
+Não Localizado na Consulta:
+ quando o cadastro do cliente não é localizado na consulta ANP.
+Cada status, existem 2 opções:
+Permite a inclusão do Pedido/NF:
+ não apresenta qualquer mensagem e o Pedido é incluído normalmente.
+Não permite inclusão/ alteração do Pedido/NF:
+ apresenta mensagem de bloqueio informando que não é permitida a venda para clientes com esse Status na 
+Consulta ANP
+.
+Consulta Cadastro de Contribuinte SEFAZ
+Executa Consulta Automática na SEFAZ: 
+Indica ao SisPetro se este fará a Consulta Cadastro de Contribuinte na SEFAZ automaticamente ou não. Caso seja marcado fará a consulta nos clientes habilitados para tal. 
+Para mais informações, ver 
+Consulta Cadastro de Contribuinte na SEFAZ
+ 
+Valor Padrão na inclusão de clientes
+Ação quando não habilitado na SEFAZ:
+ este perfil será usado apenas na inclusão de novos clientes. Deverá ser informado qual o padrão na inclusão, ou seja, como o perfil no cadastro de cliente será preenchido.
+Não faz nada:
+ independente do resultado da pesquisa, o SisPetro nunca bloqueará o cliente.
+Bloqueia/ Desbloqueia o Cliente:
+ caso o cliente não esteja habilitado o SisPetro o bloqueará. Se numa próxima consulta este estiver habilitado, será desbloqueado.
+Configuração do Serviço de Consulta Cadastro Contribuinte
+Periodicidade de dias para consulta por cliente:
+ caso a consulta seja feita automaticamente pelo SisPetro, este perfil indica a cada quantos dias o sistema a fará. 
+Para mais informações, ver 
+Consulta Cadastro de Contribuinte na SEFAZ
+Análise de Crédito via Gerenciadora
+As configurações POR EMPRESA, caso preenchidas, sobrepõem as configurações GERAL, exceto no campo Forma de Consulta.
+GERAL:
+ configurações válidas para todas as empresas
+Permite Consulta a Gerenciadora:
+ por padrão é desmarcada. Se marcada, permitirá realizar consultas à Gerenciadora de Análise de Crédito
+Gerenciadora Padrão:
+ informe a gerenciadora padrão, cadastrada em 
+Tabela Gerenciadora de Análise de Crédito
+.
+Ambiente:
+ Produção ou Homologação. Por padrão é Homologação. É sobreposto pela configuração feita em 
+Tabela Gerenciadora de Análise de Crédito
+Forma de Consulta:
+ indica como serão feitas as consultas:
+Somente para pedidos com consulta pendente (padrão):
+ esta opção desabilita a consulta através do cadastro de clientes permitindo a consulta somente através da inclusão de pedidos de venda. Nesta opção, as consultas são feitas automaticamente para os clientes que estejam configurados para consultar, utilizando o Serviço de Análise de Crédito no Servidor. 
+Para mais informações, ver 
+Clientes - Painel Navegação
+, 
+Serviço de Análise de Crédito
+Qualquer entidade habilitada:
+ permite fazer consultas manuais através do cadastro de Clientes. 
+Para mais informações, ver 
+Clientes - Painel Navegação
+Prazo (dias) para a Consulta Expirar:
+ número de dias, contados a partir da data da última consulta realizada, para expirar a consulta. Por padrão são 90 dias.
+POR EMPRESA:
+ configurações válidas somente para a empresa selecionada
+Permite Consulta a Gerenciadora:
+ por padrão é desmarcada. Se marcada, permitirá realizar consultas à Gerenciadora de Análise de Crédito especificamente para a empresa.
+Gerenciadora Padrão:
+ informe a gerenciadora padrão. Caso não informe, será considerada a Gerenciadora Padrão informada no quadro GERAL. 
+Para mais informações, ver 
+Tabela Gerenciadora de Análise de Crédito
+Ambiente:
+ Produção ou Homologação. Por padrão é Homologação. Caso não informe, será considerado o ambiente informado no quadro Geral. É sobreposto pela configuração feita em 
+Tabela Gerenciadora de Análise de Crédito
+Prazo (dias) para a Consulta Expirar:
+ número de dias, contados a partir da data da última consulta realizada, para expirar a consulta. Por padrão são zero dias. Caso informe diferente de zero, não será considerado o prazo do quadro GERAL.

@@ -1,0 +1,144 @@
+TITULO: DPMP - Dúvidas mais frequentes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879654387
+--------------------------------------------------
+Aqui constam algumas respostas para problemas ocorridos durante a geração e validação do DPMP.
+Geralmente são os mesmos problemas, mas na maioria dos casos ocorre somente nos primeiros meses que a empresa começou a entregar o DPMP, gerando pelo Sispetro.
+1. Como faço para ajustar o Estoque Inicial, para um determinado produto, na quantidade que preciso?
+Resposta:
+ Isso normalmente ocorre na geração do primeiro DPMP. Para resolver isto, deve-se gerar o DPMP do mês anterior e ajustar a Quantidade final desse Produto, para que a Quantidade Inicial do próximo mês (que será o mês atual) fique correta. Não se preocupe em manter o DPMP do mês anterior 100% correto, isto porque ele não será mais entregue.
+2. Como faço um ajuste em um Produto que utiliza o mesmo código DPMP, sendo que este Produto não aparece na tela de geração do DPMP?
+Resposta:
+ Na inclusão do registro de ajuste, utilize o mesmo Produto que aparece na Tela de Geração do DPMP, pois de qualquer forma o Sispetro soma as quantidades dos dois Produtos. Caso não queira esta solução, faça o seguinte: na inclusão de uma NF que ficou faltando, informe um dos dois produtos.
+3. Na Tela de Geração do DPMP os campos 'Qtde Kg' e 'Massa Específica' estão ficando sempre zerado. O que fazer para acertar isso? Este problema pode ser resolvido provisoriamente ou definitivamente:
+Resposta:
+ Solução provisória: utilizada para as notas que já foram emitidas.
+ No Sispetro Normal, acesse o menu 
+Ferramentas/ Alteração Dados Mídia Magnética - Anexo
+, informe o número da nota. Em seguida, no quadro de itens do Produto, informe os dados para os três campos: 
+Densidade
+, 
+Temp. Tanque
+ e 
+Temp. Amostra
+.
+ Após isso, volte na tela de geração e gere novamente através do botão Gera DPMP.
+Solução definitiva: utilizada para as notas que serão emitidas.
+ Existe duas formas de informar estes dados (
+Densidade
+, 
+Temp. Tanque
+ e 
+Temp. Amostra
+):
+ 1ª: Acessando o cadastro de Produtos (
+Arquivos/ Produtos/ painel Detalhes/ painel inferior Temperatura/Densidade
+, e informe esses dados por empresa.
+ 2ª: Acessando o menu 
+Movimentação/ Faturamento/ Muda Temperatura e Densidade
+ e informe os dados (
+Densidade
+, 
+Temp. Tanque
+ e 
+Temp. Amostra
+).
+Importante:
+A densidade que será cadastrada no Sispetro deverá ser sempre menor que 1.
+Exemplo: Densidade = 809,7 => 0,8097
+Para o produto 
+ALCOOL
+, o Sispetro só permite que a densidade tenha 3 casas decimais. Por via das dúvidas, pode-se arrendondar o valor.
+Exemplo: Densidade = 809,7 => 0,809 ou 0,810
+4. A ANP exigiu que deve-se informar o código da mistura para Produtos Compostos. Onde informo isso no Sistema?
+Resposta:
+ O código do Produto é usado em Operações de Transfêrencias entre Produtos, conforme as planilhas da ANP.
+ O código da Operação Resultante é utilizado em Naturezas de Operação que sejam do tipo Devolução, e deve ser informado no campo 
+Código Produto/Operação Resultante
+ (
+Tabelas Auxiliares/ Faturamento/ Natureza de Operação/ painel Detalhes/ painel inferior Dados Gerais
+), deverá ser informado o código da operação que originou a devolução. Este campo não é obrigatório em todas as naturezas, porém para saber qual o código da operação, consulte o código de operação utilizado na natureza que originou a devolução.
+Por exemplo: Natureza de Operação de Venda.
+Este campo encontra-se no Cadastro de Naturezas de Operação, painel 'Detalhes', painel inferior 'Dados Gerais', parte inferior da tela.
+5. O DPMP não está gerando o número do Laudo. Porque isso ocorre? Como faço para resolver isso?
+Resposta:
+ Isto ocorre porque o número do laudo não está sendo informando. Existem duas formas de resolver este problema.
+ 1ª: Acessando o menu 
+Arquivos/ Produtos/ painel Detalhes/ painel inferior Temperatura/Densidade/ coluna Número Laudo
+.
+ 2ª: Acessando o menu 
+Movimentação/ Faturamento/ Muda Temperatura e Densidade
+.
+ Esta opção é a mais utilizada e ocorre momento antes da emissão da NF de um determinado Produto.
+6. Na tela de Geração do DPMP, a quantidade de ajuste de entrada do Biodisiel está desproporcional. Porque isso acontece?
+Resposta:
+ Isto ocorre porque a composição do produto não está configurada na tabela de Período DCP.
+ Para isso, acesse o menu 
+Tabelas Auxiliares/ Estoque/ Período DCP
+. Cadastre a proporção de mistura referente aos Produtos. Nesta tela são informados somente os Produtos Compostos.
+7. Ao validar o arquivo no validador SIMP, gerou um erro informando que o código da Localidade está incorreto. O que devo fazer?
+Resposta:
+ O ideal é conferir na planilha da ANO o código da localidade e verificar se está correto. Acesse o cadastro de cidades (
+Tabelas Auxiliares/ Faturamento/ Cidades
+ e certifique-se de que o código está correto ou não.
+ Em seguida, informe ao 
+Suporte Futura
+ e solicite a correção.
+8. Existe uma nota de saída que não está aparecendo na Tela de Geração do DPMP. Como resolvo isso?
+Resposta:
+ A solução pode ser provisória ou definitiva.
+ Solução Provisória: fazer com que uma nota apareça no DPMP
+ No Sispetro Normal, acesse o menu 
+Ferramentas/ Alteração Dados Mídia Magnética - Anexo
+. Informe a nota fiscal, e no quadro de itens do Produto temos a coluna 'Participa DPMP'. MARQUE esta opção para que esta nota faça parte do DPMP.
+Solução Definitiva: para todas as notas que serão geradas no Sispetro.
+ Verifique na Natureza de Operação, que foi utilizada na emissão desta nota, se o perfil 
+Participa do DPMP/DCP
+ está marcado (
+Tabelas Auxiliares/ Faturamento/ Natureza Operação/ painel Detalhes/ painel inferior Dados Gerais
+). Na mesma tela, verifique e marque o perfil 
+Informa Dados para o DPMP
+ e informe o Tipo de Operação.
+9. Na venda da Gasolina C, o sistema esta acatando a composição separadamente e gerando dois registros, um para a Gasolina A e outro para ALcool Anidro. Porque isso ocorre?
+Resposta:
+ Normalmente não se trabalha com estoque de Gasolina C. Existe somente a saída do produto, nunca a entrada.
+Exemplo:
+ Se sua empresa vendeu no mês 1.000.000 litros de Gasolina C, logo o seu estoque seria negativo de 1.000.000 litros.
+Apresentar isto para a ANP seria um
+ 
+problemão!!!!
+A própria ANP considera que o Estoque Inicial e Final devem ser apresentados zerados.
+ Para zerar estas quantidades, o Sistema cria dois registros de ajuste de entrada automaticamente. Estes dois registros podem ser identificados pela cor verde água. No caso da 
+GASOLINA C
+*será criado um registro representando 75% referente a 
+GASOLINA A
+ e outro registro de 25% referente ao 
+ÁLCOOL ANIDRO
+. Para isso é utilizado o Código de Operação 1021004 (Entrada de Produtos Compostos)
+ Operação semelhante ocorre na 
+GASOLINA A
+ onde não existe saída deste produto. Então é criado um registro de ajuste de saída para ela. E assim também para o 
+ALCOOL ANIDRO
+, onde só existe entrada. Então também é criado o registro de ajuste de saídas. E tudo isso 
+automaticamente
+, com a finalidade de zerar o estoque.
+10. Tenho uma nota de saída de 5.000 litros, porém na tela de geração do DPMP aparece somente 4.900 litros. Porque isto está ocorrendo?
+Resposta:
+ Isto ocorre quando, no Cadastro de Produtos, o campo 
+Proporção DCP/DPMP
+ está como 0,98, sendo que deveria ser 1.
+ Para correção deste campos acesse o menu 
+Arquivos/ Produtos/ painel Detalhes/ painel inferior Dados adicionais
+. ESte campo também pode ser utilizado para produtos que precisam ser apresentados à ANP em metros cúbicos(m3).
+Exemplo:
+ Para o DPMP, um lubrificante deve ser apresentado em m3, porém no SisPetro as notas são incluídas em litros. Como 1 litro representa 0,001 m3, esta será a proporção cadastrada para o produto. Assim, em uma nota de 5.000 litros será apresentada com a quantidade igual a 5 (5000 * 0,001). Ou seja, sempre multiplicaremos a proporção indicada pela quantidade.
+ 
+11. Notas Fiscais que estão como participa do DPMP e mesmo assim não sai na tela do DPMP?
+Resposta:
+ Para que uma nota fiscal possa sair no DPMP é também necessário que no cadastro do cliente os campos "Código de instalação" e "Tipo Agente ANP" não esteja em branco.
+ //
+ <Arquivo / Cliente / Observação> no quadrante DPMP estão com os campos "Código Instalação" e "Tipo Agente ANP" - NÃO PODE ESTA EM BRANCO
+ 
+12. Validador I-Simp de Notas Fiscais com mesma chave de acesso gera não conformidade
+Resposta:
+ Quando existem notas fiscais com mesma chave de acesso, o Sispetro gera corretamente as informações no arquivo. Porém o validador I-Simp gera não conformidade, pois considera uma única nota fiscal em função da mesma chave de acesso. Com isso, gera erros nos campos Valor Total Informado por Finalidade, Total Geral de Entrada e Estoque Final Próprio. Uma chave de acesso pode ser informada para várias notas fiscais de entrada caso o Sispetro NÃO ESTEJA CONFIGURADO para validar. Para validar a chave de acesso no Sispetro acesse 
+Menu Ferramentas / Sistema / aba Nota Fiscal / opção VALIDA CHAVE DE ACESSO INFORMADA EM NF's DE TERCEIROS.

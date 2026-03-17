@@ -1,0 +1,112 @@
+TITULO: Versão 7.19.4
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2902165908
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 29/08/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 30/08/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ não há 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 2 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 0 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 2 
+
+
+
+
+
+
+Financeiro
+
+
+
+
+Baixa de Títulos de Vendor não sugere a CC de Vendor como CC Baixa
+
+Ao fazer uma baixa de Títulos vinculados a um contrato de Vendor o Sistema deveria colocar no campo CC Baixa a CC Vendor e não deveria deixar o usuário alterar, porém isso não estava acontecendo. Esse erro foi corrigido e a CC Vendor está sendo sugerida devidamente. 
+UPA (CCF 14264)
+
+
+
+
+Vendas
+
+
+
+
+Pedido de Venda não Pega Custo Financeiro da Condição de Pagamento
+
+Na versão 7.19, devido à reorganização da Aprovação de Pedido de Vendas, algumas procedimentos básicos foram recodificados. Numa dessas recodificações, um procedimento que calcula o custo financeiro do pedido de venda ficou com falha. Caso o custo financeiro estivesse cadastrado no Cliente, o mesmo ia para o Pedido. Agora se o custo financeiro estiver cadastrado na Condição de Pagamento ele não é enviado no pedido, deixando o preço a vista. Esse problema foi corrigido. 
+UPA (CCF 14258)
+

@@ -1,0 +1,37 @@
+TITULO: Estrutura do Layout de Importação - Adiantamentos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899526
+--------------------------------------------------
+Este modelo foi projetado inteiramente pela Futura Tecnologia com a finalidade de importar os adiantamentos a fornecedores e adiantamentos de clientes.
+Para importar o adiantamento deve-se criar um arquivo texto .csv sendo que o cabeçalho desse arquivo deve ser a coluna 
+campo
+ da tabela abaixo.
+É mais fácil utilizar uma planilha eletrônica (excel, google sheets entre outras) para montar esse arquivo e depois salvar como 
+.csv
+Layout do Modelo - Futura
+Campo
+Descrição
+Tipo
+F (Fornecedor) ou C (Cliente)
+Número Documento
+Número do documento (numérico)
+CNPJ Emitente
+CNPJ do emitente NF com ou sem máscara
+Data Emissão
+Data de emissão dd/mm/yyyy
+Valor
+Valor total do título (utilizar vírgula para separar decimais, com duas casas decimais)
+Data Fluxo
+Data de fluxo dd/mm/yyyy
+Código do Histórico
+Código do histórico
+Histórico
+Histórico do título (até 60 caracteres)
+Informações Adicionais
+Informações adicionais do título (até 80 caracteres)
+Tipo de Documento
+Tipo de documento do título
+Conta Gerencial
+Código de exportação da conta gerencial  
+** mesmo código tem que estar preenchido no campo 
+Código Exportação do Plano de Contas *** NÃO PODE SER CONTA DE ENTIDADE  tem que ser uma conta de contra-partida (débito para Adiantamento de Clientes e crédito para Adiantamento de Fornecedores)***
+Adiantamentos, eles são importados de acordo com a empresa conectada no qual é feito a leitura. Tendo mais de um "CNPJ", os arquivos precisam ser separados. Ex.: Adto_001.txt / Adto_002.txt / Adto_003.txt

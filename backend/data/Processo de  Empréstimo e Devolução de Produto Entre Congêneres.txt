@@ -1,0 +1,129 @@
+TITULO: Processo de  Empréstimo e Devolução de Produto Entre Congêneres.
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2970977459
+--------------------------------------------------
+Este documento visa orientar Armazenadoras, como proceder em emprestimo entre congêneres..
+O primeiro passo é fazer a movimentação do produto transferindo a propriedade do mesmo, esse processo é feito através do recurso Manutenção de Movimento entre Depósitos.
+Através do menu 
+Movimentação > Estoque >Manutenção de Movimentação Entre Depósitos
+Para fazer a transferência, clique no botão 
+Data de Movimentação:
+ Informe a data que o produto será movimentado no estoque.
+Quadro Origem: 
+Esse quadro determina qual empresa está emprestando o produto, ou seja qual emprasa o Sispetro vai dar saída no estoque.
+Empresa: 
+Enforme o código da empresa que está emprestando o produto, no exemplo estamos utilizando a Congênere 1
+Depósito:
+ Informe o Depósito de Origem em que o Sipetro vai fazer a movimentação de Saída.
+Código do Histórico:
+ Utilize um Histórico que facilite a identificação da operação, esse histórico vai parecer na tela de fechamento de estoque.
+Descrição: 
+Exibe a descrição do histórico, permite complemento para melhorar a identificação da operação.
+Movimenta Estoque Físico: 
+É de extrema importancia que esse perfil esteja marcado em operações que possui estoque físico, para que o Sispetro faça a movimentação física juntamente com o processo escritural.
+Quadro Destino: 
+Esse quadro determina qual empresa está recebendo o produto emprestado, ou seja qual emprasa o Sispetro vai dar entrada no estoque.
+Empresa: 
+Enforme o código da empresa que está pegando emprestado o produto, no exemplo estamos utilizando a Distribuidora Congênere 2.
+Depósito:
+ Informe o Depósito de Destino em que o Sipetro vai fazer a movimentação de entrada, nesse caso utilizamos o mesmo depósito de origem pois o produto está apenas trocando de propriedade.
+Código do Histórico:
+ Utilize um Histórico que facilite a identificação da operação, esse histórico vai parecer na tela de fechamento de estoque.
+Descrição: 
+Exibe a descrição do histórico, permite complemento para melhorar a identificação da operação.
+Movimenta Estoque Físico: 
+É de extrema importancia que esse perfil esteja marcado em operações que possui estoque físico, para que o Sispetro faça a movimentação física juntamente com o processo escritural.
+Definido os envolvidos na operação, vamos incluir o item que será movimentado, produto que será emprestado.
+Na mesma tela, na parte inferior, clique no botão "+"
+Como preeencher os itens
+Produto: 
+Código do Produto a ser transferido, com 
+Descrição ao lado.
+Quadro Origem:
+ Só estará habilitado se o perfil Movimenta Estoque Físico do quadro Origem na tela Inclusão de Movimento entre Depósito estiver marcado.
+Tanque:
+ Informar o código do tanque de origem que será feita a movimentação física de saída.
+Botão Régua:
+ Acionará a tela de Dados da Medição, para que se informe os dados da leitura do tanque.
+Temperatura Tanque:
+ Informação da temperatura do tanque do produto
+Temperatura Amostra:
+ 
+Informação da temperatura amostra do produto
+Densidade:
+ 
+Densidade do produto
+Quantidade
+ Ambiente:
+ Quantidade do produto a ambiente.
+Quantidade 20c:
+ 
+Quantidade do produto a 20 graus.
+Valor Unitário:
+ Valor unitário do produto.
+Botão Obtém Fator do tanque Origem: 
+pega os dados de temperaturas e densidade do tanque de origem informado.
+Quadro Destino: 
+Só estará habilitado se o perfil Movimenta Estoque Físico do quadro Destino na tela Inclusão de Movimento entre Depósito estiver marcado.
+Tanque:
+ Informar o código do tanque destino que será feita a movimentação física de saída.
+Botão Régua:
+ Acionará a tela de Dados da Medição, para que se informe os dados da leitura do tanque.
+Temperatura Tanque:
+ Informação da temperatura do tanque do produto
+Temperatura Amostra:
+ Informação da temperatura amostra do produto
+Densidade:
+ Densidade do produto
+Quantidade
+ Ambiente:
+ Quantidade do produto a ambiente.
+Quantidade 20c:
+ 
+Quantidade do produto a 20 graus.
+Valor Unitário:
+ Valor unitário do produto.
+Botão Obtém Fator do tanque Origem: 
+pega os dados de temperaturas e densidade do tanque destino informado.
+Pontos importantes a considerar:
+A opção
+ 
+Movimenta Estoque Físico
+ 
+somente será habilitada quando o Depósito for
+ 
+Base Própria
+.
+As opções de seleção de
+ 
+Tanque, Temperatura Tanque, Temperatura Amostra e Densidade
+, encontradas na tela
+ 
+Itens da Movimentação entre Depósitos
+, somente estarão habilitadas caso a opção
+ 
+Movimenta Estoque Físico
+ 
+esteja marcada.
+Ao informar os códigos dos tanques, os dados de temperatura e densidade são carregados automaticamente, caso os tanques tenham tais dados cadastrados.
+Clicando no botão 
+Régua
+, abre a tela Dados da Medição, para informar os dados da leitura dos tanques origem e destino:
+Após clicar em Salvar, após a tela de itens se fechar, clique em ok para consolidar a movimentação.
+O próximo passo são as Notas Fiscais envolvidas no processo.
+Nota de Retorno de armazenagem (Saída)
+ 
+Como o produto saiu do estoque da 
+Congênere 1
+, deve-se fazer a emissão da nota retorno de armazenagem
+A emissão dessa nota deve ser feita pela tela de Faturamento > Armazenagem > Retorno Armazenagem
+Como esse porcedimento não possui Ordem de Carregamento para sugestão de Item, o usuário deve incluir o item manualmente, com o volume devolvido, juntamente com o vinculo da nota de remessa.
+Nota de Remessa de armazenagem (Etrada)
+Como o produto passou a ser propriedade da empresa 
+Congênere 2
+, porém ainda está dentro do tanque da base, a mesma deve emitir uma nota de remessa de armazenagem para cubrir fiscalmente o produto armazenado na base, a nota também será a origem para vinculo dos retornos de armazenagem.
+Escrituração dessa nota deve ser feita pela tela de Faturamento > Armazenagem > Remessa Armazenagem
+Como esse porcedimento não possui Ordem de Carregamento para sugestão de Item, o usuário deve incluir o item manualmente, com o volume armazenado. 
+Devolução
+Para realizar o processo de decolução, basta fazer o mesmo procedimento, porém invertendo as empresas, utilizando a Congênere 2 como Origem e Congênere 1 como destino.
+Importante salientar que o processo de devolução deve ocorrer após a Congênere 2 possuir estoque para devolução.
+ 

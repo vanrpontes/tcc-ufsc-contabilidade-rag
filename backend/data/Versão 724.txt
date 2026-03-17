@@ -1,0 +1,551 @@
+TITULO: Versão 7.24
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903999006
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 29/11/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 21/12/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd2828 a cmd2854
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 46 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 25 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 21 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Relatórios 
+
+
+ DLLs 
+
+
+ Layouts de Exportação 
+
+
+ Layout de Importação 
+
+
+
+
+
+
+ Apuracao.Rtm 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+Geral
+
+
+
+
+Log de Eventos
+
+
+Alteradas as rotinas de pesquisa na tabela de Log de Eventos do SisPetro e com isso, a partir dessa versão, a exibição dos dados alterados no sistema através dessa tela serão muito mais rápidos que nas versões anteriores.
+ 
+Help:
+ 
+Log de Eventos
+ 
+UPA (CCF 14822)
+
+
+Log do IE Substituição Tela Configuração da Empresa
+
+
+A partir dessa versão estarão sendo logadas todas as alterações de cadastro do IE Substituição feito nas configurações da empresa.
+ 
+Help:
+ 
+Log de Tabelas
+ 
+UPA (CCF 14589)
+
+
+Cadastro de Feriados
+
+Ao tentar incluir um novo feriado, quando o cadastro estava vazio, era gerado um erro ao usuário. Esse problema foi corrigido e agora, mesmo com o cadastro vazio, o usuário poderá cadastrar seus feriados normalmente. 
+UPA (CCF 15144)
+
+
+Cadastro de IE Substituição
+
+
+A partir dessa versão, o cadastro de IE de substituição não será realizado pela grid. Foram criados três botões – Incluir, Editar e Excluir – para fazer as operações necessárias no cadastro.
+ 
+Help:
+ 
+Cadastro de Inscrição Estadual Substituição
+ 
+CPC (CCF 15260)
+
+
+Telas "O que há de novo?" Antigas
+
+
+Removidas do sistema as telas antigas do "O que há de novo?" por agora essa rotina ser feita pela internet. UPA (CCF 15188)
+
+
+Tela Configuração da Empresa aba Histórico
+
+
+Foram incluídos os campos Código de Histórico de Saída e Código OF de Histórico de Entrada OF para a configuração de valor padrão. CPC (CCF 15250)
+
+
+Nome de Tabela Truncado no Log
+
+O nome da tabela alterada no controle de log, dependendo do tamanho do nome da tabela, só estavam sendo gravadas as 30 primeiras posições. Esse problema foi corrigido. 
+UPA (CCF 15374)
+
+
+
+
+Compras
+
+
+
+
+Requisição de Compras
+
+
+A partir dessa versão, as requisições de compras marcadas como emergenciais tornaram obrigatório o preenchimento das observações da requisição.
+ 
+Help:
+ 
+Inclusão de Requisição de Material
+ 
+UPA (CCF 15183)
+
+
+
+
+Contabilidade
+
+
+
+
+Relatório Diário
+
+O relatório foi alterado para considerar dados de todas as contas movimentadas no período independente de estarem ativas ou não na emissão do mesmo. 
+CPC (CCF 14173)
+
+
+Alteração de Lote Gerencial
+
+
+A inclusão de um novo movimento foi alterada para alertar o usuário quando a Conta Contábil for do tipo Banco.
+ 
+Help:
+ 
+Alteração de lote Contábil
+ 
+CPC (CCF 13766)
+
+
+Baixa de Bens
+
+
+Foi incluída opção de escolher a data da baixa, possibilitando assim, fazer baixas com data retroativa.
+ 
+Help:
+ 
+Baixa Bens
+ 
+CPC (CCF 12431)
+
+
+Depreciação de Patrimônio
+
+Foi criado um campo “Participa” na grid de Bens para definir se os registros que estão visíveis vão participar do processo de depreciação. 
+Por padrão o sistema marca esse campo; se o mesmo estiver desmarcado, o sistema não possibilita marcar o campo “Contabiliza”
+. 
+CPC (CCF 13756)
+
+
+Movimentação CIAP Patrimônio
+
+Foi criado um campo “Participa” na grid de Movimento para definir se os registros que estão visíveis vão participar do processo de movimentação. 
+Por padrão o sistema marca esse campo; se o mesmo estiver desmarcado, o sistema não possibilita marcar o campo “Contabiliza”
+. 
+CPC (CCF 13756)
+
+
+Campo de Fórmula do Valor no Código de Contabilização
+
+
+Alterado para 250 caracteres o tamanho do campo Fórmula do Valor. CPC (CCF 15342)
+
+
+Registro I051 (Plano Referencial) no SPED ECD
+
+
+Incluída a geração do registro I051 (Plano de Contas Referencial) no SPED ECD. GSN (CCF 15321)
+
+
+
+
+Estoque
+
+
+
+
+Placa na Consulta Movimento Estoque Escritural
+
+
+Na tela de Consulta Movimento Estoque Escritural são apresentadas as movimentações de estoque e a partir dessa versão, será apresentada também a placa do veículo que efetuou essa movimentação.
+ 
+Help:
+ 
+Consulta Movimento Estoque Escritural
+ 
+UPA (CCF 13924)
+
+
+Ajuste CMV de Estoque Físico
+
+
+O campo Tanque foi alterado para abrir a tela de pesquisa somente quando tiver tanque(s) cadastrado(s) para o estoque. CPC (CCF 14601)
+
+
+Temperatura Negativa do Diesel Metropolitano no SmartCard
+
+O processo de automação de portaria via Smartcard permite a leitura da temperatura do produto pelo cartão. Só no Diesel Metropolitano, quando a temperatura é negativa não está sendo identificada essa temperatura. Alterada a rotina de leitura e a partir dessa versão esse problema foi corrigido. 
+UPA (CCF 13976)
+
+
+Manutenção de Ordem de Fabricação
+
+
+Foram incluídos os campos Código de Histórico de Saída, Histórico de Saída, Código de Histórico de Entrada e Histórico de entrada para 
+permitir a escolha de Histórico de Entrada e Histórico de Saída para a Ordem de Produção
+.
+ 
+Help:
+ 
+Ordem de Fabricação
+ 
+CPC (CCF 15250)
+
+
+Alteração de Transportadora na Manutenção de Ordem de Carregamento
+
+A partir dessa versão, o botão para mudança de transportadora na manutenção de ordem de carregamento só estará habilitado se a ordem de carregamento selecionada for da empresa em que o usuário está conectado. 
+UPA (CCF 15415)
+
+
+
+
+Faturamento
+
+
+
+
+Validação do Centro de Custos na Inclusão de Nota Fiscal
+
+
+Na emissão de notas fiscais, caso esteja configurado para informar manualmente os centros de custos, será validado se o usuário informou o mesmo centro de custos mais que uma vez. Essa validação irá evitar que sejam gerados erros no momento da gravação da nota fiscal. UPA (CCF 14093)
+
+
+Campo Fórmula Custo da tabela Natureza de Operação
+
+
+Alterado o tamanho do campo de 80 para 250 caracteres. CPC (CCF 14716)
+
+
+Log de Alteração no Cadastro de Inutilizações
+
+
+A partir dessa versão, todas as alterações efetuadas na Manutenção de Inutilização serão logadas. UPA (CCF 14537)
+
+
+Erro ao Excluir Natureza de Operação não Utilizada
+
+Ao tentar excluir uma natureza de operação não utilizada estava sendo gerado um erro pelo sistema. Esse problema foi corrigido e a exclusão agora ocorre sem problemas. 
+UPA (CCF 15153)
+
+
+Processo de XML
+
+
+Alterado o processo de XML para enviar o PIS e COFINS da Nota Fiscal Eletrônica conforme configuração do “Outros Impostos” vinculados à Nota Fiscal.
+ 
+Help:
+ 
+Envio de PIS e COFINS no XML da NFe
+ 
+CPC (CCF 14863)
+
+
+Validação de Natureza de Operação de Venda correta
+
+Alterado para não fazer a validação de Natureza de Operação em NFs de Venda que são importadas, já que estes tipos de Notas permitem várias naturezas diferentes. 
+GSN (CCF 15382)
+
+
+Emissão de Nota Fiscal
+
+Alteração na utilização do fator de conversão de unidade de medida que calcula a quantidade dos itens, para dividir ao em vez de multiplicar a quantidade pelo fator de conversão. 
+CPC (CCF 13141)
+
+
+Impostos na Nota Fiscal e Análise de Custos
+
+
+As rotinas de calculo de impostos do SisPetro foram centralizadas para que sejam as mesmas a serem utilizadas na emissão de notas fiscais e análise de custos. 
+Com essa alteração, não será gerada nenhuma diferença entre o custo calculado na tela de analise de custos com a tela de emissão de notas fiscais.
+ UPA (CCF 15252)
+
+
+Importação de Nota Fiscal
+
+A checagem de CNPJ válido da empresa destinatária na importação de Nota Fiscal, foi ajustada para formatar o campo antes de fazer a validação, pois quando o campo não estava na formatação padrão, o sistema estava apresentando um erro. 
+CPC (CCF 9452)
+
+
+Verificação da Natureza de Operação na Emissão de Notas de Saídas
+
+Na tela de Consulta de Pedidos Aprovados e Não Faturados, ao Faturar o pedido o SisPetro sugere a Natureza de Operação conforme configurado no Cadastro de Produtos. Para fazer isso é verificado o produto, a atividade econômica do cliente e a UF do cliente (para saber se é dentro ou fora do estado). O problema é que na Nota Fiscal toda a validação de UF é conforme a UF de faturamento da NF, e não a UF do cadastro principal do cliente. A partir dessa versão, iremos sugerir a Natureza de Operação para a Nota Fiscal de Venda conforme a UF de Faturamento do pedido que está sendo faturado. 
+UPA (CCF 15410)
+
+
+
+
+Financeiro
+
+
+
+
+Log na Faixa de Vencimento do Tipo de Desconto Automático
+
+
+Incluído Log de alteração na Faixa de Vencimento do Tipo de Desconto Automático. UPA (CCF13810)
+
+
+Manutenção de Conciliação Bancária
+
+
+Incluídas duas validações no processo de conciliação manual para checar se os registros selecionados para fazer o vínculo são do mesmo Tipo e da mesma Data.
+ 
+Help:
+ 
+Conciliação Automática - Conciliando o Extrato
+ 
+CPC (CCF 13863)
+
+
+Cancelamento de Baixa
+
+
+Alterado o processo de Cancelamento de Baixa para: Quando o usuário estiver na Aba Lançamentos, não perguntar qual a Data de Cancelamento de Baixa; Se o perfil de empresa “Sugere a data atual como data de cancelamento” estiver habilitado, utiliza a Data Atual para o preenchimento da Data de Cancelamento, se o perfil estiver desabilitado, utiliza a Data do Fluxo.
+ 
+Help:
+ 
+Como cancelar uma baixa
+ 
+CPC (CCF 12943)
+
+
+Baixa de título
+
+Foi criada uma validação para não permitir a utilização de adiantamento de outras filiais para mais de um título na mesma baixa. 
+Help:
+ 
+Utilização do Crédito Cliente (Adiantamento)
+ 
+CPC (CCF 15127)
+
+
+Inclusão ou Alteração de Título
+
+Correção na validação de valores financeiros do PMM para quando for título vinculado gerado por nota fiscal, fazer a validação dos valores utilizando o número do pedido dos itens da nota fiscal e não pelo número do pedido. 
+CPC (CCF 15369)
+
+
+
+
+Fiscal
+
+
+
+
+Perfil SPED EFD
+
+
+Foi criado um campo no cadastro de empresas para permitir o tipo do perfil do SPED EFD na configuração do perfil da empresa.
+ 
+Help:
+ 
+Perfil SPED EFD
+ *CPC (CCF 14421)
+
+
+Fechamento de Nota Fiscal
+
+
+Foi incluída uma checagem que só verifica se há estoque fechado se a Nota Fiscal está configurada para movimentar estoque. CPC (CCF 15058)
+
+
+Manutenção do Tipo de Apuração
+
+Temos a tabela de Tipo de Apuração que possui algumas informações para o ajuste de valores na Apuração de ICMS. Porém, a partir da última versão que teve alterações nesta tabela o campo "Código para uso do livro eletrônico" não está sendo salvo. Problema corrigido. 
+UPA (CCF 15133)
+
+
+Registro C190 - SPED-EFD
+
+
+Otimizada a performance de preenchimento do Registro C190. 
+As fórmulas do registro foram alteradas para não utilizar as tabelas NotaFiscal e ItensNF.
+ GSN (CCF 14812)
+
+
+Número do Livro de Apuração
+
+Alterado layout do Livro de Apuração para imprimir o Número do Livro informado na tela de impressão. 
+Necessário atualizar o arquivo Apuracao.rtm no caminho dos relatórios.
+ GSN (CCF 15367)
+
+
+Número da Página na Apuração
+
+Alterado layout do Livro de Apuração para imprimir corretamente o número da página e os históricos dos ajustes. 
+Necessário atualizar o arquivo Apuracao.rtm no caminho dos relatórios.
+ GSN (CCF 15346)
+
+
+Busca de Itens na Apuração
+
+Alterada a tela de pesquisa de apurações apresentada no botão "Busca Itens" para apresentar apurações canceladas. 
+GSN (CCF 15346)
+
+
+Apuração Livro Fiscal
+
+Alterado o histórico dos ajustes (Outros Débitos/Créditos, etc) que ao imprimir a apuração estava saindo truncada. Alterado a numeração da página que estava saindo incorreta na impressão da apuração do ICMS ST. Ajustado a buscar de itens na tela de Apuração, que só estavam sendo apresentadas as apurações não canceladas. 
+GSN (15346)
+
+
+
+
+Vendas
+
+
+
+
+Travamento Temporário - Pedido de Venda
+
+A partir de uma determinada versão, ao escolher um cliente na tela de Pedido de venda, o usuário às vezes tinha que esperar uns 5 segundos para continuar a próxima operação. Apesar de ser um tempo pequeno, isso não ocorria antes e, em vários pedidos, acaba se tornando um tempo considerável. 
+MCL (CCF 14578)
+
+
+Validação de produto bloqueado para venda no município
+
+
+Foi criado um campo "Endereço Para Validação" nas configurações de Empresas para definir qual o endereço do Cadastro de Entidade deve ser utilizado para fazer a validação. Possibilitando assim, fazer a validação pelo endereço principal, ou de entrega, ou de cobrança, ou de faturamento. CPC (CCF 14619)
+
+
+
+
+Transportes
+
+
+
+
+Exclusão de Frota
+
+Corrigido problema que não estava permitindo excluir um frota do sistema. 
+UPA (CCF 14801)
+

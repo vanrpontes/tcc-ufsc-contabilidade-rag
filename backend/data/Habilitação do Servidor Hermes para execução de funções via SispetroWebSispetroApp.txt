@@ -1,0 +1,53 @@
+TITULO: Habilitação do Servidor Hermes para execução de funções via SispetroWeb/SispetroApp
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926197298
+--------------------------------------------------
+Introdução
+Certas rotinas expostas pelo SispetroWeb/SispetroApp não são executadas por ele e sim pelo 
+ que repassa estas informações ao SispetroWeb/SispetroApp, pois são funções inerentes ao ambiente Windows do 
+.
+Para indicar qual 
+ irá processar estas requisições geradas via SispetroWeb/SispetroApp, criamos esta opção.
+Passos
+Atualizar o SispetroMon
+;
+Criar ou editar os dados através do menu Servidor Sispetro via 
+Manutenção do Monitoramento Servidor Sispetro
+ no SispetroMon. Para indicar qual 
+, habilite a opção 
+Habilita WebService
+.
+Habilitar a execução de WebServices no 
+ escolhido dentro do 
+. Ir até o mesmo, acessar a opção 
+SisPetroWEB
+ e selecionar a opção: 
+Iniciar o serviço
+, conferir o IP configurado no monitor para que seja o mesmo do 
+ em questão e a Porta do Webservice sejam os mesmos cadastrados acima.
+Note que você pode configurar o Serviço do WebService para que seja iniciado automaticamente marcando o checkbox: 
+Executar Automaticamente Quando Servidor for Iniciado
+Para compartilhar a carga do SispetroWEB, podemos ter um segundo Hermes e para isso precisamos incluir no SispetroMon esse segundo Hermes e ele será utilizado para todas as outras funções que não exijam vínculo com o S3.
+O primeiro Hermes listado no SispetroMon deve ser sempre um S3
+No SispetroApp, dentro da tela de atualização, serão mostradas as URLs consideradas como S3 e Hermes normal pelo Servidor Sispetro.
+Essa tela é atualizada após novo login do usuário
+Também se faz necessário, configurar o segundo Hermes (o qual normalmente chamamos de Hermes Serviços) no Hermes Controlador.
+Abaixo temos o exemplo da configuração tanto do Hermes S3 como do Hermes Serviços, reparem que cada um deles está configurado em portas distintas:
+Hermes S3
+Hermes Serviços
+Importante:
+ Essas portas configuradas, devem estar liberadas no firewall do Windows. Para maiores informações, acionar a equipe de TI de sua empresa.
+Algumas dicas úteis:
+Caso a segunda via de boleto seja um procedimento a ser utilizado, deve-se verificar se o caminho do layout de arquivo do boleto é acessível pelo 
+. Verificar e ajustar este local na tela de 
+Aba Impressão
+ da manutenção de tipos de cobrança. Para assegurar-se de que o caminho é valido e acessível pelo 
+, basta acessar a 
+manutenção de notas fiscais
+ no SisPetro Normal 
+solicitando o envio do boleto via e-mail
+ informando seu e-mail para destinatário. Este procedimento executa o mesmo procedimento que o WebService utiliza para gerar o boleto.
+Caso o caminho do layout do boleto não seja configurado corretamente ou o título não seja de cobrança eletrônica, não será gerado erro no procedimento e sim o arquivo será criado vazio.
+Notar que a maior parte dos problemas relacionados à geração da segunda via de boleto pelo SispetroWeb/SispetroApp, decorrem 
+do caminho do layout do boleto estar configurado incorretamente
+ (o 
+ não encontra este arquivo).

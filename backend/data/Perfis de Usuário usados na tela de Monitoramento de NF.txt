@@ -1,0 +1,82 @@
+TITULO: Perfis de Usuário usados na tela de Monitoramento de NF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5463506993
+--------------------------------------------------
+Este sistema de controle de permissões foi desenvolvido para 
+aumentar a segurança e precisão
+ das operações de importação de Notas Fiscais. Ele permite que administradores definam exatamente quais informações cada usuário pode editar, evitando alterações acidentais ou não autorizadas em dados críticos.
+Pré-configurações importantes
+Perfis de acesso já existentes que serão utilizados:
+Pode mudar Transportadora/Frota na NF
+Altera hora de entrada das mercadorias
+Pode incluir/excluir parcelas
+Pode alterar valores de parcelas
+Pode alterar data de vencimento
+Objetivo principal
+Controlar quem pode editar informações durante a importação de Notas Fiscais
+O que você pode controlar
+Definir quais usuários podem modificar informações específicas:
+Quem pode alterar o número da Nota Fiscal
+Quem pode mudar a entidade (cliente/fornecedor)
+Quem pode editar os itens da Nota Fiscal
+Quem pode ajustar transportadora e frota
+Quem pode modificar horários de entrada
+Importante saber:
+Os novos controles virão ativados por padrão para todos os usuários
+Como configurar
+Passo 1: Acessar configurações de usuários
+Vá em 
+Cadastros > Usuários
+Selecione o usuário que deseja configurar
+Abra a aba 
+"Faturamento"
+Passo 2: Ativar/desativar permissões
+No grupo 
+"Importação de Notas Fiscais"
+:
+Permitir alterar número da NF
+Permitir alterar entidade
+Permitir editar itens
+🔍 
+Marque as caixas para permitir ou desmarque para bloquear cada acesso
+Passo 3: Entenda como funciona na tela principal
+Quando o usuário for editar uma Nota Fiscal:
+O que pode ser feito
+Onde configurar
+Alterar número da NF
+"Permitir alterar número da NF"
+Mudar entidade
+"Permitir alterar entidade"
+Ajustar transportadora/frota
+Perfil existente "Pode mudar Transportadora/Frota"
+Modificar hora de entrada
+Perfil existente "Altera hora de entrada"
+Passo 4: Permissões nos itens e parcelas
+Na aba 
+Itens
+ da Nota Fiscal:
+Todos os campos só podem ser editados se o usuário tiver a permissão 
+"Permitir editar itens"
+Na aba 
+Parcelas
+:
+Botão 
+Excluir
+ só aparece com o perfil "Pode incluir/excluir"
+Botão 
+Editar
+ só aparece se o usuário tiver 
+ambos
+ os perfis:
+"Pode alterar valores"
+"Pode alterar data vencimento"
+Passo 5: Edição de parcelas
+Ao editar uma parcela:
+Campo 
+Data
+ só pode ser alterado com "Pode alterar data vencimento"
+Campo 
+Valor
+ só pode ser modificado com "Pode alterar valores"
+Para mais informações:
+Painel Faturamento (Usuários)
+ 

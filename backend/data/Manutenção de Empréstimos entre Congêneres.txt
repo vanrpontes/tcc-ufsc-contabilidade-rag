@@ -1,0 +1,176 @@
+TITULO: Manutenção de Empréstimos entre Congêneres
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4335501313
+--------------------------------------------------
+none
+Objetivo
+Na manutenção de empréstimos é possível incluir e dar manutenção aos empréstimos manuais e automáticos. Além disso, é possível visualizar o(s) produto(s) que o compõem, além de visualizar seu Status de processamento.
+A manutenção de Empréstimos é acessada através do 
+Menu Movimentação / Base / Manutenção de Empréstimos
+Aba Empréstimos
+Nessa aba será possível visualizar os empréstimos conforme os filtros informados. 
+É possível fazer filtros por 
+período, 
+por 
+Depósito 
+e por 
+Situação.
+Itens inativos agora ficarão destacados em 
+vermelho
+Status: 
+mostra o status do processamento. Ele pode ser:
+Pendente processar
+Processado
+Erro
+Empresa Cedente: 
+a empresa que cedeu o empréstimo
+Empresa Tomadora: 
+a empresa que recebeu o empréstimo
+Erros:
+ mostra o erro do processamento no processo de inclusão da OC ou da Portaria
+#ID: 
+o ID do empréstimo
+Data: 
+data da inclusão do empréstimo
+Automático:
+ marcado para empréstimo automático
+Aprovado: 
+marcado caso o empréstimo tenha sido totalmente aprovado
+Cancelado: 
+marcado caso o empréstimo tenha sido cancelado
+Origem: 
+há três origens
+Não se aplica:
+ para empréstimos manuais
+Finalização da Portaria:
+ o empréstimo foi feito automaticamente, na finalização da portaria
+Inclusão da OC:
+ o empréstimo foi feito automaticamente, na finalização da portaria
+Tipo Movto.: 
+mostra qual a ação que o SisPetro fará ao empréstimo ser processado
+Somente Inclusão de OC
+Inclusão de OC e Processo de Portaria
+Cód. Depósito: 
+código do depósito
+Depósito:
+ descrição do depósito
+Data Inclusão:
+ data da inclusão do empréstimo
+#Histórico: 
+código do histórico utilizado na OC de carregamento
+Histórico Carregamento: 
+descrição do histórico de carregamento
+#Histórico: 
+código do histórico utilizado na OC de descarregamento
+Histórico Descarga:
+ descrição do histórico de descarregamento
+#ID OC:
+ identificador da OC no banco de dados
+#OC Origem:
+ número da OC de origem
+#ID OC: 
+identificador da OC no banco de dados
+#OC Carregamento: 
+número da OC de Carregamento
+#OC Descarga: 
+número da OC de Descarga
+Data Aprov. Cedente: 
+data da aprovação do usuário cuja empresa irá ceder o empréstimo
+Usuário Aprov. Cedente: 
+nome do usuário cuja empresa irá ceder o empréstimo
+Data Aprov. Armaz:
+ data da aprovação do usuário da armazenadora
+Usuário Aprov. Armaz.:
+ nome do usuário de aprovação da armazenadora
+#Transportadora: 
+código da transportadora utilizada
+Transportadora: 
+nome da transportadora
+#Frota:
+ código do frota
+Frota:
+ placa do frota
+#Carreta: 
+código do carreta
+Carreta: 
+placa do carreta
+#Treminhão: 
+código do treminhão
+Treminhão: 
+placa do treminhão
+#Frota4: 
+código do frota 4
+Frota 4: 
+placa do frota 4
+Aba Itens
+Nessa aba será possível visualizar os itens do empréstimo.
+Produto: 
+mostra descrição do produto e o código entre colchetes
+Quantidade: 
+mostra a quantidade do item
+Botões
+Inclui: 
+permite incluir um empréstimo manual. 
+Empresa Tomadora: 
+empresa que receberá o empréstimo
+Empresa Cedente:
+ empresa que irá emprestar o produto
+Depósito:
+ Depósito utilizado na inclusão das OC
+Data: 
+data da inclusão do empréstimo
+Histórico para OC de Carregamento:
+ conforme configurado no Depósito
+Histórico para OC de Descarga:
+ conforme configurado no Depósito
+Tipo de Movimentação:
+ ação que o SisPetro irá realizar após o empréstimo ser processado pelo serviço do Hermes.
+Transportadora:
+ transportadora que será utilizada na inclusão das OC de Carregamento e Descarga
+Frotas: 
+frota que será utilizado na inclusão das OC de Carregamento e Descarga
+Carreta: 
+carreta que será utilizado na inclusão das OC de Carregamento e Descarga
+Treminhão: 
+treminhão que será utilizado na inclusão das OC de Carregamento e Descarga
+Frota 4: 
+frota 4 que será utilizado na inclusão das OC de Carregamento e Descarga
+Quadro Itens: 
+nesse quadro é possível informar quais produtos e quantidade serão incluídos na OC de Carregamento e Descarga. 
+Botões:
+Inclui: 
+permite incluir um produto e sua quantidade
+Altera: 
+permite alterar os dados de um produto já incluído
+Exclui: 
+exclui as informações do produto incluído
+Altera: 
+permite alterar um empréstimo já incluído. Será aberta uma tela igual a da inclusão, porém ela não permite alterar empresa e depósito. Só é permitido alterar empréstimos manuais 
+não aprovados
+ (fundo amarelo). Além disso, para o usuário alterar o perfil de usuário da aba Carregamento 
+Pode incluir/alterar Empréstimo manual 
+deve estar marcado. Para mais informações, ver 
+Painel Carregamento (Usuários)
+Cancela: 
+permite cancelar um empréstimo, caso o status dele esteja diferente de 
+Processado. 
+Além disso, para cancelar um empréstimo o perfil de usuário da aba Carregamento 
+Pode cancelar Empréstimo 
+deve estar diferente de 
+Nenhum. 
+Para mais informações, ver 
+Painel Carregamento (Usuários)
+Aprova: 
+permite aprovar um empréstimo incluído. Para aprovar um empréstimo os perfis de usuário da aba Carregamento 
+Pode aprovar Empréstimo como Empresa Cedente 
+e/ou 
+Pode aprovar Empréstimo como Armazenadora
+ devem estar marcados. Para mais informações, ver 
+Painel Carregamento (Usuários)
+ e 
+Empréstimo Subsequente
+Legenda: 
+mostra a legenda das cores utilizadas 
+Atualiza: 
+atualiza as informações conforme filtros utilizados
+Sai: 
+fecha a tela de empréstimos

@@ -1,0 +1,152 @@
+TITULO: Monitoramento da Importação de NF-e/CT-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926197152
+--------------------------------------------------
+none
+Objetivo
+O processo de importação de notas fiscais via serviço foi criado para facilitar a entrada de notas via XML, visando agilizar o processo de entrada de notas.
+Após a nota ser importada ela pode ser vista através do Menu
+ Movimentação / Faturamento / Monitoramento Importação NF
+ O processo é dividido em 4 serviços: 
+1 - Serviço de Leitura de Arquivo
+Realiza a leitura dos arquivos em um determinado diretório e os inclui no SisPetro. Comparando com a importação manual, esse processo é praticamente o mesmo de quando o usuário clica no botão 
+Importa
+ e seleciona o arquivo. 
+Para mais informações, ver 
+Serviço de Importação de NF - Leitura de XML
+2 - Aplicação do De/Para
+O serviço de De/Para é praticamente o mesmo que o manual. Caso ele esteja ativo, o SisPetro aplicará o De/Para nas notas em questão e, dependendo do resultado, liberar ou deixar pendente de confirmação de processamento. Comparando esse processo com a importação manual, ele é praticamente o mesmo que ocorre quando é selecionada a nota. O SisPetro pega a nota, aplica os De/Paras necessários e, se tudo estiver a contento, deixa ela disponível para processar. 
+Para mais informações, ver 
+Serviço de Importação de NF - De/Para
+ 
+O SisPetro aplica o De/Para que está 
+cadastrado no Fornecedor
+, e caso não tenha um De/Para cadastrado será utilizado o De/Para que está vinculado ao Processo de Importação informado no 
+perfil de Sistema
+ 
+Processo para NF-e 
+para as NF-e ou 
+Processo para CT-e 
+para os CT-e
+.
+Nesse serviço é possível verificar junto a SEFAZ se a nota está cancelada ou não. Importante lembrar que o SisPetro faz a consulta após a aplicação do serviço, guarda-a e 
+não faz mais nenhuma consulta
+, a não ser que o usuário na aba Consulta SEFAZ, através do botão 
+Consulta
+ realize uma nova verificação antes de processar a nota fiscal.
+Esse botão fica ativo caso o status da consulta seja 
+Não encontrada/denegada
+Para habilitar a consulta basta acessar o menu 
+Ferramentas / Sistema / Importação de NF - Verifica situação da NF-e/CT-e na SEFAZ antes de importar? 
+É possível, caso o perfil de sistema esteja marcado, desabilitar para alguma UF o serviço de Consulta de NF-e e/ou de CT-e. Esse recurso é útil quando alguma UF apresenta problema nesse serviço de consulta, pois é possível somente desabilitá-la, permanecendo com a consulta nas demais UF. Para mais informações ver 
+Tabela Unidades Federativas - UF
+.
+Caso a nota importada esteja cancelada o SisPetro não permite a importação.
+3 - Transformação de NF
+O Serviço de Transformação irá alterar dados da nota fiscal. O processo de análise de transformação ocorrerá após a aplicação do processo de De/Para. Verifique em 
+Serviço de Importação de NF - Transformação
+ como ativar o serviço. Logo após o processo de De/Para o serviço de transformação iniciará a análise verificando o cadastro de regras para importação. Caso o serviço encontre a regra para determinada importação, automaticamente será substituído o valor obtido do XML pelo valor definido na regra. 
+Para mais informações, ver 
+Transformação no processo de importação
+.
+4 - Processamento da Nota Fiscal
+O serviço de processamento é a inclusão da nota. Ativando esse serviço o SisPetro processará e incluirá todas as notas que estejam com tudo OK. Comparando com a importação manual, esse processo é o mesmo de quando o usuário clica no botão 
+Processa
+. 
+Para mais informações, ver 
+Serviço de Importação de NF - Faturamento
+.
+Dessa forma a empresa poderá optar por trabalhar com esses serviços de diversas formas, podendo incluir a nota direto no SisPetro ou deixar pendente de confirmação no meio do processo. A configuração do perfil de sistema 
+Painel Importação de NF
+ 
+é feita para algumas situações que são necessárias na importação:
+Importação de NF-e:
+ definição de ações a serem tomadas pelo SisPetro na importação.
+Depósito a ser utilizado na NF:
+ definição como informar um depósito na nota fiscal.
+Importação de CT-e:
+ definição de um produto referente ao frete e de data de movimentação
+Caso a situação de frete seja diferente de 2 ou 4 na NF-e não será será exigido vinculo de CT-e na importação.
+Tela de Monitoramento da Importação de NF/CT
+Após realizar a leitura do arquivo Xml, as notas irão para a tela de Monitoramento da Importação de NF/CT, será por essa tela que iremos realizar todo o processo de importação. 
+Esta é a tela de consulta das Notas Fiscais Importadas via Serviço. Os dados serão apresentados de acordo com o filtro Empresa e Status Processamento após acionar o botão Atualiza 
+Aba Dados a Serem Validados 
+Para mais informações, ver 
+Monitoramento da Importação de NF-e/CT-e - Dados a Serem Validados
+Aba Notas Fiscais a Serem Validadas.
+Para mais informações, ver
+ 
+Monitoramento da Importação de NF-e/CT-e - Notas Fiscais a Serem Processadas
+Informações importantes
+Preenchimento do Depósito em NF importada via Serviço
+A forma de preenchimento do depósito vai ser definida conforme
+ perfil de Sistema 
+e
+ Perfil de Natureza, 
+podendo ser Fixo, vir sempre Vazio. Obter pelo CNPJ Retirada ou Emitente (se possível)
+No menu 
+Ferramentas / Sistema / aba Importação de NF
+, grupo Depósito a ser utilizado na NF, perfil 
+Regra Depósito Serviço Importação NF
+. 
+Para mais informações, ver 
+Painel Importação de NF
+Na configuração da natureza em Tabelas Auxiliares > Faturamento > Natureza de Operação / Aba Detalhes / Importação de NF / Perfil 
+Depósito.
+ 
+Para mais informações, ver 
+Importação NF (Painel Geral)
+Hoje é salvo o 
+Depósito Retirada
+ na aba 
+Notas Fiscais a Serem Processados
+, onde é preenchido com o Depósito que tiver o CNPJ igual ao CNPJ Retirada obtido (caso tenha mais de um depósito, será o de menor Código). Essa informação será utilizada para casos que o perfil de Sistema 
+Regra Depósito Serviço Importação NF
+ estiver utilizando a opção 
+Obter pelo CNPJ Retirada ou Emitente (se possível)
+ e o perfil de Natureza 
+não estiver para pegar o Depósito da OC.
+ Dessa forma, o depósito informado na nota será conforme o desse campo de Depósito de Retirada. Para salvamento do Depósito, são aplicadas as seguintes regras:
+Natureza Operação Vincula OC?
+Na Natureza Operação utiliza o Depósito da OC?
+Preenchimento Depósito (quando não obtido da OC)
+Depósito a ser utilizado
+Indiferente - não será verificado
+Vazio - ao vincular a OC será preenchido
+Fixo
+O depósito informado na Configuração de Sistema
+Vazio
+Vazio
+Obter pelo CNPJ Retirada ou Emitente (se possível)
+  
+Depósito Retirada
+Trabalhando com a liberação após aplicar o De/Para
+Após o serviço de leitura realizar a inclusão das notas, será a vez do serviço de De/Para realizar o De/Para de cada nota e liberar à mesma para processamento. Nesse ponto teremos 2 formas de trabalhar, podendo ser: 
+Realiza o De/Para e aguarda a confirmação, para liberar a nota para Processamento
+ ou 
+Realiza o De/Para e já realiza a conformação da nota, liberando a mesma para processamento
+.
+Essas duas opções são definidas através do perfil de Natureza de operação 
+Processamento Serviço Importação NF. Para mais informações, ver 
+Importação NF (Painel Geral)
+.
+Após realizar a conferência da nota, basta selecionar a mesma e acionar o botão 
+Libera para Processamento
+.
+Trabalhando com a liberação de depósito
+Após realizar a inclusão da nota temos a opção de deixar o SisPetro configurado para aguardar a liberação do Depósito. Essa opção é muito útil já que em muitos casos o deposito de entrada da nota pode variar. Para exigir a liberação do depósito basta utilizar a opção, 
+necessário confirmar antes de importar NF
+ do perfil de SisPetro 
+Confirmação Depósito Serviço importação NF
+.
+Geração Automática de Remessa para Armazenagem
+Caso a natureza de operação utilizada na nota importada esteja configurada para gerar uma nota de remessa automática a nota de remessa será gerada e ficará pendente de processamento na tela de manutenção de Nota Fiscal, aguardando o processamento manual, que deverá ser realizado pelo usuário. No meio desse processo, caso o SisPetro encontre qualquer problema ao gerar a nota de remessa, a nota não será gerada e o motivo será gravado no 
+Log do Servidor Hermes
+. Todo o processo referente a nota de remessa automática é realizado após o processamento da nota de importação. Logo não implica na importação da nota fiscal.
+O processo de importação de nota possui várias validações antes de finalizar a importação. 
+Para mais informações, ver 
+Validações Importação de Nota Fiscal
+Para mais informações, ver:
+Monitoramento da Importação de NF-e/CT-e - Dados a Serem Validados
+Monitoramento da Importação de NF-e/CT-e - Notas Fiscais a Serem Processadas
+Validações Importação de Nota Fiscal
+Abas Monitoramento da Importação de NF-e/CT-e

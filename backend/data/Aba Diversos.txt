@@ -1,0 +1,70 @@
+TITULO: Aba Diversos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892890535
+--------------------------------------------------
+O acesso é feito através do Menu Tabelas Auxiliares / Vendas / Tipo de Cobrança / Aba Por empresa / Sub Aba Diversos
+Quadro Acréscimo:
+Por este painel, o usuário tem a possibilidade de informar um valor adicional nas parcelas do Contas Pagar/Receber.
+As opções de configuração são:
+Acréscimo no Valor das Parcelas:
+Sem Acréscimo:
+ ao ser utilizada essa cobrança, o sistema não irá modificar o valor gerado no contas a Pagar ou Receber;
+Por Parcela:
+ cada parcela gerada, terá um acréscimo ou decréscimo, conforme o valor ou percentual configurado no campo 
+Valor de Acréscimo
+;
+Único:
+ o valor do campo 
+Valor do Acréscimo
+, será dividido pelas parcelas. Cada parcela terá um acréscimo ou decréscimo desse valor.
+Tipo de Valor de Acréscimo:
+Valor:
+ caso seja informada esta opção, o campo 
+Valor de Acréscimo
+ deverá receber um valor fixo, que pode ser positivo (acréscimo) ou negativo (desconto);
+Percentual:
+ caso seja informada esta opção, o campo 
+Valor de Acréscimo
+ deverá receber um percentual a ser aplicado ao valor da parcela, podendo também ser positivo (acréscimo) ou negativo (desconto).
+Valor de Acréscimo:
+ o valor ou percentual a ser considerado para o acréscimo ou desconto.
+Exemplo: A nota fiscal gerada utiliza um tipo de cobrança configurado para ter um acréscimo de R$2,00. Esse acréscimo é por parcela. Ao finalizar a nota fiscal, o sistema automaticamente gera um título no contas a receber com o valor da Nota Fiscal. Neste caso, como o tipo de cobrança está configurado para ter um valor de acréscimo de R$2,00, cada parcela gerado no Contas a Receber que seja vinculada a essa nota fiscal terá um acréscimo de R$2,00. A nota fiscal ficará com o seu valor original, apenas o financeiro que terá esse acréscimo. Caso o tipo de acréscimo fosse do tipo "único", os R$2,00 seriam divididos pelo número de parcelas e acrescentados em cada uma delas. Esse recurso é útil para casos que seja necessário cobrar despesas bancárias.
+Exemplos de combinações possíveis podem ser vistas em 
+Acréscimos e Descontos
+.
+O campo Valor de Acréscimo, poderá receber um valor negativo, que representaria um decréscimo ou um valor positivo que seria um acréscimo, mas para isso, o usuário precisa ter permissão que pode ser configurada através do Menu Ferramentas / Usuário / Perfil / Aba Vendas / Quadro Preços / Opção: 
+Pode alterar acréscimo no Tipo de Cobrança
+Quadro Depósito Identificado: 
+caso o Tipo de Cobrança selecionado utilize Depósito Identificado:
+Banco:
+ permite ao usuário definir o Banco que utiliza a opção de Depósito Identificado
+Depósito Identificado na NF:
+ permite ao usuário definir como é gerado o código de identificação do Depósito Identificado:
+Não gera Número:
+ não irá gerar código;
+Gera a partir do Número da NF:
+ gera o código conforme o Número da NF;
+Gera a partir do CNPJ:
+ gera o código conforme o CNPJ;
+Para que o SisPetro gere o código do Depósito Identificado, o Banco vinculado a este Tipo de Cobrança deve estar com o parâmetro 
+Faz Leitura de Arquivo de Depósito Identificado
+ marcado
+Quadro Auto Atendimento:
+Envio de e-mail da Cobrança:
+Envia: 
+selecionado irá enviar o e-mail de cobrança com o boleto para pedidos do SisPetroApp - AutoAtendimento.
+Não Envia: 
+selecionado não irá enviar o e-mail de cobrança com o boleto via SisPetroApp - AutoAtendimento.
+Quadro Transferência de Títulos entre Empresas: 
+caso a empresa queira transferir automaticamente o título do Contas a Receber gerado por Nota Fiscal
+Transfere o título para outra Empresa: 
+se marcado, todos os títulos gerados a partir desse Tipo de Cobrança serão automaticamente baixados na empresa controlada e transferidos para empresa 
+Controladora 
+dos recebíveis.
+Empresa Responsável: 
+qual será a empresa que irá receber os títulos gerados (empresa 
+Controladora
+)
+Conta para Uso na Transferência: 
+qual será a conta utilizada para baixa dos títulos gerados
+Para mais informações, ver 
+Transferência de títulos a Receber entre Empresas

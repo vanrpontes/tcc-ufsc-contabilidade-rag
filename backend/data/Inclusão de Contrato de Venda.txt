@@ -1,0 +1,83 @@
+TITULO: Inclusão de Contrato de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898623
+--------------------------------------------------
+A inclusão de Contrato de Venda é acionada a partir do Menu Movimentação / Vendas / Manutenção Contrato Venda / botão Inclui. A seguinte tela será apresentada para digitação dos dados:
+O SisPetro irá sugerir a 
+data
+ atual para a data da inclusão do contrato e será preciso informar:
+#Contrato: 
+número do contrato gerado automaticamente.
+Data: 
+data de inclusão do contrato de venda, onde será sugerida a data atual. 
+Entidade:
+ código do 
+cliente
+ para o contrato de venda. Sendo possível utilizar representante para isso habilitar o perfil 
+Uso de Contrato de Venda de Representantes
+ em 
+Painel Vendas
+ 
+Produto:
+ código do 
+produto
+ que está sendo contratado.
+Depósito:
+ código do 
+depósito
+ que armazena esse produto. Como padrão, traz o depósito padrão de vendas da empresa, definido em 
+Painel Vendas
+Vendedor:
+ código do 
+vendedor
+ que está fechando o contrato.
+Condição Pagamento:
+ 
+condição de Pagamento
+ negociada no contrato.
+Quantidade
+: quantidade que está sendo contratada.
+Preço unitário:
+ preço Unitário do produto negociado.
+Frete unitário:
+ preço Unitário do frete negociado.
+Data limite Retirada:
+ data limite para retirada do produto, ao emitir um pedido de venda só será possível realizar o vinculo caso a data de entrega do pedido de venda seja menor ou igual à data Limite do contrato.
+Endereço de entrega:
+ endereço de entrega deve estar previamente cadastrado no 
+Cadastro de Cliente
+ no painel Outros Endereços.
+Retira/Entrega: 
+define a modalidade do frete negociado no contrato.
+Valor do contrato x Pedido no contrato de venda:
+ indica se no momento do vinculo do contrato com o pedido, o contrato terá o Valor do pedido sobreposto com o valor do contrato ou se o valor do pedido permanece inalterado mesmo com o vínculo. Esse campo pode estar habilitado ou desabilitado para alteração do usuário dependendo da sua permissão. Estando ou não desabilitado, é sugerido o que estiver configurado nas configurações da empresa (para mais informações,ver 
+Configurações no Perfil
+). Para mais informações, ver 
+Painel Vendas (Usuários)
+.
+Valor do Frete X Pedido: 
+define se será utilizado indicado no contrato, ou se calculará o frete padrão do Pedido de Venda.
+Aprovação Automática de Pedidos: 
+este perfil determinará se o Pedido de Venda vinculado ao contrato passará pelo fluxo de 
+Aprovação Financeira
+ ou será aprovado automaticamente.
+O Perfil será sugerido de acordo com o 
+Perfil de Sistema
+ 
+Aprovação de Pedidos vinculado a Contato de Venda
+.
+ 
+O usuário poderá alterar este campo habilitando, o 
+Perfil de Usuário
+ 
+Pode alterar Aprovação Automática Contato de Venda.
+Clique em 
+OK
+ para incluir o contrato.
+O contrato ficará com o status pendente. O status será alterado conforme o cliente for pagando e retirando o produto. Após a inclusão do Contrato de Venda, o SisPetro automaticamente abrirá a tela de 
+Controle de Cota - Contrato de Venda
+ Contrato de Venda.
+Clique no botão 
+Cancela
+ para interromper o processo de inclusão.
+Veja também.
+6. Contrato de Venda

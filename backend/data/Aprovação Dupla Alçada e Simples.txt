@@ -1,0 +1,47 @@
+TITULO: Aprovação Dupla: Alçada e Simples
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4572020737
+--------------------------------------------------
+Objetivo
+Será necessário em situações específicas dentro de uma empresa ter ambas as aprovações, como exemplificado abaixo:
+Compra de Suprimentos: exigindo aprovação por Alçada, para mais detalhes consulte "Aprovação por Alçada".
+Compra de Combustíveis: demandando aprovação Simples, para mais informações consulte "Aprovação Simples".
+Irá ocorrer em situações que em uma mesma empresa, se faça necessário ter as duas aprovações, como por exemplo:
+Compra de Suprimentos: aprovação por Alçada. Para mais informações, ver 
+Aprovação por Alçada
+Compra de Combustíveis: aprovação Simples. Para mais informações, ver 
+Aprovação Simples
+Primeiro passo será realizar o cadastro do Tipo de PMM, para podermos informar os Setores Permitidos para cada um, neste nosso exemplo iremos separar em Tipo Normal e Tipo Compra de Combustíveis.
+Cadastrar Tipo de PMM, para mais informações, ver 
+Tipos de PMM
+Cadastrar Tipo de PMM 
+Normal 
+ e 
+Compra de Combustível
+Marcar a opção 
+Verifica Setores Permitidos
+Na aba Setores Permitidos:
+Tipo de PMM Normal: Selecionar todos os Setores, menos 
+Suprimentos
+Tipo de PMM Compra de Combustível, selecionar apenas Setor de 
+Suprimentos
+Configuração de Sistema, acessando: Ferramentas / Sistema / Aba Aprovação por Alçada. Para mais informações, ver 
+Painel Aprovação por Alçada
+Pedido de Movimentação de Matreial (PMM), selecione 
+Aprovação Simples
+, clique em OK e entre novamente na Aba Aprovação por Alçada.
+Clique em configurar Perfis / Aba Setores / clique em Editar e no Tipo de Aprovação, selecione 
+Alçada
+, após isso configure os Perfis, faça isso em todos os Setores
+, menos no Suprimentos, 
+este deixe como
+ Respeita Perfil da Empresa
+Configuração de Usuário, Ferramentas / Usuário / Aba Compras, marque a opção 
+Obriga informar Tipo de PMM
+. Para mais informações, ver 
+Painel Compras (Usuários)
+Com está configuração feita, quando um usuário do 
+Setor de Suprimentos
+ realizar um PMM e informar o 
+Tipo de PMM Normal
+, dará mensagem ao final que este setor não é permitido para este tipo de PMM e vice-versa, porém isso não implicará em o Setor de Suprimentos realizar uma requisição, pois o mesmo será realizado como Requisitante e não Setor que fará a compra.
+Realizando PMMs de ambos tipos, poderá verificar que apenas o do Tipo Normal irá solicitar aprovação por alçada, já o Tipo de Compra de Combustível, irá permanecer sendo aprovação Simples.

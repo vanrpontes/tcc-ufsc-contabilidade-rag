@@ -1,0 +1,42 @@
+TITULO: Saldo Inicial de Conta Real
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878900280
+--------------------------------------------------
+A função disponibilizada para retornar o saldo inicial de uma conta contábil real numa determinada data é a 
+CalculaSaldoInicialContaReal
+. Ela retorna um valor do tipo Extended que é o saldo da conta. Pode-se ter um saldo por empresa ou grupo empresa. Não é possível ter o saldo geral.
+
+
+Esta função tem a seguinte estrutura de parâmetros:}
+
+
+CalculaSaldoInicialContaReal(<
+Código da Conta
+>,<
+Código da Empresa
+>,<
+Data
+>,<
+Código do grupo Empresa
+>)
+
+
+Código da Conta:
+ é o código reduzido da conta no plano de contas real.
+
+
+Código da Empresa:
+ código da empresa para o qual se quer o saldo, caso se opte pelo saldo de um grupo empresa, colocar 0.
+
+
+Data:
+ a data para o qual se quer o saldo inicial da conta.
+
+
+Código do grupo Empresa:
+ código do grupo empresa para o qual se quer o saldo, caso se opte pelo saldo de uma empresa, colocar 0.
+
+
+Eis um exemplo da utilização da função para o saldo por grupo empresa:
+
+
+Variable1.Value := CalculaSaldoInicialContaReal(PlanoContasReal['SeqContaRed'],PlanoContasReal['CodEmpresa'], xData, 0);

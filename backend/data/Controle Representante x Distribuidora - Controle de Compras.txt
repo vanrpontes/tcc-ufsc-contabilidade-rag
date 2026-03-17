@@ -1,0 +1,60 @@
+TITULO: Controle Representante x Distribuidora - Controle de Compras
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5239046175
+--------------------------------------------------
+Objetivo.
+Apontar as ferramentas do SisPetro utilizadas para controlar o processo de Compras entre o Representante, Distribuidora (alguns chamam de barriga) e Vendedor. 
+Glossário:
+CCS - Conta Corrente SisPetro:
+ é uma conta do tipo Banco (código BC00001 por exemplo) utilizada para controle.
+Como Funciona o controle de compras
+Ação
+No SisPetro
+Representante / Vendedor fecha contrato com uma Usina.
+Inclui um 
+PMM
+ para controlar esse contrato e:
+Marca para Gerar um contrato de venda 
+Indica o Representante no PMM
+Inclui Despesa vinculada ao PMM
+ gerando um Contas a Pagar para a Distribuidora (SPREAD da Compra). Nesse ponto o usuário pode:
+incluir uma despesa apenas com o total do SPREAD
+Incluir uma despesa com o valor do pagamento que é feito no ato do fechamento do contrato (conforme negociação) e outra com o valor restante
+Representante faz o pagamento do SPREAD para Distribuidora no momento que o contrato foi fechado
+Na 
+Manutenção de Contas a Pagar
+, localizar o título com o valor do Spread e faz a baixa do % selecionando a conta do Banco.
+Caso seja utilizado um Bem para pagar o valor do Spread, deve-se
+Criar uma 
+Conta
+ (CCS) do tipo Banco de 
+Bens em poder da Distribuidora
+Na Manutenção de Bancos fazer um lançamento transferindo o valor Bem da sua conta para conta 
+Bens em poder da Distribuidora
+Na Manutenção de Contas a Pagar, localizar o título com o valor do Spread. 
+Fazer a baixa utilizando como conta de contrapartida a CCS da Distribuidora.
+Fazer um lançamento na CCS da Distribuidora com o valor pago, usando como conta de contrapartida a a CCS do 
+Bens em poder da Distribuidora
+Representante vai retirar o produto na Usina já direcionando para as vendas
+Na manutenção de Bancos faz uma transferência da conta banco do Representante para CCS a Distribuidora.
+Na manutenção de Adiantamentos a Fornecedor:
+Incluir um Adiantamento Quantificado para a Usina, informando o PMM e indicando como conta de contrapartida a CCS da Distribuidora.
+O processo acima pode ser feito também via  Manutenção de Pedidos de Movimentação de Material  botão 
+Adto
+. Por aqui não é necessário informar o PMM
+Incluir uma OC  de Transferência entre Depósitos informando o PMM. 
+Representante faz o recebimento do produto da Usina.
+Lança a NF manualmente
+, vinculando a OC criada
+Na 
+Manutenção de Contas a Pagar
+:
+Localizar o título criado com a nota recebida
+Faz a baixa utilizando o Adiantamento gerado. 
+Representante apura Spread a Pagar de um determinado período para pagar a Distribuidora
+Na 
+Manutenção de Contas a Pagar
+:
+Localizar o Título gerado no início do contrato com o valor apurado
+Vincula NF 
+recebida da Usina referente ao período no Título
+Faz a baixa usando a CCS da Distribuidora como contrapartida

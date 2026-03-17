@@ -1,0 +1,95 @@
+TITULO: Versão 8.30
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924286897
+--------------------------------------------------
+Dados
+Informações
+Início
+30/09/2015
+Final
+15/10/2015
+Scripts
+CMD830.sql (3897 a 3905)
+Itens
+14
+Implementações
+5
+Correções
+9
+DLLs
+SisPetroControl.Dll
+ 
+ 
+Avisos importantes
+A partir desta versão a geração do Título de Desconto Automático está disponível no Faturamento Automático
+Geral
+Melhoria de performance da tela de Clientes
+Feita alteração para melhoria de performance da tela.
+ 
+FLS (CCF 29179)
+Contabilidade
+ 
+Classificação do Produto no Controladoria
+A Manutenção de Produtos do SisPetro Controladoria foi alterada pra que ao selecionar uma classificação, apenas complemente o cadastro e o usuário não precise preencher os demais campos.
+ PRFC (CCF 29255)
+Estoque
+ 
+Ajuste na alteração de quantidade 20c das entradas no fechamento de estoque
+As Notas Fiscais de compra são normalmente emitidas com a quantidade a 20 graus, sendo que no processo de inclusão o Sispetro iguala quantidades conforme a quantidade informada na inclusão. No entanto
+ as Notas Fiscal de Bombeio, no Fechamento de Estoque, as quantidades a 20 graus e quantidade ambiente eram invertidas. Essa alteração corrige a inversão das quantidades citadas acima e permite a correta alteração de ambas as quantidades
+. 
+Help: 
+Utilizando Faturamento Automático
+  
+ 
+FLS (CCF 28451)
+Observação da Nota Fiscal 
+Quando eram feitas notas fiscais via faturamento automático, as quais possuíam estados diferentes entre cliente comprador e o faturado o sistema não considerava as informações das observações do cliente faturado e sim do comprador. Corrigido. 
+FLS (CCF 29324)
+Faturamento
+Cálculo e Geração de Títulos de Descontos no Faturamento Automático 
+O processo de Faturamento Automático de Pedidos de Venda foi alterado para permitir o cálculo e geração de títulos de desconto para os pedidos selecionados, desde que a Natureza de Operação esteja configurado para tal. 
+Essa implementação visa facilitar o faturamento de modo que o usuário possa escolher também pedidos de venda que gerem desconto.
+ 
+Help:
+ 
+Configurando Geração de Título de Desconto Automático
+ PRFC (CCF 28093)
+Baixa Automática no Faturamento Automatico
+O processo de Faturamento Automático foi alterado para executar os procedimentos para efetuar a Baixa Automática após a emissão das Notas Fiscais. 
+Com essa alteração, alem de processar a baixa, o usuário poderá visualizar aviso referente ao processo na tela de Faturamento Automático.
+ 
+PRFC (CCF 29262)
+Motorista e Transportadora na Nota Fiscal
+Independente do que fosse informado na Ordem de Carregamento ou PMM o SisPetro sugeria, na inclusão da Nota Fiscal, o vínculo de Motorista e Transportadora que estava informado no Cadastro de Transportadora. Foi corrigido para respeitar o que foi informado na OC no PMM, reduzindo o risco de gerar erros de preenchimento. Será sugerido Transportadora Vinculada apenas quando não tiver transportador informada. 
+FLS (CCF 29440)
+Unidades de Medidas no PMM
+Na inclusão de notas fiscais estava considerando as unidades de medida do cadastro de produtos, sendo o correto considerar as unidades informadas no PMM. Corrigido. 
+FLS (CCF 29442)
+Botão Cancela em Manutenção de Ordem de Carregamento
+Na tela de manutenção de ordem carregamento foi corrigido o problema no botão cancela, o qual não estava respeitando as configurações do perfil de usuário para estar habilitado ou não. 
+FLS (CCF 29625)
+ 
+Financeiro
+Inclusão de Títulos Recorrentes no valor de 0,01
+O Sispetro não permitia incluir títulos recorrentes no valor de 0,01. Essa situação foi corrigida. 
+FLS (CCF 29379)
+Baixa multi-empresa do Contas a Receber
+Foi criada a Tela de Baixa Multi-Empresa. Serão apresentados os Títulos, que podem ser de empresas distintas e também de entidades Faturadas diferentes. O novo recurso pode ser muito útil para empresas que trabalhem com escritório centralizado, assim obrigando o usuário a fazer a baixa de todas as empresas e também o caso de empresas que trabalhem com grandes compradores, veja mais informações no help. 
+Baixa multi-empresa do Contas a Receber
+. CPC (CCF 29263)
+Melhoria de performance da tela de Manutenção de Cheques
+Feita alteração para melhoria de performance da tela.
+ 
+FLS (CCF 29179)
+Fiscal
+Campos da tabela ItensNFFechamento
+Os campos da tabela ItensNFFechamento e da tabela ItensNF devem ser iguais. Alguns campos da tabela ItensNFFechamento estavam diferentes. Esses campos foram corrigidos. 
+FLS (CCF 29522)
+ 
+Transporte
+Campo da tabela Deposito
+Removido o campo VolumeConsiderado da tabela Deposito pois o mesmo está obsoleto e em desuso 
+.
+ 
+FLS (CCF 28937)
+ 

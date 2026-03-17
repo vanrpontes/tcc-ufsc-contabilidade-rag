@@ -1,0 +1,63 @@
+TITULO: Função GetValorICMSFretePorItem
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/6016729132
+--------------------------------------------------
+A função 
+GetValorICMSFretePorItem
+ tem como objetivo 
+obter
+ o 
+valor
+ do 
+ICMS do Frete
+ e 
+deduzir
+ do 
+valor unitário
+ do 
+frete
+ na 
+NF de Compra
+.
+Esta função obtém o valor proporcional do ICMS do frete em CT-e quando tem mais de uma NF-e vinculada ou tem uma NF-e vinculada com mais de um item.
+Exemplo de Fórmula com a Função GetValorICMSFretePorItem
+wide
+760
+(<ItensNF.PrecoReal> + isnull(<ItensNF.FreteUnitReal>,0))-(if <ItensNF.QtdeAmb > = 0 then 0 else GetValorICMSFretePorItem(<ItensNF.CodEmpresa>,<ItensNF>Sequencial>,<ItensNF.NumItem>)/<ItensNF.QtdeAmb> endif)
+As funções 
+GetPISCTeVinc 
+e 
+GetCOFINSCTeVinc 
+tem como objetivo 
+obter
+ os 
+valores 
+do 
+PIS
+ e da 
+COFINS
+ e 
+deduzir
+ do 
+valor unitário
+ do 
+frete
+ na 
+NF de Compra.
+Exemplo de Fórmula com as funções GetPISCTeVinc e GetCOFINSCTeVinc
+wide
+760
+(<ItensNF.PrecoReal> + isnull(<ItensNF.FreteUnitReal>,0))-((if <ItensNF.QtdeAmb> = 0 then 0 else GetValorICMSFretePorItem(<ItensNF.CodEmpresa>,<ItensNF>Sequencial>,<ItensNF.NumItem>) + GetPISCTeVinc(<ItensNF.CodEmpresa>,<ItensNF>Sequencial>,<ItensNF.NumItem>) + GetCOFINSCTeVinc(<ItensNF.CodEmpresa>,<ItensNF>Sequencial>,<ItensNF.NumItem>)) / <ItensNF.QtdeAmb> endif)
+Após a inclusão do CT-e é necessário atualizar o Custo Médio ( 
+Atualização de Custo Médio
+ ) para que o SisPetro possa recalcular o CMV já deduzindo o valor do ICMS do Frete e os valores de PIS e COFINS, caso tenha e queira deduzir tais valores.
+A fórmula só deduzirá o ICMS do CT-e e dos valores de PIS e COFINS após o mesmo estar vinculado com a NF de Compra
+Formula para Livro Fiscal
+A função GetUFDestCTe tem como objetivo identificar o Estado/Cidade de Origem do CT-e, onde foi carregado.
+Sispetro Controladoria
+Arquivo / Formula para Livro Fiscal
+Detalhes
+ : uf
+Exemplo de Fórmula com a Função GetUFDestCTe
+wide
+760
+GetUFDestCTe(<NotaFiscal.CodEmpresa>,<NotaFiscal.Sequencial>)

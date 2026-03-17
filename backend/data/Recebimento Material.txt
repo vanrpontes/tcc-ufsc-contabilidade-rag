@@ -1,0 +1,45 @@
+TITULO: Recebimento Material
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701676
+--------------------------------------------------
+O processo de recebimento de Nota Fiscal quando a empresa controla 
+Pedido de Movimentação de Material
+ com 
+Ordem de Carregamento de Transferência
+ deve ser acessado a partir do Menu
+Movimentação / Movimentação de Material / Recebimento de Material.
+O sistema irá perguntar se o 
+Recebimento é através de Ordem de Carregamento
+Responder que 
+Sim
+ para que seja possível fazer o vínculo com a OC de Transferência que foi gerada com pedido de movimentação de material. Necessário para pedidos cujo tipo de recebimento seja 
+Transferência entre Depósitos
+ ou 
+Transferência entre Filiais
+.
+Caso a OC de Transferência seja faturada parcialmente, desmarcar a opção 
+É o último item da OC? 
+e marcá-lo apenas na última nota fiscal que será faturada para essa OC. Caso seja necessário cancelar as Notas Fiscais deve-se cancelar primeiro a que foi marcada com a opção É o último item da OC.
+Responder que 
+Não
+ para recebimentos diretos, sem OC, ou seja para pedidos cujo tipo de recebimento seja 
+Direto do Fornecedor
+. Vide 
+.
+Inclusive esta NF pode gerar Contas a Pagar (manual ou por meio de NF) em moeda estrangeira. Para mais informações, vide o link 
+Inclusão de Contas a Pagar em moeda estrangeira
+.
+Se no momento da inclusão da OC de transferência foi feito também o vínculo com um 
+Contrato de Venda futura
+ no final desse processo de recebimento será gerado automaticamente uma OC de Venda e um Pedido de Venda.
+A partir da versão 9.22 temos a opção de utilizar a opção de grupo econômico no recebimento. Veja detalhes de como configurar o grupo econômico para fornecedor em 
+Grupo Econômico - Fornecedores
+.
+Ao configurar a empresa para trabalhar com grupo econômico de fornecedor, no recebimento o usuário só conseguira alterar o Fornecedor para um que participe do mesmo grupo econômico. 
+A partir da versão 10.15 é possível alterar os centros de custos vindos do PMM na inclusão da nota, para isso a Natureza de operação deve utilizar a opção de 
+Usuário Informa 
+no perfil 
+ Preenchimento C. Custo
+. Veja mais em 
+ e 
+Critérios para Utilização de Centro de Custo
+.

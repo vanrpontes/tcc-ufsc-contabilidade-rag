@@ -1,0 +1,50 @@
+TITULO: Sintegra
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210684
+--------------------------------------------------
+A partir da versão 8.37, a DLL 
+SispetroSintegra.dll
+ não é mais necessária para executar a Consulta Sintegra. O processo é feito internamente no Servidor SisPetro.
+a)
+ 
+Regras
+ 
+Gerais
+Cada UF tem o seu site de consulta, assim, dependendo da UF cadastrada para o cliente, é que o processo será realizado.
+Em todas as UF é imprescindível a informação do CNPJ, sem ele não é possível nem iniciar a consulta. Em alguns estados é também necessário ter a Inscrição Estadual (IE), como Maranhão e Minas Gerais.
+Em algumas UF não é permitida a consulta através de um sistema. Nestes casos, é solicitado, no momento da consulta, que se digite o texto constante numa imagem. Por ser imagem, não tem como o sistema decifrar esse texto, isso é possível somente a olho nu. Então, para estas UF o SisPetro não estará fazendo a consulta. Atualmente, são elas:
+São Paulo
+Rio de Janeiro
+Rio Grande do Sul
+Paraná
+Santa Catarina
+Amazonas
+Veja exemplo de imagem solicitada nestes sites:
+O SisPetro se baseia num endereço disponível atualmente para o site da UF. No entanto, a UF poderá mudar esse endereço sem aviso prévio. Caso isso aconteça o SisPetro não conseguirá mais realizar a consulta. Se for o caso, entre em contato com o Suporte Técnico para que seja providenciada a atualização, caso seja possível.
+Além da imagem, citada acima, algumas UF podem ter algumas restrições técnicas para consulta, como é o caso atualmente de Pernambuco e Paraíba. 
+No caso de precisar fazer a consulta manual, utilize o site 
+http://www.sintegra.gov.br
+, escolha a UF e siga as instruções.
+a) Para realizar uma consulta Sintegra \ ANP no Sispetro o usuário deve seguir até o menu Arquivos \ Clientes \ Botão - Consulta On-Line que esta localizado na tela inicial do cadastro de Cliente, Aba Navegação.
+ 
+b) Funcionamento
+ Ao providenciar a consulta, o SisPetro verificará a UF do endereço principal do cliente, o seu CNPJ e a sua Inscrição Estadual. Acionará o site da UF e retornará na tela abaixo a informação encontrada no site:
+A 
+Razão Social
+ apresentada é a Razão Social que o cliente está cadastrado no Sintegra. Essa informação é útil no caso do cliente ter passado o CNPJ de um outro cliente.
+O 
+Status
+ é a tradução que o SisPetro fez do texto constante no campo 
+Situação
+. Como cada UF apresenta um texto diferente para dizer se o cliente está habilitado ou não, o SisPetro traduz todos os diferentes textos para uma das três informações possíveis:
+NÃO CONSULTADO
+HABILITADO
+NÃO HABILITADO
+O campo 
+Desde
+ é informado pelo site para indicar desde quando o cliente encontra-se nesta situação. Algumas UF não disponibilizam essa informação, como é o caso do Pará.
+O campo 
+Atividade
+ indica a atividade que o cliente está cadastrado no Sintegra, também não disponibilizada por todas as UF, como é o caso do Pará.
+É necessário ter o contador cadastrado para a empresa. Para isto, vide o Item 
+Perfis de Sistema para Dados do Contador
+.

@@ -1,0 +1,123 @@
+TITULO: Tabela Classificação Tributária
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5669421057
+--------------------------------------------------
+none
+A
+ Futura 
+já enviou 159 classificações previamente configuradas, tomando como exemplo da classificação 
+620006.  
+Caso seja necessário alterar alguma classificação (ou incluir),  sugerimos utilizar o botão 
+cópia.
+Objetivo
+Essa é a tabela principal para o cálculo do IBS / CBS. Através dela serão feitas as configurações dos cálculos e também das tags a serem enviadas no 
+XML 
+do Documento Fiscal.
+O acesso é feito através do Menu Tabelas Auxiliares / Faturamento / Classificação Tributária
+A inclusão de novas classificações tributárias deve ser feita por usuários com conhecimento da ReformaTributária e/ou sob orientação da Futura.
+Abas
+Navegação
+Nessa aba é possível verificar as informações cadastradas (já disponibilizadas pela Futura)
+Detalhes
+Opções
+Algumas configurações devem ser feitas em 
+conjunto
+, por exemplo:
+Venda governamental
+: as opções 
+Envia tag gCompraGov?
+ e 
+Envia tag gTribCompraGov?
+ devem estar marcados e deve ter preenchido % Redutor Governamental
+Operação com Diferimento:
+ Permite Diferimento? deve estar marcado e deve ter preenchido % Diferimento IBS/CBS
+Para mais informações sobre as tag e grupos veja a 
+Nota Técnica referente a reforma tributária 
+(Reforma Tributária do Consumo – Adequações NF-e / NFC-e Nota Técnica 2025.002-RTC)
+Classificação Tributária Oficial:
+ essa tabela é preenchida exclusivamente pela 
+Futura
+ (tabela IBSCBS_ClassTribOficial do banco de dados)
+Ativa: 
+quando marcado indica se a classificação está ativa
+Informações Adicionais:
+ campo utilizado para descrever (por exemplo) o uso da classificação
+Tipo Tributação: 
+informa se o tipo será Percentual ou Monofásica. São os cálculos iniciais e na nota 
+ou é um ou outro.
+ Contém as opções:
+Nenhum
+Grupo IBSCBSMono (alíquota AdRem) (Adrem = alíquota por quantidade)
+Grupo IBSCBS (alíquota por percentual)
+Quadro IBS/CBS Mono (Adrem): 
+as tags abaixo são relacionadas ao regime de tributação monofásica com alíquota por quantidade (Adrem). Marcado a opção, a tag em questão é enviada no xml 
+Envia tag gMonoPadrao?: 
+indica que a nota tem tributação monofásica (exemplo da classificação 620001)
+Envia tag gMonoReten?: 
+indica retenção na fonte, ou seja quem faz a venda não é quem recolhe o tributo (exemplo da classificação 620002)
+Envia tag gMonoRet?: 
+usada para reembolsar imposto pago em operação anterior (exemplo da classificação 620004)
+Envia tag gMonoDif?: 
+utilizada quando há diferimento (adiamento) no pagamento do imposto (exemplo da classificação 620003)
+Quadro Operação Governamental
+: as tags abaixo são utilizadas em operações governamentais, ou seja, com orgão público que tem um tributo especial
+Envia tag gTribCompraGov?: 
+Grupo de informações da composição do valor do IBS e da CBS em compras governamentais
+Envia tag gCompraGov?: 
+complementa a identificação de operação governamental.
+Tipo de Operação Governamental: 
+informa qual a operação para Orgãos públicos
+Fornecimento (padrão): 
+venda de bens ou serviços 
+Recebimento de Pagamento: 
+operações em que o ente público realiza o pagamento, podendo gerar efeitos tributários distintos
+% Redutor Governamental: 
+redutor aplicado nas operações. 
+Quadro Utiliza alíquota Específica?: 
+marcando essa opção, ao emitir uma Nota Fiscal (NF-e) ou Conhecimento de Transporte (CT-e), utilizando a natureza de operação vinculada a essa alíquota,  o SisPetro irá ignorar a alíquota IBS / CBS do produto e utilizar a alíquota que foi informada nos campos 
+Alíquota IBS 
+e 
+Alíquota CBS.
+Quadro Redução Alíquota: 
+aqui serão informados o percentuais de redução das alíquotas de IBS e CBS além da sua permissão
+ 
+Permite redução de Alíquota?: 
+quando marcado, permite a redução de alíquota informadas abaixo
+% Redução Alíquota IBS
+% Redução Alíquota CBS
+Quadro Diferimento: 
+aqui serão informados o percentuais de diferimento das alíquotas de IBS e CBS além da sua permissão
+ 
+Permite Diferimento?: 
+quando marcado, permite o diferimento de alíquota informadas abaixo
+% Diferimento IBS
+% Diferimento CBS
+Quadro Diversos
+Envia tag gTribRegular? 
+1
+regime tributário regular (não-monofásico) (exemplo da classificação 200022)
+Envia tag gTransfCred? 
+1
+indica que tem transferência de crédito entre estabelecimentos
+Envia tag gAjusteCompet?
+utilizada, por exemplo, em notas complementares de imposto
+Envia tag gEstornoCredc? 
+1
+utilizada em estorno de crédito
+Envia tag gCredPresOper? 
+1
+utilizado em creditamento presumido, ou seja, em notas que permite a empresa tomar crédito do imposto mesmo sem ter a nota (exemplo da classificação 
+3
+Envia tag gCredPresIBSZFM? 
+1
+aplica um crédito presumido especial do IBS para operações relacionadas à Zona Franca de Manaus (ZFM)
+1 
+Para as tags listadas entre gTribRegular e gCredPresIBSZFM só teremos a configuração, não será implementado nenhum cálculo ou preenchimento dessas tags nessa fase!
+Botões
+Incluir (botão mais):
+ permite incluir um novo registro
+Excluir (botão menos)
+: exclui o registro selecionado. 
+Copia:
+ permite copiar a classificação qual está posicionado na aba navegação ou na aba Detalhe. Ao copiar, no campo 
+Informações Adicionais 
+o texto COPIA será inserido

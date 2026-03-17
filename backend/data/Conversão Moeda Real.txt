@@ -1,0 +1,26 @@
+TITULO: Conversão Moeda Real
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926192278
+--------------------------------------------------
+A partir da versão 9.24, a função foi alterada para que seja utilizada também na impressão do DANFE, em função de ajustes para envio de e-mail.
+A função antiga será desativada em breve.
+Esta função foi disponibilizada no Gerenciador de Relatórios com a finalidade de realizar a conversão da Moeda para a moeda Real.
+xMoeda:
+ Campo com a Moeda.
+xValor:
+ Campo com o valor.
+xData:
+ Campo com a data.
+ExibeMensagem:
+ Campo do tipo boolean, que retorna uma mensagem case verdadeiro.
+lReport
+: Campo com informação do objeto do Report Builder
+Para utilização no Gerenciador de Relatórios:
+Coloque uma variável no relatório, e vá até a opção Cálculos da variável.
+Na tela seguinte, o sistema trará a condição Value:=. Após esta condição deve-se digitar a função e os seus respectivos valores.
+Caso queira pode-se vincular campos de tabelas aos campos solicitados na função.
+Exemplo
+value:= ConversaoMoedaToReal2 ('DOLAR',NF['ValNF'] , NF['DataNF'], false, Report.MainReport);
+ 
+ 
+ 
+ 

@@ -1,0 +1,45 @@
+TITULO: Vinculo automático CT-e e frete gerado.
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924285163
+--------------------------------------------------
+A partir da versão 8.27 o SisPetro passará a vincular automaticamente o 
+Conhecimento de Frete importado
+ ao Frete gerado. Veja um exemplo, prático, de como o processo funcionará.
+Emitido um PMM para usina 
+Usina enviou a Nota Fiscal de compra do produto
+É dada entrada nesta NF.
+Feito portaria de entrada e saída.
+É importado o Conhecimento de Frete, referente a venda.
+Como a chave de acesso da Nota Fiscal de compra e chave de acesso da NF acobertada pelo CT-e é a mesma, na Importação o sistema vinculará automaticamente.
+O processo automático só acontecerá se o Conhecimento de Frete for
+ importado
+ e o campo 
+Tipo de Nota Fiscal
+, na Natureza de Operação, for 
+Conhecimento de Frete.
+ Para mais informações, ver
+ 
+. 
+Caso seja dada a entrada manualmente, por outras entradas, o usuário deverá vincular manualmente as NFs como fazia antes. Este processo não foi alterado.
+Na importação do CT-e é possível verificar se a chave de acesso está correta
+ 
+na importação do CT-e. Para mais informações, ver 
+Manutenção de Importação de Notas Fiscais
+.
+É possível verificar o vínculo 
+pela 
+Manutenção de Notas Fiscais
+ aba Fiscal,  aba inferior Documentos Fiscais Vinculados por Nota. Nela serão exibidos todos os vínculos que a NF possui, esteja ela vinculada ou referenciada e também pela 
+Manutenção de Frete
+ aba 
+Apuração de Frete
+ 
+Para empresas que fazem apuração de frete: 
+o vínculo automático será feito somente se no perfil de empresas 
+, 
+no quadro 
+Lançamento/Vínculo de Pagamento ao Frete,  
+o perfil 
+Exige que o frete esteja apurado?
+ 
+esteja selecionado 
+Exige Apuração Antes do Pagamento.

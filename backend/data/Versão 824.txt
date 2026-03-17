@@ -1,0 +1,140 @@
+TITULO: Versão 8.24
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924282438
+--------------------------------------------------
+Versão 8.24
+Dados
+Informações
+Início
+05/05/2015
+Final
+29/05/2015
+Scripts
+CMD824.sql (3703 a 3740)
+Itens
+17
+Implementações
+13
+Correções
+4
+Relatórios
+DLLs
+VinculoPlanoContasRef.rtm
+SisPetroControl.Dll
+DARJBoleto.rtm
+Banco999_ValeCred.dll
+DARJDIP.rtm
+ 
+Avisos importantes
+Foi implementada a sincronização da DARJ junto a SEFAZ do Rio de Janeiro, 
+facilitando a emissão das guias de recolhimento.
+Foi implementada a Cobrança Eletrônica para o banco ValeCred. É necessário a homologação junto ao banco em ambiente de testes antes de colocá-la em ambiente de produção.
+Para emissão do CT-e é necessário atualizar a versão do Sispetro devido retirada de tags a partir de 01/06/2015 (Nota Técnica 2015.001).
+Geral
+Centralização da Tela de Legenda
+O SisPetro Normal, Remoto e Controladoria utilizam duas telas para apresentar as Legendas referentes às configurações. Nessa versão, foi realizada uma melhoria passando a utilizar uma única tela de legenda. CPC (27966)
+Contabilidade
+Plano de Contas Referencial
+ 
+ECD 
+Feitas alterações para oferecer melhor flexibilidade no Plano de Contas Referencial do ECD. Foi disponibilizado relatório para verificar os vínculos entre o Plano de Contas Real e o Plano de Contas Referencial - VinculoPlanoContasRef.rtm. 
+O rtm deve ser carregado pelo Gerenciador do SisPetro Normal
+. Pode ser gerado tanto no SisPetro Normal como no Controladoria. 
+Help: 
+.
+ CPC (CCF 28075)
+SPED
+ 
+ECD 2014 
+Implementados os ajustes necessários, como nova versão e novos registros, para preenchimento e geração da ECD para o ano de 2014. GSN (CCF 28075)
+Dados do Depósito e Produto na Apuração CMV
+Detalhados no cabeçalho do Relatório de Apuração do CMV (via tela de Fechamento de Custo e Consulta Fechamento) os dados do Produto e Depósito. GSN (CCF 28108 , 20111)
+Estoque
+Movimentação de estoque escritural no Bombeio Físico
+ 
+Foi encontrada uma divergência no cálculo do CMV ocasionada por Movimentações Escriturais feitas automaticamente durante o Bombeio Físico. Nessa versão, foi criada a opção de configurar por Deposito, se o SisPetro fará essa movimentação automaticamente ou não. As movimentações físicas serão sempre feitas. 
+Help:
+ 
+Painel Estoque (Usuário)
+ e 
+Depósitos - Aba Dados Adicionais
+ CPC (CCF 26909)
+Volume considerado na Diferença de Descargas
+Foi implementada a funcionalidade para considerar apenas a diferença entre o percentual permitido de diferença e a quantidade real descarregada. 
+Help:
+ 
+Depósitos - Aba Dados Adicionais
+ e 
+Controle de Diferenças em Descargas
+ PRFC (CCF 28079)
+Cancelamento de Distribuição de Bombeio
+Ao cancelar uma Distribuição de Bombeio, é realizada a validação pra verificar se há fechamento de estoque, porém estava sendo verificado todos os depósitos e não apenas o da armazenadora. Nessa versão, a validação foi ajustada e foi implementada uma melhoria pra garantir a correta exibição da mensagem quando houver algum erro. 
+CPC (CCF 27285)
+Problemas na Movimentação em Tanque Virtual
+Dependendo de uma configuração específica no cadastro de empresa o SisPetro estava gerando a movimentação com quantidade negativa no tanque real vinculado ao virtual. Esse problema foi corrigido. 
+PRFC (CCF 27959)
+Faturamento
+Dados de NF Referenciada e OC vinculada no Layout do DANFE
+O SisPetro permite o vínculo de NF ou OC a uma nota. Nessa versão, foram disponibilizados os dados de NF vinculada e OC vinculada no Layout do DANFE. 
+Help:
+ 
+Alteração DANFE Versão 8.24
+ CPC (CCF 21680)
+DARJ - Documento de Arrecadação do Rio de Janeiro
+Está sendo disponibilizado nessa versão a opção de sincronização da DARJ junto Sefaz do Rio de Janeiro. 
+Facilitando o processo de faturamento com a emissão das guias de recolhimento pelo SisPetro
+. 
+Para a impressão da guia de recolhimento utilizar o RTM "
+DARJBoleto.rtm" e para impressão do Demonstrativo de Item de Pagamento (DIP) utilizar o RTM "
+DARJDIP.rtm"
+. Help:
+ 
+Natureza/Receita arrecadação - DARJ
+, 
+Produto Arrecadação - DARJ
+, 
+Painel Documento Arrecadação
+, 
+Documentos de Arrecadação Pendentes
+, 
+Manutenção de Documentos de Arrecadação
+, 
+Painel Faturamento (Usuários)
+ e 
+ UPA (CCF 25897)
+Tipo de Documento
+ na emissão da Nota Fiscal
+Na emissão da Nota Fiscal, o tipo de documento sugerido é o da Natureza de Operação, porém algumas empresas necessitam que seja o da UF. Nessa versão, foi realizada a implementação para utilizar o Tipo de Documento da UF da Natureza. Isso será útil pra casos onde a geração de Título de Desconto varie de UF para UF. CPC (CCF 25897)
+Retiradas de Tags no XML do CT-e
+Retiradas as tags locColeta e locEnt do arquivo .xml do CT-e conforme Nota Técnica 2015.001 em vigor a partir de
+ 01/06/2015
+. 
+Com a versão anterior do Sispetro não será possível a emissão do CT-e, apresentando erro de Falha de Schema.
+ CPC (CCF 28269)
+Financeiro
+Cobrança eletrônica banco ValeCred
+Implementada a cobrança eletrônica para o banco ValeCred. 
+Para essa funcionalidade, deve ser adicionada a Dll Banco999_ValeCred.dll. 
+Help: 
+ CPC (CCF 27508)
+Fiscal
+NF duplicada no SPED EFD Contribuições
+Implementada a consideração de NF Duplicada para que seja apresentada uma única vez com todos os itens das notas às quais se refere no SPED EFD Contribuições. GSN (CCF 28114)
+Servidor SisPetro
+ 
+Senha de Criptografia
+Quando o usuário informava que desejava trabalhar com criptografia no Servidor SisPetro, o campo de senha, mesmo com o servidor em execução ficava habilitado para edição do usuário. Esse problema foi corrigido. 
+UPA (CCF 28153)
+Vendas
+ 
+Novos Tipos no Pedido para permitir o Controle de Vendas para Entrega Futura
+Estaremos implementando o Controle de Vendas para Entrega Futura que fará com que o pedido tenha dois novos tipos: Venda de Entrega Futura e Remessa Entrega Futura. Por isso, na Tela de Manutenção de Produto, foi incluída uma nova aba, Natureza de Operação, e transferido para ela o cadastro de “Natureza de Operação por Produto e Atividade Econômica”. 
+Nesta versão (8.24) deverá ser preenchido, caso precise, as naturezas para o Tipo de Operação "Venda Normal", os demais campos não estão em uso.
+ 
+Na próxima versão, haverá a alteração para que sejam considerados os demais tipos de pedido.
+ 
+Help:
+ 
+ e 
+Natureza de Operação
+ CPC (CCF 25926)
+ 

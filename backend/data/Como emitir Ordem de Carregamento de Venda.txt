@@ -1,0 +1,87 @@
+TITULO: Como emitir Ordem de Carregamento de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440288
+--------------------------------------------------
+A partir da versão 8.23 é possível controlar a numeração de lacres - ver 
+.
+A emissão de uma ordem de carregamento poderá ocorrer de forma manual ou (a mais recomendada) através da tela de 
+Pedidos Aprovados e não Faturados
+, que poderá ser acessada via menu 
+Consulta / Pedidos Aprovados p/ Faturamento
+. Veja maiores informações no tópico 
+.
+Para incluir uma OC de Venda, selecione o Pedido de Venda no quadro superior 
+Pedidos
+ da tela de Pedidos aprovados p/ Faturamento.
+ 
+Após selecionar o pedido de venda, o usuário deverá clicar no botão 
+Faz OC
+Lembrando que para
+ 
+, o sistema não emite ordem de carregamento
+.
+Na tela de Inclusão da OC, o usuário deverá preencher as informações necessárias para a Ordem de Carregamento do pedido de venda desejado. Lembrando que algumas validações serão feitas no momento da inclusão da OC, como por exemplo:
+Entidade
+:
+Se a entidade tem algum impedimento (bloqueios, cnpj inválido, etc) para a emissão da OC. Essa verificação também é feita no momento da emissão do Pedido de Venda, porém se o impedimento for posterior à emissão do pedido, a OC não poderá ser feita.
+Se o perfil da empresa, painel Ordem Carregto - 
+"Não permite OC se não tiver carga definida
+, estiver marcado, ou seja, exigir que haja carga definida para a emissão da OC, o sistema só emitirá a OC se houver carga fechada para o pedido. Vide detalhes em 
+.
+Transportadora/Motorista
+ e 
+Frota
+Após informar esses campos, o Sispetro verifica se a empresa trabalha com Controle de Vencimento do Frota e da Transportadora. Havendo algum controle, e esteja vencido, o Sispetro emitirá uma mensagem informando sobre o Controle de Vencimentos. Veja maiores informações sobre o assunto no 
+Tabela Controle de Vencimentos Frota
+).
+Perfil de Usuário > aba Carregamento > perfil Informa Unidade de Medida do Produto na OC 
+(veja maiores informações no tópico 
+Painel Carregamento (Usuários)
+)
+Este perfil estando marcado, permitirá ao usuário informar o Fator de Conversão Unidade na inclusão da OC, habilitando os campos no quadro de Itens da OC:
+Unidade de Medida:
+ sempre será sugerida a Unidade cadastrada no PMM. Caso não tenha PMM, será sugerida a unidade cadastrada para o Produto, onde somente uma das cadastradas para o produto será aceita.
+Fator de Conversão:
+ sempre será sugerido conforme a unidade de medida informada.
+ 
+Veja maiores informações sobre a emissão da OC no tópico 
+Inclusão de Ordem de Carregamento
+.
+ 
+ 
+Após informar todos os dados da OC, o usuário poderá 
+definir a quantidade de produto para cada compartimentação do caminhão, clicando no botão Compartimentação. 
+Para distribuição de produtos na compartimentação da OC, vide tópico
+ 
+Compartimentação de OC
+.
+ 
+Após o preenchimento correto das compartimentações acione o botão 
+OK
+ para finalizar.
+Validação de Data de Pedido
+Ao finalizar a OC, o Sispetro irá validar a data da OC comparando com a data de entrega do pedido, caso a data de entrega do pedido seja menor que a data da OC, o Sispetro emitirá um alerta, informando: " A data da OC informada é superior a data de entrega, informa a data da entrega e o numero do pedido.Conforme exemplo abaixo:
+ 
+Importante! caso o usuário não possua permissão para alterar a data da OC, ele só poderá emitir OC para entregas na data atual.
+Validação de Prazo para Faturamento após Aprovação de Pedidos 
+Ao finalizar a OC, o Sispetro irá validar o perfil de empresa em Vendas > #
+Prazo para faturamento após aprovação (em dias) 
+(veja maiores informações no tópico 
+). Estando fora do prazo permitido, o Sispetro emitirá um alerta, após a digitação da Ordem de Carregamento, informando 
+a data da aprovação do pedido, a quantidade de dias permitidos e a quantidade de dias foram excedidos.
+ 
+O Sispetro emitirá uma mensagem ao usuário para impressão da OC:
+O layout só será impresso caso o 
+Depósito Origem 
+tenha o RTM configurado. Veja maiores informações no tópico 
+Depósitos - Aba Layout OC
+.
+Finalizando a emissão da OC, retorne para a tela de Pedidos aprovados e não faturados (Pedidos aprovados p/ Faturamento), e observe que o pedido de venda ficou em negrito, vide botão Legenda.
+Para consultar a OC recém emitida, selecione o pedido de venda, e selecione 
+o painel OC's Pedido no quadro do meio da tela. Por esse painel pode-se também imprimir novamente a OC, vide tópico específico 
+Impressão de OC
+, cancelar a mesma, cancelar Fila e alterar Compartimentação. 
+Para consultar e obter maiores informações acesse o tópico 
+Manutenção de Ordem de Carregamento
+.
+Após a emissão da OC, pode-se emitir a Nota Fiscal de Venda. Veja maiores informações no tópico 
+.

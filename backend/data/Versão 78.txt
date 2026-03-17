@@ -1,0 +1,661 @@
+TITULO: Versão 7.8
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2895446098
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 15/06/2010 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 06/08/2010 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd78.sql (cmd2347 a cmd2400) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 59 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 39 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 20 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+ DPMP.rtm, DPMP_Visualizacao.rtm, SCANC.rtm, GIA-SP.rtm, DNF.rtm, ReciboBaixaEletronica.rtm, Adiantamento.rtm,AnexoRef3.rtm, AnexoRef5.rtm, AnexoRef6Conf.rtm, NotasAnexoRef.rtm, ScancRefNF.rtm, ScancRefAnexo6.rtm, sped_ecd.dll, sped_efd.dll 
+
+
+
+
+
+
+Geral
+
+
+
+
+Criação de Empresas
+
+
+Incluída na rotina de criação de empresas a tabela EntidadeCustoFinanceiro, responsável pela configuração de custo financeiro e desconto condicional dos produtos por cliente em cada empresa. UPA (CCF 9621)
+
+
+Foto do Usuário do SisPetro
+
+No cadastro de usuários é possível adicionar a foto do mesmo ao seu cadastro. Porém alguns formatos de imagem estavam gerando erros no sistema na hora de exibí-los. Padronizamos como formato o JPG e com isso não será mais gerado erro ao usuário e ainda ocupando menos espaço no banco de dados. 
+UPA (CCF 9322)
+
+
+Arredondamento de casas decimais
+
+Os procedimentos internos do sistema que referem-se ao arredondamento de casas decimais foram melhorados. 
+ALP (CCF 7815)
+
+
+Atualização das DLL's do SPED CONTÁBIL e SPED FISCAL:
+ substituir as dll's. 
+(CCF 9958)
+
+
+
+
+Compras
+
+
+
+
+Relatório PMM Geral
+
+
+Acrescentados alguns campos da Nota Fiscal e da Ordem de Carregamento para uso no Relatório PMM Geral (quando detalhado). Não foi alterado o layout atual, sendo necessário editar o layout para acrescentar os campos conforme a necessidade de cada empresa. GSN (CCF 9472)
+
+
+
+
+Contabilidade
+
+
+
+
+Configurações do SPED-ECD
+
+Corrigido o erro que estava sendo gerado ao acessar os campos Escrituração e Código da Versão do Leiaute na aba de Livro Eletrônico nas configurações do sistema. Adicionado também o campo Escrituração Contábil nessa mesma aba. 
+UPA (CCF 9684)
+
+
+Ajuste de Saldo de Contas Gerenciais
+
+Corrigido o erro no procedimento de ajuste de saldo de Contas Gerenciais quando a conta informada era de Entidade. 
+GSN (CCF 9527)
+
+
+Contabilização por Comprador ou Entidade Faturada
+
+
+A partir dessa versão não será mais possível trocar a opção do Tipo de Contabilização (Comprador ou Entidade Faturada).
+A troca desse perfil após o início das operações causa problemas nos lançamentos contábeis. No caso de necessidade de alteração manter contato com nosso Suporte Técnico. GSN (CCF 9739)
+
+
+Máscara Centro de Custo
+
+
+Aumentada a máscara de ordenação do Centro de Custo para 20 caracteres, permitindo mais níveis na hierarquia. GSN (CCF 9533)
+
+
+Custo médio em Notas de devolução
+
+
+Na Natureza de Operação, na Forma de Cálculo do CMV, foi acrescentada uma opção para "Custo NF Origem". Essa opção tem impacto em notas de devolução exclusivamente, já que permite que o custo médio da nota de devolução seja o custo médio na data da Nota Fiscal de Venda vinculada. GSN (CCF 9549)
+
+
+SPED-ECD - Notas referenciada (C113)
+
+Corrigido para que não inclua no Registro C113 notas referenciadas que estejam fora do período de geração do SPED-ECD. 
+GSN (CCF 9754)
+
+
+
+
+Estoque
+
+
+
+
+Segurança na Limpeza do Smart Card
+
+
+Implementamos nessa versão um procedimento de segurança na tela de Portaria de Saída.
+ 
+Ao clicar no botão "Voltar p/ Entrada" será solicitada a verificação do cartão SmartCard. Caso o usuário tenha permissão, ele poderá optar por três ações: verificar o cartão, não verificar o cartão ou cancelar a volta para entrada.
+ 
+ALP (CCF 9327)
+
+
+Cálculo de Fator de Conversão na tela de Volume do Vagão
+
+
+Adicionado um botão de atalho para tela de Cálculo de Fator de Conversão na tela de Volume do Vagão. GSN (CCF 9542)
+
+
+Transferência entre Tanques
+
+
+Separados os históricos de origem e destino na tela de Transferência entre Tanques/Movimentos entre Congêneres.
+Com históricos diferentes será apropriado o uso dessa tela para Mistura de Produtos da Refinaria para apresentação no DPMP(Simp).
+ 
+GSN (CCF 9898)
+
+
+Razão Social/Histórico nas Consultas
+
+
+Ajustado/acrescentado o campo Razão Social/Histórico nas telas de Consulta de Estoque (Produtos/Movimentação, Consulta Movimento Estoque e Consulta Movimento Estoque Físico). GSN (CCF 9107)
+
+
+
+
+Faturamento
+
+
+
+
+Validação da Transportadora na Importação de Notas Fiscais
+
+Na tela de importação de notas fiscais, em casos que a transportadora configurada na nota estava com alguma divergência com relação ao campo retira/entrega da nota, estava sendo exibida uma mensagem ao usuário com o erro(tratado pelo SisPetro) mas esse erro não era exibido nas notas fiscais como os demais erros capturados por essa tela. Essa rotina foi alterada e caso essa validação retorne alguma mensagem ao usuário ela será adicionada a nota como as demais. 
+UPA (CCF 9642)
+
+
+Validação de Preenchimento do Código do Depósito
+
+
+A partir dessa versão, na emissão de notas fiscais será validado se o usuário informou o código do depósito do produto. Essa validação evitará que erros sejam gerados no momento da movimentação do estoque. UPA (CCF 9715)
+
+
+Configuração de ICMS Retido por UF
+
+
+As configurações de ICMS Retido a partir dessa versão passam a ser por UF, com isso, no cadastro de produtos o usuário poderá configurar o ICMS Retido por cada estado de destino da nota fiscal. A configuração existente hoje foi copiada para todos os estados e empresas cadastradas no sistema. UPA (CCF 9489)
+
+
+Pesquisa de Nota Fiscal na Carta de Correção
+
+
+Foi implementada uma melhoria nas telas "Alteração dados Mídia Magnética" e "Alteração dados Mídia Magnética - Anexo" (ambas do menu Ferramentas).
+ 
+Após informar um número de Nota Fiscal será exibida uma janela mostrando todas as Notas Fiscais encontradas com aquele número. Mas essa janela será exibida somente se o sistema encontrar duas ou mais Notas Fiscais com o mesmo número.
+ 
+ALP (CCF 8020)
+
+
+Campo de Observações no Cadastro de Produtos
+
+
+Foi incluído um campo "Observações" no cadastro de produto, na aba Detalhe - Dados Adicionais, 
+ que pode ser utilizado na impressão do DANFE.
+ 
+Help:
+ 
+Dados Adicionais em Produtos
+ 
+ALP (CCF 9071)
+
+
+Placa de Treminhão no XML da NF-e
+
+
+Na geração do arquivo XML para envio a SEFAZ, a tag referente ao reboque estava sendo gerada apenas para as Carretas. Não estava sendo gerada para os Treminhões. Esse problema foi corrigido. ALP (CCF 9593)
+
+
+NF Remessa/Retorno Armazenagem
+
+Corrigido o erro que estava sendo apresentado ao sugerir itens na tela de NF de Remessa/Retorno de Armazenagem, quando marcada a opção para utilizar dados da Protaria. 
+GSN (CCF 9886)
+
+
+NF Remessa/Retorno Armazenagem
+
+
+Assim como acontece na tela de emissão de notas fiscais, caso esteja sendo emitida uma nota fiscal de remessa/retorno de armazenagem que seja NFe, serão exibidos aos usuário os avisos configurados pelo usuário (avisos que são exibidos em forma de popup). Nos casos de notas emitidas em homologação, a tela terá sua cor alterada como já acontece na emissão de notas fiscais. UPA (CCF 9572)
+
+
+NFe 2.0 para Mato Grosso, Minas Gerais e Bahia
+
+
+Foram disponibilizados pela Sefaz os endereços WEB de entrega da NFe 2.0 para Mato Grosso, Minas Gerais e Bahia. Com isso basta as empresas que utilizam essas UF's configurarem o seu sistema.
+ 
+Devido a dificuldades em obter os certificados digitais de alguns estados, não conseguimos testar Bahia e Mato Grosso.
+ 
+UPA (CCF 9562)
+
+
+NF Remessa/Retorno de Armazenagem no Remoto
+
+Retirado menu Remessa/Retorno de Armazenagem do Sispetro Remoto por estar fora de uso. 
+GSN (CCF 9693)
+
+
+Observações na NF Remessa e Retorno de Armazenagem
+
+Ao efetuar uma Remessa/Retorno de Armazenagem o usuário escolhe a Natureza de Operação que, devidamente configurada, preenche automaticamente as Observações. Se as Observações fossem alteradas, o sistema preenchia o campo novamente (ao mudar de aba) com o texto configurado na Natureza de Operação. Dessa forma o usuário perdia o texto que foi alterado. Esse problema foi corrigido. 
+ALP (CCF 9746)
+
+
+E-Mail da Transportadora
+
+
+No cadastro de transportadoras, foi adicionado o campo "e-mail". Esse campo nas próximas versões será utilizado para que o usuário informe o e-mail da transportadora a ser enviado a NFe. UPA (CCF 10061)
+
+
+
+
+Financeiro
+
+
+
+
+Cobrança Eletrônica - Banco SIFRA
+
+
+Foi implementada a cobrança eletrônica para o banco SIFRA (código 999) utilizando CNAB com 400 posições.
+ 
+Importante: Deve ser feito o teste com boletos e arquivos de remessa/retorno com o banco antes de colocar em produção.
+ 
+ALP (CCF 9376)
+
+
+Fechamento Financeiro - Lançamentos Simultâneos
+
+
+Foi criado um recurso de segurança no banco de dados nos processos referentes ao Fechamento Financeiro.
+ 
+Esse recurso impede que um lançamento de título seja incluído no Fechamento Financeiro no momento que o mesmo estiver sendo executado, causando diferenças nos saldos apurados.
+ 
+ALP (CCF 8764)
+
+
+Contas a Receber - Vínculo de Receitas de Cartório
+
+
+Nessa versão disponibilizamos uma tela que possibilitará que Títulos Quitados de Contas a Receber sejam vinculados a Receitas de Cartório. Através do botão "Recebto" da tela "Manutenção de Bancos" é possível acessar essa nova tela que, utilizando filtros de data, mostra os títulos quitados.
+ 
+Esses vínculos podem ser visualizados apenas na tela de Manutenção de Contas a Receber, na nova aba "Recebimentos Vinculados".
+ 
+ALP (CCF 3259)
+
+
+Processos do Financeiro mais Rápidos
+
+
+Os processos de Recebimento e Pagamento Extraordinários e Transferência entre Bancos serão executados mais rapidamente. Essas rotinas passaram por um processo de otimização para melhora de sua performance. UPA (CCF 9766)
+
+
+Preencher o campo "Moeda" com a moeda padrão do sistema
+
+
+Na tela de Manutenção de Bancos, ao clicar no botão "Recebto" ou no botão "Transferência", o campo referente a Moeda já virá preenchido com a moeda padrão do sistema.
+ 
+Dessa forma, a tela de pesquisa de moedas não será exibida ao passar por esse campo.
+ 
+ALP (CCF 9838)
+
+
+Baixa de Títulos - Conta não encontrada
+
+Em algumas situações, na baixa de títulos do Contas a Receber/Pagar, ao usar a estrutura de Entidade Faturada/Comprador, não era encontrada a conta contábil para baixa, o que foi corrigido. 
+GSN (CCF 9672)
+
+
+Total de parcelas no Contas a Receber
+
+
+Nessa versão foi disponibilizado o númeto Total de Parcelas de títulos de Contas a Receber.
+ 
+É possível visualizar o número de parcelas de um título nas telas de Manutenção de Notas Fiscais (aba Financeiro) e Manutenção de Contas a Pagar e Receber (aba Lançamentos).
+ 
+Títulos que já estão cadastrados no sistema antes da atualização dessa versão, também terão o número de parcelas disponibilizados para visualização.
+ 
+ALP (CCF 8383)
+
+
+Recibo de Baixa com informações de Outras Parcelas
+
+
+Foi disponibilizado um novo condutor de dados no Recibo de Baixas (CPROutrasParcelas) que possui os campos referentes às outras parcelas do título.
+ 
+Esse condutor de dados identifica o título da baixa que está sendo exibida e relaciona as parcelas referente a esse título (exceto a parcela baixada).
+ 
+Não estão sendo feitas alterações no Layout do Recibo de Baixa. Fica a cargo do usuário executar essa alteração.
+ 
+ALP (CCF 8397)
+
+
+Editar layout do Recibo de Baixa de Cobrança Eletrônica
+
+
+Nessa versão foi disponibilizado um perfil de sistema que permite a edição do arquivo de layout do Recibo de Baixa de Cobrança Eletrônica (da mesma forma que é feito atualmente para edição do Recibo de Baixa).
+ 
+Para essa alteração foi disponibilizado o anexo ReciboBaixaEletronica.rtm.
+ 
+ALP (CCF 8193)
+
+
+Geracao de Titulo de Desconto automático pelo Contas a Pagar
+
+Ao lançar um Título de Contas a Pagar, se fosse escolhido um Tipo de Documento de Título de Desconto que estivesse configurado com a opção "Conta débito acompanha conta titulo original", o Título de Desconto não estava sendo gerado com o mesmo Centro de Custo do Título original. Esse problema foi corrigido. 
+ALP (CCF 9555)
+
+
+Efetivação de Título Previsto
+
+Na efetivação de Título Previsto a data de emissão do mesmo será atualizada para a data atual, evitando assim que a data de emissão antiga interfira nos controles do sistema, como Fechamento Financeiro. 
+GSN (CCF 9501)
+
+
+Melhorias no Relatório de Adiantamentos
+
+
+O Relatório de Adiantamentos de Clientes e de Fornecedores passou a exibir no seu cabeçalho todas as informações de filtros escolhidos em Tela.
+ 
+Além disso, foram disponibilizados novos campos nos condutores de dados "BaixaAntecipada" (dados de transferência) e "ItensBaixa" (datas de vencimento e emissão)
+ 
+Para essa alteração é necessário atualizar o anexo Adiantamento.rtm.
+ 
+Help:
+ 
+Transferência de Créditos (Adiantamentos) entre Empresas
+ 
+ALP (CCF 9113)
+
+
+Percentual em contas e centros de custos de Títulos Recorrentes
+
+Na inclusão de títulos recorrentes antes não permitia incluir um percentual zerado, mas não apresentava mensagem de erro, o que foi corrigido. 
+GSN (CCF 9530)
+
+
+Erro ao Efetivar Contas a Pagar Recorrente com Dois Centros de Custos
+
+Ao efetivar um contas a pagar recorrente com 1 conta contábil e 2 centros de custos desvinculados, está sendo gerado um erro ao usuário de contas repetidas pois o sistema está tentando incluir duas vezes a mesma conta para o mesmo título por conta dos dois centros de custos. Esse problema foi corrigido. 
+UPA (CCF 9627)
+
+
+Conciliação Automática - Número do Documento
+
+
+Para localização do lançamento bancário na Conciliação Automática serão retirados os zeros a esquerda do número do documento. Isso facilitará diferenças entre o extrato do banco e o lançamento no SisPetro quando somente diferencia os zeros à esquerda. Além disso o número do documento do extrato tinha 20 caracteres mas só apresentava 10 caracteres na tela, o que foi corrigido.GSN (CCF 9873)
+
+
+Conciliação Bancária - Fechamento Financeiro
+
+
+Acrescentado um perfil de sistema "Verifica Fechamento Financeiro na Conciliação Bancária", que quando marcado impede conciliar ou desconciliar um lançamento cuja data esteja dentro de um período com Fechamento Financeiro. GSN (CCF 9994)
+
+
+Conciliação Bancária - Estorno de Lançamentos
+
+
+Ao estornar um lançamento já conciliado o lote de estorno gerado será gerado como Conciliado, fazendo com que o cancelamento impactue no saldo conciliado. GSN (CCF 9995)
+
+
+Cobrança Eletrônica - HSBC
+
+Corrigido para que no Campo Livre do boleto do banco HSBC (399) seja enviada a conta com 5 dígitos e o DV da conta com 2 dígitos, ao invés de enviar a conta com 7 dígitos. Isso causava erro na Linha Digitável e no Código de Barras. 
+GSN (CCF 9992)
+
+
+
+
+Fiscal
+
+
+
+
+Resolução ANP nº 11/2010 - Chave de acesso da NF-e no DPMP
+
+
+Foi implementado no DPMP a exibição do campo Chave de Acesso.
+ 
+O campo foi disponibilizado na tela de DPMP e também no condutor de dados do relatório (caso deseje adicionar esse campo ao corpo do relatório).
+ 
+Na geração do arquivo texto, se uma Nota Fiscal (NF) estiver com o campo Chave de Acesso preenchido, o campo Numero NF será enviado no arquivo com zeros. Se o campo Chave de Acesso não estiver preenchido, o campo Numero NF será gerado no arquivo normalmente. A regra é: Envia-se o Numero NF ou a Chave de Acesso. Para essa alteração é necessário atualizar os anexos DPMP.rtm (esse arquivo somente para dados de Agosto, entregua em Setembro) e DPMP_Visualizacao.rtm.
+ 
+Help:
+ 
+DPMP com Chave Acesso NFe
+. 
+ALP (CCF 9350, 9371, 9364, 9356)
+
+
+GIA-SP - Ajustes
+
+No layout da GIA-SP foi feito ajuste no campo CNAE do registro 05. 
+Necessário atualizar o arquivo GIA-SP.rtm no Layout de Exportação.
+.
+GSN (CCF 9517)
+
+
+Ajustes na Tela do DPMP
+
+Na tela do DPMP não será mais possível navegar entre as abas sem antes clicar no botão atualiza. Com isso, não será mais gerado ao usuário o erro informando que o a conexão com o banco de dados não foi aberta. 
+UPA (CCF 9697)
+
+
+SPED-EFD - Tabela de Ajustes Fiscais
+
+Disponibilizada a tabela LFEAjusteInfo no Conjunto de Dados 2 - EFD-Tabelas Auxiliares para que possa receber manutenção das suas informações. Esta tabela é utilizada em ajustes fiscais vinculados à Nota Fiscal e nos Tipos de Apuração.
+GSN (CCF 9647)
+
+
+SCANC - Registros duplicados
+
+Alterado layout do SCANC para que nos registros 60, 62 e 70 não apresente produtos duplicados conforme a categoria utilizada no SCANC (3 caracteres). 
+Necessário atualizar o arquivo SCANC.rtm na Manutenção de Exportação de dados.
+GSN (CCF 9741)
+
+
+Geração de Arquivo da DNF
+
+
+Para empresas que atuam como Refinaria, uma das obrigações fiscais federal é a geração de arquivo DNF, a partir dessa versão o SisPetro está habilitado a gerar esse arquivo.
+ 
+Para isso, basta configurar o sistema, informando quais produtos e notas deveram sair no DNF e gerar o arquivo.
+Necessário atualizar o arquivo DNF.rtm no Layout de Exportação.
+ 
+UPA (CCF 9723)
+
+
+DPMP para Refinaria
+
+
+Foi implementado um perfil por histórico que define se o mesmo será utilizado no DPMP e qual código de operação no DPMP deverá ser utilizado.
+ 
+Esse perfil, quando devidamente configurado, insere no DPMP operações sem Nota Fiscal (como pedidos de Outras Entradas ou Outras Saídas). Além disso, o Estoque Inicial e Final no DPMP serão gerados para: Vendas de Entrega Futura e Estoque de Terceiros.
+ 
+As telas de DPMP (Sispetro Normal) e de Manutenção de Pedidos de Venda (Sispetro Normal e Remoto) têm dois novos campos (CMV e DPMP) que só serão exibidos se for clicado no botão "Layout Padrão".
+ 
+ALP (CCF 9722)
+
+
+Imposto CIDE no xml da NF-e
+
+
+Nessa versão foi disponibilizado um perfil de sistema para cadastrar o imposto CIDE.
+ 
+Esse imposto pode ser configurado na aba Nota Fiscal, no grupo NF-Eletrônica.
+ 
+Assim como o PIS e COFINS, o imposto CIDE está classificado no Sispetro como Outros Impostos. Sua configuração deve ser feita no cadastro de Natureza de Operação
+.
+ 
+Help:
+ 
+Gerando Imposto CIDE na NFe
+ 
+ALP (CCF 9808)
+
+
+SCANC - Refinaria
+
+
+Implementada a geração dos arquivos do SCANC para Refinaria a partir da nova tela "Manutenção de Anexos - Refinaria".
+ 
+Temos a importação dos Anexos das Distribuidoras, o confronto de valores e a geração dos Anexos 6 e 7 da Refinaria.
+ 
+Necessário atualizar os arquivos AnexoRef3.rtm, AnexoRef5.rtm, AnexoRef6Conf.rtm e NotasAnexoRef.rtm no diretório do executável. No Layout de Exportação devem ser atualizados os arquivos ScancRefNF.rtm e ScancRefAnexo6.rtm.
+ 
+Help:
+ 
+Manutenção de Anexos - Refinaria
+ 
+(CCF 9625)
+
+
+
+
+Transporte
+
+
+Vendas
+
+
+
+
+Pedidos Fora do Estado no Remoto
+
+Ajustado para que os pedidos de venda Fora do Estado sejam devidamente identificados nas telas de Consulta (Pedidos Pendentes ou Aprovados e Não Faturados) quando incluídos a partir do Sispetro Remoto, já que antes não estavam sendo. 
+GSN (CCF 9395)
+
+
+Pedido de Venda - Escolha de Endereços para Cálculo do Frete
+
+
+Na tela de Pedido de Venda foi liberada a escolha dos endereços de um cliente faturado.
+ 
+Mesmo que o sistema já esteja sugerindo o endereço padrão, será possível trocar o mesmo. O recálculo do frete será feito automaticamente na troca do endereço.
+Help:
+ 
+Inclusão de Pedido de Venda
+ 
+ALP (CCF 8609)
+
+
+Pedidos Aprovados e Não Faturados - Campos para Visualização
+
+
+Foram disponibilizados os campos: Município de entrega, UF de entrega, Bairro de entrega e CEP de entrega na tela de Consulta de Pedidos Aprovados e Não Faturados.
+ 
+A visualização desses campos facilita em casos onde o cliente possui vários endereços de entrega. E dessa forma não há mais a necessidade de digitar a informação de entrega no campo de Observações, como estava sendo feito em alguns casos, causando redundância de informações.
+ 
+ALP (CCF 8603)
+
+
+Compartilhamento de Tabela de Preço entre Clientes
+
+
+No cadastro de clientes, na aba Detalhes - Preços, foi incluído um botão que permite alterar a tabela de preços de um cliente.
+ 
+Existem duas alternativas: Alterar somente a tabela de preços do cliente (opção "Por Tabela") e Alterar a tabela de preços e dados financeiros (opção "Por Cliente").
+ 
+Os dados financeiros que sofrem alteração (se escolhida a opção "Por Cliente") são: Prazo por Produto, Desconto Condicional, Número de Dias Iniciais para CF e Custo Financeiro.
+ 
+Help:
+ 
+Preços
+ 
+ALP (CCF 9251)
+
+
+Dados de Grupo Econômico na Impressão de Pedido de Venda
+
+
+A edição do layout de impressão dos Pedidos de Venda recebeu um novo Condutor de Dados (GrupoEconomico). Esse novo Condutor de Dados possui informações como "Limite de Crédito", "Baixas Bloqueadas", enfim, dados sobre o Grupo Econômico referente ao Pedido que está sendo impresso.
+ 
+O layout de impressão não foi alterado.
+ 
+ALP (CCF 8957)
+
+
+Dados na Tela de Consulta de Pedidos Pendentes
+
+
+Na tela de consulta de Pedidos Pendentes foi disponibilizada mais uma informação: o Saldo de todos os pedidos pendentes.
+ 
+É possível visualizar essa informação por Cliente (na aba "Do Cliente") ou por Grupo (na aba "Do Grupo Econômico").
+ 
+O cálculo do Saldo Total não considera o saldo do título selecionado no momento.
+ 
+Help:
+ 
+Saldos do cliente e do Grupo Econômico na Consulta de Pedidos Pendentes
+ 
+ALP (CCF 8956)
+

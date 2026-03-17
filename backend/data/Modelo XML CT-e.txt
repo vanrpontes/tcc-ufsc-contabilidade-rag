@@ -1,0 +1,76 @@
+TITULO: Modelo XML CT-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2914549998
+--------------------------------------------------
+Este modelo foi projetado pela Futura Tecnologia com a finalidade de importar CT-e a partir do XML.
+Layout
+Informação na NF
+Tag no xml do CTe
+CNPJ Emitente
+<emit> <CNPJ>
+CNPJ Destinatário
+Verificar valor de <toma03>:
+0-Remetente: <rem> <CNPJ>
+1-Expedidor: <exped> <CNPJ>
+2-Recebedor: <receb> <CNPJ>
+3-Destinatário: <dest> <CNPJ>
+Código Operação
+<ide> <CFOP>
+Número NF
+<ide> <nCT>
+Série
+<ide> <serie>
+Data Emissão
+<ide> <dhEmi>
+Data Movimento
+<ide> <dhEmi> (quando tiver que usar do arquivo)
+Transportadora
+<infCteNorm> <infModal> <rodo> <moto> <CPF>
+Frota
+<infCteNorm> <infModal> <rodo> <veic> <placa>
+Chave Acesso
+<infCTE> Id
+Produto
+Não tem (Conforme perfil de sistema)
+CodUnid
+Não tem (Conforme cadastro de Produtos)
+Situação Frete
+Não tem (Fixo 1)
+Qtde
+Não tem (Fixo 1)
+Preço Unitário
+<vPrest> <vTPrest>
+CST
+<imp> <ICMS>
+Dados ICMS (Base, Alíquota e Valor)
+<imp> <ICMS> <ICMS00>
+Dados ICMS Outra UF (Base, Alíquota e Valor)
+<imp> <ICMS> <ICMSOutraUF>
+Frete Unitário
+Não tem (Fixo 0)
+A partir da versão 8.5 é possível importar Notas fiscais do CT-e, através de arquivos .XML. O processo é semelhante a importação de NF-e, porém tem algumas peculiaridades trataremos neste tópico. Para importar o CT-e é preciso:
+Perfil de Sistema
+, 
+ campo 
+"Produto referente ao Frete na Importação CT-e"
+ o produto "Frete", pois o SisPetro precisa de um para importar uma NF neste caso é preciso ter um produto 
+cadastrado
+ e 
+ativo
+ para que a importação ocorra.
+Natureza de Operação
+, 
+, 
+campo
+ "Geração de Parcelas do Contas Pagar/Receber", 
+Neste campo é configurado como o SisPetro buscará as informações de Data de Vencimento, como, normalmente, o CT-e não contém data de vencimento a configuração que deve ser adotada, neste caso, é "Através da condição de pagamento", assim o sistema buscará a data de vencimento via 
+Tabela Condições Pagamento
+De/Para
+, 
+Configuração de De/Para
+, assim como na importação de NF, é necessário ter cadastrados os De/Para.
+Criar um novo 
+Processo
+, que é onde o SisPetro saberá qual o tipo de layout (XML, Petrobrás ou Futura) e o De/Para que será usado.
+Com estes passos feitos, a importação se dá igual a importação de um Nota Fiscal comum. Para mais informações, ver 
+Manutenção de Importação de Notas Fiscais
+Na versão 8.11 foi alterada a forma de como o SisPetro trabalha com as transportadoras e motoristas, e tal alteração afeta o modo de importação do Conhecimento de Frete, a partir desta versão no CT-e, a Transportadora será preenchida com o Emitente do CT-e e o Motorista com o registro que estiver no campo motorista do XML.

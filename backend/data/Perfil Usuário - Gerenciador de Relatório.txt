@@ -1,0 +1,45 @@
+TITULO: Perfil Usuário - Gerenciador de Relatório
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898179
+--------------------------------------------------
+ 
+O perfil do usuário tem papel fundamental para o correto gerenciamento da segurança dos relatórios e pastas. Ele pode ser acessado através do Menu 
+Ferramentas / Usuários
+ abrindo a aba Gerenciador Relatórios dentro da aba Detalhes (conforme abaixo).
+A partir da versão 8.10 foi criado o 
+Perfil para grupos de usuários
+, que afeta diretamente alguns relatórios, pois pode restringir algumas informações a determinados usuários, veja maiores informações no help 
+Perfil para grupos de usuários
+Nota: Para esta aba aparecer habilitada, deve-se habilitar a segurança do gerador de relatórios conforme descrito no tópico anterior.
+Propriedade
+Descrição
+Permite criar relatórios
+Permite ao usuário criar novos relatórios. Caso esta opção esteja desabilitada, não será permitido ao usuário criar novos relatórios.
+Permite alterar relatórios
+Permite ao usuário alterar relatórios preexistentes. Caso esta opção esteja desabilitada, não será permitido ao usuário salvar ou abrir qualquer relatório em modo de design (somente execução).
+Permite excluir relatórios
+Permite ao usuário excluir relatórios. Caso esta opção esteja desabilitada, não será permitido ao usuário excluir nenhum relatório.
+Permite importar/salvar relatórios formato RTM
+Permite ao usuário exportar um layout de relatório para que seja salvo em disco. Caso esta opção esteja desabilitada, não será possível ao usuário salvar qualquer relatório em formato RTM ou importar para modificação. 
+Esta opção é util para que o usuário não possa levar uma definição de relatório para casa ou outro lugar onde possua o Sispetro (importante para usuários demissionários).
+Permite criar pasta
+Permite ao usuário criar uma nova pasta para armazenar relatórios ou sub-pastas.
+Permite excluir pasta
+Permite ao usuário excluir pastas criadas anteriormente (com ou sem relatórios dentro da mesma). 
+Este setup se sobrepõe ao de relatórios, assim, mesmo que o usuário não possa excluir relatórios porém possua direito para excluir pastas, ele conseguirá excluir os relatórios de uma determinada pasta, excluindo-a.
+Permite renomear pasta
+Permite ao usuário renomear pastas. Caso o usuário não possa renomear pastas (porém possa criá-las), o Sispetro cria a pasta com um nome padrão (nova Pasta, nova Pasta2, etc).
+Permite mover pasta
+Permite ao usuário mover pastas para inclui-las em outras pastas. É importante que o SisPetro obtém o perfil de segurança herdado da pasta onde está sendo criado um novo relatório ou pasta somente na inclusão. 
+Assim, movendo-se a pasta para dentro de uma nova pasta, não modificará o perfil de segurança da mesma.
+Permite modificar segurança de pastas próprias
+Caso o usuário seja o proprietário da pasta será permitido ao mesmo modificar o perfil de segurança da pasta. 
+Este perfil será replicado às pastas e relatórios contidos nesta pasta (inclusive a propriedade da mesma).
+Permite modificar segurança de pastas de terceiros
+Permite ao usuário modificar o perfil de segurança de pastas mesmo que não possua a propriedade sobre a mesma. 
+Este perfil será replicado às pastas e relatórios contidos nesta pasta (inclusive a propriedade da mesma).
+Permite capturar propriedade
+Permite ao usuário capturar ou modificar a propriedade de pastas e relatórios originalmente de terceiros.
+Permite alterar segurança dos próprios relatórios
+Permite ao usuário atribuir o perfil de segurança dos relatórios cuja propriedade seja dele próprio.
+Permite alterar segurança dos relatórios de terceiros
+Permite ao usuário alterar o perfil de segurança de relatórios cuja propriedade seja dele ou de terceiros.

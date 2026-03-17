@@ -1,0 +1,78 @@
+TITULO: Visualização de Movimentação por Grupo de Usuários
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921072231
+--------------------------------------------------
+Na versão 8.11, foi desenvolvida uma forma de restringir os usuários a só visualizarem movimentação que foi incluída por determinados Grupos de Usuários.
+Para habilitar esse perfil é necessário acessar o menu 
+Ferramentas > Sistema > aba Dados Gerais
+, e marcar a opção 
+Restringe visualização de movimentação conforme Grupo de Usuários. 
+Veja mais informações em 
+.
+As telas abordadas são:
+Cadastro de Clientes
+ 
+abas
+ 
+Movto.Faturado 
+e
+ Movto.Pedidos
+Consulta de Pedidos Pendentes
+Tela de Impressão de Notas Fiscais
+ 
+No menu 
+Ferramentas > Grupos de Usuários > Cadastro de Grupos
+ é possível cadastrar os grupos de cada usuários. 
+Para incluir um novo grupo, basta clicar no botão Inclusão 
+ 
+O Sispetro não aceita cadastro de grupos com a mesma Descrição.
+Não é possível excluir um grupo que tenha usuários vinculados a ele.
+ 
+Para vincular os usuário aos grupos, acesse o menu 
+Ferramentas > Usuário > aba Grupos de Usuários
+.
+ 
+Vejamos alguns exemplos:
+Usuários: Maria, Pedro, Jose e Josefina
+Grupo 1 - Mulheres: Maria e Josefina
+Grupo 2 - Jotas: Jose e Josefina
+Notas Fiscais cadastradas:
+Nota
+Usuario
+20
+Maria
+21
+Pedro
+22
+Jose
+23
+Josefina
+Notas que cada usuário verá:
+Usuário
+Notas
+Explicação
+Maria
+20 e 23
+Notas dela e do grupo Mulheres que ela faz parte
+Pedro
+20, 21, 22 e 23
+Todas as notas porque não faz parte de nenhum grupo
+Jose
+22 e 23
+Notas dele e do grupo Jotas que ele faz parte
+Josefina
+20, 22 e 23
+Notas dela e dos dois grupos que ela faz parte
+ 
+ 
+Marcando a opção Restringe visualização de movimentação conforme Grupo de Usuários, o usuário selecionado terá acesso somente às informações dos grupos em que ele está cadastrado.
+No exemplo, o usuário terá acesso apenas às movimentações do GRUPO 1.
+ 
+Para cadastrar os Perfis de cada Usuário, veja mais informações em 
+ 
+Um usuário pode participar de mais de um grupo.
+Caso a opção Restringe visualização de movimentação conforme Grupo de Usuários não esteja selecionada, o usuário não participará do controle de grupos, tendo acesso às informações de todos os Grupos mesmo que esteja cadastrado algum grupo no perfil do usuário. Da mesma forma, caso a opção Restringe visualização de movimentação conforme Grupo de Usuários esteja marcada e não exista nenhum grupo cadastrado, o usuário não conseguirá visualizar nenhuma movimentação. 
+ 
+ 
+ 
+ 
+ 

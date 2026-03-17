@@ -1,0 +1,58 @@
+TITULO: Categoria Dados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440189
+--------------------------------------------------
+A finalidade da tela de Categoria de Dados é gerar as instruções "SQL" a serem executadas na tela de "Análise Geral de Dados" (maiores informações veja 
+) de forma clara e simples, sendo possível acessá-la pelo menu 
+Consulta / Analise Vendas / Análise Geral botão
+ "
+Categoria Dados
+".
+
+
+
+
+Para incluir uma nova categoria pressione o botão 
+, então preencha os campos:
+
+
+Descrição
+: Nome pelo qual poderá ser selecionada a Catergoria na tela de Analise Geral de Dados
+
+
+Campo Chave
+: Campo utilizado para identificar o registro na consulta realizada, no caso de vir a ser mais de um campo a chave informe o primeiro campo.
+
+
+Utiliza Parâmetro Data Inicial
+: Informe neste campo o nome do parâmetro (toda informação presente no campo "Comando" precedida do caracter ":", ex. :DtInic indica que existe o parâmetro chamado "DtInic"), sendo esse parâmetro preenchido com a informação "De" presente na tela de Análise Geral de Dados.
+
+
+Utiliza Parâmetro Data Final
+: Informe neste campo o nome do parâmetro (toda informação presente no campo "Comando" precedida do caracter ":", ex. :DtFinal indica que existe o parâmetro chamado "DtFinal"), sendo esse parâmetro preenchido com a informação "Até" presente na tela de Análise Geral de Dados.
+
+
+Limita Período Dias
+: Retringe o usuário de informar um período superior em dias ao definido no cadastro da categoria, muito propício para consultas com um número de dados muito alto.
+
+Data com hora: Ao marcar essa opção será realizada a consulta fazendo uso da hora preenchida.
+
+
+Filtros Específicos
+: Neste grupo deverão ser informados os campos que deverão ser utilizados na filtragem quando na Analise Geral de Vendas foi solicitado um filtro específico.
+
+
+Comando
+: Instrução "SQL" que será enviada para o banco de dados retornando as informações que atendam ao requisitos da mesma. Sendo possível testá-lo fazendo uso do botão 
+"Testa SQL"
+, carregar a instrução de um arquivo usando o botão 
+"Carrega de Arquivo"
+ ou até mesmo para aqueles que não conhece muito bem SQL é possível fazer uso do botão "Projeta SQL", sendo listadas as tabelas e de forma interativa o comando é gerado.
+
+
+Para finalizar o cadatro da Categoria pressione o botão 
+ finalizando assim o processo.
+
+
+Para Disponibilizar a categoria, é necessário acessar o painel "Usuários" e selecionar o usuário da esquerda (usuário potenciais, que não fazem usado da categoria) e usando o botão 
+ mudar para a direia (usuários que podem fazer uso da categoria), sendo os demais botões seguindo o mesmo critério para mover o usuário de um grupo para o outro, coforme apresentado na tela abaixo
+

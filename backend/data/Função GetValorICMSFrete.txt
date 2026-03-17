@@ -1,0 +1,19 @@
+TITULO: Função GetValorICMSFrete
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/6019743745
+--------------------------------------------------
+Descrição
+Essa função foi criada para deduzir do CMV o Valor do ICMS do CTE na NF de Compra, para quem for se apropriar do ICMS do Frete.
+Parâmetros
+Parâmetros
+Tipo
+Comentário
+NotaFiscal.CodEmpresa
+Integer
+Código da Empresa referente a Nota Fiscal
+NotaFiscal.Sequencial
+Integer
+Sequencial da Nota Fiscal
+Exemplo
+ 
+Select GetVAlorICMSFrete ('CodEmpresa', 'Sequencial')
+Select GetValorICMSFrete (1,1081)

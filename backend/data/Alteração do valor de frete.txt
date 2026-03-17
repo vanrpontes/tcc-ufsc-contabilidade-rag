@@ -1,0 +1,163 @@
+TITULO: Alteração do valor de frete
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701560
+--------------------------------------------------
+O Sispetro permite que seja cadastrado o frete diferenciado para cada cidade. Para facilitar o usuário no processo de alteração do valor do frete, o sistema possue uma tela especifica, evitando o trabalho de se fazer essa alteração individualmente para cada cidade. 
+
+
+Esse processo pode ser feito através da tela de alteração de frete, localizada no menu 
+Movimentação / Transporte / Alteração de Frete
+. 
+
+
+Para fazer a alteração do valor do frete, o sistema coleta e mostra várias informações ao longo de oito telas. A primeira tela permite ao usuário informar a cidade de origem. O sistema sugere a cidade da empresa onde o usuário está conectado, porém, o usuário poderá alterar essa informação. 
+
+
+
+
+Após selecionar a cidade de origem, o usuário deve clicar no botão "Avançar", para se posicionar na segunda tela: 
+
+
+
+
+A segunda tela, informa ao usuário como o sistema está configurado em relação a forma de cadastro de frete ou em relação ao controle de frete: 
+Por fator e distância
+ ou 
+por valor fixo na tabela de distância
+. Mais detalhes no tópico: 
+Cálculo do Valor do Frete
+. 
+
+
+O usuário deve clicar no botão "Avançar", para se posicionar na terceira tela: 
+
+
+
+
+O sistema estando configurado para trabalhar com o cálculo de frete direto da tabela de distância, será exibida a tela conforme figura anterior, permitindo ao usuário, caso seja necessário, deixar marcado apenas o tipo de frota que será alterado. 
+
+
+Caso o sistema não esteja configurado para trabalhar com cálculo de frete direto da tabela de distância e sim por fator, será exibida a tela conforme mostra a figura abaixo. 
+
+
+
+
+O usuário deve clicar no botão "Avançar", para se posicionar na quarta tela: 
+
+
+
+
+Na quarta tela, o usuário irá definir se a alteração será em todas as cidades ou em uma cidade especifica, ou ainda, se será por uma UF especifica. Para definir uma cidade especifica, o usuário deve desmarcar o campo 
+"Todas as cidades"
+, e selecionar uma determinada cidade dentro do campo 
+"Cidade de Destino"
+: 
+
+
+
+
+Caso a alteração seja para uma UF especifica, o usuário deve marcar o grupo "Filtra por UF" e através do campo "UF", selecionar a devida UF. 
+
+
+
+
+O usuário deve clicar no botão "Avançar", para se posicionar na quinta tela: 
+
+
+
+
+Na quinta tela, o usuário poderá utilizar o recurso do filtro adicional. 
+
+
+Supondo que o usuário deseje alterar o valor do frete das cidades de um determinado estado que tenham uma determinada distância Real do ponto de origem. 
+
+
+Na quarta tela, o usuário através do campo 
+"Filtra Por UF"
+, selecionaria a UF do estado desejado: 
+
+
+
+
+Na quinta tela através do filtro adicional, o usuário informaria para o sistema que apenas as cidades com determinada distância do ponto de origem seriam alteradas. Isso deve ser feito da seguinte forma: 
+
+
+O usuário deve clicar no botão 
+"Filtro Adicional"
+: 
+
+
+
+
+O sistema abrirá a tela de filtro, onde o usuário deverá localizar o campo 
+"Distância Real"
+: 
+
+
+
+
+Após selecionar o campo de 
+"Distância Real"
+, o usuário deverá informar um intervalo nos campos 
+"Intervalo Inicial"
+ e 
+"Intervalo Final"
+: 
+
+
+
+
+Para salvar o filtro, o usuário deve clicar no botão "OK". Dessa forma o filtro estará pronto, informando ao sistema que as cidades que terão o seu valor de frete alterado, são aquelas de determinada UF e que estejam no intervalo de distância informado no filtro. 
+
+
+Após clicar no botão "OK" da tela de filtro, o sistema voltará para a quinta tela da tela de alteração de frete, sendo necessário o usuário clicar no botão "Avançar", para ir a próxima tela. 
+
+
+
+
+Na sexta tela, o usuário irá definir como será o tipo da alteração, no que se diz respeito a valor: 
+
+
+
+
+Acréscimo no valor:
+ O sistema irá acrescer nas tabelas selecionadas o valor configurado neste campo.
+
+
+
+
+
+
+Novo Valor:
+ O sistema assumirá o valor informado, ou seja, nas tabelas selecionadas, será substituido o valor por este informado neste campo.
+
+
+
+
+
+
+Acréscimo Percentual:
+ O sistema acrescerá o percentual informado neste campo nas tabelas selecionadas.
+
+
+
+
+Após selecinar o tipo de alteração, o usuário deverá clicar no botão "Avançar" para se posicionar na sétima tela: 
+
+
+
+
+Na sétima tela, o sistema exibe o resumo de todas as informações selecionadas até o momento pelo usuário. O usuário deve clicar no botão "Avançar" se posicionar na oitava e última tela: 
+
+
+
+
+Na oitava tela, o sistema irá apresentar para o usuário quais serão os registros que sofrerão a alteração, conforme as informações que o usuário passou para o sistema. Serão mostrados as cidades, os valores antigos e os novos valores que serão implementados, caso o usuário confirme o processo através do botão "OK". Lembrado que até agora nenhum dado foi alterado. 
+
+
+Após clicar no botão "OK ", o sistema solicitará a confirmação do usuário para continuar: 
+
+
+
+
+Confirmando, o sistema irá alterar os dados dos registros apresentados em tela. 
+Caso não seja confirmada a operação, o sistema permanece na tela, dando a opção do usuário corrigir qualquer informação, voltando as telas através do botão "Voltar".

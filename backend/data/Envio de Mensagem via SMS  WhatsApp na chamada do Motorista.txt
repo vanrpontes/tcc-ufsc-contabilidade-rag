@@ -1,0 +1,70 @@
+TITULO: Envio de Mensagem via SMS / WhatsApp na chamada do Motorista
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5082972161
+--------------------------------------------------
+Objetivo
+Após configuração prévia da empresa de integração para envio de Mensagens 
+Configuração Prévia Twilio para envio de Mensagem via SMS e WhatsApp
+ 
+Atualmente na tela de 
+Portaria de Entrada
+, caso estiver configurada a 
+Chamada de Motorista na Portaria
+ o usuário aperta o botão, a fila vai ficar com o fundo em cinza indicando que o motorista foi chamado. Além disso, ainda na tela da portaria, a coluna Data/Hora e Limite Entrada Portaria ficam preenchidos com suas devidas data e hora. Porém, mesmo com essas informações exibidas em uma tela grande o motorista não via a sua chamada e perdia a posição na fila. 
+Para sanar essa situação, além das indicações acima, o motorista receberá uma mensagem no celular que ele utiliza, informando que a vez do caminhão dele. 
+:warning:
+atlassian-warning
+#FFBDAD
+O envio de mensagens via SMS, esta temporariamente indisponível.
+Configurações
+Tabelas Auxiliares / 
+Comunicações
+Tabela Mensagem Padrão
+: cadastrar a mensagem que será enviada ao motorista no momento da 
+Chamada de Motorista na Portaria
+. 
+Observação: caso a mensagem seja para envio via WhatsApp é possível utilizar negrito, itálico entre outras da mesma forma conforme feito no celular, a exemplo dos dois asteriscos * para o 
+negrito. 
+Gerenciador de Mensagens
+: trabalhamos atualmente com a 
+Twillio
+. Preencher as informações
+ID Usuário
+Token
+Número de Origem: a Twllio, nos testes, forneceu um telefone para envio de mensagem via 
+SMS 
+e outro para 
+WhatsApp
+. Veja se, após cadastro e escolher o melhor plano ou pacote que se encaixa a sua empresa, se serão dois números ou apenas um.
+Ferramentas / Sistema /
+Aba Comunicações
+ 
+Envio Preferencial de Mensagens: escolher qual a forma que os motoristas serão notificados
+SMS
+WhatsApp
+Mensagem Gerenciador: 
+Twillio: marcar
+Mensagem Padrão Portaria: escolher qual será a mensagem padrão enviada cadastrada na 
+Tabela Mensagem Padrão
+ 
+Tabelas Auxiliares / Transportes / 
+Transportadoras / Motoristas
+ 
+Aba Detalhes / Quadro Envio SMS/Mensagens
+Celular SMS: informar o número do celular do motorista
+Envio Preferencial de Mensagens: escolher qual será a forma que o SisPetro enviará mensagem ao motorista
+Ver sistema: obedecerá ao padrão escolhido no 
+https://futura.atlassian.net/wiki/x/AQC4OQE
+ 
+SMS
+WhatsApp
+Como utilizar
+Após realizar as configurações acima, Na portaria de Entrada, ao clicar no botão 
+Chama motorista
+ o Sispetro envia automaticamente a mensagem ao motorista
+Para saber mais
+Portaria de Entrada
+ 
+https://futura.atlassian.net/wiki/x/DgCdOQE
+ 
+Chamada de Motorista na Portaria
+ 

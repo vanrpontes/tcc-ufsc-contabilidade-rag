@@ -1,0 +1,546 @@
+TITULO: Cálculos de ICMS para Tributação Monofásica de Gasolina e afins conforme cada CST e o que configurar
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4365254657
+--------------------------------------------------
+CST 61 - saída de Gasolina C
+Tabela Composição de Produtos
+ - tela nova para ser cadastrada a composição fiscal de produtos utilizada para a tributação monofásica.
+Cadastrar a composição que será utilizada no produto Gasolina C composto ou misturado
+Produto Primário deve ser cadastrado  com Tipo de Cálculo simples e %Composição definida pela ANP
+BioCombustível deve ser cadastrado com Tipo de Cálculo simples e %Composição definida pela ANP
+Cadastro de Produtos
+Dados Adicionais em Produtos
+ - produto Gasolina C
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+marcar
+Tipo (Tributação AdRem): 
+Produto Primário
+Envia tag <pBio> com Perc. de BioCombustível: 
+Envia Percentual de BioCombustível conforme Composição do Produto
+Origem do Produto: 
+Nacional
+Composição: 
+selecione a composição cadastrada acima
+Dados Adicionais em Produtos
+ - Anidro
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+marcar
+Tipo (Tributação AdRem): 
+BioCombustível
+Envia tag <pBio> com Perc. de BioCombustível: 
+Não Envia
+Origem do Produto: 
+Nacional
+Composição: 
+não selecione
+Margem Subst. Tributária
+ 
+%Orig. Nac.:
+ informe o percentual da UF do produtor (UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do produtor.
+%Orig. Imp.:
+ informe o percentual da UF do importador UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do importador.
+No SisPetro para que os percentuais de UF Origem sejam gerados corretamente no XML é necessário informar nos produtos: Anidro e Gasolina C 
+Nota:
+ a UF do importador (UF de Origem) refere-se à UF onde o produto importado foi descarregado
+Obs:
+ a distribuição dos percentuais Orig. Nac. e Orig. Imp. entre as UFs dos produtores/importadores deve 
+somar 100%, sempre.
+%ICMS UF Dest. (Nac.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de produtor nacional.
+%ICMS UF Dest. (Imp.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de importador.
+Informar somente no Anidro
+Tabela ICMS
+ - ambos os produtos
+Cadastre as alíquotas AdRem para as UFs envolvidas:
+Próprio
+ST
+Regras para NF-e
+ - regra geral: 
+uma vez configurada envia para todas as notas emitidas com natureza de operação habilitada para AdRem
+NT 2023.001 - Tag pBio: 
+Envia para produtos compostos contendo Biocombustível
+NT 2023.001 - Tag origComb: 
+Envia para produtos com % Originário por UF
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Envia quando o item conter o CST de Tributação Monofásica
+Dados Gerais (Painel Por Filial)
+Situação Tributária de ICMS
+CST/CSOSN: 
+informar 061
+Impostos (Painel Por Filial)
+Ad Rem
+Habilita  cálculo Ad Rem: 
+marcar
+Produto Primário: 
+ICMS Retido: 100%
+Produto BioCombustível:
+ICMS Retido: 100%
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?: 
+Respeita Cadastro de Produtos
+Dados Tributação Monofásica: 
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+CST 61 - saída de Gasolina A
+Tabela Composição de Produtos
+Cadastrar a composição que será utilizada no produto Gasolina A
+Produto Primário deve ser cadastrado  com Tipo de Cálculo simples e %Composição deve ser 100%
+BioCombustível deve ser cadastrado com Tipo de Cálculo 
+por dentro
+ e %Composição definida pela ANP
+Cadastro de Produtos
+Dados Adicionais em Produtos
+ - produto Gasolina A
+Envia na NF-e a Tag <origComb> com o % Originário por UF?:
+desmarcar
+Tipo (Tributação AdRem): 
+Produto Primário
+Envia tag <pBio> com Perc. de BioCombustível: 
+Envia Percentual de BioCombustível conforme Composição do produto
+Origem do Produto: 
+Nacional
+Composição: 
+selecione a composição cadastrada acima
+Dados Adicionais em Produtos
+ - Anidro
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+marcar
+Tipo (Tributação AdRem): 
+BioCombustível
+Envia tag <pBio> com Perc. de BioCombustível: 
+Não Envia
+Origem do Produto: 
+Nacional
+Composição: 
+não selecione
+Margem Subst. Tributária
+%Orig. Nac.:
+ informe o percentual da UF do produtor (UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do produtor.
+%Orig. Imp.:
+ informe o percentual da UF do importador UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do importador.
+Informar os percentuais nos produtos da composição fiscal utilizada para a Gasolina A: na Gasolina A e no Anidro
+Nota:
+ a UF do importador (UF de Origem) refere-se à UF onde o produto importado foi descarregado
+Obs.:
+ a distribuição dos percentuais Orig. Nac. e Orig. Imp. entre as UFs dos produtores/importadores deve 
+somar 100%, sempre.
+%ICMS UF Dest. (Nac.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de produtor nacional.
+%ICMS UF Dest. (Imp.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de importador.
+Informar somente no Anidro
+Nota: 
+apesar de ter a informação de %ICMS no Convênio 15/23, o percentual não deve ser informado. 
+Tabela ICMS
+ - ambos os produtos
+Cadastre as alíquotas AdRem para as UFs envolvidas:
+Próprio
+ST
+Regras para NF-e
+ - regra geral: 
+uma vez configurada envia para todas as notas emitidas com natureza de operação habilitada para AdRem
+NT 2023.001 - Tag pBio: 
+Envia para produtos compostos contendo Biocombustível
+NT 2023.001 - Tag origComb: 
+Envia para produtos com % Originário por UF
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Envia quando o item conter o CST de Tributação Monofásica
+Dados Gerais (Painel Por Filial)
+Situação Tributária de ICMS
+CST/CSOSN: 
+informar 061
+Impostos (Painel Por Filial)
+Ad Rem
+Habilita  cálculo Ad Rem: 
+marcar
+Produto Primário: 
+ICMS Retido: % UF Origem
+Produto BioCombustível:
+ICMS Retido: % UF Destino
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?: 
+Respeita Cadastro de Produtos
+Dados Tributação Monofásica: 
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+CST 61 - saída de Anidro
+Cadastro de Produtos
+Dados Adicionais em Produtos
+ - Anidro
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+marcar
+Tipo (Tributação AdRem): 
+BioCombustível
+Envia tag <pBio> com Perc. de BioCombustível: 
+Não Envia
+Origem do Produto: 
+Nacional
+Composição: 
+não selecione
+Margem Subst. Tributária
+%Orig. Nac.:
+ informe o percentual da UF do produtor (UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do produtor.
+%Orig. Imp.:
+ informe o percentual da UF do importador UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do importador.
+Informar no Anidro
+Nota:
+ a UF do importador (UF de Origem) refere-se à UF onde o produto importado foi descarregado
+Obs.:
+ a distribuição dos percentuais Orig. Nac. e Orig. Imp. entre as UFs dos produtores/importadores deve 
+somar 100%, sempre.
+%ICMS UF Dest. (Nac.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de produtor nacional.
+%ICMS UF Dest. (Imp.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de importador.
+Informar no Anidro
+Nota: 
+apesar de ter a informação de %ICMS no Convênio 15/23, o percentual não deve ser informado. 
+Tabela ICMS
+Cadastre as alíquotas AdRem para as UFs envolvidas:
+Próprio
+ST
+Regras para NF-e
+ - regra geral: 
+uma vez configurada envia para todas as notas emitidas com natureza de operação habilitada para AdRem
+NT 2023.001 - Tag pBio: 
+Envia para produtos compostos contendo Biocombustível
+NT 2023.001 - Tag origComb: 
+Envia para produtos com % Originário por UF
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Envia quando o item conter o CST de Tributação Monofásica
+Dados Gerais (Painel Por Filial)
+Situação Tributária de ICMS
+CST/CSOSN: 
+informar 061
+Impostos (Painel Por Filial)
+Ad Rem
+Habilita  cálculo Ad Rem: 
+marcar
+Produto Primário: 
+ICMS Retido: % UF Origem
+Produto BioCombustível:
+ICMS Retido: % UF Destino
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?: 
+Respeita Cadastro de Produtos
+Dados Tributação Monofásica: 
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+CST 15 - Produção/Nacionalização de Gasolina A através de PMM
+Tabela Composição de Produtos
+Cadastrar a composição que será utilizada no produto Gasolina A composto ou misturado
+Produto Primário deve ser cadastrado  com Tipo de Cálculo simples e %Composição definida pela ANP
+BioCombustível deve ser cadastrado com Tipo de Cálculo 
+por dentro
+ e %Composição definida pela ANP
+Cadastro de Produtos
+Dados Adicionais em Produtos
+ - Gasolina A
+Envia na NF-e a Tag <origComb> com o % Originário por UF?:
+marcar
+Tipo (Tributação AdRem): 
+Produto Primário
+Envia tag <pBio> com Perc. de BioCombustível: 
+Envia Percentual de BioCombustível conforme Composição do produto
+Origem do Produto: 
+Importado
+Composição: 
+selecione a composição cadastrada acima
+Dados Adicionais em Produtos
+ - Anidro
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+desmarcar
+Tipo (Tributação AdRem): 
+BioCombustível
+Envia tag <pBio> com Perc. de BioCombustível: 
+Não Envia
+Origem do Produto: 
+Nacional
+Composição: 
+não selecione
+Margem Subst. Tributária
+ - ambos os produtos
+%Orig. Nac.:
+ informe o percentual da UF do produtor (UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do produtor.
+%Orig. Imp.:
+ informe o percentual da UF do importador UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do importador.
+Informar os percentuais nos produtos da composição fiscal utilizada para a Gasolina A: na Gasolina A e no Anidro
+Nota:
+ a UF do importador (UF de Origem) refere-se à UF onde o produto importado foi descarregado
+Obs.:
+ a distribuição dos percentuais Orig. Nac. e Orig. Imp. entre as UFs dos produtores/importadores deve 
+somar 100%, sempre.
+%ICMS UF Dest. (Nac.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de produtor nacional.
+%ICMS UF Dest. (Imp.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de importador.
+Informar somente no Anidro
+Nota: 
+apesar de ter a informação de %ICMS no Convênio 15/23, o percentual não deve ser informado. 
+Tabela ICMS
+ - ambos os produtos
+Cadastre as alíquotas AdRem para as UFs envolvidas, inclusive a UF EX:
+Próprio
+ST
+Regras para NF-e
+ - regra geral: 
+uma vez configurada envia para todas as notas emitidas com natureza de operação habilitada para AdRem
+NT 2023.001 - Tag pBio: 
+Envia para produtos compostos contendo Biocombustível
+NT 2023.001 - Tag origComb: 
+Envia para produtos com % Originário por UF
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Envia quando o item conter o CST de Tributação Monofásica
+Dados Gerais (Painel Por Filial)
+Situação Tributária de ICMS
+CST/CSOSN: 
+informar 115
+Impostos (Painel Por Filial)
+ 
+Ad Rem - não interfere já que os valores de ICMS são informados manualmente conforme Processo de Importação de Combustíveis - item Despesas
+Habilita  cálculo Ad Rem: 
+marcar
+Produto Primário: 
+ICMS Próprio: 100%
+Produto BioCombustível:
+ICMS ST: %UF Destino
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?: 
+Respeita Cadastro de Produtos
+Dados Tributação Monofásica: 
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+Processo de Importação de Combustíveis
+ - item Despesas
+A base de cálculo, a alíquota e o valor do ICMS devem ser informados manualmente - campo Categoria:
+ICMS Próprio
+ICMS Substituição
+CST 15 - Produção/Nacionalização de Gasolina A através de inclusão manual de nota fiscal
+Tabela Composição de Produtos
+Cadastrar a composição que será utilizada no produto Gasolina C composto ou misturado
+Produto Primário deve ser cadastrado  com Tipo de Cálculo simples e %Composição definida pela ANP
+BioCombustível deve ser cadastrado com Tipo de Cálculo 
+por dentro
+ e %Composição definida pela ANP
+Cadastro de Produtos
+Dados Adicionais em Produtos
+ - Gasolina A
+Envia na NF-e a Tag <origComb> com o % Originário por UF?:
+marcar
+Tipo (Tributação AdRem): 
+Produto Primário
+Envia tag <pBio> com Perc. de BioCombustível: 
+Envia Percentual de BioCombustível conforme Composição do produto
+Origem do Produto: 
+Importado
+Composição: 
+selecione a composição cadastrada acima
+Dados Adicionais em Produtos
+ - Anidro
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+desmarcar
+Tipo (Tributação AdRem): 
+BioCombustível
+Envia tag <pBio> com Perc. de BioCombustível: 
+Não Envia
+Origem do Produto: 
+Nacional
+Composição: 
+não selecione
+Margem Subst. Tributária
+ - ambos os produtos
+%Orig. Nac.:
+ informe o percentual da UF do produtor (UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do produtor.
+%Orig. Imp.:
+ informe o percentual da UF do importador UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do importador.
+Informar os percentuais nos produtos da composição fiscal utilizada para a Gasolina A: na Gasolina A e no Anidro
+Nota:
+ a UF do importador (UF de Origem) refere-se à UF onde o produto importado foi descarregado
+Obs.:
+ a distribuição dos percentuais Orig. Nac. e Orig. Imp. entre as UFs dos produtores/importadores deve 
+somar 100%, sempre.
+%ICMS UF Dest. (Nac.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de produtor nacional.
+%ICMS UF Dest. (Imp.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de importador.
+Informar somente no Anidro
+Nota: 
+apesar de ter a informação de %ICMS no Convênio 15/23, o percentual não deve ser informado. 
+Tabela ICMS
+ - ambos os produtos
+Cadastre as alíquotas AdRem para as UFs envolvidas, inclusive a UF EX:
+Próprio
+ST
+Regras para NF-e
+ - regra geral: 
+uma vez configurada envia para todas as notas emitidas com natureza de operação habilitada para AdRem
+NT 2023.001 - Tag pBio: 
+Envia para produtos compostos contendo Biocombustível
+NT 2023.001 - Tag origComb: 
+Envia para produtos com % Originário por UF
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Envia quando o item conter o CST de Tributação Monofásica
+Dados Gerais (Painel Por Filial)
+Situação Tributária de ICMS
+CST/CSOSN: 
+informar 115
+Impostos (Painel Por Filial)
+ICMS / IPI
+Gera ICMS: 
+marcar
+ICMS ST
+Gerar ICMS Substituição: 
+marcar
+Ad Rem
+Habilita  cálculo Ad Rem: 
+marcar
+Produto Primário: 
+ICMS Próprio: 100%
+Produto BioCombustível:
+ICMS ST: 100%
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?: 
+Respeita Cadastro de Produtos
+Dados Tributação Monofásica: 
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+CST 53 - Produção/Nacionalização de Anidro
+Cadastro de Produtos
+Dados Adicionais em Produtos
+ - Anidro
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+desmarcar
+Tipo (Tributação AdRem): 
+BioCombustível
+Envia tag <pBio> com Perc. de BioCombustível: 
+Não Envia
+Origem do Produto: 
+Importado
+Composição: 
+não selecione
+Margem Subst. Tributária
+%Orig. Nac.:
+ informe o percentual da UF do produtor (UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do produtor.
+%Orig. Imp.:
+ informe o percentual da UF do importador UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do importador.
+Informar no Anidro
+Nota:
+ a UF do importador (UF de Origem) refere-se à UF onde o produto importado foi descarregado
+Obs.:
+ a distribuição dos percentuais Orig. Nac. e Orig. Imp. entre as UFs dos produtores/importadores deve 
+somar 100%, sempre.
+%ICMS UF Dest. (Nac.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS, 15/23 (Gasolina e Anidro), para produto adquirido de produtor nacional.
+%ICMS UF Dest. (Imp.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS, 15/23 (Gasolina e Anidro), para produto adquirido de importador.
+Informar no Anidro
+Nota: 
+apesar de ter a informação de %ICMS no Convênio 15/23, o percentual não deve ser informado. 
+Tabela ICMS
+Cadastre as alíquotas AdRem para as UFs envolvidas, inclusive a UF EX:
+Próprio
+ST
+Regras para NF-e
+ - regra geral: 
+uma vez configurada envia para todas as notas emitidas com natureza de operação habilitada para AdRem
+NT 2023.001 - Tag pBio: 
+Envia para produtos compostos contendo Biocombustível
+NT 2023.001 - Tag origComb: 
+Envia para produtos com % Originário por UF
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Envia quando o item conter o CST de Tributação Monofásica
+Dados Gerais (Painel Por Filial)
+Situação Tributária de ICMS
+CST/CSOSN: 
+informar 153
+Impostos (Painel Por Filial)
+Ad Rem
+Habilita  cálculo Ad Rem: 
+marcar
+Produto Primário: 
+ICMS Próprio: 100%
+ICMS Diferido: 100%
+Produto BioCombustível:
+Nenhuma configuração
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?: 
+Respeita Cadastro de Produtos
+Dados Tributação Monofásica: 
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+Resumo da configuração AdRem nas naturezas de operação - quadro AdRem
+Operação
+CST
+Produto Primário
+Produto BioCombustível
+Observações
+Venda/Transferência Gasolina C
+61
+Marcar ICMS Retido = 100%
+Marcar ICMS Retido = 100% 
+Venda/Transferência Gasolina A
+61
+Marcar ICMS Retido =
+% UF Origem
+Marcar ICMS Retido = 
+% UF Destino
+ Venda/Transferência Anidro
+61
+Marcar ICMS Destino = 
+% UF Origem
+Marcar ICMS Retido = 
+% UF Destino
+Produção/Nacionalização Gasolina A
+15
+Marcar ICMS Próprio = 100%
+Marcar ICMS ST = %UF Destino
+Produção/Nacionalização Anidro
+53
+Marcar ICMS Próprio = 100%
+Marcar ICMS Diferido =  100%
+Nada a ser configurado
+Nas operações com Anidro puro deve ser considerado como Produto Primário
+Produtos que utilizam a mesma configuração para as Natureza Operação, poderão utilizar apenas uma Natureza, como por exemplo: Venda/Transferência de Gasolina C e Diesel B, que ambas Naturezas utilizam:
+Produto Primário: ICMS Retido 100%
+Produto BioCombustível: ICMS Retido 100%
+Exemplo de cálculo de ICMS monofásico para saída de Gasolina A - CST 61
+Saída de 10.000 litros de Gasolina A
+ dentro da UF de SP
+%ICMS UF Destino: 
+Não tem
+Alíquota AdRem
+Gasolina A:
+ 1,22
+Anidro:
+ 1,22
+Composição fiscal do Gasolina A
+Gasolina  A:
+ 100% e tipo de cálculo Simples
+Anidro:
+ 27% e tipo de cálculo Por Dentro
+Como no campo %Composição é indicado 100%, então é necessário calcular a composição da ANP do Gasolina A:
+ 100 - 27(%Composição do Anidro) = 73
+Cálculo da quantidade como se fosse Gasolina C e obter a quantidade de Anidro - aplicar regra de 3:
+10.000 litros Gasolina  A:
+ 73% (% de composição ANP calculada)
+X litros de Anidro:
+ 27%
+Quantidade de Anidro:
+ (10.000 * 27) / 73 = 3.698,63
+Quantidade como se fosse Anidro = 13.698,63
+Gasolina A - 73%:
+ 13.698,63 * 0,73 = 10.000
+Anidro - 27%:
+ 13.698,63 * 0,27 = 3.698,63
+Cálculos dos impostos:
+ICMS MonoRet Gasolina A:
+ 10.000 * 1,22 = 12.200,00
+ICMS MonoRet Anidro:
+ 3.698,63 * 1,22 = 4.512,32
+Total ICMS MonoRet =
+ 12.200,00 + 4.512,32 = 16,712,33
+Exemplo de cálculo de ICMS monofásico para saída de Anidro - CST 61
+Saída de 10.000 litros de Anidro
+ dentro da UF de SP
+%ICMS UF Destino (Anidro): 
+100
+%
+Alíquota AdRem
+Anidro:
+ 1,22
+Composição fiscal do Anidro :
+ não tem
+Cálculos dos impostos:
+Base de Cálculo: 10.000
+Alíquota AdRemICMSRet:
+ 0,00%
+Total ICMS MonoRet:
+ 0,00

@@ -1,0 +1,75 @@
+TITULO: Nota Fiscal - Dados Iniciais de Cliente e Natureza de Operação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2917991192
+--------------------------------------------------
+Ao iniciar a emissão de uma nota fiscal, os primeiros campos a serem apresentados serão de cliente e natureza de operação. 
+Porém, em determinadas situações, podem existir outros campos a serem informados.
+Nota Fiscal de Venda:
+Ao iniciar emissão de nota fiscal de Venda, que deve ser feita via tela de Consultas > Pedidos Aprovados e não faturados > botão Fatura (maiores informações no tópico sobre 
+), já consideramos que está vinculada com sua respectiva Ordem de Carregamento, e já temos a informação do Cliente. A tela neste caso é a seguinte:
+Neste caso, a Natureza de Operação será sugerida conforme cadastro de produto, assim como o Tipo de Documento. O Código da Entidade será informando devido o vínculo com o pedido de venda e ordem de carregamento.
+ 
+Os dados do cliente, número do pedido, natureza de operação e CFOP serão apresentados no quadro superior da tela.
+Código Entidade:
+ Código do cliente da OC escolhida. Já informado conforme o cliente da OC.
+Destaca frete no rodapé da Nota Fiscal:
+ Através deste campo, o sistema identificará ser o cálculo do valor do frete informado no item da nota fiscal, atualizando automaticamente o valor total do frete presente na nota fiscal em questão. Ver 
+.
+Natureza de Operação:
+ Indicação da Natureza Natureza de Operação conforme o que está cadastrado no Produto (maiores informações em 
+).
+Pontos Importantes:
+ 
+Se a natureza de operação escolhida exigir autorização da CODIF, e o Servidor Sispetro não estiver ativo, emitirá uma mensagem na tela e não será possível avançar para a próximo painel. 
+Ao informar o Código da Natureza de Operação, o sistema irá considerar e salvar no banco de dados informações do Processo Referenciado, que deverá estar configurado para a empresa cadastrado na Tabela de Natureza de Operação (vide tópico de 
+). Além do Processo Referenciado, o sistema irá salvar também, o código da situação do documento, definido na 
+. Esses dois campos serão utilizados na geração do arquivo do SPED, veja maiores informações sobre no tópico de 
+.
+Tipo Documento:
+ Indicação do documento que está sendo gerado, e está vinculado a Natureza de Operação.
+O quadro central trará informações de um dos itens (caso exista mais de um) da ordem de carregamento, tais como: 
+Depósito
+, 
+#Pedido
+, 
+Descrição
+, 
+Qtde
+ e 
+Preço
+.
+Nota Fiscal de Outras Saídas:
+Ao iniciar emissão de nota fiscal de Outras Saídas, que deve ser feita via tela de Movimentação > Faturamento > Outras Saídas, o Sispetro permitirá ao usuário definir se a Nota Fiscal será vinculada a uma Ordem de Carregamento, apresentando a tela de Filtro de OC. Veja maiores informações no tópico sobre 
+Filtro de OC
+.
+A tela de dados iniciais é a seguinte:
+Havendo vínculo com Ordem de Carregamento, os dados do cliente serão informados automaticamente.
+Em todos os casos, temos os campos:
+Código Entidade:
+ Código do cliente que será emitida a nota fiscal;
+Destaca frete no rodapé da Nota Fiscal:
+ Através deste campo, o sistema identificará ser o cálculo do valor do frete informado no item da nota fiscal, atualizando automaticamente o valor total do frete presente na nota fiscal em questão. Ver 
+.
+Natureza de Operação:
+ Indique a Natureza de Operação coerente com o tipo de nota que se deseja incluir. Caso não saiba o código, aperte <enter> para que o Sistema abra una janela de pesquisa. Caso você tenha escolhido uma natureza de operação que não gera movimento de estoque ou obrigação no Contas a Pagar/Receber, o Sistema irá alertá-lo disso neste momento.
+Pontos Importantes:
+Se a natureza de operação escolhida exigir autorização da CODIF, e o Servidor Sispetro não estiver ativo, emitirá uma mensagem na tela e não será possível avançar para a próximo painel. 
+Ao informar o Código da Natureza de Operação, o sistema irá considerar e salvar no banco de dados informações do Processo Referenciado, que deverá estar configurado para a empresa cadastrado na Tabela de Natureza de Operação (vide tópico de 
+). Além do Processo Referenciado, o sistema irá salvar também, o código da situação do documento, definido na 
+. Esses dois campos serão utilizados na geração do arquivo do SPED, veja maiores informações sobre no tópico de 
+.
+Tipo Documento:
+ Indique o documento que está sendo gerado, por padrão é configurado na empresa (Ferramentas / Sistema / Financeiro no campo "Tipo Documento Padrão Natureza Operação") como "Nota Fiscal/Fatura", podendo ser alterado de acordo com a natureza de operação (ver 
+).
+Histórico:
+ Indique o histórico referente ao que se trata essa nota fiscal. Configurado na Natureza de Operação, veja maiores informações em 
+.
+Opção "É o último item da OC":
+ Ao incluir uma nota fiscal, caso a 
+Natureza de Operação
+ 
+esteja definida para permitir associar uma OC em mais de uma NF
+, o usuário poderá informar se é o último item da OC a ser faturado, que já vem marcado como padrão. Se houver mais notas fiscais a serem emitidas através da mesma OC, basta desmarcar a opção "É o último ítem da OC?", e assim a ordem continuará pendente até que seja incluída a última NF. Porém, não será controlado o saldo pendente desta OC a ser faturado, devendo esta opção, ser utilizada criteriosamente para não causar diferenças no estoque. No caso da necessidade de cancelar uma das NFs vinculadas a determinada OC, deverá ser cancelada a última NF (aquela definida como último item da OC), antes de cancelar as demais, pois é através dela que são feitos os devidos ajustes de estoque no depósito de origem da ordem de carregamento de transferência. Também foi modificado para não permitir excluir nem incluir manualmente os itens, quando estiver incluindo uma nota fiscal através de ordem de carregamento, permanecendo sempre o item da OC escolhido.
+ 
+Após informar todos os dados necessários, 
+clique no botão 
+Avança

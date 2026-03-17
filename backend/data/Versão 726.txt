@@ -1,0 +1,83 @@
+TITULO: Versão 7.26
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2906882406
+--------------------------------------------------
+Dados
+Informações
+Início
+31/01/2012
+Final
+20/02/2012
+Scripts
+CMD726.SQL (cmd2879)
+Itens
+17
+Implementações
+2
+Correções
+15
+ 
+Geral
+Campos de Pesquisa do SisPetro
+A partir dessa versão, os campos de pesquisa do SisPetro, como por exemplo código do depósito, código de conta, código do tanque, etc, receberam somente letras maiúsculas em seu conteúdo, evitando assim que seja gravado no banco um código com letras minúsculas. Nossos cadastros aceitam somente letras maiúsculas. MCL (CCF 15866)
+Atualização do Client do Sybase e do BDE
+Na rotina de atualização do client do sybase e drivers do BDE, mesmo quando os usuário configurava o sistema para não atualizar, o sistema estava procurando os arquivos para atualização. Esse problema foi corrigido. 
+UPA (CCF 15789)
+Tela de Configurações de E-Mails
+ 
+Foi incluído o campo From na Tela de Configurações de E-Mails para possibilitar configurar e-mails que o usuário é diferente do From (remetente). 
+Help:
+ 
+Configuração de Conta de E-mail
+ 
+CPC (CCF 15768).
+Estoque
+Numero do Pedido de Movimentação de Material na OC
+Durante a inclusão de uma OC onde foi marcada a opção "Informa Pedido Mov. Mat.", em algumas situações, não gravava o numero do pedido corretamente podendo gerar problemas na portaria de entrada. Esse problema foi corrigido e a partir dessa versão o número do PMM deverá ser informado após o usuário informar a quantidade. 
+UPA (CCF 15825)
+Edição na tela de DPMP
+Na versão 7.25 fizemos uma alteração para permitir alterar o Código do Produto nos ajustes manuais do DPMP, porém indevidamente isso causou um problema no processo de Edição de DPMP, onde os campos Qtde e Qtde KG não estavam sendo gravados corretamente. O problema foi corrigido. 
+CPC (CCF 15857)
+Faturamento
+Erro ao Utilizar Fórmula de Contabilização Gerencial
+Ao emitir uma nota fiscal que estava utilizando fórmula para a contabilização gerencial, era gerado um erro ao usuário e a contabilização gerencial não era concluída (somente no Sybase 12). Esse problema foi corrigido. 
+MCL (CCF 15822)
+Erro ao Executar a Rotina de Recontabilização Real na Manutenção de Notas Fiscais
+A opção de Recontabilização Real da nota fiscal na manutenção de notas fiscais estava apresentando uma mensagem de erro ao usuário e não estava recontabilizando (somente no Sybase 12). Esse problema foi corrigido. 
+UPA (CCF 15800)
+Alterações no processo de importação de Nota Fiscal por XML para gravar corretamente os impostos ICMS ST e ICMS Retido
+Se o sistema estiver configurado para gravar o ICMS Retido como ICMS ST e o mesmo estiver preenchido na importação, ele será salvo nos campos de ICMS ST; caso contrário, o ICMS ST será gravado nos seus respectivos campos e o ICMS Retido será gravado em seus respectivos campos. 
+CPC (CCF  CCF-15797)
+Fiscal
+Valores de Impostos a Recolher ST Saindo Incorretos na Impressão da Apuração
+Alteradas as rotinas para recalculo da apuração pois foi detectado um problema nessas rotinas que deixa o valor apurado final do ST discrepante dos valores da apuração que está sendo calculada. 
+UPA (CCF 15695)
+SPED PIS/COFINS - Duplicidade de dados
+Corrigido para que não apresente erros de duplicidade nos Registros C110 e C110. 
+GSN (CCF 15673)
+SPED PIS/COFINS - Erro de estrutura casas
+ 
+decimais
+Acertado o número de casas decimais dos campos do Registro M100 evitando erro de estrutura.
+ 
+GSN (CCF 15673)
+SPED EFD - Versão do Layout
+Corrigido o campo de Versão do Layout para a nova versão de 2012. 
+GSN (CCF 15672)
+SPED EFD - Chave de Acesso no Registro C100
+Alterada a fórmula do campo Chave de Acesso do Registro C100 para que a mesma seja sempre enviada. 
+GSN (CCF 15672)
+SPED EFD - Duplicidade no Registro H010
+Alterado o Registro H010 para só enviar como participantes Clientes ativos com CNPJ utilizado como proprietário dos produtos do inventário. 
+GSN (CCF 15672)
+SPED EFD - Finalidade do arquivo no Registro 0000
+ 
+Alterado para considerar a finalidade como Arquivo original no Registro 0000 caso o usuário não informe a finalidade durante o preenchimento. 
+GSN (CCF 15672)
+Detalhamento dos Outros Débitos/Créditos na Apuração Fiscal
+Na tela de inclusão de outros débitos / créditos da apuração fiscal, caso a tabela de tipos de apuração estivesse vazia, a tela de pesquisa era aberta e o usuário não conseguia mais sair, sendo necessário derrubar o processo do SisPetro Controladoria. Esse problema foi corrigido. 
+MCL (CCF 15746)
+Vendas
+Ajustes na configuração do Perfil do Cliente para Bloqueio de Vendas por Atividade Econômica
+Na versão 7.25 fizemos uma alteração para permitir o Bloqueio de Venda por Atividade Econômica, porém, alguns clientes foram bloqueados indevidamente (que são postos e congêneres). Foi criado um script para configurar corretamente o Perfil do Cliente para Vendas por Atividade Econômica, onde todos os que não são consumidor final serão definidos por empresa. 
+CPC (CCF 15779)
+ 

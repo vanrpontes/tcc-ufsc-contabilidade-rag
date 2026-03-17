@@ -1,0 +1,64 @@
+TITULO: Passos para Unload de Banco de Dados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4171989017
+--------------------------------------------------
+Segue procedimento para realização do unload para o processo de geração do arquivo morto.
+Faça um backup do banco do cliente antes de iniciar qualquer trabalho.
+Fazendo 
+unload
+ do banco
+Faça o 
+unload
+ 
+da Estrutura e dos Dados do Banco utilizando o 
+Sybase Central.
+a) Conectando ao 
+banco:
+b) 
+Fazendo
+ 
+unload: Menu File
+ 
+selecione 
+Unload Database:
+c) Clique em 
+NEXT:
+d) Selecione o
+ banco, 
+e clique em
+ NEXT:
+e) 
+Selecione 
+Unload into a reload file. 
+f) 
+Selecione a pasta onde será criado o arquivo 
+C:\PASTA_DB_ORIGINAL\reload.sql:
+g) Selecione
+Unload structure and data:
+ 
+Essa opção gera a estrutura e os dados do cliente. Caso o banco esteja corrompido e a ideia é
+ 
+gerar um banco
+ 
+com todas as views e procedures. 
+g) Selecione 
+Unload all database objects
+ (todas as tabelas):
+          
+           h) Selecione:
+Save the data files on the server computer using UNLOAD statements:
+ 
+salva os arquivos .dat no computador local
+Use LOAD statements to reload the data from the local computer 
+i) Clique em 
+FINISH
+ para iniciar o 
+unload
+ das tabelas ou dados:
+j) 
+Aguarde até finalizar o 
+unload
+:
+Após gerar o Unload, é necessário criar um novo Database para continuar com o processo do arquivo morto, onde será executado o Reload de toda a Estrutura e dos Dados gravados pelo Unload.
+Para mais informações, ver:
+Roteiro para Geração de Arquivo Morto
+Criação de um novo Banco de Dados Vazio

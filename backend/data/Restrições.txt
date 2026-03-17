@@ -1,0 +1,61 @@
+TITULO: Restrições
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898942
+--------------------------------------------------
+Existem alguns procedimentos que não podem ser executados para que a equação do fechamento permaneça válida. São eles:
+
+
+
+
+Conciliar um movimento bancário posterior ao do fechamento:
+ O Sistema salvaria o valor incorreto do saldo conciliado pois o lançamento não pertence a data do fechamento (ou anterior).
+
+
+Baixar um lançamento de Contas a receber com data da baixa (Data Movimento) superior à do Fechamento que se refiram a algum título cuja data de emissão é igual ou inferior à do Fechamento: Aqui cabe uma explicação mais detalhada:
+ O Sistema separa as pendências (títulos a receber) pela sua data de emissão. Assim, é possível realizar o fechamento com uma data de referência anterior a atual mesmo ocorrendo o faturamento. Da mesma maneira, o movimento bancário é separado (quando gerado através de baixas) pela data da baixa (data de movimento). Assim, não se pode misturar movimentos, isto é, baixar um título cuja data de emissão seja inferior ou igual à do fechamento e a data da baixa seja posterior a do fechamento.
+
+
+
+
+ Exemplo: Caso o usuário esteja fechando a data de 01/02/2005 no início do dia 02/02/2005, ele pode baixar títulos emitidos anteriormente ou iguais a esta data (01/02/2005) informando como data de baixa (data de movimento) 01/02/2005. Ele ainda pode baixar títulos emitidos no próprio dia em que está fechando (02/02/2005) informando a data da baixa (02/02/2005). Este movimento não entrará no fechamento do dia 01/02/2005 e sim no dia 02/02/2005.
+
+
+O que não se pode fazer então:
+
+
+
+
+Baixar um título do dia (02/02/2005) com data da baixa (01/02/2005). O Sistema irá informá-lo de que está tentando baixar um título cuja data de emissão é posterior à data da baixa (no momento da baixa).
+
+
+Baixar um título com data de emissão inferior ou igual à data do fechamento com data da baixa 02/02/2005. Neste caso, ele está misturando movimentos (pendência referente ao fechamento 01/02/2001 e baixa (movimento de banco) referente à 02/02/2001. 
+Infelizmente, o Sistema, no momento da baixa, não pode proibir tal procedimento pois não sabe neste momento se o usuário realiza o fechamento diariamente ou semanalmente, por exemplo, o que seria neste caso um movimento lícito. Assim, somente no momento do fechamento ele informa tal ocorrência e, se o usuário precisar realizar o fechamento, deve cancelar tais tipos de baixa
+.
+
+
+
+
+Antes de iniciar um fechamento, o Sistema verifica os procedimentos acima e não permite que o fechamento continue caso exista algum deles.
+
+
+Além disso, o Sistema não permite que exista uma baixa cuja data de baixa seja superior à data do fluxo. Caso necessite realizar uma baixa deste tipo, deve informar como data da baixa um valor no mínimo igual à data do fluxo.
+
+
+O Sistema também não permite que exista um cancelamento de nota fiscal (de venda ou devolução) cuja data de emissão seja inferior ou igual ao do último fechamento. Caso isso fosse realizado, seria verificada uma diferença no valor pendente ou crédito (a menor) do mesmo valor da Nota Fiscal no próximo fechamento sem justificativa. Mesmo assim, é possível (de acordo com a senha do usuário) realizar este procedimento porém o Sistema marca a Nota Fiscal para que leve em consideração (para justificar) no momento do fechamento.
+
+
+Veja também:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

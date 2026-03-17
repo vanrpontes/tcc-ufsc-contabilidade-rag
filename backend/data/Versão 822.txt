@@ -1,0 +1,177 @@
+TITULO: Versão 8.22
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2923954971
+--------------------------------------------------
+Dados
+Informações
+Início
+08/03/2015
+Final
+31/03/2015
+Scripts
+CMD822.sql (3652 a 3671)
+Itens
+29
+Implementações
+12
+Correções
+17
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+DiferencaDescarga.rtm
+SisPetroControl.Dll
+Sintegra-GRF_v822.rtm
+ 
+Danfe_Itens_v822.rtm
+SispetroSintegra.dll
+PagForBradesco-Remessa_v822.rtm
+ 
+ 
+Banco633_v1.dll
+ 
+ 
+ 
+Banco633_v2.dll
+ 
+ 
+Sefaz
+Antes da atualização para esta versão, não deverá haver pendências de envio para a Sefaz.
+Sincronização de NF-e na Bahia
+A sincronização de NF-e na Bahia encontra-se com problemas que estão sendo tratados pela Sefaz dessa UF. Todas as NF-e sincronizadas estão retornando o erro 
+999 - ERRO NÃO CATALOGADO
+ que é um erro interno da Sefaz.
+Geral
+Atualização do Gerenciador de Relatórios
+Nesta versão estamos atualizando o ReportBuilder (Gerenciador de Relatórios) para a versão 15.05. UPA(CCF 24137)
+Atualização dos Temas do SisPetro
+Nesta versão estamos atualizando as rotinas de temas dentro do SisPetro. UPA (CCF 27459, 27274)
+Remover Rotinas de Instalação do SisPetro Normal
+Com a criação do instalador dos programas necessários para o funcionamento do SisPetro (BDE e Client do Sybase), estamos removendo do SisPetro Normal a rotina de instalação desses programas para que o acesso ao SisPetro fique mais leve e mais rápido. UPA (CCF 27363)
+Compras
+Preço Inicial na Cotação
+Invertida a ordem de apresentação dos campos Preço Inicial e Preço Unitário na tela de edição de itens da Cotação para facilitar a digitação dos dados.  
+Help:
+ 
+Inclusão de Cotações
+ GSN (CCF 27317)
+Alteração de itens na inclusão de PMM
+Foi detectado que na tela de inclusão de um PMM, quando há muitos itens, ao realizar alguma alteração, dependendo da posição do registro, a tela não está sendo redesenhada e com isso tem-se a impressão que o último registro foi duplicado. Nesta versão, foi realizada uma alteração para corrigir esse problema. 
+CPC (CCF 27430)
+Estoque
+Transportadora na OC
+A Emissão de Ordem de Carregamento foi alterada para salvar e informar melhor a Transportadora vinculada ao Motorista. Além disto, a importação de Nota Fiscal e Remessa / Retorno de Armazenagem tiveram seu processo alterado para considerar também a informação da Transportadora na Ordem de Carregamento, bem como as telas de Emissão de Nota Fiscal, Muda Transportadora OC/NF foram alteradas para exibir e permitir a edição da Transportadora.  
+Help:
+ 
+ , 
+Inclusão de Ordem de Carregamento
+ , 
+Mudança de transportadora no Pedido de Venda
+ PRFC (CCF 26290)
+Diferença de Descarga
+A diferença entre o programado e o efetivamente descarregado é cobrada da Transportadora, cujo valor fica como Adiantamento a Distribuidora para um novo serviço. Nesta versão, implementamos esse controle de diferenças de descargas por Empresas/Transportadora. 
+Será necessário incluir o arquivo DiferencaDescarga.rtm
+.
+ Help:
+ 
+Controle de Diferenças em Descargas
+ CPC (CCF 26202)
+Tela Consulta Movimento Estoque Escritural
+Na Tela de Consulta Movimento Estoque Escritural, apresentar o campo Código da Entidade.  
+Help:
+ 
+.CPC (CCF 26666)
+Transportadora na Tela de Pedidos Pendentes para Faturamento
+A tela de Pedidos Pendentes para Faturamento foi alterada para apresentar a transportadora e suas informações corretamente quando o usuário trocar no momento da inclusão da Ordem de Carregamento. 
+Ao informar uma transportadora diferente do Pedido ao incluir a Ordem de Carregamento, a mesma não será atualizada no Pedido apenas nos dados exibidos na tela.
+ 
+PRFC (CCF 27309)
+Faturamento
+Situação do Frete na Carta de Correção
+O campo "#Sit. Frete na NF-e" foi disponibilizado na Carta de Correção possibilitando assim a informar a alteração do mesmo. 
+Help:
+ 
+Carta de Correção Eletrônica
+.  PRFC (CCF 26672)
+ICMS Diferido na NF-e 3.10
+A Emissão de Notas Fiscais Eletrônicas, 
+tanto via faturamento manual, quanto automático,
+ foi alterada para calcular, manter e enviar as informações referentes a ICMS Diferido para a Sefaz.
+ Necessário atualizar o Danfe_Itens_v822.rtm no caminho dos executáveis.
+ 
+Help: 
+, 
+, 
+Impressão NF (Painel Por Filial)
+, 
+Alteração do DANFE - versão 8.22
+. PRFC (CCF 27245)
+Sincronização de NF-e na Bahia
+Alterado a sincronização de nf-e para atender também a Bahia. Essa alteração está fora do Manual da Sefaz mas faz com que o procedimento funcione. UPA (CCF 27539)
+Visualização da Nota Fiscal
+Na visualização da Nota Fiscal, pela Tela de Manutenção de NFs, ao acionar o Botão OK pela tecla de atalho, era apresentada uma mensagem de erro. O problema foi corrigido.
+ CPC (CCF 27239)
+Erro na Importação de NF-e
+A importação de Notas Fiscais, não estava aceitando um determinado formato usado para informar a versão do layout. O problema foi corrigido. 
+PRFC (CCF 27476)
+Erro no Faturamento na Emissão de NF-e 3.10
+Na implementação da versão 3.10 da NF-e no SisPetro, havia um problema ,que ocorria ocasionalmente, na emissão da Nota Fiscal, apresentando o erro "resource governor for prepared statements exceeded". Nesta versão, esse problema foi corrigido.  
+CPC (CCF 27564)
+Vínculo de NF por Item na Remessa/Retorno de Armazenagem
+No processo de Vínculo de NF por item, caso o usuário entrasse na tela de Seleção de NF's e clicasse em Sair, o preço do item da NF de Remessa/Retorno de Armazenagem era alterado para N/A, o que foi corrigido. Além disso, disponibilizamos uma coluna de Qtde a Vincular na tela de seleção de NF, que é a diferença entre a Qtde do item e a Qtde já vinculada (Saldo), facilitando o processo de vínculo. 
+GSN (CCF 27506)
+Erro ao Enviar NF-e Emitida em Contingencia na Versão 3.10
+As nota emitidas em contingencia na NF-e 3.10 não estavam sendo enviadas forçando o usuário a utilizar a versão 2.10. Esse problema foi corrigido. 
+UPA (CCF 27598)
+Segundo Código de Barra no MDF-e
+Quando a NF-e ou o CT-e relacionado ao MDF-e era emitido no modo OffLine, o SisPetro deveria enviar a informação do Segundo código de barras, o que não acontecia. Com esta alteração, agora será enviado o segundo código de barra na emissão do MDF-e. 
+PRFC (CCF 27603)
+Financeiro
+Atualização Banco Rendimento S.A. (633)
+As rotinas para o banco Rendimento (633) foram passadas para duas Bibliotecas próprias, uma sem alteração e a outra com a atualização de layout que dentre outras, permite informar multa na remessa. 
+Necessário atualizar as bibliotecas Banco633_v1.dll e 
+Banco633_v2.dll no caminho dos executáveis.
+  PRFC (CCF 25880)
+Alteração de Contas a Pagar
+Não apresentar erro de "Access Violation" ao alterar um Título do Contas a Pagar que não tenha o banco informado na aba Dados Adicionais.
+ GSN (CCF 27477)
+Tela Manutenção de Títulos Recorrentes
+ 
+Na tela de Manutenção de Títulos Recorrentes – aba Títulos Efetivados, são apresentados títulos cancelados.  Nesta versão, foi realizada uma alteração, para apresentar somente títulos ativos. 
+CPC (CCF 27273)
+Arquivo Remessa PagFor Bradesco
+Ajustado layout de Exportação para geração de Arquivo de Remessa do Pagamento Eletrônico do Bradesco para que envie o número sequencial da linha no arquivo corretamente em arquivos com muitas linhas.
+ 
+Necessário atualizar o layout de Exportação com o arquivo PagForBradesco-Remessa_v822.rtm
+.
+  GSN (CCF 24087)
+Leitura Arquivo Retorno PagFor Bradesco
+Corrigido processo de leitura do Arquivo de Retorno do Pagamento Eletrônico Bradesco para que caso o arquivo contenha lançamentos antigos (com Número de Pagamento em formato diferenciado) os mesmos sejam localizados.
+ GSN (CCF 27511)
+Fiscal
+Apuração Fiscal edição do campo Código da Obrigação
+Na inclusão de uma apuração fiscal, caso altere o campo Código da Obrigação, os botões Detalhamentos e OK são desabilitados. Nesta versão foi realizada uma alteração para não mudar o estado dos botões. CPC (CCF 27479)
+EFD ICMS IPI: campo Código da Obrigação dos Registros E250
+Estava indo informação incorreta. Feita correção.
+ MSI (CCF 19110)
+Ordenação dos Registros 88 Sintegra GRF SP
+Alterado o layout de exportação do Sintegra - GRF/SP para ordenar os Registros 88D e 88T conforme exigido pelo manual.
+ 
+Necessário atualizar o layout de exportação com o arquivo Sintegra-GRF_v822.rtm. Não utilizar layout já existente. Criar um novo layout. Layouts anteriores não poderão ser mais utilizados, pois apresentarão erro na tela de Geração.
+ GSN (CCF 18058)
+Patrimônio
+Filtro de Produto no Extrato do Imobilizado
+Corrigido Relatório Extrato de Imobilizado para que, ao filtrar um produto, só apresente os dados referentes ao produto informado, e não todos como estava fazendo anteriormente.
+  GSN (CCF 27044)
+Vendas
+ 
+Consulta Sintegra GO
+A consulta Sintegra de Goias (GO) foi alterada para adequar-se ao novo layout do site. 
+Necessário atualizar a biblioteca SispetroSintegra.dll na mesma pasta onde está o executável do Servidor SisPetro.
+  PRFC (CCF 27278)
+Erro ao Re-Vincular Contrato ao Pedido de Venda
+A tela de Pedido de Venda estava calculando a quantidade pendente do Contrato de Venda ao re-vincular, após correção o calculo será feito corretamente.
+ PRFC (CCF 26771)
+Erro ao Consultar Múltiplos Clientes na ANP
+A tela de Pedido de Venda estava se perdendo quando informado um cliente configurado para verificação de bandeira e outro não. Após correção, o SisPetro acatará corretamente a configuração de cliente e atividade econômica.
+ PRFC (CCF 27512)

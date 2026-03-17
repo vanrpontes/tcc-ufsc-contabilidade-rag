@@ -1,0 +1,63 @@
+TITULO: Configurações para o Biodiesel B12 a B15
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936701042
+--------------------------------------------------
+Histórico
+A partir de 01/09/2019 os percentuais de mistura do B100 no Óleo Diesel B podem ser flexíveis entre 11% a 15% conforme previsto no Despacho ANP nº 621 de 06 de agosto de 2019 na Resolução CNPE nº 16, de 29/10/2018. A comercialização do Óleo Diesel B em percentual variável de 11% a 15% poderá ocorrer até 29/02/2020, a partir de 01/03/2020, como o mínimo será de 12%, a faixa permitida de mistura ficará entre 12 a 15% e assim por diante até 2023 quando o percentual mínimo será definitivamente de 15% conforme cronograma previsto na Resolução CNPE nº 16, de 29/10/2018.
+ Porém, 
+os órgãos estaduais e o próprio sistema do SCANC vão adotar como parâmetro para cálculo do ICMS o percentual mínimo obrigatório (nessa primeira fase 11%) como referência para determinação do valor do imposto a ser retido pelo Contribuinte Substituto Tributário. Caso o distribuidor adicione percentual superior ao mínimo, conforme facultado pela ANP/CNPE, este deverá recolher a diferença de ICMS que não foi cobrado quando da aquisição do produto junto ao contribuinte substituto tributário, seguindo as disposições contidas na Cláusula Décima Sexta – A do Convênio ICMS 110/07, descritas a seguir:
+Cláusula décima sexta-A A distribuidora de combustível que promover operações com produto resultante da mistura de óleo diesel com biocombustível em percentual superior ao obrigatório, cujo imposto tenha sido retido anteriormente, deverá:
+I - apurar a quantidade de combustível sobre a qual não ocorreu retenção de ICMS por meio da seguinte fórmula:
+Qtde não trib. = (1- PDM/PDO) x Qtde Comb, onde:
+PDM - Percentual de diesel na mistura
+PDO - Percentual de diesel obrigatório
+Qtde Comb. - Quantidade total do produto
+II - sobre a quantidade apurada na forma do inciso I, calcular o valor do ICMS devido, utilizando-se das bases de cálculos previstas nas cláusulas sétima a nona, conforme o caso, e sobre ela aplicar a alíquota prevista para o produto resultante da mistura (S10 ou S500);
+III - recolher em favor da unidade federada em que se deu a mistura, até o dia cinco do mês subsequente ao da operação, o ICMS calculado na forma desta cláusula;
+IV - além das informações previstas nos §§ 1º e 2º da cláusula décima oitava, indicar no campo “Informações Complementares” da nota fiscal: o percentual de biocombustível contido na mistura; a quantidade da mistura em que não ocorreu a retenção; a base de cálculo e o ICMS devido, calculado nos termos desta cláusula.
+Ações a serem realizadas
+Criação do Produto
+Em relação aos produtos, é necessário ter um Código de Produto para cada percentual de Mistura. No 
+Cadastro de Produtos
+ (menu Arquivos), posicione no Biodiesel utilizado, clique no botão 
+Copiar
+ e anote o Código do novo produto criado.
+Ainda no Cadastro de Produtos, posicione no novo produto. Na aba
+ Detalhes / Ficha do Produto
+, ajuste a Descrição do produto. Na aba
+ Detalhes / Composição
+ ajuste o percentual do Óleo Diesel e do B100.
+Configuração da Natureza de Operação de Venda
+Para enviar nas Informações Complementares da Nota Fiscal os itens citados, é necessário fazer uma fórmula específica nas Observações da Natureza de Operação.
+Antes de iniciar, obtenha o código do Produto utilizado para os produtos com percentual acima do mínimo (nessa primeira fase B12, B13, B14 e B15). Para os exemplos abaixo, vamos considerar os seguintes códigos:
+B12 = 00149
+B13 = 00150
+B14 = 00151
+B15 = 00152
+Em seguida, temos que saber o resultado de 
+(1- PDM/PDO) citado na legislação acima, para cada produto:
+PDM - Percentual de diesel na mistura (varia conforme o produto) PDO - Percentual de diesel obrigatório (sempre 89 nessa primeira fase)
+B12 → (1- 88/89) = 0.011
+B13 → (1- 87/89) = 0.022
+B14 → (1- 86/89) = 0.034
+B15 → (1- 85/89) = 0.045
+No menu Tabelas Auxiliares / Faturamento acione a 
+Natureza Operação
+.
+Posicione na Natureza de Operação correspondente à Venda de Biodiesel
+Vá na aba
+ Detalhes / Por Filial / Impressão NF
+Posicione na empresa desejada e clique no botão "
+Edita
+" para alterar a fórmula para "
+Observações da NF
+". 
+Na tela de fórmula, abaixo do que já tiver informado (não dê <ENTER>), coloque a fórmula abaixo:
+<infCpl>Diferenca de Qtde:  [if <732> = '00152' then <734>*0.045 else if <732> = '00151' then <734>*0.034 else if <732> = '00150' then <734>*0.0022 else if <732> = '00149' then <734>*0.011 endif endif endif endif] 
+Base Calculo ICMS Devido: [if <732> = '00152' then <734>*0.045 else if <732> = '00151' then <734>*0.034 else if <732> = '00150' then <734>*0.0022 else if <732> = '00149' then <734>*0.011 endif endif endif endif * (<775>/<734>)] 
+ICMS Devido: [if <732> = '00152' then <734>*0.045 else if <732> = '00151' then <734>*0.034 else if <732> = '00150' then <734>*0.0022 else if <732> = '00149' then <734>*0.011 endif endif endif endif * (<775>/<734>) * (<789>/100)]</infCpl>
+Como os códigos de campo podem variar, veja o que significa cada código:
+<732> ItensNF.CodProd
+<734> ItensNF.Qtde
+<775> ItensNF.BaseICMSRet 
+<789> ItensNF.AlicICMSRet
+Caso não vá trabalhar com todos os percentuais, adapte a fórmula para somente os produtos utilizados. Em caso de dúvidas, acione o Suporte da Futura Tecnologia.

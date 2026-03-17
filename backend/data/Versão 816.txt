@@ -1,0 +1,146 @@
+TITULO: Versão 8.16
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921693738
+--------------------------------------------------
+Dados
+Informações
+Início
+12/08/2014
+Final
+28/08/2014
+Scripts
+CMD816.sql (3533 a 3543)
+Itens
+21
+Implementações
+10
+Correções
+11
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+Executável
+DANFE_Itens_v816.rtm
+SisPetroControl.Dll
+ 
+ 
+SmartInspectConsole.exe
+Apuracao.rtm
+ 
+ 
+ 
+ 
+DaCTe_816.rtm
+ 
+ 
+ 
+ 
+Rotina de Log no Servidor SisPetro
+Após a atualização para a versão 8.16 será necessário configurar no Servidor SisPetro a pasta de destino do log, 
+sem essa configuração o Servidor não poderá ser iniciado
+. A nova rotina de log no Servidor SisPetro gerará um arquivo, para ser enviado a Futura em caso de problemas para que o suporte possa acompanhar passo a passo todas as rotinas executas pelo Servidor SisPetro.
+Visando melhorar o processo de emissão da Nota Fiscal de Venda, as validações da nota serão feitas ao finalizá-la. Os erros serão exibidos, todos, em apenas uma janela, melhorando a visualização. Terá também uma breve explicação do motivo do erro e onde corrigi-lo.
+Geral
+Filtro no Combo de Empresas do Sispetro Controladoria
+No SisPetro Controladoria o combo de empresas estava apresentando todas as empresas, não respeitando o perfil do usuário ou do seu grupo de usuários. Agora, após correção, serão exibidas apenas as empresas que o usuário ou seu grupo tenha acesso. 
+PRFC (CCF 24901)
+Consulta de Movimento Faturado no Cadastro de Cliente
+Alterações na consulta de Movimento Faturado para melhorar a performance da apresentação dos dados na tela. CPC (CCF 25360)
+Servidor SisPetro
+Novo Controle de Log no Servidor SisPetro
+ 
+A partir dessa versão alteramos o sistema de log do Servidor SisPetro. As novas rotinas estão mais rápidas e com isso não interferem na performance do Servidor SisPetro. O novo log será gravado em um arquivo externo ao Servidor SisPetro e poderá ser enviado a Futura Tecnologia para análise e verificação de possíveis problemas no servidor. 
+Após a atualização para essa versão é necessário configurar a pasta de destino do arquivo de log para que o Servidor SisPetro possa ser iniciado
+. 
+Help: 
+. 
+UPA (CCF 24937)
+Compras
+Encerramento de Saldo Excedente
+Foram feitos diversos ajustes na funcionalidade de Saldo Excedente, dentre eles: Há agora a possibilidade de encerrar o saldo; na tela de alteração de saldo é possível visualizar o saldo utilizado ate o momento, bem como o saldo excedente informado anteriormente; Ao alterar o valor do saldo, será validado se o novo valor é maior ou igual ao valor já utilizado; Na tela de Consulta de PMM Pendentes foi disponibilizado botão para alteração do Saldo Excedente; Na tela de Consulta de Posição de PMM foram adicionados os campos Saldo Excedente, Saldo Excedente Não Utilizado e Quantidade Total Disponível. 
+Na inclusão de OC, não será permitido que um item do PMM seja vinculado em mais de um item da OC.
+ 
+Help: 
+. PRFC (CCF 25303)
+Estoque
+Tela de Consulta de Saldo por Produto
+Na tela de Consulta de Saldo por Produto, na aba Movimentações, estava trazendo movimentações canceladas, após correção não apresentará mais estas movimentações. Agora também será possível visualizar nesta aba, o nome da empresa, sequencial do carregamento e o número da OC da movimentação. 
+PRFC (CCF 25314)
+Alteração de Fator de Conversão
+Em alguns casos a tela de Alteração de Fator de Conversão não estava salvando as alterações, dando a falsa impressão que havia sido salvo. Após alteração os dados estão sendo salvos corretamente.
+ PRFC (CCF 25211)
+Quantidade Utilizada no Custo de NF de Bombeio
+Foi feita correção na obtenção da quantidade utilizada em NF de bombeio para fechamento de estoque, agora neste processos será utilizada quantidade a 20c.
+ 
+Help: 
+ / 
+ PRFC (CCF 24969)
+Movimentação em Tanques Virtuais sem Capacidade e Sobra/Perdas
+Ao gerar uma movimentação em um tanque virtual, o SisPetro não estava levando as informações de Capacidade e Sobra/Perdas. Após correção esses dados serão apresentados corretamente. 
+PRFC (CCF 25446)
+Faturamento
+Validações na inclusão de Nota Fiscal
+Na Inclusão de NF são realizadas diversas validações. Todas as validações necessárias da NF de venda, foram retiradas do seu ponto original (clique do botão Avança, Escolha de um campo ou ao Salvar dados) e colocadas no botão Finalizar, para serem apresentadas numa estrutura semelhante a análise de cancelamento. 
+Help:
+ 
+ CPC (CCF 24933)
+Emissão do CT-e com "Componentes de Prestação de Serviço" e "Vale Pedágio"
+Foram implementadas na emissão de CT-e as informações de "Componentes da Prestação de Serviço" e "Vale Pedágio". Para isso, foi criada uma nova Tela "Componentes da Prestação de Serviço" que possibilita a configuração dos Componentes, na manutenção do Frota foi incluído um novo campo "No. Comprovante Vale Pedágio" e a Tela de Emissão de CT-e ganhou uma nova aba "Componentes" para configurar os componentes do CT-e emitido. 
+Help: 
+, 
+. 
+CPC (CCF 21181)
+Novas informações no DANFE Padrão
+Foram adicionadas algumas informações no DANFE padrão da Futura, como dados de ICMS Retido, dados de Depósito e informações adicionais de produtos. 
+Caso a empresa deseje emprega-lo, é necessário utilizar o arquivo DANFE_Itens_v816.rtm, fazendo as atualizações necessárias específicas para a empresa (como o logo), além dos testes com tipos de notas diferentes, antes de colocar em produção
+. GSN (CCF 24805)
+Melhoria na visualização do campo Observações na Inclusão da Nota Fiscal
+Na inclusão da Nota Fiscal foi realizada uma alteração na visualização do campo Observações dividindo-o em três campos: Observações da Nota, Inf. Adic. Fisco e Inf. CPL, ambos são preenchidos automaticamente conforme as configurações da Natureza de Operação. 
+Help:
+ 
+, 
+ CPC (CCF 7516)
+Melhoria no Código de Cálculo de Impostos
+Foi feita melhoria no código do cálculo de impostos, de forma a atualizar os componentes utilizados no processo. PRFC (CCF 25218)
+Impressão do DACTE
+Alterações no layout DACTE, inclusão dos Componentes da Prestação de Serviço e Vale Pedágio.
+ 
+Para que essa alteração seja aplicada, é necessário incluir o arquivo
+ DaCTe_816.rtm.
+ 
+Help: 
+. CPC (CCF 25401)
+Financeiro
+Desmembramento do Perfil Limita Desconto Baixa a Receber/Pagar
+O perfil de Usuário 
+Limita Desconto Baixa a Receber/Pagar foi desmembrado em  Contas a Pagar e Conta a Receber, nos dois casos o Sispetro acatará o valor informado no perfil anterior
+. 
+Help:
+ 
+ PRFC (CCF 21475)
+Baixa Automática do Contas a Receber
+Corrigido o problema de não fazer baixa automática do Contas a Receber devido seleção de dados não encontrar títulos do Comprador.
+ GSN (CCF 25359)
+Fiscal
+ 
+Repetição do Número de páginas na Apuração Fiscal
+Ao imprimir a Apuração Fiscal o SisPetro estava repetindo a numeração da folha, após alteração a numeração seguirá a sequencia correta. 
+Necessário atualizar o arquivo Apuracao.rtm. 
+PRFC (CCF 24335)
+Transporte
+Melhorias na Manutenção de Bloqueio do Frota
+Inclusão do botão Incluir na pesquisa de Bloqueio e melhor disposição dos campos na tela de Manutenção de Bloqueio do Frota. 
+Help:
+ 
+ CPC (CCF 25297)
+Cancelamento de CT-e
+Ao cancelar um CT-e, o e-mail gerado pelo SisPetro com o protocolo de cancelamento a ser enviado ao cliente estava escrito NF-e no lugar de CT-e. Esse problema foi corrigido. 
+UPA (CCF 25445)
+Vendas
+Alteração de Pedido com Contrato
+ 
+Foi realizada uma correção no SisPetro para quando for realizar uma Alteração no Pedido, verificar se o Contrato vinculado a ele tem saldo suficiente desconsiderando a quantidade antiga e considerando apenas a nova. No caso de troca de contrato, os saldos dos contratos envolvidos também serão atualizados corretamente.
+ CPC (CCF 25137)
+Permissão de Exclusão de Entidade
+O SisPetro não estava acatando corretamente o perfil de usuário "Pode excluir entidades" quando utilizava o menu para exclusão. Agora quando o usuário não possuir permissão para tal, não será possível excluir clientes.
+ PRFC (CCF 25386)

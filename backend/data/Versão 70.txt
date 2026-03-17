@@ -1,0 +1,372 @@
+TITULO: Versão 7.0
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2883125419
+--------------------------------------------------
+Versão 7.0
+
+
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 31/03/2009 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 20/04/2009 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd70000.sql (cmd2100.sql a cmd2120.sql) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 21 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 17 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 4 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+ 
+ExtratoCMVGerencial.rtm
+
+Sintregra-DIC-SE.rtm 
+
+Sintegra2004-PR.rtm
+
+Sintegra2008-SEF.rtm 
+
+ContabilizacaoNF.rtm
+
+FFinanceiroPosicao.rtm 
+
+FFinanceiroTransicao.rtm 
+
+
+
+
+
+
+Geral
+
+
+
+
+Politica de Segurança para Senha do Certificado Digital
+
+
+Estamos reforçando o grau de criptografia da senha do certificado digital uma vez que ela agora estará gravada no banco dados. 
+Com esse aumento na regra de segurança, será necessário entrar novamente no cadastro do certificado digital e informar novamente a senha de acesso para que ela seja gravada com uma criptografia mais forte. 
+ UPA (CCF 5589)
+
+
+Temas Visuais no SisPetro
+
+
+A partir dessa versão estamos disponibilizando temas visuais no sistema. Esses temas podem ser configurados por usuário e por sistema ou seja, se o usuário não selecionar um tema especifico, será utilizado o tema selecionado pela empresa.
+ 
+ Essa alteração deixa o sistema mais bonito e agradável aos olhos de nossos usuários.
+ 
+
+
+Help:
+ 
+Temas visuais
+
+
+Consistência de endereços
+
+Ao emitir Pedido de Venda e Notas Fiscais será verificado se a UF cadastrada para o endereço é realmente a UF da cidade informada. Caso não seja será apresentado erro. Também não será permitido excluir Outros Endereços de clientes ou fornecedores que já tenham sido utilizados. 
+EPQ (CCF 4585)
+
+
+Ficha de Cliente - Valores a Vista
+
+
+Disponibilizados na ficha de clientes dois novos campos: Valor Total de Pedidos à Vista e Valor Total de Pedidos com Desconto a Vista. Os pedidos à vista são todos os pedidos em que a condição de pagamento tenha o prazo igual a zero. UPA (CCF 2919)
+
+
+Versão do SisPetro
+
+
+Será possível, no Explorer do Windows, posicionar nos arquivos executáveis do SisPetro e pelo botão direito identificar a versão do aplicativo. UPA
+
+
+
+
+Estoques
+
+
+
+
+"Apresenta somente UFs com valor" no cadastro de Produtos
+
+
+No cadastro de Produtos, aba Margem Subst.Tributária, foi disponibilizada a configuração de usuário "Apresenta somente UFs com valor".
+ 
+EPQ (CCF 3291)
+
+
+Help:
+ 
+Tabela Produtos
+
+
+Tipo de Agente para o DPMP também no Cadastro de Fornecedores
+
+
+Na versão passada disponibilizamos no cadastro de clientes a opção de informar se o clientes era regulamentado ou não para a geração do DPMP. Esta opção está sendo liberada também para o cadastro de fornecedores. UPA (CCF 5687)
+
+
+Impressão para arquivo Relatório Apuração do CMV
+
+
+Disponibilizado rtm do Relatório de Apuração do CMV com a opção de imprimir o relatório para arquivo.
+ 
+ 
+É necessário atualizar o arquivo ExtratoCMVGerencial.rtm da pasta do SisPetro para que essa alteração fique disponível.
+ 
+ 
+UPA (CCF 5562)
+
+
+Melhora de Performance no Fechamento de Custos
+
+
+Foram criados alguns procedimentos de busca para que o fechamento de custos, tanto por produto quanto por depósito, possam ser executados mais rapidamente. UPA (CCF 5546)
+
+
+Verificação de limite de carregamento/descarga na Portaria
+
+
+Foram definidos perfis de usuários e senha no Cadastro de Depósitos para impedir carregamentos/descargas com quantidade real fora de um limite tolerado em relação a quantidade prevista na portaria de saída. 
+É um recurso útil para evitar movimentações com quantidades muito discrepantes.
+ *EPQ (CCF 5416)
+
+
+Help:
+ 
+Limitação de Quantidade Real na Portaria de Saída
+
+
+
+
+Faturamento
+
+
+
+
+Novos campos na Edição da Mídia Magnética - Anexo
+
+
+Adicionados os campos referentes a CST e Data nos itens da Nota Fiscal na tela de Edição da Mídia Magnética - Anexo
+ 
+GSN (CCF 5659)
+
+
+NF-e Multiplicando o Log quando a Nota Fiscal estava com Erro
+
+Ao ser enviada uma nota fiscal eletrônica ao final da inclusão da Nota Fiscal e no caso de ter erro (como por exemplo nota fiscal duplicada), o log estava sendo gravado de forma repetida no sistema, dependendo do número de tentativas configurado no Perfil do Sistema para "Tentativas de Obtenção do Protocolo", causando registros indevidos na aba NF-eletrônica da Manutenção de NF´s. Esse problema foi detectado e corrigido. 
+UPA (CCF 5781)
+
+
+
+
+Vendas
+
+
+
+
+Preço zerado na venda
+
+Na Manutenção de Tabela de Preços, ao apagar um preço já configurado o sistema estava zerando estes valores ao invés de apagar. Na Manutenção de Tabela de Preços, ao apagar um preço já configurado o sistema estava zerando estes valores ao invés de apagar. Ao fazer um pedido de venda era utilizado então o preço zero, ao invés de utilizar a tabela geral, que seria o correto. Esta situação foi corrigida. 
+EPQ (CCF 5461)
+
+
+Bairro do Cliente Faturado na Impressão do Pedido
+
+
+Liberado o campo Bairro do cliente faturado na impressão do pedido. UPA (CCF 5700)
+
+
+
+
+Fiscal
+
+
+
+
+Alterações nos registros 60M e 60A do DIC/SINTEGRA
+
+Os layouts de DIC e SINTEGRA foram alterados para que os registros 60M e 60A sejam ordenados corretamente ao gerar o arquivo de exportação. 
+É necessário atualizar os arquivos Sintregra-DIC-SE.rtm, Sintegra2004-PR.rtm e Sintegra2008-SEF.rtm para que as alterações tenham efeito.
+ EPQ (CCF 4810)
+
+
+
+
+Financeiro
+
+
+
+
+Fechamento Financeiro - Adiantamentos Quantificados a Fornecedor
+
+
+Nos relatórios gerais de Posição e de Transição, serão desconsiderados dos valor de adiantamentos a fornecedores os adiantamentos quantificados, pois o valor desses adiantamentos já se encontra nas contas de estoque. Ao lado do valor do adiantamento do fornecedor (sem os adiantamentos quantificados) será exibida uma nova coluna com o valor anterior somando todos os adiantamentos Esse valor não será usado em lugar algum, tendo somente um caráter informativo.
+ 
+ 
+Os clientes que possuem os RTM's FFinanceiroPosicao.rtm e FFinanceiroTransicao.rtm precisarão atualizá-los com a nova versão disponível para download.
+ 
+ 
+UPA (CCF 5672)
+
+
+
+
+Contábil
+
+
+
+
+Transferência de Movimentação de Contas por Período
+
+
+Na tela de transferência de movimentação de contas contábeis, agora é possível transferir a movimentação das contas por período através de um filtro adicional. Basta o usuário clicar no botão de filtro e selecionar um período que somente as movimentações das contas naquele período serão movimentadas. UPA (CCF 4371)
+
+
+Help:
+ 
+Transferência entre contas
+
+
+Transferência de Movimentação de Contas Sem Alterar o Cadastro
+
+
+Foi criada a opção de fazer a transferência das movimentações de contas sem alterar os cadastros. Como é feito hoje, se o usuário solicitar a transferência de uma conta, são transferidas as movimentações e alterados os cadastros como cadastro de produtos, entidades e natureza de operação por exemplo, habilitando essa opção, os cadastros não serão alterados. UPA (CCF 4371)
+
+
+Alteração da Máscara do Plano de Contas Real
+
+*Disponibilizada uma tela onde é possível alterar a máscara do Plano de Contas e fazer os ajustes necessários no código extendido para todas as contas reais.
+
+
+Este recurso é útil para fazer as adaptações necessárias no Plano de Contas de empresas que precisam se adequar à Lei Societária.
+ EPQ (CCF 5557)
+
+
+Help:
+ 
+Troca de máscara do plano de contas
+
+
+Relatório de Notas Fiscais Contabilizadas
+
+O relatório de Notas Fiscais Contabilizadas, quando ultrapassava duas páginas estava tendo problemas para listar o número das notas. Esse problema foi corrigido. 
+ 
+É necessário atualizar o arquivo ContabilizacaoNF.rtm para que essa alteração seja efetuada
+ 
+ 
+UPA (CCF 5712)
+
+
+SPED Contábil
+
+
+Disponibilizada a estrutura de Registros do ECD na tela de Conjunto de Dados (menu Ferramentas/ Conjunto de Dados), bem como as fórmulas iniciais que já permitem a geração do arquivo texto. Para complementar esse trabalho foram disponibilizadas também os seguintes recursos:
+
+
+
+
+Indicação se a empresa é Matriz ou Filial (menu Ferramentas / Sistema / aba Dados Gerais)
+
+
+Nível do balanço a ser enviado no SPED Contábil e datas de arquivamentos  (menu Ferramentas / Sistema / aba Livro Eletrônico)
+
+
+Cadastramento dos Signatários do ECD - Assinantes oficiais (menu Ferramentas / Sistema / aba Livro Eletrônico)
+
+
+Com esta versão já será possível gerar o arquivo do SPED Contábil e validá-lo no programa correspondente. AGUARDEM Treinamento em breve!
+
+
+ Necessário atualizar no Conjunto de Dados do ECD o arquivo SPED_ECD.DLL 
+DPM/UPA/GSN
+
+
+Help:
+ 
+SPED-ECD - Roteiro para Utilização no SisPetro
+
+
+
+
+

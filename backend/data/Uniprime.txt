@@ -1,0 +1,71 @@
+TITULO: Uniprime
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4737794049
+--------------------------------------------------
+Banco084.dll
+ é para quem utiliza
+ 
+CNAB
+ 
+padrão
+ 
+400
+ 
+(sem chave de acesso da NF-e)
+Validador Linha Digitável: 
+https://www.cobexpress.com.br/validalinhadigitavel.php
+Painel Cobrança Eletrônica
+ 
+No campo 
+banco
+ deve ser informado 084- Uniprime
+#Docto no Arquivo Remessa:
+ se informado a opção 
+Com Parcela...
+, será acrescentado no lado do campo 
+Número de Documento no Arquivo de Remessa
+, a identificação da parcela.
+Carteira:
+ deve ser informado o número da Carteira cadastrada. Caso não seja preenchida o Sistema preencherá com "09", pois é um campo que não pode ser nulo.
+Agência:
+ deve ser informado o número da agencia, com 4 posições
+Número da conta:
+ deve ser informado o número da conta cadastrada.
+Dígito da conta
+: deve ser informado o dígito da conta
+Informação de Juros no Arquivo Remessa:
+ utilizado para informação do campo juros (posição 161 a 173) no arquivo de remessa. 
+Desconto Cond. Arquivo Remessa:
+ em alguns casos há a necessidade de dar um abatimento ao cliente ao invés de desconto condicional. É importante que no ato do pedido de venda sabe-se o valor total do abatimento a ser concedido. Consequentemente a Nota Fiscal de Venda e o título do Contas a Receber seriam gerados com o valor total e no arquivo de remessa será enviado o valor deste abatimento e a baixa deste arquivo de remessa (via Arquivo de Retorno) irá considerar devidamente o abatimento enviado.
+As opções existentes para este perfil são:
+Informar como Desconto:
+ será informado no arquivo de remessa como desconto condicional.
+Informar como Abatimento:
+ será informado no arquivo de remessa como abatimento.
+Linha Digitável
+084 - Uniprime
+Conteúdo
+Tamanho
+Início
+Fim
+Agência
+4
+1
+4
+Carteira
+2
+5
+6
+Nosso Número
+11
+7
+17
+Conta
+7
+18
+24
+Zeros
+1
+25
+25
+Para informações sobre a montagem da linha digitável para este banco, ver 
+Montagem da Linha Digitável

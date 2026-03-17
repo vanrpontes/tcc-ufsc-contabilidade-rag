@@ -1,0 +1,33 @@
+TITULO: 1.6 Carta de correção eletrônica
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913894400
+--------------------------------------------------
+A Carta de Correção Eletrônica foi implementada no SisPetro na versão 8.0, para informações sobre como configura-la corretamente vide o help 
+Dúvidas
+1) Ao transmitir uma 
+Carta de Correção
+ ocorre o erro "578 - Rejeição: A data do evento não pode ser maior que a data do processamento"
+Isso é uma validação da 
+SEFAZ
+, não permite que a
+ data/hora da carta de correção seja posterior a processada.
+Normalmente ocorre em empresas cujo 
+servidor encontra-se numa UF diferente da UF para a qual está sendo transmitida
+ a Carta de Correção e entre ele há fuso horário.
+Exemplo: Paraná e Mato Grosso, ao gerar uma carta em Paraná é enviado uma data/hora, porém ao chegar no Mato Grosso é 1 hora a menos e o erro é sempre apresentado.
+Para solucionar isso, foi criado um novo campo na 
+Tabela Unidades Federativas - UF's
+ ,cadastro de UF, onde é possível configurar diferença de tempo 
+em minutos
+ entre um estado e outro, assim resolvendo o problema de fuso horário.
+Esse recurso foi criado a partir da 
+Versão 8.1
+2) Fiz uma Carta de Correção, porém estas não estão saindo no Livro Fiscal.
+As alterações feitas, pela carta de correção devem ser alteradas
+ manualmente
+ no Livro fiscal.
+3)
+ 
+Ocorreu Falha de Schema durante a transmissão da carta de correção, o que fazer?
+Nestes casos deve passar o XML enviado, no 
+ ou 
+, para verificar o erro ocorrido e assim corrigi-lo.

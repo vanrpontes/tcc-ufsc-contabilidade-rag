@@ -1,0 +1,238 @@
+TITULO: Manutenção de Envio de Estoque Diário ANP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4225761281
+--------------------------------------------------
+O Acesso será através do menu 
+Movimentação / Estoque / Manutenção de Envio de Estoque Diário ANP.
+Na manutenção de Envio de Estoque Diário ANP será possível incluir, por empresa, as informações relacionadas ao estoque para serem enviadas para ANP.
+Aba Dados Gerais
+Nessa aba será possível visualizar todos os registros incluídos de acordo com o seu status. Eles serão mostrados conforme a data inicial e final informada no quadro 
+Período. 
+Além disso será possível filtrar os dados por 
+Empresa 
+e 
+Status
+Abaixo serão listadas as colunas e a informação que cada uma traz:
+Data: 
+data da inclusão 
+#Empresa:
+ o código da empresa que os dados foram incluídos
+Empresa: 
+o Nome Usual informado no Cadastro de Empresas
+Codigo ARI: 
+o Código ARI da empresa
+Nome do Arquivo: 
+o nome que o SisPetro gera para cada arquivo que a comunicação foi realizada com a ANP
+. 
+Ele é composto por 091_RAIZCNPJ_AAAAMMDDHHMM_TTTTTTTTTTTTTT.ddd, onde:
+091 é fixo
+RAIZCNPJ 08 primeiros números do CNPJ da Empresa principal
+AAAAMMDDHHMM Data com hora e minuto
+Texto com o sequencial de cada arquivo enviado
+Extensão do arquivo 
+(p7s que é equivalente a zip)
+Status: 
+será o status do arquivo, que poderá ser: 
+Em preenchimento
+Preenchido
+Em análise na ANP
+Carregado na ANP
+Rejeitado
+Cancelado
+StatusEnvio: 
+será o status do envio do arquivo, que poderá ser:
+Não enviado
+Enviado OK
+Parcial
+Enviado OK Final
+Enviado com Erro
+Protocolo:
+ quando o arquivo é registrado pela ANP, o protocolo de registro será preenchido nessa coluna.
+Ult Situacao Retorno: 
+a última situação consultada pela ANP. Ela poderá ser: 
+Sem Retorno
+Aguardando análise
+Em análise
+Preparando para processamento
+Aguardando validação
+Validando dados
+Validando negócio
+Parcialmente carregado
+Integralmente carregado
+Rejeitado
+Rejeitado sem análise
+Data Inclusão: 
+a data da inclusão do arquivo
+Usuário Inclusão: 
+o usuário que fez a inclusão dos dados
+Data Cancelamento: 
+caso o usuário clique no botão 
+Excluir
+ e confirmar a exclusão do registro informado, o SisPetro preencherá essa data. 
+Usuário Cancelamento: 
+o SisPetro preenche com o usuário que confirmou a exclusão do envio do registro. 
+ID: 
+o número sequencial dos registros informados. 
+Aba Itens
+Na aba itens é possível visualizar todas as informações do registro que estava posicionado na aba dados Gerais.
+Abaixo serão listadas as colunas e a informação que cada uma traz:
+Empresa: 
+o 
+Nome Usual 
+do cadastro de Empresas juntamente com o seu código.
+Código de Operação:
+ poderá ser:
+Estoque em Tanque
+Trânsito Nacional
+Trânsito Importado
+Produto:
+ a descrição do produto juntamente com o seu código cadastrado no SisPetro
+Código Produto ANP:
+ o código DPMP informado no Cadastro do Produto
+Volume: 
+o volume calculado no fechamento do estoque diário ou informado manualmente pelo usuário.
+Estoque em Tanque:
+ é o saldo escritural final a 20 graus. Caso seja informado pelo usuário, também deve informar a quantidade escritural a 20 graus.
+Estoque em Trânsito:
+Nacional:
+ é o estoque de produto que será da empresa e ainda não chegou, que engloba a retirada de produto da usina e as transferências entre filiais. Ele virá das OC de Transferência entre Depósitos e / ou Descarga Própria. O SisPetro irá considerar a 
+Data Previsão Chegada
+ da OC, que deve ser maior ou igual a data que está sendo enviada a informação do estoque. Caso essa data não estiver informada, basta alterar a OC. Para mais informações, ver  
+Inclusão de Ordem de Carregamento
+Quantidade a 20C:
+ será considerada a 
+quantidade confirmada
+ das OCs de Transferências entre Depósitos. Caso seja necessário, alterar na tela de 
+Manutenção de Envio de Estoque Diário ANP
+.
+Quantidade Ambiente:
+ será considerada a 
+quantidade da OC
+ nas OCs de Descarga Própria. Caso seja necessário, alterar na tela de 
+Manutenção de Envio de Estoque Diário ANP
+.
+Importações:
+ é o estoque do produto cuja importação está em andamento. Nesses casos temos essa informação nos PMM de Importação. 
+Quantidade Ambiente:
+ será considerada a 
+quantidade do produto
+ que está sendo importado. Caso tenha, deve ser informado manualmente pelo usuário.
+Volume Calculado: 
+o volume calculado no fechamento do estoque diário. Esse dado 
+não 
+é alterado pelo usuário. Ele fica salvo para eventuais consultas. No SisPetro é o saldo escritural final a 20 graus para o estoque em tanque e quantidade a 20 ou ambiente para o estoque em trânsito.
+Código de Instalação 1:
+ código de Instalação do Cadastro de Empresas ou, no caso de estoque em transito, o código da entidade de origem 
+Código de Instalação 2:
+ preenchido apenas para estoque em Transito. Será o Código de Instalação da Empresa.
+Raiz CNPJ Proprietário: 
+os 08 primeiros dígitos do CNPJ que enviará os dados
+Modo Transporte: 
+Sem Transporte
+Rodoviário
+Ferroviário
+Rodoferroviário
+Aquaviário
+Dutoviário
+Aéreo
+Manual: 
+caso o registro seja incluído ou alterado essa coluna ficará marcada
+Aba Comunicação
+Na aba Comunicação é possível visualizar as informações relacionadas a comunicação entre o SisPetro e a ANP
+Abaixo serão listadas as colunas e a informação que cada uma traz:
+Comando: 
+qual comando foi enviado para ANP. Poderá ser: 
+Enviar Arquivo:
+Situação do Arquivo:
+Log de Processamento:
+Data Envio:
+ mostrará a data e hora que o Comando foi enviado para ANP 
+Situação Retorno:
+ a descrição de qual é a situação dos dados enviados para ANP
+Código Erro ANP: 
+caso, no arquivo JSON de retorno for preenchido um código de erro pela ANP, esse será preenchido nessa coluna. Abaixo uma lista com alguns dos erros mais comuns: 
+10 Parâmetros esperados não informados
+20 Nome do arquivo não foi informado.
+30 O nome do arquivo ZIP não obedece ao padrão esperado
+40 Conteúdo do arquivo não foi informado.
+50 Informe o login, CNPJ e senha do usuário.
+60 Usuário ou senha inválidos. / Usuário precisa ser autorizado e habilitado para executar essa funcionalidade.
+100 Mensagem de erro inesperada retornada pelo WebService
+Além disso, nessa aba é possível verificar os XML das comunicações feitas através dos botões: 
+XML Enviado: 
+mostra o XML que o SisPetro encaminhou na linha da comunicação que o usuário estiver posicionado
+XML Dados: 
+mostra os dados do estoque encaminhado para ANP
+XML Recebido: 
+mostra o XML recebido da comunicação que o usuário estiver posicionado
+Botões: 
+Incluir:
+ permite ao usuário incluir um registro para envio de estoque à ANP. Ao clicar nesse botão o SisPetro mostrará a tela abaixo: 
+A partir daqui é possível incluir, alterar ou excluir registros para serem enviados, inclusive exibir quando o estoque está zerado. Para mais informações, ver 
+Como Enviar Estoque Diário para ANP
+Alterar:
+ com o cursor posicionado em um registro já incluído, é possível altera-lo, caso ele não tenha sido enviado para ANP. 
+Cancelar:
+ permite cancelar um registro, exceto se ele estiver com o status Em Análise com o fundo em Amarelo. 
+Imprimir:
+ é possível gerar um relatório contendo as informações do envio o qual o cursor estiver posicionado. Ele irá listar os produtos com estoque em tanque, o estoque em trânsito (que provém das OC) suas Ordens de Carregamento e mais algumas informações, similar ao da imagem abaixo:
+ 
+Para que ele seja gerado, o RTM ANPEstoqueDiario_Relatorio.RTM deve estar na pasta dos RTM do SisPetro Normal. 
+Planilha:
+ é possível gerar gerar uma planilha (formato .xlsx) contendo as informações do envio o qual o cursor estiver posicionado, similar a imagem abaixo:
+Para que ela seja gerada, o RTM ANPEstoqueDiario_Planilha.RTM deve estar na pasta dos RTM do SisPetro Normal. 
+Essa planilha pode ser utilizada também para enviar as informações do estoque diário diretamente no site da ANP. 
+Mudar Status:
+ É 
+permitido
+ modificar quando o campo 
+Status 
+está:
+Preenchido
+Carregado ANP
+Rejeitado 
+Para mudar o 
+Status
+ de um lote preenchido, enviado, analisado e 
+rejeitado pela ANP, 
+o usuário deve:
+1 - 
+Selecionar o lote, c
+licar no botão
+ Mudar Status, 
+e, no quadro 
+Dados a Alterar,
+ modificar o Status para 
+Em preenchimento
+2 - 
+No status 
+Em Preenchimento, 
+o SisPetro permite alterar as informações do lote em questão
+.  
+Clique no botão
+ Alterar, 
+corrija o motivo da rejeição e altere o Status para 
+Preenchido.
+3 - 
+Após isso o 
+Serviço do Hermes
+ irá enviar o lote novamente para análise na ANP. 
+Não
+ é permitido modificar quando o campo 
+Status
+ está:
+Cancelado
+Em Preenchimento
+Em Análise na ANP
+Caso o usuário tente modificar o lote o SisPetro irá desabilitar o botão 
+OK 
+e no quadro 
+Aviso
+ exibir uma mensagem informando que não será permitido alterar o Status deste registro. 
+Legenda: 
+mostrará a legenda das informações, conforme imagem abaixo: 
+Layout Padrão: 
+retorna os dados ao layout padrão. 
+Atualizar: 
+atualiza as informações mostradas na tela, de acordo com os filtros selecionados
+Sair:
+ sai da tela. 

@@ -1,0 +1,341 @@
+TITULO: Configurações para o Administrador do Sispetro (SPOT)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4452941825
+--------------------------------------------------
+Objetivo
+O objetivo deste help é orientar sobre as ações e configurações que deverão ser realizadas pelo 
+administrador
+ do SisPetro, o qual irá aprovar, ativar e liberar a utilização do Abastecimento SPOT para os 
+clientes
+.
+Passos a serem realizados pelo usuário interno:
+Configurações do perfil de 
+Sistema
+menu: 
+Ferramentas 
+> 
+Sistema 
+> painel 
+SispetroApp
+:
+Dentro do quadro 
+Venda Spot
+, o usuário interno deverá configurar:
+Auto Inclusão Usuário
+Habilite o campo 
+Habilita AutoCadastramento usuários;
+Perfil para cópia:
+ selecionar um usuário 'padrão' que será utilizado como base de perfil para os novos usuários externos que serão cadastrados;
+Inclusão Clientes
+Habilite o campo 
+Permite Inclusão Clientes;
+Código Bloqueio:
+ selecionar um código 'padrão' de bloqueio a ser utilizado no cadastro de novos clientes efetuado pelo usuário externo.
+menu: 
+Ferramentas 
+> 
+Sistema 
+> painel 
+Ordem Carregto
+Dentro do quadro 
+SisPetro Web
+, o usuário interno deverá configurar os 
+Motivos de Bloqueio
+ que por padrão serão utilizados
+para bloquear os frotas incluídos pelos 
+clientes
+:
+Frota: 
+selecionar um motivo padrão (previamente cadastrado) para bloqueio dos frotas que serão incluídos pelos 
+administradores
+.
+menu: 
+Ferramentas
+ > 
+Sistema
+ > 
+painel Vendas
+Depósito Padrão:
+ será definido o Depósito Padrão de vendas (aqui 
+não 
+devemos informar o depósito 
+SPOT
+).
+Ativações a serem efetuadas pelo administrador após o Cliente realizar seus cadastros no App
+Ativação do Cliente
+Após o 
+Cliente
+ realizar seu cadastro inicial através do App, o 
+Administrador
+ deverá acessar o menu 
+Ferramentas 
+> 
+Ativação de Usuários Auto-Incluídos
+Após acessar a tela para ativação do usuário, devemos:
+Selecionar
+ o usuário em questão;
+Empresa vinculada ao usuário
+: definir a empresa em que o usuário será vinculado;
+Roteamento após Login:
+ definir se o Cliente deve ter acesso a tela de: 
+Venda Spot
+, 
+SispetroApp
+ ou 
+Permanecer Bloqueado
+.
+Ativação do Cliente
+Após o 
+Cliente
+ realizar o cadastro do Cliente, o 
+Usuário Interno
+ deverá acessar o menu 
+Arquivos 
+> 
+Clientes 
+Acesse > 
+painel 
+Detalhes
+Configure o Vendedor.
+Acesse > 
+painel 
+Detalhes > 
+painel 
+Padrão p/ Vendas
+Informe um 
+Limite de Crédito
+ para o Cliente
+Configure o 
+Tipo de Cliente
+Informe uma 
+Transportadora 
+padrão para o Cliente
+Realize o 
+desbloqueio 
+do Cliente
+Acesse > 
+painel 
+Detalhes > 
+painel 
+Preços
+Inclua uma
+ tabela de preço
+ para o Cliente
+Acesse > 
+painel 
+Detalhes > 
+painel 
+Observações
+Configure o 
+Código de Instalação 
+e 
+CNAE
+ para efetivar a ativação do Cliente.
+Ativação do Frota/Aeronave
+Após o 
+Cliente
+ realizar o cadastro da 
+Aeronave
+, o 
+Administrador
+ deverá acessar o menu 
+Tabelas Auxiliares 
+> 
+Transportes > Frotas > Manutenção Frota
+Selecione a Aeronave criada pelo 
+Cliente
+ e ative a mesma.
+No painel 
+Dados Adicionais
+, temos também a configuração do campo 
+Combustível
+, o qual é preenchido com a informação do combustível utilizado pelo Cliente já no cadastro da 
+Aeronave
+:
+Observação: 
+caso o 
+Cliente 
+já tenha sido ativado, a Aeronave vinculada ao mesmo será ativada automaticamente.
+Também será necessário configurar um Frota para realizar o Abastecimento na Aeronave.
+Nesse Frota, também precisamos configurar o quadro 
+Venda Spot
+:
+Depósito de Movimentação: 
+informe o Depósito para movimentação
+Produto Movimentado:
+ selecione o produto que será movimentado
+Indicação de Frota Abastecido:
+ Obrigatório / Opcional / Nunca
+Indicação do Responsável:
+ Não informa responsável / Informa responsável (opcional) / Informa responsável (obrigatório)
+Indicação Quantidade:
+ Diretamente pela quantidade / Informa encerrante final (exemplo: completa o tanque)
+Encerrantes
+Um encerrante é um contador físico que registra a passagem de algum líquido e vai se incrementando à medida em que o mesmo vai passando por ele (conforme a litragem). Assim, ele só avança, nunca retrocede.
+No Sispetro, ele pode ser:
+Local:
+ 
+O armazenado no App. Ele, em teoria, deve andar sincronizado com o global (explicado mais abaixo) porém, numa situação de estar offline, ele vai sendo calculado localmente (a partir das vendas e cancelamentos locais) e só será sincronizado quando voltar a ficar online.
+Global:
+ 
+O que é visualizado no Sispetro (armazenado no banco) na tela de produtos por depósito. Este pode ser atualizado manualmente e é sempre sincronizado com o App quando é realizada uma venda, um cancelamento ou o usuário se autentica no App.
+Assim, sempre que o usuário se autentica, ele recebe os encerrantes globais e atualiza seus encerrantes locais com ele.
+Existem algumas regras para a atualização do encerrante:
+Numa venda, ele só é atualizado caso o novo encerrante final for maior que o atual.
+ 
+Assim, por exemplo, numa venda cujo encerrante atual está em 10000 e vendemos 100 litros, o novo encerrante seria 10100 e este valor seria o que o App tentaria atualizar globalmente (e localmente). Se o encerrante global neste caso foi atualizado anteriormente com um valor maior (exemplo, 10200), o novo encerrante não será atualizado.
+Num cancelamento, ele só é atualizado caso o encerrante final da venda seja igual ao encerrante global.
+ 
+Assim, a grosso modo, se fizermos uma venda cujo encerrante inicial (o do começo da venda) era 10000, foi vendido 1000lts (portanto o encerrante final seria 11000) e este foi atualizado (ou seja, o encerrante global ficou em 11000), ao cancelarmos esta venda, o encerrante voltaria para 10000 (pois foi a última venda e o encerrante global - 11000 - coincide com o encerrante final da venda que está sendo cancelada).
+Na autenticação, os encerrantes (local e global) são sempre sincronizados.
+Um ponto importante aqui é que não precisamos utilizar os encerrantes para calcular o estoque nem o volume da venda. O estoque é sempre calculado independente se teremos ou não encerrantes e o volume da venda pode ser informado diretamente em litros (basta configurar o frota/depósito).
+Para as configurações dos usuários (
+Clientes e Administradores
+), precisaremos acessar o 
+menu
+ 
+Ferramentas 
+> 
+Usuário
+e efetuar as configurações conforme abaixo:
+Configurações para os Administradores
+Acesse o painel 
+SispetroApp
+:
+Dentro do quadro 
+Sispetro App
+, configure os campos:
+Tipo de Acesso:
+ selecione a opção Ambos (definição do administrador);
+E-mail:
+ informe o e-mail do usuário interno;
+No quadro 
+Venda Spot
+ > 
+Permissões
+, configure os campos:
+Habilite o campo: 
+Permite aprovação de solicitação de abastecimento 
+(definição do administrador)
+Habilite o campo: 
+Permite cancelamento de solicitação de abastecimento 
+(definição do administrador)
+Permite visualização de solicitação dos abastecimentos:
+ Somente as próprias ou Todas as solicitações (definição do administrador)
+Roteamento após login:
+ SispetroApp ou Venda Spot (definição do administrador)
+Permite inclusão de clientes:
+ Ver Sistema ou Sim (definição do administrador)
+Tipo Usuário Venda Spot:
+ Abastecedor
+Configurações efetuadas pelo Administrador para os Clientes:
+Dentro do quadro 
+Sispetro App
+, configure os campos:
+Tipo de Acesso:
+ selecione a opção SisPetro App (definição do administrador);
+E-mail:
+ e-mail do 
+Cliente
+;
+No quadro 
+Venda Spot
+ > 
+Permissões
+, configure os campos:
+Deixe desabilitado o campo: 
+Permite aprovação de solicitação de abastecimento 
+(definição do administrador)
+Deixe habilitado o campo: 
+Permite cancelamento de solicitação de abastecimento 
+(definição do administrador)
+Permite visualização de solicitação dos abastecimentos:
+ Somente as próprias (definição do administrador)
+Roteamento após login:
+ SispetroApp ou Venda Spot (definição do administrador)
+Permite inclusão de clientes:
+ Ver Sistema ou Sim (definição do administrador)
+Tipo Usuário Venda Spot:
+ Abastecedor
+Criação de um depósito específico para a Venda SPOT
+Será necessário criar um depósito para controlar o estoque dos abastecimentos realizados. Para maiores informações acesse: 
+Tabela Depósitos
+Na configuração desse depósito para utilização na Venda SPOT, existem alguns pontos importantes para o funcionamento do módulo.
+No depósito criado, configure os painéis:
+Painel 
+Temperatura por Produto:
+ inclua o produto que será utilizado pela Aeronave e configure as colunas.
+Painel 
+Tabela de Preços / Tipo Cliente: 
+configure a tabela de Preço desejada. Para mais informações, ver: 
+Tabela de Preços
+Painel 
+SispetroWeb: 
+inclua o produto que será utilizado
+Ações do Cliente no Modo Venda SPOT
+Da mesma forma que o 
+Cliente
+ acessa o Modo Venda SPOT através do SispetroAPP, o 
+Administrador 
+também irá acessá-lo,
+e dependendo da configuração do roteamento (informada nos passos) anteriores, poderá acessar o Modo Venda SPOT através do SispetroAPP (menu: 
+Outros
+)
+ou indo direto para tela do Modo Venda SPOT.
+Para acessá-lo, o 
+Cliente
+ deverá informar e-mail e senha de acesso:
+Em seguida, deverá informar a placa do veículo:
+Assim que o Usuário efetuar o login, temos as opções:
+Incluir Novo Pedido
+Ações Sobre Pedido Já Emitido
+Solicitações Abastecimentos
+Autenticar Novamente
+No rodapé da tela, temos alguns informações importantes, tais como: Placa do Frota, Produto utilizado, Volume em Litros e Depósito utilizado no SPOT:
+Incluir Novo Pedido
+Aqui devemos informar:
+Cliente:
+ selecionar o Cliente do Pedido
+Aeronave:
+ selecionar a Aeronave
+Número Vôo:
+ informar o número do vôo
+Próx.Destino:
+ informar próximo destino
+Vôo Internacional?:
+ selecionar sim ou não
+Na tela seguinte, temos que informar o 
+Encerrante Final 
+ou a 
+Quantidade 
+(isso dependerá das configurações efetaudas no Frota utilizado) e por fim Incluir o Pedido:
+Ações Sobre Pedido Já Emitido
+Nessa tela podemos: 
+Voltar à Tela Principal
+, 
+Imprimir o Pedido 
+ou 
+Cancelar o Pedido
+:
+Solicitação Abastecimentos
+Na tela de Solicitação de Abastecimentos, o 
+Administrador
+ deverá selecionar a solicitação de abastecimento desejada e aprová-la e em seguida emitir o pedido a partir da solicitação de abastecimento.
+Legenda dos botões:
+ Incluir Solicitação Abastecimento
+ Cancelar Solicitação Abastecimento selecionada (somente será possível cancelar a solicitação de abastecimento caso a mesma ainda não tenha sido aprovada)
+ Aprovar Solicitação Abastecimento 
+ Cancelar aprovação da solicitação abastecimento selecionada
+ Emitir pedido a partir da Solicitação Abastecimento
+Aprovação de Solicitação de Abastecimento
+Na tela de Aprovação de Solicitação de Abastecimento, o 
+Administrador
+ deverá informar o Frota Responsável pelo Abastecimento e confirmar:
+Emitir pedido a partir da Solicitação Abastecimento
+Aqui devemos informar:
+Número Vôo:
+ informar o número do vôo
+Próx.Destino:
+ informar próximo destino
+Vôo Internacional?:
+ selecionar sim ou não
+Para finalizar inclua o Pedido:

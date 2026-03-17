@@ -1,0 +1,63 @@
+TITULO: Consulta de Despesas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5208932358
+--------------------------------------------------
+O que é:
+A Contabilidade cria suas contas de Despesas pensando na empresa de uma forma global, evitando ter contas muito detalhadas. Porém, para uma análise gerencial por setor, geralmente era utilizado os Centros de Custos. Mas ainda assim, dependendo do nível de detalhamento desejado, a análise por Centro de Custos talvez ainda não seja suficiente. Sendo assim, utilizaremos um recurso já utilizado nos Eventos de Frota, que são os grupos e subgrupos de despesas. Assim, independente da Contabilidade, cada despesa pode ser classificada com o nível de detalhamento desejado.
+Como Configurar para Utilizar: 
+Configuração da Empresa: 
+Ferramentas > Sistema > aba Compras
+Na aba ‘Compras’
+Marcar o perfil de sistema (geral) ‘
+Trabalha com Grupo e SubGrupo de Despesas
+’
+Cadastro de Produtos: 
+Arquivos > Produtos > aba Detalhes > aba Dados Adicionais (rodapé) 
+Na aba ‘Dados Adicionais’, quadro 
+Grupo/SubGrupo de Despesas
+;
+Exige Grupo/SubGrupo de Despesas no processo de Compras?
+: Se marcado essa opção, obrigatoriamente deverá ser informado um grupo/subgrupo de despesas na inclusão de uma requisição ou PMM. 
+Grupo de Despesas padrão:
+ grupo de despesas que será sugerido para esse produto nos processos de compra. Não é obrigatório caso o campo exige esteja marcado e esse campo não esteja preenchido, será responsabilidade do usuário escolher um grupo. Detalhamento de Cadastro em 
+Tabela de Grupo de Despesas Frota
+.
+SubGrupo de Despesas padrão: 
+similar ao grupo, porém só aparecerá o SubGrupo vinculado ao Grupo de Despesa cadastrado. Detalhamento de Cadastro em 
+Tabela de Subgrupo de Despesas Frota
+. 
+Procedimentos: 
+Na 
+Requisição de Compra e Inclusão/Alteração PMM:
+ foi incluído dois novos campos ‘Grupo de Despesas e SubGrupo de Despesas’, onde será informado as configurações informadas como padrão no produto, sendo possível alterar ou excluir essas informações no momento da emissão da requisição ou PMM. Para mais informações, ver 
+Pedido de Movimentação de Material
+ e/ou 
+Inclusão de Requisição de Material
+.
+Na tela de 
+Monitoramento de Importação de NF
+: ao executar o processo de 
+De/Para 
+se o produto tiver grupo e subgrupo de despesas, já será sugerido as informações nos produtos.
+Na tela de 
+Inclusão de NF de Entrada Manual:
+ para o lançamento manual de nota fiscal de entrada, temos duas possibilidades de informar o grupo e subgrupo: 
+Caso seja a partir de PMM, já preencher no item o grupo e subgrupo de despesas a partir do que foi informado no PMM. 
+Caso seja uma NF Avulsa, sem vínculo com PMM, se o produto tiver grupo e subgrupo de despesas, já sugerir no item. 
+Relatório:
+Foi disponibilizada a tela de 
+Consulta de Despesas
+, localizada em 
+Consulta > Consulta de Despesa, 
+onde nela teremos as seguinte informações: 
+Período:
+ informar a data inicial e final para pesquisa. 
+Filial:
+ é possível realizar três tipos de pesquisa: 
+Todas as Filiais:
+ será mostrado na tela todas as filiais da unidade. 
+Filial:
+ será mostrado somente a filial informada no quadro ‘Filial’. 
+Grupo de Filiais:
+ será mostrado o grupo de filiais informado no quadro ‘Grupo de Filiais’. 
+Layout Usuário:
+ disponível somente o ‘Consulta Despesas’. 

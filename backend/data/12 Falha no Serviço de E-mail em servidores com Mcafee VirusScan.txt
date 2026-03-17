@@ -1,0 +1,11 @@
+TITULO: 1.2. Falha no Serviço de E-mail em servidores com Mcafee VirusScan
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2900853392
+--------------------------------------------------
+O serviço de envio de e-mails de XML da Nota Fiscal normalmente utiliza a porta padrão de SMTP (25) para o envio das mensagens, porém em alguns casos onde o servidor está utilizando o antivírus VirusScan da empresa Mcafee, poderão ocorrer falhas de envio.
+
+
+Nesse caso, as falhas ocorrem, pois por padrão nesse software, a porta 25 é bloqueada para prevenção de envios de emails em massa, isso seria um benefício para caso o computador fosse infectado por algum tipo de vírus que transformasse-o em um servidor de SPAM, porém, como o Sispetro envia vários emails de uma vez, o software acaba interpretando como um servidor de SPAM, por isso essa opção deve ser desabilitada.
+
+
+Veja na imagem a configuração incorreta do Mcafee VirusScan:
+

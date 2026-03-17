@@ -1,0 +1,131 @@
+TITULO: Manutenção Filtro Tipo de Cobrança
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898484
+--------------------------------------------------
+none
+O acesso é feito através do Menu 
+Movimentação / Financeiro / Manutenção Filtro Tipo de Cobrança
+Objetivo
+Nas distribuidoras é comum o departamento financeiro (gerente geralmente) verificar e negociar DIARIAMENTE com os bancos (que a distribuidora tem conta) onde irá enviar os títulos de cobrança (das notas de venda) aproveitando assim melhores prazos, taxas de empréstimo entre outras condições. 
+Para maximizar ainda mais o 
+ganho
+ dessas condições, o financeiro pode optar por enviar um valor X em títulos para um banco, Y para outro e Z para um terceiro banco e assim aproveitar as melhores condições dos três bancos. 
+Visando essa situação e outras foi criada essa ferramenta. Ela permite que o SisPetro no momento do faturamento automático 
+troque
+ o tipo de cobrança, sem qualquer interação do usuário, respeitando: 
+Prazo do banco
+Valor limite diário para o tipo de cobrança (banco)
+Caso o título de um cliente não seja aceito no banco (para garantia de um empréstimo, por exemplo) trocar automaticamente para outro banco. 
+Para que isso ocorra de forma automática, ou seja, sem a intervenção do usuário, devem ser feitas as seguintes configurações
+Configurações
+Ferramentas / Sistema / 
+Aba Financeiro
+ / Quadro Diversos
+Habilita filtro troca tipo de cobrança na nota de venda: marcar
+ 
+Ferramentas / Usuário / Aba Perfil / 
+Aba inferior Financeiro
+ / Quadro Geral
+Pode incluir/alterar/excluir Manut. Filtro Tipo de Cobrança: marcar
+Arquivo / Clientes / Aba Detalhes / 
+Aba inferior Referências Bancárias
+ Quadro Bancos Restritos para Cobrança Eletrônica
+preencher (caso necessário) quais bancos o título do cliente (por exemplo) não é aceito como garantia ou se houver outro motivo que os títulos do cliente não devem ser enviados para determinado banco.
+Tabelas Auxiliares / Vendas / Tipo de Cobrança / Aba Por Empresa / 
+Aba Inferior Cob. Eletrônica
+As informações informações dessa aba devem estar preenchidas, dando 
+ênfase 
+ao 
+Banco Oficial
+ pois é a partir desse banco que o SisPetro verifica o prazo da tabela 
+Bancos.
+Como Utilizar
+Aba Navegação:
+Todas as trocas de cobranças cadastradas no SisPetro são armazenadas e apresentadas por esse painel, inclusive as que estão inativas.
+Para inserir um novo Filtro de Tipo de Cobrança, deve-se clicar no botão 
+Incluir 
+ 
+ para fazer a inclusão do Registro. 
+Aba Detalhes:
+O SisPetro entrará em modo de edição, mostrando a aba 
+Detalhes
+:
+Os seguintes campos deverão ser informados:
+Tipo Cobrança Origem:
+ tipo de cobrança de qual será trocado.
+A ideia é que os clientes fiquem com um tipo de cobrança genérico. A partir daí o SisPetro sempre olha nos filtros aqui e, no 
+faturamento automático,
+ troque para o Tipo de Cobrança indicado no dia.
+Tipo Cobrança Destino:
+ novo tipo de cobrança para qual será trocado.
+Unidade de Negócio: 
+informe será por empresa ou por grupo de empresa
+informe 
+Empresa 
+ou 
+Grupo
+ dependendo da escolha feita 
+Em um mesmo dia, um tipo de cobrança de Origem não pode ter filtros misturando a opção por Empresa ou por Grupo Empresa. 
+Data Validade:
+ informar para 
+qual dia
+ vale o filtro cadastrado para troca do tipo de cobrança.
+Ativo:
+ se marcado, indica que a troca do tipo de cobrança está ativa.
+Ordem do Dia: 
+define a sequência que o SisPetro olha para utilizar o Filtro de Cobrança no dia.
+Valor Limite:
+ inserir o valor limite para gerar boletos com este tipo de cobrança.
+O valor especificado aqui determina o momento em que o SisPetro deixa de aplicar o filtro de cobrança configurado e passa a utilizar outro filtro. Para ilustrar esse funcionamento, veja o exemplo a seguir:
+O financeiro geralmente utiliza o Itaú para enviar seus títulos para cobrança eletrônica e deixa cadastrado um filtro de cobrança de 99 para IT (Itaú). 
+No início do dia, liga para alguns bancos e vê que o banco Bradesco (exemplo do cadastro acima) está com a 
+melhor taxa para empréstimo 
+do dia e pede um empréstimo. O Banco por sua vez informa que precisa de uma garantia de 100.000,00 reais em títulos (do Contas a Receber). Como a taxa do Bradesco é a melhor, o usuário:
+ - Define Ordem do dia = 1
+ - Define o Valor Limite = 100.000,00
+A partir daí, todos os pedidos faturados automaticamente com o tipo de cobrança 
+99 
+(previamente definido no 
+https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210626/Padr+o+para+Vendas+Clientes?search_id=02b2bb0c-6f93-41e5-abea-79388f5620a0&additional_analytics=queryHash---a2785a754a255beddf790e3e3243320abf2f317c22260faddf45966a196f49d4
+ ou informado no pedido) serão trocados para a 
+BL 
+até chegar ao valor limite de 100.000,00.
+Após o valor limite ser atingido o SisPetro entende que deve parar de trocar para 
+BL 
+e passa a trocar para 
+IT. 
+Prazo Inicial e Final: 
+é automaticamente carregado da 
+Tabela Bancos
+. O SisPetro vai verificar o prazo médio (coluna, prazo da tabela 
+Condições Pagamento
+) do Pedido de Vendas e, caso esteja dentro do prazo do banco, o SisPetro faz a troca do tipo de cobrança: 
+Ainda com o exemplo do cadastro acima, caso o pedido seja À Vista, ou seja, o prazo igual a 
+zero
+, como o prazo inicial e final está entre 5 e 1000 o SisPetro não faz a troca. 
+A mesma regra se aplica a pedidos cujo prazo seja menor ou igual a 
+quatro 
+dias.      
+ 
+O Tipo de Cobrança será trocado automaticamente se, além das configurações estarem corretas, se o filtro estiver 
+ativo
+ e a data da nota esteja 
+dentro do prazo de validade 
+informado.
+Caso o
+ Quadro Bancos Restritos para Cobrança Eletrônica 
+estiver preenchido com um ou mais bancos, ao emitir uma nota de venda, o SisPetro fará a verificação nos 
+Filtro de tipo de Cobrança cadastrados
+. Caso encontre um tipo de cobrança com um dos bancos relacionados nessa tela, passará para o próximo tipo de cobrança e assim sucessivamente, até encontrar um tipo de cobrança cujo banco não esteja relacionado.
+Repete tipo de Cobrança de Origem para a próxima Ordem do Dia: 
+marcando essa opção, na próxima inclusão de filtro o SisPetro repete os dados do registro anterior, adicionando 1 na ordem do dia e deixando o campo Tipo Cobrança Destino vazio.
+Aba Valores
+Nessa aba o SisPetro irá mostrar todos os títulos gerados cuja emissão seja igual ao informado no campo 
+Data
+. 
+Aqui é possível agrupar os títulos por tipo de cobrança, por empresa e assim monitorar se os títulos estão chegando próximo do valor limite e etc.
+Controle de garantia
+Para decidir o valor necessário para cada tipo de cobrança é importante analisar alguns dados. O valor exigido como garantia tem a ver com o limite de crédito que o banco oferece, sendo disponibilizado por conta bancária. Essa conta, que geralmente permite cobrança eletrônica, é vinculada ao Tipo de Cobrança para que se faça a baixa do arquivo de retorno. 
+Para análise de dados é preciso saber quanto já foi enviado ao banco, o valor que o banco rejeitou, quanto está faturando e quanto está vencendo no dia. Para sabermos esse valor dependemos dos títulos a receber, que não possuem a informação da conta bancária, mas tem o tipo de cobrança.
+Enfim, para disponibilizarmos esses valores, é feito o agrupamento por Conta Bancária (constante no Tipo de Cobrança
+O acesso é feito através do Movimentação / Financeiro / 
+Controle de Garantia 

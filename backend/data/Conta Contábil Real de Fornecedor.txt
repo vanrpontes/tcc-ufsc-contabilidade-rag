@@ -1,0 +1,127 @@
+TITULO: Conta Contábil Real de Fornecedor
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210478
+--------------------------------------------------
+O fornecedor é uma entidade utilizada para cadastrarmos qualquer tipo de lançamentos referente ao Contas a Pagar da Empresa. No entanto, algumas despesas a serem pagas não necessariamente seriam vinculadas a fornecedores, como impostos, obrigações trabalhistas, etc. Estes tipos de pagamentos são vinculados, a contas do Passivo como "INSS a pagar", "ICMS a pagar", entre outras.
+
+
+Na sua versão padrão, ao cadastrar um fornecedor, o sistema cria automaticamente uma conta analítica para este fornecedor abaixo da conta sintética de Fornecedores ou Contas a Pagar, definida no perfil do sistema, painel Contab. Real, grupo Contas de Entidades:
+
+
+      
+
+
+Porém, precisamos atender os casos em que:
+
+
+
+
+a conta a ser utilizada não estaria abaixo da conta sintética de Fornecedores 
+
+
+a cada fornecedor não deveria ser criada uma nova conta, pois vários fornecedores, utilizariam, por exemplo uma única conta, como "Impostos a Pagar" 
+
+
+
+
+Para isso, temos o seguinte perfil de sistema a ser configurado, no painel Contab. Real, grupo Contas de Entidades:
+
+
+      
+
+
+Sendo as opções:
+
+
+
+
+Conta Criada automaticamente na conta de fornecedores
+: o sistema sempre cria uma conta analítica para o fornecedor abaixo da conta sintética de fornecedores definida na configuração do sistema. Cada fornecedor tem uma conta exclusiva e independe da ação do usuário. 
+ 
+O código extendido da conta criada, terá o seu início conforme o código extendido da conta sintética de Fornecedores. O último grupo do código extendido será conforme a opção de sistema presente no Painel Contab. Real, grupo Contas de Entidades: 
+
+
+
+
+Para explicar melhor esta opção, vejamos o exemplo: 
+
+
+Conta sintética de Fornecedores: 2.01.01.00000 - Fornecedores 
+
+
+Inclusão do Fornecedor com código de Entidade igual a 5020. 
+
+
+ 
+Se o código extendido for sequencial (opção marcada), o último grupo da conta seguirá uma sequência, dependendo da última conta do grupo da conta Sintética. 
+
+
+No nosso exemplo, se a última conta era 2.01.01.00025, a conta do fornecedor que está sendo incluído será 2.01.01.00026. 
+
+
+ 
+Se o código extendido for pelo código da entidade (opção desmarcada), o último grupo da conta será o código da entidade, independente das contas que já estão no grupo da conta Sintética. 
+
+
+No nosso exemplo, a conta do fornecedor que está sendo incluído será 2.01.01.05020. 
+
+
+Se o usuário tiver permissão para alterar as contas contábeis, é possível alterar a conta real vinculada ao fornecedor. Porém, como foi criada uma conta automaticamente, essa conta deve ser excluída no Plano de Contas Real do SisPetro Controladoria. 
+
+
+
+
+
+
+Usuário define a conta
+: Se o usuário tiver permissão para alterar as contas contábeis, durante a inclusão ele pode definir como será a conta do fornecedor. 
+
+
+Se ele desejar que a conta seja criada automaticamente pelo sistema abaixo da conta sintética de fornecedores, pode utilizar o botão mostrado a seguir, que fica ao lado do campo da Conta Contábil Real: 
+
+
+
+
+Senão é possível indicar uma conta real já existente, com a natureza sendo "Passivo", digitando o código reduzido da conta ou a escolhendo pela tela de Pesquisa. 
+
+
+Para limpar a conta informada, desvinculando-a do Fornecedor, pode ser utilizado o botão, que fica ao lado do campo da Conta Contábil Real: 
+
+
+
+
+Se a conta do fornecedor não for informada pelo usuário ou o usuário não tiver permissão para vincular uma conta, o fornecedor ficará bloqueado
+ 
+(campo Compras Bloqueadas), independente da vontade do usuário, ou seja, mesmo que o usuário desmarque o campo
+ 
+Compras bloqueadas
+. 
+
+
+
+
+
+
+Deixa fornecedor bloqueado para definição posterior
+: Através desta opção, mesmo o usuário tendo permissão de alterar as contas contábeis, o usuário não poderá informar/vincular qualquer conta, nem o sistema gerará a conta automaticamente. O fornecedor ficará sem conta vinculada e permanecerá bloqueado até que seja vinculada uma conta.  
+
+
+
+
+Observações importantes:
+
+
+
+
+O perfil de usuário que permite a alteração de contas contábeis encontra-se no painel Segurança e é: 
+
+
+
+
+
+
+
+
+Para alterar a conta contábil real do fornecedor, ou nos casos em que a definição da conta será posterior, pode ser utilizada uma tela específica para este fim, melhor explicada no tópico
+ 
+. Esta tela está presente no SisPetro Normal e no SisPetro Controladoria. 
+

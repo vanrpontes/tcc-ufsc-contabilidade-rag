@@ -1,0 +1,55 @@
+TITULO: Geração de Arquivo de Remessa - Pagamento Eletrônico
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899303
+--------------------------------------------------
+none
+Objetivo
+Gerar arquivo de remessa do 
+Pagamento Eletrônico
+ 
+O acesso a tela é feito através do Menu 
+Movimentações / Financeiro / Arquivos Pagto. Eletrônico
+Campos
+Para que o SisPetro liste os pagamentos que posteriormente serão encaminhados ao banco via arquivo de remessa o usuário deverá informar: 
+CC Banco: 
+a conta de banco desejada para trazer os títulos
+Tipo de Pagamento: 
+o usuário pode informar 
+ambos 
+para listar todos os títulos ou 
+filtrar 
+o pagamento, sendo:
+Fornecedores
+Tributos
+Empresa: 
+campo obrigatório. Informar de qual empresa deseja listar os pagamentos
+Período: 
+campo opcional. Essa data, após informada, fica gravada no perfil do usuário sendo sugerida na próxima vez que o usuário abrir a tela. É possível também deixar o campo 
+vazio
+ para trazer todos os dados, ou:
+Se deixar a data 
+final
+ vazia, traz todos os títulos com vencimento a partir da data inicial
+Se deixar a data 
+inicial
+ vazia seriam todos os títulos com vencimento até a data final informada. 
+Como utilizar 
+Informe os dados acima e clique no botão 
+Atualiza
+. Serão apresentados todos os movimentos pendentes para envio nesta conta, respeitando os filtros informados.
+Veja que ao lado esquerdo é possível selecionar quais dos títulos apresentados serão enviados no arquivo de remessa ao banco. Por padrão o SisPetro traz 
+todos 
+os registros selecionados. 
+É possível também arrastar um cabeçalho de coluna para agrupar os dados e poder visualizar a somatória dos campos de valores (valor de documento, pagamento, acréscimo, desconto, original e saldo).
+Caso deseje gerar o arquivo, informe impreterivelmente o 
+nome do arquivo
+ a ser gerado (ou clique em ... para ser exibida a árvore de diretórios) e clique no botão 
+Gera Arquivo
+. Vale lembrar que o arquivo será gerado de acordo com o 
+Layout de Exportação de Dados
+  informado na 
+Tabela Bancos
+  do banco correspondente.
+Os movimentos envolvidos neste arquivo não poderão fazer parte de outro arquivo, a não ser que seja providenciado o 
+cancelamento do arquivo de remessa
+.
+Após a geração será apresentada a opção de imprimir os títulos dessa remessa.

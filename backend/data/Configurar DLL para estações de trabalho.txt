@@ -1,0 +1,85 @@
+TITULO: Configurar DLL para estações de trabalho
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2904621152
+--------------------------------------------------
+Após instalar o Sybase 12 no servidor, é necessário configurar os atalhos do Sispetro nas estações de trabalho.
+Para que as estações funcionem corretamente, é necessário a instalação do Client do Sybase (drivers de conexão ao banco de dados) em cada estação, porém, algumas empresas podem ter muitas estações, o que tornaria muito trabalhoso o processo de instalação.
+Pensando nisso, o Sispetro possui uma funcionalidade que configura automaticamente os arquivos essenciais para conexão ao banco, sem a necessidade de instalação, deixando o processo mais simples. Basta apenas executar o Sispetro que ele se encarregará de tudo, desde que esteja configurado adequadamente para esse fim.
+Essa configuração que veremos abaixo:
+No servidor onde se encontram os arquivos do Sispetro será preciso configurar manualmente as pastas das DLL do Sybase e do BDE.
+Criar no servidor duas pastas referente as DLL's do Sybase e do BDE, sendo:
+DLLBDE
+DLLSybase
+Servidor:
+ C:\Sispetro\DLLBDE
+ C:\Sispetro\DLLSybase
+Para cada pasta será preciso copiar as DLL's e arquivos respectivos.
+DLLBDE
+Dentro desta pasta deverá existir diversos arquivos com extensão DLL, BTL, EXE, CAB, TXT, entre outras. Efetue o Download dos arquivos - 
+.
+DLLSybase
+Dentro desta pasta deverá existir arquivos com extensão DLL e EXE. Efetue o Download dos arquivos - 
+. Os arquivos são:
+dbcon12.dll
+dblgen12.dll
+dbodbc12.dll
+dbicu12.dll
+dbicudt12.dll
+dblgpt12.dll
+dbelevate12.exe
+Os arquivos acima são todos para conexão do client em 32bits. Independente do SO e se o banco será executado em 32 ou 64bits, o client 
+sempre
+ é o de 32bits.
+Importante: Estas pastas deverão ser criadas no mesmo diretório mapeado que se encontra o Sispetro.
+Além disso, os arquivos DLL do Sybase deverão estar na versão mínima 12.0.1.3484.
+Mapeamento do diretório C:\Sispetro
+É importante que a unidade em questão seja mapeada no servidor e nas estações de trabalho.
+A definição do mapeamento ficará a critério da empresa, sendo importante ressaltar que a mesma letra definida no mapeamento do Servidor deverá ser utilizada nas estações. 
+Após ter as pastas criadas, o próximo passo é configurar os diretórios criados no arquivo INI do Sispetro (SCG.INI);
+Abrir em modo edição o arquivo SCG.INI.
+Localizar a seção 
+[ Client]
+.
+Ajustar os comandos abaixo para o Sybase e BDE:
+PathDllBde
+- Neste comando deverá ser configurado o diretório de origem dos arquivos do BDE. O mesmo configurado no item 1.
+Exemplo:
+ PathDllBde = X:\DLLBDE 
+ 
+A letra X se refere ao diretório mapeado
+PathDllSybase
+- Neste comando deverá ser configurado o diretório de origem dos arquivos do Sybase. O mesmo configurado no item 1.
+Exemplo:
+ PathDllSybase = X:\DLLSybase 
+ 
+A letra X se refere ao diretório mapeado
+VersaoServerSybase
+- Neste comando deverá ser configurado a versão do Sybase que está sendo utilizada, que deverá ser 12.
+Exemplo:
+ VersaoServerSybase = 12
+É de extrema importância configurar a versão correta neste item
+PathDefaultBde
+- Neste comando deverá ser configurado o diretório de destino para o BDE. Ou seja, a pasta a ser criada no diretório específicado. Esta pasta conterá todos os arquivos existentes na pasta criada no item 1.
+Exemplo:
+ PathDefaultBde = C:\Sispetro\Bin\BDE
+PathDefaultSybase
+- Neste comando deverá ser configurado o diretório de destino para o Sybase. Ou seja, a pasta a ser criada no diretório específicado. Esta pasta conterá todos os arquivos existentes na pasta criada no item 1.
+Exemplo:
+ PathDefaultSybase = C:\Sispetro\Bin\BDE
+Os arquivos existentes na pasta criado no item 1 serão automaticamente copiados para a pasta criada nos itens iv e v
+Finalizar o arquivo, salvando as alterações. 
+Feito os passos anteriores, é preciso executar o Sispetro nas estações de trabalho, para que as configurações feitas nos itens anteriores sejam criadas.
+Antes de executar o Sispetro, certifique-se de que o ODBC e o Servidor Sispetro esteja funcionando corretamente. Para maiores informações, veja o tópico 
+Configurando ambiente de Teste utilizando o Sybase 12
+.
+Para cada estação de trabalho o diretório onde o Sispetro e seus respectivos arquivos deverá estar mapeado com a mesma letra definida no mapeamento do Servidor.
+Execute o Sispetro em cada estação de trabalho. Informe usuário, senha e empresa.
+Para estações de trabalho que possuem sistema operacional Windows Vista, Windows 2008 e Windows 7, clique com o botão direito sobre o executável e escolha a opção
+ 
+Executar como Administrador
+.
+Verifique que o ODBC foi criado automaticamente para a estação de trabalho em questão.
+As pastas 
+DLLBDE
+ e 
+DLLSybase
+ também foram criadas automaticamente nos diretórios especificados nos item iv e v do tópico 3.

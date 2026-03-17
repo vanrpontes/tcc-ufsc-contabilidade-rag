@@ -1,0 +1,154 @@
+TITULO: Grupo Contábil - Transferência Crédito (adiantamento)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4213112860
+--------------------------------------------------
+Cabeçalho do lote
+Fórmula para Data:
+ BaixaAntecipada.Data
+Fórmula para Código Histórico:
+ informar um código de histórico cadastrado para a sua empresa
+Fórmula para Histórico:
+ BaixaAntecipada.Historico
+Fórmula para Numero Docto:
+ BaixaAntecipada.SeqCredito
+Fórmula para Informações Adicionais:
+ BaixaAntecipada.InfoAdic
+TRANSFERÊNCIA DE CRÉDITO ENTRE CLIENTES
+Operação
+Conta
+Campo da Conta
+Valor
+Campo de Valor
+Débito
+Conta diversa
+BaixaAntecipada.CCEntidade
+Saldo/Valor Original
+if ((BaixaAntecipada.CodEntOrigem is null) or (BaixaAntecipada.CodEntOrigem=0)) then (if BaixaAntecipada.Saldo=0 then
+BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) else 0 endif
+Débito
+Adiantamento/Cliente
+ContaAdiantamento(BaixaAntecipada.CodEntOrigem)
+Saldo/Valor Original
+if (BaixaAntecipada.CodEntOrigem is null) or (BaixaAntecipada.CodEntOrigem=0) then 0 else (if BaixaAntecipada.Saldo=0 then BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) endif
+Crédito
+Banco
+BaixaAntecipada.CCBanco
+Saldo/Valor Original
+if (BaixaAntecipada.CodEntOrigem is null) or (BaixaAntecipada.CodEnt is null) then (if BaixaAntecipada.Saldo=0 then
+BaixaAntecipada.ValorOrig elseBaixaAntecipada.Saldo endif) else 0 endif
+ Crédito
+Adiantamento/Cliente 
+ContaAdiantamento(BaixaAntecipada.CodEnt) 
+ Saldo/Valor Original
+if (BaixaAntecipada.CodEnt is null) or (BaixaAntecipada.CodEnt=0) then 0 else (if BaixaAntecipada.Saldo=0 then
+BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) endif
+Obs.:
+ nos campos da Conta colocar o conteúdo dentro da função ContaReal(), desde que a conta contábil informada seja gerencial. A conta contábil é gerencial quando informa a tabela e o campo conforme exemplos.
+Exemplos:
+ ContaReal(BaixaAntecipada.CCEntidade), ContaReal(ContaAdiantamento(BaixaAntecipada.CodEnt)).
+ 
+TRANSFERÊNCIA DE CRÉDITO ENTRE FORNECEDORES
+Operação
+Conta
+Campo da Conta
+Valor
+Campo de Valor
+Débito
+Banco
+BaixaAntecipada.CCBanco
+Saldo/Valor Original
+if (BaixaAntecipada.CodEntOrigem is null) or (BaixaAntecipada.CodEnt is null) then (if BaixaAntecipada.Saldo=0 then
+BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) else 0 endif
+Débito
+Adiantamento/Fornecedor
+ContaAdiantamento(BaixaAntecipada.CodEnt)
+Saldo/Valor Original
+if (BaixaAntecipada.CodEnt is null) or (BaixaAntecipada.CodEnt=0) then 0 else (if BaixaAntecipada.Saldo=0 then
+BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) endif
+Crédito
+Adiantamento/Fornecedor
+ContaAdiantamento(BaixaAntecipada.CodEntOrigem)
+Saldo/Valor Original
+if (BaixaAntecipada.CodEntOrigem is null) or (BaixaAntecipada.CodEntOrigem=0) then 0 else (if BaixaAntecipada.Saldo=0 then BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) endif
+Crédito
+Conta diversa
+BaixaAntecipada.CCEntidade
+Saldo/Valor Original
+if ((BaixaAntecipada.CodEntOrigem is null) or (BaixaAntecipada.CodEntOrigem=0)) then (if BaixaAntecipada.Saldo=0 then
+BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) else 0 endif
+Obs.:
+ nos campos da Conta colocar o conteúdo dentro da função ContaReal(), desde que a conta contábil informada seja gerencial. A conta contábil é gerencial quando informa a tabela e o campo conforme exemplos.
+Exemplos:
+ ContaReal(BaixaAntecipada.CCEntidade), ContaReal(ContaAdiantamento(BaixaAntecipada.CodEnt)).
+ 
+TRANSFERÊNCIA DE CRÉDITO ENTRE EMPRESAS PARA CLIENTE
+Operação
+Conta
+Campo da Conta
+Valor
+Campo de Valor
+Débito
+Conta diversa
+if BaixaAntecipada.Tipo = 'F' then
+ContaReal(BaixaAntecipada.CCEntidade) else
+ContaReal(BaixaAntecipada.CCBanco) endif
+Saldo/Valor Original
+if ((BaixaAntecipada.CodEntOrigem is null) or (BaixaAntecipada.CodEntOrigem=0)) then (if BaixaAntecipada.Saldo=0 then
+BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) else 0 endif
+Débito
+Adiantamento/Cliente
+ContaAdiantamento(BaixaAntecipada.CodEntOrigem)
+Saldo/Valor Original
+if (BaixaAntecipada.CodEntOrigem is null) or (BaixaAntecipada.CodEntOrigem=0) then 0 else (if BaixaAntecipada.Saldo=0 then BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) endif
+Crédito
+Banco
+BaixaAntecipada.CCBanco
+Saldo/Valor Original
+if (BaixaAntecipada.CodEnt is null and BaixaAntecipada.Tipo = 'F') then (if BaixaAntecipada.Saldo=0 then
+BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) endif
+ Crédito
+Adiantamento/Cliente 
+ContaAdiantamento(BaixaAntecipada.CodEnt) 
+ Saldo/Valor Original
+if (BaixaAntecipada.CodEnt is null) or (BaixaAntecipada.CodEnt=0) then 0 else (if BaixaAntecipada.Saldo=0 then
+BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) endif
+Obs.:
+ nos campos da Conta colocar o conteúdo dentro da função ContaReal(), desde que a conta contábil informada seja gerencial. A conta contábil é gerencial quando informa a tabela e o campo conforme exemplos.
+Exemplos:
+ ContaReal(BaixaAntecipada.CCEntidade), ContaReal(ContaAdiantamento(BaixaAntecipada.CodEnt)).
+ 
+TRANSFERÊNCIA DE CRÉDITOS ENTRE EMPRESAS PARA FORNECEDORES
+Operação
+Conta
+Campo da Conta
+Valor
+Campo de Valor
+Débito
+Adiantamento/Cliente
+ContaAdiantamento(BaixaAntecipada.CodEnt) 
+Saldo/Valor Original
+if (BaixaAntecipada.CodEnt is null) or (BaixaAntecipada.CodEnt=0) then 0 else (if BaixaAntecipada.Saldo=0 then
+BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) endif
+Débito
+Banco
+BaixaAntecipada.CCBanco
+Saldo/Valor Original
+ if (BaixaAntecipada.CodEnt is null and BaixaAntecipada.Tipo='C') then (if BaixaAntecipada.Saldo=0 then
+BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) endif
+Crédito
+Conta diversa
+if BaixaAntecipada.Tipo = 'C' then
+ContaReal(BaixaAntecipada.CCEntidade) else
+ContaReal(BaixaAntecipada.CCBanco) endif
+Saldo/Valor Original
+if ((BaixaAntecipada.CodEntOrigem is null) or (BaixaAntecipada.CodEntOrigem=0)) then (if BaixaAntecipada.Saldo=0 then
+BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) else 0 endif
+Crédito
+Adiantamento/Cliente
+ContaAdiantamento(BaixaAntecipada.CodEntOrigem)
+Saldo/Valor Original
+if (BaixaAntecipada.CodEntOrigem is null) or (BaixaAntecipada.CodEntOrigem=0) then 0 else (if BaixaAntecipada.Saldo=0 then
+BaixaAntecipada.ValorOrig else BaixaAntecipada.Saldo endif) endif
+Obs.:
+ nos campos da Conta colocar o conteúdo dentro da função ContaReal(), desde que a conta contábil informada seja gerencial. A conta contábil é gerencial quando informa a tabela e o campo conforme exemplos.
+Exemplos:
+ ContaReal(BaixaAntecipada.CCEntidade), ContaReal(ContaAdiantamento(BaixaAntecipada.CodEnt)).

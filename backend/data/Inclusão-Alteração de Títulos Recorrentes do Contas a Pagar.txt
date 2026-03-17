@@ -1,0 +1,93 @@
+TITULO: Inclusão-Alteração de Títulos Recorrentes do Contas a Pagar
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899060
+--------------------------------------------------
+Ao optar pela inclusão ou alteração de Títulos Recorrentes pela 
+Manutenção de Títulos Recorrentes
+ é apresentada a seguinte tela:
+Os dados solicitados são similares aos solicitados na Inclusão do Contas a Pagar, possuindo as mesmas regras de inclusão. Veja outras regras no tópico 
+Regras de Inclusão do Contas a Pagar/Receber
+.
+Diferenças entre informações dos títulos recorrentes e títulos efetivos:
+Os títulos do Contas a Pagar sempre são vinculados a uma única filial. No caso dos Titulos Recorrentes é possível indicar a unidade de negócios (todas as filiais, um grupo de filiais ou uma filial).
+Ao indicar, por exemplo, que o título é de um grupo de filiais, significa que o título será efetivado nas filiais deste grupo. Ao efetivar, cada filial terá o seu título efetivo correspondente a esta única recorrência. Serve para facilitar o processo de inclusão. Se todas as filiais pagam o mesmo tipo de conta não será necessário incluir um título recorrente para cada filial, um único resolve a situação.
+Os valores informados na tela de títulos recorrentes para contabilização nas contas gerenciais, contas reais e centro de custos devem ser percentuais. No momento da 
+efetivação
+, o percentual será aplicado ao valor 
+líquido
+ (já que o valor líquido sofre influência de descontos/acréscimos).
+Os 
+descontos/acréscimos
+ vinculados ao tipo de documento utilizado, quando automáticos, na tela de títulos recorrentes só são apresentados ao usuário para o seu conhecimento, não é feito o cálculo na hora, como é feito na tela de 
+Inclusão do Contas a Pagar
+. No caso de descontos manuais, ao invés de informar o 
+valor do desconto
+, deve ser informado também 
+um percentual
+, que neste caso, é aplicado ao valor bruto informado na tela. 
+A base de cálculo será sempre o valor bruto
+. Com isso, não será possível incluir/alterar/excluir descontos automáticos. Já os descontos manuais só podem ser alterados ou excluídos, afinal a informação de um desconto manual é facultativa, inclusive na 
+Inclusão do Contas a Pagar
+. O valor líquido do título será o valor bruto informado em tela com os acréscimos e descontos calculados no momento da 
+efetivação
+.
+Importante: Caso seja informado um tipo de documento, altere-se o percentual do desconto manual e se retorne ao campo do tipo de documento, os descontos serão atualizados e consequentemente o valor digitado será perdido! Assim, sempre informe por último o percentual do desconto, não retornando ao Tipo de Documento.
+Não será permitido vincular Eventos do Frota a Títulos Recorrentes.
+Quanto aos dados de 
+recorrência
+, a primeira regra é que a recorrência é mensal, ou seja, garante no máximo uma ocorrência no mês.
+ No entanto, se houver mais que uma ocorrência é possível cadastrar uma recorrência com dados idênticos, mudando somente o dia da ocorrência.
+Temos as seguintes opções:
+Tipo de Recorrência:
+ Pode ser pelo 
+dia do mês
+ ou pelo 
+dia da semana
+.
+Quando a recorrência for pelo Dia do Mês:
+Deve ser indicado o 
+dia desejado
+ (de 1 a 31), sendo que quando informado os dias 29, 30 e 31, no caso de não haver essa ocorrência no mês, será considerado o último dia do mês.
+Deve ser indicado o 
+intervalo de meses
+ que deve ocorrer. Se for para ocorrer todos os meses indique 1, se for bimestral indique 2, e assim por diante.
+Quando a recorrência for pelo Dia da Semana:
+Deve ser indicado o 
+dia da semana
+ desejado (de domingo a segunda).
+Deve ser indicada a 
+ordem da semana
+ desejada, ou seja, da primeira à quinta semana, que é o máximo que pode ocorrer num mês. Caso seja indicada uma ordem que o mês não possui, como por exemplo, se for indicada a 5ª quinta-feira, mas o mês só teve 4 quinta-feiras, será então considerada a última, no exemplo, a 4ª quinta feira.
+Deve ser indicado o 
+intervalo de meses
+ que deve ocorrer. Se for para ocorrer todos os meses indique 1, se for bimestral indique 2, e assim por diante.
+Data de Início:
+ Indica a partir de quando essa recorrência vai valer. Essa data é importante porque ela será considerada para 
+simulações
+ e nos relatórios do 
+ ou 
+.
+A ocorrência pode ter um 
+término
+. Assim pode-se indicar:
+Sem 
+data de término
+ a recorrência será válida em qualquer período a partir da data de início.
+Com 
+término após um número de ocorrências
+ (que deve ser indicada), a recorrência é aplicada "x" vezes, conforme o número de ocorrências.
+Nesta última situação, podemos dar um exemplo:
+ Uma ocorrência por dia do mês (todo dia 25), com intervalo de 1 mês, que começa em 28/09/2006 e termine após 4 ocorrências, teríamos:
+25/10/2006
+25/11/2006
+25/12/2006
+25/01/2007
+Com 
+término numa data
+ (que deve ser indicada) a recorrência será válida entre a data de início e a data de término.
+Nesta situação, podemos dar um exemplo:
+ Uma ocorrência por dia do mês (todo dia 15), com intervalo de 1 mês, que começa em 20/09/2006 e termine em 05/02/2007, teríamos:
+15/10/2006
+15/11/2006
+15/12/2006
+15/01/2007
+ Não haveria 15/02/2007 por passar da data de término especificada. Não haveria 15/09/2006 por ser anterior à data de início.

@@ -1,0 +1,64 @@
+TITULO: Validação do valor unitário do item do  produto na NFe
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2905145346
+--------------------------------------------------
+No manual da NFe, no ínicio de sua operação, exigia que os valores unitários fossem enviados com 4 casas decimais. Com isso, em algumas situações era necessário arredondar o valor unitário enviado, já que no Sispetro os valores são salvos com 6 casas decimais (preço com ST) e 8 casas decimais (preço sem o CST). O valor total referente ao valor unitário não era alterado, assim, se multiplicasse a quantidade pelo valor unitário enviado, nem sempre daria o valor total. Isso ficou durante anos até a NFe resolver fazer essa validação. No estado de SP a verificação é feita em ambiente de Homologação desde outubro/2010 e há uma nota técnica para implementar essa verificação em ambiente de Produção à partir de 01/02/2012.
+Vejam mais detalhes em 
+Nota Técnica 2011.004
+ e 
+Nota Técnica 2011.005
+.
+Caso de exemplo
+Na tabela abaixo apresentaremos uma situação onde a nota será rejeitada caso enviada com 4 casas decimais e processada com sucesso se enviada com 8 casas decimais:
+Dados da NF
+4 Casas Decimais na NFe
+8 Casas Decimais na NFe
+Preço Final
+1,00
+1,00
+Quantidade
+100.000
+100.000
+Valor Final da NF
+100.000,00
+100.000,00
+Preço sem Imposto (Sispetro)
+0.88679055
+0.88679055
+Preço sem Imposto (NFe)
+0.8868
+0.88679055
+Valor dos Produtos
+88.679,05
+88.679,05
+Base ICMS
+88.679,05
+88.679,05
+ICMS
+10.641,49
+10.641,49
+Base ST
+122.013,51
+122.013,51
+ICMS ST
+11.320,95
+11.320,95
+Notem que o preço Sem Imposto NFe e Sispetro não batem quando enviado o XML com 4 casas decimais, devido ao arredondamento do último dígito, dessa forma a nota seria rejeitada pela SEFAZ.
+Nesse caso, dois tipos de erro poderão ser apresentados pela SEFAZ:
+Erro 629 - Rejeição: Valor do Produto difere do produto Valor Unitário de Comercialização e Quantidade Comercial (NT2011/005)
+Erro 630 - Rejeição: Valor do Produto difere do produto Valor Unitário de Tributação e Quantidade Tributável (NT2011/005)
+Adequando o Sispetro a Regra
+Como já vimos anteriormente, até a versão 7.24, por mais que no Sispetro a nota era gravada com 8 casas decimais no preço, ao enviar o XML para a SEFAZ, eram enviados apenas 4 digitos, e essa configuração era fixa, não permitindo a customização do usuário.
+As tags afetadas são na geração do xml do Recibo, vUnCom e vUnTrib
+À partir da versão 7.25, teremos um campo no perfil de empresa, onde o usuário poderá definir a quantidade de casas decimais que deseja enviar via XML para a SEFAZ, evitando o erro descrito acima.
+Acesse o perfil de empresa 
+Ferramentas \ Sistema
+ na aba 
+NF-e/CT-e
+ e localize o perfil 
+Casas Decimais para preços sem imposto no XML
+.
+ 
+Defina um valor, sendo o máximo suportado 
+8 casas
+.
+Existe a necessidade do perfil porque pode ser que a aceitação de 8 decimais só ocorrerá no ambiente de produção à partir de 01/02/2012 e a empresa instalará o Sispetro antes. Além disso podemos correr o risco de algum estado não aceitar as 10 casas decimais, então com o perfil não comprometeríamos o devido funcionamento do faturamento da empresa.

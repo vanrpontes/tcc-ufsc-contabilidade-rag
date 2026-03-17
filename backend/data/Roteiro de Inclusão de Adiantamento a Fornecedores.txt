@@ -1,0 +1,119 @@
+TITULO: Roteiro de Inclusão de Adiantamento a Fornecedores
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701947
+--------------------------------------------------
+Geralmente a compra de combustíveis exige o pagamento antecipado. Assim, para se ter o controle financeiro do que está sendo pago ao fornecedor, já que o produto e a Nota Fiscal só vão chegar posteriormente, é possível que o usuário inclua um crédito manual para o fornecedor e conforme for chegando a(s) Nota(s) Fiscal(is), os títulos do Contas a Pagar serão quitados utilizando estes adiantamentos.
+Para inclusão é necessário acessar a tela de manutenção de Adiantamentos de Fornecedores (menu 
+Movimentação / Financeiro / Contas a Pagar / Manutenção Adiantamentos Fornecedores
+).
+É possível realizar a inclusão de adiantamentos Multi-Empresa. Veja maiores detalhes abaixo
+Na tela acima, o Sistema mostra todos os créditos pendentes de cada entidade. Créditos pendentes são todos os créditos que não foram totalmente utilizados. Caso o usuário deseje visualizar os créditos utilizados, basta mudar o Status para 
+Quitados
+ na barra de comandos
+Ao incluir um adiantamento o sistema fará a checagem se existe outro adiantamento pendente para o fornecedor, caso a opção de Sistema - menu 
+Ferramentas / Sistema / painel Financeiro - "Na inclusão avisa se tiver adiantamentos pendentes", 
+esteja marcada, avisando assim sobre o item existente.
+Filtro de visualização:
+Somente Adiantamentos de Entidades:
+ são os adiantamentos IDENTIFICADOS (clientes ou fornecedores) e os NÃO IDENTIFICADOS.
+Somente Adiantamentos de Uso Interno:
+ são os adiantamentos transferidos para contas contábeis.
+Todos:
+ mostra todos os adiantamentos sejam de entidades sejam de uso interno.
+Para mais informações veja o tópico: 
+.
+Conforme a utilização do adiantamento o saldo é atualizado, portanto tem como saber o valor original adiantado e o saldo restante.
+Bloquear/ Desbloquear Adiantamento
+Na versão 8.42 foi criada as opções "Bloq. Baixa" e "Lib. Baixa", que servem para bloquear e desbloquear um adiantamento, evitando que seja utilizado em alguma baixa. Veja um exemplo prático
+Na entre-safra a Distribuidora faz pagamentos antecipados à Usina para garantir um bom preço no Álcool. Porém esses adiantamentos só serão utilizados quando os carregamentos se iniciarem, então até essa data o PMM não estará disponível e os adiantamentos serão criados avulsos. Com o início das retiradas, o usuário poderá utilizar estes adiantamentos transferindo-os para uma conta transitória de onde seriam criados os adiantamentos vinculados ao contrato (PMM).
+O Sispetro, nos processos de baixa, permite que qualquer adiantamento seja utilizado, e se for por processo automático, pega sempre os antigos. Com isso, esses adiantamentos "reservados" podem ser utilizados em qualquer NF, quando deveriam aguardar o início das retiradas. Para que isso não ocorra basta "bloquear" este adiantamento e desbloqueá-lo quando for preciso.
+Primeiro é preciso dar permissão ao usuário de bloquear/ desbloquear os adtos. Procure pelo perfil 
+"Pode bloquear/desbloquear Adiantamentos a Fornecedores para utilização em baixa". 
+Veja mais informações em 
+Painel Financeiro (Usuário)
+ 
+Para bloquear basta selecionar o adiantamento e clicar no botão 
+, o adto. será apresentado na tela com a seguinte legenda
+Para desbloquear, basta clicar no botão 
+É possível, na inclusão do adiantamento dizer se ele será incluído como Bloqueado ou Desbloqueado, basta informar ao sistema no campo 
+Bloqueado para Baixa
+Para incluir um crédito, aperte o botão 
+Inclui
+Preencher os seguintes campos:
+Empresa: 
+Empresa para qual será emitido o adiantamento. Só será possível alterar a empresa caso o usuário esteja com o perfil de usuário '
+Empresa na inclusão de Adiantamento' 
+marcado para permitir alteração, e o Perfil de Empresa '
+Adiantamento Multi-Empresa'
+ permita alterar. Veja maiores detalhes em 
+Painel Financeiro (Usuário)
+ e 
+Código da Entidade:
+ Código da entidade que será a detentora do crédito. 
+Código do Comprador:
+ Código da entidade compradora, será preenchida conforme o código da entidade.
+CC Banco:
+ Conta contábil da onde o montante correspondente ao adiantamento está saindo (normalmente uma conta de banco). Caso seja alguma outra conta que não do tipo Banco, deve-se desabilitar o controle 
+Sugere somente contas de Banco
+ para que o Sistema mostre todo o plano de contas na pesquisa de contas.
+Moeda
+ Informar qual moeda esta sendo utilizado no adiantamento para o fornecedor (no caso de importação a moeda pode ser diferente do real) . Para mais detalhes, acesso o link 
+Conversão de valores para Adiantamento
+.
+Número do Documento:
+ O Número do documento que originou este crédito. É possível fazer a verificação de número de documento duplicado, mais detalhes vide tópico 
+Verificação de Número de Documento em Adiantamentos
+.
+Valor Original:
+ Valor Original do adiantamento.
+Informa PMM:
+ Caso o adiantamento seja vinculado a um Pedido de Movimentação de Material deve-se marcar essa opção. Caso esse pedido esteja vinculado a representante é possível visualizar na pesquisa de PMM. Mais informações 
+Cenário 5: Controle de Representantes
+. 
+É possível visualizar os Pedidos que pertencem ao Fornecedor representante do grupo econômico. 
+Veja como configurar em 
+Grupo Econômico - Fornecedores
+.
+Pedido Mov. Material:
+ Se foi marcada a opção acima, informe o número do Pedido de Movimentação de Material.
+Código Histórico:
+ Ao informar o código do histórico o sistema preenche a descrição do histórico e as informações adicionais caso haja.
+Histórico:
+ Digite um histórico para este crédito.
+Informações Adicionais:
+ Utilizado para complementar o histórico. Existe uma opção em "Sistema / Históricos / Na inclusão de crédito sugere a razão social do cliente como informações adicionais do histórico" que se for marcada irá copiar a razão social da entidade para o campo de informações adicionais ao informar o cliente ou fornecedor.
+Pode Contabilizar?
+ se o Perfil 
+Habilita Contabilização Real
+ estiver habilitado o campo será exibido por padrão marcado. Para mais informações 
+Caso o adiantamento tenha sido recebido em cheque, habilite o controle 
+Em Cheque
+ para incluir o cheque ou utilize o botão 
+Lista Cheques Recebidos
+ para vincular mais de um cheque. Maiores detalhes em 
+.
+Aperte o botão 
+OK
+ para confirmar o crédito.
+Alteração do valor unitário
+Será possível alterar o o valor unitário pré preenchido pelo o PMM que controla Adiantamento quantificado.
+Para isso o usuário precisará ter habilitado o perfil "
+Pode alterar preço em Adiantamentos Quantificados de PMM
+" - Veja informações 
+Perfil de Usuário - Compras
+Esta alteração de valor unitário do Adiantamento Quantificado vinculado ao PMM, só servirá para controle monetário, sendo assim, não irar alterar o valor original do PMM.
+Pagamento Eletrônico para Adiantamentos 
+Foi criada na versão 8.42 a possibilidade de incluir PagFor para adiantamentos (para informações sobre este processo veja o help 
+Pagamento Eletrônico para Adiantamentos a Fornecedor
+). Para controlar quais adiantamentos tem ou não PagFor e seu status foi criado também duas colunas "
+Pagamento Eletrônico
+" e "
+Status Proc. Pagto. Eletr.
+". Veja abaixo
+Pagamento Eletrônico: Os adiantamentos que tiverem alguma movimentação referente ao PagFor serão marcados nesta coluna
+Status Proc. Pagto. Eletr.: Mostra qual o status deste PagFor
+Não Processado:
+ É o status inicial, para os adiantamentos que não tiveram nenhuma leitura do arquivo de retorno.
+Aprovado:
+ Quando o pagamento tiver o retorno do banco com status "Pagamento Efetivado"
+Processado:
+ Quando o adto. teve o retorno do banco, porém o status não foi "Pagamento Efetivado" (por exemplo quando o comando é de Agendamento)

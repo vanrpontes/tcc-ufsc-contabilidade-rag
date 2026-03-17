@@ -1,0 +1,114 @@
+TITULO: Impressão NF (Painel Por Filial)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210573
+--------------------------------------------------
+Caso a nova Natureza de Operação seja utilizada para imprimir uma ou mais Notas Fiscais, clique no painel 
+Impressão Nota Fiscal
+ para o preenchimento dos dados que deverão constar na Nota Fiscal e acertar seu layout.
+Segue um exemplo:
+Observação NF:
+ São as observações que sairão na Nota Fiscal no momento da emissão da NF. Ver mais detalhes sobre como se pode configurar as observações para que certas observações sejam impressas em locais diferentes (por exemplo, no espaço "Informações para o Fisco" no DANFE) em 
+Configuração da Natureza de Operação para Nota Fiscal Eletrônica
+.
+As tags utilizadas para Informações Adicionais são: 
+ Para informações de uso do Fisco usar: 
+<infAdFisco> .... </infAdFisco> 
+ Para informações complementares:.
+<infCpl> .... </infCpl> 
+No .XML referente ao Recibo da NF-e as tags "InfCpl" e "InfAdFisco"  serão preenchidas até o limite de caracteres permitido no manual da NF-e (5000 e 2000 respectivamente). 
+É possível inserir fórmulas dentro das observações. Para isso basta digitar a fórmula (caso já saiba como colocar ou o código do campo) no quadro de observações ou clicar no botão 
+ que apresentará a tela abaixo:
+Para referenciar a um campo basta clicar 2 vezes em cima do mesmo
+Exemplo 1: fórmula com arredondamento de valores nas Informações Complementares:
+<infCpl>Base ICMS Origem: [Round(<686>,2)] - Valor ICMS Origem: [Round(<687>,2)] / Base ICMS Destino: [Round(<670>,2)] - Valor ICMS Destino: [Round(<671>,2)] / Valor a ressarcir: [if sign(<29727>) = -1 then Round(<29727>,2) * -1 else 0 endif] </infCpl>
+Onde:
+<infCpl> = 
+início da tag Informações Complementares - obrigatório informar caso queira enviar no XML
+</infCpl> = 
+fim da tag Informações Complementares - obrigatório informar caso queira enviar no XML
+Round = 
+instrução para fazer arredondamento padrão -  exemplo: Round(campo ou expressão, X) onde X = número de casas decimais arredondadas
+<686> = 
+NotaFiscal.BaseICMSSubstOrigem - base de cálculo do ICMS ST Origem
+<687> = 
+NotaFIscal.ICMSSubstOrigem - valor do ICMS ST Origem 
+<670> = 
+NotaFiscal.BaseICMSRet - base de cálculo do ICMS Retido Destino
+<671> = 
+NotaFiscal.ICMSRet - valor do ICMS Retido Destino
+<29727> = 
+NotaFiscal.AjusteICMSSubstTotal - valor total do ressarcimento. Se for complemento, mostra 0.
+sign = 
+instrução para verificar se um número é negativo. No exemplo verifica se o valor do ajuste é negativo (nesse caso, é um ressarcimento) e torna positivo para efeito de visualização.
+[   ] =
+ uso de chaves para inclusão de instruções como round, sign, if, etc
+Exemplo 2: fórmula com arredondamento de valores e formatando para 2 casas decimais nas Informações Complementares.  A formatação para 2 casas decimais é usada quando o campo utilizado tem várias casas decimais.
+<infCpl>Base ICMS Origem: [Round(Convert(ValorAbsoluto,<686>),2)] - Valor ICMS Origem: [Round(Convert(ValorAbsoluto,<687>),2)] / Base ICMS Destino: [Round(Convert(ValorAbsoluto,<670>),2)] - Valor ICMS Destino: [Round(Convert(ValorAbsoluto,<671>),2)] / Valor a ressarcir: [if sign(<29727>) = -1 then Round(Convert(ValorAbsoluto,<29727>),2) * -1 else 0 endif] </infCpl>
+Onde:
+<infCpl> = 
+início da tag Informações Complementares - obrigatório informar caso queira enviar no XML
+</infCpl> = 
+fim da tag Informações Complementares - obrigatório informar caso queira enviar no XML
+Round = 
+instrução para fazer arredondamento padrão -  exemplo: Round(campo ou expressão, X) onde X = número de casas decimais arredondadas
+Convert
+ = instrução para formatar o campo com 2 casas decimais quando o campo tem mais de 2 casas decimais
+<686> = 
+NotaFiscal.BaseICMSSubstOrigem - base de cálculo do ICMS ST Origem
+<687> = 
+NotaFIscal.ICMSSubstOrigem - valor do ICMS ST Origem 
+<670> = 
+NotaFiscal.BaseICMSRet - base de cálculo do ICMS Retido Destino
+<671> = 
+NotaFiscal.ICMSRet - valor do ICMS Retido Destino
+<29727> = 
+NotaFiscal.AjusteICMSSubstTotal - valor total do ressarcimento. Se for complemento, mostra 0.
+sign = 
+instrução para verificar se um número é negativo. No exemplo verifica se o valor do ajuste é negativo (nesse caso, é um ressarcimento) e torna positivo para efeito de visualização.
+[   ] =
+ uso de chaves para inclusão de instruções como round, sign, if, etc
+Os campos numéricos 
+SÃO APENAS EXEMPLOS
+. Nos bancos de dados de cada empresa os mesmos campos 
+podem ser números diferentes
+. Assim, atentem para 
+OS NOMES DOS CAMPOS e AS TABELAS UTILIZADAS.
+É possível também realizar um teste das observações com a fórmula, para isso basta clicar no botão 
+ selecionar uma nota já existente e clicar em 
+Informe os dados para apresentação das notas desejadas. Aumente o número no campo 
+Qtde de registros para teste
+ se necessário (mas lembre-se que o ideal é trabalhar com poucos dados). Ao clicar em 
+Traz NFs
+ serão apresentadas as notas correspondentes aos filtros. Escolha uma nota e clique no botão 
+Testa NF Selecionada
+ para ver o resultado da sua fórmula.
+Notar mais uma vez que existe um controle de navegação na parte superior onde estão as empresas cadastradas. O usuário deve posicionar o cursor na empresa correta para configurar os controles do painel inferior.
+Imprime ICMS próprio no corpo da Nota:
+ Se imprime o ICMS próprio anteriormente calculado no corpo da Nota Fiscal (note que o usuário deve escolher entre imprimi-lo no corpo ou no rodapé - habilitando outro controle - ou em nenhum lugar - caso os dois campos estejam desabilitados).
+ 
+Em notas com tributação do diferimento, caso queira que os dados do ICMS sejam impressos, deve marcar esta opção.
+Imprime ICMS Substituição no corpo da Nota:
+ Se imprime o ICMS Substituição anteriormente calculado no corpo da Nota Fiscal (note que o usuário deve escolher entre imprimi-lo no corpo ou no rodapé - habilitando outro controle - ou em nenhum lugar - caso os dois campos estejam desabilitados).
+Imprime Preço Máximo no corpo da Nota:
+ Se imprime o preço máximo por município (caso do diesel) anteriormente calculado no corpo da Nota Fiscal (note que o usuário deve escolher entre imprimi-lo no corpo ou no rodapé - habilitando outro controle - ou em nenhum lugar - caso os dois campos estejam desabilitados).
+Imprime ICMS próprio no rodapé da Nota:
+ Se imprime o ICMS próprio anteriormente calculado no rodapé da Nota Fiscal (note que o usuário deve escolher entre imprimi-lo no corpo ou no rodapé - habilitando outro controle - ou em nenhum lugar - caso os dois campos estejam desabilitados).
+ Em notas com tributação do diferimento, caso queira que os dados do ICMS sejam impressos, deve marcar esta opção.
+Imprime Dados Depósito Origem:
+ Se imprime os dados do depósito (razão social, endereço, CGC, etc) origem dos produtos no corpo da Nota Fiscal.
+Imprime ICMS Substituição no rodapé da Nota:
+ Se imprime o ICMS Substituição anteriormente calculado no rodapé da Nota Fiscal (note que o usuário deve escolher entre imprimi-lo no corpo ou no rodapé - habilitando outro controle - ou em nenhum lugar - caso os dois campos estejam desabilitados).
+Imprime Vencimentos na Nota:
+ Se imprime os valores que serão gerados para o Contas a Receber (data de vencimento e valor de cada parcela) na Nota Fiscal.
+Imprime ICMS Retido no corpo da Nota:
+ Se imprime o ICMS retido pela refinaria anteriormente calculado no corpo da Nota Fiscal.
+Imprime cupom fiscal:
+ 
+No SisPetro, temos a emissão de Cupom Fiscal pela impressora Bematech, mas como essa funcionalidade está em desuso pelos nossos clientes, a partir da versão 8.6 
+foi retirada do sistema. 
+Arquivo Layout:
+ Salva o nome do arquivo de layout da Nota Fiscal. Note que cada natureza de operação pode ter um layout completamente diferente de outro layout (inclusive a mesma natureza de operação pode ter layouts diferentes para cada empresa). Para editar o layout da Nota Fiscal, aperte o botão 
+Edita Layout
+.
+Importante: Esse campo estará disponível somente para empresa conjugada ou distribuidora (veja também 
+ para entendimento do funcionamento para as natureza de operação utilizadas nos Conhecimentos de Frete).
+Para alterar e conhecer melhor nosso gerador de relatórios, consulte manual específico do gerador de relatórios.

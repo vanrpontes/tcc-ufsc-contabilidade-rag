@@ -1,0 +1,47 @@
+TITULO: Manutenção de Inutilização de Numeração de NF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879389903
+--------------------------------------------------
+O procedimento de inutilização de numeração ocorre quando necessitamos informar à Secretaria da Fazenda Estadual (Sefaz) que uma determinada numeração de notas fiscais não será mais utilizada por qualquer motivo. Normalmente este procedimento é utilizado para intervalos de NF que eram de papel ou não foram ainda emitidas.
+ATENÇÃO:
+O Sispetro não tem controle sobre este procedimento. Ao utilizar a inutilização de numeração, não esquecer de alterar a série na 
+natureza de operação
+ e essa alteração é responsabilidade do usuário.
+IMPORTANTE PARA O SPED:
+Ao inutilizar uma nota fiscal, o sistema atualizará automaticamente a Situação do Documento, no banco de dados, para o código 05 "Desfazimento de Negócio".
+Para incluir um pedido de inutilização, acessar o menu 
+Movimentação / Faturamento / Nota Fiscal Eletrônica / Manutenção de Inutilização de NF-e
+.
+Funcionalidade dos Botões
+Inclui:
+ inclui um pedido de inutilização. Ver tópico Inclusão de Pedido de Inutilização.
+Altera:
+ altera pedido de inutilização selecionado na grid. Ver tópico Alteração de Pedido de Inutilização.
+*Cancela:*cancela um pedido de inutilização (somente para pedidos com status pendentes).
+Reprocessa:
+ acessa o Servidor Sispetro para processar o comando de inutilização e enviar as informações para a Sefaz. Ver tópico Processamento do Pedido de Inutilização.
+Legenda:
+ exibe a legenda com as cores apresentadas na grid.
+Sair:
+ sai da tela de Manutenção de Inutilização de NF-e.
+Layout Padrão:
+ retorna a grid no formato padrão.
+Para que o usuário tenha permissão para fazer o procedimento de inutilização de NF-e, deve acessar o perfil de usuários 
+(menu Ferramentas / Usuário / painel Perfil / painel Faturamento)
+ e habilitar a seguinte opção:
+Filtro dos Dados
+Empresa:
+ visualiza os pedidos incluídos da empresa informada. Como padrão, traz a empresa conectada.
+Exibir Status:
+ apresenta os pedidos conforme status selecionado. As opções são as seguintes:
+Tipo de Serviço: 
+Na versão 8.10 foi implementada a possibilidade de uma mesma empresa emitir NF-e e CT-e, este perfil se refere a estas empresas, para que a consulta seja do serviço correto veja maiores informações em 
+Botão Atualiza:
+ atualiza os dados na grid conforme os filtros informados na tela.
+Apresentação de Dados na Grid e os botões XML Enviado e XML Retorno
+Ao processar um pedido de inutilização da NF-e, o XML de envio e o de retorno é salvo no pedido. Para consultar os XMLs de envio e retorno, clicar respectivamente nos botões, 
+XML Enviado
+ e 
+XML Retorno
+Mais informações em 
+Relatório de Notas Fiscais Inutilizadas
+.

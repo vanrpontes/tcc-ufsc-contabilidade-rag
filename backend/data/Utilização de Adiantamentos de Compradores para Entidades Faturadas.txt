@@ -1,0 +1,62 @@
+TITULO: Utilização de Adiantamentos de Compradores para Entidades Faturadas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926200974
+--------------------------------------------------
+Histórico
+Há algum tempo atrás, foi implementado um perfil de sistema 
+"Verifica Limites e Valores do G.Econômico para Aprovação do Pedido"
+ que possibilita que o saldo do cliente seja analisado pelo Grupo Econômico, mas sem ter que fazer pedido com Comprador X Entidade Faturada, o pedido já é feito diretamente para a Entidade Faturada, o que é bem útil porque a tabela de preço, condições de pagamento, etc podem ser do cliente faturado.
+Porém, desde que isso foi implementado, o problema foi conciliar com os adiantamentos.
+Os adiantamentos sempre são incluídos para o comprador, pois é a forma mais rápida da empresa controlar, por não saber exatamente para qual entidade faturada se refere cada valor. 
+Através da transferência do adiantamento o valor é alocado à entidade faturada, que é um processo bem complicado.
+Isso porque há duas telas de transferência, onde uma altera o comprador e outra a entidade faturada.
+Além disso, nos títulos a Receber gerados nos pedidos faturados nesse perfil, não há a figura do Comprador, afinal o pedido foi feito direto para a Entidade Faturada. 
+Objetivo
+Facilitar o processo de utilização de adiantamentos nesse cenário, permitindo a utilização de adiantamentos de compradores para entidades faturadas.
+Configurações
+ 
+É fundamental que cada entidade faturada tenha o campo 
+Pertence a grupo econômico (para Crédito, Faturamento) 
+vinculado ao comprador correto e os perfis de sistema, aba Vendas, 
+Verifica Limites e Valores do G.Econômico para Aprovação do Pedido 
+e 
+Utiliza Adiantamento Comprador da Entidade 
+estejam marcados. Por padrão, a opção 
+Utiliza Adiantamento Comprador da Entidade 
+é desmarcada.
+ 
+Marcar os
+ 
+perfis de sistema, aba Vendas,
+ 
+Verifica Limites e Valores do G.Econômico para Aprovação do Pedido 
+e
+ Utiliza Adiantamento Comprador da Entidade - ver 
+Marcar a opção 
+Pertence a Grupo Econômico (para Crédito, Faturamento)?
+ 
+nos clientes que fazem parte de Grupo Econômico - ver 
+Grupo Econômico - Detalhamento
+ 
+e
+ 
+Contabilização Gerencial:
+ não é necessária qualquer configuração adicional
+Contabilização Real: 
+necessário alterar em alguns pontos o código de contabilização de Baixa Contas a Receber
+ - ver 
+Códigos de Contabilização - padrões do SisPetro
+ quadro 
+BAIXA CONTAS A RECEBER
+Caso não queira utilizar o recurso, 
+NÃO MARCAR
+ a opção 
+Utiliza Adiantamento Comprador da Entidade.
+ 
+Feitas as configurações, nos pontos onde são utilizados os adiantamentos
+Baixa Manual:
+ no título da entidade faturada, no quadro Utilização de Crédito, o adiantamento incluído em nome do Comprador será mostrado e permitirá utilizar. 
+Baixa via tela de Débito/Crédito Cliente: 
+no quadro Débitos, informe o código da Entidade Faturada e no quadro Créditos, informe o código do Comprador do Grupo Econômico. Caso a Entidade Faturada NÃO PERTENÇA ao Grupo Econômico do Comprador, será mostrada mensagem de erro, não permitindo a baixa do título utilizando o adiantamento.
+Baixa Automática:
+ faz a verificação se a Entidade Faturada pertence ao Grupo Econômico do Comprador. Pertencendo, faz a baixa automaticamente utilizando o adiantamento do Comprador, sem qualquer intervenção. Observar que para utilização de baixa automática, no SisPetro devem estar devidamente configurados o perfil de sistema, aba Financeiro, quadro Automática, o Tipo de Cobrança (baixa automática) e a natureza de operação, aba Dados Gerais (Utiliza adiantamentos no Faturamento p/ quitação).
+ 

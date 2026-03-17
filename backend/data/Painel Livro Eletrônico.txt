@@ -1,0 +1,151 @@
+TITULO: Painel Livro Eletrônico
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903998678
+--------------------------------------------------
+O acesso a essa tela se dá através de Ferramentas / Sistemas / Livro Eletrônico.
+Conhecendo os perfis existentes:
+Perfil SPED EFD
+Definirá em qual grupo a empresa se enquadra, considerando a Regra Geral: 
+perfil A
+ determina a apresentação dos registros mais detalhados. O 
+Perfil B
+ trata as informações de forma sintética (totalizações por período. Por exemplo: diário e mensal). O 
+Perfil C
+, embora existente no leiaute, será implementado futuramente.
+Valor de NF a ser utilizado
+Este perfil será usado para definir o valor total da nota fiscal a ser informado nos registros C100 e C190 do SPED ICMS/IPI e registros C100 e C170 do SPED PIS/COFINS.
+Valor Final dos Produtos
+Com este perfil marcado será informado somente o valor do produto, 
+não somando 
+o valor do ICMS ST ao valor total da nota. 
+Valor Final da NF
+Com este perfil marcado será informado o valor total da nota fiscal, 
+somando 
+o valor do ICMS ST ao valor total da nota. 
+Perfil SPED EFD/ICMS - Registro 1200
+Este Registro é obrigatório para clientes da UF de Minas Gerais (MG).  
+Código Ajuste: 
+no registro 1200 do SPED ICMS/IPI é utilizado para informar ajustes no valor do ICMS e/ou IPI apurado em um período. Para cadastro deste código no Sispetro verificar as informações em 
+Inclusão de código de Benefício Fiscal
+ .
+Cod Utilização Créditos: 
+é para informação do tipo de utilização do crédito de ICMS que será identificado no Registro 1210 do SPED ICMS/IPI.
+Tipo de Qtde do Estoque a ser utilizada no K200
+Definirá qual o tipo de quantidade será gerado no registro K200 do bloco K:
+Escritural Ambiente
+Escritural 20c
+ICMS Próprio
+Código da Obrigação a Recolher
+: definir o código da obrigação a ser considerada para o ICMS Próprio.
+Sequencial do Processo Referenciado
+: definir o sequencial do processo referenciado a ser considerado para o ICMS Próprio.
+ICMS ST
+Código da Obrigação a Recolher
+: definir o código da obrigação a ser considerada para o ICMS Substituição.
+Sequencial do Processo Referenciado
+: definir o sequencial do processo referenciado a ser considerado para o ICMS Substituição.
+Os dados informados nesta tela serão apresentados na Apuração Fiscal, e consequentemente serão gerados nos registros E116 (para ICMS Próprio) e E250 (para ICMS ST).
+Quadro SPED EFD Contribuições (PIS/COFINS)
+Este quadro indicará os dados necessários para gerar o Registro E110 do SPED Pis/Cofins. Possui as seguintes opções:
+Método de Apropriação de Crédito
+Não se Aplica: 
+quando a empresa não se enquadra em nenhum dos métodos de apropriação.
+Método de Apropriação Direta:
+ no arquivo do SPED o desmembramento de valores de créditos referentes ao CST de Tributação Mista - Tributado ou Não Tributado - (Por exemplo: CST 53) será detalhado. Além disso, o registro 0111 não será gerado, com o detalhamento da Receita Tributada ou Não Tributada.
+Método de Rateio Proporcional (Receita Bruta): 
+com esta configuração o método será proporcional a receita da empresa. Consequentemente é preciso enviar o registro 0111 com o detalhamento da Receita Tributada ou Não Tributada. Trabalhará junto com o perfil 
+Rateio créditos com CST de Tributação Mista?
+Tipo de Contribuição Apurada
+Exclusivamente a Alíquota Básica: 
+no caso de apuração das contribuições exclusivamente às alíquotas básicas de 0,65% ou 1,65% (PIS/Pasep) e de 3% ou 7,6% (Cofins)
+Alíquotas Específicas (Diferenciadas e/ou por Unidade de Medida de Produto): 
+no caso de apuração das contribuições às alíquotas específicas, decorrentes de operações tributadas no regime monofásico (combustíveis; produtos farmacêuticos, de perfumaria e de toucador; veículos, autopeças e pneus; bebidas frias e embalagens para bebidas, etc.) e/ou em regimes especiais
+Incidência Tributária
+Exclusivamente no regime não-cumulativo
+Exclusivamente no regime cumulativo
+Regimes não-cumulativo e cumulativo
+Critério de Escrituração e Apuração
+Não se Aplica
+Regime de Caixa - Escrituração Consolidada
+Regime de Competência - Escrituração Consolidada
+Regime de Competência - Escrituração Detalhada
+Atividade da Empresa
+Usado no registro 0000 - por padrão é Atividade de Comércio
+Rateio Créditos com CST de Tributação Mista?
+Este perfil irá trabalhar com o 
+Método de Rateio Proporcional (Receita Bruta). 
+Este campo definirá ser o rateio será feito automaticamente pelo Sispetro ou manualmente pelo usuário.
+1. Rateia créditos com CST de Tributação Mista?
+O que é:
+Indica se a empresa deve 
+ratear (distribuir) os créditos de PIS/COFINS
+ quando há operações com 
+Código de Situação Tributária (CST) mista
+ — ou seja, quando ocorrem simultaneamente operações 
+cumulativas
+ e 
+não cumulativas
+ no mesmo período.
+Como utilizar:
+Marcar SIM
+ quando a empresa possui operações que geram créditos (regime não cumulativo) e outras que não geram (regime cumulativo), e precisa distribuir os créditos de forma proporcional entre elas.
+Marcar NÃO
+ se todas as operações forem apenas de um regime (apenas cumulativo ou apenas não cumulativo).
+Observação:
+ Este campo trabalha em conjunto com o 
+Método de Rateio Proporcional (Receita Bruta)
+. Se marcado como SIM, o sistema realizará o rateio automaticamente com base na receita bruta das operações.
+2. Código de Receita PIS
+O que é:
+Define o 
+tipo de contribuição do PIS
+ aplicável à empresa: se no regime 
+cumulativo
+ ou 
+não cumulativo
+.
+Como preencher:
+Selecionar Contribuição Cumulativa
+ se a empresa estiver enquadrada no regime cumulativo do PIS (alíquota de 0,65%, sem direito a créditos).
+Selecionar Contribuição Não Cumulativa
+ se a empresa estiver no regime não cumulativo (alíquota de 1,65%, com direito a créditos sobre insumos).
+3. Código de Receita COFINS
+O que é:
+Define o 
+tipo de contribuição da COFINS
+ aplicável à empresa: se no regime 
+cumulativo
+ ou 
+não cumulativo
+.
+Como preencher:
+Selecionar Contribuição Cumulativa
+ se a empresa estiver no regime cumulativo da COFINS (alíquota de 3%, sem direito a créditos).
+Selecionar Contribuição Não Cumulativa
+ se a empresa estiver no regime não cumulativo (alíquota de 7,6%, com direito a créditos sobre insumos).
+Quadro REINF
+Ambiente: 
+campo que permite definir se o ambiente de envio dos dados do Reinf está definido como Homologação ou Produção
+Homologação
+Produção
+Tipo de Produção: 
+permite definir o tipo de ambiente de produção para envio das informações.
+Produção
+Produção Restrita - Dados Reais
+Registro 2010 - Retenções INSS
+Aqui selecionamos o Tipo de Desconto Retenção INSS que a EMPRESA ira utilizar no REINF, todas as notas que utilizarem esse tipo de desconto ira ser preenchido no evento 2010 do REINF. Caso o campo esteja preenchido e o usuário não queira informar nenhum tipo de desconto, basta apertar a tecla 
+backspace 
+do teclado para apagar o que está preenchido. Após isso pressione a tecla 
+ para confirmar. 
+Para mais informações, ver 
+Preenchimento Automático REINF - R2010
+.
+Quadro URL de Eventos Diversos
+URL Homologação: 
+deve-se informar a URL do ambiente de homologação.
+URL Produção: 
+deve-se informar a URL do ambiente de produção.
+Quadro URL de Encerramento
+URL Homologação: 
+deve-se informar a URL do ambiente de homologação.
+URL Produção: 
+deve-se informar a URL do ambiente de produção.

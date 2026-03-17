@@ -1,0 +1,30 @@
+TITULO: Configurações para CMV
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898993
+--------------------------------------------------
+Quantidade utilizada no CMV
+No menu 
+Ferramentas / Sistema - painel Estoque
+, há a opção 
+"Quantidade utilizada para a valorização do estoque"
+, que indica a quantidade a ser utilizada para a valorização do estoque, tendo como opções:
+A NF de Bombeio é sempre emitida a 20c. Para um melhor confronto com o Bombeio e, consequentemente, melhor apuração do estoque, invertemos nesses processos para que a Qtde Ambiente seja a 20c e vice-versa. Ou seja, caso o perfil esteja marcado como 
+Ambiente
+, o Custo será calculado através do saldo da 
+quantidade a 20º
+ das NF de Bombeio. Caso o perfil marcado seja o 
+20C
+, o Custo será calculado através da 
+Quantidade Ambiente
+.
+ 
+ 
+Importante: Após trocar a configuração, é necessário fazer um ajuste de estoque inicial recalculando o custo médio nos depósitos por empresa e produto, antes de iniciar as movimentações, para evitar diferenças na valorização do estoque.
+Geração do Lote CMV
+Para a inclusão automática do lote gerencial movimentando a conta de Custo e Estoque, é preciso que na Configuração do Sistema, painel Estoque, esteja marcada a opção:
+Contabilização Real do CMV
+Pode ser configurado um Código de Contabilização Real padrão para toda vez que for feito um fechamento ele trazer o campo já preenchido, e dependendo da configuração pode ou não mudar este campo. Estas configurações são feitas no menu 
+Ferramentas/Sistema, painel Contab. Real/Código de Contabilização para o CMV
+ onde define-se o código padrão e logo abaixo a opção 
+Pode escolher Cód. Contabilização p/ Lanc. CMV
+ onde vai possibilitar a mudança do código no fechamento que pode ser abilitada ou não. Veja figura abaixo.
+ 

@@ -1,0 +1,371 @@
+TITULO: Painel Ordem Carregto
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918974262
+--------------------------------------------------
+none
+O acesso a essa tela se dá através de 
+Ferramentas / Sistemas / Ordem Carregto.
+Quadro OC
+Nome Arquivo Layout:
+ esta configuração
+ 
+foi desativada
+.
+Layout de impressão com um único produto composto por OC:
+ define se o layout de impressão será com um único produto composto por OC.
+Não Permite emissão de OC sem Capacidade:
+ não permite incluir OC se não tiver uma capacidade informada
+Exibe lacres utilizados na finalização da OC:
+ caso utilize controle de lacres, este perfil marcado mostrará os números de lacres utilizados. Para mais informações, ver 
+Controle de Lacres
+.
+Exibe envelope utilizados na finalização da OC:
+ caso utilize controle de envelopes, este perfil marcado mostrará os números de lacres utilizados. Para mais informações, ver 
+Controle de Envelope de Segurança
+Valida o preenchimento de TODOS os lacres dos compartimentos: 
+perfil por padrão 
+MARCADO. 
+Caso ele seja desmarcado o SisPetro 
+não irá 
+validar o preenchimento de todos os lacres. Porém ao menos um lacre deve ser preenchido. 
+ 
+Posição inicial da OC:
+ permite definir qual a localização inicial da OC. Para mais informações, ver 
+Indicação da Posição da OC
+.
+Lacre e Envelope de Amostra na OC de Venda:
+ este perfil permite informar ou não as informações de cor e numeração dos lacres e também a numeração do Envelope de Amostra, na Ordem de Carregamento de Venda. Para mais informações, ver 
+Numeração de Lacre e Envelope de Amostra
+. Tal perfil pode ser configurado das seguintes formar:
+Não Obrigatório: 
+os campos 
+Cor do Lacre
+, 
+# Lacres
+, 
+Envelope de Amostra
+, 
+Série do Envelope
+ e 
+Envelope de Amostra
+ estarão disponíveis para preenchimento na OC, porém não será alertado caso o usuário não os preencha.
+Obrigatório e disponível no DANFE: 
+os campos 
+Cor do Lacre
+, 
+# Lacres
+, 
+Envelope de Amostra
+, 
+Série do Envelope
+ e 
+Envelope de Amostra
+ deverão ser preenchidos ao emitir a OC e também estarão disponíveis apenas no DANFE.
+Obrigatório e acrescentado na NF no campo: 
+esta última opção trabalha junto com o perfil 
+Lacre e Envelope de Amostra
+ na OC de Venda quando obrigatório.
+ 
+Veja as opções abaixo.
+Lacre e Envelope de Amostra na OC de Venda quando obrigatório:
+ este perfil trabalha junto com o perfil acima quando é escolhido a opção 
+Obrigatório e acrescentado na NF no campo
+. 
+Pode ser configurado de três formas:
+Informações Complementares: 
+as informações de Lacre e Envelope de Amostra estarão no XML, na Tag de Informações Complementares.
+Informações Adicionais do Fisco: 
+as informações de Lacre e Envelope de Amostra estarão no XML, na Tag de Informações Adicionais do Fisco.
+Observação Livre de uso da Empresa: 
+as informações de Lacre e Envelope de Amostra estarão disponíveis nas observações Livre de uso da Empresa. 
+Motivo da Inutilização do Lacre e Envelope:
+ permite definir o motivo padrão para inutilização dos lacres e envelopes
+Sugere data da OC conforme Data de Entrega do Pedido: 
+quando habilitada, sugere a data da OC conforme a data prevista de entrega do pedido. Caso haja 02 ou mais pedidos será sugerida a menor data de entrega entre os pedidos. 
+Validação Data da OC X Data Pedido: 
+é possível determinar a validação ou não da data da OC com a data de entrega dos pedidos. São 4 opções:
+Nunca valida: 
+não será feita qualquer validação da data da OC com a data de entrega do pedido.
+Permite somente Data da OC > = Data de Entrega dos Pedidos: 
+permite incluir OC de vendas cujas datas sejam iguais ou maiores que as datas de entrega dos pedidos.
+Permite somente Data da OC < = Data de Entrega dos Pedidos: 
+permite incluir OC de vendas cujas datas sejam iguais ou menores que as datas de entrega dos pedidos.
+Permite somente Data da OC = Data de Entrega dos Pedidos: 
+permite incluir OC de vendas cujas datas sejam iguais às datas de entrega dos pedidos.
+Configuração de e-mail padrão: 
+ é possivel o envio de Ordem de Carregamento por e-mail, aos fornecedores. Neste campo é informado qual conta de e-mail será utilizada para enviar os e-mails. Para mais informações, ver 
+Envio de Ordem de Carregamento por e-mail
+ e 
+Configuração de Conta de E-mail
+Obriga informar PMM em OC de Transferência ou Próprias
+Não obriga informar:
+ não exige que seja informado o pedido de movimentação de material na inclusão de OCs de transferências ou de carregamentos próprios
+Obriga informar:
+ exige que seja informado o pedido de movimentação de material na inclusão de OCs de transferências ou de carregamentos próprios
+Obrigada somente se houver pedido pendente:
+ exige que seja informado o pedido de movimentação de material na inclusão de OCs de transferências ou de carregamentos próprios se houver algum PMM pendente
+Valida Controles de Vencimentos de Operações Internas/Interestaduais:
+ permitir a exigência de controles de vencimentos de Transportadoras conforme UF ou Município de Destino. Utilizado, por exemplo, para Controle de Licenças Ambientais da Transportadora.
+Sugere salvamento de chave de Acesso na OC de Carregamento Próprio:
+ marcando essa opção as Ordens de carregamento de Descarga própria geradas à partir de  Ordens de Carregamento de Carregamento Próprio vão salvar a chave de acesso da nota de saída vinda da OC de Carregamento próprio.  
+Quadro OC Carregamento/Descarga de Terceiros
+Informa entidade na OC Carregamento de Terceiros:
+ permite informar uma entidade para Ordens de carregamento do tipo Carregamento de Terceiros.
+Informa entidade na OC Descarga de Terceiros:
+ permite informar uma entidade para Ordens de carregamento do tipo Descarga de Terceiros.
+Informa código da Empresa na inclusão da OC:
+ permite alterar o código da empresa na inclusão de OC do tipo Carregamento/Descarga de Terceiros.
+Controla baia de carregamento:
+ realiza o controle da baia de carregamento.
+Não pega fila quando OC de Carregto Terceiros
+: quando a OC é do tipo carregamento de terceiros a mesma não pega fila.
+Não pega fila quando OC de Descarga Terceiros:
+ quando a OC é do tipo descarga de terceiros a mesma não pega fila.
+Quadro Manutenção de OC
+Mostra OC de todas as empresas na Manutenção de OC: 
+este perfil marcado permitirá que os usuários visualizem na tela de Manutenção de Ordem de Carregamento todas as OC's emitidas no SisPetro de todas as filiais. Para mais informações, ver 
+Manutenção de Ordem de Carregamento
+.
+Período para exibição de dados na Man. de OCs: 
+permite configurar o número de dias anteriores e número de dias posteriores a data atual para visualização na tela de Manutenção de Ordens de Carregamento. Para mais informações, ver 
+Manutenção de Ordem de Carregamento
+.
+Pode mudar dados nas NFs na mudança de transportadora OC: 
+este perfil marcado permitirá ao usuário alterar a transportadora, além da OC, mas na nota fiscal também.
+#Dias Validade OC:
+ número de dias para considerar uma OC como sendo válida.
+Quadro OC de Descarga Própria gerada por Carregamento Próprio
+Produto na OC de Destino:
+ utilizado para definir qual o produto será utilizado na inclusão automática das ordens de carregamento e descarga própria.
+Não utiliza De/Para:
+ o SisPetro inclui a OC com o produto conforme OC de origem
+Utiliza De/Para do produto da OC de Origem para OC de Destino: 
+ o SisPetro inclui a OC com o produto definido no De/Para de produto. Para mais informações, ver 
+De/Para Produto na OC de Destino
+.
+Quadro Portaria de Entrada
+Filtra Portaria por Depósito Padrão (Vendas) Empresa:
+ apresenta as OCs na portaria de acordo com o depósito definido como padrão para a empresa na aba de Vendas. Para mais informações, ver 
+Painel Vendas
+.
+Correção de Data/Hora Recepção na Portaria: 
+solicita a correção da data e hora da OC na Portaria
+Desabilitado:
+ não solicita o ajuste da data e hora da passagem da ordem de carregamento na portaria
+Habilitado automático:
+ solicita a confirmação e ajuste da data e hora da passagem da ordem de carregamento na portaria, sendo que o SisPetro ajusta automaticamente.
+Habilitado manual:
+ solicita a confirmação e ajuste da data e hora da passagem da ordem de carregamento na portaria, sendo que as informações são definidas manualmente.
+Itens da OC na Portaria de Entrada:
+ definição de como os itens da OC serão apresentados na portaria
+Agrupar os itens da OC por produto:
+ apresenta as informações de produtos agrupados na portaria
+Transferir os itens conforme foram informados na OC:
+ apresenta, na portaria, os produtos de acordo com o que foi preenchido na compartimentação da ordem de carregamento.
+Exige faturamento antes do Carregamento/Descarga:
+ com esta opção habilitada , caso o perfil de Depósito 
+Exigência de Faturamento antes do Carregamento/Descarga
+ esteja utilizando a opção 
+Segue perfil de Sistema, 
+só será possível realizar o carregamento/descarga, caso a OC já tenha sido faturada. Para mais informações, ver 
+Exigência do Faturamento na Portaria de Entrada/Saída
+.
+Quadro Confirmação de OC
+Exige confirmação do carregamento nas OCs de Transferência: 
+este perfil marcado exigirá que toda a OC de transferência seja confirmada, não possibilitando vincular OC com PMM ou Nota Fiscal enquanto não for confirmada. Para mais informações, ver 
+Como emitir OC de Transferências entre Depósitos
+. Este perfil não estando marcado, o SisPetro não exigirá a confirmação das OC's.
+Exige a data da confirmação carregto nas OCs de Transferência: 
+este perfil marcado exigirá que toda a OC de transferência tenha a data da confirmação informada. Para mais informações, ver 
+Manutenção de Ordem de Carregamento
+Quadro Verif. de Estoque negativo na OC Carregto Terceiros
+Avisa na emissão da OC quanto estoque negativo (OC Carregto Terceiros)
+:quando o estoque estiver negativo, o SisPetro emitirá uma mensagem de alerta ao usuário, não impedindo que o usuário finalize a ordem de carregamento;
+Trava a emissão da OC quando estoque negativo (OC carregto Terceiros)
+: quando o estoque estiver negativo, o SisPetro emitirá uma mensagem de alerta ao usuário, impedindo que o usuário finalize a ordem de carregamento;
+Ao verificar o estoque
+:
+Verifica o estoque da empresa e produto(não importa o depósito)
+:  o SisPetro verificará o saldo apenas da empresa e do produto informado na ordem de carregamento, não levando em consideração se o saldo do depósito está negativo;
+Verifica o estoque da empresa, produto e depósito de origem informado na OC
+: o SisPetro irá verificar o saldo da empresa, do produto e depósito informado na ordem de carregamento, levando em consideração se o saldo do depósito está negativo ou positivo, ou seja, a empresa pode ter o saldo positivo para aquele determinado produto, porém, para o depósito utilizado na ordem de carregamento o saldo está negativo.
+Quadro Portaria de Saída: 
+Para descarga
+Informa qtde, densidade e temperaturas de descarga na portaria de saída:
+ quando habilitado, permite que o usuário que está fazendo a portaria de saída informe a quantidade, densidade obtidas do produto que está sendo descarregado.
+Informa o tanque para descargas na portaria de saída:
+ quando habilitado, permite que o usuário que está fazendo a portaria de saída informe o tanque utilizado para a descarga.
+Informa a temperatura do tanque para descargas na portaria de saída: 
+quando habilitado, permite que o usuário informe a temperatura do tanque nas OC de descarga quando está fazendo a portaria de saída. 
+Para Carregamento
+Informa qtde, densidade e temperaturas do carregamento na portaria de saída: 
+quando habilitado, permite que o usuário que está fazendo a portaria de saída informe a quantidade, densidade e temperaturas obtidas do produto que está sendo carregado.
+Informa o tanque para carregamento na portaria de saída: 
+quando habilitado, permite que o usuário que está fazendo a portaria de saída informe o tanque utilizado para o carregamento.
+Informa a temperatura do tanque na saída da portaria de saída: 
+quando habilitado, permite que o usuário informe a temperatura do tanque quando está fazendo a portaria de saída. 
+Iguala a data de saída da base à data de movimento da Nota Fiscal: 
+quando habilitado, iguala a data na qual foi realizada a portaria de saída da base a data de movimento da nota.
+Volume a ser utilizando para Carregamento:
+ volume a ser considerando para as OC's de Carregamento Próprio e Terceiros, podendo ser:
+Volume Programado:
+ a Qtde Real será conforme a Ordem de Carregamento.
+Volume Automação:
+ a Qtde Real será conforme o que foi gravado no Smart Card.
+Volume Balança:
+ a Qtde Real será conforme o peso identificado no arquivo TXT. Este, mesmo trabalhando com SmartCard, terá o volume considerado da Balança
+Volume a ser utilizando para Descarga:
+ volume a ser considerando para as OC's de Descarga Própria e Terceiros, podendo ser:
+Volume Programado:
+ a Qtde Real será conforme a Ordem de Carregamento.
+Volume Automação: 
+a Qtde Real será conforme o que foi gravado no Smart Card, ou no Basecom.
+Volume Balança:
+ a Qtde Real será conforme o peso identificado no arquivo TXT. Este, mesmo trabalhando com SmartCard, terá o volume considerado da Balança
+Densidade/Peso X Volume na Portaria:
+ esse perfil define a densidade a ser utilizada para obter o volume real, podendo ser:
+Qtde Real = Peso/Dens. Amostra, Qtde 20c = Qtde * Fator:
+ pega o peso e divide pela densidade de amostra para encontrar o volume real. Para chegar na quantidade 20c, multiplica-se a quantidade Real pelo Fator de conversão.
+Qtde Real = Peso/Dens. Amosta, Qtde 20c = Peso/Dens. 20c:
+ pega o peso e divide pela densidade de amostra para encontrar o volume real. Para chegar na Qtde 20c, pega o Peso e divide pela Densidade 20c.
+Essa opção é utilizada em conjunto com os perfis 
+Volume a ser utilizando para Carregamento 
+e
+ Volume a ser utilizando para Descarga 
+quando utilizado a opção Volume Balança.
+#Decimais Densidade 20c para Qtde20c: 
+permite alterar a quantidade de casas decimais na calculo da densidade 20c para obtenção de peso na Qtde20c 
+Distribuição do volume do vagão nos itens de Carregto: 
+ao ler a régua do vagão, permite que seja definida como será feita a distribuição do volume total lido com relação aos itens da OC. Para mais informações, ver 
+Portaria de Saída
+.
+Nunca Distribui: 
+nunca distribui o volume do vagão.
+Questiona ao Usuário: 
+exibe questionamento ao usuário sobre distribuição do volume.
+Sempre Distribui: 
+sempre distribui o volume do vagão.
+Quadro Integração Balança
+Obtém peso do caminhão através de balança nas portarias:
+ na integração com a balança, o sistema busca a informação do peso do caminhão no arquivo gerado pela balança, nesse perfil podemos definir uma das 4 opções abaixo:
+Não tem Integração:
+ não será utilizada a integração com a balança.
+Tem integração total:
+ será realizada a integração com a balança para Descargas e Carregamentos.
+Somente Descarga:
+  permite utilizar somente a integração com a balança para movimentos do tipo 
+Descarga.
+Somente Carregamento:
+ permite utilizar somente a integração com a balança para movimentos do tipo 
+Carregamento
+.
+O SisPetro só vai utilizar uma das 4 opções acima caso o 
+perfil de depósito
+ 
+Obtenção de peso do caminhão através de balança nas portarias
+ esteja com a opção 
+Segue perfil da empresa (padrão)
+ marcada.
+DLL de integração:
+ campo para vincular a DLL de integração com a balança 
+Quadro Leitura de Tanque
+Pode fazer leitura de tanque diferente de Fechamento:
+ permite que sejam feitam leituras do tanque de abertura, fechamento e ajustes. Quando a opção está desabilitada, o SisPetro permite que sejam feitas somente leituras de fechamento.
+Carregar densidade e temp. da última leitura ao fazer novas leituras:
+ quando é feita nova leitura de tanque, o SisPetro carrega a densidade e temperatura da última leitura feita.
+Impede leitura de tanque com data maior que a data atual:
+ permite que seja feita leitura do tanque somente com data igual ou inferior a data atual
+Imprime comprovante de Carga/Descarga:
+ com este perfil habilitado, a empresa pode emitir comprovantes de carregamento e descarga
+Quadro Comprovante Carga/ Descarga  
+Comprovante de Carga: 
+campo disponível para especificar diretório e nome do arquivo referente ao layout do Comprovante de Carga. Com o botão 
+Edita layout
+ pode-se configurar o comprovante;
+Comprovante de Descarga: 
+campo disponível para especificar diretório e nome do arquivo referente ao layout do Comprovante de Descarga. Com o botão 
+Edita layout
+ pode-se configurar o comprovante;
+Emissão do Comprovante de Carga: 
+após configurar os campos acima, deve-se definir quando ocorrerá a emissão do comprovante, podendo ser:
+Permitido após emissão do Carregamento:
+ só permite a emissão do comprovante após ser realizado o carregamento/descarga
+Permitido após emissão da Ordem de Carregamento: 
+ao fazer a emissão da OC o SisPetro já permite a emissão do comprovante (nesta situação, nem todas as informações estão preenchidas, já que não necessariamente existe o carregamento).
+Quadro Automação
+A automação através da View está em desuso. Caso deseje utilizá-la, entre em contato com o Suporte da Futura.
+Tipo de automação:
+ define qual o tipo de automação da base que será utilizado pela empresa
+Desabilitado: 
+não utilizará nenhum tipo de automação na base
+SmartCard: 
+utilizará automação via SmartCard
+View:
+ utilizará automação via View
+Troca de Arquivos: 
+utilizará automação via troca de arquivos: Basecom, Zylix, Zylix integração com Polysoftware e Infitech.
+Quadro Smart Card
+Empresa Smart Card:
+ nome da empresa que está configurado no sistema de automação
+Porta Serial Smart Card:
+ porta de comunicação onde o equipamento de Smart Card (usado para gravar e ler o cartão) está conectado no microcomputador.
+Fecha comunicação a cada comando do Smart Card?:
+ em alguns microcomputadores, geralmente a partir do Windows XP, a comunicação com Smart Card deve ser fechada a cada comando efetuado, ou seja, deve ser marcada esta opção. Quando não se marca esta opção pode ser que ele não leia todos os cartões na sequência. Quando o sistema operacional é o Windows 98, geralmente esta opção deverá estar desmarcada.
+Leitura automática de descarga de álcool Via Smart Card
+Não limpa cartão com temperatura: 
+quando o SisPetro lê o cartão na Portaria de Saída para fazer a movimentação de estoque normalmente ele limpa o cartão para liberá-lo para um novo carregamento. é possível indicar a temperatura mínima que poderá ser gravada no cartão. Caso a temperatura seja menor do que a indicada no perfil, o SisPetro não gravará a a temperatura no cartão e apresentará a mensagem de aviso. Para mais informações, ver 
+Automação Smart Card
+Não limpa cartão caso volume programado seja menor do que o real:
+ se estiver marcada esta opção, quando o SisPetro ler o cartão na Portaria de Saída para fazer a movimentação de estoque, se for identificado que o volume programado era menor que o volume real o cartão não será limpo, possibilitando algum tipo de verificação/auditoria posterior.
+Pega temperatura do tanque ao invés de ler do cartão (carregamento):
+ com esta opção marcada, o SisPetro utilizará a temperatura do tanque para realizar a movimentação de estoque no processo de automação. Caso contrário, utilizará a temperatura do cartão ou gerada no arquivo de integração, podendo informar quantos decimais deste valor pode ser utilizado, no campo 
+Número de Decimais na Temperatura
+.
+Pega temperatura do tanque ao invés de ler do cartão (Descarga):
+ com esta opção marcada, o SisPetro utilizará a temperatura do tanque para realizar a movimentação de estoque no processo de automação. Caso contrário, utilizará a temperatura do cartão ou gerada no arquivo de integração, podendo informar quantos decimais deste valor pode ser utilizado, no campo 
+Número de Decimais na Temperatura
+.
+Caso o leitor do cartão Smart Card seja USB, será necessário informar a porta com que está no gerenciador de dispositivos. Para mais informações, ver 
+Uso do Smart Card no SisPetro
+Quadro SisPetroWeb
+Quadro Coleta Amostra Testemunha
+Carregamento:
+ padrão para apresentar na opção de Carregamento do SisPetroWeb
+Não se aplica:
+ o campo não é utilizado no SisPetroWeb para carregamento
+Deve solicitar a coleta:
+ o SisPetro traz como padrão a opção que deve coletar a amostra para carregamento
+Não deve solicitar a coleta:
+ o SisPetro traz como padrão a opção que não deve coletar a amostra para carregamento
+Descarga:
+ padrão para apresentar na opção de Descarga do SisPetroWeb
+Não se aplica:
+ o campo não é utilizado no SisPetroWeb para descarga
+Deve solicitar a coleta:
+ o SisPetro traz como padrão a opção que deve coletar a amostra para descarga
+Não deve solicitar a coleta: 
+o SisPetro traz como padrão a opção que não deve coletar a amostra para descarga
+Quadro Motivos de Bloqueio: 
+o SisPetroWeb permite que sejam incluídos transportadoras e frotas, porém o cadastro fica bloqueado para utilização. Assim, pode-se definir o motivo do bloqueio, conforme abaixo:
+Transportadora:
+ motivo de bloqueio da transportadora para inclusão via SisPetroWeb
+Frota:
+ motivo de bloqueio do frota para inclusão via SisPetroWeb
+Quadro Compartimentação Automática
+Carregamento:
+ padrão para apresentar na opção de Carregamento do SisPetroWeb
+Habilitada:
+ trazer habilitada a opção de compartimentação automática para carregamento
+Desabilitada:
+ trazer desabilitada a opção de compartimentação automática para carregamento
+Descarga:
+ padrão para apresentar na opção de Descarga do SisPetroWeb
+Habilitada:
+ trazer habilitada a opção de compartimentação automática para descarga
+Desabilitada:
+ trazer desabilitada a opção de compartimentação automática para descarga
+Quadro Controle de Entrega
+Ação p/ entrega realizada s/ previsão registrada p/ Entidade: 
+Não faz nada: 
+SisPetro não faz nenhuma ação
+Inclui um registro somente com os dados reais: 
+SisPetro irá incluir o registro apenas com os dados reais. 

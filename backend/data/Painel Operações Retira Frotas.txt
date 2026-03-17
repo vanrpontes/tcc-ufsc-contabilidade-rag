@@ -1,0 +1,42 @@
+TITULO: Painel Operações Retira (Frotas)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927265325
+--------------------------------------------------
+Com o advento da NF-e 4.0 não basta só informar que a Situação do Frete é por conta do Emitente (empresa) ou Destinatário (cliente), mas também se é transporte próprio ou contratado de terceiros. Há algumas versões foi adicionado um perfil de empresa para essa definição, porém é necessário algo mais específico, dessa forma criamos as operações de Retira no Frota.
+O painel 
+Operações Retira
+ permite ao usuário informar um tipo de controle de propriedade nas operações do tipo retira. Só é permitido realizar alterações para os usuários que estiverem com o perfil de usuário 
+Pode informar dados de Operação Retira
+ habilitado.
+Controle de propriedade nas operações Retira
+No perfil de Controle de propriedade nas operações retira, o usuário definirá qual o tipo de controle que o frota assumirá para vendas do tipo retira, podendo ser:
+Compara Documentos:
+ realiza a comparação do documento (CNPJ/CPF) do cliente com os documentos cadastrados no grid 'Documentos utilizadores'.
+CNPJ/CPF igual ao do Cliente: 
+informa a situação de Frete 5 - Transp. Próprio Destinatário.
+CNPJ/CPF NÃO é igual ao do Cliente:
+ informando a situação de frete 2 - Por conta do Destinatário.
+Nenhum documento informado no grid "Documentos utilizadores":
+ Segue a regra definida no perfil de Sistema 
+Situação do Frete para Venda Retira, 
+que fica na aba Fretes, ver 
+Painel Fretes - Sispetro - KB Futura (atlassian.net)
+.
+Considera Terceiros:
+ considera sempre como frete por contas de terceiros quando a venda é do tipo retira, informando a situação de frete 2 - Por conta do Destinatário.
+Considera Próprio: 
+considera sempre como frete Próprio quando a venda é do tipo retira, informando a situação de frete 5 - Transp. Próprio Destinatário.
+Documentos utilizadores
+No quadro Documentos utilizadores podemos ver os documentos vinculados ao frota. Os documentos devem ser incluídos ou excluídos diretamente nesta tela.
+As observações serão apresentadas de acordo com o documento selecionado.
+Inclusão de documento
+Ao acionar o botão de
+ Inclui
+ será apresentado a tela abaixo.
+CPF/CNPJ: 
+campo destinado para a inclusão do CPF ou CNPJ.
+Observação: 
+nesse campo informamos a observação para esse documento.
+Para mais informações, ver:
+Situação do Frete na Nota Fiscal
+Painel Fretes (Usuários)
+Emissão de NF X Situação de Frete

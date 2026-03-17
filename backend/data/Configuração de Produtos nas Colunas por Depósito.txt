@@ -1,0 +1,41 @@
+TITULO: Configuração de Produtos nas Colunas por Depósito
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898420
+--------------------------------------------------
+Perfil desabilitado a partir da Versão 8.7
+Conforme já citado no tópico 
+, pode-se definir de duas maneiras a configuração de Produtos nas Colunas por Depósito (Menu 
+Ferramentas / Sistema / painel Ordem Carregto
+):
+Depósito quando configurado:
+Essa opção é a chamada fase intermediária, onde a empresa não deixou de utilizar a configuração das colunas por Empresa inteiramente, mas também não definiu que irá utilizar somente por Depósito. Portanto para atender esses casos foi criada essa opção, que indica que se o depósito informado na OC não estiver ATIVO para utilizar a configuração das colunas por produtos, automaticamente o sistema assume e utiliza a configuração das colunas por Empresa, não parando de executar o processo de distribuição da compartimentação.
+Depósito sempre:
+Com essa opção selecionada a empresa só poderá trabalhar com a configuração das colunas por Depósito, ou seja, caso for emitida uma OC para um determinado depósito e o mesmo não estiver ATIVO para utilizar a configuração das colunas por Depósito, o sistema não finalizará a OC e não assumirá a configuração por Empresa. Portanto, é importante que todos os depósitos estejam configurados corretamente caso a empresa trabalhe com essa opção.
+Para o funcionamento correto desse processo, é IMPORTANTE ter cadastrado para cada depósito, os produtos que serão movimentados por ele. O sistema não permite alterar ou incluir uma compartimentação caso um dos produtos constantes nos itens da OC não esteja cadastrado para o depósito. Caso isso ocorra, o sistema irá alertar o usuário com a seguinte mensagem:
+Configuração de Produtos nas Colunas por Depósito
+A opção 
+"Valida compartimentação de acordo com o frota"
+ é padrão estar marcada para fazer a validação da compartimentação da OC, conforme o que foi definido no cadastro do Frota. Para definir corretamente o frota, vide detalhes em 
+. Logo abaixo é explicado como é validado essa opção na montagem da compartimentação.
+Ao entrar na compartimentação, o sistema mostra a capacidade de cada compartimentação do frota e fica aguardando que o usuário distribua manualmente os produtos e suas quantidades nas compartimentações.
+Ao fazer a distribuição dos produtos nas devidas compartimentações, o sistema mostra a coluna que o produto ocupa. Coluna essa que foi configurada no Depósito.
+A opção 
+"Valida compartimentação de acordo com o frota"
+ , força que a quantidade lançada seja igual a capacidade da compartimentação do frota, caso isso não ocorra, o sistema alerta o usuário com a seguinte mensagem:
+Note que no exemplo acima, a capacidade do compartimento é de 5.000 Litros, e a quantidade lançada é maior (6.200 litros).
+Mesmo que o usuário venha a informar a quantidade igual a capacidade do compartimento do caminhão, o sistema não irá finalizar a ordem de carregamento, porque a quantidade total da OC está diferente da quantidade lançada na compartimentação. A solução é alterar a quantidade da Ordem de Carregamento e voltar para compartimentação.
+No exemplo acima, a quantidade total da OC é de 14.000 Litros, e a quantidade lançada na compartimentação é de 10.000 Litros.
+Portanto, é importante que se a empresa optar por utilizar essa opção, faça uma manutenção no cadastro dos frotas, já que a capacidade do compartimento é validado pelo sistema. Não estando marcada essa opção, o usuário pode distribuir a quantidade sem se preocupar com a capacidade da compartimentação, apenas será validado se a quantidade de cada produto que foi lançado é igual a quantidade dos produtos da Ordem de Carregamento.
+Opção 
+"Sugere compartimentação de acordo com o frota"
+ , faz com que o sistema distribua a quantidade total da Ordem de Carregamento, conforme a compartimentação cadastrada no frota.
+Na tela acima, a quantidade total dos produtos é de 14.000 Litros, ao acessar a tela de compartimentação (botão Compartimentação), o sistema sugere a distribuição, baseado na compartimentação que foi cadastrada para o frota. Isso não impede o usuário de alterar a quantidade que cada compartimento receberá, desde que essa quantidade não passe a quantidade do produto na Ordem de carregamento e que a opção 
+"Valida compartimentação de acordo com o frota" esteja desmarcada
+.
+A Configuração dos Produtos nas Colunas da OC por Depósito deve ser feita através da tela de Manutenção de Depósitos, podendo também ser realizada na tela de Manutenção de Produtos. Mais detalhes nos tópicos
+ 
+Tabela Depósitos - painel Cadastro Layout OC
+ e 
+.
+Vale lembrar, que se um produto "X" foi configurado para determinado depósito "Y", na manutenção do depósito deve aparecer o produto "X" quando consultado o depósito "Y", e na manutenção de produtos deve aparecer o depósito "Y", quando consultado o produto "X".
+Para saber detalhes de como imprimir a OC e configurações necessárias, vide tópico 
+.

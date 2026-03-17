@@ -1,0 +1,69 @@
+TITULO: Tabela Faixa para Cálculo Vencimento de Desconto
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210614
+--------------------------------------------------
+Nesta tabela serão cadastradas as faixas de dias para o cálculo de vencimento para títulos de desconto.
+A tela que permite manipular esta tabela é acionada a partir do Menu principal com as opções - 
+Tabelas Auxiliares / Financeiro / Faixa para Cálculo Vencimento de Desconto
+:
+Para acrescentar uma nova faixa, acione o botão de inclusão de registro 
+.
+O SisPetro exibe a tela para inclusão de uma faixa de vencimento:
+ 
+A partir da versão 8.42 foi adicionada a opção para indicar qual o mês do vencimento: se no mês seguinte ou se no mês corrente.
+ 
+Informe os dados necessários:
+Descrição:
+ denominação para a faixa.
+Ativo:
+ indica se a faixa está ativa ou não para uso.
+Botões:
+INCLUI:
+ incluir uma nova faixa de vencimento
+EXCLUI:
+ excluir uma faixa cadastrada
+EDITA:
+ alterar os dados de uma faixa cadastrada
+SALVA:
+ salvar as alterações feitas
+CANCELA:
+ sai do quadro Faixa
+Dados da faixa:
+Item:
+ preenchido automaticamente pelo SisPetro
+Dia Inicial da Faixa
+: informar o dia inicial da faixa 
+Dia Final da Faixa:
+ informar a data final da faixa
+As datas Inicial e Final da faixa indicam a data de emissão da nota ou do título 
+Utiliza conforme o campo Tipo Data Base da 
+Tabela Geração de Títulos de Desconto Automático
+Dia do Vencimento:
+ informar o dia do vencimento do título de desconto gerado automaticamente
+Mês Vencimento:
+No mês seguinte se antes e na data atual:
+ se o vencimento for antes ou na data atual posterga para o mês seguinte ou período seguinte. É o padrão atual do SisPetro
+No mês seguinte só se antes da data atual:
+ se o vencimento for antes da data atual posterga para o mês seguinte ou período seguinte ou se for na data atual permanece no mês corrente.
+Quadro Faixa - opção 
+No mês seguinte se antes e na data atual:
+ 
+Exemplos de cálculo de vencimento:
+Data de emissão da nota/título: 05/07/2016
+A data de vencimento será 31/08/2016
+Quadro Faixa - opção 
+No mês seguinte só se antes da data atual:
+Exemplos de cálculo de vencimento:
+Faixa 1 - Dia Inicial 1 e Dia Final 10 e dia do vencimento 15:
+Data de emissão da nota/título: 05/07/2016
+A data de vencimento será 15/07/2016
+Faixa 2 - Dia Inicial 11 e Dia Final 20 e dia do vencimento 20:
+Data de emissão da nota/título: 11/07/2016
+A data de vencimento será 20/07/2016
+Faixa 3 - Dia Inicial 21 e Dia Final 31 e dia do vencimento 29:
+Data de emissão da nota/título: 21/07/2016
+A data de vencimento será 29/08/2016
+OU se for:
+Faixa 3 - Dia Inicial 21 e Dia Final 31 e dia do vencimento 31:
+Data de emissão da nota/título: 21/07/2016
+A data de vencimento será 31/07/2016
+ 

@@ -1,0 +1,69 @@
+TITULO: Serviço Pagamento Eletrônico - Servidor
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2925002965
+--------------------------------------------------
+Foi criado na versão o 
+Serviço Pagamento Eletrônico
+. Para que este funcione é preciso indicar em quais pastas serão lidos e gravados os arquivos. Veja abaixo
+Iniciar Serviço:
+ Para iniciar ou para o serviço basta clicar neste botão
+Iniciar o serviço automaticamente
+: Caso deseje que o serviço seja iniciado junto com o servidor, marcar esta opção
+Pasta para gravação dos Arquivos de Remessa
+Necessário indicar as pastas que serão salvos os arquivos de remessa, tanto do Pagamento de Fornecedores quanto Tributos. As pastas podem ser iguais, 
+o serviço só será iniciado se todos os caminhos forem preenchidos.
+Quando o perfil de Sistema 
+Nome dos arquivos de remessa 
+estiver marcado a opção 'Simples (Data + Num.Remessa)' os arquivos serão gerados da seguinte forma:
+AAAAMMDD
+sssssss
+.RPF
+- Pag. Fornecedor 
+AAAAMMDD
+sssssss
+.RPT
+ - Pag. tributos
+Sendo:
+AAAA: 
+ano
+MM: 
+Mês
+DD: 
+Dia
+sssssss: 
+Sequencial do arquivo de remessa
+Quando o perfil de Sistema 
+Nome dos arquivos de remessa 
+estiver marcado a opção '
+Com Tipo Pagamento, Código Banco, Nome Empresa e Data/Hora
+' os arquivos serão gerados da seguinte forma:
+PAGFOR_BBB_CCC_ddmmyyyynnnnnn.TXT 
+- Pag. Fornecedor 
+PAGTRIB_BBB_CCC_ddmmyyyynnnnnn.TXT
+ - Pag. tributos
+Sendo:
+PAG:
+ Fixo.
+BBB:
+ Código do Banco, por exemplo 237.
+CCC:
+ Nome usual da Empresa com até 15 caracteres.
+ddmmyyyynnnnnn:
+ Data e hora atual.
+ 
+Pasta para Leitura dos Arquivos de Retorno
+Necessário indicar as pastas para a leitura dos arquivos de retorno. São três pastas para o Pag. Tributos e mais três para o Pag. Fornecedor. Essas pastas, também, podem ser iguais, veja abaixo como funcionam,
+Arquivos a serem lidos: 
+Nessa pasta deverá ser colocados todos os arquivos recebidos do banco. O SisPetro lerá tais arquivos, só desta pasta.
+Arquivos Processados:
+ Depois da leitura, caso não seja encontrado nenhum erro o SisPetro moverá os arquivos para esta pasta
+Arquivos com erro:
+ Caso seja encontrado algum erro na leitura, os arquivos serão movidos para esta pasta.
+O serviço só será iniciado se todos os caminhos forem preenchidos. Mesmo que a empresa não trabalhe com o Pag. Fornecedor ou tributo, deverá ser indicado um caminho válido.
+Pasta dos Layouts de importação (arquivos .smi)
+É necessário indicar o caminho da pasta onde se localizam os arquivos .smi, referentes ao Pagamento Eletrônico.
+ Sem essa informação nada será gerado. 
+Os arquivos são
+:
+RetornoBradescoTrib.smi
+RetornoBradesco.smi
+ 

@@ -1,0 +1,348 @@
+TITULO: Manutenção de Documentos de Arrecadação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924282213
+--------------------------------------------------
+Esta tela é acessada pelo menu 
+Movimentação/ Faturamento/ Documentos de Arrecadação/ Manutenção de Documentos de Arrecadação
+Em alguns casos, ao emitir uma NF-e com
+ ICMS Substituição
+, para que a NF-e possa ser movimentada é necessário pagar antecipadamente esse imposto.
+Esse pagamento pode variar de estado para estado e normalmente tem um 
+Documento de Arrecadação
+ específico. 
+Para alguns Estados é a GNRE e é específica para o ICMS Substituição. Dispõe de um webservice para gerar os dados da GNRE.
+GNRE RJ
+Já é possível emitir GNRE para o Estado do Rio de Janeiro apenas na versão 2.0
+Na manutenção de UF’s, possui um parâmetro 
+Versão da GNRE
+ que deve ser aplicado para 2.0
+Para o Estado do Rio de Janeiro essa regra vale para 
+qualquer NF-e emitida. 
+ Esse documento é a DARJ e a SEFAZ do RJ dispõe de um webservice que permite o envio dos dados da NF-e que precisa do pagamento e retorna a linha digitável a ser paga.
+DARJ
+Foi criado na versão 8.24 a transmissão da 
+DARJ.
+ Para isso são necessárias algumas configurações
+:
+Preencher a alíquota FCP (
+Fundo Estadual de Combate à Pobreza e às Desigualdades Sociais)
+Painel Documento Arrecadação
+Preencher o % Exigido de pagamento do ICMS e  
+Alíquota do Imposto a ser considerada
+. Além das URLs para processamento, caminho dos arquivos RTMs.
+É preciso conferir as Naturezas/Receitas da geração da DARJ. 
+Para
+ 
+mais
+ 
+informações. 
+Para
+ 
+mais
+ 
+informações
+,
+ 
+ver
+ 
+Natureza/Receita arrecadação
+Também é preciso conferir os Produtos da DARJ. 
+Para
+ 
+mais
+ 
+informações
+,
+ 
+ver
+ 
+ 
+Produto Arrecadação
+Natureza de Operação/ aba 
+UF's
+Na aba 
+UFs
+ será necessário informar alguns parâmetros. 
+Para
+ 
+mais
+ 
+informações
+,
+ 
+ver
+ 
+ 
+GNRE
+Foi criado na versão 9.4 a transmissão da 
+GNRE.
+ Para isso são necessárias algumas configurações
+:
+Painel Documento Arrecadação
+Informar o ambiente de emissão do GNRE, se será Produção ou Homologação.
+Configurar as URL´s de Recibo e Protocolo conforme informadas pela Sefaz PE.
+Definir o tempo de espera para realizar a consulta do recibo.
+Informar o caminho e o nome do rtm a ser utilizado na impressão do boleto.
+Natureza de operação
+Informar se ira gerar o GNRE, se sim de onde vai pegar o valor do ICMS ST se da nota ou usuário irá informar.
+Definir o tipo do período de apuração.
+Informar a receita de arrecadação. 
+Para
+ 
+mais
+ 
+informações
+,
+ 
+ver
+ 
+ 
+Natureza/Receita arrecadação
+informar o Produto de arrecadação caso tenha. 
+Para
+ 
+mais
+ 
+informações
+,
+ 
+ver
+ 
+ 
+Produto Arrecadação
+DARJ/GNRE
+Perfil de Usuário
+Dará permissão aos usuários de processar, alterar dados, alterar valores entre outros. 
+Para
+ 
+mais
+ 
+informações
+,
+ 
+ver
+ 
+ 
+Painel Faturamento (Usuários)
+ 
+o quadro Documento de Arrecadação.
+Feito todas as configurações iniciais, o SisPetro gerará as DARJs e GNRE´s. 
+Na tela de manutenção é possível adicionar mais colunas para facilitar a visualização, basta clicar no botão do lado esquerdo da tela para que as colunas disponíveis sejam exibidas.
+Podemos realizar a consulta de uma invalidação da GNRE através do site: 
+http://www.gnre.pe.gov.br/gnre/portal/GNRE_LoteConsultar.jsp
+Botões
+Altera: Permite: 
+alterar registro gerado.
+Pendentes: 
+este botão tem a funcionalidade de processar os Documentos junto a SEFAZ.
+Imprime: 
+permite a impressão diretamente, sem prévia visualização, usuário pode selecionar mais de um registro para impressão.
+Impressão: 
+visualiza impressão antes de direcionar para impressora.
+#
+Altera 
+Este botão tem a funcionalidade de alterar qualquer registro gerado, se o usuário estiver com perfil para tal. 
+Para
+ 
+mais
+ 
+informações. 
+Para
+ 
+mais
+ 
+informações
+,
+ 
+ver
+ 
+ 
+ 
+Painel Faturamento (Usuários)
+. Podendo servir também para conferir os valores, data de vencimento, natureza, produto e Declaração de Importação (caso seja necessário na NF). Veja abaixo:
+Caso seja preciso alterar quaisquer informações, clicar em OK para salvar a operação.
+Na alteração da GNRE, a partir da versão 10.4 é possível informar o Código de Barras/Linha Digitável do GNRE manualmente.
+Ao selecionar o perfil
+ Finaliza GNRE?
+  o usuário pode informar o Código de Barras/Linha Digitável do GNRE para encerrar manualmente. necessário possuir permissão. 
+Para
+ 
+mais
+ 
+informações
+,
+ 
+ver
+ 
+Painel Faturamento (Usuários)
+.
+O Processamento do Documento, liberando desta forma a impressão do Documento e Boleto.
+Não é permitido alterar GNRE processadas ou com status de NF cancelada.
+Pendentes
+Este botão tem a funcionalidade de processar os Documentos junto a SEFAZ. Como elas não são processadas ao finalizar a NF é preciso acessar esta tela. Para o usuário ter acesso a esta tela é preciso dar acesso. 
+Para
+ 
+mais
+ 
+informações
+,
+ 
+ver
+ 
+ 
+Painel Faturamento (Usuários)
+, quadro DARJ
+.
+O primeiro passo é clicar no botão 
+Atualiza
+, assim o SisPetro trará todas os Documentos ainda não processados. Note que é possível filtrar o Tipo de Pendência, veja abaixo:
+Assim caso deseje, o SisPetro tratará apenas os registros que estejam pendentes de Recibo ou Protocolo. Caso queria todos os registros pendentes, 
+desmarcar
+ a opção 
+Filtra Tipo de Pendência
+.
+O segundo passo é marcar quais registros serão processados. Há o botão 
+, para marcar ou desmarcar todos os registros. Caso deseje apenas alguns registros específicos, marque diretamente na coluna da esqueda, como na imagem abaixo.
+Processa
+O processamento da DARJ se dá em dois passos, Recibo e Protocolo (assim como na Nota Fiscal). Depois de escolhido o registro, clicar no botão 
+Processa
+. A seguinte tela será aberta:
+Clicar em 
+OK.
+ O sistema voltará para a tela de 
+Documentos de Arrecadação Pendentes
+. Selecionar novamente o registro que deseja obter o Protocolo.
+clicar em 
+Processa.
+Estando tudo certo com a DARJ, o próximo passo é a impressão. Caso a DARJ contenha algum erro, ficará com a legenda vermelha, será necessário ajustar os dados. Normalmente a SEFAZ valida apenas valores zerados, ou seja, não aceita valores de imposto zerados. Se este for o caso, clicar no botão 
+Ajusta
+, na tela de manutenção de documento de arrecadação e ajustar os erros.
+Caso o usuário deseje, é possível alterar a ordem das colunas. Para alterar basta arrastar para esquerda ou direita. Se for preciso voltar ao Layout original, clicar no botão 
+Layout Default.
+Depois de processadas as DARJs, clicar no botão 
+Sair.
+Imprime
+Apenas depois de Processada, é possível imprimir a DARJ. Para isso basta clicar no botão 
+Imprime
+. Será aberta a seguinte tela:
+Imprime Documento de Arrecadação
+: este é o boleto de pagamento
+Imprime DIP:
+ este é o Demonstrativo de Item de Pagamento, onde há todas as informações sobre o item.
+Layout Padrão
+O usuário pode ajustar as colunas como desejar, basta 
+arrastar
+ para o lado. Caso deseje voltar ao layout padrão, clicar neste botão.
+Legenda
+As DARJs poderão ter 6 tipos de status:
+Item OK
+Item vencido e não processado 
+(em itálico na legenda)
+Item pendente de protocolo
+ (com fundo azul na legenda)
+Item com erro 
+(com fundo vermelho na legenda)
+Item pendente de envio a Sefaz
+ (com fundo cinza na legenda)
+Item Com NF Cancelada 
+(Com fundo amarelo na legenda)
+Para realizar o cancelamento de uma nota que esteja vinculada a um documento de arrecadação já processado, o usuário terá que ter o perfil  
+Cancela NF com Documento de Arrecadação Processado 
+habilitado. 
+Para
+ 
+mais
+ 
+informações
+,
+ 
+ver
+ 
+ 
+Painel Faturamento (Usuários)
+.
+Lembrando que é de responsabilidade do usuário ver o que fazer com o documento, já que o mesmo pode ter sido processado e já estar pago.
+Filtros
+Período para exibição de dados
+: o usuário poderá informar um período maior ou menor, podendo indicar apenas um dia.
+Tipo Doc. Arrecadação:
+Todos:
+ todos os Documentos serão exibidos, tanto as com ICMS Próprio quanto as com ICMS Substituição
+DARJ ICMS Próprio:
+ apenas os registros que geraram ICMS Próprio serão exibidos
+DARJ ICMS ST:
+ apenas os DARJ´s que geraram ICMS Substituição serão exibidos
+GNRE ICMS ST:
+ apenas os GNRE´s que geraram ICMS Substituição serão exibidos
+Status:
+Todos:
+ serão exibidos Documentos em todos os estados, seja aguardando envio, 
+aguardando confirmação
+ e etc..
+Aguardando Envio:
+ serão exibidos apenas os itens que ainda não foram enviados a SEFAZ.
+Aguardando confirmação:
+ serão exibidos apenas os itens que estiverem Pendente Protocolo, junto a SEFAZ.
+OK:
+ serão exibidos os itens que foram processados com sucesso.
+Com Erro:
+ serão exibidos apenas os itens com erros no processamento
+Cálculos da DARJ
+1 - Cálculo da DARJ - ICMS Próprio
+Valor Total:
+ valor do ICMS Próprio * (% Exigido no Pagamento de ICMS/100) 
+Valor do FCP:
+ valor do FCP * (% Exigido no Pagamento de ICMS/100) 
+Valor do Imposto: valor Total - Valor do FCP
+Nota:
+ % Exigido no Pagamento de ICMS é definido no perfil de Sistema. 
+Para
+ 
+mais
+ 
+informações
+,
+ 
+ver
+ 
+ 
+Painel Documento Arrecadação
+.
+2 - Cálculo da DARJ - ICMS ST
+Valor ICMS ST:
+ valor do ICMS ST da nota emitida
+Valor do FCP:
+ valor do FCP ST da nota emitida
+Valor Total do imposto ST:
+ valor ICMS ST + Valor do FCP
+Nota:
+ para o ICMS ST não é feito qualquer cálculo. Os valores são da nota fiscal
+Exemplo prático
+Valor dos Produtos:
+ 8.563,28   
+%Exigido:
+ 60%
+Base ICMS Próprio:
+ 8.563,28 
+ICMS Próprio 30%:
+ 2.568,98 
+FCP ICMS Próprio 2%:
+ 171,27
+Base ICMS ST:
+ 13.457,03
+ICMS ST 30%:
+ 4.037,11 - 2.568,98 - 171,27 = 1.296,86 
+FCP ICMS ST 2%:
+ 269,14
+DARJ
+: 
+ICMS Próprio:
+ 
+2.568,98
+ * 0.6 = 1.541,39
+FCP Próprio:
+ 171,27 * 0,60 = 102,76
+ICMS ST:
+ 1.296,86 
+FCP ICMS ST:
+ 269,14
+  

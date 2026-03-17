@@ -1,0 +1,783 @@
+TITULO: Versão 7.19
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2902164284
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 14/06/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 01/08/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd719.sql (cmd2659 a cmd2725) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 56 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 37 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 19 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Relatórios 
+
+
+ DLLs 
+
+
+ Layouts de Exportação 
+
+
+ Layout de Importação 
+
+
+
+
+
+
+ 
+
+
+ SPED_EFD.dll 
+
+
+ DECLANRJMunicipal.rtm 
+
+
+ Registro60A.smi 
+
+
+
+
+
+
+ 
+
+
+ SPED_PIS_COFINS.dll 
+
+
+ GIA_RJ.rtm 
+
+
+ Registro60M.smi 
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+ DECLAN_IPM.rtm 
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+ Sintegra-2011-MS.rtm 
+
+
+ 
+
+
+
+
+
+
+Importante
+
+
+
+
+O perfil de sistema "Faz Apuração Fiscal pela:" não será mais verificado pelo sistema. Agora, toda apuração será realizada sempre pela Data de Referência. Para perfis configurados para Data Emissão ou Movimento, os campos de Data Referência na Entrada e Saída serão atualizados para a data correspondente.
+
+
+O perfil de usuário "Não inclui pedido de venda sem liberação financeira" não será mais verificado pelo sistema. Essa alteração foi necessária para centralização e melhora do processo de aprovação de pedidos. Os pedidos que entravam nessa condição ficarão no sistema como não aprovados aguardando aprovação do financeiro.
+
+
+O perfil de sistema "Utiliza créditos de outra empresa" foi substítuido pelo perfil "Pode utilizar Adiantamentos de outras empresas na baixa" que será utilizado na Baixa Manual, Automática e Débito/Crédito.
+
+
+
+
+
+
+Geral
+
+
+
+
+Migração nos Grids
+
+
+Estamos em um processo de migração dos grids utilizados no SisPetro. Essa migração deixará nossos grids mais bonitos, práticos e com opções de filtros diversos para facilitar o trabalho de nossos usuários. RTS (CCF 12748)
+
+
+Configuração de caminho para gravação do arquivo Rbuilder.ini
+
+
+Foi incluída a correção para o erro de permissão na geração do relatório de Alteração de Preço, quando o mesmo era utilizado no Windows Server 2008.
+ 
+RSI(CCF 13317)
+
+
+Problemas ao gravar caminho da dll no Conjunto de Dados
+
+
+Foi corrigido um problema que não permitia a gravação do caminho da dll na tela de Manutenção de Conjunto de Dados.
+ 
+RSI(CCF 13439)
+
+
+Mudança do Perfil
+ 
+Pode Cancelar NF Fora do Intervalo
+
+
+Foi alterado o perfil
+ 
+Pode Cancelar NF Fora do Intervalo
+, utilizado para desconsiderar o número de dias de cancelamento indicado para o usuário, deixando-o mais compreensível.
+ 
+Help:
+ 
+Como cancelar uma Nota fiscal
+ 
+RTS (CCF 13579)
+
+
+Atualização da Descrição de campos em Fórmulas
+
+
+Atualizado o Dicionário de Dados para apresentar a Descrição dos campos das tabelas do Sispetro, facilitando a identificação dos mesmos em fórmulas. AGF/RML (CCF 13456)
+
+
+Caracter Especial nos Endereços de E-Mail
+
+Nos campos onde são informados os endereços de e-mail não estava sendo permitido cadastrar um e-mail do tipo fulanodetal_@empresa.com por conta do _ (underline) antes do @. Essa validação foi removida mas ainda continua não sendo permitido o _ (underline) após o @ (@_).
+UPA (CCF 12966)
+
+
+Condição de Pagamento por Cliente e Produto
+
+
+Foram corrigidas duas inconsistências existentes na tela de Cadastro de Cliente a primeira delas seria que na opção de Pagamento por Produto, desmarcada ou não, a mesma seria utilizada. A segunda correção seria no que diz respeito à alteração de alguns dados na tela, caso fosse alterado algum dado, ao invés do usuário clicar em "Ok" o mesmo poderia ir direto para edição de preços e a alteração em si não era considerada. RSI(CCF 13591)
+
+
+Lentidão na cópia de Produtos
+
+
+O processo de cópia dos produtos estava lenta, anteriormente, em alguns casos, o sistema realizava a cópia desnecessária de todas as tabelas de preços deixando a rotina mais lenta. Foi inserido uma condição para que a cópia dos valores nos produtos só seja realizada se estiver marcado para sair na Lista de Preços, e só será copiada a última vigência. TDM (CCF 13121)
+.
+
+
+Erro ao incluir Produto - Log
+
+O Sispetro estava impossibilitando a inclusão de produtos, quando o usuário realizava a inclusão era retornado erro de "Key Violarion" e não incluía. 
+TDM (CCF 13433)
+
+
+
+
+Contabilidade
+
+
+
+
+Registro de Bens no SPED PIS/COFINS
+
+
+Foram incluídos alguns campos referentes a PIS/COFINS na tela de Manutenção de Produtos no Sispetro Controladoria para permitir o envio de dados de Depreciação e baixa de Bens no  registro
+ 
+F120
+ 
+do
+ 
+SPED PIS/COFINS
+ . 
+RSI (CCF 13454)
+
+
+Retirada de Perfil Impede lançamento contábil manual em conta de Entidade
+
+
+Foi removida a opção "Impede lançamento contábil manual em conta de entidade" que se encontrava no perfil do Sistema, pois, a mesma está em desuso. Atualmente o SisPetro tem uma premissa básica para movimentações em contas de entidades e bancos: a movimentação de contas a pagar, contas a receber e bancos devem ser feitos através de lançamentos nos respectivos módulos. RSI (CCF 13630)
+
+
+Importação de Saldo de Conta
+
+ Na importação de Saldo de Conta foi ajustado para não utilizar o código de exportação de conta indevido quando a conta não tinha essa informação. Além disso foi permitido importar saldo com valor zerado e foi limpa a aba de Validação após a correção da informação. 
+GSN(CCF 13720)
+
+
+
+
+Compras
+
+
+
+
+Envio de e-mail automático da Nota Fiscal Eletrônica para Fornecedores
+
+
+Foi incluído o envio de e-mail automático do XML da Nota Fiscal Eletrônica emitida para Fornecedores.
+ 
+Help:
+ 
+E-mail do Fornecedor
+ 
+RTS (CCF 10868)
+
+
+
+
+Estoque
+
+
+
+
+Tela de Ordem de Carregamento em Monitores 800 x 600
+
+
+A tela de Ordem de Carregamento foi alterada para exibir uma barra de rolagem a direita em monitores configurados para funcionar em 800 x 600 evitando assim que a tela seja cortada e fique impossível o acesso do usuário. UPA (CCF 13354)
+
+
+Leitura do SmartCard na Portaria de saída
+
+Corrigida a leitura obtida através do cartão SmartCard, que não atribuía a temperatura da amostra corretamente no campo Temperatura Automação . 
+RTS (CCF 13306)
+
+
+Número da NF na Consulta de PMM
+
+
+Incluído o campo Docto. (Nº da NF/OC/Bombeio) na aba Extrato de Movimentação na tela de consulta de PMM para facilitar a conferência.
+ 
+Help:
+ 
+Posição de PMM
+ 
+RSI (CCF 13017)
+
+
+Devolução de Produtos Compostos X Custo
+
+
+Incluída uma opção na Natureza de Operação que verifica se os produtos compostos devem ou não movimentar produtos básicos em Notas de Devolução. Além disso foi ajustado o custo médio da movimentação dos produtos básicos conforme a configuração do mesmo.
+ 
+Help:
+ 
+Custos na Devolução de Produtos Compostos
+ 
+RSI (CCF 13452)
+
+
+
+
+Faturamento
+
+
+
+
+Nota Fiscal de Remessa de Armazenagem
+
+
+O campo de preço dos itens da Nota Fiscal de Remessa de Armazenagem foi alterado de forma que permita ao usuário a digitação livre de casas decimais. RTS (CCF 12971)
+
+
+Perfil de usuário e empresa no Cancelamento de Nota Fiscal por tipo de Emissão
+
+
+Na tela de Manutenção de Faturamento foi incluída a rotina que verifica se o usuário que está logado tem direito a cancelar uma Nota Fiscal Própria ou de Terceiros de acordo com o perfil do mesmo.
+ 
+Help:
+ 
+Como cancelar uma Nota fiscal
+ 
+RSI(CCF 9721)
+
+
+Importação do Registro 60
+
+
+Liberados os arquivos .smi para importação do Registro 60. O registro 60 é o registro do Sintegra que possui informações de Cupom Fiscal. UPA (CCF 13470)
+
+
+Apresentação da Alíquota na tela de Outros Impostos
+
+
+Foi melhorada a apresentação do tipo dado de alíquota na tela de Outros Impostos. RTS (CCF 13453)
+
+
+Sincronização de Notas não Enviadas a Sefaz
+
+
+No Servidor Sispetro é verificada a estrutura da informação de sincronização com a Sefaz, se o retorno estiver com algumas informações não preenchidas, as informações serão tratadas para evitar travamentos na rotina do sistema.
+ 
+Help:
+ 
+Manutenção de Nota Fiscal
+ 
+RSI (CCF 12238)
+
+
+Erro ao incluir Natureza de Operação
+
+Ao incluir uma nova Natureza de Operação, estamos sugerindo o campo 
+Usa Fator de Conversão para Unidade
+ como desmarcado e o 
+Vinculo de Frete
+ como 
+Baixa do Contas a Pagar não permite vínculo com Frete
+, evitando assim que o campo retorne erro por não conter nenhum valor. RTS (CCF 13521)
+
+
+Digitação da Chave de Acesso ao incluir NFe de Remessa/Retorno de Armazenagem
+
+A partir dessa versão, será possível digitar a chave de acesso da NFe de Remessa/Retorno de Armazenagem. 
+Para que esse campo fique habilitado, é necessário que a Natureza tenha o
+ 
+Tipo de Emissão
+ 
+como
+ 
+Terceiros
+. 
+Help:
+ 
+Regras NFe x Tipo de Emissão
+ 
+RTS (CCF 12654)
+
+
+Tipo Data Base no título de desconto automático pela data emissão da NF
+
+
+Incluída a opção de Tipo de Data Base no Título de Desconto Automático para Data de Emissão da Nota Fiscal. O usuário terá a possibilidade de incluir títulos de desconto automático, utilizando a data de emissão da Nota Fiscal, como data base para o vencimento do título.
+ 
+Help:
+ 
+Tipo Data Base no Título de Desconto Automático pela Data Emissão da NF
+ 
+TDM (CCF 12637)
+
+
+Lentidão na tela de NF Remessa e Retorno de Armazenagem
+
+
+Foram colocados índices na consulta para otimização na seleção de OC´s na tela de NF de Remessa e Retorno de Armazenagem. RSI (CCF 13553)
+
+
+Sincronização de NFe Cancelada
+
+
+A partir dessa versão, a sincronização de NFe além do protocolo de autorização de uso da NFe irá trazer também, caso exista, o protocolo de cancelamento da NFe para atualização no SisPetro. UPA (CCF 12683)
+
+
+
+
+Financeiro
+
+
+
+
+Retorno da Cobrança Eletrônica do Banco Safra
+
+
+Foi incluído o motivo da rejeição na tela de leitura do arquivo texto de retorno da Cobrança Eletrônica do Banco Safra. RTS (CCF 12326)
+
+
+Cobrança Eletrônica para o Banco Brickell
+
+
+Incluído na lista de bancos do sistema o Banco Brickell e disponibilizadas as rotinas para cobrança eletrônica para esse mesmo banco.
+ 
+Help:
+ 
+Brickell
+ 
+UPA (CCF 13258)
+
+
+Problema na regra de Fechamento Financeiro Exclusivo
+
+
+Foi corrigido o problema encontrado no Fechamento Financeiro, onde, não era permitido fazer algumas operações em uma empresa sem Fechamento financeiro quando fosse encontrado um Fechamento Financeiro Exclusivo para uma Empresa feito anteriormente. RSI(13512)
+
+
+Utilização de Adiantamento de Outra Filial na Baixa
+
+
+Foi incluído nesta versão o perfil de sistema
+ 
+"Pode utilizar Adiantamentos de outras empresas na Baixa"
+ 
+permitindo dessa forma que o adiantamento que foi realizado para uma determinada filial seja transferido automaticamente para outra no momento da baixa. Para que isso ocorra, é preciso configurar algumas informações necessárias para a transferência automática de Adiantamentos entre Filiais junto ao perfil de Sistema:
+ 
+"Conta de Transferência de Adiantamentos"
+ 
+e
+ 
+"Código do Histórico para Transferência"
+.
+ 
+Help:
+ 
+Baixa pelo Débito-Crédito do Cliente
+,
+ 
+Baixa pelo Débito-Crédito do Fornecedor
+ 
+e
+ 
+Baixa Automática utilizando Adiantamentos
+ 
+RTS (CCF 12772)
+
+
+Erro ao Criar Faixa para Cálculo de Vencimento de Desconto
+
+Foi ajustada a tela de Cálculo de vencimento de desconto que estava apresentando erro ao incluir e/ou editar uma faixa de cálculo. 
+RTS (CCF 13805)
+
+
+
+
+Fiscal
+
+
+
+
+Melhoria de Performance na Seleção dos dados a serem utilizados para a Apuração
+
+
+Como forma de melhorar a performance na seleção de dados a serem utilizados para a Apuração, alteramos o perfil
+ 
+"Faz Apuração Fiscal pela:"
+ 
+para que seja fixo o valor
+ 
+"Data de Referência"
+ 
+que será utilizado em todas seleções. Atualizamos também os perfis de
+ 
+Data de Referência da Entrada e Saída
+ 
+conforme a configuração anterior do Perfil
+ 
+"Faz Apuração Fiscal pela:"
+. RTS/CFC (CCF 13409, 13442)
+
+
+Geração da DECLAN-RJ Municipal
+
+
+Incluída a geração do
+ 
+arquivo texto de exportação DECLAN-RJ Municipal
+ 
+com a finalidade de atender os clientes situados no município do Rio de Janeiro que necessitam enviar essa informação anualmente.
+ 
+Para que essa alteração esteja disponível na manutenção de exportação de dados é preciso incluir o arquivo DECLANRJMunicipal.rtm.
+ * 
+Help:
+ 
+Declan Municipal
+ 
+RTS (CCF 11198)
+
+
+Geração do arquivo da GIA de ICMS para o Estado do Rio de Janeiro
+
+
+Incluída a geração do
+ 
+arquivo texto de exportação da GIA-RJ
+ 
+com a finalidade de atender os clientes situados no município do Rio de Janeiro que necessitam enviar essa informação mensalmente.
+ 
+Para que essa alteração esteja disponível no relatório é preciso incluir o arquivo GIA_RJ.rtm.
+ 
+Help:
+ 
+GIA-RJ
+ 
+RTS (CCF 11018)
+
+
+Exigência da Conexão Scgwin nas DLL's SPED
+
+Alteradas as dlls SPED_EFD.dll e SPED_PIS_COFINS.dll para não exigir uma conexão ODBC como Scgwin. 
+Necessário atualizar as dlls.
+ 
+GSN (CCF 13440)
+
+
+Geração da DECLAN-IPM RJ
+
+
+Incluída a geração do
+ 
+arquivo texto de exportação DECLAN-IPM
+ 
+com a finalidade de atender os clientes situados no Estado do Rio de Janeiro que necessitam enviar essa informação anualmente.
+ 
+Para que essa alteração esteja disponível na manutenção de exportação de dados é preciso incluir o arquivo DECLAN_IPM.rtm.
+ 
+Help:
+DECLAN-IPM RJ
+ 
+RTS (CCF 6107)
+
+
+Sintegra - Registro 88 para MS
+
+
+Incluída a opção de geração do arquivo 88 para MS.
+ 
+Para que essa alteração esteja disponível, é necessário incluir o arquivo Sintegra-2011-MS.rtm na manutenção de exportação de dados
+ 
+Help:
+ 
+REGISTRO 88-MS
+ 
+TDM (CCF 12898)
+
+
+Alterações na Dime - Dados Anuais
+
+Na tela de geração da DIME, ao utilizar a tela de Dados Anuais, após clicar no botão "Recalcula Totais", o Sispetro não estava calculando os totais dos registros (340 - Lucro Operacional, 341 - Prejuízo Operacional, 350 - Resultado antes do IR, 351 - Resultado negativo antes do IR, 360 - Resultado após IR, 361 - Resultado negativo após IR, 398 - Prejuízo do exercício, 399 - Lucro do exercício) corretamente.
+TDM (CCF 9803)
+
+
+SPED-EFD Registro D130 - Detalhes do Conhecimento Emitido
+
+ Ajustado para gerar dados nesse registro o que não estava acontecendo. 
+GSN/MSI(CCF 13529)
+
+
+SPED-EFD Registro G125 - CIAP
+
+ Ajustados os dados e fórmulas do Registro G125 para contemplar as situações de CIAP, inclusão e baixa de bem. Inclusive somente bens que não estejam marcados para "Suspender CIAP" serão enviados no SPED. 
+GSN/MSI(CCF 13529)
+
+
+SPED-EFD Registro D100 - Conhecimentos recebidos e emitidos
+
+Ajustados os dados e fórmulas do Registro D100 para buscar os dados de forma diferenciada quando o Conhecimento for emitido ou recebido. Ajustado inclusive o modelo para ser obtido da Natureza de Operação. 
+GSN/MSI(CCF 13529)
+
+
+SPED-EFD Registro C100 - Indicação do frete
+
+Ajustada a fórmula do campo Indicação do frete para colocar 9 (sem frete) quando o CNPJ do Transportador for da mesma raiz do CNPJ da Empresa. 
+GSN/MSI(CCF 13529)
+
+
+SPED-EFD Otimização no preenchimento
+
+ Otimizado o preenchimento dos registros C100 e filhos. 
+GSN/MSI(CCF 13529)
+
+
+SPED-EFD Registro C170 - Valor de desconto
+
+Ajustado para gerar devidamente o valor do desconto. 
+GSN/MSI(CCF 13529)
+
+
+SPED-EFD Registro C190 e D190 Arredondamento
+
+ Alterada a fórmula de arredondamento do valor da Operação nos Registros C190 e D190. 
+GSN/MSI(CCF 13529)
+
+
+SPED-PIS/COFINS Registro D010 duplicado
+
+ Corrigido problema de duplicação no Registro D010. 
+GSN/MSI(CCF 13529)
+
+
+Scanc - Refinaria
+
+ O procedimento de Confronto do SCANC Refinaria foi alterado para calcular devidamente o número de linhas do Quadro 3 do Anexo 6 e para não salvar os dados da IE da empresa com pontos. 
+GSN/MSI(CCF 13577)
+
+
+Natureza da Receita na Natureza de Operação para SPED PIS COFINS
+
+
+Foi incluído o campo para informar o código Natureza da Receita na tela de Manutenção de Natureza de Operação para uso nos Registros M410 e M810 do SPED PIS/COFINS. RSI (CCF 13508)
+
+
+Dados de PIS e COFINS em notas de caráter retroativo
+
+
+Foi incluída uma nova tela chamada
+ 
+"Atualização de Dados PIS/COFINS"
+ 
+com a função de atualizar as informações referentes a Outros Impostos e CST PIS/COFINS de Notas retroativas.
+ 
+Help:
+ 
+Atualização de Dados PIS/COFINS
+ 
+RSI (CCF 13256)
+
+
+Relatório de Ressarcimento
+
+O relatório de ressarcimento estava trazendo o valor total da Nota fiscal, sem levar em consideração a proporção. Relatório corrigido. 
+UPA (CCF 13541)
+
+
+
+
+Vendas
+
+
+
+
+Aprovação dos Pedidos de Venda
+
+
+A partir dessa versão, após a emissão do pedido de vendas e em outros pontos de aprovação de pedidos, a rotina de aprovação irá apresentar uma tela indicando o valor esperado, o valor obtido e a explicação do motivo pelo qual não foi aprovado. Essa tela irá separar as aprovações por setor(Vendas, Financeiro e Transporte) e
+ 
+caso o pedido não seja aprovado, será muito fácil identificar o motivo pelo qual o pedido não foi aprovado.
+ 
+Help:
+ 
+Aprovação Automática do Pedido de Venda
+ 
+UPA (CCF 11049)
+
+
+Aprovação dos Pedidos de Venda
+
+
+Foi criado o perfil de sistema "Analisa Pedidos não Aprovados Após Inclusão de Adiantamentos". Caso esse perfil seja habilitado, após a inclusão de um adiantamento para um cliente, todos os pedidos pendentes desse cliente serão reanalisados e se possível, serão aprovados os pedidos. UPA (CCF 11049)
+
+
+Venda para distribuidoras seguida de armazenagem
+
+
+Alguns clientes compram de uma determinada Refinaria ou congênere e deixam o produto armazenado na própria. A partir da venda do produto o Sispetro fará a descarga automaticamente do produto na empresa congênere.
+ 
+Para que os campos "Armazenagem Automática e Cod. Empresa Congênere" fiquem disponíveis na pesquisa de entidade, deve ser adotado o layout padrão.
+ 
+Help:
+ 
+Remessa para Armazenagem Automática
+ 
+TDM (CCF 11016)
+
+
+Erro ao desmembrar pedido
+
+Corrigido erro "Problemas ao efetuar o processo" que impossibilitava o desmembramento do pedido. 
+TDM (CCF 13445)
+
+
+
+
+Transportes
+
+
+
+
+Depósito na Composição de Carga
+
+
+Foram incluídos na tela de Composição de Carga o atalho para o Desmembramento do Pedido e a coluna com a informação do depósito do pedido na listagem dos pedidos. RSI (CCF 12582)
+

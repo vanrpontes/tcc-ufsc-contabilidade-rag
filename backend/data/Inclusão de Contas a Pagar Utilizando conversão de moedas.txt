@@ -1,0 +1,254 @@
+TITULO: Inclusão de Contas a Pagar Utilizando conversão de moedas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892890402
+--------------------------------------------------
+Dentre os usuários do SisPetro, temos Distribuidoras e também Importadoras, nos dois casos há pagamentos de despesas em Dólar. Para não haver erros, no processo de pagamentos de títulos em Dólar, temos o seguinte fluxo:
+Perfil de usuário
+Dar a permissão no perfil na aba Financeiro 
+Pode informar dados de Conversão no Cadastro de Moeda.
+Tabela de Conversão de Moeda
+No menu 
+Arquivo/Moeda
+ será necessário que indique a taxa da moeda num determinado dia para ser usada nas conversões. Para mais detalhes veja o tópico 
+Inclusão do Contas a Pagar
+Para incluir um título com moeda estrangeira, é necessários se atentar a algumas peculiaridades. É possível, também, incluir NF com conversão de Moeda mediante vinculo da nota com um 
+PMM
+. Para maiores informações, vide tópico 
+Inclusão de Contas a Pagar em Moeda Estrangeira
+Baixa do Contas a Pagar
+Ao baixar um título em outra moeda, o SisPetro, pela data de fluxo da baixa, verá a taxa de conversão dessa moeda, converterá o Saldo do título na moeda para Reais. A diferença entre o Saldo em Reais e esse novo Saldo calculado será transferido para acréscimo ou desconto, sendo responsabilidade do usuário informar a conta de Variação Ativa ou Passiva nas contas de Acréscimo ou Desconto na tela de baixa.
+Para maiores informações vide tópico 
+Baixa de Contas a Pagar em Moeda Estrangeira
+Manutenção do Contas a Pagar
+No grid principal está disponível novas colunas indicando se o título utiliza conversão, 
+Saldo, Valor Líquido e Valor Bruto na moeda
+No grid de baixas está disponível o 
+Valor Pago na moeda
+Relatório do Contas a Pagar
+Está disponível uma opção em tela 
+Saldos de títulos em moeda estrangeira
+Nas empresas usuárias do SisPetro além de Distribuidoras temos Importadoras. Nas Distribuidoras num pequeno volume e nas Importadoras num volume maior, o pagamento de Despesas em Dólar pode ser necessário. Quando ocorre a compra em Dólar o procedimento tem o seguinte fluxo:
+É incluída uma pendência no Contas a Pagar em reais. Para chegar no valor em reais, se calcula a quantidade de dólares da pendência pelo valor do dólar do dia.
+Pendência: US$ 100,00
+Dólar do dia: R$ 1,89.
+Pendência lançada no contas a Pagar: R$ 189,00
+Periodicamente, ao verificar as pendências do Contas a Pagar, se atualiza o valor pendente desse título pelo dólar corrente:
+Pendência lançada no contas a Pagar: R$ 189,00
+Dólar do dia: R$ 1,91.
+Pendência atualizada: R$ 191,00
+Chegando o dia do vencimento, se faz a baixa pelo valor do dólar do dia, contabilizando a diferença como acréscimo ou desconto
+Pendência lançada no contas a Pagar: R$ 189,00
+Dólar do dia: R$ 1,85.
+Pendência atualizada: R$ 185,00
+Diferença encontrada: -4,00 (desconto)
+Este processo se dará somente na inclusão do título (manual) com a indicação de uma moeda diferente da do Sistema neste procedimento e no processo de baixa. É importante salientar que a moeda utilizada pode ser qualquer uma 
+diferente
+ da configurada na tabela Sistema como moeda nacional e que os valores imputados sempre serão em reais (convertidos internamente para a moeda indicada no título).
+Para que esse fluxo funcione corretamente no SisPetro, são necessários algumas configurações e procedimentos, que veremos à partir de agora:
+Perfil de usuário
+Dar a permissão no perfil na aba Financeiro 
+Pode informar dados de Conversão no Cadastro de Moeda
+.
+Tabela de Conversão de Moeda
+No menu 
+Arquivo/Moeda
+ será necessário que indique a taxa da moeda num determinado dia para ser usada nas conversões. Para mais detalhes veja o tópico 
+Inclusão do Contas a Pagar
+Abaixo explicaremos alguns detalhes específicos para contas a pagar utilizando a conversão de moedas, para mais detalhes de como inserir contas a pagar veja o tópico 
+Inclusão de Contas a Pagar manual
+Como os lançamentos em moeda estrangeira acontecem nos pagamentos parcelados de produtos importados, a nota fiscal vem em reais e as duplicatas é que vêm em outra moeda.
+No procedimento de 
+inclusão manual do Contas a Pagar
+Pela moeda se identifica se há tabela de Conversão, caso tenha:
+Será habilitado um campo "Valor Bruto na Moeda" onde o usuário digitará o Valor Bruto do Título na moeda correspondente.
+Será desabilitado o campo "Valor Bruto" que será o resultado da conversão (em Reais) pela Data de Emissão do Título
+Caso não tenha tabela de conversão, não será possível continuar com a inclusão.
+O Valor Líquido continuará sendo calculado a partir do Valor Bruto podendo ter descontos ou acréscimos
+Salva para esse título o Saldo, Valor Bruto e Valor Liquido convertidos na moeda utilizada.
+O Valor Líquido na Moeda deve ser:
+Valor Líquido Reais / Valor Bruto Reais * Valor Bruto na Moeda
+Vejamos a aplicação dessa fórmula:
+Valor Bruto Moeda: 50,00
+Taxa da Moeda: 2,00
+Valor Bruto Reais: 100,00
+Desconto em Reais: 30,00
+Valor Líquido em Reais: 70,00
+Saldo na moeda: 70,00 / 100,00 * 50,00 = 35,00
+ou
+Valor Moeda: 50,00
+Taxa da Moeda: 2,00
+Valor Bruto Reais: 100,00
+Acréscimo em Reais: 20,00
+Valor Líquido em Reais: 120,00
+Valor na moeda: 120,00 / 100,00 * 50,00 = 60,00
+Baixa do Contas a Pagar
+Ao baixar um título em outra moeda, o SisPetro, pela data de fluxo da baixa, verá a taxa de conversão dessa moeda, converterá o Saldo do título na moeda para Reais. A diferença entre o Saldo em Reais e esse novo Saldo calculado será transferido para acréscimo ou desconto, sendo responsabilidade do usuário informar a conta de Variação Ativa ou Passiva nas contas de Acréscimo ou Desconto na tela de baixa.
+Só será permitida a baixa de títulos com moeda que utilizam conversão pela tela de Baixa Manual
+Para todo pagamento, parcial ou total, será calculada a variação cambial, preenchendo o campo de Acréscimo ou Desconto. Esse cálculo será convertendo o valor do pagamento em reais para a moeda utilizada, pela data de fluxo da baixa. Com isso se descobre o valor pago na moeda. Tendo esse valor, o convertemos então em reais pela taxa de conversão utilizada na data de emissão do título. A diferença entre esse novo valor em reais encontrado e o valor em reais informado no campo Valor Movimento é a variação cambial.
+A toda inclusão ou cancelamento de baixa será atualizado o Saldo na Moeda no título.
+Qualquer alteração na Data de Fluxo ou Valor Movimento pode causar alterações nos valores da baixa (variação cambial). Para garantir essa integridade de valores teremos um botão "Recalcula Variação Cambial", que ficará na aba 
+Conversão Moeda
+ da tela de baixa, que atualizará em todos os títulos com moeda que utiliza conversão a variação cambial nos campos de acréscimo ou desconto. Se o usuário não clicar no botão e finalizar a baixa, caso haja alterações de valores, será exibida uma mensagem e o sistema permitirá ao usuário retornar para conferi-los.
+A diferença cambial será contabilizada como desconto ou acréscimo dependendo do caso. Será responsabilidade do usuário informar nestes campos as contas equivalentes à variação cambial
+Vejamos alguns exemplos de cálculos na baixa:
+Tela
+Tipo de Baixa
+Taxa US$ do Título
+Saldo R$
+Saldo US$
+Valor Pago R$
+Valor Pago Crédito
+Acréscimo
+Desconto
+Taxa US$ dia
+Saldo R$
+Saldo US$
+Observações
+1. Bx Manual
+TOTAL
+1,89
+189,00
+100,00
+178,00
+0,00
+0,00
+11,00
+1,78
+0,00
+0,00
+Desconto calculado pelo SisPetro 189,00 - (100,00*1,78)
+2. Bx Manual
+TOTAL
+1,89
+189,00
+100,00
+195,00
+0,00
+6,00
+0,00
+1,95
+0,00
+0,00
+Acréscimo calculado pelo SisPetro 189,00 - (100,00*1,95)
+3. Bx Manual
+TOTAL
+1,89
+189,00
+100,00
+200,00
+0,00
+11,00
+0,00
+1,95
+0,00
+0,00
+Não será permitido informar um acréscimo desse valor na baixa
+4. Bx Manual
+PARCIAL
+1,89
+189,00
+100,00
+150,00
+0,00
+9,27
+0,00
+1,78
+29,73
+15,73
+Saldo US$ = 100,00 - (150/1,78) Saldo R$ = US$ 15,73 * 1,89
+PARCIAL
+0,0
+29,73
+15,73
+28,63
+0,00
+0,00
+1,10
+1,82
+0,00
+0,00
+Desconto calculado pelo SisPetro 29,73 - (15,73*1,82)
+5. Bx Manual
+PARCIAL
+1,89
+189,00
+100,00
+150,00
+0,00
+4,62
+0,00
+1,95
+43,62
+23,08
+Saldo US$ = 100,00 - (150/1,95) Saldo R$ = US$ 23,08 * 1,89
+PARCIAL
+0,0
+43,62
+23,08
+49,62
+0,00
+6,00
+0,00
+2,15
+0,00
+0,00
+Acréscimo calculado pelo SisPetro 43,62 - (23,08*2,15)
+6. Bx Manual
+Utilizando CRÉDITO
+1,89
+189,00
+100,00
+100,00
+89,00
+0,00
+0,00
+1,78
+0,00
+0,00
+Não será permitido concluir a baixa
+7. Bx DÉBITO/CRÉDITO
+TOTAL
+1,89
+189,00
+100,00
+0,00
+189,00
+0,00
+0,00
+1,89
+0,00
+0,00
+Não será permitido concluir a baixa
+8. Bx Pag. Eletrônico
+Com ACRÉSCIMO
+1,89
+189,00
+100,00
+192,00
+0,00
+3,00
+0,00
+1,92
+0,00
+0,00
+Não será permitido concluir a baixa
+9. Bx Pag. Eletrônico
+Sem ACRÉSCIMO
+1,89
+189,00
+100,00
+189,00
+0,00
+0,00
+0,00
+1,92
+0,00
+0,00
+Não será permitido concluir a baixa
+Manutenção do Contas a Pagar
+No grid principal está disponível novas colunas indicando se o título utiliza conversão, 
+Saldo, Valor Líquido e Valor Bruto na moeda
+No grid de baixas está disponível o 
+Valor Pago na moeda
+Relatório do Contas a Pagar
+Está disponível uma opção em tela 
+Saldos de títulos em moeda estrangeira

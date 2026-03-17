@@ -1,0 +1,186 @@
+TITULO: Como importar manualmente notas fiscais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2917991126
+--------------------------------------------------
+Neste tópico iremos explicar como importar manualmente notas fiscais no SisPetro. 
+Iremos dividir o processo em 5 etapas, sendo elas:
+Importação do Arquivo;
+Validação do arquivo a ser importado;
+Vínculo de notas fiscais importadas com Ordem de Carregamento ou PMM (Pedido de Movimentação de Material);
+Processamento da Nota Fiscal.
+Envio do Evento de Manifestação do Destinatário da Nota Fiscal Eletrônica
+Lembrando que para efetuar a importação é necessário conhecer as telas e seus respectivos recursos:
+Manutenção Importação de Dados
+Configuração de De/Para
+Manutenção de Processos
+Importação Manual de Notas Fiscais
+1ª etapa: Importação de Arquivo
+Nesta etapa da importação iremos realizar a importação do arquivo para o SisPetro, fazendo uso de uma das estruturas de layout de importação disponíveis atualmente. Para mais informações, ver 
+Estrutura do Layout de Importação
+.
+ 
+Na tela de 
+Importação NF's
+, Ferramentas > Importação de Dados > Importação NF's, informe os dados de:
+Processo
+Depósito
+Data/Hora para movimento das NFs
+Para mais informações, ver 
+Importação Manual de Notas Fiscais
+Clique em 
+Atualizar
+, verificando se existe alguma pendência devida ou indevida nas abas 
+Erros da Importação
+, 
+Dados a Serem validados
+ e 
+Notas fiscais a serem processadas
+.
+Considerando que está tudo certo, clique no botão 
+Localize o diretório onde se encontra os arquivos a serem importados. Localizando, selecione todos, e clique em 
+Abrir
+. Caso exista inconsistência de estrutura, os erros serão apresentados na aba 
+Erros da Importação
+. Caso contrário, todos os registros serão apresentados na aba 
+Dados a serem validados
+.
+2ª etapa: Validação do Arquivo a ser importado
+Nesta etapa da importação, o usuário já definiu e selecionou os arquivos a serem importados, e os dados são apresentados na aba 
+Dados a serem validados
+. Agora a validação é de conteúdo.
+Um arquivo pode conter notas com mais de um item, e ainda assim serem idênticos (mesmo produto, quantidade, valor unitário, tudo). O controle será feito através da coluna 
+Item
+Nesta etapa os dados importados diretamente do arquivo serão confrontados com o De/Para, isto é, todos os campos importados que possuam um De/Para correspondente serão alterados.
+Exemplo:
+Supondo que no arquivo importado, tenhamos o produto "GASOLINA A" que no outro sistema possua o código "GAS-A", contudo para o SisPetro precisamos do código que neste caso seria "05", então nesta etapa o código seria trocado.
+Para mais informações, ver 
+Manutenção De - Para - NFs
+.
+Para a importação de nota fiscal, serão validados os campos: 
+Produto, Natureza de Operação, Tipo de Cobrança, Vendedor, Transportadora, Frota, Tabela de Preço, Série da Nota Fiscal e Unidade de Medida.
+ Sendo importante considerar que, mesmo que o arquivo de origem não contenha a informação desejada, o De/Para utilizado deve conter um registro onde o campo 
+De
+ esteja em branco e o 
+Para
+ com uma informação existente no SisPetro, fazendo que no caso de não ter a informação o campo venha a ser preenchido com um valor padrão.
+Serão sempre realizadas as seguintes validações:
+Cadastro do De/Para para os campos: 
+Produto, Natureza de Operação, Tipo de Cobrança, Vendedor, Tabela de Preço, Série da Nota Fiscal e Unidade de Medida. 
+Caso não venha a ser encontrado um registro correspondente ao registro, uma mensagem será apresentada na aba 
+Dados a serem validados
+.
+As notas de entrada, o CNPJ do Destinatário deverá ser o mesmo da filial conectada, caso contrário o CNPJ não será validado;
+O CNPJ do Emitente deverá possui cadastro de Fornecedores do SisPetro, caso contrário o CNPJ não será validado;
+As notas de saída o CNPJ do Emitente deverá ser o mesmo da filial conectada, caso contrário o CNPJ não será validado;
+Caso exista na aba Notas a Serem Processadas uma nota idêntica, o registro não será validado;
+Caso o arquivo não possua uma data de vencimento, porém a natureza utilizada Gere Contas a Pagar/Receber, o registro não será validado;
+Caso a Frota não esteja cadastrada no SisPetro, o registro não será validado;
+Caso a Transportadora não esteja cadastrada no SisPetro, o registro não será validado;
+Caso a série configurada na natureza de operação não seja a mesma, o registro não será validado.
+A aplicação do De/Para na Série da Nota Fiscal poderá ser aplicada ou não, isso depende do perfil 
+Série da NF
+ na Natureza de Operação. Para mais informações, ver 
+.
+As notas fiscais que não puderam ser validadas serão apresentadas na aba 
+Dados a serem validados
+, com o(s) respectivo(s) problema(s).
+Para notas com itens com natureza de operação diferenciada, ver 
+Itens de Nota com Natureza de Operação diferentes
+.
+A edição do registro não validado poderá ser feita por meio do botão 
+Este botão ao ser pressionado apresentará a tela para edição.
+Importante frisar que os dados presentes nesta tela serão os dados do arquivo importado, sem qualquer troca dos campos, isto quer dizer que no caso do produto "00620" ele será apresentado na tela como "00620" e não "05".
+Para garantir que o XML não será importado duas vezes, na mesma importação, o campo 
+# Item
+ não poderá ser alterado a partir da versão 8.9.
+Após edições ou até mesmo novos cadastros no De/Para (que poderá ser acessado por meio do botão "De/Para" presente na tela) o usuário poderá clicar no botão
+Para não salvar a edição feita, clique no botão 
+Importante: Essa etapa poderá ser passada automaticamente, caso o arquivo importado não apresente nenhuma inconsistência.
+Possibilidade de informar a condição de pagamento para notas importadas.
+Possibilidade de definir a forma de cálculo do preço unitário da nota fiscal importada. Perfil de Sistema em Ferramentas > Sistemas > Nota Fiscal > quadro Importação de NF > 
+Forma de Obtenção de Valores Unitários
+. Podendo ser:
+Pelo valor unitário informado no arquivo
+ (
+Padrão do SisPetro): 
+é o mesmo processo que o sistema, fazia anteriormente, ou seja partimos do preço unitário para chegar no valor total da nota.
+Pelo valor total da NF informado dividido pela quantidade: 
+A conta feita, neste caso, é: suponhamos que o valor da NF é de 1.000,00 reais , e foram faturados 357 litros, assim é dividido 1000 / 357. Resultando em 2,8011204 reais por litro. É este valor que vai sair como valor unitário.
+ 
+Parcelas da nota fiscal
+Quando o XML parar nesta aba de validação de dados, serão exibidas também as parcelas da nota fiscal. 
+Caso a nota tenha mais de 6 parcelas
+, será apresentada uma nova linha, contendo apenas informações das parcelas. Veja abaixo.
+Se clicar no botão Edita, as parcelas subsequentes serão apresentadas.
+ 
+ 
+Quando o problema relatado (neste caso DE/PARA da natureza de operação) for corrigido, as duas linhas irão para a próxima aba. 
+Não é necessário editar nenhum dado desta linha
+, ela serve apenas para o usuário observar o valor das parcelas e quantas são. 
+Lembrando que, somente terá uma nova linha para as parcelas caso haja mais de 6 duplicatas
+.
+3ª etapa: Vínculo de notas fiscais importadas com Ordem de Carregamento ou PMM
+Essa etapa é opcional e mais detalhes poderão ser encontrados no tópico 
+Vínculo de OC e PMM em Notas Fiscais Importadas
+.
+4ª etapa: Processamento da Nota Fiscal
+Nesta etapa os dados que foram validados encontram-se disponíveis para gerar as notas fiscais dos mesmos, passando pela última critica finalmente as notas fiscais serão lançadas no SisPetro. Eles ficarão disponíveis na aba 
+Notas Fiscais a serem processadas
+.
+Antes da realização do processamento é importante registrarmos algumas considerações:
+As notas a serem lançadas no SisPetro poderão ser consultadas por meio do grid, tendo as informações sobre o cabeçalho da nota e de todos os itens da Nota fiscal.
+A coluna 
+Último Item da OC
+ virá automaticamente marcada para todas as notas fiscais.
+As parcelas também poderão ser consultadas.
+Todos os dados presentes na aba 
+Notas Fiscais a serem processadas
+ poderão ser editados por meio do botão
+Para se realizar a edição dos dados de cabeçalho deverá ser selecionado o registro da nota, sendo apresentada a seguinte tela:
+A partir da versão 8.9 é possível mudar o depósito destino da nota fiscal, caso o usuário não saiba , no início da importação, para qual depósito é a nota, nesta aba é possível altera-lo.
+Veja o quadrado vermelho ao lado esquerdo da tela, é onde será informado o novo depósito. Vale lembrar que este novo depósito é para a nota fiscal 
+toda
+, ou seja, não é possível informar um depósito para cada item da Nota Fiscal
+Mesmo o usuário alterando a Natureza de Operação na edição da nota fiscal nesta etapa, a Coluna 
+Último Item da OC
+ virá marcada. Para desmarcar este perfil, acesse a tela de vínculo com OC e desmarque o perfil 
+É o último Item da OC
+. Para mais informações, ver 
+Vínculo de OC e PMM em Notas Fiscais Importadas
+.
+Caso a necessidade de edição venha a ser o item da nota, o usuário deve selecionar o registro do item desejado e clicar no botão de edição, sendo apresentada a seguinte tela:
+O campo 
+CST do ICMS Item 
+será preenchido automaticamente de acordo com perfil 
+Campo
+ CST do Item da NF 
+na 
+Natureza Operação
+. Porém ,o mesmo ainda poderá ser editado manualmente nessa tela.
+Caso a necessidade de edição venha a ser a parcela, o usuário deve selecionar o registro da nota fiscal, acessar o painel inferior 
+Parcelas
+ e clicar no botão de edição, abrirá a tela de alteração de parcelas
+As Notas lançadas pela importação obedecem as mesmas restrições que o usuário venha a possuir ao lançar uma Nota Fiscal manualmente.
+Exemplo:
+Temos um usuário que não possui permissão para alterar a base de ICMS na nota quando é venda com pedido e a natureza utilizada pela nota está marcada como Venda e no arquivo existe uma base de ICMS diferente da calculada pelo SisPetro, neste caso será utilizada a base de ICMS do SisPetro, caso o usuário possua permissão para editar será utilizada do arquivo.
+Todas as mensagens de alerta apresentadas ao usuário durante o lançamento manual da nota não irão comprometer a importação da mesma pelo SisPetro, contudo todas as mensagens apresentadas ao usuário que inviabilizam o lançamento manual da nota com os mesmos dados presentes no arquivo irão necessariamente paralisar o processo de importação para a nota em questão.
+No caso da ocorrência de erro(s) no processamento a nota em questão não será importada, contudo o processo irá continuar para as demais notas.
+Todos os processos decorrentes do lançamento de Nota Fiscal manual se aplicarão para a importação de Nota Fiscal.
+Exemplo:
+Geração de Contas a Pagar/Receber, Livros Fiscais, Contabilidade Gerencial, Contabilidade Real, etc
+A importação permite que sejam importadas notas com mesmo número de forma repetida, conforme configuração do sistema.
+A participação do item da Nota no DPMP e a geração do Livro Fiscal para um determinado item dependem da natureza de operação informada para o item da nota. Para mais informações, ver 
+Itens de Nota com Natureza de Operação diferentes
+.
+Para realizar o processo de importação, é necessário clicar no botão 
+O processo de importação será iniciado nota a nota, e para os casos que ocorram problemas quanto a importação será apresentada no registro da nota fiscal o motivo a ser analisado.
+5ª etapa: Envio do Evento de Manifestação do Destinatário da Nota Fiscal Eletrônica
+Quando a empresa estiver configurada para permitir Manifestação, deverá ter pré-configurado o evento padrão (geralmente Confirmação de Operação). Após selecionar vários arquivos .XML, o Sispetro apresentará a lista das NF's que serão importadas. Será sugerido na parte inferior da tela o evento de manifestação pré-cadastrado e permitirá o usuário trocar o evento (se tiver permissão). Para mais informações, ver 
+Evento de Manifestação do Destinatário da NF-e
+.
+Caso tenha alguma nota cujo evento seja diferenciado ela deve ser importada numa outra execução (exclui-se a nota antes de importar e depois se importa novamente aí sim trocando o evento), isso porque será um evento só para todas as NF's apresentadas para Importação e passíveis de Manifestação.
+Observações gerais:
+Na tela de Importação de Nota Fiscal é possível realizar algumas tarefas complementares para auxiliar a importação das notas, dentre elas está realizar a impressão das inconsistência, por meio do botão 
+Serão impressos os dados conforme a aba que encontrar-se ativa
+Outro disponibilidade presente nesta tela é o acesso direto ao Cadastro de De/Para do processo selecionado, por meio do botão 
+Para mais informações, ver 
+Configuração de De/Para

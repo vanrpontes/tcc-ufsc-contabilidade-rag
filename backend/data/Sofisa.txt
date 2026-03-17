@@ -1,0 +1,93 @@
+TITULO: Sofisa
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878900386
+--------------------------------------------------
+Dados Gerais
+O Banco Sofisa trabalha em conjunto com o HSBC Bank (399), com o Banco Bradesco (237) e com o Banco Santander (033). Assim, a empresa que tem conta no Banco Sofisa, pode adquirir o produto "Cobrança Eletrônica", dando a possíbilidade para a empresa que for efetuar o pagamento deste boleto, pagar no HSCB Bank, no Banco Bradesco ou Santander, conforme for configurado o Tipo de Cobrança.
+ Para atender a essa necessidade, usaremos a configuração de 
+Banco Correspondente
+ do SisPetro.
+Painel Cobrança Eletrônica
+Tipo:
+ informar a espécie de título:
+01=Duplicata
+02=Nota Promissória
+03=Cheque
+04=Letra de Câmbio
+05=Recibo
+08=Apólice de Seguro
+12=Duplicata de Serviço
+99=Outros
+Convênio:
+ informar o número do convênio da empresa com o Sofisa.
+Conta e digito:
+ informar o número da conta e digito no banco Sofisa.
+CNPJ:
+ informar o CNPJ da conta.
+Nos campos 
+banco oficial
+ e 
+#banco
+ (e digito do número do banco, se tiver) informar 637 - Sofisa.
+Nos campos 
+Agência e digito (se tiver)
+, informar.
+Carteira:
+ informar 01
+Se desejar pode utilizar a opção 
+Pode indicar sacador/avalista
+, se marcá-la deverá então informar o CNPJ do sacador/Avalista e a razão social.
+Se desejar você pode utilizar a opção 
+Pode indicar #docto na remessa
+, escolhendo a opção que melhor atender a empresa.
+A opção 
+Informação de juros na remessa
+ deve estar configurada para 
+Informa valor diário calculado pela taxa diária
+.
+Painel Informações sobre a Cobrança
+Marcar
+ a opção 
+Utiliza Banco Correspondente
+Informar no 
+Banco Encarregado da cobrança:
+ informar o banco correspondente.
+CONVÊNIO:
+ informar número do convênio, fornecido pelo banco
+Informar o número do banco no campo 
+#Banco
+ e no campo 
+Dig
+ o digito.
+Informar 
+Nome Banco
+ o nome do banco correspondente.
+Informar o número da agência no campo 
+#Agencia
+ e o seu digito no campo 
+dígito
+ (esta é a agência do HSBC Bank, Bradesco ou Santander onde o banco Sofisa tem conta)
+Informar o 
+Número Conta
+ e seu 
+dígito
+ (esta é a conta do banco Sofisa no HSBC Bank, Bradesco ou Santander)
+Preencher a 
+Carteira
+Usa Prefixo: 
+Marcando esta opção é possível definir um Prefixo para o Nosso Número.
+Prefixo:
+ Define o Prefixo a ser utilizado.
+Número de dígitos do Nosso Número:
+ Define a quantidade de caracteres do Nosso Número.
+As demais informações não precisam ser preenchidas.
+Faixa Nosso Número
+Preencher de acordo com as informações fornecidas pelo banco ou da própria empresa.
+ 
+Linha Digitável
+A Linha Digitável para o banco Sofisa será montada conforme o banco correspondente configurado, no Sispetro pode ser o 
+, o
+ 
+ ou o 
+.
+Veja maiores informações sobre a montagem da linha digitável através do tópico 
+Montagem da Linha Digitável

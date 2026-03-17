@@ -1,0 +1,123 @@
+TITULO: Tabela Histórico Padrão
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210605
+--------------------------------------------------
+1
+6
+false
+none
+list
+true
+Objetivo
+Cadastrar todos os históricos de movimentação de mercadoria / financeiro contábil. Todas as movimentações financeiras e de estoque utilizam para facilitar a digitação e padronizar o histórico dos movimentos os códigos cadastrados nesta tabela.
+Para cadastrar um histórico, o usuário deve acessar a partir do Menu 
+Tabelas Auxiliares / Financeiro / Históricos Padrão
+Botões
+Incluir: 
+clique no botão incluir para cadastrar um novo histórico.
+Ativo:
+ ao invés de excluir um histórico, o SisPetro permite desativá-lo, ou seja, o histórico continuará cadastrado, porém, não aparecerá nas telas de pesquisa. Os históricos desativados serão apresentados em vermelho no painel de navegação.
+Descrição:
+ neste campo o usuário deve informar um nome para o histórico, que pode ter até 
+250 caracteres
+. Com isso o campo 
+Histórico
+, que é utilizado em diversas partes do sistema, foi padronizado e, ao mesmo tempo, atender ao SPED Contábil. Nas telas com campos de histórico é possível clicar em "..." para abrir uma tela de edição (caso esteja alterando um histórico) e complementar o histórico com até 250 caracteres.
+Informações Adicionais:
+ são dados complementares que podem ser adicionados ao histórico. Nas telas do SisPetro que for solicitado o histórico padrão, as informações adicionais serão automaticamente preenchidas conforme configuradas neste campo.
+Exige Complemento:
+ serve para informar ao SisPetro que o usuário precisa complementar o histórico, ou seja, além de selecionar o histórico, o usuário deve modificá-lo no momento de incluir/alterar uma movimentação.
+Gera Registro para entidade?:
+ os títulos no conta a receber que forem incluídos com um histórico que tenha essa opção marcada, terão um registro gerado e poderão ser consultados no cadastro do cliente. Isso pode ser utilizado se o lançamento a ser incluído, por exemplo, for um lançamento proveniente de cheque devolvido. O usuário faz o lançamento no contas a receber utilizando um histórico que esteja gerando registro para a entidade e esse lançamento ficará gravado no cadastro do usuário, na consulta de 
+Restrições Financeiras
+.
+Ajuste de estoque p/ o relatório de ressarcimento de ICMS:
+ utilizado somente no relatório de ressarcimento de imposto, no menu 
+Relatórios / Controladoria
+,  para que apareçam, além das Notas Fiscais, os ajustes de estoque que estiverem com este tipo de histórico. 
+Indica que é Movimento de Produção: 
+indica na Consulta Movimento Base que a movimentação é a partir de Produção.
+Ajuste de estoque manual:
+ essa opção identifica nas telas de consulta de movimentação de estoque, os lançamentos de ajustes que estejam com esta opção marcada no histórico. Estes lançamentos de estoque ficarão em 
+itálico
+ nessas telas.
+Quadro CMV
+Participa do CMV (Custo das Mercadorias vendidas) desmarcada:
+Efeito:
+ último custo médio fechado
+Participa do CMV (Custo das Mercadorias vendidas) marcada - não é possível utilizar em conjunto com Custo Médio nas Saídas que NÃO Participam igual a Último Custo Médio Fechado
+Efeito: 
+custo médio do dia do fechamento
+Custo Médio nas Saídas que NÃO participam:
+Último Custo Médio Fechado -  não é possível utilizar em conjunto com Participa do CMV marcada
+Efeito: 
+terá interferência no custo médio final do Fechamento de Custo com o Valor do Custo
+Custo Médio do Dia do Fechamento
+Efeito:
+ 
+não terá interferência no Custo Médio final do Fechamento de Custo
+Caso tenha alterações neste quadro, deve utilizar a ferramenta
+ 
+Atualização da Participação no CMV
+. Caso tenha custos fechados, devem ser reabertos. As alterações serão aplicadas após novos fechamentos.
+Quadro Habilita Cor para telas de estoque:
+ essa opção serve para identificar os diversos tipos de movimentações de estoque, nas telas de consulta, através de cores definidas pelos históricos padrão. Pode-se definir a cor de fonte e/ou a cor de fundo para o histórico desejado.
+Através da tela 
+Legenda de Cores por Histórico
+ é possível visualizar as cores que foram definidas para os históricos. Essa tela pode ser acessada pelo menu Consulta.
+Quadro Permite Uso de fórmula nos históricos:
+ marcando essa opção, o usuário poderá configurar fórmulas para o histórico e informações adicionais.
+Exemplo: 
+Na inclusão do contas a receber, o usuário pode selecionar um histórico padrão e complementar essas informações do campo histórico e do campo informações adicionais. Essas informações ficarão gravadas no banco de dados, isso significa que no momento da baixa, o usuário pode utilizar o histórico gravado anteriormente momento da inclusão do título. Porém, para utilizar as mesmas informações utilizadas no momento da inclusão do título, o usuário deverá criar uma fórmula para um determinado histórico e utilizá-la no momento da baixa
+.
+Ao marcar o campo 
+Permite uso de fórmula nos históricos
+ o SisPetro habilita o campo 
+Histórico
+ e 
+informações adicionais
+, habilitando também os botões para criação de fórmula 
+ e teste da fórmula 
+. No momento o grupo que utilizará as fórmulas será apenas a Baixa do contas a pagar e receber, por esse motivo, o usuário não vai conseguir mudar o valor do campo 
+Grupo Contábil
+. Ao clicar no botão de criação de fórmula, o sistema abrirá a tela de auxilio de fórmula, onde será possível localizar o(s) campo(s ) que fará(ão) parte da fórmula.
+Na tela acima, foi selecionado o campo 
+Histórico
+, da tabela 
+ContasPagarReceber
+, que armazena a informação do histórico e informações adicionais no momento que o usuário incluiu o título. Para confirmar a alteração, o usuário deve clicar no botão 
+OK
+, caso contrário no botão 
+Cancela
+.
+Ao finalizar a fórmula, o SisPetro retornará para o painel de detalhes do histórico padrão, mostrando a fórmula de cada campo. O SisPetro ainda permite que essa fórmula que acabou de ser criada seja testada. Para mais informações, ver 
+Teste de Formulas
+.
+Quadro Movimentação de estoque utilizada no DPMP: 
+ao configurar a região informando um código de operação DPMP para o histórico, fará com que pedidos de outras entradas e outras saídas sejam apresentados na manutenção de DPMP.
+Isto ajudaria muito no caso de ajustes de estoque de perda e ganho feitos pelas telas do estoque, fossem para DPMP com as sua operações correspondentes.
+Um ponto importante a ser cuidado é de informar o mesmo código da operação DPMP do perfil de sistema 
+Painel Estoque
+ na opção 
+Cód. Operação de Entrada para Produto Composto
+, o que causaria a exclusão automática dos dados deste histórico. Acione o botão 
+OK
+ para atualizar os dados no Sistema.
+Tipo de Movimentação de Estoque
+:
+ 
+Classifica as movimentações de estoque, utilizados na 
+Apuração de Valores de Armazenagem por Congênere
+. Além disso o tipo de movimentação define se ela participará do 
+Rateio de Estoque
+ 
+Visualização de Históricos na Inclusão OC Sispetro App
+Conforme perfil de Sistema: 
+selecionando essa opção, será respeitada a configuração efetuada no perfil de Sistema
+. 
+Para mais informações ver 
+Painel Históricos
+Visualiza Histórico: 
+selecionando essa opção, o histórico em questão irá aparecer na lista para Inclusão da OC no SispetroApp
+Não visualiza histórico: 
+selecionando essa opção, o histórico em questão não irá aparecer na lista para Inclusão da OC no SispetroApp de nenhuma maneira
+Para sair clique no botão 

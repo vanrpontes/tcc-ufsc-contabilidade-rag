@@ -1,0 +1,141 @@
+TITULO: Contabilização de Empréstimos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919334257
+--------------------------------------------------
+Abaixo mostraremos uma forma de contabilizar empréstimos de forma que a contabilização de Estoque e CMV sejam compatíveis:
+Empresa emprestando produto
+Saída do Produto da Empresa
+Natureza de Operação
+Participa do CMV: Desmarcado
+Gera Contas Pagar/Receber: Desmarcado
+Contabilização
+Tipo de Contabilização: Manual (definido na Natureza)
+Débito: Conta Específica (indicar a conta Empréstimos Concedidos ou similar)
+Crédito: Conta Estoque Produto
+Nota Fiscal
+Emitir uma NF de Outras Saídas informando no valor unitário o Custo Médio do produto
+Devolução do Produto para a Empresa
+Participa do CMV: Desmarcado ou Marcado (será indiferente)
+Gera Contas Pagar/Receber: Desmarcado
+Contabilização
+Tipo de Contabilização: Manual (definido na Natureza)
+Débito: Desabilitado
+Crédito: Desabilitado
+Utiliza Contabilização Auxiliar: Marcado
+No Desdobramento de Contas
+Débito
+Conta: <ItensNF.CCEstoque>
+Valor: PegaUltimoCMV(<NotaFiscal.DataMovto>,<ItensNF.CodEmpresa>,<ItensNF.CodProd>,<ItensNF.Deposito>) *<ItensNF.Qtde>
+Crédito
+Conta: indicar a conta Empréstimos Concedidos ou similar (colocar zeros a direita se houver)
+Valor: PegaUltimoCMV(<NotaFiscal.DataMovto>,<ItensNF.CodEmpresa>,<ItensNF.CodProd>,<ItensNF.Deposito>) *<ItensNF.Qtde>
+Nota Fiscal
+Lançar uma NF de Outras Entradas informando no valor unitário o valor recebido da NF 
+Simulando a operação acima:
+Custo Médio do Produto: 1,20
+Saldo em Estoque antes do Empréstimo: 10.000 litros Total R$ 12.000,00 
+Após essa operação teremos o seguinte resultado nas contas
+Conta de Estoque
+Data
+Histórico
+Débito
+Crédito
+Saldo
+01/01/XX
+Empréstimo para Congênere
+ 
+12.000,00
+0,00
+02/01/XX
+Devolução da Congênere
+12.000,00
+ 
+12.000,00
+ 
+Conta de Empréstimos Concedidos (Ativo)*<ItensNF.Qtde>)
+Data
+Histórico
+Débito
+Crédito
+Saldo
+01/01/XX
+Empréstimo para Congênere
+ 
+12.000,00
+ 
+12.000,00
+02/01/XX
+Devolução da Congênere
+ 
+ 
+12.000,00
+0,00
+ 
+Empresa obtendo empréstimo do produto
+Recebimento do Produto na Empresa
+Participa do CMV: Desmarcado ou Marcado (será indiferente)
+Gera Contas Pagar/Receber: Desmarcado
+Contabilização
+Tipo de Contabilização: Manual (definido na Natureza)
+Débito: Desabilitado
+Crédito: Desabilitado
+Utiliza Contabilização Auxiliar: Marcado
+No Desdobramento de Contas
+Débito
+Conta: <ItensNF.CCEstoque>
+Valor: PegaUltimoCMV(<NotaFiscal.DataMovto>,<ItensNF.CodEmpresa>,<ItensNF.CodProd>,<ItensNF.Deposito>) *<ItensNF.Qtde>
+Crédito
+Conta: indicar a conta Empréstimos Obtidos ou similar (colocar zeros a direita se houver)
+Valor: PegaUltimoCMV(<NotaFiscal.DataMovto>,<ItensNF.CodEmpresa>,<ItensNF.CodProd>,<ItensNF.Deposito>) *<ItensNF.Qtde>
+Nota Fiscal
+Lançar uma NF de Outras Entradas informando no valor unitário o valor recebido da NF 
+Devolução do Produto para a Empresa
+Natureza de Operação
+Participa do CMV: Desmarcado
+Gera Contas Pagar/Receber: Desmarcado
+Contabilização
+Tipo de Contabilização: Manual (definido na Natureza)
+Débito: Conta Específica (indicar a conta Empréstimos Obtidos ou similar)
+Crédito: Conta Estoque Produto
+Nota Fiscal
+Emitir uma NF de Outras Saídas informando no valor unitário o Custo Médio do produto
+Simulando a operação acima:
+Custo Médio do Produto: 1,20
+Saldo em Estoque antes do Empréstimo: 0
+Após essa operação teremos o seguinte resultado nas contas
+Conta de Estoque
+Data
+Histórico
+Débito
+Crédito
+Saldo
+01/01/XX
+Empréstimo recebido de Congênere
+ 
+12.000,00
+ 
+12.000,00
+02/01/XX
+Devolução para a Congênere
+ 
+ 
+12.000,00
+0,00
+ 
+Conta de Empréstimos Obtidos (Passivo)
+Data
+Histórico
+Débito
+Crédito
+Saldo
+01/01/XX
+Empréstimo recebido de Congênere
+ 
+ 
+12.000,00
+12.000,00
+02/01/XX
+Devolução para a Congênere
+ 
+12.000,00
+ 
+0,00

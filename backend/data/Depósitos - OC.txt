@@ -1,0 +1,271 @@
+TITULO: Depósitos - OC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210971
+--------------------------------------------------
+Objetivo
+A partir de um depósito selecionado clique no painel OC para fazer a configuração do layout da 
+Ordem de Carregamento
+, assim como a impressão de OC e a 
+Configuração de Compartimentos
+:
+O acesso é feito a partir do 
+Menu Arquivos / Depósitos / Aba OC
+Quadro Geral
+Define as informações de compartimentação e impressão de OC.
+Ativa Configuração da Compartimentação da OC:
+ para utilizar a configuração das colunas da compartimentação por Depósito. Para mais informações, ver 
+Configuração de Compartimentos
+.
+Após ter o perfil do quadro marcado.
+Caso clique direto no botão 
+OK, 
+a seguinte mensagem será emitida:
+Não há nenhuma coluna de OC configurada…. similar a abaixo
+Após marcar, clique no botão 
+Configuração de Coluna da OC por Produto
+Para mais informações, ver 
+Configuração da Compartimentação de OC
+Distribui automaticamente os produtos simples de um produto composto:
+ tem a finalidade de distribuir internamente os produtos compostos para serem usados no momento da impressão de uma Ordem de Carregamento, desde que o layout da OC esteja configurado para isso. 
+Importante: Se a definição da configuração das colunas para os produtos for feita primeiramente nos depósitos ao acessar o produto pela tela
+ 
+Manutenção dos Produtos / painel Composição
+, a configuração da mesma deve ser igual a do depósito e vice-versa.
+Quadro Trabalha com Série  de Lacres
+Marque a opção caso trabalhe com Controle de Lacres. Para mais informações, ver
+ 
+Controle de Lacres
+.
+Deve ser marcada para todos os depósitos que nos quais são emitidas OC de vendas ou de Carregamento Próprio.
+Pode ser definida também uma série de lacres padrão. Não é obrigatória. Para mais informações, ver
+ 
+Tabela Série de Lacres
+.
+Perfil Salvamento do Lacre na NF:
+Conforme os lacres dos compartimentos utilizados para a NF (padrão):
+ está é a maneira como o SisPetro trabalha, respeitando os lacres por compartimentos.
+T
+odos os Lacres da OC: 
+se for optado por trabalhar desta forma, independente da Ordem de Carregamento ter compartimentação e nesta estiver especificado os lacres, no DANFE será impresso todos os lacres da OC.
+Quadro Trabalha com Série de Envelopes
+Marque a opção caso trabalhe com Controle de Envelopes. Para mais informações, ver
+ 
+Tabela Série de Envelopes
+Deve ser marcada para todos os depósitos que nos quais são emitidas OC de vendas ou de Carregamento Próprio.
+Pode ser definida também uma série de Envelopes padrão. Não é obrigatória. Para mais informações, ver
+ 
+Tabela Série de Envelopes
+Quadros OC Carregamento/OC Descarga
+Para que possam alterar as informações de Série de Lacre e Envelope, é necessário que o perfil 
+Pode dar manutenção em Dados Lacres e Envelopes
+ esteja marcado no 
+Perfil de Usuário
+, Aba Estoque, 
+Comparação de Capacidade
+Com a comparação entre a capacidade do frota e quantidade da Ordem de Carregamento, é possível barrar OC que não tenham a mesma quantidade, tanto nas OC de carregamento quanto descarga. 
+Vale lembrar que esse perfil NÃO é por empresa.
+ 
+Indiferente:
+ nada será feito, o usuário poderá incluir OC com quantidade diferente da capacidade do Frota.
+Capacidade deve ser igual ao volume programado:
+ será analisado se o volume da OC é exatamente igual a capacidade do Frota, caso não seja a OC será barrada.
+Quantidade do Compartimento X Capacidade (seta): 
+no momento da compartimentação, o SisPetro irá
+ validar para que o volume informado em cada compartimento seja igual á seta escolhida, ou seja, a capacidade do compartimento. 
+Permite qualquer quantidade menor ou igual à capacidade:  
+padrão do SisPetro
+Impede quantidade diferente da capacidade somente em frotas multisseta: 
+irá fazer a validação apenas em frotas Multi Seta
+Impede quantidade diferente da capacidade em todos os frotas: 
+irá fazer a validação em todos os frotas
+Caso o usuário configurar para impedir quantidade diferente da capacidade, o SisPetro irá mostrar a mensagem 
+A quantidade informada é menor que a capacidade...
+ similar a imagem abaixo
+Essa configuração 
+NÃO
+ impede que a compartimentação deixe um compartimento 
+zerado. 
+Observações nos Compartimentos da OC: 
+permite ou não informar uma observação com 10 caracteres em cada compartimento. 
+PODE informar Observações nos compartimentos da OC
+NÃO pode informar Observações nos compartimentos da OC
+Quadro Só imprime OC Faturada?
+Como a Ordem de Carregamento tem característica de uma autorização para carregar/ descarregar o produto na base. Com isso, foi criado um controle por usuário ou por depósito de forma que possibilite a impressão da OC somente após o faturamento da nota fiscal vinculada a OC. As OC que se encaixam nesse perfil são:
+Vendas
+Transferência entre Depósitos
+Carregamento Próprio
+Descarga Própria
+Para se trabalhar com esse controle, é preciso marcar um dos perfis referente a OC desejada. Caso nem todos os usuários possam ter acesso, é preciso configurar no perfil de usuário em 
+Painel Carregamento (Usuários)
+.
+Quadro Exigência de Compartimentação na Inclusão da OC: 
+em muitos casos o preenchimento da compartimentação é obrigatória e a exigência pode ser definida para 
+Carregamento
+ e/ou 
+Descarga
+. Quando marcada a opção, o SisPetro não permite realizar uma inclusão de uma Ordem de carregamento e/ou descarga sem que os compartimentos sejam informados.
+Exige compartimentação OC de Carregamento
+Exige compartimentação OC de Descarga
+Quadro OC Terceiros - SispetroWeb
+Exige escolha da coleta de amostra testemunha para carregamento e descarga de terceiros:
+Não exige:
+ não exige o preenchimento do campo
+Exige:
+ exige o preenchimento do campo (para carregamento e/ou descarga)
+Para definir o padrão de preenchimento, acesse
+ 
+Painel Ordem Carregto
+.
+Quadro Exportação
+Tipo Exportação: 
+se o depósito irá realizar exportação de OC e qual será o tipo da exportação, sendo:
+Sem Exportação: 
+OC não serão exportadas 
+Base Unibraspe: 
+para enviar e comunicar com a API da Unibraspe
+Base SisPetro: 
+ para enviar e comunicar com a API do SisPetro
+OC que devem participar da Exportação:
+Todos:
+ todos os tipos de OC irão participar da exportação.
+Somente Carregamentos:
+ somente OCs de Carregamento irão participar da exportação.
+(Venda e Carregamento Próprio )
+Somente Descargas:
+ somente OCs de Descargas irão participar da exportação. 
+(Transferência entre Depósitos e Descarga Própria )
+DLL para exportação de Dados:
+ o usuário deverá indicar o caminho da DLL para exportação de OC, caso a empresa trabalhe com exportação da Unibraspe. 
+Login / Acess Key:
+ nome do usuário para conexão no Serviço da Base. 
+Senha / Secret Key:
+ senha para conexão no Serviço da Base.
+URL Inclusão Carregamento:
+ URL para a importação de Ordens de Carga.
+URL Inclusão Descarga:
+ URL para a importação de Ordens de Descarga.
+URL Cancelamento:
+ URL para o cancelamento de Ordens de Carregamento.
+URL Abastecimento: 
+URL para enviar também o Abastecimento junto com as Ordens de Carregamento.
+URL Token: 
+URL para adquirir o Token para o SisPetro se comunicar com a API. Na integração entre SisPetros, o Token adquirido é válido por 24h e o Serviço Exportação OC que é responsável por adquirir novamente esse token. 
+Para mais informações, ver 
+Exportação de OC
+.
+Definição de Cor do Lacre:
+ neste parâmetro é possível definir se a cor do Lacre será por 
+Empresa ou série
+ ou 
+Depósito/Empresa
+.
+Empresa ou série
+: com esta opção selecionada, é possível definir a cor do lacre por empresa ou por série, conforme parâmetro em 
+Tabela Série de Lacres
+.
+Depósito/empresa
+: neste caso, será possível definir a cor do lacre em função do depósito e da empresa. Para tal, é necessário definir a cor do lacre, no campo localizado logo abaixo no painel por filial.
+Quadro Por Filial
+Define as informações do layout da OC.
+O primeiro processo a ser feito é definir a empresa que irá configurar o layout:
+A partir daí, poderemos definir campo a campo para a empresa selecionada, considerando os campos:
+Nome Arquivo de layout Ordem Carregto:
+ aqui é configurado o local onde se encontra o layout para impressão da Ordem de Carregamento para cada filial. Quando se manda imprimir uma OC, o SisPetro verifica o layout, procurando nesse caminho. 
+O SisPetro permite configurar layouts diferentes para depósitos e empresas diferentes
+, basta selecionar na parte superior da tela a filial que deseja configurar o layout e informe o caminho para a mesma.
+Botão Edita LayOut:
+ permite que seja feita alterações no layout da OC. Vale lembrar que é necessário ter um layout disponível no caminho indicado no 
+Nome Arquivo LayOut Ordem Carregto
+; Se o campo 
+Tipo Formulário
+ tiver selecionado na opção 
+Normal
+, aparecerá o formulário estabelecido pela Futura. Se o campo estiver na opção 
+Pipeline Extendido
+, aparecerá o formulário criado via Gerenciador de Relatórios .
+ 
+Tipo Formulário:
+ define o tipo de formulário que será utilizado para a emissão da OC. As opções são:
+Normal:
+ formulário com os campos e tabelas definidos pela Futura.
+Pipeline Extendido:
+ formulário criado através do Gerenciador de Relatórios. Ao selecionar esta opção, os campos 
+Nome do Pipeline
+, 
+Nome do Parâmetro do Código da Empresa
+ e 
+Nome do Parâmetro do Número da OC 
+deverão ser preenchidos.
+Número de Compart.OC: 
+define o número de compartimentos que serão usados por esse depósito nas Ordens de Carregamento. Para configuração de compartimentação no frota onde a quantidade de compartimentos supera o número de 7 (sete), ver
+ 
+Configuração de Compartimentos
+.
+Nome do Pipeline:
+ nome do pipeline principal a ser filtrado - OrdemCarregto.
+Nome do Parâmetro do Código da Empresa:
+ nome do parâmetro representativo do Código da Empresa - CodEmpresa.
+Nome do Parâmetro do Número da OC: 
+nome do parâmetro representativo do Número da OC - NumeroOC.
+Atenção:
+ ao definir os campos para pesquisa no layout através do Gerenciador de Relatórios, esses campos deverão estar marcados para localização automática.
+Cor do Lacre:
+ definição da cor do lacre para esta filial, caso a definição de lacre seja por depósito/empresa.
+Tipo de Participação na Base: 
+utilizado definir o tipo de posse do estoque no Inventário Automático e para os registros K200 do SPED Fiscal
+Administrador: 
+quem administra a base e é sócio proprietário (possui quotas da base).
+Estoques da empresa administradora:
+ Próprio em poder próprio
+Estoques das demais empresas:
+ Terceiros em poder próprio
+Sócio Proprietário: 
+possui quotas da base mas não administra.
+Estoques da empresa do inventário:
+ Próprio em poder próprio
+Inquilino: 
+apenas armazena os produtos na base.
+Estoques da empresa do inventário:
+ Próprio em poder de terceiros
+Não utiliza: 
+quando é proprietário da base e não armazena para terceiros
+Estoques da empresa do inventário:
+ Não apresenta no arquivo do sped.
+Para mais informações, ver 
+Manutenção de Inventário
+Quadro Envio de Estoque Diário ANP
+ARI Responsável: 
+informe o código ARI (Agente Regulado Informante) do responsável pela posse dos estoques 
+Se for informado o Código ARI, o estoque da empresa participará do 
+Envio do Estoque Diário
+Se não for informado o Código ARI, o estoque da empresa não será enviado
+Atenção
+Distribuidora com base própria: 
+informar o Código ARI do responsável pelo depósito para todas as empresas que armazenam nesse depósito, exceto para aquelas que informam o estoque (caso de sócias da base).
+Armazenadora: 
+informar o Código ARI do Responsável pelo depósito para todas as empresas que armazenam nesse depósito.
+Bases Compartilhadas: 
+informar o Código ARI do administrador da base para todas as empresas que armazenam na base, exceto aquelas empresas que informam o estoque (caso de sócias da base)
+Quadro Exportação de Dados
+Chave de Identificação da Empresa:
+ para exportação de OC entre SisPetros informar o CNPJ da Congênere que será incluída a O.C. 
+O preenchimento desse campo não é obrigatório, pois na sua ausência será utilizado o CNPJ da empresa.
+Para salvar as informações, clique em 
+OK.
+Para abortar o processo, clique em
+ Cancela.
+Foi implementado o Fornecedor do Carregamento, que pode ser diferente do fornecedor do PMM. Isso implica em alteração nos endereços utilizados na OC. Para as empresas que utilizarem esse novo recurso, devem alterar o layout da OC para utilizar sempre o endereço de carregamento (os dados do endereço de carregamento são gravados nos campos do endereço de entrega do PMM). Para isso deve incluir no condutor de dados a tabela Pedido e fazer os vínculos necessários com as tabelas existentes. Para mais informações, ver 
+Corretora no PMM
+.
+Quadro Importação de dados 
+Nesse quadro estão as informação para acesso da API do sistema AutoLoad. Para mais informações, ver 
+Importação de OC AutoLoad
+.
+Tipo de Importação:
+ escolher 
+Sistema AutoLoad
+, caso for utilizar esse tipo de importação. Por padrão o campo vem preenchido com a opção 
+Não Possui Importação.
+Token:
+ informar a chave de acesso fornecida pela empresa para acessar a API de serviços da AutoLoad.
+URL Serviço Importação:
+ informar o endereço WEB fornecido pela empresa para acessar a API de serviços da AutoLoad.

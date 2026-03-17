@@ -1,0 +1,106 @@
+TITULO: EFD ICMS/IPI - Bloco 0
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2897871051
+--------------------------------------------------
+Este bloco é responsável pelos cadastros. Alguns registros serão preenchidos após o preenchimento dos demais blocos, pois depende deles. Deverá ter sempre uma ocorrência por código em cada registro, independente do número de vezes utilizados ou em quantos blocos foi utilizado.
+Registro
+Descrição
+Observações
+Registros dos quais depende
+Pai
+0005
+Dados da Empresa
+Conforme perfil de sistema. Menu Ferramentas, Sistema, aba Dados Gerais
+0001
+0015
+IE Substituição
+Conforme perfil de sistema. Menu Ferramentas, Sistema, aba IE Substituição/CNAE
+0001
+0100
+Dados do contador
+Conforme perfil de sistema. Menu Ferramentas, Sistema, aba Fiscal, contador da empresa
+0001
+0150
+Entidades
+Ver Entidade para uso do Livro Eletrônico: 
+ e 
+Observações Fornecedores
+Não pode ter CNPJ/CPF duplicado
+C100,C500,D500
+0001
+0175
+Alterações nas Entidades
+Conforme log do Sispetro
+0150
+0190
+Unidades de Medida dos Produtos
+Configuração do produto
+, aba Ficha Produto
+C170
+0001
+0200
+Produtos
+Gênero do Produto
+Tipo de Item
+C170,C190,D110,H010
+0001
+0205
+Alterações de Produtos
+Conforme log do Sispetro
+0200
+0200
+0206
+Dados da ANP
+Cadastro de Produtos, aba DPMP
+0200
+0200
+0220
+Fatores de unidade de conversão
+Cadastro de Produtos
+, aba Ficha Produto, campos Cod.Unidade (botão UNID.ADIC.) e Utiliza Fator de Conversão na Unidade.
+0200
+0200
+0221
+Correlação entre códigos de itens comercializados
+, quadro Diversos, Tipo do Item no Livro Eletrônico: será gerado somente para produtos definidos como Mercadoria para Revenda e para empresas sediadas no Distrito Federal. 
+0200
+0200
+0300
+Bens
+Cadastro de Bens
+ do SisPetro Controladoria
+0001
+0305
+Detalhes dos Bens
+Cadastro de Bens
+ do SisPetro Controladoria
+0300
+0400
+Naturezas de Operação
+Informações da 
+Naturezas de operação
+C
+ódigo e Descrição da Natureza
+C170
+0001
+0450
+Informação Complementar
+Natureza de Operação, aba 
+Impressão NF (Painel Por Filial)
+Informações do Fisco
+C110,C500,D100,D500
+0001
+0460
+Observações
+Natureza de Operação, aba 
+Impressão NF (Painel Por Filial)
+ 
+Observação dos Livros Entradas, Saídas e Apuração
+C190,C590,D190,D590
+0001
+0500
+Plano de Contas Real
+Plano de contas real
+, utilizadas no Bloco G
+0001
+Registros 0300, 0305 e 0500
+: Devido obrigatoriedade somente a partir de 2011, necessário ir manualmente e marcar cada registro para participar do Arquivo de Exportação.

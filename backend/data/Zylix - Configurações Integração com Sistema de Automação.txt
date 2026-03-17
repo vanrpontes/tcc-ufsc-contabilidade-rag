@@ -1,0 +1,84 @@
+TITULO: Zylix - Configurações Integração com Sistema de Automação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4444651521
+--------------------------------------------------
+Configurações de Sistema
+Ferramentas / Sistema / aba Ordem Carregto / quadro Automação
+Tipo de Automação: 
+marcar Troca de Arquivos
+Configurações de Usuário
+Ferramentas / Usuários / aba Perfil 
+aba Carregamento / Quadro Sistema de Automação
+Faz Portaria Entrada  Saída: 
+marcar
+aba Produto
+Pode alterar dados Automação Base: 
+marcar
+Configurações de Depósito
+Depósitos / aba Dados Adicionais 
+Tipo Automação: 
+Respeita Perfil da Empresa: 
+caso a automação seja única para as bases, marcar essa opção
+Troca de Arquivo: 
+quando a empresa trabalha com mais de uma automação, deverá utilizar esta opção para tratar cada base com sua automação. 
+Quadro Integração via arquivo: 
+O usuário deve informar os caminhos das pastas que serão utilizadas na troca de arquivos entre o SisPetro e os Sistemas de Automação em: 
+Banco Dados do Sistema de Automação
+Pasta Gravação do Sistema de Automação
+Pasta Leitura do Sistema de Automação
+DLL do Sistema de Automação: 
+verifique com a Zylix se sua empresa irá trabalhar com 12 (SispetroZylix.dll) ou 16 (SispetroZylix16Comp.dll) compartimentos na automação. 
+Automação de Carregamentos
+Possui Automação: 
+selecionar essa opção
+Automação de Descargas
+Possui Automação de Descargas (Volume Descarregado) 
+Sem Automação - Obtém Ticket de Carregamento para completar o Volume
+Gravação Arquivo Portaria Entrada: 
+Escolher em qual fase o SisPetro irá gravar o arquivo para o Sistema de Automação
+Na portaria de Entrada
+Ao Pegar Fila
+Leitura do Arquivo do Sistema de Automação na Portaria de Saída para Carregamentos: 
+escolher qual ação o SisPetro irá fazer ao ler o arquivo. Para mais informações ver
+Não verifica Status do Carregamento no arquivo 
+Avisa caso o Status do Carregamento no arquivo não esteja 2 - Abastecido
+Bloqueia caso o Status do Carregamento no arquivo não esteja 2 - Abastecido
+Para mais informações, ver 
+Depósitos - Aba Dados Adicionais
+.
+Prefixo Arquivo Portaria: 
+informar qual será utilizado
+Verifica produtos configurados para automação / balança?: 
+marcar caso queira configurar para um ou mais produtos não participe do processo de automação. Para mais informações, ver 
+Depósitos - aba Dados por Produto
+Quadro Carregamento
+Densidade Amostra a ser utilizada
+: selecionar qual a densidade da amostra deve ser considerada para leitura do arquivo do Sistema de Automação.
+Utiliza a densidade da Amostra da última leitura do tanque 
+Utiliza a densidade recebida no arquivo da portaria de saída 
+Temperatura de Amostra a ser utilizada
+: selecionar qual a temperatura da amostra deve ser considerada para leitura do arquivo do Sistema de Automação.
+Utiliza a temperatura da Amostra da última leitura do tanque 
+Utiliza a temperatura recebida no arquivo da portaria de saída 
+Volume 20c - Forma de Cálculo: 
+selecionar como o SisPetro irá obter o volume a 20 graus .
+SisPetro calcula a partir de temperaturas e densidade 
+Utiliza da Automação se existir, caso contrário SisPetro calcula 
+Sempre utiliza da Automação e caso não exista utiliza Volume Ambiente 
+Quadro Descarga
+Densidade de Amostra a ser utilizada:
+ selecionar qual a densidade da amostra deve ser considerada para leitura do arquivo do Sistema de Automação.
+Utiliza a Densidade da Amostra da última leitura de tanque 
+Utiliza a Densidade recebida no arquivo da Portaria de Saída 
+Temperatura de Amostra a ser utilizada: 
+selecionar qual a temperatura da amostra deve ser considerada para leitura do arquivo do Sistema de Automação.
+Utiliza a Temperatura da Amostra da última leitura de tanque 
+Utiliza a Temperatura recebida no arquivo da Portaria de Saída 
+Volume 20c - Forma de Cálculo: 
+selecionar como o SisPetro irá obter o volume a 20 graus .
+SisPetro calcula a partir de temperaturas e densidade
+Utiliza da Automação se existir, caso contrário SisPetro calcula 
+Sempre utiliza da Automação e caso não exista utiliza Volume Ambiente 
+Configurações no Produto
+Arquivo / Produto / Aba Detalhes / Composição / Quadro Automação Base / 
+Código da Automação: 
+informar qual o código de automação que será utilizado no arquivo

@@ -1,0 +1,107 @@
+TITULO: Manutenção de Anexos - Refinaria
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2895118560
+--------------------------------------------------
+No Sispetro, além de atender a demanda de uma distribuidora de combustível, também é possível atender a uma Refinaria de petróleo, no caso do SCANC, é necessário uma tela específica para tal devido ao mesmo possuir várias características específicas que diferem ao SCANC de uma distribuidora.
+Fluxo de Trabalho do Anexo Refinaria
+1) Importação de arquivos:
+ No programa do SCANC-REF, é exportado do Servidor do SCANC os Anexos 3 e 5 das Distribuidoras referentes à Refinaria.
+Anexo 3
+ é o Resumo das Operações Interestaduais de Saídas e a Apuração do Imposto Recolhido e Complemento/Ressarcimento, separando por Fornecedor e UF. Ou seja, se a Distribuidora comprou 1.000.000 litros de Gasolina A, ela irá demonstrar quantos litros (e o valor de imposto retido equivalente) foi distribuído/vendido para cada UF. Assim, a Refinaria, responsável pela retenção do Imposto, deverá pagar a cada UF o valor retido.
+Anexo 5
+ é o Resumo das Operações Interestaduais de Entradas de Álcool, isso porque parte do Imposto Retido é correspondente ao Álcool Anidro, já que o imposto desse produto é diferido, sendo cobrado na venda da Gasolina A.
+2) Confronto de Valores:
+ Já no Sispetro, deve ser feito o confronto dos valores recebidos pelos anexos das Distribuidoras com os valores contidos nas Notas Fiscais da Refinaria emitidas para as Distribuidoras.
+3) Geração dos Anexos:
+ Estando os valores confrontados corretamente, serão gerados os dados para exportação de dois arquivos que futuramente serão importados no programa do SCANC-REF.
+Notas Fiscais
+: São informações das Notas Fiscais geradas pela Refinaria endereçadas para estas Distribuidoras.
+Anexos 6 e 7
+: Servem como Demonstrativo do Recolhimento da Substituição Tributária, onde os valores das Distribuidoras são agrupados por UF, indicando o valor a ser pago para cada UF.
+ 
+Abaixo daremos detalhes operacionais sobre os 3 passos mencionados no fluxo de trabalho:
+Importação de Arquivos
+Acesse a tela 
+Manutenção de Anexos - Refinaria
+ que encontra-se disponível no menu 
+Movimentação \ Controladoria
+Para ter acesso completo a essa tela, verifique o perfil de usuário na aba 
+Fiscal
+, quadro 
+Anexo Refinaria.
+Selecione o botão Importar, será aberta a tela abaixo, onde deverá ser incluído o mês de competência, o período dos dados e o caminho do arquivo TXT exportado do programa SCANC-REF.
+ 
+Após concluída a importação será gerado um registro correspondente conforme pode ser visto abaixo:
+ 
+É possível visualizar os arquivos importados através da aba Distribuidoras e o detalhe nas abas inferiores, conforme pode ser visto na imagem abaixo:
+ 
+Confronto de Valores
+A tela de Confronto de Valores será acionada através do botão 
+Confrontar
+, disponível na tela 
+Manutenção de Anexos - Refinaria
+.
+Esta tela apresentará os valores somados conforme os registros de Importação e os valores de Notas Fiscais correspondentes. Para que os valores sejam exibidos é necessário clicar no botão 
+Gera Dados
+.
+ 
+Detalhamento da Aba Resumo
+Descrição
+Forma de Preenchimento
+Tabela/Campo
+ 1.1.1 ICMS Operações próprias
+Soma dos valores de ICMS e ICMSST das Notas fiscais que participem do Anexo filtrando a UFFat e a Empresa
+AnexoRefinariaA6Q1.VLR111
+ 1.1.2 Operações Distribuidora
+Soma dos valores 5.8 do Anexo 3 filtrando a UF de Destino
+AnexoRefinariaA6Q1.VLR112
+ 1.1.3 Operações AEAC/B100 Distribuidora
+Soma dos valores 5.1 do Anexo 5 filtrando a UF de Origem
+AnexoRefinariaA6Q1.VLR113
+(=) 1.1.4 Subtotal
+Soma de 1.1.1 + 1.1.2 + 1.1.3
+AnexoRefinariaA6Q1.VLR114
+ 1.2.1 Operações Distribuidora outras UFs
+Soma dos valores 5.8 do Anexo 3 filtrando a UF de Origem
+AnexoRefinariaA6Q1.VLR121
+ 1.2.2 Operações AEAC/B100 Distribuidora outras UFs
+Soma dos valores 5.1 do Anexo 5 filtrando a UF de Destino
+AnexoRefinariaA6Q1.VLR122
+(=) 1.2.6 Subtotal
+Soma de 1.2.1 + 1.2.2
+AnexoRefinariaA6Q1.VLR126
+ 1.2.7 Ressarcimentos Distribuidora
+Soma dos valores 5.4 do Anexo 3 filtrando a UF de Origem
+AnexoRefinariaA6Q1.VLR127
+(=) 1.3.3 ICMS A RECOLHER
+1.1.4 - 1.2.6 - 1.2.7
+AnexoRefinariaA6Q1.VLR133
+ 
+ 
+ 
+ 2.1 Provisão Operações Distribuidora
+Soma dos valores 5.9 do Anexo 3 filtrando a UF de Destino
+AnexoRefinariaA6Q2.VLR21
+ 2.3 Provisão Operações AEAC/B100 Distribuidora
+Soma dos valores 5.2 do Anexo 5 filtrando a UF de Origem
+AnexoRefinariaA6Q2.VLR23
+(=) 2.4 ICMS PROVISIONADO
+2.1 + 2.3
+AnexoRefinariaA6Q2.VLR24
+Geração dos Anexos
+Após realizado o Confronto dos valores será necessário a geração dos Arquivos do Anexo e das Notas Fiscais, para isso acesse a tela de Impressão dos Anexos, através do botão 
+Imprime
+, que está 
+ disponível na tela 
+Manutenção de Anexos - Refinaria
+.
+ 
+ Primeiro selecione qual o arquivo deseja gerar (Notas Fiscais ou Anexo 6 e 7), em seguida selecione o layout de exportação correspondente, e o caminho onde será salvo o arquivo.
+Para configurar o layout de exportação correspondente as Notas Fiscais e Anexo 6 e 7, acesse a tela 
+Manutenção Exportação de Dados
+ e inclua os arquivos RTM que são:
+Notas Fiscais usar ScancRefNF.rtm
+Anexo 6 e 7 usar ScancRefAnexo6.rtm
+Impressão de relatórios
+: Ainda na tela de Impressão é possível gerar alguns relatórios referentes aos Anexos 3 e 5 e também algumas conferências, como podem ser vistos nas imagens abaixo:
+ 
+ 

@@ -1,0 +1,101 @@
+TITULO: Configuração de e-mail Microsoft 365 - OAuth
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5420023809
+--------------------------------------------------
+Para que o SisPetro consiga enviar e-mails usando sua conta Microsoft Office, é necessário configurar as permissões adequadas diretamente na sua conta Microsoft, permitindo o acesso ao aplicativo.
+Siga atentamente os passos abaixo para realizar essa configuração:
+Acesse o Console Microsoft: 
+https://entra.microsoft.com/
+ 
+No menu lateral esquerdo
+Clique em 
+Aplicativos / Registros de Aplicativo 
+Clique em 
+“Novo registro”
+Criar aplicativo
+Defina um nome de exibição
+Em 
+Tipos de Conta com Suporte, 
+selecione “Contas em qualquer diretório organizacional”
+URL de Direcionamento, 
+selecionar opção 
+WEB - Endereço: 
+http://localhost:51586
+Clicar em 
+Registrar
+Acessar aplicativo criado
+No menu lateral, vá até 
+Aplicativos / Registros de Aplicativo / Aba Todos os Aplicativos, 
+clique sobre a aplicação criada
+Acessar aba 
+Permissões de APIs
+Clicar em 
+Adicionar uma Permissão / Microsoft Graph / Permissões Delegadas
+Digitar na barra de busca e selecionar as opções na seguinte sequência:
+OpenID
+Offline_Access
+SMTP.Send
+Após inseridas as permissões / Clicar em 
+Conceder consentimento do Administrador
+As opções 
+Microsoft Graph
+, devem ficar com status em verde 
+ conforme abaixo
+Acessar o menu lateral / opção 
+Autenticação
+Em 
+Concessão implícita e fluxos híbridos 
+selecionar
+Tokens de acesso 
+Tokens de ID
+Em 
+Tipos de Conta com Suporte 
+selecionar
+Contas em qualquer diretório organizacional
+Clicar em 
+Salvar
+Acessar o menu lateral / opção 
+Certificados e segredos
+Clicar em 
+Segredos do cliente
+Clicar em 
+Novo segredo do cliente
+Definir nome 
+Definir data de expiração
+Após criada a chave 
+Copiar o campo: 
+Valor 
+Acessar o menu lateral / opção 
+Visão Geral
+Copiar 
+ID do Aplicativo (cliente)
+Copiar 
+ID do diretório (locatário)
+Configuração no SisPetro 
+Informe os dados de e-mail, vá até: Ferramentas / Manutenção de E-mails / Clique em Incluir 
+Configuração de Conta de E-mail
+ 
+Quadro Configurações de OAuth
+Perfil OAuth
+: selecione Office365
+Preencher conforme anotado:
+Application (client)
+:  
+Secret Key
+ 
+Tenant ID
+Clique em 
+Gravar
+Selecione novamente o e-mail, clique em 
+Alterar
+Ao final da tela, clique em 
+Autorizar SisPetro
+Realize o login com as credenciais do e-mail e conceda as permissões
+A comunicação estará pronta.
+Dentro da plataforma Microsoft em 
+Visão Geral, 
+o status tem de estar conforme abaixo
+: 
+ Activated
+Token de utilização
+Quando o serviço de envio de e-mail é executado, caso ele não tenha e-mail a ser enviado, não atualiza a autorização.
+Quando tem algum e-mail a ser enviado, 1 ou n… antes de iniciar os envios, o serviço atualiza a autorização. Essa mesma autorização é utilizada para enviar todos os e-mails dessa execução do serviço

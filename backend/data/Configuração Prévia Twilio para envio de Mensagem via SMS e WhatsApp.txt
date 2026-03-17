@@ -1,0 +1,67 @@
+TITULO: Configuração Prévia Twilio para envio de Mensagem via SMS e WhatsApp
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5261557774
+--------------------------------------------------
+none
+Pré-requisitos
+Ter uma conta oficial no Twilio (conta com forma de pagamento cadastrada). 
+https://www.twilio.com/pt-br
+ 
+Não pode ser, portanto, a conta de teste gratuita deles.
+Ter um Portifólio Empresarial criado e verificado pela Meta na sua plataforma.
+Se você não tem um portifólio empresarial, será necessário criar um antes de iniciar o processo com a Twilio. Você pode ver como criar um portifólio empresarial 
+Cadastro Portifólio Meta
+.
+Este portifólio deve estar com o status 
+Verificado
+ ou 
+Não Necessário 
+antes de continuar
+Passos
+Recapitulando, já existe um portifólio empresarial na Meta verificado para a empresa e já foi criada uma conta (com um cartão de crédito associado, uma conta paga) no Twilio.
+Criar um Sender na Twilio
+Logar-se novamente 
+Twilio Console
+ e clicar no Menu 
+WhatsApp Senders
+ e, em seguida, no botão 
+Create Sender
+. Um Sender é um número de telefone associado a uma conta de WhatsApp e um portifólio Business na Meta. É através dele que se conseguirá enviar e eventualmente receber mensagens.
+ Agora, você deverá escolher entre um número fornecido pelo Twilio ou algum número existente (que possa receber um SMS de confirmação que é seu).
+Caso queira utilizar um número seu, ele não pode estar com o aplicativo WhatsApp nem WhatsApp Business conectado nessa conta. Caso esteja, será necessário executar o App e apagar essa conta do celular.
+Vamos escolher comprar um número (se escolher utilizar um número existente, você deverá escolher a opção 
+My own phone Number
+ , informando o número e ter acesso ao SMS para receber um código de verificação).
+Obter o número de envio
+Como estamos no Brasil, existe uma opção clara logo de cara, apertar o botão 
+Get a Number.
+Ele irá abrir uma tela para poder saber mais sobre a utilização do número.
+Preencha conforme acima e clique em 
+Find my number.
+Clique em Select e depois siga os passos para ligar a conta do Twilio a uma conta de WhatsApp Business + Portifólio na Meta.
+O mais importante para ver se tudo está funcionando é ter, no final, uma tela como a abaixo.
+Com o sender criado, basta buscar (passo abaixo) o SID e o token preenchendo isso no Sispetro.
+Obter SID e Token da conta do Twilio
+Preencher no Sispetro estes campos no Gerenciador de Mensagens. 
+https://futura.atlassian.net/wiki/x/AQBXLgE
+ 
+Configurar o Sender no twilio com o Whats
+Entrar no Dashboard da conta Twilio e configurar o Sender utilizado (número WhatsApp com as suas configurações).
+Reparar que o status do sender deve estar como 
+online
+Configurar pelo menos o campo Webhook URL apontando-o para a URL do SispetroWeb + ‘/twilio/webhook’ e o campo status callback URL para a URL do SispetroWeb + ‘/twilio/status_message’.
+Feito isto, pode ser efetuado os testes de envio conforme 
+Envio de Mensagem via SMS / WhatsApp na chamada do Motorista
+ .
+Envio de mensagem com parâmetro
+Ainda no Dashboard da conta Twilio, clique na opção 
+Content Template Builder
+ para cadastrar uma mensagem 
+Clique no botão 
+Create
+Para saber mais
+Envio de Mensagem via SMS / WhatsApp na chamada do Motorista
+ 
+https://futura.atlassian.net/wiki/x/DIBWLgE
+ 
+https://futura.atlassian.net/wiki/x/AQBXLgE
+ 

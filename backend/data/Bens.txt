@@ -1,0 +1,215 @@
+TITULO: Bens
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210350
+--------------------------------------------------
+A tela de manutenção de bens é exibida a partir do painel 
+Bens
+ na tela de 
+Produtos
+. Serão apresentados todos os bens já cadastrados para o produto selecionado.
+Nesta tela será permitido fazer a manutenção de bens. Eis o detalhamento dos botões disponíveis:
+Inclui:
+ permite 
+incluir bens manualmente
+.
+Inclui pela NF:
+ permite selecionar uma 
+Nota Fiscal de Entrada
+ para que a partir dela sejam incluídos os bens.
+NF Baixa: 
+para mais informações, ver
+ 
+NF Baixa
+Desv. NF Bx.: 
+para mais informações, ver
+ 
+Desvincula NF de Baixa
+Altera:
+ altera um dado de um bem anteriormente cadastrado. É apresentada a mesma tela utilizada na 
+Inclusão Manual
+.
+Exclui:
+ exclui um bem que ainda não tenha qualquer tipo de movimento ativo: depreciação, CIAP, baixa, alteração de valor ou fechamento financeiro. Caso tenha, deve-se providenciar a baixa do bem.
+Visualiza:
+ só permite a visualização dos dados do bem selecionado.
+Atualiza:
+ atualiza os dados da tela.
+NOTA: a partir de janeiro de 2012, todos os bens 
+obrigatoriamente
+ devem estar vinculados a uma nota fiscal. Isso se deve em razão do CIAP. A inclusão pode ser feita através de opção configurada na natureza de operação ou através da tela de cadastro de bens, botão Inclui pela Nota Fiscal.
+Serão apresentados os dados do bem, seja incluído manualmente ou por Nota Fiscal.
+Se Natureza de Operação estiver configurada para incluir bens quando o faturista estiver incluindo a NF de um produto imobilizado, o bem deste será incluído de acordo com a quantidade especificada na Nota Fiscal.
+Para isso, é necessário ter o perfil Permite alterar valor do bem na inclusão via NF. Para mais informações, ver 
+Natureza de Operação
+.
+Para melhor entendimento do processo, consulte o tópico 
+Como Emitir Nota Fiscal de Bem Patrimonial
+.
+Para inclusão manual é necessário preencher os dados conforme segue:
+Produto: 
+código do produto já cadastrado no SisPetro
+Descrição:
+ descrição do produto já cadastrado no SisPetro
+Código do bem:
+ é dado pelo SisPetro, sequencialmente.
+Data de aquisição:
+ informar. Caso tenha o bem tenha sido gerado através de nota fiscal, é preenchido com a data da nota.  
+A partir da versão 9.16 é possível alterar data de aquisição mesmo que tenha fechamento financeiro. Ver 
+Alteração de data de aquisição dentro de um período com fechamento financeiro
+.
+Docto aquisição:
+ informar. Caso tenha o bem tenha sido gerado através de nota fiscal, é preenchido com o número da nota.
+Taxa Depreciação (% ao ano):
+ taxa anual para depreciação do bem, conforme legislação.
+Vida útil (em meses):
+ vida útil (em meses) do bem em decorrência da taxa anual de depreciação. Ex.: Se um bem tem uma taxa de depreciação de 20% ao ano, sua vida útil é de 5 anos, portanto 60 meses. O SisPetro já sugerirá os meses de acordo com a taxa informada.
+Valor original:
+ valor de aquisição do bem, não permitindo inclusão de bens com valor zerado.
+Número ativo:
+ Informar caso tenha. Não é gerado pelo SisPetro.
+Setor:
+ setor da empresa onde o bem foi alocado. Utiliza a tabela 
+Setores
+.
+Local:
+ local dentro do setor onde o bem foi alocado.
+Observações:
+ qualquer informação que o usuário julgar importante.
+Suspende Depreciação:
+ se marcado, o bem não será depreciado.
+Data Início Depreciação: 
+data que será dado início a depreciação. Caso não seja preenchida o SisPetro usará a data de inclusão do bem.
+Data Término Depreciação:
+ incluída automaticamente pelo SisPetro de acordo com tempo de vida útil informado. Utilizado para consultas. Não permite alteração direta no campo.
+CC Depreciação Acumulada:
+ conta contábil a ser utilizada no processo de depreciação do bem.
+CC Despesa Depreciação:
+ conta contábil a ser utilizada no processo de depreciação do bem.
+CC Custo Alienação:
+ conta contábil a ser utilizada no processo de alienação do bem, no momento da sua baixa.
+CC Receita Alienação:
+ conta contábil a ser utilizada no processo de alienação do bem, no momento da sua venda.
+CC Imobilizado:
+ conta contábil que indica a conta de ativo onde é registrada a aquisição do bem.
+CC ICMS a Recolher:
+ conta contábil a ser utilizada no caso de ter débito.
+CC ICMS a Recuperar:
+ conta contábil a ser utilizada no caso de ter crédito.
+CIAP
+Suspende CIAP:
+Ativo:
+ participará do CIAP.
+Suspenso:
+ não participará do CIAP;
+Interrompido devido Transf. Entre Filiais:
+ não participará mais do CIAP pois o bem foi transferido para outra filial. Válido a partir do mês em que a transferência foi feita.
+Nº Meses CIAP:
+ caso participe do CIAP, informar o número de meses. Normalmente são 48 meses a partir da data de aquisição.
+ICMS
+Início Apropriação ICMS Próprio:
+ data inicial da apropriação do ICMS Próprio. Pode ser alterada pelo usuário de acordo com suas necessidades. Não pode ser 
+menor
+ que a data de aquisição.
+Último CIAP ICMS Próprio:
+ somente para consulta. Gerado automaticamente de acordo com o módulo de Patrimônio - CIAP.
+Alíquota ICMS:
+ informar. Caso o bem tenha sido gerado através de nota fiscal, a alíquota será a que foi informada na nota.
+Base ICMS:
+ informar. Caso o bem tenha sido gerado através de nota fiscal, a base será a que foi informada na nota.
+ICMS:
+ valor do ICMS calculado de acordo com a base e alíquota informada. Se o bem foi gerado através de nota fiscal, o valor será o que foi informado na nota.
+ICMS Substituição
+Início Apropriação ICMS Subst.:
+ data inicial da apropriação do ICMS Substituição. Pode ser alterada pelo usuário de acordo com suas necessidades. Não pode ser 
+menor
+ que a data de aquisição.
+Último CIAP ICMS Subst.:
+ somente para consulta. Gerado automaticamente de acordo com o módulo de Patrimônio - CIAP. 
+É de responsabilidade do usuário definir a partir de que data o CIAP do ICMS Diferencial de Alíquota deve ser calculado. Isso ocorre em função de diferentes Estados definirem a data de apropriação de forma diferente. Existem Estados que definem a data de apropriação como a data de aquisição do bem, outros Estados definem a data de apropriação o mês seguinte ao do mês de aquisição, ou seja, na data de pagamento do ICMS do diferencial de alíquota.
+ICMS Substituição:
+ informar o valor do ICMS Substituição. Se o bem foi gerado através de nota fiscal, o valor será o que foi informado na nota.
+Diferencial de alíquota
+Início Apropriação Dif. Alíquota:
+ data inicial da apropriação do ICMS Diferencial de Alíquota. Pode ser alterada pelo usuário de acordo com suas necessidades. Não pode ser 
+menor
+ que a data de aquisição.  
+Último CIAP Dif. Alíquota:
+ somente para consulta. Gerado automaticamente de acordo com o módulo de Patrimônio - CIAP. 
+ICMS Diferencial de Alíquota:
+ informar o valor, mesmo que o bem tenha sido gerado através de nota fiscal.
+ICMS Frete:
+ informar o valor, mesmo que o bem tenha sido gerado através de nota fiscal.
+SPED Contribuições
+Sai no SPED PIS/COFINS:
+ caso participe do SPED PIS/COFINS, deve marcar esta opção. Na inclusão de um novo produto, por padrão, já vem marcada esta opção.
+Centro de Custo SPED:
+ obrigatório informar para o SPED Fiscal - bem alocado na área Administrativa ou Operacional.
+Funcionalidade:
+ obrigatório informar para o SPED Fiscal - descrever a função/utilização do bem.
+Origem Bem:
+ por padrão é 1 (sequencial) que indica 0 - Aquisição no Mercado Interno. Utilizado para o SPED PIS/COFINS: registro F120.
+Tipo de Utilização: 
+ por padrão é 4 (sequencial) que indica 9 - Outros. Utilizado para o SPED PIS/COFINS: registro F120.
+Tipo de Bem: 
+pode ser classificado como Individual, Principal e componente.
+Individual:
+ podemos dizer que é aquele bem que ja foi comprado pronto, por exemplo uma mesa, cadeira
+Bem Principal:
+ é o bem oriundo da composição de outros bens, sejam bens físicos ou não.
+Bem Componente:
+ é o bem, ou conjunto de bens, que irá compor um bem principal. 
+Bem principal:  
+quando o tipo de bem for componente informar o código de qual bem principal este bem pertence. 
+Os itens acima podem ser sugeridos através da tabela 
+Produtos do SisPetro Controladoria
+.
+E também na parte inferior da tela pode-se optar visualizar a movimentação do bem selecionado. Para isso, clique no painel 
+Movimento
+. Será apresentada a tela a seguir:
+Serão apresentados os dados de movimentação do tipo Depreciação ou Baixa que este bem participou. Por padrão o sistema exibe a movimentação de um ano atrás, mas é possível alterar a data inicial do filtro e em seguida clicar no botão 
+Atualiza
+ para visualizar a movimentação a partir da nova data informada.
+Aba 
+NF Comodato/Outros, 
+controla o vinculo de notas de Remessa e Retorno de Comodato, possibilitando o vinculo manual através do botão 
+Vincula
+ ou desvincular uma nota já existente através do botão 
+Desvincula
+.
+#NF: 
+número da nota fiscal vinculado ao comodato.
+Data NF: 
+data da nota fiscal vinculado ao comodato.
+#Produto: 
+código do produto comodato.
+#Entidade: 
+código do fornecedor.
+Razão Social: 
+razão social do fornecedor.
+Tipo Pedido: 
+tipo da operação realizada no SisPetro.
+ES: 
+operação de entrada ou saída.
+Preço Real: 
+valor do comodato informado na inclusão da nota fiscal.
+Qtde: 
+quantidade do comodato.
+Valor Produtos: 
+valor do produto informado na nota fiscal.
+Valor NF: 
+valor total da nota fiscal.
+#Empresa: 
+código da empresa/filial.
+Descrição: 
+descrição do produto informado na nota fiscal.
+Sequencial: 
+sequencial de registro de inclusão de nota fiscal.
+Data Movto: 
+data de movimento da nota fiscal.
+Cancelada: 
+informa se a nota fiscal está cancelada.
+#Item: 
+número do item na nota fiscal.
+Descrição NF Nat. Operação: 
+descrição da natureza de operação utilizada na inclusão da nota fiscal.
+CFOP: 
+código da operação fiscal da nota fiscal.

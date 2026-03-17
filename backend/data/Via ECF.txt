@@ -1,0 +1,19 @@
+TITULO: Via ECF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899538
+--------------------------------------------------
+No SisPetro, temos a emissão de Cupom Fiscal pela impressora Bematech, mas como essa funcionalidade está em desuso pelos nossos clientes, a partir da versão 8.6 
+foi retirada do sistema. Sendo assim a DLL da Bematech não esta mais funcionando, para gerar dados para Registro 60, deve-se incluir via 
+ ou 
+.
+ 
+A obtenção de dados via ECF (Emissor de Cupom Fiscal) só é permitida quando o Cupom Fiscal está devidamente configurado no SisPetro (inclusive com uso de DLL específica). Quando assim, é possível obter dados do Registro 60 por dois modos:
+Pelo menu Movimentação/Faturamento/Cupom Fiscal/Registro 60
+Pelo botão 
+Gera
+ da 
+Manutenção de Registro 60
+Não será apresentada tela, somente questionamentos/informações: 
+ 1. Não será permitida a geração do Registro 60 com cupom em aberto.
+2. Será avisado caso haja pouco papel na impressora fiscal.
+3. Não será permitida a geração do Registro 60 antes de uma Redução Z, sendo questionado se quer fazer a Redução antes.
+4. Não será permitida a geração do Registro 60 após uma Redução Z, mas com o dia já fechado.

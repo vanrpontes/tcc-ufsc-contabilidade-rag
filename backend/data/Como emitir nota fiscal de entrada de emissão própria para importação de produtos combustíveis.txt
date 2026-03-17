@@ -1,0 +1,61 @@
+TITULO: Como emitir nota fiscal de entrada de emissão própria para importação de produtos combustíveis
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926187564
+--------------------------------------------------
+Normalmente, em uma Nota Fiscal, o valor total da NF segue o seguinte cálculo:
+Valor dos Produtos 
+ ICMS ST 
+ Seguro 
+ Despesas Acessórias 
+ Frete = Valor Total da NF
+ 
+Em uma nota fiscal de importação de produtos, o cálculo considera, além dos valores acima, outros valores previstos em legislação:
+Valor dos Produtos 
+ ICMS ST 
+ Seguro 
+ Despesas Acessórias 
+ Frete 
+ ICMS Próprio 
+ PIS 
+ COFINS 
+ CIDE = Valor Total da NF
+A partir da versão 9.3, o SisPetro permite, mediante configurações, somar os valores de ICMS Próprio, PIS, COFINS e CIDE no valor total da nota fiscal.
+ 
+Na versão 9.3, o SisPetro não efetua cálculos dos Outros Impostos, devendo o usuário informar os valores manualmente no momento da inclusão da nota.
+Configurações necessárias:
+: cadastrar Outros Impostos do tipo MANUAL
+: 
+indicar se deve somar o ICMS Próprio no valor total da nota e/ou se o usuário pode informar Outros Impostos na inclusão da nota
+: 
+configurar Outros Impostos do tipo MANUAL na natureza de operação
+Incluindo uma nota fiscal de importação
+Em Menu Faturamento > Outras Entradas
+ ou 
+Menu Estoque > Entradas > Recebe:
+Informe os dados:
+Tela 1 - Dados do fornecedor e natureza de operação:
+Tela 2 - Endereço do comprador
+Tela 3 - Dados da nota fiscal e outras condições
+Tela 4 - Dados de frete e outros dados
+Tela 5 - Observações da Nota, Informações Complementares e Informações ao Fisco
+Tela 6 - Dados do produto
+Tela 7 - Dados de Outros Impostos
+Selecione um imposto e clique no botão ALTERA para informar os valores. Repita o processo para todos os impostos que queira incluir na nota fiscal.
+Caso queira excluir um dos impostos, selecione o imposto e clique no botão EXCLUI.
+Caso exclua um dos impostos indevidamente, cancele a inclusão da nota e inclua novamente.
+ 
+Incluídos todos os Outros Impostos, clique em Avançar até a finalização da nota fiscal.
+Manutenção de Notas Fiscais
+Na tela de 
+Manutenção de Nota Fiscal
+ é possível consultar 
+ incluídos na nota fiscal. 
+No caso de Outros Impostos do tipo MANUAL NÃO É POSSÍVEL Editar, Excluir ou Copiar, pois uma vez informados fazem parte do valor total da nota fiscal.
+ 
+Outros Impostos do tipo MANUAL podem ser editados na inclusão da nota mas não podem ser editados na tela de Manutenção de Nota Fiscal. 
+Outros Impostos do tipo ALÍQUOTA ou FÓRMULA não podem ser editados na inclusão da nota mas podem ser editados na tela de Manutenção de Nota Fiscal. 
+ 
+ 
+ 
+ 
+ 
+ 

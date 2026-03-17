@@ -1,0 +1,69 @@
+TITULO: Serviço de PIX Recebidos - Bancos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2972222398
+--------------------------------------------------
+none
+Objetivo
+Foi criado o 
+Serviço de PIX Recebidos - Bancos, 
+ que 
+executa consulta de recebimentos PIX através da API de integração com o Banco.
+Como Utilizar
+Para habilitar deve-se acessar o 
+Controlador Hermes
+, 
+na aba
+ Serviços, 
+selecionar 
+PIX Recebidos - Bancos 
+e clicar em 
+Edita parâmetros
+Será aberta a tela de configurações para informar os dados necessários:
+Intervalo Entre as Execuções:
+ de 
+quanto em quanto tempo 
+(a cada dez minutos, por exemplo) o serviço irá consultar junto a API do Banco se há novos pagamentos.
+Horário de Execução:
+ entre 
+quais horas
+ (das 08:00 as 18:00, por exemplo) é para o serviço funcionar.
+Executar Automaticamente Quando Servidor for Iniciado
+: parâmetro que define se o serviço deve ser iniciado sempre que o 
+Servidor Hermes
+ for iniciado.
+Usuário:
+ informar um usuário cadastrado no SisPetro.
+Minutos Anteriores a Consulta: 
+tempo anterior para busca de dados a partir da última consulta.
+Esse tempo é importante para evitar que, devido diferença de horário entre Banco e o Servidor da empresa, algum PIX fique de fora da consulta. Sendo assim, se estiver configurado 60 minutos e a última consulta foi às 10:00, o SisPetro solicitará PIX a partir das 9:00. Se o SisPetro solicitasse PIX a partir das 10:00 e o Banco tivesse alguma diferença de horário ou PIX feitos às 10:00, mas com diferenças de segundos, alguns recebimentos poderiam ficar de fora. Já solicitando PIX a partir das 9:00 é possível que venham PIX que já foram lidos na última consulta. Se for o caso, o SisPetro o desprezará, mas é melhor vir a mais e desprezarmos os repetidos, do que vir recebimentos a menos.
+Caso houver a necessidade de aumentar para mais de 03 dias a consulta, o serviço de PIX Recebidos, será feito somente mediante a autorização da gerência
+Clique em 
+ para salvar as configurações e sair da tela.
+Clique em 
+ para não salvar as configurações e sair da tela.
+Após configurado o serviço, na tela principal do 
+Controlador Hermes
+, clique em
+ 
+ para verificar se todas as configurações estão corretas.
+Clique em 
+ para ativar o serviço. Caso a opção 
+Executar Automaticamente Quando Servidor for Iniciado 
+estiver 
+desmarcada
+, ao reiniciar o 
+Servidor Hermes
+, o serviço ficará desativado.
+Clique em 
+ para desativar o serviço. Caso a opção 
+Executar Automaticamente Quando Servidor for Iniciado 
+estiver 
+marcada
+, ao reiniciar o 
+Servidor Hermes
+, o serviço ficará ativado.
+Clique em
+ 
+ para forçar a execução do serviço, independente do intervalo e do horário de execução.
+Para configurar a comunicação com a API, acesse a 
+Tabela Bancos
+.

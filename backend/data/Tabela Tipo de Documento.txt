@@ -1,0 +1,133 @@
+TITULO: Tabela Tipo de Documento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210607
+--------------------------------------------------
+none
+Objetivo 
+O cadastro de Tipos de Documento define modelos usados em processos financeiros do SisPetro, permitindo configurar impressão, validações, geração de adiantamentos, participação no SPED, vínculos com GNRE/Notas Fiscais e regras de apuração. Também possibilita definir cálculos de descontos/acréscimos e outras parametrizações que impactam Contas a Pagar/Receber, emissão de NF e obrigações acessórias.
+Nesta tabela são cadastrados os tipos de documentos a serem utilizados em diversos processos do SisPetro.
+A tela que permite manipular esta tabela é acionada a partir do Menu principal com as opções - Tabelas Auxiliares / Financeiro / Tipo Documento:
+Aba Navegação
+Itens inativos agora ficarão destacados em 
+vermelho
+Para acrescentar um novo tipo de documento à tabela, acione o botão de inclusão de registro:
+O SisPetro exibe a tela para preenchimento dos novos dados.
+Aba Detalhes
+Será necessário preencher os campos da tabela, são eles:
+Descrição:
+ texto que denomine o documento.
+Ativo:
+ indica se este tipo de documento pode ser utilizado.
+Imprime documento associado:
+ quando marcado, esta opção permite que, na tela de Contas a Pagar ou Receber, ao ser utilizado este tipo de documento, seja possível imprimir um documento complementar com informações referentes a este documento, em conjunto com dados do lançamento.
+Nome do arquivo de layout:
+ informe o nome do arquivo com extensão .rtm a ser utilizado. Utilize o botão 
+Procura
+ para localizar o arquivo na estrutura de diretórios e o botão 
+Edita Layout
+ para editá-lo.
+Local de Impressão:
+ o SisPetro sugerirá a impressora padrão. Utilize o botão 
+Redefinir
+ para escolher uma impressora entre as impressoras cadastradas para o seu micro.
+Valida valor do movimento associado:
+ indica se nas transações que utilizam este tipo de documento e que listam cheques, se o valor dos cheques deverá ser igual ao valor do movimento da transação em questão.
+Gera Adiantamento:
+ se, no momento da 
+Inclusão do Contas a Pagar
+, este tipo de documento irá sugerir que o lançamento deve gerar um adiantamento ao Fornecedor informado. Este campo só estará disponível para edição caso o perfil de Sistema, painel Financeiro, esteja marcada a opção 
+Habilita Geração Autom. de Adiantamento pelo Financeiro
+. Para mais informações, ver 
+Painel Financeiro
+.
+Permite agendamento de pagamentos:
+ indica se o título do Contas a Pagar com este tipo de documento pode ter 
+Pagamento Eletrônico
+.
+Participa no SPED EFD
+: informe o registro correspondente que deseja incluir no SPED, podendo participar os registros do C112 ou do E230. Para mais informações, ver  
+Documentos de Arrecadação SPED
+.
+Documento de Arrecadação:
+ para declaração no Anexo/SCANC de todos os títulos do Contas a Pagar cujo tipo de documento esteja configurado com esta opção, indicando assim que tais títulos referem-se a GNRE. Para mais informações, ver 
+Inclusão do Contas a Pagar manual
+. Para cada categoria de produto pode ser indicado um tipo de GNRE, ou seja, incluir um tipo de documento GNRE de acordo com o produto, por exemplo: Gasolina, deve-se criar uma GNRE de Gasolina e assim por diante, ou então, incluir uma GNRE de Diversos Produtos, conforme as opções abaixo:
+               Para mais informações, ver 
+Manutenção de Anexos
+ 
+Na inclusão de Título: 
+para vincular a GNRE com a Nota Fiscal no momento da inclusão do título manual.
+Sem Ação:
+ não efetua o vínculo.
+Sugere abrir tela de vínculo com a Nota Fiscal:
+ habilita campo para vinculo com NF. Para mais informações, ver  
+Manutenção de NF's
+.
+Força vínculo com Nota Fiscal:
+ força o vínculo com a NF.
+Na Baixa de Título: 
+para preenchimento dos campos de autenticação no momento da baixa do título.
+Sem Ação:
+ não efetua o preenchimento.
+Sugere preenchimento dos campos de autenticação:
+ habilita campo para preenchimento da autenticação.
+Força preenchimento dos campos de autenticação:
+ força o preenchimento da autenticação.
+Títulos retenção participam DIRF: 
+indica se os títulos de retenção irão participar ou não do DIRF.
+Dados para Apuração:
+ Nos campos de 
+dados para apuração
+ preenchemos o 
+tipo de apuração
+ e o
+ Histórico da apuração
+ a ser utilizado na apuração fiscal, esses perfis são utilizados quando é utilizado a opção de gerar apurração para o E230. Previamente configurado no campo 
+Participa no SPED EFD
+Tipo de Apuração: 
+nesse campo informamos o tipo de apuração à ser utilizado na apuração fiscal. Para mais informações, ver 
+Incluindo Apuração Fiscal
+.
+Histórico da Apuração: 
+nesse campo informamos o Histórico a ser utilizado na apuração fiscal. Para mais informações, ver 
+Incluindo Apuração Fiscal
+.
+Calcula desconto/Acréscimo:
+ indica se quando este documento for utilizado na tela de Contas a Pagar ou Receber ou na emissão de uma Nota Fiscal se deverá fazer algum cálculo de desconto ou acréscimo. Quando marcada é necessário informar inclusive o 
+Grupo de Contabilização
+ para definição das fórmulas (cada grupo habilita determinados campos de tabelas para utilização em fórmulas). A seguir, informe os descontos/acréscimos desejados. Para isso você deverá utilizar descontos cadastrados na tela 
+Tabela Tipos de Desconto
+, sendo que a digitação de uma fórmula para cálculo do desconto só será permitida para descontos do tipo 
+Fórmula
+ e a digitação de uma fórmula para cálculo da base de cálculo só será permitida para descontos do tipo 
+Fórmula
+ ou 
+Tabela Progressiva
+. Utilize o botão 
+Inclusão e Exclusão
+ para incluir/excluir descontos. 
+Envia Retenção na tag<retTrib>:
+ quando marcado irá enviar a tag rettrib informando a retenção da tributação.
+ Para mais informações, ver:
+ 
+Desconto em venda de Órgão Público (Retenção)
+Classificação de desconto: 
+poderá informar a qual desconto se refere a tributação.
+As informações configuradas nesta etapa também influencia para o registro F600 (SPED ICMS/IPI), para mais informações: 
+Configuração para Retenção de PIS/COFINS e REINF R-4020 por Nota Fiscal.
+Na digitação de fórmulas será exibida a tela a seguir: 
+Nesta tela é possível escolher qual o campo que será utilizado, podendo fazer expressões entre campos ou valores. Atente-se para escolher um campo que armazene realmente a informação desejada e para fazer cálculos entre campos com tipos compatíveis. 
+Clique no botão 
+OK
+ para retornar à tela de Tipo de Documento.
+Quando for para inclusão de Desconto na Nota Fiscal, 
+só podem utilizar campos da tabela NotaFiscal.
+Acione o botão 
+OK
+ para atualizar os dados no SisPetro.
+O SisPetro retorna a tela de navegação.
+Para retornar ao Menu principal acione o botão 
+Sair
+:
+Para mais informações, ver 
+Cálculo de Descontos/Acréscimos
+.

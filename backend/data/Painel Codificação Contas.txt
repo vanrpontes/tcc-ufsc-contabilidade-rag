@@ -1,0 +1,119 @@
+TITULO: Painel Codificação Contas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/3957817550
+--------------------------------------------------
+Neste painel são configuradas as contas contábeis gerenciais, a contabilização de adiantamentos e uso de conta auxiliar
+O acesso a essa tela se dá através de Ferramentas / Sistemas / Codificação Contas
+Código Conta Automático
+Caso seja marcada a opção, na inclusão de contas contábeis gerenciais, os 2 primeiros dígitos do campo Código Conta do Plano de Contas Gerencial, serão gravados conforme campos Prefixos de cada de tipo de conta. Com exceção dos 2 primeiros dígitos, os demais são gerados automaticamente pelo SisPetro e ordem sequencial.
+O código da conta tem o tamanho máximo de 7 dígitos, podendo ser números ou letras (não utilizar caracter especial).
+As contas contábeis gerenciais tem divisões entre os tipos de contas para atender situações específicas usadas pelo SisPetro.
+Exemplo:
+ contas de Banco são contas de Ativo, mas no SisPetro são separadas e tem seu próprio prefixo. Isso é para facilitar a identificação dessas contas em determinadas telas do SisPetro.
+Os prefixos podem ser alterados de acordo com as necessidades de cada empresa. No SisPetro, por padrão, são adotados os seguintes prefixos:
+Prefixo ATIVO: 01
+ - todas as contas do tipo Ativo iniciarão com 01.
+Exemplo:
+ Ativo Circulante: 0100000
+Prefixo PASSIVO: 02
+ - todas as contas do tipo Passivo iniciarão com 02.
+Exemplo:
+ Passivo Circulante: 0200000
+Prefixo BANCOS: BC
+ - todas as contas do tipo Banco iniciarão com BC.
+Exemplo:
+ Banco 999: BC00999
+Prefixo RESULTADO: RS
+ - todas as contas do tipo Resultado iniciarão com RS.
+Exemplo:
+ Ajustes de Saldos: RS00001
+Prefixo RECEITA: 06
+ - todas as contas do tipo Receita iniciarão com 06.
+Exemplo:
+ Receita de Vendas: 0600001
+Prefixo DESPESA: 04
+ - todas as contas do tipo Despesa iniciarão com 04.
+Exemplo:
+ Despesa com Armazenagem: 0400001
+Prefixo CUSTO: 03
+ - todas as contas do tipo Custo iniciarão com 03.
+Exemplo:
+ Custo de Venda: 0300001
+Prefixo C PAGAR: CP
+ - todas as contas do tipo Contas a Pagar iniciarão com CP.
+Exemplo:
+ Imposto a Pagar: CP00001
+Prefixo C RECEBER: CR
+ - todas as contas do tipo Contas a Receber iniciarão com CR.
+Exemplo:
+ Receitas Diversas: CR00001
+Habilita Contabilização Gerencial Adiantamentos c/ Conta Diferenciada
+Caso seja marcada, permite selecionar como os adiantamentos de clientes e os adiantamentos a fornecedores serão contabilizados:
+Adiantamento Cliente/Fornecedor
+Fixo: 
+será utilizada uma única conta contábil para cada tipo de adiantamento
+Conta Gerencial p/ Clientes:
+ informe a conta contábil gerencial analítica de adiantamento de clientes
+Conta Gerencial p/ Fornecedores:
+ informe a conta contábil gerencial analítica de adiantamento a fornecedores
+Nota:
+ essa opção deve ser utilizada com cuidado, pois todos as adiantamentos ficarão agrupados e não há como saber a quem pertence cada adiantamento. Em eventual análise, não será possível determinar ou mesmo confrontar com os relatórios de adiantamento do módulo Financeiro.
+Uma conta por Entidade:
+ cada cliente/fornecedor terá sua própria conta contábil
+Clientes
+ 
+Prefixo:
+ informe o mesmo prefixo definido para as contas do tipo Passivo ou pode informar um outro prefixo
+Ramo para a Contabilidade Real:
+ para quem utiliza o módulo SisPetro Controladoria
+Selecione o código de conta reduzido da conta sintética de Adiantamento de Clientes
+Fornecedores
+Prefixo:
+ informe o mesmo prefixo definido para as contas do tipo Ativo ou pode informar um outro prefixo
+Ramo para a Contabilidade Real:
+ para quem utiliza o módulo SisPetro Controladoria
+Selecione o código de conta reduzido da conta sintética de Adiantamento a Fornecedores
+As contas contábeis analíticas de adiantamentos serão criadas automaticamente abaixo desses códigos
+Gera somente se movimentar a conta:
+ recomendado utilizar esta opção. A conta de adiantamento será criada somente quando incluir um adiantamento.
+Gera sempre na inclusão da Entidade:
+ ao cadastrar um cliente ou um fornecedor, a conta de adiantamento será criada. O plano de contas ficará com muitas contas contábeis de adiantamento desnecessariamente.
+Gera a conta agora para todas as Entidades:
+ caso clique neste botão, serão geradas contas de adiantamento para todos os clientes e todos os fornecedores cadastrados. 
+Usar com muito cuidado esta opção.
+Conta Auxiliar Cliente/Fornecedor
+Utilizadas para relatórios ou códigos de contabilização
+Utilizadas também para controles internos
+Exemplo:
+ cliente tem uma conta em que são contabilizadas manualmente algumas situações (comodatos, fretes, etc...). No cliente é configurada essa conta (em notas de entradas ou em notas de saídas) e posteriormente podem ser consultados todos os lançamentos que utilizaram essa conta nesse cliente.
+São configurações manuais e nada é gerado automaticamente
+Fixo: 
+será utilizada uma única conta contábil para cada tipo de adiantamento
+Conta Gerencial p/ Clientes:
+ informe a conta contábil gerencial analítica da conta auxiliar
+Conta Gerencial p/ Fornecedores:
+ informe a conta contábil gerencial analítica da conta auxiliar
+Nota:
+ essa opção deve ser utilizada com cuidado, pois todos as contas auxiliares ficarão agrupadas e não há como saber a quem pertence cada uma.
+Uma conta por Entidade:
+ cada cliente/fornecedor terá sua própria conta contábil
+Clientes
+ 
+Prefixo:
+ informe um prefixo 
+Ramo para a Contabilidade Real:
+ para quem utiliza o módulo SisPetro Controladoria
+Selecione o código de conta reduzido da conta sintética da conta auxiliar
+Fornecedores
+Prefixo:
+ informe um prefixo
+Ramo para a Contabilidade Real:
+ para quem utiliza o módulo SisPetro Controladoria
+Selecione o código de conta reduzido da conta sintética da conta auxiliar
+As contas contábeis analíticas auxiliares serão criadas automaticamente abaixo desses códigos
+Gera somente se movimentar a conta:
+ recomendado utilizar esta opção. A conta auxiliar será criada somente se utilizada.
+Gera sempre na inclusão da Entidade:
+ ao cadastrar um cliente ou um fornecedor, a conta auxiliar será criada. O plano de contas ficará com muitas contas contábeis desnecessariamente.
+Gera a conta agora para todas as Entidades:
+ caso clique neste botão, serão geradas contas auxiliares para todos os clientes e todos os fornecedores cadastrados. 
+Usar com muito cuidado esta opção.

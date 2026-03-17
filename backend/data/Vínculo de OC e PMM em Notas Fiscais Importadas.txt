@@ -1,0 +1,380 @@
+TITULO: Vínculo de OC e PMM em Notas Fiscais Importadas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2910487030
+--------------------------------------------------
+A importação de NF tem como finalidade agilizar o processo de inclusão de NF recebidas seja elas de entrada ou de saída, além de dar maior segurança às informações, tendo em vista que incluir uma nota manualmente permite erros de digitação. Porém, devido a necessidade de controlar o estoque, algumas empresas acabam não utilizando o processo de importação. No entanto não há no arquivo .XML da NFE de entrada (o mais comum a ser utilizado) uma forma de identificar automaticamente qual a OC ou qual o PMM a ser vinculado. Isso deverá ser informado manualmente pelo usuário. O objetivo desse tópico é explicar como importar uma NF vinculando a uma OC ou a um PMM.
+É  possível incluir um percentual de variação para o valor unitário da Nota Fiscal x Valor da OC/PMM, na Natureza de Operação. Essa nova opção foi criada para facilitar a entrada de notas onde a mesma contenha arredondamentos nos valores unitários. Para mais informações, ver 
+Natureza de Operação
+.
+O vínculo será realizado pela 
+Manutenção de Importação de Notas Fiscais
+, através dos botões OC e PMM na aba Notas Fiscais a serem processadas.
+É possível selecionar quais os campos que o usuário deseja mostrar na aba de Notas Fiscais a serem processadas. Para isso basta clicar nas áreas indicadas conforme imagem acima e marcar ou desmarcar os campos conforme desejado.
+Na parte superior, são os dados de cabeçalho da Nota Fiscal.
+Na parte inferior, são dos dados dos itens da Nota Fiscal.
+Cabeçalho da Nota Fiscal
+Foram adicionados 3 novos campos:  Transportadora (descrição), Motorista (descrição) e Placa do Frota.
+Itens da Nota Fiscal
+Para que o vínculo seja realizado corretamente, alguns pré-requisitos serão necessários:
+Há várias informações que ligam a OC e o PMM a uma NF. Vamos separar em grupos:
+Informações para Permissão de Vínculo
+Produto
+Entidade
+Depósito
+Essas informações serão utilizadas para filtrar a OC ou o PMM para permitir o vínculo com a NF. Ou seja, não há como vincular uma OC ou PMM de produto, entidade ou depósito diferentes.
+Informações cadastrais 
+Frota (Toco, Truck, Carreta e Treminhão)
+Motorista
+Transportadora
+São informações que, apesar de serem utilizadas da OC, podem ser sobrepostas com aquelas que vêm da NF. Para essas informações tem um perfil na Natureza de Operação (veremos mais abaixo) para indicar se deve utilizar os dados da Nota Fiscal sem verificar os dados da OC ou parar o processo caso a Nota Fiscal tenha esses dados diferentes da OC.
+Informações de valores
+Frete
+Preço
+Mesmo caso do Frota, Motorista e Transportadora. Teremos um perfil de Natureza de Operação para definir se será comparado o preço da OC / PMM x Nota Fiscal importada (veremos detalhes dos perfis mais abaixo).
+Informações diversas
+Unidade de medida do produto
+É fundamental que o produto tenha a mesma unidade de medida na NF que foi utilizada na OC. Sendo assim, caso não tenha, será travado o processo de Importação. Veja mais abaixo o perfil de natureza sobre unidade de medida.
+Natureza de Operação
+Conforme já citado, na 
+Natureza Operação
+ na aba 
+Importação NF (Painel Geral)
+, temos alguns perfis necessários para essa funcionalidade. 
+Unidade de Medida Utilizada na Importação:
+ Para mais informações, ver 
+Natureza Operação
+.
+Subgrupo Vínculo de PMM e OC
+Tipo de Vínculo
+Nenhum:
+ durante a importação não será solicitado o vínculo com OC ou PMM.
+OC (Compra e Carregto/Descarga Própria: 
+será obrigado a vincular a NF importada a uma Ordem de carregamento.
+PMM (Pedido de Movimentação de Material:
+ será obrigado a vincular a NF importada a um PMM.
+OC Terceiros (Armazenagem): 
+será  obrigado a vincular a NF importada uma Ordem de 
+Descargas de Terceiros.
+Obs.: Nas notas de saída não é possível realizar os vínculos de PMM e OC. 
+Vínculo Automático OC na Importação
+Não vincula: 
+não vincula a OC na importação de NF.
+Vincula e aguarda confirmação: 
+vincula a OC e aguarda a confirmação para concluir.
+Vincula e libera processamento: 
+vincula e continua com o processamento
+Dados Frota
+Interrompe processo se dados OC/PMM estiverem diferentes da NF:
+ os dados entre OC/PMM e a NF importada serão validados e caso exista divergência o processo será interrompido.
+Utiliza Frota da NF independente da OC/PMM: 
+caso existam divergências, serão gerados apenas avisos e o processo poderá continuar.
+Utiliza Frota da OC independente da OC/PMM: 
+se esta opção estiver configurada, o sistema salva o frota informado na OC, na NF.
+Preço unitário
+Interrompe processo se preço unitário da OC/PMM estiver diferente da NF: 
+os dados entre OC / PMM e a NF importada serão validados e caso exista divergência o processo será interrompido.
+Utiliza preço unitário da NF independente do preço da OC/PMM: 
+caso existam divergências, serão gerados apenas avisos e o processo poderá continuar.
+Aceita um % de variação em relação a OC/PMM (menor ou maior):
+ utilizando essa opção, o SisPetro aceitará um percentual de variação informado no campo 
+Variação no Preço (OC/PMM)
+.
+Frete unitário
+Interrompe processo se frete unitário da OC/PMM estiver diferente da NF: 
+os dados entre OC/PMM e a NF importada serão validados e caso exista divergência o processo será interrompido.
+Utiliza frete unitário da NF independente do frete da OC/PMM: 
+o frete que estiver na NF irá sobrepor o frete informado na OC ou PMM.
+Utiliza frete unitário do PMM/OC independente do frete do XML:
+ o frete que estiver na OC ou PMM irá sobrepor o frete informado no XML.
+Depósito:
+Utiliza depósito informado para NF: 
+permite vincular OC cujo depósito destino seja igual ao depósito da Nota Fiscal
+Utiliza depósito da OC sempre: 
+caso este perfil seja habilitado, será apresentada todas as OC, mesmo que o depósito destino e origem sejam diferentes que o da Nota Fiscal, mas o usuário 
+não poderá alterar o depósito do XML
+, (clicando no botão 
+).
+Dados Motorista
+Interrompe processo caso Motorista da OC seja diferente da NF: 
+os dados entre OC e a NF importada serão validados e caso exista divergência o processo será interrompido.
+Utiliza Transportadora da NF independente da OC: 
+a transportadora que estiver na NF irá sobrepor a Transportadora informada na OC.
+Utiliza Motorista da OC independente da NF:
+ o Motorista que estiver na OC irá sobrepor o que estiver informado na NF.
+Data de Movimento X Data Saída Base
+Não alterar: 
+não realiza a alteração da data de movimento da nota.
+Obter da data de saída da base - impede processo caso não exista OC/Carregamento: 
+ao realizar o vinculo da OC na nota fiscal a data de movimentação da nota vai ser substituída pela data de movimento informada no carregamento, esse perfil bloqueia a importação caso a OC não tenha sido carregada. 
+Obter da data de saída da base caso exista OC/Carregamento:
+ ao realizar o vinculo da OC na nota fiscal a data de movimentação da nota vai ser substituída pela data de movimento informada no carregamento, caso a OC não tenha carregamento a nota mantem a data de movimentação informada no XML.
+Vinculando uma Ordem de Carregamento
+Acionando o botão 
+OC 
+na tela de importação (conforme mostrado no início desse tópico) será aberta a tela 
+Vínculo de OC a NF Importada.
+ 
+Esse botão só será habilitado se a Natureza de Operação da Nota estiver configurada para fazer vinculo com a OC.
+A tela de Vínculo de OC, apresentará alguns dados básicos da NF posicionada e os itens da NF.
+Ao posicionar no item da NF, na tela inferior serão mostradas as OC passíveis de vínculo (não faturadas, da mesma entidade, produto, etc). Será necessário escolher o item de OC desejado e clicar no botão Vincula.
+Após vincular uma OC em um dos itens da Nota, só será possível vincular itens da mesma OC na nota. 
+ Ou seja, só poderão ser vinculados itens da mesma OC numa NF. 
+É possível vincular uma mesma OC em vários itens da mesma nota fiscal, para isso basta utilizar a opção 
+Exibe OC já vinculada a outros Itens da NF
+ do campo de 
+Apresentação de OC
+.
+Após vincular a OC em um dos itens da nota, caso o perfil na tela esteja para exibir OCs já vinculadas a outros Itens da NF, a OC será apresentada com fundo em amarelo, e será permitido vincular essa OC em outro item da Nota.
+Existem 2 Perfis de Usuário para filtro das OC's que são mostradas na tela no momento do vínculo:
+Ferramentas / Usuário / aba Perfil / aba Inferior Faturamento / campo 
+Exibe OC's com Data Menor ou Igual a NF.
+Quando esse perfil estiver marcado, serão mostradas na tela de vínculo com a NF somente as OC's com Data Menor ou Igual a Data da NF, ou seja, OC's com data maior que a data da NF não estarão mais disponíveis para vínculo.
+Ferramentas / Usuário / aba Perfil / aba Inferior / Faturamento / campo 
+ 
+Exibe OC' com a Mesma Placa da NF
+Quando esse perfil estiver marcado, serão mostradas na tela de vínculo com a NF somente as OC's que tenham o mesmo Frota utilizado na Nota Fiscal
+.
+Os dois perfis podem ser usados combinados.
+Ex: Criados 4 cenários de combinações para vínculo com uma NF do dia 18/07 e Frota AAA0000.
+OC: 605 / Data OC: 18/07 / Frota: AAA0000
+OC: 607 / Data OC: 17/07 / Frota: AAA0000
+OC: 608 / Data OC: 18/07 / Frota: AHF6990
+OC: 609 / Data OC: 19:07 / Frota: AAA0000
+Combinações de Perfis:
+Perfil Data
+Perfil Placa
+
+
+
+
+1
+
+
+complete
+
+
+Exibe OC's com Data Menor ou Igual a NF
+
+
+
+
+
+
+
+
+2
+
+
+incomplete
+
+
+Exibe OC' com a Mesma Placa da UF
+
+
+
+
+Não exibe apenas a OC 609.
+
+
+
+
+3
+
+
+incomplete
+
+
+Exibe OC's com Data Menor ou Igual a NF
+
+
+
+
+
+
+
+
+4
+
+
+complete
+
+
+Exibe OC' com a Mesma Placa da UF
+
+
+
+
+
+
+5
+
+
+incomplete
+
+
+ 
+
+
+
+
+Mostra as OC's 605, 607 e 609, que utilizam o mesmo Frota da NF.
+
+
+
+
+6
+
+
+complete
+
+
+Exibe OC's com Data Menor ou Igual a NF
+
+
+
+
+
+
+
+
+7
+
+
+complete
+
+
+Exibe OC' com a Mesma Placa da UF
+
+
+
+
+
+
+8
+
+
+incomplete
+
+
+ 
+
+
+
+
+Mostra as OC's 605 e 607, que utilizam o mesmo Frota da NF e possuem data menor que da NF.
+
+
+
+
+9
+
+
+incomplete
+
+
+Exibe OC's com Data Menor ou Igual a NF
+
+
+
+
+
+
+
+
+10
+
+
+incomplete
+
+
+Exibe OC' com a Mesma Placa da UF
+ 
+
+
+
+
+Mostra todas as OC's.
+Perfil 
+É a última NF da OC?
+:
+ 
+Sinaliza que a Ordem de Carregamento vinculada a Nota Fiscal será faturada, e não poderá mais ser utilizada. Veja mais informações no tópico 
+.
+Este ficará 
+Desabilitado
+ e 
+marcado
+ quando a Natureza de Operação não estiver configurada para permitir associar a OC a mais de uma NF, impossibilitando o usuário de alterar este perfil. A Natureza 
+de Operação estando configurada, o perfil citado virá 
+Habilitado
+ e 
+marcado
+, permitindo ao usuário manter marcado ou desmarcar o mesmo
+. Veja mais informações sobre o perfil 
+Permite associar OC a mais de uma NF
+ no tópico sobre 
+Tabela Natureza Operação
+.
+É possível selecionar quais os campos que o usuário deseja mostrar na tela de OC, passíveis de vínculo. Para isso, basta clicar na área indicada conforme imagem acima e marcar ou desmarcar os campos conforme desejado.
+Nos campos disponíveis nos itens, existe a opção do campo de Chave de Acesso informada na Confirmação de OC. 
+Para estes casos a OC será apresentada no grid, destacada em negrito, quando a mesma for igual à Chave de Acesso da NF, 
+Será permitido que só se vincule uma OC caso a Chave de Acesso informada na Confirmação de OC seja a mesma chave de acesso da NF ou a OC esteja sem chave de acesso preenchida. 
+As regras para permitir o vínculo de uma OC são:
+Todas as NF:
+OC não canceladas
+OC não faturadas
+OC da mesma empresa da NF
+NF de Outras Saídas
+Só pode ser vinculada com OC de Carregamento Próprio
+Tem que ter o mesmo depósito que o Depósito de Origem da OC e mesma Entidade 
+Tem que ter número de itens igual ou menos que a OC e os produtos dos itens da NF devem ser os mesmos que os itens da OC
+NF de Outras Entradas, Compras: 
+Só podem ser vinculadas com OC de Descarga Própria ou Transferência entre Depósitos
+A Nota Fiscal de Compras, só pode ser vinculada a uma OC que tenha um PMM
+A Nota Fiscal de Outras Entradas, só pode ser vinculada a uma OC que 
+não
+ tenha um PMM
+Na OC de Descarga Própria tem que validar Depósito Origem e Entidade
+Na OC de Transferência entre Depósitos tem que validar Depósito Destino
+Tem que ter número de itens igual ou menos que a OC e os produtos dos itens da NF devem ser os mesmos que os itens da OC
+NF de Devolução de Cliente, NF de Venda, Complemento ou Devolução p/ Fornecedor
+Não permitirão vínculo com a OC, então a tela não é exibida
+NF de Outras Entradas, Armazenagem
+Só podem ser vinculadas com OC de Descarga de Terceiros
+OCs  não finalizadas
+Para as NF de Armazenagem o processo de importação de NFs deve ser executado através da 
+Importação de Nota Fiscal via Serviço
+.
+Vinculando com o PMM
+Melhoria
+É possível vincular o PMM aos Itens da nota de uma única vez, afim de permitir um vinculo mais rápido entre o PMM a NF.
+O vinculo do PMM só poderá ser efetuado com NF do Tipo Compras e com o PMM Tipo de Recebimento Via Recebimento direto do Fornecedor.
+O PMM deve ser da mesma empresa da NF
+O PMM deve ser da mesma Entidade
+O PMM deve estar aprovado
+O depósito do PMM deve ser o mesmo depósito da NF (neste caso o usuário não tem como alterar o depósito, só cancelando o PMM e incluindo novamente).
+A quantidade pendente do item do PMM deve ser maior ou igual à quantidade do item que está sendo vinculado.
+Esse botão só será ser habilitado se a Natureza de Operação da Nota estiver configurada para fazer vinculo com o PMM.
+Ao clicar no botão a tela de vinculo será apresentada.
+ 
+Melhoria
+A partir da versão 10.20 é possível que seja vinculado um item de PMM a mais de um item de Nota Fiscal no processo de importação
+No campo PMM selecione o PMM que deseja vincular aos itens da nota 
+Vincula PMM aos Itens: o
+s itens do PMM serão automaticamente vinculado aos respectivos itens de uma única vez.
+Vincula PMM ao Item: 
+uma nova tela será apresentada para que o usuário selecione item a item para o vinculo.
+Desvincula PMM do Item:
+ o usuário desvincula item a item, apenas um item de cada vez.
+Exibe Erros/Avisos: 
+faz a validação dos critérios para o vinculo do PMM.
+Após realizado todos os vínculos necessários, o processo de importação deve prosseguir normalmente.
+Importante
+PMM do tipo de recebimento via 
+Recebimento direto do Fornecedor
+ não é necessário um vínculo com uma OC, por esse motivo, é possível vincular diretamente a uma NF. Em caso de recebimento tipo 
+Transferência entre Depósitos
+, somente se a Natureza de operação estiver parametrizada para não movimentar estoque.
+O PMM de outros Tipos de Recebimento é necessário que seja vinculado a uma OC.
+Caso a empresa esteja configurada para trabalhar com grupo econômico de fornecedor, serão apresentados também os PMM´s e OC´s pertencentes ao Fornecedor representante do grupo econômico. Para mais informações, ver 
+Grupo Econômico - Fornecedores
+. 

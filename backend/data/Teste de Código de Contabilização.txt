@@ -1,0 +1,113 @@
+TITULO: Teste de Código de Contabilização
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210343
+--------------------------------------------------
+Ao ser clicado no botão de teste na tela de
+ 
+, é apresentada a tela a seguir:
+
+
+
+
+Dependendo do grupo contábil do código de contabilização selecionado para teste, será solicitado um dado para filtro:
+
+
+
+
+Faturamento:
+ Se a nota é de Entrada ou Saída (notas de saidas incluem conhecimento)
+
+
+
+
+
+
+Baixa:
+ Se é do Contas a Pagar ou Contas a Receber
+
+
+
+
+
+
+Inclusão de Crédito e Transferência de Crédito:
+ Se é de Cliente ou Fornecedor.
+
+
+
+
+
+
+Demais grupos contábeis:
+ não haverá solicitação de filtro.
+
+
+
+
+Informe os dados necessários:
+
+
+
+
+Tipo de teste:
+ escolha 
+lote
+ para testar o código quanto ao cabeçalho do código de contabilização (data, histórico, etc), 
+itens
+ para testar o código quanto às contas e valores informados e 
+centro de custo
+ para testar os centros de custos informados.
+
+
+
+
+
+
+Número de lançamentos para teste:
+ Quantidade de lançamentos (dados já cadastrados no sistema para cada grupo contábil específico) que serão apresentados para possível teste. Quanto menor o número, menor o tráfego e maior a performance.
+
+
+
+
+
+
+Período:
+ intervalo de datas para que sejam filtrados os dados para teste.
+
+
+
+
+Clique no botão 
+Traz Dados
+ para que o sistema apresente dados que atendam às informações acima, de acordo com o grupo contábil, serão retornados dados diferenciados, eis:
+
+
+Faturamento: Notas Fiscais
+
+
+
+
+Baixa:
+ Baixas efetuadas
+
+
+
+
+
+
+Inclusão de Crédito e Transferência de Crédito:
+ Adiantamentos cadastrados
+
+
+
+
+
+
+Lote gerencial, Despesas Extraordinárias e Transferências:
+ Lotes diversos
+
+
+
+
+Selecione um dos dados apresentados na parte superior da tela e clique no botão 
+Testa Dado Selecionado
+. De acordo com o tipo de teste escolhido será apresentado como será feita então a contabilização. No caso da existência de problema(s) no(s) relacionamento(s) entre as tabelas envolvidas no grupo de contabilização especificada para o "Código de Contabilização" em questão, fazendo com que nenhuma informação venha a ser apresentada ao pressionar o botão "Testa Dado", é apresentada uma mensagem alertando quanto a esse problema, para os demais erros que possam a ocorrer, referente a formulação, será apresentada uma mensagem de aviso do erro juntamente com a mensagem original do erro para pesquisa/solução.

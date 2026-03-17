@@ -1,0 +1,86 @@
+TITULO: Resumo Movimento Base
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899787
+--------------------------------------------------
+O acesso a esse relatório é através do Menu 
+Relatórios / Estoque / Resumo Movimento Base:
+Este relatório mostra uma posição de estoque em função dos fechamentos previamente realizados no SisPetro.
+O layout do relatório será gerado conforme o arquivo 
+ResumoMovimentoBase.rtm
+ que estiver no mesmo caminho do executável, sua existência é 
+imprescindível
+.
+Se a empresa desejar pode-se alterar o layout utilizando o botão 
+Edita Layout
+.
+Filtros
+É possível escolher alguns filtros neste relatório, sendo:
+Depósito/Produto ou ambos
+ Filial Específica
+ Período
+ Tipo de Estoque
+Escritural
+Físico
+Informe os filtros para obter os resultados desejados:
+Depósito:
+ informe qual o depósito desejado para obter informações sobre sua posição de estoque.
+Produto:
+ caso o filtro seja por produto, informe qual o produto desejado para obter informações sobre sua posição de estoque.
+Filial Específica:
+ marque essa opção se deseja obter a posição de estoque de uma única filial, sendo necessário informar o campo 
+Filial
+, resultando assim na apresentada somente da posição de estoque para a filial selecionada.
+Período:
+ informe a data inicial e final que será utilizada para filtrar a posição de estoque desejada.
+Estoque:
+ selecione qual tipo de estoque deseja obter as informações se escritural (faturamento) ou físico (ordem de carregamento que deram saída na portaria).
+Imprime Resumo Final:
+ disponível 
+apenas
+ quando o relatório não estiver marcado para filtrar de uma filial específica. Quando marcado, apresenta no final do relatório uma posição por produto/data de todas as filiais sumarizadas.
+Saldo Inicial e Final:
+ será 
+habilitado
+ somente quando o item 
+Imprime Resumo Final
+ estiver marcado, permitindo ao usuário que informe se os dados do resumo terão seus saldos filtrados em função da data escritural ou pela leitura de abertura do tanque, sendo que para o segundo caso (leitura de abertura do tanque), permite-se marcar o item 
+Despreza ajustes feitos através de rateio
+.
+Despreza ajustes feitos através de rateio:
+ no caso desta opção estar marcada o SisPetro irá realizar uma dedução da coluna 
+Ajustes
+ do relatório em função dos valores de rateio, além de uma dedução por consequência da coluna 
+Saldo Final
+.
+Filtra movimento do depósito de acordo com o estoque escolhido:
+ esta opção só será disponibilizada quando selecionado relatório por Produto. Caso o tipo de estoque esteja como 
+Físico
+, só serão apresentados os depósitos que forem Base Própria, e se o tipo de estoque estiver como 
+Escritural
+, serão apresentados apenas os depósitos de terceiros.
+Apresenta ultimo fechamento caso não haja fechamento no período informado:
+ no caso desta opção estar marcada, o Sistema trará a ultima posição de estoque para aquele produto/depósito anterior ao período informado.
+Apresentação do fechamento:
+ selecione qual o tipo de apresentação se deseja:
+Somente se tiver saldo final ou movimentação
+Sempre, independente se o saldo final e movimentação sejam zerados
+Somente se tiver saldo final
+Somente se tiver movimentação
+.
+Esse relatório permite ao usuário selecionar também quais dados serão mostrados junto com as informações acima podendo ser
+Dados de Armazenagem: 
+vem em conjunto com as opções:
+Exibe Limite de Descarga da Congênere: 
+ao selecionar esta opção, o SisPetro apresentará no relatório a informação do limite cadastrado para aquele produto na congênere e o limite disponível para descarga, que é o limite de descarga menos o saldo disponível a 20°.
+Exibe Lastro por Empresa configurado no Tanque: 
+ao selecionar esta opção, o SisPetro apresentará no relatório o lastro cadastrado no tanque do produto na congênere e o saldo do produto sem o lastro. 
+ou
+Dados de Custos: 
+vem em conjunto com as opções:
+Exibe Custo Médio: 
+irá mostrar a informação do custo na base incluindo a 
+coluna 
+Fech.Custo?
+ em forma de checkbox e o custo médio calculado.
+Clique 
+OK
+ para obter o relatório.

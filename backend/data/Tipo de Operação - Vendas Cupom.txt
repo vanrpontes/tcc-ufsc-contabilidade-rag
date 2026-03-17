@@ -1,0 +1,40 @@
+TITULO: Tipo de Operação - Vendas Cupom
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5124128800
+--------------------------------------------------
+Objetivo
+O objetivo principal é permitir a distinção entre vendas normais e vendas diferenciadas (sem Nota Fiscal real), algo comum em empresas de representação. Em alguns casos, a empresa não é distribuidora e não gera a Nota Fiscal, sendo necessário registrar o pedido de venda sem essa exigência.
+Este novo tipo de operação visa facilitar esse processo, sem a necessidade de ajustes manuais no SisPetro, especialmente no campo de Natureza de Operação, pelo faturista.
+Solução
+Foi criado o tipo de operação 
+Vendas Cupom
+, que será utilizado para pedidos de venda diferenciados. Esse tipo de operação será identificado facilmente no SisPetro, permitindo que a Natureza de Operação seja configurada de forma automática, sem necessidade de ajustes manuais. A solução abrange os seguintes pontos:
+Cadastro de Produtos:
+ Inclusão do tipo de operação vendas cupom.
+No qual poderá definir a natureza de operação quando for utilizado a 
+vendas cupom. 
+Para mais informações, ver 
+Natureza de Operação - Produto
+ 
+Pedido de Venda:
+ Inclusão de Vendas cupom como opção no campo 
+Tipo de Operação
+.
+Configuração Inicial
+Para que a solução funcione corretamente, os seguintes passos devem ser seguidos:
+Cadastro de Produtos:
+Acesse a aba Natureza de Operação no cadastro de produtos.
+Defina uma natureza de Operação configurada para o tipo de operação Vendas Cupom.
+Configuração de Perfis:
+Perfil de Empresa:
+ configure a empresa com o perfil 
+Emite Pedidos de Venda com Tipo de Operação Diferenciado
+. Este perfil permite alterar o tipo de operação, sendo possível a utilização tipo de operação Vendas Cupom.
+Perfil de Usuário:
+ habilitar o perfil 
+pode trocar tipo de operação no Pedido de Venda
+ aos usuários que terão permissão para alterar o tipo de operação nos pedidos de venda.
+Exemplos de Utilização
+Exemplo 1: Pedido de Venda com Tipo de Operação Vendas Cupom
+Um representante realiza um pedido de venda para um cliente sem a necessidade de emitir Nota Fiscal. O tipo de operação selecionado será Vendas cupom. O SisPetro, ao registrar esse pedido, não exigirá o ajuste manual da Natureza de Operação, uma vez que o tipo de operação já estará configurado para não requerer a Nota Fiscal.
+Exemplo 2: Pedido de Venda Normal com Tipo de Operação Padrão
+Em uma venda tradicional, em que a Nota Fiscal é gerada normalmente, o tipo de operação utilizado será o tipo de operação padrão. Neste caso, o SisPetro seguirá o fluxo habitual de emissão de Nota Fiscal, sem a necessidade de intervenção manual no campo Natureza de Operação.

@@ -1,0 +1,94 @@
+TITULO: Roteiro para Geração de Arquivo Morto
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4153311233
+--------------------------------------------------
+O que é
+O SisPetro tem mais de 20 anos de história e alguns clientes possuem bancos de dados com informações também a esse tempo. Com isso, o tamanho do banco de dados acaba sendo grande, seja para cópias, backups ou até mesmo para a performance de acesso. Como legalmente a empresa só é obrigada a manter 5 anos de dados, é possível retirarmos os dados antigos para poder ter um banco menor no dia-a-dia. Essa extração dos dados antigos é o que chamamos de 
+Arquivo Morto
+.
+Desta forma teremos o banco original, e o banco novo ao qual seguirá apenas com dados extraídos a partir da data de corte, este banco novo será menor para utilização no dia-a-dia. O banco anterior, contendo todos os dados, inclusive os dados até a data do trabalho, deve ser armazenado para consultas esporádicas de dados antigos. Veja o gráfico abaixo:
+Considerando que o tempo desejado para permanência dos dados seja de 5 anos, a empresa está trabalhando com o banco “A” e no final de 2021 ela aplica o trabalho de Arquivo Morto gerando o banco “B” que conterá dados a partir de 2016 e será utilizado até o final do ano de 2022.
+Em 2022, nesse banco “B” se aplica o trabalho de Arquivo Morto gerando o banco “C” que conterá dados a partir de 2017 e será utilizado até o final do ano de 2023 e assim sucessivamente.
+Para consultar dados de 2000 a 2015 deve usar o banco “A".
+Para consultar dados de 2016 deve usar o banco “B".
+Para consultar dados de 2017 a … deve usar o banco “C".
+Pré-Requisito
+Para geração do arquivo morto, é necessário que o SisPetro esteja na 
+versão 10.37
+ ou superior.
+Lista de Palavras Chave
+PASTA_BD_ORIGINAL: Pasta do banco de dados original
+PASTA_BD_NOVO: Pasta do banco de dados vazio 
+Passo a Passo para geração
+Inicialmente esse trabalho será feito por algum usuário com conhecimento de banco de dados e diretamente no dbisql. Futuramente poderemos ter uma interface mais amigável.
+É altamente recomendável que esse processo seja feito utilizando HD do tipo SSD, pois os processos de exportação de dados são executados com muito mais rapidez.
+Subir o Banco de Dados Original
+Verificar se existem baixas bloqueadas anteriores ao período da data de corte que será utilizada, para isso:
+Fazer o seguinte select: 
+Select b.CodEmpresa, cpr.NumLancamento, b.Tipo,b.DataProgDesbloqueio, b.NumBaixa, b.DtBaixa, ent.CodEnt, ent.RzSocial From Entidade as ent 
+  Inner Join ContasPagarReceber as cpr on ent.CodEnt = cpr.Comprador
+  Inner Join ItensBaixa as ibx on ibx.CodEmpresa = cpr.CodEmpresa and ibx.NumLancamento = cpr.NumLancamento
+  Inner Join Baixa b on ibx.CodEmpresa  = b.CodEmpresa and ibx.NumBaixa = b.Numbaixa
+Where ibx.Bloqueado = 1 
+  and ibx.Cancelado = 0 
+  and b.DtBaixa < DATACORTE order by b.codempresa,b.tipo,b.DataProgDesbloqueio
+Para o parâmetro da Data_Corte, utilizar o padrão AAAAMMDD, como por exemplo '20170101' (01/01/2017)
+Caso esse select retorne dados, deverá antes de prosseguir efetuar o desbloqueio dessas baixas conforme: 
+Desbloqueio Manual de Baixa
+ 
+Atualizar banco de dados com últimos scripts do SisPetro
+Criar a PASTA_BD_ORIGINAL com 2 subpastas: dat, datArqMorto
+Abrir o script anexo 
+ScriptAtualizarSaldos_v2.sql
+ e substituir onde consta AAAAMMDD com a Data de Corte a ser utilizada nesse banco de dados.
+Rodar o script 
+ScriptAtualizarSaldos_v2.sql
+ no Banco Original.
+Nota:
+ 
+os passos 5 e 6 serão úteis para conferir os saldos de algumas tabelas no processo de testes do Arquivo Morto nos passos 13 e 14.
+Gerar 
+unload 
+de todo o banco com a estrutura e dados, conforme: 
+Passos para Unload de Banco de Dados
+ 
+a) Salvar o arquivo reload.sql em PASTA_BD_ORIGINAL
+b) Salvar os arquivos .dat em PASTA_BD_ORIGINAL\dat.
+No DbiSql (conectado no banco de dados original) executar o comando: 
+call ArqMortoExportaDadosFora(Data,PastaDats,GeraDados,NumLoops,GeraArquivo,NomeArquivo,
+ModoLog)
+Onde deverá alterar os parâmetros conforme explicação abaixo:
+ 
+Data
+: data de corte. Ex. 20170101 (utilizar esse padrão AAAAMMDD para evitar que o banco tenha que fazer sua conversão)
+PastaDats
+: pasta onde a procedure irá gerar os arquivos .dat. Ex: PASTA_BD_ORIGINAL\datArqMorto
+GeraDados
+:
+ 
+marca se deverá gerar automaticamente os arquivos .dat na stored-procedure. Por padrão sempre enviar como 1.
+NumLoops
+: define por quantas vezes a stored-procedure tentará ajustar os registros órfãos. Por padrão sempre enviar como 10.
+GeraArquivo
+: define se irá gerar o arquivo contendo o script com os comandos utilizados para gerar os arquivos .dat. Para um primeiro teste em ambiente de teste é aconselhável passar esse parâmetro como 1 e posteriormente poderia ser passado como 0. Obs: Em casos de problema com o Arquivo Morto, será esse arquivo que irá auxiliar o Suporte a identificar o motivo da falha no processo.
+NomeArquivo
+: nome a ser utilizado para o arquivo de script dos comandos para geração de arquivos .dat. Esse parâmetro só necessita ser informado caso o parâmetro anterior seja informado como 1.
+ModoLog
+: define como será apresentado o andamento do processo. Ao informar o valor 0 (Padrão) as mensagens serão apresentadas no próprio DbiSql (Essa opção é incompatível com o DBISQL da versão 17 do Sybase, pois a aba de mensagens foi removida), já ao informar o valor 1 as mensagens serão enviadas para o console do banco de dados. 
+Fazer cópia dos arquivos PASTA_BD_ORIGINAL\datArqMorto para a pasta PASTA_BD_ORIGINAL\dat (deve substituir todos repetidos).
+Gerar um banco vazio, conforme: 
+Criação de um novo Banco de Dados Vazio
+ 
+Inicializar o banco na pasta PASTA_BD_NOVO
+No DbiSQL (conectado no banco novo) rodar PASTA_BD_ORIGINAL\reload.sql 
+Abrir o script anexo 
+ScriptVerificarSaldos_v2.sql 
+e substituir onde consta AAAAMMDD) com a Data de Corte a ser utilizada nesse banco de dados.
+Rodar o script 
+ScriptVerificarSaldos_v2.sql 
+no Banco Novo. Não deve retornar nenhum dado. A verificação é feita para os períodos anteriores à data de corte.
+Essa verificação garante que os saldos estão íntegros após a extração dos dados, considerando a Data de Corte utilizada. 
+Qualquer dado retornado deve ser encaminhado para análise do Desenvolvimento
+ e impedir a execução do processo em produção.
+Para mais informações, ver:
+Passos para Unload de Banco de Dados
+Criação de um novo Banco de Dados vazio

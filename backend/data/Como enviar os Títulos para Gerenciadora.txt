@@ -1,0 +1,119 @@
+TITULO: Como enviar os Títulos para Gerenciadora
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4307255297
+--------------------------------------------------
+Objetivo
+O objetivo é mostrar de forma detalhada como enviar os títulos para Gerenciadora através da Manutenção de Recebíveis.
+A Manutenção de Recebíveis é acionada em 
+M
+ovimentação / Financeiro / Contas a Receber / Manutenção de Recebíveis
+O processo para enviar os títulos, será feito em 03 etapas: 
+1 - Adicionar os Títulos para Manutenção de
+ Recebíveis
+Ao clicar no botão 
+Adicionar Títulos, 
+o SisPetro mostrará a tela abaixo. O usuário poderá selecionar títulos a 
+Receber
+ conforme os filtros utilizados em tela. Nessa fase serão apresentados os títulos com Status 
+Sem Gerenciadora
+ ou 
+Rejeitado
+ dependendo do filtro utilizado
+.
+Após incluir os títulos, eles serão apresentados na Manutenção de Recebíveis com o fundo azul e Status 
+Pendente de Envio
+ conforme tela abaixo:
+ 
+2 - Gerar o arquivo para a Gerenciadora de Recebíveis
+Ao clicar no botão 
+Gerar Arquivo 
+e posteriormente em 
+Traz Dados, 
+o SisPetro mostrará os títulos que foram previamente selecionados.
+O usuário deve:
+Selecionar os títulos que serão enviados no arquivo (podendo utilizar o botão 
+Marcar Todos
+)
+Marcar a opção 
+Gera Arquivo?
+Informar o Caminho onde o arquivo será gerado
+Clicar no botão 
+Processa
+Após isso o arquivo será gerado no caminho informado e na Manutenção de Recebíveis os títulos ficarão com o fundo cinza e Status 
+Enviado, 
+conforme tela abaixo:
+3 - Aprovar a Remessa
+Após o arquivo texto ser enviado a Gerenciadora e analisado por ela, a Gerenciadora informará (via e-mail, telefone, etc.) se algum dos títulos enviados foi rejeitado.
+O usuário com essa informação irá:
+Clicar na Aba 
+Remessas
+Selecionar no quadro 
+Remessas
+ a remessa gerada com os títulos que foram enviados a Gerenciadora de Recebíveis
+Perceba que na aba inferior 
+Títulos Enviados
+ é possível visualizar quais os títulos que participam da remessa selecionada.
+Clicar no botão 
+Aprova Remessa. 
+O SisPetro mostrará a tela abaixo
+Caso algum título tenha sido 
+rejeitado
+, o usuário deverá selecionar o título e clicar no botão 
+Rejeita. 
+O SisPetro mostrará a mensagem 
+Título(s) Rejeitado(s) com sucesso, 
+conforme imagem abaixo:
+Essa opção retirará os títulos com status deixando com o status 
+Não Passível
+. Esse recurso não deve ser utilizado para retirar títulos do arquivo ou rejeitar títulos enviados.
+O Título rejeitado ficará com o status 
+Recusado pela Integradora. 
+Após isso clicar no botão 
+Processa. 
+O SisPetro mostrará a tela abaixo. O usuário deverá escolher a Conta Banco (a que a Gerenciadora irá depositar o valor), preencher as informações e clicar no botão 
+Salva
+Após a aprovação, veja que os títulos do Contas a Receber na Manutenção de Recebíveis ficarão com o status 
+Aprovado. 
+Veja também que o(s) título(s) rejeitado(s) também ficou com o status 
+Rejeitado
+, conforme tela abaixo. 
+Nessa fase o Contas a Pagar já foi gerado conforme as datas de vencimento dos títulos do Contas a Receber.
+Aqui é importante entender que se houver dez títulos de R$ 100 reais com mesma data de vencimento, o SisPetro irá gerar apenas um Contas a Pagar no valor de R$ 1.000,00 reais.
+Exemplo:
+Título 1: Valor R$ 100,00 Dt Vencimento: 01/01/2000  
+Título 2: Valor R$ 200,00 Dt Vencimento: 01/01/2000
+Título 3: Valor R$ 710,00 Dt Vencimento: 02/02/2000
+Contas a pagar 1: Valor R$ 300,00 Dt Vencimento: 01/01/2000
+Contas a pagar 2: Valor R$ 710,00 Dt Vencimento: 02/02/2000
+Também já foi gerado um lote com as contas indicadas na aprovação.
+Como retirar (excluir) um título da Manutenção de Recebíveis
+Para retirar um título o usuário deve:
+Na aba Títulos, selecionar o(s) título(s) que deseja excluir da Manutenção de Recebíveis e clicar no botão 
+Retira Títulos,
+ conforme imagem abaixo:
+O SisPetro exibirá uma mensagem se Deseja realmente retirar os títulos selecionados da Gerenciadora. 
+Ao clicar em sim, os títulos serão retirados e não aparecerão mais na Manutenção de Recebíveis.
+Essa ação só pode ser tomada com títulos cujo status estiver
+ Pendente de Envio
+Como Cancelar um Arquivo já gerado
+Para cancelar um arquivo o usuário deve: 
+Na aba Remessas, selecionar qual a remessa que deseja cancelar o arquivo e clicar no botão 
+Cancelar Arquivo
+O SisPetro mostrará uma mensagem se o usuário deseja realmente Cancelar o Arquivo de Remessa, conforme imagem abaixo. 
+Após clicar em Sim os títulos voltarão ao status 
+Pendente de Envio
+ 
+Não há uma comunicação entre o SisPetro com a Gerenciadora de Recebíveis. Por isso verifique se o arquivo já foi enviado, pois esse processo 
+cancela
+ todo o arquivo.
+Como Cancelar uma aprovação
+Para cancelar uma aprovação já feita o usuário deve: 
+Na aba Remessas, selecionar qual a remessa que deseja cancelar a aprovação
+Aba inferior Aprovações, em cima da aprovação feita 
+e clicar no botão 
+Cancelar Aprovação. 
+O SisPetro mostrará a mensagem se Deseja realmente cancelar a Aprovação selecionada, conforme imagem abaixo:
+Ao clicar em Sim e a aprovação será cancelada e o status da remessa voltará para 
+Arquivo Gerado
+Para Saber Mais 
+Manutenção de Recebíveis
+Tabela Gerenciadora de Recebíveis

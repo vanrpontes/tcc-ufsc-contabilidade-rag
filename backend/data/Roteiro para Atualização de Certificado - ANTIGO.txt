@@ -1,0 +1,342 @@
+TITULO: Roteiro para Atualização de Certificado - ANTIGO
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439900
+--------------------------------------------------
+NÃO UTILIZAR ESSE ROTEIRO
+Este roteiro foi utilizado no início do processo da NFE, a partir de abril de 2009 usar 
+Atualização do Certificado Digital
+.
+
+
+
+
+1 - Importação do Certificado Pessoal no Internet Explorer
+
+
+ Este procedimento importará seu certificado para dentro de Internet Explorer.
+
+
+Para Importar o certificado proceder da seguinte forma:
+
+
+
+
+Dando dois cliques no arquivo .pfx, logo em seguida abrirá o assistente de importação de certificados;
+
+
+
+
+
+
+
+
+Clicar em Avançar;
+
+
+
+
+
+
+Localizar o certificado para ser importado;
+
+
+
+
+
+
+
+
+Clicar em Avançar;
+
+
+
+
+
+
+
+
+Digitar a senha, deixar as duas opções 
+desmarcadas
+, e logo após clicar em Avançar até concluir.
+
+
+
+
+2 - Exportar Cadeia do Internet Explorer
+
+
+
+{{IE > Ferramentas > Opções da Internet >Conteúdo > Certificados}}
+
+
+
+
+
+Clique na aba 
+Autoridades de Certificação Intermediárias
+, selecione todas as linhas e clique em 
+Exportar
+
+
+
+
+
+
+
+
+Abrirá um assistente de exportação:
+
+
+
+
+
+
+
+
+Escolher o nome e o local para o arquivo que vai ser exportado;
+
+
+
+
+
+
+Clicar em Avançar até Concluir 
+Sem alterar nenhum parâmetro
+.
+
+
+
+
+3 - Configuração do Certificado
+
+
+Importar certificado no repositório da máquina (local_machine)
+
+
+
+
+Para tanto, iremos utilizar o gerenciador de certificados da sua máquina para importar o certificado original e mover a cadeia de certificação para o local correto.
+
+
+
+
+
+Digite no executar do Windows, (iniciar > executar): mmc <enter>
+
+
+
+
+
+
+
+Clique no menu Arquivo/Adicionar remover Snap-In
+
+
+
+
+
+
+
+
+Clique no botão Adicionar e escolha a opção Certificados clicando no botão Adicionar.
+
+
+
+
+
+
+
+
+
+
+Escolha a opção Conta de Computador e avance até o final com as opções padrão fechando a tela em seguida até que apareça a tela abaixo.
+
+IMPORTANTE: VOCÊ DEVE ALTERAR A OPÇÃO PARA CONTA DE COMPUTADOR SENÃO O WEBSERVICE DO AUTENTICADOR NÃO IRÁ FUNCIONAR.
+
+
+
+
+Escolha o nó Pessoal dos certificados e clique com o botão da direita em cima dele, escolhendo a opção Todas as Tarefas/Importar.
+
+
+
+
+
+
+
+
+Escolha o certificado original (mude o filtro da caixa de dialogo para aparecer o certificado original).
+
+
+
+
+
+
+Digite a senha e deixe o restante das opções nas suas configurações originais indo até o final do processo. O certificado original e os certificados da cadeia certificadora (da empresa que gerou o certificado e das acima dela) deverão aparecer na tela instalados.
+
+
+
+
+4 - Dar permissão para a conta que irá executar o WebService para acessar o certificado.
+
+
+ Será necessário executar o comando de permissão, 
+Sempre que importar um novo certificado
+
+
+
+
+Anote o nome do diretório onde está localizado o certificado digital. Tenha também a senha privada do certificado.
+
+
+
+
+
+
+Abra uma janela de comando digitando CMD.EXE <enter> no executar do Windows, (iniciar > executar).
+
+
+
+
+
+
+Vá até o local onde o gerenciador de certificados foi instalado digitando:
+
+
+
+
+
+cd \ Arquivos de Programas> \ WINDOWS RESOURCE KITS \ TOOLS
+
+
+
+
+
+Dê permissão ao certificado no repositório da máquina (LOCAL_MACHINE) digitando:
+
+
+
+
+
+WinHttpCertCfg -g -s <nome do certificado> -c LOCAL_MACHINE\MY -a <nome do usuário ou conta>
+
+
+
+Exemplo:
+
+
+
+
+WinHttpCertCfg -g -s "FUTURA" -c LOCAL_MACHINE\MY -a "SERVIÇO DE REDE"
+
+
+
+
+Observações:
+
+
+Para saber o nome das contas existentes e o nome do computador, ainda no MS-DOS digite *NET USER
+.*
+
+
+
+
+Para windows 2003 dê permissão nas contas 
+IWAM_<NOME_DA_MAQUINA>
+, 
+IUSR_<NOME_DA_MAQUINA>
+ e 
+SERVIÇO DE REDE
+
+
+
+
+
+
+Para windows 2000 e XP dê permissão nas contas 
+IWAM_<NOME_DA_MAQUINA>
+, 
+IUSR_<NOME_DA_MAQUINA>
+ e 
+ASPNET
+
+
+
+
+
+
+Caso o caminho do arquivo de certificado ou conta tenha espaços, deve-se colocar aspas antes e depois dos mesmos.
+
+
+
+
+
+
+O nome do certificado pode ser visto na tela de gerenciamento de certificados (após o mesmo ter sido importado) e não precisa ser completo, bastando informar as primeiras letras corretamente.
+
+
+
+
+5 - Vamos agora aproveitar que estamos com o gerenciador de certificados aberto para exportar a chave pública do nosso certificado importado anteriormente.
+
+
+Navegue até a pasta:
+
+
+
+Pessoal / Certificados e clique com o botão da direita em cima do certificado escolhendo a opção Todas as Tarefas/Exportar.
+
+
+
+
+
+
+
+Deixe todas as opções como padrão (particularmente, a opção de não exportar a chave particular do certificado) escolhendo o local para o certificado como sendo o local onde você criou o diretório virtual anteriormente.
+
+
+
+
+
+
+O nome do certificado pode ser o nome da empresa, ou como desejar.
+
+ 
+Importante: você deve informar o local correto pois senão o WebService não conseguirá acessar o certificado, repetindo: deve ser o diretório virtual criado anteriormente (por exemplo, c:\inetpub\wwwroot\Futura\Nfe).
+
+
+
+
+6 - Ainda na Tela de Gerenciamento de Certificados, importe a cadeia que exportamos do Internet Explorer no começo do manual.
+
+
+Navegue até a pasta:
+
+
+
+Raíz de Terceiros / Certificados e clique com o botão da direita em cima do certificado escolhendo a opção Todas as Tarefas/Importar.
+
+
+
+
+
+Encontre o arquivo e avance com as opções padrões até concluir.
+
+
+
+
+
+
+Saia do Gerenciador de Certificados clicando para NÃO SALVAR
+
+
+ Depois disso, abra o Sispetro e vá em 
+Movimentação / Faturamento / NF-eletrônica / Manutenção do Certificado Digital
+
+
+E atualize as informações desta tela, para as informações do Novo certificado.
+
+
+
+
+AS CONFIGURAÇÕES ACIMA SÃO UTILIZADAS PELOS CLIENTES CUJO SERVIDOR SISPETRO E O WEBSERVICES ESTEJAM RODANDO NA MESMA MÁQUINA.
+

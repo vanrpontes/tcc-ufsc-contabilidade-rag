@@ -1,0 +1,39 @@
+TITULO: Relatório de Fretes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878900253
+--------------------------------------------------
+Através desse relatório, o usuário tem o conhecimento de todos os fretes realizados nas empresas controladas pelo sistema.
+O acesso a esse relatório é através do menu: Relatórios / Transportes / Fretes:
+A partir da versão 10.10 foi disponibilizado os dados do motorista, apesar de não estarem no layout principal, 
+podem ser adicionados, para isso, clique no botão 'Edita Layout' seleciona a opção Frete na Estrutura de Dados, logo abaixo no quadro de 'dados para frete' basta selecionar o campo 'CodTranspMotorista' ou 'DescricaoMotorista' e arrastar para a estrutura do relatório.
+Veja maiores detalhes de como incluir um campo no relatório em: 
+Incluindo novos campos no relatório
+.
+Filial
+:
+Esta opção permite consultar as informações apenas de uma determinada filial ou de todas as empresas do sistema. Para consultar não filtrar uma empresa especifica, basta o usuário informar no campo "Unidade de negócios", a opção "Todas a Filiais". Caso contrário, o usuário deve informar a opção "Filial(escolher)" e informar o código da filial desejada no campo "Filial". O mesmo procedimento deve ser tomado no caso de um grupo de filiais. O usuário deve escolher no campo "Unidade de negócios", a opção "Grupo de filiais(escolher)" e informar o código do grupo no campo "Filial".
+Filtra Transportadora/Motorista: 
+marcando esta opção será possível realizar a emissão do relatório filtrando uma transportadora ou um motorista especifico.
+Transportadora Específica:
+Deve-se utilizar esse campo para emitir o relatório de uma transportadora específica. Para isso, o usuário deve marcar a opção "Transportadora" e informar o código da transportadora. Caso não saiba o código, o usuário pode acessar a tela de pesquisa de transportadoras, acessando o campo vazio e teclando <ENTER> e buscar pelo nome, placa do veículo, CNPJ...
+Motorista Específico:
+Deve-se utilizar esse campo para emitir o relatório de um motorista específico. Para isso o usuário deve marcar a opção "Motorista" e informar o código do motorista. Caso não saiba o código, o usuário pode acessar a tela de pesquisa de motoristas, acessando o campo vazio e teclando <ENTER> e buscar pelo nome, placa do veículo, CNPJ...
+Origem de Dados:
+O usuário pode escolher se a origem dos dados será por "ordem de carregamento" ou "frete". Marcando o campo "Por Ordem de Carregto", o sistema filtrará no relatório todos os fretes vinculados a uma ordem de carregamento e marcando o campo "por frete", o sistema filtrará os fretes que foram lançados pela manutenção de fretes (sem vinculo com OC).
+Por Ordem de Carregamento
+Filtra Tipo de OC: 
+marcando esta opção é possível emitir o relatório filtrando um Tipo especifico de OC informando o campo 
+Tipo de OC.
+Período:
+Intervalo de data que se deseja emitir o relatório.
+Por Frete
+Datas Filtro de Data
+Data de Inclusão: 
+filtro por data de inclusão do frete
+Data do Frete: 
+filtro data em que o frete ocorre
+Período: 
+intervalo de data que se deseja emitir o relatório.
+Botão Edita Layout: 
+permite ao usuário ajustar o layout, implementando informações disponiveis internamente no relatório que não estão sendo usadas no relatório.
+Por exemplo: pode-se incluir no relatório o campo referente ao número da nota fiscal vinculada a ordem de carregamento, caso este campo não estivesse sendo apresentado no relatório. Lembrando que apenas os campos disponíveis internamente na estrutura do relatório podem ser utilizados.
+Para imprimir o relatório, o usuário deve clicar no botão 'OK' e para cancelar a impressão no botão 'Cancelar'.

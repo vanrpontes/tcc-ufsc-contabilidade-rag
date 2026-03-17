@@ -1,0 +1,111 @@
+TITULO: Inclusão-Exclusão de Itens da Ordem de Serviço
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878900226
+--------------------------------------------------
+A inclusão/exclusão de Itens da Ordem de Serviço, deve ser feita através da tela de Manutenção de Ordens de Serviço, aba 
+Itens da Ordem Serviço. 
+Para incluir itens, na tela de Itens da Ordem de Serviço, acionar o botão 
+Após isso o SisPetro mostrará a tela de 
+Itens da Ordem de Serviço
+.
+Nessa tela é possível realizar a manutenção dos itens da Ordem de Serviço conforme informações a seguir: 
+Botões
+ permite realizar a 
+inserção dos Itens da Ordem de Serviço
+  juntamente com as informações de quantidade, fornecedor e etc. que será mostrada mais adiante
+ permite alterar as informações sobre o item selecionado.
+ permite excluir as informações sobre o item selecionado.
+ volta as colunas apresentadas ao padrão original do SisPetro.
+ exibe a legenda de cores utilizadas.
+ salva as informações na tela. 
+ abandona o processo de inclusão ou alteração do item.
+Inserção dos Itens da Ordem de Serviço
+ 
+Aqui o usuário deverá preencher: 
+Data: 
+informe a data que o evento será realizado (se apertar o botão espaço do teclado o SisPetro preenche com a data atual)
+#Documento: 
+caso haja algum documento que acompanha o evento do frota, sua referência (número) deve ser informada aqui
+Evento: 
+selecionar qual evento será vinculado ao item dessa O.S
+Produto: 
+selecionar qual produto será utilizado nesse evento
+Local Evento: 
+informar qual é o local que o evento do frota será realizado
+Aplicação: 
+informar a aplicação da Despesa com Frota
+Grupo de Despesas: 
+selecionar qual será o grupo de despesa que será direcionado o evento do frota
+SubGrupo de Despesas: 
+selecionar qual será o subgrupo de despesa (caso houver) que será direcionado o evento do frota
+Funcionário: 
+selecionar qual é o funcionário que realizará / acompanhará o evento
+Fornecedor: 
+selecionar (caso já possua) qual o fornecedor que realizará o evento
+Viagem: 
+selecionar a viagem. 
+KM:
+ informar qual é a quilometragem atual do veículo que passará pela manutenção
+Qtde Horas: 
+informar a quantidade de horas previstas para esse evento
+Qtde: 
+informar a quantidade do produto que será vinculado ao evento
+Valor: 
+informar o valor 
+total
+ do produto que será vinculado ao evento
+Evento Via Nf: 
+aqui há três opções para selecionar, sendo: 
+Evento é gerado sem dados de NF
+Evento 
+exige PMM/NF 
+para ser gerado
+Evento exige somente NF para ser gerado
+Características: 
+informe a característica do produto. Caso o campo não esteja visível/habilitado, ver em 
+Características dos Produtos
+ como habilitar essa opção. 
+Observações: 
+informar as observações (caso tenha) da O.S
+Os eventos incluídos via Manutenção de Ordem de Serviço não aparecerão na tela de Manutenção de Eventos do Frota 
+enquanto a Ordem de Serviço não for encerrada.
+Não é permitido Editar (Alterar) itens da Ordem de Serviço. Caso exista esta necessidade, será necessário excluir o item e inclui-lo novamente da forma correta.
+Para excluir itens, na tela de Itens da Ordem de Serviço, acionar o botão 
+Exclui
+:
+Será aberta um janela para confirmação da exclusão e, caso seja confirmada, será realizada a exclusão do item.
+Será apresentada a janela de 
+inclusão de Eventos relacionados ao Frota
+.
+Vínculo do evento com a nota fiscal
+Conforme a opção escolhida em 
+Evento via NF 
+na tela 
+Itens da Ordem de Serviço - Inserção, 
+o vínculo do evento do frota com a nota fiscal ocorrerá de duas formas, quando selecionado uma das opções:
+Evento exige PMM/NF para ser gerado: 
+evento do frota é gerado automaticamente no final do processo, da criação do PMM e inclusão da nota fiscal vinculado ao PMM. Para mais informações, ver 
+https://futura.atlassian.net/wiki/spaces/SPT/pages/2942468392/Itens+Ordem+de+Servi+o+Pendentes?atl_f=content-tree
+ 
+Evento exige somente NF para ser gerado: 
+evento do frota é gerado somente com a inclusão da nota fiscal.
+No processo de inclusão da nota fiscal, é apresentado a tela de vinculação do Evento e ou Item da ordem de serviço.
+Para que a tela de vinculação do Evento/Item seja apresentada na inclusão da nota fiscal, é preciso que o perfil 
+Eventos do Frota 
+da 
+Natureza de Operação
+, esteja com a opção 
+Vincula com Eventos de Frota Avulsos ou Itens OS que exigem NF
+ selecionado. 
+No processo de inclusão da nota fiscal é apresentado a tela para a seleção do item da ordem de serviço:
+Para altera a quantidade do Evento/Item da ordem de serviço, clique no botão 
+Altera
+ 
+Para excluir o item vinculado, selecione o item e clique no botão 
+Excluir
+.
+Para selecionar o Evento/Item da ordem de serviço, clique no botão 
+Seleciona OS.
+A tela ira apresentar somente os itens de mesmo produto e fornecedor e que ainda não tenha NF vinculada:
+Selecione o item da ordem de serviço referente a nota fiscal e clique em sair 
+, automaticamente o Sispetro ira vincular o item a nota fiscal:
+Feito estes passos, basta continuar com a finalização da inclusão da nota fiscal, que ao final o Sispetro ira criar o evento do frota.

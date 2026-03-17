@@ -1,0 +1,86 @@
+TITULO: Pagamentos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898261
+--------------------------------------------------
+Para facilitar o controle bancário, o usuário pode realizar baixas desta conta ou efetuar pagamentos extraordinários (pagamentos que não possuem lançamento no Contas a Pagar ainda, normalmente despesas rápidas como saída de caixa para almoço, pagamento de condução, etc ou outras despesas que não tem necessidade de cadastramento prévio no contas a pagar) a partir da tela do banco.
+Para realizar este procedimento, clique no botão 
+Pagamento
+:
+O Sistema irá abrir uma tela (abaixo) contendo dois painéis:
+1. Despesas Extraordinárias:
+ São as despesas que não possuem lançamento no contas a pagar previamente cadastrado porém geraram montante a pagar. Normalmente são despesas provenientes de alguma transação muito rápida que não foi possível cadastrar no contas a pagar (ou não se tenha interesse em cadastrar o fornecedor somente para este tipo de despesa). Estas transações não envolvem fornecedores diretamente pois movimentam somente uma conta de banco (de onde o montante foi transferido) e uma conta de despesa.
+Preencher caso seja este o caso:
+Data do Movimento:
+ É a data em que a transação ocorreu (e que vai sair no extrato bancário).
+Conta da Despesa:
+ É a contrapartida do movimento para o banco. O usuário pode filtrar os tipos de contas que serão apresentados na tela de pesquisa deste campo, bastando para isso, configurar através do menu: 
+Ferramentas / Sistema / Financeiro
+, o perfil: 
+ 
+ 
+Centro de Custo:
+ Informe o centro de custo onde será apropriada a despesa, maiores detalhes vide 
+Critérios para Utilização de Centro de Custo
+.
+Valor:
+ Valor do movimento.
+Moeda
+#Pedido:
+ Número do pedido que por ventura esteja relacionado a esta movimentação.
+#Documento:
+ Número do documento que originou esta movimentação. Ele pode ser verificado pelo sistema, veja maiores detalhes em 
+Verificação de Número de Documento em Pagamentos
+.
+#Nota Fiscal:
+ Número da NF que por ventura esteja relacionada a esta movimentação.
+Tipo Documento:
+ Informe o 
+tipo de documento
+ que representa este pagamento.
+Histórico:
+ Introduzir um 
+histórico
+ compatível com o movimento.
+Informações adicionais
+Projeto: 
+permite informar o projeto a qual a despesa pertence. Para mais informações ver 
+,
+Restrito:
+ Em desuso, deixar desmarcado.
+Se estiver habilitado o módulo contábil, será exibida a opção 
+Pode Contabilizar
+. Para esta opção poder ser desmarcada ou ser trocado o código de contabilização é necessário que no menu 
+Ferramentas / Sistema, painel Contab. Real
+ esteja marcada a seguinte opção:
+Ao informar o 
+Código de Contabilização Real
+ a contabilização real é feita através da fórmula constante neste código, sem fazer a contabilização em centros de custos. Para que os centros de custos das despesas extraordinárias sejam transferidos para a contabilidade real, no menu 
+Ferramentas / Sistema, painel Contab.Real
+, a seguinte opção deve estar marcada:
+Com esta opção marcada, ao invés de utilizar o Código de Contabilização, serão utilizadas as contas reais vinculadas às contas gerenciais informadas, além de fazer a devida contabilização em centros de custos, utilizando a mesma distribuição informada para a contabilização gerencial.
+Utilize o botão 
+ para informar mais que uma conta de receita para contra partida à conta de banco. Veja maiores detalhes em 
+.
+Caso deseje fazer o pagamento das despesas utilizando cheques de terceiros, utilize o botão 
+. Veja maiores detalhes em 
+ ou 
+Utilizando Cheques de Terceiros
+.
+Caso deseje gerar um cheque para pagamento desta despesa, marque a opção 
+Baixa em Cheque
+ e preencha os dados do cheque. Para impressão do cheque logo após a confirmação do pagamento marque a opção 
+Imprime
+, senão imprima o cheque posteriormente, conforme explicado em 
+Impressão de Cheques
+.
+Aperte o botão 
+OK
+ para confirmar esta movimentação.
+Caso esteja configurado no Menu 
+Ferramentas / Sistema, painel Financeiro
+ a opção:
+Será impresso o recibo (que pode ser uma autorização de pagamento) com dados da transação. O layout desse recibo é configurado no mesmo painel na opção:
+2. Lançamentos Pendentes:
+ São os lançamentos que estão pendentes no Contas a Pagar. (tela abaixo).
+Selecione os itens que deseja baixar e clique no botão 
+OK
+. Note que a tela que irá aparecer em seguida é a mesma de Baixas do Contas a Pagar já com a conta de banco preenchida. Proceda conforme tópico 

@@ -1,0 +1,54 @@
+TITULO: Chave de Acesso da NF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892365872
+--------------------------------------------------
+Ao emitir uma Nota Fiscal Eletronica (NF-e), a Secretaria da Fazenda, disponibilizá uma consulta, através da Internet, para o destinatário e outros legítimos interessados, que detenham a chave de acesso do documento eletrônico. 
+ O DANFE, que não é uma nota fiscal, nem substitui uma nota fiscal, serve apenas como instrumento auxiliar para consulta da NF-e, pois nele podemos encontrar a chave de acesso, que permite ao detentor desse documento confirmar a efetiva existência da NF-e através do Ambiente Nacional (RFB) ou site da SEFAZ na Internet.
+No Sispetro, a chave de acesso é gerada automaticamente ao término da inclusão de uma Nota Fiscal Eletrônica dos seguintes tipos:
+Vendas
+Outras Saídas
+Complemento de Impostos
+Complemento de Preços
+A mesma também pode ser inserida manualmente em Notas Fiscais de Entrada, desde que o tipo de Emissão definido na Natureza da Operação seja do tipo 
+Terceiros
+ e a opção 
+Habilita NF-eletrônica
+ esteja marcada.
+Chave de acesso além de estar disponível no DANFE, também está presente no XML de Recibo, enviado a SEFAZ e também ficará armazenado no banco de dados do Sistema.
+A importação de Notas Fiscais, também poderá importar a chave de acesso, tanto através do XML como de arquivos texto.
+ 
+Detalhamento da Chave de Acesso
+Descreveremos abaixo o detalhamento de como é composta uma chave de acesso.
+Usaremos como exemplo a chave abaixo:
+ 
+Chave do DANFE: 42100484684182000157550010000000020108042108
+Detalhamento da chave do DANFE formatado: 42-10/04-84.684.182/0001-57-55-001-000.000.001-005.300.530-6
+Descrição
+Detalhe da chave
+código do estado emissor ( 42 corresponde a SC)
+42
+-
+ano/mês
+42-
+10/04-
+CNPJ
+42-10/04-
+84.684.182/0001-57-
+modelo do documento
+42-10/04-84.684.182/0001-57-
+55
+-
+serie da nota fiscal
+42-10/04-84.684.182/0001-57-55-
+001
+-
+numero da nota
+42-10/04-84.684.182/0001-57-55-001-
+000.000.001
+-
+numero aleatório
+42-10/04-84.684.182/0001-57-55-001-000.000.001-
+005.300.530
+-
+dígito verificador
+42-10/04-84.684.182/0001-57-55-001-000.000.001-005.300.530-
+6

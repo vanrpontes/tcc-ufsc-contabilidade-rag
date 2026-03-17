@@ -1,0 +1,52 @@
+TITULO: Documentos de Arrecadação SPED Avulso
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909896729
+--------------------------------------------------
+Ao final da inclusão da Nota Fiscal, caso o perfil da 
+Natureza de Operação
+ "
+Vincula Documentos manuais de Arrecadação no SPED?" 
+esteja marcado, a tela abaixo será exibida
+O objetivo dessa tela é:
+Permitir/ajustar a geração dos seguintes registros do SPED EFD:
+Registro C112 - Documentos de arrecadação vinculados à NF
+Registro E230 - Valores ST pagos antecipadamente
+A maior parte dos documentos de arrecadação são Títulos a Pagar e para identificá-los há um campo na tabela "Tipo de Documento" configurado como Documento de Arrecadação.
+Até a versão 7.27 do Sispetro, esses títulos a pagar eram direcionados para o Registro C112, quando vinculados a uma NF, mas temos duas situações que não eram previstas:
+É necessário poder indicar se o título deve ir no Registro C112 ou no Registro E230.
+É necessário utilizar um título a pagar de uma empresa (a que transferiu um produto) e enviar no Registro C112 de outra empresa (que recebeu o produto). Podemos ter uma situação onde ambas empresas estão cadastradas no Sispetro (transferência de uma filial para outra) ou não.
+Veja mais detalhes sobre os registros do Bloco C do SPED no tópico 
+.
+Para adequar o Sistema temos 3 passos necessários:
+Configurar Perfil da Natureza de Operação (já descrito no começo do tópico).
+Configurar o Tipo de Documento, para mais detalhes veja o tópico 
+.
+Informar os valores na tela de Documentos de Arrecadação - SPED.
+ 
+Preenchendo as informações
+A tela poderá ser preenchida de duas maneiras:
+Digitando os dados manualmente;
+Localizando os dados do título;
+Para localizar utilize o botão 
+Será aberta a tela abaixo, onde o usuário deve informar os dados da Empresa, Tipo de Documento, Fornecedor e Período, em seguida clicar no botão 
+Atualiza
+ para que os títulos filtrados sejam exibidos. 
+ 
+Serão apresentados somente Títulos de Contas a Pagar, com Valor Pago maior que zero.
+No caso do título ter mais que um pagamento, deverá ser apresentada a maior Data de Pagamento e maior Número de Autenticação. 
+Não haverá nenhum vínculo entre o título selecionado e o documento que está sendo incluído ou editado. A tela de pesquisa de Títulos é só um facilitador, evitando redigitação de dados.
+Após selecionar o Título desejado pressione o botão 
+OK
+ para carregar os dados.
+OK
+ para finalizar.
+Gerenciando os Documentos de Arrecadação
+Na 
+Manutenção de Nota Fiscal
+ aba Fiscal \ Documento de Arrecadação SPED, utilize os Botões 
+Incluir, Editar 
+e
+ Excluir
+ para fazer os ajustes necessários.
+ 
+ 
+ 

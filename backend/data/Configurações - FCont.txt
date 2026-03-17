@@ -1,0 +1,63 @@
+TITULO: Configurações - FCont
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2908848531
+--------------------------------------------------
+A partir de 2015, o FCont foi substituído pela 
+ECF - Escrituração Contábil e Fiscal
+Perfil de Empresa
+Ferramentas > Sistema > aba Dados Gerais
+Configurar os 
+dados cadastrais da empresa
+ 
+Ferramentas > Sistema > aba Livro Eletrônico
+Configurar as Informações da Empresa:
+Nº PIS/PASEP
+Nº Suframa
+Inscrição Municipal
+Escrituração
+Estabelecimento centralizador de Escrituração
+Estabelecimento com escrituração centralizada
+Estabelecimento sem escrituração centralizada
+Configurar o
+ 
+Tipo de Escrituração
+, podendo ser:
+Individual: quando a contabilidade da empresa é por filial. Não é comum.
+Centralizada: quando a contabilidade da empresa é de todas as empresas do grupo (mesmo CNPJ). É o mais comum. Atente-se para configurar devidamente o 
+Grupo Empresa
+ das empresas envolvidas.
+O Grupo Empresa deve ser configurado 
+ANTES
+ de serem feitos os lançamentos contábeis. Caso seja necessário configurá-lo após os lançamentos mantenha contato com nosso Suporte Técnico.
+Tabela Plano de Contas Real
+Sispetro Controladoria: Arquivos > Plano de Contas
+Estrutura do Plano de Contas: O Plano de Contas Real precisa estar devidamente organizado, com todas as contas sintéticas superiores, por nível. No caso de ausência de uma conta sintética será apresentado como erro na validação do arquivo do SPED ECD e do FCONT.
+Veja um exemplo de um Plano de Contas 
+NÃO ORGANIZADO
+:
+ 1.00.00.00000 ATIVO
+ 1.01.01.00000 CAIXAS
+ 1.01.01.00001 CONTA CAIXA 1
+ Nesse caso está faltando a conta 
+1.01.00.00000
+, ou seja, a representação de um nível, sendo apresentado como erro de conta superior.
+Tabela Plano de Contas Referencial
+Sispetro Controladoria: Arquivos > Plano de Contas Referencial
+Apesar de não ser obrigatório no SPED ECD, a indicação do Plano de Contas Referencial no Plano de Conta Real é obrigatório no FCONT.
+É fundamental verificar a validade das contas referenciadas, pois isso também será validado.
+Data de Inclusão das Contas
+O Sispetro armazena a data de inclusão de cada conta e a envia no arquivo do FCONT. O validador verifica a data informada e a ordem de inclusão na estrutura do Plano de Contas. Com isso, a conta analítica náo pode ter uma data de inclusão anterior que sua conta sintética.
+O usuário não tem como alterar a data de inclusão de uma conta, ela é atribuída automaticamente pelo Sispetro. No caso de precisar ajustar alguma data é necessário manter contato com nosso Suporte Técnico.
+Encerramento das contas de Resultado
+É fundamental que seja feito o Encerramento das Contas de Resultado através da tela de Manutenção de Encerramentos, 
+para cada uma das filiais do grupo a ser gerado o arquivo
+. Teoricamente isso já estaria feito, pois é um procedimento necessário para fechar o balanço da empresa. Porém se o encerramento não tiver sido feito pela tela específica, o Sispetro não terá como diferenciar os lançamentos de Encerramento (item necessário no SPED ECD) nem como obter o saldo das contas de Resultado antes do Encerramento (exigido pelo SPED ECD e FCONT).
+Dica importante
+Uma forma de ter certeza se o encerramento realmente zerou as contas de Resultado é emitir o Balancete por Filial, para cada uma das filiais, e verificar o saldo final de cada conta, que deve estar zerao.
+Tabela Conjunto de Dados
+ 
+Informar o diretório onde está armazenada a DLL utilizada no preenchimento e na geração do arquivo para o SPED, no serviço de FCONT.
+ 
+Tabelas Auxiliares > Faturamento > Controladoria > Conjunto de Dados
+Campo
+ DLL Arquivo de Exportação
+ 

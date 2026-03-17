@@ -1,0 +1,179 @@
+TITULO: Versão 7.15
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2899608378
+--------------------------------------------------
+Versão 7.15
+
+
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 15/03/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 23/03/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd715.sql (cmd2582 a cmd2588) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 6 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 2 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 4 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Relatórios 
+
+
+ DLLs 
+
+
+ Layouts de Exportação 
+
+
+
+
+
+
+não há 
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+Empresas em estados que não apresentaram problemas com envio de dados a Sefaz estão dispensados da atualização do Servidor SisPetro para essa versão.
+
+
+Faturamento
+
+
+
+
+NFe 2.0 para Bahia e Mato Grosso
+
+
+Foram liberados pela Sefaz da Bahia e Mato Grosso o ambiente de homologação para a Sefaz 2.0, com isso conseguimos implementar e testar todas as alterações da Sefaz para essas duas UF's.
+ 
+Para a Sefaz do Mato Grosso, o servidor deles está em desacordo com o manual da Sefaz Nacional. Adaptamos nossas rotina para podermos enviar os dados mas, caso a Sefaz do Mato Grosso se adeque às alterações da Sefaz Nacional, precisaremos alterar novamente a forma de envio dos dados.
+ 
+UPA (CCF 11385)
+
+
+NFe 2.0 para Ceará, Paraná e Pernambuco
+
+
+Foram liberados pela Sefaz os endereços de WebServices para NFe 2.0 para as UF's informadas acima. UPA (CCF 11385)
+
+
+Erro em Notas de Entrada com OC
+
+Em notas fiscais de entrada vinculadas à OC, cujo perfil de sistema esteja configurado para "Não gerar ICMS de Substituição para Consumidor Final", em algumas situações estava sendo gerado um erro pelo sistema, impedindo a entrada da nota. Esse problema foi corrigido. 
+UPA (CCF 12231)
+
+
+Nota Fiscal de Remessa Automática com Informações da Nota Fiscal Anterior
+
+As notas fiscais de remessa automática, geradas após a emissão da nota fiscal normal, estavam guardando algumas informações de base de impostos da nota de origem. Esse problema foi corrigido. 
+UPA (CCF 12256)
+
+
+Município da Transportadora Vinculada ao Motorista no XML da NFe
+
+Quando o motorista estava vinculado a uma transportadora, o Município dessa transportadora para ser enviada a Sefaz estava sendo truncada em 20 caracteres cortando assim o nome de municípios que ultrapassavam esse valor. Esse problema foi corrigido. 
+UPA (CCF 12288)
+
+
+
+
+Financeiro
+
+
+
+
+Distribuição de valores em contas contábeis nos Títulos a Pagar para análise Financeira
+
+Nos Títulos a Pagar gerados por uma Nota Fiscal cuja Natureza de Operação esteja configurada com um tipo de documento que gere títulos de desconto automático o SisPetro contabilizava devidamente as operações mas apresentava nos relatórios financeiros (como o Extrato Bancário) uma distribuição nas contas contábeis de forma indevida. Esse problema foi corrigido. 
+ALP (CCF 12074)
+

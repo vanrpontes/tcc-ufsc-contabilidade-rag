@@ -1,0 +1,47 @@
+TITULO: Cancelamento-Inutilização da Nota
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879390021
+--------------------------------------------------
+O cancelamento da nota fiscal é feito através da tela de 
+Manutenção de NF´s
+, botão 
+Cancela
+.
+A nota fiscal pode ser cancelada ou inutilizada, ou seja:
+Cancelamento:
+ será enviado o comando de cancelamento para ser processado na NF-e caso a nota já tenha sido processada na NF-e e obtido o número do protocolo.
+Inutilização:
+ será enviado o comando de inutilização para ser processado na NF-e caso a nota tenha sido processada na NF-e e NÃO tenha obtido o número do protocolo devido a algum erro nos dados ou problema no processamento. Veja mais detalhes sobre inutilização na página 
+Opções de Inutilização da Numeração na SEFAZ
+.
+Notas Fiscais que não possuem o número de protocolo, mas possuem o número de recibo, não poderão ser canceladas nem inutilizadas, essas devem ser processadas o protocolo antes do cancelamento, com a excessão de notas DENEGADAS, que poderão ser canceladas mesmo tendo número de recibo e não protocolo.
+Alterações no processo de Cancelamento
+Conforme divulgado na 
+Nota Técnica 2011.006
+ a partir de 01/12/2012 o processo de cancelamento de NFe será alterado. Hoje na SEFAZ, existe um endereço de WebService para cada operação disponível, porém, a SEFAZ está alterando esse cenário e pretende colocar um único endereço para suas operações e trata-lo como um evento.
+A versão 8.2 do Sispetro já atende essa alteração, porém será necessário ativá-la por meio do perfil de Sistema 
+Cancelamento de NFe por Evento
+ que está na aba 
+Nota Fiscal. A partir da versão 8.3, esse perfil está na aba NFe/CTe.
+Essa alteração muda apenas os modos como o Sispetro envia o cancelamento a SEFAZ, portanto não afetará os procedimentos operacionais do Sispetro.
+Ao cancelar a nota fiscal será apresentada uma tela para aguardar a solicitação de Cancelamento ou Inutilização a NF-e através do Servidor SisPetro.
+No caso do cancelamento ou inutilização ser aceito será recebido um Número de Protocolo e o arquivo xml contendo os dados da autorização de cancelamento ou inutilização. Só então que esta nota será efetivamente cancelada no SisPetro.
+Caso não deseje esperar pelo retorno do processamento, poderá fechar a tela clicando no botão 
+Sair
+, pois mesmo fechando a tela, o processamento continuará sendo executado no Servidor Sispetro.
+Se no perfil de empresas (Menu 
+Ferramentas / Sistema / painel Faturamento / caixa Nota Fiscal Eletrônica
+), a flag 
+Trabalha off-line (sem conexão a Internet)
+ tiver marcada, o pedido não será processado na NF-e, e será cancelada no Sispetro, portanto a nota estará marcada para cancelamento ou inutilização, podendo solicitar o processamento acessando a tela de 
+Manutenção de NF-e
+ (após o restabelecimento da Internet).
+Para consultar essas informações posteriormente veja o tópico 
+Consulta de Dados de NF-e de uma Nota Fiscal
+.
+Após processado o cancelamento no Servidor Sispetro, será retornado na tela a resposta deste processamento:
+ 
+A partir da versão 9.18 não sera mais permitido cancelar uma nota fiscal caso a mesma tenha um 
+Pagamento Eletronico
+ enviado ao banco. Para poder realizar o cancelamento da nota, é nescessario realizar o envio do 
+cancelamento do Pagamento eletronico
+ ao Banco.

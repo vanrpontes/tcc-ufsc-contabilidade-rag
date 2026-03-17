@@ -1,0 +1,230 @@
+TITULO: Alteração de Dados dos Clientes em lote
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2882338888
+--------------------------------------------------
+Este novo recurso do Sispetro possui, resumidamente, dois objetivos: 
+Consultar
+ e 
+Alterar
+ os registros da tabela de Cliente.
+ Isto porque, a Tabela de Cadastro de Cliente possui muitos registros, que muitas vezes necessitam ser consultados e/ou alterados para vários clientes e de forma prática. Acontece que muitas vezes essas consultas e alterações acabam sendo muito trabalhosas pela tela de Cadastro de Cliente.
+ Com o intuito de auxiliar os usuários Sispetro, foi desenvolvido um mecanismo que permitirá consultar e/ou alterar mais de um cliente ao mesmo tempo, com a mesma informação, com os critérios indicados pelo usuário.
+Este recurso pode ser acessado através do menu 
+Ferramentas/ Cadastro dos Clientes/ Alteração de Dados dos Clientes em Lote
+.
+A partir da versão 9.35 é possível alterar a Região para Venda, Protesto, Número de Dias para protesto, Taxa Juros (%dia), Multa a ser utilizada, % Multa Contas Receber e Bloqueio Automático, em lote. Veja mais informações abaixo
+ 
+Para ter acesso esta tela é necessário ter o perfil de 
+Usuário/ Segurança
+ abaixo marcado:
+ 
+Através desta tela será possível visualizar as seguintes informações do cadastro de Clientes:
+#Código:
+ Código do cliente;
+Nome:
+ Nome Usual do cliente;
+Razão Social:
+ Razão Social do Cliente;
+#Tabela:
+ Código da Tabela de Preço vinculada ao cliente;
+Tabela de Preço:
+ Descrição da tabela de preço vinculada ao cliente;
+#Vendedor:
+ Código do vendedor vinculado ao cliente;
+Vendedor:
+ Nome do Vendedor vinculado ao cliente;
+#Cód Ass. Vendas:
+ Código do Assistente de Vendas;
+Nome do Assistente de Vendas
+#Cond.Pg:
+ Condição de Pagamento vinculado ao cliente;
+Condição de Pagamento:
+ Descrição da condição de pagamento;
+#TpCobr:
+ Tipo de Cobrança vinculado ao cliente;
+Tipo de Cobrança:
+ Descrição do tipo de cobrança;
+#Transp:
+ Código da transportadora vinculada ao cliente;
+Transportadora:
+ Descrição da transportadora;
+#CC Despesa:
+ Número da conta de despesa vinculada ao cliente;
+Conta de Despesa:
+ Descrição da conta de despesa;
+#Cod Municipio:
+ Código DNC do Município do cadastro do cliente;
+Descrição município:
+ Nome do município;
+#CódBandeira:
+ Código da bandeira do cliente;
+Bandeira:
+ Descrição da bandeira do cliente;
+#CodRamo:
+ Código do Ramo de Atividade do cliente;
+Ramo de Atividade:
+ Descrição do ramo de atividade;
+#Comprador:
+ Código do cliente comprador vinculado ao cliente;
+Comprador:
+ Razão Social do cliente comprador;
+#CodPort:
+ Código do Portador do cliente;
+Portador:
+ Descrição do Portador;
+#CodRegiao:
+ Código DNC da Região cadastrada para o cliente;
+Descricao Região:
+ Nome da região;
+#CodAtEconomica:
+ Código da Atividade Econômica informada para o cliente;
+Atividade Econômica:
+ Descrição da Atividade Econômica;
+Status:
+ Código do Status do cliente;
+Descrição Status:
+ Descrição do status do cliente, podendo ser Potencial, Livre ou Ativo;
+Fis/Jur:
+ Definição do cliente para Pessoa Física ou Jurídica;
+Bloqueado:
+ Situação do Cliente, se está bloqueado ou não;
+Descrição Bloqueado:
+ Descrição da situação do cliente, podendo ser Bloqueado ou Ativo;
+Inativa:
+ Definição da situação da atividade do cliente, se está inativo ou não;
+Descrição Inativa:
+ Descrição da situação da atividade do cliente, podendo ser Inativo ou Ativo.
+Código: 
+Código da tabela de comissão de vendas.
+Tabela de Comissão de Vendas:
+ Descrição da tabela de comissão de vendas no cliente.
+#Tipo:
+ Código do tipo do Cliente.
+Tipo:
+ Descrição do Tipo do Cliente.
+#Região para Vendas:
+ Código da região para vendas utilizada no cliente.
+#
+Região para Vendas:
+ 
+Descrição da região para vendas utilizada no cliente.
+Protesto:
+ Indica o status do protesto para o cliente. pode ser alterado para uma das 3 opções: Sempre, Nunca e Depende de convênio.
+Número de Dias para Protesto:
+ Indica o número de dias para protesto.
+Taxa Juros (%dia):
+ Indica a taxa de juros do cliente.
+Multa a ser utilizada:
+ Indica a multa a ser utilizada podendo utilizar a opção de Conforme perfil de sistema ou conforme cadastro do cliente.
+%Multa C.Receber:
+ Indica a porcentagem da multa do contas a receber.
+Bloqueio Automaticamente:
+ Indica se vai ou não Bloquear automático o cliente, podendo ser Ativado ou Inativado. 
+Importante
+:
+ Nem todos os campos poderão sofrer alterações simultâneas como os que estão disponibilizados. Isto porque muitos campos necessitam de validação.
+Por Exemplo:
+Condição de Pagamento: Não poderá sofrer alterações simultânea para vários cliente, pois existe a validação da condição de pagamento por produto e o prazo;
+Tabela de Preço: Não poderá sofrer alterações simultânea para vários cliente, pois existe a validação da tabela de preço por UF;
+No 
+quadro Destino
+ é possível informar o campo e o novo conteúdo para os clientes filtrados no quadro superior.
+No 
+Campo a ser Alterado
+ deve ser informado o campo que receberá a alteração para os clientes filtrados. Os campos que podem receber alterações através deste recurso são:
+Vendedor
+Tipo de Cobrança
+Transportadora
+Bandeira
+Ramo de Atividade
+Portador
+Região
+Tabela de comissão de Vendas
+Assistente de Vendas
+Tabela de Preço (é preciso dar permissão ao usuário, veja help 
+Painel Segurança (Usuários)
+ )
+Tipo de Cliente
+Região para Vendas
+Protesto
+Numero de Dias para Protesto
+Taxa Juros (%dia)
+Multa a ser utilizada
+%Multa C.Receber
+Bloqueia Automaticamente?
+Repare que o campo para deverá ser informada a alteração, o nome é atualizado conforme a escolha do campo Campo a ser Alterado.
+Após definir os clientes que receberão alteração, o campo que será alterado e o novo conteúdo para o campo, clique no botão Executar:
+Após finalizar as alterações, o sistema emitirá a mensagem dizendo que o processo de alteração foi concluído com sucesso.
+Caso não tenha definido o conteúdo para o novo campo, o Sistema irá questionar se deseja realmente continuar o processo
+O sistema permite imprimir um relatório com o conteúdo em tela, para maior auxílio. Isto através do botão Imprime
+Para sair da tela, clique no botão Sair
+Sobre os Perfis de Usuário/ Empresa/ Sistema
+Esta tela trabalha em conjunto com alguns perfis, tanto de usuário como de empresa e sistema. Isto porque algumas empresas controlam vendas por vendedor, ou existe um acesso restrito para cada vendedor.
+Atente-se para os perfis de usuário:
+Aba Vendas/ Altera Vendedor cadastro cliente:
+ Este perfil deve estar marcado aos usuários que podem efetuar alteração de vendedor no cadastro de clientes.
+ 
+Aba Vendas/ Filtra Venda por Vendedor e Código Vendedor:
+ Estes dois perfis trabalham em conjunto, pois quando habilitar o primeiro peril, o segundo deverá ser preenchido. Deve-se estar atento, pois quando marcado, somente os clientes que possuem vínculo com o usuário vendedor irão aparecer nesta tela.
+ 
+ 
+ 
+Atente-se para os perfis de sistema:
+Aba Clientes/ Controla vendedor por filial para os clientes:
+ Com este perfil marcado será possível definir para cada cliente o(s) vendedor(es) que é vinculado a ele por Filial, sendo assim, um cliente pode ter mais de um vendedor vinculado a ele.
+ 
+É importante ressaltar que este perfil é de sistema, e ao ser marcado (ou desmarcado) irá afetar a todas as empresas cadastradas no sistema.
+Atente-se para os perfis de empresa:
+Aba Clientes/ Visualiza todos os clientes independente do setup do usuário:
+ Este perfil permite ao usuário visualizar todos os clientes, indenpendente do perfil de usuário que ele possui. Com este perfil marcado, caso o usuário tenha o perfil Filtra Vendas por vendedor marcado, o sistema irá listar de todos os clientes, independente do perfil de usuário.
+ 
+Cuidado ao utilizar este perfil, pois pode liberar a alguns usuários o acesso a telas e alterações das quais não poderiam fazer.
+Caso este perfil esteja desmarcado, o sistema irá habilitar para configuração os perfis de empresa abaixo:
+ 
+Estes três perfis irão trabalhar em conjunto com o usuário cadastrado. Com isso, o usuário conectado poderá trabalhar da seguinte maneira, 
+para os clientes Potencial, Livre e Ativo
+:
+Não visualiza Clientes:
+ Este filtro irá se sobressair independente do perfil de usuário, não permitindo ao usuário visualizar nenhum cliente
+Visualiza Clientes cujo vendedor seja o mesmo do usuário:
+ Este filtro trabalha em conjunto com o perfil de usuário Filtra Venda por Vendedor
+Visualiza Clientes independente do filtro de vendedor:
+ Irá trazer todos os clientes independente do perfil de usuário Filtra Vendas por Vendedor.
+Sobre os Filtros:
+Para cada coluna de código é possível editar um Filtro. Para isso, basta clicar na seta ao lado do nome da coluna.
+ 
+Ao clicar na seta, o sistema listará todos os registros daquela coluna, para que o usuário possa escolher conforme a informação desejada.
+Ao definir um filtro, um botão será apresentado na tela para alterar ou melhorar o filtro definido:
+ 
+Ao clicar neste botão, o sistema abrirá a tela para 
+Construção de Filtros
+.
+ 
+Para definir um novo filtro ou acrescentar uma condição, dê um clique sobre a frase 
+Aperte o botão para adicionar uma nova condição
+.
+Em seguida, uma linha será acrescentada com as seguintes informações: 
+campo
+ (na cor verde), 
+operador
+ (na cor vermelha) e 
+condição
+ (na cor azul).
+Clique sobre 
+campo
+ e defina o campo que deverá ser filtrado, em seguida clique sobre o 
+operador
+ (que poderá ser: igual, diferente, maior, menor, maior ou igual, menor ou igual, vazio, não vazio, entre, não está entre, na lista, fora da lista). E depois defina a 
+Condição
+.
+Após definir o novo filtro, clique em Aplicar.
+ 
+Perceba que a tela não fecha logo em seguida. Isto ocorre porque é possível ao usuário salvar o filtro definido. Além disso, pode-se também abrir um filtro salvo anteriormente. Para isso, utilize os botões Salvar e Abrir, respectivamente.
+ 
+ 
+Para sair da tela, clique no botão Ok.
+ 
+ 
+Sobre o layout padrão das colunas:
+Essas colunas podem sofrer alteração de ordem. Para isso, basta selecionar a coluna e arrastar para o local desejado (dentro da mesma tela). Quando aparecer as duas setas verdes em sentido contrário, o campo será arrastado.
+Caso queira voltar a ordem padrão dos campos, clique no botão Layout Default:
+ 

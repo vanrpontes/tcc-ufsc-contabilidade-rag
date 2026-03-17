@@ -1,0 +1,293 @@
+TITULO: Apuração de  Valores de Armazenagem por Congênere
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2972223183
+--------------------------------------------------
+Apuração de valores de armazenagem por Congênere, tem a finalidade de apurar os volumes movimentados pelas congêneres de um determinado período, através de critérios estabelecidos pela armazenadora e assim gerando os valores a serem cobrados e posteriormente a emissão da Nota Fiscal de Serviço.
+Configurações
+Tipo de Movimentação de Estoque:  
+p
+rimeiro é preciso determinar os tipos de movimentação de estoque que serão considerados na apuração. Através do Menu
+ 
+Tabelas Auxiliares / Estoque / 
+Tipo de Movimentação de Estoque
+, será definido o tipo de movimentação que será utilizada no depósito. 
+O menu estará visível, porém por padrão estará desabilitado. Será necessário habilitar o menu para que o usuário tenha acesso.
+Para incluir um registro, basta clicar no 
+botão
+ 
+Preencha a descrição, marque a opção ativo para que o tipo de movimentação possa ser utilizado.
+O tipo de movimentação deverá ser vinculado ao histórico padrão, utilizados nas operações de estoque.
+Histórico Padrão: 
+o
+ acesso é feito através do 
+Menu Tabelas Auxiliares / Financeiro / 
+Histórico Padrão
+. 
+Selecione os históricos que serão considerados nas operações de movimentações de estoque. 
+Exemplo: Bombeio, Descarga e Carregamento de Terceiros por exemplo.
+Na aba Detalhes, vincule o tipo de movimentação ao histórico desejado.
+Sugerimos que utilize os históricos referentes as movimentações parametrizados na Aba Histórico Padrão do perfil de Sistema, pois esses serão sugeridos nas telas de Ordem de Carregamento e Bombeio. Caso utilize algum histórico de movimentação diferente e queira considerar na apuração, basta efetuar o vinculo. 
+Depósito - Apuração de Armazenagem
+:  
+o acesso é feito através do Menu 
+ 
+Arquivo / Depósito.
+Selecione o Depósito que deseja configurar a apuração, em seguida clique na Aba Apuração de Armazenagem.
+Aba Dados Gerais
+Definição dos critérios de apuração: aqui será definido como será apurada a quantidade, quais as movimentações e etc. 
+Para incluir ou editar os dados da aba em questão é necessário que o usuário tenha permissão. Para isso no 
+Painel Armazenagem (Usuários)
+ libere os acessos 
+Pode incluir, alterar e excluir Dados
+ (exceto desconto) que, por padrão, vem desmarcado. 
+Quantidades para Apuração:
+ determina qual estoque, volume e movimentação que será usado como critério na apuração de valores de armazenagem.
+Clique em 
+Salva
+ para gravar as informações ou em 
+Cancela
+ para descartar as informações
+Dados por Congênere:
+ neste quadro é possível determinar se a congênere irá trabalhar com valor mínimo de movimentação, assim como definir a Natureza de Operação para emissão da Nota fiscal de Serviço.
+Para editar os dados, selecione uma congênere na lista e clique no botão 
+Altera.
+Valor Mínimo?: 
+ao marcar esse perfil, o SisPetro passa a trabalhar com um valor mínimo na apuração, ou seja, é possível parametrizar um valor de cobrança mínima para apuração de armazenagem. Caso a congênere em questão não tenha uma movimentação que  atinja o valor estipulado, o valor mínimo será cobrado.
+Nat. Operação Mínimo?: 
+neste campo, selecione a Natureza de Operação que será utilizada para emissão da NF no valor mínimo configurado na apuração.
+Nat. Operação Geral/Excedente: 
+neste campo, selecione a Natureza de Operação que será utilizada para emissão da NF Geral. Caso tenha valor mínimo definido, o valor excedente será gerado uma outra NF.
+Caso seja parametrizada a mesma natureza para os campos mínimo e geral/excedente, será gerada apenas 
+uma única NF,
+ caso tenha valor excedente.
+Produtos da Congênere: 
+neste quadro é possível determinar um valor mínimo a ser cobrado de uma congênere por produto.
+Esse valor será um valor fixo total, caso não tenha movimentação do produto no período de apuração, o valor mínimo não será cobrado.
+Botões:
+Inclui: 
+i
+nclui um produto de cada vez.
+Inclui Produtos:
+ inclui de uma única vez todos os produtos do tipo combustível.
+Copia p/Congêneres: 
+c
+opia todos os produtos e valores da congênere selecionada para uma nova congênere.
+Uma nova tela será exibida para seleção da congênere destino.
+Botão Marca Todos:
+ clique para marcar todas as congêneres, se for o caso
+Após marcar as congêneres de destino, clique no botão 
+Copia
+ para executar a cópia dos produto ou no botão 
+Sai 
+para sair da tela
+Botões:
+Salva:
+ salva os dados informados.
+Cancela:
+ descarta os dados informados.
+Aba Valores Por Tipo de Movimentação
+É possível parametrizar por congênere as taxas a serem cobradas por tipo de movimentação. A taxa é configurada por valor em M3.
+Botões:
+Inclui:
+ i
+nclui um produto de cada vez.
+Inclui Produtos:
+ inclui de uma única vez todos os produtos do tipo combustível.
+Copia p/ Congêneres:
+ copia todos os produtos e valores da congênere selecionada para uma nova congênere, uma nova tela será exibida para seleção da congênere destino.
+Botão Marca Todos:
+clique para marcar todas as congêneres, se for o caso
+Após marcar as congêneres de destino, clique no botão 
+Copia
+ para executar a cópia dos produto ou no botão 
+Sai
+ 
+para sair da tela
+Botões:
+Salva:
+salva os dados informados.
+Cancela:
+descarta os dados informados.
+Aba Descontos / Acréscimos
+Possibilita incluir um desconto / acréscimo que será concedido no valor final da apuração.
+Para incluir ou editar os dados da aba em questão é necessário ter permissão de usuário liberada em 
+Painel Armazenagem (Usuários)
+. Marque as opções 
+Pode incluir, alterar e excluir Desconto,
+ por padrão, está desmarcada. 
+Botões:
+Inclui:
+ inclui um desconto/acréscimo
+Altera:
+ 
+altera um desconto/acréscimo.
+Congênere:
+ empresa que deseja conceder o desconto.
+Histórico:
+ informe um histórico para identificar a operação
+Data do desconto / acréscimo:
+ o valor será concedido se a data informada estiver dentro do período de apuração
+Valor:
+ informe o valor total do desconto que será concedido
+Observações: 
+campo livre para observações
+Clique no botão 
+OK
+ para salvar os dados ou no botão 
+Cancela
+ para descartar os dados
+Exclui:
+ exclui um desconto/acréscimo
+Apuração de Valores de Armazenagem
+Através Menu Movimentação / Base / Manutenção de Apuração de Armazenagem, serão incluídas as apurações de armazenagem.
+O menu estará visível, porém desabilitado, será necessário habilitar o menu para que o usuário tenha acesso.
+A tela de Manutenção de Apuração, apresenta as apurações já realizadas e possibilita ao usuário a filtrar por data e depósito e exibir ou não as apurações canceladas.
+Para incluir uma apuração é necessário ter permissão de usuário: 
+Pode incluir Apuração,
+ por padrão desmarcado. 
+Painel Armazenagem (Usuários)
+.
+Para incluir uma nova apuração, basta clicar no botão 
+Incluir
+Fechamento de Estoque
+A apuração deve acompanhar o fechamento de estoque, ou seja, é preciso que exista fechamento de estoque até a data final da apuração para que as movimentações sejam consideradas. Não será possível abrir o estoque caso haja apuração na data que deseja reabrir.
+Na tela de Apuração de Valores de Armazenagem, selecione o depósito que será apurado.
+Os critérios de apuração exibidos são estabelecidos no cadastro de depósito.
+Informe o período de movimentação que deseja apurar, em seguida clique no botão
+ Traz Dados.
+Aba Resumo
+Exibe o resumo da apuração com as seguintes informações:
+Natureza de Operação Mínimo:
+ para faturamento do valor mínimo determinado.
+Natureza de Operação Geral/Excedente:
+ natureza que será utilizada para faturamento de valores que excede o mínimo determinado e geral caso não haja valor mínimo determinado para congênere.
+Valor Mínimo: 
+valor mínimo a ser cobrado da congênere caso haja movimentação e o valor da apuração seja 
+menor
+ que o valor mínimo.
+Valor Final Bruto:
+ valor movimentado no período.
+Valor Apurado: 
+valor apurado no período, caso a congênere possua valor mínimo e esse valor não tenha sido alcançado o valor apurado será o mínimo.
+( -) Desconto: 
+valor total do desconto concedido para congênere.
+(=) Valor Final: 
+valor Final a ser cobrado da congênere.
+Botões: 
+Salva: 
+para salvar os dados informados
+Cancela: 
+para descartar os dados informados
+Se na hora de salvar a apuração o SisPetro mostrar a mensagem: 
+O produto.. da empresa... não possui fechamento de estoque para o período informado
+... similar a mensagem abaixo: 
+ 
+Se a congênere for nova ou o produto for novo, será necessário acessar o menu 
+Movimentação / Estoque / Ajuste de Estoque Inicial por Depósito, 
+informar a empresa, o depósito e a data do último fechamento para esse depósito. Basta marcar a coluna 
+Altera? 
+no produto da mensagem e depois clicar no botão 
+Atualiza Saldos. 
+O saldo zerado será gravado na tabela que armazena os dados do fechamento e a apuração será gravada. 
+Se a armazenadora fizer fechamento de estoque por produto, deve-se verificar se para o produto em questão há fechamento. 
+Aba Por Produto
+Exibe a movimentação por produto de cada congênere com as seguintes informações:
+É possível filtrar os dados através dos cabeçalhos para facilitar a análise:
+Empresa: 
+nome da congênere.
+Produto: 
+produto movimentado.
+Quantidade: 
+quantidade total em litros movimentado.
+Quantidade Apurada: 
+quantidade em litros apurada, quantidade considerada através do histórico tipo de movimentação vinculado. 
+Valor Mínimo: 
+valor mínimo cadastrado na movimentação por produto.
+Valor Final Bruto:
+ 
+valor movimentado no período.
+Valor Apurado: 
+valor apurado no período.
+Caso a congênere possua valor mínimo e esse valor não tenha sido alcançado, o valor apurado será o mínimo.
+Aba Detalhe
+Exibe os detalhes da apuração com as seguintes informações:
+É possível filtrar os dados através do cabeçalho para facilitar a análise:
+Empresa: 
+nome da congênere.
+Produto: 
+produto movimentado.
+Tipo de Movto Estoque: 
+tipo de movimentação, relacionado ao histórico padrão vinculado a operação realizada.
+Qtde Mov: 
+quantidade total em litros movimentado.
+Qtde Apurada: 
+quantidade em litros apurada, quantidade considerada através do histórico tipo de movimentação vinculado. 
+Taxa (m3): 
+valor em metros cúbicos cobrado pela movimentação.
+Valor Final Bruto:
+ valor movimentado no período.
+Para finalizar a apuração, na aba 
+Resumo
+, clique no botão 
+Salvar.
+Após incluir a apuração ela ficará com a cor esmeralda indicando que a apuração foi calculada, mas ainda não foi aprovada para faturamento.
+Para aprovar a  apuração e seguir para o faturamento clique no botão 
+Aprova
+Para aprovar é preciso ter acesso ao perfil do  
+Painel Armazenagem (Usuários)
+ 
+Pode Aprovar Apuração
+, por padrão, vem desmarcado.
+Após a aprovação, o registro da apuração mudará de cor, indicando que a aprovação está liberada para faturamento.
+Para cancelar a apuração basta clicar no botão 
+Cancela.
+Ao clicar no botão a apuração será totalmente cancelada, mesmo que ela já esteja aprovada.
+Não é possível cancelar uma apuração que já possua Nota Fiscal de Serviço emitida.
+Para cancelar é preciso ter acesso ao perfil do  
+Painel Armazenagem (Usuários)
+ 
+Pode Cancelar Apuração
+, por padrão, vem desmarcado.
+Para imprimir a apuração, basta clicar no botão 
+Imprime.
+Ao clicar no botão, será solicitado ao usuário qual relatório que deseja imprimir.
+Detalhes: 
+exibe o relatório detalhado da apuração.
+Resumo: 
+resumo final da apuração com os valores faturados, depende da emissão das notas fiscais.
+Ambos: 
+imprime os dois relatórios, Detalhes da Apuração e Resumo de Apuração.
+Arquivos de relatórios
+Para imprimir os relatórios, é necessário ter os seguintes arquivos na pasta de rtms do Sispetro.
+ApuracaoArmazenagem.rtm
+ApuracaoArmazenagemResumo.rtm 
+Os arquivos estão disponíveis na área de download do site da Futura
+. 
+Para facilitar a visualização de cada etapa do processo, os registros possuem características, ao clicar no botão 
+Legenda
+, exibe o painel com as cores de cada status do registro.
+Lista de legendas:
+Após finalizar a apuração, basta emitir a nota fiscal clicando no botão 
+Emite NF.
+Para emitir a nota fiscal da apuração, é necessário ter permissão de usuário 
+Pode Faturar Apuração,
+ por padrão desmarcado. Para mais informações, ver 
+Painel Armazenagem (Usuários)
+.
+Após clicar o usuário será redirecionado para tela de 
+Emissão de NF de Serviço de Armazenagem.
+Manutenção de Apuração de Armazenagem
+Após a emissão das notas fiscais de serviço, o registro na tela de Manutenção de Apuração de Armazenagem, ficará em negrito.
+É possível analisar os dados da apuração, filtrando por data, depósito.
+Caso deseje visualizar as apurações canceladas, marque a opção 
+Exibe Apurações Canceladas.
+Aba Apurações: 
+exibe as apurações realizadas.
+Aba Detalhamento: 
+exibe os detalhes da apuração selecionada.
+Aba Inferior Congênere:
+ exibe o resumo da apuração.
+Aba Inferior Movimentação:
+ exibe a movimentação de todas as congêneres, por produto e taxa aplicada na apuração.
+Aba Inferior Notas:
+ exibe as notas fiscais de serviço, emitidas através da apuração.
+ 

@@ -1,0 +1,15 @@
+TITULO: Fundo Estadual de Combate à Pobreza (FCP) em operações de venda de etanol hidratado
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4066508805
+--------------------------------------------------
+Em alguns Estados, nas operações de venda de etanol hidratado incide o FCP tanto sobre o ICMS Próprio como sobre o ICMS ST.
+Em razão do congelamento do PMPF/MVA dos combustíveis, criou uma situação na qual o valor do ICMS Substituição é zero ou negativo - preço de venda maior que o valor do PMPF/MVA. Nos casos nos quais o valor do ICMS ST fica negativo, é enviado 0 (zero).
+No Estado de Alagoas, o valor do ICMS ST deve ser considerado pela operação toda, incluindo o valor do FCP ST.
+Dessa forma, o valor do ICMS ST é somado ao valor do FCP ST. Caso o valor do ICMS ST seja negativo, será subtraído do valor do FCP ST.
+No SisPetro, as configurações não tiveram qualquer alteração. 
+Os cálculos do SisPetro, para o valor do ICMS ST negativo, passou a considerar o valor do FCP ST.
+Para mais informações sobre as configurações específicas para FCP, ver:
+Impostos (Painel Por Filial)
+ : indica as configurações disponíveis para calcular FCP. Devem ser configurados os cálculos do FCP Próprio, FCP ST e FCP Retido, de acordo com cada tipo de FCP. 
+FCP Retido quando marcado, FCP Próprio e FCP ST não podem ser marcados e vice-versa
+Tabela ICMS
+ : caso na UF tenha cobrança de FCP, deve ser cadastrada a alíquota do FCP.

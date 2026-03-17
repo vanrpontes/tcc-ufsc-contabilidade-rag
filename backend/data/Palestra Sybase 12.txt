@@ -1,0 +1,1532 @@
+TITULO: Palestra Sybase 12
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903507282
+--------------------------------------------------
+Tópicos a serem abordados
+Recapitulação sobre os tipos de arquivos do SQL Anywhere e sua estrutura.
+Novos recursos do Sybase 12.
+Migração Sybase 7 para Sybase 12.
+Aumentando a disponibilidade. Mirror, Arbitro.
+Monitoramento do banco.
+O Banco está lento. O que fazer?
+Usuário está travado. O que fazer?
+Futuro: banco de dados read-only, arquivo morto, novo servidor aplicação.
+Recapitulação Estrutura Sybase.
+Tipo de arquivos e locais.
+O banco de dados é composto por um (ou mais dependendo se existem dbspaces adicionais) arquivo que chamamos de 
+arquivo do banco de dados
+ 
+extensão db
+ e um arquivo de 
+log de transação
+ 
+extensão log
+.
+ O arquivo do banco armazena todas as informações de todos os objetos do banco de dados (tabelas, índices, stored procedures, etc). Ele é dividido em 
+pages
+ de tamanho fixo (ao se criar o banco é informado seu tamanho e a única forma de se alterar é recriando o banco) e qualquer estrutura dentro do banco (cache, arquivo de log, checkpoint log, etc) é lida ou gravada individualmente definida por este tamanho de 
+page
+.
+O page size do banco de dados do Sispetro é de 4Kb.
+Um arquivo de log (também chamado de 
+foward log
+) armazena todas as alterações realizadas no banco a partir do momento em que o mesmo foi criado. Ele serve basicamente como um elemento de segurança para falhas no banco de dados principal e como um instrumento imprescindível para realização de sincronização entre bancos.
+ É 
+fundamental
+ que o banco de dados de produção tenha um log de transações ativo e numa unidade de disco diferente da do banco principal pois isso irá permitir restaurar o banco no caso de uma pane do banco de dados principal além de torná-lo mais rápido (pois se o banco não tem log, é obrigado a escrever todas as suas transações a partir do COMMIT no banco principal o que leva a uma sobrecarga no mesmo).
+ Este arquivo de log pode ser visualizado a partir do aplicativo 
+dbtran
+. Este aplicativo transforma o arquivo de log num arquivo de texto contendo todos os comandos e transações salvas nele.
+dbtran scgwin.log
+# conteúdo jogado para scgwin.sql
+type scgwin.sql
+--CHECKPOINT-0000-0030248238-2012-01-10 00:04
+--CHECKPOINT-0000-0030248264-2012-01-10 00:05
+--CONNECT-1011-0030248290-DBA-2012-01-10 00:39
+--BEGIN TRANSACTION-1011-0030248301
+BEGIN TRANSACTION
+go
+--UPDATE-1011-0030249452
+UPDATE DBA.Deposito
+   SET Descricao='BASE DEMO'
+ WHERE CodDep='1'
+go
+--COMMIT-1011-0030249473
+COMMIT WORK
+go
+
+Como o dado é gravado.
+Para entender melhor como um dado é gravado e como as estruturas acima funcionam, segue uma descrição de como um dado é gravado no banco.
+ Vamos supor que nós iremos alterar um dado numa determinada tabela (UPDATE de A para B).
+Imediatamente após executarmos o comando (e antes do SQLAnyhere executá-lo), o banco copia numa página do cache o dado antes de ser modificado (A) e cria uma página no Checkpoint Log (interno ao arquivo do banco) com o mesmo conteúdo (A).
+ 
+Então, ele altera o cache para conter a cópia 
+mais recente do dado
+ (B) e copia o comando executado para o 
+Transaction Log
+.
+ 
+Note que, neste momento, o banco não possui o dado alterado (somente o cache e, como segurança, o 
+Transaction Log
+).
+Ao realizar o 
+checkpoint
+ (procedimento em que todas as páginas "sujas" do cache são copiadas para o banco - procedimento este ocorre frequentemente durante o funcionamento normal do banco e sempre antes do mesmo ser finalizado), o banco copia o dado para seu local no banco de dados e limpa o 
+Checkpoint Log
+.
+ 
+Experiência
+Subir banco normalmente (com log).
+DBSRV12 @<nome arquivo parametro>
+# scgwin.par:
+#  -c120M
+#  -xNone
+#  -nScgwin12
+#  scgwin.db
+
+Executar o ISQL e executar um comando UPDATE.
+SELECT descricao FROM DEPOSITO WHERE CODDEP='1' // pode ser qq código, somente memorize o código e descrição
+UPDATE DEPOSITO SET DESCRICAO = DESCRICAO + '1' WHERE CODDEP='1' // para acrescentar 1 ao final do campo descricao
+Dar COMMIT ao UPDATE.
+COMMIT
+
+Derrubar banco de forma anormal (através do gerenciador de processos do Windows - aba 
+Processos
+ ou executando 
+kill
+ no Linux).
+Windows:
+ Executar Ctrl+Alt+Del, ir para a aba 
+Processos
+, selecionar o processo 
+DbSrv12
+ e clicar em 
+Finalizar Processo
+.
+Linux
+: Executar 
+pgrep DBsrv12
+, anotar o número do processo e executar 
+Kill <numero do processo>
+.
+Transcrever log de transações.
+dbtran scgwin.log // vai jogar o arquivo de log transcrito para scgwin.sql
+
+Copiar banco e log para um outro diretório para realizar uma segunda experiência com ele.
+// jogar para o subdiretorio backup
+COPY SCGWIN.* BACKUP/SCGWIN.*
+
+Subir o banco original.
+DBSRV12 @<nome arquivo parametro>
+# scgwin.par:
+#  -c120M
+#  -xNone
+#  -nScgwin12
+#  scgwin.db
+
+Verificar se UPDATE foi honrado (deve ter sido).
+SELECT descricao FROM DEPOSITO WHERE CODDEP='1' // pode ser qq código, somente memorize o código e descrição
+// deve mostrar DESCRICAO ORIGINAL + '1'
+
+Derrubar (shutdown) banco normalmente.
+Ir para diretório onde o banco foi copiado (passo 6).
+Excluir arquivo Log.
+Forçar subir o banco sem log (cláusula -f).
+dbsrv12 -f scgwin.db
+
+Subir banco e verificar UPDATE (não deve ter sido honrado).
+Conclusões Importantes
+Devemos sempre utilizar o arquivo de log e, de preferência, num drive diferente do arquivo do banco.
+Devemos truncar o log conforme o plano de backup (seja um backup incremental ou diferencial). No mínimo, truncar o log após cada backup full.
+O banco estará sempre atualizado após o checkpoint ou após ser derrubado de forma normal (não precisa do log para subir).
+O arquivo de log é utilizado sempre que o banco é derrubado de forma anormal para executar as operações posteriores ao checkpoint.
+Considerações sobre gravação do banco (flush cache).
+É importante considerar algo que nem sempre nos atemos quando instalamos o banco de dados: que ele está no topo de uma estrutura ao qual não tem controle direto (ver estrutura abaixo). Assim, quando ele solicita que um dado seja gravado no disco, está usando uma chamada de função de um sistema operacional. Em última instância, o que o Banco deseja é ver o dado gravado no disco porém o responsável por este comando funcionar são os níveis abaixo e como eles interagem entre si.
+ 
+ Existe um documento da própria Sybase para analisar a influência de cada elo na cadeia da gravação de um dado e é importante que o administrador do banco de dados o leia. O nome do documento é 
+SQL Anywhere I/O Requirements for Windows and Linux
+. Resumidamente, existem duas preocupações importantes com relação ao processo de gravação do banco: cache em cada nível da pilha (disco rígido, controladora e sistema de arquivos em Linux) e o tipo do sistema de arquivos em Linux (no Windows, como o sistema de arquivos é normalmente NTFS, não existe uma preocupação neste sentido como é o caso do Linux onde existem diversos tipos de sistemas de arquivos).
+Sistema Operacional
+Sintoma
+Ação
+Windows
+Falha para honrar FUA bit ou o comando de flush cache
+Testar performance com cache desligado (Device Manager, Propriedades Disk Drive, Tab Política, Desabilitar "Write Caching"), atualizar SO e drivers controladores
+Linux
+FS = 
+ext2
+, 
+ext3
+ ou 
+ext4
+ sem cláusula de montagem 
+Barrier=1
+, 
+ext3
+ ou 
+ext4
+ com versão do Kernel igual ou inferior a 2.6.32, 
+xfs
+ com cláusula de montagem 
+/nobarrier
+, 
+xfs
+ com versão do Kernel igual ou inferior a 2.6.33, 
+LVM
+ com versão do Kernel igual ou inferior a 2.6.29
+Desabilitar 
+write cache
+ usando 
+sdparm
+ ou 
+hdparm
+ conforme o documento
+Desfragmentação e tamanho do banco.
+Como foi dito anteriormente, um banco de dados é composto por 
+pages (páginas)
+ de um determinado tamanho (que pode variar de 1K, 2K, 4K, 8K, 16K, 32K - o Sispetro utiliza páginas de 4K). Estas páginas são utilizadas para salvar organizadamente tabelas, índices e até a estrutura do cache (em memória). Seu tamanho é definido no momento da criação do banco de dados e afeta desde o uso correto do cache até o desperdício de espaço em disco passando por velocidade de leitura de dados e outros aspectos do dia a dia do banco. Existem alguns fatores para se chegar ao tamanho correto da pagina porém o mais importante com relação 
+à administração do banco
+ é tentar deixar o arquivo do banco (.db) desfragmentado (o mais contíguo possível no sistema de arquivos).
+ Cada vez que o número de páginas livre fica próximo de acabar, o banco aumenta seu tamanho físico, aumentando seu número de páginas livres.
+ Nossa tarefa aqui é 
+tentar antecipar isso
+ aumentando o tamanho do arquivo .db e depois desfragmentando o disco de forma que o arquivo .db fique num espaço contíguo (ou o mais contíguo possível).
+Obtendo informações do banco
+.
+# -u -> pedir informacoes de todas as tabelas inclusive da de sistema
+# -c -> parametros de conexão
+# -q -> quiet (nao mostrar informações na tela)
+# -o -> jogar informações para um arquivo
+DBINFO -u -c "server=<nome servidor>;uid=DBA;pwd=<senha banco>" -q -o "<nome arquivo output>"
+
+Calcular aumento do tamanho do banco
+.
+ O número de páginas livre deve ser ajustado conforme a velocidade de aumento do banco. Assim, a idéia é executar o procedimento acima durante uma semana para encontrar uma taxa de decréscimo de páginas livre de forma a realizar esta tarefa mensalmente. Vamos supor que um banco diminui seu número de páginas livre a uma média de 1000 páginas por dia (1000 x 4k = 4Mb por dia). Assim, se quisermos ter uma folga de 30 dias (assumindo que o banco esteja com um número mínimo de páginas livre neste momento), teremos de acrescentar 30 x 1000p = 30000 páginas ou 30000p x 4k (tamanho de 1 página) = 120Mb ao tamanho do banco.
+Aumentar banco
+.
+ Executar no ISQL o seguinte comando (ajustando o tamanho a ser acrescido conforme o resultado no 
+seu
+ banco):
+ALTER DBSPACE SYSTEM ADD 120MB
+Desfragmentar Sistema operacional.
+O ideal é criar um evento que rode à noite para fazer este trabalho de forma automática.
+Tamanhos Máximos
+Tipo
+Valor
+Tamanho Banco
+13 arquivos (DB) por banco. Para cada arquivo, seu tamanho é determinado pelo Sistema Operacional (mais abaixo)
+Tamanho Arquivo (FAT 12)
+16 MB
+Tamanho Arquivo (FAT 16)
+2 GB
+Tamanho Arquivo (FAT 32)
+4 GB
+Tamanho Arquivo para NTFS, HP-UX 11.0 ou mais recentes, Solaris 2.6 ou mais recentes, Linux 2.4 ou mais recentes)
+512 GB for 2 KB pages 
+ 1 TB for 4 KB pages 
+ 2 TB for 8 KB pages
+Tamanho Arquivo (para todas as outras plataformas e sistemas de arquivos)
+2 GB
+Tamanho máximo cache (non-AWE cache) (Windows XP Home Edition, Windows XP Professional, Windows Server 2003 Web Edition, Windows Server 2003 Standard Edition, Windows Server 2008, Windows Server 2008 R2, Windows 7)
+1.8 GB
+Tamanho máximo cache (non-AWE cache) (Windows Server 2003 Enterprise Edition, Windows Server 2003 Datacenter Edition, Windows Vista Ultimate, Windows Vista Enterprise, Windows Vista Business, Windows Vista Home Premium, Windows Vista Home Basic)
+2.7 GB
+Tamanho máximo cache (AWE cache) (Windows XP Home Edition, Windows XP Professional, Windows Server 2003 Web Edition, Windows Server 2003 Standard Edition, Windows Server 2003 Enterprise Edition, Windows Server 2003 Datacenter Edition ) 100% da memória disponível
+128 MB
+Tamanho máximo cache (Windows Mobile)
+Limitado ao tamanho de memória do dispositivo
+Tamanho máximo cache (Unix---Solaris, x86 Linux, IBM AIX, HP)
+2 GB para servidor 32-bits
+Tamanho máximo cache (Win 64)
+Limitado pelo tamanho da memória física nos servidores 64-bits
+Tamanho máximo cache (Itanium HP-UX)
+Limitado pelo tamanho da memória física nos servidores 64-bits
+Novos recursos Sybase 12.
+Banco read-only, scale-out
+. Possibilidade de se ter um outro banco sendo executado simultaneamente (atualizado de forma síncrona), read-only, para emissão de relatórios e arquivos (SPED, etc).
+Cláusula -gn praticamente obsoleta
+. Setada automaticamente entre -gnl (default = número de CPUs) e -gnh (-gn x 4 = 80). Default = 20 e ajustada automaticamente pelo SQLAnywhere.
+Cláusula -ad para aplicar backup incremental a partir de diretório
+. Basta colocar todos os arquivos .log (criados no procedimento de backup incremental) num diretório e utilizar esta cláusula para que o SQLAnywhere aplique todos os logs no processo de restauração do banco, em ordem sem necessidade de se especificar quais e em que ordem ele precisa aplicar.
+HotFailOver
+: Ver tópico Alta Disponibilidade.
+Suporte 64bits
+. Para ter mais cache disponível.
+Particionamento de Tabelas
+. É possível particionar uma tabela de forma que parte dela fique num arquivo 
+.db
+ e parte dela em outro arquivo 
+.db
+ de forma que possamos criar uma espécie de arquivo morto com dados antigos deixando o banco com dados a partir de uma determinada data.
+Usar stored procedures como tabelas.
+ Pode-se utilizar uma stored procedure que retorne dados dentro de um SELECT. Assim, o comando 
+call sa_index_density();
+ e 
+SELECT * FROM SA_INDEX_density() ORDER BY SA_INDEX_density.density;
+ são semelhantes. Note que podemos (como no segundo comando) ordenar ou agrupar o resultado.
+InMemory Server mode.
+ Roda o banco inteiro em memória (se couber).
+Passo a Passo de como Reverter a Migração do Banco de Dados do Sybase 12 para o Sybase 7
+Depois que é feita a migração para o Sybase 12 não será mais possível com o mesmo scgwin.db voltara para a versão do Sybase 7.
+ Caso seja necessário voltar para a versão anterior, disponibilizaremos um sugestão, para isso você precisara de uma versão do banco de dados nas duas versões.
+ETAPA 1
+Para que o procedimento seja feito é necessário que se faça o Unload do banco na versão do Sybase 7, da estrutura e dos dados.
+ Abra o programa scview.exe que poderá ser encontrado em "C:\Arquivos de programas\Sybase\Shared\Sybase Central 3.2\win32\scview.exe" e conecte no banco que está na versão 7 do Sybase.
+Clique com o botão direito em cima do banco de dados e escola a opção Unload
+ 
+Em seguida aparecerá uma tela com informações do banco. É só avançar.
+ 
+Na próxima tela é o local onde será salvo o script.sql que o procedimento criará.
+ 
+Escolher qual será o Unload a ser feito. Neste caso iremos escolher estrutura e dados.
+ 
+Escolha do local onde serão salvos os dados extraídos.
+ 
+Nesta tela informe 5 no campo de dependências.
+ 
+Não digite o número 5, aumente as dependências com a setinha.
+Resumo da configuração do Unload.
+ 
+ Ao termino deste procedimento foi criado um script e vários arquivos .dat contendo os dados na verssão 7.
+ETAPA 2
+Para que o procedimento seja feito é necessário que se faça o Unload do banco na versão do Sybase 12 da estrutura e dos dados.
+ Abra o programa Sybase Central 6.1.0 e escolha o ODBC do banco de dados na versão do Sybase 12.
+Clique com o botão direito em cima do banco de dados e escola a opção Unload
+ 
+Será apresentado uma tela de boas vindas
+ 
+Escolha o banco que será utilizado
+ 
+Escolha de como será a extração dos dados. Neste caso escolheremos a opção para arquivos
+ 
+Escolha do local onde será salvo o script RELOAD.sql
+ 
+Escolha do que será feito o Unload. Neste caso escolheremos estrutura e dados.
+ 
+Deixaremos este passo com a opção de todos os objetos
+ 
+Escolheremos agora onde serão salvos os arquivos .dat contendo os dados.
+ 
+Neste momento será apresentado em forma de código o resultado das configurações anteriores.
+dbunload \-v \-c "DSN=scgwin12" \-r "C:\dado12\reload.sql" \-ii "C:\dados12\unload"
+Ao termino deste procedimento foi criado um script e vários arquivos .dat contendo os dados na verssão 12.
+ 
+ETAPA 3
+Nesta fase iremos trabalhar com os scripts gerados nas etapas anteriores.
+ Criaremos três scripts:
+Estrutura.sql
+Dados.sql
+Geral.sql
+Script 1 – Estrutura
+Para criação deste script pegaremos do Unload do banco de dados do Sybase 7 somente a parte da estrutura.
+ Do início do arquivo até antes da parte onde começa os dados, marcado com a palavra:
+//-------------------------------------------------
+//-- Reload data
+//-------------------------------------------------
+Será necessário alterar no script a senha do Usuário DBA para 
+ (senha default) caso não possua, solicitar ao suporte técnico futura.
+ Salve este script como ESTRUTURA.SQL
+Script 2 – Dados
+Pegaremos do script do Unload do banco de dados Sybase 12 somente a parte de INPUT de dados. Tudo que tiver dentro do comentário do texto “Reload data”
+ Nesta etapa serão necessários alguns ajustes neste script para que ele seja compatível com a estrutura criada anteriormente.
+ Iremos documentar algumas linhas, são elas:
+ 
+ Observe que utilizamos o caminho dos dados extraídos do Unload do banco na versão Sybase 12.
+ Salve este script como DADOS.SQL
+Script 3 – Configurações gerais
+Para criação deste script pegaremos do Unload do banco de dados em Sybase 7 tudo que for posterior a parte de dados.
+ Ao final deste script a apague o último “work” e “go”, pois não será mais necessário.
+ Salve este script como GERAL.SQL
+ETAPA 4
+ Crie no Sybase Central 4 um banco de dados "scgwin.db" sem estrutura. Em seguida crie um ODBC para o mesmo.
+Abra o dbisqlc.exe conectando ao banco vazio criado anteriormente e rode os script na mesma seqüência da criação acima.
+ Este procedimento poderá demora um pouco dependendo do tamanho do banco de dados.
+Aumentando a disponibilidade.
+A disponibilidade do banco deve ser calculada de forma que se tenha o melhor custo/benefício para o cliente. O primeiro passo é definir 
+quanto tempo
+ o cliente aguentaria sem o Sistema no ar. Isso pode variar de nem um minuto, alguns minutos, algumas horas ou muitas horas. É lógico que, em sã consciência, todo cliente iria preferir a primeira opção. Porém, o custo de se ter um servidor auxiliar, licença de uso de um outro Sybase, uma estrutura de rede redundante, todos os micros com no-break, Internet redundante enfim, ter todos os pontos que podem falhar duplicados pode não compensar comparando este cenário com um 
+muito mais barato
+ onde teríamos um servidor auxiliar destino dos backups e um funcionário para acioná-lo caso o servidor principal falhe.
+ Enfim, é questão de avaliação porém é necessário sempre simular o tempo de parada nos mais variados cenários para se chegar a uma decisão conjunta.
+ Por isso, iremos listar os mecanismos disponíveis de proteção e cada um poderá optar pelo cenário com melhor custo/benefício para a sua empresa.
+ Você deve avaliar o procedimento de backup particularmente em função de cinco variáveis:
+Cobertura:
+ Deve ser todo o banco de dados + todas as alterações ocorridas.
+Frequência:
+ Quanto frequente deve ser o backup full e os incrementais? Dica: a resposta está no tempo de parada no caso de uma restauração. Quanto mais frequentes, os backups full menor o tempo de parada porém mais carga será exigida do banco de dados.
+Separação:
+ Colocar os backups em outros discos rígidos ou computadores para que uma pane não os afete. Tenha cópia do backup full em 
+locais diferentes e que não estejam juntos fisicamente
+ (de preferência, em endereços diferentes).
+Histórico:
+ Ter mais de um conjunto (full + incrementais) de forma que se possa recuperar dados ou mesmo um backup mais antigo no caso de alguma emergência.
+Validação:
+ Validar, validar, validar os backups 
+sempre
+ e, de preferência, de forma automática. Não se esquecer de realizar, de vez em quando, uma restauração manual para não esquecer como o procedimento é realizado (aprender na hora da emergência sempre leva a resultados desastrosos ou demorados).
+Segurança:
+ Verifique quem tem acesso aos backups (não só fisicamente como na rede local). Não deixe os mesmos de forma que qualquer pessoa possa obtê-los ou copiá-los (e principalmente, danificá-los).
+Backup full
+É a forma mais simples de se ter uma cópia do banco de dados em segurança. Todos os dados são copiados para um outro local criando uma cópia idêntica do banco de dados num determinado ponto no tempo.
+ Podemos executar o backup tanto no servidor diretamente quanto de uma outra máquina qualquer.
+Usando a linha de comando
+dbbackup -c "SERVER=scgwin12;UID=DBA;PWD=(senha default) caso não possua, solicitar ao suporte técnico futura. "c:\backup"
+# opções
+#   Host=192.168.0.1
+#   DBN=scgwin.db
+
+Usando o ISQL
+BACKUP DATABASE DIRECTORY 'C:\\backup';
+
+Tanto o arquivo principal (.DB) quanto o arquivo de log de transações (.LOG) são copiados e necessários no caso de uma restauração.
+Backup incremental
+O backup incremental é um backup parcial somente do arquivo de transações (.LOG) obtido no momento em que é realizado o backup. É como se tirássemos uma foto do log no momento da execução do comando. É um backup 
+bem
+ mais rápido do que o backup full. É chamado incremental pois logo após a sua realização 
+truncamos o arquivo de log original
+ fazendo com que o log original tenha somente as transações a partir daquele momento (em que o mesmo fora truncado). Ele é utilizado num esquema de backups onde normalmente é realizado um backup full num primeiro passo e, em seguida, realizados backups incrementais num intervalo fixo de tempo (1h por exemplo). Assim, teríamos num plano de backup hipotético, um backup full programado para a meia-noite, outro para o meio-dia e backups incrementais de hora em hora (1:00am, 2:00am e assim por diante). 
+Para se restaurar um banco de dados num esquema como este, precisaríamos ter o backup full e todos os backups incrementais até o ponto da falha.
+Quando implementamos este tipo de esquema de backup, normalmente realizamos o truncamento do log já no primeiro backup full utilizando a cláusula 
+-x
+ no comando ou adicionando 
+TRANSACTION LOG TRUNCATE
+dbbackup -c "SERVER=scgwin12;UID=DBA;PWD= (senha default) caso não possua, solicitar ao suporte técnico futura." -x -t  "c:\backup"
+# opções
+#   Host=192.168.0.1
+#   DBN=scgwin.db
+
+Aqui devemos tomar um cuidado adicional pois como devemos preservar 
+todos os logs
+, não podemos simplesmente sobreescrever os logs anteriores. Caso o comando acima seja executado novamente, ele 
+irá
+ sobreescrever o log inutilizando todo o esquema planejado. Para tanto, devemos adicionar mais duas cláusulas importantes:
+-r
+: para renomear o log de transações (esquema DDMMYYxx sendo xx igual a AA,AB e assim por diante) da cópia.
+-n
+: para que o nome do arquivo copiado seja o mesmo do arquivo renomeado no servidor.
+dbbackup -c "SERVER=scgwin12;UID=DBA;PWD= (senha default) caso não possua, solicitar ao suporte técnico futura." -x -t -r -n "c:\backup"
+# opções
+#   Host=192.168.0.1
+#   DBN=scgwin.db
+
+Usando o ISQL
+BACKUP DATABASE DIRECTORY TRANSACTION LOG ONLY LOG TRANSACTION LOG RENAME MATCH 'C:\\backup';
+
+Backup Diferencial
+O backup diferencial na realidade segue a mesma linha do backup incremental tendo como única diferença o fato de 
+não truncarmos o log de transações
+ logo após realizarmos o backup incremental.
+ Assim, a cópia do log de transações realizada contém não só as últimas alterações ocorridas desde o último backup do log de transações como também todas as transações desde que o log foi truncado (normalmente pelo último backup full). 
+Para se restaurar um banco de dados num esquema como este, precisaríamos ter o backup full e somente o último arquivo de log copiado até o ponto da falha.
+Quando implementamos este tipo de esquema de backup, normalmente realizamos o truncamento do log já no primeiro backup full utilizando a cláusula 
+-x
+ no comando ou adicionando 
+TRANSACTION LOG TRUNCATE
+dbbackup -c "SERVER=scgwin12;UID=DBA;PWD= (senha default) caso não possua, solicitar ao suporte técnico futura. -t -y "c:\backup"
+# opções
+#   Host=192.168.0.1
+#   DBN=scgwin.db
+# A clausula -y serve para que o comando não pergunte se deseja sobreescrever o arquivo pois o nome será o mesmo do arquivo de log já copiado anteriormente
+
+Usando o ISQL
+BACKUP DATABASE DIRECTORY TRANSACTION LOG ONLY LOG 'C:\\backup';
+
+Importante: Em todos os comandos de backup acima (full, incremental ou diferencial), utilizando a cláusula *-s
+ faz com que o comando de backup seja executado no servidor (como se estivéssemos executando o mesmo comando via ISQL). Isso, em testes que fiz, faz com que o tempo de backup seja reduzido em quase 
+150%
+. Lembre-se somente que o diretório de backup nestes casos deverão ser especificados a partir do servidor, isto é, o diretório "c:\backup" dos exemplos acima serão criados ou utilizados no servidor independente do computador onde está sendo executado o comando.
+Backup live
+O backup live é um tipo diferente de backup. Na realidade, é um procedimento que coloca no ar (num outro computador normalmente), um processo que irá espelhar o arquivo de log de transações.
+ Ele serve para que tenhamos sempre uma cópia atualizada do arquivo de transações atual num outro local para que possamos, num processo de restauração, recuperar os dados até o 
+exato
+ momento da falha. Caso este procedimento não seja executado, corremos o risco de, por exemplo, ter uma falha no disco rígido onde está o arquivo de log de transações e, neste caso, conseguiríamos recuperar os dados até o último backup deste arquivo de log de transações (já que não conseguiríamos aplicar o log de produção na última etapa de recuperação).
+dbbackup -l scgwin.log -c "SERVER=scgwin12;UID=DBA;PWD= (senha default) caso não possua, solicitar ao suporte técnico futura. c:\backup
+
+DbValid
+Um procedimento fundamental para aumentar a segurança do procedimento de backup é testá-lo, isto é, saber se o arquivo principal do banco copiado através do backup full está integro. Isso pode ser feito de duas formas:
+Restaurando o backup:
+ É recomendável realizar o procedimento de restauração uma vez por semana ou mês pelo menos para que, primeiro, possamos treinar o procedimento sem a pressão de um ambiente de produção parado no nosso pescoço e, segundo, verificar se os arquivos do backup (por amostragem) estão íntegros. Esta etapa está descrita mais adiante.
+Utilizar o dbvalid:
+ O 
+Dbvalid
+ é um utilitário que serve para validar as estruturas do banco de dados. Normalmente, utilizamos ele para validar um banco de dados e, neste caso, podemos acrescentar este passo logo após a realização do backup full de forma a validá-lo toda vez que o mesmo for executado.
+Importante:
+ É 
+fundamental
+ entender que, sempre que executamos o dbValid sobre um backup, ele 
+altera
+ o banco de dados pois deve subir o banco para verificar as tabelas e, no procedimento de subir o banco, o checkpoint log é restaurado e o transaction log aplicado (mesmo que não aplicássemos o transaction log, o checkpoint log é restaurado) fazendo com que qualquer tentativa futura de se utilizar o banco junto com backups incrementais posteriormente se torne mal sucedida. Para usar o dbvalid portanto, devemos utilizá-lo sobre uma 
+cópia
+ do backup.
+Nunca tente executar o dbvalid num banco com outros usuários conectados e com permissão de alteração pois ele dará resultados espúrios. Sempre execute o dbvalid subindo o banco com a cláusula -r (read-only) porém 
+atenção:
+ logo após realizar um backup, é fundamental subir a cópia do backup 
+sem a cláusula -r
+ aplicando o log (com a cláusula -ad) e depois subindo o banco normalmente com a cláusula -r pois o banco necessita se alterar quando sobe pela primeira vez após a realização de um backup.
+Prática - Fazendo o backup, restaurando e testando o backup de forma automática.
+Vamos juntar o que foi exposto até o momento e realizar através de comandos batch os seguintes procedimentos:
+Criar banco de dados.
+02_run_dbinit12.bat
+"%SQLANY12%\bin32\dbinit.exe" ddd12.db
+
+Subir banco de dados criado.
+03_run_dbspawn_dbsrv12.bat
+"%SQLANY12%\bin32\dbspawn.exe"^
+  -f "%SQLANY12%\bin32\dbsrv12.exe"^
+  -o dbsrv12_log_ddd12.txt^
+  -oe dbsrv12_log_fatal_ddd12.txt^
+  -os 10M^
+  -x tcpip^
+  -zl^
+  -zp^
+  -zt^
+  ddd12.db
+# -o: log do console do servidor vai para arquivo
+# -oe: erros fatais vão para outro arquivo de log
+# -x TCPIP: protocolo TCP/IP
+# -os: renomear log qdo tamanho arquivo atingir tamanho especificado
+# -zl: relembrar ultimo comando executado para cada conexão
+# -zp: relembrar plano da última query executada de cada conexão
+# -zt: monitorar tempo de execução de cada processamento de cada conexão
+
+Preencher banco de dados com algumas tabelas e dados.
+04_run_script_to_create_table_and_event.bat
+"%SQLANY12%\bin32\dbisql.com"^
+  -c "ENG=ddd12;DBN=ddd12;UID=dba;PWD=sql"^
+  READ ENCODING Cp1252 04s_script_to_create_table_and_event.sql
+
+sendo que o conteúdo do script 
+04s_script_to_create_table_and_event.sql
+ contém:
+04s_script_to_create_table_and_event.sql
+CREATE TABLE rapid (
+   pkey   INTEGER NOT NULL DEFAULT AUTOINCREMENT PRIMARY KEY );
+
+CREATE EVENT rapid_insert
+HANDLER BEGIN
+   WHILE 1 = 1 LOOP
+      INSERT rapid VALUES ( DEFAULT );
+      COMMIT;
+      WAITFOR DELAY '00:00:00.1';
+   END LOOP;
+END;
+
+TRIGGER EVENT rapid_insert;
+
+Criar diretório e realizar backup full para ele.
+Criar diretório temporário e copiar backup (somente o arquivo .db) para ele.
+Subir a cópia do banco aplicando o log de transações validando o backup.
+Copiar diretório de backup validado para um outro diretório a fim de preservar até 10 diretórios de backups.
+05_run_dbbackup12_full.bat
+REM ******************************************************************
+REM Criar sub-diretorio backup\generation_temp
+
+MD backup
+CD backup
+RD /S /Q generation_temp
+MD generation_temp
+CD ..
+
+ECHO ********************************************^
+*********************************************>>backup\generation_temp\dbbackup_log.txt
+ECHO ***** Iniciado backup full >>backup\generation_temp\dbbackup_log.txt
+SET ERRMSG=
+DATE /T >>backup\generation_temp\dbbackup_log.txt
+TIME /T >>backup\generation_temp\dbbackup_log.txt
+
+REM ******************************************************************
+ECHO ***** Passo 1 Backup Full >>backup\generation_temp\dbbackup_log.txt
+
+"%SQLANY12%\bin32\dbbackup.exe"^
+  -c "ENG=ddd12;DBN=ddd12;UID=dba;PWD=sql"^
+  -o backup\generation_temp\dbbackup_log.txt^
+  -x^
+  backup\generation_temp
+
+IF ERRORLEVEL 1 SET ERRMSG=Passo 1 Backup Full falhou com ERRORLEVEL = %ERRORLEVEL%
+IF NOT "%ERRMSG%z" == "z" GOTO backup_failed
+
+REM ******************************************************************
+ECHO ***** Passo 2 Aplicar log >>backup\generation_temp\dbbackup_log.txt
+
+CD backup\generation_temp
+MD validate
+XCOPY ddd12.db validate /V /Q /K
+CD ..\..
+
+REM Note: O diretório da cláusula -ad é relativo ao folder contendo o bando de dados.
+
+"%SQLANY12%\bin32\dbsrv12.exe"^
+  -o backup\generation_temp\dbbackup_log.txt^
+  backup\generation_temp\validate\ddd12.db^
+  -ad "%CD%\backup\generation_temp"
+
+IF ERRORLEVEL 1 SET ERRMSG=Passo 2 Aplicar log falhou com ERRORLEVEL = %ERRORLEVEL%
+IF NOT "%ERRMSG%z" == "z" GOTO backup_failed
+
+REM ******************************************************************
+ECHO ***** Passo 3 Iniciar cópia com cláusula read-only >>backup\generation_temp\dbbackup_log.txt
+
+"%SQLANY12%\bin32\dbspawn.exe"^
+  -f "%SQLANY12%\bin32\dbsrv12.exe"^
+  -n readonlycopy^
+  -o backup\dbsrv12_readonlycopy_log.txt^
+  -r^
+  backup\generation_temp\validate\ddd12.db
+
+IF ERRORLEVEL 1 SET ERRMSG=Passo 3 Iniciar banco cópia com cláusula read-onlyu falhou com ERRORLEVEL = %ERRORLEVEL%
+IF NOT "%ERRMSG%z" == "z" GOTO backup_failed
+
+REM ******************************************************************
+ECHO ***** Passo 4 Validar >>backup\generation_temp\dbbackup_log.txt
+
+"%SQLANY12%\bin32\dbvalid.exe"^
+  -c "ENG=readonlycopy;DBN=ddd12;UID=dba;PWD=sql"^
+  -o backup\generation_temp\dbbackup_log.txt^
+  -q
+
+IF ERRORLEVEL 1 SET ERRMSG=Passo 4 Validar falhou com ERRORLEVEL = %ERRORLEVEL%
+
+REM ******************************************************************
+ECHO ***** Passo 5 Parar cópia read-only >>backup\generation_temp\dbbackup_log.txt
+
+"%SQLANY12%\bin32\dbstop.exe"^
+  -c "ENG=readonlycopy;DBN=ddd12;UID=dba;PWD=sql"^
+  -y
+IF NOT "%ERRMSG%z" == "z" GOTO backup_failed
+
+REM ******************************************************************
+ECHO ***** Passo 6 Mover arquivos >>backup\generation_temp\dbbackup_log.txt
+
+CD backup
+RD /S /Q generation1
+RENAME generation2 generation1
+RENAME generation3 generation2
+RENAME generation4 generation3
+RENAME generation5 generation4
+RENAME generation6 generation5
+RENAME generation7 generation6
+RENAME generation8 generation7
+RENAME generation9 generation8
+RENAME generation10 generation9
+RENAME generation_temp generation10
+CD ..
+
+REM ******************************************************************
+REM Backup OK
+
+DIR /S backup\generation10\*.* >>backup\generation10\dbbackup_log.txt
+ECHO ***** Backup full OK >>backup\generation10\dbbackup_log.txt
+DATE /T >>backup\generation10\dbbackup_log.txt
+TIME /T >>backup\generation10\dbbackup_log.txt
+GOTO end
+
+:backup_failed
+REM ******************************************************************
+REM Backup falhou
+
+ECHO ***** Error: Backup full falhou... >>backup\generation_temp\dbbackup_log.txt
+ECHO ***** %ERRMSG% >>backup\generation_temp\dbbackup_log.txt
+DATE /T >>backup\generation_temp\dbbackup_log.txt
+TIME /T >>backup\generation_temp\dbbackup_log.txt
+GOTO end
+
+:end
+
+A cláusula 
+-ad
+ é uma das únicas cláusulas onde o diretório passado é relativo 
+ao local onde está o banco de dados
+ e não (como é o padrão normal do SQLAnywhere) o local onde o servidor (executável) está sendo executado ou o folder corrente. Assim, utiliza-se a variável %CD% (que retorna o diretório corrente) para se criar um caminho completo a partir da raiz.
+Realizar backup incremental.
+Validar backup incremental subindo a cópia do backup realizado no passo anterior.
+07_run_dbbackup12_incremental.bat
+ECHO ********************************************^
+*********************************************>>backup\generation10\dbbackup_log.txt
+ECHO ***** Backup incremental iniciado >>backup\generation10\dbbackup_log.txt
+SET ERRMSG=
+DATE /T >>backup\generation10\dbbackup_log.txt
+TIME /T >>backup\generation10\dbbackup_log.txt
+
+REM ******************************************************************
+ECHO ***** Passo 1 Verificar backup full >>backup\generation10\dbbackup_log.txt
+
+IF EXIST "backup\generation10\ddd12.db" ( GOTO check_full_log_backup ) ELSE ( GOTO full_backup_is_missing )
+
+:check_full_log_backup
+IF EXIST "backup\generation10\ddd12.log" ( GOTO full_backup_exists ) ELSE ( GOTO full_backup_is_missing )
+
+:full_backup_is_missing
+SET ERRMSG=Passo 1 Verificar backup full falhou
+GOTO backup_failed
+
+:full_backup_exists
+REM ******************************************************************
+ECHO ***** Passo 2 Backup Incremental >>backup\generation10\dbbackup_log.txt
+
+CD backup\generation10
+MD logs
+CD ..\..
+
+"%SQLANY12%\bin32\dbbackup.exe"^
+  -c "ENG=ddd12;DBN=ddd12;UID=dba;PWD=sql"^
+  -o backup\generation10\dbbackup_log.txt^
+  -n^
+  -t^
+  -x^
+  backup\generation10\logs
+
+IF ERRORLEVEL 1 SET ERRMSG=Passo 2 Backup Incremental falhou com ERRORLEVEL = %ERRORLEVEL%
+IF NOT "%ERRMSG%z" == "z" GOTO backup_failed
+
+REM ******************************************************************
+ECHO ***** Passo 3 Aplicar log >>backup\generation10\dbbackup_log.txt
+
+REM Nota: O diretório da cláusula -ad é relativo ao diretório contendo o banco de dados.
+
+"%SQLANY12%\bin32\dbsrv12.exe"^
+  -o backup\generation10\dbbackup_log.txt^
+  backup\generation10\validate\ddd12.db^
+  -ad "%CD%\backup\generation10\logs"
+
+IF ERRORLEVEL 1 SET ERRMSG=Passo 3 Aplicar log falhou com ERRORLEVEL = %ERRORLEVEL%
+IF NOT "%ERRMSG%z" == "z" GOTO backup_failed
+
+REM ******************************************************************
+REM Backup OK
+
+DIR /S backup\generation10\*.* >>backup\generation10\dbbackup_log.txt
+ECHO ***** Backup Incremental OK >>backup\generation10\dbbackup_log.txt
+DATE /T >>backup\generation10\dbbackup_log.txt
+TIME /T >>backup\generation10\dbbackup_log.txt
+GOTO end
+
+:backup_failed
+REM ******************************************************************
+REM Backup falhou
+
+ECHO ***** Error: Backup Incremental falhou >>backup\generation10\dbbackup_log.txt
+ECHO ***** %ERRMSG% >>backup\generation10\dbbackup_log.txt
+DATE /T >>backup\generation10\dbbackup_log.txt
+TIME /T >>backup\generation10\dbbackup_log.txt
+GOTO end
+
+:end
+
+Opção:
+ Repetir o último passo 10 vezes preservando o conteúdo de até 10 diretórios.
+Mostrar o conteúdo do banco de dados a cada backup incremental.
+06_display_table.bat
+"%SQLANY12%\bin32\dbisql.com"^
+  -c "ENG=ddd12;DBN=ddd12;UID=dba;PWD=sql"^
+  SELECT COUNT(*), MAX ( pkey ) FROM rapid
+
+PAUSE Nota: COUNT deve ser igual ao MAX
+
+Parar o banco simulando um problema grave.
+08_stop_drop_database.bat
+"%SQLANY12%\bin32\dbstop.exe" -c "ENG=ddd12;DBN=ddd12;UID=dba;PWD=sql" -y
+
+PAUSE Esperar enquando o banco para e entao...
+
+ERASE /F ddd12.db
+
+REM Nota: O log de transacao não é apagado.
+
+Restaurar o banco a partir do primeiro diretório. É importante salientar que a ordem em que os logs são aplicados é 
+fundamental
+ para o sucesso da restauração. Assim, deve-se sempre aplicar os logs na seguinte ordem:
+Log do backup full que iremos utilizar como ponto de partida da restauração
+.
+Logs incrementais a partir de então
+.
+Log do banco de produção (utilizando a cláusula -a)
+.
+09_restore_database.bat
+ECHO ********************************************^
+*********************************************>>backup\generation10\dbbackup_log.txt
+ECHO Iniciado Restore >>backup\generation10\dbbackup_log.txt
+DATE /T >>backup\generation10\dbbackup_log.txt
+TIME /T >>backup\generation10\dbbackup_log.txt
+
+COPY backup\generation1\ddd12.db
+
+REM Nota: A cláusula -o grava os dados do diagnostico do backup deste exemplo.
+
+REM Nota: O diretório da cláusula -ad é relativo ao diretório contendo o banco de dados.
+
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation1
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation1\logs
+
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation2
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation2\logs
+
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation3
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation3\logs
+
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation4
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation4\logs
+
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation5
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation5\logs
+
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation6
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation6\logs
+
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation7
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation7\logs
+
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation8
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation8\logs
+
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation9
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation9\logs
+
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation10
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -ad backup\generation10\logs
+
+REM Usar a cláusula -a para aplicar o log mais recente.
+
+"%SQLANY12%\bin32\dbsrv12.exe" -o backup\generation10\dbbackup_log.txt ddd12.db -a ddd12.log
+
+REM ******************************************************************
+REM Fim do Restore
+DATE /T >>backup\generation10\dbbackup_log.txt
+TIME /T >>backup\generation10\dbbackup_log.txt
+
+Subir o banco e mostrar o seu conteúdo executando novamente as batches 
+03_run_dbspawn_dbsrv12.bat
+ e 
+06_display_table.bat
+.
+Database Mirror
+Este é um esquema que permite ao Sybase ter fail-over, isto é, troca automática de banco em caso de pane de um banco principal. É um conceito simples e com um esquema simples de execução porém com alcance em termos de segurança muito profundos:
+Copia-se o banco principal (primário) para um outro servidor (secundário).
+Cria-se um terceiro servidor (árbitro) conectando os outros dois (primário e secundário).
+Sobe-se os três servidores. O secundário fica read-only e espelhando todas as operações do primário.
+Usuário se conecta no servidor primário e realiza todas as operações nele normalmente.
+Caso o servidor principal caia, o secundário assume as operações automáticamente e torna-se atualizável.
+Ao voltar o servidor primário, automaticamente os papéis voltam ao estado original.
+ 
+ Iremos fazer um teste sobre o assunto mais adiante, porém existem alguns pontos a se considerar:
+Comunicação entre servidores (síncrono/assíncrono):
+ No modo 
+síncrono
+, todas as transações realizadas no servidor primário são garantidas de estar no servidor secundário. Neste modo, todas as páginas que foram realizadas commit são enviadas ao servidor secundário que responde com um sinal positivo para o servidor primário e este só retorna o comando ao usuário após ter este sinal recebido. No modo 
+assíncrono
+, não existe uma garantia que as páginas estejam escritas no servidor secundário pois o servidor primário não espera um retorno do servidor secundário para retornar o comando ao usuário, isto é, ele simplesmente envia as alterações assim que as mesmas tenham sido registradas (com um commit) sem ter garantia do sucesso na gravação no servidor secundário.
+É exigido que os servidores participantes do esquema sejam 
+dbsrv12
+. A engine pessoal (dbeng12) não pode ser executada pois é necessário comunicação via rede entre os servidores (que a dbeng12 não permite - conexões de outros computadores).
+É necessário pelo menos dois servidores para o esquema funcionar (primário/secundário; primário/árbitro; secundário/árbitro).
+O log de transações não pode ser truncado
+. Pode-se renomear o log de transações deixando-os no mesmo diretório do log principal (para que sejam aplicados ao servidor secundário quando este se conectar ao sistema) e, num segundo momento, tendo-se a certeza que o log já não é mais necessário, deletá-lo a partir de algum evento que seja executado uma vez por semana por exemplo.
+Prática - Configurando um esquema de espelhamento de banco (database mirroring).
+Crédito para o site 
+http://sqlanywhere.blogspot.com
+ ao qual tomei por base os meus testes e esta demonstração.
+Preparando os dois servidores (primario=server1 e secundario=server2)
+.
+ Basicamente iremos utilizar o banco de dados que vem com o SQLAnywhere (demo) para esta demonstração. Assim, iremos criar diretórios para cada banco, instalar uma stored procedure no banco (para trazer informações sobre o banco numa outra etapa) e copiar 
+o mesmo banco
+ para os diretorios 
+server1
+ e 
+server2
+.
+1_create_ha.bat
+REM Criando os subdiretorios...
+
+MD arbiter
+MD server1
+MD server2
+
+PAUSE
+REM Copiando o banco e o log no subdiretorio server1...
+PAUSE
+
+CD server1
+COPY "C:\Documents and Settings\All Users\Documentos\SQL Anywhere 12\Samples\demo.db"
+COPY "C:\Documents and Settings\All Users\Documentos\SQL Anywhere 12\Samples\demo.log"
+"%SQLANY12%\bin32\dblog.exe" -t demo.log demo.db
+CD ..
+
+PAUSE
+REM Preparando os bancos para uso...
+PAUSE
+
+"%SQLANY12%\bin32\dbspawn.exe" -f "%SQLANY12%\bin32\dbeng12.exe" -n temp server1\demo.db
+"%SQLANY12%\bin32\dbisql.com" -c "ENG=temp;DBN=demo;UID=dba;PWD=sql" READ additional_DDL.sql
+"%SQLANY12%\bin32\dbstop.exe" -y -c "ENG=temp;UID=dba;PWD=sql"
+
+PAUSE
+REM Copiando o banco preparado para o server2...
+PAUSE
+
+copy server1\demo.db  server2
+copy server1\demo.log server2
+
+PAUSE PREPARACAO OK
+
+additional_ddl.sql
+CREATE OR REPLACE FUNCTION which_database (
+   IN @verbosity VARCHAR ( 7 ) DEFAULT 'verbose' ) -- or 'concise'
+RETURNS LONG VARCHAR
+BEGIN
+   IF @verbosity = 'concise' THEN
+      RETURN STRING (
+         'Connection Number / Name ',
+         CONNECTION_PROPERTY ( 'Number' ),
+         ' / ',
+         CONNECTION_PROPERTY ( 'Name' ),
+         ', Server ',
+         PROPERTY ( 'Name' ),
+         ', Database ',
+         DB_PROPERTY ( 'Name' ),
+         IF PROPERTY ( 'Name' ) <> PROPERTY ( 'ServerName' )
+            THEN IF DB_PROPERTY ( 'ReadOnly' ) = 'On'
+                    THEN ' (HA secondary)'
+                    ELSE ' (HA primary)'
+                 ENDIF
+            ELSE ''
+         ENDIF,
+         ' on ',
+         PROPERTY ( 'MachineName' ),
+         ' at ',
+         IF CONNECTION_PROPERTY ( 'CommLink' ) = 'TCPIP'
+            THEN ''
+            ELSE STRING ( CONNECTION_PROPERTY ( 'CommLink' ), ' ' )
+         ENDIF,
+         IF CONNECTION_PROPERTY ( 'CommNetworkLink' ) = 'TCPIP'
+            THEN PROPERTY ( 'TcpIpAddresses' )
+            ELSE CONNECTION_PROPERTY ( 'CommNetworkLink' )
+         ENDIF,
+         ' using ',
+         DB_PROPERTY ( 'File' ) );
+   ELSE
+      RETURN STRING (
+         ' Connection number: ',
+         CONNECTION_PROPERTY ( 'Number' ),
+         '\x0d\x0a Connection name: CON=',
+         CONNECTION_PROPERTY ( 'Name' ),
+         '\x0d\x0a Server name: ENG=',
+         PROPERTY ( 'Name' ),
+         '\x0d\x0a Database name: DBN=',
+         DB_PROPERTY ( 'Name' ),
+         IF PROPERTY ( 'Name' ) <> PROPERTY ( 'ServerName' )
+            THEN STRING (
+               '\x0d\x0a Actual HA server name: ',
+               PROPERTY ( 'ServerName' ),
+               IF DB_PROPERTY ( 'ReadOnly' ) = 'On'
+                  THEN ' (read-only HA secondary)'
+                  ELSE ' (updatable HA primary)'
+               ENDIF,
+               '\x0d\x0a HA arbiter is: ',
+               DB_PROPERTY ( 'ArbiterState' ),
+               '\x0d\x0a HA partner is: ',
+               DB_PROPERTY ( 'PartnerState' ),
+               IF DB_PROPERTY ( 'PartnerState' ) = 'connected'
+                  THEN STRING ( ', ', DB_PROPERTY ( 'MirrorState' ) )
+                  ELSE ''
+               ENDIF )
+            ELSE ''
+         ENDIF,
+         '\x0d\x0a Machine name: ',
+         PROPERTY ( 'MachineName' ),
+         '\x0d\x0a Connection via: ',
+         IF CONNECTION_PROPERTY ( 'CommLink' ) = 'TCPIP'
+            THEN 'Network '
+            ELSE STRING ( CONNECTION_PROPERTY ( 'CommLink' ), ' ' )
+         ENDIF,
+         CONNECTION_PROPERTY ( 'CommNetworkLink' ),
+         IF CONNECTION_PROPERTY ( 'CommNetworkLink' ) = 'TCPIP'
+            THEN STRING ( ' to ', PROPERTY ( 'TcpIpAddresses' ) )
+            ELSE ''
+         ENDIF,
+         '\x0d\x0a Database file: ',
+         DB_PROPERTY ( 'File' ) );
+   END IF;
+END; -- FUNCTION which_database
+
+Iniciando os bancos
+ Iremos iniciar cada banco com uma configuração específica salva em um arquivo texto (arbitro=arbiterconfig; servidor primário=server1config; servidor secundário=server2config).
+2_start_HA.bat
+REM Iniciando os servidores...
+
+"%SQLANY12%\bin32\dbspawn.exe" -f "%SQLANY12%\bin32\dbsrv12.exe" @arbiterconfig.txt
+"%SQLANY12%\bin32\dbspawn.exe" -f "%SQLANY12%\bin32\dbsrv12.exe" @server1config.txt
+"%SQLANY12%\bin32\dbspawn.exe" -f "%SQLANY12%\bin32\dbsrv12.exe" @server2config.txt
+
+PAUSE TUDO OK
+
+arbiterconfig.txt
+-n arbiter
+-o arbiter\arbiterlog.txt
+-su sql
+-x tcpip(port=55500)
+-xa auth=dJCnj8nUx3Lijoa8;dbn=demo
+-xf arbiter\arbiterstate.txt
+#-su sql: para executar dbstop no utility_db (banco de dados fantasma).
+#-xa <senha>: senha para todos os bancos participantes do esquema (todos devem ter a mesma senha).
+#-fx: designar um arquivo texto de controle do estado do banco (read-only).
+# dbn=demo (deve ser igual ao nome do banco de dados utilizado pelo servidor primario e secundário)
+
+server1config.txt
+# server options
+-n server1
+-o server1\server1log.txt
+-su sql
+-x tcpip(port=55501;dobroadcast=no)
+-xf server1\server1state.txt
+# dobroadcast=no é usado somente para garantir que ele não irá responder a outros broadcasts ou participar de outros esquemas HAs
+
+# database options
+server1\demo.db
+-sm secondarydemo
+-sn primarydemo
+-xp partner=(eng=server2;links=tcpip(host=localhost;port=55502;timeout=1));
+mode=sync;auth=dJCnj8nUx3Lijoa8;arbiter=(eng=arbiter;links=tcpip(host=localhost;port=55500;timeout=1))
+#-sm: nome logico da engine para quando se quiser conectar no banco secundário (read-only).
+#-sn: nome logico da engine para quando se quiser conectar no banco primário.
+# Os nomes são lógicos pois eles decidirão o papel de cada um no esquema conforme a disponibilidade de cada banco.
+#-xp: *partner:* para se designar o parceiro (na configuração do banco primário é o secundário e vice-versa),
+# *mode*=synch para só liberar a transação no servidor primário quando o secundário receber
+# e aplicar a transação de forma síncrona, *auth*= deve ser igual para todos os bancos do esquema HA,
+# *arbiter:*= designar quem irá ser o árbitro do esquema.
+
+serverconfig2.txt
+# server options
+
+-n server2
+-o server2\server2log.txt
+-su sql
+-x tcpip(port=55502;dobroadcast=no)
+-xf server2\server2state.txt
+
+# database options
+server2\demo.db
+-sm secondarydemo
+-sn primarydemo
+-xp partner=(eng=server1;links=tcpip(host=localhost;port=55501;timeout=1));
+mode=sync;auth=dJCnj8nUx3Lijoa8;arbiter=(eng=arbiter;links=tcpip(host=localhost;port=55500;timeout=1))
+
+A configuração acima é idêntica à do servidor primário somente trocando o 
+server1
+ pelo 
+server2
+ e as portas de comunicação.
+ Principais participantes:
+Arbitro:
+ A função principal do árbitro é decidir quando um banco deverá ser primário e outro secundário e quando alterar estas configurações num caso de parada de algum banco ou de falha de comunicação entre eles. Este banco não detém uma cópia do banco principal. Ele pode participar de mais de um esquema de HA (com outros bancos). Assim, suas funções se manifestam em dois momentos principais:
+Inicialização do ambiente:
+ Pois ele pode resolver quem irá assumir o banco de dados primário. Quando não se tem o árbitro, pode ocorrer de um servidor ter tido transações quando era o servidor principal e, por algum problema de comunicação, não ter enviado estas transações ao servidor secundário. Quando este (secundário) for iniciado sozinho (sem o primário), aceitará transações e inviabilizará o esquema HA com o primário pois ambos agora possuem transações que necessitam ser enviadas para o outro. Quando existe um árbitro, isso não ocorre pois ele não permitiria ao banco secundário iniciar e receber conexões. Segue o passo a passo do processo de inicialização do esquema normal:
+O árbitro espera pelo servidor primário (server1) e secundário (server2).
+Server 1 procura pelo árbitro ou Server 2.
+Server 1 se conecta com o árbitro.
+Server 1 negocia com o árbitro para ser o servidor primário.
+Árbitro e Server 1 concordam que o Server 1 deve ser o servidor primário.
+Server 1 passa a aceitar conexões.
+Server 2 procura pelo Server1 e pelo Árbitro.
+Server 2 se conecta ao Árbitro e Server 1.
+Server 2 requisita ser o servidor primário. Ele não recebe esta atribuição pois o Server 1 já é o servidor primário portanto fica como secundário (read-only) aguardando as transações vindas do servidor primário (Server 1).
+Server 1 envia as transações para o Server 2.
+Falha de Comunicação:
+ No caso de falha de comunicação entre os servidores (porém com seus bancos rodando normalmente), o árbitro caso consiga se comunicar com ambos, permite ao esquema continuar funcionando normalmente. Ele serve como um ponto de redundância no tocante à comunicação entre os servidores.
+Server Primário:
+ Serve como o banco que irá receber as transações enviando-as para o servidor secundário para espelhamento.
+Server Secundário:
+ Serve como um espelho do banco primário. Sobe como um banco read-only recebendo as transações enviadas pelo servidor primário.
+Abrindo janelas ISQL para mostrar algumas características do esquema.
+3_connect_HA.bat
+SETLOCAL
+SET MORE=DBN=demo;UID=dba;PWD=sql;LINKS=TCPIP(HOST=localhost:55501,localhost:55502;DOBROADCAST=NONE)
+
+"%SQLANY12%\bin32\dbisql.com" -c "ENG=primarydemo;CON=Conexao1;%MORE%"
+
+PAUSE Aguardar conexao para continuar....
+
+"%SQLANY12%\bin32\dbisql.com" -c "ENG=secondarydemo;CON=Conexao2;%MORE%"
+
+PAUSE Tudo OK
+
+A partir daqui, devemos ter 5 janelas abertas: 3 dos servidores (arbiter, server1 e server2) e duas janelas de ISQL (conexao1 conectado ao servidor primário e conexao2 conectado ao servidor secundário).
+ 
+ Podemos executar a procedure 
+which_database
+ criada no passo 1 para retornar algumas propriedades do servidor conectado.
+ 
+ Notar o nome e papel de cada banco no esquema. O server1 é considerado como primário (atualizável) e o server2 como secundário (read-only).
+ Vamos agora fazer um UPDATE no servidor primário (server1) e ver que o servidor secundário recebe imediatamente as alterações.
+ 
+ Por fim, vamos dar um shutdown no servidor primário e ver que o servidor secundário passa a ficar atualizável e receber todas as requisições sem termos de alterar a configuração de conexão.
+ 
+ Note que podemos nos conectar ao banco secundário que ficou atualizável 
+com a mesma string de conexão do servidor primário
+. Além disso, o ISQL tem um esquema especial que não necessita nem solicitar a reconexão.
+A regra final para que o esquema de HA funcione e os usuários tenham conexão com um banco é que existam 
+pelo menos dois servidores ativos e se comunicando
+ no esquema. Pode ser o servidor primário e o secundário, o servidor primário e o árbitro ou o servidor secundário e o árbitro porém devem existir dois servidores e que um enxergue o outro, isto é, seja possível uma comunicação entre eles.
+Monitoramento do Banco
+O correto monitoramento do banco faz com que possamos antecipar algum problema de lentidão ou melhorar a performance do mesmo a partir de certos parâmetros do servidor, do banco ou da conexão.
+ Assim, é importante primeiro conhecermos alguns parâmetros importantes e, em seguida, vermos como podemos monitorá-los.
+ Abaixo, segue um exemplo da criação de uma stored procedure que irá (ao ser consumida através de um SELECT * FROM V_SHOW_COUNTERS depois de ter sido criada) mostrar todos os contadores numéricos tanto do servidor quanto do banco de dados.
+show_counters.sql
+CREATE VIEW v_Show_Counters AS
+SELECT CAST( STRING (
+           '1.Servidor ',
+		   PROPERTY( 'Name' ) )
+		   as VARCHAR(200) )        AS nome_propriedade,
+		Propname					AS nome,
+		Value						AS Valor,
+		PropDescription				AS Descricao
+	FROM sa_eng_properties()
+	WHERE ISNUMERIC( valor ) = 1
+UNION ALL
+SELECT CAST( STRING (
+           '2.Banco Dados ',
+		   DB_NAME( Number) )
+		   as VARCHAR(200) )        AS nome_propriedade,
+		Propname					AS nome,
+		Value						AS Valor,
+		PropDescription				AS Descricao
+	FROM sa_db_properties()
+	WHERE ISNUMERIC( valor ) = 1
+ORDER BY 1,2;
+SELECT * FROM V_SHOW_COUNTERS;
+
+Como se pode ver (tela abaixo), ao ser executada, a procedure retorna uma infinidade de parâmetros sobre o banco e o servidor inclusive com uma breve descrição de cada uma delas.
+ 
+ O importante nesta análise é 
+estabelecer uma baseline
+, isto é, monitorar alguns parâmetros e estabelecer quais são os números que indicam que o servidor ou o banco está trabalhando normalmente. Isto só pode ser estabalecido pelo próprio administrador já que cada ambiente tem suas próprias configurações de hardware, rede e número de clientes. Esta baseline deve ser estabelecida ao longo do tempo de forma que 
+a média
+ seja o número mais apropriado para se levar em consideração pois teremos momentos de pico ou vale que não irão caracterizar o comportamento normal do servidor ou banco.
+ Porém, quais são os mais importantes ou os primeiros a serem analisados e monitorados?
+Principais Parâmetros
+Nome Propriedade
+Descrição
+Tipo
+Observações
+ActiveReq (activeReq)
+Número de requisições que estão sendo processadas no momento
+Servidor
+ 
+MaxReq (multiprogramminglevel)
+Número máximo de requisições possíveis de serem processadas ao mesmo tempo
+Servidor
+Corresponde ao parâmetro -gn (
+MultiProgrammingLevel
+) cujo default é 20. Este número pode ser aumentado automaticamente pelo servidor conforme o número de requisições pendentes, processadores e memória disponíveis. O número máximo é obtido pelo parâmetro 
+MaxMultiProgrammingLevel
+ e um valor razoável é igual a 80.
+WaitingReq (unSchReq)
+Número de requisições esperando para serem processadas
+Servidor
+ 
+DiskReads
+Número de páginas lidas pelo servidor
+banco de dados
+Pode-se obter a velocidade de leitura de páginas do servidor se calcularmos a diferença entre este parâmetro neste momento e seu valor a 1 minuto atrás.
+DiskWrites
+Número de páginas gravadas pelo servidor
+banco de dados
+Pode-se obter a velocidade de gravação de páginas do servidor se calcularmos a diferença entre este parâmetro neste momento e seu valor a 1 minuto atrás.
+BytesIn (bytesReceived)
+Bytes recebidos pelo servidor
+servidor
+Pode-se obter a velocidade de recebimento de dados via rede local do servidor se calcularmos a diferença entre este parâmetro neste momento e seu valor a 1 minuto atrás.
+BytesOut (bytesSend)
+Bytes enviados ao servidor
+servidor
+Pode-se obter a velocidade de envio de dados via rede local do servidor se calcularmos a diferença entre este parâmetro neste momento e seu valor a 1 minuto atrás.
+CacheHits
+Número de páginas que foram supridas pelo cache e não por uma leitura do disco
+Banco
+Satisfação Cache = CacheHits/CacheRead
+CacheRead
+Número de páginas que foram pesquisadas no cache
+Banco
+Qualquer dado manipulado pelo banco é trazido ao cache primeiro e este parâmetro conta o número de acessos ao cache independente se a página originalmente estava lá ou não.
+CachePanics
+Número de tentativas mal sucedidas de se alocar uma página ao cache
+Banco
+Deve ser sempre 0 ou próximo de 0
+Low Memory (QueryLowMemoryStrategy)
+Número de vezes que o servidor teve de alterar seu plano de query por memória (cache) baixa
+Banco
+ 
+ApproximateCPUTime
+Consumo de CPU aproximado por conexão
+conexão
+Utilizar sa_conn_properties('ApproximateCPUTime')
+cpu_por_conexao.sql
+SELECT Number AS connection_number, CONNECTION_PROPERTY ( 'Name', Number ) AS connection_name, CONNECTION_PROPERTY ( 'Userid', Number ) AS user_id,
+CAST ( Value AS NUMERIC ( 30, 2 ) ) AS approximate_cpu_time
+FROM sa_conn_properties()
+WHERE PropName = 'ApproximateCPUTime' ORDER BY approximate_cpu_time DESC;
+
+# connection_number connection_name  user_id    approximate_cpu_time
+# ================= ================ ========== ====================
+# 33                SQL_DBC_5071260  LongRunner       97.20
+# 35                SQL_DBC_3aa4a78  DBA              2.09
+# 12                Sybase Central 1 DBA              1.09
+# 37                SQL_DBC_504b0f0  LotsOfLocks      0.00
+
+Como monitorar?
+Existem algumas opções para o monitoramento destes parâmetros:
+DbMonitor:
+ Ferramenta da Sybase que vem com o banco. A vantagem é que é "gratuita", isto é, já vem junto com a instalação do SQL Anywhere. Seu problema é que vc precisa saber quais são os parâmetros que precisa ou deseja monitorar.
+Windows Performance Monitor:
+ Você pode cadastrar os parâmetros que deseja monitorar no WPM. Ele salva o histórico dos mesmos porém a desvantagem é a mesma que o DBMonitor, isto é, você precisa saber quais parâmetros precisa ou deseja monitorar. A vantagem dele é que você conseguirá obter parâmetros adicionais para o servidor independente do banco de dados.
+FoxHound:
+ Ferramenta desenvolvida por pessoas que já trabalharam na Sybase, específica para o SQLAnywhere. Você pode obter uma versão demonstração no site da empresa 
+Rising Road
+. É com ela que iremos demonstrar alguns destes parâmetros em ação. Infelizmente, esta ferramenta tem um custo (versao básica US$ 195.00, versão completa US$ 395.00 - base Jan/2012) porém pode-se obter uma licença temporária somente para testes.
+ Vamos mostrar algumas situações do dia a dia para ver como os parâmetros são alterados.
+Situação de bloqueio.
+ Aqui, simulamos uma conexão bloqueada por outra. Por exemplo, damos um UPDATE numa tabela via ISQL sem dar COMMIT abrindo o Sispetro e tentando atualizar este mesmo registro.
+ 
+Situação stress CPU
+ (requisições OK).
+ Aqui, simulamos uma situação na qual elevamos a CPU para quase 100%. Notar como O SQLAnywhere cria conexões internas (INT - no painel de conexões) a fim de desmembrar uma requisição em pequenos pedaços rodando assíncronamente.
+ 
+Situação stress número requisições.
+ Aqui, o problema é que o número de requisições está acima da capacidade do servidor em atendê-las (número alto de requisições em espera).
+ 
+Situação cache baixo.
+ Vamos subir um banco com pouquíssimo cache (4M, mínimo) através da cláusula -ch e ver como os parâmetros (cache satisfaction) do banco se comportam.
+ 
+ Repare abaixo como a atividade em disco aumentou significativamente.
+ 
+MultiProgramming Level (-gn).
+ Aqui, vemos um servidor em apuros: 35 conexões, 3000 commits por segundo, 94% CPU sendo utilizada e ainda assim muita gente esperando (2/3 das conexões).
+ 
+ Será que precisamos aumentar o parâmetro 
+multiprogramming level
+? Ele é autoajustado pelo SQLAnywhere e 
+normalmente
+ não precisa ser ajustado pois um aumento deste valor pode inclusive 
+diminuir
+ a performance do banco pois ele terá que lidar com mais conexões, consumir mais memória e, como foi dito, normalmente o SQLAnywhere 
+se auto ajusta
+.
+ Aumentando o número de CPU's neste caso acabou resolvendo o problema.
+ 
+ Note que o número máximo de requisições aumentou um pouco (mais 3 conexões) porém o número de commits por segundo aumentou muito mais (> 11.000) e o percentual de trabalho da CPU diminuiu (64%).
+O Banco está lento. O que fazer?
+O banco "estar lento" pode representar uma série de pequenos problemas que, somados, podem fazer o banco ficar lento. Devemos lembrar que o banco roda em cima de um sistema operacional, que é executado em cima de um hardware e se comunica com outros computadores através de uma rede local portanto qualquer um destes pontos pode estar contribuindo para a percepção de lentidão. Outro ponto a se considerar é: lento em relação 
+a que?
+ É importante termos parâmetros para podermos comparar, por exemplo, o número de 
+commits por segundo
+ de um servidor para ver e comparar em dois momentos diferentes.
+ Mesmo isso pode não dar a noção exata do motivo da lentidão pois, como foi falado antes, existem outros fatores que não foram mencionados aqui que influenciam a performance sentida pelo usuário, portanto, é 
+fundamental
+ 
+conhecer o seu ambiente
+. Todos os pontos que se interligam (rede, switch, servidor, etc) devem ser monitorados através de poucos porém confiáveis parâmetros de forma que a investigação sobre a lentidão seja bem sucedida (e inclusive investimentos possam ser realizados baseados na realidade dos números e não em achismos).
+ Isso leva tempo porém a mesma mecânica que fazemos com o banco deve ser ampliada para o servidor em si, para a rede local de forma a monitorar 
+todos os pontos entre o usuário e o servidor
+.
+ Iremos demonstrar aqui como funciona uma outra ferramenta importante neste gerenciamento que é o 
+tracing
+.
+ Ele permite capturar todos os comandos realizados pelo banco ordenando-os e analisando-os de forma que se tenha uma noção do que o servidor está fazendo. Estas informações podem, inclusive, serem transmitidas para outra pessoa analisar (setor de suporte, por exemplo).
+ Em seguida, vamos dar algumas dicas de otimização do banco.
+Tracing
+Criar um banco novo.
+cria_banco_teste.sql
+dbinit.exe banco.db
+
+dbspawn.exe -f dbeng11.exe -o banco_msg.txt -oe banco_fatal.txt -x tcpip banco.db
+
+dbisql.com -c "ENG=banco;DBN=banco;UID=dba;PWD=sql
+
+Iniciar 
+Sybase Central
+ e se conectar ao banco.
+Clicar em 
+Work with server "Banco"
+.
+Clicar com o botão da direita do mouse em cima do ícone que representa o banco (à direita).
+ 
+Irá aparecer a tela abaixo. Clique em 
+Next
+.
+ 
+Escolha a opção 
+Custom
+ no nível de detalhe do tracing. Clique em 
+Next
+.
+Aperte o botão 
+New
+ para definir um novo nível de detalhe.
+Escolha a opção 
+Database
+ no 
+scope
+, 
+plans_with_statistics
+ no 
+tracing type
+ e 
+none
+ nas 
+conditions
+. Clique no botão 
+Add
+. Você pode adicionar outros planos de tracing porém o mais importante é o plans_with statistics.
+ 
+Clique em 
+Next
+.
+Escolha a opção 
+Create a new tracing database
+ com o nome 
+banco_trace
+. Preencha o nome do usuário e senha com 
+dba
+ e 
+sql
+ respectivamente.
+ 
+Marque o checkbox "Start database in this server".
+Clique em 
+Create database
+.
+Quando o comando voltar à tela, clique em 
+Next
+.
+O banco foi iniciado no mesmo server que estamos monitorando (banco). Numa situação normal (em produção), é interessante não sobrecarregarmos demais o servidor iniciando o banco num outro computador. Assim, num ambiente de produção, desmarque o checkbox "Start database in this server" e digite o código abaixo.
+inicia_trace.sql
+dbspawn.exe -f dbeng11.exe -o banco_trace_msg.txt -oe banco_trace_fatal.txt -x tcpip banco_trace.db
+dbisql.com -c "ENG=tracing;DBN=tracing;UID=dba;PWD=sql"
+
+Clique no botão 
+Finish
+.
+A partir daqui, o banco monitorado já está enviando dados para o banco de tracing.
+Vamos gerar algumas instruções para ver o que pode ser monitorado. Normalmente, este passo é desnecessário num ambiente de produção já que os próprios usuários estarão gerando estas instruções.
+Abra o dbISQL e digite as instruções abaixo (pelo menos duas vezes para que o cache seja inicializado).
+instrucao_monitorar.sql
+SELECT 'query 1',
+       SYSTABCOL.domain_id,
+       COUNT(*)
+  FROM SYSTABCOL
+          CROSS JOIN SYSTAB
+          CROSS JOIN SYSGROUP
+ GROUP BY SYSTABCOL.domain_id
+ ORDER BY SYSTABCOL.domain_id;
+
+Se a instrução acima não foi suficientemente lenta, podemos executar uma outra mais lenta.
+SELECT 'query 2',
+       SYSTABCOL.domain_id,
+       COUNT(*)
+  FROM SYSTABCOL
+          CROSS JOIN SYSTABCOL AS b
+          CROSS JOIN SYSGROUP
+ GROUP BY SYSTABCOL.domain_id
+ ORDER BY SYSTABCOL.domain_id;
+
+Após a instrução ter sido executada pelo menos duas vezes, execute o Sybase Central e pare o Trace clicando com o botão da direita em cima do banco 
+Banco
+ escolhendo a opção 
+Stop tracing with Save
+ 
+Clique no menu "Application Profiling" escolhendo a opção 
+Open Analysis Or Connect To Tracing Database
+.
+ 
+Escolha a opção 
+In a tracing database
+ e clique no botão 
+Open
+.
+Os dados devem ser preenchidos em relação ao banco 
+tracing
+, isto é, ao banco criado especificamente para armazenar os dados de tracing. Assim, preencha o campo banco com 
+banco_trace
+ e o servidor 
+banco
+ (caso esteja executando o banco de tracing no banco criado acima - em produção deve-se ter um servidor específico para o tracing). Digite nome e senha (dba/sql) e clique em 
+Connect
+.
+O painel de Tracing deve aparecer no Sybase Central (abaixo). Tome nota do 
+Logging session Id
+ para que possamos salvar os dados deste tracing mais abaixo.
+ 
+Clique na aba 
+Database Tracing Data
+ para ver os últimos comandos executados.
+ 
+Existem inúmeras outras opções para ver mais detalhes da query (clicando na aba 
+Details
+ numa determinada query) e, em seguida, clicando com o botão da direita em cima dos detalhes. O principal ponto a ser observado é que podemos analisar as queries mais demoradas para ver se podemos melhorá-las e, principalmente, podemos ver 
+onde
+ o servidor está gastando mais tempo de CPU.
+Para enviar estes dados para análise (de uma query), necessitamos do 
+Log Session Id
+ (anotado num passo anterior) e do request ID da query (abaixo - selecione a query, clique na aba 
+Details
+ e, em seguida, com o botão da direita do mouse, escolha a opção 
+View more SQL statement details for the selected Statement
+.
+ 
+ 
+Com os dois dados acima, execute a instrução abaixo no dbISQL ajustando os dois parâmetros conforme o valor dos mesmos colhidos anteriormente.
+salva_plano.sql
+UNLOAD
+SELECT sa_diagnostic_cursor.plan_xml
+  FROM dbo.sa_diagnostic_cursor
+          INNER JOIN dbo.sa_diagnostic_request
+             ON  sa_diagnostic_request.logging_session_id = sa_diagnostic_cursor.logging_session_id
+             AND sa_diagnostic_request.cursor_id          = sa_diagnostic_cursor.cursor_id
+ WHERE sa_diagnostic_request.logging_session_id = <logging session id>
+   AND sa_diagnostic_request.request_id = <request Id>
+    TO 'c:\temp\<nome desejado>.saplan'
+       DELIMITED BY ''
+       ESCAPES OFF
+       HEXADECIMAL OFF
+       QUOTES OFF;
+
+Com o plano salvo num arquivo, basta abri-lo através do dbISQL em outra máquina.
+Otimização Banco
+Desfragmentação Arquivo .DB
+. Este é um passo que deve ser executado no Sistema operacional, isto é, após uma análise dos fragmentos no arquivo .db, deve-se utilizar um desfragmentador via sistema operacional para diminuir o número de fragmentos do arquivo .db. Para saber quantos fragmentos ele possui, existe uma propriedade do banco chamada 
+DbFileFragments
+.
+SELECT DB_PROPERTY('DBFILEFRAGMENTS');
+
+Alguns desfragmentadores trabalham melhor com arquivos criados do que com espaço livre, isto é, ao executar o desfragmentador 
+antes
+ de se criar o banco, o banco acaba fragmentado desnecessariamente. Assim, a ordem correta é criar o banco e depois desfragmentar o disco rígido.
+Aumentar espaço
+ 
+DBSPACE
+ 
+antes do banco fazer isso automaticamente
+. Pode-se programar uma tarefa noturna que verifique o espaço livre (pages free) do banco e, caso atinja um limite mínimo (por exemplo, 10%), aumente em 20% (por exemplo) o número de páginas livre. É importante fazer isso antes do banco fazer automaticamente pois podemos programar este crescimento num horário fora do pico de uso. Além disso, podemos automatizar a execução da desfragmentação do SO em seguida.
+ALTER DBSPACE SYSTEM ADD 100MB;
+
+Fragmentação Tabelas
+. Existe uma instrução para se verificar a fragmentação das tabelas dentro do banco.
+CALL sa_table_fragmentation;
+
+ Um valor 1,5 no campo 
+Segs_per_Row
+ por exemplo significa que 50% das linhas estão fragmentadas. O número ideal é 1.
+ Para reorganizar uma tabela desfragmentando-a, existe o comando REORGANIZE TABLE.
+REORGANIZE TABLE <nome_tabela>;
+
+Fragmentação Índices
+. Os índices podem ser reorganizados utilizando-se o mesmo comando acima (REORGANIZE TABLE) especificando-se o nome do índice. Para saber quais índices podem ser otimizados, utilize o seguinte comando.
+verifica_plano_index.sql
+SELECT * FROM SA_INDEX_LEVELS() ORDER BY SA_INDEX_LEVELS.TABLENAME, SA_INDEX_LEVELS.INDEXNAME;
+
+O ideal é termos o campo 
+Level
+ igual a 1 ou 2. Pode ocorrer que este campo seja maior que 2 o que pode significar que o índice é grande ou que o mesmo está fragmentado. Utilizando o comando abaixo nos certificamos que o índice foi otimizado (mesmo que o nível não diminua).
+REORGANIZE TABLE <nome_tabela> INDEX <nome_indice>;
+
+Executar UNLOAD/RELOAD
+. Este procedimento faz com que o banco fique no estado ótimo, com suas tabelas e índices desfragmentados. É um comando que, num banco de produção de 30Gb, leva em torno de 2-5h para ser executado completamente portanto não é um procedimento que possa ser executado diaria ou semanalmente. O ideal é realizarmos este procedimento semestral ou anualmente.
+Usar cache
+. Não existe um número mágico. Alguns recomendam 10% do tamanho do banco, outros a maior quantidade de memória disponível no servidor. Sugerimos iniciar com 10% do tamanho do banco 
+ou
+ a maior quantidade disponível (o que for menor) e verificar (através dos parâmetros de performance descritos acima) como o banco se comporta. Em seguida, ir aumentando (se possível) o tamanho do cache voltando a verificar os parâmetros para ver como eles se comportam a fim de obter o valor ótimo.
+Sempre utilizar o arquivo .log
+. Conforme foi descrito (tópico: como o dado é gravado), quando um dado é gravado no banco, o 
+custo
+ disso ao banco é mínimo pois ele grava o dado sequencialmente no log de transações (arquivo .log) deixando para o evento 
+CHECKPOINT
+ salvar o dado no local correto. Quando não trabalhamos com o arquivo .log, o banco é obrigado a executar o CHECKPOINT 
+a cada transação
+ dispendendo um esforço enorme quando o número de COMMITS é alto.
+Colocar o arquivo .db e .log em discos distintos
+.
+Utilizar RAID 1+0
+.
+Usuário está travado. O que fazer?
+Um usuário pode estar com seu computador aparentemente travado e isto tem, obviamente, várias causas que podem estar ou não relacionadas ao banco de dados. Vamos assumir então que todas as outras causas (computador com defeito em algum de seus componentes, rede intermitente, problema no Sistema Operacional, lentidão no servidor causada por algum outro processo sendo executado, etc) foram analisadas e estão em ordem.
+ Devemos, então, formular algumas perguntas:
+Em que tela o usuário está travado?
+Que ação foi executada nesta tela para o travamento?
+A quanto tempo está parado?
+Consegue fazer outras coisas no computador?
+Isso ocorre com frequencia? Cuidado com esta pergunta pois é uma pergunta muito aberta e todos os usuários têm a tendência a dizer sim porém não sabem responder a próxima pergunta.
+Qual é a frequência? A que horas isso ocorre? Quantas vezes ao dia? Existe algum padrão?
+Normalmente, esperando um pouco mais o computador "destrava"? Qual é normalmente a ação tomada?
+O que ocorre depois disso? O usuário consegue trabalhar normalmente ou é necessário resetar o computador completamente?
+Isso ocorre somente com este usuário ou quando ocorre com ele acaba ocorrendo com outros usuários?
+ Todas as informações são importantes independente do que está ocorrendo pois, mesmo que seja um travamento por culpa de algum outro usuário atualizando a mesma tabela que este usuário, podemos identificar e simular mais rapidamente o problema.
+ Vamos supor então que o usuário está lá parado e você deseja ajudá-lo identificando qual o problema. Podem existir duas situações típicas:
+Lentidão
+. Parece que o usuário está travado porém o processo que ele está executando está sendo executado só que mais lentamente do que ele presumira inicialmente.
+Travamento
+. O usuário está parado esperando a liberação de algum registro em outra tabela.
+Lentidão
+Podemos identificar se um usuário está ou não executando algo no servidor através de dois procedimentos (depende se o 
+FoxHound
+ está disponível ou não). Caso você não tenha o 
+FoxHound
+, execute o comando abaixo.
+last_req.sql
+select connection_property('ReqStatus', sci.Number) as ReqStatus, usu.usuario, sci.*
+from sa_conn_info() sci
+INNER JOIN usuarioConexaoBanco usu on (sci.number = usu.IdConexao)
+WHERE USUARIO = <NOME USUARIO INVESTIGADO>
+
+O resultado segue abaixo.
+ 
+ Note que, como não existe nenhuma informação nas informações vindas da conexão (pois todas se logam como DBA), o Sispetro registra, quando o usuário faz o login, na tabela 
+UsuarioConexaoBanco
+ o número da conexão (Number) juntamente com o nome do usuário sempre sobreescrevendo o último valor apresentado.
+ Podemos ver acima que o usuário 
+Futura
+ não está realizando nenhum trabalho no banco (pois a coluna 
+ReqStatus
+ está com o valor 
+Idle
+ e a coluna 
+LastReqTime
+ está com uma data/hora muito distante de quando foi executado o comando). Além disso, ele não está travado por nenhuma outra conexão (apareceria o número da conexão na coluna 
+BlockedOn
+).
+ Uma outra alternativa é utilizar o 
+FoxHound
+ sendo que antes devemos pesquisar o número da conexão (ou números pois o Sispetro utiliza 2 conexões ativas).
+ 
+ Um outro SELECT interessante para se ter uma noção de quais usuários estão consumindo mais CPU do banco de forma rápida é o seguinte:
+cpu_por_conexao.sql
+SELECT con.Number AS connection_number, CONNECTION_PROPERTY ( 'Name', Number ) AS connection_name, usu.usuario , CONNECTION_PROPERTY ( 'Userid', Number ) AS user_id,
+CAST ( Value AS NUMERIC ( 30, 2 ) ) AS approximate_cpu_time
+FROM sa_conn_properties() con
+INNER JOIN usuarioConexaoBanco usu ON ( con.NUmber = usu.IdConexao )
+WHERE PropName = 'ApproximateCPUTime' ORDER BY approximate_cpu_time DESC;
+
+Travamento
+Para identificar que o usuário está travado por 
+outro usuário
+, podemos recorrer ao script abaixo ou ao foxhound novamente.
+Sem FoxHound
+.
+usuario_travado.sql
+SELECT NUMBER(*) AS #,  Name, usu.usuario, UserId, Number, BlockedOn FROM sa_conn_info() as con
+INNER JOIN usuarioConexaoBanco usu ON ( con.Number = usu.IdConexao )
+WHERE con.BlockedOn <> 0
+OR EXISTS( SELECT * FROM sa_conn_info() as con2 WHERE con2.BlockedOn = con.BlockedOn )
+ORDER BY BlockedOn, Name, UserId, number;
+
+Com FoxHound
+ 
+ O mais importante a saber sobre travamento é que eles 
+irão
+ ocorrer (pois existem recursos compartilhados que serão atualizados simultaneamente) e serão ou de baixa frequência com uma duração de até 10 segundos ou com uma frequencia que o usuário não irá notar (serão frequentes porém de curta duração).
+Referências
+http://sqlanywhere.blogspot.com
+. Blog de um engenheiro da iAnywhere.
+http://sqlanywhere-forum.sybase.com
+ Forum sobre o SQLAnywhere.
+http://books.google.com.br/books/about/SQL_Anywhere_Studio_9_Developer_s_Guide.html?id=Vf_EgfsFw-8C&redir_esc=y
+. Livro SQLAnywhere Studio 9. Breck Carter. Livro sobre o SQL Anywhere (escrito baseado na versão 9 porém com 
+muitos
+ exemplos de tudo o que foi tratado aqui). Conteúdo disponível para consulta neste local.

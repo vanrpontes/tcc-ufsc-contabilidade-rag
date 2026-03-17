@@ -1,0 +1,67 @@
+TITULO: Manutenção do Reinf
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926968980
+--------------------------------------------------
+A Escrituração Fiscal Digital de Retenções e Outras Informações Fiscais (EFD-Reinf) é um dos módulos do Sistema Público de Escrituração Digital - SPED, a ser utilizado pelas pessoas jurídicas e físicas, em complemento ao Sistema de Escrituração Digital das Obrigações Fiscais, Previdenciárias e Trabalhistas – eSocial.
+Tem por objeto a escrituração de rendimentos pagos e retenções de Imposto de Renda, Contribuição Social do contribuinte exceto aquelas relacionadas ao trabalho e informações sobre a receita bruta para a apuração das contribuições previdenciárias substituídas. Substituirá, portanto, o módulo da EFD-Contribuições que apura a Contribuição Previdenciária sobre a Receita Bruta (CPRB).
+Foi implementado na versão 9.29 do SisPetro a manutenção, geração de xml e transmissão dos dados para a Sefaz.
+Importante reforçar que a 
+Futura
+ realizou todos os testes de envio de dados do Sped-Reinf à Sefaz 
+somente
+ em ambiente de 
+Homologação.
+Durante o processo de desenvolvimento e testes, o ambiente de Homologação da Sefaz para envio dos dados, encontrava-se
+ bem instável
+, muitas vezes apresentando inconsistências que na sequência geravam recibos de entrega das obrigações.
+O ideal é realizar o envio sempre de uma única empresa, desde que o CNPJ base seja o mesmo.
+Para iniciar a utilização, deve-se revisar as configurações de sistema em 
+ e habilitar os direitos dos usuários de acordo com as informações em 
+Painel Fiscal (Usuários)
+.
+A manutenção do Reinf deve ser realizada através do menu Movimentação / Controladoria / Manutenção do Reinf
+Abaixo detalhamos as funcionalidades dos botões:
+Inclui
+: ao clicar, sistema solicita o preenchimento do nome da empresa e do período para geração do Reinf, gerando o registro 0000 e deixando seu status como 
+Aberto
+.
+Preenche
+: utilizado para refazer o preenchimento das tabelas configuradas para preenchimento automático. Esta opção não altera dados de tabelas de preenchimento manual.
+Atualmente, somente os registros R-2010, R-2099 e R-4099, são preenchidos automaticamente, porém é 
+fundamental
+ que o usuário faça a conferência dos registros de eventos que foram enviados. Para mais informações, ver 
+Preenchimento Automático REINF - R2010
+Os dados referente eventos de fechamentos da R-2099 a partir da versão 10.50 serão preenchidos automaticamente de acordo com os registros preenchidos.
+Altera
+: ao clicar, SisPetro é direcionado para edição do conjunto de dados, a partir do registro principal (0000), permitindo informar os dados para todos os registros, exceto:
+R-2098: Reabertura do Período
+R-9000: Exclusão de Eventos
+Para mais informações, ver 
+.
+Exclui
+: exclui o registro selecionado. Não permite a exclusão de registros que possuem recibo.
+Processa
+: utilizado para gerar o xml e transmitir os dados. Para mais informações, ver 
+.
+Atualiza
+: atualiza os dados da tela
+Sair
+: sai da tela.
+Na Aba 
+Principal
+, o SisPetro apresentará os períodos por empresa para envio das informações preenchidas.
+Na Aba 
+Registros
+, são apresentados todos os registros incluídos, separando-os na abas inferiores:
+Nesta aba você poderá excluir os registros e ver o xml enviado e o xml de retorno, ambos gerados por registro. Assim, se, por exemplo, foram enviados registros do R-2010, R-2020 e R-2040, o sistema apresentará um xml para cada registro.
+Ao lançar os registros, caso não utilize o botão 
+Preenche
+, deverá preencher manualmente os registros R-2099 e R-4099.
+Na aba 
+Comunicação
+ o SisPetro apresentará todos os registros de comunicações realizadas, bem como os xml de envio e de retorno.
+O xml apresentado nesta tela é o que foi enviado em cada processo de comunicação. Assim, se, por exemplo, foram enviados registros do R-2010, R-2020 e R-2040, o sistema apresentará apenas um xml com todas as informações e o xml de Retorno com sucesso ou erro.
+Para mais informações:
+SPED REINF - Configurações
+Painel Livro Eletrônico
+Painel Fiscal (Usuários)
+Preenchimento Automático REINF - R2010

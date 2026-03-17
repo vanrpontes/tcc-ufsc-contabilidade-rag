@@ -1,0 +1,15 @@
+TITULO: Fechamento de Custo X Fechamento de Estoque
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898359
+--------------------------------------------------
+Relação entre 
+Fechamento de Estoque
+ e 
+Fechamento de Custo
+Primeiro deve ser feito o fechamento de estoque e depois o fechamento de custo. Ou seja, não se pode fazer fechamento de custo num dia se não houver fechamento de estoque neste dia.
+Não será possível abrir um fechamento de estoque se existir fechamento de custo para o mesmo dia. Abra primeiro o fechamento de custo, depois abra o fechamento de estoque.
+Tanto o fechamento de Estoque como o de Custo poderá se feito por produto ou depósito, mas ambos seguem o mesmo tipo de fechamento, conforme as considerações feitas na introdução do item de 
+Fechamento de Estoque
+ para utilização dos dois tipos de fechamento. Vai permitir abrir 
+A partir da versão 10.24 não será mais necessário abrir o Fechamento de Estoque para abrir o Fechamento de Custo
+No fechamento de estoque, ao informar um depósito se fecha ou abre todos os produtos apresentados para aquele depósito. No fechamento de custo o usuário pode escolher, ou seja, pode ir fazendo aos poucos.
+No fechamento de estoque é feito o fechamento independente do saldo final. No fechamento de custo só pode ser feito o fechamento caso o saldo final não seja negativo, pois o cálculo do CMV seria distorcido nestes casos, tendo um crescimento exponencial não correspondente a situação.

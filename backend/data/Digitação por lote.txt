@@ -1,0 +1,159 @@
+TITULO: Digitação por lote
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210364
+--------------------------------------------------
+O SisPetro providencia a inclusão de lotes contábeis em diversos processos que necessitam de contabilização.
+Para incluir um lote manual, utilize no Menu Principal a opção
+ 
+Movimentação / Digitação / Por Lote.
+Informe os dados do lote:
+ 
+Filial
+ 
+(Empresa que seja do mesmo grupo da filial à qual o usuário está conectado),
+ 
+Data
+,
+ 
+Valor
+,
+ 
+Número de documento
+. O sistema permite o lançamento de registros com data retroativa, desde que não se tenha travamento contábil para o período. Mesmo lançando o lote com data retroativa, o sistema grava a data atual de inclusão do registro, esse campo pode ser utilizado nos relatórios. Maiores informações sobre travamento contábil no tópico
+ 
+Travamento Período
+.
+Conta:
+ informe a conta contábil
+Contra Contrapartida:
+ informe a conta de contrapartida, caso tenha. Caso passe pelo campo e não tenha conta de contrapartida, clique no botão ao lado para limpar
+Centro de Custo:
+ caso tenha 
+Valor Crédito:
+ informe se for valor a crédito
+Valor Débito:
+ informe se for valor a débito
+Ao informar o
+ 
+Código de Histórico
+, os campos
+ 
+Histórico
+ 
+e
+ 
+Informações Adicionais
+ 
+serão preenchidos, desde que essas informações estejam cadastradas no Cadastro de Histórico, e podem ser alterados.
+A opção
+ 
+Copia histórico
+ 
+para os itens
+, se marcado, irá copiar as informações preenchidas dos campos
+ 
+Código de Histórico, Histórico e Informações Adicionais
+ 
+para inclusão dos lançamentos do lote, no painel
+ 
+Geral
+, botão
+ 
+Incluir
+.
+Digite
+ 
+observações
+ 
+complementares, se necessário.
+No perfil de sistema,
+ 
+SisPetro Normal / Ferramentas / Sistema / painel Contab.Real
+, deve ser definido se deseja trabalhar com centro de custos vinculado ou desvinculado, na opção
+ 
+Vincula Conta Real a Centro de Custos nos Lotes Manuais
+.
+Painel
+ 
+Geral
+: incluir, alterar ou excluir as informações da(s) conta(s) apresentadas nesse painel.
+Ao clicar no botão
+ 
+Inclui
+ 
+ou
+ 
+Edita
+, apresentará a tela abaixo:
+Nesta tela deverá informar a
+ 
+Conta Contábil
+, a 
+Conta Contrapartida
+ o
+ 
+Centro de Custo
+ 
+(se tiver definido centro de custo vinculado), o
+ 
+Valor Crédito
+ 
+ou
+ 
+Valor Débito
+ 
+e os dados do histórico.
+Nota:
+ 
+A conta contábil e a conta contrapartida podem ser informadas pelo código reduzido, padrão do sistema, ou então pelo código estendido. Para informar o código estendido, deve ser marcada no perfil da empresa,
+ 
+SisPetro Normal / Ferramentas / Sistema / painel Contab.Real
+, a opção
+ 
+"
+Permite pesquisar conta pelo código extendido"
+ 
+e além disso, também deve ser configurado por usuário a opção em
+ 
+Ferramentas / Usuários / painel Contabilidade
+ 
+"Pesquisa conta real pelo código extendido"
+.
+Para gravar a informação deve-se Clicar no botão
+ 
+Salva
+. Na inclusão de movimento, ao clicar no botão
+ 
+Salva
+, a tela não se fechará permitindo incluir várias vezes o lançamento e se não desejar incluí-los mais, pressione a tecla <ESC> ou clique no botão Cancelar.
+Ao selecionar uma conta de contrapartida, abrirá a tela abaixo:
+Desmarque a opção Filtra contas conforme digitados anteriormente
+Desmarcando a opção, serão apresentadas todas as contas contábeis
+O campo
+ 
+Centro de Custo
+ 
+é habilitado se no perfil Sistema do SisPetro Normal tiver marcado a opção
+ 
+Vincula Conta Real a Centro de Custos nos Lotes Manuais
+.
+Deve-se atentar que a soma dos débitos e a soma dos créditos devem ser iguais ao valor total do lote. As contas que não podem ser alteradas participam da somatória com os seus valores originais.
+Painel Centro de Custo
+: incluir, alterar ou excluir as informações do(s) centro(s) de custo(s) apresentadas nesse painel. Este painel será exibido somente se no perfil Sistema do SisPetro Normal, a opção
+ 
+Vincula Conta Real a Centro de Custos nos Lotes Manuais
+ 
+não estiver marcado.  
+Ao clicar no botão
+ 
+Inclui
+ 
+ou
+ 
+Edita
+, apresentará a tela abaixo:
+No caso do
+ 
+centro de custo desvinculado
+, os valores de débito e crédito não precisam necessariamente ser 100%, mas o valor total de débito e crédito não pode ser maior que o valor do lote.
+Confirme a operação clicando no botão Ok
+Para cancelar um lançamento ou sair da tela, clique no botão Cancelar.

@@ -1,0 +1,82 @@
+TITULO: Configurações Necessárias - Anexos SCANC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899944
+--------------------------------------------------
+Para a geração dos 
+Anexos
+ e da mídia para o programa 
+SCANC
+ são necessárias algumas configurações para que eles sejam gerados corretamente.
+Ferramentas / Sistema / 
+ / Quadro Dados para o Anexo/Sintegra
+Preencher os 
+Dados do Responsável
+Arquivos / Produtos: 
+deve ser definido 
+Dados Adicionais
+Quadro Anexo
+Categoria
+ pertencente a cada produto  
+Código Anexo
+ que será utilizado no 
+ do 
+SCANC
+.
+Composição para efeito fiscal
+Envia na NF-e a Tag <origComb> 
+Composição
+Preencher a composição do produto, caso seja produto composto
+Margem Subst. Tributária
+Preencher as colunas 
+% de Origem 
+Para mais informações, ver 
+Tabela de Produtos
+ e 
+Cálculos de ICMS para Tributação Monofásica de Diesel e afins conforme cada CST e o que configurar
+A categoria BXD é somente para o produto Biodiesel que foi adquirido já misturado (este produto possui estoque) e não o produto Biodiesel B100 que é oriundo da mistura B100 + diesel adquirido separadamente (este é o biodiesel misturado sem estoque).
+Tabelas Auxiliares / Faturamento /Natureza de Operação: 
+definir quais as naturezas de operação irão participar do anexo, sua apresentação e como devem ser obtidas as informações para o SCANC
+ / Quadro Sai no Anexo
+Sai no Anexo: 
+marcar a opção caso a natureza da deva participar
+Valores ST: 
+selecionar como o valor será obtido
+Origem dos Valores ST: 
+selecionar qual será a origem 
+ Para mais informações, ver 
+Informações para o Anexo
+ da 
+Tabela Natureza de Operação / Dados Adicionais (Painel Geral)
+.
+Arquivo / 
+Fornecedores
+: 
+é necessário configurar dados importantes para a geração correta dos Anexos e do SCANC nos Fornecedores (refinaria, importador, formulador e outros)
+Arquivo / 
+Clientes
+: 
+no caso das Congêneres é necessário configurar dados para a geração do Anexo e do SCANC.
+Tabelas Auxiliares / 
+Tipo de Documento
+: 
+pode-se utilizar o Tipo de Documento de um lançamento quitado do Contas a Pagar para gerar dados automáticos para o Anexo III e Registro 80 do SCANC das GNRE recolhidas no período. Para mais informações, ver 
+Inclusão de Contas a Pagar manual
+.
+Valor Unitário de Partida: 
+em desuso 
+Há duas formas de se informar o 
+Valor Unitário de Partida
+ que sai no Anexo II:
+Usar um preço fixo por UF, que é lançado na inclusão ou alteração do anexo, vide explicação na tela Manutenção de Anexos / Painel Preço p/ UF.
+Configurar o sistema de forma que se possa alterar o 
+Valor Unitário de Partida
+, por exemplo, durante o mês, sem perder o 
+Valor Unitário de Partida
+ de notas que foram emitidas antes da modificação. Essa configuração oculta o painel de 
+Preço p/ UF na Manutenção de Anexos
+. Para maiores detalhes vide tópico 
+Margem Subst. Tributária
+.
+Após as configurações realizadas o SisPetro está pronto para gerar os dados para os Anexos e para a mídia SCANC. 
+Para mais informações, ver  
+Manutenção de Anexos - Distribuidora
+ e 

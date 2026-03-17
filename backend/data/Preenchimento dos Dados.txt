@@ -1,0 +1,26 @@
+TITULO: Preenchimento dos Dados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899394
+--------------------------------------------------
+A Nota Fiscal Eletrônica exige que alguns dados sejam preenchidos corretamente e obrigatoriamente, pois senão o XML enviado ao site da Sefaz retornará com erro.
+ Os campos abaixo deverão ser preenchidos da seguinte forma:
+Modelo NF:
+ na tabela 
+Natureza de operação
+, deve ser preenchido com '55'.
+Código NCM do Produto:
+ na 
+tabela Produto
+, deve ser preenchido com código NCM válido do produto.
+Lembrando que o código NCM, normalmente, é preenchido com 8 dígitos, porém no caso de serviços deve ser preenchido com 2 dígitos.
+Dados do Depósito:
+ preencher todos os campos (razão social, CNPJ e endereço) na 
+ (painel Dados Adicionais).
+Dados da Transportadora:
+ preencher todos os campos (razão social, CNPJ, inscrição estadual, endereço e telefone) na 
+Tabela Transportadoras
+ (painel Detalhes).
+ATENÇÃO: Os dados da transportadora somente serão apresentados no XML e no Danfe se na Natureza de operação estiver configurado como via transporte "Rodoviária" conforme indicado abaixo:
+Dados do Cliente:
+ preencher todos os campos (razão social, CNPJ, inscrição estadual, endereço e telefone) na 
+Tabela Clientes
+ (painel Detalhes).

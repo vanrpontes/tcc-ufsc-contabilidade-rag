@@ -1,0 +1,255 @@
+TITULO: Número de parcelas na Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2888597678
+--------------------------------------------------
+A partir da condição de pagamento é possível gerar "n" parcelas (tanto do Contas a Pagar quanto do Contas a Receber) para uma Nota Fiscal. No entanto, é normal que Distribuidoras de Combustíveis façam vendas com poucas parcelas. Assim, para facilitar a impressão das parcelas nas Notas, bem antigamente, criamos 6 campos referentes as parcelas na Nota Fiscal (6 primeiras parcelas). Dessa forma, ao invés de acessar as parcelas no Contas a Pagar/Receber, tínhamos mais rapidamente estas informações. 
+
+Agora temos situações de venda com 10 parcelas ou mais e é necessário imprimir os dados das Parcelas no Danfe, mas só temos disponíveis as 6 parcelas da Nota Fiscal, não tendo todas as parcelas disponíveis para impressão.
+
+Para isso, à partir da versão 7.3, está disponível um novo DANFE, que por padrão, permite imprimir até 12 parcelas. Mas não para por aí, ainda é possível configurar para que fique disponíveis para impressão além das 12 parcelas padrão.
+
+
+Para que isso funcione corretamente, é necessário que o DANFE esteja atualizado. O mesmo pode ser atualizado de duas maneiras:
+
+
+Lembre-se que 
+SEMPRE
+ antes de fazer qualquer alteração, faça um backup de seu DANFE original.
+
+
+
+
+Baixando o arquivo DANFE.RTM (disponível junto com a versão 7.3) e substituindo o DANFE atual.
+
+
+Caso a empresa tenha um DANFE personalizado, poderá efetuar as alterações em seu próprio DANFE, veremos mais abaixo como realizar tais alterações.
+
+
+
+
+Passos para alterar o DANFE:
+
+
+
+
+Abra o DANFE através do Gerenciador de Edição:
+
+
+
+Acessar o menu 
+Ferramentas/ Sistema/ aba Nota Fiscal
+.
+
+
+
+No quadro de NF-Eletrônica, clicar no botão 
+Edita Layout do Danfe
+ - 
+
+
+
+
+Na tela de Edição do layout do Danfe, identifique as alterações a serem feitas, conforme imagem abaixo:
+
+
+
+
+
+
+Selecione um objeto que se encontram dentro do quadro 
+rgVencimento
+, conforme imagem abaixo:
+
+
+
+
+
+
+Apague este objeto selecionado utilizando a tecla 
+DELETE
+.
+
+
+
+Retira este processo até que todos os objetos dentro do quadro 
+rgVencimento
+ estejam apagados:
+
+
+
+
+
+
+Insira um objeto de 
+SubRelatório
+ dentro do quadro 
+rgVencimento
+:
+
+
+
+
+
+
+
+
+
+
+Observe que foram criadas duas abas na parte inferior da tela de edição, sendo uma aba referente ao layout principal do danfe (
+Principal: ItensNF
+) e outra aba referente ao novo objeto (
+SubReport1: Condutor de Dados não definido
+):
+
+
+
+
+
+
+Selecione o novo objeto 
+SubReport1: Condutor de Dados não definido
+, e configure o novo condutor de dados para ele:
+
+
+
+
+
+
+Este novo condutor de dados deverá ser o 
+ContasPagarReceber
+
+
+
+
+
+
+Altere o nome do objeto para 
+SubRepParcela
+, através da propriedade 
+UserName
+ do objeto:
+
+
+
+
+
+
+Observe que o objeto foi alterado para 
+SubRepParcela: ContasPagarReceber
+, e que nas abas inferiores da tela de edição também foi alterado:
+
+
+
+
+
+
+
+
+
+
+Feito isso, agora vamos configurar as parcelas!!!
+
+
+
+
+
+
+
+
+Selecione a aba inferior referente ao 
+SubRepParcela
+ 
+(1)
+, e em seguida edite a propriedade 
+Columns
+ 
+(2)
+ para ter o valor 
+6
+:
+
+
+
+
+
+
+Selecione a 
+Estrutura de Relatório Detalhes (1)
+, e em seguida configure a propriedade 
+PrintCount
+ para ter o valor 
+2
+. Assim teremos 6 colunas que poderão ser impressas 2 vezes, totalizando 12 colunas, ou seja, 12 parcelas.
+
+
+
+
+
+
+Inserir dois objetos de 
+Campo Texto
+ na área referente a 
+Detalhe
+:
+
+
+
+
+
+
+Ficando da seguinte forma:
+
+
+
+
+
+
+Selecione o primeiro objeto e direcione para seus respectivos campos do Condutor de Dados 
+ContasPagarReceber
+:
+
+
+
+
+
+
+Direcione para o campo 
+DtVencto
+:
+
+
+
+
+
+
+Selecione o segundo objeto e direcione para seus respectivos campos do Condutor de Dados 
+ContasPagarReceber
+:
+
+
+
+
+
+
+Direcione para o campo 
+ValorOrig
+:
+
+
+
+
+
+
+Vá até o menu 
+Arquivo > Salvar
+.
+
+
+
+Feche a tela de Edição de Layout do Danfe.
+
+
+
+
+
+Prontinho, o DANFE já contempla os novos recursos de impressão de mais de 6 parcelas!!!
+

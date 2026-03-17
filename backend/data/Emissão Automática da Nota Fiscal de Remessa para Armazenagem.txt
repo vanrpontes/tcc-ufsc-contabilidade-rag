@@ -1,0 +1,63 @@
+TITULO: Emissão Automática da Nota Fiscal de Remessa para Armazenagem
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440418
+--------------------------------------------------
+O SisPetro possibilita a geração automática da Nota Fiscal de Remessa para Armazenagem a partir da inclusão da NF de compra da usina facilitando assim a digitação e agilizando o processo.
+Para isso, o usuário deve localizar a Natureza de Operação de compras que será utilizada na NF de entrada e configurá-la para gerar a nota de remessa de forma automática. Isso deve ser feito através do campo "Gera NF Remessa Automática", no painel Dados Adicionais, na Natureza de Operação.
+A partir da versão 10.13 será realizada a conversão da Quantidade Ambiente da NF de Origem e a Unidade de Medida configurada para o Produto, para  a geração de nota de Remessa de Armazenagem.  Essa melhoria foi criada uma vez que existem notas de Compra que podem vir com outras unidades de medida, exemplo: M3, e a unidade de medida mais utilizada é Litro.
+Deve ser marcada a opção 
+"Gera NF Remessa Automática"
+ e informado o código da 
+natureza 
+de remessa de armazenagem para a nota fiscal que será gerada automaticamente.
+O campo "
+Natureza de Operação", 
+deve ser informado a natureza da remessa que sera gerada.
+O campo 
+"Motorista - como obter na NF de origem"
+, deve ser configurado com uma das duas opções:
+Conforme Código da Transportadora:
+ Essa opção fará com que a nota de remessa gerada tenha como Código da Transportadora e Código motorista a empresa vinculada à transportadora no painel "Empresa Transportadora", no cadastro da transportadora, caso exista esse vínculo.
+Conforme Código do Motorista:
+ a nota de remessa gerada terá como Código da Transportadora a empresa vinculada a transportadora no painel "Empresa Transportadora", no cadastro da Transportadora, caso exista esse vínculo e o código do Motorista será o código da empresa no cadastro.
+O campo 
+"Valor unitário da NF Remessa Automática" 
+define onde será pego o valor unitário dos produtos da nota de remessa.
+Preço unitário da NF de origem: 
+Pega o valor unitário informado no item da nota de origem.
+Valor Total da NF de origem dividido pela quantidade (notas de 1 item): 
+Pega o valor total da nota de origem e divide pela quantidade do item.
+Conforme tabela de preço da Entidade:
+ Pega conforme a tabela de preço informado na entidade. Veja mais em 
+Tabela Preços
+.
+O campo 
+"Ação referente ao Processamento da SEFAZ" 
+Define se a nota de remessa será processada na SEFAZ ou não.
+Não processa (ficará na NF-e pendentes):
+ Não realiza o processamento da nota, deixando a mesma pendente para processamento.
+Processa a NF: 
+ Realiza o processamento da nota *.
+Processa e Imprime a NF:
+ Realiza o processamento da nota e a impressão da mesma *.
+Antes de iniciar o processo de emissão da nota de compra que irá gerar a nota de remessa automática, deve-se configurar no depósito de origem que está sendo utilizado no pedido, a entidade para qual será emitida a nota de remessa automática, veja mais detalhes em 
+Depósitos - Aba Dados Adicionais
+Estando a natureza configurada com a opção de gerar remessa NF automática, sempre que o usuário incluir uma nota fiscal com esta natureza de operação (a natureza de compra), após a sua finalização, o sistema solicitará a confirmação se o usuário deseja gerar a Nota Fiscal de Remessa de Armazenagem ou não.
+Caso deseje, basta confirmar e será apresentada uma nova tela similar ao do faturamento automático, onde são listados as notas a serem realizados a emissão da nota de remessa, nessa tela não é possível realizar alterações.
+Não será possível continuar esse processo posteriormente caso seja cancelado, necessitando fazer manualmente a nota fiscal
+. O sistema irá gerar automaticamente a NF de Remessa de Armazenagem conforme Nota Fiscal anterior (de compra) e de acordo com as pré configurações da natureza de operação especificada na Natureza de Operação da nota de origem (de compra), com a entidade que foi informado no deposito da nota de origem.
+Caso ocorra qualquer erro de validação da nota, a coluna de Status apresentara o simbolo 
+  , o resultado sera exibido na aba Resultado, onde o usuário poderá ver o motivo pelo qual o processo não foi concluído com exito.
+ 
+(*) Notas de 
+Remessa Automática
+ geradas a partir do 
+Monitoramento da Importação de NF/CT
+ ficarão pendentes de processamento na tela de manutenção de nota fiscal, sendo necessário que o usuário realize o processamento das mesmas.
+Para mais informações sobre o processo de 
+emissão de nota de remessa automática via importação de NF, acesse a 
+Manutenção de Importação de Notas Fiscais
+.
+Veja também:
+Tabela Natureza Operação
+ - 
+.

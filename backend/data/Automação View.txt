@@ -1,0 +1,167 @@
+TITULO: Automação View
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898294
+--------------------------------------------------
+A View é uma empresa que possui um sistema de automação de base utilizando o banco de dados Microsoft SQL Server.
+
+
+Basicamente, a função do SisPetro nesta integração com o sistema de automação da View é gravar no banco SQL Server informações para o carregamento e, após concretizado o carregamento, ler o volume real carregado para fazer a movimentação do estoque físico.
+
+
+Para detalhes das informações gravadas no banco SQL Server veja o tópico: 
+.
+
+
+Para que esta integração ocorra é necessário configurar o arquivo Scg.Ini para conexão com o banco de dados SQL Server. Vide maiores detalhes no tópico 
+.
+
+
+Devem ser configurados os 
+produtos
+ e 
+frotas
+ utilizados para que contenham informações específicas para View.
+
+
+Além disso são necessárias as seguintes configurações no perfil do Sistema, painel Ordem Carregto:
+
+
+
+
+
+
+Empresa View:
+ É o código da empresa no sistema de automação da View. Deve ser numérico.
+
+
+Utiliza Portaria de Entrada:
+ Normalmente, ao pegar a fila para o Carregamento (via 
+ ou no momento da inclusão da Ordem de Carregamento), a ordem de carregamento vai para tela da Portaria de Entrada. Quando o motorista chega na portaria o usuário do SisPetro autoriza o carregamento, indo então esta OC para a Portaria de Saída.
+
+A integração do SisPetro com o sistema de automação da View ocorre quando é pega fila para o Carregamento, ou seja, para fazer o carregamento lá na base o motorista não precisa da autorização do Usuário do SisPetro, pois a OC já está lá no sistema da View. Assim, a empresa pode optar por usar a Portaria de Entrada (organizando a entrada dos caminhões) ou não.
+
+
+Saída do caminhão:
+ Pode se optar entre as três opções a seguir.
+
+
+
+
+
+
+
+
+
+
+
+
+Automática:
+ Sempre obtém os dados do carregamento do sistema de Automação da View. Se a Ordem não estiver finalizada na View ou qualquer outro tipo de erro (como conexão) a OC não sairá da Portaria de Saída. Ao escolher esta opção, na Portaria de
+
+Saída será apresentado o botão específico para Leitura da View
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Usuário informa os dados:
+ Nunca obtém os dados da View, a saída da OC da Portaria de Saída será feita pela forma manual, como se não tivesse automação.
+
+
+Utiliza dados da view, usuário alterando:
+ É uma forma mista, onde se conecta na View para obter informações do Carregamento. Os dados são apresentados ao usuário na tela a seguir, permitindo que ele altere esses dados:
+
+
+
+
+
+
+
+
+
+
+Com isso, pode se usar a opção 
+Interrompe o processo se a ordem não finalizada
+ para ter sempre a sugestão dos dados da View. Ou seja, quando marcada esta opção, a OC só pode sair da Portaria se realmente foi finalizada lá na View. Quando desmarcada, ao solicitar a saída na Portaria de Saída, o SisPetro consultará a View, estando a ordem finalizada ele sugere os dados gravados na View, não estando apresenta a tela com os dados zerados, para o usuário informar.
+
+
+
+
+No caso de erro ao gravar dados na View:
+ Ao gravar os dados no banco SQL Server da View podemos ter diversos erros como problemas de conexão, indisponibilidade do banco SQL Server, dados gravados de forma não integra, etc. Com esta opção pode se indicar qual deve ser o comportamento do SisPetro:
+
+
+
+
+
+
+Ao optar em 
+concluir o carregamento
+, mesmo não gravando na View, ao pegar a fila, a OC irá para a Portaria de Entrada (ou Saída) e todo o processo pode ser continuado. Atentar-se que ao decidir por isso, se na saída a configuração estiver para 
+automática
+ ou 
+mista (interrompendo se a OC não estiver finalizada)
+, não será possível dar a saída do caminhão.
+
+
+
+
+DLL de integração com a View:
+ Informe o caminho e nome da dll disponibilizada pelo SisPetro para integração com o sistema de automação da View. Nela contém todas as rotinas necessárias para a devida integração.
+
+
+Gera código de automação automático no frota:
+ Conforme esclarecido no tópico de 
+Informações Técnicas
+, e na 
+Manutenção de Frotas
+, o frota a ser gravado na View precisa de uma senha, a qual denominamos no SisPetro de código de automação. Este código pode ser automático (sequencial, sugerido pelo SisPetro) ou manual (o usuário informa na 
+Manutenção de Frotas
+).
+
+
+Aferição de veículos para automação:
+ Conforme esclarecido no tópico de 
+Informações Técnicas
+ é necessário gravar no banco de dados da View a data de aferição. Para isso, pode se optar:
+
+
+
+
+
+
+
+
+
+
+
+
+Não enviar nada:
+ Como a data de aferição é uma informação secundária para o sistema de automação, pode se optar em não enviar essa informação.
+
+
+Limpa o campo:
+ Nesta opção se no SisPetro não tiver data de aferição configurada, a data será gravada nula, sendo que na opção anterior ele simplesmente não mexe na informação, permanecendo com a última data de aferição válida.
+
+
+Mandar a aferição conforme SisPetro:
+ Para essa opção é preciso controlar a data de aferição do veículo pelo 
+Controle de Vencimentos
+. Por isso é necessário informar o 
+Código do controle de vencimentos
+ no SisPetro para os frotas.
+
+
+
+
+

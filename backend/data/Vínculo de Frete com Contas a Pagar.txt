@@ -1,0 +1,43 @@
+TITULO: Vínculo de Frete com Contas a Pagar
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2886598661
+--------------------------------------------------
+O Sispetro permite que sejam vinculados um ou mais fretes com títulos do Contas a Pagar, diretamente na tela de Manutenção de Fretes. 
+Movimentação\Transportes\Manutenção de Fretes
+. Essa função estará disponível à partir da versão 7.2
+Os fretes marcados em negrito já possuem vínculos de contas a pagar, os sem negrito estão disponíveis para vínculo ou para que, à partir dele, gere um novo contas a pagar (Processo que já existia no sistema antes da versão 7.2).
+Nota:
+Um frete pode ter apenas um contas a pagar vinculado, um contas a pagar pode ter vários fretes vinculados.
+Selecione um ou mais fretes e clique no Botão Pagto 
+, será exibida a mensagem abaixo:
+A opção 
+Selecionar um Título já Existente
+, abrirá uma tela onde será possível selecionar os títulos de contas a pagar disponíveis para vínculo.
+Tela de Vínculo do Frete com Contas a Pagar
+Na tela de vínculo, o campo histórico exibirá as informações da Tabela Contas a Pagar e Receber.
+Selecione a Entidade e serão listados no grid todos os títulos pendentes, será possível apenas a seleção de um título para o(s) frete(s) selecionado(s).
+Para que os títulos sejam exibidos na tela acima, é necessário que configure a natureza da operação. Na aba de dados gerais, na opção vínculo de frete, selecione uma das opções:
+Baixa do Contas a Pagar não permite vínculo com Frete: 
+opção padrão, os títulos não estarão disponíveis para vínculo
+Baixa do Contas a Pagar exige vínculo com Frete do mesmo valor:
+ o Valor do título e a soma do valor real dos fretes selecionados devem ser do mesmo valor.
+Baixa do Contas a Pagar exige vínculo com Frete de qualquer valor:
+ o sistema não valida caso os valores sejam diferentes
+A Aba Ordem de Carregamento exibirá  os detalhes referentes a ordem de carregamento vinculada ao Frete, serão exibidos também os itens da OC, conforme imagem abaixo:
+É possível que os vínculos sejam cancelados, porém, caso já tenham efetuado a baixa do título, será necessário cancelá-la antes. Existe um perfil de usuário na aba frete, 
+ que permite ou não o cancelamento do vínculo.
+Os Vínculos só poderão ser cancelados quando for feito o cancelamento da Nota de Entrada, após esse processo o Sispetro irá cancelar todos os vínculos com essa Nota.
+A opção 
+Gerar um Novo Título
+, abrirá a tela de inclusão de contas a pagar.
+Tela de Inclusão de Contas apagar.
+Nessa tela será possível a inclusão do novo título que será vinculado ao frete.
+Os vínculos podem ser cancelados de duas formas:
+Efetuando o Cancelamento da Nota Fiscal, o Sispetro automaticamente cancelará todos os vínculos de Frete e Contas a Pagar.
+Na tela de manutenção de fretes na aba Contas a Pagar / Fretes Vinculados, no botão 
+.
+Dicas:
+Em um título em que na Natureza da Operação está definida para exigir vínculo com Frete de qualquer valor, se após efetuada a operação de vínculo, ainda deseje vincular outros fretes, deve-se desvincular os anteriores e refazer o processo selecionando todos os fretes desejados.
+Se o valor de um título estiver diferente do valor do frete ou da soma dos fretes, existem duas soluções:
+Selecione o frete, clique no botão Altera e mude o valor real para o mesmo do título.
+Altere a Natureza da Operação utilizada no título para Baixa do Contas a Pagar exige vínculo com Frete de qualquer valor. Será necessário refazer o título.
+Para títulos em que a natureza da operação exige vínculo com frete, não é possível realizar baixas automáticas.

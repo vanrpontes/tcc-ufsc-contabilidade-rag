@@ -1,0 +1,14 @@
+TITULO: DLL de Execução do Sispetro e DLL de Validação da Inscrição Estadual
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2880569395
+--------------------------------------------------
+No Sispetro existem 2 DLL's que executam funções específicas, sendo uma de uso obrigatório e outra de uso opcional (depende de utilizar um perfil de sistema para validar Inscrição Estadual).
+QtInfo70.dll:
+DLL de uso obrigatório;
+Utilizada para execução do SisPetro Normal e Controladoria;
+Sem esta DLL o SisPetro não é executado;
+Deve estar na mesma pasta dos executáveis. Caso cada executável (scg.exe e sptcont.exe) esteja em pasta separada, a DLL deve ser copiada para cada uma das pastas.
+DllInscE32.dll:
+Não mais utilizado em razão da Sefaz não ter atualizado a dll para uso com o Windows 10 e Windows Server 2012.
+DLL de uso opcional, porém, por prevenção recomendamos que a mesma esteja devidamente colocada na pasta dos executáveis;
+Utilizada para validação da Inscrição Estadual na inclusão de clientes e fornecedores no SisPetro Normal;
+Deve estar na mesma pasta dos executáveis. 

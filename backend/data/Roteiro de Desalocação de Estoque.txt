@@ -1,0 +1,66 @@
+TITULO: Roteiro de Desalocação de Estoque
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898213
+--------------------------------------------------
+A desalocação de estoque deve ocorrer no caso de pedidos de venda e de movimentação de material que já tenham sido parcialmente faturados ou emitida a Ordem de Carregamento e que por algum motivo será cancelado o restante da quantidade.
+
+
+Quando o pedido é digitado, sua quantidade de cada item para cada produto é alocada (ou reservada) para este pedido. Assim, o Sistema subtrai da quantidade disponível do depósito a quantidade digitada acrescentado-a na quantidade pendente. O que se deseja neste procedimento é fazer o caminho inverso, isto é, voltar esta quantidade para a quantidade disponível a partir da quantidade pendente.
+
+
+Quando o pedido ainda não foi carregado ou faturado, a maneira mais simples de realizarmos este processo é 
+Cancelar o Pedido
+. Infelizmente, quando o pedido já foi carregado ou faturado, mesmo que parcialmente, não se pode cancelar o pedido por motivos de segurança. Assim, deve-se desalocar o estoque do item que se deseja cancelar.
+
+
+Para fazer a desalocação de um item, deve-se acessar a tela de Manutenção de Pedidos (
+Movimentação / Estoque / Pedidos
+).
+
+
+
+
+O Sistema abre uma janela contendo os últimos pedidos digitados, conforme o período de data mostrado no grupo 
+"Período para Exibição de Dados"
+.
+
+
+
+
+Caso o pedido esteja em um período de data anterior, o usuário pode alterar os campos "De" e "Até", para atingir a data correta onde se encontra o pedido.
+
+
+Lembrando que os pedidos cancelado também serão apresentados na tela se houver algum dentro do intervalo solicitado.
+
+
+Após encontrar e posicionar o cursor sobre o pedido, o usuário deve clicar no painel 
+"Itens Pedido"
+ para que o Sistema mostre os itens deste pedido e habilite o 
+botão "Desaloca"
+.
+
+
+
+
+No exemplo acima, o pedido é de 15000, sendo que 5000 já foi faturado. A quantidade alocada é de 10000, ou seja, o que falta ser faturado. Neste caso, o cliente não vai mais utilizar os 10000, porém, essa quantidade já está alocada e não há como cancelar o pedido, já que uma parte dele já foi faturado.
+
+
+A solução é desalocar os 10000 que estão atrelados ao pedido, posicionando o cursor sobre o item que se deseja desalocar, no caso do pedido ter mais que um item e clicar no botão 
+"Desaloca"
+.
+
+
+
+
+O sistema pedirá ao usuário a confirmação do processo.
+
+
+
+
+Confirmando, o item será desalocado, ou seja, a quantidade alocada é zerada.
+
+
+Para um pedido não ser considerado pendente, deve estar com as colunas quantidade alocada e quantidade separada (em carregamento) zeradas, isto é, ou o item foi faturado (no caso a coluna Qtde faturada preenchida) ou ele foi desalocado.
+
+
+Veja também: 
+Manutenção do Pedido

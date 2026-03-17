@@ -1,0 +1,55 @@
+TITULO: Servidor Hermes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2942469667
+--------------------------------------------------
+none
+Objetivo
+O Servidor Hermes é uma aplicação que controla e faz a validação da conexão ao banco de dados, ao SisPetro Normal e ao SisPetro Controladoria. Além disso, tem outras funções como a execução de serviços automáticos, controle do serviço de licenciamento de versão (SL) e validação do arquivo de licenciamento de versão.
+Acesso ao Servidor Hermes
+O
+ acesso aos Servidores Hermes
+ (caso tenha mais de um) é feito somente através do 
+Controlador Hermes
+, 
+que faz todas as 
+configurações necessárias
+ para a conexão ao banco de dados e ao SisPetro Normal e Controladoria. E também dos serviços automáticos, controle do serviço de licenciamento e validação do arquivo de licenciamento.
+É recomendada a utilização de, pelo menos, 2 
+Servidores Hermes
+:
+Servidor Hermes de Segurança (S3)
+: 
+de uso exclusivo para controle de acesso às aplicações do SisPetro, sendo ativados neste somente os serviços essenciais e obrigatórios. 
+Servidor Hermes de Serviços
+:
+ 
+caso utilize os serviços disponibilizados pelo SisPetro, ativar neste. São também ativados neste Hermes os serviços essenciais e obrigatórios. Para mais informações, ver 
+Serviços Automáticos
+.
+Podem ser executados tantos 
+Servidores Hermes
+ quantos forem necessários ou conforme os controles internos da empresa, mas somente um 
+Servidor Hermes
+ é definido como 
+S3
+. A definição é por banco de dados. Caso a empresa tenha mais de um banco de dados, então deve ter um 
+Servidor Hermes S3
+ para cada banco de dados.
+Versão Servidor Hermes
+A 
+versão
+ do 
+Servidor Hermes
+ deve estar na
+ mesma versão do 
+Controlador Hermes
+. Caso estejam em 
+versões diferentes
+, apresentará a mensagem de
+ erro
+ no 
+Controlador Hermes
+ no quadro Log Execução:
+Caso o banco de dados esteja em uma versão diferente do Hermes, assim que o serviço for executado ele será desativado e no log do Hermes será apresentada a mensagem de erro: 
+Desativado. Versão do Hermes incompatível com o banco de dados.
+Observação: 
+se o banco for atualizado com o Hermes ativo, essa validação ocorrerá caso seja alterado alguma configuração no Hermes Controlador. 

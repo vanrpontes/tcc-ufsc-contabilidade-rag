@@ -1,0 +1,33 @@
+TITULO: Configuração de Produtos nas Colunas por Empresa
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898418
+--------------------------------------------------
+Esta configuração 
+foi retirada desativada
+ a partir da Versão 8.7, sendo só permitida a 
+. Faça sua migração o quanto antes!
+ 
+Para utilizar a opção da Configuração da Coluna por Empresa, além da configuração citada no tópico 
+ estar corretamente configurada, deve-se também fazer a configuração dos produtos nas colunas por empresa, Menu 
+Ferramentas / Sistema / painel Ordem Carregto
+:
+Deve ser informado os códigos dos produtos distribuidos nas colunas e logo abaixo deve-se também informar os produtos substitutos nas colunas para a emissão da OC.
+Nota: Devido aos cálculos de proporção para produtos compostos (exemplo: Gasolina C e Gasolina Aditivida) só é permitido um desses produtos por OC.
+#Máx. Compartimentos -?
+ Para fazer a validação da compartimentação da OC conforme o que está definido no Frota marque a opção 
+"Valida compartimentação de acordo com o frota"
+. Para definir corretamente o frota, vide detalhes em 
+. Logo abaixo é explicado como é validado essa opção na montagem da compartimentação.
+Preenchimento da Compartimentação:
+Na tela de compartimentação, o sistema mostra a 
+capacidade
+ total do caminhão, ficando a cargo do usuário preencher de forma correta os compartimentos, distribuindo a quantidade do produto, informada na OC, conforme a capacidade de cada compartimento.
+Caso o valor total distribuído esteja errado, maior ou menor que a quantidade total definida no carregamento, o sistema emitirá a seguinte mensagem:
+Será necessário alterar e distribuir de acordo com a quantidade do carregamento para então concluir a compartimentação.
+Se a quantidade informada na OC for menor que a capacidade do caminhão - no nosso exemplo acima a capacidade é de 15.000 do caminhão e a quantidade da OC é de 5.000 - ao finalizar o sistema emitirá uma mensagem de alerta dizendo que a capacidade do caminhão é diferente da OC:
+Como a mensagem é apenas um alerta pode-se finalizar a compartimentação e finalizar a OC.
+Quando a empresa opta por marcar a opção 
+"Valida compartimentação de acordo com o frota"
+, opção já explicada no ínicio desse tópico, será feito uma verificação no momento da distribuição da quantidade do produto nos compartimentos do caminhão, pois se a quantidade informada no compartimento for maior que a capacidade do mesmo, que está definida no Frota, o sistema irá emitir a seguinte mensagem:
+Exemplificando: Se na Tabela Frota foi definido que a capacidade do caminhão é de 15.000 e para cada compartimentação 1, 2 e 3 foi definida 5.000 totalizando os 15.000, no momento de fazer a montagem da compartimentação na OC e em um determinado compartimento informar 6.000 ao invés de 5.000 o sistema irá validar e não deixará concluir enquanto não for alterado.
+Após fazer a distribuição correta da compartimentação é concluída a Ordem de Carregamento. Caso haja necessidade de fazer alguma alteração na compartimentação após sua conclusão, pode-se alterar desde que o usuário tenha permissão, vide tópico 
+.

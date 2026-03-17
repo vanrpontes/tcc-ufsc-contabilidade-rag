@@ -1,0 +1,34 @@
+TITULO: Trabalhando com Sistema de Recebíveis
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936702555
+--------------------------------------------------
+Objetivo
+Uma Distribuidora tem, no seu grupo de empresas, uma empresa de crédito. Essa empresa monitora os títulos a pagar da Distribuidora com vencimento futuro e oferece ao Fornecedor a antecipação dos valores e recebe uma taxa por esse serviço, já que pagará ao Fornecedor na data atual, mas só receberá da Distribuidora no vencimento. Para facilitar esse trabalho, para fornecedores que aceitam esse tipo de serviço, é importante que a empresa de crédito tenha acesso rápido aos títulos dele. Essa empresa é a 
+Terras Raras
+ e possui um webservice JSON para receber novo títulos do fornecedor e enviar à Distribuidora quais títulos que o Fornecedor aceitou negociação e os dados do boleto que a Distribuidora irá pagar (o Fornecedor recebeu da empresa de crédito e a Distribuidora pagará ao Fundo).
+   
+Configurações
+Ferramentas / Sistema / Aba Financeiro
+Faz integração com Sistema de Recebíveis: marcar
+Ferramentas / Usuário / Aba Financeiro
+Pode informar Linha Digitável: marcar
+Tabelas Auxiliares / Financeiro / Gerenciadora de Recebíveis
+Realizar a configuração informando os dados requisitados na tela
+Arquivo / Fornecedor
+: indicar no 
+Fornecedor
+ a 
+Gerenciadora de Recebíveis
+ configurada no passo anterior. 
+Aba Observações / campo 
+Gerenciadora de Recebíveis
+Habilitar o serviço 
+Serviço de Integração de Recebíveis: Terras
+ 
+Só títulos emitidos a partir de nota fiscal são passíveis de trabalhar com sistema de recebíveis.
+Como utilizar
+Após gerar os títulos passíveis de gerar recebíveis eles serão inclusos com o campo Gerenciadora de Recebíveis preenchido
+ 
+e com bloqueio ativo. O SisPetro enviara todos os títulos Passíveis de Integração para a gerenciadora, e após os títulos serem comprados na gerenciadora a mesma enviara um retorno para o SisPetro com os títulos comprados.
+Os títulos que não forem comprados continuarão como bloqueados até o período de bloqueio que foi configurado em 
+Tempo para Desbloqueio de Títulos
+ que fica na tela de Manutenção de Gerenciadora de Recebíveis ser expirado.

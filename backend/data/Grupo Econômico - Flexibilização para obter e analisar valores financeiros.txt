@@ -1,0 +1,27 @@
+TITULO: Grupo Econômico - Flexibilização para obter e analisar valores financeiros
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926183483
+--------------------------------------------------
+Histórico
+O conceito de 
+grupo econômico (GE)
+ é utilizado para vincular entre si várias entidades ou 
+clientes faturados (CF) 
+como chamamos costumeiramente de forma que se consiga conceder um limite de crédito único para todos eles. Quando vinculamos apropriadamente os CFs num determinado GE, toda pendência, adiantamento ou baixa movimentará somente o próprio GE e não o cliente faturado que fez a movimentação.
+Temos dois cenários principais portanto: Contabiliza pelo cliente faturado ou Contabiliza pelo Grupo Econômico. Seguem suas características:
+Contabiliza pelo Cliente Faturado.
+Toda contabilização é realizada no cliente faturado.
+Todas as movimentações financeiras (adiantamento, baixa, título a receber manual) movimenta campos no próprio cliente faturado. Estes campos é que serão levados em conta para avaliar se o pedido pode ser aprovado ou não.
+O limite de crédito é concedido para ele individualmente e só ele pode utilizá-lo.
+O padrão para vendas é configurado nele e somente ele pode utilizá-lo num pedido de venda.
+Contabiliza pelo Grupo Econômico.
+Toda contabilização é realizada no grupo econômico mesmo que a NF (ou qualquer outra movimentação como um adiantamento) seja para um cliente faturado.
+Todas as movimentações financeiras (adiantamento, baixa, título a receber manual) movimenta campos no grupo econômico. Estes campos é que serão levados em conta para avaliar se o pedido pode ser aprovado ou não.
+O limite de crédito é concedido para o grupo econômico e os clientes vinculados a ele é que utilizarão este limite.
+O padrão para vendas é configurado no grupo econômico e, no pedido, é este padrão que é utilizado mesmo se os clientes faturados tiverem o seu padrão para vendas.
+Objetivos
+A solicitação é que consigamos unir os dois cenários de forma a:
+Ter um limite de crédito único para o GE.
+Ter um padrão para vendas individualizado por CF no pedido de venda.
+Levar em conta no momento da aprovação do pedido ou exibição dos dados de um cliente, sua movimentação e a dos seus pares no mesmo GE somando os valores de títulos pendentes, adiantamentos e limites de crédito dos participantes do GE.
+Não iremos alterar os campos participantes para aprovação ou não de um pedido de venda que continuarão a ser: Limite de Crédito deve ser maior que Títulos Pendentes - Adiantamentos Liberados + Pedidos aprovados e não faturados.
+Não interferir no procedimento atual para Contabilização de Lançamentos e Movimentações Financeiras

@@ -1,0 +1,55 @@
+TITULO: Consolidação de Lote
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210356
+--------------------------------------------------
+Um lote representa dois ou mais lançamentos de débitos ou créditos em determinadas contas. Para que estes lançamentos movimente realmente as contas indicadas é necessário que o valor total de débito dos lançamentos que compõem o lote seja exatamente igual ao valor total de crédito. Assim, a cada lote gerado, automaticamente (exceto na tela de Digitação Rápida) o sistema já verifica esta condição e consolida o lote, ou seja, providencia a movimentação das contas (o que aparecerá nos relatórios contábeis como
+ 
+). Se na tela de
+ 
+Manutenção de Lançamentos
+ 
+o lote for apresentado com o campo Consolidado desmarcado é sinal que houve algum problema na somatória de débito e crédito ou que ele foi incluído pela tela de Digitação Rápida e não foi consolidado.
+
+
+
+
+Lotes com valor total de débito diferente do valor total de crédito  
+
+
+
+
+Neste caso, não tem como se providenciar a consolidação, pois a igualdade de valores é fundamental. Deve-se identificar o que originou este lote. Em 99,99% dos casos ele será automático. Procure a origem (se nota fiscal, baixa, adiantamento,etc), procure o
+ 
+código de contabilização
+ 
+utilizado (reveja-o, corrija-o se necessário e
+ 
+teste-o
+) e providencie a
+ 
+recontabilização
+ 
+desta origem.
+
+
+
+
+Lotes incluídos pela tela de digitação rápida  
+
+
+
+
+Na tela de Manutenção de Lançamentos, selecione o lote e clique no botão 
+. Assim, será providenciada então a movimentação de contas.
+
+
+
+
+Lotes utilizando contas sintéticas
+
+
+
+
+No Sistema é possível impedir que sejam incluídos lotes utilizando contas sintéticas, pois essas contas geralmente não recebem movimentações. Essa verificação já é feita por lote incluído manual, mas para lote gerado através de código de contabilização corre o risco de ser configurado indevidamente uma conta sintética para ser movimentado. Portanto, para evitar que seja consolidado um lote que esteja agregando valores a uma conta sintética deve ser marcado no perfil da empresa, Sispetro Normal / Ferramentas / Sistema / painel Contab. Real, a opção "
+Impede Lançamentos em Contas Reais Sintéticas
+".
+ 

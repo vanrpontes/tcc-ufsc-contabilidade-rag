@@ -1,0 +1,66 @@
+TITULO: Gerenciadora de Recebíveis do Contas a Receber
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4302471169
+--------------------------------------------------
+Objetivo
+Identificamos que alguns usuários utilizavam recursos do SisPetro de forma avulsa para administrar e 
+controlar 
+os títulos do
+ Contas a Receber,
+ enviados para Desconto de Duplicatas
+ 
+(portador por exemplo)
+. 
+Além disso, o controle para saber o qual era o valor à ser pago à Gerenciadora e demais lançamentos eram feitos manualmente.
+O objetivo é automatizar o processo descrito acima. O SisPetro irá enviar, via arquivo texto em padrão CNAB, os títulos a Gerenciadora, gerar de forma automática os títulos a pagar e demais lançamentos.
+Abaixo um breve fluxo de como será o processo:
+A Manutenção de Recebíveis é acionada em 
+M
+ovimentação / Financeiro / Contas a Receber / Manutenção de Recebíveis
+Configurações
+Para utilizar a gerenciadora de recebíveis é necessário
+Ferramentas / Sistema / Aba Financeiro / Quadro Centro de Custos
+Desabilitar o perfil 
+ Vincula Conta Gerencial ao C. Custo
+Para mais informações, ver 
+Tabelas Auxiliares / Vendas / Tipo de Cobrança
+Deve ser configurado um Tipo de Cobrança específico para Gerenciadora de Recebíveis. A SLL configurada aqui é a que será utilizada na geração do arquivo texto a ser enviado a Gerenciadora. 
+Para mais informações, ver 
+Tabela de Tipos de Cobrança
+Tabelas Auxiliares / Financeiro / Gerenciadora de Recebíveis / Aba Detalhes
+Selecionar o 
+Uso
+ para 
+Contas a Receber
+Quadro Contas a Receber: 
+preencher as seguintes informações
+Selecionar o 
+Tipo de Cobrança 
+que foi configurado com a SLL da Gerenciadora de Recebíveis
+Informar o percentual que a gerenciadora irá utilizar para descontar do título enviado no campo 
+Taxa de Cobrança de Desconto
+ 
+Selecionar a 
+Conta Juros sobre Desconto de Duplicatas
+ que o SisPetro irá contabilizar o 
+Juros 
+descontado pela gerenciadora
+Selecionar o fornecedor que irá representar a 
+Entidade que representa a Gerenciadora
+Para o Contas a Receber o SisPetro trabalha atualmente com a 
+Desconto Duplicata Catálise. 
+As configurações acima devem ser feitas nessa gerenciadora 
+Para mais informações, ver 
+Tabela Gerenciadora de Recebíveis
+Ferramentas / Usuários 
+Aba Perfil / 
+Aba inferior Financeiro / Grupo Contas a Receber / Grupo Recebíveis: 
+liberar as permissões do usuário
+Para mais informações, ver 
+Painel Financeiro (Usuário)
+Aba Acesso Menus: 
+liberar o acesso a 
+Financeiro / Contas a Receber / 
+Manutenção de Recebíveis
+Para Saber Mais
+Como enviar os Títulos para Gerenciadora de Recebíveis através da Manutenção
+Manutenção Recebíveis

@@ -1,0 +1,834 @@
+TITULO: Versão 7.3
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2888859689
+--------------------------------------------------
+Versão 7.3
+
+
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 27/08/2009 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 27/10/2009 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ CMD73.sql (cmd2198 a cmd2235) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 75 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 40 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 35 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+ FFinanceiroTransicao.rtm 
+
+
+
+
+
+
+ 
+
+
+ PedidoAlteracaoPreco.rtm 
+
+
+
+
+
+
+ 
+
+
+ Danfe.rtm 
+
+
+
+
+
+
+ 
+
+
+ SPED_EFD.dll 
+
+
+
+
+
+
+ 
+
+
+ SispetroANP.dll 
+
+
+
+
+
+
+Geral
+
+
+
+
+Rotina de Recriar Views no Banco de Dados
+
+
+Na versão passada foi implementada no banco de dados uma rotina para recriar views que recebe como parâmetro um texto e recria todas as views que contenham essa informação. Esse processo será utilizado toda vez que uma tabela do banco sofrer alguma alteração em sua estrutura. Nessa versão estamos adaptando essa rotina para que possa ser executada também nas versões 8 e 9 do Sybase. UPA (CCF 6960)
+
+
+Erro ao Mover de Pasta um Relatório no Gerenciador de Relatórios
+
+Na versão passada a rotina do Gerenciador de Relatórios foi alterada para melhorar sua performance. Essa alteração comprometeu uma das funcionalidades do Gerenciador, a mudança de pasta de um relatório. Era até possível arrastar um relatório para outra pasta sem problemas, porém ao executá-lo era gerado uma mensagem de erro e o mesmo ficava inutilizável. Nessa versão o problema foi corrigido. Vale a pena ressaltar que os relatórios que foram danificados na versão anterior não voltarão a funcionar, será necessário restaurá-los do backup. 
+UPA (CCF 7023)
+
+
+Aumento de Tamanho do Histórico
+
+
+O tamanho do campo de histórico, utilizado em diversos pontos do sistema, foi aumentado para suportar até 250 caracteres. 
+Com essa alteração padronizamos os campos que tinham tamanhos variados e nos compatibilizamos com o tamanho do campo Histórico permitido no SPED Contábil.
+ Nas telas com campos de Histórico é possível clicar em "..." para abrir uma tela de edição com mais espaço para digitação. 
+Help:
+ 
+Aumento de Tamanho do Campo Histórico
+. 
+Com isso os relatórios que contém o campo Histórico poderão sofrer alterações, 
+Help:
+ 
+Configurando o campo Histórico em um relatório do ReportBuilder
+. 
+FLA (CCF 4420, 6040)
+
+
+Mensagem de Erro ao Sair do SisPetro sem Informar Usuário e Senha
+
+Em algumas máquinas, ao sair do SisPetro na tela de login, onde são informados o usuário e senha, era gerada uma mensagem de erro ao usuário. Esse problema foi corrigido nesta versão. 
+UPA (CCF 6783)
+
+
+Seqüenciais de Pedido, OC, Notas na Criação de Novas Empresas
+
+
+Ao criar uma nova empresa através da rotina CRIAEMPRESA, a nova empresa não herdará mais o numero de pedido, oc, notas fiscais da empresa de origem. Com isso, o primeiro pedido a ser emitido nessa nova empresa será o de número um. UPA (CCF 6887)
+
+
+Depósitos por Empresa
+
+Na criação de uma nova empresa através da rotina 
+CRIAEMPRESA
+,não estava copiando os depósitos da empresa de origem. Problema corrigido. 
+UPA (CCF 7351)
+
+
+Rotinas Internas de Verificação
+
+Foram alteradas algumas rotinas internas de verificação para que sejam compatíveis no Sybase 8 e 9. 
+FLA (CCF 7135)
+
+
+Inscrição Estadual (IE) de Isentos ou pessoas físicas
+
+
+Agora é permitido o termo "ISENTO" para a IE. Anteriormente caso fosse preenchido com "ISENTO" dava erro de validação. Também foi alterado os layouts padrão do Sintegra para que quando o IE for branco será demonstrado o termo "ISENTO". FLA (CCF 4303, 5709)
+
+
+Consultas Tridimensionais
+
+
+As consultas tridimensionais (Consulta de Disponibilidade, Consulta de Analise de Vendas, Consulta de Movimento de Estoque, Consulta de Movimento de Estoque Físico) foram analisadas novamente e algumas de suas colunas tiveram sua movimentação bloqueadas para algumas posições da tela de consulta para que não sejam gerados erros ao usuário ou mesmo evitar que seja gerada uma consulta onde o sistema não possa calcular seus valores pois a forma de exibição dos dados não permitiria isso. Outra alteração efetuada foi sobre o salvamento do layout de tela. Ao fechar a tela, o usuário será questionado sobre qual ação ele deseja tomar. Sair e Salvar o Layout no layout selecionado(o layout que está sendo exibido na caixa de seleção de layouts), Sair e NÃO Salvar o Layout Selecionado ou Cancelar o processo e voltar a tela de consulta. Nessa terceira opção, o usuário poderá dar um novo nome a esse layout, não perdendo assim as alterações efetuadas caso deseje consulta-lo futuramente. * 
+Help:
+ *
+Consulta Análise Geral de Vendas
+ 
+UPA (CCF 6992, 7271, 6724)
+
+
+Teste de Arredondamento
+
+
+Na versão passada corrigimos uma incompatibilidade de casas decimais do SisPetro com o Sistema Operacional Windows. Essas rotinas precisaram ser alteradas para podermos migrar o sistema para uma plataforma mais moderna. Afim de evitar problemas aos nossos usuários, o roteiro de testes da versão passada foi feito novamente nessa versão sem encontrar problemas. UPA (CCF 7476)
+
+
+Performance em telas de Relatório
+
+
+Otimizamos a performance em algumas telas de relatórios para que a sua abertura seja imediata. GSN (CCF 6945)
+
+
+Dados de Bloqueios de Clientes e Sybase 8
+
+
+Ajustada a consulta de dados de Bloqueios no Cadastro de Clientes para que seja compatível ao Sybase 8. GSN (CCF 5544)
+
+
+Consulta da ANP
+
+
+Ajustada a consulta da ANP para casos onde o cliente não estava habilitado. Este ajuste foi necessário devido mudanças no site da ANP. 
+Necessário atualizar o arquivo SisPetroANP.dll 
+GSN (CCF 7178)
+
+
+
+
+Faturamento
+
+
+
+
+Valor do IPI Incorporado na Base do ICMS
+
+
+Para todos produtos vendidos por importadoras, que precisam incorporar o valor do IPI no valor Base do ICMS,
+ 
+basta habilitar a opção "Incorpora Valor do IPI na Base de ICMS" na natureza de operação e esse cálculo será efetuado.
+ 
+Help:
+ 
+Valor do IPI incorporado na base do ICMS
+ 
+UPA (CCF 6632)
+
+
+Cópia de Natureza de Operacao
+
+
+O processo de cópia de Natureza de Operação foi atualizado ficando muito mais rápido, principalmente para os clientes que possuem muitas filiais cadastradas pois o processo de cópia de natureza copia as informações empresa por empresa. UPA (CCF 6987)
+
+
+Envio de Solicitação de Cancelamento a Sefaz
+
+
+Na versão anterior inserimos algumas regras de segurança na NFe, sendo que uma delas será a solicitação de cancelamento a Sefaz somente se a empresa emissora da nota estiver On-line e nao estiver trabalhando no Ambiente de Contingência.
+ 
+Isso causou um problema no envio da solicitação de cancelamento nas demais filiais caso uma empresa estivesse off-line.
+ 
+Por exemplo, se a empresa 1 estivesse off-line e o usuário tentasse cancelar uma nota da empresa 2, a nota era cancelada mas não enviada a Sefaz, informando ao usuário que o sistema estava off-line. Este problema foi corrigido nesta versão. UPA (CCF 7007)
+
+
+Contingência da NFe no Paraná (Solicitação de Protocolo)
+
+
+A partir de Abril de 2009 a SEFAZ do Paraná exigiu que a empresa, ao entrar em contingência, obtenha junto a SEFAZ um número de protocolo de contingência e esse número deve ser impresso no DANFE no campo Dados Adicionais - Reservado ao Fisco.
+ 
+O número de protocolo de contingência pode ser informado nas configurações da empresa e automaticamente ele será impresso no DANFE, desde que ele já esteja configurado para está informação
+*. 
+Help:
+ 
+Sistema de Contingência dos usuários do Estado do Paraná - sem conexão à internet.
+ 
+UPA (CCF 6646)
+
+
+Status do Serviço da NF-e
+
+
+A partir dessa versão,
+ 
+quando o usuário alterar o status da NF-e (produção, contingência ou DPEC), esse status é atualizado automaticamente em todas as estações que estejam excutando o SisPetro sem a necessidade de reiniciá-las.
+ 
+Por exemplo, se o faturista estiver emitindo uma nota fiscal e antes de finalizar o processo o sistema é configurado para off-line, quando o processo de emissão da nota fiscal for finalizado, mesmo com o faturista tendo começado a emitir a nota fiscal com o sistema on-line, o sistema não tentará enviar essa nota fiscal, pois nesse momento o sistema estará off-line. UPA (CCF 6931)
+
+
+Regras para Impressão de DANFE
+
+
+Foi removido o perfil de Sistema "Imprime DANFE mesmo sem protocolo". Pois, com o amadurecimento das regras de contingência, estamos também alterando as regras para impressão do DANFE para que elas não entrem em conflito e fiquem claras a todos.
+ 
+Para impressão do DANFE a nota fiscal deve ser emitida por uma natureza de operação que gere NF-e, tenha número de protocolo ou tenha código de DPEC ou o sistema esteja trabalhando off-line.
+ 
+Help:
+ 
+Configuração da Empresa
+ 
+UPA (CCF 7200)
+
+
+Impressão de DANFE para Notas no Ambiente Contingência
+
+
+A partir da versão 7.2, na impressão de Danfes cujas notas foram processadas no Ambiente de Contingência, a Chave de Acesso estava sendo impressa com a série indevida.
+ Ao invés de 3 dígitos, por exemplo 901, imprimia um zero a esquerda (090). Os Danfes anteriores poderão ser reimpressos e já terão a Chave de Acesso impressa devidamente. Ressaltamos que isso ocorreu somente com notas processadas no Ambiente de Contingência e que os arquivos XML's enviados à SEFAZ ou disponibilizados pela "Geração arquivo NFe Distribuição" não possuem nenhuma irregularidade na Chave de Acesso. 
+GSN (CCF 7188,7227)
+
+
+Conta Contábil de Comprador diferente da Entidade Faturada
+
+Quando, inadvertidamente, o cliente comprador tinha uma conta contábil gerencial sintética definida de forma diferente da entidade faturada, ao faturar uma Nota Fiscal de Venda apresentava o erro de que a conta não existia. Essa situação ocorria somente se a empresa estivesse configurada para "Contabilizar pelo Comprador" e isso foi corrigido. 
+Help:
+ 
+Preenchimento de Dados na Nota Fiscal
+ 
+GSN (CCF 7239)
+
+
+Pesquisa pelo Seqüencial da Nota Fiscal na Manutenção de Notas Fiscais
+
+Na tela de manutenção de notas fiscais podemos pesquisar uma nota pelo seu seqüencial, basta clicar na coluna Seqüencial e digitar o número digitado. Esse recurso, para esta coluna não estava funcionando e foi corrigido, para as demais colunas, a pesquisa estava funcionando sem problemas. 
+UPA (CCF 6852)
+
+
+Botão de Visualizar DANFE/Nota Fiscal
+
+O perfil de usuário "Pode Imprimir NF?" estava desabilitando o botão de imprimir a NF/DANFE mas não o de visualizar. Com isso, o usuário conseguia visualizar uma NF/DANFE e depois imprimi-lo. Problema corrigido. 
+UPA (CCF 7364)
+
+
+Número de Parcelas no DANFE
+
+
+Foi disponibilizado um condutor de dados com dados das parcelas para edição do DANFE. O layout do DANFE padrão foi alterado para demonstrar até 12 parcelas.
+ 
+Existe necessidade de substituir o DANFE (Danfe.rtm) ou alterá-lo para que essa mudança esteja disponível.
+ 
+Help:
+ 
+Número de parcelas na Nota Fiscal.
+ 
+FLA (CCF 6690)
+
+
+Novo perfil de usuário para Notas de Emissão para Terceiros e Notas de Emissão Própria
+
+
+Foi alterado o perfil de usuário de Notas de Emissão para Terceiros e Notas de Emissão Própria. Agora existem perfis distintos referentes às parcelas para Notas de Emissão para Terceiros e Notas de Emissão Própria.
+ 
+Help:
+ 
+Preenchimento de Dados na Nota Fiscal
+ 
+FLA (CCF 6772)
+
+
+Observações na Nota Fiscal por UF
+
+
+Foi alterada a manutenção de Natureza de Operação sendo possível adicionar observações por Empresa e UF. Na Nota fiscal será carregada por padrão a observação previamente cadastrada na Natureza de Operação de acordo com a UF.
+ 
+Help:
+ 
+Observações na Nota Fiscal por UF
+ 
+FLA (CCF 6536)
+
+
+Inclusão de UF das placas da Frota
+
+
+Foi disponibilizado no condutor de dados NF as UFs da Carreta e do Treminhão (campos: UFCarreta, UFTreminhao) para editar o layout do DANFE FLA (CCF 7415)
+
+
+Alíquota conforme Endereço de Faturamento
+
+Ao trocar o endereço de faturamento, caso a nota já tenha itens, esses itens terão seus impostos recalculados conforme a UF do novo endereço de faturamento informado. 
+Importante: Caso o usuário tenha trocado a alíquota essa será sobreposta com a alíquota padrão na nova UF informada.
+GSN (CCF 6604)
+
+
+Sincronização de NF-e
+
+
+Na Manutenção de Notas Fiscais, no rodapé da tela, foi colocado o botão "Sincroniza NF-e". 
+Este botão sincroniza com a Sefaz a nota fiscal selecionada, desde que ela seja uma nota fiscal eletrônica, independente do seu status no SisPetro.
+ 
+Help:
+ 
+DPEC - Declaração Prévia de Emissão em Contingência
+ 
+MCL (CCF 7256)
+
+
+DPEC - Consulta
+
+
+Foram implementadas rotinas de sincronização também para o DPEC, com isso, toda NF-e que for sincronizada, estaremos sincronizando também o DPEC caso a nota selecionada tenha sido gerada em contingência. 
+O processo  de sincronização, pode ser efetuado diversas vezes inclusive utilizando o botão de Sincronização de NF-e informado no item acima.
+ 
+Help:
+ 
+DPEC - Declaração Prévia de Emissão em Contingência
+ 
+MCL (CCF 7256)
+
+
+Layout Padrão do DANFE
+
+Na versão 7.2 foi disponibilizado um layout padrão do DANFE que continha dois campos a mais, sendo que cada um deles estavam apontados para as tags utilizadas na observação InfAdFisco e InfCpl, e assim as informações dessas tags estavam saindo duplicadas, visto que ela já saem obrigatoriamente no campo de observação. Estes campos a mais foram retirados do layout padrão do DANFE. 
+GFP (CCF 7540)
+
+
+
+
+Financeiro
+
+
+
+
+Troca do Portador dos Títulos
+
+Na tela de Manutenção de contas a Receber, a troca de portador não estava funcionando corretamente. Após ter selecionado os títulos e clicado no botão Portador, o sistema estava limpando a seleção que o usuário havia feito sobre os titulos e a alteração não estava sendo realizada corretamente. Nessa versão o problema foi corrigido. Esse mesmo problema foi identificado e corrigido no calculo dos juros. 
+UPA (CCF 6961, 7012, 7212, 7182)
+
+
+Relatório de Transição do Fechamento Financeiro
+
+Disponibilizado um novo layout do Relatório de Transição do Fechamento Financeiro porque o texto "Total" não estava sendo impresso devidamente. 
+Necessário atualizar o arquivo FFinanceiroTransicao.rtm.
+ 
+GSN (CCF 7184)
+
+
+Número de Remessa no Header de Lote da CEF
+
+Foi alterado o header de lote do arquivo de remessa da CEF onde foi incluído o mesmo número de remessa do header de arquivo 
+FLA (CCF 5880)
+
+
+Posição do Nosso Número na leitura do Arquivo de Retorno do Banco Fibra
+
+Foi alterada a posição de leitura do nosso número do arquivo de retorno do Banco Fibra pois este banco trabalha com banco correspondente Itaú e estava sendo retornado o nosso número na posição indevida. 
+FLA (CCF 6953)
+
+
+Rejeições com caracter na leitura do Arquivo de Retorno
+
+Foi alterada a forma de leitura das rejeições do arquivo de retorno da CEF. Agora as rejeições serão gravadas entre os cinco campos de rejeições, os valores representados por caracteres serão interpretadas pelo valor inteiro (-1) e serão demonstradas com seus valores originais em caracteres no campo de descrição das rejeições 
+FLA (CCF 7068)
+
+
+Formulas para Cálculo de Desconto no Tipo de Documento
+
+Nas fórmulas para descontos informados no tipo de documento, caso fosse informado parênteses na fórmula, o sistema não estava conseguindo calcular o desconto, era preciso remover os parênteses e o desconto era calculado sem problemas. Essa situação foi corrigida e para uma melhor organização do cálculo, os parênteses podem ser informados sem problemas. 
+UPA (CCF 6799)
+
+
+Novos campos na aba de Pendências Financeiras do cadastro de clientes
+
+
+Foram incluídos novos campos na aba de pendências financeira no cadastro de cliente, também estão disponíveis para utilização no layout da ficha do cliente. Os novos campos são: Razão Social, Valor Original, Valor Bruto, % Tx Juros, Observações, Vendedor, Nome Vendedor, Documento, Descrição do Documento, Portador, Descrição do Portador. FLA (CCF 6183)
+
+
+Data de Movimento de Adiantamentos
+
+Na Manutenção de Adiantamentos de Clientes/Fornecedores a coluna Data de Inclusão estava indevidamente com o texto "Data de Movimento" o que foi corrigido.
+GSN (CCF 7193)
+
+
+Amortização de Mútuo maior que o Saldo disponível
+
+
+Ao incluir títulos para Amortização do Contrato de Mútuo não será permitido um valor de amortização maior que o saldo atual do contrato.
+ 
+Help:
+ 
+Título Pago.
+
+
+GSN (CCF 3988)
+
+
+Transferência de adiantamentos Não Identificados
+
+Ao transferir adiantamentos não identificados para uma entidade ou transferir um adiantamento identificado para uma conta contábil, o adiantamento ficava com o comprador zerado, impedindo sua utilização em baixas, o que foi corrigido.
+GSN (CCF 7312,7357)
+ 
+
+
+Transferência de adiantamentos de Fornecedor em Lote
+
+Ao transferir adiantamentos de Fornecedores pelo recurso "Em lote" o comprador do adiantamento será o mesmo da entidade faturada. Anteriormente só o comprador era alterado.
+GSN (CCF 6918)
+
+
+Perfil de usuário para Fechamento Financeiro
+
+
+Foi alterado o perfil de usuário de fechamento financeirio. Agora temos um perfil para incluir e outro para cancelar.
+ 
+Help:
+ 
+Manutenção de Fechamento Financeiro
+ 
+FLA (CCF 6784)
+
+
+Baixa de Lançamento Através da Tela de Bancos
+
+Na tela de Bancos, caso o usuário selecionasse um título para baixa através da tela de recebimentos, ao clicar sobre o item selecionado, era exibida a mensagem de erro "Impossível focar a janela desativada ou invisível". Esse problema foi corrigido e a partir dessa versão será exibida a tela de baixa como deveria ser. 
+UPA (CCF 7338)
+
+
+CNAB 400 Banco do Brasil
+
+
+Disponibilizado no sistema a opção de gerar/ler os arquivos de remessa e retorno de cobrança para o Banco do Brasil no padrão CNAB400. Para isso, basta configurar no tipo de cobrança qual CNAB deverá ser utilizado. Estamos mantendo o CNAB240 como o padrão para o Banco do Brasil, cabendo ao usuário alterar conforme a sua necessidade na Manutenção de Tipo de Cobrança. 
+ Importante: Antes de colocar em produção este novo layout fazer os testes junto ao Banco com o arquivo de remessa, fazer pagamentos de boletos em valor simbólico e a leitura do arquivo de retorno de teste. 
+ 
+ Help:
+ 
+Banco do Brasil
+ e 
+Tabela Bancos
+ 
+UPA (CCF 6736)
+
+
+Histórico no Ajuste de Saldo Inicial
+
+A rotina de ajuste de saldo inicial das contas de banco permite ao usuário informar um histórico. Essa informação não estava sendo salva na movimentação gerada, sendo exibido sempre ao usuário "Acerto do Saldo Inicial". Essa rotina foi corrigida. 
+UPA (CCF 7482)
+
+
+Abatimento na Cobrança Eletrônica do Banco do Brasil
+
+
+A partir dessa versão o sistema irá fazer a baixa do abatimento na confirmação do registro do Banco do Brasil. Para isso basta habilitar a opção "Faz baixa de abatimento na confirmação do registro" nas configurações por empresa do Tipo de Cobrança. 
+ Help:
+ 
+Banco do Brasil
+ e 
+Tabela Bancos
+ 
+UPA (CCF 7331)
+
+
+
+
+Estoque
+
+
+
+
+Erro ao Visualizar as Abas de Detalhe da Movimentação de Estoques
+
+Se ao entrar na tela de fechamento de estoques, sem selecionar nenhuma informação, o usuário fosse direto a aba Detalhes da Movimentação do estoque, era gerado um erro pois ainda não existiam dados da movimentação para exibir os detalhes. Esse problema foi corrigido. 
+UPA (CCF 6872)
+
+
+Abertura de Fechamento de Estoque por Produto
+
+Foi corrigida a abertura indevida de estoque dos depósitos configurados com fechamento por Depósito quando a abertura era por Produto.
+GSN (CCF 6846)
+
+
+Distribuição de Bombeio
+
+
+A partir dessa versão iremos
+ 
+permitir na tela de Distribuição de Bombeio, que seja feita a saída da quantidade informada para ajuste na empresa Armazenadora.
+ 
+Iremos liberar, na tela de distribuição, a saída da empresa Armazenadora referente a esta quantidade de ajuste. 
+Help:
+ 
+Distribuição do Bombeio - Ajustes
+ 
+UPA (CCF 6473)
+
+
+Fator de Conversão no Ajuste de Estoque Físico
+
+Foi corrigido problema na tela de Fechamento de Estoque ao fazer o Ajuste Físico onde o fator de conversão não estava sendo calculado corretamente e a mensagem de erro em alguns casos não estava sendo mostrada devido ao tema utilizado. 
+FLA (CCF 6515)
+
+
+Dados da Automação
+
+
+A partir dessa versão, as informações de volume a ser movimentado será salvo e apresentada na tela de manutenção de carga/descarga, possibilitando a visualização do usuário. 
+Help:
+ 
+Dados da Automação
+ 
+UPA (CCF 6061)
+
+
+Consulta de Fechamento de Estoque
+
+Na tela de Consulta de Fechamento de Estoque, caso não passasse pelo campo de Data Inicial eram apresentados todos os fechamentos, não respeitando a data apresentada (data atual), o que foi corrigido. 
+GSN (CCF 7397)
+
+
+
+
+Compras
+
+
+
+
+Edição do Campo de Observação na Consulta de Pedidos de Movimentação de Material Pendentes
+
+Na tela de Consulta de Pedidos de Movimentação de Material Pendentes, existe a possíbilidade de se editar a observação do pedido. Está funcionalidade não estava alterando a observação do pedido e foi corrigida. 
+UPA (CCF 6981)
+
+
+
+
+Contabilidade
+
+
+
+
+Contas Gerenciais de Entidades
+
+
+Agora o campo Código Extendido da Conta Gerencial é preenchido automaticamente com o código extendido da conta real quando a empresa está configurada para trabalhar com a Contabilidade Real e inclui uma entidade (cliente/fornecedor) com conta gerencial vinculada à conta real automaticamente. 
+Help:
+ 
+Contas Gerenciais de Entidades - Código Extendido
+ 
+FLA (CCF 6451)
+
+
+Atualização dos Dados do Itens do Lote
+
+No SisPetro Normal, na manutenção de lotes, após o usuário selecionar um lote, se o usuário fosse para o um lote a frente ou mesmo um lote atrás através da barra de navegação (barra superior da janela), os itens do lote não estavam sendo atualizados. Esse problema de atualização foi corrigido nessa versão. 
+UPA (CCF 6944)
+
+
+Encerramento de Contas de Resultado Gerenciais
+
+Ao encerrar contas de resultado que utilizavam Centro de Custos, em alguns casos, apresentava erro de Foreign Key, o que foi corrigido. 
+GSN (CCF 7189)
+
+
+Contabilização com Contas gerenciais não cadastradas
+
+Quando era feita uma contabilização que envolvia uma conta que não existia era apresentado um erro genérico "Field Codinterno cannot be null in table PlanoContasSaldoAcumuladoConta". A partir dessa versão o erro será mais específico, informando a conta não encontrada, o valor movimentado e o tipo de operação (débito ou crédito) que a conta está envolvida. 
+GSN (CCF 7239)
+
+
+Aumento de Performance para as Telas que Filtram Contas
+
+
+Foram alteradas as rotinas que fazem as pesquisas de contas para terem um melhor desempenho. FLA (CCF 6869)
+
+
+Erro ao Alterar Histórico de Lotes Gerenciais com Itens Zerados
+
+Os lotes gerenciais com históricos nos itens, que possuíssem itens sem informação de débito e crédito (zerados), caso o usuário tentasse alterar o histórico dos itens era gerado o erro "erro de seqüencia de função" pois não eram localizadas as movimentações dos itens zerados. Esse problema foi corrigido e estes lotes podem ser alterados normalmente. 
+UPA (CCF 7463)
+
+
+Exclusão de contas com saldo zerado
+
+
+Agora é possível excluir uma conta real ou gerencial quando seu saldo estiver zerado FLA (CCF 6428)
+
+
+
+
+Fiscal
+
+
+
+
+Agentes Regulados e Não Regulados no DPMP
+
+
+Foi adicionado um novo perfil de sistema "Força dados de Clientes/Fornecedores para uso do DPMP" na aba estoque para controlar a obrigatoriedade dos campos CNAE e Localidade para Agente Não Regulado, Código de Instalação para Agente Regulado nas inclusões/edições dos cadastros de clientes e fornecedores.
+ 
+Help:
+ 
+DPMP - Fornecedores.
+ 
+Help:
+ 
+DPMP - Clientes.
+
+
+FLA (CCF 6534)
+
+
+Inscrição Estadual de estado diferente para Nota Fiscal e Sintegra
+
+
+Existem alguns casos onde a UF de Faturamento deve ser diferente da UF da entidade, pois o serviço foi prestado fora do estado e, no Sintegra deverá ir a IE da Entidade em conjunto com a UF de Faturamento.
+
+
+Help:
+ 
+Inscrição Estadual para a Nota Fiscal e o Sintegra
+ 
+GFP (CCF 5499)
+
+
+Dados de Características do DPMP
+
+Na tela do DPMP, a opção "Gera Dados de Características dos produtos" quando desmarcada não gera mais características automáticas como Teor Alcoólico e Massa Específica. 
+FLA (CCF 6824)
+
+
+SPED EFD
+
+
+Disponibilizados últimos ajustes do SPED EFD que foram feitos até 30/09/2009 quando usuários do SisPetro fizeram a primeira entrega. As empresas que quiserem atualizar suas fórmulas conforme as fórmulas da Futura, favor solicitá-las ao nosso Suporte Técnico.
+Necessário atualizar o arquivo SPED_EFD.dll
+ GSN (CCF 7361)
+
+
+
+
+Vendas
+
+
+
+
+Pedido de Alteração de Preço - Inclusão de Item
+
+Durante a inclusão de Pedido de Alteração de Preço após digitar um produto e condição de pagamento e redigitar o produto ou condição de pagamento, agora os preços estão sendo atualizados corretamente. 
+FLA (CCF 6810)
+
+
+Mensagem de Erro(tratada pelo SisPetro) ao Visualizar/Alterar um Pedido com Tipo de Cobrança que Use Adiantamento Quantificado
+
+Ao editar/visualizar um pedido em que o usuário informou um tipo de cobrança que use adiantamento quantificado mas que não tenha associado nenhum adiantamento a este pedido, antes de entrar na tela de pedido, era exibida ao usuário uma mensagem de erro informando que o adiantamento quantificado vinculado a este pedido não havia sido localizado. Ao tentar gravar este pedido, a mesma mensagem era apresentada e impedia a gravação do pedido. Essa situação foi corrigida. Caso o usuário altere um pedido com essas características, ainda não vinculando um adiantamento quantificado, o sistema irá emitir um aviso ao usuário, informando que não existe adiantamento quantificado associado mas gravará as alterações do pedido.
+UPA (CCF 6802)
+
+
+Manutenção de Contrato de Venda - Novos dados
+
+Na aba Pagamentos da Manutenção de Contrato de Venda foram acrescentadas novas colunas nos dados de Adiantamento (Saldo e Valor Original) e nos dados de Baixas (Valor Utilização em Crédito, Valor de Crédito Gerado, CC Baixa e Histórico do Título).
+GSN (CCF 6924)
+
+
+Relatório de Dados Cadastrais de Clientes
+
+
+No relatório de dados cadastrais de clientes, impresso pela tela de cadastro de clientes, foi incluída a opção de imprimir esse relatório para arquivo (PDF, HTML, TXT, etc) nos mesmos padrões dos demais relatórios do sistema. UPA (CCF 6349)
+
+
+Visualizar Somente Clientes Ativos no Cadastro
+
+
+No cadastro de clientes, na página de navegação, foi incluída a opção de visualizar ou não os clientes inativos. Essa opção será salva ao fechar a tela de clientes ou seja, se o usuário definiu que não deseja visualizar os inativos, ao sair da tela essa opção será salva e carregada novamente ao entrar na tela.
+ 
+Help:
+ 
+Status do Cliente X Situação do cadastro Ativo - Inativo.
+
+
+UPA (CCF 5857)
+
+
+Bloqueio e Desbloqueio Manual de Clientes
+
+
+A partir dessa versão não será mais possível bloquear ou desbloquear um cliente manualmente através do campo Vendas Bloqueadas. Para bloquear ou desbloquear um cliente, será necessário clicar no botão Ver Bloqueios e incluir um bloqueio manual para bloquear um cliente ou excluir os bloqueios existentes para desbloquear um cliente. Nos desbloqueios, para que não se perca o histórico dos bloqueios que aconteceram, foi criada a aba Históricos na tela de bloqueios, através dela, é possível visualizar os bloqueios ocorridos a um cliente em um determinado período.
+ 
+Help:
+ 
+Bloqueando a venda para um Cliente
+ 
+FLA (CCF 6558)
+
+
+Aumento de Performance na Manutenção de Pedidos
+
+Foi alterada a rotina que faz a consulta dos itens do pedido para terem um melhor desempenho. 
+FLA (CCF 6691)
+
+
+Pedido de Alteração de Preço - Relatório
+
+Consideração do desconto no preço proposto. 
+Necessário atualizar o arquivo "PedidoAlteracaoPreco.rtm" na pasta do executável e no Gerenciador de relatórios.
+ 
+GSN (CCF 4129)
+
+
+Validação da Condição de Pagamento
+
+
+Atualmente o prazo da condição de pagamento no pedido de vendas é validada somente pelo cliente, ignorando o prazo da condição de pagamento cadastrada no produto. A partir desta versão, caso o perfil "Pode incluir prazo pagto"  seja pelo cadastro de produtos, essa validação será feita considerando o prazo da condição de pagamento vinculada ao produto. UPA (CCF 6713)
+
+
+
+
+Transportes
+
+
+
+
+Descrição da Transportadora - Manutenção de Frotas
+
+Corrigido para que a Descrição da Transportadora na tela de Manutenção de Frotas seja compatível com a transportadora vinculada. Caso não tenha transportadora vinculada o campo ficará vazio.
+GSN (CCF 7303)
+

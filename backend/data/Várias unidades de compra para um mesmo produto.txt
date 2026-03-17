@@ -1,0 +1,162 @@
+TITULO: Várias unidades de compra para um mesmo produto
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2895708419
+--------------------------------------------------
+none
+Objetivo
+Em alguns casos, existe a necessidade de se permitir ao usuário informar notas fiscais com unidades diferentes, isto é, uma hora ele compra determinado produto em metros cúbicos e outra hora em litros.
+É possível que a compra do produto seja feita em uma unidade e o controle de estoque, por exemplo do depósito trânsito, seja feita na unidade padrão do produto, cadastrada conforme detalhamento abaixo.
+Desta forma, teremos as seguintes situações:
+Requisição
+: será considerada sempre a unidade de medida padrão do produto
+Liberação
+ 
+de Estoque
+: será considerada sempre a unidade de medida padrão do produto
+Cotação
+: poderá haver variação, desde que as unidades de medidas estejam cadastradas na tabela de produtos.
+PMM:
+ poderá haver variação, desde que as unidades de medidas estejam cadastradas na tabela de produtos.
+NF:
+ poderá haver variação, desde que as unidades de medidas estejam cadastradas na tabela de produtos.
+O SisPetro permite digitar normalmente as notas fiscais, solicitando, quando necessário, um fator de conversão de unidade que transformará a quantidade informada na nota fiscal na quantidade que será levada em consideração para cálculo de estoque.
+Portanto, poderemos ter uma unidade para o processo de compra (que deve ser determinado no PMM e seguir até a digitação da nota fiscal) e outro para o controle de estoque e estoque físico (a partir da portaria de entrada).
+Configurando o Sistema para utilizar a conversão
+Existem 3 configurações básicas que envolvem esse processo:
+Cadastro de Unidades e fator de conversão no Produto
+Configuração da Natureza de Operação
+Perfil de Usuário
+1. Cadastro de Unidades e fator de conversão no Produto
+Acesse o cadastro de Produto no menu 
+Arquivo \ Produtos, na aba Detalhes 
+\  
+Ficha Produto
+Localize o campo Cod.Unidade, nesse campo está definido a Unidade padrão do SisPetro.
+Selecione o botão 
+Unid. Adic.
+, será mostrada a tela de Unidades do Produto, onde através dos botões 
+Incluir
+, 
+Editar
+ e 
+Apagar
+ será possível cadastrar as unidades de medida específicas desse produto e seus respectivos fatores de conversão.
+Clicar no botão "Incluir". A seguinte tela será aberta.
+Unidade: 
+informar o código da nova unidade.
+Fator Conversão Unidade: 
+informar qual o Fator de Conversão da nova unidade, ou seja, por qual fator o SisPetro deverá multiplicar a nova unidade para encontrar o volume referente a Litros.
+Cálculo do Volume Referência das Descargas
+Fator Descarga
+: este perfil é para quem trabalha com 
+Apuração de Frete a Pagar
+. 
+Não tem
+: não será efetuado nenhum calculo (utilizado quando a unidade for Litros)
+Divide Qtde Referencia pela Densidade Descarga
+: utilizada quando o Fator de Conversão da unidade de medida da NF depende da densidade da descarga, para ser calculada a quantidade em litros. Pode ser utilizada quando a unidade for KG.
+Multiplica Qtde Referencia pelo Fator Conversão Descarga:
+ utiliza-se quando se deseja que o Volume Referencia esteja em 20C. Para mais informações, ver 
+Saída do Caminhão
+.
+Origem do Volume de Referência
+: Indica ao Sistema a partir de qual volume será calculado o Vol. Referência. Para mais informações, ver 
+Apuração de Frete a Pagar
+.
+A partir da Qtde Referência
+A partir da Qtde Origem
+Valorização na Apuração do Frete Líquido
+Forma de Valorização da Diferença do Frete
+Não faz Nada: 
+não fará qualquer cálculo
+Reconverte a Diferença Encontrada para o Frete: 
+considerando que a Diferença do Frete será em Litros, a valorização da mesma deve ser convertida se a unidade do frete for diferente de litros. Este perfil é para quem trabalha com 
+Apuração de Frete a Pagar
+.
+Forma de Valorização do Frete Real
+Não faz Nada: 
+não fará qualquer cálculo
+Reconverte o Valor do Frete na Apuração de Frete: 
+Indica se deve  ou não fazer algum recálculo no frete previsto originalmente. Se a unidade do frete for a mesma da unidade do recebimento, não será necessário fazer nada. Porém, se a unidade do frete for diferente da unidade do recebimento, será necessário fazer uma reconversão do valor do frete total para levar em consideração a unidade do recebimento. Este perfil é para quem trabalha com 
+Apuração de Frete a Pagar
+.
+Forma de Valorização da Diferença do Excedente
+Não faz Nada: 
+não fará qualquer cálculo
+Reconverte o Excedente para o Produto: 
+similar ao perfil anterior, mas ao invés de abranger a Diferença do Frete, abrangerá a Diferença do excedente que será valorizado pelo valor unitário do produto e deverá ser reconvertido se a unidade do produto for diferente de litros. Este perfil é para quem trabalha com 
+Apuração de Frete a Pagar
+. 
+Utilização das configurações de valorização considerando unidade em Litros e unidade adicional em M3 com fator 0,001
+Unidade na OC
+Frete Unitário na OC
+Diferença Frete
+Frete Real
+Diferença Excedente
+Litro
+Litro
+Não faz Nada
+Não faz Nada
+Não faz Nada
+M3
+Litro
+Não faz Nada
+Não faz nada
+Reconverte
+Em seguida, localize o perfil "Utiliza Fator de Conversão na Unidade"  menu 
+Arquivos \ 
+Produtos
+, 
+na Aba Detalhes, e selecione uma das opções:
+Não utiliza conversão
+: Para esse produto não será aplicado o fator de conversão de nenhuma unidade de medida.
+Utiliza somente para as unidades vinculadas
+: Será aplicado o fator de conversão de acordo com a unidade selecionada. Caso não possua fator cadastrado, na inclusão da NF será possível inserir.
+Utiliza somente para as unidades vinculadas, as unidades não vinculadas o fator será 1
+: Idem ao anterior, porém caso não possua fator cadastrado, será definido por padrão 1.
+2. Configuração da Natureza de Operação
+Acesse o cadastro de Natureza de Operação no menu 
+Tabelas Auxiliares \ Faturamento \ Natureza Operação na aba Detalhes \ Geral \ Dados Gerais
+Localize e marque o perfil 
+3. Perfil de Usuário
+Acesse o Perfil de usuário, selecionando o nome do usuário desejado em  
+Ferramentas \ Usuário, localize a aba Perfil \ Faturamento
+Localize e marque o perfil 
+O objetivo desse perfil é permitir que durante a inclusão de um Nota Fiscal, no momento da digitação dos itens, o usuário tenha permissão de alterar o valor do Fator de Conversão.
+O SisPetro não permitirá avançar com valor do fator de conversão menor ou igual a zero.
+Utilizando a conversão
+Utilize os processos de PMM, recebimento de materiais, outras entradas para utilizar essa função, durante a inclusão dos itens, coloque a unidade desejada, conforme imagem abaixo:
+Para as conversões de KG para Litro, é comum o usuário ter a densidade do produto, que é responsável pela conversão de KG para Litro, então para chegar a um fator que seja de KG para Litro é necessário utilizar a densidade para fazer a conversão, ou seja, ao invés de multiplicar, dividir.
+Exemplo:
+Unidade de medida do fornecedor: KG (kilo)
+Unidade de medida no SisPetro: LT (litro)
+No cadastro do produto, a unidade de medida principal é LT e a unidade adicional é KG. O Fator de conversão cadastrado na unidade adicional é 0,768.
+Na nota fiscal do fornecedor:
+Quantidade: 768
+Unidade de medida: KG
+Ao lançar a NF ou OC, deve informar a UNIDADE DE MEDIDA ADICIONAL (SisPetro) que é a mesma unidade informada na nota do fornecedor:
+Quantidade:768
+Unidade de medida: KG
+Fator de conversão: 0,768
+Qtde ambiente:768/0,768=1000 - cálculo feito pelo SisPetro de acordo com as configurações acima.
+Na inclusão manual da nota fiscal, atentar para alterar a unidade no item da nota. O SisPetro traz a UNIDADE DE MEDIDA PRINCIPAL. O usuário deve alterar para a UNIDADE DE MEDIDA ADICIONAL. 
+Na importação da nota configurar a natureza de operação > aba GERAL > aba Importação NF > quadro Importação NF's: campo UNIDADE DE MEDIDA UTILIZADA NA IMPORTAÇÃO > selecionar VINDA DO ARQUIVO OU DE/PARA. 
+Se usar DE/PARA, o DE é a unidade informada pelo fornecedor no XML e o PARA é a unidade adicional do produto no SisPetro.
+Trabalhando com fator de conversão na NF pela densidade da descarga.
+Nos processos de compra de produto em KG, o fator de conversão para chegar à quantidade em litros é a densidade do produto. Assim, ao dar entrada em um produto o usuário precisa saber essa densidade para informar no Cadastro de Unidades do Produto ou então informar manualmente. Pensando nesse cenário, hoje é possível dar entrada nas notas utilizando como fator de conversão a densidade informada na descarga. Veja maiores detalhes em 
+Fator de Conversão na NF pela densidade da Descarga
+. 
+Trabalhando com várias unidades de medidas para um produto
+Quando há uma inclusão de um PMM vinculada a uma requisição, o sistema atualiza as quantidades da requisição de compras, conforme instruções descritas abaixo:
+se a unidade de medida for a padrão
+aumenta-se a quantidade comprada com a quantidade do item do pedido
+diminui-se a quantidade pendente com a quantidade do item do pedido (sem que a mesma fique negativa)
+se a unidade de medida for diferente da padrão, porém uma das cadastradas no produto
+aumenta-se a quantidade comprada com a quantidade do item do pedido / fator de conversão cadastrado para a unidade de medida
+diminui-se a quantidade pendente com a quantidade do item do pedido / fator de conversão cadastrado para a unidade de medida (sem que a mesma fique negativa)
+Nos casos de cancelamento do PMM ou para Desalocar um item do pedido, o sistema reverterá ao que foi feito na inclusão, conforme informações descritas abaixo:
+se a unidade de medida for a padrão
+diminui-se a quantidade comprada com a quantidade do item do pedido
+aumenta-se a quantidade pendente com a quantidade do item do pedido (sem que a mesma fique negativa)
+se a unidade de medida for diferente da padrão, porém uma das cadastradas no produto
+diminui-se a quantidade comprada com a quantidade do item do pedido / fator de conversão cadastrado para a unidade de medida
+aumenta-se a quantidade pendente com a quantidade do item do pedido / fator de conversão cadastrado para a unidade de medida (sem que a mesma fique negativa)

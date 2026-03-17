@@ -1,0 +1,116 @@
+TITULO: Servidor Sispetro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210495
+--------------------------------------------------
+EM DESUSO - ver 
+O Servidor SisPetro é um programa que controla e faz a validação da conexão remota (de outro local, através da internet, por exemplo) dos programas SisPetro Remoto e SisPetro Controladoria. Além disso, tem outras funções como envio e recebimento de e-mail, controle do serviço de licenciamento de versão (SL) e validação do arquivo de licenciamento de versão.
+A partir da versão 9.3 o Sispetro grava os dados de configuração do Servidor Sispetro no arquivo INI ao invés de gravar no registro do Windows como era realizado anteriormente.
+Dica:
+ feitas todas as configurações necessárias, ANTES de obter o arquivo de licenciamento de versão, clique em INICIAR SERVIDOR. Mostrará a mensagem que não foi possível validar o arquivo de licenciamento. Feche a mensagem e então obtenha o arquivo de licenciamento. Com isso o processo de obtenção do arquivo fica mais rápido.
+O Servidor SisPetro, a máquina aonde o banco de dados é iniciado e a máquina onde o SisPetro (seja ele normal, remoto ou controladoria) deverão ter a mesma data, para maior segurança dos processos internos. Caso alguma dessas três máquinas não estiverem com a mesma data, surgirá a mensagem de erro abaixo e o usuário não conseguirá se conectar.
+Para que o SisPetro possa ser executado, é precisa que o Servidor SisPetro esteja ativo para que a conexão ao banco de dados seja feita, porém, não basta apenas que o servidor esteja ativo, deve-se configurá-lo de forma correta.
+Endereço IP:
+O Servidor SisPetro precisa de um endereço IP válido para que ele possa se conectar ao banco de dados. Normalmente é o endereço da máquina onde o banco de dados está ativo e o próprio Servidor SisPetro é iniciado. Deve-se informar esse endereço de duas formas:
+Nas configurações do Socket do Servidor é possível configurar o endereço IP que o servidor deve localizar para se conectar ao banco.
+Útil para máquinas com mais de uma placa de rede e quando se precisa alterar o IP na próxima execução.
+A partir da versão 9.3 as configurações do Servidor Sispetro ficam gravados no arquivo ServidorSispetro.ini, não mais no registro do Windows como em versões anteriores
+. O preenchimento do arquivo 
+ServidorSispetro.ini
+ é realizado conforme o usuário informa na tela do Servidor Sispetro e inicia o Servidor.
+O usuário também pode realizar as alterações diretamente no próprio arquivo
+ ServidorSispetro.ini, 
+porem o
+ Servidor Sispetro 
+ deve estar fechado, caso contrario pode ser que a alteração não seja realizada, e o Servidor Sispetro suba com as configurações antigas.
+A opção de
+ Servidor Seguro
+ foi implementada para que seja possível realizar 
+somente
+ conexões seguras com o banco de dados da empresa. Assim, caso seja informada uma senha no Servidor Sispetro, o Sispetro somente permitirá acessos ao banco de dados com a senha configurada no ini do projeto que está sendo utilizado (seja o Normal ou o Controladoria), conforme abaixo:
+Caso as senhas estejam diferentes, o Servidor SisPetro rejeitará a conexão
+Como os aplicativos SisPetro Normal e SisPetro Controladoria podem acessar até 3 Servidores Sispetro diferentes em uma conexão, é muito importante que, caso seja configurado o SisPetro para utilizar senha de segurança, todos os Servidores Sispetro estejam configurados com a mesma senha.
+Caso não tenha informação de senha, o Sispetro continuará utilizando a senha interna, permitindo somente acesso ao banco com programas da Futura.
+Ver novo parâmetro do arquivo INI em 
+Liberação de usuários inativos no Servidor Sispetro
+.
+Escolha de DataSource
+O Servidor SisPetro deverá ser vinculado a um ODBC de 32 bits configurado. Para isso, o usuário deverá:
+Clicar no botão Escolha de DataSource;
+Será exibida a tela abaixo, onde devesse informar os dados para conexão do Banco de Dados.
+Usuário:
+ Usuário de acesso ao banco, por padrão da Futura o usuário é 
+dba.
+Senha: 
+Nesse campo informamos a senha do usuário.
+Servidor (Server Name):
+  É informado o nome do Serviço do Banco de Dados.
+IP (Host):
+ Nesse campo é informado o IP do Servidor onde o Banco de Dados está em execução.
+Porta:
+ Porta do Banco de Dados.
+O padrão do SisPetro é: Nome do usuário 
+dba
+ e nome do servidor 
+scgwin
+. Para saber a senha e mais detalhes entre em contato com o suporte técnico.
+Informações sobre as abas:
+Log: 
+Email:
+ 
+Habilitando Serviço de E-mail
+Servidor de Licenciamento:
+ 
+Serviço de Licenciamento de Versão (SL)
+Servidor de Segurança:
+ 
+Servidor Sispetro de Segurança (S3)
+Certificado Digital :
+ 
+Configuração do Certificado Digital,
+Demais funcionalidades do Servidor SisPetro:
+Sessões DataBase:
+Neste campo será configurada a quantidade de conexões que serão abertas inicialmente para serem compartilhadas entre os usuários. O padrão são 3 conexões e o Servidor SisPetro abre mais conexões caso seja necessário.
+Compressão:
+A finalidade da compressão é compactar os dados, evitando um maior tráfico na rede.
+Para utilizar a compressão, o usuário deve marcar a opção 
+"Compressão"
+ e obrigatoriamente criar uma linha no arquivo INI de todos os executáveis referentes ao Sispetro (SisPetro Normal - scg.ini, SisPetro Remoto - sispetro.ini, Controladoria - sptcont.ini e Monitor de Conexões - servidorsispetro.ini), conforme abaixo:
+Compressao=1
+Estas configurações devem ser realizadas ao mesmo tempo, isto é, para a compressão funcionar, tanto o cliente como o servidor devem estar configurados de acordo. O padrão é não ter compressão (no arquivo de configuração, caso não exista a linha Compressão).
+Para não haver compressão, basta desabilitar o campo "Compressão" no servidor e no cliente, ou apagar a linha Compressão do arquivo de configuração ou configurar a variável igual a zero.
+Criptografia:
+Criptografia tem como objetivo escrever em cifras. Isso ocorre em função de um conjunto de operações matemáticas que transformam um texto claro em um texto cifrado. O emissor do documento envia o texto cifrado, que será reprocessado pelo receptor, transformando-o, novamente, em texto claro, igual ao emitido.
+Para habilitar a criptografia dos dados, deve-se realizar os seguintes procedimentos:
+No servidor SisPetro habilitar a opção "Criptografia" inserindo-se uma palavra no controle de edição, ao lado do controle "Criptografia" que servirá de base para a criptografia dos dados. Esta palavra pode ter qualquer tamanho e ser uma palavra existente ou não.
+É obrigatório criar uma linha no arquivo INI de todos os executáveis referentes ao SisPetro (SisPetro Normal - scg.ini, SisPetro Remoto - sispetro.ini, Controladoria - sptcont.ini e Servidor SisPetro- servidorsispetro.ini), conforme abaixo, substituindo o texto <palavra criada no servidor> pela palavra preenchida no item anterior (no exemplo, FABULA):
+Criptografia=<palavra criada no servidor>
+Estas configurações devem ser realizadas ao mesmo tempo, isto é, para a criptografia funcionar, tanto o cliente como o servidor devem estar configurados de acordo. O padrão é não ter criptografia(no arquivo de configuração, caso não exista a linha Criptografia).
+Para não haver criptografia, basta desabilitar o controle Criptografia no servidor e no cliente (arquivo INI) apagar a linha Criptografia.
+A palavra utilizada para a criptografia deve ser exatamente igual nas duas configurações (cliente e servidor).
+Liberação de Memória Após Processamento:
+A cada processo de processamento executado no Servidor SisPetro é alocado memória no mesmo, com o tempo passa a utilizar muita memória do Sistema Operacional chegando ao ponto de travar o servidor. Para isso foi criado este perfil que descarrega esta memória.
+Remover usuários conectados que estejam inativos:
+A partir da versão 8.19.2, quando usuários perdem a conexão com o Servidor SisPetro é possível removê-los, evitando que licenças fiquem em utilização. Para mais informações, ver help 
+Liberação de usuários inativos no Servidor Sispetro
+.
+Gerar DANFE/DACTE em PDF:
+A partir da versão 8.19.2,
+ 
+se
+ marcada, será gerado o DANFE/DACTE para envio ao destinatário.
+Mensagens:
+No painel 
+Usuários
+ existe a opção de se enviar uma mensagem a todos os usuários ou a determinado(s) usuário(s) do SisPetro Remoto, SisPetro Controladoria e/ou SisPetro Normal.
+A partir da versão 8.34 é possível identificar o usuário pelo nome utilizado no login. Será apresentado na coluna "Nome Usuário SisPetro". Facilitando o trabalho de desconectar e mandar mensagem.
+Para enviar a mensagem, basta selecionar o(s) usuário(s) NO QUADRO 
+Usuários
+.
+Em seguida, preencher o campo "Mensagem" e apertar o botão "Enviar".
+Para selecionar mais de um usuário, basta pressionar <SHIFT> e os usuários que deseja.
+O cliente selecionado irá receber a mensagem.
+Para 
+desconectar
+ usuários conectados ao Servidor Sispetro, basta selecioná-los na lista de usuários e clicar no botão 
+"Desconecta"
+.
+Na tela de usuários, é possível visualizar a versão que o mesmo está executando.

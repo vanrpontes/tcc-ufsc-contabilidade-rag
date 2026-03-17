@@ -1,0 +1,171 @@
+TITULO: Custo de Produtos (CMV)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898355
+--------------------------------------------------
+O custo dos produtos ou Custo das Mercadorias Vendidas (CMV) é feito com base nas informações das notas de entrada e notas de saída e poderia ser feito automaticamente pelo SisPetro se os dados fossem lançados on line (no momento em que eles acontecem). No entanto, as notas de entrada, devido a burocracia de bombeios e etc, não são lançadas exatamente no momento em que abastecem o estoque. Sendo assim a apuração do custo da mercadoria não seria totalmente real, pois muitas vezes se trabalha com estoque negativo, já que a saída é feita antes da entrada do produto. Por isso, periodicamente se faz o Apuração do Custo das Mercadorias Vendidas (CMV). Antigamente esta apuração era feita no 
+Fechamento do Estoque
+ (tanto por Produto como por Depósito), porém identificamos alguns pontos:
+Apesar das notas de Usinas e Petrobrás demorarem para chegar, geralmente há movimentações temporárias justificando o saldo em estoque (por exemplo, a movimentação gerada pela 
+Confirmação de Pedido de Bombeio
+ e 
+Distribuição do Bombeio
+. Assim, o fechamento de estoque é feito diariamente, mas não significa que já seria possível apurar o custo, já que este é o correto conforme a Nota Fiscal ainda pendente
+Nem sempre o responsável pelo Fechamento de Estoque sabe conferir devidamente a apuração de custo. Assim, seria interessante separar esses processos em duas telas distintas.
+A periodicidade desejada para Fechamento de Estoque 
+é diária
+, mas pode ser que esta não seja a periodicidade desejada para Fechamento de Custo, assim, duas telas distintas daria a liberdade de escolha para cada processo.
+Com isso criamos uma tela para Fechamento de Custo, também podendo ser feita por Produto ou Depósito.
+Para que se comece a controlar o CMV dos produtos, inclusive contabilizando-os é importante que seja feito o 
+, onde nesta tela se informa o custo atual de cada produto e depósito, valorizando assim o seu estoque inicial.
+O cálculo do CMV é feito por produto/empresa e depósito. Ou seja se o fechamento de custo é por produto (e empresa), para cada depósito que o produto foi movimentado será calculado o CMV. Se o fechamento de custo é por depósito (e empresa) para cada produto movimentado naquele depósito será calculado o CMV.
+Informe o 
+Depósito
+ ou o 
+Produto
+, a 
+Data de Fechamento
+ desejada e clique em 
+Atualiza
+.
+O SisPetro verificará então a situação de cada produto/depósito/empresa e apresentará os dados.
+Atenção: se não tiver fechamento de estoque para a Data de Fechamento informada, ao clicar no botão 
+Fecha Dia
+ será apresentada uma mensagem de erro e o fechamento não será concluído!
+É permitido fazer a abertura do Fechamento de Custo mesmo com o Estoque fechado
+Através do botão 
+Legenda
+ é possível ver o significado das fontes/estilos utilizados na apresentação dos dados:
+Neste caso, é possível fazer o fechamento de custo na data indicada. Já vem 
+marcado
+ originalmente, sendo possível marcá-lo ou desmarcá-lo. Ele será abrangido pelo botão 
+Marca/Desmarca Todos p/ Fechamento
+.
+A data do último fechamento apresentada indicará a partir de quando foram verificadas as entradas e saídas do período.
+Ex.: Se a data de fechamento informada foi 15/12/2006 e a data do último fechamento foi 01/12/2006, teremos:
+Saldo Inicial: O saldo final do fechamento (de estoque e custo) em 01/12/2006
+Entradas e Saídas: Ocorridas entre 02/12/2006 e 15/12/2006
+Saldo Final: Saldo Inicial + Entradas - Saídas.
+São para esses registros que devem ser conferidas as contas utilizadas, bem como o painel Custo.
+Estes registros são apresentados apenas para consulta, pois não podem ser fechados devido o saldo final estar negativo. Para mais informações, ver 
+.
+Neste caso, são os registros já fechados na data de fechamento informada, então podem ser abertos. Já vêm marcados originalmente, sendo possível marcá-los ou desmarcá-los individualmente. Ele será abrangido pelo botão 
+Marca/Desmarca Todos p/ Abertura
+. Na abertura, a contabilização feita no fechamento será estornada.
+Atenção: se for o 1º fechamento de custo a ser feito, será apresentada como Data do Último Fechamento sempre 01/01/2000.
+No painel 
+Custo
+ é possível ver a Planilha de Custo do produto ou depósito selecionado no painel Resumo:
+A Quantidade (Ambiente ou a 20º) utilizada para o cálculo é definida através do Perfil de Empresa 
+Quantidade utilizada para a valorização do estoque. 
+Maiores informações em 
+Configurações para CMV
+.
+O SisPetro apresenta o custo médio anterior e o saldo inicial que foi utilizado para iniciar o cálculo do custo. O custo médio anterior, no caso da primeira apuração de custos, poderá ser alterado na 
+Tabela Produtos
+. O saldo inicial é oriundo do último fechamento de custo (veja Data do último Fechamento no painel 
+Resumo
+). O mesmo ocorre com os dados de entrada e saídas apresentados.
+Serão apresentadas as entradas separadas entre "Entrada que interfere no Custo Médio" e "Entrada que não interfere no Custo Médio". Serão também apresentadas separadamente as Saídas entre "Saída Contabiliza no Custo" e "Saída que não Contabiliza no Custo", conforme a imagem acima.
+As 
+Movimentações que não participam do CMV
+, serão apresentadas com os tipos "Entrada que não interfere no Custo Médio " e Saída que não Contabiliza no Custo.
+Quando a movimentação de entrada não participa do CMV, a quantidade é acrescentada no saldo, mas o valor utilizado para cálculo do custo médio é o custo imediatamente anterior (para que não interfira no custo) e não o valor da entrada.
+As saídas oriundas de pedidos de ajustes (como Ajustes Manuais, Acerto de Estoque Zero, Transferências entre Depósitos e Bombeios)participarão do CMV conforme configuração nos Históricos. Atente-se para só configurar para não participar, caso, por algum motivo, essa movimentação já foi ou não precisa ser contabilizada. Já as saídas oriundas de Notas Fiscais dependerão da configuração constante na 
+Natureza de Operação
+, o que inclui os pedidos de movimentação de produtos básicos, quando essa nota for de Produto Composto. Isto é necessário pois nem todas as saídas devem ser contabilizadas o CMV, como as saídas resultantes de transferências. Neste caso, esta saída será contabilizada nas contas de estoque de onde o produto está saindo e a conta de estoque para onde está indo o produto no momento do lançamento da nota. Assim, nesta transação temos dois pontos que não precisam a apuração do CMV posterior - A conta de estoque já foi movimentada na contabilização inicial e não é necessário apurar o CMV pois não houve receita nesta transação.
+Cálculo do CMV
+São levantadas todas as entradas em ordem crescente de data. A cada entrada realizada é feito o cálculo do custo médio. No final das entradas você terá o custo médio final do período.
+São somadas todas as saídas que participam do CMV e com base no custo médio final é feito o cálculo do valor movimentado na saída. Este será o valor para o lançamento de lote para as contas de Custo e Estoque do produto.
+Veja as 
+Configurações
+ necessárias para o CMV.
+Botão 
+Utilize este botão para facilitar a seleção dos registros para fechamento.
+Botão 
+Utilize este botão para facilitar a seleção dos registros para abertura
+Botão 
+Serve para providenciar o fechamento dos registros na fonte preta/normal selecionados. Caso a opção Gera Lote CMV estiver marcada, providenciará também a contabilização.
+Botão 
+Utilizado para abertura do fechamento de custo dos registros na fonte preta/negrito selecionados. Estorna os Lotes de Contabilização do CMV que tenham sido incluídos no Fechamento.
+A 
+partir da versão 10.24 não será mais necessário abrir o Fechamento de Estoque para abrir o Fechamento de Custo
+Porém para a efetuar a Abertura do Fechamento de Custo é necessário ter perfil de usuário 
+Permite abrir Fechamento de Custo
+ para isso, que está em 
+Ferramentas/ Usuário/ aba Pefil/ aba inferior Estoque
+. E também o perfil 
+Só abre fechamento de custo com nº de dias permitidos
+.
+Este último perfil irá trabalhar em conjunto com o perfil de empresa 
+# Dias anteriores permitidos para abertura de estoque/ custo
+ que se encontra em 
+Ferramentas/ Sistema/ aba Estoque/ quadro Fechamento de Estoque.
+Para imprimir esta planilha de apuração clique no botão Imprime que está no painel Custo ao lado do Valor Total Anterior. Será utilizado o arquivo 
+ExtratoCMVGerencial.rtm
+ que estiver no caminho do executável.
+Estando marcada, o painel 
+Dados Lote CMV
+ estará visível na tela de Fechamento de Estoque:
+Confira os dados necessários para geração do lote: 
+Data de movimento
+ (sugerida a data do fechamento), o 
+histórico
+ e 
+informações adicionais
+, 
+moeda
+ e, caso a empresa esteja com a 
+contabilidade real
+ habilitada, se este lote por ser incluído na contabilidade real.
+Caso o usuário queira utilizar a 
+contabilização por centro de custo
+ definida em 
+Depósitos - Aba Detalhes
+ a opção o 
+Código de Contabilização Real 
+deve estar 
+vazio. 
+Para isso o perfil de Sistema da Aba Contab. Real 
+Código de Contabilização para o CMV 
+também deve estar vazio. Para mais informações, ver 
+Cabe lembrar que a apuração do CMV também está disponível no SisPetro Controladoria, num procedimento similar a este. Sendo assim, a empresa que marcar a opção pode contabilizar, já estará providenciando a contabilização do custo na contabilidade real, não sendo necessário utilizar o procedimento no SisPetro Controladoria. O código de contabilização e restrições são definidos pelo grupo Contábil: Lote gerencial.
+Lembrando que as contas contábeis de custo e de estoque podem ser configuradas de modo que cada depósito tenha suas próprias contas para cada produto. Para mais detalhes veja 
+Contas por Depósito
+.
+Confira as contas de 
+estoque
+ e 
+custos
+ sugeridas do cadastro de 
+produtos
+, e altere caso seja necessário. Esta conferência deverá ser feita para cada produto (no fechamento por depósito).
+Cabe lembrar que os produtos que não tiverem conta de estoque ou custos definidas não será feito o lançamento de lote de apuração do custo.
+O valor lançado nestas contas será o custo médio final multiplicado pelo total de saídas (apresentada na planilha de custos).
+No caso de abertura de dia (cancelamento do fechamento) os lotes gerados serão estornados automaticamente e por padrão o SisPetro faz o estorno de lote para o CMV na data atual. Existem 4 perfis que afetam as datas de estornos (cancelamento dos lotes):
+Menu Ferramentas / Sistema / painel Estoque / quadro CMV, a opção 
+Utiliza data do fechamento estoque no cancelamento do lote CMV. 
+Caso marcada, utiliza data de fechamento do estoque, independente da data atual ou da data de movimento do lote CMV.
+Menu Ferramentas / Sistema / painel Contab. Real, a opção 
+Data utilizada em Estorno de Lançamentos (lotes) Reais: 
+Igual a data de emissão do movimento original ou 
+Igual a data de cancelamento do movimento original.
+ 
+Utilizada em conjunto com a opção 
+Data Original no Cancelamento do Lote.
+ Para mais informações ver 
+.
+Menu Ferramentas / Sistema / painel Contab.Real,  a opção 
+Data Original no Cancelamento do Lote
+. 
+Utilizada em conjunto com a opção 
+Data utilizada em Estorno de Lançamentos (lotes) Reais. 
+Para mais informações ver 
+.
+Menu Ferramentas / Sistema / painel Contab.Real, a opção 
+Excluir o lote no Cancelamento ao estornar. 
+Se marcada, o lote será excluído sem qualquer alteração na data.
+Caso não queira gerar este lote, desmarque a opção no perfil do sistema 
+Gera Lote CMV
+.
+No caso de um fechamento não calcular o CMV, o custo médio será o mesmo do último fechamento. Apesar de sabermos que quando o saldo final está negativo não foi calculado o CMV, na tela de 
+Consulta de Fechamento de Estoque
+ será possível identificar qual o fechamento que fez o cálculo.

@@ -1,0 +1,125 @@
+TITULO: Versão 8.31
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924287417
+--------------------------------------------------
+Versão 8.31
+Dados
+Informações
+Início
+15/10/2015
+Final
+03/11/2015
+Scripts
+CMD831.sql (3906 a 3923)
+Itens
+25
+Implementações
+13
+Correções
+12
+DLLs
+SisPetroControl.Dll
+Banco633_v2.Dll
+Avisos importantes
+A partir da versão 8.32:
+Será retirada a gravação de dados nas tabelas de 
+Estatísticas de Clientes
+.
+O perfil da Natureza de Operação "
+Testa capacidade veículo contra qtde NF
+ " (da aba Geral/Dados Gerais) será aplicado somente em NF's próprias, não dando mais o aviso, barrando a NF caso esteja marcado e a quantidade esteja menor que a capacidade do veículo utilizado.
+Caso utilize um dos recursos acima e tenha alguma oposição, favor manter contato com Suporte Futura.
+Geral
+Melhoria de performance em diversas telas
+Feita alteração para melhoria de performance nas  telas de Manutenção de Lotes e Plano de Contas
+. 
+FLS (CCF 29621)
+Reorganização na Impressão do Cadastro de Cliente
+Foram feitas alterações na tela de Impressão do Cadastro do Cliente que é acessada através do botão correspondente no Cadastro de Clientes. Foi aumentada a tela para apresentar o título da por completo, e foram feitas alterações internas para melhorar performance e reorganização de componentes utilizados evitando assim possíveis problemas com falta de memória. MIM (CCF 29434)
+Conexão de dados do Cadastro de Cliente
+Alterado o componente de conexão de dados da aba de Navegação do Cadastro de Clientes para que não utilize o BDE e não apresente mais o erro "Erro de Lock File has grown too large"
+. UPA (CCF 28718)
+Compras
+Reorganizadas as colunas da grid de Itens do PMM
+Na inclusão e visualização do PMM, foram reorganizadas as colunas da grid de Itens do PMM para apresentar os campos na mesma ordem de antes da alteração da versão 8.28, colunas 'Preço Inicial' e '% Desconto' próximo ao 'Preço'.
+ CPC (CCF 29704)
+Contabilidade
+Exclusão de Lote de Encerramento Real no Cancelamento
+No Manutenção de Encerramento do Controladoria, ao cancelar um encerramento é feito o estorno dos lotes gerados (despesa e receita). Nessa versão, foi realizada uma alteração para ao Cancelar um Encerramento, excluir os lotes gerados. Isso facilitará o processo de conferência do SPED ECD, que não permite lotes de encerramentos cancelados. Help: 
+Configurações - ECD
+. CPC (CCF 29654)
+Estoque
+Alteração da quantidade na confirmação de OC de Transferência entre Depósitos
+Na confirmação de OC de Transferência entre Depósitos só permitia alterar a quantidade quando estava vinculada a um PMM. Corrigido para permitir também quando a OC não está vinculada a um PMM. 
+Toda OC de Transferência entre Depósitos sem PMM terá a tela de Confirmação aberta ao clicar no botão Confirma a partir de agora.
+ 
+FLS (CCF 28780)
+Tanque virtual sem Número de Laudo
+Corrigido processo de Leitura de Tanques reais, vinculados a tanques virtuais, para que no processo de atualização das temperaturas e densidade no tanque virtual, atualize também o número de laudo. Com isso as Notas Fiscais de depósitos com Tanques Virtuais terão o número do Laudo correto para uso no DPMP. 
+GSN (CCF 29729)
+Data nas Consultas de Estoque Físico
+Alteradas as telas de Consulta "Movimentação de Estoque Físico" e "Saldo de Tanque por Produto" para que apresente as movimentações pela Data de Saída da Base. 
+GSN (CCF 29758)
+Faturamento
+Quantidade de Acerto de Estoque Zero
+O SisPetro tem um recurso para Acerto Automático de Estoque Zero, mas quando esse recurso é configurado o campo é sugerido com zero e o usuário tem que registrar essa quantidade. Nessa versão, foi realizada uma alteração para sugerir essa campo com a Quantidade do Item. CPC (CCF 29524)
+InfCpl e InfAdFiscal da UF X Filial na NF
+As observações da NF podem ser definidas através da Natureza de Operação, aba Por Filial / Impressão NF e por UF. Porém, quando há mais de uma ‘Informações Complementares’ e ‘Informações Adicionais de uso do Fisco’, só é apresentada a primeira. Nessa versão, foi realizada uma alteração para trazer todas as observações. . CPC (CCF 29620)
+Manutenção de Natureza de Operação - aba Por Filial - aba UF's
+Nessa versão foi realizada a reorganização dos campos na aba UF’s da Natureza de Operação. Além de habilitar/desabilitar os campos para preenchimento da DARJ de acordo com o tipo de emissão. CPC (CCF 28979)
+Importação de Nota Fiscal
+Quando a NF possui mais de um item e pelo menos um deles está correto, a mesma é importada com os itens que estão OK, ignorando os itens que deram problemas. Nessa versão, foi realizada uma alteração para só importar a NF quando todos os itens estiverem corretos.
+ CPC (CCF 27322)
+Alteração tabelas da Importação de Nota Fiscal
+As tabelas utilizadas para importação de notas fiscais são relacionadas através de chave primária composta. Nessa versão, foi feita uma alteração para simplificar esses relacionamentos criando chave sequencial por um único campo.
+ CPC (CCF 29470)
+Na tela de Importação, no De/Para
+No De/Para, nos pontos de escolha de produtos, é possível digitar o código de qualquer produto, mas na pesquisa somente produtos liberados para vendas. Nessa versão, foi realizada a alteração na pesquisa para permitir escolher qualquer produto ativo.
+ CPC (CCF 27361)
+Títulos de Desconto Gerados pelo Faturamento Automático
+Na versão passada implementamos no Faturamento Automático a opção de gerar os títulos de desconto como já é feito no Faturamento Manual. Os títulos gerados, na impressão do DANFE estavam ficando misturados com os títulos de cobrança da NF-e por não terem sido marcados como títulos de desconto. Esse problema foi corrigido. 
+UPA (CCF 29734)
+Validação de Depósito por Usuário
+O SisPetro permite trabalhar com vários depósitos e para melhorar o processo de movimentação dos mesmos foi criado o controle de restrição de usuários por depósito, apenas usuários configurados poderão movimentar os depósitos, evitando assim possíveis erros de movimentação. Help: 
+Restrição por Usuário
+ FLS (CCF 29293)
+Títulos de NF com Desconto
+No Faturamento Automático, quando a Nota Fiscal tinha desconto ou acréscimo configurado, os títulos da Nota Fiscal eram gerados com o valor da NF sem considerar esses descontos/acréscimos. Corrigido para que os títulos sejam gerados compatíveis com o Valor final da Nota Fiscal. 
+GSN (CCF 29753)
+Gravação de campo na Importação NF
+O processo atual de Importação de Nota, não gravava dados referente a IPI, Valor Desconto e Observações vindos no XML. Nessa versão, foi realizada uma melhoria para passar a gravar essas informações de acordo com configurações da Natureza de Operação. CPC(CCF 29547)
+ Help: 
+Natureza de Operação - Painel Geral
+Lacre fora da faixa de série manual
+Corrigido processo de validação de lacres de séries manuais na Inclusão da Ordem de Carregamento para impedir lacres fora do intervalo cadastrado para a série
+. GSN (CCF 29694)
+Relacionamento das tabelas de Importação de Nota Fiscal
+As tabelas utilizadas para importação de notas fiscais são relacionadas através de chave primária composta. Nessa versão, foi feita uma alteração para simplificar esses relacionamentos criando chave sequencial por um único campo. CPC (CCF 29470)
+Financeiro
+Ajuste no Retorno Banco Rendimento (633)
+Ajuste na leitura das informações do Arquivo de Retorno do Banco Rendimento (633). 
+Necessário atualizar a biblioteca Banco633_v2.dll.
+  
+FLS (CCF 29665)
+Cancelamento da Baixa
+Quando efetuado o cancelamento de uma baixa com o perfil de sistema troca portador quando título vencido marcado, o sistema não estava retornando ao portador original, onde se tinha a impressão que a baixa tinha sido pago em atraso, situação essa corrigida. 
+FLS(CCF 28806)
+Fiscal
+Ajuste Apuração Fiscal
+No SisPetro Controladoria, ao excluir um ajuste da apuração fiscal via botão de detalhamento, outros lançamentos eram excluídos juntamente. Corrigido.
+ FLS (CCF 29578)
+Patrimônio
+Alteração Valor Bem na Depreciação
+No SisPetro Controladoria, na Tela de Alteração de Valor do Bem, agora é possível também ajustar ou não o valor de depreciação acumulada de um bem através da nova opção inserida (Altera proporcionalmente à alteração do valor do bem) a qual irá ajustar proporcionalmente valor da depreciação de acordo com o novo valor do bem informado. 
+Help: 
+Ajustes nos Bens
+.
+ 
+FLS (CCF 26795)
+Transporte
+Status de Vínculo do Frete com Conhecimento
+Corrigida a Apuração de Frete Líquido para atualizar devidamente o Status de Vínculo do Frete com Conhecimento. Em casos onde a NF que originou o frete tinha vínculos, além do Conhecimento de Frete, com outras Notas Fiscais, dependendo da ordem em que foi feito o vínculo o status não era atualizado devidamente.
+GSN (CCF 29739)
+Vendas
+Inclusão de Pedido de Venda no Sispetro Remoto
+Ao finalizar a inclusão de Pedido de Venda no Sispetro Remoto, após apresentar mensagem de erro por dados inválidos no item do pedido, em algumas situações o grid dos itens apresentava o item duplicado visualmente. Este problema foi corrigido. 
+MIM (CCF-29762)

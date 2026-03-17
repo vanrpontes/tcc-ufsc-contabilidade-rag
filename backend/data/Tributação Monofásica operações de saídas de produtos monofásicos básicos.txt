@@ -1,0 +1,60 @@
+TITULO: Tributação Monofásica: operações de saídas de produtos monofásicos básicos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4433248257
+--------------------------------------------------
+A partir de 
+04/09/2023
+ as SEFAZ passam a validar em Ambiente de Produção as notas emitidas com produtos sujeitos à Tributação Monofásica. Dentre as operações afetadas estarão as Notas de Retorno de Armazenagem que, quando realizadas pelos estabelecimentos depositários, inclusive os Armazéns Gerais, deverão também utilizar o CST 61, visto que o produto, objeto da armazenagem, já se encontra tributado anteriormente. Sendo assim será necessário ajustar as configurações das Naturezas para informar que foram tributadas anteriormente com o CST 61.
+Sendo assim serão utilizadas duas Natureza Operação para Retorno Armazenagem, sendo uma para produtos que fazem parte da Tributação Monofásica e outra para Etanol Hidratado.
+Além das notas de retorno de armazenagem (Armazenadoras), todas as operações de saídas (transferências, empréstimos, vendas, remessas, outras saídas) de produtos monofásicos básicos (Gasolina A, Diesel A, Anidro e B100), seguem rigorosamente as mesmas configurações.
+As configurações incorretas e/ou sem configurações afetam diretamente a parte fiscal (ICMS incorreto) como também o SCANC.
+Todos os produtos AdRem devem ter as alíquotas cadastradas de forma integral na tabela de ICMS. 
+Para mais informações, ver 
+Diesel A e Gasolina A, não devem ter informado % UF ICMS DEST, pois o valor integral será para Origem.
+Anidro deve ter informado 100 % UF ICMS DEST, para que na operação de Gasolina C seja cobrado integralmente e na operação com Anidro puro nada seja cobrado.
+As demais configurações dos Produtos referentes a Tributação Monofásica, não tiveram alterações.
+Configurações a serem utilizadas para Notas de Retorno de Armazenagem
+Cadastro de Produtos Básicos (Diesel A, Gasolina A, Anidro, B100)
+Produto
+Cadastro de Produto - %UF ICMS DEST
+Diesel A
+0
+Gasolina A
+0
+Anidro
+100
+B100
+33,33
+Margem Subst. Tributária
+%ICMS UF Dest. (Nac.):
+ 
+informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de produtor nacional.
+Diesel A: 
+ 0
+Gasolina A: 
+0
+Anidro: 
+100
+B100: 
+33,33
+Natureza Operação
+Natureza Operação - quadro AdRem - Produto Primário
+Natureza Operação - quadro AdRem - Produto Biocombustível
+ICMS Retido % UF Origem
+ICMS Retido % UF Destino
+Ad Rem
+Habilita  cálculo Ad Rem: 
+marcar
+Produto Primário: 
+ICMS Retido: % UF Origem
+Produto BioCombustível:
+ICMS Retido: 
+% UF Destino
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?: 
+respeita Cadastro de Produtos
+Dados Tributação Monofásica: 
+envia nas tags infCpl(NF) e infAdProd(Item NF)
+Etanol Hidratado
+É necessário utilizar uma Natureza Operação separada, pois não faz parte da Tributação Monofásica, sendo assim não será necessário realizar nenhuma alteração.
+Atualmente configurar no Perfil de Sistema > Remessa/Retorno de Armazenagem a Natureza que mais utiliza. Para mais informações, ver 
+.
+O faturista deverá trocar a Natureza de Operação quando o produto for Etanol Hidratado.

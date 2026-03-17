@@ -1,0 +1,54 @@
+TITULO: Leitura Automática de Tanque - DPM
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879127707
+--------------------------------------------------
+ 
+A partir da versão 9.33 foi implementado no Sispetro a integração de leitura de tanque com a DPM, dessa forma agilizando e automatizando o processo de leitura de tanque. 
+ 
+Como configurar:
+Perfil de Usuários: 
+Habilitar o perfil de usuário 'Permite incluir leituras de Tanque via arquivo'. Veja maiores detalhes em 
+Painel Carregamento (Usuários)
+.
+Depósito:
+ Definir o tipo de leitura como 'Manual e via Arquivo' ou 'Só via arquivo', e o informar o caminho da DLL utilizado na integração (LeituraTq_Sispetro_DPM.dll). Veja mais em 
+Depósitos - Aba Dados Adicionais
+.
+Após finalizar as configurações podemos realizar a integração através da tela de 
+Leitura de Tanque por Arquivo
+, que pode ser acionada via botão 
+Leitura
+ via Arquivo na aba Leitura da tela de 
+Manutenção de Tanque
+, ou via tela de 
+Leitura de Tanque por Arquivo
+ acionado via 
+Movimentação / Base / 
+Leitura de Tanque por Arquivo
+.
+Deposito:
+ Nesse campo informamos o depósito que se encontra o tanque onde iremos realizar a leitura. Para que seja permitido realizar a leitura o depósito deve estar devidamente configurado. 
+Tipo Leitura:
+ Nesse combo definimos o tipo de leitura a ser realizado, as suas regras para leitura seguem a mesmas que as da leitura manual. Veja mais em 
+.
+Tipo Leitura p/ empresa:
+ Nesse campo podemos informar um nome para a leitura que estamos realizando. Veja maiores detalhes em 
+Altera Volume do Tanque?:
+ 
+A leitura pode ser feita sem alterar o volume do tanque e para isso basta deixar 
+desmarcado
+ a opção "Altera volume do tanque?". S
+ó estará habilitado se o perfil de usuário "Permite alterar estoque tanque via Leitura" estiver marcado.
+Sobrepõe as Leituras da Tela:
+ Marcando essa opção ao realizar a leitura do arquivo os dados carregados irão sobrepor todas as leituras já carregadas no Grid.
+Seleciona arquivo:
+ É através desse botão que iremos selecionar o arquivo desejado para realizar a leitura.
+ 
+Após abrir o arquivo depois de telo selecionado através do botão de Seleciona Arquivo, os dados contidos no mesmo serão apresentados no Grid Leituras.
+Após ler o arquivo basta acionar o botão 
+Salvar 
+que a leitura sera realizada.
+ 
+ 
+Estrutura do arquivo:
+Layout para integração de Tanque
+ 

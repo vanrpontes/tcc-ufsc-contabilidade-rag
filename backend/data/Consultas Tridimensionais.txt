@@ -1,0 +1,73 @@
+TITULO: Consultas Tridimensionais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899715
+--------------------------------------------------
+As 
+Consultas Tridimensionais
+ são telas do SisPetro que permitem ao usuário arrastar as informações, agrupando por linhas e colunas, permitindo que alguns dados sejam sumarizados por estas informações.
+Este é um recurso conhecido como Cubo (ou relatório de Tabela Dinâmica no Excel) e que facilita muito a análise de dados, dando flexibilidade de agrupamento ao usuário, permitindo impressão e exportação para planilha Excel.
+Esta apresentação de dados com uma visão tridimensional é conhecida com esse nome por permitir três dimensões:
+Linhas:
+ ficam no lado esquerdo da tela e define como serão apresentados os dados nas linhas.
+Valores/Dados:
+ o valor que será acumulado na parte central da tela, conforme as linhas e colunas definidas.
+Colunas:
+ ficam na parte direita da tela, definindo como serão acumulados os valores.
+Em todas as consultas alguns 
+Campos Disponíveis NÃO 
+poderão ser arrastados para as linhas, valores ou colunas. Isso é feito para evitar erros como, por exemplo, somar preço unitário e etc.
+No SisPetro, existem algumas consultas tridimensionais:
+Movimentação de Estoques
+Saldo de Estoques
+Consulta Centro de Custo X Conta Contábil
+Consulta Análise Logística
+Análise de Portaria
+Neste tópico será explicado a funcionalidade da consulta tridimensional. Pegaremos como exemplo a Consulta Detalhada do Pedido de Vendas. O acesso é feito via 
+Consultas / Análise de Vendas / Consulta Detalhada do Pedido de Vendas
+Todas as consultas tridimensionais possuem campos de Filial, Período e Layout Usuário. 
+Agora, vamos entender um pouco a tela:
+Na parte superior da tela são apresentados os filtros de consulta, podendo ou não ser informados conforme a necessidade de consulta.
+Para exibir os dados na tela, clique no botão 
+Atualiza 
+ 
+Os dados serão apresentados conforme os campos que foram arrastados para as 
+Linhas
+ e 
+Colunas.
+Botões
+Layout Padrão:
+ restaura o layout padrão oferecido pelo SisPetro, clique no botão 
+Imprime: 
+faz a impressão da consulta apresentada.
+Exporta: 
+faz a exportação da consulta para uma planilha de dados. 
+Abrir Itens: 
+expande os detalhes referentes a cada campo (nas linhas)
+Fechar Itens: 
+regride os detalhes referentes a cada campo (nas linhas)
+Construtor de Filtros
+Caso deseje fazer um filtro mais específico, é possível criar condições E e OU com os dados. Para isso clique com o botão direito na área cinza de coluna, linhas ou campos disponíveis  e selecione a opção 
+Exibe Tela de Filtros. 
+Será aberta uma tela como a abaixo:
+No exemplo vamos filtrar para que na consulta apareça somente 
+quantidade 
+igual a 500
+. Então ficaria assim:
+Layout de Usuário
+Sempre que um novo layout é criado pelo usuário, é possível que ele seja salvo visando consultas futuras. Para isso, defina um nome de Layout e clique em 
+Salvar.
+Para recarregar um layout, basta selecionar o desejado na lista
+Informar demais filtros desejados (Filial e Período) e clique no botão Atualizar.
+Ao sair da tela, o SisPetro mostra um aviso ao usuário para lembrar ao usuário de salvar as alterações. Se não desejar salva-las clique em 
+Sim e Não gravar alterações.
+Toda alteração será gravada no layout que estiver no campo Layout Usuário
+Optando por 
+Sim e Gravar alterações
+, será gravado todas alterações layout que estiver listado, conforme dica anterior.
+Optando por 
+Sim e Não Gravar alterações
+, a tela será fechado e 
+Não
+ haverá nenhuma mudança no layout.
+Optando por 
+Não Sair da Tela
+, o usuário é mantido na tela de consulta para continuar os processos e os campos que foram manipulados até este momento serão mantidos também.

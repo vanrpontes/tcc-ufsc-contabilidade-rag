@@ -1,0 +1,31 @@
+TITULO: Gerando Imposto CIDE na NFe
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2895118400
+--------------------------------------------------
+No xml da NFe é possível enviar vários impostos. Alguns deles são comuns ao SisPetro como o ICMS Próprio, Subst ou Retido. Já outros impostos não são tão comuns ao Sispetro, porém são necessários ser enviados no xml da NFE. Esse é o caso do CIDE (Contribuição de Intervenção do Domínio Econômico – CIDE Combustíveis - Lei 10.336/2001). 
+
+
+Para gerar esse imposto na NFe, é necessário utilizarmos o recurso de Outros Impostos, onde se cadastra um Outro Imposto vinculado à Natureza de Operação e indicamos no perfil de Sistema qual dos Outros Impostos cadastrados se refere a esse imposto específico, exatamente como se faz para IRRF, PIS, COFINS, etc.
+
+
+Passos para configuração:
+
+
+
+
+Na 
+ crie um registro para o CID e defina se será calculado por alíquota fixa ou fórmula.
+
+
+No perfil de Sistema \ Aba Nota Fiscal \ Quadro Outros Impostos, localize o campo correspondente ao CIDE e preencha com o código do outro imposto criado no item anterior.
+
+
+Na Natureza de Operação, aba 
+, selecione o imposto CIDE e defina a sua alíquota ou fórmula para cálculo.
+
+
+
+
+Com essa configuração acima será enviado no XML a tag CIDE com os respectivos valores calculados.
+
+
+Caso a Natureza de Operação ou o perfil de Sistema não estejam configurados para o imposto corretamente os campos referente ao CIDE no XML serão zerados.

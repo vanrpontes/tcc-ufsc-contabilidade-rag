@@ -1,0 +1,17 @@
+TITULO: Data da NF X Data de Saída da Base
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2960688025
+--------------------------------------------------
+É normal que a data de movimento de uma Nota Fiscal seja igual à Data de Saída da Base do carregamento, para evitar discrepância
+ entre a Data de Movimentação da NF com a Data de Saída na Base, é possível parametrizar alguns perfis para que data de saída da base seja igualada ao de movimento da Nota Fiscal.
+Iguala a data de saída da base à data de movimento da Nota Fiscal - 
+Perfil de Sistema, Localizado na aba Ordem Carregto, quando habilitado iguala a data de saída da base a data de movimento da nota fiscal, caso o usuário tente realizar a portaria de saída sem a emissão da nota, uma mensagem será exibida "Nota Fiscal não encontrada / Data de Saída da Base será configurada para data atual"
+É possível exigir o faturamento antes de realizar a portaria através do perfil:
+Exige faturamento - 
+Perfil de Sistema, Localizado na aba Ordem Carregto, quando habilitado, impede o usuário de fazer a portaria de Saída sem que a ordem de carregamento esteja faturada.
+Porém mesmo com a ordem faturada, é possível que o caminhão permaneça na base e não efetue a portaria de saída no mesmo dia, quando o usuário efetuar a procedimento de saída da base, será alertado que a "Data de Entrada na Base difere da data de Saída."
+Pode dar entrada/saída portaria com data diferente - 
+Perfil de Usuário, Localizado na aba Carregamento, quando habilitado permite o usuário realizar a portaria de saída com data diferente da entrada.
+Ao realizar a portaria de um  ardem na situação descrita, uma caixa será exibida para que o usuário digite a data real do carregamento.
+O Sistema vai sugerir a data de entrada, caso o perfil 
+Iguala a data de saída da base à data de movimento da Nota Fiscal, 
+mesmo alterando a data no momento da portaria de saída o sistema ajustará com a data de movimento da nota.

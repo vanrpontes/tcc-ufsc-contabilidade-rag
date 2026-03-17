@@ -1,0 +1,48 @@
+TITULO: Passos para Unload e Reload de Banco de Dados do Cliente Sem interação do Usuário
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924289336
+--------------------------------------------------
+Quando utilizar?
+Esse processo é utilizado em clientes que realizaram a 
+ 
+e querem diminuir o tamanho físico do Banco de Dados. Todos os dados do banco estão íntegros (verificado anteriormente) e não há a necessidade de interagir em nenhuma etapa. 
+Se houver a necessidade de filtrar dados, ignorar tabelas e etc. veja 
+Passos para Unload e Reload de Banco de Dados do Cliente Interagindo entre as etapas
+.
+Backup e Integridade do Banco do Cliente
+Faça um backup do banco do cliente antes de iniciar qualquer trabalho.
+Garanta que o banco esteja na mesma versão do Banco Padrão (geralmente na última versão) e que ele esteja
+ 
+íntegro
+. Para mais informações, ver 
+.
+Para realizar o Unload/Reload do banco de dados utilizaremos o Sybase Central 6.10 (Sybase versão 12).
+1) Conectando ao banco:
+2)
+ Unload Database:
+3) Clique em
+ NEXT:
+4) Selecione o banco:
+5) Selecione
+ Unload and reload into new database
+6) Informa o local onde será salvo o banco e o nome do banco de dados.
+7)  Para realizar a Unload da 
+estrutura
+ e dos 
+dados
+ basta selecionar a opção 
+Unload structure and data.
+ Caso queira realizar o unload somente da 
+estrutura
+ do banco basta selecionar a opção 
+Unload structure only
+.
+8)
+  Seleciona a opção Unload all database objects - 
+Dessa forma ira fazer o unload de todas as tabelas. Caso queira realizar o Unload somente de uma tabela especifica basta utilizar a opção Unload the selected tables only, selecionar a tabela e clicar em Add.
+9) Inserir o nome do serviço em
+ Database name.
+A opção 
+Connect to the new database
+ é para iniciar o banco após finalizar a processo, recomenda-se  deixar desmarcado.
+10) Clicar em
+ Finish

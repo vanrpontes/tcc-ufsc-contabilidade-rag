@@ -1,0 +1,76 @@
+TITULO: Contabilização de Adiantamentos (Créditos) por Conta Auxiliar
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701790
+--------------------------------------------------
+Por padrão, quando incluímos um crédito ao cliente, movimentamos normalmente uma conta de banco (para onde o dinheiro foi) e a conta do cliente diretamente. Quando faturamos, movimentamos uma conta de receita e a conta do cliente. Assim, quando realizamos uma baixa utilizando crédito, normalmente, não movimentamos mais a conta do mesmo pois esta já foi movimentada pelos dois movimentos anteriores.
+
+
+Porém, existem algumas empresas que querem que apareça a contabilização da baixa na conta do cliente. Assim, criamos a possibilidade de utilizar uma conta auxiliar (que pode ser genérica como específica por cliente) para movimentar o crédito no momento da sua inclusão e então, no momento da baixa (com utilização de crédito), movimentamos esta conta e a conta do cliente. Além disso, possibilitamos que a conta de adiantamento específica do cliente possa ser gerada somente quando movimentada, evitando um rol de contas sem movimentação.
+
+
+1º passo: Escolher a sua opção e configurar o sistema
+
+
+Acesse pelo Menu 
+Ferramentas / Sistema / painel Codificação Contas
+.
+
+
+
+
+Codificação automática:
+ independe da contabilização de adiantamentos, permite que ao incluir uma conta no plano de contas seja utilizado um prefixo e uma numeração seqüencial. Sugerimos alguns prefixos que podem ser alterados. No caso de marcada esta opção não será mais possível informar um código para a conta no momento de sua inclusão.
+
+
+ 
+
+
+
+
+
+
+Habilita Contabilização Gerencial de Adiantamentos c/ Conta diferenciada:
+ Após marcada esta opção, escolha uma das formas:
+
+
+Fixo:
+ Todos os clientes e fornecedores usarão uma conta fixa para contabilização dos adiantamentos, ou seja, só será movimentada uma conta de adiantamento. Necessário informar esta conta. Cabe lembrar que é possível informar uma conta para Adiantamento de Clientes e outra de Fornecedores. Mesmo se você escolher esta opção, você pode para um cliente (ou fornecedor)específico criar uma conta individual, basta no cadastro de Clientes (ou Fornecedor) ir no painel Detalhes, subpainel Padrão de vendas (ou Padrão p/ compras) e indicar uma conta de adiantamento.
+
+
+ 
+
+
+ 
+Uma conta por Entidade:
+ Assim é necessário informar um prefixo para as contas de adiantamento, pois quem criará estas contas será o sistema, automaticamente. Este automaticamente dependerá ainda de uma opção: Sempre na inclusão da Entidade ou Gera somente se movimentar a conta. Se for escolhido "sempre", o ideal é que você já clique no botão "Gera a conta agora para todas as entidades". Se for escolhido "quando movimentar", você pode gerar uma conta antes para um cliente ou vendedor, indo na mesma tela citada no item acima e clicar no botão "Gerar conta" (veja figura).
+
+
+ 
+
+
+ Caso a sua empresa esteja utilizando a Contabilidade real é imprescindível que seja informado também o ramo a ser utilizado, pois no momento que for criada a nova conta gerencial, o sistema criará também uma nova conta contábil abaixo do ramo informado e já providenciará o vínculo entre as duas.
+
+
+
+
+2º passo: Ajustar o saldo das contas de adiantamento
+
+
+Executar pelo ISQL uma procedure para ajustar o saldo. Ela debitará as contas de clientes e creditará as contas de adiantamento respectivas e creditará as contas de fornecedores e debitará as contas de adiantamento respectivas o valor que o cliente ou fornecedor tiver pendente.
+
+
+Call AjustaContaEntidadeAdto(<Empresa>,<Usuário>);
+
+
+Ex.: Call AjustaContaEntidadeAdto(1,'JOAO');
+
+
+O usuário João fará o ajuste e os lançamentos serão feitos na empresa cujo código é 1.
+
+
+Este passo é muito importante e não deve ser pulado tendo como consequência o saldo incorreto das contas de clientes, fornecedores e adiantamentos.
+
+
+3º passo: Trabalhar com os adiantamentos normalmente
+
+
+Não haverá alteração no modo de trabalho, a alteração será na contabilização dos processos, conforme esclarecido no item objetivo deste documento. Através da tela de adiantamentos e relatórios será possível distinguir valores por cliente ou fornecedor, independente da conta de adiantamento ser específica ou genérica. Na tela de Clientes ou Fornecedores será possível visualizar no painel Movto Contas Auxiliares, a movimentação da conta de adiantamentos.

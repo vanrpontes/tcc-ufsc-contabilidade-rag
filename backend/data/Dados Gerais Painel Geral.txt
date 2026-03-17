@@ -1,0 +1,389 @@
+TITULO: Dados Gerais (Painel Geral)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2912846117
+--------------------------------------------------
+none
+Objetivo
+O Painel Geral da Tabela Natureza de Operação do 
+SisPetro
+ centraliza as configurações válidas para todas as filiais, permitindo definir padrões fiscais, financeiros e operacionais. Cada natureza pode ter ajustes específicos por filial no painel correspondente. O cadastro inclui campos essenciais como 
+CFOP, tipo de emissão, tipo de nota fiscal, histórico e controle de estoque
+. Também permite configurar perfis fiscais, controle de custos (CMV), vínculos contábeis, transporte, imobilizado e movimentações financeiras. As opções visam garantir 
+padronização, flexibilidade e validação automatizada
+ nas emissões de notas fiscais e operações entre empresas.
+O 
+Painel Geral
+ da Tabela Natureza de Operação permite ao usuário configurar informações padrões para todas as empresas. Tudo o que é configurado neste Painel, valerá para todas as filiais cadastradas no SisPetro.
+A criação de uma Natureza de Operação poderá ocorrer em qualquer empresa conectada, pois ela irá constar para todas as empresas. Deve-se, contudo, após o correto cadastramento destes dados gerais, configurar os dados de impostos, custos entre outros no 
+Painel Por Filial - Natureza de Operação
+ da natureza cadastrada, caso haja diferença na utilização da natureza de operação entre as empresas.
+O SisPetro permite controlar os dados de densidade e temperatura armazenados na NF pelo depósito selecionado. Para isso basta informar no perfil 
+Informação sobre densidade e temperatura
+ da Manutenção de Natureza de Operação a opção 
+Respeita configuração do depósito. 
+Para mais informações, ver 
+Depósitos - Aba Dados Adicionais
+Ao cadastrar uma nova Natureza de Operação, se atente para a configuração de cada campo e perfil. Vejamos:
+Código
+: deve ser um código único (definido pelo usuário). Sugerimos iniciar o código por uma letra que identifique informalmente o tipo de movimentação que se deseja para esta natureza de operação. Assim, inicie com V quando for Vendas, T quando transferências, C quando compras e assim por diante para facilitar a pesquisa e agrupá-las convenientemente.
+CFOP
+: Código Fiscal da Operação. Será impresso na Nota Fiscal que utilizar esta natureza de operação.
+Tipo de Emissão: 
+esse campo pode ser marcado como próprio ou de terceiros. Assim que escolher qual a opção condizente verifique também na aba 
+Dados Adicionais (Fiscal)
+ o campo 
+Tipo de Emissão para uso no SPED 
+pois, por exemplo, no caso de importação de notas próprias esse campo estará marcado como Terceiros e o do SPED poderá ser marcado como própria. 
+Entrada/ Saída
+: para separar em relatórios as Notas Fiscais de Entrada ou Saída e validar se a operação escolhida é compatível ao tipo de Nota Fiscal que está sendo emitida.
+Descrição para NF
+: descrição que será utilizada na impressão da Nota Fiscal (pode ser diferente da descrição interna).
+Histórico padrão para NF
+: histórico que será gerado no módulo financeiro / contábil no momento do faturamento com esta natureza de operação.
+Informações Adicionais
+: permite concatenar texto a determinados campos da Nota Fiscal para consultas futuras ao lançamento contábil desta nota, para realizar uma conferência da fórmula empregada pressione o botão 
+Testa Formula
+ localizado ao lado do campo. Para mais informações, ver 
+Teste de Fórmula
+.
+Modelo NF: 
+Composto por 2 digitos onde o modelo 55 se refere a NF-e, existem outros tipos
+Tipo NF: No momento existem 6 tipos, sâo:
+Normal: 
+Nota Fiscal Comum
+, emitida 
+no momento da venda, prestação de serviço ou movimentação de mercadoria
+.
+Complementar: nota 
+complementar
+ é usada para 
+corrigir ou complementar
+ uma nota já emitida — 
+sem substituí-la
+. Serve para 
+acrescentar informações ou valores
+ que ficaram faltando na nota original.
+Ajuste: Nota de 
+ajuste
+ é 
+contábil/fiscal
+, e 
+não representa uma venda real
+. Serve para 
+corrigir lançamentos fiscais
+ ou 
+regularizar situações
+ que não envolvem circulação de mercadorias.
+Devolução p/ Retorno: A 
+nota de devolução
+ (ou 
+de retorno
+) é usada quando uma 
+mercadoria sai e depois volta
+, seja 
+por devolução de cliente
+ ou 
+por retorno de remessa temporária
+.
+Nota de Crédito: 
+Nota de Crédito
+ é usada para 
+diminuir
+ o valor de uma operação anterior
+Nota de Débito: 
+Nota de Débito
+ é o oposto da nota de crédito: serve para 
+aumentar
+ o valor devido pelo cliente
+Tipo de Nota Fiscal: nota fiscal padrão
+, emitida para 
+registrar a operação principal de compra, venda ou prestação de serviço
+. Já a 
+nota complementar
+ é usada para 
+corrigir ou adicionar valores
+ a uma 
+nota fiscal anterior
+.
+Ela 
+não substitui
+ a nota original, apenas 
+complementa
+ o que faltou (como valor, imposto ou quantidade).
+Quadro Composição do Histórico:
+Tipo de Histórico:
+ por meio deste campo é possível configuramos como será gerado o histórico do lançamento do lote gerencial, permitindo 3 opções:
+Conforme padrão:
+ irá gerar no histórico do lançamento do lote gerencial um texto pré-definido pelo SisPetro (Tipo da Nota #Pedido: <Número do Pedido> #NF:<Número da NF>)
+Exemplo:
+No caso de uma Nota Fiscal de venda número 3015 com o pedido 1020, ficaria VENDA #Pedido: 1020 #NF: 3015).
+Conforme Código de Histórico:
+ irá gerar no histórico do lançamento do lote gerencial o conforme o Histórico padrão para a Nota Fiscal definido na Natureza.
+Conforme Fórmula:
+ neste caso o histórico do lançamento do lote gerencial será gerado em função da fórmula informada no campo Histórico presente neste grupo.
+Histórico: 
+será habilitado conforme a definição do campo Tipo Histórico.
+Tipo de documento
+: indica qual o tipo de documento a ser gerado através desta natureza de operação. Sugere como padrão aquele que estiver configurado para a empresa, geralmente Nota Fiscal/Fatura. Se a Natureza for contabilizar descontos, deve-se portanto, selecionar um Tipo de Documento que esteja configurado corretamente para fazer a 
+Contabilização de Descontos-Acréscimos
+.
+Permite alterar tipo de documento na nota fiscal:
+ este perfil trabalhando em conjunto com o perfil 
+Controla Tipo Documento origem movto financeiro
+ em Ferramentas > Sistema > Financeiro, permitirá ao usuário alterar o Tipo de Documento na inclusão da Nota Fiscal. Para mais informações, ver 
+Painel Financeiro
+Permite alterar código de exportação na NF
+: indica se na emissão da Nota Fiscal será permitida a alteração do código de exportação. No caso desta opção estar desmarcada o SisPetro utilizará o código de exportação indicado nesta mesma tela.
+Acesso restrito
+: determina se esta natureza de operação será visualizada somente por determinados usuários, ou seja, aqueles que em seu perfil esteja habilitada no painel Segurança a opção
+ Acessa Natureza Operação específica
+. Para mais informações, ver 
+Painel Segurança (Usuários)
+Descrição
+: descrição para uso interno somente (para telas de pesquisas e relatórios).
+Habilita digitação de Número NF Estendido (maior que 9 dígitos)
+?: esta opção permite que seja habilitado o campo de preenchimento de número de nota fiscal de serviço, quando este número tiver um tamanho maior que nove dígitos. 
+Para mais informações, ver 
+Número de Nota Fiscal Estendido para Nota Fiscal de Serviço
+Duplicidade #NF:
+ esta opção permite que haja duplicidade na numeração da Nota Fiscal mesmo quando a opção da empresa não permite a duplicidade. Para mais informações, ver 
+Painel Nota Fiscal
+Não Permite:
+ utilizando essa opção não será permitido emitir a nota caso exista duplicidade.
+Permite duplicar livremente:
+ ao utilizar essa opção será permitido emitir notas com duplicidade.
+Permite somente para CFOP diferente:
+ utilizando essa opção, só será possível incluir a nota duplicada caso a CFOP seja diferente.
+Testa capacidade veículo contra qtde NF
+: se, no momento da emissão da Nota Fiscal, o SisPetro deve comparar a capacidade do veículo utilizado (cadastro de frotas) na Nota Fiscal com a quantidade emitida na NF e alertar o usuário de eventuais discrepâncias.
+Ativo
+: se marcado, os usuários podem utilizar esta natureza de operação. Caso a natureza de operação não seja mais válida ou por qualquer motivo, os usuários não possam utilizá-la, caso já tenha havido notas fiscais com este código, o SisPetro não permitirá sua exclusão. Assim, deve-se proceder com a sua inativação (deixar desabilitado o campo 
+Ativo
+). Com isso, esta natureza não aparecerá em telas de pesquisa para utilização.
+Movimenta estoque
+: se movimenta estoque escritural no módulo de estoque.
+Quadro NF Devolução Clientes - Produtos Compostos
+Movimenta Estoque Produtos Básicos
+: na devolução de clientes de produtos compostos, se marcada esta opção, o SisPetro dará entrada nos produtos básicos que compõe o produto básico devolvido. Utilizado também para calcular custos, caso a devolução de clientes participe do CMV. 
+Nota: movimentação somente do estoque escritural.
+Movimenta estoque mesmo se fechado
+: indica se poderá incluir notas fiscais mesmo com o estoque fechado, desde que no Perfil de Sistema > painel Estoque > opção 
+Trava quando existir fechamento de estoque posterior ao movimento
+ não esteja marcada.
+Quadro Série NF
+Quadro Série NF: 
+definição de séries para emissão de nota fiscal Geral (serviço e outros tipos) e para notas fiscais eletrônicas para os ambientes de Homologação, Produção e Contingência. 
+Para mais informações sobre, ver 
+Tabela Série Nota Fiscal
+.
+Quadro CMV
+Quadro CMV
+ 
+Participa do CMV desmarcada:
+ não será contabilizado no Fechamento de Custos e será apresentado detalhado.
+Participa do CMV marcada:
+ será contabilizado no Fechamento de Custos e será apresentado agrupado. 
+Não é possível utilizar em conjunto com a Sugestão de Custo Médio (somente Saídas) igual a Valor Unitário da NF. 
+Sugestão de Custo Médio (somente Saídas):
+ esta opção permite selecionar de que modo as notas de saídas que não participam nos custos vão interferir ou não nos cálculos do custo médio.
+Não se Aplica:
+ naturezas de entrada ou naturezas de saídas que não são de produtos combustíveis
+Valor Unitário da NF:
+ terá interferência no custo médio final do Fechamento de Custo com o valor unitário da NF
+Não é possível utilizar em conjunto com Participa do CMV marcada
+Último Custo Médio Conhecido: 
+não terá interferência no custo médio final do Fechamento de Custo 
+Caso tenha alterações neste quadro, deve utilizar a ferramenta
+ 
+Atualização da Participação no CMV
+. Caso tenha custos fechados, devem ser reabertos. As alterações serão aplicadas após novos fechamentos.
+Operação Interestadual
+: define como uma operação interestadual, e pode impedir que seja utilizado uma natureza de operação discrepante na Nota Fiscal, caso o SisPetro esteja configurado para isso. Ou seja, será feita uma validação da UF da entidade e UF da empresa, identificando se é uma operação interestadual ou não e bloqueando a finalização da NF-e caso não esteja de acordo com a definição na natureza de operação. Mas somente será feita esta validação se no Perfil de Sistema >  aba Nota Fiscal estiver marcada a opção abaixo.
+Participa do DPMP/DCP:
+ indica se notas com esta natureza devem ser consideradas no DPMP e DCP.
+Tipo de Nota Fiscal:
+ na importação do CT-e, se a NF de entrada estiver lançada no SisPetro, será vinculado automaticamente o CT-e a NF-e acobertada. Para isso as naturezas de CT-e devem ser configuradas, neste campo, como sendo 
+Conhecimento
+. Caso contrário não será feito o vínculo automático. Para mais informações, ver 
+Vinculo automático CT-e e frete gerado.
+Para notas do tipo Conhecimento:
+Inclusão Manual:
+ na aba de frete (da tela de inclusão da NF-e), deve-se definir a cidade de origem e de destino.
+Importação:
+ as informações serão extraídas dos campos de remetente e destinatário da nota fiscal 
+Permite associar a OC a mais de uma NF
+: que deverá ser configurado para que na emissão de nota fiscal através de ordem de carregamento (exceto NF-e de venda), possa ser feito mais de uma NF-e utilizando a mesma OC. Este recurso pode ser interessante, por exemplo, para o caso de haver transferência de produtos com duas notas fiscais para uma mesma ordem de carregamento, podendo ser faturado parcialmente a OC para cada NF-e.
+Permite data de movimento anterior à data de emissão: 
+permitirá ao usuário alterar na tela de Inclusão da nota fiscal se pode ou não ter a data de movimento anterior à data de emissão.
+Uso somente em Vendas
+: impede a utilização desta natureza em Notas Fiscais cujo tipo não seja venda, como devoluções, outras entradas, etc.
+Sugestão de Preço em NF de Emissão Própria
+: esta opção permite utilizar preço de tabela ou custo médio do produto e de depósito na inclusão das notas fiscais de emissão própria (entradas e saídas), sugerindo no preço unitário.
+Utiliza tabela de preços por produto/empresa:
+ quando essa opção estiver selecionada será utilizado o preço da tabela de preço por produto/empresa (padrão).
+Utiliza o último custo médio do Fechamento:
+ quando esta opção estiver selecionada na inclusão das notas fiscais de emissão própria (entradas e saídas) o SisPetro irá pesquisar o custo médio do produto e do deposito e irá sugerir no preço unitário.
+Relaciona despesas com Frota
+: habilita botão para a indicação de despesas relacionadas ao Frota na emissão da Nota Fiscal.
+Permite Venda Direta
+: quando esta opção estiver marcada, esta natureza poderá ser utilizar para faturar um Pedido de Venda Direta para gerar uma Nota Fiscal de Venda Direta.
+Utiliza Adiantamentos no Faturamento para quitação
+: faz com que após a emissão da NF-e seja feita a baixa automática dos títulos em aberto da entidade (cliente ou fornecedor) utilizando os adiantamentos (créditos) cadastrados para ela na mesma empresa.
+Obriga informar número do pedido de compra
+: quando esta opção está marcada, na finalização de uma nota fiscal, será verificado se cada item da nota está devidamente vinculado a um pedido de compra. Para isso é necessário receber mercadorias através de Ordem de carregamento vinculada a um pedido de compra, ou recebê-las diretamente do pedido de compra.
+Exige que seja através de OC (NFs de saída): 
+a nota fiscal de saída emitida através dessa natureza de operação deve ter Ordem de Carregamento.
+Quantidade de Acerto nos Itens da NF
+: há 3 modos de se trabalhar com o Estoque Zero, veja abaixo:
+Não permite informar:
+ desta forma o SisPetro não trabalhará com Acerto de Estoque, não será possível o usuário informar a quantidade.
+Permite informar e faz ajuste com a diferença:
+ desta forma o campo estará disponível na inclusão da Nota Fiscal e será feito um ajuste automático de movimento na nota fiscal para zerar o estoque e possibilita definir um 
+Código histórico do ajuste
+ realizado automaticamente. Caso não seja indicado, será utilizado o código da própria nota fiscal originária do movimento.
+Só informa e não faz ajuste:
+ o usuário poderá informar a quantidade de diferença, porém não gerará nenhuma movimentação de estoque (referente ao Estoque Zero).
+Permite utilizar na inclusão manual?:
+ este perfil permite incluir uma nota fiscal manual e/ou somente através de importação.
+Não, Só Permite Via Importação:
+ não permite inclusão manual de nota fiscal, prevalecendo o perfil por filial.
+Sim, Permite Manual e Via Importação - perfil padrão:
+ permite incluir nota fiscal manualmente e via importação, prevalecendo o perfil por filial.
+Informação sobre densidade e temperatura
+: perfil é utilizado em Temperaturas e densidade na Impressão da Nota Fiscal.
+Conforme perfil de sistema (Tanque ou cadastro de produtos):
+ ao fazer a nota fiscal utilizando a natureza de operação configurada com essa opção, será utilizada a configuração do sistema para as informações de temperatura e densidade.
+Usuário informa na inclusão da nota fiscal:
+ o SisPetro irá sugerir os dados configurados ou por tanque ou por produto, porém, permitirá que no momento de emitir a nota fiscal, o usuário possa alterar os valores de temperatura e densidade. 
+Respeita configuração do Depósito: 
+ao fazer a nota fiscal utilizando a natureza de operação configurada com essa opção, será utilizada a configuração do Depósito para as informações de temperatura e densidade.
+Peso Total da Nota Fiscal
+: este perfil permite ao usuário a opção de alterar o Peso Bruto e Líquido da Nota fiscal. É mais utilizado quando se trata de uma nota Importada, ou seja, uma nacionalização de produto onde o peso do produto deve ser exatamente igual ao que consta da Declaração de Importação.
+Totaliza o peso dos itens (respeita a configuração do cadastro de produto): 
+desta forma o usuário não poderá interferir no cálculo do peso, será calculado a partir da densidade, peso padrão ou unidade de medida.
+Permite ao usuário informar (despreza o peso dos itens):
+ desta forma o peso será calculado, como na opção acima, porém o usuário poderá alterar. O SisPetro gravará exatamente o que for informado.
+Participa no cálculo de Ressarcimento SP
+: se marcada participará do Ressarcimento SP.
+Permite diferença de R$ 0,01 nf
+: se marcada a opção, o SisPetro permitirá emissão de notas fiscais (entradas ou saídas) com diferença de 0,01. Diferenças maiores não são permitidas, independente da opção marcada ou não. 
+Nota:
+ as Sefaz permitem diferença de R$ 0,01 nos cálculos da nota fiscal.
+Envia 0 (zero) na Qtde da NF-e Complemento: 
+é possível enviar a nota de complemento de imposto com a quantidade 0 no campo referente a quantidade do item no xml, para isso basta marcar essa opção.
+Usa Fator de Conversão para Unidade: 
+a partir da versão 8.29 é possível utilizar unidade de medidas diferente do Litro para Devolução p/ fornecedor, assim sendo é preciso marcar este perfil nessas naturezas, mesmo sendo emissão própria.
+Via de Transporte (DCP/ Sintegra)
+: tipo de transporte utilizado para movimentação de produtos, e que definirá as informações que sairão no XML. 
+Rodoviária:
+ o XML será gerado com as tag's <transporta> (Dados da transportadora) e <veicTransp> (dados da placa). Recomendamos utilizar com um Frota que tenha o campo 
+Tipo 
+como Carreta, Treminhão, Truck ou Toco e também o 
+Tipo de Transporte
+ como Rodoviário.
+Ferroviária:
+ o XML será gerado com as tag's <transporta> (Dados da transportadora) e <vagao> (dados do vagão). Recomendamos utilizar com um Frota que tenha o campo 
+Tipo 
+como Vagão e também o 
+Tipo de Transporte
+ como Ferroviário. 
+Cabotagem
+, 
+Lacustre
+, 
+LongoCurso
+, 
+Oleoduto/Gasoduto
+, 
+Alcoduto
+, 
+Aérea
+ e 
+Rodoferroviária:
+ o XML será gerado com a tag <transporta> somente (Dados da transportadora). Poderá ser utilizado para um Frota de qualquer 
+Tipo 
+e seu respectivo 
+Tipo de Transporte
+. 
+Sem Transporte:
+ os campos Transportadora e Frota da emissão da nota fiscal ficarão desabilitados. Para mais informações, ver 
+Preenchimento de Dados na Nota Fiscal
+. Nessa situação, os XML de notas de emissão própria não terão a tag <transporta> (Dados da transportadora).
+Fato gerador não realizado (para saídas)
+CFOP  a ser utilizado no arquivo
+Valor a ser utilizado nas entradas
+Tipo Emissão
+: Própria ou Terceiros. Para notas fiscais emitidas por terceiros utilize a opção 
+Terceiros
+. Para notas fiscais da empresa, utilize a opção 
+Própria
+.
+Informa dados para DCP
+ 
+Tipo de Operação:
+ código de movimentação do DCP para este tipo de natureza de operação. No momento da geração do DCP (Arquivo com movimento de entradas e saídas da Empresa), o SisPetro obtém o código de operação de acordo com este campo.
+Informa dados para o DPMP
+Operação para agente regulado
+Operação para agente não regulado
+Modalidade de Transporte
+Rodoviário - 1;
+Ferroviário - 2;
+RodoFerroviário - 3;
+Aquaviário - 4;
+Dutoviário - 5; 
+Áereo - 6.
+Série da Nota
+Cód. Produto/Operação Resultante
+Quadro Financeiro
+Quadro Financeiro
+Gera Movimentação Financeira
+: quando habilitado irá gerar automaticamente, após finalização da nota fiscal, movimento pendente no módulo Financeiro, seja no contas a pagar ou no contas a receber. O SisPetro valida o valor do título, não permitindo gerar com valor igual ou menor do que zero.
+Título Recorrente:
+ este perfil permitirá ao usuário vincular uma nota fiscal a um título recorrente ainda não efetivado. Este perfil pode ser:
+Não efetiva títulos recorrentes
+: não obriga o usuário a informar se utilizará título recorrente para a nota fiscal.
+Solicita um título recorrente (opcional)
+: permite ao usuário vincular um título recorrente a nota fiscal, mas não o obriga.
+Exige a escolha de um título recorrente válido
+: obriga o usuário a vincular um título recorrente a nota fiscal.
+Ao vincular um título recorrente 
+não efetivado
+ a uma nota fiscal, o SisPetro irá efetivar automaticamente o título recorrente.
+Valor do adiantamento na NF Devolução:
+ permite que seja definido o valor de adiantamento que será gerado quando incluída uma nota fiscal de devolução.
+Total da NF Origem x Qtde devolvida: 
+o valor do adiantamento será o mesmo valor da nota fiscal de origem.
+Total da NF Origem x Qtde devolvida menos frete: 
+o SisPetro gerará o valor do adiantamento como sendo o valor total da nota fiscal de origem menos o valor do frete da mesma nota fiscal de origem.
+Quadro Produtos Importados
+Quadro Produtos Importados
+Gera dados de importação na inclusão da NF: 
+indicará se deve gerar dados de importação durante a inclusão da nota fiscal.
+Informa data de referência da moeda (que informa taxa)
+Quadro Vinculo de Frete
+Quadro Vínculo de Frete
+Tipo de vínculo
+: definição do tipo de vínculo da nota fiscal com o frete:
+Baixa do Contas a Pagar não permite vínculo com Frete
+Baixa do Contas a Pagar exige vínculo com Frete do mesmo valor
+Baixa do Contas a Pagar exige vínculo com Frete de qualquer valor
+Quadro Imobilizado/Bens
+Cria dados para Imobilizado na entrada da NF
+: cria dados para o cadastro de bens de acordo com a quantidade dos produtos informados. Porém, só será levado em consideração se no perfil de sistema 
+Painel Patrimônio
+ estiver marcada a opção 
+Habilita módulo de Patrimônio
+. Tais bens serão consultados no módulo Contábil.
+Permite alterar valor do bem na inclusão via NF
+: quando esta opção está marcada, será permitido informar o valor do bem para a conversão do produto em ativo fixo, no Módulo Patrimonial do SisPetro Controladoria.
+Pode ser indicada como NF de Baixa de Bem: 
+deve ser habilitado nas naturezas que serão utilizadas nas NF-e de imobilizado e que serão vinculadas as Transferências ou Vendas de imobilizado.
+Vínculo c/ NF Comodato e outros: 
+perfil tem a opção de realizar ou não vínculo com a nota fiscal.
+Não se aplica
+: opção padrão, não solicita vínculo com Bem.
+Via Inclusão da NF
+: solicita ao usuário que informe o bem para o vínculo no momento da inclusão da Nota Fiscal.
+Via Cadastro de Bens
+: possibilita o vínculo posterior a emissão da Nota Fiscal, através da tela de produtos no SisPetro Controladoria.
+Inclusão da NF ou Cadastro de Bens: 
+possibilita o vínculo do bem na emissão da Nota Fiscal ou Posteriormente através da tela de produtos no SisPetro Controladoria.

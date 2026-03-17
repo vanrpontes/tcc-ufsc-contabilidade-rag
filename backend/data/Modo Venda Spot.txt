@@ -1,0 +1,143 @@
+TITULO: Modo Venda Spot
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4291887105
+--------------------------------------------------
+Introdução
+O procedimento de Venda Spot serve tanto para TRRs com relação ao controle das vendas para consumidor final quanto para venda de combustível para aeronaves. Ambas trabalham com dois depósitos:
+Depósito Principal: Depósito que armazena o combustível que irá abastecer o caminhão da venda.
+Depósito Frota: Depósito que armazenará as vendas realizadas por cada caminhão seja para consumidor final seja para aeronaves.
+Importante perceber que a modalidade é acessada após o login do usuário conforme descrito abaixo. 
+Antes de iniciar o 
+Modo Venda Spot
+ no SisPetroApp, será necessário parametrizar: 
+a. Configurar o produto para venda direta. Para mais informações, ver
+ 
+Pedido de Venda Direta
+b. Criar um novo 
+Depósito
+ para utilizar no 
+Modo Venda Spot
+ e vincular no veículo. Incluir uma tabela de preço, ver 
+Depósitos - Tabela de Preços / Tipo Cliente
+c. Configurar o veículo. Para mais informações, ver 
+Tabela Frotas
+ 
+ Para mais informações, ver 
+Configuração de Venda Spot
+Importante lembrar que o depósito criado para venda Spot e vinculado no veículo deve ser utilizado apenas para essa finalidade. 
+Para acessar o 
+Modo de Venda Spot
+ no APP, devemos acessar o Menu Início > Outros > Modo Venda Spot:
+Modo Venda Spot:
+Após se autenticar no 
+Modo Venda spot
+, o SisPetro vai apresentar as opções: 
+MultiProduto
+Permite alternar entre os produtos que serão utilizados para realização do pedido.
+Quando for exibida a informação 
+MultiProduto 
+abaixo do nome do produto, significa que funcionalidade de trabalhar com mais de um produto está habilitada no cadastro do frota. 
+Para mais informações, ver
+ 
+Atenção no módulo Venda Spot, temos a possibilidade de trabalhar offline e na utilização do multiproduto há um limite de 8 produtos configurados por depósito, ou não seria possível carregar os preços sem onerar o venda Spot.
+Caso tenha mais de 8 produtos, automaticamente o módulo venda spot entrará em modo 
+monoProduto
+, no qual trabalhará 1 produto por depósito.
+Quando houver mais de 8 produtos, será apresentada a mensagem: 
+Quantidade de produtos para venda excedida
+          
+          
+Incluir Novo Pedido:
+ 
+ u
+tilizado para inserir um novo abastecimento.
+Nesta tela será necessário informar o
+ 
+Cliente
+,
+ 
+Preço,
+ 
+Aeronave, Número Vôo, Próx.Destino e Vôo Internacional? 
+Para que o campo 
+Preço
+ fique habilitado para ser alterado, é necessário que o usuário tenha permissão no perfil: 
+Pode mudar preço de tabela no pedido (
+Painel Vendas (Usuários)
+) [ckbMudaPrecoTabela]
+Incluir a quantidade a ser vendida: 
+Após incluir o pedido vai apresentar a mensagem que foi incluído com sucesso, e volta para tela inicial: 
+Ações Sobre Pedido Já Emitido:
+ 
+ 
+n
+esta opção será possível cancelar algum pedido ou imprimir 
+Para
+ 
+imprimir um pedido
+, basta selecionar o pedido e clicar em imprimir:
+Para cancelar um pedido, basta selecionar o pedido e clicar em
+ 
+C
+ancelar Pedido:
+O SisPetro vai confirmar se você deseja realmente cancelar este pedido, clica em confirmar, depois vai listar os pedidos. Na coluna Status é possível verificar se o mesmo foi cancelado:
+Autenticar Novamente:
+ n
+este processo será necessário validar novamente as credenciais, como usuário, senha e placa.
+Solicitação de Abastecimento
+Neste processo será possível realizar a solicitação de abastecimento
+Tela de manutenção de abastecimento
+Nesta tela é possível incluir, aprovar abastecimento, e emitir pedido de abastecimento
+Tela de inclusão de abastecimento
+Nesta tela é possível incluir o abastecimento, e informar preço sugerido e horário desejado de abastecimento
+Modo OFF-LINE automático - 
+Venda Spot app
+Caso durante a utilização do modulo Venda Spot o mesmo fique sem conexão com a internet, irá acionar automaticamente o modo off-line, no qual irá exibir a barra em vermelho com a mensagem de Off-line e os pedidos serão lançados normalmente;
+Na inclusão de um Pedido em modo 
+OFFLINE, automaticamente o campo de preço estará habilitado para preenchimento manual.
+Busca automática de preço na inclusão de pedido irá ocorrer somente quando o modulo Venda Spot estiver 
+ONLINE
+Ao realizar a inclusão do Pedido em modo 
+OFFLINE,
+ o pedido seguirá uma numeração aleatória, 
+Ex: 1,2,3
+Ao ser gerado com sucesso, irá retornar para tela inicial, sendo possível realizar a inclusão de novos pedidos normalmente.
+AÇÕES SOBRE PEDIDO JÁ EMITIDO
+ 
+Exibirá os pedidos emitidos 
+OFFLINE, 
+sendo possível realizar o cancelamento dos pedidos.
+Enquanto o estiver com status de 
+OFFLINE
+ não será possível visualizar os pedidos realizados em modo 
+ONLINE
+Quando retornar ao modo 
+ONLINE
+, não exibirá mais a barra de offline.
+Exibirá os pedidos em modo 
+ONLINE
+ e os feitos em 
+OFFLINE.
+O botão 
+PROCESSA PEDIDO OFFLINE
+, ficará disponível para processar os pedidos.
+Sendo necessário processar o pedido feito 
+OFFLINE
+ para posteriormente faturar o pedido.
+Ao realizar o processamento do pedido, a numeração temporária 
+ex: 1, 2, 3, 
+deixará de existir e seguirá a numeração dos pedidos feitos
+ ONLINE
+Após processado, será possível selecionar o pedido que deseja realizar o faturamento.
+Quando o pedido estiver faturado o status irá alterar para 
+FATURADO
+Será possível realizar a impressão da nota fiscal em 
+IMPRIMIR DOCTOS
+Para realizar a impressão de DOCS de um faturamento já faturado, é necessário selecionar o pedido desejado, e clicar em 
+FATURAR PEDIDO 
+Novamente.
+MOSTRAR RESULTADO DO ÚLTIMO FATURAMENTO
+Exibirá as informações do ultimo documento faturado, exibindo a numeração da NF, protocolo, e caso erro da 
+SEFAZ
+ ou 
+SisPetro
+ exibirá nesta tela.

@@ -1,0 +1,264 @@
+TITULO: Configurando Geração de Título de Desconto Automático
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2898658123
+--------------------------------------------------
+none
+Objetivo
+Temos a possibilidade de gerar títulos do Contas a Pagar de forma automática baseados em descontos de Notas Fiscais ou de outros títulos do Contas a Pagar.
+No kb 
+Tabela Geração de Títulos de Desconto Automático
+  tem uma explicação adicional de como devem ocorrer as contabilizações. 
+Para que o Sispetro controle desde a entrada da nota fiscal até os lançamentos contábeis, deve-se cadastrar as seguintes tabelas:
+Cadastro de Fornecedores
+Faixas para cálculo de vencimento automático
+Geração de Títulos de Desconto Automático
+Tipo de Desconto
+Tipo de Documento
+Natureza de Operação
+Plano de Contas Gerencial e Real
+ (caso não existam as contas necessárias para a contabilização)
+Dicas para Preenchimento das tabelas citadas:
+1. Cadastro de Fornecedores
+Para cadastrar um fornecedor sem que precise informar CNPJ e IE, basta marcar o campo 
+Órgão Público
+.
+Na aba 
+Detalhes / Padrão para Compras
+ alterar somente o campo 
+Conta Contábil Real
+. Os demais campos referentes a contas contábeis, deixe como estão. 
+NÃO ALTERAR.
+Ao informar o campo 
+Conta Contábil Real
+, o SisPetro vincula automaticamente a conta gerencial com a conta real.
+Para que o vínculo ocorra de forma automática, é necessário que um Perfil de Sistema esteja conforme segue:
+Em Menu Ferramentas / Sistema / aba Contab.Real / quadro Contas de Entidades na Inclusão de Fornecedor:
+Conta criada automaticamente na conta de fornecedor
+ ou 
+Usuário define a conta
+.
+2. Faixas para cálculo de vencimento automático
+Em Menu Tabelas Auxiliares / Financeiro / Faixas para Cálculos de Vencimento de Desconto 
+Clicar no botão + para incluir uma faixa para o imposto e clicar em OK.
+Em seguida, selecionar a faixa incluída e clicar na aba Detalhes: marque 
+ATIVO
+, caso não esteja marcado. Em seguida, clique no botão + Inclui.
+Dia Inicial da Faixa:
+ indica a data inicial de emissão do título referente ao imposto.
+Dia Final da Faixa:
+ indica a data final de emissão do título referente ao imposto.
+Dia do Vencimento:
+ informe o dia do vencimento do título referente a retenção
+Clicar no botão SALVA.
+Clicar em OK para Salvar tudo.
+Crie quantas faixas forem necessárias.
+Neste item é definido para o Sispetro como calcular a data de vencimento do título gerado pela retenção, de acordo com sua data de emissão.
+INSS
+Clicar no botão + para incluir uma faixa denominada INSS 11% (sugestão) e clique em OK.
+Após selecione a faixa incluída e clique na aba Detalhes: marque ATIVO, caso não esteja marcado.
+Clique no botão +INCLUI:
+Dia Inicial da Faixa: indica a data inicial de emissão do título referente a retenção do INSS. Normalmente 1.
+Dia Final da Faixa: indica a data final de emissão do título referente a retenção do INSS. Normalmente 31.
+Dia do Vencimento: informe o dia do vencimento do título referente a retenção
+Clique no botão SALVA.
+Clique em OK para Salvar tudo.
+Crie quantas faixas forem necessárias
+Neste item é definido para o SisPetro como calcular a data de vencimento do título gerado pela retenção, de acordo com sua data de emissão.
+3. Geração de Títulos de Desconto Automático
+Em Menus Tabelas Auxiliares / Financeiro / Geração de Títulos de Desconto Automático: clique no botão 
++
+ para incluir:
+Título: 
+pagar
+Tipo de Entidade: 
+pode ser escolhido
+Fixo
+Obtém do Município
+Entidade: 
+caso tenha escolhido 
+Fixo 
+na opção acima, informar um 
+Fornecedor
+Tipo Vencimento:
+ via faixa
+Faixa para Cálculo: 
+escolher a faixa previamente cadastrada
+Tipo Data Base: 
+escolha uma das opções
+Vencimento em dia útil: 
+escolha uma das opções
+Código do Histórico:
+ informe um histórico que descreve o tipo de despesa
+Tipo de Documento: 
+escolha um compatível previamente cadastrado
+Conta Contrapartida: 
+informe a conta que será utilizada para 
+débito
+ caso a opção 
+Campo Conta débito acompanha conta título original
+Campo Desabilita Contabilização Desconto Original:
+ marcar
+Campo Conta débito acompanha conta título original:
+ marcar
+Clique no botão 
+OK
+ para salvar.
+4. Tipo de Desconto
+Em Menu Tabelas Auxiliares / Controladoria / Tipo de Desconto: clique no botão + para incluir:
+ Descrição:
+ IRRF (sugestão)
+ Cálculo a efetuar:
+ escolha Desconta Valor Calculado
+ Tipo:
+ escolha Fórmula
+ Geração de Título de Desconto Automático:
+ informe o código cadastrado no item 3.
+ Conta p/Contabilização do Desconto
+Acompanha Lançamento de débito: marcar
+Acompanha Lançamento de crédito: informe a conta contábil informado no item 3.
+Caso o 
+Geração de Título de Desconto Automático 
+for informado as 
+Conta p/Contabilização do Desconto
+Clique em OK para Salvar.
+INSS
+Campo Descrição: INSS (sugestão)
+Campo Cálculo a efetuar: escolha Desconta Valor Calculado
+Campo Tipo: escolha Fórmula
+Campo Geração de Título de Desconto Automático: informe o código cadastrado no item 3.
+Campo Conta p/Contabilização do Desconto
+Acompanha Lançamento de débito: marcar
+Acompanha Lançamento de crédito: informe a conta contábil informado no item 3.
+Clique em OK para Salvar.
+5. Tipo de Documento
+Em Menu Tabelas Auxiliares / Financeiro / Tipo Documento: clique no botão + para incluir:
+Campo Descrição
+Clique no botão OK.
+Sugestão
+NF c/ INSS 11%
+IRRF 1%
+Exemplo
+Selecione o tipo de desconto que cadastrou e clique na aba Detalhes:
+Campo Calcula Desconto?: marcar
+Campo Grupo de Contabilização: altere para FATURAMENTO
+Clique no botão +INCLUSÃO:
+Informe o código do tipo de desconto cadastrado item 4-> abre uma tela:
+Clique dentro da coluna NomeCampo e procure por ValProd (tabela NotaFiscal)
+Selecione ValProd e dê dupĺo clique com o mouse. Observe no lado direito da tela que aparece um código numérico: <999>, onde 999 corresponde ao número do campo ValProd.
+Após clique no botão OK. Aparecerá uma mensagem de erro: ignore e clique em OK para fechar a mensagem. Após aparecerá a mesma tela.
+Procure novamente pelo campo ValProd e dê duplo clique para que o campo apareça no lado direito da tela: <999>, <999>, onde 999 corresponde ao número do campo ValProd.
+Posicione o cursor na frete do campo numérico, que deve ficar <999>|
+Na frete do campo, digite * 0.01, ficando <999>*0.01 -> deve ser PONTO DECIMAL e não vírgula. Aqui informamos ao SisPetro qual a base de cálculo e o percentual para calcular o imposto de renda.
+Clique no botão SALVAR.
+Clique no botão +INCLUSÃO:
+Informe o código do tipo de desconto cadastrado item 2-> abre uma tela:
+Clique dentro da coluna NomeCampo e procure por ValProd (tabela NotaFiscal)
+Selecione ValProd e dê dupĺo clique com o mouse. Observe no lado direito da tela que aparece um código numérico: <999>, onde 999 corresponde ao número do campo ValProd.
+Após clique no botão OK. Aparecerá uma mensagem de erro: ignore e clique em OK para fechar a mensagem. Após aparecerá a mesma tela.
+Procure novamente pelo campo ValProd e dê duplo clique para que o campo apareça no lado direito da tela: <999>, <999>, onde 999 corresponde ao número do campo ValProd.
+Posicione o cursor na frete do campo numérico, que deve ficar <999>|
+Na frete do campo, digite * 0.11, ficando <999>*0.11 -> deve ser PONTO DECIMAL e não vírgula. Aqui informamos ao SisPetro qual a base de cálculo e o percentual para calcular o INSS.
+Clique no botão SALVAR.
+Clique no botão OK para concluir e sair da tela
+6. Natureza de Operação
+Em Menu Tabelas Auxiliares / Faturamento / Natureza Operação: caso não tenha uma natureza cadastrada para esse tipo de nota, clique no botão + para incluir:
+Aba Detalhes / aba lateral Geral / aba inferior Dados Gerais:
+ Código:
+ informe um código alfanumérico (letras e números) com até 5 posições.
+ CFOP:
+ informe a CFOP para esse tipo de nota
+ Entrada/Saída:
+ Entrada
+ Série Nota Fiscal:
+ informe qual série será utilizada. Deve estar cadastrada em Menu Tabelas Auxiliares->Faturamento->Série Nota Fiscal
+ Descrição:
+ informe uma descrição adequada
+ Descrição para NF:
+ informe uma descrição adequada
+ Histórico padrão para NF:
+ escolha um histórico adequado
+ Composição do Histórico:
+ caso queira um histórico customizado, definir
+ Tipo Documento:
+ informe o código do Tipo de Documento cadastrado anteriormente. 
+Demais campos preencher de acordo com as necessidades da empresa.
+Aba Detalhes / aba lateral Geral / aba inferior Dados Adicionais->informe de acordo com as necessidades da empresa:
+Aba Detalhes / aba lateral Geral / aba inferior Contabilização:
+Quadro Contabilização Gerencial
+ Tipo de Contabilização:
+ Manual (definido pela Natureza)
+ Débito:
+ Usuário informa
+ Cŕedito:
+ Conta Entidade 
+Demais informações deixe o padrão.
+Quadro Contabilização Real:
+ Pode Contabilizar:
+ marcar (veja mais detalhes no subtópico 
+Desconsidera Contabilização X Pode Contabilizar
+)
+ Código de Contabilização:
+ informe um código de contabilização
+ Desconsiderar Código de Contabilização:
+ marcar (veja mais detalhes no subtópico 
+Desconsidera Contabilização X Pode Contabilizar
+)
+Quadro Descontos:
+ Desconto/Acréscimo: 
+escolher conforme informado no tipo de desconto:
+AUTOMÁTICO caso no tipo de desconto tenha escolhido o campo TIPO=FÓRMULA.
+MANUAL caso no tipo de desconto tenha escolhido o campo TIPO=MANUAL.
+Demais campos:
+ Conta Indicada pelo Tipo de Desconto.
+Aba Detalhes / aba lateral Por Filial: preencha de acordo com as necessidades da empresa.
+Uma vez cadastradas as informações necessárias no SisPetro, elas servem para todas as notas fiscais desse tipo.
+Os passos descritos acima servem para 
+qualquer tipo de retenção em notas de serviço de entrada
+. Caso apareçam outros tipos de retenção, basta seguir os mesmos passos para sua inclusão.
+Desconsidera Contabilização X Pode Contabilizar
+Algumas diferentes combinações desses dois perfis poderá impedir que o título de desconto automático seja gerado, veja na tabela abaixo os casos:
+Pode Contabilizar?
+Desconsidera Código Contabilização?
+Título de Desconto
+ 
+Não Gera
+ 
+Gera
+ 
+Gera
+ 
+Gera
+ 
+A NF é contabilizada na Contabilidade Real dependendo de como está configurado o perfil 
+Pode Contabilizar
+ da Natureza. Para NFs não é verificado o perfil de empresa 
+Habilita Contabilidade Rea
+l.
+A opção 
+Desconsidera Contabilização
+ da Natureza será verificada na geração de título de desconto automático somente quando o perfil da natureza 
+Pode Contabilizar
+ esteja marcado.
+Contabilização
+Utilizando um exemplo de R$ 1.500,00, consultando os lotes gerenciais e reais após o lançamento da nota fiscal de entrada:
+No Gerencial:
+Sispetro Normal->Menu Movimentação->Controladoria->Manutenção de Lotes:
+C.Contábil
+0400103 - Débito: Despesas Vigilância - 1.320,00 - vinculada à conta real de Despesas 516
+0400103 - Débito: Despesas Vigilância - 15,00 - vinculada à conta real de Despesas 516
+0400103 - Débito: Despesas Vigilância - 165,00 - vinculada à conta real de Despesas 516
+0200012 - Crédito: Fornecedor Empresa Vigilância - 1.320,00 - vinculada à conta real de Passivo 983
+0200029 - Crédito: Fornecedor cadastrado como órgão público IRRF - 15,00 - vinculada à conta real de Passivo 1041
+0200102 - Crédito: Fornecedor cadastrado como órgão público INSS - 165,00 - vinculada à conta real de Passivo 286
+No Real:
+Sispetro Controladoria Menu Movimentação / Manutenção Lançamentos:
+C.Contábil red.
+516 - Débito: Despesas Vigilância - 1.320,00
+516 - Débito: Despesas Vigilância - 15,00
+516 - Débito: Despesas Vigilância - 165,00
+983 - Crédito: Fornecedor Empresa de Vigilância - 1.320,00
+1041 - Crédito: IRRF a Recolher - 15,00
+286 - Crédito: INSS a Recolher - 165,00
+As contas contábeis utilizadas acima são de exemplos.
+Para saber mais
+Configurando Geração de Títulos Adicional do Contas a Receber
+Contabilização de Desconto

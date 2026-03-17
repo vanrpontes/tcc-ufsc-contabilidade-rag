@@ -1,0 +1,39 @@
+TITULO: Notas Fiscais de produtos importados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921074132
+--------------------------------------------------
+Será permitido gerar dados de operações do exterior na digitação da nota fiscal de Entrada.
+Caso a Natureza de Operação esteja marcada para 
+Gerar dados de importação na Inclusão da NF
+, uma nova tela será aberta antes da finalização da Nota, com as características abaixo:
+Para preencher os dados da importação basta clicar no botão 
+Editar
+Na tela de Edição de Dados da Importação será possível alterar os seguintes dados:
+A partir da versão 8.18, é possível emitir NF-e no layout 3.1. Novos campos foram adicionados nos dados de importação.
+ 
+#DI
+#LI
+Data DI
+Cidade Desembarque
+UF
+Exportador
+Nome do Fabricante
+Valor de Desconto da DI
+Via de Transporte
+Valor da AFRMM (Adicional ao Frete para Renovação da Marinha Mercante):
+ preencher quando a via de transporte for marítima.
+Forma de Intermediação
+CNPJ do Adquirente ou Encomendante 
+UF Terceiro
+Ato Concessionário Drawback
+Esses dados serão enviados no XML da NFe- e depois são transferidos para o DPMP.
+A partir da versão 7.18, o preenchimento do campo #L.I. não será obrigatório, já que não são todos os produtos que vão para o DPMP.
+ Foi implementado o botão 
+Replica dados nos itens
+ , pois na maioria das vezes a nota tem os mesmos dados ( #DI, #LI etc...), assim só é necessário preencher o primeiro item, e replica-lo para o restante.
+Clique no botão 
+Finaliza
+ para terminar a inclusão da Nota Fiscal.
+ 
+Para maiores detalhes sobre o processo veja também 
+Como emitir nota fiscal de entrada de emissão própria para importação de produtos combustíveis
+.

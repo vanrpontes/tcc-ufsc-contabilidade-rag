@@ -1,0 +1,96 @@
+TITULO: Incluindo Apuração Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210382
+--------------------------------------------------
+A Apuração Fiscal pode ser incluída através da tela 
+Manutenção de Apuração Fiscal
+, pelo botão Inclui.
+Na versão 8.18 foi inserido o campo 
+Código da Obrigação
+. Esse campo traz a mesma informação das 
+Configurações de dados das obrigações a recolher
+, cadastrada no perfil de Sistema. O usuário pode alterar essa informação no momento de fazer a Apuração do ICMS Próprio e do ICMS ST.
+No quadro Cálculo Imposto, tanto do ICMS Próprio como do ICMS Substituição, o item Débitos Especiais não interfere na apuração do ICMS. 
+Informe a 
+data final
+ da apuração (apesar do sistema sugerir a data atual o normal é o último dia do mês). A seguir acione o botão 
+Calcula Valores
+:
+A data de início será calculada somando um dia na data final da última apuração desta filial que esteja encerrada. No caso de ser uma primeira apuração, será levantada qual a menor data de Livro fiscal cadastrado no sistema e o sistema coloca a data inicial como o primeiro dia do mês e ano deste livro.
+Informe a 
+Data de Vencimento
+ para o ICMS Próprio na aba 
+Próprio
+. Para ICMS Substituição, o mesmo deverá ser feito para cada estado que a empresa trabalha, informando a respectiva 
+Data de Vencimento
+ na aba 
+Substituição
+.
+O Sistema fará o levantamento dos dados de débito e crédito do 
+ICMS Próprio
+ e do 
+ICMS de Substituição
+. Os registros de notas que constarão deste levantamento dependerão da 
+configuração de data a ser utilizada na Apuração
+. Para incluir ajustes na Apuração faça o procedimento logo abaixo:
+Selecione o botão 
+Detalhamento
+ 
+no campo onde deseja fazer o ajuste.
+Será aberta a tela abaixo:
+Selecione o botão 
+Incluir
+ que será aberta a tela abaixo:
+Informe os valores que farão parte da composição do crédito ou débito do imposto, conforme os 
+Tipos de Apuração
+ cadastrados nos grids denominados como 
+Outros Créditos
+, 
+Estorno de Débitos
+, 
+Outros Débitos
+, 
+Estornos de Créditos
+ e 
+Deduções
+. Não esqueça de informar o histórico, pois ele será impresso no Livro de Apuração.
+Para as empresas que 
+não fazem
+ a apuração do ICMS de Substituição basta não acrescentar mais informações.
+Para as empresas que 
+fazem
+ a apuração do ICMS de Substituição, vá na aba substituição e preencha as informações da mesma maneira que o ICMS Próprio, com a pequena diferença que a apuração de Substituição é realizada por estado, veja a imagem:
+A apuração do ICMS ST deve ser feita por UF, considerando os estados em que a empresa está instalada, que teve movimentação e/ou tem IE ST. Para 
+cadastrar as Inscrições Estaduais da empresa existentes em outros estados, consulte o link 
+Painel IE Substituição
+ e veja maiores informações.
+Conforme citado, à partir da versão 8.18 é possível definir Códigos de Obrigações a Recolher para cada uma das UF's que participam da Apuração de ST. Essa informação está disponível no campo 
+No caso de valores que são oriundos do 
+Livro Fiscal
+, que geralmente são acumulados nos valores de entrada ou saída mas que precisarão ser discriminados como outros créditos ou outros débitos de forma automática, configure a natureza de operação (no Sispetro Normal) para que faça esta discriminação num tipo de apuração pré-especificado. Assim no momento em que for calculados os valores (através do botão calcula valores) os valores de ICMS de livros que estejam marcados para serem discriminados serão acrescentados automaticamente como outros créditos ou outros débitos (dependendo do tipo de apuração configurado) e não farão mais parte dos valores de entradas ou saídas. Estes itens incluídos automaticamente não poderão ser excluídos ou alterados. Apesar desta configuração ser na Natureza de Operação, estes dados (se deve discriminar e em que apuração) são transferidos para o Livro Fiscal, podendo cada registro de livro ser alterado independente da configuração da Natureza. Dependendo do tipo de exportação cadastrado para o tipo de apuração escolhido, o valor informado será calculado no Registro tipo 88 (Dados da GIM) na mídia do 
+Sintegra
+ ou nas linhas referentes a apuração na geração da 
+Mídia GIA/GIM
+.
+A partir da versão 9.20 também é possível pegar de forma automática outros créditos ou outros débitos, para isso o lançamento deve estar utilizando um tipo de documento devidamente configurado. Veja mais em 
+.
+Para aproveitar outros créditos/débitos já digitados em outra apuração feita anteriormente (mesmo que cancelada) evitando assim a redigitação de dados, utilize o botão 
+Busca Itens
+ 
+. Ao clicar nele, deverá ser escolhida a apuração anterior desejada e os itens de outros créditos/débitos que foram incluídos 
+manualmente
+ na apuração anterior serão copiados na apuração que você está fazendo. Estes itens, como não tem característica de automáticos, poderão ser excluídos ou alterados, pois só são cópias que não precisam necessariamente ser utilizadas, nem mesmo têm ligação com a apuração anterior.
+O Botão 
+Busca Itens
+ somente será habilitado após efetuar clique no botão 
+Calcula Valores
+. Mesmo durante o Reprocessamento.
+Sendo importante ressaltar que no caso do valor do campo "Imposto a Recolher" tornar-se negativo (a empresa possui um saldo de crédito de imposto superior ao saldo de seus débitos de imposto) o valor a ser apresentado será 0 (zero).
+No painel 
+Observações
+ acrescente as informações complementares, se for necessário informar as GNRE's da apuração fiscal.
+Após escrever as Observações e Informações Complementares, utilizando o botão 
+. O mesmo gravará o texto digitado em uma área temporária do Sistema até que seja finalizada a inclusão da Apuração, caso a mesma seja cancelada, as informações serão perdidas.
+Acione o botão OK para atualizar os dados no Sistema.
+O Sistema retorna a tela de Manutenção de Apuração Fiscal. Esta apuração recém-incluída ficará com o status "
+em andamento
+".

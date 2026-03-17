@@ -1,0 +1,74 @@
+TITULO: Modelo Petrobrás
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899627
+--------------------------------------------------
+Como o nome já diz esse modelo teve sua especificações de posições de campos definidos pela própria Petrobrás em seu modelo de arquivo para exportação de dados de notas faturadas.
+Layout do Primeiro Modelo - Petrobrás
+Cabeçalho no layout
+SisPetro
+Descrição
+Empresa
+É o CNPJ da Empresa
+CNPJ Destinatário char(16) com máscara
+CNPJ local Faturamento
+CNPJ Fornecedor, através dele localizamos 
+a entidade da nota e conseqüentemente 
+chegaríamos nos dados dela, 
+como a condição de pagamento.
+CNPJ do Emitente NF char(16) com máscara
+Estado
+Desconsidera
+Campo Reservado char(2), Sigla da Unidade Federativa.
+Município
+Desconsidera
+Campo Reservado char(9)
+Produto
+De/Para com o nosso CodProd
+Campo Reservado char(9)
+Código da Operação
+De/Para com CodNatOp, Tipo da NF
+Codigo da Naturezada Operação char(5)
+Numero
+NumeroNF
+Numero da Nota integer
+Data Emissão
+DtEmissao
+Data de Emissão NF dd/mm/yyyy
+Data Vencimento
+DtVencto do ContasPagarReceber
+Data de Vencimento dd/mm/yyyy
+Data Saída
+Data Movto
+Data de Movimento dd/mm/yyyy
+Qtde
+Qtde
+Qtde integer
+Preço
+Preço Unitário
+Preço unitário (utilizar vírgula para separar decimais, com seis decimais)
+Valor Produto
+Desconsidera
+Valor Produto (utilizar vírgula para separar decimais, com duas decimais)
+Valor Documento
+Desconsidera
+Valor NF (utilizar vírgula para separar decimais, com duas decimais)
+Alíquota ICMS
+Alíquota
+Alíquota de ICMS Próprio (utilizar vírgula para separar decimais, com duas decimais)
+Base ICMS
+Base ICMS
+Base de Cálculo de ICMS Próprio (utilizar vírgula para separar decimais, com duas decimais)
+ICMS Próprio
+Icms Próprio
+Valor de ICMS Próprio (utilizar vírgula para separar decimais, com duas decimais)
+Base Subst
+Base Icms Subst
+Base de ICMS Subst (utilizar vírgula para separar decimais, com duas decimais).
+ICMS Subst
+Icms Subst
+Valor de ICMS Subst (utilizar vírgula para separar decimais, com duas decimais).
+Exemplo do arquivo:
+Empresa;CNPJ cliente;CNPJ local faturamento;Estado;Munícipio;Produto;Código da Operação;Número;Data Emissão;Data Vencimento;Data Saída;Qtde;Preço;Valor Produto;Valor Documento;Alíquota ICMS (%);Base ICMS;ICMS Próprio;Base Sub. Trib.;ICMS Sub. Trib.
+PETROBRAS;00209895/0002-50;33000167/0045-22;SC;Itajai;GASOLINA A;5655;094143-1;05/01/2005;12/01/2005;04/01/2005;18651;1,887808;35209,51;41390,10;25,00;35209,51;8802,38;59931,88;6180,59
+PETROBRAS;00209895/0002-50;33000167/0045-22;SC;Itajai;GASOLINA A;5655;094176-1;06/01/2005;13/01/2005;05/01/2005;21632;1,887807;40837,05;48005,49;25,00;40837,05;10209,26;69510,83;7168,44
+Em negrito é o cabeçalho do arquivo a ser importado
+Em itálico encontra-se as notas fiscais iniciando pela palavra PETROBRAS

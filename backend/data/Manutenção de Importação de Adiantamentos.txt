@@ -1,0 +1,62 @@
+TITULO: Manutenção de Importação de Adiantamentos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899535
+--------------------------------------------------
+none
+Objetivo
+Após realizarmos todas pré-configurações necessárias para realização da importação (para mais informações veja 
+Manutenção Importação de Dados
+, 
+Manutenção De/Para
+ e 
+Manutenção de Processos
+) iremos finalmente realizar o processo de importação de adiantamentos por meio do arquivo magnético (para mais informações veja 
+Estrutura do Layout de Importação
+).
+Para acessar a Importação de Adiantamentos, deve acessar o Menu 
+Ferramentas / Importação de Dados / Importação de Adiantamentos
+:
+Para iniciar a importação dos adiantamentos informe o processo que será realizado (ao definir o processo será carregada a Importação que será utilizada e o De/Para a ser empregado, bem como os adiantamentos que tiveram sua importação iniciada, mas não tiveram seus dados totalmente validado ou não foram processados).
+Deste ponto em diante, para melhor compreensão do processo, a importação será dividida em 3 etapas (para mais informações veja 
+Importação de Adiantamentos
+):
+1ª - Etapa: Importação do Arquivo
+Nesta etapa da importação iremos realizar a importação do arquivo para o Sispetro, fazendo uso de uma das estruturas de layout disponíveis atualmente pelo Sispetro para importação de adiantamentos (maiores informações veja 
+Estrutura do Layout de Importação
+).
+Essa primeira etapa poderá ser realizada simplesmente pressionando o botão 
+.
+Ocorrendo algum problema na importação do arquivo por meio do uso do modelo, serão apresentadas as mensagens de erro no painel 
+Erros de Importação
+ presente na tela, caso contrário a importação automaticamente prosseguirá para a segunda etapa.
+Se marcada a opção 
+Inclusive contabilidade real
+, os adiantamentos serão contabilizados na contabilidade real.
+2ª - Etapa: Validação do Arquivo Importados
+Os registros que não puderam ser validados, serão apresentadas na aba 
+Dados a serem validados
+, com o(s) respectivo(s) problema(s).
+3ª - Etapa: Processamento dos Adiantamentos
+Nesta etapa os dados que foram validados encontram-se disponíveis para gerar os adiantamentos dos mesmos, passando pela última crítica, finalmente os adiantamentos de clientes e fornecedores serão lançados no SisPetro.
+Todos os registros validados, contudo, não foram processadas permanecerão no painel 
+Baixas a serem processadas
+.
+Todos os dados presentes na aba 
+Baixas a serem processados
+ poderão ser editados por meio do botão 
+, sendo importante alguns detalhes quanto a edição:
+Para se realizar a edição dos dados de cabeçalho deverá ser selecionado o registro na grade de dados, apresentada a seguinte tela:
+Para realizar o processo de importação, cabe ao usuário pressionar o botão 
+, sendo iniciado registro a registro o processo de importação e para os casos que ocorram problemas quanto a importação será apresentada no registro do adiantamento o motivo a ser analisado.
+Observações gerais:
+Na tela de Importação de Adiantamentos é possível realizar algumas tarefas complementares para auxiliar a importação dos dados, dentre elas está realizar a impressão das inconsistências, por meio do botão 
+ (sendo esse sensível ao contexto, isto é, serão impressos os dados conforme a aba que se encontrar ativa), outra disponibilidade presente nesta tela é o acesso direto ao Cadastro de 
+De/Para
+ do processo selecionado, por meio do botão 
+ (para mais informações veja 
+Manutenção De/Para
+).
+Manutenção de Adiantamentos
+Após a importação dos dados os mesmos serão mostrados na tela de 
+Movimentação / Financeiro / Contas a Pagar / Manutenção de Adiantamentos a Fornecedores
+Importante: 
+Para que os dados importados o campo Tipo de Antecipação ficará como SEM ANTECIPAÇÃO

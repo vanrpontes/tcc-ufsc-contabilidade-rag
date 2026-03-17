@@ -1,0 +1,209 @@
+TITULO: Emissão Automática de Nf de Remessa Conta e Ordem por Armazenadoras para transportar produto vendido pela Usina / Distribuidora
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5987663873
+--------------------------------------------------
+1
+6
+false
+default
+list
+true
+Objetivo
+Emitir de forma automática a nota de Conta e Ordem
+As usinas que armazenam na Armazenadora usam Comercializadoras nas suas vendas. Nesse processo é emitida uma nota de Conta e Ordem (para a Distribuidora ou Terminal que vai receber o produto) se referenciando à NF de Venda da Usina. 
+O que é Remessa por Conta e Ordem? 
+A nota de remessa por conta e ordem é o documento fiscal que acoberta o transporte de mercadorias ao destinatário final quando a compra ocorre por um intermediário.
+Nesse cenário, é a nota que a Armazenadora emite para cobrir o transporte do produto (ex.: Gasolina C) vendido pela Usina ao Posto/Distribuidora, referenciando a NF de Venda emitida pela Usina
+Como funciona o processo?
+A Usina
+ realiza o carregamento na Portaria (gera a OC de Carregamento de Terceiros).
+A Usina
+ emite a NF de Venda para uma Distribuidora / Posto utilizando CFOP 5.118 (geralmente usando a quantidade movimentada na Portaria).
+A Armazenadora
+ emite a NF de Remessa de Conta e Ordem utilizando o CFOP 5.923 (para a Distribuidora ou Terminal que vai receber o produto), referenciando a NF de Venda da Usina.
+Essa NF 
+não movimenta estoque
+.
+Pode haver naturezas distintas para Hidratado e Anidro, devido às regras de tributação.
+A Armazenadora
+ emite a NF de Retorno de Armazenagem para a Usina e referencia, além da NF de Remessa da Usina, a NF de Venda e a NF de Remessa de Conta e Ordem.
+Breve explicação dos CFOP 5923 e 5118
+o uso exato dos CFOP deve sempre ser validado com o fiscal/contador, conforme legislação da UF e enquadramento da operação. Os códigos utilizados no exemplo acima e na explicação resumida são para fins de entendimento do fluxo.
+CFOP 5923 – Remessa por conta e ordem de terceiros (dentro do Estado)
+De forma simplificada, o 
+CFOP 5923
+ é utilizado em operações de 
+saída interna
+ (
+5.xxx
+) para 
+remessa de mercadoria por conta e ordem de terceiros
+, quando:
+A venda é feita por um 
+intermediário/vendedor
+ (por exemplo, uma comercializadora ou a própria usina),
+Mas a 
+remessa física
+ parte de outro estabelecimento (no seu cenário, a 
+Armazenadora
+),
+A NF de Remessa:
+não destaca ICMS
+ na maior parte dos cenários de simples remessa (quem destaca é a NF de venda),
+tem como finalidade 
+acobertar o transporte
+ da mercadoria até o destinatário final,
+normalmente 
+referencia a NF de venda
+ (via XML, tag 
+<refNFe>
+).
+No contexto da página:
+A 
+NF de Remessa por Conta e Ordem
+ emitida pela Armazenadora, para destinatário dentro do estado, tende a usar um CFOP da família 
+5923
+, conforme orientação da área fiscal do cliente e configuração da 
+Natureza de Operação
+ no SisPetro.
+CFOP 5118 – Venda de produção do estabelecimento entregue a terceiros
+O CFOP 
+5118
+ é, em linhas gerais, um CFOP de 
+saída de venda interna
+ da própria produção, quando a mercadoria:
+É 
+vendida pelo produtor/usina
+ (produção do estabelecimento),
+Mas a 
+entrega física
+ é feita a partir de 
+terceiros
+ (ex.: a mercadoria está armazenada em outro estabelecimento/depósito).
+Alguns pontos típicos:
+A NF com CFOP 5118:
+é emitida pela 
+Usina (produtora)
+,
+tem natureza de 
+venda da produção
+ com entrega realizada por terceiros,
+acoberta a operação de 
+venda
+, com destaque de ICMS conforme regras da UF,
+muitas vezes será a NF que a Armazenadora vai 
+referenciar
+ ao emitir a NF de Remessa por Conta e Ordem (5923) para o destinatário final.
+Configurações
+Ferramentas / Usuário / Armazenagem / Quadro NF Remessa por Conta e Ordem
+Pode alterar se Emite NF de Remessa por Conta e Ordem: marcar
+Pode alterar Natureza de Operação: marcar
+Observação: sem esses perfis, o usuário poderá visualizar, mas não alterar determinadas informações (como a Natureza de Operação sugerida).
+No Menu Arquivo 
+Clientes /Aba Detalhes / Aba inferior Cadastro Detalhado
+Emite NF de Remessa por Conta e Ordem: Marcar
+Atividade Econômica: apontar a Atividade Econômica adequada para a entidade que será destinatária da NF de Remessa de Conta e Ordem.
+Ex.: atividades específicas como 
+Refinaria
+ ou 
+Usina
+, quando aplicável.
+A Atividade Econômica, em conjunto com o tipo de operação “NF Remessa Conta e Ordem” e o produto, é utilizada pelo sistema para sugerir automaticamente a Natureza de Operação (e, por consequência, o CFOP, tributos, frete etc.)
+Produto / Aba Natureza de Operação
+Configurar  a Natureza de Operação que deverá ser utilizada na emissão da NF de Conta e Ordem
+Configurar a 
+Natureza de Operação
+ que deverá ser utilizada na emissão da NF de Remessa por Conta e Ordem para o produto, considerando:
+Tipo de operação “NF Remessa Conta e Ordem”;
+Atividade Econômica do destinatário;
+Diferença de tributação entre Hidratado e Anidro (quando houver).
+O CFOP utilizado na NF de Remessa por Conta e Ordem será aquele vinculado à Natureza de Operação configurada para o produto.
+A definição do CFOP correto deve ser alinhada com a área fiscal do cliente, de acordo com a legislação aplicável
+Depósito / Aba Detalhes / Quadro Remessa Conta e Ordem x Retorno Armazenagem
+Emite Nf de Remessa por Conta e Ordem: marcar
+Volume a ser utilizado para NF: escolher qual será o volume utilizado: escolher qual será o volume utilizado para a NF de Remessa por Conta e Ordem. As opções são:
+Volume da OC
+Volume Real Ambiente
+Volume Real 20°C
+ (padrão)
+O volume configurado aqui será utilizado na validação com o XML e no preenchimento da quantidade na NF.
+Quando a unidade do XML for diferente da unidade da OC (por exemplo, XML em m³ e OC em litros), o SisPetro faz a conversão de unidade com base no fator de conversão cadastrado.
+Tabelas Auxiliares / Faturamento / Natureza de Operação / Aba Detalhes / Por Filial / Dados Gerais
+Quadro Vinculo de Nota Fiscal 
+ Envia Nf(s) referenciada(s) no XML da NF-e (tag <refNfe>)?: marcar
+Quadro Retorno de Armazenagem
+Situação do Frete: escolher o que será enviado na tag <modfrete> no xml 
+Como Utilizar
+Em Movimentação / Faturamento / Armazenagem/ Retorno de Armazenagem, o usuário irá localizar OC de Carregamento de Terceiros (em cinza) e clicar no botão 
+NF Remessa Conta e Ordem. 
+O SisPetro abrirá a tela abaixo
+A partir:
+Informe o cliente
+ (destinatário da NF de Remessa de Conta e Ordem)
+Clique no botão 
+Carrega XML
+ e 
+importe o XML da NF de Venda
+ emitida pela Usina (ou Distribuidora)
+Validações no processo de emissão 
+Ao carregar o XML, o SisPetro realiza as seguintes 
+validações principais
+:
+CNPJ do destinatário do XML x CNPJ do cliente informado:
+O CNPJ do destinatário no XML deve ser igual ao CNPJ do cliente selecionado na tela. Caso não seja igual, será exibida mensagem de erro, impedindo a continuação.
+Produtos do XML x Produtos da OC:
+Todos os produtos do XML devem possuir 
+De/Para de Produto
+ cadastrado para o cliente.
+Os produtos do XML devem coincidir com os produtos da OC de Carregamento de Terceiros.
+Se houver divergência de produto ou ausência de De/Para, o SisPetro não permite prosseguir.
+Volume / Quantidade XML x Volume da OC:
+A soma das quantidades dos produtos no XML deve ser igual ao volume da OC, considerando:
+o 
+volume configurado para a NF
+ no cadastro de Depósito (Volume da OC, Volume Real Ambiente ou Volume Real 20°C);
+a conversão de unidade quando necessário (por exemplo, XML em m³ e OC em litros).
+O volume considerado é o volume a 
+20°C
+ apurado na Portaria, quando configurado dessa forma.
+Em caso de divergência entre o volume do XML e o volume da OC (após conversão), o SisPetro emitirá mensagem de erro e não permitirá a emissão.
+Abaixo um exemplo da validação do produto e CNPJ
+Após carregar o XML e vincular a OC o SisPetro
+Sugere automaticamente a Natureza de Operação
+ com base em:
+Tipo de operação 
+NF Remessa Conta e Ordem;
+Atividade Econômica do cliente;
+Primeiro produto identificado no XML.
+A 
+Natureza de Operação
+ determina:
+CFOP;
+regras fiscais (tributação);
+situação do frete (modFrete no xml);
+textos de observações / uso do fisco.
+Se o usuário possuir o perfil 
+Pode alterar Natureza de Operação
+, ele poderá ajustar a natureza sugerida antes de emitir a NF.
+A situação do frete e o tipo de cobrança seguem as mesmas regras já utilizadas na NF de Retorno de Armazenagem, respeitando a configuração da Natureza de Operação e do perfil de empresa
+Após a conferência das informações, basta clicar no botão 
+Emite NF
+Com isso o SisPetro irá: 
+Gerar a 
+NF de Remessa por Conta e Ordem
+, 
+sem movimentar estoque
+;
+Referenciar (quando parametrizado) a NF de Venda da Usina (XML carregado),
+Gravar nas observações os dados das NFs referenciadas, conforme configuração da Natureza.
+Após a Nota ser emitida a OC fica liberada para emitir a NF de Armazenagem. 
+Travamento e mensagem de erro 
+Para garantir a integridade do processo, o SisPetro possui algumas travas: 
+Emissão da NF de Retorno de Armazenagem:
+Caso a NF de Remessa por Conta e Ordem 
+ainda não tenha sido emitida
+, ao tentar emitir a NF de Retorno de Armazenagem, o SisPetro exibirá mensagem de erro informando que a NF de Remessa por Conta e Ordem deverá ser emitida antes.
+Cancelamento da NF de Remessa por Conta e Ordem:
+Não é permitido cancelar a NF de Remessa por Conta e Ordem quando já existir uma NF de Retorno de Armazenagem referenciando essa nota.
+Cancelamento da OC de Carregamento de Terceiros:
+Não é permitido cancelar a OC se houver NF de Remessa por Conta e Ordem vinculada a ela.
+Essas travas garantem que as notas envolvidas no processo permaneçam consistentes do ponto de vista fiscal e operacional.

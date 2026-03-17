@@ -1,0 +1,20 @@
+TITULO: Saldos de Estoque no DPMP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2895708839
+--------------------------------------------------
+No processo de geração do DPMP a utilização dos botões Gera DPMP e Recalcula Totais estão envolvidas em algumas regras, que estão listadas abaixo:
+Regras para o botão Gera DPMP e Recalcula Totais
+Estoque Final Próprio
+No botão "Gera DPMP" apaga tudo e gera novamente. O inicial conforme o mês anterior, o final depende das operações. 
+No botão "Recalcula Totais" apaga os estoques finais e recalcula dependendo das operações (novas que podem ter sido lançadas manualmente).
+Venda para Entrega Futura
+No botão "Gera DPMP" apaga tudo e gera novamente. O inicial conforme o mês anterior, o final depende das operações. 
+No botão "Recalcula Totais" apaga os estoques finais e recalcula dependendo das operações (novas que podem ter sido lançadas manualmente).
+Estoque Final DE e EM Terceiros
+No botão "Gera DPMP" apaga tudo e gera novamente. O inicial conforme o mês anterior, o final igual ao inicial. 
+No botão "Recalcula Totais" não faz nada, afinal o usuário pode ter alterado os valores de estoque final manualmente.
+O validador faz a validação dos valores informados nos totalizadores, não permitindo valor do Estoque inicial DE/EM terceiro menor que o Valor de Estoque Inicial Próprio, e valor de estoque final DE/EM terceiro menor que o valor do Estoque Final Próprio.
+A partir da versão 8.29 foi implementado a opção do usuário poder incluir mais de uma operação de Venda para Entrega Futura e Estoque Final DE e EM Terceiros
+.
+Na aba 
+Edição
+ é possível incluir mais de uma vez as operações de Venda para Entrega Futura e Estoque Final DE e EM Terceiros, desde que os Códigos de Instalação 1 sejam diferentes.

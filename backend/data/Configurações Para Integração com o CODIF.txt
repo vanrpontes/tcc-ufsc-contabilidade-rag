@@ -1,0 +1,31 @@
+TITULO: Configurações Para Integração com o CODIF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899751
+--------------------------------------------------
+Em 2008 o Estado de São Paulo aboliu o envio de CODIF para distribuidoras devido a implementação da NF-e. A partir da versão 8.11 toda a estrutura do CODIF foi removida.
+ 
+Na configuração da empresa, no painel Nota Fiscal, devemos habilitar a integração do SisPetro ao CODIF, numa das opções:
+Para integração Semi-Automática
+Ou
+Para integração 
+A seguir descrevemos a parte comum para a integração com o CODIF, tanto automática quanto semi-automática:
+Na Natureza de operação teremos um perfil que indica se deve ou não exigir autorização do CODIF.
+Teremos uma tela que armazena todas autorizações (
+), contendo dados e funcionalidades.
+ Cada autorização do CODIF será armazenada numa tabela, separada da Nota Fiscal. O que teremos é um vínculo de uma Nota Fiscal com uma autorização desta tabela. Com isso permitiremos a 
+inclusão manual
+ de autorização, que antecipará a solicitação de autorização, antes da inclusão da nota. Ao incluir a nota, o SisPetro vinculará então a nota à esta autorização manual. Caso não tenha autorização manual, o próprio SisPetro inclui uma solicitação de autorização.
+Editaremos o layout da nota fiscal para já preparar a utilização do campo "AutorizacaoCODIF" do condutor de Dados "Codif", concatenando com o texto exigido pela Secretaria.Ou seja, na Nota Fiscal haverá um Label com o texto desejado e no meio da mensagem um objeto DBText com o campo de Autorização.
+Para imprimir de uma só vez uma ou mais notas que já tiveram as solicitações autorizadas, basta acessar o menu 
+Movimentação / Faturamento / Impressão de Notas Fiscais
+, para mais informações veja: 
+Imprimindo Notas Fiscais pelo Menu
+.
+Cada solicitação terá um status que pode ser:
+Não autorizada: este status é de quando a solicitação foi incluída manualmente ou através de uma nota fiscal, mas ainda não foi autorizada.
+Autorizada: neste caso a autorização pode ou não ter vínculo com a Nota Fiscal.
+Registrada a NF: Para estar com este status ela tem que ter uma Nota Fiscal vinculada, e esta nota tem que ter sido impressa corretamente.
+Rejeitada: é o caso de ter sido solicitada a autorização, porém o CODIF retornou algum erro. Neste caso, se o erro não for decorrente de dados, é possível voltar para o status anterior, limpando o erro. Vide maiores esclarecimentos no tópico 
+Dados CODIF
+.
+Vale lembrar que a opção pela integração com o CODIF não é irreversível e pode ser alterada a qualquer momento de acordo com a necessidade da empresa.
+Por exemplo: Caso o WebService não esteja funcionando e a sua empresa estiver usando a integração automática, é interessante alterar para a integração semi-automática e então fazer o processo de carregar o arquivo de autorizações e baixar o arquivo de autorizações manualmente, até que o WebService esteja disponível e então seja possível fazer novamente a integração automática.

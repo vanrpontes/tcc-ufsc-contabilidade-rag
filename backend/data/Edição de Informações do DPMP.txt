@@ -1,0 +1,28 @@
+TITULO: Edição de Informações do DPMP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898591
+--------------------------------------------------
+O painel 
+Edição
+ apresenta os dados de forma mais organizada de forma que se possa alterar uma determinada informação:
+É possível, além de alterar, incluir ou excluir um registro. Algumas dicas são importantes:
+Se o registro for incluído é necessário atentar-se para a configuração de todos os campos, coisa que o SisPetro faz internamente quando é uma Nota Fiscal, portanto sempre avalie qual a melhor opção.
+Para inclusão de uma nota cujo produto tenha duas características é necessário a inclusão de dois registros, colocando em cada um deles a característica desejada. Este processo não será automático.
+Não inclua registros com uma operação que seja totalizadora (final 998), de estoque (inicia em 3) ou para acerto de Remessa/Retorno para a unidade interna do informante. Estas operações são calculadas automaticamente pelo sistema.
+Após qualquer alteração, inclusão ou exclusão utilize o botão Recalcula Totais para que sejam refeitos os cálculos referente a produto composto e os registros totalizadores.
+Em alguns casos, dois produtos compartilham o mesmo código de DPMP (através da opção no Cadastro de Produtos "Utiliza código DCP/DPMP de outro produto"). Um exemplo claro disso é o Biodiesel. É possível ter o biodiesel adquirido misturado e o biodiesel composto. Nesse caso, ao incluir a operação manual, deve-se informar o código do produto no campo correspondente.
+Referente ao Produto, algumas validações que são realizadas ao incluir ou editar um registro:
+O campo do código do produto será habilitado somente durante o processo de inclusão/edição de lançamentos manuais;
+Será sugerido o código do produto que está selecionado no grid;
+Ao confirmar a inclusão/edição, será verificado se o código do produto tem o mesmo código DPMP do produto selecionado no grid, não permitindo gravar caso não tenha;
+Ao gravar a edição/inclusão, será validado se a data informada está dentro do período informado na tela.
+Utilize os botões 
+Inclui
+, 
+Exclui
+, 
+Edita
+, 
+Salva
+ e 
+Cancela
+ conforme a necessidade. Para navegar entre os registros não é necessário voltar a tela de visualização, é possível utilizando os botôes:

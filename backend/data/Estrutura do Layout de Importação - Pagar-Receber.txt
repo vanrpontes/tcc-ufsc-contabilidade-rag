@@ -1,0 +1,252 @@
+TITULO: Estrutura do Layout de Importação - Pagar-Receber
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899501
+--------------------------------------------------
+Cobrança Eletrônica
+É fundamental que o teste de Importação de Títulos a Receber seja em conjunto com a Cobrança Eletrônica, com a simulação da leitura do arquivo de retorno de títulos importados.
+Este modelo foi projetado inteiramente pela Futura Tecnologia com a finalidade de importar os títulos de contas a receber e contas a pagar.
+Os campos deverão ser separados por ";" (ponto-e-vírgula).
+Layout do Modelo - Futura
+Campo
+Descrição
+Tipo
+R (Receber) ou P (Pagar)
+Data Vencimento
+Data de vencimento dd/mm/yyyy
+Número Documento
+Número do documento (numérico)
+CNPJ Emitente
+CNPJ do emitente NF com ou sem máscara
+Valor
+Valor total do título (utilizar vírgula para separar decimais, com duas casas decimais)
+Data Emissão
+Data de emissão dd/mm/yyyy
+Tipo de Cobrança
+Tipo de cobrança
+Código do Histórico
+Código do histórico
+Histórico
+Histórico do título (até 60 caracteres)
+Observações
+Observações do título (até 40 caracteres)
+Informações Adicionais
+Informações adicionais do título (até 80 caracteres)
+Código do Portador
+Portador do título (quando Tipo for R (receber))
+Tipo de Documento
+Tipo de documento do título
+Número NF
+Número da NF
+Taxa de Juros
+Percentual de juros ao dia (utilizar vírgula para separar decimais, com seis decimais)
+Nosso Número
+Nosso número (até 15 caracteres, quando for Cobrança Eletrônica)
+Código do Banco
+Código do banco (até 3 dígitos, quando for Cobrança Eletrônica)
+Conta Gerencial
+Código de exportação da conta gerencial  ** mesmo código tem que estar preenchido no campo 
+Código Exportação do Plano de Contas *** NÃO PODE SER CONTA DE ENTIDADE  tem que ser uma conta de contra-partida (crédito quando título a Receber e Débito quando for título a pagar)***
+Valor Conta
+Valor distribuído para a conta (utilizar vírgula para separar decimais, com duas decimais)
+Centro de Custo
+Código do centro de custo
+Valor Centro de Custo
+Valor distribuído para centro de custo (utilizar vírgula para separar decimais, com duas decimais)
+MultaCRPer
+Percentual de Multa
+Vendedor
+ - tem que estar configurado no cadastro do cliente, para levar para os títulos.
+Títulos eles são importados de acordo com a empresa conectada no qual é feito a leitura. Tendo mais de um "CNPJ", os arquivos precisam ser separados. Ex.: CTRec_001.txt / CTRec_002.txt / CTRec_003.txt
+Sendo importante ressaltarmos algumas regras:
+Para informar contas e centros de custos podem ser utilizadas várias linhas, sendo imprescindível somente que na linha se repita o CNPJ, Número do Documento e Vencimento (que é a chave que identifica o título, o qual não pode ser repetida).
+Assim, veremos alguns exemplos onde temos um título com duas contas e três centros de custos rateados.
+Exemplos:
+1ª Forma: Centros de Custos e Contas em linhas separadas:
+Linha
+CNPJ
+NumDocto
+DtVencto
+Valor
+...
+Conta
+ValorConta
+CC
+ValorCC
+1
+XXXXX
+XA
+11/11/11
+100,00
+...
+A
+60,00
+2
+XXXXX
+XA
+11/11/11
+...
+B
+40,00
+3
+XXXXX
+XA
+11/11/11
+1
+30,00
+4
+XXXXX
+XA
+11/11/11
+2
+20,00
+5
+XXXXX
+XA
+11/11/11
+3
+50,00
+2ª Forma: Centros de Custos e Contas nas mesmas linhas:
+Linha
+CNPJ
+NumDocto
+DtVencto
+Valor
+...
+Conta
+ValorConta
+CC
+ValorCC
+1
+XXXXX
+XA
+11/11/11
+100,00
+...
+A
+60,00
+1
+30,00
+2
+XXXXX
+XA
+11/11/11
+...
+B
+40,00
+2
+20,00
+3
+XXXXX
+XA
+11/11/11
+3
+50,00
+3ª Forma: Centros de Custos e Contas em linhas separadas, inclusive do título:
+Linha
+CNPJ
+NumDocto
+DtVencto
+Valor
+...
+Conta
+ValorConta
+CC
+ValorCC
+1
+XXXXX
+XA
+11/11/11
+100,00
+...
+2
+XXXXX
+XA
+11/11/11
+...
+A
+40,00
+3
+XXXXX
+XA
+11/11/11
+B
+60,00
+4
+XXXXX
+XA
+11/11/11
+1
+30,00
+5
+XXXXX
+XA
+11/11/11
+2
+20,00
+6
+XXXXX
+XA
+11/11/11
+3
+50,00
+Note que todos os casos as colunas CNPJ, NumDocto e DtVencto são idênticas, os demais campos, como valor, conta e outros, só precisam vir preenchidos na primeira linha referente a este título, nas demais, mesmo se vier preenchido, será desconsiderado.
+Com o exemplo abaixo será incluído um único título, apesar de ter três linhas, pois CNPJ, NumDocto e DtVencto se repetem.
+Linha
+CNPJ
+NumDocto
+DtVencto
+Valor
+...
+Conta
+ValorConta
+CC
+ValorCC
+1
+XXXXX
+XA
+11/11/11
+100,00
+...
+A
+100,00
+1
+100,00
+2
+XXXXX
+XA
+11/11/11
+120,00
+...
+A
+120,00
+1
+120,00
+3
+XXXXX
+XA
+11/11/11
+245,00
+...
+A
+245,00
+1
+245,00
+4
+XXXXX
+XA
+11/11/11
+738,00
+...
+A
+738,00
+1
+738,00
+5
+XXXXX
+XA
+11/11/11
+596,00
+...
+A
+596,00
+1
+596,00

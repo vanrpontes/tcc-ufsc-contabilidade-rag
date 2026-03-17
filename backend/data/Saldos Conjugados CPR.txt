@@ -1,0 +1,208 @@
+TITULO: Saldos Conjugados CPR
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898897
+--------------------------------------------------
+Este relatório é útil para demonstrar o fluxo de caixa da empresa ou grupo empresa. Apresenta o saldo de cada conta bancária e a cada dia, apresenta valores pendentes do Contas a Pagar e Contas a Receber, podendo ser previsto o saldo bancário a cada dia futuro em decorrência destas pendências.
+
+
+É possível fazer diversos filtros (Desprezar movimentos financeiros a Pagar ou Receber de um determinado período, gerados por nota, manualmente ou ambos, Somente contas que requererem conciliação, somente as contas que participem do fechamento, etc ).
+
+
+O acesso a esse relatório é através do Menu 
+Relatórios / Financeiro / 
+Saldos Conjugados CPR
+:
+
+
+
+
+O layout do relatório será gerado conforme o arquivo 
+SaldoConjugado.rtm
+ que estiver no mesmo caminho do executável, sua existência é 
+imprescindível
+.
+
+
+O relatório poderá ser emitido com os valores de uma 
+Filial específica
+ (sendo necessário informar a mesma no campo 
+Filial
+ e apresentando neste caso as contas restritas a empresa também) ou para um determinado 
+grupo de filiais
+ (sendo nesse caso necessário informar o mesmo no campo 
+Grupo de Filiais
+ e apresentando as contas restritas ao grupo empresa também) ou até mesmo para 
+todas as filiais
+.
+
+
+Também é possível selecionar as contas de banco para aparecer ou não no relatório, bastando para isto, marcar a opção 
+Participa do Fluxo de Caixa
+ na 
+Manutenção do Plano de Contas
+.
+
+
+
+
+Período Vencimento Contas a Pagar e Receber:
+ Informe a data inicial e final, para efeito de cálculo do 
+Saldo atual
+ de cada conta.
+
+
+
+
+
+
+Resumido ? (não mostra os lançamentos):
+ Marque essa opção sempre que a finalidade a qual destina-se o relatório não necessite da presença dos lançamentos do Contas a Receber ou Contas a Pagar vinculado ao plano de conta, mas somente o total por dia.
+
+
+
+
+
+
+Despreza Movto. Financ. (a Receber):
+ Marque essa opção sempre que houver a necessidade desconsiderar no saldo da(s) conta(s) um movimento a Receber com data de emissão em uma data específica, fazendo-se necessário informar-se uma data e o tipo do movimento, o qual é dividido para pesquisa em 3 categorias (Qualquer Movto, Somente gerado p/ NF e Somente inclusão manual).
+
+
+
+
+
+
+Despreza Movto. Financ. (a Pagar):
+ Marque essa opção sempre que houver a necessidade desconsiderar no saldo da(s) conta(s) um movimento a Pagar com data de emissão em uma data específica, fazendo-se necessário informar-se uma data e o tipo do movimento, o qual é dividido para pesquisa em 3 categorias (Qualquer Movto, Somente gerado p/ NF e Somente inclusão manual).
+
+
+
+
+
+
+Inclui movimento de baixas com data de fluxo posterior a data atual nos detalhes:
+ Marque essa opção caso faça-se necessária à impressão das baixas posteriores a data final informada no campo 
+Período Vencimento Contas a Pagar e Receber
+.
+
+
+
+
+
+
+Usar float do tipo de cobrança no contas a receber:
+ Com esta opção marcada, os lançamentos de contas a receber passarão a ter a data de vencimento acrescida com o número de dias configurado para o Float de recebimento no tipo de cobrança (
+Tabela Tipos de Cobrança
+), e ainda poderá ser postergada para que caia sempre em dia útil. Se a opção estiver desmarcada, respeitará a data de vencimento do título de conta a receber, sem aplicar float e sem postergar para dia útil.
+
+
+
+
+
+
+Nos 
+Filtros Adicionais
+ temos algumas possibilidades de filtragem quanto às contas que serão apresentadas:
+	
+
+
+Participação Fechamento Financeiro:
+ Filtra as contas conforme o campo 
+Participa fechamento financeiro
+ estiver definido no Plano de Conta.
+		
+
+
+Somente as que participam:
+ Serão apresentadas apenas as contas que venham a estar com o campo 
+Participa fechamento financeiro
+ no Plano de Contas (Gerencial) 
+marcado
+.
+
+
+Somente as que não participam:
+ Serão apresentadas apenas as contas que venham a estar com o campo 
+Participa fechamento financeiro
+ no Plano de Contas (Gerencial) 
+desmarcado
+.
+
+
+Todas as contas do tipo Banco:
+ Não realiza nenhuma das duas filtragens acima
+.
+
+
+
+
+
+
+Conciliação Bancária:
+ Filtra as contas conforme o campo 
+Não requer conciliação (cofres,etc)
+ estiver definido no Plano de Conta.  
+		
+
+
+Somente as que requerem conciliação:
+ Serão apresentadas apenas as contas que venham a estar com o campo 
+Não requer conciliação (cofres,etc)
+ no Plano de Contas (Gerencial) 
+desmarcado
+.
+
+
+Somente as que não requerem conciliação (cofres):
+ Serão apresentadas apenas as contas que venham a estar com o campo 
+Não requer conciliação (cofres,etc)
+ no Plano de Contas (Gerencial) 
+marcado
+.
+
+
+Todas as contas do tipo Banco:
+ Não realiza nenhuma das duas filtragens acima
+.
+
+
+
+
+
+
+Apresentação de contas bancárias:
+ Opção útil quando se escolhe uma determinada filial ou um grupo de filiais, pois é possível escolher entre:
+		
+
+
+Mostra só as contas do grupo de filiais ou da filial escolhida:
+ Mesmo se houver alguma conta restrita a uma empresa A, mas que, antes da restrição ou por algum erro, tenha movimentação da empresa B, esta conta não seria apresentada no relatório da empresa B (afinal ela é da empresa A!)
+.
+
+
+Mostra todas as contas:
+ Independente do perfil de restrição de conta por empresa ou grupo de empresas a conta sempre será apresentada se tiver movimentação na filial ou grupo de filiais escolhido
+.
+
+
+
+
+
+
+Filtra Contas Inativas:
+ Não apresenta no relatório as Contas desativadas no Plano de Conta.
+
+
+Mostra conta com saldo zerado?:
+ Esta opção é útil, pois há empresas que não se interessam em ver contas que não tenham saldo. Já outras empresas podem querer ver todas as suas contas, identificando inclusive as contas sem saldo.
+
+
+
+
+
+
+
+
+Não serão apresentados neste relatório os títulos do Contas a Receber cujo 
+Tipo de Cobrança
+ esteja configurado para não 
+considerar no fluxo de caixa
+.

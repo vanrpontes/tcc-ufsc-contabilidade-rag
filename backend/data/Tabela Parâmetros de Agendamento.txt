@@ -1,0 +1,81 @@
+TITULO: Tabela Parâmetros de Agendamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936703112
+--------------------------------------------------
+Objetivo
+Essa tabela é fundamental para o 
+Agendamento de Carregamentos e Descargas na Base
+, pois armazena as configurações gerais necessárias para o agendamento. Depois de preenchida, ela deve ser vinculada ao 
+Depósitos - Aba Agendamento
+.
+O acesso é feito através do menu 
+Tabelas Auxiliares / Estoque / Parâmetros de Agendamento
+Descrição: 
+identificação útil para escolha desses Parâmetros no Depósito.
+Ativo: 
+permite Ativar ou Inativar o Parâmetro de Agendamento Cadastrado.
+Permite agendamento manual?: 
+através dessa configuração definiremos se o usuário, no momento da 
+Inclusão de Ordem de Carregamento
+, poderá escolher um horário de agendamento (sempre para a Data da OC e se estiver disponível). Esse horário escolhido não será garantido (devido inclusões simultâneas, alterações de dados da OC, etc), mas servirá como parâmetro de horário inicial para o agendamento. 
+Permite visualizar agendamento na Fila?: 
+quando esse perfil está desmarcado, na 
+Consulta Fila Entrada Base
+ do SisPetroWeb e SisPetroApp, não será possível visualizar o horário de agendamento da OC.
+Esse recurso é util na fase de implantação do agendamento em que os horários estão sendo testados e ajustados. Recomendamos deixar esse perfil 
+Desmarcado 
+até a finalização da validação de agendamento.
+Permite agendamento dia posterior? 
+e 
+#Dias Permitidos:
+ há bases que só permitem o Agendamento para o dia atual. Nesse caso esse perfil deverá estar desmarcado. Quando a Base permite o agendamento para dias posteriores, deve-se então marcar esse perfil e indicar o número de Dias Permitidos. Caso informe 1, permitirá agendamento para o dia atual e para 1 dia seguinte, e assim por diante.
+Na 
+inclusão de Ordem de Carregamento
+ só é permitido o agendamento para a Data da OC. Digamos que o usuário esteja incluindo uma OC para o dia de Amanhã. Só será possível escolher horário e/ou ter o agendamento concretizado se esse perfil 
+Permite Agendamento dia posterior? 
+estiver marcado. Todos os casos de OC que não forem agendadas durante a inclusão serão avaliados pelo 
+Serviço de Agendamento de OC
+, 
+que também considerará esse perfil para providenciar os agendamentos
+Antecipação de Agendamentos: 
+permite definir quando será possível utilizar a antecipação no agendamento. 
+Não permite antecipação quando ocorre o cancelamento de agendamento
+Permite antecipação quando ocorre um cancelamento de agendamento (padrão)
+Horários de início e fim
+Dias de Semana: 
+o horário que a Base funciona em dias de semana (segunda à sexta-feira)
+Sábado e Domingo: 
+poderá ser indicado um horário diferenciado para o Sábado e para o Domingo
+Feriados Municipal, Estadual e Federal
+: esses feriados dependerão do que for cadastrado na 
+Tabela Feriados
+ para a Cidade e UF do Depósito. Prevalecerá, no caso de ter mais que um feriado no dia, o horário do feriado Federal, depois o Estadual e por fim o Municipal.
+Esses horários são o de funcionamento normal. Para o caso de extensão de horário poderão ser cadastradas as 
+Operações Especiais 
+no Depósito, no caso de interrupções, o cadastro é feito por Baia, como 
+Inatividade. 
+Tolerância após Horário Final (minutos): 
+apesar de ser cadastrado um horário de início e fim para o funcionamento da Base, em alguns casos pode ser necessário alguns minutos a mais para concluir um agendamento e descarga. Sendo assim, pode ser cadastrada uma tolerância, a qual será considerada para o último horário de agendamento.
+Permite agendar carregamento?: 
+indica se o agendamento abrangerá Carregamentos (OC dos tipos: Carregamento Próprio, Carregamento de Terceiros e Vendas). 
+Permite agendar descarga?: 
+indica se o agendamento abrangerá Descargas (OC dos tipos: Descarga Própria, Descarga de Terceiros e Transferência entre Depósitos)
+Para o processo de agendamento trabalhará em conjunto com as permissões da 
+Tabela de Baias
+, já que nas Baias também será indicado se permite agendamento e descarga.
+Ou seja, uma Base poderá permitir agendamento de Carregamento e Descarga (então aqui estarão os dois campos marcados), mas ter uma Baia que só faça o Carregamento e outra que só faça a Descarga.
+Intervalo entre agendamentos (minutos): 
+são as janelas de agendamento. Ou seja, o intervalo mínimo para apresentar horários de agendamento para o usuário. O padrão sugerido pelo SisPetro é de 30 minutos. Nessa configuração os horários (janelas) serão a cada meia hora a partir do horário de início de funcionamento, conforme definido pelo usuário.
+Numa base onde o horário é das 8:00 às 19:00 e o intervalo a cada 30 minutos, teremos janelas às 8:00, 8:30, 9:00, 9:30 e assim por diante.
+Se surgir um Carregamento que demore 45 minutos e seja agendado às 9:00, o próximo horário disponível para agendamento 
+será às 9:46
+, porém continuará aparecendo o restante dos horários disponíveis conforme configurado anteriormente, mais o novo horário, podendo ser selecionado 09:46 ou 10:00.
+Ação NoShow: 
+antes do motorista pegar fila, quando ele não se apresentar dentro do prazo, qual será a ação que o SisPetro irá tomar (NoShow):  
+Não fazer nada: 
+não será executada nenhuma ação.
+Cancela agendamento: 
+caso ausência do motorista será cancelado o agendamento.
+Cancela OC: 
+caso ausência do motorista será cancelada a OC.
+Considera NoShow após:
+ configurar quantos minutos após chamado será considerado NoShow (ausência) do motorista.

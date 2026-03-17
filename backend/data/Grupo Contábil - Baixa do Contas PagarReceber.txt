@@ -1,0 +1,136 @@
+TITULO: Grupo Contábil - Baixa do Contas Pagar/Receber
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4213473281
+--------------------------------------------------
+Cabeçalho do lote
+Fórmula para Data:
+ Baixa.DtBaixa
+Fórmula para Código Histórico:
+ Baixa.CodHistorico
+Fórmula para Histórico:
+ Baixa.Observação
+Fórmula para Numero Docto:
+ Baixa.NumBaixa
+Fórmula para Informações Adicionais:
+ Baixa.InfoAdic
+BAIXA CONTAS A PAGAR
+Operação
+Conta
+Campo da Conta
+Valor
+Campo de Valor
+Débito
+Fornecedor
+ItensBaixa.CCEntidade, ItensBaixa.CodEnt
+Movimentado-Acréscimo+Desconto-CréditoGerado
+(ItensBaixa.ValorMovimento - ItensBaixa.ValorAcrescimo + ItensBaixa.ValorDesc + ItensBaixa.valCreditoGerado)
+Débito
+Acréscimo
+ItensBaixa.CCAcrescimo
+Acréscimo
+ItensBaixa.ValorAcrescimo
+Débito
+Adiantamento**
+/Fornecedor
+ContaAdiantamento(ContasPagarReceber.Comprador)
+Crédito Gerado
+ItensBaixa.ValCreditoGerado
+Débito**
+Cliente
+ItensBaixa.CCEntidade, ItensBaixa.CodEnt
+Crédito Utilizado
+ItensBaixa.ValCredito
+Crédito
+Baixa
+ItensBaixa.CCBaixa
+Movimentado
+ItensBaixa.ValorMovimento
+Crédito
+Desconto
+ItensBaixa.CCDesconto
+Desconto
+ItensBaixa.ValorDesc
+Crédito**
+Adiantamento
+ContaAdiantamento(ContasPagarReceber.Comprador)
+Crédito Utilizado
+ItensBaixa.ValCredito
+**Transação só será feita se a contabilização de adiantamento for por conta diferenciada.
+Obs.:
+ nos campos da Conta colocar o conteúdo dentro da função ContaReal(), desde que a conta contábil informada seja gerencial. A conta contábil é gerencial quando informa a tabela e o campo conforme exemplos.
+Exemplos:
+ ContaReal(ItensBaixa.CCEntidade), ContaReal(ContaAdiantamento(ContasPagarReceber.Comprador)).
+BAIXA CONTAS A RECEBER
+Operação
+Conta
+Campo da Conta
+Valor
+Campo de Valor
+Débito
+Baixa
+ItensBaixa.CCBaixa
+Movimentado
+ItensBaixa.ValorMovimento
+Débito
+Desconto
+ItensBaixa.CCDesconto
+Desconto
+ItensBaixa.ValorDesc
+Débito**
+Adiantamento
+ContaAdiantamento(GetEntidadeAdto(ItensBaixa.CodEmpresa, ItensBaixa.SeqCredito, GetTipoCodEnt())**
+Crédito Utilizado
+ItensBaixa.ValCredito
+Crédito
+Cliente
+ItensBaixa.CCEntidade, If GetTipoCodEnt() = 1 then ItensBaixa.CodEnt else ContasPagarReceber.Comprador endif
+Movimentado-Acréscimo+Desconto-CréditoGerado
+(ItensBaixa.ValorMovimento - ItensBaixa.ValorAcrescimo + ItensBaixa.ValorDesc + ItensBaixa.valCreditoGerado)
+Crédito
+Acréscimo
+ItensBaixa.CCAcrescimo
+Acréscimo
+ItensBaixa.ValorAcrescimo
+Crédito
+Adiantamento/Cliente
+ContaAdiantamento(If GetTipoCodEnt() = 1 then ItensBaixa.CodEnt else ContasPagarReceber.Comprador endif)
+Crédito Gerado
+ItensBaixa.ValCreditoGerado
+Crédito**
+Cliente
+ItensBaixa.CCEntidade, If GetTipoCodEnt() = 1 then ItensBaixa.CodEnt else ContasPagarReceber.Comprador endif
+Crédito Utilizado
+ItensBaixa.ValCredito
+**Transação só será feita se a contabilização de adiantamento for por conta diferenciada.
+Na versão 9.21, foram adicionadas 2 novas funções em razão da implementação da utilização de adiantamento de comprador para entidade faturada. 
+Para mais informações, ver
+ 
+Utilização de Adiantamentos de Compradores para Entidades Faturadas
+:
+GetTipoCodEnt: 
+esta função verifica se é Comprador ou Entidade Faturada.  
+Uso:
+ CodTipoCodEnt() = 1 ou 2, onde 1 é Entidade Faturada e 2 é Comprador.
+GetEntidadeAdto:
+ esta função verifica o crédito a ser utilizado do Comprador ou da Entidade Faturada. Usado em conjunto com a função GetTipoCodEnt. 
+Uso:
+ (GetEntidadeAdto(CodEmpresa,SeqCredito,GetTipoCodEnt()), onde CodEmpresa e SeqCredito são da tabela ItensBaixa e a função GetTipoCodEnt usa o Tipo (Comprador ou Entidade Faturada) definido no adiantamento.
+ Obs.:
+ nos campos da Conta colocar o conteúdo dentro da função ContaReal(), desde que a conta contábil informada seja gerencial. A conta contábil é gerencial quando informa a tabela e o campo conforme exemplos.
+Exemplos:
+ ContaReal(ItensBaixa.CCEntidade, If GetTipoCodEnt() = 1 then ItensBaixa.CodEnt else ContasPagarReceber.Comprador endif), ContaReal(ContaAdiantamento(GetEntidadeAdto(ItensBaixa.CodEmpresa, ItensBaixa.SeqCredito, GetTipoCodEnt())).
+Observar que, no Código de Contabilização no SisPetro, os exemplos ficam com os códigos numéricos dos campos:
+ 
+ContaReal(<1089>, If GetTipoCodEnt() = 1 then <1086> else <998> endif)
+ContaReal(ContaAdiantamento(GetEntidadeAdto(<1077>, <1087>, GetTipoCodEnt()))) 
+>>> atentar para a quantidade de parênteses utilizados.
+Nota: os códigos numéricos dos campos PODEM SER DIFERENTES dependendo do banco de dados do cliente
+ATENÇÃO:
+ caso a empresa esteja configurada para processar despesas de cobrança na baixa, deve alterar a fórmula e considerar o campo valor outros descontos (OutrosDescontos_Valor), conforme apresentado na tabela acima: na conta de desconto deve subtrair o valor do desconto com o valor de outros descontos (despesas de cobrança) e acrescentar mais uma conta de débito para despesas de cobrança para contabilizar esse valor de outros descontos. Essas despesas de cobrança são as tarifas bancárias, em que os bancos cobram uma taxa em cada título da cobrança eletrônica.
+A baixa de despesas de cobrança será feita da seguinte maneira: o SisPetro irá identificar as despesas (atualmente listadas no campo CustasCartorio do arquivo de cobrança) e este valor será descontado do valor movimentado do banco (como se fosse um desconto, porém contabilizado na conta de despesas de cobrança). O SisPetro irá movimentar na conta de banco, o valor líquido conforme o exemplo abaixo:
+Valor do Título: 1.000,00
+Valor Pago: 1.000,00
+Despesas Cobranca: 50,00
+Contabilização:
+(C) Conta Cliente: 1.000,00
+(D) Conta Banco: 950,00
+(D) Despesas Bancarias: 50,00

@@ -1,0 +1,56 @@
+TITULO: Configurando Frotas próprios e não próprios
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921071734
+--------------------------------------------------
+Na versão 8.11 houve algumas mudanças no cadastro de frotas.
+Campo Tara e Capacidade M3, 
+Tabela Manutenção de Frota
+TNRTC da transportadora, 
+Possíveis maneiras de configurar o RNTRC
+E agora iremos falar sobre a configuração dos frotas próprios e não.
+Tem sido cada vez mais comum ter vários grupos de empresas cadastradas no Sispetro, a partir daí um frota pode ser próprio considerando uma empresa, mas não próprio considerando outra. Assim o objetivo desta implementação é a configuração de um frota próprio.
+Os lugares que precisarão ser configurados são:
+Configuração de Sistema, "
+Utiliza indicação de frota próprio por empresa" 
+Configuração de Usuário, "
+Pode indicar Frota Próprio por Empresa"
+Painel Fretes (Usuários)
+Caso Perfil de Sistema esteja 
+desmarcado
+ o frota funcionará da seguinte forma:
+O campo "Próprio" ficará habilitado e o botão "Frotas Próprios por Empresa" também habilitado, assim é possível antes de colocar todo o sistema para funcionar com frotas próprios, o usuário pode indicar as empresas que trabalharão com frotas próprios. Clicado no botão, abrirá a seguinte tela:
+Onde é possível marcar quais empresas, o frota em questão, é próprio.
+Com o perfil de sistema ("Utiliza indicação de frota próprio por empresa") 
+marcado
+, o frota funcionará da seguinte forma:
+Assim, caso este frota, 
+em alguma empresa
+ esteja marcado como "Próprio" o SisPetro desabilitará e marcará o campo como "Próprio". Clicando no botão "Frotas Próprios por Empresa" é possível identificar em quais empresas o frota é próprio e, se desejar, marcá-lo ou desmarcá-lo como próprio. 
+Esta combinação de perfil, interferem as seguintes telas:
+Controle de Vencimentos: 
+Caso o campo 
+"Somente Próprio"
+ esteja marcado então: 
+Se perfil de sistema "Utiliza indicação de frota próprio por empresa" estiver 
+desmarcado
+, serão todos os frotas cujo campo Frota Próprio esteja marcado
+Se perfil de sistema "Utiliza indicação de frota próprio por empresa" estiver 
+marcado
+, serão todos os frotas que tenha ao menos uma empresa com o campo Frota Próprio marcado
+Manutenção de Fretes:
+Ao verificar se o frota é próprio, 
+no filtro da tela:
+Se perfil de sistema "Utiliza indicação de frota próprio por empresa" estiver desmarcado, considerar próprio todos os frotas cujo campo Frota Próprio esteja marcado (como era até a versão 8.10)
+Se perfil de sistema "Utiliza indicação de frota próprio por empresa" estiver marcado, considerar próprio todos os frotas que para a empresa conectada o campo Frota Próprio esteja marcado
+Manutenção de Viagens:
+Ao verificar se o frota é próprio para
+ permitir ou não 
+Fechamento 
+da Viagem:
+Se perfil de sistema "Utiliza indicação de frota próprio por empresa" estiver desmarcado, considerar próprio todos os frotas cujo campo Frota Próprio esteja marcado (como era até a versão 8.10)
+Se perfil de sistema "Utiliza indicação de frota próprio por empresa" estiver marcado, considerar próprio todos os frotas que para a empresa da viagem posicionada o campo Frota Próprio esteja marcado
+Relatório de Receitas/Despesas do Frota:
+Caso o perfil da tela 
+"Somente frotas próprios"
+ esteja marcado:
+Se perfil de sistema "Utiliza indicação de frota próprio por empresa" estiver desmarcado, considerar próprio todos os frotas cujo campo Frota Próprio esteja marcado (como era até a versão 8.10)
+Se perfil de sistema "Utiliza indicação de frota próprio por empresa" estiver marcado

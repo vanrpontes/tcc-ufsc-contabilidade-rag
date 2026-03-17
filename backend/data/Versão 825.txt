@@ -1,0 +1,109 @@
+TITULO: Versão 8.25
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924283144
+--------------------------------------------------
+Dados
+Informações
+Início
+30/05/2015
+Final
+30/06/2015
+Scripts
+CMD825.sql (3741 a 3767)
+Itens
+16
+Implementações
+8
+Correções
+8
+DLLs
+SisPetroControl.Dll
+ 
+ 
+Avisos importantes
+Limpeza de Dados Históricos: C
+aso a empresa não queira fazer o procedimento, será necessário desativar o evento via tela de configuração de Limpeza de Dados no menu Ferramentas. 
+Por padrão a limpeza de dados está ativada todo dia 01 do mês, as 02:00 horas.
+ Verifique se este dia/ horário estão de acordo ou configure em um melhor dia/ hora.
+Geral
+Limpeza de Dados Históricos
+Foi implementado evento e agendamento para a limpeza de dados, como registro de Logs, registros de processamento de NF-e/CT-e, Análises de aprovação de Pedidos, logs de alterações de perfis e saldo de produtos. 
+Esta funcionalidade visa melhorar a performance do banco de dados apagando registros com pouca relevância. 
+Por padrão está ativa e caso a empresa deseje o contrário, será necessário alterar sua configuração na tela de Limpeza de Dados.
+ 
+Help:
+ 
+ e 
+ PRFC (CCF 27157)
+Configuração de Empresas
+A tela de configuração de empresa foi alterada para melhorar a organização das abas e agora será possível informar telefone e e-mail do signatário do ECD, bem como a Forma de Apuração e Tributação do Lucro da Empresa. PRFC (CCF 26484)
+Compras
+Transferência parcial de Adiantamento à Fornecedores
+A transferência de Adiantamento a Fornecedores foi alterada para permitir a transferencial parcial para Contas Contábeis e a Consulta de Posição de PMM irá exibir corretamente esta movimentação na aba "Extrato Financeiro".  PRFC (CCF 28121)
+Estoque
+Alteração de Data de Movimento pelo Fechamento de Estoque
+A alteração de data de movimento na tela de Fechamento de Estoque foi modificada para permitir que 
+a alteração da data da Ordem de Carregamento vinculada e da Nota Fiscal quando a movimentação for gerada por um produto composto
+.
+ PRFC (CCF 25061) 
+Filtro do Tanque na Manutenção de Tanques
+Na alteração de vínculo dos Tanques Virtuais, não estava sendo considerado o Depósito e o Produto posicionado. Após correção, tanto na inclusão quando na alteração o filtro será feito corretamente.
+ PRFC (CCF 28247) 
+Filtro do Tanque no Ajuste de Estoque 
+Físico
+O filtro de Tanques na tela acionada via botão "Ajuste Físico" no Fechamento de Estoque Físico (Depósito ou Produto) não estava acatando o Deposito e Produto do mesmo. Após correção somente serão aceitos/listados tanques compatíveis com o registro posicionado
+. PRFC (CCF 27950) 
+Confirmação de OC sem PMM
+Corrigido o problema quando o perfil de sistema "Exige a data da confirmação carregto nas Ocs de transferências" estava marcado, ocorria o travamento ao tentar confirmar uma OC de Transferência entre depósitos que não estivesse vinculada a PMM.
+ GSN (CCF 28283) 
+Erro no fechamento da Manutenção de Carregamento / Descarga
+Corrigida a mensagem de erro indevida ao sair da tela, quando o perfil "Mostrar a movimentação dos tanques Reais Vinculados quando houver" estava marcado e havia carregamento/ descarga feitos em tanque Virtual.
+ PRFC (CCF 28261) 
+Faturamento
+Natureza de Operação Pelos Itens do Pedido em venda direta
+A venda direta utilizava a natureza de operação fixa no cadastro de empresa. Foi realizada a alteração para esse processo ser mais flexível, utilizando a natureza de operação configurada por produto. 
+Help:
+ 
+, 
+Natureza de Operação
+ e 
+ CPC (CCF 28240)
+Natureza de operação por produto e atividade
+Na versão 8.24 foi iniciado a implementação da natureza de operação por produto e atividade, porém, para o Controle de Vendas para Entrega Futura tivemos que alterar a ordem das opções possíveis no Tipo de Operação e por isso, foi necessário uma revisão em toda a implementação já realizada. CPC (CCF 28240)
+Eventos da Manifestação
+A sincronização de Notas Fiscais foi alterada para ler e salvar todos os tipos de eventos vinculados a Nota. 
+Isso poderá facilitar e também agilizar o processo de consulta, pois agora é possível consultar a manifestação que terceiros fizeram sobre as notas da empresa
+. PRFC 
+Help: 
+Sincroniza Informações com a Sefaz
+ (CCF 28262)
+Valor de complemento de ST no Faturamento 
+Automático
+Quando a Nota Fiscal era faturada via Faturamento Automático e tinha Complemento de ICMS, esse valor não era salvo, permanecendo sempre zerado, o que foi corrigido
+.
+ PRFC (CCF 28355)
+Vendas
+ 
+Mensagem de Erro no Faturamento 
+Automático
+Quando algum pedido tinha algum erro de preenchimento de dados, no processo de Faturamento Automático, o SisPetro apresentava mensagem de difícil compreensão. Esses casos foram tratados para  se enquadrarem no padrão de mensagem de erro, avisando também ao usuário que a nota não foi salva.
+ PRFC (CCF 28226) 
+Venda de Entrega Futura
+Nessa versão, criamos o controle para Venda de Entrega Futura. Para tal controle foram criados dois novos tipos de Pedido de Vendas, VEF (Venda de Entrega Futura) e REF (Remessa de Entrega Futura). 
+O controle facilitará o processo das empresas que utilizam a Venda de Entrega Futura, pois até essa versão o processo não era automático e poderia haver falhas
+. 
+Help:
+ 
+Inclusão de pedidos VEF e REF
+ e 
+ 
+CPC (CCF 26017)
+ 
+Consulta Geral de Vendas
+A tela de Consulta Geral de Venda foi alterada para exibir o campo "Tipo do Cliente". O cálculo dos campos de Margens, Preços e Seguro foi corrigido para que notas de Devolução sejam apresentadas corretamente. 
+Help:
+ 
+ 
+PRFC (CCF 28313, CCF 27992)
+Quantidade Pendente do Contrato de Venda
+Corrigido o processo de atualização da quantidade pendente do contrato de venda que não estava retornando a quantidade para o contrato quando o mesmo era trocado ou desvinculado. 
+PRFC (CCF 26771)

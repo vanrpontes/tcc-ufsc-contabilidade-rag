@@ -1,0 +1,78 @@
+TITULO: Aprovação Financeira
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440079
+--------------------------------------------------
+Baseado nas explicações sobre como funciona a Aprovação de Pedidos no Sispetro presentes no tópico 
+Aprovação Automática do Pedido de Venda
+, nessa página trataremos um pouco mais detalhadamente sobre as regras de negócio referentes a aprovação do módulo Financeiro.
+O Sistema analisará item a item nessa ordem:
+Pedido Cancelado
+Liberação do Financeiro
+Contrato de Venda
+Não Aprovar Agora
+Aprovação Automática
+Usuário Libera Financeiro
+Usuário Aprova Financeiro
+Entidade com Pendências
+Saldo Entidade >= R$ 0,00
+Tipo de Cobrança Exige Aprovação Manual
+Renegociação Pendente
+Detalhamento das condições
+Pedido Cancelado:
+ Caso o pedido esteja cancelado não será possível realizar a Análise de Aprovação. Todas as outras etapas abaixo serão ignoradas.
+Liberação do Financeiro:
+ Verifica se o Pedido ja foi Liberado (Aprovado) no módulo Financeiro, caso a resposta seja SIM, todo o restante do processo será ignorado.
+Contrato de Venda:
+ Verifica se o cliente possui algum contrato de venda ativo e se o mesmo foi utilizado no pedido, caso SIM, o módulo Financeiro do pedido será aprovado automaticamente e o restante do processo será ignorado.
+Não Aprovar Agora:
+ Caso a opção 
+Aguardar para aprovar
+ seja marcada durante a inclusão do pedido de venda, o mesmo não será aprovado automaticamente até que essa opção seja desmarcada na manutenção de Pedidos, todo o restante do processo será ignorado.
+Aprovação Automática
+: Caso no cadastro do cliente esteja selecionado a opção Aprovar Automaticamente, o pedido será aprovado automaticamente.
+Usuário Libera Financeiro:
+ Caso o perfil de usuário na aba Financeiro, 
+Libera Pedidos de Venda (crédito)
+ esteja marcado, todos os pedidos feitos por esse usuário serão aprovados automaticamente no módulo Financeiro, todo o restante do processo será ignorado.
+Usuário Aprova Financeiro:
+ Será analisado o perfil de usuário na aba Vendas, 
+Pedido Aprovação Financeiro
+, nesse perfil temos 3 opções:
+Nunca:
+ Todos os pedidos realizados por esse usuário 
+NUNCA
+ solicitarão aprovação, ou seja, serão aprovados automaticamente no módulo Financeiro, todo o restante do processo será ignorado.
+Quando crédito exceder limite cliente:
+ Essa opção significa que o pedido sofrerá o processo de validação das regras de negócio dos passos abaixo, seguirá o fluxo de aprovação para a próxima etapa.
+Sempre:
+ Todos os pedidos realizados por esse usuário 
+SEMPRE
+ solicitarão aprovação, ou seja, não serão aprovados automaticamente no módulo Financeiro, todo o restante do processo será ignorado.
+Entidade com Pendências:
+ Será analisado o perfil de Empresa aba Vendas, 
+Aprova financeiro mesmo com débitos atrasados do cliente
+, caso essa opção esteja 
+DESMARCADA
+, será analisado se o cliente possui pendências financeiras em atraso, como por exemplo, títulos do contas a receber vencidos, nesse caso a condição não será aprovada. Caso a opção esteja 
+MARCADA
+, não será analisado as pendências e a condição sempre será aprovada. O módulo Financeiro não poderá mais ser aprovado porém o fluxo seguirá e as próximas validações serão realizadas.
+Saldo Entidade >= R$ 0,00:
+ Será analisado o Limite de crédito do cliente e o saldo deverá ser maior ou igual a zero. Será verificado o perfil de Empresa aba Financeiro, 
+Verificação de Limite de Crédito em relação ao pedido
+, na seguinte situação:
+Pedidos com liberação financeira e não faturados:
+ Nesse caso, para compor o saldo da entidade, será considerado somente o valor dos pedidos aprovados, sendo que o valor do pedido em análise não estará considerado no saldo.
+Pedidos não faturados:
+ Nessa opção todos os pedidos irão compor o saldo da entidade, inclusive os não aprovados. Para mais informações, ver 
+Informações do Grupo Econômico
+Tipo de Cobrança Exige Aprovação Manual
+: Será analisado o tipo de cobrança usado no pedido, caso a opção 
+Exige aprovação pedido de venda
+ esteja marcada no Tipo de Cobrança, o pedido nessa condição não será aprovada. Fim do fluxo.
+Renegociação Pendente: 
+Verifica se existe títulos renegociados pendentes, caso o perfil 
+Títulos renegociados Pendente
+ esteja selecionado a opção 
+Não aprova pedido caso tenha
+.
+Fluxo de Aprovação
+Vale a pena ressaltar que o fluxo abaixo refere-se apenas ao módulo Financeiro, sendo que, quando é mencionado Pedido Aprovado, entenda que o módulo Financeiro foi aprovado. Para que o pedido seja aprovado como um todo, todos os outros módulos devem ser aprovados.

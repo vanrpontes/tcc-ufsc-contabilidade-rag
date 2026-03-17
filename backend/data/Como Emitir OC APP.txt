@@ -1,0 +1,147 @@
+TITULO: Como Emitir OC APP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4112449537
+--------------------------------------------------
+2
+1
+false
+square
+list
+true
+Objetivo
+ 
+O processo de "Emitir Nova OC" permite ao 
+motorista
+ criar uma Ordem de Carregamento a partir de pedidos de venda aprovados, com data de entrega no dia corrente e compatíveis com seus dados de motorista/frota.
+O motorista deve 
+selecionar os pedidos
+ (respeitando a capacidade da frota) e, em seguida, o fluxo varia de acordo com o 
+Tipo de Distribuição
+ configurado:
+Padrão (Sem distribuir compartimentos antes lacres):
+ Informa-se lacres e envelopes 
+antes
+ da distribuição automática/manual dos compartimentos.
+Distribui compartimentos antes de mostrar lacres:
+ O sistema faz a distribuição, e o motorista informa lacres/envelopes apenas para os compartimentos 
+utilizados
+.
+Distribui e mostra compartimentos antes de lacres:
+ O motorista pode 
+ajustar a distribuição sugerida
+ antes de informar os lacres e envelopes.
+Após o preenchimento, uma 
+tela de resumo
+ permite ajustes manuais (arrastar cargas, lacres e envelopes) antes de 
+Emitir a OC
+. O sistema também pode ser configurado para usar uma 
+série de lacres/envelopes automática
+ reservada, e permite a 
+impressão imediata
+ da OC e do Boletim após a exportação automática para a armazenadora.
+Emitir Nova OC
+O motorista irá executar a inclusão de uma nova ordem de carregamento a partir de pedidos de venda já aprovados cuja data de entrega seja o
+ dia corrente
+ e cujos dados de motorista e frota sejam iguais aos seus dados autenticados.
+O usuário administrador que liberou acesso ao motorista deve ter acesso a incluir Ordem de Carregamento. Para mais informações, ver 
+Perfis de Acesso aos menus do SispetroApp
+Na tela acima, o usuário deverá escolher clicando ao lado de cada item de pedido os itens que deverá carregar.
+Não é permitido escolher pedidos cuja quantidade ultrapasse a capacidade dos frotas envolvidos
+A partir deste ponto, o AutoAtendimento poderá ser utilizado de 
+03 formas distintas
+, de acordo com a configuração realizada no SispetroMon / 
+Definição Perfil Cliente
+ / campo: 
+Tipo Distribuição Cpts Auto Atendimento. 
+As configurações são:   
+1 - Sem distribuir compartimentos antes lacres
+2 - Distribui compartimentos antes de mostrar lacres
+3 - Distribui compartimentos e os mostra antes de mostrar lacres
+Utilizando a opção 1
+ - 
+Sem distribuir compartimentos antes lacres
+Padrão atual. Os lacres e envelopes são informados antes da distribuição dos compartimentos (AutoAtendimento leva em consideração o número total de compartimentos dos frotas informados):
+Ele deverá informar todos os lacres que precisará.
+A quantidade de lacres é definida pela multiplicação da quantidade de compartimentos dos frotas e da quantidade de lacres de cada frota conforme seu cadastro.
+O usuário deverá informar os números dos envelopes (um para cada compartimento).
+Esta tela mostra um resumo da Ordem de Carregamento antes dela ser incluída. Nela, observamos 3 partes:
+Lacres e Envelopes Não utilizados (parte superior): 
+aqui são mostrados todos os lacres e envelopes que eventualmente ainda não tenham sido utilizados em algum compartimento. Isso pode ocorrer pois o usuário digitou mais lacres ou envelopes do que deveria ou retornou alguma carga para a parte de resumo de pedidos (descompartimentando a carga, seus lacres e envelopes).
+Lacres ou Envelopes não utilizados são motivo de rejeição na inclusão de uma OC pois todos os lacres e envelopes digitados devem ser utilizados nos compartimentos.
+Resumo Pedidos (parte central):
+ aqui é mostrado um resumo dos pedidos (organizado por cliente/produto) mostrando a quantidade total selecionada anteriormente e a quantidade já alocada nos compartimentos. Caso se deseje redistribuir manualmente os pedidos nos compartimentos, basta arrastar as cargas distribuídas para esta parte da tela e redistribui-la manualmente.
+Pedidos não compartimentados são motivo de rejeição na inclusão de uma OC pois todos eles devem ser distribuídos nos compartimentos.
+Placas (parte inferior): mostra os compartimentos de forma resumida. Caso seja necessário redistribuir as cargas ou mover lacres e/ou envelopes de compartimento ou mesmo visualizar os compartimentos de forma detalhada, basta clicar na seta no canto superior direito de uma placa
+Com esta ação, é mostrado um detalhamento por compartimento sendo exibidos seus lacres, envelopes e nome do cliente.
+Ações Auxiliares do Usuário
+Tela detalhada
+Trocar lacres de compartimento:
+ basta arrastar o lacre origem (que se deseja mover) soltando-o em cima do lacre destino. Idem para envelopes.
+Mover lacres para um compartimento: 
+basta arrastar o lacre origem soltando-o em cima do compartimento desejado. Idem para envelopes.
+Desalocar lacres/envelopes: 
+caso não deseje mais utilizar determinados lacres ou envelopes, basta voltar à tela anterior (onde estão definidos os lacres e envelopes) limpando o campo do lacre que não se deseja mais utilizar.
+Desalocar/Realocar compartimentação:
+ basta arrastar o conteúdo do compartimento soltando-o na parte de Resumo de Pedidos. Pode-se, em seguida, redistribuir seu conteúdo num outro compartimento arrastando o cliente/produto da parte de Resumo de Pedidos soltando-o em qualquer compartimento vazio.
+Sempre que houver qualquer modificação na compartimentação, a Ordem de Carregamento será considerada como 
+Compartimentação Manual
+. Neste modo, o usuário não poderá alterar os pedidos escolhidos anteriormente sendo permitido alterar lacres, envelopes e compartimentação normalmente. Para escolher outros pedidos, deve-se recomeçar a escolha clicando no botão 
+Retornar ao Início.
+Para alocar uma quantidade em um compartimento que já possui uma quantidade alocada, mesmo que o compartimento possua espaço disponível suficiente, é necessário desalocar a quantidade do compartimento (arrastando para o Resumo de Pedidos) e em seguida alocar (arrastar) o conteúdo do Resumo de Pedidos para o compartimento.
+Note acima que não é mais permitido alterar a seleção de pedidos quando se está em modo de Compartimentação Manual. Caso seja necessário alterar a seleção, deve-se clicar no botão 
+Retornar ao Início
+ (canto inferior direito).
+Não é permitido arrastar uma carga para compartimentos que sejam menores do que a carga distribuída.
+Ao clicar no botão Emitir OC, será executado o procedimento de inclusão da OC dentro do SisPetro. Caso o procedimento seja bem sucedido, será mostrada a tela abaixo com a opção do usuário imprimir a OC recém incluída.
+A tela acima mostra sempre no rodapé a Ordem de Carregamento escolhida ou recém incluída.
+Nela, podemos reimprimir a OC, Faturar a OC (imprimindo os documentos caso o faturamento seja bem sucedido), mostrar o resultado da última tentativa de faturamento, voltar à tela de ação principal (para incluir uma outra OC, por exemplo) ou finalizar o atendimento.
+Para mais informações, ver 
+Como Faturar Nota - APP
+Utilizando a opção 2 - 
+Distribui compartimentos antes de mostrar lacres
+ O AutoAtendimento distribui os pedidos escolhidos nos compartimentos e o usuário informa os lacres após esta distribuição. Repare que ele mostra os compartimentos e o usuário inclui os lacres para cada compartimento. A tela de envelopes segue a mesma regra. No final, aparece a tela de resumo onde ele pode alterar o que quiser. Quando o usuário não vai utilizar todos os compartimentos, este tipo de processamento é vantajoso pois ele terá de colocar somente os lacres e envelopes dos compartimentos realmente utilizados.
+Utilizando a opção 3 (
+Distribui compartimentos e os mostra antes de mostrar lacres
+), o AutoAtendimento mostra a tela de compartimentos (com a distribuição sugerida) antes de mostrar os lacres e envelopes. 
+O usuário tem condição de, antes de informar os lacres e envelopes, alterar os compartimentos para, então, informar os lacres e envelopes.
+Ao final, como sempre, aparece a mesma tela de resumo onde ele pode alterar tudo. A vantagem nesta configuração é que o usuário pode alterar a compartimentação sugerida antes de informar os lacres e envelopes.
+Série Automática de Lacres/Envelopes no Autoatendimento
+SispetroWeb foi alterado para permitir que, no modo Autoatendimento, seja configurada uma série de lacres/envelopes automática.
+O SispetroWeb foi alterado para permitir que, no modo Autoatendimento, seja configurada uma série de lacres/envelopes automática.
+ Importante:
+ o Autoatendimento não utiliza lacres/envelopes automáticos — o processo continua sendo manual.
+Essa alteração serve para atender cenários em que:
+No Sispetro normal (web), a emissão de OC e Nota Fiscal utiliza lacres/envelopes automáticos.
+No Autoatendimento, a emissão de OC exige lacres/envelopes manuais.
+Mesmo assim, ambos consomem da mesma série numérica de lacres/envelopes.
+ 
+Como funciona
+O administrador configura a série de lacres/envelopes automática.
+O Sispetro normal continua consumindo dessa série de forma automática (sem intervenção do usuário).
+O Autoatendimento exige que o motorista digite manualmente os lacres/envelopes, mas eles também precisam vir dessa mesma série.
+Para evitar colisão de numeração entre os dois pontos (web e autoatendimento), o usuário deve ajustar o intervalo da série.
+Exemplo prático
+Série original: 1 a 10.000 (seria usada somente pelo Sispetro normal).
+Nova divisão:
+1 a 8.999 → destinado ao Sispetro normal (automático).
+9.000 a 10.000 → reservado ao Autoatendimento (manual).
+Nesse caso, basta ajustar o final da série automática para 8.999.
+Assim:
+O Sispetro normal seguirá consumindo automaticamente os lacres de 1 até 8.999.
+O Autoatendimento poderá utilizar manualmente os lacres a partir do 9.000.
+ Atenção
+A divisão do intervalo deve ser feita pelo usuário de acordo com a necessidade operacional.
+Se não houver ajuste na série, pode ocorrer colisão de numeração (mesmo lacre sendo usado no web e no autoatendimento).
+Recomenda-se sempre reservar uma faixa exclusiva para o Autoatendimento.
+ Benefícios
+Evita conflitos na utilização de lacres/envelopes entre pontos diferentes de emissão.
+Mantém a coerência numérica das séries.
+Garante maior controle operacional em empresas que utilizam simultaneamente o Sispetro normal e o Autoatendimento
+Impressão de OC e Boletim após Exportação Automática (Autoatendimento)
+Foi acrescentada ao Autoatendimento a possibilidade de o motorista imprimir a Ordem de Carregamento e o Boletim imediatamente após a OC ser exportada automaticamente para a armazenadora.
+Quando a empresa utiliza o recurso de 
+exportação automática de OC
+, o processo passa a funcionar da seguinte forma:
+O motorista emite a OC pelo App, seguindo o fluxo normal do Autoatendimento.
+Assim que a OC é gerada, o sistema realiza a exportação automática m necessidade de intervenção manual.
+Ao concluir essa exportação, o próprio App habilita a opção para impressão da OC e do Boletim.
+A impressão pode ser feita diretamente pelo motorista, sem depender de outro usuário ou sistema.

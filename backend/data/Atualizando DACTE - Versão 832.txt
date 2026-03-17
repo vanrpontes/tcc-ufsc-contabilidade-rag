@@ -1,0 +1,32 @@
+TITULO: Atualizando DACTE - Versão 8.32
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924288647
+--------------------------------------------------
+Esta atualizando diz respeito aos Conhecimentos de Frete cancelados. Até a versão 8.32 não havia nenhum aviso no DACTE que o conhecimento de frete estava cancelado, o usuário precisaria carimbar ou marcar-los de alguma forma para diferencia-los. Este help mostrará como colocar o texto de Cancelado. Veja abaixo:
+Ter uma cópia do RTM, antes de fazer qualquer alteração.
+No 
+perfil de  sistema/ NF-e/CT-e campo "CT-e DACTE" 
+clicar em "Edita layout". Como na imagem abaixo
+No Gerenciador de Relatório, incluir um objeto do tipo Label.
+Incluí-lo no local desejado, alterar o nome do objeto para que não haja erros.
+Na aba "Cálculo", localizar o Label incluído e nos eventos "OnGet Text" e "OnPrint" incluir as informações abaixo:
+OnGet Text
+begin
+Text:= '';
+if NF['cancelada'] = 1 then begin
+  Text:= '* * * C A N C E L A D O * * *';
+end else begin
+  if NFESituacao['OffLine'] = 1 then begin
+    Text:= 'DANFE em Contingência. Impresso em decorrência de problemas técnicos.';
+   end;
+ end;
+end;
+OnPrint
+ 
+begin
+  rgMsg.Visible:= (NF['cancelada'] = 1) or (NFESituacao['OffLine'] = 1);
+end;
+ 
+ 
+Desta forma, quando o CT-e estiver cancelado será impresso com a informação "Cancelado" e quando for emitido em Contingência "DANFE em Contingência. Impresso em decorrência de problemas técnicos."
+ 
+ 

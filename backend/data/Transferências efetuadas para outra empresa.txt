@@ -1,0 +1,59 @@
+TITULO: Transferências efetuadas para outra empresa
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701897
+--------------------------------------------------
+Este tipo de transferência se dá quando a empresa necessita transferir determinada quantidade de mercadorias de uma empresa para outra (normalmente filiais) pois, neste caso, estamos realizando uma saída de mercadoria na empresa em que estamos conectados e, para todos os efeitos, esta mercadoria saiu da empresa e ela não necessita controlar sua chegada no destino pois o depósito destino 
+não pertente à empresa remetente
+.
+Normalmente este tipo de movimento é utilizado para
+ transferências entre filiais.
+É comum também esse tipo de transferência para as empresas que centralizam a compra numa determinada filial e a venda é feita em outra. Para mais informações, ver 
+Roteiro para Área de Compras
+.
+Para proceder com este tipo de movimentação, temos duas etapas a realizar:
+1. Emissão da Ordem de Carregamento Próprio/Descarga
+: para esta mercadoria poder ser movimentada dentro da base armazenadora ou depósito origem dos produtos.
+Aqui, vamos emitir a Ordem de Carregamento Próprio indicando a destinatária dos produtos.
+Assim, para iniciar o processo, incluímos a Ordem de Carregamento em 
+Movimentação / Estoque / Ordem de Carregamento
+.
+Incluímos as seguintes informações:
+Tipo de Ordem de Carregamento
+: temos 2 tipos para esse tipo de movimentação Carregamento e Descarga Própria. 
+Entidade
+: escolha a destinatária dos produtos.
+Depósito Origem
+: depósito previamente cadastrado na empresa origem das mercadorias. Caso não saiba aperte <enter> para pesquisar os depósitos existentes.
+Transportadora
+: indique o código da transportadora dos produtos, acertando placa carreta/cavalo e treminhão caso necessário.
+Produtos
+: inclua todos os produtos transportados (um em cada linha) informando seu código (caso não saiba, aperte <enter> para pesquisar), quantidade e frete unitário. Caso essa Ordem de Carregamento seja oriunda de um Pedido de Movimentação de Material (Compra) e seu tipo de recebimento seja Via Transferências entre Filiais, deverá ser informado o Número do Pedido Mov. Material referente a esse carregamento. Configure no perfil do sistema do PMM se essa informação será obrigatória ou não. Para mais informações, ver 
+.
+Importante
+: o valor do frete unitário pode ou não ser informado pelo usuário na inclusão da OC. Caso a empresa opte por não permitir que o usuário informe o valor do frete, deve-se desmarcar (por padrão pode informar) a permissão no perfil do Usuário /painel Carregamento, opção:
+Caso deseje, poderá introduzir a compartimentação deste carregamento apertando o botão 
+Compartimentação
+. Este procedimento deve ser realizado se for imprimir uma Ordem de Carregamento ou documento que conste esta compartimentação. 
+Para distribuição de produtos na compartimentação da OC, ver
+ 
+Compartimentação de OC
+.
+Aperte OK para confirmar a inclusão da Ordem de Carregamento.
+Quando a OC for de Carregamento Próprio e as filiais estiverem no mesmo banco de dados há a possibilidade de já incluir a OC de Descarga Própria. 
+O SisPetro já abre a tela de Ordem de Carregamento Destino. Basta marcar a opção 
+Empresa destino é filial (gera OC destino) 
+e preencher as informações
+Empresa Destino
+Depósito Destino
+Entidade Origem
+Responsável pelo Frete
+Data Previsão Chegada
+Caso haja necessidade, poderá imprimir em seguida a OC.
+Note que o SisPetro não irá fazer qualquer movimentação de estoque nesta etapa pois toda a movimentação será realizada na emissão da Nota Fiscal de Saída de Produtos.
+Esta etapa é necessária para que possa ser emitida uma Ordem de Carregamento para entrada da transportadora na base de armazenagem para carregamento.
+2. Emissão da Nota Fiscal de Saída dos Produtos
+.
+Nesta etapa, o usuário irá emitir a Nota Fiscal para a saída das mercadorias. O Sistema irá, então, ajustar o estoque de acordo. Para mais informações, ver 
+Como emitir Nota Fiscal de Outras Saídas
+.
+O cálculo do frete para esse tipo de Ordem de Carregamento pode ser controlado pelo perfil da empresa. Para mais informações, ver 
+.

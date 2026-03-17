@@ -1,0 +1,100 @@
+TITULO: Alteração do DANFE - versão 8.22
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2923954806
+--------------------------------------------------
+Histórico
+Na versão 3.10 do XML da NFe, na tributação com diferimento (a exigência do preenchimento das informações do ICMS diferido fica a critério de cada UF), as empresas devem informar nas tags do XML os dados do ICMS. 
+Objetivo 
+Mostrar como configurar os novos campos para sair no DANFE.
+Junto com a Versão 8.22 do SisPetro foi disponibilizado um arquivo rtm do Danfe que já contempla essas modificações. Fica a critério do cliente utilizar o Danfe padrão disponibilizado ou alterar seu próprio Danfe seguindo os passos descritos nesse roteiro.
+IMPORTANTE: ANTES DE INICIAR AS ALTERAÇÕES FAÇA UM BACKUP (CÓPIA) DO ARQUIVO RTM DE SEU DANFE ATUAL.
+Solução
+ 
+1.
+ Acessar o layout do Danfe:
+Menu Ferramentas/ Sistema/ aba NF-e/CT-e
+Localizar no quadro de Danfe/Dacte o campo 
+Caminho de arquivo de layout do Danfe
+Clicar no botão
+ Edita Layout do Danfe
+2.
+ Na tela de Edição do layout do Danfe, 
+localizar os campos na aba Desenho
+:
+Nota: Base de Cálculo do ICMS e Valor do ICMS abaixo referem-se aos campos que são impressos nos totais do DANFE.
+Clique no campo
+ Base de Cálculo do ICMS
+ conforme abaixo e anote o 
+nome interno do campo em Identity
+. No exemplo, é DBText33. O nome desse campo não é igual para todos. Dependendo do rtm utilizado pela empresa pode ser diferente.
+Faça o mesmo para o campo 
+Valor do ICMS
+.  Anote o 
+nome interno do campo em Identity
+. No exemplo, é DBText34. O nome desse campo não é igual para todos. Dependendo do rtm utilizado pela empresa pode ser diferente.
+Nota: Base de Cálculo do ICMS, Alíquota do ICMS e Valor do ICMS abaixo referem-se aos campos que são impressos nos itens do DANFE.
+Faça o mesmo para o campo 
+Base de Cálculo do ICMS
+.  Anote o 
+nome interno do campo em Identity
+. No exemplo, é DBText172. O nome desse campo não é igual para todos. Dependendo do rtm utilizado pela empresa pode ser diferente.
+Faça o mesmo para o campo 
+Valor do ICMS
+.  Anote o 
+nome interno do campo em Identity
+. No exemplo, é DBText196. O nome desse campo não é igual para todos. Dependendo do rtm utilizado pela empresa pode ser diferente.
+Faça o mesmo para o campo 
+Alíquota do ICMS
+.  Anote o 
+nome interno do campo em Identity
+. No exemplo, é DBText133. O nome desse campo não é igual para todos. Dependendo do rtm utilizado pela empresa pode ser diferente.
+3.
+ Selecionar a 
+aba Cálculo
+:
+Observar a aba inferior: deve estar em Principal. Caso esteja com o layout abaixo:
+Alterar, clicando com o botão direito do mouse e selecionar 
+EVENTOS
+:
+O layout ficará como segue:
+4.
+ 
+Incluindo o código nos campos DBText
+:
+Campo Valor do ICMS impresso nos totais do DANFE
+ 
+- selecione o campo DBText34 (dependendo do rtm do DANFE utilizado pode ser diferente) que é referente ao campo ValICMS da tabela NotaFiscal:
+Copie o código e cole na parte indicada:
+begin
+ if NaturezaOperacaoEmp['prICMSProprioRodape'] = 0 then begin
+ Text := '0,00';
+ end;
+end;
+Copiado o código, compile - estando sem erro, o evento OnGetText ficará verde:
+Repita os mesmos procedimentos para o campo Base de Cálculo do ICMS impresso nos totais do DANFE
+ 
+- selecione o campo DBText33 (dependendo do rtm do DANFE utilizado pode ser diferente) que é referente ao campo BaseICMS da tabela NotaFiscal:
+Repita os mesmos procedimentos para o campo Base de Cálculo do ICMS impresso nos 
+itens do DANFE
+ 
+- selecione o campo DBText172 (dependendo do rtm do DANFE utilizado pode ser diferente) que é referente ao campo BaseICMS da tabela ItensNF.
+Copie o código e cole na parte indicada:
+begin
+ if NaturezaOperacaoEmp['prICMSProprioCorpo'] = 0 then begin
+ Text := '0,00';
+ end;
+end;
+Repita os mesmos procedimentos para o campo Valor do ICMS impresso nos 
+itens do DANFE
+ 
+- selecione o campo DBText196 (dependendo do rtm do DANFE utilizado pode ser diferente) que é referente ao campo ValICMS da tabela ItensNF.
+Repita os mesmos procedimentos para o campo Alíquota do ICMS impresso nos 
+itens do DANFE
+ 
+- selecione o campo DBText133 (dependendo do rtm do DANFE utilizado pode ser diferente) que é referente ao campo AlicICMS da tabela ItensNF.
+5.
+ 
+Salvando - selecione a aba Desenho:
+No menu, selecione Arquivo e Salvar:
+ 
+Verificar se já há algum código de programação para outros fins. Se houver, decidir o que se fazer ou entrar em contato com o Suporte.
+Caso haja algum erro, na hora da compilação entrar em contato com o Suporte.

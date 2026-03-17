@@ -1,0 +1,12 @@
+TITULO: Cancelamento de Ordens de Serviço
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878900199
+--------------------------------------------------
+Caso a Ordem de Serviço a ser cancelada esteja com status "Em Aberto", todos os itens da Ordem de Serviço serão cancelados também não sendo mais possível transformá-los em eventos (para a Manutenção de Eventos do Frota).
+Antes de cancelar a Ordem de Serviço, é necessário se atentar as seguintes validações:
+Se a Ordem de Serviço possuir vinculo com PMM ou Requisição, é necessário antes cancelar o PMM ou Requisição e em seguida cancelar a Ordem de Serviço.
+Se a Ordem de Serviço a ser cancelada tiver como status "Encerrada", primeiro será feito o 
+cancelamento do encerramento
+, depois o cancelamento desta Ordem de Serviço.
+Em qualquer um dos casos, na 
+Manutenção de Ordens de Serviço
+, a Ordem de Serviço aparecerá em vermelho e com status "Cancelada", não permitindo mais nenhuma ação sobre ela.

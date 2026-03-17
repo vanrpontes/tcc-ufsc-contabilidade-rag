@@ -1,0 +1,192 @@
+TITULO: Eventos - Tipos e dicas úteis
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5724930067
+--------------------------------------------------
+1
+4
+false
+none
+list
+true
+Objetivo
+Esse documento vai resumir as diversas formas de incluir um Evento de Frota e apresentar telas ou comandos SQL que podem ser usados para conferência de valores.
+Pré Requisito
+Ter domínio do módulo de Transportes do Sispetro
+Origem dos Eventos
+Os eventos se concentram basicamente na 
+Manutenção de Eventos do Frota
+ e possui como relatório principal o Relatório de Receitas e Despesas do Frota. Porém, as origens são diversas e cada uma delas pode ser útil em um cenário diferente, dependendo muito de como o Setor de Transportes da empresa foi montado.
+1 - Inclusão manual
+É a inclusão acionada pelo botão 
+Inclui
+ da 
+Manutenção de Eventos do Frota
+. Na tela apresentada é possível incluir vários eventos, que ficam como temporários na tela e só serão efetivados quando for clicado o botão 
+Salvar
+.
+Uso
+Registros de eventos simples, sem valor fiscal, pois não há como informar uma Nota Fiscal. É útil  para empresas que não utilizam Ordem de Serviço ou para registros de eventos ocorridos em viagem  (apesar do registro de eventos poder ocorrer na Manutenção de Viagens, explicado nos próximos tópicos).
+Dicionário de Dados
+760
+Tabela FrotaEvento
+select ... 
+from FrotaEvento f 
+Tabela FrotaEvento → FrotaViagem
+select ... 
+from FrotaEvento f 
+  inner join FrotaViagem v on f.SeqViagem = v.SeqViagem
+2 - Inclusão via Arquivo ou Em Lote
+Esse recurso é acionado pelo botão 
++
+ 
+Eventos
+. 
+Na parte superior são informados os dados gerais dos eventos e na parte inferior pode ser importado um arquivo com os dados variáveis ou usar o botão 
+Incluir
+ para digitar os dados diretamente no grid. Esses eventos podem ser vinculados a uma Nota Fiscal.
+No vínculo desse evento com a Nota Fiscal, não será possível ter o vínculo com cada item da Nota, nem com cada Centro de Custo. Caso precise de algo nesse sentido é necessário utilizar a Ordem de Serviço.
+Uso
+Eventos recebidos via extrato ou arquivo, contendo informações de diversos frotas, como Pedágio, Abastecimento via Contrato. No caso de vincular Nota Fiscal, é importante que ela se refira a um único tipo de evento.
+Dicionário de Dados
+760
+Tabela FrotaEvento
+select ... 
+from FrotaEvento f 
+Tabela FrotaEvento → FrotaViagem
+sql
+select ... 
+from FrotaEvento f 
+  inner join NotaFiscal nf 
+  on f.CodEmpresa = nf.CodEmpresa and f.SeqNF = nf.Sequencial
+3 - Ordem de Serviço - Encerramento
+Na 
+Inclusão dos itens da Ordem de Serviço
+, no campo 
+Evento via NF
+, se for escolhida a opção “Evento é gerado sem dados de NF”, ao encerrar a OS os eventos são gerados. Eles não terão nenhum vínculo com Nota Fiscal, Requisição ou Centro de Custos.
+Uso
+Em registros simples de serviços realizados em um Frota, sem valor, como Lavagem de Motor, Calibragem de Pneus e outros.
+Dicionário de Dados
+760
+Tabela OrdemServicoItens → FrotaEvento
+select ... 
+from FrotaEvento f 
+  inner join OrdemServicoItens osi on f.ItemOS = osi.Item 
+4 - Ordem de Serviço - Requisição
+Na Inclusão dos itens da Ordem de Serviço, no campo 
+Evento via NF
+, se for escolhida a opção “Evento exige PMM/NF para ser gerado”, o evento só será gerado, caso a requisição siga para emissão de um PMM e vínculo com Nota Fiscal.
+Os itens da Ordem de Serviço, vão para tela de ‘
+Itens de Ordem de Serviço Pendente
+’, para que possa ser analisado, cotado ou liberado.
+Caso a requisição seja liberada via estoque o evento não será gerado.
+Uso
+Em registros simples, para requisição de peças ao almoxarifado ou cotação, visando a liberação do produto em estoque ou compra.
+5 - Ordem de Serviço - PMM
+Na Inclusão dos itens da Ordem de Serviço, no campo 
+Evento via NF
+, se for escolhida a opção “Evento exige PMM/NF para ser gerado”, após emitir o PMM e Vincular a NF, ao encerrar a OS os eventos são gerados.
+Os itens da Ordem de Serviço, vão para tela de ‘
+Itens de Ordem de Serviço Pendente
+’, para analise, cotação e emissão do PMM.
+Uso
+Em registros simples de produtos ou serviços realizados em um Frota, com valor, como troca de peças ou serviço de mão de obra.
+6 - Importação de Nota Fiscal x Ordem de Serviço
+Na tela de 
+monitoramento de importação NFe/CTe
+ se for feito o vínculo com o PMM gerado a partir da ordem de serviço, será possível vincular cada item de nota a um item de OS. Assim, caso a OS já esteja encerrada, ao processar a NF, os eventos serão gerados, senão, no encerramento da OS.
+É necessário que a Natureza de Operação utilizada na importação da NF-e, esteja com o perfil Evento de Frota configurado para Vincular Evento de Frota Avulsos ou Itens OS que Exigem NF.
+Uso
+Esse é o item mais completo para eventos, já que possui o vínculo de cada item da NF a cada item da OS e a cada item do PMM.
+As informações contábeis e de Centro de Custos são da NF, não do seu item, então a distribuição ocorrerá de forma total. Veja mais detalhes em 
+https://futura.atlassian.net/wiki/spaces/SPT/pages/5724930067/Eventos+-+Tipos+e+dicas+teis#Evento-x-NF-X-Contabiliza%C3%A7%C3%A3o-X-Centro-de-Custos
+ 
+Dicionário de Dados
+760
+Tabela FrotaEvento → ItensNF → NotaFiscal
+Tabela FrotaEvento → ItensNF → ItensPedido → Pedido
+Select ...
+From FrotaEvento fe
+  Inner Join ItensNF inf 
+    ON (inf.CodEmpresa = fe.CodEmpresa) AND (inf.Sequencial = fe.SequencialNF)
+    AND (inf.NUmIten = fe.NumItem)
+  Inner Join NotaFiscal nf 
+    ON (nf.CodEmpresa = inf.CodEmpresa) AND (nf.Sequencial = inf.Sequencial)
+  Inner Join ItensPedido ip 
+    ON (ip.CodEmpresa = inf.CodEmpresa) AND (ip.NumPed = inf.NumPed) 
+    AND (ip.Seq = inf.Item)
+  Inner Join Pedido ped 
+    ON (ped.CodEmpresa = ip.CodEmpresa) AND (ped.NumPed = ip.NumPed)
+Where fe.CodEmpresa = :CodEmpresa
+And   fe.Data >= :DataInicial
+And   fe.Data <= :DataFinal
+7 - Inclusão de Nota Fiscal (Manual ou Importada) x Evento
+Os Eventos que exigem PMM/NF ou Exigem somente NF para ser gerado, serão exibidos na tela de inclusão de Nota Fiscal ou na Importação da NF-e. Após a inclusão da nota ou processamento da importação, o evento será gerado. 
+É necessário que a Natureza de Operação utilizada esteja com o perfil Evento de Frota configurado para Vincular Evento de Frota Avulsos ou Itens OS que Exigem NF.
+Uso
+Útil para empresas que querem ter um controle simples, onde os eventos são justificados por NF, mas sem automatização, dependendo do vínculo realizado pelos usuários.
+Dicionário de Dados
+760
+Tabela FrotaEvento → NotaFiscal
+Select pcr.Descricao as ContaReal
+From FrotaEvento fe
+  Inner Join NotaFiscal nf ON (nf.CodEmpresa = fe.CodEmpresa) AND (nf.Sequencial = fe.SequencialNF)
+Where fe.CodEmpresa = :CodEmpresa
+And   fe.Data >= :DataInicial
+And   fe.Data <= :DataFinal
+8 - Manutenção de Nota Fiscal
+Os eventos lançados manualmente, configurados para exigir somente NF, sem vínculo com ela, podem ser vinculados após a inclusão da NF, na Manutenção de Notas Fiscais, através do botão 
+Evento de Frota
+. 
+Também é possível incluir um novo evento, o qual já estará vinculado.
+É necessário que a Natureza de Operação utilizada na importação da NFe, esteja com o perfil Evento de Frota configurado para Vincular Evento de Frota Avulsos ou Itens OS que Exigem NF.
+Uso
+O mesmo dos eventos dos tópicos 
+https://futura.atlassian.net/wiki/spaces/SPT/pages/5724930067/Eventos+-+Tipos+e+dicas+teis#2---Inclus%C3%A3o-via-Arquivo-ou-Em-Lote
+ ,  
+https://futura.atlassian.net/wiki/spaces/SPT/pages/5724930067/Eventos+-+Tipos+e+dicas+teis#7---Inclus%C3%A3o-de-Nota-Fiscal-(Manual-ou-Importada)-x-Evento
+ 
+9 - Viagens - Fechamento
+Na Tela de 
+Fechamento de viagem
+, ao encerrar uma viagem é possível lançar os eventos.
+Os eventos lançados nessa tela podem ter vínculo com Nota Fiscal.
+Uso
+Em registros decorrentes de despesas de viagem, como abastecimento, alimentação e hospedagem.
+10 - Contas a Pagar
+Eventos oriundos de fechamento de viagens, podem ser vinculados a um Título do Contas a Pagar, na inclusão de um novo titulo, através do botão 
+Desp. Frota
+.
+Uso
+Em registros decorrentes de despesas de viagem, onde o fornecedor será pago através de um titulo no contas a pagar sem nota fiscal. Não é usual.
+Resumo
+A melhor forma de lançar um evento dependerá de como a empresa está organizada. Como atualmente tudo deve ser devidamente justificado com uma Nota Fiscal, não recomendamos eventos totalmente avulsos, a não ser que seja para fins gerenciais.
+Evento x NF X Contabilização X Centro de Custos
+Apesar de termos de forma bem separada os eventos e as notas fiscais, pode ser necessário ter uma visão de despesas pelos Eventos, Centro de Custos e Conta Contábil.
+No Sispetro não há um relatório específico para esse fim, mas é possível desenvolver um relatório via Gerenciador de Relatórios, usando como base o comando SQL abaixo. Pontos importantes:
+Só deve ser usado para os casos 
+https://futura.atlassian.net/wiki/spaces/SPT/pages/5724930067/Eventos+-+Tipos+e+dicas+teis#6---Importa%C3%A7%C3%A3o-de-Nota-Fiscal-x-Ordem-de-Servi%C3%A7o
+ . Confira via Manutenção de Eventos do Frota as colunas #Ordem Serviço (preenchida) e Evento via NF (deve estar Evento exige PMM/NF para ser gerado). Identifique a Nota Fiscal vinculada
+Localizando a Nota Fiscal na Manutenção de NFs, na aba Contabilidade veja os Centros de Custos na aba Movto Centro Custo Gerencial 
+Dicionário de dados
+760
+Código SQL para verificação dos Eventos do Frota e Contabilidade (contas reais e centros de custos da contabilidade gerencial)
+sql
+Select Distinct fr.SeqFrota as CodigoFrota, fr.Placa as Frota, fr.Tipo as TipoFrota, fr.CodTransp as CodigoTransportadora, fr.DescrTransp as Transportadora, fr.Capacidade,
+  fe.Data as DataEvento, ef.Seqevento as CodigoEvento, ef.Descricao as Evento, prod.CodProd as CodigoProdutoEvento, prod.DescricaoCompleta as ProdutoEvento, fe.NumDocto as NumeroDocumento, fe.Valor as ValorEvento, fe.Cancelado, 
+  nf.CodEmpresa, nf.Sequencial, nf.Tipo as TipoNF, nf.NumeroNF, nf.DataNF, nf.ValProd as ValorProdutoNF, nf.ValNF as ValorNF, nf.Cancelada,
+  pc.CodConta as CodigoConta, pc.CodCompl as CodigoComplemento, pc.Descricao as ContaContabil,
+  cc.SeqCC as CodigoCentroCusto, cc.Descricao as CentroCusto, pcr.SeqConta as CodigoContaReal, pcr.SeqContaRed as CodigoContaRealReduzida, pcr.Descricao as ContaReal
+From FrotaEvento fe
+  Inner Join Frota fr ON (fr.SeqFrota = fe.SeqFrota)
+  Left Join Produto prod ON (prod.CodProd = fe.CodProd)
+  Left Join EventoFrota ef ON (ef.SeqEvento = fe.SeqEvento)
+  Left Join NotaFiscal nf ON (nf.CodEmpresa = fe.CodEmpresa) AND (nf.Sequencial = fe.SequencialNF)
+  Left Join vwLoteRealCCusto lrcc ON (lrcc.SeqLote = nf.SeqLoteReal)
+  Left Join PlanoContasReal pcr ON (pcr.SeqContaRed = lrcc.SeqConta)
+  Left Join PlanoContas pc ON (pc.CodConta = lrcc.CodConta) AND (pc.CodCompl = lrcc.CodCompl)
+  Left Join CentroCusto cc ON (cc.SeqCC = lrcc.SeqCC)
+Where fe.CodEmpresa = :CodEmpresa
+And   fe.Data >= :DataInicial
+And   fe.Data <= :DataFinal
+Código SQL para verificação dos Eventos do Frota
+760

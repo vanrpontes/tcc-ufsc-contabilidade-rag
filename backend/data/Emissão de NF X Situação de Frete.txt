@@ -1,0 +1,201 @@
+TITULO: Emissão de NF X Situação de Frete
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927269332
+--------------------------------------------------
+Na Emissão da NF-e a partir da v4.0 é necessário informar a situação do Frete conforme tabela da Sefaz:
+0 
+= Contratação do Frete por conta do Remetente (CIF)
+1 
+= Contratação do Frete por conta do Destinatário (FOB)
+2 
+= Contratação do Frete por conta de Terceiros
+3 
+= Transporte Próprio por conta do Remetente
+4 
+= Transporte Próprio por conta do Destinatário
+9 
+= Sem Ocorrência de Transporte
+Essa informação é enviada no campo 
+<modfrete>
+ da NF-e.
+No SisPetro, por conta da antiga situação do frete, as modalidades foram tratadas internamente para se ajustar às novas modalidades:
+Situação de Frete
+Informada no SisPetro
+Enviada na NFe
+Contratação do Frete por conta do Remetente (CIF)
+1
+0
+Contratação do Frete por conta do Destinatário (FOB)
+2
+1
+Contratação do Frete por conta de Terceiros
+3
+2
+Transporte Próprio por conta do Remetente
+4
+3
+Transporte Próprio por conta do Destinatário
+5
+4
+Sem Ocorrência de Transporte
+9
+9
+Exemplo de utilização
+Frete tipo Retira:
+ 
+Contratação do Frete por Conta do Destinatário:
+ no SisPetro é informado 2 e na NFe será enviado 1
+Transporte Próprio por Conta do Destinatário:
+ no SisPetro é informado 5 e na NFe será enviado 4
+Frete tipo Entrega:
+Contratação do Frete por Conta do Remetente: :
+ 
+quando o frota utilizado
+ 
+não estiver com a opção Próprio marcada,
+ no SisPetro será informado 1 e na NFe será enviado 0
+Transporte Próprio por Conta do Remetente:
+ 
+quando o frota utilizado
+ 
+estiver com a opção Próprio marcada
+, 
+no SisPetro será informado 4 e na NFe será enviado 3
+Configurações
+Perfil de Sistema: 
+definimos uma situação de frete padrão a ser utilizada, através do perfil 
+Situação do Frete para venda Retira. 
+Para mais informações, 
+ver 
+.
+Tabela de Frota: 
+definimos o tipo de operação a ser utilizado para operações do tipo retira, e se o frota é próprio ou não.
+Na aba 
+Detalhes
+ definimos se o Frota é próprio ou não. Para mais informações, ver 
+Na aba 
+Operações Retira
+ definimos se vai Comparar Documentos, Considerar Terceiros ou Considera Próprio. Para mais informações, ver 
+Aba Operações Retira
+Compara Documentos:
+ realiza a comparação do documento (CNPJ/CPF) do cliente com os documentos cadastrados no quadro 
+Documentos utilizadores
+.
+CNPJ/CPF igual ao do Cliente:
+ 
+informa a situação de frete 4 - 
+Transporte Próprio por conta do Remetente
+CNPJ/CPF NÃO é igual ao do Cliente:
+ informando a situação de frete 1 - Contratação do Frete por conta do Destinatário (FOB)
+Nenhum documento informado na aba Documentos utilizadores:
+ segue a regra definida no perfil de Sistema em 
+ opção 
+Situação do Frete para Venda Retira.
+Considera Terceiros:
+ considera sempre como frete por contas de terceiros quando a venda é do tipo retira, informando a situação de frete 1 - Contratação do Frete por conta do Destinatário (FOB)
+Considera Próprio:
+ 
+considera sempre como frete próprio quando a venda é do tipo retira, informando a situação de frete 1 - Contratação do Frete por conta do Destinatário (FOB)
+Perfil de Usuário: 
+permitir ou não o usuário alterar a situação do frete, conforme perfil em 
+Painel Faturamento (Usuários)
+, quadro 
+Notas Próprias
+ opção 
+Alteração de Situação do Frete.
+Situação de frete na emissão de notas fiscais de saída
+Nota Fiscal de Venda
+Quando o pedido de venda for 
+Retira
+, são realizadas verificações na seguinte ordem:
+Tipo do frota principal
+: truck, toco ou cavalo
+Operações Retira
+ opção Controle de propriedade nas operações retira:
+Compara Documentos
+Com documentos cadastrados:
+CPF:
+ será próprio se o CPF do cliente estiver na lista de documentos do frota. A situação de frete será 4 - Transporte Próprio por conta do Destinatário
+CNPJ
+: será próprio se a raiz do CNPJ (8 primeiros dígitos) do cliente estiver na lista de documentos do frota (também pela Raiz). A situação de frete 4 - Transporte Próprio por conta do Destinatário
+CPF ou CNPJ diferente de um documento cadastrado
+: será considerado de terceiros. A situação de frete será 1 - Contratação do Frete por conta do Destinatário (FOB)
+Sem documentos cadastrados:
+ utilizará o perfil de empresa 
+ opção 
+Situação do Frete para venda Retira.
+Considera Terceiros: 
+a situação do frete será 1 - Contratação do Frete por conta do Destinatário (FOB)
+Considera Próprio: 
+a situação do frete será 0 - Contratação do Frete por conta do Remetente (CIF)
+ 
+Quando o pedido de venda for 
+Entrega, 
+são realizadas verificações na seguinte ordem:
+Frota principal informado no Pedido
+Se for Próprio para a empresa:
+ a situação do frete será 3 -
+ 
+Transporte Próprio por conta do Remetente
+Se não for próprio: 
+a situação do frete será 0 - Contratação do Frete por conta do Remetente (CIF)
+Faturamento Automático:
+ não é possível alterar a situação do frete vinda da OC
+Faturamento Manual:
+ é possível alterar a situação do frete vinda da OC, desde que o usuário tenha perfil definido em 
+Painel Faturamento (Usuários)
+, quadro 
+Notas Próprias
+ opção 
+Alteração de Situação do Frete.
+Nota Fiscal de Outras Saídas
+Nota fiscal de emissão própria for 
+Retira
+ e 
+não for de Venda, 
+são realizadas verificações na seguinte ordem:
+Tipo do frota principal:
+ truck, toco ou cavalo
+Operações Retira
+ opção Controle de propriedade nas operações retira:
+Compara Documentos:
+Com documentos cadastrados:
+CPF:
+ será próprio se o CPF do cliente estiver na lista de documentos do frota. A situação de frete será 4 - Transporte Próprio por conta do Destinatário
+CNPJ
+: será próprio se a raiz do CNPJ (8 primeiros dígitos) do cliente estiver na lista de documentos do frota (também pela Raiz). A situação de frete 4 - Transporte Próprio por conta do Destinatário
+CPF ou CNPJ diferente do documento cadastrado
+: será considerado de terceiros. A situação de frete será 1 - Contratação do Frete por conta do Destinatário (FOB
+Sem documentos cadastrados:
+ utilizará o perfil de empresa 
+ opção 
+Situação do Frete para venda Retira.
+Considera Terceiros: 
+a situação do frete será 1 - Contratação do Frete por conta do Destinatário (FOB)
+Considera Próprio: 
+a situação do frete será 0 - Contratação do Frete por conta do Remetente (CIF)
+Nota fiscal de emissão própria for 
+Entrega
+ e 
+não for de Venda
+, 
+são realizadas verificações na seguinte ordem:
+Frota principal informado no Pedido
+Se for Próprio para a empresa:
+ a situação do frete será 3 -
+ 
+Transporte Próprio por conta do Remetente
+Se não for próprio: 
+a situação do frete será 0 - Contratação do Frete por conta do Remetente (CIF)
+Notas de Nacionalização a partir de PMM Importação
+ e 
+Notas de Remessa Automática
+O campo Retira/Entrega será preenchido sempre como 
+Entrega
+O campo Situação do Frete será preenchido sempre como 
+1 -
+ 
+Contratação do Frete por c
+onta do Destinatário (FOB)
+Para mais informações, ver:
+Painel Operações Retira (Frotas)
+Painel Fretes (Usuários)

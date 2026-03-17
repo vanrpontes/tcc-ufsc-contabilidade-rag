@@ -1,0 +1,43 @@
+TITULO: Jobs
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2970977245
+--------------------------------------------------
+none
+Objetivo
+A funcionalidade JOB do SisPetro é uma forma de auxiliar na manutenção com tarefas que devem ser executadas diversas vezes iguais ou em uma determinada data em especial sem precisar da intervenção do usuário
+Processos que o JOB faz
+SPED 
+FECHAMENTO DE CUSTOS
+Com o Job o usuário poderá programar a data e hora que a tarefa será executada, dessa forma, deixando o usuário e computador livre para outras tarefas.
+Os JOBS do mesmo tipo (SPED) são executados em sequencia, ou seja, finaliza um e começa o outro. JOBS de tipos diferentes são executados simultaneamente. 
+JOBS de fechamento financeiro: o usuário pode realizar vários fechamentos de custo, porém apenas um JOB será agendado para esses fechamentos. 
+Para acessar as telas do Job é necessário ter perfil de usuário: 
+Painel Segurança (Usuários)
+ 
+A tela de Agendamento da Tarefa será apresentada para os módulos que tiverem a sua migração de processamento para a funcionalidade do Jobs. 
+Executar:
+Data/Hora Especifica: 
+a execução da tarefa acontecera conforme a data e hora informado no momento do agendamento da tarefa.
+O Mais Breve Possível: 
+ a tarefa será executada o mais breve possível considerando a configuração do 
+Servidor Hermes
+. Para mais informações, ver 
+Serviços Automáticos
+.
+Quadro Agendamento
+Quando selecionado a opção 
+Data/Hora Especifica
+ o quadro agendamento ficará habilitado para edição da data e hora de execução desejada para execução da tarefa.
+Data de Execução: 
+o usuário devera informar a data que a tarefa devera iniciar.
+Hora da Execução: 
+o usuário deverá informar a hora que a tarefa devera iniciar.
+Módulos Migrados para Jobs
+Tabelas dos Conjuntos de Dados
+Estrutura do SisPetro e Banco de Dados
+Quando a estrutura do SisPetro (executáveis) estão em uma máquina e o banco de dados em outra máquina é obrigatório:
+Servidor Hermes e DLLs dos SPEDs devem estar na mesma máquina onde se encontra o banco de dados
+O caminho da DLL obrigatóriamente deve ser a pasta onde se encontram o Servidor Hermes e as DLLs
+Veja também:
+Manutenção de Jobs
+.
+Jobs do Usuário

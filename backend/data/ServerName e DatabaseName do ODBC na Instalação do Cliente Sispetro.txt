@@ -1,0 +1,47 @@
+TITULO: ServerName e DatabaseName do ODBC na Instalação do Cliente Sispetro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2907308793
+--------------------------------------------------
+O Sispetro possui um procedimento para Atualização do Client. Ele utiliza os dados informados no arquivo .ini para criar o ODBC. No arquivo .ini só temos a indicação do nome do ODBC (DSN) e o Sispetro utiliza esse nome para setar as propriedades ServerName e DatabaseName do ODBC, porém nem sempre estas três propriedades são iguais. Sendo assim, surge a necessidade de permitir que o usuário indique o ServerName e DatabaseName no arquivo .ini para a devida configuração do ODBC na atualização do Client.
+Vamos entender os conceitos e em que cenário se teria Nome do ODBC, ServerName e DatabaseName diferentes.
+Nome do ODBC
+: é o nome que se dá ao registro do ODBC, pouco interessando o nome do arquivo .db usado ou o nome do serviço utilizado
+Servername
+: é o nome do serviço do Sybase que foi startado. É o parâmetro -n que utilizamos no start do Sybase, normalmente denominado Scgwin, mas que pode ter outro nome conforme a necessidade.
+Databasename
+: é o nome do arquivo .db que está sendo utilizado. Normalmente é scgwin.db, mas não há nenhuma restrição em se alterar esse nome como se altera o nome de qualquer outro arquivo.
+Com isso, quando se precisa ter dois bancos sybase no ar, normalmente subimos dois serviços diferentes.
+Banco Oficial
+Start dbsrv12 -c256M -m -xNone -nScgWin C:\Bancos\Latina_12\scgwin.db
+Nome do serviço: ScgWin
+Nome do arquivo: scgwin.db
+Banco Teste
+Start dbsrv12 -c256M -m -xNone -nTeste C:\Bancos\Latina_12\teste\scgwin.db
+Nome do serviço: Teste
+Nome do arquivo: scgwin.db
+Dessa forma acima, é possível parar um dos bancos sem atrapalhar o outro. Além disso, o ODBC pode ter o mesmo nome que o serviço. Mas repare que o databasename do ambiente de teste já não tem o mesmo nome. Isso até hoje não foi problema porque quando o serviço tem um só banco não é preciso especificar o databasename. Mas também não tem problema se especificarmos.
+Porém, há uma forma de se ter dois bancos num serviço só:
+Banco Oficial
+Start dbsrv12 -c256M -m -xNone -nScgWin scgwin.db Teste.db
+Nome do serviço: ScgWin
+Nome do arquivo oficial: scgwin.db
+Nome do arquivo teste: teste.db
+Neste cenário acima, a propriedade do databasename fará toda a diferença, já que o serviço é o mesmo e o que indica qual banco a ser utilizado é o DatabaseName.
+ 
+É importante lembrar que nesse segundo cenário não é possível parar um banco sem parar outro, por isso não é tanto utilizado.
+ 
+Considerando os cenários acima, teremos as seguintes propriedades no arquivo INI:
+Dois parâmetros, na Seçao Geral:
+DatabaseName
+ServerName
+Na rotina de instalação do cliente do Sispetro, durante a criação do ODBC (processo automático), onde são definidas as propriedades DatabaseName e ServerName, caso os dois parâmetros informados acima, não sejam definidos, o Sistema utilizará os valores do parâmetro DSN para preencher o ServerName e o DatabaseName permanecerá em branco.
+Sybase 12
+No Sybase 12, além do ServerName e DatabaseName há uma propriedade no ODBC chamada 
+Action
+ que indica onde o banco deve ser procurado, podendo ser:
+Connecting to a running database on this computer ou
+Connecting to a running database on another computer
+Ou seja, a primeira opção seria para o Servidor e a segunda opção para os clients. Como partimos do princípio que a instalação do Servidor é feita manualmente e a instalação dos clients é automática, o Sispetro configurará o ODBC com o
+Action
+ igual a 
+Connecting to a running database on another computer
+. Caso se utilize o recurso automático no Servidor será responsabilidade do usuário alterar essa opção no ODBC manualmente.

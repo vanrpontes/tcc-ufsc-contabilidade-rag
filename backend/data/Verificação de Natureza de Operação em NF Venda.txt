@@ -1,0 +1,44 @@
+TITULO: Verificação de Natureza de Operação em NF Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903507418
+--------------------------------------------------
+O Sispetro permite que se configure para cada produto qual a Natureza de Operação de Venda deve ser utilizada para cada atividade econômica do cliente.
+
+
+Com isso, o faturista não precisa ter autorização para alterar a natureza de operação na tela de Faturamento da NF de Venda pois o sistema irá sugerir conforme a configuração feita.
+
+
+Porém, de um tempo para cá, em algumas situações bem esporádicas, ao terminar uma NF o sistema não fecha a tela e já sugere o faturamento do próximo pedido.
+
+
+O problema é que o próximo pedido será faturado com a Natureza de Operação da nota anterior, que pode ser totalmente diferente (principalmente quando um pedido é de álcool e o outro é de gasolina ou diesel).
+
+
+Como forma de prevenir a utilização de Naturezas indevidas em uma Nota Fiscal, à partir da versão 7.23, o Sispetro irá realizar uma validação da Natureza de Operação se está de acordo com a configurada no Produto.
+
+
+Caso seja detectada alterações na Natureza, ao finalizar a NF o sistema emitirá dois tipos diferentes de mensagens:
+
+
+
+
+Quando o Faturista possui permissão de alterar a Natureza
+
+Será emitida a mensagem abaixo, informando que a Natureza padrão foi alterada, mas questionando se deseja continuar mesmo assim.
+
+
+
+
+
+
+
+
+Quando o Faturista NÃO possui permissão de alterar a Natureza
+
+Será emitido o erro abaixo, não será possível finalizar a nota e deve-se entrar em contato com o suporte imediatamente para verificação do problema.
+
+
+
+
+
+
+No caso de Venda Direta, será validado a Natureza Padrão definida no Perfil de Empresa.

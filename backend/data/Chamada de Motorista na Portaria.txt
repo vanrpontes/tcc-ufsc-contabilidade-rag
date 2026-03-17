@@ -1,0 +1,57 @@
+TITULO: Chamada de Motorista na Portaria
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2960359476
+--------------------------------------------------
+Nas bases armazenadoras há uma fila de caminhões esperando para carregar/descarregar. Ao incluir a OC na fila, temos na Portaria de Entrada uma sequência para atender. Nesse ponto cada base pode ter seu procedimento, mas o motorista é chamado quando chega a sua vez.
+Porém, caso esse motorista não esteja presente ou não compareça, o ideal é ele perder sua vez na fila, mas esse é um procedimento que o usuário precisa fazer manualmente. A solicitação é que se tenha a data/hora que o motorista seja chamado e que, caso ele ultrapasse um tempo máximo, ele vá para o final da fila.
+Configuração:
+ Arquivo / Depósitos / 
+aba Dados Adicionais
+Dentro do grupo Portaria, no sub-grupo Portaria de Entrada
+Habilitar o perfil
+ Habilita Chamada de Motorista
+Definir um tempo máximo para execução através do perfil
+ "Tempo máximo para entrada na base (em minutos)"
+Veja mais em: 
+Depósitos - Aba Dados Adicionais
+Servidor Hermes
+ serviço 
+Tempo chamada de Motoristas
+.
+No serviço de 
+Tempo chamada de Motoristas 
+é necessário configurar o tempo de execução, intervalo, usuário e Pasta das DLL de Automação.
+Veja mais em: 
+Serviço Tempo Chamada de Motoristas
+Portaria de Entrada
+Após acionar o botão de 
+Chama motorista
+, a fila vai ficar com o fundo em cinza indicando que o motorista foi chamado. Nesse momento é possível enviar uma mensagem ao motorista. Para mais informações, ver 
+Envio de Mensagem via SMS / WhatsApp na chamada do Motorista
+ 
+Através da coluna 
+Data/Hora da Chamada
+ é possível verificar a hora que o motorista foi chamado.
+Na coluna de 
+Limite Entrada Portaria
+ podemos ver a data limite para o motorista se apresentar na portaria. 
+Após exceder o tempo a fila será cancelada automaticamente e pegará outro numero de fila, deixando essa fila disponível para ser chamado novamente. Será alterado também a coluna de 
+Data/Hora Excedida Entrada na Portaria
+ incluindo a ultima data e hora que foi excedida pelo motorista. 
+É possível cancelar uma chamada de motorista, para isso basta acionar o botão 
+Cancela Chamada.
+ 
+ 
+Observações
+O tempo para a entrada na base é configurada no perfil de depósito 
+Tempo máximo para entrada na base (em minutos).
+Os botões 
+Chama Motorista
+ e 
+Cancela Chamada
+ só vão ficar habilitado quando o perfil de depósito
+ Habilita Chamada de Motorista 
+estiver marcado. 
+Obtendo Peso 
+Para as empresas que tem integração com a balança no Sispetro, caso o motorista seja chamado e seja obtido o peso, não será mais redefinido a chamada do motorista, já que entendemos que o caminhão já se apresentou na portaria.
+Para informações relacionadas ao Sispetro Web, acesse: 
+Consulta Fila Entrada Base

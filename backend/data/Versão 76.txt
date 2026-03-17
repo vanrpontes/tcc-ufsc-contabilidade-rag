@@ -1,0 +1,792 @@
+TITULO: Versão 7.6
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892890571
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 29/01/2010 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 19/04/2010 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd76.sql (cmd2256 a cmd2307) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 63 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 43 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 20 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+ anexo8.rtm, scanc.rtm, NFFutura.smi, NFPetrobras.smi, Danfe.rtm, Danfe_Itens.rtm, ExtratoBancario.rtm, GIA_SP.rtm , GIA_PR.rtm, Sintegra-2010-DIC-SE.rtm, comissaoVendedor.rtm, Titulos.smi, ContasPagarReceber.rtm, SispetroBanco341.dll, DIME-SC.rtm, FechamentoEstoque.rtm 
+
+
+
+
+
+
+Após a atualização do SisPetro para a versão 7.6 em hipótese nenhuma deve-se rodar o Servidor SisPetro, SisPetro Normal, SisPetro Remoto e SisPetro Controladoria de versões anteriores. Caso isso aconteça, os dados de faturamento ficarão seriamente danificados.
+
+
+Geral
+
+
+
+
+Exportação de Configurações
+
+
+A partir dessa versão, é possível exportar as configurações de empresas, usuário e natureza de operação. Esse recurso servirá para facilitar o suporte aos nossos clientes em situações como erros que acontecem somente com determinado usuário. Quando uma situação dessas acontecer, poderão ser exportadas as configurações desse usuário e enviadas para análise do suporte, com isso poderemos identificar mais rapidamente qual o problema que está ocorrendo.
+ 
+Help:
+Rotina para Exportação e Importação de Configurações - LoadConfig
+. UPA (CCF 8510)
+
+
+Lista de Conexões ODBC no Servidor SisPetro
+
+
+Na tela de seleção de escolha do datasource, a partir dessa versão, serão listados somente os datasource de sistema, facilitando a visualização e a escolha da conexão com o banco de dados para o usuário. UPA (CCF 8525)
+
+
+Impressão de Grids em diversas telas
+
+
+Alteradas algumas telas que permitiam impressão do grid para utilização de novos componentes com melhor interação com o usuário. GSN (CCF 8655)
+
+
+Bandeira na Navegação do Cadastro de Clientes
+
+
+No cadastro de Clientes foi disponibilizada a visualização dos campos da Bandeira do cliente (código e descrição). ALP (CCF 7049)
+
+
+Verificação de Versão
+
+
+A partir dessa versão foi incluído nos executáveis do SisPetro um controle de versão para verificar se a versão do executável que está sendo rodado é compatível com o banco de dados.
+ 
+Com essa alteração, após a atualização do sistema, se não for permitido por conta de alguma alteração lógica do sistema, não será mais possível executar versões passadas do sistema. Atente-se a essa informação a cada lançamento de versão.
+ 
+Help:
+ 
+Validação de Versão
+ 
+UPA (CCF 8558)
+
+
+
+
+Compras
+
+
+Contabilidade
+
+
+
+
+Encerramento de Contas de Resultado sem Movimento (Real)
+
+
+Permitido que haja Encerramento de Contas Reais de Resultado mesmo que não haja movimentação no período.
+ 
+GSN (CCF 8502)
+
+
+Consulta a Movimentação de Centro de Custos de Forma Hierarquizada
+
+
+O SisPetro disponibiliza alguns relatórios de Centro de Custos, porém não de forma hierarquizada, recurso este utilizado por várias empresas. Nessa versão, no menu Consulta foi criada a tela Movimentação de Centro de Custo x Conta Contábil em que é possível visualizar e imprimir os dados dessa forma, desde que nos centros de custos esteja-se utilizando o recurso de Mascara de Ordenação de forma hierarquizada.
+ 
+Esse recurso permitirá obter o resultado de cada centro de custos (lucro ou prejuízo).
+ 
+UPA (CCF 8434)
+
+
+
+
+Estoque
+
+
+
+
+Movimentação Física na Movimentação Entre Depósitos
+
+
+Na tela de inclusão de movimento entre depósitos, a partir dessa versão,
+é possível definir que a movimentação entre depósitos irá gerar também a movimentação física dos produtos selecionados
+, 
+antes só era gerada a movimentação escritural, facilitando assim as movimentações entre bases que não possuam nota fiscal.
+ 
+Help:
+ 
+Movimento entre Depósitos
+. UPA (CCF
+ 
+8428)
+
+
+Consultas Tridimensionais
+
+As consultas tridimensionais de estoques tiveram seus layouts revisados e traduzidos para o português, evitando assim que o usuário movimente as colunas para lugares indevidos. 
+Para que essas alterações fiquem visíveis ao usuário é necessário clicar no botão Layout Padrão.
+ 
+UPA (CCF 8294)
+
+
+Redistribuição de bombeio
+
+
+O sistema permitirá a realização de um bombeio físico com os valores zerados.
+ 
+Dessa forma, um bombeio anterior que não foi feito na totalidade (deixando alguma quantidade a ser distribuída) poderá ser realizado sem que o estoque seja novamente movimentado na armazenadora.
+ 
+Help:
+ 
+Redistribuição de Bombeio - sem bombeio físico
+. 
+UPA (CCF 7761)
+
+
+Lentidão no Sispetro Remoto - Tela de Inclusão de Pedido de Bombeio
+
+
+Foi melhorada a performance da tela de inclusão de Pedido de Bombeio no Sispetro Remoto, além de uma verificação de existência de um pedido de bombeio para uma programação no Sispetro Normal. ALP (CCF 8847)
+
+
+Impressão de Relatório no Fechamento de Estoque do Remoto
+
+Atualizado o layout responsável pela impressão de dados gerais do Fechamento de Estoque na tela de mesmo nome através do botão "Imprime" no rodapé da tela.
+Necessário atualizar o arquivo FechamentoEstoque.rtm somente para o Sispetro Remoto.
+ 
+GSN (CCF 8655)
+
+
+Faturamento
+
+
+
+
+
+
+Mudança Chave de Acesso
+
+
+A Chave de Acesso, que antes era calculada, passou a ser gravada no banco de dados e possui uma proteção (código aleatório) que impede a consulta das mesmas por outros clientes (através da dedução do número sequencial da NF). As notas fiscais antigas tiveram o campo Chave de Acesso preenchido.
+ 
+A importação de Notas Fiscais também está gravando a Chave de Acesso no banco de dados.
+ 
+Os arquivos de importação (.smi) foram alterados para contemplar o novo campo chave de Acesso. Não esquecer de atualizar esses arquivos. Para a atualização dessa versão é necessário que não haja nenhuma pendência de envio ao SEFAZ. Caso contrário ocorrerão erros na Chave de Acesso das NF pendentes de envio.
+ 
+Help:
+ 
+Chave de Acesso da NF-e
+ 
+ALP (CCF 7965, 7679, 4465, 3735)
+
+
+Distribuição de NF-e Canceladas
+
+
+Após o cancelamento de uma NF é possível gerar o arquivo (xml) de distribuição do cancelamento dessa NF.
+ 
+As NF canceladas antes dessa versão não são possíveis de emitir o arquivo de distribuição. Esse procedimento visa a adaptação ao manual da NF-e (versão 4.0) a ser utilizado a partir de Abril/2010.
+
+
+As pastas e arquivos criados na geração dos arquivos de distribuição foram tratados para ficarem sem acentuação.
+ 
+Help:
+ 
+Distribuição da NF-e para o Destinatário
+ 
+ALP (CCF 7965)
+
+
+Hora de Saída da Mercadoria
+
+
+Na emissão de notas fiscais foi incluído mais uma informação: a HORA DE SAÍDA da mercadoria. Essa informação é automática, podendo ser parametrizada no perfil para que o usuário possa alterar.
+ 
+Se o sistema for parametrizado para que a hora não seja alterada, o SISPETRO pegará a hora atual do sistema.
+ 
+Esse procedimento visa a adaptação ao manual da NF-e (versão 4.0) a ser utilizado a partir de Abril/2010. É necessário atualizar os arquivos Danfe.rtm e Danfe_Itens.rtm.
+ 
+Help:
+ 
+Preenchimento de Dados na Nota Fiscal
+ 
+Help:
+ 
+Alterações do DANFE - versão 7.6
+ 
+ALP (CCF 7965, 7961)
+
+
+Data/Hora e Motivo Entrada em Contingência
+
+
+Se a emissão de NF-e for configurada para modo de contingência (DPEC Ativo) ou for selecionada a opção "trabalhar em modo Offline", ou ainda, se for selecionado Área de Trabalho Contingência, o sistema irá solicitar um motivo de entrada em contingência, que pode ser cadastrado na nova rotina do menu Tabelas Auxiliares - Faturamento - Motivos de Entrada em Contingência.
+ 
+Quando essa configuração for feita serão armazenados a data, hora e o motivo de entrada em contingência.
+ 
+Esse procedimento visa a adaptação ao manual da NF-e (versão 4.0) a ser utilizado a partir de Abril/2010.
+ 
+Help:
+ 
+Motivo de Entrada em Contingência
+. 
+ALP (CCF 7965)
+
+
+Email destinatário da NFe
+
+
+No cadastro de clientes foi adicionado um campo para o Email de envio para NF-e, na aba Detalhes - Cadastro detalhado.
+ 
+Esse campo foi preenchido com o conteúdo do campo EMAIL, já existente.
+ 
+Esse procedimento visa a adaptação ao manual da NF-e (versão 4.0) a ser utilizado a partir de Abril/2010.
+ 
+Help:
+ 
+Cadastro Detalhado
+.
+ 
+ALP (CCF 7965)
+
+
+ICMS Retido no XML da NF-e
+
+
+No cadastro de perfil é possível parametrizar como será enviado o ICMS retido no xml da NF-e. Pode-se optar por ICMS retido na origem ou no destino. Também pode-se escolher se o ICMS será enviado no xml apenas para operações interestaduais.
+ 
+Help:
+ 
+ICMS Retido no XML da NFE
+. ALP (CCF 7544)
+
+
+Nota de Complemento de Impostos com Valor Zerado
+
+
+Foi criado um perfil no cadastro de Natureza de Operação para definir se poderá ser emitida uma NF com valor zerado.
+ 
+Essa opção funciona apenas para Notas Fiscais de Complemento de Impostos. Com o advento da Nota Fiscal eletrônica, a emissão de Notas Fiscais sem itens passou a ser proibida. Com essa implementação, o sistema possibilita a emissão de uma Nota Fiscal de Complemento com apenas um item de valor zero. Dessa forma será possível acertar, por exemplo, o ICMS Subst. ou o ICMS próprio deixando a Nota Fiscal com o valor zerado.
+ 
+Help:
+ 
+Impostos Natureza Operação
+ 
+ALP (CCF 6702)
+
+
+Cancelamento de NFe que foi sincronizada
+
+Ao sincronizar uma NFe que não tinha protocolo esta NFe não aparecia como "Processamento OK" na Manutenção de Notas Fiscais, o que foi corrigido. 
+GSN (CCF 7909)
+
+
+Danfe com Dados de OC indevidos
+
+Foi corrigido para não imprimir dados de OC indevidamente quando a Nota não esteja vinculada a uma OC. Esse caso ocorria somente quando existia uma OC com número 0 (zero). 
+GSN (CCF 8449)
+
+
+Cancelamento de NFe denegada
+
+
+Foi permitido o cancelamento de NFe denegada, sem acionar nenhum processamento na SEFAZ, providenciando somente o cancelamento no Sispetro.
+ 
+Help:
+ 
+Cancelamento-Inutilização da Nota
+.
+ 
+GSN (CCF 8014)
+
+
+
+
+Financeiro
+
+
+
+
+Adaptação do SisPetro ao DDA (Débito Direto Autorizado)
+
+
+Foi criado um novo campo no cadastro de clientes que define se o boleto será impresso ou não na emissão de Notas Fiscais desse cliente. Mesmo configurando para não imprimir o boleto, se necessário via manutenção de Notas Fiscais ainda é possível a impressão do mesmo.
+ 
+Se um cliente aderiu ao DDA, a emissão de boleto não é necessária. Com essa nova opção do sistema, a emissão de boletos é reduzida apenas aos clientes que não aderiram ao DDA.
+ 
+Help:
+ 
+Indicação no Cadastro de Clientes sobre DDA
+. ALP (CCF 7479)
+
+
+Filtro do Convênio pela Cobrança na Geração do Arquivo de Remessa
+
+
+Na tela de geração do arquivo de remessa, o usuário escolhe o tipo de cobrança e logo após o convênio. Na versão passada eram listados todos os convênios aos usuários. A partir dessa versão, serão listados somente os convênios associados ao tipo de cobrança selecionado, facilitando assim a seleção dos usuários. UPA (CCF 8218)
+
+
+Contas a Receber Recorrente
+
+
+A partir dessa versão estamos disponibilizando todos os recursos de recorrências do contas a pagar também para o contas a receber.
+ 
+Com essa nova ferramenta, será possível cadastrar uma recorrências de contas a receber como por exemplo, os recebimentos de aluguéis.
+ 
+Help:
+ 
+Títulos a Receber Recorrentes
+. UPA (CCF 8384)
+
+
+Vínculo de Título a um Contrato de Mútuo
+
+No vínculo de um título a um contrato de mútuo, estávamos levando em conta o valor original do título, e no caso de títulos com acréscimos ou baixas parciais, o valor do saldo do contrato demonstrava estes valores de acréscimos e baixas e não o valor total do Saldo Atual. A partir dessa versão, estamos pegando o saldo do(s) título(s), corrigindo assim essa situação. 
+UPA (CCF 8100)
+
+
+Escolha de Contas Destino no Extrato Bancário
+
+
+Foi disponibilizado no relatório extrato bancário (menu Relatórios - Financeiro) uma opção que permite filtrar as contas destino.
+ 
+Esse filtro é gravado no sistema para que o usuário possa emitir o relatório sem precisar selecionar as contas novamente. Ao selecionar uma ou mais contas destino, o relatório informa no cabeçalho que o filtro de conta destino está ativado.
+ 
+Para essa alteração é necessário atualizar o anexo ExtratoBancario.rtm.
+ 
+ALP (CCF 8382)
+
+
+Histórico na Transferência entre Bancos
+
+Ajustado texto apresentado no campo Histórico da tela de Transferência entre Bancos na inicialização da tela. 
+GSN(CCF 8736)
+
+
+Multa no Contas a Receber e Cobrança Eletrônica
+
+
+Foi implementada a cobrança de multa para títulos a receber. O valor do percentual da multa pode ser configurado no perfil de sistema ou no perfil de cliente, sendo que nesse último, ao ser cadastrado um cliente, é sugerido o valor percentual da multa cadastrada no perfil de sistema.
+ 
+Se um título estiver vencido, a multa é calculada apenas uma vez (diferentemente dos juros ao dia) e diretamente sobre o valor do Saldo do título.
+ 
+Com essa implementação o sistema está preparado para enviar, no arquivo de CNAB 240, (para o Banco do Brasil e Santander) um registro (Segmento R) com as informações de Multa dos títulos. Além disso, a importação de títulos (utilizando o layout "Titulos.SMI") também contempla o novo campo de Multa.
+ 
+Help:
+ 
+Multa no Contas a Receber e Cobrança Eletrônica
+ 
+ALP (CCF 7495)
+
+
+Sincronia entre Datas do Financeiro e Contabilidade
+
+
+A Data de um lote gerencial será gravada utilizando-se o parâmetro cadastrado no perfil de empresa da aba Financeiro.
+ 
+Os parâmetros são "Calcula Data Vencto a partir da" e "Lança Dt Emissão a partir da". Em ambos, é possível escolher as referidas datas para Contas a Pagar e Contas a Receber.
+ 
+ALP (CCF 6193)
+
+
+Arquivo de Retorno de Liquidação com Acréscimo para título postergado
+
+
+Foi disponibilizado nessa versão um perfil que permite considerar o valor de acréscimo nos arquivos de retorno dos banco como parte do saldo total do título a ser baixado.
+ 
+Se o perfil não estiver marcado, o sistema entenderá que o acréscimo constante no arquivo de retorno já está incluído no saldo do título, desconsiderando o mesmo no momento da baixa
+. ALP (CCF 8394)
+
+
+Arquivo de Retorno com Confirmação de Entrada, Abatimento e Liquidação para o mesmo título
+
+Em uma versão anterior, criamos um recurso para permitir que a baixa referente ao valor do abatimento seja feita na leitura do Arquivo de Retorno num comando de Confirmação de Entrada. Porém, em algumas situações em que no mesmo arquivo continha a informação de Entrada, Abatimento e Liquidação, era apresentada uma mensagem de erro ao usuário que foi corrigida nessa versão. 
+ALP (CCF 8162)
+
+
+Conversão do Dolar no Contas a Pagar
+
+
+Nessa versão é possível cadastrar uma moeda (como DOLAR por exemplo) com taxas diárias. No lançamento de Contas a Pagar, se for escolhida uma moeda que possui taxas, o sistema utilizará a taxa do dia (ou de dias anteriores conforme configuração disponibilizada no perfil de sistema) para calcular o valor em REAIS.
+ 
+No momento da baixa o sistema também se utilizará da taxa da moeda do título para calcular os valores de saldo e variação cambial (acréscimo ou desconto).
+ 
+Help:
+ 
+Inclusão de Contas a Pagar Utilizando conversão de moedas
+ 
+ALP (CCF 8436)
+
+
+Conciliação Bancária do Itaú
+
+
+Foi disponibilizado nessa versão o arquivo DLL "SispetroBanco341" para conciliação bancária do Itaú. ALP (CCF 8211)
+
+
+
+
+Fiscal
+
+
+
+
+Separação em Abas dos Documentos Fiscais Vinculados
+
+
+Na rotina de Manutenção de Notas Fiscais, na aba Fiscais - Doctos Fiscais Vinculados, foram criadas duas abas que separam as Notas Fiscais Vinculadas e as Notas Fiscais Referenciadas. Na aba Notas Fiscais Referenciadas foi criado um botão para cancelar o vínculo de Notas Fiscais Referenciadas. ALP (CCF 8342)
+
+
+Ajustes no Anexo para Compatibilizá-lo ao SCANC
+
+
+A partir dessa versão, fizemos ajustes na tela de manutenção de anexo para que os dados apresentados sejam compatíveis com os dados enviados ao SCANC. Entre esses ajustes estão:
+
+
+
+
+O B100 terá as mesmas características do anidro(Anexo VIII).
+
+
+
+
+Não esquecer de atualizar os arquivos anexo8.rtm e scanc.rtm para que as novas alterações sejam aplicadas.
+
+
+
+
+
+
+A quantidade de saídas no produto composto está sendo apresentada para o B100 e Anidro.
+
+
+O código de alíquota do ICMS deverá ser configurado no produto e não mais no anexo de forma individual.
+
+
+Exibição de criticas do anexo assim como no DPMP. UPA (CCF 7888, 8146)
+
+
+
+
+
+
+Registro 70 no SCANC
+
+Em alguns casos que haviam registros de perdas ou ganhos a serem enviados no Registro 70 este registro não estava sendo gerado, porém era totalizado no Registro Totalizador, o que foi corrigido. 
+É necessário atualizar o arquivo scanc.rtm para que a alteração tenha efeito.
+ 
+GSN (8451)
+
+
+Notas com mais de um item do mesmo Produto no SCANC
+
+Devido a atualização do Gerenciador de Relatórios a partir da versão 7.4, em notas com mais de um item os campos de Imposto e Quantidade do Registro 40 saíam com o valor em dobro, o que foi corrigido. 
+Não esquecer de atualizar o arquivo SCANC.RTM.
+ 
+GSN(CCFs 8651,8648)
+
+
+Log de Alterações na Apuração Fiscal
+
+
+Foram adicionados campos na rotina de Apuração Fiscal para armazenar os usuários e datas que efetuaram inclusão ou alterações de Apuração Fiscal.
+ 
+As alterações armazenadas são Inclusão, Cancelamento e Encerramento de Apuração Fiscal. Foram criados 3 perfis para esses respectivos lançamentos na manutenção de usuários, na aba Fiscal.
+ 
+Por padrão, esses perfis virão desabilitados no sistema. Portanto, os usuários que fazem uso dessas opções ficarão impossibilitados de utilizar as mesmas até que a permissão a esses perfis seja concedida. Além de deixar registrado o usuário e a data da alteração, também é gerado um log do registro de apuração fiscal que foi alterado, com as informações anteriores à alteração e as informações atualizadas.
+ 
+Help:
+ 
+Apuração Livro Fiscal
+. 
+ALP (CCF 8099)
+
+
+SPED-EFD - Processo Referenciado no Registro C111
+
+Ajustados filtros para devida geração dos registros C111, C112 e C113. Cabe lembrar que o registro C111 é dependente do registro C110, sendo este só gerado para notas de emissão de terceiros. Sendo assim, a estrutura atual do SPED-EFD não aceita o registro C111 para notas de emissão própria.
+DPM(CCF 7453)
+
+
+SPED-EFD - Valores de IPI
+
+Ajustada a fórmula dos campos que possuem valores de IPI para só mandarem o valor da Base de IPI se a natureza de operação estiver configurada para Gerar IPI (aba Por Filial/Impostos).
+DPM(CCF 7465)
+
+
+SPED-EFD - Novos registros a partir de Janeiro/2010
+
+
+Acrescentados os novos campos e registros e fórmulas no Conjunto de Dados SPED-EFD conforme alteração imposta pelo Ato Cotepe 38/09. Foram adicionados inclusive fórmulas para os registro 1700 e 1710 que não são obrigatórios para todas as UF´s. No caso de não desejar seu envio, vá no menu Configurações e desmarque a opção de Participar do Arquivo de Exportação. Cabe lembrar que para gerar arquivos antigos é necessário ajustar o layout para a versão anterior. O processo é simples e está descrito em
+ 
+Participação dos Campos nos Registros dos Conjuntos de Dados
+ 
+DPM(CCF 8450,8489)
+
+
+SPED-EFD - Conta contábil no Registro H010
+
+
+Alterada a fórmula do campo Conta Contábil (COD_CTA) do Registro H010 (Inventário) para se referenciar à conta de estoque configurada no Cadastro de Produtos. DPM(CCF 8519)
+
+
+SPED-EFD - Tipo de Posse no Registro H010
+
+
+Alterada a fórmula do campo Tipo de Posse (IND_PROP) do Registro H010 (Inventário) para enviar o tipo de posse compatível com o que está cadastrado na Manutenção de Inventário no SisPetro. GSN(CCF 8529)
+
+
+SPED-EFD - ICMS Subst
+
+
+Nos registros referentes a notas fiscais (C100, C170, C190, C500, C590 e D590) cuja Natureza de Operação está configurada para Desconsiderar ICMS ST na apuração os valores de ICMS ST foram zerados. Consequentemente a Apuração Fiscal de Substituição, salva na tabela LFEApuracaoICMSSubst, no registro E210 também não considerará esses valores. Ainda na Apuração Fiscal de Substituição foram somados no campo "Extra Apuração" os valores pagos de GNRE, conforme registro E250. DPM(CCF 8292)
+
+
+SPED-EFD - PIS e COFINS
+
+
+Alteradas as fórmulas dos registros C100, C170, C500, D100 e D500 para utilizar o recurso dos Outros Impostos para obter os valores de PIS e COFINS. DPM(CCF 8557)
+
+
+SPED-EFD - Classe de Consumo no registro C500
+
+
+Alterada a fórmula do registros C500 para considerar a Classe de Consumo conforme tabela divulgada para 2010 e feito os ajustes de tamanho para preenchimento do arquivo. GSN(CCFs 8583, 8838)
+
+
+SPED-EFD - Melhora de Performance
+
+
+Melhorada a performance para atualização de scripts referentes ao SPED (ajustes de fórmulas e configurações).
+ 
+GSN(CCF 8498)
+
+
+SPED-EFD - Chave de Acesso no C100
+
+
+Alterada a fórmula do registro C100 para utilizar o novo campo da tabela NotaFiscal referente à Chave de Acesso, conforme alterações realizadas nessa versão (versão 4.0 do manual da NFe). DPM(CCF 8487)
+
+
+Importante! Devido o grande número de alterações, estamos atualizando as fórmulas do SPED-EFD com as fórmulas padrão da Futura. Caso alguém tenha alguma objeção nos contacte antes da atualização da versão.
+
+
+GIA-SP - Ajuste de Totalizadores
+
+Ajustados os totalizadores da GIA-SP. 
+Necessário atualizar o arquivo GIA_SP.rtm.
+ 
+DPM(CCF 7876)
+
+
+GIA-PR - Mensagem de erro
+
+Ajustado o layout da GIA-PR para não apresentar mensagem de erro na seleção de dados. 
+Necessário atualizar o arquivo GIA_PR.rtm.
+ 
+GSN(CCF 8535)
+
+
+Sintegra - Registro 60 para DIC (SE)
+
+Corrigida a apresentação dos dados do Registro 60 para o Sintegra de Sergipe para registros Mestre e Analítico.
+Necessário atualizar o arquivo Sintegra-2010-DIC-SE.rtm.
+ 
+GSN(CCF 8683)
+
+
+DIME - Atualização de Layout
+
+
+Atualizado o layout da DIME-SC, acrescentando os registros 25 (Quadro 04), 26 (Quadro 05), 30 (Quadro 09), 31 (Quadro 10), 32 (Quadro 11) e 33 (Quadro 12).
+Necessário atualizar o arquivo DIME-SC.rtm.
+ 
+GSN(CCF 8477)
+
+
+
+
+Transporte
+
+
+
+
+Observações no Conhecimento de Frete
+
+O sistema foi corrigido para que as observações digitadas pelo usuário na inclusão de um conhecimento de frete não desapareçam. 
+ALP (CCF 8351)
+
+
+
+
+Vendas
+
+
+
+
+Seguro no Pedido
+
+No SisPetro Remoto, na inclusão de pedido de venda, caso o cliente a ser faturado estivesse configurado para trabalhar com pedido de vendas mas a empresa não, o seguro estava sendo calculado da mesmo forma, diferente do que acontece no SisPetro Normal. Essa divergência foi corrigida. 
+UPA (CCF 8484)
+
+
+Comissão de Vendedores
+
+
+Foi criado um perfil no menu Ferramentas - Sistema, na aba Vendas que permite escolher o tipo de comissão de vendas (por Vendedor ou por Cliente). Em ambos os casos (no cadastro de vendedores e no cadastro de clientes) é possível cadastrar uma tabela de comissão de vendas, colocando um percentual para cada produto. No cadastro de vendedores, para utilizar esse novo tipo de cálculo, deverá ser selecionada a opção "Tabela de comissões".
+ 
+Caso essa opção seja selecionada e um determinado produto não estiver cadastrado na tabela de comissões do vendedor (ou do cliente), o percentual calculado para esse produto será zero (0).
+ 
+ALP (CCF 8399)
+
+
+Erro ao Validar o IE no Pedido de Vendas do Remoto
+
+No pedido de vendas do SisPetro Remoto, caso o perfil de sistema "Avisa quando não tiver IE para o Estado" estivesse habilitado, ao finalizar o pedido era gerada uma mensagem de erro ao usuário impedindo a sua gravação. Esse problema foi corrigido. 
+UPA (CCF 8440)
+
+
+Percentual de Desconto no Pedido de Vendas do Remoto
+
+Ajustado cálculo do campo Percentual de Desconto no Pedido de Venda do Remoto que apresentava um número estranho quando o preço informado era igual ao preço de tabela (sem desconto). 
+GSN (CCF 8718)
+
+
+Grupo Econômico
+
+
+A partir dessa versão, é possível fazer aprovação de crédito nos pedidos de venda através do crédito disponível no grupo econômico a qual o cliente pertence e não mais pelo cliente individualmente. Quando estivermos incluindo um pedido de vendas, a analise de credito será feita sobre todo o grupo econômico a qual aquele cliente informado no pedido pertence. Mesmo o cliente não possuindo saldo mas o seu grupo econômico tendo, seu pedido será liberado.
+ 
+Com isso, os pedidos agora não precisam mais ter a cada item a sua entidade faturada informada, consequentemente agora é possível fazer o pedido direto para o cliente desejado pegando assim todos os seu parametros como condição de pagamento, opções de frete, vendedor etc.
+ 
+No cadastro de clientes, tela de pedidos e tela de pedidos pendentes, foi adicionado uma consulta a composição de crédito do grupo econômico, através dela, é possível visualizar o crédito do grupo e o detalhamento deste crédito.
+ 
+O parâmetro de Grupo Econômico de Análise de Vendas está em desuso e em todas as abas que agrupam valores de Grupo Econômico está sendo considerado o comprador (único) no Grupo Econômico de Crédito e Faturamento.
+ 
+Help:
+ 
+Novidades no Grupo Econômico
+ 
+UPA (CCF 3251)
+
+
+Vendedor atual na Análise Geral de Vendas
+
+
+Na tela de Consulta de Análise de Vendas foi acrescentada uma coluna para o Vendedor que atualmente está vinculado ao cliente (Vendedor_Atual). Permanecemos com a coluna Vendedor que indica o vendedor utilizado na Nota Fiscal. GSN (CCF 8947)
+
+
+Custo de Vendas específico por UF
+
+Corrigido para que ao salvar os Custos de Venda na Nota Fiscal de produto composto, considerar a UF configurada nos custos externos dos produtos básicos. Na tela de Análise de Custo essa configuração também será considerada quando se alterar somente a UF na tela, sem alterar o cliente. 
+GSN (CCF 8948)
+
+
+Assistente de Vendas - Indicação no Cliente
+
+
+Foi criado um perfil de empresa que permite escolher um assistente de vendedor qualquer, ou então escolher apenas o assistente que está relacionado ao vendedor.
+ 
+Se o perfil estiver configurado com a opção "Vinculado a um único vendedor" só será possível visualizar o assistente ligado ao vendedor. Para visualizar todos os assistentes, deve-se escolher a opção "Sem vendedor pré-definido". Além disso, em ambos os casos, o sistema foi alterado para exibir apenas os vendedores ativos.
+ 
+Help:*
+ 
+Assistente de Venda
+ 
+ALP (CCF 6771)
+
+# 
+Seguro no Pedido de Venda e Modalidade do Frete
+
+
+No lançamento de um Pedido de Venda, se o campo "Seguro" estiver desabilitado para marcar/desmarcar, o sistema verificará o perfil de empresa (Habilita Seguro) e a Modalidade de frete escolhida para gravar o campo "Segurado".
+ 
+Dessa forma, não será mais necessário sair da tela para configurar perfil.
+ 
+ALP (CCF 8380)
+
+
+Alteração do Código do Produto na Inclusão de Pedido de Vendas
+
+Na inclusão de um pedido de vendas, na tela de itens, após o usuário informar um item o preço do produto é sugerido automáticamente ao usuário, caso o usuário volte ao código do produto e o altere e logo em seguida clicasse no botão Avançar, era gravado no pedido o código do novo produto informado mas com o preço do antigo. Esse problema foi corrigido. 
+UPA (CCF 8941)
+

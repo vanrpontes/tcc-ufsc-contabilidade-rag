@@ -1,0 +1,565 @@
+TITULO: Cálculos de ICMS para Tributação Monofásica de Diesel e afins conforme cada CST e o que configurar
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4349001729
+--------------------------------------------------
+CST 61 - saída de Diesel B
+Tabela Composição de Produtos
+ 
+- tela nova para ser cadastrada a composição fiscal de produtos utilizada para a tributação monofásica.
+Cadastrar a composição que será utilizada no produto Diesel B composto ou misturado
+Produto Primário deve ser cadastrado  com Tipo de Cálculo simples e %Composição definida pela ANP
+BioCombustível deve ser cadastrado com Tipo de Cálculo simples e %Composição definida pela ANP
+Cadastro de Produtos
+ - produto Diesel B
+Envia na NF-e a Tag <origComb> com o % Originário por UF?:
+marcar
+Tipo (Tributação AdRem): 
+Produto Primário
+Envia tag <pBio> com Perc. de BioCombustível: 
+Envia Percentual de BioCombustível conforme Composição do produto
+Origem do Produto: 
+Nacional
+Composição: 
+selecione a composição cadastrada acima
+ - produto B100
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+marcar
+Tipo (Tributação AdRem): 
+BioCombustível
+Envia tag <pBio> com Perc. de BioCombustível: 
+não envia
+Origem do Produto: 
+Nacional
+Composição: 
+não selecione
+Margem Subst. Tributária
+ 
+%Orig. Nac.:
+ informe o percentual da UF do produtor (UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do produtor.
+%Orig. Imp.:
+ informe o percentual da UF do importador UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do importador.
+No SisPetro para que os percentuais de UF Origem sejam gerados corretamente no XML é necessário informar nos Produtos: B100 e Diesel B. 
+Nota:
+ 
+a UF do importador (UF de Origem) refere-se à UF onde o produto importado foi descarregado
+Obs.:
+ a distribuição dos percentuais Orig. Nac. e Orig. Imp. entre as UFs dos produtores/importadores deve 
+somar 100%, sempre.
+%ICMS UF Dest. (Nac.):
+ 
+informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de produtor nacional.
+%ICMS UF Dest. (Imp.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de importador.
+Informar somente no produto puro B100
+ - ambos os produtos
+Cadastre as alíquotas AdRem para as UFs envolvidas:
+Próprio
+ST
+ - regra geral: 
+uma vez configurada envia para todas as notas emitidas com natureza de operação habilitada para AdRem
+NT 2023.001 - Tag pBio: 
+Envia para produtos compostos contendo Biocombustível
+NT 2023.001 - Tag origComb: 
+Envia para produtos com % Originário por UF
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Envia quando o item conter o CST de Tributação Monofásica
+Situação Tributária de ICMS
+CST/CSOSN: 
+informar 061
+Ad Rem
+Habilita  cálculo Ad Rem: 
+marcar
+Produto Primário: 
+ICMS Retido: 100%
+Produto BioCombustível:
+ICMS Retido: 100%
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?: 
+Respeita Cadastro de Produtos
+Dados Tributação Monofásica: 
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+CST 61 - saída de Diesel A
+Tabela Composição de Produtos
+Cadastrar a composição que será utilizada no produto Diesel A
+Produto Primário deve ser cadastrado  com Tipo de Cálculo simples e %Composição deve ser 100%
+BioCombustível deve ser cadastrado com Tipo de Cálculo por dentro e %Composição definida pela ANP
+Cadastro de Produtos
+ - produto Diesel A
+Envia na NF-e a Tag <origComb> com o % Originário por UF?:
+desmarcar
+Tipo (Tributação AdRem): 
+Produto Primário
+Envia tag <pBio> com Perc. de BioCombustível: 
+Envia Percentual de BioCombustível conforme Composição do produto
+Origem do Produto: 
+Nacional
+Composição: 
+selecione a composição cadastrada acima
+ - produto B100
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+marcar
+Tipo (Tributação AdRem): 
+BioCombustível
+Envia tag <pBio> com Perc. de BioCombustível: 
+não envia
+Origem do Produto: 
+Nacional
+Composição: 
+não selecione
+Margem Subst. Tributária
+%Orig. Nac.:
+ informe o percentual da UF do produtor (UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do produtor.
+%Orig. Imp.:
+ informe o percentual da UF do importador UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do importador.
+Informar os percentuais nos produtos da composição fiscal utilizada para o Diesel A: no Diesel A e no B100 
+Nota:
+ 
+a UF do importador (UF de Origem) refere-se à UF onde o produto importado foi descarregado
+%ICMS UF Dest. (Nac.):
+ 
+informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de produtor nacional.
+%ICMS UF Dest. (Imp.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de importador.
+Informar somente no B100
+Obs.:
+ a distribuição dos percentuais Orig. Nac. e Orig. Imp. entre as UFs dos produtores/importadores deve 
+somar 100%, sempre.
+ - ambos os produtos
+Cadastre as alíquotas AdRem para as UFs envolvidas:
+Próprio
+ST
+ - regra geral: 
+uma vez configurada envia para todas as notas emitidas com natureza de operação habilitada para AdRem
+NT 2023.001 - Tag pBio: 
+Envia para produtos compostos contendo Biocombustível
+NT 2023.001 - Tag origComb: 
+Envia para produtos com % Originário por UF
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Envia quando o item conter o CST de Tributação Monofásica
+Situação Tributária de ICMS
+CST/CSOSN: 
+informar 061
+Ad Rem
+Habilita  cálculo Ad Rem: 
+marcar
+Produto Primário: 
+ICMS Retido: % UF Origem
+Produto BioCombustível:
+ICMS Retido: %UF Destino
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?: 
+Respeita Cadastro de Produtos
+Dados Tributação Monofásica: 
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+CST 61 - saída de B100
+Cadastro de Produtos
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+Marcar
+Tipo (Tributação AdRem): 
+BioCombustível
+Envia tag <pBio> com Perc. de BioCombustível: 
+não envia
+Origem do Produto: 
+Nacional
+Composição: 
+não selecione
+Margem Subst. Tributária
+%Orig. Nac.:
+ informe o percentual da UF do produtor (UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do produtor.
+%Orig. Imp.:
+ informe o percentual da UF do importador UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do importador.
+Informar no B100
+Nota:
+ 
+a UF do importador (UF de Origem) refere-se à UF onde o produto importado foi descarregado
+%ICMS UF Dest. (Nac.):
+ 
+informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de produtor nacional.
+%ICMS UF Dest. (Imp.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de importador.
+Informar no B100
+Obs.:
+ a distribuição dos percentuais Orig. Nac. e Orig. Imp. entre as UFs dos produtores/importadores deve 
+somar 100%, sempre.
+Cadastre as alíquotas AdRem para as UFs envolvidas:
+Próprio
+ST
+ - regra geral: 
+uma vez configurada envia para todas as notas emitidas com natureza de operação habilitada para AdRem
+NT 2023.001 - Tag pBio: 
+Envia para produtos compostos contendo Biocombustível
+NT 2023.001 - Tag origComb: 
+Envia para produtos com % Originário por UF
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Envia quando o item conter o CST de Tributação Monofásica
+Situação Tributária de ICMS
+CST/CSOSN: 
+informar 061
+Ad Rem
+Habilita  cálculo Ad Rem: 
+marcar
+Produto Primário: 
+ICMS Retido: %UF Origem
+O cálculo do %UF Origem é realizado internamente pelo SisPetro: 100 - %UF Destino.
+Exemplo: 
+%UF Destino = 33,33
+%UF Origem (cálculo interno) = 100 - 33,33 = 66,67
+Produto BioCombustível:
+ICMS Retido: %UF Destino
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?: 
+Respeita Cadastro de Produtos
+Dados Tributação Monofásica: 
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+CST 15 - Produção/Nacionalização de Diesel A através de PMM
+Tabela Composição de Produtos
+Cadastrar a composição que será utilizada no produto Diesel A
+Produto Primário deve ser cadastrado  com Tipo de Cálculo simples e %Composição deve ser 100%
+BioCombustível deve ser cadastrado com Tipo de Cálculo por dentro e %Composição definida pela ANP
+Cadastro de Produtos
+ - Diesel A
+Envia na NF-e a Tag <origComb> com o % Originário por UF?:
+marcar
+Tipo (Tributação AdRem): 
+Produto Primário
+Envia tag <pBio> com Perc. de BioCombustível: 
+Envia Percentual de BioCombustível conforme Composição do produto
+Origem do Produto: 
+Importado
+Composição: 
+selecione a composição cadastrada acima
+ - produto B100
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+desmarcar
+Tipo (Tributação AdRem): 
+BioCombustível
+Envia tag <pBio> com Perc. de BioCombustível: 
+não Envia
+Origem do Produto: 
+Nacional
+Composição: 
+não selecione
+Margem Subst. Tributária
+ - ambos os produtos
+%Orig. Nac.:
+ informe o percentual da UF do produtor (UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do produtor.
+%Orig. Imp.:
+ informe o percentual da UF do importador UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do importador.
+Informar os percentuais nos produtos da composição fiscal utilizada para o Diesel A: no Diesel A e no B100 
+Nota:
+ 
+a UF do importador (UF de Origem) refere-se à UF onde o produto importado foi descarregado
+%ICMS UF Dest. (Nac.):
+ 
+informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de produtor nacional.
+%ICMS UF Dest. (Imp.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de importador.
+Informar somente no B100
+Obs.:
+ a distribuição dos percentuais Orig. Nac. e Orig. Imp. entre as UFs dos produtores/importadores deve 
+somar 100%, sempre.
+ - ambos os produtos
+Cadastre as alíquotas AdRem para as UFs envolvidas, inclusive a UF EX:
+Próprio
+ST
+ - regra geral: 
+uma vez configurada envia para todas as notas emitidas com natureza de operação habilitada para AdRem
+NT 2023.001 - Tag pBio: 
+Envia para produtos compostos contendo Biocombustível
+NT 2023.001 - Tag origComb: 
+Envia para produtos com % Originário por UF
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Envia quando o item conter o CST de Tributação Monofásica
+Situação Tributária de ICMS
+CST/CSOSN: 
+informar 115
+ 
+Ad Rem 
+- não interfere já que os valores de ICMS são informados manualmente conforme Processo de Importação de Combustíveis - item Despesas
+Habilita  cálculo Ad Rem: 
+marcar
+Produto Primário: 
+ICMS Próprio: 100%
+Produto BioCombustível:
+ICMS ST: 100%
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?: 
+Respeita Cadastro de Produtos
+Dados Tributação Monofásica: 
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+Processo de Importação de Combustíveis
+ - item Despesas
+A base de cálculo, a alíquota e o valor do ICMS devem ser informados manualmente - campo Categoria:
+ICMS Próprio
+ICMS Substituição
+CST 15 - Produção/Nacionalização de Diesel A através de inclusão manual de nota fiscal
+Tabela Composição de Produtos
+Cadastrar a composição que será utilizada no produto Diesel A
+Produto Primário deve ser cadastrado  com Tipo de Cálculo simples e %Composição deve ser 100%
+BioCombustível deve ser cadastrado com Tipo de Cálculo por dentro e %Composição definida pela ANP
+Cadastro de Produtos
+ - Diesel A
+Envia na NF-e a Tag <origComb> com o % Originário por UF?:
+marcar
+Tipo (Tributação AdRem): 
+Produto Primário
+Envia tag <pBio> com Perc. de BioCombustível: 
+Envia Percentual de BioCombustível conforme Composição do produto
+Origem do Produto: 
+Importado
+Composição: 
+selecione a composição cadastrada acima
+ - produto B100
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+desmarcar
+Tipo (Tributação AdRem): 
+BioCombustível
+Envia tag <pBio> com Perc. de BioCombustível: 
+não envia
+Origem do Produto: 
+Nacional
+Composição: 
+não selecione
+Margem Subst. Tributária
+ - ambos os produtos
+%Orig. Nac.:
+ informe o percentual da UF do produtor (UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do produtor.
+%Orig. Imp.:
+ informe o percentual da UF do importador UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do importador.
+Informar os percentuais nos produtos da composição fiscal utilizada para o Diesel A: no Diesel A e no B100  
+Nota:
+ 
+a UF do importador (UF de Origem) refere-se à UF onde o produto importado foi descarregado
+%ICMS UF Dest. (Nac.):
+ 
+informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de produtor nacional.
+%ICMS UF Dest. (Imp.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de importador.
+Informar somente no B100
+Obs.:
+ a distribuição dos percentuais Orig. Nac. e Orig. Imp. entre as UFs dos produtores/importadores deve 
+somar 100%, sempre.
+ - ambos os produtos
+Cadastre as alíquotas AdRem para as UFs envolvidas, inclusive a UF EX:
+Próprio
+ST
+ - regra geral: 
+uma vez configurada envia para todas as notas emitidas com natureza de operação habilitada para AdRem
+NT 2023.001 - Tag pBio: 
+Envia para produtos compostos contendo Biocombustível
+NT 2023.001 - Tag origComb: 
+Envia para produtos com % Originário por UF
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Envia quando o item conter o CST de Tributação Monofásica
+Situação Tributária de ICMS
+CST/CSOSN: 
+informar 115
+Ad Rem
+Habilita  cálculo Ad Rem: 
+marcar
+Produto Primário: 
+ICMS Próprio: 100%
+Produto BioCombustível:
+ICMS ST: 100%
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?: 
+Respeita Cadastro de Produtos
+Dados Tributação Monofásica: 
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+CST 53 - Produção/Nacionalização de B100
+Cadastro de Produtos
+Envia na NF-e a Tag <origComb> com o % Originário por UF?: 
+desmarcar
+Tipo (Tributação AdRem): 
+BioCombustível
+Envia tag <pBio> com Perc. de BioCombustível: 
+não envia
+Origem do Produto: 
+Importado
+Composição: 
+não selecione
+Margem Subst. Tributária
+%Orig. Nac.:
+ informe o percentual da UF do produtor (UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do produtor.
+%Orig. Imp.:
+ informe o percentual da UF do importador UF de Origem) de BioCombustível. Em relação à quantidade total da operação, sobre a proporção do BioCombustível, quantos por cento pertence a essa UF do importador.
+Informar no B100 
+Nota:
+ 
+a UF do importador (UF de Origem) refere-se à UF onde o produto importado foi descarregado
+%ICMS UF Dest. (Nac.):
+ 
+informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de produtor nacional.
+%ICMS UF Dest. (Imp.):
+ informar o percentual para a UF de Destino, conforme regras determinadas no Convênio ICMS 199/22 (Diesel e afins) e 15/23 (Gasolina e Anidro), para produto adquirido de importador.
+Informar no B100
+Obs.:
+ a distribuição dos percentuais Orig. Nac. e Orig. Imp. entre as UFs dos produtores/importadores deve 
+somar 100%, sempre.
+Cadastre as alíquotas AdRem para as UFs envolvidas, inclusive a UF EX:
+Próprio
+ST
+ - regra geral: 
+uma vez configurada envia para todas as notas emitidas com natureza de operação habilitada para AdRem
+NT 2023.001 - Tag pBio: 
+Envia para produtos compostos contendo Biocombustível
+NT 2023.001 - Tag origComb: 
+Envia para produtos com % Originário por UF
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Envia quando o item conter o CST de Tributação Monofásica
+Situação Tributária de ICMS
+CST/CSOSN: 
+informar 153
+Ad Rem
+Habilita  cálculo Ad Rem: 
+marcar
+Produto Primário: 
+ICMS Próprio: 100%
+ICMS Diferido: %UF Destino
+Produto BioCombustível:
+Nenhuma configuração
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?: 
+Respeita Cadastro de Produtos
+Dados Tributação Monofásica: 
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+CST 02 - Saída Diesel Marítimo e Outros Diesel sem mistura de B100
+Cadastro de Produtos
+Envia na NF-e a Tag <origComb> com o % Originário por UF?:
+marcar
+Tipo (Tributação AdRem): 
+Produto Primário
+Envia tag <pBio> com Perc. de BioCombustível: 
+não envia
+Origem do Produto: 
+Nacional
+Composição: 
+Não tem
+Cadastre as alíquotas AdRem para as UFs envolvidas:
+Próprio
+ST
+ - regra geral: 
+uma vez configurada envia para todas as notas emitidas com natureza de operação habilitada para AdRem
+NT 2023.001 - Tag pBio: 
+Envia para produtos compostos contendo Biocombustível
+NT 2023.001 - Tag origComb: 
+Envia para produtos com % Originário por UF
+NT 2023.001 - Tags CST Tribut. Monofásica (002,015,053 e 061): 
+Envia quando o item conter o CST de Tributação Monofásica
+Situação Tributária de ICMS
+CST/CSOSN: 
+informar 002
+Ad Rem
+Habilita  cálculo Ad Rem: 
+marcar
+Produto Primário: 
+ICMS Próprio: 100%
+Produto BioCombustível:
+Sem configuração
+Envia na NF-e a Tag <origComb> para os produtos que tenham %Originário por UF ?: 
+Respeita Cadastro de Produtos
+Dados Tributação Monofásica: 
+Envia nas tags infCpl(NF) e infAdProd(Item NF)
+Nota:
+ o CST 02 deve ser confirmado pela área fiscal. No exemplo, a configuração está para calcular ICMS Próprio Mono
+Resumo da configuração AdRem nas naturezas de operação - quadro AdRem
+Operação
+CST
+Produto Primário
+Produto BioCombustível
+Observações
+Venda/Transferência Diesel B
+61
+Marcar ICMS Retido = 100%
+Marcar ICMS Retido = 100%
+Venda/Transferência Diesel A
+61
+Marcar ICMS Retido = %UF Origem
+Marcar ICMS Retido = %UF Destino
+%UF Destino em 
+Margem Subst. Tributária
+Venda/Transferência B100
+61
+Marcar ICMS Retido = %UF Origem
+Marcar ICMS Retido = %UF Destino
+%UF Origem = 100 - %UF Destino em 
+Margem Subst. Tributária
+ (cálculo interno pelo SisPetro)
+Venda/Transferência Diesel Marítimo
+02
+Marcar ICMS Próprio = 100%
+Nada a ser configurado
+Esta operação deve ser confirmada com a área fiscal
+Produção/Nacionalização Diesel A
+15
+Marcar ICMS Próprio = 100%
+Marcar ICMS ST = %UF Destino
+%UF Destino em 
+Margem Subst. Tributária
+Produção/Nacionalização B100
+53
+Marcar ICMS Próprio = 100%
+Marcar ICMS Diferido = %UF Destino
+Nada a ser configurado
+Nas operações com B100 puro deve ser considerado como Produto Primário
+Produção/Nacionalização Diesel Marítimo
+02
+Marcar ICMS Próprio = 100%
+Nada a ser configurado
+Produtos que utilizam a mesma configuração para as Natureza Operação, poderão utilizar apenas uma Natureza, como por exemplo: Venda/Transferência de Gasolina C e Diesel B, que ambas Naturezas utilizam:
+Produto Primário: ICMS Retido 100%
+Produto BioCombustível: ICMS Retido 100%
+Exemplo de cálculo de ICMS monofásico para saída de Diesel A - CST 61
+Saída de 10.000 litros de Diesel A
+ dentro da UF de SP
+%ICMS UF Destino: 
+não tem
+Alíquota AdRem
+Diesel:
+ 0,9456
+B100:
+ 0,9456
+Composição fiscal do Diesel A
+Diesel A:
+ 100% e tipo de cálculo Simples
+B100:
+ 12% e tipo de cálculo Por Dentro
+Como no campo %Composição é indicado 100%, então é necessário calcular a composição da ANP do Diesel A:
+ 100 - 12(%Composição do B100) = 88
+Cálculo da quantidade como se fosse Diesel B e obter a quantidade de B100 - aplicar regra de 3:
+10.000 litros Diesel A:
+ 88% (% de composição ANP calculada)
+X litros de B100:
+ 12%
+Quantidade de B100:
+ (10.000 * 12) / 88 = 1.363,64
+Quantidade como se fosse Diesel B = 11.363,64
+Diesel A - 88%:
+ 11.363,64 * 0,88 = 10.000
+B100 - 12%:
+ 11.363,64 * 0,12 = 1.363,64
+Cálculos dos impostos:
+ICMS MonoRet Diesel A:
+ 10.000 * 0,9456 = 9.456,00
+Alíquota AdRemICMSRet do B100:
+ 0,9456 * 0,3333 = 0,31516848
+ICMS MonoRet B100:
+ 1.363,64 * 0,31516848 = 429,78
+Total ICMS MonoRet =
+ 9.456,00 + 429,78 = 9.885,78
+Exemplo de cálculo de ICMS monofásico para saída de B100 - CST 61
+Saída de 10.000 litros de B100
+ dentro da UF de SP
+%ICMS UF Destino (B100):
+ 33,33%
+%UF Origem:
+ calculado internamente pelo SisPetro
+100 - %UF Destino:
+  100 - 33,33 = 66,67
+Alíquota AdRem
+B100:
+ 0,9456
+Composição fiscal do B100:
+ não tem
+Cálculos dos impostos:
+Alíquota AdRemICMSRet:
+ 0,9456 * 0,6667 = 0,630432
+ICMS MonoRet B100 cobrado anteriormente:
+ 10.000 * 0,630432 = 6.304,32
+Total ICMS MonoRet:
+ 6.304,32
+Valor do ICMS MonoRet UF Destino:
+ 10.000 * (0,9456 * 0,3333) =  3.151,68 - dados enviados somente nas Informações Complementares.

@@ -1,0 +1,27 @@
+TITULO: Clientes que não estão recebendo email do Suporte (CCF)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4106747921
+--------------------------------------------------
+Nos clientes que utilizam um servidor Outlook (Office 365), podem não estar recebendo emails do Suporte (CCF).
+Quando é feito um comentário, é enviado ao cliente que abriu o CCF e também, caso tenha, para os participantes, um email cujo remetente é 
+jira@futura.atlassian.net
+Isso é feito através de retransmissão (relay).
+Para quem usa um servidor Outlook é necessário que algumas configurações sejam verificadas para que possa autorizar a retransmissão (relay).
+Abaixo seguem as informações obtidas com o suporte do Jira sobre essa questão:
+Parece que o servidor de e-mail do Outlook não está aceitando mensagens enviadas do Jira, por isso o usuário não está recebendo notificações por e-mail dentro do domínio 
+empresa.com.br
+. 
+O erro completo retornado pelo nosso provedor de serviços de e-mail (Jira) pode ser visto abaixo:
+Timestamp Atlassian Mail Transaction ID Message ID Friendly from Recipient Event Type Response ESP 2022-02-02T13:45:41.000Z 01FTXAY2B8JEEZH97CC330RYNZ 61f9048bfa6187ce990f 
+jira@futura.atlassian.net
+ ************@**********.com.br bounce 550 5.7.64 {hash}; Relay Access Denied [
+DM3NAM02FT059.eop-nam02.prod.protection.outlook.com
+] sparkpost
+Há um documento da Microsoft detalhando as possíveis causas para esse problema:
+https://docs.microsoft.com/en-us/exchange/troubleshoot/email-delivery/relay-access-denied-smtp
+ 
+Com base no artigo acima, isso pode acontecer devido a um dos seguintes motivos:
+O cliente usa um conector de entrada no Office 365 configurado para usar um certificado local para verificar a identidade do servidor de envio. (Este é o método recomendado. A alternativa é por endereço IP). 
+No entanto, o certificado local não corresponde mais ao certificado especificado no Office 365. Isso pode ser devido a uma alteração de configuração local ou a um certificado novo/renovado que usa um nome diferente.
+O endereço IP configurado no conector do Office 365 não corresponde mais ao endereço IP que está sendo usado pelo servidor de envio.
+A resolução sugerida aqui seria identificar o servidor de envio e autorizar a retransmissão, deve haver um conector configurado corretamente no Office 365 e o conector deve corresponder ao servidor de envio.
+Nesse caso, é recomendado encaminhar essas informações para a sua equipe de TI para que esse problema seja resolvido.

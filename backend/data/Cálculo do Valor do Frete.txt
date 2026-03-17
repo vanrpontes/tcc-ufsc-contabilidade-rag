@@ -1,0 +1,66 @@
+TITULO: Cálculo do Valor do Frete
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440544
+--------------------------------------------------
+O Sispetro permite um calculo dinâmico ou fixo para o frete, de acordo com a cidade onde será entregue a mercadoria, por esse motivo o sistema realiza um cálculo parametrizado de acordo com a necessidade da empresa.
+O sistema precisa saber qual será a origem para o cálculo do frete: O depósito ou a empresa (no caso a distribuidora). O tópico 
+Tabela Depósitos
+ tem informações mais detalhadas sobre o assunto.
+Existe, também, o perfil de empresa para definição de cálculo de frete conforme o endereço definido pelo usuário, que permitirá ao usuário definir por onde o frete será calculado, se será por 
+endereço do
+ 
+cadastro do cliente
+ 
+(padrão), endereço de entrega, endereço de faturamento ou endereço de cobrança
+. Sendo assim, ao incluir um pedido de venda, o frete será calculado automaticamente com base no perfil definido acima.
+Para configurar esse perfil de sistema, é necessário acessar o menu 
+Ferramentas / Sistema / Clientes
+:
+Cuja opções são as seguintes:
+Do cadastro do cliente (respeitando a região):
+ conforme o endereço cadastrado para o cliente na aba de 
+Dados Gerais
+;
+Do endereço preferencialmente de entrega:
+ conforme endereço de entrega definido no cadastro de cliente, aba 
+;
+Do endereço preferencialmente de faturamento:
+ conforme endereço de entrega definido no cadastro de cliente, aba 
+;
+Do endereço preferencialmente de cobrança:
+ conforme endereço de entrega definido no cadastro de cliente, aba 
+.
+Exemplos de cálculo de frete realizados pelo Sispetro:
+ 
+Valor Unitário do Frete fixo para a cidade:
+Neste caso na configuração do sistema o item "Pode calcular frete diretamente da tabela de distância" (Ferramentas / Sistema / Frete ) deve estar marcado.
+Na Tabela de Distâncias os campo referentes aos frotas (Toco, Truck,Carreta,Treminhão e vagão), devem estar preenchidos com seu valor unitário fixo, vide tópico 
+Tabela Distâncias
+.
+Exemplo: O frete unitário entre a cidade de São Paulo e Paulínia com uso de caminhão do tipo Truck é de R$ 0,005, sendo assim temos a seguinte situação:
+ Preço Fixo para truck = 0,005 (cadastrado na tabela de distância)
+ Qtde do Produto = 5000 Litros (Definido no pedido de venda)
+Valor do Frete = Preço fixo para truck * Qtde do Produto
+ Valor do Frete = 0,005 * 5000
+ Valor do Frete = 25,00
+Valor Unitário do Frete de acordo com fator geral do tipo de frete.
+Na Tabela de Distâncias, os campo referentes ao valor por frotas (Toco, Truck,Carreta,Treminhão e vagão), devem estar zerados, ou seja, sem valor preenchido, vide tópico Tabela Distâncias;
+Na configuração do sistema, o item "Pode calcular frete diretamente da 
+tabela de distância
+" (
+Ferramentas / Sistema / Frete
+ ) deve estar desmarcado.
+Ao desmarcar o perfil acima citado, o usuário deverá aceitar as modificações, através do botão "OK" e entrar novamente no painel de frete (
+Ferramentas / Sistema / Frete
+ ). Neste momento, os campos do grupo "Fator Frete Padrão por KM / Litro" , estarão habilitados para que se possa preencher o fator por tipo de frota.
+Exemplo: O frete unitário entre a cidade de São Paulo e Campinas com uso de Vagão não foi definido mas a distância para calculo do frete é de 100 KM, logo tempo a seguinte situação:
+ Fator de Conversão = 0,006 (cadastrado na tabela de distância)
+ Distância para Cálculo do Frete = 100 (cadastrada na tabela de distância)
+ Qtde do Produto = 1000 Litros (Definido no pedido de venda)
+ Fator de Frete Padrão = 0,002 (definido para o vagão)
+Preço Fixo para vagão = 0 (cadastrado na tabela de distância)
+Valor do Frete =
+ ( Fator de conversão + Fator de Frete Padrão ) *
+ Distância para Cálculo do Frete * Qtde do Produto
+ Valor do Frete = ( 0,006 + 0,002 ) * 100 * 1000
+ Valor do Frete = 800,00
+Essas são as formas que o sistema utiliza para calcular o frete.

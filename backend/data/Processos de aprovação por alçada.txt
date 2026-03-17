@@ -1,0 +1,43 @@
+TITULO: Processos de aprovação por alçada
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926190659
+--------------------------------------------------
+Quando se trabalha com 
+aprovação por alçada
+ temos que configurar a aprovação para os PMM com e sem setor informados, abaixo iremos detalhar algumas configurações a serem realizadas.
+Este processo entrou em 
+desuso
+.
+Para utilização de aprovação por alçada e simples, seguir KB 
+Aprovação Dupla: Alçada e Simples
+Como realizar a aprovação do PMM sem setor informado:
+Para os Pedidos de Movimentação de Material que não tiverem um setor definido, devemos realizar algumas configurações para que um determinado usuário tenha permissão para aprovar o mesmo. Caso essas configurações não sejam realizadas o pedido ficara pendente de aprovação e não será possível realizar a aprovação do mesmo.
+1 - O primeiro passo é criar um Perfil de Aprovação que seria do tipo "Genérico", com a regra para aprovação igual á 
+Não usa aprovação por Alçada
+, esse perfil vai ser utilizado para todos os PMM que não forem informados um setor. veja maiores detalhes em 
+Aprovação por Alçada - Perfis de Aprovação
+2 - O segundo passo é realizar a configuração no usuário que ira ter a permissão para aprovar esses pedidos. veja maiores detalhes em 
+Painel Aprovação por Alçada (Usuários)
+Na configuração do usuário que terá a permissão para realizar a aprovação, é necessário que o mesmo esteja com o perfil 
+'Seleciona lançamento sem setor para aprovação' 
+marcado, e que seja informado o
+ perfil de aprovação
+ "genérico" no grid 
+'Perfis de Aprovação' .
+3 - O terceiro passo é configurar na empresa o perfil de aprovação que criamos do tipo "Genérico" para os pedidos que forem do tipo padrão(Sem Setor), para isso basta ir em Ferramentas / Sistemas / aba Aprovação por alçada / botão Configurar Perfis, Na aba Padrão incluir o perfil destinados para os PMM sem Setor. veja maiores detalhes em 
+Painel Aprovação por Alçada
+Como realizar a aprovação dos PMM com setores:
+Na aprovação por alçada temos a opção de trabalhar com a aprovação por setor, onde a Empresa define qual o perfil de aprovação de cada setor e quaais setores que o usuário vai poder realiza a aprovação.
+1 - O primeiro passo é realizar a inclusão dos perfis de aprovação, esses perfis irão ser amarrados aos setores mais para frente, veja maiores detalhes em 
+Aprovação por Alçada - Perfis de Aprovação
+2 - O segundo passo é amarrar ao usuário os perfis de aprovação e setores que o mesmo terá permissão para aprovar. veja maiores detalhes em 
+Painel Aprovação por Alçada (Usuários)
+Os pedidos com setor informado só poderão ser aprovados por usuários que tenham acesso para aprovar esse setor.
+Caso o Setor utilizado no PMM não tenha um perfil de aprovação, o 
+usuário
+ terá que ter alem desse setor informado no grid de 
+Setores de Aprovação 
+ter o perfil 
+Seleciona lançamentos sem setor para aprovação 
+marcado. Caso contrario o usuário vai ira conseguir aprovar o PMM.
+3 - O terceiro passo é informar qual o tipo de aprovação vai ser utilizado em cada setor, veja maiores detalhes em 
+Painel Aprovação por Alçada

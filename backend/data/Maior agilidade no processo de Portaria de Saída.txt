@@ -1,0 +1,19 @@
+TITULO: Maior agilidade no processo de Portaria de Saída
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2947711622
+--------------------------------------------------
+O Sispetro possui integração com o Basecom que permite, através de uma automação, que se obtenha facilmente dados de volume e temperatura de carregamentos e descargas efetuados na base.
+Na rotina atual, após a Ordem de Carregamento sair da Portaria de Entrada ela vai para a Portaria de Saída onde serão obtidos os dados de carregamento do combustível. Ao clicar no botão  
+, 
+o SisPetro abre a tela de integração Basecom, 
+cria um arquivo com a requisição de informação ao Basecom.
+ 
+Este arquivo será gravado conforme perfil "Pasta Gravação Basecom" que está localizado na Aba Dados Adicionais do Depósito. 
+O próximo passo é esperar o Basecom ler o arquivo, processar e gravar a resposta em um novo arquivo que será gravado conforme perfil "Pasta Leitura Basecom". Este processamento do Basecom nem sempre é rápido, pois às vezes ele demora para ler a requisição enviada pelo SisPetro.
+O que foi melhorado nesta nova rotina?
+A mudança foi que, agora, na finalização do procedimento da plataforma, o Basecom grava automaticamente o resultado deste procedimento em um novo arquivo sem precisar que o SisPetro solicite essa informação com um novo arquivo. 
+Assim, alteramos o procedimento no SisPetro para que, caso exista um arquivo correspondente aos dados reais de carregamento que estamos precisando, não seja mais realizado todo o processo descrito acima e simplesmente lemos o arquivo disponível.
+A alteração faz com que o usuário não intervenha no processo, já que todos os dados necessários estão no arquivo, não tendo necessidade de abrir a tela de Gravação/Obtenção de Dados.
+O tempo relacionado ao processo de geração do arquivo de solicitação e posterior leitura do arquivo de retorno foi eliminado, agilizando assim o processo de Portaria de Saída
+Os dois processos descritos permanecem em funcionamento, porém para que esta nova rotina sugerida ocorra é necessário atualizar a versão do SisPetro para a versão 10.9 e entrar em contato com a Dwyler para solicitar essa geração do arquivo logo ao final do carregamento.
+Para maiores informações relacionadas a este assunto, segue link de nosso KB: 
+Integração BaseCom

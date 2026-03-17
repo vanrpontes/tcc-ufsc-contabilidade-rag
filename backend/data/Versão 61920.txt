@@ -1,0 +1,71 @@
+TITULO: Versão 6.19.20
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2880798810
+--------------------------------------------------
+Dados
+Informações
+Início
+02/01/2009
+Final
+20/01/2009
+Scripts
+cmd61920.sql (cmd2068 a cmd2068.sql)
+Itens
+8
+Implementações
+3
+Correções
+5
+Anexos
+- DadosCLiGeral.rtm 
+ - LvroFiscalEntrada.rtm 
+ - LivroFiscalSaida.rtm
+Faturamento
+Processo automático de NFe no Remoto
+ Corrigido erro "Astaclientsocket not assigned" que ocorria no final da inclusão de uma NF, caso optasse por processar a NFe no momento. 
+GSN (CCF 5004)
+Vendas
+Aprovação de pedido de venda
+ 
+Na tela de Aprovação de Pedido de Venda foi adicionada uma melhoria para o processo, a qual permitirá ao usuário aprovar vários pedidos sem que esta tela de aprovação feche após finalizar. ECJ (CCF 4890)
+Ficha do Cliente - Novos Valores
+ 
+Foi disponibilizado para utilização na ficha do cliente os seguintes campos novos: "DescontoAprovado", "DescontoPendente", "PendenteDia" e "DescontoPendenteDia", além de um novo condutor de Dados "ppPendenciaAgrup" que mostra as pendências financeiras agrupadas por Vencimento.
+ 
+Obs.: É necessário atualizar o arquivo DadosCliGeral.rtm.
+ 
+*. ECJ (CCF 2919)
+Controladoria
+Relatórios Gerais SisPetro Controladoria
+ Corrigido erro de relacionamento nos relatórios gerais do SisPetro Controladoria, que não permitia que alguns registros não fossem exibidos no relatório. Diversos relatórios eram afetados pelo problema, sendo os principais: 
+Relatório de Nota Fiscal x Livro Fiscal, Relatório de Contas Contábeis de Produtos, Irregularidade no Cadastro de Entidades p/ Livro Fiscal, Contabilização Notas Fiscais, Relatório de Contabilização de Adiantamentos
+. 
+ECJ (CCF 4891)
+Transportes
+Alteração de fretes
+ Corrigido erro que ocorria ao utilizar um filtro adicional envolvendo valores com casas decimais no processo de Alteração de Frete. 
+ECJ (CCF 4934)
+Fiscal
+Numeração de Páginas nos Livros Fiscais
+ 
+Nos livros fiscais de entrada e de saída foi criada a opção:
+ 
+"Reinicia numeração"
+ 
+para permitir que seja reiniciada a numeração de página no caso de impressão de vários livros (com controle de numeração de páginas).
+ 
+Obs.: É necessário atualizar os arquivos: LivroFiscalEntrada.rtm e LivroFiscalSaida.rtm. ATENÇÃO: Caso o seu layout seja personalizado, avalie antes se é necessário fazer a atualização.
+ 
+ECJ (CCF 4768)
+ 
+Help:
+ 
+Sispetro Controladoria/ 4. Movimentação/ Apuração Fiscal
+Financeiro
+Transferência de Portador
+ Corrigido erro na tela de 
+Transferência de Cheque para o Financeiro (Portador)
+, pois quando o cheque não possuia vínculo com uma NF, o mesmo não aparecia na tela e também não efetuava a transferência de portador. 
+ECJ (CCF 4879)
+Baixa e Postergação no CNAB Banespa
+ Corrigido layout do arquivo de cobrança eletrônica (CNAB) do Banespa, referente ao envio do segmento Q. Com a correção este segmento somente será enviado, no caso do Banespa, quando o comando de envio for: 01-Registro de Título. 
+ECJ (CCF 3378)

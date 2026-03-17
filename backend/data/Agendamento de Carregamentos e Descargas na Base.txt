@@ -1,0 +1,93 @@
+TITULO: Agendamento de Carregamentos e Descargas na Base
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936703017
+--------------------------------------------------
+Objetivo
+O que é o Agendamento?
+Numa Base Própria, que utiliza as telas de 
+Portaria de Entrada
+ e 
+Portaria de Saída
+ para os Carregamentos e Descargas na Base, a organização da fila era feita conforme foi configurado o processo de 
+Pegar Fila
+ (que podia ser já pegando fila na 
+Inclusão de Ordem de Carregamento
+ ou com a chegada do caminhão). Porém, essa fila indica a ordem em que esse caminhão será carregado/descarregado, mas não o horário. O fato de saber que há 
+n
+ caminhões na frente da fila não garantia saber a que horas o caminhão seria chamado, já que cada caminhão (devido o volume, número de compartimentos) pode levar um tempo diferenciado. Sendo assim, ter um Agendamento, onde se saiba o horário (mesmo que aproximado), facilita muito a organização da Base, sem contar que evita filas de caminhões nas proximidades da base.
+O SisPetro permite o 
+Agendamento
+, que, de uma forma resumida, tem a seguinte solução:
+Calcular o tempo que uma determinada operação de carregamento ou descarga leva. Importante salientar que vamos calcular o tempo que o caminhão fica dentro da base e não somente o tempo da operação em si. Como atualmente temos somente estes dois tempos (pois marcamos sua entrada e saída pela portaria) serão estes dois que iremos tentar calcular.
+Programar manualmente (o usuário escolhe um horário disponível) ou automaticamente (o SisPetro tenta alocar) a operação conforme a disponibilidade de baias.
+Direcionar os caminhões as baias corretas
+Mostrar isso na fila.
+O tempo de operação varia conforme o volume envolvido, a quantidade de compartimentos e a baia em que essa operação ocorrerá. Assim, quando o usuário estiver digitando a OC, caso ele possa escolher um horário disponível, haverá um botão na OC para que, a partir dos produtos envolvidos e do depósito, o SisPetro possa calcular o tempo necessário para a operação verificando quais são os horários disponíveis. No final da OC, ele tenta agendar aquele horário para a OC.
+Antes de iniciar estes cadastros, recomendamos que obtenha os tempos que envolvem um processo de carregamento ou descarga, além das configurações gerais da base.
+Configurações
+As configurações relativas ao processo de agendamento são feitas através de: 
+Tabela Parâmetros de Agendamento
+As configurações gerais da base serão cadastradas aqui e elas podem ser compartilhadas entre os depósitos. Dentre essas configurações temos:
+Se permite agendamento manual, agendar Carregamentos e/ou Descargas
+Horários da base, tanto nos dias de semana, fins de semana e feriados
+O Intervalo de agendamentos
+Na fase inicial de utilização do Agendamento, recomendamos desmarcar a opção 
+Permite visualizar agendamentos
+, dessa forma, o agendamento pode ser validado pela equipe operacional, realizando os ajustes de tempo, até ser disponibilizado para uso das Congêneres.
+Tabela Padrões de Tempo
+Aqui se faz necessário identificar os tempos de carregamento e descarga e se eles variam conforme as baias. Com esse levantamento em mãos, cadastre os dados que abrangem:
+Tempo efetivamente que leva para carregar ou descarregar o produto (Tempo de Operação, calculado em Litros/Segundo)
+Tempo de troca de braços e compartimentos
+Tempo gasto pelo caminhão para se deslocar da Portaria de Entrada até a Baia e depois da Baia até a Portaria de Saída
+ 
+Depósitos - Aba Agendamento
+Aqui vamos vincular as configurações feitas acima, serão cadastradas as 
+Baias
+ e:
+Indicar os padrões de Tempo de Carregamento e/ou Descarga
+Vincular o Parâmetro de Agendamento a ser utilizado no depósito
+Cadastrar as 
+Baias
+ e nelas indicar 
+Padrões de Tempo de Carregamento e/ou Descarga
+Se permite carregamento / descarga ou ambos
+Indicar o Tipo de carregamento da Baia
+Caso necessário, indicar os 
+as operações especiais
+ e/ou 
+horários alternativos
+ 
+Tabela Frota
+Nessa tabela é definido se haverá 
+frotas sem agendamento
+Em algumas bases, que possuem desvio ferroviário utilizam frota do tipo vagão para fazer descargas, mas para não ocupar a grade de agendamento da base é possível optar para que o frota não utilize o agendamento de OC.  
+Concluídas essas configurações o Depósito já está apto para permitir o Agendamento.
+Casos especiais
+Em determinadas ocasiões o horário de funcionamento da Base pode sofrer alguma alteração, seja por que alguma Baia não poderá ser utilizada num determinado horário (o que seria Inatividade da Baia) ou por que o horário inicial ou final será estendido (Operações Especiais) entre outros. Esses cenário serão cadastrados em 
+Depósitos - Aba Agendamento
+:
+Inatividade da Baia
+Deverá ser selecionada uma Baia no grid de Baias e ir para a aba Inatividades. Nelas pode-se ver as inatividades já cadastradas e dar manutenção nelas.
+A inatividade será sempre por Baia, com uma Data, horário inicial e final, além do motivo da Inatividade.
+As inatividades impactam a disponibilidade de horário e consequentemente no 
+agendamento. 
+O período cadastrado não permitirá agendamento
+Operações Especiais 
+É um cadastro para o Depósito, independente da Baia.
+Só exigirá a Data e os horários Inicial e/ou Final. 
+As Operações Especiais estendem o horário de Agendamento
+Horários Alternativos
+É um horário reservado após o expediente para uma ou mais congêneres
+Exemplo: no 
+Parâmetros de Agendamento
+ foi definido que o horário final de descarga é 
+13:00h. 
+O usuário irá cadastrar um horário especial para CONGÊNERE que ela pode carregar até as 
+15:00. 
+Isso quer dizer que, no momento do agendamento da OC, para as outras congêneres 
+não 
+haverá horário disponível.
+ 
+Porém, caso a 
+Congênere
+ for incluir a mesma OC o SisPetro irá permitir o agendamento respeitando as regras já definidas.
+ 

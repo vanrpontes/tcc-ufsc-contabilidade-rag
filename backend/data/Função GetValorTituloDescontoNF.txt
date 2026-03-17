@@ -1,0 +1,31 @@
+TITULO: Função GetValorTituloDescontoNF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/6023512065
+--------------------------------------------------
+Descrição
+Essa função é utilizada para obter o valor de um determinado desconto de uma nota fiscal de serviço que gerou um título de desconto automático.
+Parâmetros
+sql
+wide
+1800
+--Utilizar os campos CodEmpresa e Sequencial das tabelas de notas que tenham esses campos
+Campo CodEmpresa - código da empresa
+Campo Sequencial - sequencial da nota fiscal
+Campo SeqDesconto - código do desconto utilizado: informar, caso tenha.
+Exemplo
+sql
+wide
+1800
+GetValorTituloDescontoNF(<CodEmpresa>,<Sequencial>,0 ou código do desconto) 
+Nota:
+ o campo SeqDesconto pode ou não ser informado. 
+Exemplo de utilização nas fórmulas do SPED Contribuição
+Registros A100
+Campo VL_DESC: 
+sum(if <LPCItensNF.Cancelada> = 0 then if sign(<LPCItensNF.ValAcrDesc>) = -1 then (abs(<LPCItensNF.ValAcrDesc>) - 
+GetValorTituloDescontoNF(<LPCItensNF.CodEmpresa>,<LPCItensNF.SequencialNF>)
+) else null endif endif)
+Registros A170
+Campo VL_DESC: 
+if sign(<LPCItensNF.ValAcrDesc>) = -1 then (abs(<LPCItensNF.ValAcrDesc>) - 
+GetValorTituloDescontoNF(<LPCItensNF.CodEmpresa>,<LPCItensNF.SequencialNF>)
+) else 0 endif

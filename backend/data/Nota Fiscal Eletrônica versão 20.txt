@@ -1,0 +1,75 @@
+TITULO: Nota Fiscal Eletrônica versão 2.0
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2894102585
+--------------------------------------------------
+De acordo com o novo manual da Nota Fiscal Eletrônica v4.0 houveram algumas mudanças nos padrões do arquivo XML que faz a comunicação com a SEFAZ. Essas mudanças serão chamadas de NFe v2.0 antes conhecida como NFe v1.XX
+
+
+À partir de 01 de Abril de 2011 TODOS devem estar com o sistema atualizado para a versão 7.7 ou posterior do Sispetro, que já contempla as atualizações da NFe 2.0.
+
+
+Segue abaixo algumas das alterações:
+
+
+Alterações do Frete
+
+No XML, nos itens da nota, quando a NF estiver com o frete destacado, será enviado o valor total do frete (tag vFrete que já estava sendo enviada) e nos itens, o valor correspondente de frete daquele item. Essa tag não era enviada e o nome dela também é vFrete. 
+
+Na nota fiscal, somente as notas de emissão de terceiros poderão informar o valor total do frete. Nas notas de emissão própria que tiverem valor de frete destacado, o frete deverá ser informado nos itens da nota. 
+
+
+Mudança Chave de Acesso
+
+A Chave de Acesso, que antes era calculada, passou a ser gravada no banco de dados e possui uma proteção (código aleatório) que impede a consulta das mesmas por outros clientes (através da dedução do número sequencial da NF). Para isso o sequencial final de 9 digitos foi alterado para 8 digitos com o acrescimo (primeiro digito) do tipo de emissão. Para mais detalhes veja o Help 
+Chave de Acesso da NF-e
+
+
+Distribuição de NF-e Canceladas
+
+Após o cancelamento de uma NF é possível gerar o arquivo (xml) de distribuição do cancelamento dessa NF. Para mais detalhes veja o Help 
+Distribuição da NF-e para o Destinatário
+
+
+Hora de Saída da Mercadoria
+
+Na emissão de notas fiscais foi incluído mais uma informação: a HORA DE SAÍDA da mercadoria. Essa informação é automática, podendo ser parametrizada no perfil para que o usuário possa alterar. Para mais detalhes veja o Help 
+Preenchimento de Dados na Nota Fiscal
+
+
+Data/Hora e Motivo Entrada em Contingência
+
+Se a emissão de NF-e for configurada para modo de contingência (DPEC Ativo) ou for selecionada a opção "trabalhar em modo Offline", ou ainda, se for selecionado Área de Trabalho Contingência, o sistema irá solicitar um motivo de entrada em contingência, que pode ser cadastrado na nova rotina do menu Tabelas Auxiliares - Faturamento - Motivos de Entrada em Contingência. Para mais detalhes veja o Help 
+Motivo de Entrada em Contingência
+
+
+Email destinatário da NFe
+
+No cadastro de clientes foi adicionado um campo para o Email de envio para NF-e, na aba Detalhes - Cadastro detalhado.Para mais detalhes veja o Help 
+Cadastro Detalhado
+
+
+Adequando o Sispetro a NFe versão 2.0
+
+
+Configurando o Perfil de Sistema
+
+Acesse o menu 
+Ferramentas \ Sistema
+ aba 
+Nota Fiscal
+, localize o campo 
+Versão dos dados SEFAZ
+ e selecione a opção 
+Dados do XML na versão 2.0
+
+
+
+
+Configurando as URL´s
+
+Em seguida é necessário que seja conferido se as URL´s estão devidamentes configuradas com o endereço da SEFAZ de seu respectivo Estado.
+
+
+Acesse o menu 
+Tabelas Auxiliares \ Faturamento \ UF´s
+, selecione o estado, aba detalhes, aba Endereços URL p/ NF-e, aba Versão 2.0. Atente-se para as URL´s de Produção, Homologação e Alternativo (Contingência SCAN), conforme imagem abaixo:
+

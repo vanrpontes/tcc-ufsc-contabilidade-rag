@@ -1,0 +1,144 @@
+TITULO: J Safra
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439602
+--------------------------------------------------
+Dados Gerais
+ O Banco J Safra trabalha em conjunto com o Banco Bradesco (237). Assim, a empresa tem conta no Banco J Safra, onde adquire o produto Cobrança Eletrônica, porém, ao imprimir o boleto, o imprime com as características do Banco Bradesco. Dessa forma, o cliente que recebe o boleto não precisa localizar uma agência do Banco J Safra para efetuar o pagamento, podendo fazer isso perfeitamente no Banco Bradesco, que tem muito mais agências disponíveis em todo o país. Para atender essa necessidade usaremos a configuração de Banco Correspondente do SisPetro. Cabe lembrar que o arquivo de remessa é conforme o layout do Banco J Safra, muito parecido com o layout do Bradesco, mas não idêntico.
+Painel Cobrança Eletrônica
+No campo 
+banco
+ deve ser informado 074 - JSafra S.A.
+Apesar do banco JSafra não ter número de 
+convênio
+ é necessário colocar alguma informação para geração do arquivo de cobrança. Coloque neste campo o número da 
+conta
+ da empresa no J Safra.
+A 
+carteira
+ deve ser sempre 9, o que vai diferenciar a cobrança é a 
+Variação da Carteira
+ que pode ser:
+Caso a variação não seja preenchida, o SisPetro informará "000".
+002 Vinculada – banco emite boleto
+003 Caucionada2
+004 Caucionada3
+005 Caucionada curto prazo
+007 Vinculada – empresa emite boleto
+015 Caucionada varejo
+014 Cessão
+099 Simples
+20 Caucionada personalizada
+Normalmente a variação da Carteira será 007, porém confirme isso junto ao Gerente da Conta.
+O Banco JSafra passará para a empresa o 
+código do cliente
+. Esta informação deve ser colocada no campo 
+Conta
+. É um número com 5 dígitos, geralmente.
+O 
+modo de cobrança
+ deve ser configurado para 
+Simples
+Se desejar pode utilizar a opção 
+Pode indicar sacador/avalista
+, se marcá-la deverá então informar o CNPJ do sacador/Avalista e a razão social.
+Se desejar pode utilizar a opção 
+Pode indicar #docto na remessa
+, escolhendo a opção que atender a empresa.*
+A opção 
+Informação de juros na remessa
+ deve estar configurada para 
+Informa valor diário calculado pela taxa diária
+.
+A cobrança para o Banco J Safra no SisPetro não permite utilização de desconto, então a opção 
+Utiliza desconto na baixa eletrônica
+ NÃO deve ser marcada.
+Painel Informações sobre a Cobrança
+Marcar
+ a opção 
+Utiliza Banco Correspondente
+Informar no 
+Banco Encarregado da cobrança 237 – BRADESCO
+Informar 
+#Banco
+ como 
+237
+ e 
+Dig
+ como 
+2
+Informar 
+Nome Banco
+ como 
+BRADESCO S/A
+Preencher 
+#Agencia
+ com 
+2372
+ e o seu 
+dígito
+ com 
+8
+ (esta é a agência do Bradesco onde o banco JSafra tem conta)
+Preencher 
+Número Conta
+ com 
+0000094
+ e o seu 
+dígito
+ com 
+9
+ (esta é a conta do banco JSafra no Bradesco)
+Preencher a 
+Carteira
+ com 
+9
+As demais informações não precisam ser preenchidas.
+Faixa Nosso Número
+ Só deve ser informada uma faixa com até 6 dígitos.
+Dados Técnicos
+Nosso Número:
+ deve ser impresso com a carteira (CC), código do cliente no Safra (SSSSS), o nosso número (NNNNNN) e o dígito verificador(D), no seguinte formato: CC/SSSSSNNNNNN-D. 
+ 
+ Só será gravado no SisPetro, para visualização do Contas a Receber, o nosso número (NNNNNN).
+O dígito verificador é calculado no módulo 11, utilizando até a base 7.
+Linha Digitável
+074 - JSafra
+Conteúdo
+Tamanho
+Início
+Fim
+Ag. JSafra no Bradesco
+4
+1
+4
+Carteira
+2
+5
+6
+Conta empresa no JSafra
+5
+7
+11
+Nosso Número sem DV
+6
+12
+17
+Conta JSafra no Bradesco
+7
+18
+24
+Fixo '0'
+1
+25
+25
+Exemplo do Campo Livre:
+ Agência: 1111
+ Carteira: 22
+ Conta Empresa no Safra: 33333
+ Nosso Número sem Dígito Verificador: 444444
+ Conta Safra no Bradesco: 5555555
+Campo Livre:
+ 1111 22 33333 444444 5555555 0
+ 
+Linha Digitável:
+ | 0 7 4 | 1 | 1 1 1 1 2 | 1 | 2 3 3 3 3 3 4 4 4 4 | 1 | 4 4 5 5 5 5 5 5 5 0 | 1 | 1 | 4 5 6 7 | 0 0 0 1 0 0 0 0 0 0 |
+Para informações sobre a montagem da linha digitável para este banco, veja o tópico 

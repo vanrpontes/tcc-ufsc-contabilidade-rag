@@ -1,0 +1,128 @@
+TITULO: Envio de NF-e via Integração API Xpert
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4410736641
+--------------------------------------------------
+O 
+XPert não tem ambiente de homologação
+ (apesar de constar na configuração). 
+Assim, qualquer teste será enviado para a XPert em produção.
+Para poder testar o XPert é necessário entrar em contato com a empresa para informar sobre os testes.
+ 
+Uma das Distribuidoras que utiliza o SisPetro, possui uma rede de postos que utiliza um sistema específico da empresa Xpert. Nesse sistema é feito o controle de estoque do posto, considerando inclusive as compras já realizadas na Distribuidora pendentes de chegar. 
+Para facilitar o controle de estoque desse sistema, o SisPetro encaminhará alguns dados da nota utilizando a API da Xpert. 
+Para enviar os dados será necessário: 
+Configurações
+Ferramentas /
+ Sistema / Aba Nota Fiscal / Quadro Averbação
+ 
+Envio de NFe/CTe para Averbação
+Sempre:
+ enviará todas as NF 
+independente
+ do que está configurado
+Conforme indicado na Transportadora / Cliente: 
+enviará conforme indicado no cliente
+Gerenciadora Averbação
+selecionar 
+Xpert
+Para mais informações, ver 
+Tabelas Auxiliares / Transporte / Gerenciadora de Averbação
+Aba Navegação
+Selecionar 
+Xpert
+Aba Detalhes
+Selecionar o 
+Ambiente
+Quadro URL: 
+preencher as URL abaixo de acordo com o ambiente selecionado:
+URL NF-e
+URL Token
+URL Canc. NF-e
+Aba Identificação
+Aba Dados
+ 
+Nome de Usuário: 
+preencher
+Senha: 
+preencher
+Aba Empresas
+Gerenciadora de Averbação - Identificação: 
+preencher com o usuário cadastrado anteriormente
+Empresa: 
+selecionar a(s) empresas
+Para mais informações, ver 
+Gerenciadora de Averbação
+Arquivo / Cliente / Aba Detalhes / Aba inferior Cadastro Detalhado / Quadro Averbação : 
+caso o perfil de sistema acima esteja como 
+Conforme indicado na Transportadora / Cliente, 
+deve-se informar
+Encaminha Averbação
+selecionar 
+Encaminha p/ Averbação c/ Gerenciadora do perfil de Empresa
+ Para mais informações, ver 
+Serviço de Averbação de Notas Fiscais
+Configurar o Serviço do Hermes e ativa-lo. 
+Para mais informações, ver 
+Serviço de Averbação de Notas Fiscais
+Como utilizar
+Após realizar a emissão ou cancelamento da 
+Nota Fiscal de Venda,
+ o SisPetro irá automaticamente enviar as informações para API da Xpert. É possível visualizar como está o processo de envio em 
+Manutenção de Notas Fiscais
+ / Aba Transportes / Sub Aba Averbação.
+Em 
+Tabelas Auxiliares / Transporte / Gerenciadora de Averbação 
+é possível visualizar as comunicações e, assim como na tela acima, ver as notas que foram enviadas com sucesso. 
+Reenvio ou Cancelamento de envio de uma Nota
+Se houver algum erro de comunicação é possível fazer o reenvio da informação. Além disso é possível também cancelar a comunicação com a Xpert.  Em 
+Manutenção de Notas Fiscais
+  / Aba Transportes / Sub Aba Averbação há dois botões que permitem ou o reenvio ou o cancelamento de envio da informação. Os botões são habilitados no perfil de usuário, 
+Aba Fretes
+.
+Inativar a comunicação
+Caso seja necessário inativar a comunicação, o usuário deverá verificar primeiro se n
+ão tem 
+nenhum documento
+ com Status de 
+Envio Pendente.
+ Além disso, a Xpert não pode estar v
+inculada a nenhuma empresa. 
+Com essas condições sanadas a inativação será feita. 
+É bom ressaltar que os documentos gerados até o momento da inativação ficarão na fila para ser enviados, a não ser que o usuário cancele o envio.
+Histórico de Comunicação
+O SisPetro, por padrão, armazenará os últimos 90 dias do histórico das comunicações entre a Xpert e o SisPetro. Caso queira alterar isso, basta acessar a 
+ e modificar a quantidade de dias a preservar.
+Exemplo de utilização XPERT e AT&M
+Empresa Transportadora
+Perfil de Sistema
+Envio de NFe/CTe para Averbação:
+ sempre
+Gerenciadora Averbação:
+ AT&M
+Empresa Distribuidora
+Perfil de Sistema
+Envio de NFe/CTe para Averbação:
+ conforme indicado na Transportadora/Cliente
+Gerenciadora Averbação:
+ vazio
+Cadastro de Transportadora
+Encaminha Averbação:
+ encaminha p/ Averbação c/ Gerenciadora do perfil de Empresa
+Cadastro de Cliente
+Clientes Específicos
+Encaminha Averbação:
+ encaminha p/ Averbação c/ Gerenciadora específica
+Gerenciadora Averbação:
+ XPERT
+Demais Clientes
+Encaminha Averbação:
+ não encaminha p/ Averbação
+Gerenciadora Averbação:
+ vazio
+Dessa forma, quando feito
+Venda pela empresa Distribuidora
+Clientes Específicos:
+ vai gerar Abervação XPERT
+Demais Clientes:
+ não irá gerar averbação
+CT-e emitido pela Transportadora:
+ irá gerar averbação AT&M para ambos clientes.

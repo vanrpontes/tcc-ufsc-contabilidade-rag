@@ -1,0 +1,123 @@
+TITULO: Regras NFe x Tipo de Emissão
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2894102619
+--------------------------------------------------
+As regras para envio de dados a Sefaz está baseada nos campos NotaFiscal.NFe, e NotaFiscal.TipoEmissao.
+
+Assim, o Sispetro, ao se deparar com uma NF, precisa saber se essa NF vai ser processada conforme uma nota fiscal eletrônica ou não. Até a versão 7.6, ele verificava o campo NFE na tabela NotaFiscal - configurado à partir da natureza de operação escolhida - e, caso este campo esteja marcado, a NF é considerada uma NFe e segue para processamento (emissão de recibo, protocolo, etc).
+
+O problema é que o simples fato da Nota Fiscal ser considerada uma nota fiscal eletrônica, não significa que ela tenha de ser processada na Sefaz pois pode ser uma nota fiscal emitida por terceiros e portanto não deve ser registrada na Sefaz (pois quem vai fazer todo esse processo é o seu emissor).
+
+
+A regra para digitação da chave de acesso esta baseada no campo tipo de emissão e se o campo NotaFiscal.TipoPedido é diferente de VD (vendas).
+
+
+Assumimos, quando criamos o campo para o usuário digitar a chave de acesso na inclusão de uma nota fiscal, que este campo só deveria estar habilitado quando o campo tipo de emissão (que define quem está emitindo a nota fiscal e pode ter dois valores: próprio - quando a nota fiscal é de emissão de quem está digitando a mesma - ou terceiros - nos outros casos) fosse terceiros e o tipo de pedido que gerou a NF fosse diferente de VD, isto é, se fosse uma nota fiscal emitida por terceiros e o fato gerador fosse diferente de um pedido de venda, o campo estaria habilitado para digitação.
+
+Porém, existe uma brecha nessa lógica pois a NF deve ser eletrônica para que o campo chave de acesso tenha sentido de ser preenchido.
+
+
+Assim, para unificar a lógica geral de se a NF deve ou não ser processada pela Sefaz (portanto o Sispetro e não o usuário deve gerar a chave de acesso automaticamente) e se, caso a NFe seja eletrônica, deve permitir ao usuário digitar a chave de acesso, criamos as regras abaixo:
+
+
+Regra básica para calculo da chave de acesso e envio da NFe.
+
+
+
+
+
+
+  Emissão da Nota Fiscal 
+
+
+ NFe 
+
+
+ NÃO NFe 
+
+
+
+
+
+
+ Própria 
+
+
+ Não solicita a chave de acesso ao usuário mas calcula automaticamente. Envia a Sefaz 
+
+
+Não solicita a chave de acesso ao usuário e nem calcula automaticamente. Não envia a Sefaz 
+
+
+
+
+
+
+ Terceiros 
+
+
+ Solicita ao usuário a chave de acesso. Não calcula automaticamente. Não envia a Sefaz 
+
+
+ Não solicita a chave de acesso ao usuário e nem calcula automaticamente. Não envia a Sefaz 
+
+
+
+
+
+
+Vejamos alguns exemplos abaixo;
+
+
+
+
+
+
+
+
+Nota de Entrada de emissão de terceiros
+		
+
+
+Não deve solicitar a chave de acesso nem transmitir para a Sefaz
+
+
+
+
+
+
+Nota da Saida de emissão própria
+		
+
+
+Não deve solicitar a chave de acesso nem transmitir para a Sefaz
+
+
+
+
+
+
+Nota de Entrada NFe de emissão de terceiros
+		
+
+
+Solicitara chave de acesso mas não irá transmitir para a Sefaz
+
+
+
+
+
+
+Nota de Saida NFe de emissão própria
+		
+
+
+Calcula a chave de acesso automaticamente e envia a NF a Sefaz
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,136 @@
+TITULO: MDF-e - Manifesto Eletrônico de Documentos Fiscais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919992478
+--------------------------------------------------
+none
+Objetivo
+O MDF-e é uma parte do projeto NF-e, cuja especificação técnica é controlada pela SEFAZ RS. Para mais informações ver 
+https://mdfe-portal.sefaz.rs.gov.br
+.
+O MDF-e será emitido por empresas prestadoras de serviço de transporte para prestações com mais de um conhecimento de transporte para tomadores diferentes (carga do tipo Fracionada) ou pelas demais empresas nas operações, cujo transporte seja realizado em veículos próprios, arrendados, ou mediante contratação de transportador autônomo de cargas, com mais de uma nota fiscal (destinatários diferentes).
+Nota:
+ o Estado de MG exigiu MDF-e mesmo quando tem uma única NFe/CTe.
+A finalidade do MDF-e é agilizar o registro em lote de documentos fiscais em trânsito e identificar a unidade de carga utilizada e demais características do transporte.
+Não é um documento novo, mas sim a escrituração digital do Manifesto de Carga, um documento opcional utilizado por empresas transportadoras de cargas onde são relacionados todos os conhecimentos de transporte que deveriam ser emitidos em uma operação de transporte de carga 
+fracionada
+, ou seja, onde em um mesmo caminhão há mercadorias para diversos destinatários. Havendo a utilização do Manifesto de Carga, não há necessidade de emitir um conhecimento de transporte para cada destinatário, sendo emitido apenas um, acompanhado do manifesto de carga em cada operação. Sua existência se deu pelo Ajuste Sinief nº 15/89, que acrescentou o inciso XVIII no art. 1º do Ajuste Sinief 06/89, criando o modelo 25 dos documentos fiscais utilizados pelos contribuintes do ICMS. Também pode ser utilizado por empresas que possuem frota própria e fazem entregas de cargas a vários clientes. Agora o modelo do MDF-e será 58.
+Modo de funcionamento do MDF-e
+Empresas envolvidas:
+ empresa transportadora ou distribuidora de combustíveis
+Situação:
+ emissão de CT-e de carga fracionada (vários destinatários para o mesmo caminhão) ou emissão de NF-e de diversos clientes para o mesmo caminhão
+Fluxo Normal:
+Emissão dos CT-e ou NF-e
+Inclusão de um MDF-e vinculando os Conhecimentos ou as Notas Fiscais
+Envio da solicitação de Recibo para SEFAZ com dados do MDF-e e as notas/conhecimentos vinculados
+Recebimento do Número de Recibo da SEFAZ
+Envio da solicitação de Protocolo para SEFAZ com o número de recibo recebido
+Recebimento do protocolo da SEFAZ
+Emissão do DAMDF-e (Documento Auxiliar de MDF-e, similar ao DANFE ou DACTE)
+Saída do Caminhão para entrega
+Conclusão da entrega
+Envio do Encerramento para SEFAZ indicando Chave de Acesso e Protocolo do MDF-e e UF/Município de Descarregamento
+Caminhão fica liberado para fazer outra entrega
+Explicações Adicionais
+:
+Contingência própria
+: a empresa emite o DAMDF-e contendo no local do Protocolo de Autorização de Uso um texto padrão sobre a emissão em contingência. A empresa tem até 24 horas para enviar para SEFAZ esse MDF-e. Na chave de acesso do MDF-e consta a forma de emissão: Normal ou Contingência.
+Contingência SEFAZ
+: não previsto. Os ambientes previstos são Homologação e Produção. No caso de problemas com o ambiente de Produção a empresa deve seguir a regra para Contingência Própria.
+XML exclusivo por MDF-e
+: em um primeiro momento só deve ser enviado para solicitação de recibo um único MDF-e
+Cancelamento
+: o cancelamento de um MDF-e é feito pelo Registro de Eventos, somente quando ele foi autorizado
+Inutilização:
+ não há nenhum webservice previsto para inutilização. Sendo assim, MDF-e não autorizados devem ser cancelados no sistema sem nenhuma comunicação à SEFAZ
+Distribuição:
+ não há nenhuma especificação a respeito da distribuição do XML do MDF-e para outras entidades.
+Carta de Correção:
+ não há nenhuma especificação a respeito
+NF-e Off-Line:
+ a partir da versão 9.12 o SisPetro permite emitir MDF-e para notas emitidas como Off-Line.
+Emissão de MDF-e avulso:
+ a partir da versão 9.12 o SisPetro permite emitir MDF-e utilizando somente a chave de acesso.
+MDF-e no SisPetro
+Para adequar o SisPetro para o MDF-e, considerando as características citadas acima, foram feitas as alterações/implementações a seguir.
+Tabela de UF:
+ cadastramento dos endereços URL para MDF-e de Produção e de Homologação. Para mais informações ,ver 
+Tabela Unidades Federativas - UF's
+ e 
+Configuração da UF
+ e também cadastrar o trajeto que o caminhão fará, no caso de estados que não sejam vizinhos. Para mais informações, ver 
+Percursos MDF-e
+Perfil de Sistema: 
+dados que indicam a forma como o SisPetro trabalhará com MDF-e. Para mais informações, ver 
+Perfil de Empresa - Painel MDF-e
+.
+Perfil de Usuário: 
+dados que indicam se um usuário pode ou não emitir/processar, imprimir ou cancelar MDF-e. Para mais informações, ver 
+Perfil de Usuário - Painel Faturamento
+.
+Natureza de Operação: 
+define se a natureza permite ou não MDF-e para NF-e/CT-e. Para mais informações, ver 
+Natureza de Operação - Dados Gerais (Painel Por Filial)
+.
+Frotas:
+ para Cavalo, Carreta, Treminhão, Truck e Toco alguns dados do proprietário 
+são obrigatórios
+: CNJP/CPF, Nome, UF e RNTRC. No SisPetro esses dados são cadastrados em 
+Painel Dados Adicionais (Frotas)
+. Para mais informações, ver 
+Regras de envio de dados do MDF-e - RNTRC
+.
+Manutenção de Notas Fiscais: 
+nessa tela serão apresentadas informações sobre o MDF-e a qual a NF-e/CT-e está vinculada. Mais informações ver 
+Manutenção de Nota Fiscal
+.
+Campos na tela de Manutenção de Nota Fiscal:
+MDFE: 
+se marcado indica que a nota tem MDF-e;
+ID MDF-e:
+ código do MDF-e da nota/conhecimento;
+Descons. MDF-e: 
+se marcado indica que a nota/conhecimento foi desconsiderado para emissão de MDF-e;
+Data Descons. MDF-e: 
+data e hora que a nota/conhecimento foi desconsiderado;
+Usuário Descons. MDF-e: 
+nome do usuário que desconsiderou a nota/conhecimento.
+Cancelamento de Nota Fiscal ou Conhecimento: 
+caso tenha MDF-e vinculado, não permite cancelar.
+Menu Movimentação > Faturamento > Manifesto Eletrônico: 
+Inclusão de MDF-e: 
+nessa tela são incluídos os MDF-e, vinculando as NF-e/CT-e. Para mais informações, ver 
+Inclusão de MDF-e
+.
+Manutenção de MDF-e:
+ nessa tela são apresentados todos os MDF-e gerados, independente de sua situação. Para mais informações, ver 
+Manutenção de MDF-e Pendentes
+.
+Manutenção de MDF-e Pendentes: 
+nessa tela são apresentados todos os MDF-e gerados e que estão com algum tipo de pendência. Para mais informações, ver 
+Manutenção de MDF-e
+.
+Consulta Status Serviço MDF-e: 
+permite consultar se os ambientes de Produção ou de Homologação estão ativos ou não. Para mais informações, ver 
+Consulta Status Serviço do MDF-e
+.
+É possível indicar o percurso que o caminhão fará. Esse recurso deve ser usado quando o transporte é feito entre estados que não fazem divisa. Para mais informações, ver 
+Percursos MDF-e
+.
+Para mais informações:
+Inclusão de MDF-e
+Manutenção de MDF-e
+Manutenção de MDF-e Pendentes
+Encerramento de MDF-e
+Encerramento de MDF-e pela Chave de acesso
+Encerramento de MDF-e Automático pela NF-e Entrada 
+Serviço de Encerramento de MDF-e
+Status de Serviço MDF-e
+Tabela Unidades Federativas - UF
+Percursos MDF-e
+Configuração da UF
+Natureza de Operação - Dados Gerais (Painel Por Filial)
+Perfil de Empresa - Painel MDF-e
+Perfil de Usuário - Painel Faturamento
+Emissão de MDF-e para notas de entrada
+Regras de envio de dados do MDF-e - RNTRC
+MDF-e - Manifesto Eletrônico de Documentos Fiscais - Nota técnica 2021.002 v1.03

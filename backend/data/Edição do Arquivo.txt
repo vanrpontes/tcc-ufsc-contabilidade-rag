@@ -1,0 +1,54 @@
+TITULO: Edição do Arquivo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879128266
+--------------------------------------------------
+A partir da versão 9.30, o Sispetro não utilizará mais a tela de licenciamento por máquina. No Servidor Sispetro, configurado com S3, deverá ser informado o seu número de licenças. 
+Caso não seja informado o número de licenças do Sispetro, não será permitido a nenhum usuário se conectar no Sispetro
+.
+Para editar, preparar o arquivo de licenciamento e gerá-lo, deve-se acessar a janela de manutenção de licenciamento (Menu 
+Ferramentas / Licenciamento
+).
+A tela é dividida na parte superior (dados do licenciamento geral) e na parte inferior com os dados de usuários.
+Dados Licenciamento
+Na parte superior, é mostrado os dados do licenciamento atual (ativado). Esta parte nunca pode ser editada pelo usuário (é preenchida pela Futura Tecnologia no momento da ativação do arquivo de licenciamento). A parte inferior são os dados do licenciamento proposto:
+Nome Cliente:
+ Razão social do cliente que assinou o contrato de prestação de serviços do Sispetro. Não importa se a empresa possui várias filiais ou empresas pertencentes ao seu grupo econômico. O usuário deve escolher a empresa mestre (o Sispetro é licenciado por número de licenças independente do número de filiais abertas).
+CNPJ Cliente:
+ CNPJ da empresa mestre.
+Tipo Licenciamento:
+ Normalmente, o usuário deve escolher #Licenças definido (que pode ser de dois tipos: # Licenças definido e #Licenças definido - REMOTO - a única diferença entre os dois é que no último, as licenças do Sispetro Remoto e Controladoria são mostradas e controladas separadamente) conforme seu contrato de prestação de serviços. Pode ter também os valores #Licenças não definido quando o Sispetro não controla o número de licenças e Demonstração quando o Sispetro só habilita automaticamente uma estação de trabalho e por tempo definido.
+Número de Licenças:
+ Número de licenças que serão ativadas (contando as já ativas anteriormente).
+Dados Usuários
+ São mostrados na parte inferior da tela, os dados das eventuais estações de trabalho anteriormente ativadas. Para mostrar os dados de todas as estações de trabalho, deve-se apertar o botão Atualiza quando o Sispetro trará as credenciais de todas as estações de trabalho anteriormente conectadas.
+Nome Computador:
+ Nome do Computador (nome da rede) que conectou ao Sispetro. Quando o tipo for TERMINAL, o nome que aparece é o nome do computador que originou a conexão.
+Tipo:
+ Pode ser WINDOWS - no caso do Sispetro normal ou remoto sendo executado em ambiente Windows ou TERMINAL no caso de execução através do modo terminal do Windows. Em ambos os casos, irão aparecer além do tipo de conexão (Windows ou Terminal) o tipo de Sispetro que gerou a conexão (Sispetro Normal ou Remoto). Se o seu contrato de licenciamento não diferencia a utilização de um ou de outro (não fazendo distinção entre ambos), pode-se escolher qualquer um dos dois tipos (desde que o nome do computador e informações adicionais sejam iguais às da máquina que deseja habilitar). Caso o contrato diferencie o uso do Sispetro remoto ou normal, escolha a linha que indica o tipo (Normal ou Remoto) que deseja habilitar.
+Último Usuário:
+ Último usuário que conectou através desta estação de trabalho.
+Info Adicional:
+ Número gerado pelo equipamento do usuário. Sempre que for alterado algum equipamento interno do usuário, este número será alterado. A credencial (isto é, a licença de uso) é formada pelo nome do computador + info Adicional.
+Ativado:
+ Se a estação de trabalho está ativada atualmente ou não.
+Ativar:
+ Coluna que será marcada ou desmarcada para ativar ou não a estação.
+Última Conexão:
+ Data e Hora da última conexão efetuada.
+Deve-se indicar quais estações de trabalho deverão ser ativadas clicando-se na coluna Ativar na linha de cada estação de trabalho mostrada.
+Nota:
+ Para se excluir conexões antigas, deve-se apertar o botão 
+"Exclui Log Usuários"
+ para que as mesmas possam ser excluídas definitivamente. Isso não afeta as conexões existentes nem as ativadas. Caso contrário, sempre que excluir alguma conexão no Grid de Conexões - acima - e clicar em 
+Atualiza
+, estas conexões antigas serão mostradas novamente.
+A única operação que o usuário pode fazer nesta parte é ativar ou desativar uma estação de trabalho.
+Para substituir uma estação por outra anteriormente ativada, basta deixar desmarcada a coluna Ativar na linha da estação que se deseja desativar e marcar a linha da estação que se deseja Ativar.
+É importante salientar que sempre que houver alterações de estações de trabalho, seja por substituição ou inclusão de novas estações, as estações ativadas anteriormente devem estar na lista de ativação (coluna Ativar).
+Nota 1: Toda esta edição não realiza nada no Sispetro nem nas estações de trabalho que continuam trabalhando como anteriormente, isto é, as estações ativadas continuam ativadas e as não ativadas continuam neste estado (pois somente quando o arquivo de licenciamento estiver habilitado e registrado é que passará a funcionar).
+Nota 2: As estações de trabalho da Futura Tecnologia não precisam ser ativadas e não devem contar como licenças de uso (estações que utilizamos através do módulo remoto para prestar suporte).
+Esta edição pode ser salva e retomada sem nenhum prejuízo às operações normais dos usuários. Sempre que quiser salvar, aperte o botão 
+OK
+. Para cancelar e perder as informações editadas anteriormente, aperte o botão 
+Cancela
+.
+O arquivo gerado em versões anteriores à 8.7, será passível de licenciamento. Ou seja, quem estiver licenciando não necessariamente precisará da versão atual e poderá licenciar arquivos antigos e novos sem problemas.

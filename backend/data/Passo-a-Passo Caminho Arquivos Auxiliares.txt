@@ -1,0 +1,363 @@
+TITULO: Passo-a-Passo (Caminho Arquivos Auxiliares)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879389909
+--------------------------------------------------
+Os arquivos auxiliares são arquivos que trabalham em conjunto com o Sistema no momento que o usuário está logado. São eles:
+
+
+
+
+layouts (relatórios de menu e boletos) com extensão RTM. Exemplos: No Sispetro em Tabelas Auxiliares/Vendas/Tipo de Cobrança, painel 'Por empresa', Impressão em 'Arquivo Layout'. Outro exemplo: em Relatórios/Faturamento/Notas Fiscais Emitidas
+
+
+arquivo de usuário que guarda algumas particularidades como os atalhos de menu, deslocamento das colunas dos grids, etc.
+
+
+outros arquivos de configurações como o antigo RBuilder.ini que foi suprimido nesse recurso atual.
+
+
+
+
+Anteriormente havia a obrigatoriedade de salvar estes arquivos no mesmo diretório do executável do Sistema. Foi disponibilizado um novo recurso no sistema para permitir ao usuário Sispetro definir o local de armazenamento desses arquivos auxiliares.
+
+
+Este recurso deve ser configurado nos 'arquivos .INI' para cada aplicativo:
+
+
+
+
+Normal - Scg.exe (Scg.ini)
+
+
+Remoto - Sispetro.exe (Sispetro.ini) e
+
+
+Controladoria - Sptcont.exe (Sptcont.ini)
+
+
+
+
+Estes três arquivos executáveis podem ficar em uma única pasta desde que os arquivos .INI estejam nesta mesma pasta. Se optar por trabalhar em pastas separadas, basta que para cada arquivo .EXE esteja acompanhando o seu respectivo arquivo .INI.
+
+
+Para cada .INI é preciso definir na Seção Geral, na opção "CaminhoArquivosAuxiliares" o diretório onde será armazenado os arquivos auxiliares.
+
+
+
+
+Exemplo: vamos supor que o nome do diretório seja c:\auxiliar. Para maiores informações sobre configurar esta opção vide o tópico de Seção Geral.
+
+
+Pode-se manter os 3 executáveis em uma única pasta tendo também um único diretório para os arquivos auxiliares. Mesmo que o usuário acesse o Sispetro Normal, Remoto e Controladoria ao mesmo tempo este novo recurso gerencia estes acessos sem problemas. 
+
+
+Importante: Caso o usuário acesse o Sistema em duas seções simultaneamente com o mesmo USUÁRIO e altere os atalhos de menus, prevalecerá sempre as últimas alterações feita daquela última seção que o usuário finalizou.
+
+Este diretório onde armazenará os arquivos auxiliares deverá ter permissão de 'Modificar' e 'Gravar' para todos os usuários. 
+
+
+Assim a pasta onde está o executável do Sispetro pode ter sua permissão definida como somente leitura garantindo assim mais segurança para esta pasta.
+
+Porém este novo recurso só poderá ser utilizando depois que todos os relatórios forem movidos da pasta do executável para o diretório dos arquivos auxiliares.
+
+Para isso, elaboramos um passo-a-passo para auxiliar na configuração deste novo recurso:
+
+1. Definir e criar uma nova pasta para os arquivos auxiliares;
+
+2. Copiar os RTMs (Normal, Remoto e Controladoria) para a nova pasta ou para as novas pastas (caso opte por separar os executáveis em pastas diferentes);
+
+3. Incluir ou Alterar na Seção Geral do arquivo .INI, o novo recurso através da opção: "CaminhoArquivosAuxiliares"
+
+
+
+
+
+Exemplo: no Scg.ini vamos apontar o diretório dos arquivos auxiliares na pasta C:\Sispetro\Aux . Então ficaria:
+
+
+seção Geral
+
+
+CaminhoArquivosAuxiliares=C:\Sispetro\Aux
+
+
+4. Alterar os locais configurados para os layouts (relatórios e boletos) no Sispetro.
+
+
+A tabela abaixo mostra os tipos de operações que possuem layouts (relatórios e boletos) configurados no Sispetro. Nesta tabela contém a informação de quais layouts deverão ter seus locais configurados manualmente e quais poderão ter um scrip para alteração:
+
+
+
+
+
+
+ Descrição 
+
+
+ Tela 
+
+
+ Ação 
+
+
+
+
+
+
+ Layout OC 
+
+
+ Manutenção Depositos 
+
+
+ Passível de Script 
+
+
+
+
+
+
+ Layout Cheque 
+
+
+ Manutenção Plano Contas 
+
+
+ Passível de Script 
+
+
+
+
+
+
+ Layout NF 
+
+
+ Manutenção Natureza Operação 
+
+
+ Passível de Script 
+
+
+
+
+
+
+ Layout Documento Associado NF 
+
+
+ Manutenção Natureza Operação 
+
+
+ Passível de Script 
+
+
+
+
+
+
+ Layout Conhecimento 
+
+
+ Manutenção Natureza Operação 
+
+
+ Passível de Script 
+
+
+
+
+
+
+ Layout Boleto 
+
+
+ Manutenção Tipo Cobrança 
+
+
+ Passível de Script 
+
+
+
+
+
+
+ Layout Autorização Pagamento 
+
+
+ Manutenção Empresas. Caso não definido: pgfrt.rtm 
+
+
+ Alterar Manualmente ou Mover 
+
+
+
+
+
+
+ Layout NF (padrão) 
+
+
+ Manutenção Empresas 
+
+
+ Alterar Manualmente 
+
+
+
+
+
+
+ Layout Pedido de Venda 
+
+
+ Manutenção Empresas 
+
+
+ Alterar Manualmente 
+
+
+
+
+
+
+ Layout Carta Correção 
+
+
+ Manutenção Empresas 
+
+
+ Alterar Manualmente 
+
+
+
+
+
+
+ Layout Pedido Compra 
+
+
+ Manutenção Empresas 
+
+
+ Alterar Manualmente 
+
+
+
+
+
+
+ Layout Recibo Baixa 
+
+
+ Manutenção Empresas 
+
+
+ Alterar Manualmente 
+
+
+
+
+
+
+ Layout Recibo Adiantamento 
+
+
+ Manutenção Empresas 
+
+
+ Alterar Manualmente 
+
+
+
+
+
+
+ Layout Conhecimento (padrão) 
+
+
+ Manutenção Empresas 
+
+
+ Alterar Manualmente 
+
+
+
+
+
+
+ Layout Danfe 
+
+
+ Manutenção Empresas 
+
+
+ Alterar Manualmente 
+
+
+
+
+
+
+ Layout Comprovante Carga 
+
+
+ Manutenção Empresas. Caso não definido: ComprovanteCarga.rtm 
+
+
+ Alterar Manualmente ou Mover 
+
+
+
+
+
+
+ Layout Comprovante Descarga 
+
+
+ Manutenção Empresas. Caso não definido: ComprovanteDescarga.rtm 
+
+
+ Alterar Manualmente ou Mover 
+
+
+
+
+
+
+ Layout Recibo Despesa Extraordinária 
+
+
+ Manutenção Empresas. Caso não definido: reciboDespesa.rtm 
+
+
+ Alterar Manualmente ou Mover 
+
+
+
+
+
+
+ Layout Documento Associado (titulo) 
+
+
+ tela manutenção tipo de documento 
+
+
+ Passível de Script 
+
+
+
+
+
+
+Para solicitar o script, entre em contato com o 
+Suporte Futura
+ 
+
+
+5. 
+Apagar
+ os RTM da pasta do executável.
+
+
+Com isso o Sistema estará apto a utilizar este novo recurso.

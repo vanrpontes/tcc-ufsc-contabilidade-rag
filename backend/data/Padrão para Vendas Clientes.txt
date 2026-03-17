@@ -1,0 +1,265 @@
+TITULO: Padrão para Vendas (Clientes)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210626
+--------------------------------------------------
+Através dessa tela o usuário poderá informar ou atualizar os dados do cliente conforme sua necessidade.
+É necessário ter perfil de usuário para poder manipular esses dados. Além dos perfis já citados no help sobre 
+Dados Gerais
+, temos também o perfil:
+Pode Modificar Padrão para Vendas: 
+permite a Visualização da Aba Padrão Para Venda (este perfil funciona em dependência com os perfis
+ Pode Incluir Clientes e Pode Alterar Clientes
+) 
+Pode alterar padrão para vendas 
+(este perfil funciona em dependência com os perfis
+ Pode Incluir Clientes e Pode Alterar Clientes
+)
+ 
+Aba Detalhes / aba inferior Padrão para Vendas: 
+ nesta tela são informados os dados do novo cliente.
+É possível restringir as transportadoras/motoristas e os frotas para pedido de vendas com modalidade de frete 
+Retira
+. Para mais informações, ver 
+Transp./Motoristas permitidos 
+e
+ Frotas permitidos.
+É necessário ter perfil de usuário habilitado,
+ 
+Pode Cadastrar Frota Permitidos no Cliente, Pode Cadastrar Transp./Motor. Permitidos no Cliente  
+Painel Fretes
+ 
+(Usuários)
+. 
+Em combinação com os perfis 
+Inclui Cliente
+ e 
+Altera Cliente
+ em 
+Painel Segurança (Usuários)
+.
+Note que o SisPetro atribui para alguns campos, valores definidos com padrão (vindo da tabela da empresa):
+Limite de Crédito: 
+para alterar o usuário deve ter o perfil de usuário 
+Alteração de Cliente, Altera Limite de Crédito Entidade 
+habilitado.
+ 
+Para mais informações, ver 
+Painel Segurança (Usuários)
+.
+Taxas de juros
+Tabela de preços
+Condições de pagamento
+Conta Contábil:  
+para alterar é  necessário ter os perfis de usuário 
+Pode Modificar Código de Contas Contábeis
+, 
+Pode Incluir Cliente e Pode Alterar Cliente
+ habilitados em 
+ 
+Painel Segurança (Usuários)
+.
+Conta Contábil Real: 
+para alterar é  necessário ter os perfis de usuário 
+Pode Modificar Código de Contas Contábeis
+, 
+Pode Incluir Cliente e Pode Alterar Cliente
+ habilitados em 
+ 
+Painel Segurança (Usuários)
+.
+Tipo Cobrança
+Tipo Cliente: 
+para alterar é necessário ter perfil de usuário 
+Alteração de Cliente no Cadastro de Clientes
+ habilitado
+ 
+em 
+Painel Segurança (Usuários)
+.
+Moeda
+Portador
+Transportadora
+Sendo que os campos importantes do cadastro do cliente são:
+Limite Crédito
+: o SisPetro analisará este valor comparando-o com as suas pendências no Contas a Receber (Pendências - Créditos de devolução de vendas e adiantamentos).
+Taxa Juros Dia
+: taxa de juros que será cobrada do cliente caso atrase algum pagamento. Esta taxa será lançada no Contas a receber para este cliente no momento do faturamento.
+Tabela Preços
+: a partir desta tabela, o SisPetro irá sugerir o valor para produto no momento da realização de uma venda. (para mais informações, ver 
+Trabalhando com Tabelas de Preços
+)
+Condições de Pagamento
+: esta condição será sugerida no momento da realização de uma venda. De acordo com o perfil do usuário, poderá alterar ou não durante a venda.
+Tipo de Cobrança:
+ determina o tipo de documento que será utilizado no pedido de venda ou impresso no faturamento para o pagamento da obrigação. De acordo com o perfil do usuário, poderá alterar ou não durante a venda.
+Exemplo:
+ boleto Bancário, Cobrança Eletrônica
+Transportadora
+: informe neste campo a transportadora padrão utilizada pelo cliente, de maneira que, no momento da digitação de um pedido de venda, o SisPetro venha a sugerir a transportadora encarregada pela entrega do produto.
+Transp./Motoristas permitidos:
+ em pedido de venda que a modalidade do frete seja 
+Retira
+, o usuário pode escolher quais transportadores poderão ser utilizadas. Pode ser muito útil pois por lei a Distribuidora é a responsável pelos caminhões e motoristas que retiram dos postos. Dessa forma, é possível evitar quaisquer tipos de problemas. Esta funcionalidade trabalha em conjunto com o perfil de sistema, localizado em 
+Painel Vendas
+ 
+Restringe Transportadora no Pedido de Vendas Retira
+ e o perfil de usuário, 
+Painel Fretes (Usuários)
+ Pode cadastrar transp./Motorista permitidos nos clientes. 
+Caso o usuário tenha acesso e o Sispetro esteja parametrizado para trabalhar dessa forma, o botão 
+ é habilitado. Veja como configurar em 
+Transportadoras/Motoristas Permitidos
+Frotas permitidos
+: em pedidos de venda do tipo 
+Retira
+, o usuário pode restringir os frotas que poderão ser utilizados. Esta funcionalidade trabalha em conjunto com o perfil de sistema, localizado em 
+Painel Vendas
+ 
+Restringe Frotas no Pedido de Vendas Retira
+ e com o perfil de Usuário
+ Pode cadastrar frotas permitidos no Cliente 
+em
+ 
+Painel Fretes (Usuários)
+.
+Caso o usuário tenha acesso e o SisPetro esteja parametrizado para trabalhar desta forma, o botão 
+ é habilitado é habilitado. Veja mais informações em 
+Frotas Permitidos
+.
+Utiliza frotas e motoristas indicados para o Comprador: 
+com essa opção marcada, caso o cliente faça parte de um grupo de clientes, o SisPetro irá buscar a lista de frotas e/ou motoristas/transportadoras do comprador. 
+Portador
+: portador padrão para o contas a receber quando um título for emitido via módulo de faturamento no módulo financeiro.
+Contas Contábeis
+: nesses quadro são armazenadas as contas contábeis para cada entidade. No momento da inclusão, essas contas são sugeridas automaticamente, seguindo o que foi cadastrado nas configurações da empresa. A sugestão é que principalmente os campos Conta Contábil e Conta Contábil Real não sejam alterados. O campo Conta Despesa/Receita é sugerida automaticamente de acordo com o que está definido na configuração da empresa 
+Ferramentas / Sistema / aba Contas Contábeis / campo Desp.Fornec.
+. Caso o administrador do SisPetro queira bloquear o acesso a essa contas dentro do cadastro da entidade, pode-se desmarcar o perfil 
+Pode Modificar código das Contas Contábeis
+, localizado em 
+Ferramentas / Usuário / aba Segurança
+.
+Conta Devedores Duvidosos: 
+será uma conta criada automaticamente pelo processo de Devedores Duvidosos.
+Esta conta será gerada automaticamente abaixo da conta sintética informada no perfil de Sistema com a seguinte regra:
+A conta real será criada se a conta sintética gerencial estiver vinculada a uma conta real, nesse caso seguirá o código extendido com a mesma sequência numérica do gerencial.
+Exemplo:
+Conta gerencial sintética: 0100053 - (- ) Devedores duvidosos
+Conta real sintética (vinculada à gerencial) 1.1.01.02.00000 (- ) Devedores duvidosos
+Já foram incluídas 4 contas para clientes e será incluída a quinta. Teremos:
+Conta gerencial: DD00005 - Cliente A
+Conta real: 1.1.01.02.00005 - Cliente A
+Caso o perfil de Sistema esteja Desmarcado para não ser gerado automaticamente, será possível a geração pelo botão 
+Gerar Conta
+.
+ 
+Endereço preferencial
+: por meio desta pré-configuração, o sistema poderá fazer uso automático de outros endereços que o cliente possua, no processo da digitação de um pedido de venda ou mesmo no processo de faturamento. Por exemplo, supondo que o cliente possua um endereço de faturamento em Paulínia, um de cobrança em São Paulo e um de entrega em Limeira, e no cadastro de Outros Endereços já foram informados. Não teria cabimento que toda vez que o usuário realiza-se um pedido de venda ou mesmo um faturamento, tivesse que ficar digitando todas essas informações novamente. Para que isso não ocorra, bastaria somente selecionar no campo Entrega, o endereço de entrega previamente cadastrado, no campo Cobrança, o endereço de cobrança e no campo Faturamento, o endereço de faturamento previamente cadastrado, assim de forma automática, o SisPetro trará esses campos no pedido de venda ou faturamento agilizando e diminuindo uma possível falha de digitação. Além disso, o usuário poderá alterar os endereços de Entrega, Cobrança e Faturamento no momento da inclusão do pedido de venda.
+Importante: o endereço definido para entrega, cobrança ou faturamento poderá ser utilizando para o cálculo de frete no momento da inclusão do pedido de venda. Para definir qual endereço deverá ser utilizando para cálculo do frete, veja o help 
+Cálculo do Valor do Frete
+.
+Endereço de Consumo:
+ endereço onde o produto será consumido, independente do endereço de faturamento do cliente. Utilizado para cálculo de impostos.
+Protesto Cobrança Eletrônica
+: para mais informações, ver 
+Protesto Cobrança Eletrônica
+.
+Imprime Mensagem Cobrança
+: habilite este campo e escolha uma mensagem padrão para ser impressa no momento da impressão de algum documento de cobrança (ficha de compensação, por exemplo) somente para este cliente.
+Imprime Mensagem Nota Fiscal
+: habilite este campo e escolha uma mensagem padrão para ser impressa no momento da impressão da Nota Fiscal somente para este cliente.
+Condição de Pagamento por Produto
+: se marcado, indica que deverá ser especificado uma condição de pagamento para cada produto vendido a este cliente. Para informar a condição de pagamento por produto, deve acessar a aba Preços, botão Editar. No pedido de venda, ao escolher uma condição de pagamento, o sistema restringirá os produtos para venda conforme esta escolha. Para mais informações, ver 
+Condição de Pagamento por Produto
+.
+Permite Desconto Condicional
+: se marcado, este cliente tem direito de receber o desconto condicional. O valor de desconto condicional deve ser informado no painel Preços, botão Editar e também na inclusão de um título a receber.
+Solicita Imp. do boleto na geração da NF
+: se marcado, haverá a impressão automática do boleto ao concluir a emissão da NF, uma vez que o cliente não faça parte do DDA. Para mais informações, ver 
+Indicação no Cadastro de Clientes sobre DDA
+Exige Pagamento antecipado?
+: para mais informações, ver 
+Pré-Pagamento - Aviso
+Bloqueio de Clientes
+: pode-se bloquear as vendas (inclusive o faturamento) de determinados clientes por algum motivo peculiar (cheque devolvido, falência, títulos em atraso, etc) de maneira manual ou de maneira automática. O SisPetro possui um procedimento de bloqueio automático de clientes que, através de alguns parâmetros inseridos pelo usuário, analisa a situação de cada cliente bloqueando-o caso determinadas situações ocorram. Para mais informações, ver 
+Bloqueio Automático de Clientes
+.
+O botão 
+Ver Bloqueios
+, mostra a relação dos motivos pelo qual o cliente está bloqueado:
+Pode-se desbloquear selecionando o registro desejado, clicando no botão Desbloqueia. Este botão estará habilitado se o usuário tiver permissão, indo no menu Ferramentas / Usuário - painel Perfil, painel Segurança / caixa Cliente:
+Os tipos de bloqueios de clientes que o SisPetro bloqueia automaticamente se encontra no menu 
+Ferramentas / Cadastro Clientes / opção Tipos de Bloqueios de Clientes
+.
+Bloqueio Pedido quanto a Entrega/Retira: 
+pode-se bloquear a inclusão de um 
+Pedido de Venda
+, caso o cliente tenha alguma restrição quanto a pedidos do tipo entrega ou retira. Ou seja, pode-se configurar clientes para que somente seja permitido a inclusão de pedidos do tipo entrega, ou então, somente do tipo retira, conforme o que for definido no cadastro. Sendo as opções:
+Não bloqueia quanto Entrega/Retira
+: pode-se incluir qualquer tipo de pedido.
+Bloqueia pedido tipo Entrega
+: somente poderá ser incluído do tipo retira.
+Bloqueia pedido tipo Retira
+: somente poderá ser incluído do tipo entrega.
+Seguro
+: é possível definir se para determinados clientes a empresa irá trabalhar com seguro de carga. Mas para isso é necessário configurar, primeiramente, a empresa para trabalhar com seguros. O perfil 
+Habilita Seguros
+ que fica em {{Ferramentas / Sistema / Vendas }} deverá estar marcado:
+Dentro deste perfil é necessário configurar o campo 
+Permissão de Seguro X Modalidade de Frete
+, que definirá a forma como o Sispetro irá aplicar o seguro para os tipos de frete.
+O campo 
+Perfil 
+deverá ser configurado com uma das opções abaixo:
+Sem Seguro:
+ o cliente não trabalha com seguro de carga, e o perfil de Pedido Segurado não estará habilitado.
+Usuário Escolhe:
+ o cliente não trabalha com seguro de carga, e o perfil de Pedido Segurado ficará habilitado para que o usuário defina.
+Com Seguro:
+ o cliente irá trabalhar com seguro de carga obrigatoriamente.
+Em seguida será necessário vincular o Seguro cadastrado na 
+Tabela de Seguros
+ ao cliente.
+Hipoteca
+: é possível definir para determinados clientes o valor de Hipoteca, para que seja informado no Pedido de Venda.
+Este necessita de permissão especial para sua alteração, além dos perfis de Inclusão e Alteração, é necessário habilitar o perfil
+ Pode Alterar dados de Fiança e Hipoteca, 
+Painel Segurança (Usuários)
+O Relatório CliHipoteca.rtm poderá ser configurado e utilizado no Gerenciador de Relatórios para identificação dos clientes que utilizam do recurso.
+O usuário deverá informar os dados da Hipoteca nos campos:
+Data Vencimento
+Limite de Crédito
+Valor da Hipoteca
+Fiança
+: é possível definir para determinados clientes dados sobre Fiança, para que sejam informados no Pedido de Venda assim como a Hipoteca.
+O Relatório CliFianca.rtm poderá ser configurado e utilizado no Gerenciador de Relatórios para identificação dos clientes que utilizam do recurso.
+O usuário deverá informar os dados da Fiança nos campos:
+Data Vencimento
+Data de Emissão
+Registro do Imóvel
+Nome do Fiador
+Tabela de Comissão de Vendas: 
+permite que seja vinculada uma tabela de comissão de vendas, que pode variar de acordo com o cliente. Para que o SisPetro habilite este campo, deve-se habilitar o parâmetro de Configuração de Comissão de Vendas 
+por Cliente
+, em
+ Ferramentas / Sistema / Painel Vendas
+ (
+Painel Vendas
+) e, cadastrar uma Tabela de Comissão em 
+Tabelas Auxiliares / Vendas / Comissão de Vendas
+.
+Multa
+: além da Taxa de Juros ao dia, é possível que o SisPetro trabalhe com multa a ser cobrada nos títulos de contas a receber em atraso. A configuração será realizada conforme quadro abaixo:
+No campo 
+Multa a ser Utilizada
+ selecione uma das opções abaixo:
+Conforme cadastro do Cliente
+ poderá ser incluído uma multa padrão específica para cada cliente.
+Conforme perfil de Sistema
+ o SisPetro utilizará o valor padrão do sistema definido na aba 
+Financeiro
+ do 
+Perfil de Sistema.
+Classificação Financeira: 
+através desse campo podemos informar uma classificação financeira ao cliente. 
+O usuário deve certificar-se se estas condições de venda são as mais adequadas ao Cliente.
+Quanto à transportadora o SisPetro sugere uma, definida como padrão, se necessário selecione/cadastre outra na lista de transportadoras.
+É importante salientar que este padrão para vendas é sugerido no momento da elaboração do pedido de venda e, de acordo com o perfil do usuário, pode ser alterado neste momento.

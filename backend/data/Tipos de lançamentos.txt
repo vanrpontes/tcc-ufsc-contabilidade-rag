@@ -1,0 +1,55 @@
+TITULO: Tipos de lançamentos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2908848516
+--------------------------------------------------
+Lançamentos de Expurgo (tipo X)
+São os lançamentos válidos na Contabilidade pela visão Societária, mas não pela visão Fiscal. Sendo assim, ele fez parte da sua Contabilidade, interferiu no saldo das contas, mas precisa ser retirado para Apuração do Lucro Líquido.
+ Um exemplo claro desse lançamento é o lançamento da depreciação de um bem por uma taxa não permitida fiscalmente.
+ É necessário indicar nos Registros I200 e I250 o lançamento que precisa ser retirado (da forma como ele foi feito).
+Depreciação no valor de 250,00
+Registro I200
+ Dados do lote, como data, histórico e valor e o tipo do lançamento que deve ser 
+X - Expurgo
+.
+Registro I250
+ D - Conta de Despesa de Depreciação - 250,00
+ C - Conta 
+ Depreciação Acumulada - 250,00
+Além desse lançamento é necessário encerrar devidamente as contas de Despesas e/ou Receitas envolvidas no expurgo, usando como contra-partida a conta de Lucros Acumulados.
+Registro I200
+ Dados do lote, como data, histórico e valor e o tipo do lançamento que deve ser 
+EF - Encerramento Fiscal
+.
+Registro I250
+ D - Conta de Despesa de Depreciação - 250,00
+ C - Conta de Lucros Acumulados - 250,00
+Importante
+Não inverter (como se fosse estornar) o lançamento de expurgo. Ele deve ser exatamente como foi feito na contabilidade. O FCONT fará a devida inversão para a apuração do novo lucro líquido.
+Lançamentos Fiscais (tipo F)
+São os lançamentos que são exclusivamente necessários na visão Tributária. Ele não estava na Contabilidade da empresa, mas é necessário para a nova apuração do Lucro Líquido. Há dois motivos para existirem esses lançamentos:
+Uma operação só válida para Contabilidade Tributária
+Como substituição de um lançamento que foi expurgado
+Teremos um lançamento de Depreciação com a taxa correta, no valor de 220,00.
+Registro I200
+ Dados do lote, como data, histórico e valor e o tipo do lançamento que deve ser 
+F - Fiscal
+.
+Registro I250
+ D - Conta de Despesa de Depreciação - 200,00
+ C - Conta 
+ Depreciação Acumulada - 200,00
+Como no lançamento de expurgo, é necessário encerrar devidamente as contas de Despesas e/ou Receitas envolvidas, usando como contra-partida a conta de Lucros Acumulados.
+Registro I200
+ Dados do lote, como data, histórico e valor e o tipo do lançamento que deve ser 
+EF - Encerramento Fiscal
+.
+Registro I250
+ D - Conta de Despesa de Depreciação - 200,00
+ C - Conta de Lucros Acumulados - 200,00
+Importante para todos os tipos de registros
+Os lançamentos de 
+Expurgo (X)
+ e 
+Fiscal (F)
+ devem ser individuais, ou seja, um para cada lançamento que deve ser excluído ou incluído na sua devida data. Já o lançamento de 
+Encerramento Fiscal (EF)
+ pode ser feito a cada combinacão de conta de Débito e Crédito.

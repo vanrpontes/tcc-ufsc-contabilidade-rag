@@ -1,0 +1,398 @@
+TITULO: Versão 8.3
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913599726
+--------------------------------------------------
+Dados
+Informações
+Início
+06/11/2012
+Final
+18/02/2013
+Scripts
+CMD83.SQL (Do cmd3086 a cmd3148)
+Itens
+79
+Implementações
+34
+Correções
+45
+Anexos
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Impressão
+Abertura_LivroApuracao.rtm
+SPED_DF.dll
+GIA_SP_v83.rtm
+DaCTe.rtm
+Abertura_LivroEntradas.rtm
+SPED_PE.dll
+ 
+ 
+Abertura_LivroSaidas.rtm
+ 
+ 
+ 
+Encerramento_LivroApuracao.rtm
+ 
+ 
+ 
+Encerramento_LivroEntradas.rtm
+ 
+ 
+ 
+Encerramento_LivroSaidas.rtm
+ 
+ 
+ 
+Inventario.rtm
+ 
+ 
+ 
+PrazoMedio.rtm
+ 
+ 
+ 
+PosicaoEstoque.rtm
+ 
+ 
+ 
+Atualizações do Sybase
+A partir da próxima versão, a versão mínima dos EBF's de atualização do Sybase para a execução do SisPetro será o EBF 12.0.1.3797. A partir dessa versão do EBF são suportadas as novas versões do sistema operacional Windows 8 e Windows 2012.
+Conhecimento de Frete
+Na próxima versão estaremos removendo do sistema a opção de gerar o conhecimento de frete automaticamente após a emissão da nota fiscal. Essa alteração será necessário por conta da CTe. Para gerar uma CTe, é necessário mais informações do usuário o que deixa essa opção inválida.
+Geral
+Alteração na tela de manutenção de UF
+A tabela de UF não era muito utilizada e nem tinha o campo Descrição. Devido sua maior utilização nos últimos tempos incluímos o campo Descrição, porém o mesmo não foi disponibilizado para o usuário editar, mesmo quando ele possui permissão para edição e inclusão. Nesta versão o campo Descrição foi disponibilizado para inclusão e alteração. 
+Help:
+ 
+Tabela Unidades Federativas - UF's
+. AO (CCF 17779).
+Migração dos Componentes da DevExpress
+Os componentes da 
+DevExpress
+ (grids, campos de edição, campos de data, etc) foram atualizados para a sua ultima versão, 4.59. UPA (CCF 18838)
+Tela de Manutenção de E-Mails
+Alterada a performance da tela de acesso aos e-mails gerados pelo SisPetro. Com essa alteração, a seleção dos e-mails e a sua navegação ficaram mais rápidos. UPA (CCF 18926)
+Licenciamento
+A opção de entrada no SisPetro para licenciamento da máquina estava exigindo que o Servidor SisPetro e o Servidor S3 estivessem configurados e ativos. A partir dessa versão isso não será mais necessário já que a opção de licenciamento da máquina não permite acesso ao sistema e essa rotina é um facilitador ao cliente para aquisição/validação de novas licenças. UPA (CCF 18935)
+Informação do Número de Licenças
+A partir dessa versão, o número de licenças contratadas para uso do SisPetro será informada pela Futura Tecnologia e não mais pelos seus clientes como acontecia nas versões passadas. UPA (CCF 19126)
+Som de Beep em Campos do SisPetro
+Ao entrar em alguns campos de edição do SisPetro era emitido uma aviso sonoro ao usuário (um "beep"). Essa configuração foi removida e a partir dessa versão, esse som não será mais emitido. UPA (CCF 19075)
+Servidor SisPetro fora do Ar
+Logo após informar a senha do SisPetro, caso o Servido SisPetro não esteja ativo, é gerado um erro de "access violation" ao cliente. Esse problema foi corrigido. 
+UPA (CCF 18136)
+Mês no cabeçalho de relatório de grids
+Corrigido para apresentar devidamente (por extenso) o mês da data no cabeçalho de relatórios que são impressos a partir de grids (como Consultas Tridimensionais de Estoque, Fechamento de Estoque, etc).
+ GSN (CCF 18545)
+Permitir caracteres especiais antes do "@" nos e-mails de clientes, fornecedores e transportadoras
+Na versão 7.19 fizemos uma alteração para permitir caracteres especiais em e-mails. Porém surgiu uma nova situação não permitida, um e-mail com "-" próximo ao "@". Isso não era permitido. Nessa versão, alteramos o processo para permitir que sejam cadastrados e-mails com “-” próximo ao “@”. CPC (CCF 18912)
+Nova aba NF-e/CT-e no perfil de sistema
+No advento da NF-e colocamos todos os perfis na aba Nota Fiscal, porém agora com o CT-e e com passar o tempo, ter os perfis da NFe ficou confuso, devido estar muito extenso. Nessa versão, foi criada uma nova aba NF-e e CT-e para perfis referentes a NF-e e CT-e. 
+Help: 
+ 
+CPC (CCF 19033) 
+Travamento do Serviço de E-Mail
+Em algumas empresas o serviço de envio de e-mails do SisPetro estava sendo parado sem a ação do usuário e com isso o envio de e-mails ficava parado. Quando o usuário acionava novamente o serviço, os e-mails pendentes eram enviados. Esse problema foi corrigido. 
+UPA (CCF 19073)
+Manter as Configurações Regionais do SisPetro Após Desbloquear o Windows
+Quando o Windows é bloqueado (pelo usuário ou pelo próprio sistema operacional), quando é retornado ao seu funcionamento, ele atualiza em todos os programas em execução as configurações regionais do Windows, com isso, caso o SisPetro esteja rodando, o Windows altera as configurações setadas por ele ao iniciar o sistema como por exemplo o separador de decimais, formato de data, etc. Essa situação foi tratada e a partir dessa versão a tela de bloqueio do Windows não mais afetará o SisPetro. 
+UPA (CCF 19076)
+Servidor S3
+Foram efetuadas melhorias na rotina de carregamento do Servidor S3 impedindo assim que sejam carregados dois servidores S3 no mesmo banco de dados. 
+UPA (CCF 19327)
+Arredondamento de Valores
+Ajustada rotina de arredondamento de valores que, em alguns casos, não conseguia arredondar de forma correta devido tipos de valores internos.
+ 
+GSN (CCF 18795)
+Compras
+Contabilidade 
+Não apresentar mensagem de erro sobre valores de débito e crédito indevidamente.
+Na inclusão manual de Lote Gerencial há uma validação se há débitos e créditos informados. Porém quando se inclui o débito, ao incluir o crédito e já clicar para confirmar o lote, o crédito (ou débito, o que importa é ser o último item) não é reconhecido, dando a mensagem que há valores de débito diferente dos valores de crédito, indevidamente. 
+Nesta Versão foi incluída uma validação para que isso não ocorra. AO(CCF 16213).
+ 
+Alteração de Ordenação no Demonstrativo de Resultado Real
+Corrigido para que ao alterar a ordenação de um item do Demonstrativo de Resultado Real só altere o item em questão e não os itens com a mesma ordenação.
+ GSN(CCF 19074).
+FCONT - Resultado do Período no Registro M030
+Corrigido para que apresente corretamente o resultado de cada período de encerramento no Registro M030 do FCONT.
+ GSN(CCF 19050).
+Estoque
+Consulta Saldo Estoque
+Acrescentadas algumas melhorias na tela de Consulta Saldo Estoque, como permitir mover algumas colunas, bem como filtrar. GSN (CCF 17920).
+Fechamento de Estoques
+As somatorias das coluna exibidas nos grids do Fechamento de Estoques não estavam sendo impressas. Esse problema foi corrigido. 
+UPA (CCF 18745)
+Quantidade Zerada em Produtos sem fator de Correção no
+ 
+DPMP
+Na geração do DPMP geralmente estão envolvidos produtos claros(como álcool) e produtos escuros(gasolina e diesel), que são produtos com massa específica(densidade a 20c) diferente de 1(ou seja com Qtde em Kg e Qtde 20c diferentes da Qtde Ambiente).Porém algumas empresas entregam DPMP para aditivos e lubrificantes, produtos com Massa específica igual a 1.No entanto, ao gerar o DPMP, indevidamente está tentado pegar a massa específica desses produtos, retornando 0, ao invés de 1.Sendo assim, a Qtde KG desses produtos, ao invés de ficar igual a Qtde, acaba ficando zerada. Nessa versão o problema foi corrigido. 
+AO (CCF 18278).
+ 
+Tipo de Quantidade no Relatório de
+ 
+Estoque
+No controle de estoque de combustíveis há dois tipos de quantidades para serem controladas: Ambiente e 20ºC. O problema é que mesmo tendo a opção em tela o relatório sempre trazia as quantidades conforme o perfil de sistema, não respeitando o que o usuário escolheu em tela. Nessa versão o problema foi resolvido atendendo as opções de seleção.
+Necessário atualizar o arquivo PosicaoEstoque.rtm no caminho do executável (ou conforme caminhos auxiliares)
+ 
+AO (CCF 18555).
+Código NCM na tela de Pesquisa de Produtos
+A partir da NFe e do SPED o código NCM de um produto passou a ser uma informação fundamental. Por isso a necessidade de apresentá-lo na tela de pesquisa de produto para auxiliar na escolha correta do mesmo. AO (CCF 18405).
+Edição de colunas do Lastro por Empresa na Manutenção de Tanque
+Há algum tempo atrás fizemos a migração de alguns grids para uma nova versão, porém, alguns campos que eram editáveis perderam essa função indevidamente. Nessa versão corrigimos esse problema padronizando a forma de edição dos grids. 
+AO (CCF 18850).
+Limitação de Descarga de Terceiros
+Quando a
+ 
+empesa é armazenadora é normal locar espaço no seu tanque para congêneres. Com isso é necessário controlar o estoque de cada congênere e isso é feito através da emissão de OC de Carregamento de Terceiros (Saídas) e OC de Descarga de Terceiros (Entradas). Na saída é feita uma verificação se a empresa tem saldo suficiente para carregar um determinado produto. Na entrada não é feita nenhuma verificação, porém como cada congênere paga por um determinado espaço, seria necessário garantir que não seja descarregado mais produto do que a empresa pode ter. A partir dessa versão o volume de descarga na inclusão da Descarga de Terceiros será limitado pelo espaço determinado. 
+Help: 
+ 
+AO (CCF 15313). 
+Duplicação de operações de Estoque de DPMP
+Na tela de Geração do DPMP há o controle de saldos iniciais e finais de Estoque. Cada operação de estoque só deve existir uma única vez por instalação e o Sispetro inclui essas operações devidamente, porém permite que o usuário inclua operações repetidas, causando problema na geração do DPMP. Nessa versão, foram realizadas alterações para não permitir duplicação de operações de Estoque de DPMP.
+ CPC (CCF 19060)
+Data e Hora de Saída da Base Digitada pelo Usuário
+Na Portaria de Saída, dependendo da configuração, é possível que o usuário digite a Data e Hora de saída da Base. Porém, mesmo informando data e hora o Sispetro só salva a data informada.Nessa versão a Data e a hora estão sendo salvos conforme digitado pelo usuário. 
+AO (CCF 19068).
+ 
+Faturamento
+Observações em branco na Remessa/Retorno Armazenagem
+Corrigido para que o campo de Observações das NFs emitidas pelo menu Remessa/Retorno de Armazenagem não fique em branco a partir da segunda NF com a mesma Natureza de Operação.
+ GSN (CCF 18623).
+Retirar os caracteres especiais da tag fone do XML da NFe
+Na geração do XML de Recibo da NFe, na tag fone, foi retirado os caracteres especiais, como já é feito em outros campos. 
+AO (CCF 17552).
+Série e Modelo da Tela de Resumo da NF
+Ao finalizar uma Nota Fiscal, é possível (caso o perfil de usuário esteja marcado para Mostrar resumo da NF) verificar numa tela de Resumo as informações principais da NF para uma possível conferência antes de confirmar o preenchimento nos dados. Algumas informações atualmente não são apresentadas e seria interessante que fossem. Nessa versão foram incluídos os campos Série e Modelo da NF. AO (CCF 17955).
+Tipo de Cobrança nulo na Nota Fiscal e no Título
+Na versão 8.1 foi feita uma alteração na NF referente à validação de Tipo de Cobrança em NFs que geram Títulos de contas a Pagar/Receber. Porém após a alteração, ao incluir notas de Vendas, caso o usuário não tivesse permissão para ver o  Tipo de Cobrança, mesmo com a NF gerando Contas Pagar/Receber, o Tipo de Cobrança da NF e dos Títulos ficavam nulos. Nessa versão foi feita uma correção para este problema. 
+AO (CCF 18766).
+Valor do Item exibido com formatação
+ 
+indevida
+Na aba de NFs duplicadas da Manutenção de NFs, o Preço Real dos itens estava sendo apresentado com duas casas decimais indevidamente.Nessa versão o valor unitário será apresentado conforme perfil de casas decimais de Vendas (saída) e Compras (entrada). 
+AO (CCF 18626).
+Nota Fiscal de Devolução vinculada a Ordem de Carregamento
+Foi realizada uma melhoria no SisPetro para permitir o vínculo de NF de Devolução a uma Ordem de Carregamento e fazer referência de uma NF de Devolução de Fornecedores a NF de Compra que originou a devolução, tornando possível, a devolução do produto no tanque. 
+Help:
+ 
+. CPC (CCF 18019)
+ 
+CSTs de PIS e COFINS de crédito na NFe 
+Até um tempo atrás no arquivo .xml da NFe só era permitido enviar informações de PIS e COFINS com CSTs referente a débitos (de 01 até 49) ou 99 que indicava Outras operações. Com isso, ao emitir uma NF de Entrada (Devolução de Cliente ou Compra por Importação) não era possível enviar CSTs de crédito (como 51, 52, etc). A empresa tinha que usar um CST sem tributação (04, 06) para que a NFe fosse autorizada e depois alterar o CST para envio no SPED EFD Contribuições (PIS/COFINS). Recentemente foi liberada uma nova versão do manual da NFe onde no grupo que antes só enviava o CST 99 (PISOutr e COFINSOutr) agora permitirá os CSTs de Crédito. Nessa versão, foram realizadas adaptações no Sispetro para permitir enviar os CSTs de PIS e COFINS de crédito na NFe na tag de Outros. CPC (CCF 18567)
+ 
+Informações Adicionais do Produto na NFE
+ 
+No xml da NFe há uma tag infAdProd que são as informações adicionais do produto. O Sispetro até liberou um campo Observações no cadastro de Produtos para impressão no DANFE, agora a solicitação é que essas informações sejam liberadas no XML. Nessa versão, foi feita uma alteração para permitir que o campo de Observações do Produto seja informado na tag infAdProd do XML da NFe. CPC (CCF 15344)
+Aumentar Unidade de Medida(Campos De) na importação de Notas
+ 
+Fiscais
+A
+ 
+rotina de importação de notas fiscais lê as informações da nota de um arquivo e aplica o De/Para de alguns campos. Um deles é o campo de código de unidade. No De/Para da unidade, os dois campos(De e Para) foram criados com duas posições. Para a opção isso esta correto pois o cadastro de unidades do SisPetro só permite duas posições, porém o campo De poderia ser maior pois recebemos algumas notas em que o código da unidade possui três posições. Nessa versão o campo Unidade de Medida (Campos De) foi aumentado para importar automaticamente as notas fiscais onde a unidade de medida for maior que duas posições. 
+AO (CCF 18778).
+Implementações na NFe seguindo o novo manual
+Foi liberado um novo manual da NFe a algum tempo atrás, porém não fizemos uma verificação completa para identificar a necessidade de implementações no Sispetro. Agora, ao fazermos essa verificação identificamos dois pontos que requerem alteração. 1) Garantir que o campo Tipo de Contingência seja informado pelo usuário e enviado no XML da NFe; 2) Não obrigar a informação de um valor de Desconto da DI em NFs de Importação de Produtos. Nessa versão, foram implementadas essas duas melhorias. CPC (CCF 18568)
+Novos códigos de retorno de Cancelamento na NFe
+Considerar como válidos os novos códigos de retorno de Cancelamento da NFe disponibilizados pela SEFAZ. CPC (CCF 18585)
+Importação de NF quando o campo C.S.T Produto na Natureza de Operação está configurado com "?"
+Na Natureza Operação há um campo para indicar como deve ser a obtenção do CST na Importação de NF, podendo ser obtido direto do arquivo ou da configuração da Natureza/Produto. Está apresentando um erro quando está configurado para pegar da Natureza/Produto e na Natureza o CST está com "?" (máscara para utilizar o caractere correspondente do CST do produto) . Nessa versão, esse processo foi corrigido. Para mais detalhes sobre o CST com "?" veja o campo C.S.T Produto no 
+Help:
+ 
+.
+ 
+CPC (CCF 18543)
+Log
+ 
+de Exclusão de
+ 
+NF
+O Sispetro permite que notas fiscais sem comunicação com a SEFAZ (seja porque não é NFe ou porque é NFe mas o sistema está offline), possam ser excluídas.Consideramos gravar alguns dados da exclusão da NF para permitir identificar que a nota foi excluída. 
+AO (CCF 18809)
+Data de Emissão x Data de Movimento na NF
+Normalmente um produto só pode ser movimentado depois da Nota Fiscal ser emitida. Sendo assim, a data de emissão de uma nota é sempre anterior à data de movimento. A única situação diferente é com algumas Notas da Petrobrás que são bombeadas (movimentadas) num dia e emitidas no dia seguinte. Atualmente o Sispetro não valida as duas datas então acontecem muitos erros com notas de movimentação anterior à data de emissão indevidamente. Nessa versão, foi criado um perfil na Natureza de Operação para permitir ou não NFs com data de movimentação anterior à data de emissão. 
+Help:
+ 
+ 
+CPC (CCF 17540) 
+URL de Carta Correção de PR  (produção)
+Atualizada a URL do webservice utilizado no ambiente de produção do PR para envio do evento de Carta de Correção. CFC (CCF 18904)
+Ajustes nos campos ObsLivre e ObsSemFiscoComCpl das views vwInfComplementarPorNF e vwInfComplementarPorNaturezaOperacao
+Na versão 7.27 fizemos uma alteração nas views
+ 
+vwInfComplementarPorNF e vwInfComplementarPorNaturezaOperacao
+, porém os campos ObsSemFiscoComCpl e ObsLivre não ficaram corretos, mostrando no ObsLivre o conteúdo da tag infCpl e no ObsSemFiscoComCpl o conteúdo da tag infAdFisco. Nessa versão, foi realizada uma correção para que no campo "ObsLivre" mostre o texto que não estiver nas tags InfAdFisco e InfCpl e o no campo "ObsSemFiscoComCpl" mostre o texto que não estiver na tag InfAdFisco. 
+CPC (CCF 19071)
+Inutilização indevida de NF-e importada
+No Sispetro permitimos a importação de NFs eletrônicas e de emissão própria, porém padronizamos que essas NFs não sejam transmitidas para a SEFAZ. No entanto, caso o usuário tente cancelar essa NF, o Sispetro não está verificando que essa NF foi importada e, como não tem número de protocolo, acaba pedindo a inutilização do número. Nessa versão, foi realizada uma alteração para não transmitir nada para a SEFAZ de emissão própria importada. 
+CPC (CCF 19092)
+Próximo número NF na tela de Pesquisa de Série
+Antigamente existia na Tabela de séries o próximo número para NF de Entrada e um próximo número para NF de Saida. Com o passar do tempo, passou a ser utilizado somente o próximo número para NF de Saída, mas na tela de Pesquisa de Série ficava mostrando o próximo número para NF de Entrada. A partir dessa versão passou a ser utilizado somente o próximo número para NF de Saída. 
+AO (CCF 19070).
+ 
+Problema na Validação de Vínculo de OC na Importação de NF
+Na versão 8.2 fizemos uma implementação para permitir o vínculo de OC e PMM na Importação de NF. Este vínculo funciona normalmente, porém numa empresa passou a não funcionar sem uma explicação aparente. Verificando internamente, percebemos que o problema só ocorre quando o número da OC é alto, porque o campo de Número de OC foi definido como smallint quando deveria ser integer. Nessa versão, foi realizada uma correção no sistema para definir o campo com o seu tipo correto resolvendo assim o problema descrito acima. 
+CPC (CCF 18967)
+Fina
+nceiro
+Baixa Eletrônica com valores zerados.
+No caso de Baixa de Cobrança Eletrônica só de Abatimento em títulos que não tinham Desconto Condicional a baixa era feita com todos os valores zerados, o que causava erro no Código de Contabilização. Corrigido para que não seja feita Baixa sem ao menos um valor (seja de Movimento, Adiantamento, Acréscimo ou Desconto).
+ GSN (CCF 18620).
+Melhorias nos Relatórios de Fechamento Financeiro
+Nos relatórios do Sispetro, é normal quando o relatório é apresentado na visualização e o usuário poder direcionar a impressora (inclusive a impressão para arquivo). Porém nos relatórios de Posição e Transição do Fechamento Financeiro, ao visualizar a impressão e mandar imprimir, o relatório é direcionado sempre para impressora padrão. Nessa versão, para esses relatórios, foram realizadas melhorias para permitir a escolha da impressora e a impressão para arquivo. AO (CCF 17654).
+Mais dados na Tela de Manutenção de Fechamento Financeiro
+Na tela de Manutenção de Fechamento Financeiro há vários valores envolvidos nas abas existentes. Às vezes a consulta fica confusa, sendo necessário localizar títulos a partir de campos atualmente não disponíveis. Nessa versão, foram adicionados novos campos nas abas de Contas a Pagar, Contas a Receber, Adiantamento a Fornecedores e Adiantamento de Clientes. 
+ 
+Help:
+ 
+ 
+AO (CCF 13711).
+Validação da inclusão de Adiantamento entre Empresas
+Ao incluir um adiantamento entre Filiais, os campos Empresa Destino e Data de Movimento não são obrigatórios, mas caso ambos não sejam preenchidos, é apresentada uma mensagem de erro. Nessa versão serão obrigatórios os campos Empresa Destino e Data de Movimento. 
+Help:
+ 
+ 
+AO (CCF 16501).
+Considerar corretamente o valor do crédito informado na tela de Baixa
+Na tela de Baixas o usuário pode vincular um adiantamento e indicar um valor de utilização do mesmo. Porém quando ele informa um valor menor que R$ 0,50 o Sispetro apresenta uma mensagem que o valor não foi informado.Nessa versão o problema foi resolvido. 
+AO (CCF 18736).
+ 
+Novo layout da Cobrança Eletrônica do Banco BIC(320)
+Em 2012 o Banco BIC atualizou o seu layout que não previa envio de multa ou desconto.Nessa versão o sistema Sispetro esta atualizado com o novo layout do Banco BIC(320) prevendo multa e desconto. AO (CCF 18605).
+Geração de Crédito na Baixa Eletrônica com Desconto
+No caso de Baixas com Abatimento feitas em duplicidade (o banco manda o abatimento no retorno de confirmação de abatimento e na liquidação), ao fazer a baixa era gerado indevidamente um crédito ao cliente no valor do desconto. Isso foi alterado para gerar acréscimo .
+GSN (CCF 18789).
+Adiantamentos sem Entidade considerados como Pendentes 
+No fluxo de adiantamentos do Sispetro, o final de um adiantamento pode ser uma transferência para uma conta contábil (ou devolução à entidade via conta banco). Nesta situação, o adiantamento original é quitado e então é criado um novo adiantamento, sem entidade pendente. O problema ocorre quando, nos diversos pontos do Sispetro é preciso identificar os adiantamentos pendentes. Esses adiantamentos sem entidade estão sendo "contados" como pendentes, quando não deveriam. No entanto, não se pode esquecer que há adiantamentos de clientes não identificados, que não têm entidade mas que são pendentes. Nessa versão, foi criado um novo recurso no SisPetro para classificar os adiantamentos nessa situação para que não os considere como pendentes. 
+Help: 
+.
+ CPC (CCF 18503)
+Relatório de Fechamento Financeiro por Grupo de Filiais
+O Fechamento Financeiro pode ser geral, por grupo ou por filial.Porém, ao tentar emitir relatórios de Posição de um fechamento feito por Grupo de Filiais é apresentado o erro de que o fechamento financeiro não existe.O erro estava na forma de encontrar o fechamento financeiro, agora é passado por parâmetro o tipo de fechamento específico que é necessário localizar. 
+AO (CCF 18780)
+Filtro de contas origem no Extrato Bancário
+Há algumas versões atrás fizemos uma alteração para Escolha de Contas Destino no Extrato Bancário. Porém, ao fazer essa alteração foi deixado de verificar se a conta podia participar do relatório por estar inativa ou ser restrita a uma empresa ou grupo não informado na unidade de negócios na tela. Nessa versão, foi realizada uma alteração para garantir que o filtro de conta de origem seja feito devidamente conforme opções em tela e só apresentar contas ativas. CPC (CCF 19044)
+Ao cancelar Títulos com erro não é apresentada mensagem
+Dentro do SisPetro, ao executar uma operação, é possível capturar qualquer mensagem de erro dada e apresentá-la de uma forma diferenciada, bem como executar uma determinada operação após o erro. Isso é comum em operações com banco de dados, onde é feita a captura da mensagem, se apresenta ao usuário e depois se cancela a transação no banco. Porém, no caso do Cancelamento de Títulos esse processo foi feito de forma incompleta, pois captura a mensagem, não mostra a mensagem e cancela a transação. Com isso, em casos de ter erro no Cancelamento de Títulos, como Travamento Contábil ou Fechamento Financeiro, não é apresentada mensagem de erro e também não cancela o título. Nessa versão, foi realizada uma correção para apresentar devidamente a mensagem de erro caso seja encontrado algum durante o processo de Cancelamento de Títulos. 
+CPC (CCF 19065)
+Cobrança Eletrônica Banco Sicoob (756)
+Implementada a Cobrança Eletrônica do Banco Sicoob (756) com Geração de Arquivo de Remessa, Leitura do Arquivo de Retorno e Impressão de Boleto. 
+Antes de colocar em produção É FUNDAMENTAL FAZER OS TESTES JUNTO AO BANCO SICOOB.
+ 
+Help: 
+ 
+GSN (CCF 19155) 
+Fiscal
+SPED EFD - Valores de PIS e COFINS no Registro C170
+Corrigido para enviar corretamente as informações de PIS e COFINS no Registro C170.
+ GSN (CCF 18729).
+SPED EFD - Registro 1010 sem referência ao Registro 1700
+Corrigido para enviar S no campo IND_FORM do Registro 1010 quando houver dados no Registro 1700. 
+GSN (CCF 18702).
+SPED EFD - Não gerar Registro H010 com Inventário zerado
+Corrigido para enviar dados de inventários zerados no Registro H010.
+ GSN (CCF 18640).
+SPED EFD - Registro D160 duplicado
+Corrigido para não gerar o Registro D160 duplicado quando houver mais que uma NF vinculada ao conhecimento. 
+GSN (CCF 18408).
+SPED EFD - Alíquotas de ICMS indevidas
+Corrigido para não enviar alíquota de ICMS nos Registros C170, C190, C590 e D590 quando não for informada Base de Cálculo de ICMS. 
+GSN (CCF 18062).
+SPED - DF
+Implementado o SPED DF, que atende o Ato Cotepe 35/05, com informações fiscais e contábeis, específico para empresas do Distrito Federal. 
+Necessário indicar o nome e caminho do arquivo SPED_DF.dll no Conjunto de Dados (9 - SPED DF). 
+Help:
+ 
+ 
+GSN (CCF 14594).
+Termos de abertura e encerramento
+Estamos disponibilizando alguns layouts padrões para Termos de Abertura e Encerramento dos Livros Fiscais. 
+Necessário indicar o nome e caminho do arquivo desejado na tabela de Termos do Sispetro Controladoria (Abertura_LivroApuracao.rtm, 
+Abertura_LivroEntradas.rtm, 
+Abertura_LivroSaidas.rtm, Encerramento
+_LivroApuracao.rtm, 
+Encerramento
+_LivroEntradas.rtm, 
+Encerramento
+_LivroSaidas.rtm)
+. 
+Help:
+ 
+ 
+GSN (CCF 15636).
+SPED PE - SEF II - Classe de Operação
+No SPED PE - SEF II há uma tabela  de Classes de Operação que funciona como um agrupamento de CFOP´s. Necessário permitir ao usuário que vincule a Natureza de Operação a um item desta tabela. Nessa versão será permitido o vínculo da Natureza de Operação à Tabela de Classes de Operação de PE. 
+AO
+ (
+CCF 18962).
+Linha Digitável da GNRE no título
+Permitir o salvamento da linha digitável da GNRE no título para uso do SPED. Nessa versão a informação da Linha Digitável da GNRE será salva no título e transferida para os registros do SPED, porém poderá ser informada pelo usuário no momento da Baixa ou via Manutenção do Contas a Pagar. 
+Help:
+ 
+, 
+ 
+AO (CCF 17508). 
+Valor Total no Relatório de Inventário
+Ajustado Relatório de Inventário para apresentar devidamente o Valor Total, que estava apresentando o Valor Unitário
+. 
+Necessário atualizar o arquivo Inventario.rtm no caminho do executável (ou conforme caminhos auxiliares) 
+GSN (GSN 18806). 
+COD_PART no Registro C113
+Corrigido para apresentar a Entidade do Livro Eletrônico no campo COD_PART do Registro C113, pois antes apresentava a Entidade principal. 
+GSN (GSN 19129). 
+GIA-SP
+Corrigido para apresentar devidamente o número de registros 14 e para apresentar o ICMS-ST de entrada no campo correspondente.
+ 
+Necessário atualizar o layout de exportação GIA_SP_v83.rtm 
+GSN (GSN 19072). 
+Inclusão de Apuração Fiscal sem informar a Data Final ou sem clicar no Botão Calcula Valores
+Ao criar uma Apuração sem informar a Data Final ou sem clicar no Botão Calcula Valores, o SisPetro lança uma Apuração com a Data Inicial e Final para 30/12/1899. Nessa versão, esse problema foi corrigido para garantir o preenchimento correto da Data Inicial e Final da Apuração Fiscal. 
+CPC (CCF 18700)
+SPED EFD - Registro D161 duplicado 
+Corrigido para apresentar somente um Registro D161 por Conhecimento, anteriormente apresentava conforme o número de NFs acobertadas. 
+GSN (GSN 19064). 
+SPED EFD PE - SEF II
+Disponibilizado o Conjunto de Dados 10 para preenchimento e geração do arquivo para SEF II, que é específico para Pernambuco. 
+Necessário indicar o nome e caminho do arquivo SPED_PE.dll no Conjunto de Dados (10 - SPED PE)
+ 
+Help: 
+ 
+GSN (GSN 18531). 
+Patrimônio
+Transportes
+Conhecimento de Transportes Eletrônico
+Foi implementado no SisPetro o Conhecimento de Transporte Eletrônio (CT-e) de acordo com as especificações da 
+SEFAZ
+. Para essa alteração, utilizamos toda a estrutura já existente da NF-e pois as rotinas são bem semelhantes e uma empresa que emite CT-e não pode emitir NF-e e vice-versa. 
+O arquivo DaCTe.RTM será disponibilizado junto com essa versão.
+ 
+Help:
+ 
+. UPA (CCF 18334)
+Data e Hora de Movimento no Conhecimento de Frete
+A partir dessa versão, na tela de emissão do conhecimento de frete, será possível informar a data e hora de prestação de serviço do conhecimento em questão. Essas informações são importantes pois estão disponíveis para impressão. (Necessário editar a DACTE para adição dos campos). Help: 
+. UPA (CCF 19101)
+Informações da Transportadora no Layout da OC
+Ao editar o layout de impressão da OC, os seguintes campos referentes a transportadora foram disponibilizados para utilização: Fone, Cep, Bairro, Email para uso da NFe e o indicador se deve ou não enviar email da NFe.
+ AO (CCF 18793). 
+Impressão do Boleto Após Geração do Conhecimento de Frete
+Na geração do conhecimento de frete, assim como na emissão da nota fiscal, são gerados boletos para o cliente. Porém na nota fiscal, o usuário já possui a opção de imprimir e/ou enviar esses boletos por e-mail, mas no conhecimento de frete não. Para imprimir o boleto o usuário precisava emitir o conhecimento e ir até a manutenção para imprimi-los. Foi realizada uma melhoria no SisPetro para deixar a impressão dos boletos no conhecimento igual a emissão da nota fiscal. 
+Help:
+ 
+. CPC (CCF 19184)
+Verificação do Número de Conhecimento Duplicado (Remoto Somente)
+A algum tempo criamos as rotinas para faturamento simultâneo. Para que isso acontecesse, o maior problema seria verificar se o nº gerado para a nota fiscal/conhecimento já não existia. Essas rotinas foram implementadas, porém, no conhecimento de frete do remoto, em um ponto da verificação estão sendo considerados os perfis da nota fiscal e não do conhecimento. Nessa versão, esse problema foi corrigido. 
+CPC (CCF 19185)
+Vendas
+Custos externos de produtos compostos duplicados
+Corrigido para não duplicar custos externos de produtos compostos quando há mais de uma vigência.
+ GSN (CCF 19027). 
+Prazo Médio no Total do Relatório
+Corrigido para apresentar corretamente o prazo médio no total do Relatório de Prazo Médio. 
+Necessário atualizar o arquivo PrazoMedio.rtm no caminho do executável
+.
+ 
+Help:
+ 
+ 
+GSN (CCF 19095). 

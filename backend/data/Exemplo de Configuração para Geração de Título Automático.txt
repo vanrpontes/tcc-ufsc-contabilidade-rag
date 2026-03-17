@@ -1,0 +1,142 @@
+TITULO: Exemplo de Configuração para Geração de Título Automático
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879653439
+--------------------------------------------------
+A seguir daremos um exemplo de Configuração para Geração de Título Automático
+
+
+Nota de Serviços com IR
+
+
+Dados gerais
+
+
+Valor Bruto: 5.000,00
+
+Valor do IR: 75,00
+
+Valor Final: 4.925,00
+
+
+O que configurar:
+
+
+
+
+Fornecedor
+:
+
+Cadastrar como fornecedor a retenção, marcando o campo 
+Órgão Público
+ (não será solicitado o CNPJ).
+
+Informar no campo 
+Conta Contábil Real
+ a conta real referente a retenção, por exemplo IR a Pagar.
+
+
+Faixas para Cálculos de Vencimento de Desconto
+:
+
+Cadastrar as faixas de vencimento de desconto para a retenção cadastrada.
+
+
+Geração de Título de Desconto Automático
+:
+
+Cadastrar a geração para a retenção cadastrada.
+
+Informar o fornecedor para qual será gerado o título referente à retenção.
+
+Marcar a opção 
+Desabilita contabilização do desconto original
+
+Marcar a opção 
+Conta débito acompanha conta título original
+
+Preencher os demais campos conforme desejado.
+
+
+Tipo de Desconto
+:
+
+Deve ser do tipo 
+Fórmula
+ e 
+Descontar valor
+
+Deve estar vinculado ao sequencial de 
+Geração de Título de Desconto Automático
+ configurado acima.
+
+
+Tipo de Documento
+:
+
+O grupo de Contabilização deve ser 
+Faturamento
+.
+
+Deve ser vinculado ao Tipo de Desconto acima.
+
+Na fórmula da Base de Cálculo deve estar o campo 
+ValProd
+ da tabela 
+NotaFiscal
+
+Na fórmula de Desconto deve estar o campo 
+ValProd
+ da tabela 
+NotaFiscal
+ * 0.015 (<5245>*0.015)
+
+
+Natureza de Operação
+:
+
+Vincular o Tipo de Documento configurado.
+
+Configurar o débito como 
+Contabilização informada pelo usuário
+
+
+
+
+Como lançar a Nota Fiscal
+ 
+
+
+Informar o 
+valor bruto
+, 5.000,00, da Nota Fiscal
+
+Informar a(s) conta(s) de contrapartida, por exemplo, SERVIÇOS DE INFORMÁTICA.
+
+O desconto será aplicado e o valor final da Nota será 4.925,00.
+
+
+Como será contabilizado na Contabilidade Gerencial
+
+
+
+
+C - Fornecedor da Nota Fiscal - 4.925,00
+
+D - Conta informada - SERVIÇOS DE INFORMÁTICA - 4.925,00
+
+C - Fornecedor configurado para retenção - 75,00 (devido Contas a Pagar, o crédito tem que ser na conta do Fornecedor)
+
+D - Conta informada - SERVIÇOS DE INFORMÁTICA - 75,00  (este valor está sendo nesta conta devido a opção "Conta débito acompanha conta título original*)
+
+
+Como será contabilizado na Contabilidade Real
+
+
+
+
+C - Fornecedor da Nota Fiscal - 4.925,00
+
+D - Conta informada - SERVIÇOS DE INFORMÁTICA - 4.925,00
+
+C - Conta real fornecedor - IR a Pagar - 75,00 (na Contabilidade Real o crédito não precisa ser na conta do Fornecedor)
+
+D - Conta informada - SERVIÇOS DE INFORMÁTICA - 75,00  (este valor está sendo nesta conta devido a opção "Conta débito acompanha conta título original*)

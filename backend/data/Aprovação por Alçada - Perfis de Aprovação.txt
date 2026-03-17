@@ -1,0 +1,37 @@
+TITULO: Aprovação por Alçada - Perfis de Aprovação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899585
+--------------------------------------------------
+Os perfis de aprovação por alçada podem ser associados a um usuário que passará, a partir de então, a aprovar Pedidos de Movimentação de Material e/ou Contas a Pagar conforme a configuração no perfil da empresa.
+Para definirmos quais serão os perfis e regras sob as quais eles vão funcionar, foi criada a tela para configuração dos Perfis de Aprovação em 
+Ferramentas > Aprovação por Alçada > Perfis de Aprovação
+:
+Nos detalhes nós temos as regras que vão definir o modo como os valores que serão aprovados pelo usuário associado ao perfil serão computados para verificação dos limites.
+O campo 
+Código
+ é preenchido automaticamente pelo sistema.
+A 
+Descrição
+ deve ser preenchida conforme o cargo ao qual o perfil vai ser associado.
+As 
+Regras para Aprovação
+ são as seguintes:
+Sem Limite de Valor:
+ isso significa que não há limite de valor para aprovação para o perfil que utiliza essa regra. Logo, o usuário pode a qualquer tempo aprovar qualquer item para o qual seja necessária sua aprovação.
+Por Valor do Item:
+ nesse caso, o valor do item a ser aprovado será limitado na configuração do perfil do usuário, que poderá aprovar tantos itens quantos houverem, desde que cada item não tenha valor superior ao limite estipulado.
+Valor Total no Dia:
+ o valor das aprovações será limitado ao valor definido no 
+perfil do usuário
+, que a cada dia poderá novamente aprovar o valor designado no perfil.
+Valor Total na Semana:
+ semelhante ao Valor Total por Dia, o usuário poderá aprovar na semana até o limite do valor definido em seu perfil. O sistema considera como semana o período de Domingo a Sábado, logo, se o usuário fizer uma aprovação na segunda-feira, esgotando o seu limite, poderá fazer outra aprovação somente a partir do domingo seguinte.
+Valor Total no Mês:
+ da mesma forma que o Valor Total por semana, o usuário poderá aprovar dentro do mês até o limite definido em seu perfil. Para essa finalidade o sistema considera o período entre o primeiro e o último dia do mês, então, se o usuário esgotar seu limite nos primeiros dias do mês, somente a partir do primeiro dia do mês seguinte ele poderá fazer mais aprovações.
+Os períodos de dia, semana e mês, serão contados com base na data que estiver definida como data de referência para aprovação, tanto para 
+PMM
+ como para 
+Contas a Pagar
+.
+ As regras para aprovação por Alçada de Valor só são utilizados para aprovação por alçada de PMM. Aprovação por alçada de Requisição de Compras não utiliza essa informação. Para mais informações ver, 
+Painel Aprovação por Alçada
+.

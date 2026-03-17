@@ -1,0 +1,89 @@
+TITULO: Roteiro de Inclusão de Adiantamento de Clientes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701801
+--------------------------------------------------
+O Cliente pode receber um crédito, quando ocorre uma devolução de produto ou então quando acontece um pagamento com valor superior à dívida.
+Nestes casos, o Sistema automaticamente lança o valor correspondente (ao valor da diferença ou da Nota Fiscal de devolução), no momento da finalização daquele movimento.
+Existem, porém, algumas situações que o usuário tem necessidade de incluir algum crédito manual para o cliente, seja porque a baixa na qual o cliente pagou a mais foi feita somente com o valor da baixa (um erro) e o usuário não quer cancelar a baixa, seja porque o cliente não tem mais nenhuma baixa para abrigar o crédito (por exemplo, nos raros casos em que o cliente deposita um cheque a mais e todas as baixas dele já foram realizadas).
+Enfim, qualquer situação que se necessite registrar um crédito para o cliente, devemos inclui-lo seguindo este roteiro.
+Abra a tela de manutenção de adiantamento de clientes em  
+Menu Movimentação / Financeiro / Contas a Receber / Manutenção Adiantamento de Clientes.
+Na tela acima, o SisPetro mostra todos os créditos pendentes de cada entidade. Créditos pendentes, são todos os créditos que não foram totalmente utilizados. Caso o usuário deseje visualizar os créditos utilizados, basta mudar o Status para 
+Quitados
+ (como padrão o SisPetro mostra somente os Pendentes) na barra de comandos.
+O filtro de visualização de créditos transferidos para conta contábil para filtro com 3 opções, onde:
+Somente Adiantamentos de Entidades:
+ são os adiantamentos IDENTIFICADOS (clientes ou fornecedores) e os NÃO IDENTIFICADOS.
+Somente Adiantamentos de Uso Interno:
+ são os adiantamentos transferidos para contas contábeis.
+Todos:
+ mostra todos os adiantamentos sejam de entidades sejam de uso interno.
+Para mais informações, ver: 
+.
+Conforme a utilização do adiantamento o saldo é atualizado, portanto tem como saber o valor original adiantado e o saldo restante.
+Para incluir um crédito, aperte o botão 
+Inclui
+Preencher os seguintes campos:
+Empresa: 
+empresa para qual será emitido o adiantamento. Só será possível alterar a empresa, caso o usuário esteja com o perfil de usuário 
+Empresa na inclusão de Adiantamento, 
+marcado para permitir alteração, e o Perfil de Empresa 
+Adiantamento Multi-Empresa
+ permita alterar. 
+Para mais informações, ver
+ 
+Painel Financeiro (Usuário)
+ e 
+Código da Entidade:
+ código da Entidade que será a detentora do crédito.
+Data:
+ data que o Adiantamento será gerado
+Data Movimento:
+Comprador:
+ se a entidade for participante de um grupo econômico, preencher com o código do grupo econômico. Caso este crédito tenha sido originado de algum procedimento que requeira incluir um comprador (ou grupo econômico) responsável pelo crédito, preencher com o código dele.
+Moeda: 
+escolher uma moeda cadastrada
+CC Banco:
+ Conta contábil para onde este crédito está sendo direcionado, isto é, para onde irá o montante correspondente ao crédito (normalmente uma conta de banco). Exemplo: O cliente deixa um cheque e este montante deve ficar como crédito para ele. A conta contábil deve ser a do banco para onde este cheque será depositado. Caso seja alguma outra conta que não do tipo Banco, deve-se desabilitar o controle 
+Sugere somente contas de Banco,
+ para que o SisPetro mostre todo o plano de contas na pesquisa de contas.
+Número do Documento:
+ o Número do documento que originou este crédito.
+Valor Original:
+ valor do crédito.
+Tipo de Antecipação: 
+escolher o adiantamento será
+Sem Antecipação: 
+padrão SisPetro. 
+Antecipado:
+ para uso específico de pedidos / contas a receber cujo tipo de cobrança foi configurado como Antecipado. Para mais informações, ver 
+Painel Detalhes - Tipo de Cobrança
+Tanto pedidos quanto adiantamentos do tipo 
+antecipado
+ 
+não interferem no Saldo Final do crédito do cliente. Porém, adiantamento antecipado só pode ser utilizado para baixar Títulos do Contas a Receber do tipo antecipado
+. 
+Código Histórico:
+ Ao informar o código do histórico, o sistema preenche a descrição do histórico e as informações adicionais caso haja.
+Histórico:
+ Digite um histórico para este crédito.
+Informações Adicionais:
+ Utilizado para complementar o histórico. Existe uma opção em "Sistema / Históricos / Na inclusão de crédito sugere a razão social do cliente como informações adicionais do histórico", que se for marcada irá copiar a razão social da entidade para o campo de informações adicionais, ao informar o cliente ou fornecedor.
+Caso o valor do Adiantamento esteja pendente para liberação na conta é possível marcar a opção 
+Bloqueado
+. 
+Caso o crédito tenha sido recebido em cheque, habilite o controle 
+Em Cheque
+ para incluir o cheque ou utilize o botão 
+Lista Cheques Recebidos
+ para vincular mais de um cheque. 
+Para mais informações, ver
+ 
+.
+Aperte o botão 
+OK
+ para confirmar o crédito.
+Ao incluir um adiantamento, ele fará uma verificação de controle de grupo econômico, onde será restrita a inclusão caso o cliente não seja comprador do outro, ou que não faça parte do mesmo grupo econômico. 
+Para mais informações, ver
+ 
+Validação Adiantamento de Cliente e Grupo Econômico
+.

@@ -1,0 +1,51 @@
+TITULO: Transformação no processo de importação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2957115650
+--------------------------------------------------
+Objetivo
+Permite uma maior flexibilidade quanto a alteração de dados na importação de NF-e, CT-e, além da funcionalidade do De-Para existente atualmente no processo de importação.
+Configurações
+Configuração de Sistema:
+No 
+Painel Importação de NF
+. quadro Geral
+Aplica Transformação após Processo de De/Para?:
+ perfil determina se que no processo de importação de NF será utilizado o 
+Serviço de Importação de NF - Faturamento
+.
+Cadastros
+Tabelas Auxiliares / Faturamento / 
+Transformação para Importação de NF
+: 
+tela na qual é cadastrado as regra para análise no processo de transformação da nota fiscal.
+As regras deverão ser criadas com base em instruções SQL utilizando tabelas e colunas envolvidas no processo de importação. Abaixo segue a relação de tabelas:
+NotaFiscal_Imp
+NotaFiscalCteTerc_Imp
+ItensNF_Imp
+Empresas
+Entidade
+Deposito
+NaturezaOperacao
+NaturezaOperacaoEmp
+Produto
+SerieNF
+FreteSituacao
+sql
+Exemplo de regra
+true
+substr(NotaFiscalCteTerc_Imp.Cnpj_Dest,1,8) <> (substr(LimpaStringAlinhaDireita(Empresas.Cgc, 14, ''),1,8))
+and NotaFiscalCteTerc_Imp.Toma = 0
+and NaturezaOperacao.CFOP = '1353'
+and ItensNF_Imp.ValIcms = 0
+and Entidade.SeqTipo <> 7
+Operação
+Após realizada a configuração de sistema que definirá a utilização do processo de transformação e realizado o cadastro das regras de transformação, a operação será integrada ao processo atual de importação de NF. A sequência de execução da importação seguirá conforme abaixo, considerando o serviço de transformação.
+Serviço de Importação de NF - Leitura de XML
+Serviço de Importação de NF - De/Para
+Serviço de Importação de NF - Transformação
+Serviço de Importação de NF - Faturamento
+Veja mais informações sobre cada serviço em 
+Importação de Nota Fiscal via Serviço
+.
+Veja como ativar o 
+Serviço de Importação de NF - Transformação
+.

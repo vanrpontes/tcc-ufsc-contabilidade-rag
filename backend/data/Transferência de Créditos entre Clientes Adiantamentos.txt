@@ -1,0 +1,61 @@
+TITULO: Transferência de Créditos entre Clientes (Adiantamentos)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701853
+--------------------------------------------------
+A tela de Transferência de Adiantamentos em lote pode ser acessada através da tela 
+manutenção de Adiantamentos de Clientes
+ (Botão 
+Transf. p/ Entidade
+) ou pela tela de 
+Débito/Crédito de Cliente
+ (Botão 
+Transfere para outra Entidade
+).
+A soma das colunas 
+Saldo
+, 
+Valor Transf
+, e 
+Valor Original
+ são dinâmicas, ou seja, elas acompanham os adiantamentos que estão selecionados na coluna 
+Transf?.
+A transferência de adiantamentos pode ser de duas maneiras:
+De comprador:
+ quando a Contabilização de Lançamentos está por comprador, a transferência será feita entre compradores, permanecendo a mesma entidade faturada. (Menos quando for um adiantamento de fornecedor, onde a entidade também será transferida). Será apresentado para a entidade origem e destino o termo comprador, porém aqui no manual, utilizaremos sempre o termo entidade.
+De Entidade Faturada:
+ quando a Contabilização de Lançamentos está por entidade faturada, a transferência será feita entre entidades, permanecendo o mesmo comprador. (Menos quando for um adiantamento de fornecedor, onde o comprador também será transferido)
+Na apresentação da tela já vai ser sugerida a entidade origem, que pode ser trocada. Ao clicar no botão 
+Atualiza
+ serão apresentados todos os adiantamentos pendentes até a 
+Data de Movimento
+ informada para aquela entidade. Cabe lembrar que são diferenciados os adiantamentos normais dos 
+quantificados
+, devendo o processo ser feito em dois passos separados.  Lembramos também que esta tela apresenta todos os adiantamentos da entidade informada independente da empresa conectada. Consequentemente a transferência respeitará a informação de que empresa este adiantamento pertence e verifica se o perfil que faz a 
+Validação de Adiantamento de Cliente e Grupo Econômico
+, esta marcado.
+Detalhes em: 
+Validação Adiantamento de Cliente e Grupo Econômico
+.
+Após selecionar um ou mais adiantamentos, deve ser informado para que 
+entidade destino
+ os adiantamentos apresentados em tela serão transferidos e também os detalhes da transferência como 
+Data
+, 
+Histórico
+, 
+Informações Adicionais
+ e 
+Dados da contabilização real
+ (para empresas que possuem a contabilidade real habilitada). O código de contabilização pode ser configurado para ser sugerido de forma automática. Mais informações no tópico: 
+Códigos de Contabilização Padrão na Transferência de Adiantamentos
+.
+No caso de ter marcado a opção 
+Adiantamento Quantificado
+ é possível informar se deve ser transferidos os produtos destes adiantamentos para a entidade destino. Para isso deve ser marcada a opção 
+Transferir produtos
+. Para efetivar a transferência, deve ser utilizado o botão 
+OK
+.
+No caso de adiantamentos quantificados será sempre verificado a cada adiantamento, se o mesmo pode ser transferido, ou seja, ele não poderá ter pedidos vinculados sem faturar ou títulos em aberto. Caso isso ocorra, será retornada uma mensagem de erro informando exatamente qual o adiantamento que não foi transferido.
+Caso seu adiantamento esteja vinculado a um Cheque, veja alguns detalhes no tópico 
+Transferência de Adiantamentos X Cheques
+.

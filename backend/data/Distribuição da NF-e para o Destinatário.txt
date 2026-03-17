@@ -1,0 +1,69 @@
+TITULO: Distribuição da NF-e para o Destinatário
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879390000
+--------------------------------------------------
+O projeto da NF-e tem como um de seus objetivos eliminar papel. Assim, na sua concepção, as empresas trocariam arquivos contendo os dados das NFes emitidas e importariam os arquivos de NF-e recebidas eletrônicamente. Para incentivar isso, o projeto sugere um formato de arquivo XML para essa troca.
+O manual de integração da NF-e, no item 10 
+Distribuição da NF-e para o Destinatário
+ diz o seguinte:
+ 
+"Conforme previsto na cláusula décima do AJUSTE SINIEF 07/05, o emitente e o destinatário deverão manter em arquivo digital as Notas Fiscais Eletrônicas pelo prazo estabelecido na legislação tributária para a guarda dos documentos fiscais, devendo ser apresentada à administração tributária, quando solicitados.
+ O emissor da Nota Fiscal Eletrônica deve enviar o arquivo digital da NF-e para o destinatário, seja de forma eletrônica ou por qualquer outro meio que possibilite o destinatário ter acesso ao arquivo digital.
+ O DANFE é um Documento Auxiliar da Nota Fiscal Eletrônica hábil para acobertar trânsito de mercadorias e não substitui a Nota Fiscal Eletrônica em nenhuma hipótese."
+ 
+Na versão 8.10 foi implantado a opção de uma mesma empresa emitir NF-e e CT-e veja maiores informações em 
+Essa funcionalidade também está disponível para Conhecimento de Transporte Eletrônico (CT-e).
+ 
+Para gerar o arquivo XML ao destinatário, deve acessar o Menu 
+Movimentação / Faturamento / Nota Fiscal Eletrônica / Geração Arquivo NF-e para Distribuição
+:
+A Distribuição poderá ser gerada para Notas Fiscais eletrônicas ativas, canceladas e Carta de Correção eletrônica.
+ 
+Seleção das Notas para Geração dos Arquivos
+Alguns campos deverão ser informados para seleção das notas como 
+empresa, entidade, período ou intervalo de numeração de NF´s
+:
+Tipo de Serviço:
+ Como foi dito anteriormente, na versão 8.10 foi implementada a possibilidade de uma mesma empresa emitir NF-e e CT-e, este perfil se refere a estas empresas, veja maiores informações em 
+ 
+Para filtrar as NF's por intervalo, é necessário marcar opção 
+Filtra Empresa
+.
+ 
+Após informar os campos, clicar no botão 
+.
+A grid será preenchida conforme os filtros informados:
+Geração dos Arquivos
+A geração dos arquivos será baseada na seleção das notas (botão 
+Atualiza
+). Antes de gerar os arquivos, deverão ser informados alguns campos:
+Diretório Base:
+ caminho para diretório base onde os arquivos serão criados.
+Tipo de Nome de Arquivo:
+ sugestão para nome dos arquivos XMLs a serem gerados. As opções são: 
+ 
+ 
+ 
+ No nome de cada arquivo será incluído, além do definido nesse perfil, para XML de Autorização, será 
+NOMEDOARQUIVO-NFE.XML
+ e para XML de Cancelamento, será 
+NOMEARQUIVO-CAN.XML
+.
+Cria subdiretório para cada entidade:
+ se marcado, cria dentro do diretório base uma pasta para cada entidade armazenando dentro delas os arquivos XMLs. Se não tiver marcado, os arquivos serão salvos no próprio diretório base.
+Apaga conteúdo do diretório onde os arquivos serão criados:
+ se marcado, serão apagados todos os arquivos do diretório base ou pasta de cada entidade.
+Ação quanto a geração dos arquivos:
+ O projeto, numa atualização recente, foi mais além e definiu um formato de troca de arquivo do cancelamento da NFe. Assim, sempre que uma empresa - após ter gerado e enviado o arquivo da NFe - cancelar a respectiva NFe, deverá enviar à destinatária, um arquivo contendo basicamente o número de protocolo de cancelamento (em formato XML) para que essa possa tomar providências para cancelar esta NFe em seus arquivos. O objetivo desse perfil é determinar quais XML´s serão gerados, se apenas os de autorização, apenas os de cancelamento ou ambos. As opções são: 
+ 
+ 
+Gera somente autorização (não gera para canceladas)
+ - Será gerado o XML de Autorização somente das notas Ativas e Carta de Correção.
+Gera somente autorização (inclusive para canceladas)
+ - Será gerado o XML de Autorização para as notas Ativas, Carta de Correção e Canceladas
+Gera somente cancelamento
+ - Será gerado apenas o XML de Cancelamento das notas Canceladas
+Gera autorização (inclusive para canceladas) e cancelamento
+ - Será gerado o XML de Autorização e Cancelamento para as notas Ativas, Carta de Correção e Canceladas
+Para gerar os arquivos, clicar no botão 
+.
+Todo o processamento desta tela é executado pelo Servidor Sispetro, por isso o Servidor Sispetro deve estar ativo.

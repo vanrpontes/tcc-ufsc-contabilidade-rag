@@ -1,0 +1,117 @@
+TITULO: Corrigir possíveis informações, editando diretamente os dados para o SPED
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879128165
+--------------------------------------------------
+No Conjunto de Dados é possível editar o conteúdo existente, porém sem alterar o conteúdo original do banco.
+Importante: Este processo só poderá ser feito após o Preenchimento dos dados. E após efetuar as alterações desejadas NÃO é necessário efetuar o Preenchimento dos dados novamente, para não perder as alterações feitas.
+Para edição dos dados, o usuário deve acessar o Menu 
+Ferramentas / Tabelas dos Conjuntos de Dados
+.
+Na tela de Manutenção de Conjunto de Dados, o usuário deverá definir o campo 
+Conjunto de Dados
+ e em seguida clicar no botão 
+Atualiza
+.
+Em seguida o usuário deverá preencher os dados para depois efetuar edição dos mesmo. Ver tópico de 
+Preenchimento dos Dados
+.
+Após preencher os dados, o usuário poderá editar o conteúdo desejado.
+Para iniciar edição de dados, o usuário deverá selecionar a tabela desejada para edição de conteúdo.
+Com a tabela selecionada, clicar no botão 
+Edita
+.
+Caso o usuário não tenha configurado nenhum filtro na tabela, ao clicar no botão 
+Edita
+, o sistema alertará o usuário com a seguinte mensagem:
+Tendo um filtro, o sistema abrirá a tela para que um valor seja inserido para o filtro da tabela selecionada.
+Importante:
+ caso a tabela tenha vínculo com outras tabelas, o Sispetro trará os filtros de pesquisa de cada tabela vínculada com a tabela selecionada.
+Ao clicar no botão 
+Edita
+, serão apresentados os dados da tabela selecionada, porém, se a tabela tiver muitos dados, não seria viável apresentar todos, compromentendo a performance do sispetro e da rede. Sendo assim será verificado se esta tabela tem campos definidos como filtro, caso se tenha, serão apresentados para que o usuário possa selecioná-los, tornando a seleção dos dados mais simplificada. Lembrando que os filtros serão configurados no 
+.
+Preencher o filtro com um dos valores apresentados para o campo:
+Clicar no botão 
+Avança
+ para acessar a tela com o próximo filtro
+.
+Observação: Este botão será habilitado quando houver filtros de outras tabelas a serem preenchidos.
+O usuário poderá cancelar a tela de pesquisa através do botão 
+Cancela
+.
+Ao digitar todos os filtros de dados, clicar no botão 
+OK
+.
+Após clicar no botão 
+OK
+, o sistema, baseado nos parâmetros passado pelo(s) filtro(s), abrirá a tela de Contéudo da tabela:
+Acessando os dados, o usuário poderá alterar, incluir ou excluir dados da tabela, desde que se tenha permissão e que a tabela no dicionário de dados também esteja configurado com essas permissões.
+As permissões de usuário podem ser configuradas pelo Menu 
+Ferramentas / Usuário / Dicionário de Dados
+:
+Na tela de Conteúdo da Tabela o usuário conseguirá visualizar os dados existentes após o preenchimento dos dados.
+ Para a 
+inclusão de um novo registro
+ para o SPED, o usuário deverá clicar no botão 
+Incluir
+.
+Para maiores informações ver o tópico de 
+Inclusão de Registro para o SPED
+.
+Para 
+exclusão de um registro
+, o usuário deve selecionar o registro desejado e clicar no botão 
+Excluir
+.
+Com isso, o sistema solicitará confirmação através da mensagem:
+Para 
+edição de um registro
+, o usuário deve selecionar o registro desejado e clicar no botão 
+Editar
+ (ou dar um duplo clique sobre o registro na tela de Conteúdo de Dados.
+Aguardar abertura da tela de Edição/Inclusão:
+Aa tela de Edição/ Inclusão, neste caso, está dividida em dois quadros, sendo o quadro superior para visualização dos campos e local de edição, e o quadro inferior, de Tabelas Dependentes, para visualização dos registros existentes em cada tabela (é possível visualizar todas as tabelas vinculadas à tabela selecionada anteriormente, através das abas de navegação).
+Para editar um registro localize a tabela nas abas de navegação do quadro de Tabelas Dependentes, e em seguida localize o registro.
+ Dê um duplo clique sobre o registro, e assim todas as informações sobre o registro ficarão disponíveis para edição no quadro superior:
+Neste quadro o usuário poderá editar as informações do registro conforme necessidade, podendo navegar entre os campos disponíveis através das setas de rolagem.
+Após editar o conteúdo desejado, o usuário deve clicar no botão 
+Salvar
+Após efetuar todas as alterações desejadas, o usuário deve clicar no botão 
+Salvar
+ na tela de Edição/Inclusão, e a tela será finalizada.
+Importante: Lembrando que os campos poderão ser editados conforme configuração no dicionário de dados.
+Após efetuar as alterações desejadas, o usuário deverá atualizar os totalizadores do conteúdo alterado, para que ao gerar o arquivo essas informações saiam corretamente. Para maiores informações, vide tópico de 
+.
+O usuário poderá cancelar a inclusão a qualquer momento, para isso ele deve clicar no botão 
+Cancelar
+E confirmar (ou não) o cancelamento através da mensagem:
+Para sair da tela, o usuário deverá clicar no botão 
+Fechar
+.
+Para 
+criar filtros adicionais
+, o usuário deve clicar no botão 
+Filtro Adicional
+Com isso, o sistema abrirá a tela para criação do filtro:
+Clique sobre a instrução: 
+Aperte o botão para adicionar uma nova condição
+.
+Agora defina os campos que serão filtrados e o conteúdo especifico que deverá ter no campo destacado em 
+verde
+, defina a condição no campo destacado em 
+vermelho
+ e defina o conteúdo no campo destacado em 
+azul
+.
+Por exemplo:
+ A condição: O Valor Total de Débitos da tabela LFEE110 Não pode ser vazio.
+Para incluir novas condições, clique no botão 
+...
+Para sair da tela, o usuário deverá clicar no botão 
+Fechar
+.
+Para visualizar o filtro utilizado para gerar a tela de Conteúdo da Tabela, clique no botão 
+Filtro Selecionado
+ 
+Na tela seguinte, o sistema informará os filtros que estão sendo utilizados para gerar o conteúdo desta tela.
+Para sair da tela, o usuário deverá clicar no botão 
+Fechar

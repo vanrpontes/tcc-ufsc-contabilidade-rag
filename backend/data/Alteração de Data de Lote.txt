@@ -1,0 +1,104 @@
+TITULO: Alteração de Data de Lote
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899655
+--------------------------------------------------
+É comum verificar um lançamento contábil e descobrir que ele precisa ser transferido para outra data, principalmente em lançamentos que envolvam o fim de um mês e início do próximo mês. Esse tipo de manutenção, pode ser feito através da tela de Ateração de Data de Lote (Menu 
+Movimentação / Controladoria / Alteração da data do Lote
+).
+
+
+
+
+Para iniciar a alteração da data do lote, o usuário precisa preencher os seguintes campos:
+
+
+Filial:
+ Neste campo, é informado a filial onde o lote foi lançado.
+
+
+Lote:
+ Número do lote que será alterado.
+
+
+Após o preenchimento desses dois campos, deve-se clicar no botão 
+Atualiza
+, para que o sistema localize o lote e mostre suas informações no painel 
+Contabilidade Gerencial
+.
+
+
+
+
+Caso o lote gerencial tenha um vínculo com o lote real (Contabilidade Real), o sistema mostrará as informações desse lote no painel 
+Contabilidade real
+.
+
+
+
+
+O próximo passo é informar a nova data para esse lote, através do campo 
+Nova Data
+ e completar a operação clicando no botão 
+OK
+. Porém, antes de dar inicio ao processo de alteração, o sistema verifica as seguintes situações:
+
+
+Permissões do usuário:
+
+
+Para realizar a alteração da data do lote, o usuário precisa ter permissão. Essa permissão é configura através do Menu 
+Ferramentas / Usuário / Contabilidade / Alteração de data na contabilidade gerencial
+. Através desse campo, o administrador do sistema pode configurar para o usuário as seguintes opções de permissão:
+
+
+
+
+
+
+Nenhum:
+ Não permite que o usuário altere a data de lote;
+
+
+Só Gerencial sem vínculo com a real:
+ O usuário só poderá alterar lotes gerenciais que não tenham vinculo com a contabilidade real;
+
+
+Gerencial e real caso haja vínculo:
+ O usuário poderá alterar lotes gerenciais que não tenham vinculos com a contabilidade real e lotes que tenham vinculos. Lembrando que nesse caso, além de alterar a data do lote gerencial, o sistema também atualiza a data do lote real vinculado;
+
+
+Só gerencial mesmo com vínculo na real:
+ Nesse caso o usuário poderá alterar a data de um lote que não tenha vinculo com nenhum lote real e também, alterar aqueles que tenham vinculo, porém, apenas a data do lote gerencial será alterada.
+
+
+
+
+Travamento Contábil:
+
+
+O sistema não irá permitir que um lote gerencial seja alterado para um periodo onde se tenha um travamento contábil. Vale lembrar que os lotes vinculados também serão influenciados por travamento feito tanto no SisPetro Normal, como no módulo Contábil.
+
+
+Por exemplo: O lote número 3000, que não possue vinculo com nenhum lote real, e tem sua data original de 01/07/2004, deve ser alterado para 25/06/2004. Porém, o sistema tem um travamento contábil com data de 30/06/2004. Nesse caso, todas as informções anteriores a 01/07/2004 não poderão sofrer alteração devido ao travamento. O mesmo procedimento sera feito, caso esse lote a ser alterado tivesse um vinculo com a contabilidade real e apenas na contabilidade real tivesse um travamento contábil nesse período (25/06/2004). Nesse caso, estamos imaginando que o usuário tem permissão 
+Gerencial e real caso haja vínculo
+, ou seja, além de atualizar o lote gerencial, o sistema também iria atualizar o lote real. Para mais informações sobre travamento contábil, consulte o tópico: 
+.
+
+
+Na manutenção de lotes, pode-se verificar a data original do lote, quem e quando foi alterado um determinado lote, através dos campos: 
+Data Original
+, 
+Usuário UltAlteração
+, 
+DataUlt.Alteração
+. O usuário também pode consultar se determinado lote gerencial possue vinculo com algum lote real, pelo campo 
+#Lote Real
+.
+
+
+
+
+O processo de alteração de data de lote deve ser bem planejado, já que saldo de contas e centro de custos vinculados sofrerão alteração.
+
+
+Para maiores informações sobre manutenção de lotes, acesse o tópico 
+.

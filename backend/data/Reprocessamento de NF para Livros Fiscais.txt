@@ -1,0 +1,51 @@
+TITULO: Reprocessamento de NF para Livros Fiscais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210440
+--------------------------------------------------
+Para incluir/alterar Notas Fiscais geradas no SisPetro nos Livros Fiscais, utilize esta tela que é acionada pelo menu
+ 
+Ferramentas / Reprocessamento de NFs para Livros Fiscais.
+Informe o
+ 
+período
+ 
+ou o intervalo de
+ 
+Notas Fiscais
+ 
+desejado. Escolha também, se desejar, uma
+ 
+Natureza de Operação
+ 
+específica.
+Caso deseje sobrepor (alterar) notas que já estão presentes no Livro Fiscal marque a opção
+ 
+"Sobrepões notas já lançadas no Livro Fiscal":
+Com esta opção é possível se corrigir fórmulas do Livro Fiscal e se reprocessar notas que as utilizem, corrigindo também o livro fiscal
+.
+Clique no botão 
+As Notas Fiscais que atendam os dados informados serão apresentadas. Cabe lembrar que só serão apresentadas Notas Fiscais cuja Natureza de Operação esteja marcada para gerar Livros Fiscais e tenha uma fórmula indicada. Notas já apuradas (na cor
+ 
+vermelha
+) serão apresentadas, mas não serão incluídas.
+Normalmente, como a configuração de gerar Livros Fiscais é na natureza de Operação, se uma nota Gera Livro Fiscal todos os seus itens a acompanha e vice-versa. Porém, em notas importadas podemos ter um item que Gere Livro Fiscal e outro que não. Para maiores esclarecimentos veja o tópico
+ 
+Itens de Nota com Natureza de Operação diferentes
+ 
+no help do SisPetro Normal.
+As Notas Fiscais sem itens (produtos) serão apresentadas na coluna Produto com a descrição
+ 
+"Notas sem itens".
+As notas do período informado que serão apresentadas dependerão da
+ 
+configuração de data a ser utilizada na Apuração
+.
+Para executar a inclusão/alteração das Notas clique no botão 
+O Reprocessamento é utilizado nas situações abaixo:
+a) Quando uma fórmula para Livro Fiscal é alterada ou
+b) Quando na natureza de operação não foi informada uma fórmula. Nesse caso, basta informar uma fórmula na natureza de operação em questão ou
+c) Quando na natureza de operação foi trocado o código da fórmula.
+Para que o reprocessamento seja feito corretamente, É NECESSÁRIO CANCELAR A APURAÇÃO FISCAL do período reprocessado.
+A apuração traz as notas conforme a 
+Data de Referência 
+independente dos perfis de sistema 
+Composição da Data de Referência para Livros Fiscais' | ‘Entrada'/'Saída'

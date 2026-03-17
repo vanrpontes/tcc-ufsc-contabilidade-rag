@@ -1,0 +1,66 @@
+TITULO: Como emitir Nota Fiscal de Exportação Indireta
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4031840257
+--------------------------------------------------
+A exportação indireta ocorre quando uma empresa adquire produtos de outra empresa com o objetivo de exportá-los. 
+No SisPetro, para emitir a nota fiscal de exportação indireta, deve-se configurar conforme segue:
+Configurações
+Para cliente estrangeiro, alguns perfis de cadastro são preenchidos ou tem sua opção selecionada diferente de clientes convencionais.
+Em Arquivos > Clientes > Aba Detalhes
+Aba superior Detalhes
+ 
+No Campos Inscrição Estadual / RG: em operações de consumo no País, é preciso preencher o campo com número do documento legal do cliente estrangeiro. Esta informação é passada na tag idEstrangeiro do XML.
+Aba inferior
+ Cadastro Detalhado
+No perfil 
+Contribuinte do ICMS,
+ informe a opção 
+Não Contribuinte
+Para mais informações, ver 
+Em Tabelas Auxiliares > Natureza de Operação
+Aba Detalhes - aba lateral Geral - aba inferior Dados Gerais
+Marcar o perfil 
+Operação Interestadual
+Aba Detalhes - aba lateral Por Filial - aba inferior Dados Gerais
+Quadro Diversos
+No perfil 
+Exige dados de Exportação Indireta?
+ Quadro Vínculo de Nota Fiscal
+Permite vincular NF a outra NF Emitida: 
+Sugere referenciar outras NF(s)
+Validação de Qtde. no Vínculo de NF: 
+Barra qtde. de vínculo maior que a origem
+ 
+ 
+Marque a opção 
+Envia NF(s) referenciada(s) no XML da NFe (tag <refNFe>)?
+Para mais informações, ver 
+Dados Gerais (Painel Por Filial) 
+Nota de origem
+Importante que a Nota Fiscal de origem possua na configuração de sua natureza de operação a opção 
+Permite ser NF de Origem (p/ controle de quantidade) no vínculo entre NFs
+ 
+marcada.
+Pedido de Venda
+O pedido deve ser do tipo 
+.
+Na inclusão do pedido de venda, na tela de inclusão de itens, quando a UF do cliente for do exterior  o campo 
+Número do Registro de Exportação 
+será habilitado. Preencha o campo com o número de registro de exportação. Essa informação será levada para nota fiscal.
+Avance até finalizar.
+Importante
+Para emissão da nota fiscal de exportação indireta os pedidos devem ser feitos exclusivamente no SisPetro Normal, para que o campo 
+Número Registro de Exportação 
+seja habilitado. O SisPetroApp não possui esse recurso.
+Nota Fiscal
+Através do m
+enu Consulta > 
+Consulta Pedidos Aprovados p/Faturamento
+Selecione o pedido de exportação indireta, clique em faturar.
+Avance até a tela Notas Fiscais Vinculadas ao Item.
+Clique no botão, vinculo por Item, para vincular as notas de origem.
+ 
+Selecione as notas de origem, com a quantidade 
+necessária para o vínculo.
+Após selecionar as notas desejadas, clique em OK, avance até finalizar o processo para autorização da Nota na SEFAZ.
+DANFE
+Foi disponibilizado no condutor de dados do Danfe o campo NumRegExportacao da tabela ItensNF para impressão do número de registro de exportação.

@@ -1,0 +1,50 @@
+TITULO: Atualização Automática de Custos na Transferência de Produtos entre Filiais no mesmo Banco de Dados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4520280068
+--------------------------------------------------
+Objetivo
+Nas Distribuidoras é comum transferir produtos de uma filial para outra ou de um depósito para outro, seja por uma questão de logística ou por questão tributária. 
+Na emissão da NF de Saída na origem, o preço unitário do produto costuma ser conforme o último custo médio fechado (que pode ser do dia anterior ou até mais dias antes). Ao chegar no Destino essa entrada é valorizada pelo preço unitário, porém, em empresas com muita variação de preço ou com tempo de deslocamento maior, o custo pode ser bem diferente e isso dificulta a análise de custos e formação de preço de venda.
+O objetivo é, nessas transferências de produtos entre filiais, criar um serviço automático (JOB) que atualizará o custo na filial de destino obtendo o custo da filial de origem. 
+Configurações
+Para que essa atualização seja feita, o processo de Transferência deve seguir os seguintes passos: 
+Na Natureza de Operação de 
+Entrada
+ na filial de Destino
+Na aba Detalhes / Aba lateral Por filial / Aba inferior Custos / Quadro Custo Médio p/ NF Entrada
+A 
+Fórmula
+ do Custo Médio deve ser uma função para pegar o último custo fechado do produto no depósito e empresa de origem. Utilizar a fórmula 
+GetCustoMedioNFTransf 
+(CodEmpresa, SequencialNF,iItem).
+Exemplo:
+ GetCustoMedioNFTransf(<729>,<730>,<731>)
+Forma de Cálculo:
+ escolher a opção 
+Fórmula
+Atualiza Custo Médio ao fechar Custo na Origem: 
+marcar
+Para mais informações, ver 
+Ativar o Serviço 
+Serviço de Jobs
+Passo a Passo
+1 - Emitir uma OC de Carregamento Próprio na filial de origem e Emitir a nota de Outras Saídas através dessa OC. 
+Para mais informações, ver 
+Transferências efetuadas para outra empresa
+2 - A OC de Carregamento gera uma OC de Descarga na filial de Destino. A entrada da nota deve ser através dessa OC de 
+Descarga Própria
+ criada.
+3 - Assim que o 
+Custo dos Produtos
+ é fechado na Empresa de Origem, o SisPetro irá criar um 
+Job
+ que v
+erifica as Notas de Saída referente a Transferência na Empresa de Origem e marca todas as notas de Entrada na Empresa de Destino para o custo ser atualizado. Na 
+Manutenção de Jobs
+ é possível ver o Job criado. 
+4 - O usuário pode ver que a nota de entrada em questão passou pela atualização. Basta acessar Movimentação / Faturamento / Manutenção de NF / Aba Diversos / Aba inferior Processamento de NF. 
+Para mais informações, ver
+ 
+Abas da Manutenção de Notas Fiscais
+O serviço de Jobs é utilizado também para gerar os SPED. É importante atentar para 
+não gerar SPED
+ nos horários em que normalmente são feitos os fechamentos de custos. Os serviços de Jobs (se não forem agendados) são executados por ordem de inclusão. Caso gerem os SPED próximos aos horários de fechamento de custos isso pode interferir na atualização dos custos da empresa destino.

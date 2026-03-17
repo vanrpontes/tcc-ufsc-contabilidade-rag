@@ -1,0 +1,102 @@
+TITULO: SBCash
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5414027276
+--------------------------------------------------
+Painel Cobrança Eletrônica
+No campo banco deve ser informado 
+482 - SBCash Sociedade de Crédito Direto S.A.
+Tipo / Número Convênio:
+ o SisPetro está preparado para operar com convênios com numeração de até 10 dígitos do banco SBCash. O convênio deve ser preenchido corretamente para que o sistema consiga compor adequadamente o campo livre. O Nosso Número deve conter 10 dígitos, e será acompanhado de 1 dígito verificador calculado com base no módulo 11 sobre a junção da carteira (3 dígitos) com o Nosso Número.
+Variação da Carteira: 
+o campo deve ser preenchido com o valor da carteira cadastrada no banco. Caso não tenha, preencher com o valor 001, que será considerado padrão.
+#Docto no Arquivo Remessa:
+ se informada a opção 
+Com Parcela
+, será acrescentado no lado do campo 
+Número de Documento
+ no Arquivo de Remessa a identificação da parcela.
+Código do Serviço de Cobrança:
+ se não for informado valor para este campo, será considerado o valor padrão como era feito antes da inclusão deste campo no sistema.
+CNAB:
+ o banco SBCash permite enviar arquivos no padrão 
+CNAB 400
+. Esse é o padrão suportado pela DLL Banco482.dll versão 1.2.0.0, e deve ser confirmado com o responsável técnico da instituição.
+Desconto Cond. Arquivo Remessa:
+ Em alguns casos há a necessidade de dar um abatimento ao cliente ao invés de desconto condicional. É importante que no ato do pedido de venda saiba-se o valor total do abatimento a ser concedido. Consequentemente, a Nota Fiscal de Venda e o título do Contas a Receber seriam gerados com o valor total e, no arquivo de remessa, será enviado o valor deste abatimento. A baixa deste arquivo de remessa (via Arquivo de Retorno) irá considerar devidamente o abatimento enviado.
+As opções existentes para este perfil são:
+Informar como Desconto: será informado no arquivo de remessa como desconto condicional.
+Informar como Abatimento: será informado no arquivo de remessa como abatimento.
+Faz baixa de abatimento na confirmação do registro:
+ Quando marcado, o Sispetro, na leitura do arquivo de retorno, no comando de 
+Confirmação de Entrada
+ (que só ficava registrado e não fazia nenhuma alteração no título), vai incluir uma baixa para o título, com valor de movimento zerado e com valor de desconto no valor do abatimento, de forma que o valor do abatimento já seja diminuído do saldo final do título.
+Exemplo:
+Título no valor total de R$ 1.000,00
+Abatimento no valor de R$ 100,00
+Após a leitura do arquivo de retorno com o comando de Confirmação de Entrada, constará no SisPetro uma baixa de R$ 100,00 (valor do abatimento), ficando o valor total do título em R$ 900,00.
+Linha Digitável
+001 - Banco do Brasil (Convênio com 7 Dígitos)
+Conteúdo
+Tamanho
+Início
+Fim
+Zeros
+6
+1
+6
+Convênio
+7
+7
+13
+Nosso Número
+10
+14
+23
+Carteira
+2
+24
+25
+Exemplo:
+Convênio: 11111111
+Nosso Número: 2222222222
+Carteira: 33
+Campo Livre:
+ 000000 1234567 8912345678 90
+Linha Digitável:
+ | 0 0 1 | 1 | 0 0 0 0 0 | 0 | 0 1 1 1 1 1 1 1 2 2 | 1 | 2 2 2 2 2 2 2 2 3 3 | 1 | 1 | 4 5 6 7 | 0 0 0 1 0 0 0 0 0 0 |
+001 - Banco do Brasil (convênio 6 dígitos)
+Conteúdo
+Tamanho
+Início
+Fim
+Convênio
+6
+1
+6
+Nosso Número
+5
+7
+11
+Agência
+4
+12
+15
+Conta
+8
+16
+23
+Carteira
+2
+24
+25
+Exemplo:
+Convênio: 111111
+Nosso Número: 22222
+Agência: 3333
+Conta: 44444444
+Carteira: 55
+Campo Livre:
+ 111111 22222 3333 44444444 55
+Linha Digitável:
+ | 0 0 1 | 1 | 1 1 1 1 1 | 0 | 1 2 2 2 2 2 3 3 3 3 | 1 | 4 4 4 4 4 4 4 4 5 5 | 1 | 1 | 4 5 6 7 | 0 0 0 1 0 0 0 0 0 0 |
+Para informações sobre a montagem da linha digitável para este banco, veja o tópico 
+Montagem da Linha Digitável

@@ -1,0 +1,123 @@
+TITULO: Configurações Complementares
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899920
+--------------------------------------------------
+Por meio da 
+Configuração da Empresa
+ poderemos configurar os seguintes comportamentos:
+Para permitir que seja informada a 
+Comissão do Motorista
+ no Conhecimento configure sua digitação no grupo Comissão Motorista presente na aba Fretes.
+Para definir um 
+valor para o Contas à Receber diferente do valor calculado
+ para o Conhecimento, deverá estar marcado o campo "Informa valor diferenciado para o financeiro no Conhecimento de Frete" presente na aba "Fretes"
+Em alguns casos, pode ser que a empresa tenha uma situação em que o remetente é uma empresa Distribuidora, o destinatário é o Posto que ela vendeu, porém o produto a ser transportado precisa ser retirado na Usina. Assim, é possível definir uma 
+Entidade Retirada
+ no conhecimento . Para isso a empresa deverá estar com o campo "Informa entidade de retirada da mercadoria no Conhecimento de Frete" presente na aba "Frete" marcado.
+Devido o Sintegra exigir dados das notas fiscais vinculadas a um conhecimento, podemos 
+forçar
+ que venha(m) a ser 
+informada
+(s) a(s) 
+nota
+(s) que 
+acoberta
+(m) no conhecimento de frete devemos marcando a opção "No conhecimento de frete é obrigado informar NFs que acobertam o Conhecimento em dados adicionais" presente na aba "Fretes". 
+Em desuso
+Podemos 
+permitir
+ que o 
+número do conhecimento
+ venha a ser 
+repetido
+ desmarcando a opção "Pode duplicar numero de conhecimento de frete" presente na aba "Frete". Este controle de duplicidade do número do conhecimento pode ainda ser configurado por Série de Nota Fiscal, veja mais informações em 
+Controle de duplicidade de número de Nota Fiscal
+Será por meio do campo "Entidade do Conhecimento de Frete que vai para o Livro Fiscal" presente na aba "Fiscal" que o lançamento no Livro Fiscal terá a 
+entidade configurada
+, podendo ser a 
+Destinatária, Remetente ou Pagadora do Conhecimento de Frete
+.
+Para configurar o número de casas decimais para o frete leia 
+Como configurar o número de casas decimais para o frete
+.
+Para 
+disponibilizar
+ que venha a ser alterado o campo 
+Gera Contas Receber p/
+ a empresa deverá ser uma transportadora e na configuração do sistema quadro Movimentação Financeira opção "
+Habilitar Gerar Mov. Financeira p/
+" presente na aba "
+Fretes
+" estar marcado.
+Para filial 
+conjugada
+ o campo 
+"Gera Contas a Receber"
+ sempre estará 
+desabilitado
+ e 
+desmarcado
+, afinal por ela ser Transportadora e Distribuidora ao mesmo tempo ela não gerará um Contas a Receber para ela própria.
+A natureza de operação
+ poderá ser configurada para ser 
+sugerida automaticamente
+ por meio dos campos: "Cod.Nat. Oper. dentro Estado" (onde o destinatário selecionado está na mesma unidade federativa da filial) e "Cod.Nat. Oper. fora Estado" (onde o destinatário selecionado está em uma unidade federativa diferente da filial).
+Para configurar que 
+ao finalizar um Conhecimento
+ possa se informar dados para o 
+cadastro de viagem
+ basta marcar o campo "Gera Viagem através do Conhecimento" presente na aba "Fretes". (maiores informações sobre o controle de viagem veja 
+Controle de Viagens
+)
+Somente quando a filial tratar-se de uma 
+conjugada
+ o campo 
+"Frete a Pagar"
+ presente no conhecimento estará 
+desabilitado e desmarcado
+, para o caso da empresa vir a ser 
+transportadora
+ temos 
+dois caminhos
+ conforme configurado na empresa transportadora:
+Quando na configuração da 
+empresa
+ o campo 
+"Permite não apropriar frete à transportadora"
+ presente na aba "Frete" está marcado e na 
+transportadora
+ selecionada o campo 
+"Não apropria a frete"
+ está marcado, fazendo assim com que o campo 
+"Frete a Pagar"
+ presente no conhecimento fique 
+desabilitado e desmarcado
+,
+Quando na configuração da 
+empresa
+ o campo 
+"Permite não apropriar frete à transportadora"
+ está 
+desmarcado
+ ou na 
+transportadora
+ o campo 
+"Não apropria a frete"
+ também está 
+desmarcado
+, fazendo assim com que o campo 
+"Frete a Pagar"
+ fique 
+habilitado
+ e 
+marcado
+.
+Para calcular a base de cálculo de ICMS, podemos somar ou subtrair valores, como por exemplo os de pedágios. Veja maiores detalhes e toda a configuração em 
+Despesas Acessórias
+.
+Para apresentar a 
+Conta de Receita de Transporte automaticamente
+ o campo 
+"Rec. Transporte"
+ presente na aba "Contas Contábeis" deverá estar 
+preenchido
+ com a conta a ser empregada.

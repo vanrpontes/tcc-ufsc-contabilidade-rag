@@ -1,0 +1,50 @@
+TITULO: Manutenção de Bombeio Físico
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2910486765
+--------------------------------------------------
+none
+Empresas que controlam o bombeio físico (têm base própria)
+Objetivo
+A tela de 
+Manutenção de Bombeios Físico 
+está disponível no menu: 
+Movimentação / Base / Manutenção Bombeio Físico
+Programação de Bombeio
+: 
+quando a empresa têm base própria, a filial que representa a base abrirá uma programação de bombeio indicando o dia e horário que será feito o bombeio.
+ 
+Pedido de Bombeio
+: c
+om a programação aberta, cada filial (do grupo ou congêneres) registrará a sua intenção de receber um bombeio nesta programação, fazendo um pedido de bombeio.
+Confirmação de Pedido de Bombeio
+: 
+a base transmitirá para a Petrobrás os pedidos de bombeio e esta retornará que quantidade cada filial realmente poderá retirar. Com isso, é feita a Confirmação de Pedido de Bombeio, que disponibilizará a quantidade confirmada pela Petrobrás num depósito trânsito para cada filial. Caso a filial não seja congênere e tenha o seu controle de Cota cadastrado no SisPetro através de PMM, deve vincular esse PMM à confirmação, de forma que lá tenha a informação que esta quantidade está em trânsito. Em seguida é feito o Travamento da Programação, para evitar novos pedidos.
+ 
+Bombeio Físico
+: 
+à noite, a Petrobrás faz o bombeio físico do produto para a base via duto. É feita uma leitura de tanque antes de iniciar o bombeio e outra após, com isso se sabe a quantidade que foi bombeada. Esta quantidade é movimentada no estoque da Filial que representa a base.
+ 
+Distribuição do Bombeio
+: 
+no dia posterior, é possível "trocar" os números com a Petrobrás. Esta troca de números visa receber do fornecedor, a quantidade exata que irá ser faturada (pelo fato de sempre haver discrepâncias entre as medições do fornecedor e o que realmente foi bombeado), feita pela disponibilização de um documento chamado D3 pela Petrobrás. Assim, é feita a Distribuição do Bombeio, que retira toda a quantidade movimentada no Bombeio Físico da filial que representa a base e dá entrada em cada Filial que solicitou o bombeio na quantidade que a Petrobrás informou. Neste ponto é possível retirar a quantidade que tinha sido disponibilizada no Depósito trânsito (opção zera provisório), afinal o produto já está no estoque da filial, no depósito principal. A Distribuição gerará um Ordem de Carregamento do tipo "Descarga de 3ºs" de uso exclusivo da base.
+A partir de então o processo continuará diferente para:
+Base: 
+a base pode encerrar seu processo na Distribuição de Bombeio ou pode vincular a NF de Remessa de Armazenagem enviada pelas empresas à OC de Descarga incluída na Distribuição. Este processo é feito pelo menu Movimentação / Faturamento / 
+Remessa de Armazenagem
+Distribuição do Bombeio - Ajustes
+: 
+na Distribuição do Bombeio é possível fazer ajustes em relação ao 
+Bombeio Físico
+. Geralmente esses ajustes ocorrem quando o 
+Bombeio Físico
+ vem com uma quantidade e no momento da Distribuição a quantidade é diferente.
+Recebimento da NF da Petrobrás
+: 
+se alguma empresa cadastrada no SisPetro, que participou do bombeio, não for congênere e tiver sua movimentação fiscal controlada pelo SisPetro, deve então receber essa Nota Fiscal com natureza de Operação configurada como "Bombeio". Isso pode ser feito inclusive através do processo de Importação de NF´s.
+Vínculo da NF ao Bombeio
+: 
+neste processo é que a Nota Fiscal da Petrobrás prevalecerá sobre a Distribuição feita. Ou seja, ao vincular a NF ao Bombeio, é cancelada a movimentação feita no processo de Distribuição, passando a valer, a partir de então, a movimentação da NF vinculada. Além disso, é neste ponto que o PMM será atualizado como faturado em relação a este bombeio.
+Como Controlar Empresa Armazenadora/Distribuidora
+: 
+esse processo foi criado para separar o Bombeio Fisico (somente bombeio) da Empresa Distribuidora.
+Congêneres: 
+para congêneres o processo se encerra com a Distribuição, pois não há necessidade nem possibilidade de se controlar as NF´s emitidas pela Petrobrás para a congênere.

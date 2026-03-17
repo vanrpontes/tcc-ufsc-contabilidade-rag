@@ -1,0 +1,47 @@
+TITULO: Importação de Notas Fiscais de Emissão Própria
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4082597889
+--------------------------------------------------
+Objetivo
+Permitir importar 
+notas fiscais
+ de emissão própria emitidas em outro sistema ou casos em que a 
+empresa tem um banco de dados para operação como Distribuidora de Combustíveis, mas tem um segundo banco de dados onde ela é a síndica de uma base armazenadora, emitindo Notas de Retorno de Armazenagem com o mesmo CNPJ e IE.
+Esse processo foi criado para ser utilizado na importação via Serviço. 
+Para mais informações, ver 
+Monitoramento da Importação de NF-e/CT-e
+Configurações
+Perfil de Sistema:
+No 
+Painel Importação de NF
+ > quadro Geral >opção 
+Importação de NF de emissão própria:
+ marcar como 
+importa e faz o processo de esteira. 
+Cadastros
+Natureza de Operação:
+Tabelas Auxiliares > Faturamento > Natureza de Operação > Dados Adicionais > 
+Tipo de Emissão para uso no SPED
+: 
+marcar como 
+própria. 
+Tabelas Auxiliares > Faturamento > Natureza de Operação > Dados Gerais > 
+Tipo de Emissão
+: marcar como 
+terceiros.
+De-Para:
+Ferramentas > Importação de Dados > Manutenção de De-Para: O De-Para de Natureza de Operação, campo TipoNF deve estar como 
+Outras Saídas
+, conforme imagem abaixo
+Em Movimentação > Faturamento > Manutenção de NF 
+(saídas)
+ é possível visualizar as notas importadas. Elas estarão destacadas na cor verde conforme imagem abaixo. 
+A partir da versão 10.57 
+foi ajustada a validação do CNPJ da Chave de Acesso durante a emissão e importação de Nota Fiscal, passando a contemplar a validação para casos de Nota Fiscal própria.
+Recomendamos criar uma Natureza de operação e um De-Para apenas para importação de notas próprias
+Esse processo foi criado para notas fiscais. Caso o CT-e seja incluído nesse processo o SisPetro mostrará a mensagem 
+Não é permitido informar dados de CT-e de Terceiros para NF que não seja do tipo Entrada. 
+Para mais informações, ver: 
+Vínculo de OC e PMM em Notas Fiscais Importadas
+Monitoramento da Importação de NF-e>CT-e
+Painel Importação de NF
+Validações Importação de Nota Fiscal

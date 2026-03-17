@@ -1,0 +1,122 @@
+TITULO: Consulta de Destinatário com retorno de excesso de consumo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4229988388
+--------------------------------------------------
+Muitas vezes, as consultas de destinatário retornam erro de excesso de consumo e a DFe bloqueia automaticamente novas consultas por 1 hora.
+No retorno das consultas, além do erro de excesso de consumo, a DFe pode retornar 2 status (cStat):
+137 - nenhum documento localizado:
+Nesta situação, o SisPetro aguarda 1 hora e 10 minutos para realizar nova consulta de forma automática e independente dos intervalos de execução configurados nos 
+Serviços automáticos para Consulta de Destinatário de NF-e/CT-e
+ 
+138 - documento localizado:
+Nesta situação, o SisPetro processa nova consulta de forma automática conforme os intervalos de execução configurados nos 
+Serviços automáticos para Consulta de Destinatário de NF-e/CT-e
+Na 
+Consulta Chave de Acesso
+, é possível verificar as consultas realizadas e seus retornos clicando no botão Histórico de Consulta e, entre outras informações, há 3 campos para análise dos retornos das consultas:
+NSU Enviado:
+ é o NSU que consta no perfil de sistema 
+Painel Serviços Sefaz
+  nos campos Último NSU Consultado…
+Último NSU Retornado:
+ é o último NSU retornado que consta no arquivo enviado pela DFe e este NSU é gravado no perfil de sistema  
+Painel Serviços Sefaz
+  nos campos Último NSU Consultado…
+Último NSU Existente:
+ caso tenha, é o último NSU existente na DFe, que pode ser maior ou igual ao Último NSU Retornado.
+Indica que há mais documentos disponíveis para download. Isso acontece porque a DFe disponibiliza arquivos com no máximo 50 NSU ou 50 documentos fiscais.
+Nota:
+ todo e qualquer documento fiscal emitido recebe um NSU, incluindo os eventos ocorridos nesses documentos.
+Quando a DFe retorna erro 656 - excesso de consumo é necessário analisar no Histórico de Consulta:
+Os campos NSU Enviado, Retornado e Existente, onde:
+Enviado:
+ deve ser o mesmo do perfil de sistema
+Retornado:
+ pode ser igual ou maior que o Enviado
+Se igual:
+ então o status é 137 - documento não localizado e o SisPetro aguarda 1 hora e 10 minutos para realizar nova consulta
+Se maior:
+ então o status é 138 - documento localizado e retorno documento e o SisPetro fará nova consulta de acordo com intervalo de execução configurado nos serviços
+Existente:
+ pode ser igual ou maior que o Retornado
+Se igual:
+ não há mais documentos fiscais a serem consultados
+Se maior:
+ há mais documentos fiscais a serem consultados
+Na tela do Histórico de Consulta esses 3 campos devem estar todos preenchidos, indicando que as consultas estão sendo realizadas sem qualquer problema:
+1
+ - No caso, o cliente está iniciando pela primeira vez a consulta de destinatário e não tinha CT-e anteriormente emitido para sua empresa:
+Enviado 0:
+ indica que o SisPetro está fazendo a primeira consulta
+Deve se tomar o devido cuidado para informar este NSU no perfil de sistema, pois pode ser que a empresa já tenha realizado consultas anteriormente. Deve informar o último NSU retornado pela DFe e com isso evitar o erro 656 - excesso de consumo.
+Retornado 50:
+ arquivo disponibilizado pela DFe com o número máximo de documentos fiscais
+Existente 265:
+ indica que ainda há mais documentos fiscais a serem consultados e baixados
+2
+ - Segunda consulta realizada no intervalo de execução configurado
+Enviado 50:
+ é o último NSU retornado pela DFe, gravado no perfil de sistema e enviado pelo SisPetro na nova consulta
+Retornado 100:
+ arquivo disponibilizado pela DFe com o número máximo de documentos fiscais desde a última consulta (ver 
+1
+)
+Existente 266:
+ indica que ainda há mais documentos fiscais a serem consultados e baixados
+3
+ - Mesmas informações conforme 
+1
+ e 
+2
+4
+ - Sem mais consultas a serem realizadas no momento:
+Enviado 275:
+ último NSU retornado na consulta em 
+3
+Retornado 275:
+ DFe retornou o mesmo NSU enviado
+Existente 275:
+ DFe indica que não há mais documentos a serem consultados e baixados. Nesse caso, o SisPetro aguarda, automaticamente, 1 hora e 10 minutos para realizar uma nova consulta
+Na tela do Histórico de Consulta esses 3 campos ficam diferentes indicando que as consultas estão sendo realizadas ou não com problemas:
+1
+ - Consulta realizada sem qualquer erro:
+Enviado 2305:
+ último NSU retornado pela DFe
+Retornado 2320:
+ arquivo disponibilizado pela DFe
+Existente 2329:
+ indica que ainda há mais documentos fiscais a serem consultados e baixados
+2
+, 
+3
+,
+ 4
+ 
+- Consultas realizadas sem quaisquer erros
+5
+ - 
+Erro 656:
+  erro ocorreu logo após uma consulta retornada com documentos localizados. O SisPetro realizou uma nova consulta 10 minutos após a consulta do 
+4
+, conforme configurado no serviço e mesmo assim houve erro de excesso de consumo, contrariando as regras da própria DFe. 
+Enviado 2365:
+ último NSU retornado pela DFe conforme 
+4
+Retornado 2365:
+ retornado pela DFe como erro de excesso de consumo. Ou seja, a DFe não permitiu finalizar a consulta, informando que consultas já haviam sido realizadas e nenhum documento localizado, devendo aguardar 1 hora
+Existente 0:
+ indica que a consulta não foi realizada pelo erro de excesso de consumo
+6 
+- 
+Erro 656:
+ em nova consulta realizada pelo SisPetro, após aguardar 1 hora e 10 minutos, ainda assim a DFe retornou erro de excesso de consumo
+Nota:
+ isso indica que existe um outro aplicativo fazendo a consulta de destinatário também, concorrendo com o SisPetro.
+Por isso, existem momentos em que as consultas são realizadas normalmente e em seguida começam apresentar erro 656.
+Um outro ponto que pode gerar excesso de consumo é o intervalo de tempo entre as consultas realizadas mesmo que a DFe tenha retornado o cStat = 138 (Documento localizado).
+O SisPetro permite configurar intervalo mínimo de consulta de 30 segundos, porém, não é recomendável um tempo tão curto. Recomendamos um intervalo mínimo de 5 minutos.
+Para determinar o intervalo de tempo entre as consultas considerar:
+Consulta de quantidade de NF-e ou NSU superior ao limite permitido por hora: 
+Será permitido um número limitado de consultas por chave de acesso ou NSU em um período de 1hora. 
+Se o usuário continuar consultando após atingir o limite de consultas por chave de acesso ou NSU em 1h, retornará a mensagem 656 – Consumo indevido – ultrapassou o limite de 20 consultas por hora. 
+Nesse caso, o CNPJ é bloqueado por 1 hora, sendo impedido de realizar novas consultas nesse intervalo. Decorrido o intervalo de tempo, o desbloqueio será automático.
+Ou seja, é permitido efetuar 1 consulta a cada 3 minutos para não ultrapassar o limite de 20 consultas por hora.

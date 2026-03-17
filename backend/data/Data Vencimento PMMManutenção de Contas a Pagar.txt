@@ -1,0 +1,35 @@
+TITULO: Data Vencimento PMM/Manutenção de Contas a Pagar
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5580783618
+--------------------------------------------------
+No PMM as datas são utilizadas somente como uma previsão enquanto a NF não chega a seu destino.
+As datas dos títulos a pagar vão depender de como foi configurado no perfil da empresa para utilizar como data base uma das datas da NF. A partir daí, para o vencimento, é somado o prazo da condição de pagamento.
+Abaixo exemplo de uma configuração no perfil de Sistema / Aba Financeiro / Quadro 
+Títulos.
+Vamos pegar uma das notas utilizadas como exemplo:
+Data de Emissão: 30/09/2025
+Data de Movimento: 01/10/2025
+Condição de pagamento: 055 Antecipado 0 dias
+O
+ título a pagar 
+dessa NF vai ser gerado conforme a configuração acima, portanto:
+Emissão 
+→ Data Movto NF → 
+01/10/2025
+Vencimento
+ → Data Emissão NF → 
+30/09/2025
+ + nº dias da Condição de Pagamento →
+ 30/09/2025
+Essa é uma combinação incorreta no Sispetro, pois entendemos que não se deve emitir algo já vencido. Se o pagamento ocorreu antes, aí seria via adiantamento a fornecedores, mas o vencimento seria no mínimo igual à data de vencimento.
+Neste mesmo cenário, se fosse utilizada outra condição de pagamento, a configuração não apresentaria problema:
+Condição de pagamento: 005 5 dias
+Emissão 
+→ Data Movto NF → 
+01/10/2025
+Vencimento
+ → Data Emissão NF → 
+30/09/2025
+ + nº dias da Condição de Pagamento →
+ 05/10/2025
+Nesse caso a configuração daria certo.
+Recomenda-se configurar tanto o vencimento como a data de emissão do título a partir da Data de Movimento da NF. Com isso evitando maiores problemas.

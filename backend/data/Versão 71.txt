@@ -1,0 +1,660 @@
+TITULO: Versão 7.1
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2885845164
+--------------------------------------------------
+Versão 7.1
+
+
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 18/04/2009 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 06/07/2009 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ CMD71.sql (cmd2121 a cmd2158) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 56 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 25 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 29 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+ 
+MaioresClientes.rtm
+ 
+
+
+PedidoAlteracaoPreco.rtm
+ 
+
+
+ReceitaDespesaFrota
+ 
+
+
+Sintegra-DIC-SE.rtm
+ 
+
+
+Sintegra2004-PR.rtm
+ 
+
+
+Sintegra2008-SEF.rtm
+ 
+
+
+MovEstoqueContabil.rtm
+ 
+
+
+SPED_ECD.dll
+ 
+
+
+SPED_EFD.dll
+ 
+
+
+
+
+
+
+Geral
+
+
+
+
+Tratamento de mensagens de erro SQL
+
+
+A janela de apresentação de erros agora exibe alguns tipos de mensagens do banco de dados de forma mais clara. EPQ (CCF 5978)
+
+
+Botão Editar da Atividade Econômica x Natureza de Operação nos Produtos
+
+Na tela do cadastro de produtos, aba Dados Adicionais, o botão Editar da Atividade Econômica x Natureza de Operação não estava visível na tela por conta da inclusão de outros campos, essa tela ganhou uma barra de rolagem e com isso o botão voltou a ser acessado. 
+UPA(CCF 6016)
+
+
+Pesquisa no Cadastro de Motoristas
+
+O campo para digitação da pesquisa padrão no cadastro de motoristas estava fora da área da tela dificultando ao usuário essa pesquisa. O campo foi realocado na tela. 
+UPA (CCF 6100)
+
+
+Consulta On-line ao site da ANP/Vazamento de Memória nas consultas ao Sintegra
+
+
+Em abril de 2009 o site da ANP passou por mudanças. Isto fez com que a consulta On-line do Sispetro ao site da ANP parasse de funcionar.
+ 
+O Sispetro foi alterado, permitindo a consulta on-line ao site da ANP
+*. 
+É necessário utilizar a DLL SispetroANP.dll para este recurso.
+  
+EPQ (CCF 5755)
+
+
+Comprador no Relatório de Pendências dos Clientes
+
+
+Foi disponibilizado no relatório de Dados Gerais, impresso no Cadastro de Clientes, no grupo de Pendências Financeiras as informações sobre o comprador. Sendo assim, o usuário pode alterar o layout deste relatório e listar junto com as pendências financeiras a entidade compradora. UPA (CCF 6059)
+
+
+Itens de menu do Sispetro Remoto
+
+Os itens de menu de Tabelas Auxiliares de ICMS, IPI, Classificação Produto, Unidades e Bandeiras, o item de menu de Análise de Vendas em Consulta e Mínha Máquina e Na Internet em Ajuda foram removidos do Sispetro Remoto pois não apresentavam funcionalidade. 
+EPQ (CCF 5787)
+
+
+Gerenciador de Relatórios
+
+
+Alterada a rotina de salvamento dos relatórios editados através do gerenciador de relatórios. Essa rotina precisou ser alterada para uma tecnologia mais moderna que nos permita no futuro migrar o SisPetro para outras plataformas. UPA (CCF 6168)
+
+
+Erro ao Desabilitar o Uso dos Temas nas Empresas
+
+Quando o usuário desabilitava o uso de temas na empresa, escolhendo o tema padrão como nenhum, era gerada uma mensagem de erro ao usuário e a alteração não estava sendo salva. Este problema foi corrigido. 
+UPA (CCF 6281)
+
+
+Verificação de Existência do Arquivo de Certificado Digital
+
+Quando o Servidor SisPetro é iniciado e por algum motivo o certificado digital da empresa foi alterado de pasta, o Servidor SisPetro emite uma mensagem de erro mas pedindo que o usuário verifique o IP a ser utilizado. Esse problema foi corrigido e caso aconteça a troca da pasta do arquivo de certificado e o Servidor SisPetro não o localize, será emitida uma mensagem de erro clara ao usuário avisando-o que o arquivo de certificado digital não foi localizado, listando o seu nome e a sua pasta antiga. 
+UPA (CCF 6298)
+
+
+Ajustes nas Configurações de Temas do SisPetro
+
+Na versão passada foi introduzida no sistema a opção de se configurar os temas (desenho das janelas e componentes de edição) do sistema.Caso o usuário deseje não utilizá-lo, basta configurar a empresa para não utilizar nenhum tema e depois fazer a mesma alteração no seu próprio usuário. Porem, quando o usuário efetuava essa alteração no seu usuário era gerado um erro mas a troca era efetuada. Esse erro foi tratado e não deve mais acontecer.
+
+
+UPA (CCF 6281)
+
+
+Ajustes em janelas para resolução de vídeo 800x600
+
+Foram feitos ajustes em diversas janelas para que sejam apresentadas corretamente na resolução de vídeo 800x600. São as janelas de cadastro de Clientes (Arquivos), Moedas (Arquivos), Documentos (Tabelas Auxiliares - Vendas), Mensagem cobrança / Nota Fiscal (Tabelas Auxiliares - Faturamento) e nas janelas de Manutenção Utilização de Cheques (Movimentação - Financeiro), Portaria de Saída (Movimentação - Base) e Manutenção de Cargas (Movimentação - Transportes). 
+EPQ (CCF 5892)
+
+
+
+
+Estoques
+
+
+
+
+Data do Pedido de Ajuste de Saída e Entrada de Estoque
+
+As janelas de Pedido de Ajuste de Saída e Entrada de Estoque apresentavam a data do pedido cortada no painel superior. Corrigido. 
+EPQ (CCF 5786)
+
+
+Outras Saídas de Estoque participam do CMV conforme Histórico Padrão
+
+Outras Saídas de Estoque agora participam do CMV conforme estiver configurado no Histórico Padrão utilizado na operação. 
+Além disso garantimos que todas as movimentações que não forem de Nota Fiscal (Ajustes, OC Transferências entre Depósitos, Bombeios, Ajuste de Estoque Zero, entre outros) sempre respeitarão a configuração do histórico para participar ou não do CMV.
+ 
+Para esta atualização apenas foram alterados pedidos dos últimos 365 dias (a contar da data de atualização). Isto foi feito por questões de performance e abrange com segurança os pedidos do sistema que possam vir a integrar fechamentos de custos. Para atualizar outros pedidos, favor entrar em contato com nosso suporte técnico.
+ 
+Help:
+ 
+CMV
+ 
+EPQ (CCF 4516 e 5321)
+
+
+Temperatura e Densidade do Tanque
+
+
+Leituras de tanque com datas retroativas sobrepunham a densidade e temperatura do tanque para uso em carregamentos e descargas, pois sempre a última leitura incluída é que valia. Modificado para que sejam mantidas as informações da leitura com data mais recente.
+ 
+Help:
+ 
+Como fazer leitura de tanque
+ 
+EPQ (CCF 5514)
+
+
+Ordenação dos Depósitos no Custo Padrão por Produto
+
+
+Na cadastro de produtos, na aba Custo Para Vendas, Custo Por Depósito, existe um grid com os depósitos cadastrados e abaixo seus valores, os depósitos estavam sendo listados sem uma ordem, agora eles são listados pelo código do depósito podendo o usuário mudar essa ordenação clicando sobre a coluna que ele deseja ordenar. UPA (CCF - 6154)
+
+
+Atualização da Tela de Fechamento de Estoque
+
+Na tela de fechamento de estoques, se o usuário estiver consultando os produtos, filtrá-los e clicar no botão Atualiza, os dados dos detalhes do estoque escritural e físico em algumas situações estava discrepante do produto selecionado, precisando o usuário clicar sobre o produto para o saldo ser corrigido. Esse problema não afetava os cálculos do fechamento mas já foi corrigido. 
+UPA (CCF 6131)
+
+
+Gráfico de Tanques
+
+Na tela de Manutenção de Tanques, são apresentados gráficos que mostram a ocupação dos tanques pelos produtos neles contidos. O gráfico não funcionava corretamente se o Sispetro estivesse configurado com algum tema visual. Corrigido. 
+EPQ (CCF 6259)
+
+
+Desalocar estoque de item de pedido
+
+Ao desalocar estoque de um item de pedido, o sistema verifica se o item está vinculado a uma OC que está em Portaria. Se estiver, não permite desalocar. O problema é que, mesmo após sair da Portaria, o sistema sempre bloqueava a operação. Corrigido para que apenas bloqueie a operação se a OC estiver em portaria, não bloqueando caso já tenha saído da portaria. 
+EPQ (CCF 5833 e 5909)
+
+
+Produtos Liberados para Uso no DPMP
+
+
+No cadastro de Produtos, aba Bloqueio, é possível configurar quais empresas geram DPMP de quais produtos.
+ 
+Help:
+ 
+Bloqueios em Produtos
+ 
+EPQ (CCF 6078)
+
+
+Movimentação entre Depósitos
+
+
+Existe no sistema uma tela para movimentação de produtos entre depósitos, porém nessa tela era possível informar somente um histórico para as movimentações que eram efetuadas (a saída no depósito de origem e a entrada no depósito de destino). A partir dessa versão essa informação está desmembrada.
+ 
+Agora é possível informar um histórico na movimentação de origem e um outro histórico na movimentação de destino
+*. Um bom exemplo da utilização desse desmembramento é quando será necessário calcular o CMV somente na entrada. Pode-se selecionar um histórico que não participa do CMV na origem e um outro que participe do CMV no destino.* 
+Help:
+ 
+Movimento entre Depósitos
+ 
+UPA (CCF 4516)
+
+
+
+
+Faturamento
+
+
+
+
+Outros Impostos no Gerenciador de Relatórios
+
+
+Novas funções "PegaValorOutrosImpostos" e "PegaValorOutrosImpostosBaseCalculo" que retornam, respectivamente, valor e base de cálculo de outros impostos de itens de notas fiscais. Podem ser utilizados, por exemplo, para imprimir informações de PIS e COFINS no DANFE.
+ 
+Help:
+ 
+Funções Futura
+ 
+EPQ (CCF 5204)
+
+
+Filtro para todas as filiais e por produto no Recálculo de Custos
+
+
+O recálculo de Custos agora permite selecionar notas fiscais de todas as filiais e de um produto específico. Antes apenas era permitido selecionar notas fiscais de uma filial específica e de todos os produtos.
+ 
+Help:
+ 
+Recálculo de Custo da Nota Fiscal
+ 
+EPQ (CCF 5500)
+
+
+Validações na Nota Fiscal
+
+
+Ao incluir uma nota fiscal, o sistema consiste se a situação tributária foi informada e se é composta por três números. Também consiste se a unidade do produto é válida. EPQ (CCF 5391)
+
+
+Importação de Notas Fiscais de layout NFe - ICMS
+
+O sistema agora permite importar notas fiscais de layout NFe de CST (Código de Situação Tributária) de ICMS de qualquer valor. Antes apenas permitia CST de ICMS 010 e 060. 
+EPQ (CCF 5778)
+
+
+Mais Informações Sobre a Nota Fiscal na Confirmação de Cancelamento
+
+
+Quando é solicitado o cancelamento de uma nota fiscal o usuário é questionado sobre isso, com uma mensagem "Cancela Nota Fiscal?". Essa mensagem foi melhorada afim de que o usuário tenha mais segurança na sua decisão. A partir dessa versão, quando o usuário solicitar o cancelamento de uma nota fiscal, será informado o nº, data de emissão e entidade faturada da nota fiscal que está sendo cancelada. UPA (CCF - 6210)
+
+
+Frete incorporado na Base de ICMS
+
+
+No cadastro de Natureza de Operação, aba Por Filial e Dados Gerais, foi disponibilizada a nova configuração "Incorpora Valor do Frete na Base de ICMS" que, quando ativada,
+ 
+faz com que o frete destacado na nota fiscal seja incorporado a base de cálculo do ICMS.
+ 
+Recomendamos que esta opção seja utilizada somente quando o frete estiver configurado para ser destacado na nota fiscal.
+ 
+Help:
+ 
+Destaque de Frete
+ 
+EPQ (CCF 6127)
+
+
+UF da Placa do Veiculo no DANFE
+
+
+Foi disponibilizada a UF da placa do veículo (e outras informações do frota) no layout do DANFE. Essa informação está disponível no condutor de dados "FrotaRNTC". UPA (CCF 5699)
+
+
+
+
+Vendas
+
+
+
+
+Melhorias na Consulta de Pedidos Aprovados e não Faturados
+
+
+Adicionadas legendas para os grids da tela. Pedidos com carga montada são sublinhados no grid da parte superior. Antes os itens do pedido (na parte inferior) eram destacados em azul no grid.
+ 
+Para esta atualização apenas foram alterados pedidos de venda dos últimos 365 dias (a contar da data de atualização) que não tenham sido cancelados. Isto foi feito por questões de performance e abrange com segurança os pedidos de venda do sistema que possam vir a ser carregados. Para atualizar outros pedidos, favor entrar em contato com nosso suporte técnico.
+ 
+EPQ (CCF 5448)
+
+
+Posição da janela de Manutenção de Contrato de Venda
+
+A janela de Manutenção de Contrato de Venda aparecia deslocada na tela logo quando aberta. Corrigido para que apareça no centro da tela. 
+EPQ (CCF 5788)
+
+
+Simulador do Preço de Venda
+
+
+Foram adicionadas as informações listadas no simulador de preço o prazo de pagamento do produto em questão. Caso a empresa não trabalhe com condição de pagamento por produto, é listada a condição de pagamento do cliente.
+ 
+Para que as nova informações fiquem visíveis, é necessário clicar no botão Layout Padrão.
+Help:
+
+
+Simulador Preço Venda
+ 
+UPA (CCF 5556)
+
+
+Numeração no Relatório de Maiores Clientes
+
+O relatório de Maiores Clientes apresentava a numeração indicativa da ordem do cliente erroneamente ao navegar entre as páginas do relatório. Corrigido. 
+É necessário atualizar o arquivo MaioresClientes.rtm para que as alterações tenham efeito.
+ 
+EPQ (CCF 5941)
+
+
+Relatório de Pedido de Alteração de Preço
+
+
+Novo Relatório de Pedido de Alteração de Preço
+, que pode ser emitido na tela de manutenção de alteração de preços para o pedido selecionado além de poder ser emitido pelo gerenciador de relatórios, recebendo diversos parâmetros e listando diversos pedidos. 
+É necessário salvar o arquivo PedidoAlteracaoPreco.rtm.
+Help:
+ 
+Pedido Alteração de Preços
+ 
+EPQ (CCF 4129)
+
+
+Nome Usual na Consulta Geral de Vendas
+
+
+Foi disponibilizada na consulta geral de vendas a coluna Nome Usual dos clientes faturados.
+ 
+Para que a coluna fique visível, é necessário clicar no botão Layout Padrão
+ 
+UPA (CCF 6097)
+
+
+Cancelamento de Aprovação de Pedido de Venda Direta
+
+Ao cancelar a aprovação de um pedido de venda direta, o sistema afirmava que o pedido já havia sido faturado ou que possuía ordem de carregamento, mesmo que o pedido de venda direta ainda não houvesse sido faturado e nem possuísse ordem de carregamento (pedidos de venda direta não possuem OC), impedindo indevidamente a operação. Corrigido para apenas bloquear o cancelamento da aprovação quando o pedido de venda direta de fato tiver sido faturado. 
+EPQ (CCF 6144)
+
+
+
+
+Transportes
+
+
+
+
+Melhorias na Composição de Carga
+
+
+Nova configuração por empresa na aba Fretes, grupo Carga, "Valida # de compartimentos com # de itens dos ped. na comp. de carga"
+ 
+que, quando ativada, no fechamento da composição de carga,
+ 
+verifica se a quantidade de itens dos pedidos é maior que o número de compartimentos do veículo
+*, bloqueando a operação.* 
+Help:
+
+
+Composição de Carga
+ 
+EPQ (CCF 5448)
+
+
+Validação de CPF/CNPJ no cadastro de Transportadoras/Motoristas
+
+As validações sobre o CPF/CNPJ do cadastro de Transportadoras/Motoristas foi revisado. Antes permitia que um mesmo CPF/CNPJ fosse cadastrado diversas vezes, ora sem pontuação, ora com pontuação parcial e ora com toda a pontuação. Foi corrigido para que um mesmo CPF/CNPJ possa ser cadastrado uma única vez, seja qual for sua pontuação. 
+EPQ (CCF 5504)
+
+
+Validação do Padrão Contábil na inclusão de Eventos de Frota
+
+Na inclusão de eventos de frota, o sistema verifica se o padrão contábil selecionado possui contas contábeis configuradas. Se não possuir alerta o usuário e impede a inclusão do evento. 
+EPQ (CCF 6099)
+
+
+Inclusão de Total Geral no Relatório de Receitas / Despesas do Frota
+
+
+Alterado o Relatório de Receitas / Despesas do Frota para possuir um total geral de todas as despesas/receitas dos frotas selecionados.
+ 
+Para que essa alteração fique visível no relatório é necessário atualizar o rtm ReceitaDespesaFrota.rtm.
+ 
+UPA (CCF 3674)
+
+
+
+
+Fiscal
+
+
+
+
+Alterações no registro 74 do DIC/SINTEGRA
+
+Os layouts de DIC e SINTEGRA foram alterados para que o registro 74 seja ordenado corretamente ao gerar o arquivo de exportação. 
+É necessário atualizar os arquivos Sintregra-DIC-SE.rtm, Sintegra2004-PR.rtm e Sintegra2008-SEF.rtm para que as alterações tenham efeito.
+ 
+EPQ (CCF 5784)
+
+
+
+
+Financeiro
+
+
+
+
+Melhoria na performance na Manutenção de Vendor
+
+A tela de manutenção de vendor ganhou performance após melhorias implementadas. 
+EPQ (CCF 5881)
+
+
+Nova configuração "Utiliza comprador nos Adiantamentos"
+
+
+Nova configuração por empresa na aba Financeiro "Utiliza comprador nos Adiantamentos" que, quando ativada, permite que um adiantamento feito a um fornecedor seja utilizado como crédito ao baixar uma conta a pagar gerada por um recebimento de material de outro fornecedor.
+ 
+Este recurso é útil em casos em que o PMM é feito para uma usina, mas a nota fiscal recebida vem de outra usina ou fornecedor. Assim, ao invés de transferir o adiantamento para quitar esta nota, permitimos a baixa do adiantamento original.
+ 
+EPQ (CCF 4830)
+
+
+Tabela Progressiva
+
+Os lançamentos financeiros que utilizavam uma tabela progressiva, caso o valor do lançamento não estivesse dentro de uma faixa de valor informada na tabela progressiva, impedia a gravação do título. Essa situação foi corrigida e nessas situações o valor do calculo da tabela progressiva será 0. 
+UPA (CCF 5877)
+
+
+Relatório de Períodos de Conciliação
+
+Na tela de emissão do Relatório de Períodos de Conciliação, ao passar pelo campo Conciliação sem que haja uma conciliação informada, o sistema abria a janela de pesquisas. Caso não houvessem conciliações, o usuário não conseguiria sair da janela de pesquisa. Alterado para que, quando passar pelo campo Conciliação sem que haja uma conciliação informada, o sistema apresente uma mensagem ao invés de abrir a janela de pesquisas. 
+EPQ (CCF 5131)
+
+
+Contas Contábeis Padrão para Vendor
+
+*Novos perfis de sistema na aba Contas Contábeis, grupo Vendor, onde são informadas contas-padrão de Juros, Despesas e Vendor para contratos de Vendor. Estas contas-padrão são sugeridas ao incluir um contrato de Vendor, mas podem ser substituídas diretamente no contrato.
+
+
+Help:
+ 
+Efetivação de Vendor
+ 
+EPQ (CCF 5175)
+
+
+Manutenção do Contas a Pagar e a Receber - Erro ao Atualizar a Tela
+
+Na tela de manutenção do contas a pagar e a receber, se logo ao entrar na tela informar uma pesquisa e clicar no botão Atualiza, é apresentado um erro. Corrigido. 
+EPQ (CCF 5946)
+
+
+Conta Contábil de Juros na Renegociação
+
+*No perfil de empresa, aba Financeiro, Pesquisa de Conta Contábil, o perfil "Filtra tipos de contas na tela de Renegociação" foi renomeado para "Filtra tipos de contas na tela de Renegociação (Baixa)" e abaixo deste foi adicionado o novo perfil "Filtra tipos de contas na tela de Renegociação (Juros)". Este novo perfil, ativado por padrão, determina se na Renegociação as contas contábeis de Juros são filtradas ou não por tipo. 
+Isto permite que sejam selecionadas contas de provisão ou apropriação de juros. Antes apenas eram permitidas contas de apropriação.
+
+
+Help:
+ 
+Renegociação
+ 
+EPQ (CCF 6042 e 6043)
+
+
+Fluxo de Caixa
+
+Correção para calcular corretamente um fluxo de caixa caso o mesmo não possua pagamentos. Estava invertendo o sinal nestes casos. 
+MCL (CCF 6157)
+
+
+CNAB 400 Bradesco - ocorrência 16 de retorno
+
+
+A baixa por cheque (ocorrência 16) do arquivo de retorno CNAB 400 do Bradesco agora apenas notifica que o cheque será compensado. A compensação, que aciona a baixa, é enviada pelo banco em outro arquivo. EPQ (CCF 5899)
+
+
+CNAB 400 Rural - ocorrência 43 de retorno
+
+
+A ocorrência 43 do arquivo de retorno CNAB 400 do Banco Rural agora é identificada pelo Sispetro como baixa. EPQ (CCF 6022)
+
+
+CNAB 400 Banco do Brasil - ocorrência 17 de retorno
+
+
+A ocorrência 17 (baixa de título recebido através de outro banco) do arquivo de retorno CNAB 400 do Banco do Brasil agora é identificada pelo SisPetro com baixa. UPA (CCF 6268)
+
+
+Dia Limite para Competência no Contas a Pagar
+
+Corrigido um problema que poderia ocorrer ao salvar zero como dia limite. 
+EPQ (CCF 5789)
+
+
+
+
+Controladoria
+
+
+
+
+Relatório de Movimento de Estoque
+
+Em alguns casos o relatório Movimentação de Estoque Escritural Contábil estava mostrando em tela um valor e imprimindo outro. Esse problema foi identificado e corrigido. 
+Será necessário atualizar o arquivo MovEstoqueContabil.rtm para que essas alterações fiquem disponíveis.
+ 
+UPA (CCF 5825)
+
+
+Encerramento de Período Gerencial e Real com itens negativos
+
+
+Ao encerrar um período contábil gerencial ou real, eram feitos lançamentos com valor negativo se o resultado de uma conta de receita fosse devedor ou se o resultado de uma conta de despesa fosse credor. Agora o sistema lança valores positivos credores para contas de receita de resultado devedor e valores positivos devedores para contas de despesa de resultado credor.
+ 
+Help:
+ 
+Encerramentos Gerenciais
+ e 
+Encerramentos Reais
+ 
+EPQ (CCF 6047)
+
+
+Data de Início e Fim e Número do Livro nos Termos de Abertura e Encerramento
+
+
+Os Termos de Abertura/Encerramento emitidos nas telas de emissão dos Livros de Entrada, Saída e Apuração do Sispetro Controladoria podem exibir as datas de início, fim e número do livros. Para isso é preciso editar o layout do Termo conforme orientações contidas em nosso
+ 
+Help:
+*
+Tabela de Termos
+* 
+EPQ (CCF 5975)
+
+
+Consulta a Apuração do Livro Fiscal - SubTotal de Saldo Credor
+
+Quando o usuário estava visualizando uma apuração, o seu subtotal e saldo credor não estavam sendo apresentados na tela, o campo estava sem preenchimento. Esse problema foi corrigido. 
+UPA (CCF 6306)
+
+
+Transferência da Movimentação de Conta - Versão 7.0.2 (Beta)
+
+Após a execução da transferência de conta, se a conta não fosse excluída, ela estava ficando bloqueada no sistema. Estamos desbloqueando estas contas e corrigindo o sistema. Outro problema detectado foi com relação a transferência por período, em alguns casos era gerado um erro que estava sem tratamento, deixando a transferência marcada com erro. Esse erro foi corrigido e com isso a transferência consegue ser executada sem erros. 
+UPA (CCF 6011, 6026, 5983)
+

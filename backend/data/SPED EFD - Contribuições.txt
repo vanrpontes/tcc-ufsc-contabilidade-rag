@@ -1,0 +1,93 @@
+TITULO: SPED EFD - Contribuições
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2907308040
+--------------------------------------------------
+none
+Objetivo
+A geração do SPED EFD Contribuições no Sispetro exige configurar corretamente os campos necessários, acessar o Conjunto de Dados e preencher informações como período, tipo de escrituração e recibo anterior. Também é preciso revisar dados, fórmulas e configurações antes de gerar o arquivo texto usando a DLL adequada. A emissão dos registros A010, C010, D010, F010, F100, M100, M200, M500 e M600 depende da incidência tributária, do critério de escrituração e da forma de tributação do lucro. No Sispetro, essas definições são ajustadas nos perfis de sistema, nos painéis de SPED EFD Contribuições e ECD/ECF, conforme regime de incidência, critério de apuração e forma de tributação do lucro da empresa.
+Para a geração do SPED - EFD Contribuições é preciso seguir alguns passos. Vejamos o que precisa ser feito!
+Verificar e configurar os campos necessários para o bom funcionamento do SPED EFD - Contribuições no Sispetro. Veja mais informações em 
+Configurações - EFD Contribuições
+.
+Acessar o 
+Conjunto de Dados
+ (
+menu Ferramentas/ Tabelas dos Conjuntos de Dados
+) referente ao 
+Livro PIS e Cofins
+.
+Fazer o preenchimento dos dados
+ (
+aba Funções/ botão Preenche
+), informando além dos dados padrões de Empresa, Data Inicial e Data Final:
+Tipo de Escrituração: 
+definir o tipo de escrituração a que se trata o arquivo, considerando as opções disponíveis:
+Original
+Retificadora
+Número Recibo Anterior:
+Corrigir possíveis informações
+, editando diretamente os dados.
+Corrigir possíveis fórmulas
+, o que exigirá a repetição do passo 2 (
+aba Geral/ botão Fórmula
+).
+Configurar Campos da tabela
+, se for necessário (
+aba Geral/ botão Configuração
+).
+Gerar o arquivo texto
+ (
+aba Funções/ botão Gera
+), informando a DLL 
+sped_piscofins.dll
+ na 
+Tabela Conjunto de Dados
+, além das informações padrões citadas no item 
+Fazer o preenchimento dos dados.
+Regras para os registros A010, C010, D010, F010, F100, M100, M200, M500 e M600
+Dependendo da incidência, do critério de escrituração e apuração e da forma de tributação do lucro, os registros A010, C010, D010, F010, F100, M100, M200, M500 e M600 devem ou não serem gerados.
+Incidência
+Escrituração e Apuração
+Tributação do Lucro
+Gera Registro
+​Exclusivamente Não Cumulativo
+Não se Aplica
+Lucro Real​
+A010, C010, D010, F010, F100, M100, M200, M500 e M600
+Cumulativo e Não Cumulativo
+Não se Aplica
+Lucro Real​
+A010, C010, D010, F010, F100, M100, M200, M500 e M600
+Exclusivamente Cumulativo
+Caixa - Consolidado
+Lucro Presumido/Real, Lucro Presumido/Real/Arbitrado, Lucro Presumido, Lucro Presumido/Real/Arbitrado
+F010: por conta dos registros F500/F525
+Exclusivamente Cumulativo
+Competência - Detalhado
+Lucro Presumido/Real, Lucro Presumido/Real/Arbitrado, Lucro Presumido, Lucro Presumido/Real/Arbitrado
+A010, D010 (somente saídas), F010 e F100
+No SisPetro as configurações são feitas nos perfis de sistema:
+Painel Livro Eletrônico
+ > quadro SPED EFD Contribuições (PIS/COFINS)
+Incidência tributária:
+Exclusivamente no Regime Não-Cumulativo
+Exclusivamente no Regime Cumulativo
+Regime Não-Cumulativo e Cumulativo
+Critério de Escrituração e Apuração - usado somente quando Incidência Tributária é Exclusivamente no Regime Cumulativo:
+Não se Aplica: deve ser selecionado quando a empresa não enquadra na incidência tributária Exclusivamente no Regime Cumulativo
+Regime de Caixa - Escrituração Consolidada
+Regime de Competência - Escrituração Consolidada
+Regime de Competência - Escrituração Detalhada
+ 
+Painel Livro Eletrônico ECD/ECF
+ > quadro ECF
+Forma de Tributação de Lucro
+1 - Lucro Real
+2 - Lucro Real/Arbitrado
+3 - Lucro Presumido/Real
+4 - Lucro Presumido/Real/Arbitrado
+5 - Lucro Presumido
+6 - Lucro Arbitrado
+7 - Lucro Presumido/Arbitrado
+8 - Imune do IRPJ
+9 - Isenta do IRPJ
+Em razão das alterações feitas nos registros, as configurações de perfis de sistema devem ser feitas em todas as empresas

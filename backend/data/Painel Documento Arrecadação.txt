@@ -1,0 +1,46 @@
+TITULO: Painel Documento Arrecadação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924282230
+--------------------------------------------------
+Tela implementada para ser utilizada na Geração da DARJ e GNRE. Veja mais informações em 
+Manutenção de Documentos de Arrecadação
+.
+O acesso é realizado através do menu:
+ Ferramentas/ Sistema/ Documentação Arrecadação
+Nesta aba é onde são informados o WebService, e-mail para resposta, Tempo de espera, caminhos dos RTMs de geração do Boleto e DIP.
+ 
+DARJ
+URL Solicitação Recibo: 
+WebService informado pela SEFAZ para o Recibo
+URL Solicitação Protocolo:
+ WebService informado pela SEFAZ para o Protocolo (Nos testes realizados na Futura, o webservice era o mesmo tanto para recibo quanto protocolo, porém é bom entrar em contato com a SEFAZ para valida-los)
+Tempo de Espera Consulta Sessão/Recibo (segundos)
+: É o tempo que o SisPetro esperará por alguma resposta da SEFAZ, caso não retorne nenhuma informação será necessário processar a DARJ novamente.
+E-mail para Resposta: 
+E-mail que, caso seja necessário, a SEFAZ entrará em contato.
+DARJ Boleto:
+ Caminho do arquivo .RTM referente ao Boleto da DARJ
+DARJ DIP:
+ Caminho do arquivo .RTM referente a DIP (Demonstrativo de Item de Pagamento) da DARJ
+% Exigido do Pagamento de ICMS: 
+Percentual informado pelo Governo, utilizado na geração da DARJ.
+Alíq. Imposto a ser considerada: 
+Alíquota informada pelo Governo, utilizada na geração da DARJ. 
+A partir da versão 9.32 não será mais utilizado
+      2. 
+GNRE
+Ambiente:
+ Onde é definido o ambiente do GNRE, podendo escolher entre Produção ou Homologação.
+Quadro Produção
+URL Solicitação Recibo: 
+WebService de produção informado pela SEFAZ para o Recibo.
+URL Solicitação Protocolo: 
+WebService de produção informado pela SEFAZ para o Protocolo
+Quadro Homologação
+URL Solicitação Recibo: 
+WebService de homologação informado pela SEFAZ para o Recibo.
+URL Solicitação Protocolo: 
+WebService de homologação informado pela SEFAZ para o Protocolo.
+Tempo de Espera Consulta Sessão/Recibo (segundos):
+ Tempo de espera para realizar a consulta, por padrão o tempo estipulado é de 30 segundos, podendo ser alterado entre 10 e 200 segundos.
+GNRE Boleto (Caminho e nome do rtm do boleto da GNRE):
+ Caminho do arquivo .RTM referente ao Boleto do GNRE.

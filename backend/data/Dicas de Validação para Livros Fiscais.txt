@@ -1,0 +1,57 @@
+TITULO: Dicas de Validação para Livros Fiscais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210380
+--------------------------------------------------
+Serão apresentadas algumas dicas que auxiliarão quando for necessário fazer manutenção nos Livros Fiscais. O processo de manutenção é através da tela de
+ 
+Manutenção dos Livros Fiscais
+.
+O que pode ser alterado nos Livros Fiscais com a
+ Apuração 
+em andamento e que não é necessário fazer o
+ 
+:
+-
+ 
+Os Dados da Entidade:
+ 
+Razão Social, Município, Código DNC, UF, IE, CGC: quando estiverem incorretos no Livro Fiscal porém, já foram alterados no cadastro da entidade, basta selecionar a nota errada na tela de Manuntenção dos Livros Fiscais, teclar <enter> no código da entidade e os dados serão atualizados no Livro Fiscal.
+-
+ 
+Os Dados da Natureza de Operação:
+ 
+CFOP, Tipo de Documento, ES, Código de Histórico: Esses dados para serem atualizados não basta teclar <enter> na natureza de operação. Nesse caso, deve-se alterar a natureza de operação para uma outra qualquer teclar <enter> e depois voltar e colocar a natureza de operação correta e teclar <enter> novamente, pois assim o sistema trará as atualizações feitas nessa natureza.
+Serie, Subserie, Sai no Sintegra, Discrimina na Apuração (e afins): basta teclar <enter> que o sistema trará os dados da natureza de operação.
+Para todos os lançamentos manuais deve-se informar um produto.
+No Cadastro do Produto (Sispetro Normal) algumas informações devem estar corretas. Portanto, é importante conferir se o Código CST está cadastrado corretamente conforme Manual do Sintegra, o Código ICMS e o IPI.
+Verificar no Cadastro de ICMS (Sispetro Normal) se o código de ICMS informado no cadastro do produto tem taxa cadastrada para a filial e a UF da nota fiscal. É necessário ter uma taxa específica cadastrada para cada filial e UF, pois ter apenas a taxa padrão não é suficiente. Já no caso do IPI basta ter o código cadastrado.
+Para que as Notas de Serviços de Transportes saiam corretamente no Registro 70 do Sintegra as mesmas devem estar devidamente configuradas na Natureza de Operação para Sair no Registro 70 (Conhecimento). Caso não esteja correta, atualize-a (no Sispetro Normal) e depois basta ir em cada livro fiscal manualmente, posicionar no campo Sai no Sintegra e teclar <enter> para o sistema atualizar a informação.
+No caso das Notas de Material de Consumo existem duas possibilidades:
+   1. Configurar a Natureza de Operação para Não Sair no Sintegra e então fazer conforme item acima.
+ 
+   2. Configurar a Natureza de Operação para que saia somente no Registro 50 (notas sem itens)
+A Alíquota de ICMS geralmente é a alíquota informada na Nota Fiscal. Se o Sintegra reclamar que a alíquota está zerada, deve-se alterar manualmente o livro, mas geralmente nestes casos o mesmo só ADVERTE não tendo a necessidade de arrumar.
+Os dados de CFOP e UF não são validados entre si. Ou seja, não há nada que exija que um CFOP iniciado em 1 só seja utilizado dentro do Estado.
+Assim, nos locais onde é preciso totalizar por CFOP, o SisPetro só seleciona dados por CFOP e nem olha em que UF foi.
+Nos locais onde é preciso totalizar valores dentro e fora do estado, o SisPetro só verifica a UF do livro Fiscal em relação a UF da empresa para dizer se é dentro ou fora, não verifica se o CFOP inicia em 1, 2, 5 ou 6.  
+Assim, vejamos o exemplo a seguir:  
+NF 1 100,00 cfop 1156 uf PE
+ NF 2 150,00 cfop 1156 uf PE
+ NF 3 200,00 cfop 1156 uf BA
+  
+ NF 4 300,00 cfop 2156 uf BA
+ NF 5 450,00 cfop 2156 uf RN
+ NF 6 500,00 cfop 2156 uf PE
+  
+ O que teríamos:
+ CFOP 1156 -> 450,00 (Notas 1, 2 e 3)
+ CFOP 2156 -> 1250,00 (Notas 4, 5 e 6)
+  
+ Dentro do Estado -> 750,00 (notas 1, 2 e 6)
+ Fora do Estado -> 950,00 (notas 3, 4 e 5)
+Apesar de não fazer a validação entre CFOP e UF, na Natureza de Operação temos um perfil "
+Operação Interestadual
+"  e no Sistema "
+Verifica Operação Fora do Estado NF X Natureza
+". Assim, quando marcado o perfil da empresa, o SisPetro só deixa utilizar a Natureza em operações fora do estado se tiver marcada a opção Interestadual na Natureza e vice-versa. Dessa forma, se a Natureza de Operação estiver configurada devidamente, não terá como o usuário final criar inconsistências.
+Valor Contábil diferente da soma da base de cálculo, Isentas e Outras e Valor de ICMS de Subst não preenchido:
+Através da Manutenção Livros Fiscais, o usuário pode arrumar o registro manualmente, porém, o ideal é que seja arrumada a fórmula e reprocessada a nota fiscal. No caso do ICMS de Substituição, talvez a natureza de operação não esteja configurada para gerar.

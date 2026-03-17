@@ -1,0 +1,114 @@
+TITULO: Configuração do campo COD_CTA na EFD ICMS IPI e EFD Contribuições
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926186485
+--------------------------------------------------
+Na EFD ICMS IPI e EFD Contribuições, em vários registros são enviados o campo COD_CTA, que é a conta contábil do lançamento. As contas enviadas eram as contas contábeis gerenciais (campo Código da Conta do Plano de Contas gerencial) ou em alguns casos contas contábeis reais (campo Código da Conta Reduzido do Plano de Contas real).
+Tais contas são de uso interno do SisPetro e, portanto, não são enviadas em relatórios contábeis oficiais.
+Para que as contas contábeis informadas nas EFD fiquem iguais às contas enviadas nos relatórios contábeis foram feitas alterações em vários registros:
+EFD
+Registro
+Origem da informação
+COD_CTA
+ICMS IPI
+0300
+SisPetro Controladoria: Cadastro de Bens
+Código estendido do Plano de Contas
+ICMS IPI
+0500
+SisPetro Controladoria: Plano de Contas
+Código estendido do Plano de Contas
+ICMS IPI
+C170
+SisPetro Normal: Cadastro de Natureza de Operação
+Código estendido da conta definida na Natureza de Operação e gravada na tabela ItensNF
+ICMS IPI
+D100 - não transportadora
+SisPetro Normal: Cadastro de Natureza de Operação
+Código estendido da conta definida na Natureza de Operação e gravada na tabela ItensNF
+ICMS IPI
+D100 - transportadora
+SisPetro Normal: perfil de Sistema > aba Contas Contábeis > quadro Contabilização em Conhecimento de Frete
+Código estendido do campo Rec. Transportes
+ICMS IPI
+D500
+SisPetro Normal: Cadastro de Natureza de Operação
+Código estendido da conta definida na Natureza de Operação e gravada na tabela ItensNF
+ICMS IPI
+H010
+SisPetro Normal: Cadastro de Produtos
+Código estendido do campo CC Estoque
+Contribuições
+0500
+SisPetro Controladoria: Plano de Contas
+Código estendido do Plano de Contas
+Contribuições
+A170
+SisPetro Normal: Cadastro de Natureza de Operação
+Código estendido da conta definida na Natureza de Operação e gravada na tabela ItensNF
+Contribuições
+C170
+SisPetro Normal: 
+Cadastro de Natureza de Operação
+Código estendido da conta definida na Natureza de Operação e gravada na tabela ItensNF
+Contribuições
+C501
+SisPetro Normal: tabela Outros Impostos
+Código estendido do campo Conta Contábil
+Contribuições
+C505
+SisPetro Normal: tabela Outros Impostos
+Código estendido do campo Conta Contábil
+Contribuições
+D100
+SisPetro Normal: Cadastro de Natureza de Operação
+Código estendido da conta definida na Natureza de Operação e gravada na tabela ItensNF
+Contribuições
+D101
+SisPetro Normal: tabela Outros Impostos
+Código estendido do campo Conta Contábil
+Contribuições
+D105
+SisPetro Normal: tabela Outros Impostos
+Código estendido do campo Conta Contábil
+Contribuições
+D201
+SisPetro Normal: tabela Outros Impostos
+Código estendido do campo Conta Contábil
+Contribuições
+D205
+SisPetro Normal: tabela Outros Impostos
+Código estendido do campo Conta Contábil
+Contribuições
+D501
+SisPetro Normal: tabela Outros Impostos
+Código estendido do campo Conta Contábil
+Contribuições
+D505
+SisPetro Normal: tabela Outros Impostos
+Código estendido do campo Conta Contábil
+Contribuições
+F100
+SisPetro Normal: Cadastro de Natureza de Operação
+Código estendido da conta definida na Natureza de Operação e gravada na tabela ItensNF
+Contribuições
+F120
+SisPetro Controladoria: Cadastro de Bens
+Código estendido do Plano de Contas
+Contribuições
+M400
+SisPetro Normal: tabela Outros Impostos
+Código estendido do campo Conta Contábil
+Contribuições
+M410
+SisPetro Normal: tabela Outros Impostos
+Código estendido do campo Conta Contábil
+Contribuições
+M800
+SisPetro Normal: tabela Outros Impostos
+Código estendido do campo Conta Contábil
+Contribuições
+M810
+SisPetro Normal: tabela Outros Impostos
+Código estendido do campo Conta Contábil
+As alterações foram feitas somente para gerar a EFD ICMS IPI e EFD Contribuições. Caso seja necessário, alterar os dados nos cadastros e terão efeito somente para as notas emitidas após as alterações..
+ 
+ 

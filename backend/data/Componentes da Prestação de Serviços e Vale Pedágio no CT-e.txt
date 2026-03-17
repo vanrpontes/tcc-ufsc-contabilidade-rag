@@ -1,0 +1,51 @@
+TITULO: Componentes da Prestação de Serviços e Vale Pedágio no CT-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921693313
+--------------------------------------------------
+A partir da versão 8.16, foram implementados no SisPetro os Componentes da Prestação de Serviço e Valor do Pedágio. Apesar do Pedágio poder ser um dos componentes da Prestação, são tratados de formas distintas no layout do CT-e.
+Há uma tag de grupo denominada "Componentes do Valor da Prestação" que permite várias ocorrências de componente (
+Nome
+ e 
+Valor
+). Pela denominação seriam os valores que, somados, formariam o Valor da Prestação do Serviço. No entanto a SEFAZ aceita que não seja informado valor algum ou que a soma dos valores informados seja diferente do Valor da Prestação de Serviço. Temos como exemplos de componentes: Frete Peso, Frete Valor, Seguro, Pedágio, etc. 
+Há outra tag de grupo denominada "Informações de Vale Pedágio", que deve ser preenchida quando a empresa utiliza Vale pedágio. Neste caso as informações necessárias são:
+CNPJ do fornecedor:
+ normalmente a empresa tem um fornecedor de Vale Pedágio, por exemplo a empresa Sem Parar.
+Número do comprovante:
+ ao fornecer o vale pedágio, a empresa fornecedora emite um número de comprovante para cada placa informada.
+CNPJ do pagante:
+ informação solicitada no XML do CT-e somente quando for pago por terceiros. Se for pago por terceiros, seria pela transportadora que for informada no Conhecimento.
+Valor do pedágio na viagem:
+ pode variar conforme trajeto da viagem.
+A partir da versão do CTe 3.0,
+ a tag "Informações de Vale Pedágio" foi excluída
+ pela Sefaz. Portanto, caso a empresa queira enviar no XML deve alterar o tipo de componente para Outros. Ver 
+Tabela Componentes da Prestação de Serviço
+.
+Configurando o SisPetro para uso de componentes e vale pedágio:
+Cadastrar os componentes da prestação de serviços, conforme help 
+Tabela Componentes da Prestação de Serviço
+.
+Se for o caso, informar o campo Valor Pedágio da 
+Tabela de Distâncias
+.
+Se for o caso, informar o campo Número Comprovante Vale Pedágio da 
+Se for o caso, dar permissão ao usuário que emite o CT-e para alterar os componentes na emissão do conhecimento (inclusão, edição e exclusão). Ver help 
+Painel Fretes (Usuários)
+ - opção Pode Informar/Alterar Componentes no Conhecimento de Fretes.
+Utilizando os componentes:
+Uma vez cadastrados os componentes e vinculados às Empresas que emitem CT-e, tais componentes são carregados automaticamente na emissão do Conhecimento. 
+Para que o usuário para incluir, editar ou excluir componentes do Conhecimento é necessário que o mesmo tenha perfil de usuário para tal e também que os componentes estejam com a opção Usuário Pode Alterar devidamente marcado.
+Os valores dos componentes podem ser informados na 
+Tabela Componentes da Prestação de Serviço
+ ou na 
+Tabela de Distâncias
+, dependendo de como foram configurados. Podem também, se usuário tem perfil e os componentes estiverem configurados para permitir alterar, alterar diretamente no conhecimento.
+No DACTE, caso não tenha componentes cadastrados, mostrará os dados do frete.
+No DACTE, caso tenha os componentes cadastrados, os dados do frete NÃO SERÃO APRESENTADOS (mostrará somente no Valor Total do Serviço). Apresentará os componentes. 
+Caso o usuário queira, poderá cadastrar o frete como componente e informar o valor.
+No DACTE, os campos Valor Total da Prestação e Valor a Receber utiliza o valor do frete calculado no Conhecimento. Não é feito qualquer cálculo com os valores dos componentes.
+Para mais informações: 
+Tabela Componentes da Prestação de Serviço
+Tabela de Distâncias
+Painel Fretes (Usuários)
+Abas da Manutenção de Notas Fiscais

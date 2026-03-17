@@ -1,0 +1,99 @@
+TITULO: Adiantamento Quantificado de Fornecedores
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701940
+--------------------------------------------------
+Existe a possibilidade de incluir adiantamento quantificado para fornecedor, o que irá automaticamente gerar a entrada no estoque do depósito referente ao fornecedor, facilitando o processo, pois irá evitar a necessidade de se fazer a entrada manualmente.
+Para utilizar este recurso, primeiramente, é necessário que o controle de adiantamento quantificado esteja habilitado. Para isso deve-se marcar no perfil do sistema, menu 
+Ferramentas / Sistema / painel Financeiro /
+ a opção:
+No cadastro de 
+Fornecedores
+, painel 
+Padrão p/ Compras
+, deve-se definir se irá ou não controlar adiantamento quantificado para cada fornecedor, através do campo 
+Controla Qtde no Adiantamento
+, com as opções:
+Nunca
+ - não controla
+Usuário escolhe
+ - pode informar ou não
+Sempre
+ - é obrigado informar adiantamento quantificado
+Importante:
+ O usuário deve ter permissão para definir o controle do adiantamento no cadastro de fornecedores. Para isso acesse o perfil do usuário, menu 
+Ferramentas / Usuário / painel Compras
+ /
+ opção:
+Na tela de Inclusão de Adiantamento a Fornecedor, menu 
+Movimentações / Financeiro / Contas a Pagar / Manutenção Adiantamentos a Fornecedor
+, será habilitado a opção 
+Adiantamento Quantificado
+, caso o fornecedor esteja definido para permitir este controle.
+Aba "Dados Adicionais"
+Nesta aba são preenchidas informações como:
+Se há ou não contabilização real
+Tipo de documento, veja mais informações em 
+Se o Adiantamento é Restrito
+Se o adiantamento foi feito com cheque, informar o número do cheque e à quem é nominal
+     2. Aba "Utilização Qtde"
+Nesta aba são preenchidas informações sobre o produto...
+Clicar em "Incluir"
+Indicar o Produto
+Indicar o Depósito
+Indicar a Quantidade
+Indicar o Preço
+Indicar a Data de Movimento de Estoque
+Indicar como o SisPetro trabalhará com a quantidade pendente do PMM
+Respeita configuração PMM
+: é a maneira como o SisPetro trabalhava antigamente, ou seja, não há nada de novo.
+Despreza Configuração do PMM
+: esta forma pode ser utilizada por empresas que trabalhem com "Saldo Excedente" e Controlam a quantidade do PMM pela quantidade paga. Veja abaixo mais informações sobre este perfil.
+A partir da versão 8.19 o adiantamento pode trabalhar de duas formas, em relação ao Pedido de movimentação de material.
+Os exemplos são baseados em empresas que trabalhem com Saldo Excedente e controlem seus PMMs pela Quantidade Paga.
+Quando o PMM é controlado pela quantidade paga, só é liberado a quantidade para utilização na Ordem de Carregamento quando é pago, ou seja, quando é feito o Adiantamento Quantificado. Sendo assim veja a diferença entre os perfis:
+Temos no PMM a coluna de "Qtde Alocada", ou seja, quantidade alocada que representa a quantidade disponível ou pendente para o usuário emitir uma Ordem de Carregamento. Como essa quantidade é liberada através do adiantamento quantificado, ao se pagar a Usina ou qualquer outro fornecedor, é liberado o crédito para a utilização. Imaginem o seguinte cenário:
+PMM , tem saldo pendente de 5.000 L., para completar o caminhão foi inserido o Saldo Excedente de 10.000L. A Nota Fiscal foi faturada com 14.573 L. Isso significa que o Adiantamento Quantificado deverá ser na quantidade de 9.573L. Para se pagar o Saldo Excedente foi incluído o Adiantamento para os 9.573L, porém é nesta hora que pode haver confusão. Pois a quantidade alocada será de 9.573 Litros. Assim algum usuário precisa "Desalocar" tal quantidade do PMM.
+Pode haver alguns usuários que se sintam confortáveis em trabalhar desta forma, porém há outros que não. Por isso foi criado a opção de não acrescentar a Quantidade Pendente no PMM. Deve ser usada no final do contrato quando se tem o Saldo Excedente. No cenário acima, se fosse escolhida tal opção o usuário não precisaria desalocar o PMM, pois não haveria saldo disponível.
+Podemos concluir que a grande diferença entre os dois perfis é:
+Nome do Perfil
+Forma de Trabalho
+Como sistema se comporta
+Quando usar
+Respeita Configuração do PMM
+Forma Normal como o Sispetro trabalha
+Ao se adicionar um Adiantamento Quantificado, a Quantidade Alocada do PMM é aumentada
+Pode ser usada para controlar do início ao fim o PMM
+Despreza Configuração do PMM
+Nova, possível, forma de se trabalhar
+Ao se adicionar um Adiantamento Quantificado, a Quantidade Alocada 
+não
+ é alterada
+Pode ser usada para poupar trabalho de desalocar os PMM e prevenir possível utilização errada de quantidade
+A Data Movto Estoque somente poderá ser alterada se o usuário tiver permissão, menu
+ 
+Ferramentas / Usuário / painel Compras /
+ opção:
+Na inclusão de um Adiantamento a Fornecedor, onde a unidade de medida seja diferente da padrão do produto (para casos de combustíveis, litros), será utilizanda a quantidade indicada no adiantamento dividido pelo Fator Conversão Unidade do item do PMM para a movimentação do Depósito Origem.
+    3. Adiantamentos vinculados a PMM
+Também poderá ser incluído o adiantamento vinculando-o a um 
+Pedido de Movimentação de Material
+ (PMM), simplificando ainda o preenchimento do controle de adiantamento quantificado, pois o mesmo será preenchido automaticamente de acordo com os dados do PMM, devendo apenas informar a quantidade.
+Para vincular o adiantamento ao PMM, o sistema deve estar configurado para controlar o PMM. Para isto, deve-se marcar no menu 
+Ferramentas / Sistema / Compras
+ 
+a opção 
+Controla Pedido de Movimentação de Material 
+e na tela de inclusão de Adiantamento marcar a opção
+ "Informa PMM?"
+Quando é marcado a opção 
+"Informa PMM?" 
+Será apresentado a tela de pesquisa onde aparecerá os PMMs que poderão ser vinculados a este adiantamento
+É possível emitir um adiantamento para a quantidade integral ou parcial do pedido, possibilitando a inclusão de diversos adiantamento para o mesmo PMM.
+Adiantamento x Nota Fiscal
+ A nota fiscal da usina terá que ter o valor unitário compatível com o valor do adiantamento. mesmo que o PMM seja diferente.
+Não poderão ser feitas transferências para os adiantamentos que estejam vinculados a PMM.
+Nesse caso de adiantamento quantificado de fornecedores, todos os depósitos estarão disponíveis para seleção, diferentemente de quando o adiantamento é de clientes, onde somente depositos que permitem venda poderão ser selecionados.
+É possível informar casas decimais na quantidade dos produtos, para isso vide configuração no tópico 
+.
+No grid irá mostrar o código do produto, a descrição do mesmo, a quantidade original do adiantamento, preço, o saldo ainda restante desse adiantamento (caso já tenha sido utilizado uma parte) e o valor total.
+Ao finalizar a inclusão do adiantamento quantificado para o fornecedor, será gerado uma entrada no estoque de acordo com os dados informados.
+Na manutenção de adiantamentos a fornecedores, os adiantamentos com PMM serão visualizados na cor roxa.

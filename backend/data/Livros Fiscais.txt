@@ -1,0 +1,153 @@
+TITULO: Livros Fiscais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210276
+--------------------------------------------------
+Objetivo
+A Manutenção de Livros Fiscais abrange registros vindos da geração automática das Notas Fiscais oriundas do SisPetro Local como os registros incluídos manualmente nesta tela. A tela pode ser acionada através do SisPetro Controladoria, menu
+ 
+Movimentação / Manutenção Livros Fiscais
+.
+É possível indicar o período para visualização dos dados (o SisPetro sugere o mês anterior). A data ser utilizada para filtrar o período indicado dependerá da
+ 
+configuração de data a ser utilizada na Apuração
+. É possível escolher também uma filial específica (o sistema sugere a filial na qual você está conectado).
+Através do botão 
+mais
+ é possível ver quais as cores utilizadas nesta tela e seu significado. A coluna 
+Apurado
+ indica que este lançamento já faz parte de uma apuração fiscal.
+Para incluir notas cadastradas no Sispetro utilize a opção do menu Ferramentas -
+ 
+Reprocessamento de NF para Livros Fiscais
+, Para incluir um lançamento manual, sem vínculo com alguma Nota Fiscal já cadastrada no Sispetro, acione o botão de inserção de registro, ou tecle <INS> estando posicionado no painel de Navegação.
+O SisPetro exibe a tela para o cadastramento de um novo lançamento para o Livro Fiscal.
+Informe os dados necessários, a
+ 
+Entidade
+ 
+e o
+ 
+Produto
+ 
+devem ser/estar cadastrados. Os dados de
+ 
+CFOP
+,
+ 
+Série
+,
+ 
+Entrada/Saída
+ 
+e
+ 
+Histórico
+ 
+são cadastrados de acordo a
+ 
+Natureza de Operação
+ 
+escolhida. Os dados de
+ 
+Inscrição Estadual
+,
+ 
+CNPJ
+,
+ 
+UF
+,
+ 
+Município
+ 
+e
+ 
+Razão Social
+ 
+são cadastrados de acordo com a
+ 
+Entidade
+ 
+escolhida. Os dados
+ 
+Discrimina na Apuração?
+,
+ 
+Tipo de Apuração
+ 
+e
+ 
+Cód. Histórico na Apuração
+ 
+são sugeridos conforme estiver cadastrado na Natureza de Operação, podendo ser alterados.
+Discrimina na Apuração?
+ 
+Indica se este registro de livro deverá ser discriminado na apuração fiscal nos itens de Outros Créditos / Outros Débitos. Tal opção fará com que o valor de ICMS deste livro não seja acumulado nos valores de entradas ou saídas (como é exigido para as notas de entrada de Material de Uso e Consumo atualmente em alguns estados). Caso se marque esta opção deve-se então informar em que
+ 
+tipo de apuração
+ 
+deve ser discriminado (atente-se para escolher devidamente apurações de crédito para livros de entrada e apurações de débito para livros de saída). Informe também com que
+ 
+histórico
+ 
+deverá ser exibido na apuração fiscal.
+Marque a opção
+ 
+Repete Valores
+ 
+quando desejar que dados sejam repetidos numa nova inclusão, são eles:
+ 
+Natureza de Operação
+,
+ 
+Entidade
+,
+ 
+Número do Documento
+,
+ 
+Produto
+ 
+e
+ 
+Data de Emissão
+, facilitando assim a digitação.
+Acione o botão OK para atualizar os dados no Sistema. Será verificado se há duplicidade de lançamento, pelo número do documento, CNPJ (ou CPF) da entidade e item. Caso haja será informado o número do lançamento e questionado se deseja incluir mesmo assim.
+O SisPetro retorna a tela de navegação.
+Quando os lançamentos do Livro Fiscal não são manuais ou se são manuais porque foram gerados por fórmulas adicionais, no painel "Informações Adicionais NF" é possível visualizar mais dados da Nota Fiscal que originou este lançamento, como mostra a tela a seguir:
+No caso dos botões 
+ e 
+ estarem habilitados é porque a nota selecionada possui mais de um item. Utilize-os para navegar entre os demais itens. Só serão apresentados os itens da Nota Fiscal que estejam configurados para
+ 
+Gerar Livro Fiscal.
+ 
+Normalmente, como essa configuração é na natureza de Operação, se uma nota Gera Livro Fiscal todos os seus itens a acompanha e vice-versa. Porém, em notas importadas podemos ter um item que Gere Livro Fiscal e outro que não. Para maiores esclarecimentos veja o tópico
+ 
+Itens de Nota com Natureza de Operação diferentes
+ 
+no help do SisPetro Normal.
+É possível cancelar ou excluir lançamentos manuais, os demais só serão cancelados ou excluídos quando as suas notas fiscais assim o forem ou se o usuário tiver permissão para cancelar/excluir diretamente no Livro Fiscal. Para dar essa permissão ao usuário, deve-se acessar o Sispetro Normal, Menu Ferramentas/Usuário/Perfil/painel Segurança, e marcar a opção:
+É permitido fazer o cancelamento do lançamento bem como a sua exclusão. Acione o botão
+Caso o lançamento já esteja cancelado, é questionado se deseja excluí-lo. Caso contrário, é solicitada uma confirmação de cancelamento/exclusão e em seguida questiona-se se só é para cancelá-lo, caso responda Não, o lançamento será então excluído e não será apresentado no livro fiscal.
+Importante:
+ 
+Os lançamentos cancelados são apresentados na tela na cor
+ 
+vermelha
+ 
+e apesar do valores não serem zerados na Manutenção dos Livros Fiscais, na Apuração e nos Relatórios esses valores são desconsiderados.
+Apesar de não poder ser alterada, no painel Navegação é possivel visualizar a
+ 
+data de referência
+ 
+de cada livro. Esta data é controlada automaticamente pelo sistema conforme
+ 
+configuração da data de referência do livro fiscal
+ 
+para uso na
+ 
+apuração
+.
+A alteração dos dados dos Livros Fiscais é feita nessa tela de Manutenção, porém para isso vide maiores explicações no tópico
+ 
+Dicas de Validação para Livros Fiscais
+.

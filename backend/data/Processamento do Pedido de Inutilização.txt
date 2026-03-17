@@ -1,0 +1,41 @@
+TITULO: Processamento do Pedido de Inutilização
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879390032
+--------------------------------------------------
+O processamento do pedido de inutilização da NF-e pode ser acionada de duas formas:
+
+
+
+
+Após a 
+inclusão do pedido de inutilização
+;
+
+
+Através do botão 
+Reprocessa
+, da tela de 
+Manutenção de Inutilização
+.
+
+
+
+
+Para que o processamento seja executado, o Servidor Sispetro deve estar ativo e a flag 
+Trabalha off-line (sem conexão a Internet)
+ esteja marcada na 
+.
+
+
+Ao solicitar o processamento, será apresentada a seguinte tela:
+
+
+
+
+Após processar o pedido no Servidor Sispetro (envio do pedido para webservice da Sefaz e retorna da resposta), a seguinte tela é apresentada:
+
+
+
+
+Se a resposta retornar OK (Status Resposta = 102), o status do pedido passará a ser PROCESSADO.
+
+Caso a resposta não retorne OK, o status do pedido continuará a ser PENDENTE.

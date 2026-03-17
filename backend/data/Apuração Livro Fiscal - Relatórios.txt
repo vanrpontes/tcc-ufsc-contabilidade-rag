@@ -1,0 +1,56 @@
+TITULO: Apuração Livro Fiscal - Relatórios
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210307
+--------------------------------------------------
+O Livro de Apuração Fiscal pode ser emitido acessando o Sispetro Controladoria a partir do menu
+ 
+Relatório / Apuração Livros Fiscais.
+Informe o período desejado nos campos 
+Apuração Inicial
+ e 
+Apuração Final
+, localizados no quadro 
+Dados da Apuração
+. Sendo a mesma apuração, informe o mesmo código nos dois campos citados.
+Nesta tela é possível informar um intervalo maior de apurações, informando nos campos de Apuração Inicial e Apuração Final.
+Informe também o número da página inicial, já que os livros têm uma seqüência de páginas.
+É de extrema importância marcar os perfis 
+Imprime Apuração ICMS Próprio 
+e/ ou 
+Imprime Apuração ICMS Substituição
+ para imprimir as apurações detalhadas de cada ICMS.
+Lembrando que ao optar por imprimir a Apuração ICMS Substituição o Sispetro identificará se a empresa possui IE Substituição configurada para o estado em questão, e informará automaticamente na impressão da apuração. Caso a empresa não possua cadastro para o estado, a impressão sairá em branco.
+Caso queira imprimir somente os termos, basta não marcar os perfis citados acima. 
+Os dados que serão impressos dependerão da configuração de data a ser utilizada na Apuração.
+Para emitir os termos de abertura e encerramento, deve-se marcar a opção 
+Imprime Termo
+, e informar o 
+Termo de Abertura
+ e o 
+Termo de Encerramento
+. Além disso, informar o 
+Intervalo de Páginas
+ que serão abrangidas por estes termos.
+Para mais informações sobre configuração de termos, veja a 
+.
+Ao marcar a opção 
+Imprime numeração do Livro?
+ e informado o 
+Número do Livro
+ será permitida a impressão do mesmo no relatório de apuração.
+Caso a apuração não tenha dados, será impressa com seus valores zerados.
+O relatório apresenta também valores na apuração agrupados por alíquota. Para que o relatório seja apresentado ou não por agrupamento de alíquota, deve ser configurado no perfil de sistema 
+Sispetro Normal / Ferramentas / Sistema / painel Fiscal,
+ 
+a seguinte opção 
+Apresenta valores por alíquota no Relatório de Apuração
+Se este perfil tiver marcado, será apresentado a alíquota na página do Registro da Apuração do ICMS, nas entradas e saídas, no agrupamento do CFOP.
+O layout do livro será gerado conforme o arquivo
+ 
+apuracao.rtm
+ 
+que estiver no caminho do executável, sua existência é
+ 
+imprescindível
+. Para alterar o layout utilize o botão
+*O usuário deve ter atenção para as atualizações do arquivo .rtm a cada atualização do Sistema, pois o mesmo deve sobrepor o .rtm existente para que as alterações feitas sejam consideradas, caso contrário, corre-se o risco de não obter resultados satisfatórios. Portanto, para as alterações feitas pelo usuário, após atualização do rtm disponibilizado pela Futura, será necessário reeditar o layout do rtm e refazer as alterações.*
+Clique no botão "OK" para confirmar e o relatório será apresentado em tela. Para imprimí-lo clique no botão

@@ -1,0 +1,159 @@
+TITULO: Manutenção de Documentos de Transporte
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5080711169
+--------------------------------------------------
+Para otimizar o processo, principalmente no contexto de armazenadoras, é possível incluir documentos, inclusive via o SisPetro App. Dessa forma, as congêneres, motoristas ou clientes poderão enviar os documentos (arquivos) diretamente pelo aplicativo, e o pessoal da base terá a responsabilidade de aprovar ou rejeitar esses documentos de transporte conforme necessário. A implementação dessa funcionalidade visa criar uma manutenção de 
+Documentos de Transportes para Aprovação
+, garantindo maior flexibilidade e agilidade no processo de gestão e controle de documentos.
+Objetivo:
+Permitir o vínculo de arquivos de Frotas e Transportadoras via SisPetro App
+: através dessa funcionalidade, as congêneres (ou outros usuários externos) poderão enviar documentos diretamente pelo SisPetro App. Isso facilita o processo de inclusão de documentos sem a necessidade de acesso ao SisPetro Normal.
+Manutenção de Documentos de Transportes para aprovação: 
+após o envio dos documentos, eles serão armazenados em uma subpasta específica (PARA_APROVACAO) e aguardam a aprovação por parte dos usuários da base. O processo de aprovação ou rejeição será realizado dentro de uma tela de manutenção específica para documentos de transporte, onde os usuários autorizados poderão visualizar e decidir sobre os documentos enviados.
+Cenário de Uso:
+Envio de Documentos via SisPetro App:
+Um usuário externo, como um motorista ou um representante de uma armazenadora, acessa o SisPetro App e escolhe a opção para enviar um documento de transporte.
+Ele seleciona o tipo de documento (frota ou transportadora), preenche as informações necessárias (data de vencimento, observações, etc.), anexa os arquivos pertinentes e submete o documento para aprovação.
+Aprovação/Rejeição de Documentos na Base:
+O pessoal da base, com as permissões adequadas, acessa a tela de 
+Manutenção de Documentos de Transportes
+ dentro do SisPetro Normal.
+Eles visualizam os documentos enviados, incluindo o tipo de documento, a frota ou transportadora associada, e os arquivos anexados.
+O usuário autorizado pode escolher aprovar ou rejeitar o documento. Caso o documento seja aprovado, ele é vinculado à frota ou transportadora, e a data de vencimento (se aplicável) é registrada conforme a configuração do tipo de documento.
+Se rejeitado, o documento é transferido para uma subpasta de rejeição, e o responsável pela aprovação pode registrar o motivo da rejeição.
+Manutenção de Documentos:
+Na tela de manutenção de documentos de transporte, os usuários podem realizar as seguintes ações:
+Incluir
+ novos documentos para aprovação
+Alterar
+ documentos que estão aguardando aprovação, se necessário (sem alterar frota ou transportadora)
+Excluir
+ documentos que estão na fase de aprovação, se a exclusão for necessária
+Analisar
+ documentos pendentes de aprovação e realizar a ação de aprovação ou rejeição conforme o status
+Controle de Vencimento (se aplicável):
+Se o tipo de documento tiver um controle de vencimento vinculado, a data de vencimento será atualizada automaticamente ao aprovar o documento, garantindo que o controle de validade da frota ou transportadora esteja sempre atualizado.
+Benefícios Esperados:
+Agilidade no processo de envio e aprovação de documentos
+: o uso do SisPetro App para envio de documentos permite que as congêneres, motoristas e clientes realizem o envio diretamente de qualquer lugar, sem a necessidade de acessar o SisPetro Normal.
+Maior controle e rastreabilidade
+: a manutenção centralizada de documentos, com a possibilidade de aprovação ou rejeição, permite um controle mais rigoroso sobre os documentos válidos e a conformidade dos processos.
+Redução de erros e omissões
+: com a automação do processo e a validação dos documentos antes de sua aprovação, o risco de erros na inclusão de documentos importantes é minimizado.
+Esse cenário permite uma integração eficiente entre as operações de campo (através do aplicativo) e a administração da base, garantindo maior fluidez no gerenciamento de documentos de transportes.
+Configurações:
+Para configurar a funcionalidade de documentos de transportes e frotas:
+Na configuração de usuários:
+Acesse Menu Ferramentas / Usuário / Perfil / 
+Painel Fretes (Usuários)
+/ grupo Diversos
+Adicione o seguinte perfil:
+Analisa Documentos de Frotas e Transportadoras:
+No menu Tabelas Auxiliares / Transportes / Tipo de Documentos de Transportes:
+Adicionar Tipo de Documentos de Transportes, 
+Informando Descrição e o Controle de Vencimento p/Atualização 
+Na Tabela de Frotas (aba Documentos):
+Para visualizar os documentos cadastrados no frota acesse a aba 
+Documentos
+ na Tabela de Frotas em Tabelas Auxiliares / Transportes 
+Na Tabela de Transportadoras (aba Documentos):
+Para visualizar os documentos cadastrados na Transportadora acesse a aba 
+Documentos
+ na Tabela de Transportadoras em Tabelas Auxiliares / Transportes 
+Inclusão de Documentos via Sispetro App
+Usuários (motoristas, clientes ou congêneres) acessam o Sispetro App.
+Escolha o 
+Tipo de Documento
+:
+Frota.
+Transportadora/Motorista.
+Anexe vários arquivos ao documento.
+O documento será submetido automaticamente para a tela de 
+Manutenção
+ para análise.
+ Análise e Aprovação de Documentos
+Na tela de 
+Manutenção
+, revise os documentos submetidos.
+Para cada documento:
+Aprovar
+: O documento será vinculado ao Frota ou Transportadora/Motorista indicado. Se o tipo de documento tiver um Controle de Vencimento vinculado, a validade será automaticamente atualizada com base na 
+Data de Vencimento do Documento
+.
+Rejeitar
+: O documento não será vinculado.
+Tela Manutenção de Documentos de Transporte 
+Na tela de Manutenção de Documentos de Transporte será possível realizar a inclusão de documentos de transportadora ou frota, disponível em Movimentação/ Transportes / 
+Documentos de Transporte
+Botão Inclui (Inclusão de Documentos):
+Na tela de inclusão de documentos, o usuário deverá informar os seguintes dados:
+Frota ou Transportadora
+: escolher um dos dois
+Tipo do Documento
+: escolher conforme a tabela configurada
+Data de Vencimento
+: obrigatório somente se o Tipo de Documento tiver Controle de Vencimento vinculado
+Observações
+: campo livre
+#Docto
+: caso haja numeração para o documento
+Exigir 
+Tipo do Documento
+, um item (ao menos) e 
+Frota ou Transportadora
+.
+A 
+Data de Vencimento
+ só será exigida se o Tipo de Documento tiver controle de vencimento vinculado.
+Ao salvar o documento, ele será registrado com status  
+PARA_APROVACAO
+.
+Os arquivos serão salvos na pasta configurada para Frota ou Transportadora, dentro da subpasta fixa 
+PARA_APROVACAO
+.
+Botão Altera (Alteração de Documentos):
+Permitido apenas para documentos com status 
+PARA_APROVACAO
+.
+A tela será idêntica à de inclusão, mas não será possível alterar a Frota ou Transportadora. Se necessário, o documento deverá ser excluído e incluído novamente.
+Botão Analisa (Análise de Documentos):
+Apresenta uma tela com um combo de status com as opções:
+Aprova
+Rejeita
+: se rejeitado, será necessário informar o motivo da rejeição
+Se aprovado:
+O documento será vinculado à Frota ou Transportadora indicada
+Se o Tipo de Documento tiver Controle de Vencimento vinculado, o vencimento será atualizado conforme a data de vencimento do documento
+O arquivo será transferido da subpasta 
+PARA_APROVACAO
+ para a pasta correspondente à Frota ou Transportadora
+Se rejeitado:
+O arquivo será transferido para a subpasta 
+REJEITADO
+Botão Exclui (Exclusão de Documentos):
+Permitido somente para documentos com status 
+PARA_APROVACAO
+Excluir o documento requer confirmação por parte do usuário
+Requisitos e Permissões:
+Os botões 
+Inclui
+, 
+Altera
+ e 
+Exclui
+ estarão habilitados apenas para usuários com o perfil de Inclui Documentos de Frotas e Transportadoras para Análise.
+O botão 
+Analisa
+ estará disponível conforme o perfil de usuário Analisa Documentos de Frotas e Transportadoras.
+Filtros e Período de Consulta:
+Período
+: o SisPetro sugerirá automaticamente os últimos 7 dias até a data atual.
+Status
+: ao consultar documentos, será possível filtrar pelo status:
+Para Aprovação
+Aprovado
+Rejeitado
+Todos
+Esse roteiro oferece as configurações necessárias para implementar a funcionalidade de documentos de transportes e frotas, incluindo as permissões e os fluxos de aprovação, alteração e rejeição dos documentos.
+Na validação do Fechamento de Carga, o SisPetro não faz o controle de vencimento para depósitos específicos. Para mais informações, ver 
+Tabela Controle de Vencimentos
+ 

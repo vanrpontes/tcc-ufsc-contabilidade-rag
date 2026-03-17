@@ -1,0 +1,99 @@
+TITULO: Baixa Multi-Empresa do Contas a Pagar
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924293380
+--------------------------------------------------
+A tela de Baixa multi-empresa Contas a Pagar, foi criada com a finalidade de permitir que o usuário tenha a possibilidade de efetuar a baixa de diversos títulos da mesma entidade para empresas diferentes de uma única vez. 
+A tela é acessada através do Menu
+ 
+Movimentação / Financeiro / Contas a Pagar / Baixa multi-empresa do Contas a Pagar.
+Na tela de
+ 
+Configuração de Sistema, aba Financeiro f
+oi adicionado o perfil de sistema 
+Baixa Multi-Empresa
+ onde é definido qual a ordenação padrão e o Tipo de Documento. Veja mais informações em
+ 
+Painel Financeiro
+ 
+ 
+Entidade: 
+Onde é
+ informado o 
+fornecedor.
+ 
+Período de Vencimento dos Títulos: 
+É informado o período inicial e final dos vencimentos, caso não seja indicado uma data inicial será buscado todos os títulos pendentes ate a data final, caso não seja indicado a data final será apresentado todos os títulos independente da data.
+Ordenação dos Títulos: 
+Onde é definido a ordem dos títulos á ser apresentada na tela, o campo só fica disponível para alteração quando o perfil de usuário 
+Pode alterar ordenação na tela de Baixa
+ esteja marcado. 
+ 
+Pagamento Eletrônico:
+ 
+Apresenta todos títulos:
+ Independente do título estar ou não configurado para ter pagamento eletrônico será apresentado
+Somente Pagamento Eletrônico: 
+Serão apresentados apenas os títulos que estiverem configurados para ter pagamento eletrônico
+Exceto Pagamento Eletrônico:
+ Serão apresentados os títulos que não estiverem configurados como pagamento eletrônico
+Selecionando os Títulos para serem baixados
+É possível escolher quais títulos serão baixados, para isso basta clicar na primeira coluna os títulos selecionados ficarão amarelos (caso não haja saldo) ou com o fundo branco (caso haja saldo), os títulos que não forem selecionados ficarão com o fundo cinza.
+Ainda tem o botão "Marca/ Desmarca Todos" que serve para marcar todos os títulos (assim todos serão baixados) ou desmarca todos (nenhum título será baixado)
+Botões
+Recalcula:
+ Caso seja alterado o "Valor Total da Baixa" e o usuário queira que seja atualizado os títulos que serão baixados é preciso clicar neste botão
+Pagamento Eletrônico:
+ Caso os títulos sejam passíveis de inclusão de pagamento eletrônico, basta clicar neste botão que será aberta a tela de inclusão. Para maiores informações sobre pagamento eletrônico, veja o help 
+Inclusão de Movimento - Pagamento Eletrônico
+Altera Lançamento:
+ Caso seja preciso alterar alguma informação do título é preciso seleciona-lo e clicar no neste botão, será aberta a tela de alteração de título. As informações que podem ser alteradas são: data vencto atual, número pedido ou da nota fiscal e até mesmo o histórico.
+Aba "Dados Principais para Baixa"
+Conta: 
+a ser movimentada
+Data Movimento: 
+Data que será considerara que o título foi pago.
+Data Fluxo: 
+Data que será considerada que o banco liberou o dinheiro do pagamento referente.
+Tipo Documento: 
+Código do
+ 
+Tipo de Documento
+#Docto: 
+Número do documento que identifique a baixa
+Valor Total da Baixa: 
+Valor total dos títulos a serem baixados. veja os dois exemplos abaixo
+Imprime Recibo de Baixa: 
+Caso deseje imprimir o Recibo da Baixa marque esta opção e informe o Local da impressão
+Aba "Históricos"
+Assim como na baixa manual (
+Baixa pela Manutenção do Contas a Receber
+) na Baixa Multi-Empresa também há as opções referentes ao Histórico da baixa.
+Conforme a configuração do sistema, o código do histórico já será sugerido e consequentemente as informações adicionais, porém, isso não impede que o usuário possa trocar o campo "Código do histórico, os campos "Histórico" e "Informações Adicionais", ou alterá-los. Uma vez que o histórico a ser utilizado permita a utilização de fórmula, o usuário poderá modificar as fórmulas tanto do histórico quanto das informações adicionais. Maiores informações no tópico Tabela Histórico Padrão.
+Efetuando a Baixa
+Para efetuar a baixa é preciso:
+Informar o 
+Valor Total da Baixa
+Informar a
+ Conta
+ a ser movimentada
+Informar o 
+Tipo Documento
+Informar a 
+Data Movimento
+ e 
+Data Fluxo
+Informar o 
+#Docto
+ (caso seja preciso)
+Se desejar que seja impresso o Recibo da Baixa, marcar a opção 
+Imprime Recibo de Baixa e 
+informar a impressora.
+Feito isso é preciso prestar atenção na ordenação dos títulos, pois o SisPetro seguirá esta ordem para efetuar as baixas. Os lotes de baixas são de 15 em 15 títulos.
+ 
+Ao clicar no botão 
+ o sistema abre a tela de Resumo das Baixa.
+ A tela de 
+Resumo das Baixa
+ faz a baixa agrupando os títulos por empresa, com um limitador de 15 títulos por baixa.
+ 
+Adicionando colunas ao Grid
+A partir da versão 9.18 foram adicionados mais opções de visualização do grid, para adicionar um campo novo, basta clicar na coluna superior da esqueda no Grid, será aberto uma lista com os campos disponiveis onde o usuário deve selecionar os campos que deseja adicionar ao Grid.

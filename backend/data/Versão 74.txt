@@ -1,0 +1,311 @@
+TITULO: Versão 7.4
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2889383995
+--------------------------------------------------
+Versão 7.4
+
+
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 29/10/2009 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 26/11/2009 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd74.sql (cmd2236 a cmd2241) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 21 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 9 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 12 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+SispetroBanco001.dll 
+
+
+
+
+
+
+ 
+
+
+CliFianca.rtm 
+
+
+
+
+
+
+ 
+
+
+CliHipoteca.rtm 
+
+
+
+
+
+
+ATENÇÃO: Atualizamos todas as nossas ferramentas de desenvolvimento para as suas versões mais atuais. Isso trará benefícios para todos, pois poderemos proporcionar novas funcionalidades ao Sispetro de maneira mais fácil, ágil e com maior segurança. 
+ 
+
+
+Contabilidade
+
+
+
+
+Alteração de Conta Gerencial restrita a Usuário
+
+Ao alterar uma conta gerencial restrita a usuário, dependendo da configuração do sistema para exibição de contas restritas, apresentava um erro de sintaxe, o que foi corrigido. 
+GSN (CCF 7705)
+
+
+Tela de Edição da Previsão Orçamentária
+
+Foi detectado um problema na tela de seleção de dados da tela de Edição da Previsão Orçamentária que estava impedindo o uso da mesma. Esse problema foi corrigido nesta versão. 
+UPA (CCF 7716)
+
+
+Ordem de campos
+
+Ajustada a ordenação de campos na tela de inclusão de itens de um lote na tela de Digitação por Lote do SisPetro Controladoria.
+GSN (CCF 7673)
+
+
+
+
+Estoque
+
+
+
+
+Ordem de Carregamento de Pedido de Vendas
+
+
+As ordens de carregamento que foram solicitadas através da tela de Pedidos Aprovados e Não Faturados não poderão mais ter seu número de pedido alterado. Os itens da OC serão apresentados no momento que a janela estiver visível ao usuário, não dependendo dele passar pelo número do pedido. UPA (CCF 7549)
+
+
+Depósito Inativo na Confirmação de Pedido de Bombeio
+
+Não será permitido um depósito inativo na Confirmação de Pedido de Bombeio. Anteriormente a tela de pesquisa não permitia, mas digitando o código do depósito se conseguia utilizar. 
+GSN (CCF 7565)
+
+
+
+
+Faturamento
+
+
+
+
+Campo Consumidor Final na Consulta de Pedidos Aprovados e Não Faturados
+
+Foi corrigido para impedir a interação do usuário no campo "Consumidor Final" na tela de Consulta de Pedidos Aprovados e Não Faturados.
+GSN (CCF 7573)
+
+
+PIS e COFINS
+
+
+Disponibilizado campo para indicação do CST do PIS e COFINS na Natureza de Operação. Ajustada a montagem do arquivo .XML da NFe para que considere essa configuração e os valores de Outros Impostos correspondentes. Para uso dos valores de alíquota no SPED ou DANFE foi disponibilizada a função PegaValorOutrosImpostosAliquota no Gerenciador de Relatórios e no banco de dados. GSN (CCF 7439,7244)
+
+
+Tipo de Formulário de Segurança na NFe
+
+
+Disponibilizada uma opção na Configuração de Sistema para indicar o tipo de Formulário de Segurança utilizado quando as notas fiscais forem processadas em off-line. É possível optar pelo Formulário de Segurança (antigo) ou Formulário de Segurança DA (utilizado atualmente). Essa informação estará presente no arquivo .xml da NFe. GSN (CCF 7717)
+
+
+Campo Tipo na Manutenção de NF´s
+
+O campo Tipo, na Manutenção de Notas Fiscais, estava sendo apresentado como E/S, o que foi corrigido. Para surtir efeito é necessário apagar o arquivo de configuração de usuário. 
+GSN (CCF 7724)
+
+
+
+
+Financeiro
+
+
+
+
+Conciliação Automática do Banco do Brasil - valores bloqueados
+
+
+Os lançamentos bloqueados vindos no arquivo de extrato, que não interferiam no saldo nem como devedor nem como credor, não serão apresentados para conciliação bancária automática do Banco do Brasil. 
+Necessário atualizar o arquivo de Importação (SispetroBanco001.dll) na Tabela de Bancos. 
+ GSN (CCF 6912)
+
+
+Conciliação Automática - Apresentação de Vínculos
+
+Na tela de conciliação automática, ao selecionar vários lançamentos para consultar o vínculo, estava apresentando um erro que foi corrigido. 
+GSN (CCF 7665)
+
+
+Cobrança do Banco do Brasil
+
+Com a implantação do CNAB400 para o Banco do Brasil, para os clientes que utilizam o processo de transformação na cobrança do CNAB240, o arquivo não estava sendo gerado corretamente, sendo rejeitado pelo banco. Esse problema foi corrigido. 
+UPA (CCF 7600)
+
+
+
+
+Fiscal
+
+
+
+
+Manutenção de Apuração do Livro Fiscal
+
+Ao acessar a tela de manutenção de apuração do livro fiscal, caso nenhuma apuração fosse selecionada e o usuário tentasse navegar entre as abas dessa tela, era gerado um erro de execução ao usuário. Esse problema foi corrigido. 
+UPA (CCF 7766)
+
+
+
+
+Geral
+
+
+
+
+Valores numéricos
+
+
+As inúmeras telas do SisPetro que possuem algum valor numérico foram reformuladas de forma a utilizar o número de casas decimais conforme cada necessidade específica. No caso de valores monetários estes serão sempre apresentados com duas casas decimais. 
+Esse trabalho permitirá que as configurações de valores numéricos no SisPetro funcionem independente da configuração do Windows, proporcionando maior segurança e facilidade de uso.
+(CCF 6946)
+
+
+Tamanho dos Campos de Histórico
+
+Algumas telas com o campo histórico foram ajustadas quanto à apresentação e gravação do seu conteúdo. 
+UPA (CCF 7605)
+
+
+Atualização das funcionalidades do Gerenciador de Relatórios
+
+
+Foi feita uma atualização das funcionalidades do Gerenciador de Relatórios. 
+Uma delas é a possibilidade de escolher uma data para filtro num calendário, evitando erros de digitação. 
+Importante: Relatórios que forem salvos na nova versão, ao serem abertos numa versão antiga serão apresentados alguns erros. Na maior parte das vezes basta optar por "Ignorar Tudo" que o relatório será apresentado. Lembrando que não recomendamos o uso de versões anteriores após atualização da versão sem a devida orientação de nosso Suporte Técnico.
+ GSN (CCF 5808)
+
+
+
+
+Vendas
+
+
+
+
+Consulta de Pedidos
+
+Se na tela de consulta de pedidos, mesmo sem pedido algum sendo listado o usuário clicasse em cancelar, aprovar, visualizar, etc, a ação selecionada era tomada como se o número do pedido selecionado fosse zero. Essa situação foi corrigida, e a ação só será tomada se existir algum pedido selecionado. 
+UPA (CCF 7559)
+
+
+Otimização do cancelamento de Pedidos
+
+
+Alterados procedimentos internos do cancelamento de pedidos para agilizar o processo. GSN (CCF 7558)
+
+
+Layout de Tela - Manutenção de Pedidos Sispetro Remoto
+
+Devido alterações na tela de Manutenção de Pedidos do SisPetro Remoto pode ser apresentado um erro na primeira vez que abrir essa tela na próxima versão. Nesse caso, 
+clique em "Layout Padrão" que o erro não será mais apresentado.
+ 
+GSN (CCF 5808)
+
+
+Dados de Fiança e Hipoteca Clientes
+
+
+Disponibilizados campos de Fiança e Hipoteca no Cadastro de Clientes. Esses campos têm caráter somente informativo, só podem ser alterados por usuários que possam alterar o Limite de Crédito e serão logados. Além do cadastro de Clientes poderão ser visualizados na Impressão do Pedido de Venda e na tela de Consulta de Pedidos Pendentes. 
+Disponibilizados dois relatórios para uso no Gerenciador de Relatórios: CliFianca.rtm e CliHipoteca.rtm
+GSN (CCF 7217)
+
+
+Cálculo Seguro no Pedido de Venda
+
+
+Agora no pedido de venda é calculado automaticamente o valor do seguro de um pedido acrescentando este valor ao valor final do pedido. Existe a possibilidade de termos percentuais diferentes por cliente, também permite ou não ao usuário escolher se deseja pedido segurado por cliente. Foi criado uma nova tabela auxiliar de seguros. Foi adicionado um perfil de seguros a empresa. A tela de clientes foi alterada para que se possa vincular um seguro ao cliente. Os valores unitário e total do seguro foram disponibilizados no condutor de dados da impressão do pedido e do DANFE FLA (CCF 7310)
+

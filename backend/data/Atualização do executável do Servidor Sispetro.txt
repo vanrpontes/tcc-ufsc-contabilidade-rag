@@ -1,0 +1,29 @@
+TITULO: Atualização do executável do Servidor Sispetro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919993151
+--------------------------------------------------
+O Servidor Sispetro tem algumas informações que são gravadas pelo Windows quando configuradas. O Windows grava essas informações de acordo com o nome do programa executável, no caso do Servidor Sispetro, o nome padrão é ServidorSispetro.exe.
+Caso esse nome padrão seja alterado, as configurações são perdidas, obrigando a reconfiguração do Servidor Sispetro.
+Caso o executável de seu Servidor Sispetro esteja com outro nome, deve manter esse nome para que não seja necessário reconfigurá-lo novamente.
+ 
+Assim, quando atualizar a versão do Sispetro, renomeie os executáveis do Servidor Sispetro:
+a) Renomeie o ServidorSispetro.exe para ServidorSispetro999.exe, onde 999 é a versão antiga.
+Exemplo:
+ considerando que a versão utilizada é a 8.9.1 - de ServidorSispetro.exe para ServidorSispetro891.exe.
+b) Renomeie a versão que está sendo atualizada para ServidorSispetro.exe.
+Exemplo:
+ considerando que a versão a ser atualizada é a 8.10.2 - de ServidorSispetro8102.exe para ServidorSispetro.exe.
+ 
+As informações do Servidor Sispetro que são gravadas pelo Windows são:
+1. Escolha de DataSource
+O Servidor Sispetro deverá ser vinculado a um ODBC de 32 bits configurado. Para isso, o usuário deverá:
+Clicar no botão Escolha de DataSource;
+Na janela de conexão, defina o campo 
+Conexão
+ com o nome do ODBC configurado na máquina;
+Informar usuário e senha para acesso ao banco de dados, que deverá ser o mesmo informado no ODBC;
+2. Servidor de Segurança
+ 
+Sua função será controlar toda a infra-estrutura de segurança, desde o número de usuários conectados ao banco, até a ativação de novas versões.
+ 
+3. Serviço de Licenciamento
+São os dados do cliente, enviados anteriormente por e-mail a cada cliente do Sispetro, para que possa obter o arquivo de licenciamento.

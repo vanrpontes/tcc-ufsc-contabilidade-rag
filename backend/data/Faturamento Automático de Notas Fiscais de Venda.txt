@@ -1,0 +1,66 @@
+TITULO: Faturamento Automático de Notas Fiscais de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921696550
+--------------------------------------------------
+Histórico
+O faturamento de notas de venda, que ocorre em grande volume no dia-a-dia de uma distribuidora, vem sofrendo diversas melhorias com o passar do tempo. A ideia é sempre agilizar o processo e depender cada vez menos da intervenção do usuário. Tanto é que normalmente o usuário não pode alterar nenhuma informação nos itens da nota, clicando somente em "Avança", "Avança" e "Finaliza". Com base nisso foi implementada uma no SisPetro para agilizar ainda mais o processo. Se o faturista não altera dados na emissão da Nota Fiscal, essa podia ser gerada de forma mais automática, sem precisar passar por essas telas, que, apesar de tomar alguns segundos, multiplicados pelo número de notas do dia tem-se um tempo considerável.
+A partir da versão 8.18, foi disponibilizado no SisPetro o Faturamento Automático. Esse processo agiliza a emissão de notas fiscais de venda.
+O Faturamento Automático NÃO exclui o 
+Faturamento Manual
+ e vice-versa. O faturamento automático deve ser habilitado no perfil de sistema para que possa ser utilizado. Sendo habilitado, o usuário pode utilizar tanto o faturamento manual como o automático.
+ 
+Para utilizar o Faturamento Automático, basta selecionar a opção no perfil de empresa
+ "Permite Faturamento Automático"
+ no perfil de sistema 
+"Faturamento Automático"
+, aba 
+Nota Fiscal
+, Veja mais informações em 
+Condições prévias para utilização do Faturamento Automático
+Existem condições prévias para que o faturamento automático seja utilizado. Isso decorre em função de não ter intervenção, por parte do usuário, no processo da emissão das notas, tais como alterar natureza de operação, condições de pagamento, etc.
+Os dados abaixo devem estar previamente cadastrados e/ou informados:
+1 - Perfil de Sistema / painel Nota Fiscal (caso utilize) - 
+:
+Marca
+Espécie
+2 - Série NF (caso utilize) - 
+Tabela Série Nota Fiscal
+:
+Série Selo 
+Número Selo
+3 - Cadastro de Produtos:
+As naturezas de operação utilizadas vem da configuração no produto, painel Dados Adicionais. Portanto, os produtos devem ser, OBRIGATORIAMENTE, configurados corretamente quanto as naturezas a serem utilizadas. Para mais informações, ver help 
+, quadro Atividade Econômica x Natureza de Operação.
+4 - Natureza de Operação:
+Tipo de Documento - 
+Tabela Natureza Operação
+Destaca ou não frete no rodapé da nota fiscal - 
+Série NF - 
+.
+5 - Pedido de Venda:  
+Depósito
+Moeda
+Tabela de Preço
+Condição de Pagamento
+Tipo de Cobrança
+Retira/Entrega
+Data de Entrega
+Endereços de Faturamento, Cobrança e Entrega
+6 - Ordem de Carregamento:
+Transportadora/Motorista
+Frota
+As demais configurações para emissão de notas fiscais de venda permanecem iguais, não necessitando de qualquer configuração adicional para o uso do faturamento automático.
+A partir da versão 8.30 foi disponibilizado a opção de efetuar baixa automática utilizando adiantamento de clientes no faturamento automático. 
+Para maiores informações veja o help 
+Baixa Automática utilizando Adiantamentos
+Existem configurações que não serão consideradas no Faturamento Automático, em especial, as que exigem uma intervenção do usuário.
+Como exemplo, a configuração da natureza de operação Vincula Documentos manuais de arrecadação no SPED: esta configuração, no faturamento manual, no final da inclusão da nota fiscal, abre uma tela para o usuário vincular documentos de arrecadação. No faturamento automático, essa configuração não é considerada.
+Portanto, toda configuração que exige intervenção do usuário, será desconsiderada no faturamento automático.
+ Pedidos de venda direta não são passíveis de faturamento automático. Nesse tipo de pedido deve ser utilizado o 
+.
+Para utilizar, ver o help 
+Utilizando Faturamento Automático
+.
+ 
+Mais informações:
+Como emitir Nota Fiscal Venda
+ 

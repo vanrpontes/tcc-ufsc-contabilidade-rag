@@ -1,0 +1,43 @@
+TITULO: Importação de Nota Fiscal via Serviço
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926196689
+--------------------------------------------------
+O processo de importação de notas fiscais via serviço foi criado para facilitar o processo de entrada de notas via xml, visando agilizar o processo de entrada de notas.
+É dividido em 4 serviços: 
+Serviço de Leitura de Arquivo:
+ realiza a leitura dos arquivos em um determinado diretório e inclui os mesmos no SisPetro. Comparando com a importação manual, esse processo é o mesmo de quando o usuário clica no botão 
+Importa
+ e seleciona o arquivo. Para mais informações, ver 
+Serviço de Importação de NF - Leitura de XML
+.
+Aplicação do De/Para:
+ o serviço de de/para é praticamente o mesmo que o manual. Caso o mesmo esteja ativo, o SisPetro aplicará o de/para para as notas e liberar para o processamento, podendo deixar o mesmo pendente de confirmação de processamento. Comparando esse processo com a importação manual, esse processo é o mesmo que ocorria quando era selecionado a nota, o SisPetro pega a nota aplica os De/Paras e caso esteja tudo Ok já deixa a mesma disponível para processar. Para mais informações, ver 
+Serviço de Importação de NF - De/Para
+.
+Transformação de NF: 
+o serviço de transformação irá alterar dados inerente da nota fiscal, o processo de analise de transformação ocorrerá após a aplicação do processo de De/Para. Verifique em 
+Serviço de Importação de NF - Transformação
+ como ativar o serviço. Logo após o processo de De/Para o serviço de transformação iniciara a analise verificando o cadastro de regras para importação, caso o serviço encontre a regra para determinada importação, automaticamente será substituído o valor obtido do XML pelo valor definido na regra. Para mais informações, ver 
+Transformação no processo de importação
+.
+Processamento da Nota Fiscal:
+ o serviço de processamento é a inclusão da nota. Ativando esse serviço o SisPetro processará e incluirá todas as notas que estejam com tudo OK. Comparando com a importação manual, esse processo é o mesmo de quando o usuário clica no botão 
+Processa
+. Para mais informações, ver 
+Serviço de Importação de NF - Faturamento
+.
+Dessa forma a Empresa poderá optar por trabalhar com esses serviços de diversas formas, podendo incluir a nota direto no SisPetro ou deixar a mesma pendente de confirmação no meio do processo.  
+A configuração do perfil de sistema
+ 
+Painel Importação de NF
+ 
+é feita para algumas situações que são necessárias na importação:
+Importação de NF-e:
+ definição de ações a serem tomadas pelo SisPetro na importação.
+Depósito a ser utilizado na NF:
+ definição como informar um depósito na nota fiscal.
+Importação de CT-e:
+ definição de um produto referente ao frete e de data de movimentação
+Veja também:
+Monitoramento da Importação de NF/CT
+Importação NF (Painel Geral)
+Painel Faturamento (Usuários)

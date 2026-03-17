@@ -1,0 +1,35 @@
+TITULO: Tag ObsCont NF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4316856321
+--------------------------------------------------
+O objetivo do envio desta tag ObsCont NF-e, é o contribuinte encaminhar informações complementares no arquivo xml, informações como placa da carreta, natureza de operação e afins.
+Para configurar as informações complementares que sairão na nota fiscal no campo ObsCont, é necessário cadastrar na natureza de operação as tags que foram previamente configuradas em 
+Tabelas Auxiliares/Faturamento / Tag Cont NF-e, 
+das mensagens e fórmulas necessárias. Desta forma, ao faturar uma nota fiscal que tenha o campo ativo na aba ObsCont para esta UF, as informações complementares respeitarão o cadastro feito natureza. Pode-se então usar uma mesma natureza de operação com duas ou mais tags ativas, pois na nota fiscal, há um limite de 10 tags. Abaixo visualizaremos as configurações para estas funcionalidades, a saber:
+No cadastro da natureza de operação: 
+Tabelas Auxiliares / Faturamento / Natureza de Operação / Detalhes / Aba lateral Por Filial / Tag ObsCont NF-e
+Exemplo de como a informação será exibida no xml
+<
+obsCont
+ xCampo
+="
+SPDistribuidor
+"
+>
+ 
+ 
+<
+xTexto
+>
+Placa GJT-9F37 UF SP
+</
+xTexto
+>
+ 
+ 
+</
+obsCont
+>
+Há uma limitação por parte da SEFAZ em que é possível o envio de apenas 10 tag por Nota Fiscal.
+Para mais informações, ver
+ 
+Manutenção Tag ObsCont NF-e

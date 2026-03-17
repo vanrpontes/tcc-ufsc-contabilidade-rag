@@ -1,0 +1,28 @@
+TITULO: Validações NF-e de 01/SET/2021
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2972222615
+--------------------------------------------------
+No dia 01/09/2021, a Sefaz começou a validar algumas informações no XML.
+1 - 
+Rejeição 434: NFe sem indicativo do intermediador
+Motivo:
+ Nova validação efetuada pela Sefaz e que requer o envio da tag referente ao intermediador
+Solução: 
+ Acesse o menu: Tabelas Auxiliares > Faturamento > UF’s > selecione a UF em questão (que neste caso está sendo PR) e no painel 
+Regras para NFe
+, habilite o envio no campo: 
+NT 2020.006 Tag indIntermed
+2 - 
+Rejeição 443: 
+Código da bandeira de cartão de crédito e/ou débito inexistente
+Motivo:
+ A rejeição ocorreu 
+por conta da forma de pagamento da NFe estar configurada como 99-Outros.
+Solução:
+ 
+ 
+A correção foi liberada na versão 10.25, sendo necessário configurar no tipo de cobrança utilizado o campo Complemento da Forma de Pagamento e na tabela de UFs, painel 
+Regras para NFe,
+ a opção 
+Envia Complemento da Forma de Pagamento
+.
+Nota: caso não tenha restrições e esteja em versão anterior à 10.25, pode-se informar uma forma de pagamento da NFe diferente de 99.

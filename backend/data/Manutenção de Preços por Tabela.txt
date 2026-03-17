@@ -1,0 +1,170 @@
+TITULO: Manutenção de Preços por Tabela
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2934538376
+--------------------------------------------------
+A partir da versão 10.01 foi implementada no SisPetro uma 
+Nova Tabela de Preço.
+ 
+A grande novidade dessa nova tabela de preço é a possibilidade de 
+vincular uma Tabela de Preços (tabela vinculada) à outra (tabela principal) de forma que, ao alterar a tabela principal, o preço final é automaticamente alterado também. Podemos utilizar este vínculo numa configuração simples (tabela principal avulsa + tabela vinculada cadastrada no cliente) ou, num cenário mais complexo, amarrar uma tabela de preços principal à um depósito - sem alterar a tabela vinculada no cliente - de forma que, ao vender neste depósito específico, a tabela deste depósito seja considerada como principal. A criação e das tabelas de preço e vinculo entre elas é realizado através da tela de 
+Tabela Manutenção de Tabela de Preços
+.
+Lembrando que, como já era antes, uma Tabela de Preços Principal indicada no Depósito prevalece sobre a Tabela de Preços Principal do Cliente.
+ 
+Vejamos alguns exemplos (considerando Álcool Hidratado (02) na empresa Matriz (1)):
+1. CONFIGURAÇÃO ATUAL - TABELA PREÇO NO CLIENTE (SÓ PRINCIPAL)
+Tabelas de Preço
+ID
+Tipo
+Tabela Vinculada
+Preço Sugestão
+1
+Principal
+2,50
+2. CONFIGURAÇÃO SIMPLES  - TABELA DE PREÇO NO CLIENTE (PRINCIPAL E VINCULADA)
+Tabelas de preço:
+ID
+Tipo
+Tabela Vinculada
+Preço Sugestão
+1
+Principal
+2,50
+2
+Vinculada por Valor 
+1
+0,02
+3. CONFIGURAÇÃO INTERMEDIÁRIA - TABELA DE PREÇO DEPÓSITO (SÓ PRINCIPAL) E CLIENTE (PRINCIPAL + VINCULADA)
+ 
+Tabelas de Preço
+ 
+ID
+Tipo
+Tabela Vinculada
+Preço Sugestão
+1
+Principal
+2,50
+2
+Vinculada por Valor
+1
+0,02
+3
+Principal (depósito)
+2,45
+4. CONFIGURAÇÃO COMPLEXA - TABELA DE PREÇO NO DEPÓSITO (PRINCIPAL E VINCULADA POR TIPO DE CLIENTE) E CLIENTE (VINCULADA)
+Tabelas de Preço
+ID
+Tipo
+Tabela Vinculada
+Preço Sugestão
+1
+Principal
+2,50
+2
+Vinculada por Valor
+1
+0,02
+3
+Principal (depósito)
+2,45
+4
+Vinculada por Valor (depósito por tipo de cliente)
+3
+0,01
+Em resumo, será possível
+:
+Criar uma tabela de preços que represente os Custos do Depósito → essa será a tabela principal
+Criar uma tabela de preços que seja um valor adicional ou percentual sobre a tabela do depósito → essa será a tabela vinculada à tabela principal. No depósito, por Tipo de Cliente e Empresa, será possível informar essa tabela de preço vinculada.
+Criar uma tabela de preços que seja um valor adicional ou percentual vinculada a um cliente específico que será aplicada sobre o preço final do depósito → essa será uma tabela vinculada. Será informada no Cadastro do Cliente (por empresa). No momento  da Venda, a partir do preço final do depósito será acrescido esse valor ou percentual do cliente.
+No caso de Clientes que possuam desconto, basta informar na sua tabela vinculada valores negativos, isso diminuirá o preço final do Depósito.
+Para acessar a Manutenção de Preços por Tabela basta acionar o Menu Movimentação / Vendas / Manutenção de Preços por Tabela
+Para acessar este botão, se faz necessário liberar o perfil:
+Ferramentas / Usuário / Aba Menus / Movimentação / Vendas
+Se faz necessário estar liberado 
+Habilitado 
+e
+ Visível 
+a opção: 
+Manutenção de Tabela de Preços por Tabela
+Junto com o Perfil de usuário 
+Painel Vendas (Usuários)
+:
+Edita tabela de preços / Aprova Mudanças
+ 
+- permite que o usuário altere os valores das tabelas de preços.
+Altera preço de sugestão
+ 
+- permite que o usuário altere o preço sugestão da tabela de preço cadastrada para o cliente.
+Altera preço mínimo 
+- permite que o usuário altere o preço mínimo da tabela de preço da tabela de preço cadastrada para o cliente.
+Altera preço máximo
+ - permite que o usuário altere o preço máximo da tabela de preço da tabela de preço cadastrada para o cliente.
+Tabela de Preço:
+ nesse campo selecionamos a tabela de preço, que foi previamente cadastrada através da
+ 
+Tabela Manutenção de Tabela de Preços
+.
+Tipo:
+ nesse campo será apresentado o tipo da tabela selecionada.
+Data Vigência:
+ através desse campo será selecionada a data de vigência em questão. Para criar uma Nova Vigência podemos acionar o botão 
+Manut. Vigências 
+na parte inferior da tela. 
+Para mais informações, ver
+ 
+Tabela Manutenção de Vigência de Preços
+.
+Tipo Alteração:
+ nesse campo é informado qual será o tipo de alteração, podendo ser pelo Valor da Tabela ou pelo Resultado Final.
+Valor Tabela: 
+selecionando essa opção serão apresentados os valores dos produtos referente a tabela selecionada.
+Resultado Final:
+ selecionando essa opção será apresentado o valor do resultado final da tabela selecionada, mas a alteração do valor só será aplicado à tabela selecionada. Veja maiores detalhes mais abaixo.
+Incluir Produtos:
+ inclui todos os produtos que saem na lista de preços.
+Incluir Produto:
+ abre a tela dando a opção para o usuário selecionar um produto, só serão apresentado os produtos que saem na lista de preços.
+Manut. Vigências: 
+ abre a tela de Manutenção de Vigências, dando a opção de cadastrar uma nova vigência. 
+Para mais informações, ver
+ 
+Tabela Manutenção de Vigência de Preços
+.
+Inclusão/Alteração de preço
+O primeiro passo para dar manutenção dos preços é selecionar uma data de Vigência, um tipo de alteração e incluir os produtos que irão ter o preço definido para a tabela selecionada, para adicionar os produtos basta acionar a opção de 
+Incluir Produtos
+ ou 
+Incluir Produto.
+A alteração dos preços é realizada direta na tela e, após a sua alteração, basta clicar em Salvar para gravar as alterações.
+Exemplo de alterações de preços.
+Para exemplificar as alterações utilizaremos 2 tabelas de preço onde temos a 
+Tabela 724 - (TABELA VINCULADA 0,53) 
+que é do tipo Vinculada tem o preço de 0,53 e está vinculada a 
+Tabela 721 - (TABELA 02) 
+que o preço de 2,50, e é uma tabela do tipo Principal.
+Alteração de preço com tipo de alteração Valor Tabela.
+A alteração de preço utilizando a opção de 
+Valor Tabela
+ é bem simples, basicamente o valor dos produtos que são apresentados na tela são o valor referente a própria tabela selecionada.
+Alteração de preço com tipo de alteração Resultado Final. 
+A alteração de preço utilizando a opção de 
+Resultado Final, 
+é um pouco diferente, basicamente o valor apresentado na tela é o valor da soma entre as tabelas que fazem parte do vinculo da tabela que foi selecionada para alteração. Seguindo o exemplo acima a tabela que selecionamos foi a 
+Tabela 724 - (TABELA VINCULADA 0,53) 
+que é uma tabela dó tipo vinculada por valor é esta vinculada uma tabela principal à 
+Tabela 721 - (TABELA 02), 
+onde a soma entre os valores da o preço mínimo de 2,02, preço de 3,03  e preço máximo de 4,15.
+Ao alterar um desses preços será adicionado ou subtraído o valor da tabela selecionada para alteração que no caso do nosso exemplo é a 
+Tabela 724 - (TABELA VINCULADA 0,53).
+Para exemplificar na pratica vamos alterar o preço mínimo de 2,02 para 2,05, o preço sugerido vai de 3,03 para 3,13 e o preço máximo vai de 4,15 para 4,00, um acréscimo de 0,03 centavos no preço mínimo, um acréscimo de 0,10 centavos no preço, e uma subtração de 0,15 centavos no preço máximo.
+Ao consultar o valor da tabela 
+Tabela 724 - (TABELA VINCULADA 0,53) 
+podemos ver que o valor alterado foi acrescentado/subtraído da tabela 
+Tabela 724 - (TABELA VINCULADA 0,53).
+Preço mínimo: 0,52 + 0,03 = 0,55
+Preço: 0,53 + 0,10 = 0,63
+Preço máximo:   0,65 - 0,15 = 0,50
+Aba Clientes
+Através da aba clientes é possível visualizar os clientes vinculados a tabela selecionada. Seu vinculo é realizado através da tela de 
+Preços (Clientes)
+.

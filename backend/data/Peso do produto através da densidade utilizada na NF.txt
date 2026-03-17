@@ -1,0 +1,55 @@
+TITULO: Peso do produto através da densidade utilizada na NF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2886959111
+--------------------------------------------------
+O peso do produto que salva atualmente na nota fiscal é o peso cadastrado no Cadastro de Produtos (que deve ser a densidade média) multiplicado pela quantidade.
+A unidade utilizada não pode estar marcada como peso.
+Definir os perfis:
+Perfil de Sistema:
+ menu 
+Ferramentas / Sistema / aba Nota Fiscal / campo Temperatura e Densidade que será salvo na NF
+, escolha a opção que atende as necessidades da empresa.
+Natureza de Operação:
+ menu 
+Tabelas Auxiliares / Faturamento / Natureza Operação / escolha a natureza ou inclua uma nova / aba Detalhes / aba lateral Por Filial / escolha a filial / aba inferior Dados Gerais / quador Verificação dos dados de temperatura e dens. na NF
+. Escolha a opção desejada:
+Não verifica, permite qualquer valor: permite emitir NF.
+Impede nota fiscal que esteja sem valor para densidade e temperatura: não permite emitir NF.
+Impede nota fiscal cuja densidade e temperatura resulte em densidade a 20 graus igual a zero: não permite emitir NF.
+Cadastro de Produtos:
+ menu 
+Arquivos / Produtos / selecione o produto / aba Detalhes / aba inferior Ficha Produto / campos Peso Bruto, Peso Líquido e Cálculo do Peso
+. Escolha a opção desejada:
+Utiliza sempre o peso informado no Cadastro do Produto: campos Peso Bruto e Peso Líquido devem ser informados.
+Utiliza sempre a densidade informada na Nota Fiscal: utiliza os valores de densidade e temperatura vindos da NF.
+Utiliza a densidade informada na NF. Na ausência usa o peso do Produto: utiliza os valores de densidade e temperatura da NF. Caso a NF não tenha, usa os valores de peso bruto e peso líquido do Cadastro de Produtos.
+Combinações entre Natureza de Operação e Cadastro de Produtos:
+Natureza de Operação
+Cadastro de Produtos
+Resultado
+Não verifica, permite qualquer valor
+Utiliza sempre o peso informado no Cadastro de Produtos
+Aceita qualquer valor, inclusive zero
+Não verifica, permite qualquer valor
+Utiliza sempre a densidade informada na Nota Fiscal
+Aceita qualquer valor, inclusive zero
+Não verifica, permite qualquer valor
+Utiliza a densidade informada na NF. Na ausência usa o peso do Produto
+Aceita qualquer valor, inclusive zero
+Impede nota fiscal que esteja sem valor para densidade e temperatura
+Utiliza sempre o peso informado no Cadastro de Produtos
+Caso não tenha densidade e temperatura informados no tanque ou no produto, não permite emitir NF. Caso tenha, permite emitir NF utilizando os valores de peso bruto e peso líquido do cadastro do produto
+Impede nota fiscal que esteja sem valor para densidade e temperatura
+Utiliza sempre a densidade informada na Nota Fiscal
+Caso não tenha densidade e temperatura informados no tanque ou no produto, não permite emitir NF. Caso tenha, permite emitir utilizando os valores de densidade e temperatura informados na NF
+Impede nota fiscal que esteja sem valor para densidade e temperatura
+Utiliza a densidade informada na NF. Na ausência usa o peso do Produto
+Caso não tenha densidade e temperatura informados no tanque ou no produto, não permite emitir NF. Caso tenha, permite emitir utilizando os valores de densidade e temperatura informados na NF
+Impede nota fiscal cuja densidade e temperatura resulte em densidade a 20 graus igual a zero
+Utiliza sempre o peso informado no Cadastro de Produtos
+Caso não tenha densidade e temperatura informados no tanque ou no produto, não permite emitir NF. Caso tenha, permite emitir NF utilizando os valores de peso bruto e peso líquido do cadastro do produto, desde que a densidade a 20 graus não seja igual a zero
+Impede nota fiscal cuja densidade e temperatura resulte em densidade a 20 graus igual a zero
+Utiliza sempre a densidade informada na Nota Fiscal
+Caso não tenha densidade e temperatura informados no tanque ou no produto, não permite emitir NF. Caso tenha, permite emitir utilizando os valores de densidade e temperatura informados na NF, desde que a densidade a 20 graus não seja igual a zero
+Impede nota fiscal cuja densidade e temperatura resulte em densidade a 20 graus igual a zero
+Utiliza a densidade informada na NF. Na ausência usa o peso do Produto
+Caso não tenha densidade e temperatura informados no tanque ou no produto, não permite emitir NF. Caso tenha, permite emitir utilizando os valores de densidade e temperatura informados na NF, desde que a densidade a 20 graus não seja igual a zero

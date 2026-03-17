@@ -1,0 +1,46 @@
+TITULO: Como incluir ICMS sobre transporte na NF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924292629
+--------------------------------------------------
+Devido algumas UF exigirem o envio de dados do ICMS de Frete Retido na NF-e em operações interestaduais,  á partir da versão 8.38 foi implementado um perfil na natureza de operação onde pode ser definido se ira realizar o calculo do ICMS do frete ou não.
+Tabelas Auxiliares / Faturamento / Natureza Operação / Aba Detalhes / Aba por Filial / Aba Impostos / Quadro ICMS Frete
+Calcula e Envia ICMS de Frete Retido para envio da NF-e?
+Não Calcula:
+ Independente do que foi informado, não calcula o ICMS do frete.
+Calcula e envia na NF-e: 
+Realiza o calculo, informa na nota e manda no  XML.
+Só calcula, não envia na NF-e: 
+Realiza o calculo, informa na nota mas não manda no XML.
+CFOP do Frete
+Onde é informado a CFOP do Frete.
+Código ICMS
+No campo Código ICMS é informado o código da tabela de ICMS, onde fica a alíquota a ser utilizado para a realização dos cálculos.
+Valida se foi calculado ICMS de Frete na NF-e?
+                Quando marcado essa opção, o sispetro realiza a validação do ICMS do Frete ao finalizar a nota, caso esteja faltando alguma informação sera apresentada uma tela informando a divergência e impedindo a emissão da nota.
+ 
+Para um melhor entendimento dos processos de destaque de frete na nota fiscal, 
+clique aqui.
+ 
+Para realizar o calculo e enviar no xml, é necessário marcar a opção 
+Calcula e envia na NF-e 
+no quadro ICMS Frete da natureza de operação, marcar a opção 
+Informa frete nos itens da NF , 
+que fica em 
+Tabelas Auxiliares / Faturamento / Natureza Operação / Aba Detalhes / Aba por Filial.
+ 
+ 
+Para que o sistema calcule o valor do ICMS de frete, é necessário informar a alíquota do mesmo na tabela de ICMS que fica em 
+Tabelas Auxiliares / Faturamento / ICMS / Aba Alíquotas.
+ 
+Os valores reverente ao ICMS do frete podem ser visualizados na tela de manutenção de Notas Fiscais, na aba itens NF, arrastando a barra de rolagem tudo para a direita:
+ 
+Quando utilizado a opção de 
+Calcula e envia na NF-e 
+, ao emitir a nota o sispetro gera o XML com as tags (vServ, vBCRet, pICMSRet, vICMSRet, CFOP, cMunFG), para verificar o conteúdo das mesmas basta ir em 
+Movimentação / Faturamento / Manutenção NFs / Aba Fiscal / Aba NF-Eletrônica / Seleciona a linha onde contem o comando Recibo / Clica no botão XML Enviado.
+ 
+ 
+ 
+ 
+ 
+ 
+ 

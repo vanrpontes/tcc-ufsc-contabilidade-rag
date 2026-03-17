@@ -1,0 +1,94 @@
+TITULO: Automação Balança
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927270733
+--------------------------------------------------
+Nos processos de Portaria de Entrada e Saída é possível a obtenção do peso através da Integração com Balanças. 
+Estão disponíveis a integração com as seguintes balanças:
+Automação Balança Jundiaí
+Automação Balança Toledo
+Automação Balança Toledo Guardian 6
+Quando se trabalha com o controle de volume por Balanças, é necessário definir como o Sispetro irá trabalhar:
+Configurações
+É necessário configurar os Perfis de Sistema em:  
+Ferramentas / Sistemas / Ordem Carregto / Quadro Integração Balança:
+Obtenção de peso do caminhão através de balança nas portarias: 
+Na integração com a balança, o sistema busca a informação do peso do caminhão no arquivo gerado pela balança, nesse perfil podemos definir uma das 3 opções abaixo:
+Tem integração total:
+ ao utilizar essa opção será realizada a integração com a balança para Descargas e Carregamentos.
+Somente Descarga:
+ essa opção permite utilizar somente a integração com a balança para movimentos do tipo 
+Descarga.
+Somente Carregamento:
+ essa opção permite utilizar somente a integração com a balança para movimentos do tipo 
+Carregamento
+.
+DLL de Integração: 
+i
+nformar a DLL da balança a ser utilizada na integração.
+É necessário definir como o SisPetro irá trabalhar com o Volume Real na Portaria de Saída. Em
+ 
+Ferramentas / Sistemas / Ordem Carregto / Quadro Portaria de Saída:
+Volume a ser utilizado para Carregamento:
+ volume a ser considerando para as OC de Carregamento Próprio e Terceiros
+Volume Balança
+: volume considerado conforme o peso identificado no arquivo TXT. Este, mesmo trabalhando com SmartCard, terá o volume considerado da Balança
+Volume a ser utilizado para Descarga:
+ volume a ser considerando para as OC's de Descarga Própria e Terceiros, podendo ser:
+Volume Balança
+: volume considerado conforme o peso identificado no arquivo TXT. Este, mesmo trabalhando com SmartCard, terá o volume considerado da Balança
+Densidade/Peso X Volume na Portaria:
+ 
+esse perfil define a densidade a ser utilizada para obter o volume real, podendo ser:
+Qtde Real = Peso/Dens. Amostra, Qtde 20c = Qtde Real * Fator
+ -
+ Pega o peso e divide pela densidade de amostra para realizar o cálculo do volume real,  a Quantidade a 20c é obtida pegando a quantidade real e multiplicando pelo fator de conversão.
+Qtde Real = Peso/Dens. Amosta, Qtde 20c = Peso/Dens. 20c
+ -
+ Pega o peso e divide pela densidade de amostra para realizar o cálculo do volume real, a Quantidade a 20c é obtida pegando o peso e dividindo pela Densidade a 20c
+O campos de 
+Peso Inicial
+ e 
+Peso Final
+ sempre serão considerados, independente da definição dos perfis citados acima. 
+Para mais informações, ver  
+Portaria de Saída
+#Decimais Densidade 20c para Qtde20c:
+ 
+esse perfil permite alterar a quantidade de casas decimais na calculo da densidade 20c para obtenção de peso na Qtde20c 
+É necessário definir no depósito que o produto participará do processo de automação. Em 
+Arquivo / Depósito / Aba Dados Por produto
+Marcar que o produto tem automação de Balança. 
+Para mais informações, ver 
+Depósitos - aba Dados por Produto
+Essa opção é utilizada em conjunto com os perfis 
+'Volume a ser utilizando para Carregamento' 
+e
+ 'Volume a ser utilizando para Descarga' 
+quando utilizado a opção Volume Balança.
+Para os casos de OC com mais de um produto, a pesagem do caminhão na portaria de entrada e saída 
+não
+ é utilizada para chegar ao volume do produto, visto que as densidades podem ser diferentes.
+Alteração Manual do Peso
+Mesmo com a possibilidade de integração com a balança nas Portarias de Entrada e Saída, em alguns casos poderá ocorrer algum erro de leitura e não obter o peso devidamente. 
+Sendo assim é importante que determinados usuários tenham permissão para alterar o peso, seja nas Portarias ou através da 
+Manutenção de Carregamento e Descarga
+ após o processo de portaria ter sido completado.
+Para isso em 
+Ferramentas > Usuário > Aba Carregamento
+ os perfis 
+Pode Alterar Peso de Descargas
+ e 
+Pode Alterar Peso de Carregamentos 
+devem estar habilitados.
+Portaria de Entrada
+Ao fazer a leitura Manual, caso o usuário tenha permissão (carregamento ou descarga) será apresentada uma tela com o Peso inicial obtido, permitindo a alteração.
+Portaria de Saída
+Caso o usuário tenha permissão (carregamento ou descarga) o botão para alteração de peso será habilitado, ao selecioná-lo, será apresentada uma tela com o Peso inicial e final obtido, permitindo a alteração.
+Após a alteração, a quantidade real será recalculada.
+Na
+ Manutenção de Carregamento / Descarga
+, utilize o botão Peso para alterar o peso inicial e final.
+Nessa tela a quantidade real não será recalculada, essa opção deverá ser utilizada apenas para fins de relatório. Caso seja necessário recalcular a quantidade, será necessário cancelar o carregamento e refazê-lo.
+Cenários de Utilização das balanças:
+Pesagem e Obtenção do Volume Separados
+Portaria de Entrada
+Portaria de Saída

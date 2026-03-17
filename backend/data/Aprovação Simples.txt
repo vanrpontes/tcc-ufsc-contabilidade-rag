@@ -1,0 +1,65 @@
+TITULO: Aprovação Simples
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701692
+--------------------------------------------------
+Objetivo
+A aprovação Simples do PMM, diferente da 
+Aprovação por Alçada
+  necessita que o PMM apenas tenha uma aprovação, deixando o processo de compras mais simples.   
+Configurações
+Para o controle de aprovação de PMM simples é necessário realizar as seguintes configurações:
+Ferramenta / Sistema / 
+Painel Aprovação por Alçada
+ /
+Aprovação:
+ Aprovação Simples. Marcar essa opção
+Ferramentas / Usuário / 
+Painel Compras (Usuários)
+: aqui, dependendo do perfil escolhido, o PMM incluído pelo usuário cairá ou não para aprovação.
+NUNCA CAI PARA APROVAÇÃO: 
+caso o usuário esteja com o perfil 
+Aprova Pedido de Movimentação de Material?
+ marcado ou com o perfil do Quadro Aprovação de PMM configurado como 
+Nunca
+, o PMM será aprovado automaticamente.
+VAI PARA APROVAÇÃO: 
+caso queira que o PMM incluído 
+Caia para aprovação
+, ou seja, na Manutenção de PMM ele vai ficar pintado de 
+amarelo
+, deve-se:
+ Quadro Aprovação de PMM configurado como 
+SEMPRE
+Aprova Pedido de Movimentação de Material?
+ desmarcado
+A aprovação poderá ser feita pela tela de 
+Pedidos de Movimentação de Material Pendentes
+ ou pela tela de 
+Manutenção de PMM
+Aprovação Parcial
+É possível realizar aprovação parcial do Pedido de Movimentação de Material. A aprovação parcial é realizada com base no valor do Pedido e não pela quantidade.
+Só poderá aprovar o PMM Parcialmente, caso o perfil 
+Pode indicar valor parcial na Aprovação
+ do 
+Painel Compras (Usuários)
+, Quadro Recebimento direto do Fornecedor estiver marcada:
+Ao selecionar um PMM pendente de aprovação, seja ele com valor total pendente ou parte dele pendente, será exibido a tela de 
+Aprovação de PMM, 
+onde o usuário pode informar o valor da Aprovação.
+As aprovações realizadas podem ser visualizadas através da aba Aprovações nas telas de 
+Manutenção de Pedidos de Movimentação de Material
+ e 
+Consulta de Pedidos de Movimentação de Material Pendentes.
+As aprovações parciais serão exibidas com o Tipo de Aprovação igual a Parcial.
+Só será possível incluir a Nota Fiscal utilizando um valor igual ou menor que o 
+Valor Disponível p/ Utilizar
+.
+Ao realizar a inclusão da Nota Fiscal, caso o valor da Nota seja Maior que o valor aprovado do PMM, será exibida a mensagem abaixo:
+Cancelamento de Aprovação 
+É possível realizar o cancelamento da aprovação  do Pedido de movimentação de material. Para isso o usuário tem que estar com o perfil 
+Pode cancelar aprovação de PMM? 
+marcado. Para mais informações, ver 
+Painel Compras (Usuários)
+  
+Ao selecionar um PMM já aprovado, em seguida clique no botão 
+Desaprova
+Só serão permitido o cancelamento de aprovações de PMM que não possuam OC Emitidas ou Adiantamentos vinculados.

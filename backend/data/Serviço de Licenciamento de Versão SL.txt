@@ -1,0 +1,82 @@
+TITULO: Serviço de Licenciamento de Versão (SL)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919335151
+--------------------------------------------------
+O que é?
+No 
+, o 
+Serviço de Licenciamento
+ foi disponibilizado para que, a cada versão, a empresa possa obter uma chave de ativação de licença entre outros serviços.
+O arquivo de licenciamento é específico para o banco de dados do cliente. Assim, este arquivo funcionará também em um banco de dados de teste do cliente, desde que este banco tenha sido copiado recentemente do banco de dados original.
+Inicialmente o foco do projeto é verificar se o banco de dados tem permissão para utilizar a versão. Logo, para ativar o 
+Servidor Hermes S3
+, será obrigatório ter uma chave para sua versão, que será em forma de arquivo, gerado on-line a partir do botão 
+ do 
+. Para isso será necessário utilizar um ID (identificador do cliente) e senha.
+Este ID e senha serão enviados por e-mail para todos os usuários master do canal cliente Futura (KeyUsers), os mesmos que atualmente já recebem o comunicado de uma nova versão.
+Modelo do email enviado
+Como funciona?
+O que é preciso fazer?
+Para quem está configurando pela primeira vez
+Verificar se o 
+KeyUser
+ (pessoa que recebe comunicado de nova versão) recebeu o e-mail com o ID da Empresa.
+Atualizar a versão normalmente.
+Preencher dados de licenciamento no 
+ conforme passo 1 e 2 do 
+.
+Fazer processo de Obter e validar Arquivo de Licenciamento conforme itens 3, 4, 5 e 6 do 
+.
+Para quem já está configurado
+Atualizar a versão normalmente.
+Fazer processo de Obter e validar Arquivo de Licenciamento conforme itens 3, 4, 5 e 6 do 
+.
+Quando trocar algum funcionário da área de TI ou que conheça as credenciais da empresa
+Hoje no canal cliente da Futura a empresa pode ter diversos usuários cadastrados, porém a mesma indica um para ser o 
+KeyUser
+, o qual será responsável por receber os comunicados de nova versões. Geralmente este usuário é um funcionário da TI da empresa. Caso haja uma troca do mesmo, a empresa deverá entrar em contato com o setor administrativo da Futura solicitando a troca deste usuário 
+KeyUser
+.
+O que muda na utilização do dia-a-dia?
+ 
+Desde que o banco de dados não sofra nenhuma alteração significativa em seus dados, nada será alterado na utilização do dia a dia.
+Sugerimos que não se crie novas empresas no cadastro de empresas fora do horário comercial, pois isso pode vir a fazer com que o processo de licenciamento não reconheça mais o banco como o banco original do cliente e ele tenha de recorrer à Futura para obter um novo arquivo de licenciamento de versão. 
+Esta validação é realizada na inicialização do 
+. Enquanto estiver sendo executado, mesmo que isso venha a ocorrer, o 
+ continuará a ser executado normalmente.
+Para verificar se o arquivo de licenciamento está válido, no 
+ clique no botão 
+.
+Estando tudo correto, será apesentada a mensagem:
+FAQ
+ 
+Eu tenho um banco de dados de teste. Posso continuar a utilizá-lo?
+Sim, pois o banco de dados de teste normalmente é originário do banco de dados de produção. A única coisa que você deverá se preocupar é em copiar sempre o banco de dados de produção em cima do banco de dados de teste logo após obter o arquivo de licenciamento de versão para garantir que as métricas dos dois bancos de dados são as mesmas (e que o arquivo de licenciamento de versão irá funcionar no banco de dados de teste).
+ 
+Como posso fazer para obter o arquivo de licenciamento de versão antes de atualizar a versão em produção?
+Após já ter recebido o comunicado da nova versão, no 
+ clique no botão 
+ 
+e depois em  
+ 
+ 
+O que fazer caso alguma métrica seja alterada e ao validar o arquivo apresente mensagem ?
+Entre em contato com o Administrativo da Futura
+Como posso garantir que o Hermes Servidor S3 irá subir antes de pará-lo para atualização?
+É sugerido que antes de parar o Hermes Servidor S3 para manutenção, 
+no 
+ 
+clique no botão 
+ 
+para verificar se está tudo certo. Caso esteja tudo correto, será apresentada uma mensagem.
+Quais são as métricas utilizadas para verificar a autenticidade do banco de dados? 
+Estas métricas são variáveis e podem mudar com o tempo. O mais importante é que o método é seguro e, caso alguma métrica interfira no comportamento ou uso do SisPetro, alteraremos o algoritmo para que isso não ocorra novamente.
+Existem informações confidenciais que serão passadas à Futura?
+Não, somente métricas que identificam um banco de dados porém não conseguem apontar de qual empresa é o banco de dados ou que tenham informações consideradas sigilosas.
+ 
+Caso eu não tenha acesso à Internet ao subir o S3, isso será um problema? 
+Não, desde que o arquivo de licenciamento de versão esteja compatível com o banco de dados sendo executado. Não é requerida Internet ao subir o 
+Servidor Hermes S3
+, somente para obter o arquivo de licenciamento de versão.
+ 
+Para que serve meus dados de login de usuário?
+Neste momento, somente para envio de informações da empresa vinculada ao seu login. No futuro, iremos habilitar novas funções no site de licenciamento e estes dados serão requeridos para se executar o login no site.

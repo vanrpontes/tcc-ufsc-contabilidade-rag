@@ -1,0 +1,689 @@
+TITULO: Depósitos - Aba Dados Adicionais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909339823
+--------------------------------------------------
+Aba Dados Adicionais
+O acesso é feito através do Menu 
+Arquivos / Depósitos / Aba Dados Adicionais
+Existe a possibilidade de controlar os dados de densidade e temperatura armazenados na NF pelo depósito selecionado, basta informar no perfil 
+Informação sobre densidade e temperatura
+ da Manutenção de Natureza de Operação a opção 
+Respeita configuração do depósito. 
+Para mais informações, ver 
+Dados Gerais (Painel Geral)
+.
+Deve ser atribuído ao novo Depósito:
+Quadro Códigos DCP
+Código DCP - Depósito:
+Participa do DCP:
+Origem no Cálculo do Frete:
+ permite ao usuário definir se o cálculo para o frete será feito a partir da cidade da Empresa para o cliente ou da cidade do depósito para o cliente. 
+Pela Cidade da Empresa:
+ o cálculo do frete será a partir da empresa
+Pela Cidade deste Depósito: 
+o cálculo do frete será a partir do depósito
+Importante:
+ este perfil 
+só permitirá ser habilitado, 
+se o perfil de empresa abaixo estiver com a opção
+ Conforme configuração no Depósito
+. Para mais informações, ver 
+.
+Origem no Cálculo do Frete
+Sempre pela cidade da empresa:
+ essa configuração não permitirá que o usuário altere as opções no depósito, já que o SisPetro obrigatoriamente fará o cálculo do frete a partir da Empresa.
+Conforme configuração no depósito:
+ configurado dessa forma, o SisPetro permitirá que a opção 
+Origem no Cálculo do Frete
+ no cadastro do Depósito.
+Lembrando que o cálculo do frete por depósito, só funcionará corretamente se a cidade do depósito estiver cadastrada na tabela de Distância. Para mais informações, ver 
+Tabela de Distâncias
+ e 
+Cálculo do Valor do Frete
+.
+Percentual de Volume de Corte: 
+definirá o percentual de volume de corte do tanque vinculado ao depósito
+Volume do Tanque:
+ há empresas onde a arqueação por mm não é fixa, variando conforme a altura do tanque. Sendo assim, não é possível usar o recurso da régua por cm + régua por mm. Esse perfil permite que seja definido se a régua do tanque será cm + mm ou apenas mm. A alteração desse perfil implicará na aba 
+Régua
+ da 
+Manutenção de Tanques
+.
+Régua em CM e MM: 
+com está opção marcada, irá trabalhar com a régua das duas formas CM e MM.
+Régua em MM:
+ com está opção marcada, irá trabalhar com a régua apenas em MM.
+Movimentação Estoque do Bombeio Físico: 
+é preciso habilitar o perfil de usuário 
+Pode alterar Movimentação de Estoque Bombeio Físico
+. Para mais informações, ver 
+Painel Estoque (Usuário)
+.
+Físico e Escritural
+ (Padrão)
+Em empresas que são apenas armazenadoras, o mais indicado é que seja movimentado 
+Físico e Escritural
+, há um maior controle. Já em empresas que são armazenadoras e também vendem combustível o mais indicado é que o perfil seja configurado como 
+Físico
+ apenas, pois assim não haverá alteração nos custos dos produtos
+Físico: 
+selecione esta opção caso a empresa opte por não movimentar o estoque escritural nos bombeios físicos
+Em empresas que são armazenadoras e também vendem combustível o mais indicado é que o perfil seja configurado como 
+Físico
+ apenas, pois assim não haverá alteração nos custos dos produtos
+Para mais informações, ver 
+Distribuição (via D3)
+ e 
+Manutenção de Bombeio Escritural
+.
+Diminui lastro da Empresa na Verificação de Saldo da OC: 
+é possível descontar o lastro da empresa na verificação de saldo feita na OC de Carregamento de Terceiros. Assim o saldo do tanque será a quantidade - lastro da empresa. 
+Este perfil trabalha em conjunto com os Perfis de Sistema 
+Avisa na emissão da OC quanto estoque negativo (OC Carregto Terceiros), Trava a emissão da OC quando estoque negativo (OC carregto Terceiros) e Ao verificar o estoque
+. 
+Para mais informações, ver 
+Painel Ordem Carregto.
+Além de configurar os perfis já citados, 
+é preciso que a empresa trabalhe com lastro por empresa. 
+Para mais informações, ver 
+Manutenção de Tanques
+.
+Verificação de Volume Útil do Tanque na Portaria: 
+verificação pode ser feita por carregamento e descarga, possuindo as seguintes opções na validação:
+Não verifica: 
+por padrão, não faz verificação do volume no tanque, permitindo carregamento e descarga livremente.
+Avisa Caso Não Tenha Volume Disponível: 
+avisa o usuário caso não possua volume disponível, mas permite efetuar a portaria.
+Bloqueia Caso não tenha Volume Disponível: 
+bloqueia caso não possua volume disponível, impedindo o usuário de efetuar a portaria de entrada.
+Verificação dos dados de densidade e temp. na leitura de tanque: 
+parâmetro que é importante para prevenir erros de digitação. 
+Não verifica, permite qualquer valor: 
+é o padrão, qualquer densidade e temperaturas serão aceitas.
+Impede densidade e temperaturas s/ Fator Conversão ou Dens. 20c: 
+caso seja marcada essa opção, os campos serão conferidos e caso não haja algum valor válido, a leitura não poderá ser incluída.
+Informação sobre densidade e temperatura na NF
+: tal perfil é utilizado em Temperaturas e densidade na Impressão da Nota Fiscal.
+Conforme perfil de sistema (Tanque ou cadastro de produtos):
+ ao fazer a nota fiscal utilizando a natureza de operação configurada com essa opção, será utilizada a configuração do sistema para as informações de temperatura e densidade.
+Usuário informa na inclusão da nota fiscal:
+ o SisPetro irá sugerir os dados configurados no próprio sistema, ou por tanque ou por produto, porém, permitirá que no momento de emitir a nota fiscal, o usuário possa alterar os valores de temperatura e densidade. 
+Obrigatório Número de Laudo ao Informar Temp. e Densidade
+: quando habilitado será obrigatório informar no deposito o numero do laudo. 
+Quadro Apuração de Descargas
+Origem da Apuração de Frete de Entrada
+Diferenças de Descarga Base Própria: 
+apuração é feita pela diferença de descarga própria.
+Capacidade do Caminhão: 
+apuração é feita pela diferença de capacidade do caminhão.
+Desnecessário:
+ nada será feito.
+Diferença via Fechamento de Estoque: 
+apuração é feita pela diferença entre a quantidade ambiente e a 20C e a tolerância permitida informada na nota fiscal na tela de fechamento de estoque escritural.
+Agrupamento do Pré-Adiantamento: 
+opção já vem sugerida da configuração do 
+Depósitos - Aba Dados Adicionais
+, mas é possível alterar na tela.
+Não Agrupa:  
+gera um por frete: opção gera um pré-adiantamento por frete.
+Agrupa por Fornecedor:
+ gera apenas um pré-adiantamento no valor total dos fretes agrupando por fornecedor, que pode ser uma transportadora ou o fornecedor da nota fiscal de entrada ou ambos.
+Apura Diferença sobre Fretes da Origem em NF de Transferências: 
+com esse perfil habilitado, quando a responsabilidade do frete for por conta do remetente, caso haja diferença a menor na descarga, na apuração de frete o SisPetro apura a diferença e gera um adiantamento para o Fornecedor ou Transportadora. 
+Quadro Controle de diferença em Descargas
+Exige Tolerância: 
+obriga o usuário a informar toloerância, impedindo que o campo fiquem em branco ou zerado na  tela de alteração de volumes no fechamento de estoque. Para mais informações, ver 
+Apuração de Valores de Fretes a Pagar pela Diferença via Fechamento de Estoque
+Permite informar dados de apuração por peso?: 
+quando marcado, habilita aba pesagem, na tela de alteração de volumes no fechamento de estoque, permitindo informar dados de peso para apuração de volumes através de peso. Para mais informações, ver 
+Apuração de Valores de Fretes a Pagar pela Diferença via Fechamento de Estoque
+% Diferença Permitido - utilizado por Diferenças de Descarga Base Própria 
+É possível controlar as diferenças nas descargas para depois fazer a apuração das diferenças descarregadas, por frete. Para isso é necessário informar o percentual que será permitido de diferença, informe-o neste campo. Para mais informações, ver 
+Apuração de Frete
+.
+Quadro Apuração de peso
+Permite informar dados de apuração por peso?
+Diferença entre Peso Inicial e Final / Densidade 20c (como no Frete): 
+apuração de frete será peso inicial e final pela densidade 20c
+Quantidade Ambiente - (Peso Final / Densidade 20c): 
+apuração de frete quantidade ambiente peso final pela densidade 20c
+Quadro Valorização Diferença Frete: 
+para mais informações, ver 
+Como Apurar Valores de Frete a Pagar
+Volume descarregado 
+maior 
+que programado - utilizado por Diferenças de Descargas e via Fechamento de Estoque : 
+Utiliza volume programado - não calcula diferença: 
+caso seja selecionado este perfil, o SisPetro não calculará, na 
+Apuração de Frete
+, o desconto ou acréscimo no valor do frete.
+Utiliza volume descarregado: 
+com este perfil o SisPetro calculará e reduzirá o valor do frete, na
+Apuração de Frete
+.
+Volume descarr. 
+menor
+ 
+que o programado (
+Dentro 
+do limite) - utilizado por Diferenças de Descargas e via Fechamento de Estoque: 
+o SisPetro entenderá como dentro do limite, qualquer descarga que estiver dentro do 
+% Diferença Permitido
+ ou da 
+Tolerância informada na nota fiscal.
+Utiliza volume programado - não calcula diferença: 
+caso seja selecionado este perfil, o SisPetro não calculará, na 
+Apuração de Frete
+, o desconto ou acréscimo no valor do frete.
+Utiliza volume descarregado: 
+com este perfil o SisPetro calculará e aumentará o valor do frete, na 
+Apuração de Frete,
+ levando em consideração apenas a quantidade a menor e o valor do frete.
+Volume descarr. 
+menor
+ 
+que o programado 
+(Fora
+ 
+do limite) - utilizado por Diferenças de Descargas e via Fechamento de Estoque: 
+o SisPetro entenderá como fora do limite, qualquer descarga que estiver acima do 
+% Diferença Permitido
+ ou da 
+Tolerância informada na nota fiscal
+.
+Utiliza volume programado - não calcula diferença: 
+caso seja selecionado este perfil, o SisPetro não calculará, na 
+Apuração de Frete
+, o desconto ou acréscimo no valor do frete.
+Utiliza volume descarregado: 
+com este perfil o SisPetro calculará e aumentará o valor do frete, na 
+Apuração de Frete
+, levando em consideração apenas a quantidade acima do % Diferença Permitido ou da Tolerância informada na nota fiscal e o valor do frete.
+Utiliza Volume além do limite: 
+caso seja selecionado este perfil o SisPetro, calculará e aumentará o valor do frete apenas pela quantidade acima do % Diferença Permitido ou da Tolerância informada na nota fiscal multiplicada pelo frete unitário. O cálculo a ser feito será:
+Quantidade acima do % Diferença Permitido ou da Tolerância informada na nota fiscal multiplicada pelo 
+preço unitário do frete
+Ação a ser tomada para o Valor da Diferença
+Sem ação - só calcula:
+ só calculará as diferenças.
+Salva no Frete para uso nos Pagamentos:
+ calculará as diferenças salvando para utilização nos pagamentos. O responsável pela diferença sempre será a transportadora.
+Gera Pré-Adiantamento de Fornecedor:
+ calculará as diferenças gerando pré-adiantamentos, podendo o responsável ser a transportadora ou o fornecedor da nota fiscal.
+Quadro Uso do Pré-Adiantamento
+Devedor
+Sempre transportadora: 
+irá gerar o pré-adiantamento, na apuração de frete para Transportadora
+Conforme indicado no Fornecedor na Nota Fiscal:
+ irá verificar o perfil 
+Grupo Econômico - Fornecedores
+ 
+para saber para quem deve gerar o pré-adiantamento (Fornecedor do Produto ou Transportadora),na apuração de frete.
+Quadro Valorização Diferença Produto: 
+para mais informações, ver 
+Como Apurar Valores de Frete a Pagar
+Vol.Descarr.menor que Progr. (Fora do Limite)
+Não utiliza diferença do produto: 
+caso seja escolhido este perfil, o SisPetro não calculará, na
+Apuração de Frete
+, o desconto ou acréscimo no valor do frete.
+Utiliza diferença total:
+ com este perfil o SisPetro, levará em consideração a perda de produto e reduzirá do valor do frete pela diferença total apresentada, independente da quantidade de tolerância informada. Diferença total da quantidade descarregada multiplicada pelo 
+preço unitário do produto.
+Utiliza como diferença o Volume além do limite: 
+com este perfil o SisPetro, levará em consideração a perda de produto e reduzirá do valor do frete pela diferença entre a quantidade descarrega e a quantidade de tolerância apresentada. O cálculo a ser feito será: Diferença entre a quantidade descarregada e quantidade de tolerância multiplicada pelo
+ preço unitário do produto. 
+Caso o 
+volume descarregado
+ seja 
+maior
+ que o 
+volume programado
+, 
+não fará qualquer cálculo
+ para valorizar o produto.
+Ação a ser tomada para o Valor da Diferença
+Sem ação - só calcula:
+ só calculará as diferenças.
+Salva no Frete para uso nos Pagamentos:
+ calculará as diferenças salvando para utilização nos pagamentos. O responsável pela diferença sempre será a transportadora.
+Gera Pré-Adiantamento de Fornecedor:
+ calculará as diferenças gerando pré-adiantamentos, podendo o responsável ser a transportadora ou o fornecedor da nota fiscal.
+Quadro Uso do Pré-Adiantamento
+Devedor
+Sempre transportadora: 
+irá gerar o pré-adiantamento, na apuração de frete para Transportadora
+Conforme indicado no Fornecedor na Nota Fiscal:
+ irá verificar o perfil 
+Grupo Econômico - Fornecedores
+ 
+para saber para quem deve gerar o pré-adiantamento (Fornecedor do Produto ou Transportadora),na apuração de frete.
+Quadro Diferença de Descar
+ga Própria
+Qtde usada na conv. do fator Padrão da unidade:
+ esse perfil mostra ao SisPetro qual quantidade considerar para a Qtde Origem para a 
+Apuração de Frete a Pagar
+. Pode ser a quantidade vinda da Nota Fiscal ou da Ordem de Carregamento.
+Qtde usada na conv. do fator Padrão da unidade (2 opção): 
+esse perfil tem o mesmo funcionamento do perfil acima, porém caso a opção acima não tenha quantidade o SisPetro utilizará esta opção. Sendo assim aconselhamos a configurar com valores diferentes! Mostra ao SisPetro qual quantidade considerar para a Qtde Origem para a 
+Apuração de Frete a Pagar
+. Pode ser a quantidade vinda da Nota Fiscal ou da Ordem de Carregamento.
+Tipo de volume a ser utilizado: 
+este perfil é utilizado pelo SisPetro para calcular o Volume Referência na 
+Apuração de Frete a Pagar
+.
+Ambiente
+20C
+Quadro Portaria
+Portaria de Entrada e Saída em Carregamentos:
+ deve-se definir o processo que o SisPetro irá efetuar para a portaria de entrada e de saída. Sendo assim, conforme definição a ordem de carregamento poderá ir ou não para a fila da portaria automaticamente.
+Utiliza tela de portaria de entrada e saída:
+ com este perfil a ordem de carregamento efetuará o processo de pegar fila na portaria de entrada e após o carregamento (manual ou automatizado) irá automaticamente para a portaria de saída.
+Não utiliza tela de portaria de entrada/saída:
+ com este perfil a ordem de carregamento não irá efetuar o processo de pegar fila na portaria de entrada e nem de a portaria de saída. Só exibem telas de questionamento ao usuário ao final do processo se necessário.
+Utiliza tela de portaria de entrada somente:
+ com este perfil indica que o processo de portaria de entrada e saída será automatizado após a obtenção da fila na inclusão da ordem de carregamento e no botão Pega Fila da Manutenção de Ordem de Carregamento. Só exibem telas de questionamento ao usuário ao final do processo se necessário.
+Para os depósitos com Bola Preta habilitado, independente de utilizar ou não portarias de saída, todas as OC ficarão na tela de Portaria de Saída aguardando o usuário fazer ou não inspeção. Para mais informações, ver 
+Inspeção de Auto Tanque - Sorteio de Bola Preta
+Para os depósitos configurados para agendamento, esta opção deve ser, 
+obrigatoriamente
+, Utiliza tela de portaria de entrada e saída. Para mais informações, ver 
+Exigência de Faturamento antes do Carregamento/Descarga:
+ esse perfil define se ao realizar a portaria de entrada/Saída será exigido ou não o faturamento da nota. Para mais informações, ver 
+Exigência do Faturamento na Portaria de Entrada/Saída
+.
+Segue perfil de empresa: 
+habilitando essa opção será levado em consideração o perfil de sistema 
+Exige faturamento antes do Carregamento/Descarga
+. Para mais informações, ver 
+.
+Exige na Portaria de Entrada: 
+habilitando essa opção será exigido o faturamento da nota para realizar a portaria de entrada.
+Exige na Portaria de Saída: 
+habilitando essa opção será exigido o faturamento da nota para realizar a portaria de Saída.
+Não Exige: 
+habilitando essa opção, não será exigido o faturamento da nota para realizar a portaria de entrada/saída.
+A verificação de faturamento não é feita para OC de Carregamento ou Descarga de Terceiros.
+Quadro Balança
+Obtenção de peso do caminhão através de balança nas portarias: 
+através desse perfil definimos se para esse deposito teremos a integração com a balança.
+Não Tem Integração: 
+utilizada para depósitos que não tem nenhum tipo de integração com a balança.
+Tem integração Total: 
+utilizada para depósitos que tem integração com a balança.
+Somente Descarga: 
+a integração com a balança é realizada somente para operações de Descarga.
+Somente Carregamento: 
+a integração com a balança é realizada somente para operações de Carregamento.
+Segue Perfil da Empresa: 
+a integração com a balança segue de acordo com o que foi configurado no 
+perfil de sistema
+ 
+Obtém peso do caminhão através de balança nas portarias
+. 
+Forma de Pesagem nas portarias:
+Integrada Volume e Peso de uma vez só: 
+esta é a forma que o SisPetro sempre trabalhou, caso esteja configurado para obter peso através das balanças, o volume e peso são obtidos de uma única vez.
+Separada Volume e Peso em passos diferentes: 
+esta é a forma implementada para que a Portaria de Entrada e Saída sejam concluídas. Será preciso obter o Peso e também indicar o volume, em passos diferentes. Para mais informações, ver 
+Pesagem e Obtenção do Volume Separados
+Obtenção de peso nas portarias: 
+este perfil define se o usuário ira obter o peso a qualquer momento da operação ou se será uma única vez.  
+Uma única vez: 
+o peso será obtido uma única vez, esta opção é padrão do SisPetro.
+Toda vez que o usuário optar pela Pesagem: 
+permitira a obtenção do peso a qualquer momento na operação.
+Volume a ser utilizado configurado para Balança:
+Usa sempre Volume da Balança: 
+sempre será calculado o volume pelo peso da balança.
+Usa Volume da Balança só se não tiver Volume Automação: 
+o volume será calculado através do peso da balança caso não se tenha o volume da automação.
+Configuração de Balança: 
+este perfil define se a balança na portaria será a informada no perfil de sistema ou seguira a configuração por depósito. 
+Segue perfil de empresa:
+ define que o depósito ira utilizar a configuração de sistema.
+Utiliza configuração do Depósito: 
+define que o depósito utilizara as balanças configuradas em Gerenciamento de Balanças
+Gerenciamento de Balanças: 
+ quando informado no perfil 
+Configuração de Balança 
+a opção 
+Utiliza configuração do Depósito
+, é preciso cadastrar as balanças a serem utilizada pelo depósito. Para mais informações, ve
+r 
+Gerenciamento de Balanças
+.
+Informa o operador na Portaria de Saída
+: ao selecionar esta opção, o SisPetro exigirá o nome do Operador responsável pela portaria de saída.
+Tipo de automação:
+ no campo Tipo automação é informada qual o tipo de automação que será realizado nesse depósito, caso tenha algum.
+Respeita Perfil de Empresa
+Desabilitado
+SmartCard
+View
+Troca de Arquivo
+Quadro Portaria de Entrada
+Controle de vencimento na Portaria de Entrada: 
+para evitar que ocorra carregamento de um controle vencido, é possível configurar o SisPetro para validar os controles de vencimento na Portaria de Entrada.
+Não verifica
+Avisa e não impede entrada
+Bloqueia a entrada caso tenha algum vencido
+Portaria de Entrada - Validação da Data da OC:
+ realiza a validação da data da OC com relação à data atual, podendo avisar ou até mesmo bloquear a entrada da OC na portaria quando a data for menor que a data atual.
+Não verifica:
+ não realiza a verificação e permite a entrada na portaria independente da data.
+Avisa se a Data da OC for anterior à data atual:
+ realiza a validação e avisa caso a data da OC for anterior à data atual.
+Bloqueia se a Data da OC for anterior à data atual:
+  realiza a validação e bloqueia caso a data da OC for anterior à data atual.
+Tempo Máximo para Entrada na Base (minutos): 
+este perfil define o tempo máximo para o motorista realizar a entrada na base. Para mais informações, ver 
+Chamada de Motorista na Portaria
+.
+Habilita Chamada de Motorista:
+ habilitando esse perfil será habilitado a opção de realizar a chamada do motorista na portaria de entrada. Para mais informações, ver 
+Chamada de Motorista na Portaria
+Na inclusão da OC a validação é feita apenas considerando a Data de Inclusão da OC, caso algum controle de vencimento esteja para vencer, o SisPetro só vai fazer a validação na Portaria de Entrada.
+Quadro Fator Conversão
+Atualiza Movto Escritural nas saídas (Fator e Qtde 20c):
+ este perfil, quando marcado, irá atualizar nas notas fiscais de saída a quantidade a 20 graus conforme o perfil de sistema 
+Temperatura e densidade que será salvo na NF
+. este perfil só será considerado se o perfil de sistema 
+Atualiza Fator de Conversão e Quantidade a 20c nas NFs Saídas
+ estiver configurado para 
+Respeita configuração do Depósito
+. Para mais informações, ver 
+Painel Estoque
+.
+Atualiza Movto Escritural nas saídas (Fator e Qtde 20c):
+ este perfil, quando marcado, irá atualizar nas notas fiscais de entrada a quantidade a 20 graus conforme o perfil de sistema 
+Temperatura e densidade que será salvo na NF
+. Este perfil só será considerado se o perfil de sistema 
+Atualiza Fator de Conversão e Quantidade a 20c nas NFs Entradas
+ estiver configurado para 
+Respeita configuração do Depósito
+. Para mais informações, ver 
+Painel Estoque
+.
+Despreza Fator na Portaria (Volume Ambiente = 20c):
+ este perfil considera a densidade informada pelo usuário como já sendo a 20 graus. Alguns clientes possuem medidores que informam direta e automaticamente a densidade, porém, já convertida a 20 graus. Dessa forma, o SisPetro considera a densidade como sendo a 20 graus e calcula (a partir do peso) o volume a 20 graus sempre igualando o volume ambiente ao volume informado. Assim, mesmo que não exista informação de peso, o fator de conversão, será igual a 1 e o volume (informado ou calculado) a temperatura ambiente será igual ao volume a 20 graus. Para mais informações, ver 
+Saída do Caminhão
+.
+Para informações sobre as configurações necessárias para o cálculo da quantidade a 20 graus, ver 
+Temperaturas e densidade na Impressão da Nota Fiscal
+.
+Quadro Validação de Temperatura
+Validação de Temperatura
+:
+Não Valida:  
+selecione esta opção para o SisPetro não realizará qualquer validação de Temperatura.
+Valida somente Movimentação de Estoque Físico: 
+ habilitando este perfil, o SisPetro validará as temperaturas informadas para as movimentações do estoque físico com as informações preenchidas, a fim de evitar erros de digitação.
+Valida Movimentação de Estoque Físico e Compartimentos Sistema Automação: 
+habilitando este perfil, o SisPetro validará as temperaturas informadas para as movimentações do estoque físico e as temperaturas de cada compartimento retornadas no arquivo do Sistema de Automação.
+Valida somente Compartimentos do Sistema Automação: 
+habilitando este perfil, o SisPetro validará somente as temperaturas de cada compartimento retornadas no arquivo do Sistema de Automação.
+Intervalo de Temperaturas permitido:
+ informar qual o intervalo de temperaturas permitido pelo Sistema.
+Quadro Integração via Arquivo
+Informamos os dados para a realização de integração do SisPetro com o Sistema de Automação.  Para mais informações, ver 
+Configurações Integração com Sistema de Automação
+ e  
+Layout dos arquivos utilizados na integração com Sistemas de Automação
+Banco Dados do Sistema de Automação:
+ caminho onde se encontra o banco de dados do Sistema de Automação.
+Para a integração com Sistema de Automação 
+Basecom, 
+se faz necessário o preenchimento do caminho 
+Banco Dados do Sistema de Automação.
+Para a integração com Sistema de Automação 
+Infitech, 
+não é preciso o preenchimento do caminho 
+Banco Dados do Sistema de Automação.
+Pasta Gravação Sistema de Automação:
+ caminho onde o SisPetro salvará os arquivos textos.
+Pasta Leitura do Sistema de Automação: 
+caminho onde o Sistema de Automação salvará os retornos.
+DLL do Sistema de Automação:
+ caminho para indicar ao SisPetro qual o Sistema de Automação que está sendo utilizado na 
+Base.
+Automação de Carregamento: 
+permite definir se haverá ou não automação no carregamento
+Não possui automação:
+ não possui integração com Sistema de Automação para carregamento
+Possui automação:
+ possui integração com Sistema de Automação para carregamento
+Automação de Descarga:
+ permite definir se haverá ou não automação na descarga
+Não possui automação:
+ não possui automação de descarga
+Possui automação de descarga (Volume Descarregado):
+ possui automação de descarga
+Sem automação -
+ 
+Obtém Ticket de Carregamento para Completar Volume
+ - não possui automação de descarga, porém gera ticket de carregamento para completar o volume do compartimento.
+% Vol. Descarga: 
+percentual a ser informado quando a opção Automação de Descarga estiver com a opção 
+Sem automação - obtém ticket de carregamento para completar volume
+ selecionado, para que o SisPetro gere o ticket de carregamento com este volume para que a base complete o compartimento para efetuar a descarga.
+Exemplo:
+ se a OC de descarga for de 5000 e o percentual informado no campo for 2%, o SisPetro gerará uma compartimentação com este produto, com a quantidade de 100 litros.
+Gravação Arquivo Portaria Entrada: 
+Na Portaria de Entrada:
+ padrão. Nesta opção, o Sistema de Automação já retornou o arquivo. Com isso, 
+não abrirá
+ a tela para 
+obtenção dos dados
+ ao clicar em 
+Obtém Arquivo, 
+solicitando a impressão do layout.
+Ao Pegar Fila:
+ o arquivo para o Sistema de Automação será gravado na pasta de Gravação e aguardará o arquivo de retorno. Da mesma forma, ao clicar em 
+Obtém Arquivo, 
+se encontrando o arquivo, o SisPetro 
+não abrirá
+ a tela de processamento do arquivo. solicitando a impressão do layout.
+A diferença entre as 2 opções é o tempo:
+Na Portaria de Entrada:
+ o arquivo de retorno do Sistema de Automação normalmente já se encontra na pasta de Leitura, agilizando o processo
+Ao Pegar Fila:
+ o SisPetro gravará o arquivo na pasta de Gravação e aguardará o retorno do arquivo do Sistema de Automação
+Leitura do Arquivo do Sistema de Automação na Portaria de Saída para Carregamentos
+: 
+Não verifica Status do Carregamento no arquivo: 
+marcando este perfil, o SisPetro não irá considerar o campo 
+Status_Ordem
+ do arquivo do Sistema de Automação, considerando a quantidade informada no arquivo, independente se o processo foi ou não finalizado.
+Avisa caso o Status do Carregamento no arquivo não esteja 2 - Abastecido:  
+marcando este perfil o SisPetro irá verificar o campo 
+Status_Composto 
+do arquivo do Sistema de Automação, caso este campo esteja diferente de 
+2 
+ou
+ 3
+, irá avisar ao usuário, dando a opção para que continue o carregamento.
+Bloqueia caso o Status do Carregamento no arquivo não esteja 2 - Abastecido: 
+marcando este perfil o SisPetro irá verificar o campo 
+Status_Composto
+ do arquivo do Sistema de Automação, caso este campo esteja diferente de
+ 2 
+ou
+ 3
+, irá bloquear o carregamento.
+Prefixo Arquivo Portaria: 
+Para o Sistema de Automação da empresa Dwyler, a sigla por padrão é RPS, podendo ser alterado conforme determinado pela empresa.
+Para o Sistema de Automação da Infitech, o arquivo é gerado automaticamente com a sigla OC por padrão, não tendo a necessidade do seu preenchimento.
+Verifica produtos configurados para automação / Balança?: 
+Se marcada, verifica quais produtos estão habilitados para automação de carregamento/descarga e para automação de balança. Para mais informações, ver 
+Depósitos - aba Dados por Produto
+Quadro Carregamento
+Densidade Amostra a ser utilizada
+: densidade da amostra deve ser considerada para leitura do arquivo do Sistema de Automação.
+Utiliza a densidade da Amostra da última leitura do tanque:
+ para fazer a portaria de saída, utiliza a Densidade da amostra cadastrada na última leitura do tanque.
+Utiliza a densidade recebida no arquivo da portaria de saída:
+ para fazer a portaria de saída, utiliza a Densidade da amostra recebida no arquivo do Sistema de Automação
+Temperatura de Amostra a ser utilizada
+: informação de qual temperatura da amostra deve ser considerada para leitura do arquivo do Sistema de Automação.
+Utiliza a temperatura da Amostra da última leitura do tanque:
+ para fazer a portaria de saída, utiliza a temperatura da amostra cadastrada na última leitura do tanque.
+Utiliza a temperatura recebida no arquivo da portaria de saída:
+ para fazer a portaria de saída, utiliza a temperatura da amostra recebida no arquivo do Sistema de Automação
+Volume 20c - Forma de Cálculo
+SisPetro calcula a partir de temperaturas e densidade: 
+SisPetro irá calcular o volume a partir das informações de temperatura e densidade (padrão)
+Utiliza da Automação se existir, caso contrário SisPetro calcula: 
+irá utilizar o volume a vinte graus vindo do arquivo. Caso a informação venha zerada, o SisPetro irá calcular o volume a partir das informações de temperatura e densidade. A utilização do volume a 20c
+ está disponível apenas para integração com Zylix
+Sempre utiliza da Automação e caso não exista utiliza Volume Ambiente: 
+irá utilizar o volume a vinte graus caso a informação venha no arquivo. Caso o volume a 20 c esteja zerado, o SisPetro irá utilizar o volume ambiente informado no arquivo. 
+Disponível apenas para integração com Zylix
+Temperatura do Tanque
+Caso o usuário opte por utilizar a temperatura da amostra da última leitura do tanque, deve se atentar que o campo temperatura do tanque deve também deve ser informado, para que o SisPetro carregue a temperatura do tanque, é necessário habilitar o perfil de Sistema 
+Pega a temperatura do Tanque ao Invés do Cartão
+, localizado na aba Ordem Carregto.
+Temperatura do Tanque:
+Quadro Descarga:
+Densidade de Amostra a ser utilizada: 
+Utiliza a Densidade da Amostra da última leitura de tanque: 
+marcado este perfil o SisPetro irá utilizar a última leitura do tanque como amostra de densidade na descarga.
+Utiliza a Densidade recebida no arquivo da Portaria de Saída: 
+marcado este perfil o SisPetro irá utilizar a última leitura do arquivo da portaria de Saída como amostra de densidade na descarga.
+Temperatura de Amostra a ser utilizada
+Utiliza a Temperatura da Amostra da última leitura de tanque:
+ marcado este perfil o SisPetro irá utilizar a última leitura do tanque como amostra de temperatura no descarga.
+Utiliza a Temperatura recebida no arquivo da Portaria de Saída:
+ marcado este perfil o SisPetro irá utilizar a última leitura do arquivo da portaria de Saída como amostra de temperatura na descarga.
+Volume 20c - Forma de Cálculo
+SisPetro calcula a partir de temperaturas e densidade: 
+SisPetro irá calcular o volume a partir das informações de temperatura e densidade (padrão)
+Utiliza da Automação se existir, caso contrário SisPetro calcula: 
+irá utilizar o volume a vinte graus vindo do arquivo. Caso a informação venha zerada, o SisPetro irá calcular o volume a partir das informações de temperatura e densidade. A utilização do volume a 20c
+ está disponível apenas para integração com Zylix
+Sempre utiliza da Automação e caso não exista utiliza Volume Ambiente: 
+irá utilizar o volume a vinte graus caso a informação venha no arquivo. Caso o volume a 20 c esteja zerado, o SisPetro irá utilizar o volume ambiente informado no arquivo. 
+Disponível apenas para integração com Zylix
+Para uso do Sistema de Automação Basecom
+Para agilizar o processo na portaria de saída e não abrir a tela de Gravação/Obtenção da Dados quando clicar no botão  Automação via Arquivo:
+Para que isso ocorra é necessário entrar em contato com a Dwyler para solicitar a alteração.
+A alteração faz com que o usuário não intervenha no processo, já que todos os dados necessários estão no arquivo, não tendo necessidade de abrir a tela de Gravação/Obtenção de Dados.
+Caso não queira a alteração, não há necessidade de solicitar junto à Dwyler. O processo será o mesmo que o usuário faz atualmente.
+Opções do Status Carregamento:
+-2
+ - Aberto
+-1
+ - Cancelado
+0
+ - Pendente
+1
+ - Abastecendo
+2
+ - Abastecido
+3
+ - Finalizado
+Em casos de carregamento parcial, ou seja, casos em que alguns dos produtos tenham finalizado seu carregamento e outro ainda esteja pendente ou abastecendo, desde que a compartimentação do frota e do arquivo estejam compatíveis, o SisPetro avisará ou bloqueará a saída do caminhão da portaria. Para mais informações, ver 
+Integração com Sistema de Automação
+.
+ 
+Quadro Impressão de Layout
+É onde informamos o caminho do relatório de portaria e os parâmetros do mesmo.
+Layout Portaria:
+ nesse campo deve-se informar o caminho do arquivo rtm, através do botão Edita layout também é possível realizar modificações no relatório.
+Nome Pipeline portaria: 
+nesse campo deve-se ser informado o nome do condutor do relatório. No relatório padrão enviado pela Futura o nome do condutor utilizado é Portaria.
+Nome SeqFila Portaria: 
+nesse campo deve-se informar o campo referente ao sequencial da Fila da Portaria.
+Direcionamento da impressão:
+Sugere impressora padrão e pode selecionar:
+ ao imprimir o relatório sugere a impressora padrão do Windows, permitindo selecionar outra impressora.
+Imprime direto para a impressora indicada:
+ não abre a tela para selecionar a impressora. Usará a impressora informada no campo Impressora indicada. Caso não tenha impressora indicada ou a impressora tenha sido removida do Windows, poderá informar um erro do Windows ou um erro do SisPetro, e em ambos os casos informam que a impressora não foi encontrada.
+Sugere impressora indicada e pode selecionar:
+ ao imprimir o relatório sugere a impressora informada no campo Impressora indicada, permitindo selecionar outra impressora. Caso não tenha impressora indicada ou a impressora tenha sido removida do Windows, poderá informar um erro do Windows ou um erro do SisPetro, e em ambos os casos informam que a impressora não foi encontrada.
+Impressora indicada:
+ caso selecione Sugere impressora indicada e pode selecionar, informe a impressora.
+Quadro Biometria
+Através do quadro de biometria que são realizadas as configurações da integração do depósito com um sistema de biometria. 
+Dll Portaria:
+ nesse campo deve ser informado o diretório onde se encontra a DLL.
+IP:
+ no campo IP deve informar o IP do aparelho de biometria. 
+Deve ser um IP fixo.
+Porta:
+ porta onde se encontra o aparelho de biometria, através do IP e da Porta que é localizado o aparelho de biometria.
+Usuário Aparelho Biometria: 
+nesse campo deve ser informado o usuário configurado no aparelho da Biometria. 
+Obs.: geralmente, já vem configurado o usuário 
+Admin
+ porém é interessante verificar no manual do aparelho em  questão.
+Senha Aparelho Biometria: 
+nesse campo deve ser informado a senha do usuário acima no aparelho configurado 
+Testar biometria: 
+ao acionar, será apresentado a tela de Leitura de Biometria onde o usuário pode realizar testes de conexão com o aparelho de biometria.
+Quadro Carregamento / Descarga:
+Exige Biometria do motorista: 
+campo que define se ira exigir Biometria no carregamento ou no Descarregamento.
+Ação para Problema de comunicação ou Motorista sem cadastro:
+ define a ação a ser realizada quando é obtido problemas de comunicação ou Motorista sem Cadastro.
+Ação para Motorista diferente da Fila:
+ define a ação a ser realizada quando é obtido uma biometria de um motorista diferente da fila.
+Quando utilizado a ação 
+Avisa
+ e a resposta da biometria se enquadrar em um dos perfis acima, será apresentado uma mensagem para o usuário questionando se ele quer parar o processo ou dar continuidade. 
+Quando utilizado a ação 
+Bloqueia
+ e a resposta da biometria se enquadrar em um dos perfis acima, não será possível dar continuidade no processo ate que seja obtido um valor válido de biometria.
+Facial
+Permite Autenticação do Motorista via Biometria Facial?: 
+quando habilitado será possível realizar o login com biometria facial no SisPetroAPP. para mais informações, ver: 
+Autenticação Facial Auto Atendimento SisPetro APP
+Quadro Automação de Leitura de Tanque
+Através desse quadro iremos definir como será realizado a leitura de Tanque. 
+Leitura de Tanque
+Só manual:
+ realiza a leitura somente de forma manual.
+Manual e via Arquivo:
+ essa opção permite realizar a leitura de forma manual e via leitura de arquivo.
+Só via Arquivo:
+ essa opção permite realizar a leitura de tanque somente via arquivo.
+DLL para Leitura do Arquivo:
+ nesse campo devemos informar o diretório do arquivo LeituraTanque_Sispetro_DPM.dll.
+Quadro Arredonda os valores recebido?: 
+marcando esse campo os campos referente a Temperatura e Densidade serão arredondados com base na quantidade de casas decimais informadas nos campos de 
+Temperatura
+ e 
+Densidade
+.
+Temperatura:
+ quantidade de casas decimais utilizado para a temperatura, podendo ser informado um valor de 0 à 6.
+Densidade:
+ quantidade de casas decimais utilizado para a densidade, podendo ser informado um valor de 0 à 6.
+Para mais informações, ver 
+Leitura Automática DPM
+.
+Para salvar as informações, clique em 
+OK.
+Para abortar o processo, clique em
+ Cancela
+Caso o perfil de depósito 
+Exigência de Faturamento antes do Carregamento/Descarga
+ esteja com a opção 
+Exige na Portaria de Saída
+ será realizada a validação das Ordens de Carregamento, exigindo o faturamento da mesma. Para mais informações, ver 
+Depósitos - Aba Dados Adicionais
+.
+A verificação de faturamento não é feita para OC de Carregamento ou Descarga de Terceiros.
+Quadro CheckList
+Nº de Dias validade do Checklist:
+ prazo de validade do checklist, podendo ser informado um número de 1 a 1000, 
+Grupo Controle de Vencimentos: 
+poderá escolher um Controle de Vencimento, conforme os exemplos abaixo.
+Ter um subgupo Frota e dentro dele dois campos Descarga e Carregamento
+Ter um subgrupo Motorista e e dentro dele dois campos Descarga e Carregamento
+Ação para Checklist Recusado
+, ação que será realizada quando o checklist for recusado:
+Não faz nada
+Cancela a OC
+Para mais informações, ver:
+ 
+API Ação do Checklist

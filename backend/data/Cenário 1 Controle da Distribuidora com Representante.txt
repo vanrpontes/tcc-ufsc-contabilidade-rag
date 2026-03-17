@@ -1,0 +1,163 @@
+TITULO: Cenário 1: Controle da Distribuidora com Representante
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927271001
+--------------------------------------------------
+Cenário 1 - 
+Quando se trabalha com representante, se dá a liberdade do mesmo poder negociar as compras e a vendas diretamente com os Fornecedores e Clientes.
+Uma vez que isso acontece, as respectivas notas ficais serão emitidas em nome da Distribuidora.
+Orientações para o processo de Compra
+Para separar 
+Compras
+ de diferentes Representantes:
+Configuração 
+Empresa/Sistema
+, aba 
+Compras
+:
+"Informação de Representante no PMM", 
+escolher a 
+opção: "
+Obriga informar Representante
+".
+“Quantidade Pendente no PMM"
+, escolher a opção: "
+Pela quantidade paga (Adiantamento Quantificado)"
+Ter uma 
+entidade Cliente
+ configurada para ser representante - 
+No cadastro de 
+Clientes
+, existe o campo "
+Pode ser representante
+?" na aba Cadastro Detalhado, dentro do grupo "
+Análise de Crédito Grupo Econômico
+"
+No cadastro de 
+Fornecedor, 
+configurar 
+para todas as usinas,
+ 
+na aba 
+Padrão p/ compra
+, 
+o perfil "
+Controla qtde no adto
+"
+, 
+com 
+a opção 
+“Sempre”. 
+Ao incluir o 
+PMM
+ 
+informar o Representante correspondente para qual foi feito o contrato com a Usina.
+Informar no campo 
+#Pedido Fornecedor 
+o número do contrato com a usina.
+Ter um único Depósito "Usina" para ser origem nos PMM (recomendado). Porém caso já utilize depósito por usina, não haverá problema.
+Fazer as configurações necessárias para  
+Envio de e-mail para PMM
+Atentar-se para incluir os PMM com unidade de medida correta (quando não for litros). Veja mais informações em 
+Várias unidades de compra para um mesmo produto
+Utilizar 
+Adiantamentos Quantificados
+ de Fornecedores devidamente vinculados aos PMM. Mais informações em 
+.
+Emitir OC pela tela de Consulta "
+Pedido de Movimentação de Material Pendentes
+" para facilitar o processo. Para maiores informações, acesse 
+.
+Lançar as 
+NF
+ de Entrada devidamente, vinculando às OC:
+O lançamento das notas deverá ser 
+sempre
+ no mesmo depósito em que a nota de venda for emitida.
+Para vendas direto da Usina, onde a nota fiscal será faturada em quantidade 20c, configurar a 
+Natureza de Operação
+ para trabalhar com o perfil "
+Quantidade de Acerto nos Itens da NF?
+" escolhendo a opção "
+Permite informa e faz ajuste com a diferença
+".
+Nas configurações de 
+Empresa/Sistema
+, aba 
+Financeiro
+, atentar-se para os seguintes perfis:
+Vinculo Títulos a Pagar e Adiantamentos pelo PMM:
+ configurar com 
+"Sugere Adiantamento ao Título pelo PMM"
+Faz Restrições do Grupo Econ. em Adiantamentos Fornecedores
+: configurar com "
+Marcado
+"
+Na baixa dos títulos utilizando adiantamentos (seja via tela Débito/Crédito, Baixa Automática ou Baixa Manual), o Sispetro sempre utilizará cada adiantamento com o título do mesmo PMM, facilitando o controle. A tela de Consulta de 
+Posição de PMM
+ e os Relatórios de 
+Movimentação de Material - Geral
+ e de Pedido de Movimentação de Material Pendentes devem ser utilizados para acompanhar os contratos, onde será possível filtrar o Representante e saber movimentações de um determinado Representante por Usina. 
+Há um perfil de usuário, para permitir exceções com relação ao vínculo dos adiantamentos, que só deve ser liberado em último caso (
+Vinculo Títulos a Pagar e Adiantamentos pelo PMM
+ sugerimos como padrão: "
+Respeita perfil da Empresa
+")
+Orientações para o processo de Venda
+Na tabela de 
+Vendedores
+, cadastrar um vendedor para cada Representante
+Nas 
+configurações de Empresa/Sistema
+, atentar-se para os seguintes perfis: 
+Aba 
+Vendas
+Controla Assistente de Vendas
+: configurar com "
+Marcado
+"
+Vínculo do Assistente ao Vendedor
+: configurar como "
+Sem vínculo pré-definido
+"
+Aba 
+Financeiro
+Valor Financeiro X Faturamento
+: configurar com "
+Valor NF (Pedido) = Valor Financeiro (Pedido)
+"
+No 
+Pedido de Venda
+:
+Usar o campo 
+Vendedor
+ para indicar o Representante
+No campo 
+#Pedido Cliente 
+informe o Número do PMM ou da OC
+Para identificar vendas por 
+Representante
+, usar o campo
+ Vendedor
+ com o código já cadastrado anteriormente.
+No no Assistente de Vendas usar o mesmo código do representante. 
+Orientações para o processo de Financeiro
+Ter uma conta "transitória", para onde serão direcionadas as baixas do arquivo de retorno do tipo de cobrança da conta utilizada para este fim.
+Criar conta no plano de contas gerencial e real;
+No 
+Tipo de cobrança,
+ aba Por Empresa / Conta, indicar conta transitória criada anteriormente.
+Fazer a baixa normalmente via leitura de arquivo.
+Tirar relatório de baixa e verificar o valor total da baixa para cada vendedor.
+Após ter o valor da baixa para cada vendedor, na
+ Manutenção de Bancos
+, incluir um 
+Recebimento 
+Extraordinário
+ na conta banco, com 
+Histórico 
+exclusivo
+ para cada representante, com o valor total do Retorno do Banco.
+Para o Pagamento de Conhecimento de Frete das compra e vendas do representante, s
+empre utilizar 
+Histórico 
+exclusivo
+ para cada representante

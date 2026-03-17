@@ -1,0 +1,34 @@
+TITULO: Arredondamento em Produtos Compostos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2886336657
+--------------------------------------------------
+Existem situações que se faz necessário a venda de produtos em quantidades fracionadas sendo que um exemplo típico são os aditivos. Normalmente utiliza-se a proporção de 1 litro de aditivo para 10 mil litros de combustível, porém existem situações que o cliente deseja adquirir quantidades menores de combustível aditivado.
+Exemplo
+Se o cliente faz um pedido de 1000 litros de gasolina aditivada, o produto será composto por 1000 litros de gasolina tipo C comum e 0,1 litro de aditivo.
+O SisPetro por padrão utiliza uma fórmula de arredondamento aritmético para o campo de quantidade, ou seja, para valores maior ou igual a 0,5 é arredondado para 1, para valores menores que 0,5 é arredondado para 0(zero).
+Esse tipo de arredondamento 
+não
+ é aplicável para os produtos que contém aditivos, por exemplo, pois se a quantidade de aditivo for 0,4 litros o sistema arredondará para 0 (zero) e não haveria baixa no estoque. Para que 
+não ocorra essa situação
+, o SisPetro permite que seja configurado o tipo de arredondamento correto para cada produto. Para isso, siga os passos abaixo:
+Utilizaremos como exemplo a Gasolina Aditivada.
+Acesse a tela de cadastro de 
+Produtos
+ aba Detalhes, aba 
+Composição
+. Na lista de produtos que compõe a Gasolina está o Aditivo. Posicione no Aditivo e altere a coluna Tipo de Arredondamento para 
+Não arredonda, 
+conforme imagem abaixo
+Ainda na tela de Produtos, vá para o produto aditivo e na aba 
+Composição
+, abaixo da lista de produtos (que no caso do aditivo não tem nenhum produto) e no campo Arredondamento de qtde movimentada coloque Permite Decimais.
+Com essas configurações nas telas de 
+Itens da NF de Retorno de Armazenagem,
+ 
+Manutenção de Carregamento e Descarga, 
+e 
+Manutenção de OC, aba Itens Real
+ será possível ver as casas decimais do Aditivo. 
+Com essa configuração, ao sair 1000 litros de gasolina aditivada, movimentará 0,1 de aditivo.
+Mas lembre-se, para fechamento de estoque é somado tudo em decimal, e a soma, é arredondada para um valor inteiro.
+Ex: 0,6 + 0,6 + 0,6 = 1,8
+No fechamento de estoque, então constará 2 litros.

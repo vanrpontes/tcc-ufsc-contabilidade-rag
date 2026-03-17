@@ -1,0 +1,255 @@
+TITULO: Permissão de Seguro X Modalidade de Frete
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2890596347
+--------------------------------------------------
+Em versão anterior foi implementada uma solução para controlar seguro no Pedido de Venda.
+
+
+A decisão de ter ou não seguro seria conforme configuração do cliente ou decisão do usuário.
+
+
+No entanto, tal solução não estava completa, pois não tem sentido calcular seguro para pedidos cujos fretes são da modalidade Entrega e que tal decisão não deve ficar por conta do usuário.
+
+
+Para solucionar foi complementado para verificar permissão de seguro com modalidade de frete.
+
+
+Em {{Ferramentas / Sistema / Vendas }}:
+
+
+
+
+Seguros
+
+
+
+
+Campo 
+Habilita Seguros
+:
+
+
+
+
+Configurando o campo 
+Permissão de Seguro X Modalidade de Frete
+:
+
+
+
+
+Para o cliente, será necessário configurar o perfil de seguros, que fica na aba de 
+Padrão para Vendas
+:
+
+
+
+
+O campo 
+Perfil
+ deverá ser configurado com uma das opções abaixo:
+
+
+
+
+Sem Seguro:
+ O cliente não trabalha com seguro de carga, e o perfil de Pedido Segurado não estará habilitado.
+
+
+Usuário Escolhe:
+ O cliente não trabalha com seguro de carga, e o perfil de Pedido Segurado ficará habilitado para que o usuário defina.
+
+
+Com Seguro:
+ O cliente irá trabalhar com seguro de carga obrigatoriamente.
+
+
+
+
+Em seguida será necessário vincular o Seguro cadastrado na 
+ ao cliente.
+
+
+Combinações de Perfis: Permissão de Seguro X Modalidade de Frete e Cadastro de Clientes
+
+
+
+
+
+
+ Cadastro de
+
+ Clientes 
+
+
+ Permissão de Seguros 
+
+ X 
+
+ Modalidade de Frete 
+
+
+ Pedidos
+
+ Retira 
+
+
+ Pedidos
+
+ Entrega 
+
+
+
+
+
+
+ Sem Seguro 
+
+
+ Ambas Modalidades 
+
+
+ Permite incluir 
+
+
+ Permite incluir 
+
+
+
+
+
+
+ Sem Seguro 
+
+
+ Retira 
+
+
+ Permite incluir 
+
+
+ Permite incluir 
+
+
+
+
+
+
+ Sem Seguro 
+
+
+ Entrega 
+
+
+ Permite incluir 
+
+
+ Permite incluir 
+
+
+
+
+
+
+ Usuário Escolhe 
+
+
+ Ambas Modalidades 
+
+
+ Permite incluir 
+
+
+ Permite incluir 
+
+
+
+
+
+
+ Usuário Escolhe 
+
+
+ Retira 
+
+
+Com e Sem Seguro Permite incluir 
+
+
+ Sem Seguro Permite incluir / Com Seguro Não inclui 
+
+
+
+
+
+
+ Usuário Escolhe 
+
+
+ Entrega 
+
+
+ Com Seguro Não inclui / Sem Seguro Permite incluir 
+
+
+ Com e Sem Seguro Permite incluir 
+
+
+
+
+
+
+ Com Seguro 
+
+
+ Ambas Modalidades 
+
+
+ Permite incluir 
+
+
+ Permite incluir 
+
+
+
+
+
+
+ Com Seguro 
+
+
+ Retira 
+
+
+ Permite incluir 
+
+
+ Não inclui 
+
+
+
+
+
+
+ Com Seguro 
+
+
+ Entrega 
+
+
+ Não inclui 
+
+
+ Permite incluir 
+
+
+
+
+
+
+No Pedido de Venda, selecionando a modalidade de frete e se tem seguro:
+
+
+
+
+Se no Pedido a modalidade de frete for ENTREGA e na Permissão de Seguro for RETIRA (ou vice-versa), será mostrada a mensagem:
+

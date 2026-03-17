@@ -1,0 +1,152 @@
+TITULO: Provisão de Devedores Duvidosos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926194567
+--------------------------------------------------
+Depois de 5 anos sem o recebimento dos valores devidos, haverá um período onde os títulos serão classificados, ou seja marcados, como em processo de perda.
+Nesta tela será possível realizar a provisão de recebimento dos títulos. Neste processo os títulos não serão baixados, porém será feita uma contabilização dos títulos em uma conta redutora da conta de clientes e os mesmos receberam um classificação, indicando que já estão em processo de Perda.
+525px50Para isso é necessária a configuração de alguns parâmetros no Sispetro.
+Configuração de Sistema
+Ferramenta/Sistema/Aba Contas Contábeis: 
+informar as contas contábeis que serão utilizadas no processo de Provisão. 
+CC Devedores Duvidosos (sintética):
+ ao provisionar títulos de clientes (primeira vez), as contas contábeis serão criadas automaticamente
+Informar a conta contábil gerencial sintética:
+Será criada automaticamente a conta gerencial analítica para cada cliente, com o prefixo 
+DD
+ mais um sequencial numérico (Ex:. DD00001)
+Será criada automaticamente a conta contábil real analítica e vinculada à conta contábil gerencial analítica
+CC Perdas de Créditos:
+ 
+Conta contábil gerencial analítica de perda de crédito (conta de despesa), devidamente vinculada à conta contábil real analítica.
+CC Reversão de Perdas:
+ 
+Conta contábil gerencial analítica na qual será contabilizada a reversão da provisão, caso o cliente faça o pagamento do título no período de Provisão. Deve estar devidamente vinculada à conta contábil real analítica.
+Ferramenta/Sistema/Aba Históricos: 
+informar os históricos que serão utilizados no processo de Provisão. Caso não tenha, cadastrar em Menu Tabelas Auxiliares > Financeiro > Históricos Padrão>
+Histórico para Provisão
+: histórico que será utilizado no lote criado na Provisão de Devedores Duvidosos.
+Histórico para Baixa/Perda
+: histórico que será utilizado no lote/baixa na Perda de Devedores Duvidosos
+Configuração de Usuário
+Ferramenta/Usuário/Aba Financeiro: 
+ usuários que poderão executar os procedimentos de Devedores Duvidosos.
+Pode Processar Provisão:
+ permite que o usuário faça Provisão de Devedores Duvidosos 
+Pode Processar Perda:
+ permite que o usuário faça Perda de Devedores Duvidosos
+Pode Cancelar Provisão: 
+permite que o usuário cancele Provisão de Devedores Duvidosos 
+Configuração de Cliente
+Será criada uma conta automaticamente pelo processo de Devedores Duvidosos, abaixo da conta Sintética, já configurada no perfil de sistema 
+CC Devedores Duvidosos
+ conforme Cadastro de Clientes, 
+Padrão para Vendas (Clientes)
+.
+Provisão de Devedores Duvidosos
+Menu Movimentação > Financeiro > Contas a Receber
+Filtro Filial Específica: 
+filtra os títulos de determinada filial. 
+Empresa: 
+será sugerida a empresa conectada.
+Valor de Corte (por NF): 
+valor de corte que será apresentado, ou seja, serão apresentados títulos com valores maiores do que o informado na tela
+Vencimento anterior a: 
+serão apresentados títulos com vencimento anterior ao número de dias, meses ou anos informados nesses campos
+A partir de:
+ informe a data a partir da qual serão calculados os números de dias, meses ou anos informados.
+Situação: 
+Permite que sejam filtrados títulos renegociados ou não.
+Todos
+Não Renegociados
+Negociados
+Atualiza: 
+serão apresentados os títulos que atendem a seleção.
+Data: 
+data do lote a ser gerado
+#Docto:
+ número (somente) para ser usado nos lotes
+Código Histórico: 
+código sugerido pelo perfil de sistema. 
+Histórico: 
+descrição do histórico
+Pode Contabilizar: 
+indica se deve contabilizar na Contabilidade Real
+Botão 
+Marca/Desmarca Todos
+: permite marcar ou desmarcar todos os registros - em lote.
+Botão 
+Processa
+: executa procedimento de provisão, conforme seleção, apresentando uma mensagem de processo no final.
+Botão 
+Sai
+: sai da tela sem execução alguma.
+Títulos Apresentados na Seleção
+Todos os títulos com a coluna Seleciona marcada, serão validados em relação aos itens abaixo. Caso tenha algum título indevido, o mesmo será listado e o processo não será feito até que o usuário retire a marcação do título:
+Não deve ter baixas
+Não deve ter acréscimo de juros
+Deve estar com o Status normal, ou seja, nem já provisionado, nem dado como perda
+Não deve estar cancelado
+Contabilização
+Provisionando títulos em Devedores Duvidosos - contabilização é automática:
+D = Perdas de Créditos (campo CC Perdas de Créditos)
+C = Cliente Duvidosos (campo CC Devedores Duvidosos)
+Cancelamento da provisão de títulos em Devedores Duvidosos - contabilização é automática:
+D = Cliente Duvidosos (campo CC Devedores Duvidosos)
+C = Perdas de Créditos (campo CC Perdas de Créditos)
+Caso haja uma quitação do titulo neste período, a baixa no financeiro acontecerá normalmente, porém na contabilidade será feita a movimentação normal da baixa e a reversão do crédito incobrável.
+Baixa: 
+Será feita a baixa do valor original e dos juros, caso tenha.
+Contabilidade: 
+Contabilização normal da baixa e reversão de créditos incobráveis pelo valor ORIGINAL.
+Exemplo Baixa:
+D = Banco: Valor total (valor original do título + juros)
+C = Conta de Cliente: Valor original do título
+C = Conta de Receita Juros: Valor dos juros
+Exemplo Reversão:
+D = 
+ Cliente Duvidosos (campo CC Devedores Duvidosos)
+C = Reversão de Perdas de Créditos (campo CC Reversão de Perdas)
+Contabilização
+A contabilização real da Baixa Normal de títulos provisionados será feita via Código de Contabilização. Para isso, cada empresa deverá adicionar (ou incluir) no seu código de contabilização:
+D/C
+Conta
+Valor
+Débito
+ContaReal(<Baixa.CCBaixa>)
+<ItensBaixa.ValorMovimento>
+Crédito
+ContaReal(<ItensBaixa.CCEntidade>,if GetTipoCodEnt() = 1 then <ItensBaixa.CodEnt> else <ContasPagarReceber.Comprador> endif)
+<ItensBaixa.ValorMovimento> - 
+<ItensBaixa.ValorAcrescimo> + 
+<ItensBaixa.ValorDesc> - 
+<ItensBaixa.valCreditoGerado>
+Crédito
+ContaReal(<Baixa.CCAcrescimo>)
+<ItensBaixa.ValorAcrescimo>
+Débito
+ContaReal(<Baixa.CCDesconto>)
+<ItensBaixa.ValorDesc>
+Crédito
+ContaReal(<ItensBaixa.CCEntidade>,if GetTipoCodEnt() = 1 then <ItensBaixa.CodEnt> else <ContasPagarReceber.Comprador> endif)
+<ItensBaixa.ValCredito>
+Débito
+ContaReal(ContaAdiantamento(GetEntidadeAdto(<ItensBaixa.CodEmpresa>,<ItensBaixa.SeqCredito>,GetTipoCodEnt())))
+<ItensBaixa.ValCredito>
+Crédito
+ContaReal(ContaAdiantamento(if GetTipoCodEnt() = 1 then <ItensBaixa.CodEnt> else 
+<ContasPagarReceber.Comprador>
+ endif))
+<ItensBaixa.valCreditoGerado>
+Débito
+ContaReal(<Entidade.CCCliDevDuvid>)
+if <ContasPagarReceber.DuvidosoStatus> = 1 then (<ItensBaixa.ValorMovimento> - <ItensBaixa.ValorAcrescimo> + <ItensBaixa.ValorDesc> - <ItensBaixa.valCreditoGerado>) else 0 endif
+Crédito
+ContaReal(GetCCReversaoPerda())
+if <ContasPagarReceber.DuvidosoStatus> = 1 then (<ItensBaixa.ValorMovimento> - <ItensBaixa.ValorAcrescimo> + <ItensBaixa.ValorDesc> - <ItensBaixa.valCreditoGerado>) else 0 endif
+Baixa Parciais
+ É possível provisionar títulos com baixas 
+parciais
+Adicione as linhas referentes à contabilização da parte de devedores duvidosos no código de contabilização BAIXA CONTAS RECEBER. Caso queira um código de contabilização que trate da baixa de títulos provisionados em separado, basta fazer uma cópia do código de contabilização BAIXA CONTAS RECEBER e adicionar as linhas referentes à contabilização da parte de devedores duvidosos.
+Caso opte por incluir um novo código de contabilização para baixa de títulos provisionados, no momento da baixa deve alterar o código de contabilização, uma vez que, por padrão, utiliza o código BAIXA CONTAS RECEBER.
+Para mais informações, ver 
+Devedores Duvidosos
+.

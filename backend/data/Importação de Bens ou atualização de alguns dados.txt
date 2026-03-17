@@ -1,0 +1,85 @@
+TITULO: Importação de Bens ou atualização de alguns dados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2897281585
+--------------------------------------------------
+Tenha numa planilha os tipos de produtos que a empresa terá, contendo as seguintes informações:
+Produto
+: informe o código do produto no SisPetro ao qual o bem está ou será vinculado
+Código do bem
+: informe caso ele já exista no SisPetro
+Descrição
+: informe a descrição do bem
+Data aquisição
+: informe a data da aquisição do bem conforme nota fiscal
+Taxa Depreciação (% ao ano): 
+informe a taxa de depreciação anual
+Vida Útil (em meses)
+: informe o número de meses para o bem depreciar. Se for 5 anos, coloque 60
+Valor Original
+: informe o valor pelo qual o bem foi adquirido.
+Número Ativo:
+ informe, caso tenha.
+Setor:
+ informe o setor onde se encontra o bem, caso tenha.
+Local:
+ informe o local onde se encontra o bem, caso tenha.
+Observações:
+ informe, caso tenha.
+Suspende Depreciação:
+ se marcada, não será feita a depreciação do bem. Caso desmarcada, será feita a depreciação.
+Data Início Depreciação:
+ informe somente se Suspende Depreciação estiver desmarcada.
+Data Término Depreciação:
+ informe somente se Suspende Depreciação estiver desmarcada. 
+CC Depreciação Acumulada
+: informe o código reduzido da conta na contabilidade real. Geralmente é uma conta redutora do Ativo.
+CC Despesa Depreciação
+: informe o código reduzido da conta na contabilidade real. Conta de Despesa.
+CC Custo Alienação
+: Código reduzido da conta na contabilidade real. Conta de Despesa.
+CC Receita Alienação
+: Código reduzido da conta na contabilidade real. Conta de Receita.
+CC Imobilizado
+: informe o código reduzido da conta na contabilidade real. Conta de Ativo.
+CC ICMS a Recolher
+: informe o código reduzido da conta na contabilidade real. Conta de Passivo.
+CC ICMS a Recuperar
+: informe o código reduzido da conta na contabilidade real. Conta de Ativo.
+Suspende CIAP:
+ informe 0 para Ativo ou 1 para Suspenso ou 3 para Interrompido devido transferência entre filiais. Se selecionado 1-Ativo, todas as informações de CIAP devem ser preenchidas
+# Meses CIAP
+: informe 48 (a não ser que exista alguma regra que diferencie esse bem)
+Início Apropriação ICMS Próprio:
+ informe o ICMS a apropria
+Alíquota ICMS:
+ informe a alíquota do ICMS conforme nota de aquisição.
+Base ICMS:
+ informe a base de cálculo do ICMS conforme nota de aquisição.
+ICMS:
+ informe o valor do ICMS conforme nota de aquisição.
+Início Apropriação ICMS Subst.:
+ informe o ICMS ST a apropriar, caso tenha
+ICMS Subst.:
+ informe o valor do ICMS ST conforme nota de aquisição.
+Início Apropriação Dif. Alíquota:
+ informe o ICMS Dif. Alíquota a apropriar, caso tenha
+ICMS Diferencial Alíquota:
+ informe o valor do ICMS Dif. Alíquota, caso tenha.
+ICMS Frete:
+ informe o valor do ICMS Frete, caso tenha.
+Sai no SPED PIS/COFINS:
+ informe 0 para Não e 1 para Sim. Caso seja 1, é obrigatório informar todos os campos abaixo;
+Centro de Custo SPED: 
+informe 1 para Operacional ou 2 para Administrativo.
+Funcionalidade:
+ informe uma descrição da funcionalidade do bem
+Origem do bem:
+ informe 1 para bem adquirido no Mercado Nacional ou 2 para bem adquirido no Mercado Internacional (Importação)
+Tipo de Utilização:
+ informe 1 para Produção de Bens Destinados a Venda, 2 para Prestação de Serviços, 3 para Locação a Terceiros ou 4 para Outros
+Tipo Bem:
+ informe 0 para bem individual, 1 para bem principal ou 2 para bem componente
+Bem Principal:
+ caso o Tipo Bem for 2 (bem componente), informar o código do bem principal
+Envie para o email 
+suporte@futuranet.com.br
+ para que possamos avaliar a possibilidade de fazermos essa atualização via script.

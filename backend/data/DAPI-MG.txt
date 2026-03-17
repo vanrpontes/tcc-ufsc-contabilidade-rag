@@ -1,0 +1,53 @@
+TITULO: DAPI-MG
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4070375425
+--------------------------------------------------
+A DAPI-MG é como se fosse uma GIA. É mensal e permite o usuário ajustar/alterar as informações no programa da DAPISEF (validador) e contém dados da Apuração Fiscal e dos Livros Fiscais.
+Serão gerados os registros do Tipo 00 (Identificação da DAPI) e do Tipo 10 (dados da apuração fiscal).
+Para gerar a mídia DAPI-MG, o usuário deve acessar o menu Ferramentas / Geração Mídia Gia/Gim/DIME
+.
+Através do painel 
+DAPI MG
+, o usuário poderá gerar um arquivo contendo as informações necessárias para serem validadas pelo programa de Declaração de Apuração e Informação do ICMS(DAPI).
+Geração do Arquivo: 
+De: 
+informe a data inicial e a data final 
+Registro 00:
+Tem movimento: 
+se marcada, indica que serão gerados os registros do Tipo 10
+DAPI para Substituição: 
+se marcada, indica que será gerado um arquivo em substituição a um arquivo da DAPI enviado anteriormente (mesma empresa e mesmo período)
+Regime Especial:
+ 
+marcar somente se a declarante possuir essa condição junto à Sefaz
+Termo de Aceite: 
+marcar somente se a declarante possuir essa condição junto à Sefaz
+Modelo: 
+atualmente informar D1. 
+O modelo pode ser alterado pela Sefaz sem aviso prévio.
+Regime de Recolhimento:
+01: Débito e Crédito
+02: Isento ou Imune
+Data Limite Pagamento: 
+caso tenha ICMS a recolher, informe a data
+Dados do Arquivo:
+Layout de Exportação:
+ 
+selecione o layout a ser utilizado para gerar o arquivo. Para mais informações, ver 
+Manutenção Exportação de Dados
+Nome do arquivo:
+ 
+informe a pasta onde o arquivo será gravado e o nome do arquivo
+Clique no botão
+ 
+OK 
+para iniciar a geração do arquivo ou no botão 
+Cancela 
+para cancelar.
+Configuração necessária:
+Na natureza de operação, 
+, quadro DAPI_MG, deve-se configurar o campo 
+Detalhamento Registro 10
+, conforme o tipo da natureza selecionada.
+É muito importante que o Detalhamento do Registro 10 seja 
+configurado de forma correta para cada natureza de operação, evitando assim diferenças nos valores desses registros.
+Por uma questão de facilidade foi feito um DE/PARA para preencher o campo Detalhamento do Registro 10 com as mesmas informações do campo Categoria GIA/GIM/DFC (caso tenha sido previamente configurado).

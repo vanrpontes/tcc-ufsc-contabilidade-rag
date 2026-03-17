@@ -1,0 +1,93 @@
+TITULO: Postergação de Títulos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898819
+--------------------------------------------------
+Para postergar títulos do contas a receber/pagar, deve-se através do Menu 
+Movimentação / Financeiro
+ acessar a tela de 
+Manutenção de Lançamentos do Contas a
+ 
+Receber
+/
+Pagar
+.
+Nesta tela pode-se visualizar todos os lançamentos, seleciona o título que irá ser postergado e em seguida clique no botão 
+Acréscimo
+, aparecerá a seguinte tela:
+Na parte superior são mostrados os dados dos títulos.
+É possível alterar as taxas de juros e multa do título em questão ao clicar no botão: 
+Nova Taxa/Multa
+, onde será exibida a tela para esse fim, a mesma que aparece na imagem abaixo:
+É necessário informar os seguintes dados:
+Nova Data Vencimento:
+ Informe a nova data.
+Data Contabilização:
+ Informe a data que será feita a contabilização.
+Valor Juros:
+ Valor que será acrescentado ao valor original do título.
+Código Histórico:
+ Informe o código do histórico.
+Histórico:
+ Descrição do Histórico.
+Informações Adicionais
+Código Acréscimo:
+ Deverá ser informado um Tipo de Desconto que acresce valor. Caso não saiba, tecle <Enter> para abrir a tela de pesquisa. Nessa tela aparecerão somente os Tipos de Descontos que acresce valor e que o cálculo seja do tipo manual.
+Conta de Receitas de Juros
+Código de Contabilização Real
+Altera tipo de cobrança 
+: Esta opção somente é válida para o Contas a Receber. Se marcado, permite alterar para um novo tipo de cobrança. Esta opção somente estará habilitado se o usuário tiver permissão para alterar o tipo de cobrança. Para atribuir permissão ao usuário, acessar Menu 
+Ferramentas / Usuário / painel Perfil / painel Financeiro / caixa Contas a Receber
+:
+  
+          
+Não será possível mudar uma cobrança eletrônica por outra cobrança eletrônica, caso o usuário tente fazer a troca o Sispetro não permitirá, e apresentará a mensagem abaixo:
+    Outra situação é quando o tipo de cobrança for eletrônica e já ter gerado o arquivo de remessa, ao trocar o tipo de cobrança apresentará a mensagem alertando que o titulo já foi enviado ao banco, mas permitirá a troca.
+Caso altere o tipo de cobrança, esta alteração será registrada no log. Ver em 
+.
+Clique 
+OK
+ para confirmar os dados.
+O título irá aparecer na nova data de vencimento com o valor do saldo pendente correto, ou seja o valor devido mais os juros.
+Os detalhes do acréscimo, bem como seu cancelamento poderá ser observado na Manutenção de Contas a Pagar / Receber aba Acréscimos / Postergação.
+ 
+Postergação de Títulos em Lote
+ 
+A partir da versão 9.9 é possível realizar a postergação de títulos em lote, dessa forma facilitando o processo como um todo.
+ 
+O primeiro passo é selecionar os títulos que irão ser realizados a postergação, para isso basta selecionar mais de um título pressionando a tecla CTRL ou SHIFT do teclado e clicando nos títulos.
+ 
+Após selecionar os títulos basta clicar no botão 
+, que a tela de 
+Acréscimo de Juros em Lote
+  será aberta.
+Na tela de 
+Acréscimo de Juros em Lote
+ iremos informar os dados para acréscimo, veja maiores detalhes abaixo:
+ 
+Grid Títulos Selecionados:
+ No grid de títulos Selecionados serão apresentados os lançamentos, a coluna de juros é atualizada conforme a Porcentagem informada no campo '% Juros ao Dia' versos a quantidade de dias entre a data de vencimento e a data para cálculo.
+Data para Cálculo:
+ É o campo de referencia para o cálculo do juros, e também para alteração da data de vencimento, caso selecionado a opção de 'Altera data de vencimento Conforme a Data para Cálculo'.
+Data da Contabilização:
+ Nesse campo é informado a data para data de contabilização.
+Altera Data de Vencimento Conforme a Data para Cálculo:
+ Caso marcado altera a data de vencimento para a data informada no campo Data para Cálculo. 
+Essa opção foi disponibilizada na versão 9.10.
+Código Histórico:
+ Nesse campo é informado o código do histórico.
+Histórico:
+ Descrição do Histórico.
+Informações Adicionais:
+ Aqui é informado as informações adicionais.
+Código de Acréscimo:
+ Nesse campo informamos um código de acréscimo.
+Conta de Contabilização Real:
+ Nesse campo informamos uma conta de Contabilização Real.
+Botão Calcula Juros:
+ Ao acionar esse botão é realizado o calculo do juros.
+ 
+Após preencher todas as informações da postergação, basta clicar no botão 
+Calcula juros
+ para que os juros sejam calculados
+ 
+e clicar em Confirma.
+ 

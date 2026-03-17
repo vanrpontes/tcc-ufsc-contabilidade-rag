@@ -1,0 +1,76 @@
+TITULO: Bloqueio Automático de Clientes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440129
+--------------------------------------------------
+Este procedimento pode ser executado a partir do menu 
+Ferramentas / Cadastro de Clientes / Bloqueio de Clientes
+.
+Somente serão analisados por esta tela os clientes que estiverem marcados como "Bloqueia Automaticamente" no cadastro de clientes em 
+padrão para vendas
+, conforme mostra a figura abaixo:
+Ele analisa cada cliente (que pode ser limitado pelo seu Status Ativo / Livre / Potencial e pelo tipo de cobrança previamente cadastrado) bloqueando-o em três situações específicas (que podem ser analisadas juntas ou separadamente de acordo com o setup da tela acima):
+Atraso Pagamento:
+ Caso um ou mais títulos do cliente estejam atrasados (quantidade de dias de atraso pode ser informada).
+Falta de Documento Imprescindível:
+ Caso não conste no seu cadastro determinado documento cujo tipo seja imprescindível, ou a data de validade esteja vencida. Veja maiores detalhes em 
+.
+Data Alteração Cadastro:
+ Se a data de alteração do cadastro for inferior (de acordo com o operador informado pelo usuário) à data informada pelo usuário na tela acima.
+Data da Última Venda:
+ Se a data da última venda realizada pelo cliente compreender o período definido na tela, sendo neste caso disponível por padrão apenas uma opção, as outras duas estão disponíveis apenas para as empresas que estiverem com o perfil 
+ presente no painel "Vendas" marcado.
+Data da Última Venda (Faturado)* - Realiza a filtragem pelo campo "Data da Última Venda" atualizado quando é realizado o faturamento para o cliente, independente deste vir a ser o comprador ou não.
+Data da Última Venda (Comprador)
+ - Realiza a filtragem pelo campo "Data da Última Venda (Comprador)" atualizado quando o cliente é o comprador do pedido faturado, independente deste vir a ser o cliente faturado ou não.
+Data da Última Venda (Faturado
+) - Realiza a filtragem em ambos os campos "Data da Última Venda (Faturado)" e "Data da Última Venda (Comprador)" sendo necessário que ambos tenham ocorrido na data definida para filtragem.
+SEF - RS
+ - A Secretaria da Fazenda do Estado do Rio Grande do Sul, diariamente, disponibiliza um arquivo com os clientes "inativos". Este arquivo (.txt) deve ser baixado através do site da Secretaria Estadual do Rio Grande do Sul e salvar em algum lugar do disco. Informar o caminho e o nome desse arquivo, e ao processar os bloqueios, os clientes que constarem neste arquivo serão bloqueados.
+Regras para bloqueio da SEF-RS:
+Cliente cadastrado no Sispetro com IE bloqueada
+ No cadastro principal do cliente está o CNPJ e a IE constante no arquivo da SEF. 
+Este cliente será bloqueado
+.
+Cliente tinha IE bloqueada, mas não tem mais
+ Neste caso algum usuário do Sispetro foi no cadastro principal desse cliente e alterou para uma IE não bloqueada. 
+Este cliente NÃO será bloqueado.
+Cliente tem IE principal válida, mas IE em outros endereços bloqueada
+ Este é o caso que mais requer atenção, pois o processo de bloqueio não verificará IE cadastrada como "Outros endereços" no cadastro do cliente. 
+Este cliente NÃO será bloqueado
+.
+Os clientes que serão analisados poderão ser:
+Todos.
+Somente os com status determinado pelo usuário.
+Além disso, poderão ser analisados somente os clientes cujo 
+tipo de cobrança
+ sejam de determinado código ou todos independente do tipo de cobrança.
+Existe também a opção de bloquear somente os clientes que 
+não tenham pedidos pendentes para faturamento
+, ou seja, mesmo que o cliente tenha atraso ou qualquer outra pendência não será bloqueado caso tenha pedido aprovado e não faturado.
+A opção 
+"Desbloqueia clientes que estão bloqueados?"
+ tem finalidade de desbloquear somente para aqueles clientes que estavam bloqueados e que não estão mais. confome o tipo de bloqueio selecionado na tela.
+Exemplo: se optar na tela bloquear os clientes inadimplentes, o desbloqueio será feito somente para os clientes que estavam bloqueados por inadimplência e que agora não estão mais. Ou seja, da lista de bloqueios de cada cliente, será tirada a marcada do bloqueio de inadimplência. O status final do cliente dependerá se ele tiver outros bloqueios ou não.
+O usuário pode ainda visualizar os clientes que serão bloqueados apertando o botão Mostra Clientes, podendo até mesmo imprimir esta relação através do botão logo ao lado.
+Caso os clientes sejam realmente estes, aperte o botão Processa Bloqueios para realmente bloqueá-los. Note que o Sispetro automaticamente além de bloquear cada cliente coloca também uma relação de bloqueios do motivo pelo qual o cliente foi bloqueado (no cadastro de clientes, aba 
+Padrão para Venda
+, botão Ver Bloqueios).
+Os motivos de bloqueio gerados automaticamente são:
+ATRASOS FINANCEIRO (1)
+ - Empregado quando no filtro definido para processar os bloqueios, o campo "Bloqueia por motivo de atraso" estiver marcado
+FALTA DOCUMENTOS (2)
+ - Empregado quando no filtro definido para processar os bloqueios, o campo "Bloqueia se falta documento imprescindível" estiver marcado (maiores informações de quais documentos são imprescindíveis veja 
+Controle Documentos
+ ).
+DATA ALTERAÇÃO CADASTRO (3)
+ - Empregado quando no filtro definido para processar os bloqueios, o campo "" estiver marcado.
+DATA ÚLTIMA VENDA (6)
+ - Empregado quando no filtro definido para "Bloqueio pela última venda" a opção venha a ser "Data Última Venda (Faturado)"
+DATA ÚLTIMA VENDA (7)
+ - Empregado quando no filtro definido para "Bloqueio pela última venda" a opção venha a ser "Data Última Venda (Comprador)".
+DATA ÚLTIMA VENDA (8)
+ - Empregado quando no filtro definido para "Bloqueio pela última venda" a opção venha a ser "Data Última Venda (Faturado e Comprador)".
+NÃO HABILITADO NA SEF-RS (11)
+ - Empregado quando no filtro definido para "SEF - RS", a relação dos clientes não habilitados pela Secretaria Estadual do Rio Grande do Sul que constam no arquivo .txt .
+Os tipos de bloqueios de clientes que o Sispetro bloqueia automaticamente se encontra no menu 
+Ferramentas / Cadastro Clientes / opção Tipos de Bloqueios de Clientes
+.

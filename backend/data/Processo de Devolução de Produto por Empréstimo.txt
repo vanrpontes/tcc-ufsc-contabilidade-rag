@@ -1,0 +1,79 @@
+TITULO: Processo de Devolução de Produto por Empréstimo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2894725890
+--------------------------------------------------
+A devolução de empréstimo deve ser considerada como uma saída normal da empresa, similar ao que ocorre quando é feita a transferência de uma empresa para outra.
+
+Para que hajam as devidas movimentações de estoque, físico e escritural, no momento da devolução de um empréstimo faça os seguintes passos:
+
+
+Inclusão de OC
+
+
+Inclua uma OC do tipo 
+Avulsa (Transf. Entre Empresas)
+. O Depósito informado deve ser aquele do qual sairá o produto para devolução do empréstimo.
+
+
+
+
+Note que na imagem abaixo não será informado o depósito destino.
+
+
+
+
+Quando confirmar a inclusão da ordem de carregamento aparecerá uma nova tela. Não precisará informar dados, somente dar OK. 
+
+
+Isso porque a idéia desse tipo de OC é fazer a OC na empresa origem (saída do produto) e depois já incluir a OC na empresa destino (entrada do produto). Neste caso precisamos só da saída do produto.
+
+
+
+
+Nesse ponto não haverá nenhuma movimentação de Estoque, mas esta OC já será encaminhada para fila da Portaria (se o depósito informado for Base própria).
+
+
+Emissão da Nota Fiscal
+
+
+A nota fiscal tem que ser do tipo 
+Outras Saídas
+, sendo vinculada com a OC criada anteriormente. 
+
+Será uma saída de quem pegou o empréstimo.
+
+
+
+
+Movimentação de Estoque Escritural
+Nesse ponto haverá a movimentação do 
+Estoque Escritural
+, uma saída.
+
+
+Portarias de Entrada e Saída
+
+
+Aqui o processo será normal:
+
+
+
+
+Pega fila
+
+
+Portaria de entrada
+
+
+Portaria de saída
+
+Se o depósito estiver configurado para não utilizar a portaria de entrada e saída esses passos serão feitos assim que a OC pegou a fila (seja no final da inclusão da OC, seja pelo botão 
+Pega Fila
+ da Manutenção de OC)
+
+
+
+
+Movimentação de Estoque Físico
+Nesse ponto haverá a movimentação do 
+Estoque Físico
+, fazendo um carregamento (saída).

@@ -1,0 +1,91 @@
+TITULO: Seção Geral
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210485
+--------------------------------------------------
+A seção [
+Geral
+ ] do arquivo INI, contém informações sobre parâmetros de segurança, inicialização e diretórios de trabalho.
+Parâmetros que podem ser usados na seção [ Geral ] do Arquivo SCG.INI:
+CaracteresSenhaMinimo
+ - Informe o número mínimo de caracteres que a senha dos usuários deve conter, com isso ao se cadastrar uma nova senha, enquanto não alcançar o número mínimo de caracteres o registro não será salvo. O SisPetro utiliza como padrão 
+4(quatro)
+ ou seja as senhas informadas devem conter no mínimo quatro caracteres. Exemplo: 
+CaracteresSenhaMinimo=4
+PrazoTrocaSenha
+ - Informe quantidades dias para troca de senha dos usuários. Este parâmetro serve para definir a cada quantos dias será exibida uma janela para que o usuário troque sua senha ou mesmo re-confirme sua senha anterior. O SisPetro utiliza como padrão 15(quinze) ou seja, a cada quinze dias será solicitado ao usuário que ele re-digite a sua senha podendo altera-la ou não. Exemplo: 
+PrazoTrocaSenha=15
+Splash
+ - 
+Tempo de espera da apresentação da tela do SisPetro (
+em segundos
+) - Valor padrão: 5. Exemplo:  
+Splash=5
+IP
+ - IP ou nome do servidor onde está executando o Servidor Hermes que deve ser conectado. Exemplo: 
+IP=127.0.0.0 ou IP=nomedoservidor
+Porta
+ - Porta do Servidor Hermes que deve ser conectado. Exemplo: 
+Porta=9000
+CaminhoArquivosAuxiliares
+ - Indica o caminho para os arquivos de estado do usuário (arquivo criado e mantido automaticamente pelo SisPetro com a ordem de alguns grids, posição de telas, itens de menu da barra do usuário, último arquivo aberto no gerenciador de relatórios, etc) e arquivos de layouts de relatórios (extensão RTM) gerados via menu e os layouts de formulários eventualmente customizados pelo usuário. Dessa forma, indicando um caminho neste tópico, é possível deixar somente o executável do SisPetro numa pasta e marcá-la como leitura para que o mesmo não seja sobrescrito inadvertidamente.
+SenhaSeguranca
+ - Caso tenha sido definida uma senha de conexão, esta deve ser informada.
+LeParametrosServidorSefazAoExecutar
+ - 
+Quando o cliente Sispetro vai executar uma rotina, ele deve decidir antes para qual servidor enviar o comando. 
+A lista de rotinas é lida ao inicializar o cliente uma única vez, que é o procedimento mais comum (parâmetro = 0). Porém é possível que, sempre que se execute uma rotina, os parâmetros sejam lidos (parâmetro = 1).
+SemServidorSispetro
+ - Parâmetro que define se o cliente está utilizando o Servidor Sispetro para acesso (parâmetro = 0) ou somente o Hermes (parâmetro = 1).
+Este campo é 
+temporário
+, já que todas as rotinas serão executadas pelo Hermes em breve.
+Observação:
+Não se deve incluir o item CaminhoArquivosAuxiliares sem mover todos os relatórios (extensão RTM) da pasta do executável - local original dos mesmos - para a nova pasta pois senão o SisPetro não encontrará os layouts de relatórios e mesmo de certos formulários que estavam originalmente na pasta do executável. Outro ponto fundamental é alterar via script ou manualmente os locais de certos layouts (vide tópico de
+ 
+Passo-a-Passo
+) cujo local está indicado em tabela auxiliar (por exemplo, o layout do boleto bancário está indicado na tabela de tipos de cobrança e deve ser alterado via manutenção de tipos de cobrança).
+Parâmetros que podem ser usados na seção [ 
+Log
+ ] do Arquivo SCG.INI:
+NivelLog
+ - Os níveis de configuração do log do usuário conectado no Servidor SisPetro (conexão dele no Servidor), podem ser configurados independente da configuração do log no Servidor SisPetro. Valores possíveis: (0=Modo Sem Log / 1=Modo Normal (exibe no log os principais procedimentos executados) / 2=Modo Debug (detalha no log cada um dos procedimentos executados) Exemplo: 
+NivelLog=0
+.
+RotacaoLog
+ - Permite definir a periodicidade da geração do Log, podendo ser Diário (0), Semanal (1) ou Mensal (2).
+TamanhoMaximoLog
+ - Tamanho máximo do arquivo de log gerado, podendo ser de, no máximo, 10GB (o padrão considerado é de 4GB). Ao atingir este tamanho, sistema gera um novo arquivo.
+NumeroArqLog
+ - Número máximo de arquivos de log gerados no diretório, sendo que o padrão é 10, podendo atingir no máximo 30 arquivos. Ao ultrapassar esse limite o sistema apaga os arquivos mais antigos.
+ModoLog
+ - Modo do Log gerado, sendo Produção (0) ou Desenvolvimento (1). Este item deve ser 
+sempre
+ considerado como Produção - não deve ser utilizado como desenvolvimento sem orientação da Futura.
+DestinoLog
+ - Caminho onde será gerado o arquivo de log.
+Esta seção do arquivo SCG.Ini deve ficar parecido com a estrutura abaixo:
+[Geral]
+CaracteresSenhaMinimo=4
+PrazoTrocaSenha=60
+ip=192.168.0.111 ou nomedoservidor
+Porta=8098
+CaminhoArquivosAuxiliares=F:\Estrutura\DocsAux
+SenhaSeguranca=010101
+LeParametrosServidorSefazAoExecutar=1
+SemServidorSispetro=1
+
+[Log]
+
+NivelLog=1
+RotacaoLog=0
+TamanhoMaximoLog=4
+NumeroArqLog=30
+ModoLog=0
+DestinoLog=F:\Estrutura\DocsAux
+ 
+[Roteador]
+Rotear=0
+Para maiores informações quanto a configuração do Sispetro veja 
+Configuração do SisPetro
+.
+Acesse 
+ para maiores informações.

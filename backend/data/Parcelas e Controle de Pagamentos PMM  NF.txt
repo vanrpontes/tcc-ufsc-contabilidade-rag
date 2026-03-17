@@ -1,0 +1,166 @@
+TITULO: Parcelas e Controle de Pagamentos (PMM × NF)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5550997509
+--------------------------------------------------
+none
+Este documento orienta como 
+conferir
+ e 
+tratar parcelas
+ e o 
+controle de pagamentos (PMM × NF)
+ na tela 
+Monitoramento da Importação de NF-e/CT-e
+. Explica a definição da 
+origem das parcelas
+ (XML ou Condição de Pagamento), o tratamento de 
+discrepâncias
+ (por parcela ou por total), o uso de 
+autorização
+ e 
+registro
+ (usuário/data/motivo), além dos 
+efeitos do vínculo PMM/OC
+ no parcelamento. Não aborda cadastros, itens, tributos ou integrações que não impactem diretamente as parcelas e o controle PMM × NF.
+Configuração Inicial
+Onde configurar
+: 
+Configuração de Usuário / Faturamento / Importação de NF
+Autoriza Discrepância de Pagamento da NF?
+Habilita as funções 
+Autoriza valor total diferente
+ e 
+Cancelar autorização
+. Exige motivo e registra usuário/data/hora. Após autorização, a edição dos valores das parcelas fica bloqueada.
+Editar Parcelas
+Onde configurar
+: 
+Configuração de Usuário / Faturamento 
+Parcelas
+ 
+Habilitar a possibilidade de Editar. Alterar e Alterar data de vencimento em notas de Terceiros
+Sendo possível 
+Usar Parcelas do Arquivo
+ e 
+Usar Parcelas da Condição de Pagamento
+. É possível incluir, alterar ou excluir parcelas quando não houver discrepância pendente de autorização. Em naturezas com validação contra arquivo, diferenças entre arquivo e condição marcam discrepância e podem exigir aprovação.
+Vínculo PMM/OC (quando exigido pela Natureza aba ImportaçãoNF)
+Com vínculo pendente, ações de autorização podem ficar desabilitadas. Após vincular, revise as parcelas, pois a condição do PMM pode regenerar o parcelamento.
+Natureza de Operação — Origem das parcelas
+Defina em 
+Natureza de Operação aba ImportaçãoNF / Geração de Parcelas do CP/CR
+:
+Para ocorrer a validação das Parcelas entre PMM e XML de importação é necessário:
+Utilização da Natureza de Operação de compra com a opção 
+Usa condição de pagamento(PMM/Fornecedor) e valida c/ arquivo (se não vier no arquivo, não valida)
+Arquivo XML recebido pelo fornecedor apresente os dados. 
+ 
+Veja também:
+ 
+Importação NF (Painel Geral)
+Realizar o vínculo da NF ao PMM:
+O vínculo entre PMM e NF-e permite a carregamento automático das parcelas, garantindo precisão e alinhamento dos dados financeiros. O SisPetro identifica automaticamente as divergências e oferece opções de ajuste manual, permitindo a aprovação quando há discrepância. Para mais informações, ver 
+Vínculo de OC e PMM em Notas Fiscais Importadas
+ 
+Realizando Análise das Parcelas edição e aprovação
+Caminho: 
+Faturamento / Importação de NF-e/CT-e / Monitoramento da Importação / Notas Fiscais a Serem Processadas Botão Editar 
+Como Usar a 
+Aba Parcelas
+Sub-abas:
+Parcelas da NF:
+ parcelas vigentes (origem ativa: Arquivo ou Condição), editáveis conforme perfil.
+Parcelas do Arquivo XML:
+ parcelas do XML para consulta/comparação. (necessário que seja informado dentro do XML).
+Ações disponíveis:
+Usar Parcelas do Arquivo:
+ substitui as parcelas vigentes da Condição de Pagamento, pelas parcelas do XML. sendo possível realizar 
+Inclusão\Edição\Exclusão
+ 
+Para realizar edição das parcelas, selecionar a opção Editar:
+Se houve discrepância entre o total das notas e o valor total das parcelas vai apresentar 
+Discrepância de Pagamento,
+ sendo necessário
+ Autorizar.
+Usar Parcelas da Condição de Pagamento:
+ substitui  as parcelas do XML pelas 
+Parcelas da Condição de Pagamento
+, se a natureza de operação estiver configurada para 
+Usa condição de pagamento(PMM/Fornecedor) e valida c/ arquivo (se não vier no arquivo, não valida)
+, e a parcela vier informada no XML, haverá validação.
+Se houve discrepância entre o total das notas e o valor total das parcelas vai apresentar 
+Discrepância de Pagamento,
+ sendo necessário
+ Autorizar.
+Autorizar valor total de parcelas diferente do total da NF:
+ quando o total das parcelas for diferente do total da NF; solicita motivo e registra auditoria; após autorização, bloqueia edição de valores.
+Após colocar o motivo é necessária confirmação do processo.
+Será registrado que esta discrepância já foi aprovada 
+Cancelar autorização:
+ reverte a autorização (conforme perfil/estado).
+Regras de autorização/edição:
+Com discrepância não autorizada, a edição de valores pode ficar bloqueada.
+No modo validar com arquivo, diferenças entre arquivo e condição marcam discrepância (filtrável) e podem exigir aprovação.
+Consulta Status de Aprovações
+Poderá ser realizada a consulta ao aprovador, pela tela de Monitoramento da Importação de NF/CT, na coluna Discrepância de Pagamento os status 
+Autorização, Valor, Motivo de autorização, usuário e Data/hora de autorização.
+Consulta das aprovações na Manutenção de NF
+Todas as novas aprovações podem ser consultadas na Manutenção de NF, aba 
+Dados Pgto. Importação, 
+possibilitando saber as discrepâncias quem aprovou e o motivo da aprovação no momento da importação.
+Caminho:  
+Movimentação / Faturamento / Manutenção de NFs
+Fluxos rápidos
+Autorizar diferença no total:
+Selecionar NF em destaque → Editar → Parcelas → revisar Arquivo × NF → Autorizar valor total diferente → informar motivo → confirmar → conferir Autorizado/Motivo/Usuário/Data na tela.
+Trocar para Arquivo (XML):
+Abrir Parcelas do Arquivo → Usar Parcelas do Arquivo → confirmar → origem = Arquivo.
+Trocar para Condição de Pagamento:
+Checar Condição (Fornecedor/PMM) → Usar Parcelas da Condição de Pagamento → confirmar → origem = Condição de Pagamento.
+FAQ
+Por que a NF aparece em negrito?
+Há discrepância a tratar (ajuste/autorização).
+Posso editar parcelas com discrepância sem autorizar?
+Não. Autorize antes ou ajuste a origem das parcelas.
+As parcelas mudaram após vincular PMM/OC: é normal?
+Sim. A condição do PMM pode exibir as parcelas conforme o PMM; revise e autorize se preciso.
+O total das parcelas difere do valor da NF: o que fazer?
+Use Autorizar valor total diferente; o sistema processa o valor autorizado.
+Links relacionados
+Monitoramento da Importação de NF‑e/CT‑e 
+Monitoramento da Importação de NF-e/CT-e - Notas Fiscais a Serem Processadas
+ 
+Importação NF (Painel Geral)
+ — 
+Importação NF (Painel Geral)
+ 
+Quando a opção acima habilitada será possível realizar os procedimentos abaixo:
+Habilita 
+Usar Parcelas do Arquivo
+ e 
+Usar Parcelas da Condição de Pagamento
+.
+Permite incluir/alterar/excluir parcelas quando 
+não
+ houver discrepância pendente de autorização.
+Em Naturezas com validação contra arquivo, diferenças entre 
+Arquivo × Condição
+ marcam 
+discrepância
+ e podem exigir aprovação. 
+Bloqueio por vínculo pendente (PMM/OC)
+Se a Natureza exigir vínculo com 
+PMM/OC
+, as ações de autorização podem ficar 
+desabilitadas
+ até a conclusão do vínculo.
+Após vincular, 
+revisar
+ as parcelas e 
+autorizar
+ se necessário.
+Exibir Avisos e Erros / Recarregar Eventos
+Permissões para visualizar 
+orientações de correção
+ (origem × Natureza) e 
+sincronizar eventos previstos × salvos
+ quando indicado.

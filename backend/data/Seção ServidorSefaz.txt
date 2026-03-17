@@ -1,0 +1,33 @@
+TITULO: Seção ServidorSefaz
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927273409
+--------------------------------------------------
+Cada linha define um servidor conforme a nomenclatura e o nome do servidor serve mais como orientação para quem está configurando.
+Na seção [
+ServidorSefaz
+ ] do arquivo INI 
+definimos cada servidor de controle associado ao servidor de processamento. 
+ 
+A senha de conexão é opcional, porém permite limitar os clientes que irão acessar o servidor. Desta forma, somente os clientes com essa mesma senha poderão acessá-lo.
+Parâmetros que podem ser usados na seção [ServidorSefaz] do Arquivo SCG.INI:
+<nome servidor>=<IP servidor>:<porta>:<senha conexao servidor>
+<Nome Servidor> 
+- Informe um nome para o servidor. 
+<IP servidor>
+ - Informe o IP ou nome do servidor.
+<porta>
+ - Informe a porta do servidor
+<senha conexao servidor>
+ - senha de conexão (opcional)
+Esta linha deve se repetir para cada servidor de controle.
+[ServidorSefaz]
+servidor1=192.168.0.45:9132:010101
+ou
+servidor1=nomedoservidor:9132:010101
+As senhas de conexão do servidor 
+devem ser as mesmas
+ para todos os servidores.
+Para maiores informações quanto a configuração do Sispetro veja 
+Configuração do SisPetro
+.
+Acesse 
+ para maiores informações.

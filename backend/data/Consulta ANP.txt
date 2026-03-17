@@ -1,0 +1,218 @@
+TITULO: Consulta ANP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210686
+--------------------------------------------------
+Para que a 
+Consulta ANP
+ seja efetuada com sucesso, é necessário salvar os arquivos 
+libeay32.dll
+ e 
+ssleay32.dll
+ no mesmo diretório do Servidor Hermes.
+none
+Objetivo
+Mostrar como o SisPetro utiliza a Consulta da ANP
+O SisPetro utiliza uma API para realizar consultas automáticas aos postos regulamentados. Essa consulta é feita cliente a cliente e ela (quando o posto é localizado) traz informações como Autorização, Bandeira, Situação, Data da Publicação entre outras.    
+Caso a consulta 
+não encontre
+ o CNPJ consultado isso quer dizer que o posto (cliente) em questão não está autorizado na ANP.
+Como alternativa
+ ao sistema de consulta automatizada, a ANP disponibiliza também uma planilha (formato 
+.csv
+) com todos os postos autorizados (baixada manualmente pelo usuário) para atualizar os postos no SisPetro.
+A consulta via PLANILHA não traz as informações dos produtos permitidos para venda. 
+Configurações
+Ferramenta / Sistema / Quadro Consulta On-Line ANP
+Permite Consulta On-line para ANP
+marcar
+Validade da Consulta (URL) por Clientes em Horas
+definir por quanto tempo a consulta vale para o SisPetro
+Serviço ANP Consulta
+Ativar o 
+Serviço de Consulta ANP
+ para o SisPetro realizar a consulta automaticamente dos clientes.
+Caso o cliente queira utilizar a planilha
+Serviço 
+Anp -Importacao
+configurar o serviço para importar a planilha
+Como acessar a planilha dos clientes autorizados da ANP: 
+Acessar o site: 
+https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/dados-cadastrais-dos-revendedores-varejistas-de-combustiveis-automotivos
+Baixar a planilha clicando em
+ Dados Cadastrais dos Revendedores Varejistas..., 
+conforme imagem abaixo.
+No momento a planilha está sendo disponibilizada uma vez ao dia. Exemplo: 
+atualizado em 09/11/2022 08h14
+Nuvem Futura Importação
+Para clientes que possuem a infraestrutura em nuvem com a Futura. Para mais informações, ver 
+Importação Planilha ANP - NUVEM
+No caso de precisar fazer a consulta manual, utilize o site 
+https://cpl.anp.gov.br/anp-cpl-web/public/simp/consulta-postos/consulta.xhtml
+ e siga as instruções.
+No SisPetro, a consulta pode ser feita, dependendo das configurações feitas no 
+Painel Clientes
+ 
+Via botão 
+Consulta On-Line Clientes
+ 
+No processo de 
+Inclusão do Pedido de Venda
+.
+Na inclusão de Nota Fiscal
+Via 
+Serviço de Consulta ANP
+ 
+Validações do SisPetro após a consulta ANP
+É de conhecimento que a ANP realiza a validação que a Distribuidora só pode vender para postos de bandeira Branca ou cuja bandeira seja a mesma que sua, por este motivo foi implementado o 
+controle por bandeira
+ e por 
+atividade econômica
+. 
+Como fazer para o SisPetro bloquear venda para outras bandeiras?
+É preciso configurar no Perfil de sistemas (
+Bloqueio de pedido por Bandeira
+), aba 
+Vendas,
+ que a empresa trabalha com o bloqueio de vendas para outras bandeiras.
+Na 
+Tabela Bandeiras
+ é preciso preencher o campo 
+Bandeira ANP, 
+exatamente como está na consulta ANP. Feito isso não será possível incluir pedidos de venda para outras bandeiras. 
+Para mais informações, ver 
+Tabela Bandeiras
+.
+Como configurar o SisPetro para atualizar a Bandeira do cliente, durante a Consulta ANP?
+É preciso configurar o perfil de sistemas (
+Atualiza Bandeira do Cliente
+). 
+Para mais informações, ver 
+Clientes
+.
+Também é preciso ter o campo 
+Bandeira ANP
+ na 
+Tabela Bandeiras
+, 
+preenchidas. Caso não esteja não será atualizada.
+Como configurar o SisPetro para bloquear o cliente quando a bandeira retornada da Consulta ANP não estiver cadastrada na Tabela de Bandeiras?
+Como já foi mencionado, a Distribuidora só pode vender para clientes que tenham bandeira Branca ou igual à sua. Para ter certeza que não terá algum cliente regular que esteja com bandeira errada, este perfil foi criado. Caso as bandeiras estejam cadastradas corretamente, o cliente só será bloqueado caso a ANP retorne algo diferente do Cadastro de Bandeira. 
+É preciso configurar o perfil de sistema da 
+aba Clientes
+.
+ :
+Ação sobre o cliente quando Bandeira da ANP inexistente na Tabela de Bandeiras. 
+Para mais informações, ver 
+Painel Clientes
+.
+Quadro Ação Sobre o Cliente em relação ao Status ANP / Cadastro atualizado como 
+Indiferente
+Como impedir que o Pedido de Venda seja finalizado quando a bandeira retornada da Consulta ANP não estiver cadastrada na Tabela de Bandeiras?
+Se trata do mesmo caso acima, porém a validação é no 
+Pedido de Venda
+. Caso deseje que nenhum pedido seja feito para Clientes com esta particularidade, basta marcar o perfil de sistema 
+Ação sobre o Pedido quando Bandeira inexistente. 
+Para mais informações, ver
+ 
+Painel Clientes
+.
+Como fazer consulta ANP apenas para determinado tipo de Cliente?
+Não são todos os tipos de clientes que precisam passar pela verificação da ANP. Para definir se o cliente será validado a 
+Atividade Econômica, 
+precisa estar habilitada para a consulta. 
+Para mais informações, ver
+ 
+Tabela Atividade Econômica
+.
+CADASTRO DE CLIENTES
+A Consulta pode ser feita ao clicar no botão Consulta On-Line.
+Para agilizar o processo, depois de tudo configurado basta teclar <ALT> + L , assim o SisPetro fará a consulta sem a necessidade de clicar no botão.
+Caso o Usuário tenha o 
+Perfil de Usuário
+ > aba 
+Segurança
+ > opção 
+Pode optar por não bloquear o cliente na consulta ANP 
+marcado o usuário pode optar, se deseja ou não, bloquear vendas para o cliente em questão, caso a consulta não encontre o CPNJ consultado, por exemplo. Se a opção estiver 
+desmarcada,
+ o cliente será bloqueado automaticamente.
+Caso o Cliente seja bloqueado, esse bloqueio pode ser visualizado na aba 
+Padrão para Vendas
+ > quadro 
+Bloqueio de Vendas
+. 
+Para mais informações, ver 
+Padrão para Vendas (Clientes)
+.
+Cada vez que o cliente for consultado, ficará registrada a data, o usuário e as demais informações retornadas na pesquisa. Pode ser visualizada na aba 
+Consulta ANP.
+O número de Registros que serão mostrados nessa tela é definido no 
+Painel Clientes
+A opção do que será feito com o Cliente em cada Situação que ele se encontra perante a ANP é configurada em 
+Perfil de Sistema > aba Clientes >
+ quadro 
+Consulta On-Line
+ > quadro Ação sobre o Cliente em relação a ANP. 
+Para mais informações, ver
+ 
+Painel Clientes
+. 
+Consulta na Inclusão do Pedido / NF de Vendas
+É possível realizar a consulta ANP do cliente sempre que for feita a inclusão do pedido de vendas ou o faturamento para o cliente. Basta apontar no perfil 
+Realiza Consulta da ANP na inclusão  do Pedido / NF de Venda 
+qual opção desejar. 
+Para mais informações, ver 
+Painel Clientes
+.
+Caso não tenha sido feita nenhuma consulta válida para o cliente no dia da inclusão do pedido / NF o SisPetro faz a consulta no momento da inclusão do pedido / NF. A próxima consulta só será feita após o tempo indicado no perfil 
+Validade da Consulta (URL) por Clientes em horas do 
+Painel Clientes
+.
+É possível Bloquear a Inclusão do Pedido e Nota Fiscal de vendas caso o Status dele perante ANP esteja configurado para não permitir a inclusão. Basta informar no perfil 
+Ação sobre o pedido quando Bandeira ANP 
+para não permitir a inclusão. 
+Para mais informações, ver 
+Painel Clientes
+.
+É possível também 
+Bloquear
+ a inclusão de Pedido de Venda caso a descrição do produto na ANP não seja igual à descrição do campo 
+Descrição do Produto na ANP 
+na Aba Detalhes / Dados Adicionais do cadastro do produto. Para isso ocorrer verifique as seguintes configurações: 
+Perfil de Sistema na aba 
+Clientes
+  quadro 
+Consulta On-Line-ANP
+ no campo 
+Verifica os produtos permitidos dos clientes na Consulta ANP
+ selecionar 
+Verifica no Pedido de Vendas. Para mais informações, ver 
+Painel Clientes
+Perfil de Clientes na aba 
+Cadastro Detalhado
+ quadro 
+Consultas ANP/Sintegra
+, campo 
+Verificação dos produtos permitidos conforme Consulta ANP
+ selecionar 
+Conforme perfil de sistema
+. 
+Para mais informações, ver 
+Cadastro Detalhado (Clientes)
+Caso não queira bloquear a inclusão do pedido em alguns clientes basta configurar o Perfil de Clientes na aba 
+Cadastro Detalhado
+ quadro 
+Consultas ANP/Sintegra
+, o campo 
+Verificação dos produtos permitidos conforme Consulta ANP
+ selecionar  
+Nunca Verifica. Para mais informações, ver 
+Cadastro Detalhado (Clientes)
+Recurso só verifica entidades cujo a atividade econômica, no cadastro de clientes, esteja marcado como 
+Posto Revenda
+.
+Essa verificação funciona para configuração da consulta ANP via  
+consulta via URL
+. Na consulta via planilha, como não há as informações dos produtos, não é possível realizar essa função. 
+Para mais informações, ver 
+Painel Clientes
+ 

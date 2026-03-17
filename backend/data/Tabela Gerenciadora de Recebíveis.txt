@@ -1,0 +1,67 @@
+TITULO: Tabela Gerenciadora de Recebíveis
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936702532
+--------------------------------------------------
+none
+Objetivo
+A manutenção da Gerenciadora de Recebíveis é acessada pelo menu Tabelas Auxiliares / Financeiro, permitindo ativar ou desativar gerenciadoras e visualizar itens inativos em destaque. Na aba Detalhes são exibidos dados básicos e configurações de comunicação, contas a pagar e a receber, incluindo usuários, prazos, taxas e contas contábeis. A aba URL define os comandos e endereços de comunicação (Terras Raras), permitindo incluir, alterar ou excluir comandos únicos por tipo. A aba Comunicação permite acompanhar JSONs enviados e recebidos, visualizando títulos e o retorno das integrações.
+A tela que permite manipular esta tabela é acionada a partir do Menu principal com as opções está em 
+Tabelas Auxiliares / Financeiro / Gerenciadora de Recebíveis:
+Itens inativos agora ficarão destacados em 
+vermelho
+Aba Detalhes
+ID: 
+define o ID da Gerenciadora Selecionada, não é possível realizar alterações pelo usuário.
+Descrição: 
+descrição da Gerenciadora, não é possível realizar alterações pelo usuário.
+Ativo: 
+define se a Gerenciadora ficara ativa ou não.
+Quadro Contas a Pagar (Terras Raras)
+Usuário: 
+usuário utilizado para realizar a comunicação com a Gerenciadora. 
+Senha: 
+senha utilizada para realizar a comunicação com a Gerenciadora. 
+Ambiente: 
+é definido qual o ambiente de comunicação, podendo ser produção ou homologação.
+Tempo para Desbloqueio Títulos: 
+através desse campo definimos o tempo para que o SisPetro realize o desbloqueio do título. O tempo mínimo para para execução é de 30 minutos.
+O Tempo para Desbloqueio Títulos
+ deve ser configurado com base no tempo médio de retorno da compra da gerenciadora, dessa forma os títulos que não forem comprados serão desbloqueados automaticamente.
+Quadro Contas a Receber (Desconto de Duplicata)
+Tipo de
+ 
+Cobrança: 
+selecione qual o tipo de cobrança que o SisPetro irá utilizar para gerar o arquivo de remessa a gerenciadora de recebíveis 
+Taxa de Cobrança de Desconto: 
+informe qual a taxa (%) definida pela gerenciadora para desconto.
+Conta Juros sobre Desconto de Duplicatas: 
+informe qual a conta que será utilizada para contabilizar o valor cobrado pelo desconto.
+Entidade que representa a Gerenciadora:
+ informe o Fornecedor que será utilizado para o lançamento dos Títulos a Pagar. 
+Aba URL - Essa aba é utilizada somente para Terras Raras
+Através da aba de URL definimos os comandos para comunicação e suas respectivas URL.
+Botões:
+Inclui:
+ após acionar o botão INCLUI o usuário pode realizar a inclusão de um novo comando. Os comandos podem ser: 
+Prospecção
+Comprados
+Solicitação de Token
+Altera:
+ aciona a tela de alteração, permitindo realizar alterações nas URL do comando em questão.
+Exclui:
+ ao acionar o botão de Exclui será realizado a exclusão do comando em questão.
+Não é permitido ter dois ou mais comandos do mesmo tipo para a mesma Gerenciadora.
+Aba Comunicação - Essa aba é utilizada somente para Terras Raras
+Através da aba de comunicação podemos visualizar o resultado dos envios e recebimento dos comandos.
+JSON Enviado 
+Podemos visualizar os títulos envolvidos no comando ao acionar o
+ botão Título
+Através dos 
+botões JSON Enviado 
+e 
+JSON Recebido
+ podemos verificar os dados enviados para a gerenciadora e o retorno que foi recebido.
+Para mais informações, ver
+Contas a pagar: 
+Trabalhando com Sistema de Recebíveis
+Contas a Receber: 
+Como enviar os Títulos para Gerenciadora de Recebíveis através da Manutenção

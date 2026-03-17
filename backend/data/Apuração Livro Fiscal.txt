@@ -1,0 +1,93 @@
+TITULO: Apuração Livro Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210278
+--------------------------------------------------
+Para dar manutenção nos dados referentes à Apuração Fiscal do ICMS Próprio e o ICMS de Substituição, no 
+Sispetro Controladoria
+ utilize a 
+Apuração do Livro Fiscal.
+O acesso é feito através do menu 
+Movimentação / Apuração Livro Fiscal
+.
+Obs.: Para ter acesso completo às funções dessa tela, configure os perfis de Usuário (Ferramentas\Usuário) na aba 
+Fiscal
+, quadro 
+Manutenção de Apuração Fiscal
+.
+No painel 
+Movimento
+ são apresentados os dados gerais da apuração.
+A data solicitada no campo 
+a partir de
+ filtrará as apurações cuja data de início sejam a partir da data informada. Para visualizar apurações canceladas deve-se marcar a opção 
+Visualiza apurações canceladas
+.
+São apresentadas as apurações de todas as filiais, para visualizar apenas uma filial específica, deve-se marcar a opção 
+Visualiza Apurações de uma Filial específica
+ e informar a filial (o sistema já sugere a filial que se está conectado).
+No painel 
+Itens ICMS Próprio
+ são apresentados os valores incluídos para composição do valor de crédito ou débito do ICMS Próprio.
+No painel 
+ICMS Substituição
+ são os mesmos tipos de valores do próprio, mas específico deste tipo de imposto.
+Ainda no painel 
+ICMS Substituição
+ temos as sub-abas; 
+Valores
+ que mostrarão os valores calculados na Apuração de Substituição;  
+Ajustes
+ que detalhará todos os ajustes de Débito e Crédito realizados na apuração. Esses valores podem ser configurados para ser gerado automaticamente na natureza de operação, aba 
+Impostos (Painel Por Filial)
+ ou incluídos diretamente na nota através do 
+Ajustes Livro/SPED
+ 
+A Apuração de Substituição é realizada individualmente para cada UF (estado).
+No painel 
+Detalhes
+ é possível ver os dados que fizeram parte do cálculo do imposto em relação a entradas e saídas, agrupados por CFOP, e divididos entre dentro e fora do Estado. Os dados que constarão neste painel dependerão da 
+configuração de data a ser utilizada na Apuração
+.
+No painel 
+Lotes 
+é possível visualizar os lotes que constam cadastrados no tipo de Apuração e que levam as informações de Conta de Débito e Conta de Crédito, para mais informações: 
+Tabela de Tipos de Apuração
+.
+Para incluir uma nova apuração, clique no botão
+ Inclui 
+e veja maiores esclarecimentos em 
+Incluindo apuração Fiscal
+. Atente-se para as 
+Configurações de dados das obrigações a recolher
+ 
+Toda apuração incluída, fica em andamento, podendo ser reprocessada a qualquer momento. O procedimento é semelhante a 
+Inclusão de Apuração Fiscal
+, pois recalculará os valores até a nova data final informada. Pode ser acionado através do botão
+Toda apuração incluída ou reaberta, precisa ser encerrada. No caso de terem sido feitos lançamentos após a sua abertura, ela será apresentada em negrito e será feito o recálculo dos valores no momento do encerramento. Para encerrar uma apuração, utilize o botão
+Para visualizar os dados de uma apuração já encerrada utilize o botão
+A apuração fiscal pode ser reaberta, voltando ao status em andamento, utilize para isto o botão
+Cabe lembrar que a partir do momento que uma apuração foi incluída, não será mais permitida a movimentação de Notas Fiscais para o período ao qual ela se refere. Somente será permitido a inclusão de lançamentos manuais ou alteração de lançamentos já incluídos no livro fiscal.
+Isso também é válido para a reabertura de apurações.
+A apuração fiscal é por filial e a inclusão da apuração será sempre para a filial na qual você está conectado.
+O sistema só permite uma apuração em andamento, sendo necessário encerrá-la ou cancelá-la caso se deseje incluir uma nova apuração.
+Uma nova apuração é sempre incluída com data inicial um dia maior que a data final da última apuração cadastrada no sistema, cabe ao usuário informar a data final (atente-se que para o Sintegra a apuração deve ser do primeiro ao último dia do mês).
+Ao cancelar uma apuração a movimentação volta a ser permitida para o período da apuração cancelada, pois é como se ela não existisse mais. Para cancelá-la utilize o botão
+A impressão do Livro Fiscal pode ser feita através desta tela, porém não pede numeração de páginas, não imprime os termos e imprime sempre a Apuração do ICMS Próprio e do ICMS de Substituição. Caso a apuração não tenha movimento para o período, a apuração será impressa com seus valores zerados. Utilize para isso o botão
+A apuração pode ser impressa pelo menu Relatórios, maiores informações no tópico: 
+Apuração Livro Fiscal - Relatórios
+.
+Ao final da inclusão da Nota Fiscal, pode ser adicionado um ajuste a uma nota, que será informado na apuração/Sped. Para mais informações, acesse: 
+Ajustes Livro/SPED
+. 
+Log de alterações
+Na aba 
+Movimento 
+da Tela de 
+Manutenção de Apurações do Livro Fiscal
+ ficará logado o nome de usuário e a data das operações realizadas, no caso 
+Inclusão, Encerramento e Cancelamento de Apurações
+.
+Também é possível auditar todas as operações realizadas, através da tela 
+Log de Eventos
+, onde deverá ser pesquisada a tabela 
+LFiscalApuracao
+.

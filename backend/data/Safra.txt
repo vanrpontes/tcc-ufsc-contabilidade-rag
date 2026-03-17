@@ -1,0 +1,91 @@
+TITULO: Safra
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439611
+--------------------------------------------------
+Dados Gerais
+ O Banco Safra pode trabalhar individualmente como também em conjunto com o Banco Bradesco (237).
+Ou seja, se individualmente, emite o próprio boleto do Banco Safra. Se optar por trabalhar em conjunto com o Banco Bradesco, assim, a empresa tem conta no Banco Safra, onde adquire o produto Cobrança Eletrônica, porém, ao imprimir o boleto, o imprime com as características do Banco Bradesco. Dessa forma, o cliente que recebe o boleto não precisa localizar uma agência do Banco Safra para efetuar o pagamento, podendo fazer isso numa agência do Banco Bradesco, que tem mais agências disponíveis em todo o país.
+Para atender essa necessidade usaremos a configuração de Banco Correspondente do SisPetro. Cabe lembrar que o arquivo de remessa é conforme o layout do Banco Safra, muito parecido com o layout do Bradesco, mas não idêntico.
+Painel Cobrança Eletrônica
+No campo 
+banco
+ deve ser informado 422 - Banco Safra.
+Agência:
+ Informar o número da Agência, com 4 dígitos
+Dígito Agência:
+ informar o dígito da agência, com 1 dígito.
+CPNJ/CPF Conta:
+ Deverá ser preenchido, pois tal informação irá ser utilizada no Arquivo de Remessa.
+#Docto no Arquivo Remessa:
+ se informado a opção 
+Com Parcela...
+, será acrescentado no lado do campo 
+Número de Documento no Arquivo de Remessa
+, a identificação da parcela.
+Informação de Juros no Arquivo Remessa:
+ utilizado para informação do campo juros (posição 161 a 173) no arquivo de remessa.
+Painel Informações sobre a Cobrança
+Caso utilize o boleto de outro banco, marcar a opção 
+Utiliza Banco Correspondente
+.
+Informar no 
+Banco Encarregado da cobrança: 237 – BRADESCO
+O boleto será impresso de forma diferenciada, pelo Bradesco.
+Dados de Protesto
+O Banco Safra, em seu arquivo de cobrança, requer o preenchimento das Instruções com dados referentes ao Protesto do Título. Na posição 157 é a 1ª Instrução e na posição 159 a 2ª, Conforme configuração do cliente no que tange a Protesto (vide 
+Padrão p/ Vendas
+), preenchemos no arquivo:
+Sempre Protesta
+ Na posição 157 será informado 06 e na posição 159 será informado 10.
+Nunca Protesta
+ Na posição 157 será informado 07 e na posição 159 será informado 00.
+Depende do Convênio
+ Na posição 157 será informado 07 e na posição 159 será informado 00.
+Nos casos onde o Banco Safra exigir outro código nestas posições, configure na 
+Manutenção de Bancos
+ aos 
+Dados de Protesto
+.
+Linha Digitável
+422- Safra
+Conteúdo
+Tamanho
+Início
+Fim
+Fixo 7
+1
+1
+1
+Agência
+4
+2
+5
+DV Agência
+1
+6
+6
+Conta
+8
+7
+14
+DV Conta
+1
+15
+15
+Nosso Nº
+8
+16
+23
+DV Nosso Nº
+1
+24
+24
+Fixo 2
+1
+25
+25
+ 
+ 
+ 
+Linha Digitável
+A Linha Digitável para o banco Safra será montada conforme o banco correspondente configurado, que no caso deverá ser o 
+. Veja maiores informações sobre a montagem da linha digitável através do tópico 

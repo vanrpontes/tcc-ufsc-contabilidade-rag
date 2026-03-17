@@ -1,0 +1,40 @@
+TITULO: Serviço de Importação AutoLoad
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2958688581
+--------------------------------------------------
+A partir da versão 10.19 foi criado o 
+Serviço de Importação AutoLoad. 
+Para habilita-lo 
+deve-se acessar o 
+, na aba
+ Serviços,
+ selecionar 
+Importação AutoLoad 
+e clicar em 
+. Será a
+berta a tela de configurações para informar os dados necessários:
+Intervalo Entre as Execuções:
+ de 
+quanto em quanto tempo 
+(de dez em dez minutos por exemplo) o serviço irá consultar se há OC para ser importada.
+Horário de Execução:
+ entre 
+quais horas
+ (das 08:00hs as 18:00hs por exemplo) é para o serviço funcionar.
+Executar Automaticamente Quando Servidor for Iniciado
+: parâmetro que define se o serviço deve ser iniciado sempre que o 
+Servidor Hermes
+ 
+for iniciado.
+Usuário:
+ informar um usuário cadastrado no SisPetro
+N.º de Dias para Consulta:
+ qual a quantidade de dias que o SisPetro irá realizar a leitura anteriores a data atual. O usuário deverá informar zero (0) para verificar as OC do dia da execução.
+Os dias variam entre 0 e -60. Qualquer número diferente de zero só pode ser informado 
+em ambiente de testes!
+ 
+Quanto menor for o número maior é a quantidade de dias que o SisPetro irá fazer a leitura das OC(s). Isso impacta 
+diretamente
+ na performance do programa tornando-o mais lento.
+Mais informações sobre a integração veja 
+Importação de OC Autoload
+.

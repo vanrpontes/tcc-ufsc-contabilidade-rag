@@ -1,0 +1,78 @@
+TITULO: Banco Alfa
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4062806017
+--------------------------------------------------
+Painel Cobrança Eletrônica
+No campo 
+banco
+ deve ser informado 025 - Banco Alfa.
+Informar número do convênio 
+Preencher 
+Número Conta
+ com 
+5 dígitos
+. Preencher também 
+o dígito verificador da conta
+.
+Preencher 
+#Agencia
+ com 
+4 dígitos
+. A agência do Itaú não tem dígito verificador.
+Preencher a 
+Carteira
+ com 2 dígitos
+CNPJ/CPF da conta:
+ é usado no arquivo de Remessa, deve ser preenchido com o CNPJ da empresa que esta lançando o título.
+#Docto no Arquivo Remessa:
+ se informado a opção 
+Com Parcela...
+, será acrescentado no lado do campo 
+Número de Documento no Arquivo de Remessa
+, a identificação da parcela.
+Painel Informações sobre a Cobrança
+Não marcar
+ a opção 
+Utiliza Banco Correspondente
+Faixa Nosso Número
+Só deve ser informada uma faixa com até 11 dígitos.
+Desconto Cond. Arquivo Remessa:
+ Em alguns casos há a necessidade de dar um abatimento ao cliente ao invés de desconto condicional. É importante que no ato do pedido de venda sabe-se o valor total do abatimento a ser concedido. Conseqüentemente a Nota Fiscal de Venda e o título do Contas a Receber seriam gerados com o valor total e no arquivo de remessa será enviado o valor deste abatimento e a baixa deste arquivo de remessa (via Arquivo de Retorno) irá considerar devidamente o abatimento enviado.
+As opções existentes para este perfil são:
+Informar como Desconto: será informado no arquivo de remessa como desconto condicional.
+Informar como Abatimento: será informado no arquivo de remessa como abatimento.
+Linha Digitável
+025 - Alfa
+Campo Livre da Linha Digitável
+Conteúdo
+Tamanho
+Início
+Fim
+Agência
+4
+1
+4
+Carteira
+2
+5
+6
+Nosso Número
+11
+7
+17
+Conta
+7
+18
+24
+Zeros
+1
+25
+25
+Exemplo:
+Agência: 4444
+Carteira: 25
+Nosso Número: 22222222222
+Conta: 5555555
+Campo Livre:
+ 4 4442 22222 22222 5555555000
+Linha Digitável:
+ |0 2 5 9 1 | 4 4 4 4 | X | 2 2 2 2 2 | 2 2 2 2 2 | X | 2 5 5 5 5 | 5 5 5 0 0 | X | X | 4 5 6 7 0 0 0 1 0 0 0 0 0 0 |

@@ -1,0 +1,66 @@
+TITULO: Geração Arquivo Remessa - Cobrança Eletrônica
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899230
+--------------------------------------------------
+O arquivo remessa para envio ao banco normalmente é enviado uma vez por dia. O SisPetro controla quando e quais títulos foram gerados, fazendo com que este processo possa ser repetido num mesmo dia ou gerado em dias alternados sem perder o compromisso com a segurança ou integridade dos dados.
+É possível gerar os arquivos de remessa de forma automática através do 
+Serviço de remessa de Cobrança Eletrônica
+.
+Para gerar o arquivo de remessa para o banco, o usuário deve acessar a tela de geração de arquivos, através do Menu 
+Movimentação / Financeiro / Arquivos de cobrança / Geração
+:
+O usuário deve preencher:
+Código do Tipo de Cobrança.
+Número do Convênio.
+Nome do Arquivo e local onde deva ser gerado.
+Tipos de Comando:
+ pode-se opcionalmente escolher o tipo de comando para envio ao banco. Normalmente, deve-se proceder com todos os títulos marcados para envio. Porém, tem a possibilidade de escolher dentre os comandos para envio, quais os que devam ser enviados neste arquivo: (Todos para Enviar, Somente Solicitação envio, Somente Postergação Vencimento, Somente Pedido Baixa, Somente Comandos do Usuário, Somente os marcados p/ não enviar). Este filtro normalmente é utilizado para os testes que cada banco exige.
+O usuário tem a opção de marcar certos títulos para que não sejam enviados nesta remessa, marcando o registro e clicando duas vezes na coluna 
+não enviar
+, ou marcando o registro e apertando a barra de espaço, ou utilizando o botão 
+Não Envia/Envia Todos
+, que irá marcar todos ou desmarcar.
+Esta tela permite classificação por qualquer coluna, devendo para isso apenas clicar no cabeçalho da coluna desejada, permite também agrupamento por qualquer coluna, apenas arrastando o cabeçalho da coluna para cima para que seja agrupado pela mesma e a possibilidade de pesquisa de qualquer item, bastando que se posicione em qualquer linha da coluna e digite o valor a ser pesquisado.
+Estes títulos que foram marcados para não serem enviados, reaparecerão no próximo envio.
+O SisPetro mostra os títulos e os seus comandos. Estes comandos normalmente são configurados automaticamente pelo próprio SisPetro no dia a dia do módulo Financeiro:
+Enviar:
+ para registro no banco. Normalmente, são títulos novos que foram gerados e ainda não foram registrados no banco.
+Postergar:
+ o título já foi registrado anteriormente e o usuário do módulo financeiro postergou o título (alterou seu vencimento). Assim, o SisPetro monitorou que o título é do tipo cobrança eletrônica e deve informar ao banco para que seu vencimento seja alterado no banco para que o cliente possa quitá-lo normalmente no banco sem multas ou juros.
+Baixar:
+ o título foi baixado manualmente pelo usuário no módulo financeiro (por exemplo, o cliente depositou o valor na conta corrente ou entregou um cheque). O SisPetro gera um comando para que o banco possa baixa-lo de sua carteira para evitar envio para cartório ou protesto.
+Usuário:
+ comando manual registrado pelo usuário no módulo de contas a receber.
+Para gerar o arquivo com o movimento especificado, o usuário deve utilizar o botão 
+Gera arquivo
+. Caso queira, pode-se imprimir um relatório para confirmação ou consulta posterior do movimento, embora o usuário possa consultar movimentos anteriores acessando a manutenção de arquivos de cobrança.
+O SisPetro valida algumas informações ao gerar os arquivos de remessa, são elas:
+CNAB:
+ o CNAB do 
+Tipo de Cobrança(Cobrança Eletrônica
+) deve ser o mesmo na empresa conectada e nas demais aonde há títulos para serem gerados, ou seja:
+Empresa 1 - 17 títulos / CNAB 400
+Empresa 2 - 0 títulos / CNAB 200
+Empresa 3 - 3 títulos / CNAB 400
+Neste caso os arquivos serão gerados sem erros, pois por mais que a empresa 2 o CNAB seja diferente, não tem títulos para serem gerados.
+Utilização de Banco Correspondente:
+ se a empresa conectada está configurada para Utilizar Banco Correspondente, se sim se o banco correspondente é o mesmo nas empresas dos títulos envolvidos.
+No. de Dígitos do Nosso Número :
+ se a empresa conectada está configurada com o mesmo número de dígitos para o Nosso Número que as empresas dos títulos envolvidos.
+Transformação:
+Se a empresa conectada tem alguma transformação não existente em alguma das empresas dos títulos envolvidos
+Se as empresas dos títulos envolvidos têm alguma transformação não existente na empresa conectada.
+Lembrando que o arquivo gerado para o Banco Rural pode ter layouts diferentes, devido a configuração do Modo de Cobrança (cobrança simples ou vinculada). 
+Para mais informações ver,
+ 
+Tabela Tipos de Cobrança
+.
+Veja também:
+Preparação
+Utilização
+Envio Comandos Manuais
+Leitura Arquivos do Banco - Cobrança Eletrônica
+Manutenção Arquivos Cobrança
+Consulta Movimento de Cobrança
+Como Alterar Nosso Número
+Aba Transformações Arquivo Cobrança
+Serviço de remessa de Cobrança Eletrônica

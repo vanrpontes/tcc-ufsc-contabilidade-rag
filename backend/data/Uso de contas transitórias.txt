@@ -1,0 +1,122 @@
+TITULO: Uso de contas transitórias
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439774
+--------------------------------------------------
+
+
+Para algumas operações contábeis, no SisPetro, é necessário o uso de 
+contas transitórias
+. Em alguns casos a conta terá o seu saldo final zerado, mas em outros não.
+
+
+Vejamos quais as operações que fazem uso deste recurso:
+
+
+Renegociação
+
+
+Quando fazemos a renegociação de um título usamos uma conta na qual baixaremos o título anterior e levantaremos o novo título. Esta conta pode ser de qualquer natureza ou se, preferir, marque o 
+Perfil de Sistema/ Financeiro/ "Filtra tipo de conta na tela de renegociação"
+, que só poderá ser utilizada conta do tipo 
+Banco
+.
+
+
+
+
+Exemplo:
+
+Título de 10.000,00 sendo renegociado para duas parcelas de 5.100,00
+
+
+Teremos:
+
+
+
+
+Baixa do título anterior
+
+
+Inclusão do título novo nº 1
+
+
+Inclusão do título novo nº 2
+
+
+
+
+
+
+Transferência de adiantamentos entre filiais
+
+
+Quando se faz a transferência de um adiantamento entre uma filial e outra, como o SisPetro exige que um lançamento contábil seja exclusivo de uma filial, temos que utilizar uma conta transitória. Esta conta pode ser de qualquer natureza.
+
+
+
+
+Exemplo:
+
+Transferência de um adiantamento de 5.000,00 da filial 1 para filial 2
+
+
+Teremos:
+
+
+
+
+Baixa do adiantamento na filial 1
+
+
+Inclusão do adiantamento na filial 2
+
+
+
+
+
+
+Encerramento de Conta de Resultado
+
+
+Para encerrar contas de resultado é necessário ter uma conta para receber os valores das contas de despesa e receita. Esta conta deve ser do tipo resultado.
+
+O lançamento de encerramento de contas de resultado é feito por tela específica. O lançamento entre essa conta e a conta de Lucros e Prejuízos acumulados deve ser feito de forma manual.
+
+
+
+
+Exemplo:
+
+Encerramento de uma conta de Despesa com saldo de 15.000 e uma conta de Receita com saldo de 20.000.
+
+
+Teremos:
+
+
+
+
+Encerramento da conta de despesa
+
+
+Encerramento da conta de receita
+
+
+Transferência para conta de Lucros acumulados (via lote manual)
+
+
+
+
+
+
+Ajuste de saldo
+
+
+Para ajustar o saldo de uma conta deve ser informada uma conta de contrapartida, que pode ser de qualquer tipo. No entanto, isso ocorre no início do sistema, geralmente num exercício anterior ao que será controlado efetivamenteEx. Ajuste de saldo da Conta de Banco no valor de 14.500
+
+
+
+
+Resumo final:
+
+
+As contas utilizadas em ajustes de saldo devem ser inativadas após sua utilização. Assim, não serão mais apresentadas no balancete.  
+

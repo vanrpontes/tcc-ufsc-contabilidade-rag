@@ -1,0 +1,120 @@
+TITULO: Inclusão manual de OC Web (congêneres)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926192257
+--------------------------------------------------
+No SispetroWeb é possível que as congêneres incluam as ordens de carregamento do tipo 
+Carregamento de terceiros
+ e 
+Descarga de terceiros
+ diretamente na Armazenadora.
+Para habilitar a inclusão de Ordens de Carregamento pelo SispetroWeb, acesse o 
+Menu Ferramentas / Usuários / aba Carregamento
+ 
+e habilite a opção 
+Pode incluir Ordem Carregamento
+:
+Inclusão Manual
+Clique no Menu localizado no lado esquerdo/superior da tela
+Selecione a opção Ordem de Carregamento / Incluir
+:
+Selecione o Tipo de Oc (carregamento ou descarga de terceiros).
+Após a escolha do 
+T
+ipo de OC
+, o SisPetro mostra o 
+Histórico padrão
+, que pode ser alterado, caso necessário.
+Informe a data:
+ por padrão carrega a data atual
+Defina o motorista ou a transportadora:
+Digitando o código, nome ou escolhendo pela seta e, na gravação, o SisPetro fará a verificação dos controles de vencimentos
+Caso esteja vencido, não será permitida a inclusão da OC.
+Caso o perfil de Sistema 
+Aviso de Vencimento de Controles
+  (para mais informações, ver 
+) esteja definido para avisar com antecedência e tenha algum controle a vencer no prazo pré-definido, o SisPetro apresentará a informação de que há controles a vencer na impressão da OC, logo abaixo do nome da Transportadora/Motorista.
+Informe se haverá ou não necessidade de coletar amostra-testemunha
+ (para mais informações, ver 
+Coleta de Amostra
+)
+Para alterar esta informação, deve-se habilitar o perfil de usuário, que fica em 
+Menu Ferramentas / Usuários / aba Carregamento
+.
+Para exigir o preenchimento do campo, configure a opção em 
+Tabela Depósitos
+.
+O SisPetro mostra os frotas
+ previamente cadastrados, porém é possível alterar, informando a placa ou selecionando a opção pela seta.
+O campo de capacidade
+ é preenchido em função da capacidade dos frotas selecionados para atender a OC.
+É possível incluir uma observação
+ para a ordem de carregamento, caso necessário.
+É possível definir se o usuário poderá ou não trabalhar com compartimentação automática
+ no carregamento ou na descarga de terceiros. Para habilitar, acesse 
+Menu Ferramentas / Usuários / aba Carregamento
+.
+Caso defina por trabalhar com compartimentação automática, o sistema já trará a compartimentação do frota. Caso contrário, o usuário deverá definir as informações na inclusão da OC.
+Para casos de descarga com frotas multissetas, onde a seta utilizada para o carregamento não foi a maior, na inclusão da OC, defina a compartimentação manual, informe os valores e altere a capacidade total do frota para a seta em que o mesmo foi carregado.
+Agora é possível trabalhar com o Agendamento de Carregamento/Descarga
+ através do botão 
+Obter Horários
+ e selecionar um horário conforme lista do campo 
+Horários Disponíveis 
+(para mais informações, ver 
+Agendamento de Carregamentos e Descargas na Base
+): 
+Informe o produto, digitando o código
+, o nome ou selecionando pela seta e informe a quantidade.
+O SisPetro apresentará um resumo da ordem de carregamento logo abaixo, sendo que a compartimentação dos produtos é feita de forma automática.
+Selecione a opção 
+Salva
+ para incluir a ordem de carregamento ou 
+Cancela
+ para voltar para a tela de 
+Manutenção de ordens de carregamento
+.
+No momento da gravação da ordem de carregamento, o SisPetro fará todas as consistências, em função dos parâmetros definidos na empresa.
+Caso haja algum parâmetro incompatível com a geração da ordem de carregamento, o sistema apresentará um alerta com a devida explicação.
+Na inclusão de uma OC o sistema verifica o limite de descarga disponível para a empresa e o saldo do produto, não permitindo a inclusão da mesma e apresentando uma mensagem, informando o motivo pelo qual a OC não foi incluída.
+O sistema considera a quantidade ambiente ou a 20° com base no perfil definido no 
+Depósitos - Espaço Permitido Terceiros
+.
+Para mais informações sobre o limite de descarga disponível, ver o item 
+Limite Descarga
+ no tópico 3, em 
+.
+Ao final da gravação, o SisPetro apresentará uma tela com o detalhamento da ordem de carregamento (conforme abaixo), compartimentada:
+Para que a OC apresente a compartimentação corretamente, deve-se definir a descrição reduzida do produto (
+) e, definir as informações de 
+Configuração de Coluna da OC por produto
+ no cadastro do depósito (
+Tabela Depósitos
+). Além disso, marcar a opção 
+Distribui os produtos simples de um produto composto
+ no cadastro de 
+Depósitos
+.
+Para imprimir a ordem de carregamento, selecione a opção 
+Imprimir OC
+No carregamento, se o volume do produto for menor do que a capacidade do frota, apresentará a informação de 
+carregamento parcial
+.
+O layout da ordem de carregamento pode ser alterado em função dos ajustes dos parâmetros, definidos no 
+Definição Perfil Cliente
+ (
+SispetroMon
+)
+Para imprimir o Boletim de Conformidade, selecione a opção 
+Boletim Conf.
+.
+O Boletim de Conformidade será impresso conforme configuração no cadastro de 
+Depósitos - Aba Detalhes
+, campo Produto para Impressão no Boletim de Conformidade: 
+Produto Armazenado no Tanque ou Produto da OC
+A partir desta tela, também é possível incluir uma nova ordem de carregamento, clicando em 
+Incluir nova OC
+ ou ainda voltar para a tela de manutenção de ordens de carregamento, selecionando a opção 
+Voltar para manutenção
+.
+Caso deseje cancelar esta ordem de carregamento, selecione a opção 
+Cancelar OC
+.

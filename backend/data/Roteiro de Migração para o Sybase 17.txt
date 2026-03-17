@@ -1,0 +1,103 @@
+TITULO: Roteiro de Migração para o Sybase 17
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4029382657
+--------------------------------------------------
+Nesse Kb vamos explicar como migrar da Versão 16 do Sybase para a versão 17.
+Recomendamos aos nossos usuários que os procedimentos abaixo sejam executados em uma máquina que não possua o Sybase instalado. Caso não seja possível, solicitamos a desinstalação do Sybase da máquina atual antes de prosseguir com a instalação do Sybase 17. Nesta etapa será necessário encerrar o Sispetro Normal e o Hermes Servidor.
+Pedimos por gentileza que faça um backup do Banco de dados antes da execução do upgrade.
+1 - Realize a 
+instalação
+ do Sybase 17.
+2 - 
+Localize o arquivo de
+ 
+inicialização
+ 
+do Banco de dados e abra o mesmo para edição do comando conforme abaixo, atentando-se ao parâmetro de
+ 
+start
+ 
+que deve estar como
+ 
+dbsrv17
+. 
+3 - 
+Abra o Sybase Central 17 (Iniciar\Programas\SQL Anywhere 17\Administration Tools\
+Sybase Central
+):
+ 
+4 - Será necessário
+ 
+conectar
+ 
+no Banco de dados:
+5 - 
+Com o Banco de dados já conectado, acesse o menu 'Tools\SQL Anywhere 17\
+Upgrade Database...
+6 - 
+Clique no botão
+ 
+Next >
+:
+ 
+7 - 
+Selecione o 
+Banco de dados
+:
+8 - 
+Realize o
+ 
+backup
+ 
+do Banco de dados em um diretório de sua escolha:
+9 - Selecione a 1ª opção:
+10 - 
+Prossiga com a atualização do Banco de dados instalando o
+ 
+jConnect
+:
+11 - 
+Escolha o
+ 
+modelo de segurança
+ 
+para as procedures do sistema:
+12 - 
+Marque a opção para
+ 
+Restart
+ 
+do Banco de dados:
+13 - 
+Clique no botão
+ 
+Finish
+ 
+para que comando de
+ 
+backup
+ 
+e
+ 
+upgrade
+ 
+do Banco de dados sejam executados:
+14 - 
+Acompanhe
+ 
+o processo de
+ 
+backup
+ 
+e
+ 
+upgrade
+:
+Pronto !!!
+ 
+O upgrade do
+ 
+Sybase
+ 
+17
+ 
+foi finalizado. Caso tenha alguma dúvida ou dificuldade com esse procedimento pedimos por gentileza que entre em contato com nossa equipe de Suporte.

@@ -1,0 +1,180 @@
+TITULO: Renegociação de Títulos a Receber
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898572
+--------------------------------------------------
+none
+Objetivo
+Para renegociar títulos a receber, através do Menu 
+Movimentação / Financeiro / Contas a Receber / Manutenção Lançamentos.
+Nesta tela pode-se visualizar todos os lançamentos do Contas a Receber.
+Selecione os títulos que serão renegociados, para isso utilize as teclas <SHIFT> ou <CTRL>
+O número máximo (padrão) de títulos a serem selecionados é 20 (vinte), porém esta informação pode ser alterada.
+ 
+Entre em contato com a Futura para alterar
+Como renegociar os títulos
+Em seguida, para acionar a tela de Renegociação, clique no botão
+ Renegoc.
+Será apresentada a tela abaixo, para que sejam informados os dados para renegociação.
+Os títulos selecionados serão baixados de acordo com os dados informados e novo(s) título(s) serão gerados.
+Caso os títulos selecionados não possam ser renegociados o SisPetro mostrará uma mensagem 
+Dados inválidos
+. 
+Além disso indicará o motivo da 
+não
+ negociação de cada título, conforme imagem abaixo: 
+Atenção, caso possua mais de um usuário tentando alterar o mesmo titulo de renegociação, uma mensagem será exibida
+Para a baixa, serão necessários os seguintes dados:
+CC Baixa:
+ conta contábil que será lançada a baixa, geralmente é uma conta transitória para renegociação, já que os novos títulos serão lançados em contra partida a esta conta, zerando-a assim ao final do processo. Dependendo da configuração da empresa, o usuário pode selecionar contas de bancos ou contas de outro tipo. Para isso, deve-se marcar ou não a opção em Menu 
+Ferramentas / Sistema / Financeiro
+ opção 
+Filtra tipos de contas na tela de Renegociação
+Data Movto:
+ data de realização da baixa.
+Data Fluxo:
+ data de concretização da baixa. Os novos títulos serão gerados com Data Emissão igual a esta data. É a partira da data fluxo que é realizado o calculo dos juros caso o lançamento tenha, veja maiores detalhes em 
+Calculo de Juros em Títulos
+.
+Tipo de Documento:
+ documento que originou esta baixa.
+Pode Contabilizar:
+ esta opção só estará visível para empresas que utilizam o módulo de Contabilidade. Indica se esta baixa deve ser contabilizada. Caso opte pela contabilização, cabe lembrar que a conta para baixa informada acima deverá ter vínculo com o Plano de Contas real.
+Código de Contabilização:
+ escolha qual o código de contabilização será usado na contabilidade real, provavelmente haverá um específico para renegociação de títulos, já que na renegociação não há acréscimos ou descontos, enquanto que nos outros tipos de baixa podem ter. Porém, caso a empresa quiser pode-se deixar configurado um código de contabilização para ser sugerido em qualquer baixa ou na renegociação de títulos. Para configurar a sugestão do código de contabilização da tela de Baixa, deve-se ir no Menu 
+Ferramentas/Sistema/painel Contab.Real
+ e selecionar a opção 
+Cód. Contab. para Baixa Receber Manual
+. Ao lado dessa opção tem o botão chamado 
+Limpa Dados
+, caso for necessário limpar o dado informado e deixar a opção 
+vazia
+, basta dar um clique que a opção ficará sem dado e não será mais sugerido nenhum código na tela de Baixa.
+Vide tópico 
+Consolidação de Lotes
+ para obter maiores detalhes sobre a consolidação do lote no momento da baixa.
+No grupo denominado "Novos títulos" deverão ser informados os dados para a inclusão dos novos títulos que substituem os títulos renegociados. Alguns dados padrões serão necessários, para que já sugira na inclusão dos novos títulos, no entanto, estes poderão ser alterados a cada título específico, são eles:
+Código Entidade:
+ entidade padrão para o novo título.
+Código Comprador:
+ comprador padrão para o novo título.
+Código Vendedor:
+ vendedor padrão para o novo título.
+Número Docto:
+ número do documento. Como padrão, o campo número do documento é obrigatório, porém é possível que se torne não obrigatório, desmarcando a opção abaixo no Menu 
+Ferramentas / Sistema / Financeiro
+ opção 
+Exige #Docto na Renegociação para novos títulos
+Número NF/Contrato:
+ número da nota fiscal referente ao título.
+Geração dos Novos Títulos
+Para gerar novos títulos, pode ser incluídas de duas formas: manual ou automática.
+Na inclusão 
+manual
+ de títulos, acessar o painel 
+Títulos a Gerar
+:
+Neste painel deve informar:
+Data de Vencimento:
+ data de vencimento do título em questão. Ao final da inclusão dos dados o sistema verificará se esta data será um dia útil e, caso não seja, avisará ao usuário, dando a possibilidade da troca automática para o próximo dia útil.
+Valor:
+ valor do título, não deve ter incorporado o valor de juros.
+Valor Juros:
+ valor dos juros correspondente a este título, já que mais que um título poderá ser incluído. Pode ser zerado.
+Confirme ou altere o 
+Código da Entidade, do Comprador e do Vendedor.
+#Docto:
+ número do documento que identificará este título.
+Parcela:
+ número da parcela do título. Caso o usuário não preencha esta coluna, ao finalizar a inclusão da renegociação, a numeração das parcelas serão geradas automaticamente.
+Para inserir mais títulos, tecle a seta para baixo. Cabe lembrar que a soma do valor dos novos títulos deverá ser igual a soma do valor dos títulos selecionados. Conforme for inserindo novos títulos, o sistema informará quando atingir ou ultrapassar o valor permitido.
+Para 
+automatizar
+ o processo de geração dos títulos, acessar o painel 
+Preenchimento Automático
+:
+Neste painel deve informar:
+Valor Total Parcelas (sem juros):
+ já vem preenchido com o valor total das parcelas.
+Valor Total Juros:
+ valor total dos juros correspondente ao total dos títulos. Pode ser zerado.
+Parcelas:
+ informar o 
+dia
+, 
+mês
+, 
+início do período
+ da cobrança e o 
+número de parcelas
+, para definir a(s) data(s) de vencimento(s) do(s) título(s).
+Vencimento em dia não útil:
+ define a ação a ser tomada quando a parcela cair em dia não útil. As opções são:
+Acrescenta número de parcela ao número do documento:
+ se marcado, indica que será acrescentado o número de parcela ao número do documento. Veja abaixo, as formas de preenchimento do número de parcela ao número do documento:
+Número de Documento
+Preenchimento das Parcelas
+Vazio (não foi informado número de documento)
+1, 2, 3, ...
+Com qualquer coisa que termine em ponto, traço ou barra (Exemplos: ABC. ; 4589- ; A15/)
+ABC.1, ABC.2, ABC.3, ... 4589-1, 4589-2, 4589-3, ... A15/1, A15/2, A15/3, ...
+Somente número (sem ponto, traço ou barra no final). Exemplo: 100
+101, 102, 103, ...
+Exclui parcelas geradas:
+ se marcado, indica que serão excluídas as parcelas que já foram geradas, caso existam.
+Exemplo: 
+ o usuário quer gerar 3 (três) parcelas com datas de vencimentos todo dia 10 a cada 2 meses a partir de maio/2008, postergando o vencimento em dia não útil. Veja preenchimento dos campos abaixo:
+Após informar os dados neste painel, clicar no botão 
+Gera Parcelas
+, onde serão gerados novos títulos e visualizados no painel 
+Títulos a Gerar
+, conforme apresentado abaixo:
+Na figura acima, foram geradas 2 parcelas com datas de vencimento 10/12/2020, e 10/02/2021.
+O usuário poderá informar data de vencimento retroativa desde que a data do contrato esteja retroativa também. Logo não será permitido informar data de vencimento anterior à data do contrato.
+Informe os dados em comum dos novos títulos:
+Tipo de cobrança:
+ tipo de cobrança dos títulos.
+Portador:
+ portador dos títulos.
+Tipo de documento:
+ tipo de documento que originou os novos títulos.
+Observações:
+ detalhes necessários.
+Código de Histórico:
+ histórico padrão para estes lançamentos.
+Informações adicionais:
+ informações complementares que forem necessárias.
+CC Receita Juros:
+ conta que será contabilizado o valor informado na coluna de juros de cada título. No caso da empresa utilizar o módulo Contábil, é imprescindível que esta conta tenha vínculo com o Plano de Contas real. Para configurar a conta padrão para este campo, vá em 
+Ferramentas / Sistema / Contas Contábeis 
+campo
+ Acréscimos Concedidos.
+ Para mais informações, ver 
+Painel Contas Contábeis
+ 
+Caso o perfil de sistema 
+Filtra Tipos de Contas na tela de Renegociação (Juros)
+ esteja marcado, então o campo de 
+CC Receita Juros
+ só permitirá informar contas do tipo 
+RECEITA
+. 
+Estando desmarcado, o campo aceitará outros tipos de contas.
+Clique no botão 
+OK
+ para confirmar. Os dados da renegociação serão armazenados, porém, a baixa não será concretizada nem a inclusão dos novos títulos, e os títulos selecionados para renegociação não poderão ser alterados. Se o usuário tiver permissão para aprovar renegociações, o sistema o questionará se ele já quer fazer a aprovação. No caso positivo, a baixa dos títulos selecionados para renegociação será feita com base nos dados informados e os novos títulos serão incluídos. Se a empresa utilizar o módulo Contábil, independente de optar pela contabilização da baixa, será feita a contabilização dos novos lançamentos, respeitando a contabilização dos juros na conta de receita de juros.
+Para visualizar dados, cancelar, aprovar ou imprimir uma renegociação utilize a tela 
+Manutenção Renegociações
+ através do Menu 
+Movimentação / Financeiro / Contas a Receber
+, onde será apresentada a seguinte tela:
+Botões:
+Aprova - Aprova a negociação do título
+Cancela - Cancela a negociação do título
+Imprime - Imprime o documento
+Atualiza - Atualiza a tela de títulos
+Filtra - Filtra os campos do títulos
+Localiza - Valor do campo específico
+Filtro por período - Período para exibição dos dados
+Os botões desta tela estarão disponíveis de acordo a permissão do usuário para cada operação pertinente à renegociação.
+A impressão do documento de renegociação utiliza o arquivo 
+renegociacao.rtm
+ e deve estar no mesmo diretório que o executável.

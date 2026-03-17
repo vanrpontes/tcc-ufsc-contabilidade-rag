@@ -1,0 +1,99 @@
+TITULO: Tabela de Plano de Contas Controladoria
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210264
+--------------------------------------------------
+Para que esta opção esteja disponível,no sispetro normal, é necessário habilitar no perfil do usuário a opção "Pode acessar tela de Plano de Contas Real". Para isso, vá em : Ferramentas / Usuário/ Aba Perfil/ Aba Contabilidade
+O módulo Contábil possui suas Contas Contábeis específicas. Para dar manutenção nestas contas acione no Menu principal as opções -
+ 
+Arquivos / Plano Contas.
+Para facilitar a navegação e já que esta tela não é usada com tanta frequência, logo assim que ela é aberta, são apresentadas todas as contas, diferindo das telas de Manutenção, que é necessário informar que tipo de dados serão visualizados para evitar um tráfego desnecessário na rede . As contas exibidas obedecem a seleção "Mostra contas inativas" ou seja, se o usuário habilitar essa opção, as contas inativas também seram exibidas, caso contrário não.
+ 
+As contas de entidades (fornecedores e clientes) e de adiantamentos serão impressas se estiver marcada, no Sispetro Local, nas configurações da empresa, menu "Sistema", painel "Contab.Real", a opção
+ 
+Independente se a opção acima está ou não marcada, todas as telas do Sispetro Controladoria que utiliza a tela de pesquisa do Plano de Contas possuem uma opção para filtrar as contas de clientes e fornecedores, inclusive a de adiantamentos.
+O filtro acima, encontra-se no sistema com o propósito de possibilitar um melhor desempenho, fazendo com que somente as contas que tiverão movimentos apartir do período especificado sejam apresentadas. Contudo para que esse filtro esteja disponível na tela é necessário uma pré-configuração por parte da empresa (essa parametrização deverá ser realizada no Sispetro Local, nas configurações da empresa, menu "Sistema", painel "Contab.Real", a opção "Filtra Manutenção do Plano Contas Real pela movimentação" deverá estar marcada e o número de dias para filtro pela movimentação deverá ser informado, pois a data inicial que será utilizada para filtragem seguirá o seguinte critério: data corrente menos o número de dias informado. Ex. Considerando que tenha sido configurado 1 dia, a data inicial será apartir do dia de ontem.)
+Obs.
+ 
+Mesmo que a empresa trabalhe configurada para otimização por meio deste filtro, será possibilitado ao usuário realizar uma busca completa, bastando apenas desmarcar a opção "Mostra somente contas com movimentação a partir de"
+Caso deseje filtrar os dados de uma forma mais específica, na parte superior da tela, escolha o campo, o operador (=, como, >, etc) e o filtro desejado. Veja como só trazer as contas cuja natureza é Passivo:
+ 
+As contas que forem apresentadas em negrito é porque são contas sintéticas (resumo) e não permitem movimentação.
+Clique no botão que aciona a inclusão de um novo registro:
+ 
+ 
+Será apresentada a tela para inclusão de dados, esta tela também estará presente quando for necessário a alteração de dados.
+Eis as informações necessárias:
+Cód. Conta
+: Digite o código extendido da conta, podendo desprezar pontos e zeros quando estiverem a direita, pois o próprio sistema os completará. Se já houver um código extendido no nível anterior ao cadastrado, já será preenchida automaticamente a natureza da conta.
+Natureza
+: Necessário informar somente quando for conta do primeiro nível. Pode ser Ativo, Passivo, Despesa ou Receita. A natureza de uma conta real é definida pela hierarquia, ou seja, se a conta 1.0.0.0000 é do tipo Ativo, todas abaixo dela serão do tipo ativo. Porém pode ser necessário criar um grupo 3.0.0.0000 como Contas de Resultado e colocar abaixo dela conta tanto de receita como despesa, e para isso deve-se configurar no perfil do sistema e do usuário as opções abaixo para que essa isso seja possível:
+Perfil do Sistema
+, menu Ferramentas / Sistema / painel Contab. Real
+Perfil do Usuário,
+ 
+menu Ferramentas / Usuário / Perfil / painel Contabilidade
+Conta Sintética
+: Marque esta opção para contas sintéticas (resumo), que não receberão movimentação e terão contas analíticas abaixo delas.
+Plano Contas Referencial: 
+Vínculo com o 
+Plano de Contas Referencial
+ para geração da ECD, FCont ou ECF. 
+Quando o SisPetro cria automaticamente as contas principais e de adiantamento das entidades (clientes e fornecedores), é possível fazer o vínculo automático das Contas Referenciais, para isso é necessário que no 
+perfil de Sistema aba Contab. Real as contas do Quadro Conta Referencial sejam preenchidos
+.
+A partir da versão 9.11, foi implementado o plano de contas referencial para empresas imunes e isentas, além do plano referencial para empresas de lucro real/presumido. Para basta selecionar a conta e selecionar qual seu vínculo com qual plano referencial.
+ 
+Centro de Custo:
+Permite Centro de Custos
+: Há três opções: Todos Centros de Custos (qualquer centro de custo é permitido), Somente um Centro de Custo (necessário informar abaixo qual o centro de custo) ou Nenhum Centro de Custo (o que não permite a contabilização em centro de custos para esta conta).
+Centro de Custo: 
+Código do Centro de Custo vinculado
+Padrão Contábil:
+ caso informado, poderá ser utilizado na inclusão manual de contas a pagar (quando usuário informar um fornecedor e for sugerida a conta contábil de Despesa ou digitar no campo de CC Despesa uma conta, caso esta esteja ligada a um padrão contábil, este seja utilizado preenchendo os centros de custo) ou em conjunto com o perfil de sistema definido em 
+Painel Contas Contábeis
+. Caso a opção 
+Usa Padrão Contábil Centro Custo da Conta no Lote Real 
+esteja marcada, os centros de custos serão distribuídos conforme definido no padrão contábil selecionado, 
+desde que o lote real não tenha qualquer centro de custo informado.
+ 
+Dados de Filial:
+É Conta de Filial
+: Permite que esta conta só seja usada por uma determinada filial. Quando marcada é necessário informar qual a filial no campo abaixo.
+Filial: 
+Código da filial vinculada
+Dados de Grupo Empresa:
+É Conta de Grupo Empresa
+: Permite que esta conta só seja usada por uma determinado grupo de filial. Quando marcada é necessário informar qual o grupo empresa no campo abaixo.
+Grupo Empresa:
+ Cóigo do grupo empresa vinculado
+Demonstrativo de Resultado
+: Esta opção só será habilitada para contas de Despesa e Receita que forem analíticas. Escolha qual o item do Demonstrativo de Resultados que esta conta vai ser agrupada.
+Acesso Restrito a Usuários:
+ 
+Esta opção só estará visível para usuários cujo perfil permita acessar dados restritos. Indica que a conta será para uso restrito de usuários indicados. Para autorizar os usuários utilize o Sispetro Local, menu Ferramentas/Usuário, selecione o usuário desejado e vá no painel "Plano Contas Real". Selecione entre as contas disponíveis (contas com acesso restrito) as contas que este usuário poderá acessar.
+Ativo
+: Como contas contábeis não podem ser excluídas se já tiveram alguma movimentação, deixe esta opção desmarcada somente quando desejar que uma conta não possa mais ser movimentada.
+Natureza da Conta SPED ECD: 
+Definição de natureza de conta pré-estabelecia no manual da ECD. 
+As opções de Natureza, vão além das Naturezas existentes atualmente no SisPetro, tais como:
+Ativo
+Passivo
+Receita
+Despesa
+Resultado
+Para a ECD temos também: 
+Patrimônio Líquido
+Contas de Compensação
+Outras, não previstas no Sispetro
+Dados ECF: 
+Configurar as contas que participam ou não da ECF. Por padrão, todas as contas estão como Não Participa.
+Uso na ECF:
+ define se a conta não participa, se é usada no IRPJ e na CSLL, só no IRPJ ou só na CSLL
+Tipo de Lançamento ECF:
+ define se a conta não participa, se é do tipo Adição ou se é do tipo Exclusão
+Código ECF:
+ define em qual código da ECF a conta é vinculada. Tabela definida pela Receita Federal e já utilizada quando era DIPJ.
+Clique no botão
+ 
+OK
+ 
+para confirmar a operação.

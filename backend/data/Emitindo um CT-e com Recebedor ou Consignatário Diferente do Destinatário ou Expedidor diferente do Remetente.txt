@@ -1,0 +1,54 @@
+TITULO: Emitindo um CT-e com Recebedor ou Consignatário Diferente do Destinatário ou Expedidor diferente do Remetente
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2965440358
+--------------------------------------------------
+Objetivo
+Emitir um Conhecimento de Frete com o recebedor ou consignatário diferente do destinatário ou expedidor diferente do remetente
+Para emitir o Conhecimento de Frete, com Consignatário 
+diferente
+ do destinatário e Recebedor sendo o Consignatário.
+Proceder conforme segue:
+1 - Utilizando a figura do Consignatário no CT-e
+Cadastros
+Cadastre um cliente que deve ser o 
+Consignatário
+ em 
+Menu Arquivos > Clientes
+Cadastre uma transportadora com os mesmos dados do Consignatário em 
+Menu Tabelas auxiliares > Transportes > Transportadora/ Motorista
+No campo 
+Código Entidade p/ uso Livro Eletrônico 
+informe o código do
+ Cliente cadastrado anteriormente (
+Consignatário
+)
+Emissão do Conhecimento
+Na aba 
+Outras Inf.
+ preencha o campo 
+Consignatário
+ com o código do cliente que será usado como Consignatário
+.
+O campo Entidade Retirada, por padrão, é preenchido com a Entidade Remetente: a Entidade Retirada são os dados do Expedidor.
+Na aba 
+Classif. CT-e, 
+preencha o campo 
+Transportadora de Redespacho
+ com 
+ o código da transportadora que foi vinculada ao cliente.  
+Ao Autorizar o CT-e, tanto no XML, quanto no DACTE o Recebedor será o Consignatário. 
+Emitindo um CT-e com Consignatário, 
+o endereço da finalização será de acordo com a 
+Transportadora de Redespacho
+ e não de acordo com o Destinatário. O 
+MDF-e
+ emitido a partir desse CT-e 
+seguirá a
+ 
+mesma regra.
+ 
+2 - Emitindo CT-e com Expedidor diferente do Remetente e Recebedor diferente do Destinatário
+Emissão do Conhecimento
+Expedidor diferente do Remetente
+Na aba 
+Outras Inf.
+ preencha o campo Entidade Retirada informando o código Consignatário com o código do cliente que será usado como Consignatário.

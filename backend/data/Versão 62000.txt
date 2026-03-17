@@ -1,0 +1,127 @@
+TITULO: Versão 6.20.00
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2881454310
+--------------------------------------------------
+Dados
+Informações
+Início
+21/01/2009
+Final
+12/02/2009
+Scripts
+cmd62000.sql (cmd2069 a cmd2077.sql)
+Itens
+18
+Implementações
+7
+Correções
+11
+Anexos
+- SPEDConfCGCEntidadesLFE.rtm 
+ - LivroFiscalEntrada.rtm 
+ - LivroFiscalSaída.rtm
+Faturamento
+Importação de NFe via XML
+ 
+As notas fiscais eletrônicas recebidas de seus fornecedores em formato XML podem ser importadas para o SisPetro a partir do módulo de Importação de Notas Fiscais. Para isso basta configurar a importação via XML.
+ 
+UPA(CCF 2832)
+Assinatura difere do calculado
+ Em alguns casos, após envio da NFe, quando o usuário solicitava o protocolo de envio gerava a seguinte mensagem de erro "Assinatura difere do calculado". Foi solicitado para que em alguns casos a acentuação fosse removida do cadastro no SisPetro. Isso não é mais necessário, pois estamos removendo a acentuação para enviar a NFe e com isso o erro mencionado acima não ocorre mais. 
+UPA(CCF 4964)
+Conhecimento de Frete
+ Habilitada a opção de visualizar a impressão de Conhecimento de Frete. 
+ECJ (CCF 5000)
+Pedidos aprovados e não faturados
+ Foi feita uma correção para verificar o Prazo para faturamento após aprovação do pedido, somente quando for Pedido de Venda, para os demais tipos de pedido não será feita esta validação. 
+ECJ (CCF 4517)
+Vendas
+Custo Vendas - Custo de aquisição
+ 
+No cadastro de produtos, aba Detalhes -> Custos para Venda, foi adicionada uma nova sub-aba
+ 
+Custo por Depósito
+, 
+cuja função é permitir que o custo de aquisição, utilizado para Custos de Venda, seja obtido pelo custo médio do depósito utilizado na venda, e não através de um depósito padrão. ECJ (CCF 4829)
+ 
+Help:
+ 
+Manutenção de Tabelas de Sistema/Tabela de Produtos/Custo para Venda
+Painel Preços no Cadastro de Clientes
+ Na aba Preços no Cadastro de Cliente foram corrigidas as seguintes situações: A Quantidade de casas decimais agora está de acordo com o perfil de sistema "#CasasPUNit" (Ferramentas/ Vendas). Os conteúdos dos campos "Margem R$" e "Preço Sug. Com desconto" estão saindo corretamente. E a aba Preços Atuais (botão Simulação Preço) está corrigida. A tela será atualizada automaticamente conforme a empresa conectada, a data de vigência para o período e as configurações existentes para o cliente. 
+UPA(CCF 5174)
+Condição de Pagamento por Produto
+ O perfil "Informa Condição de Pagamento", da tela de alteração de preço por cliente, estava dependendo erroneamente do perfil de cliente "Permite Desconto Condicional", sendo que deveria depender apenas do perfil de cliente "Condição de Pagamento por Produto". Item corrigido. 
+UPA(CCF 5253)
+Transportes
+Campo Compartimentação
+ Corrigido erro no SisPetro Remoto, que permitia que placa tipo cavalo ou passeio preenchessem o campo compartimentação. 
+ECJ (CCF 4672)
+Fiscal
+Sintegra: Nova Opção Registro 60A
+ 
+Na tela de manutenção do Registro 60A, no campo Situação Tributária, que só permitia valores fixos, foi habilitada a possibilidade de inserção de valores manuais.
+ 
+Importante: Na tela de manutenção do registro 60, é preciso clicar no botão Layout Padrão para que a descrição da situação tributária seja exibida!
+ 
+UPA (CCF 4005)
+SPED: Alteração no relatório SPEDConfCGCEntidadesLFE.rtm.
+ Em alguns casos o Relatório duplicava a linha do fornecedor, não trazendo o seu cliente correspondente. Porém era possível visualizar o código do cliente no campo da Entidade LFE. Para solucionarmos, incluimos o seguinte INNER JOIN. 
+DPN (CCF 5196)
+SPED: Procedure executada no botão Preenche
+ Corrigido erro que ocorria algumas vezes ao executar o botão PREENCHE. 
+HDN (CCF 5196)
+SPED: Correção da fórmula do registro C170
+ Corrigido erro de duplicidade que ocorria na geração do arquivo para o registro C170, Itens do Documento. 
+DPM (CCF 5030)
+Numeração de Páginas nos Livros Fiscais
+ Nos livros fiscais de entrada e de saída foi criada a opção: 
+"Reinicia numeração"
+ para permitir que seja reiniciada a numeração de página no caso de impressão de vários livros (com controle de numeração de páginas).
+ 
+Obs.: É necessário atualizar os arquivos: LivroFiscalEntrada.rtm e LivroFiscalSaida.rtm. Importante: Esses RTM's são referentes ao módulo Controladoria do Sispetro. ATENÇÃO: Atualize Caso o seu layout seja personalizado, avalie antes se é necessário fazer a atualização.
+ECJ (CCF 4768)
+ 
+Help:
+ 
+Sispetro Controladoria/ 4. Movimentação/ Apuração Fiscal
+Financeiro
+Títulos Recorrentes Oriundos de Nota Fiscal
+ 
+Disponibilizado no sistema um recurso para vincular um título recorrente a uma Nota Fiscal de entrada.
+ 
+Com isso, no momento da digitação da Nota Fiscal de Entrada o sistema poderá solicitar ou exigir o vínculo do título recorrente com a nota fiscal. E assim, ao vincular o título recorrente ele será efetivado automaticamente, ficando disponível na tela de Contas a Pagar.
+ 
+Mas para isto, é necessário configurar a natureza de operação para solicitar ou exigir.
+ 
+UPA (CCF 4746)
+ 
+Help:
+ 
+Manutenção de Tabelas de Sistema/Faturamento/Tabela Natureza Operação
+Módulo11
+ 
+Disponibilizada no gerenciador de relatórios a função Modulo11Ext. Esta função permite calcular o dígito verificador com base no Módulo 11. Como exemplo, o dígito verificador do boleto do Banco Rural.
+ 
+UPA (CCF 5045)
+ 
+Help:
+ 
+Processos/Gerenciador de Relatórios/Funções Futura/Módulo 11
+Cobrança Eletrônica (CNAB) Banco ABC
+ 
+Implementada a Cobrança Eletrônica do Banco ABC, utilizando como Banco Correspondente o Banco Bradesco (237).
+ 
+Importante: Antes de colocar a cobrança em produção fazer os testes de impressão de boleto e arquivos de remessa/retorno com o banco!
+ 
+ECJ (CCF 5039)
+ 
+Help:
+ 
+Manutenção Tabela de Sistemas/Vendas/Tabela de Tipo de Cobrança/Como configurar cada banco/ABC
+Código de Exportação do Cliente
+ 
+Foi disponibilizado para uso no boleto de cobrança o campo Galonagem no condutor de dados Entidade
+. ECJ (CCF 3900)
+Inclusão de Contas a Pagar
+ As empresas que não possuíam o perfil de empresa "Controla Tipo Documento origem do movto financeiro" habilitado, não estavam conseguindo finalizar os títulos de contas a pagar manual. Essa rotina foi corrigida. 
+UPA(CCF 5192)

@@ -1,0 +1,44 @@
+TITULO: Contabilizaçao de NF de Devoluçao
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918974420
+--------------------------------------------------
+A NF de Devoluçao gera um Adiantamento para, na maioria das vezes, ser utilizado para quitar a NF de Venda devolvida que está em aberto. Porém, em alguns casos, pode ser que essa NF de Venda já tenha sido baixada, entao o Adiantamento gerado poderia ser utilizado nas próximas Notas. Por isso que é necessário o Adiantamento, pois atende as duas situaçoes, deixando bem clara a situaçao do cliente.
+Para facilitar o processo temos a possibilidade da Baixa Automática em NF's de Devoluçao, que já baixa o Título da NF de Venda (caso ainda esteja pendente) já utilizando o Adiantamento gerado na NF de Devoluçao.
+Devido a geraçao do Adiantamento temos a seguinte contabilizaçao:
+Inclusao da NF de Venda
+DC
+Conta
+Valor
+D
+Cliente
+Valor da NF
+C
+Receita de Vendas
+Valor da NF
+Inclusao da NF de Devoluçao
+DC
+Conta
+Valor
+D
+ Devoluçao de Vendas
+Valor da NF de Venda proporcional a Qtde devolvida
+C
+Adiantamento de Clientes
+Valor da NF de Venda proporcional a Qtde devolvida
+Baixa do Título pendente da NF de Venda utilizando o Adiantamento
+DC
+Conta
+Valor
+D
+Adiantamento de Cliente
+Valor do Adiantamento
+C
+Cliente
+Valor do Adiantamento
+Resultado final
+Conta do Cliente
+: Zerada, pois foi feita a baixa
+Conta de Adiantamento do Cliente
+: Zerada, pois foi feita a baixa
+Conta de Receita de Vendas
+: Com valor, mas será diminuída pela Conta Redutora de Devoluçao de Vendas
+Ou seja, apesar da contabilizaçao da Conta de Adiantamento parecer desnecessária, ela nao atrapalha o resultado final. Além disso, garante que, nos casos da NF de Venda já estar baixada, deixar o Adiantamento pendente para uso em NF's futuras.

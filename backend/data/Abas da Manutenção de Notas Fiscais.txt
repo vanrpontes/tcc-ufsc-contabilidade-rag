@@ -1,0 +1,345 @@
+TITULO: Abas da Manutenção de Notas Fiscais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2915467447
+--------------------------------------------------
+none
+Objetivo
+A tela de Manutenção de Nota Fiscal permite consultar informações vinculadas à NF, como conhecimentos de frete, itens, impostos, notas de entrada, dados financeiros e estoques. Também possibilita visualizar e manipular vínculos, despesas, títulos gerados, cheques, custos, dados de importação e notas duplicadas. Na área contábil, exibe movimentos reais e gerenciais, permitindo recontabilização quando necessário. No módulo de transportes, mostra CT-e próprios/terceiros, MDF-e, comprovantes de entrega, averbação e despesas de frota. No fiscal, permite consultar outros impostos, documentos vinculados, processos referenciados, ajustes SPED e documentos de arrecadação.
+A seção de e-mails mostra todos os e-mails gerados/enviados relacionados à NF e permite reavaliar liberações agrupadas. Há ainda abas para observações da nota, incluindo observações livres, complementares, fiscais e internas para controle.
+Em Movimentação / Faturamento / Manutenção de NFs 
+Na tela de manutenção de Nota fiscal, é possível pesquisar outras informações que estão vinculadas a nota fiscal selecionada pelo usuário.
+Itens inativos agora ficarão destacados em 
+vermelho
+Conhecimento de Frete
+Como o conhecimento de frete tem algumas particularidades, foram criadas 6 colunas, na aba principal 
+Notas Fiscais
+, visando melhorar a visualização dos dados do processo de CT-e. As colunas são:
+# Destinatário:
+ número de destinatário no SisPetro
+# Razão social do Destinatário:
+ mostrará a Razão Social referente a este destinatário
+Pagador:
+ qual entidade pagará pelo serviço (Remetente, destinatário ou consignatário)
+Resp. Seguro:
+ destacará o responsável pelo seguro da carga ( tomador, destinatário, consignatário, remetente, emitente do CT-e ou expedidor) 
+Tipo de Carga:
+ fracionada ou lotação
+Frete a Pagar:
+ se há frete a pagar (sim ou não)
+Itens NF
+Aba inferior Itens NF
+Nesta aba são apresentadas informações sobre os itens da nota fiscal, como quantidade faturada, quantidade a 20 graus, os impostos contidos, valor das despesas, se tiver, entre outras informações.
+Campos referentes às operações interestaduais com consumidor final não contribuinte:
+Botão Alterar Dados Despesas
+Somente deverá estar habilitado se:
+O perfil de sistema “Trabalha com Grupo e SubGrupo de Despesas (Compras)” estiver marcado 
+Configurações de Perfil de Sistema (Compras)
+ 
+Altera as despesas do Grupo e Subgrupo da NF de entrada
+Aba inferior Nota Fiscal de Entrada
+É possível visualizar os dados da nota fiscal de 
+entrada
+ que deu origem a esta de saída, por exemplo, para conferência. É apresentado, nome do produto, número da NF, quantidade, preço total, preço real, entre outros.
+Botão 
+Vincula Última Nota fiscal de Entrada: 
+permite vincular automaticamente uma ou mais notas fiscais de entrada (última nota de entrada) a uma ou mais notas de saídas, de acordo com os produtos. Deve ser configurado nas naturezas de operação de notas de saída.
+Para que os botões estejam disponíveis é necessário habilitar o perfil na 
+Tabela Natureza Operação
+.
+Botão 
+Desvincula Última Nota fiscal de Entrada: 
+permite desvincular uma nota fiscal de entrada a nota fiscal selecionada.
+ 
+: está em 
+desuso 
+para empresas de combustíveis.
+Aba inferior Impostos e Composição
+É possível visualizar todas as composições dos impostos.
+Aba inferior UF Origem
+É possível visualizar todas UFs de origem e seus percentuais assim como o produto e seu código
+Financeiro
+Parcelas Pagto: 
+nesta aba são informados os dados financeiros da nota, como número de parcelas, o valor na qual corresponde cada parcela e se contém 
+acréscimos
+ indicados ao tipo de cobrança.
+Dados Pagto. Importação
+Para mais informações, ver: 
+Parcelas e Controle de Pagamentos (PMM × NF)
+ 
+Títulos Gerados: 
+nessa aba mostra os títulos gerados e, caso a empresa esteja configurada para 
+Transferência de títulos a Receber entre Empresas
+ mostra também o número dos títulos gerados. 
+Botão Gera QrCode Dinâmico a ser utilizado quando a geração de QRCode Dinâmico falha via serviço ou banco.
+Desconto/Acréscimo: 
+apresenta as informações de 
+desconto
+ ou 
+acréscimo, 
+como nome do desconto, base de calculo, valor do desconto, entre outras. Para mais informações, ver 
+Nota Fiscal - Desconto/Acréscimo
+Títulos Gerados por Desconto: 
+caso a nota fiscal gere algum título por desconto, como INSS por exemplo, neta aba são apresentados todos os dados deste título, como data de emissão, de vencimento, valor, entre outros. Para mais informações ver 
+Geração de Título de Desconto por Nota Fiscal de Saída
+ e 
+Geração Automática de Título de Desconto Oriundo de Retenção
+.
+Despesas do PMM:
+ apresenta os dados gerados através da tela de Inclusão do PMM. Para mais informações, ver 
+Controle de Despesas no PMM
+.
+Títulos Vinculados: 
+nesta aba, são apresentados todos os títulos vinculados a esta nota fiscal. Lembrando que apenas pela tela de 
+Manutenção do Contas a Pagar
+ ou 
+Manutenção do Contas a Receber
+ , é possível excluir ou incluir um novo vinculo. 
+Cheques Vinculados: 
+é apresentado ao usuário, se houve algum cheque vinculado a nota e sua informações. Para mais informações, ver 
+Como vincular cheque recebido à Nota Fiscal
+Estoque 
+Carregamento: 
+possibilidade de visualizar as ordens de carregamento vinculadas a nota fiscal selecionada. Para mais informações, ver 
+Manutenção Carregamento/Descarga
+.
+Bombeios: 
+caso a nota esteja vinculada a algum bombeio, nesta aba aparecerá todas as informações deste. Para mais informações, ver 
+Com Bombeio
+.
+Ordem de Carregamento: 
+se a nota estiver vinculada a uma Ordem de Carregamento, nesta aba aparecerá as informações da OC, como número, quantidade OC, quantidade NF, data, produto. Para mais informações, ver 
+Manutenção de Ordem de Carregamento
+.
+Contabilidade
+Movto Centro Custo Gerencial: 
+mostra, caso tenha, a distribuição dos valores nos centros de custos.
+Movto Contábil Real: 
+mostra todos os movimentos da contabilidade real, de créditos e débitos. Valor, conta, observações, entre outros, permitindo inclusive recontabilizar. Além disso, temos: 
+ Informa o código de contabilização utilizado, podendo ser alterado caso seja necessário.
+ Este botão deve ser utilizado todas as vezes que for alterado o Código de Contabilização, nesta tela, para acertos dos débitos e créditos.
+ Este botão pode ser utilizado quanto o Código de Contabilização for alterado no cadastro de Natureza de Operação e desejar que o Sispetro faça a sugestão do novo código.
+Movto Contábil Gerencial: 
+mostra todos os movimentos da contabilidade gerencial, de créditos e débitos. Valor, conta, observações, entre outros. Não existe opção de recontabilização gerencial.
+Transportes
+Abas inferiores
+CT-e Emissão Própria
+Componentes:
+ caso tenha, apresenta os componentes do CT-e. Para mais informações, ver 
+Tabela Componentes da Prestação de Serviço
+.
+CT-e Emissão Terceiros: 
+apresenta, se houver, os conhecimentos de frete vinculados a esta nota fiscal. Para mais informações, ver 
+Como Emitir um Conhecimento de Frete Eletrônico - CTe
+, 
+Emitindo um Conhecimento de Transporte CT-e
+.
+NF's Vinculadas: 
+visualização das notas fiscais vinculadas ao conhecimento. Além disso, o Sispetro só permite o vínculo neste painel para conhecimentos.
+Despesas Frota: 
+apresenta as despesas do frota, mostra a quilometragem, data, se houve abastecimento, entre outras informações. Para mais informações, ver 
+Frotas
+MDF-e:
+ carrega os CT-e com manifestos eletrônicos. Para mais informações, ver 
+Manutenção de MDF-e
+. É possível considerar ou desconsiderar uma Nota Fiscal no MDF-e. Foi criada essa opção pois, em alguns casos, a Natureza de Operação pode ter sido configurada de forma errada ou pode ter ocorrido erro de usuário. 
+Para habilitar a opção de considerar ou desconsiderar é preciso habilitar o 
+Perfil de Usuário 
+Pode considerar/desconsiderar NF no MDF-e.
+ Localizado em 
+Ferramentas/Usuário/Aba Faturamento
+.
+CT-e Próprio Referenciado
+Comprovante de Entrega:
+ através dessa aba podemos visualizar os comprovantes de entrega, incluir novos comprovantes, anexar o canhoto editar ou cancelar. Podemos também consultar as informações incluídas pelo 
+Controle de Entrega e Viagens - SisPetro App
+Averbação: 
+permite verificar a gerenciadora utilizada, qual o status da averbação / cancelamento. Para mais informações, ver 
+Automatizar Averbação de CT-e e NF-e
+  
+Fiscal
+Outros impostos: 
+visualização de outros impostos vinculados a nota fiscal, tais como Pis - Cofins, entre outros. Para mais informações, ver 
+Outros Impostos
+.
+NF-eletrônica ou CT-Eletrônico (Empresa Transportadora): 
+listas as notas fiscais eletrônicas, os recibos de autorização, solicitação e inutilização. Para mais informações, ver 
+Nota Fiscal Eletrônica
+. Para informações sobre 
+XML Enviado
+ e/ou 
+XML Retorno
+, ver 
+Recuperar XML de Envio e de Retorno
+Processos Referenciados:
+ lista os documentos de processos referenciados que foram anexados a Nota Fiscal através da Natureza de Operação. Para mais informações ver 
+Tabela de Natureza de Operação
+.
+Documentos Fiscais Vinculados por Nota
+: lista os documentos fiscais vinculados a Nota Fiscal e as Notas Fiscais referenciadas a ela. 
+Obs.:
+ o botão 
+Cancela Vínculo 
+está associado ao perfil de usuário 
+Pode cancelar vínculo de NF referenciadas?. 
+Para mais informações, ver 
+Painel Faturamento (Usuários)
+Documentos Fiscais Vinculados por Item
+: lista os itens dos documentos fiscais vinculados. 
+Ajustes Livro/SPED: 
+lista os documentos que sofrerão alteração na Apuração Fiscal. Os ajustes podem ser visualizados pela 
+Apuração Fiscal
+. Apenas ajustes que tiverem valores de ICMS serão visualizados.
+Documentos de Arrecadação SPED: 
+permite sua inclusão desde que o perfil 
+Vincula Documentos manuais de arrecadação do Sped
+, utilizada na Natureza de Operação esteja selecionado para a realização da inclusão de Documentos par arrecadação. Para mais informações, ver 
+Documentos de Arrecadação SPED
+.
+Autorizados NF-e: 
+lista o sequencial, cpnj e qual foi o autorizador da nota. 
+Tag ObsCont:  
+mostra as informações da tag em questão previamente  cadastradas e configuradas em 
+Tabela Tag ObsCont NF-e
+ e 
+Tag ObsCont NF-e
+.
+Diversos
+Itens Carta de Correção: 
+mostra, caso haja, dados da carta de correção, valores antigos e valores corrigidos. Para mais informações, ver 
+Carta de Correção Eletrônica
+.
+Importar XML Carta Correção. Para mais informações, ver 
+Importação de Carta de Correção
+Manifestação Destinatário: 
+para complementar o projeto NF-e foi criada a possibilidade do Destinatário se posicionar em relação às NF-e direcionadas para o seu CNPJ. Esse processo se chama 
+Evento de Manifestação do Destinatário
+, cuja especificação está na 
+Nota Técnica 2012.002 da NF-e
+, e permite que o destinatário consulte as NF-e emitidas para o seu CNPJ, dando ciência da operação, confirmando, desconhecendo ou indicando que a operação não foi realizada. Para mais informações, ver 
+Evento de Manifestação do Destinatário da NFe
+.
+Custos: 
+são apresentados tantos os 
+custos internos
+ (configurados na Natureza de Operação) como os 
+custos externos
+, para cada item da Nota Fiscal. Na aba de custo é possível ver a soma do total dos custos e o resultado que é o valor total da nota menos o total dos custos.
+Dados Importação: 
+caso a nota fiscal seja de importação de produtos (ou seja se o produto vier do Exterior), apresenta dados como Declaração de Importação, Licença de Importação, produto, dados do exportador, entre outros. Para mais informações, ver 
+Processos de Importação
+NF Duplicadas: 
+como em algumas informações fiscais é preciso que seja detalhado cada item da nota fiscal, alguns utilizam CFOP diferentes. O SisPetro em sua concepção partiu do princípio que uma nota só poderia ter um único CFOP, quando surgiu a obrigação fiscal (EFD), que deveria separar itens por CFOP, estes foram separados, ou seja cada item com CFOP diferente gera uma nota fiscal com o mesmo número. Para mais informações, ver 
+NF com mais de um CFOP / Natureza de Operação
+.
+Notas Fiscais
+Itens
+Análise para o Cancelamento:
+ visualização da tela de análise de cancelamento. Para mais informações ver  
+Como cancelar uma Nota Fiscal
+.
+Análise para Cancelamento na Sefaz
+Análise para Cancelamento no SisPetro
+Consulta NF-e Destinatário:
+ visualização da tela de consulta de NF-e Destinatário. Para mais informações ver 
+Consulta de Destinatário de NF-e/CT-e
+.
+Processamento de NF: 
+visualização do status das notas cujo custo foi atualizado automaticamente. Na coluna 
+Processamento NF 
+é possível ver o status da nota que foi processada.
+O status pode ser:
+Não Processado
+Processado
+Cancelado antes do Processamento
+Custo Fechado antes do Processamento
+Erro no Processamento
+ Para mais informações, ver 
+Atualização de Custo automática na Transferência de Produtos entre Filiais no mesmo Banco de Dados
+E-Mails
+Tem como objetivo mostrar, de forma mais simples, ao usuário todos os e-mails enviados ou não da Nota Fiscal em questão. Os e-mail podem ser visualizados, também, pela 
+Manutenção de E-mails
+.
+Também está disponível o agrupamento de 
+E-mail de Boleto de cobrança
+. Caso todas as NF já tenham sido autorizadas e por algum motivo os boletos não foram enviados, pode utilizar o botão 
+Reavalia Liberação de E-Mails Agrupados
+.
+As informações sobre os e-mails, geração e envio ou não, estão mais detalhadas, possibilitando uma análise quando ocorrem eventuais problemas. As informações foram separadas em 2 abas:
+Gerados ou Enviados:
+ nesta aba são mostrados todos os e-mails gerados e enviados ou não.
+#E-mail:
+ código interno gerado pelo SisPetro
+Destinatário:
+ endereço de e-mail para o qual foram enviados os dados (XML e DANFE ou Boleto)
+Assunto:
+ assunto do e-mail - NFe/XML, Carta de Correção ou Boleto
+Corpo:
+ descritivo do e-mail
+Status:
+ situação do e-mail
+Aguardando envio: 
+aguardando o serviço de envio
+Enviado: 
+enviado para o destinatário
+Erro: 
+não enviado
+Agrupado?:
+ indica se o e-mail/boleto é agrupado ou não
+Código Agrupado: 
+código interno gerado pelo SisPetro
+Origem:
+ indica a origem do e-mail
+Nota Fiscal
+ (XML e DANFE)
+Boleto
+IP Servidor de E-mail:
+ servidor que fará o envio do e-mail/boleto
+Porta Servidor E-mail:
+ porta utilizada pelo servidor de e-mail
+Esses dados são configurados na conta de e-mail. Para mais informações ver
+ 
+Configuração de Conta de E-mail
+.
+Manual: 
+Indica se o e-mail foi enviado automaticamente pelo SisPetro ou Manualmente pelo usuário.
+Geração de E-Mail: 
+nesta aba são mostrados se os e-mails foram ou não gerados. Não são informações de envio. Usado para analisar se na emissão da NFe/CTe os e-mails foram devidamente gerados e em qual situação se encontram.
+Tipo:
+ indica o tipo de e-mail
+NFe
+Cancelamento de NFe
+Carta de Correção de NFe
+CTe
+Cancelamento de CTe
+Carta de Correção de CTe
+Status:
+ indica a situação do e-mail 
+Envia imediatamente:
+ envio do e-mail é imediato
+Aguarda Anexo:
+ aguardando os anexos
+Aguarda Grupo:
+ aguardando agrupamento de e-mails
+IP Servidor:
+ indica em qual Servidor que o e-mail foi gerado.  Pode ser diferente do Servidor de envio quando se utilizam vários Servidores SisPetro.
+Porta Servidor:
+ porta do Servidor no qual o e-mail foi gerado.
+O Servidor de envio de e-mail pode ser diferente do Servidor onde o e-mail foi gerado. Isso ocorre quando se utilizam vários Servidores SisPetro.
+#Carta Correção:
+ código da carta de correção, caso a nota tenha.
+O botão 
+Reavalia Liberação de E-Mails Agrupados
+ NÃO reenviará os e-mails ele apenas enviará, pela primeira vez, caso tenha ocorrido qualquer erro por parte do usuário. O botão reavaliará se todas as NF da Ordem de Carregamento já foram autorizadas e os e-mails não foram enviados.
+Observações: 
+Na aba Observações é possível visualizar as observações incluídas na NF e Incluir/Excluir Observações Gerais:
+Observações Livres:
+ apresenta as Observações incluídas na Emissão da NF.
+Informações Complementares:
+ apresenta as Informações Complementares incluídas na Emissão da NF.
+Informações para Uso do Fisco:
+ apresenta as Informações para Uso do Fisco incluídas na Emissão da NF. 
+Observações Gerais:
+ permite Visualizar, Incluir e Excluir Observações referente a NF selecionada apenas para controle no SisPetro, e não serão enviadas para a SEFAZ. Para que o usuário tenha acesso para Incluir e Excluir observações é necessário que o perfil 
+Pode dar manutenção em observações da NF
+ esteja marcado. Para mais informações, ver 
+Painel Faturamento (Usuários)
+.

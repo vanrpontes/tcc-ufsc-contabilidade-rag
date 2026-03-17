@@ -1,0 +1,74 @@
+TITULO: Roteiro de Migração para o Sybase 12
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903508148
+--------------------------------------------------
+#FFFFCE
+30%
+Versão do Documento: 1.2
+15%
+Histórico das Versões do Documento
+Introdução
+Este documento visa orientar o usuário na realização dos procedimento para migração do banco de dados para o Sybase 12, onde atualmente está no Sybase 7.
+ Ele é composto por roteiros que ordenam e destacam os pontos importantes do treinamento para esta área específica.
+O Sispetro é um sistema de gestão de última geração, desenvolvido em linguagem de 32 bits e acessa um banco de dados também de última geração.
+Procedimentos
+É importante que todos os procedimentos abaixo sejam executados inicialmente em ambiente de testes por questões de segurança, para que nem o banco e nem dados sejam perdidos.
+Para realização dos procedimentos, o usuário deverá se atentar para os seguintes procedimentos:
+ 
+1. Certificar-se de que não há ninguém conectado ao banco de dados.
+É de extrema importância que este procedimento seja executado durante um período em que nada precisará ser faturado e que ninguém precise utilizar o Sispetro (banco de dados). Isto porque este procedimento requer muita atenção e cuidado.
+ 
+2. Atualização do Sispetro
+ para a última versão liberada, ou certifique-se de que a versão mínima seja a 7.23.
+3.
+ 
+ Inicialmente este processo deverá ser feito para a realização dos procedimentos em ambiente de Teste.
+ Antes de iniciar o processo, é de extrema importância ter um backup do banco de dados, para que caso ocorra algum problema durante o processo de migração o mesmo possa ser substituído.
+4.
+ 
+ É preciso instalar o Sybase 12 no servidor, considerando que o Sistema Operacional poderá ser 64bits ou 32 bits.
+5. 
+ Este processo servirá ao usuário a execução do banco de dados de teste através do Sispetro.
+6.
+ 
+ Este procedimento deverá ser executando primeiramente como teste e depois no banco oficial. Após a realização do teste, este processo servirá ao usuário para identificação de 
+tempo de migração
+ e 
+possíveis erros encontrados
+ no banco oficial.
+ Considerando:
+Tempo para migração:
+ com base neste processo, o usuário poderá determinar o tempo que precisará para efetuar o mesmo procedimento no banco real.
+Possíveis erros encontrados:
+ Caso ocorra algum erro durante a migração do banco, o usuário 
+deverá
+entrar em contato com nosso Suporte para que possamos acompanhar e auxiliar na solução do problema.
+Empresas que possuem banco de dados com alterações que não existem em nossos scripts, deverão manter contato para que possamos analisar a situação e assim indicarmos o melhor procedimento a ser tomado.
+7.
+ 
+Executar comandos para validação do banco de dados
+ Após efetuar a atualização das views, será preciso executar comandos para validação do banco de dados.
+ 
+8. 
+Atualização de Views
+ 
+ Após efetuar a migração para o Sybase 12, o usuário deverá executar o script anexo a este Roteiro para que as views de seu respectivo banco de dados sejam atualizadas.
+9.
+ 
+Configurar DLL para estações de trabalho
+ Configuração das pastas de DLL referente ao Sybase 12 para estações de trabalho que não possuem o Sybase instalado.
+10. Configurar ODBC e Servidor Sispetro para Banco de Dados de Produção
+ Após realizar todos os procedimentos acima, é preciso iniciar o Servidor Sispetro apontando-o para o banco de dados já migrado para o Sybase 12. Mas para isso é preciso se atentar para os seguintes procedimentos:
+Configurar o ODBC direcionado ao banco de dados no Servidor. Para maiores informações, veja o tópico sobre 
+Configurações de ODBC
+;
+Configurar o Servidor Sispetro para se comunicar com o ODBC + Banco de Dados. Para maiores informações, veja o tópico sobre 
+Servidor Sispetro
+;
+Caso o Servidor Sispetro fique em uma máquina diferente da que está o banco de dados, será preciso instalar a versão Client do Sybase 12 na máquina que terá o Servidor Sispetro. Utilize o roteiro de 
+Instalação do Sybase 12
+ e 
+atente-se para o item e do passo 8
+.
+Importante:
+ 
+Considerando que os testes efetuados ocorreram com sucesso, e, além disso, o usuário conseguiu pré-determinar o tempo que a migração levará em seu banco de dados, o usuário deverá efetuar os mesmos procedimentos (exceto o item 5) no ambiente oficial. Lembrando que ninguém poderá estar conectado (Faturando ou qualquer outro procedimento) durante o processo.

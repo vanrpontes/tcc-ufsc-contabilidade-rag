@@ -1,0 +1,158 @@
+TITULO: Manutenção de Pedidos de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701919
+--------------------------------------------------
+Objetivo
+Por meio desta tela pode-se consultar os 
+Pedidos de Venda
+, que foram cadastrados no SisPetro. O acesso é feito via 
+Movimentação > Vendas > Manutenção Pedidos de Venda.
+Nesse Menu
+,
+ o usuário pode alterar, consultar os dados do pedido (Ex. Data do Pedido, Dt. Entrega, Status, Aprovação, etc), solicitar análise de venda e mais. 
+Os Pedidos serão mostrados na tela de acordo com o perfil de Grupo de Usuários utilizado. Para mais informações, ver 
+Visualização de Movimentação por Grupo de Usuários
+.
+Ao acessar, o SisPetro mostra a lista dos pedidos a partir de uma determinada data previamente configurada conforme o número de dias para exibição. Esse número é configurado no 
+menu 
+Ferramentas > Sistema > Vendas > quadro
+ 
+Período para exibição de dados na Man. de Pedidos.
+Essa configuração evita que seja mostrada na tela uma quantidade excessiva de dados, deixando lenta a abertura da tela.
+Para consultar pedidos com data anterior a configurada, basta alterar o intervalo de datas conforme sua necessidade no quadro Período para exibição de dados. 
+Os Pedidos ainda não aprovados, aparecem na cor amarela. Outros detalhes referente ao padrão de cores utilizada podem ser obtidos acionando o botão
+ 
+Legenda
+.
+Para localizar, por exemplo, um pedido pelo número, basta clicar no campo de filtro da coluna, 
+ 
+abrir a lista de pesquisa e selecionar o número. Caso queira realizar um filtro com parâmetros de 
+igual, maior
+ 
+ou
+ 
+menor 
+e etc., basta clicar em
+ 
+customizar
+ e o SisPetro mostrará a imagem abaixo. Após isso basta preencher os campos conforme sua necessidade. 
+Abaixo uma breve descrição dos 
+botões
+ de ação da tela de manutenção: 
+Botões:
+Visualiza:
+ através da tela de visualização é possível alterar dados do pedido. Para mais informações, ver 
+Alteração do Pedido de Venda
+.
+Emite:
+ permite realizar a impressão do Pedido que está selecionado. 
+Cancela:
+ exclui um Pedido que ainda não foi aprovado.
+Muda Transp:
+ permite alterar a transportadora do pedido 
+Ad. Qt:
+ permite adicionar adiantamento quantificado no pedido. Ele deve ser acionado na aba Itens Pedido.
+Ad Qt:
+ permite excluir adiantamento quantificado no pedido. Ele deve ser acionado na aba Itens Pedido.
+Analise:
+ 
+permite realizar a análise / aprovação do pedido de venda. 
+Duplica:
+ permite duplicar o pedido que está selecionado na lista. Há algumas regras na cópia do pedido, sendo: 
+Será copiado: 
+Cliente, Tabela de Preço, Depósito, Tipo de Pedido, Vendedor, Condições de Pagamento, Tipo de Cobrança, Motorista, Frota, Retira/Entrega, Tipo de Carga, Pedido Segurado, Produto, Quantidade, Cliente Faturado (caso utilizar), Contrato de Venda, e Adiantamento Quantificado
+Na cópia:
+ O preço será o que está vigente na tabela. 
+Se o perfil de empresa 
+Cliente Faturado diferente do comprador
+ 
+Se estava marcado e não está mais, o pedido não terá cliente faturado
+Se não estava e está agora, o pedido terá como cliente faturado o mesmo cliente comprador
+Urgência na aprovação ou o Aguardar para Aprovar são informações que devem ser atuais
+Caso a condição de pagamento estiver vinculada a um tipo de cobrança e na cópia o usuário passar pelo campo em questão (utilizando o TAB por exemplo) o tipo de cobrança será atualizado para o tipo que está vinculado a condição. 
+A listagem ou não dos pedidos cancelados depende da opção 
+Visualiza pedidos cancelados?
+, estar marcada ou desmarcada.
+Informações disponíveis na tela
+No painel acima da lista de pedidos podemos consultar outras informações referente ao pedido de venda selecionado. Para isso basta selecionar o pedido e clicar nas abas para mostrar as outras informações a qual deseja saber as informações sobre ele. 
+Abaixo as informações sobre o que cada aba apresenta: 
+Aba Pedidos
+: mostra todos os dados do pedido sendo os principais 
+#pedido, valor, quantidade
+ e
+ data.
+Aba Itens Pedido
+: mostra todas as informações do item do pedido. 
+Para mais informações, ver
+ 
+Aba Ordem Carregto
+: mostra os dados da OC quando é vinculada ao pedido. 
+Para mais informações, ver
+ 
+Manutenção de Ordem de Carregamento
+.
+Aba Nota Fiscal
+: mostra as notas fiscais provenientes do pedido, inclusive as notas fiscais canceladas (fundo vermelho). 
+Para mais informações, ver
+ 
+Manutenção de Nota Fiscal
+Imprime NF:
+ permite a impressão da Danfe na tela de manutenção de pedidos.
+Cobrança:
+ permite a Impressão do boleto de cobrança na tela de manutenção de pedidos.
+   
+Aba Observações
+:
+Observações do Pedido:
+ mostra as observações digitadas no pedido.
+Observações da Aprovação:
+ mostra as observações informadas na aprovação do pedido.
+Carga
+: mostra em qual carga este pedido foi vinculado, isso, se a empresa trabalha com 
+.
+Itens da Aprovação:
+ mostra o que foi aprovado ou não em Vendas, Financeiro e Transportes.
+Arquivos Anexados: 
+mostra os arquivos que são vinculados ao Pedido de Vendas, como exemplo podemos citar o pedido interno do cliente. 
+Para mais informações, ver
+ 
+Inclusão de Anexos ao PMM, Requisição de Material, Produtos e Pedidos de Vendas
+.
+Desmembramento
+: mostra ao usuário, para pedido de 
+venda, 
+caso tenha sido desmembrado, qual foi o número gerado para o desmembramento. 
+Para mais informações, ver
+ 
+Mudança de depósito no Pedido de Venda - Desmembramento de Pedido
+.
+Entrega Futura: 
+mostra as informações do contrato de venda vinculado ao pedido e os pedidos que foram vinculados a esse contrato. 
+Para mais informações, ver
+ 
+, 
+Inclusão de pedidos VEF e REF
+.
+Log de Alterações: 
+mostra as alterações efetuadas nos depósitos das notas de vendas. 
+Para mais informações, ver
+ 
+Alteração de Depósito em Nota Fiscal de Venda
+ e 
+Aba Log de Alterações
+.
+Na Manutenção do Pedido podemos visualizar também as aprovações de 
+Transporte,
+ Financeiro e Vendas
+. Os setores que ainda não aprovaram o pedido estarão com os respectivos quadros desmarcados
+. 
+ 
+Para mais informações, ver
+ 
+Aprovação Automática do Pedido de Venda
+ e 
+Aprovação do Pedido de Venda
+.
+Para mais informações sobre, ver
+Inclusão do Pedido de Venda
+Manutenção de Pedidos de Movimentação de Material
+Manutenção de pedido de Outras Entradas/Saídas

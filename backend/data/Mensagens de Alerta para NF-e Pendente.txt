@@ -1,0 +1,56 @@
+TITULO: Mensagens de Alerta para NF-e Pendente
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2887221257
+--------------------------------------------------
+Em situações que a Secretaria da Fazenda - SEFAZ encontra-se fora do ar ou a distribuidora está com problemas de comunicação com a internet, é possível que emitam NF-e de modo Off-line, quando a conexão for restabelecida, o sistema permite que as notas pendentes (geradas off-line) sejam transmitidas para a SEFAZ, através da tela de "Manutenção de Nf-e Pendentes".
+ Para que essas notas não sejam "esquecidas", o sistema é configurável para que emita alertas para o usuário durante a criação de novas notas fiscais, que lembrarão ao usuário que ainda existem Nf-e pendentes de envio a SEFAZ.
+Existem dois tipos de alertas, o primeiro é o que avisa sobre as pendências mas permite a continuidade da inserção da nova nota fiscal, o segundo avisa e bloqueia a inclusão de novas notas fiscais até que todas as pendências sejam enviadas.
+Na versão 8.10 foi implantado a opção de uma mesma empresa emitir NF-e e CT-e veja maiores informações em 
+Empresas que emitem NF-e e CT-e
+Para configurar estes alertas, configure o perfil 
+Aviso de NF-e Pendente
+ via tela 
+Ferramentas/ Sistemas/ aba NF-e/CT-e / quadro NF-Eletrônica
+, em destaque na imagem abaixo:
+Pode ser configurado com as seguintes opções:
+Não avisa sobre NF-e Pendentes:
+ O processo de emissão de nota fiscal poderá ser feito normalmente, sem que o Sispetro emita avisos informando que existem notas fiscais pendentes e ou bloqueie a emissão de novas notas fiscais. Para maiores informações sobre como emitir uma nota fiscal vide o tópico de 
+Preenchimento de Dados na Nota Fiscal
+Avisa NF-e Pendente e permite incluir NF:
+ O processo de emissão de nota fiscal também poderá ser feito normalmente, porém se houver nota fiscal com algum comando pendente o Sispetro emitirá uma mensagem informando que existem notas fiscais pendentes, considerando o ambiente em que está sendo emitida a nota fiscal.
+ Conforme imagem abaixo, a mensagem será emitida no canto inferior direito, como as mensagens do MSN Messenger, e conterá a informação da quantidade de notas fiscais pendentes e a orientação de que a tela de Manutenção de NF-e Pendentes deverá ser acessada para envio dos comandos das notas fiscais.
+ 
+Avisa NF-e Pendente e bloqueia emissão de NF (somente online):
+ O Sispetro 
+NÃO
+ permitirá que o processo de emissão de nota fiscal seja feito, pois enquanto houver nota fiscal com algum comando pendente a emissão estará bloqueada. Porém esta opção só será possível utilizar enquanto o Sispetro estiver trabalhando online (O perfil de empresa 
+Trabalhar Off-Line
+ deve estar desmarcado).
+ Conforme imagem abaixo, a mensagem será emitida no canto inferior direito, como as mensagens do MSN Messenger, e conterá a informação da quantidade de notas fiscais pendentes e a também de que a 
+Não será possível continuar o processo com essas pendências
+. Em seguida a orientação de que a tela de Manutenção de NF-e Pendentes deverá ser acessada para envio dos comandos das notas fiscais. Para mais detalhes vide o tópico do help 
+Manutenção de NF-e
+.
+ 
+Além disso, o Sispetro também emitirá uma mensagem informando se o Sispetro está trabalhando On-Line ou Off-Line.
+Ao marcar o perfil de sistema 
+Trabalhar Off-Line (sem conexão com a internet)
+ 
+Ferramentas/ Sistema/ aba Nota Fiscal
+ 
+O Sispetro entenderá que a internet da empresa não está disponível e as NF's poderão ser emitidas sem que seja solicitado de imediato o recibo a Sefaz. Assim, o Sispetro emitirá a mensagem de que o sistema está Off-Line e o DANFE deverá ser impresso em papel moeda:
+ 
+Outras mensagens também serão enviadas ao usuário que estiver faturando, tais como estar emitindo nota fiscal no ambiente do DPEC:
+ 
+Para maiores informações vide o tópico do help 
+DPEC - Sistema Eletrônico de Contingência
+.
+Outros Avisos
+Como agora temos o serviço de e-mail, que envia as NF-e e boletos, pode haver alguns casos que o Sistema esta em 
+produção
+ e o serviço de e-mail em 
+homologação
+, assim as notas e boletos não serão enviados corretamente. Pode ocorrer também o inverso,Sistema em homologação e serviço de e-mail em produção, quando isso ocorrer, aparecerá essas janelas "pop-up"
+Sistema em Produção, serviço de e-mail em homologação
+ 
+_Sistema em Homologação, serviço de e-mail em produção
+ 

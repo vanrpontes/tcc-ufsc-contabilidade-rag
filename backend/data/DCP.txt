@@ -1,0 +1,70 @@
+TITULO: DCP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898221
+--------------------------------------------------
+O 
+DCP
+ (Demonstrativo de Controle de Produtos) que era controlado pela ANP (Agência Nacional do Petróleo) foi substituído pelo 
+Demonstrativo de Produção e Movimentação de Produtos
+ - 
+.
+ 
+Antes de iniciar a geração do DCP devem ser configurados corretamente alguns parâmetros em diversas tabelas, pois esta é a parte mais importante para que o DCP possa ser gerado de forma correta.
+Configurações Iniciais
+Empresas
+ Em Sistema deve ser informado o Código DCP e a cidade da Empresa. 
+ Deve ser informado também o Ramo de Atividade (Padrão p/ Clientes) que será salvo na inclusão de um novo cliente.
+Clientes
+ No cadastro de 
+Clientes
+, aba Detalhes / Observações, informe o Código DCP quando a entidade for uma Congênere, pois este código somente será utilizado no DCP em operações de transação com congênere. Neste caso de transações com congênere, se não estiver informado o código DCP da entidade, a coluna Origem/Destino do arquivo de DCP será preenchida com zeros.
+Pode-se definir também qual o ramo de atividade do cliente que será utilizado no DCP no caso de operações que exigem a atividade, como por exemplo Devoluções.
+É importante também informar a cidade corretamente no cliente, pois é código DNC da cidade que o sitema irá utilizar na Origem/Destino na maioria das operações.
+Fornecedores
+ No cadastro de 
+Fornecedores
+, aba Detalhes / Observações, deve ser informado o Código DCP de Refinarias e Usinas, pois este código será utilizado na operações de Recebimento de Refinaria ou Destilaria. 
+ Também deve informar o municipio para o sistema buscar o código DNC da cidade de Origem/Destino.
+Depósito
+ Na 
+Manutenção de Depósitos
+ deve ser informado o Código DCP das Usinas e Refinarias e marcar a opção Participa do DCP. 
+ Pode, caso necessite, desmarcar a opção Participa do DCP para que não sejam gerados no DCP as movimentações de determinado depósito.
+Natureza de Operação
+ Informe os dados para DCP nas 
+Naturezas de Operação
+, se deve 
+Participar do DPMP/DCP
+ e o Tipo de Operação e Via de Transporte.
+Produto
+ Na 
+Manutenção de Produtos
+ devem ser cadastrados o Cod.Unidade e o Código DCP do produto.
+Para casos de produtos que utilizam o mesmo código DCP de outro produto deve-se marcar a opção Utiliza Código DCP de outro produto. Por exemplo, para o Óleo Diesel Metropolitano que utiliza o mesmo código DCP do Óleo Diesel deve ser marcada esta opção para agrupar por código DCP.
+Para produtos onde haja a necessidade de uma proporção no DCP é necessário informar essa proporção a ser multiplicada no cadastro do produto ( Arquivos / Produto / Detalhe / Dados Adicionais ). Isso porque existem casos de produtos onde a unidade movimentada (compra/venda) é diferente da Unidade do DCP. Fazendo-se necessário o cálculo da quantidade à ser aplicada na proporção.
+(Ex. Suponhamos que o Oleo diesel é comprado e vendido em galão de 5 litros contudo no DCP deve ser apresentada essa quantidade em litros, para este exemplo colocariamos uma proporção de 5, resultando assim que a cada entrada/saída seria realizada a multiplição por 5 para os dados do DCP)
+ 
+É necessário também, informar a Qtde p/ DCP dos produtos com composição.
+Período DCP
+ A tabela de 
+Período para DCP
+ deve ser atualizada para cada produto sempre que mudar o período. Nela se poderá inclusive incluir períodos de acordo com a composição do produto para que o DCP possa ser gerado em um período com uma determinada composição e outro período com outra composição diferente.
+Ajuste de Saldo Inicial
+ Sempre que gerarmos um novo DCP, o sistema buscará o saldo anterior pelo DCP do mês anterior. 
+ Mas para iniciarmos um primeiro DCP, devemos então gerar um DCP com mês anterior ao que se deseja ajustando para que o saldo final de cada produto seja igual ao saldo inicial pretendido. 
+ Este ajuste pode ser feito da seguinte forma. Após gerar o DCP de ajuste de saldo, verifique no último registro gerado na tela DCP, que deve ser de operação 3026 Estoque Atual, e inclua um registro com o valor da diferença para o saldo desejado através da aba NFs utilizando uma operação de entrada para somar o valor ao saldo. 
+ Na pasta NFs, é possivel ajustar valores ou incluir registros, desde que não sejam do tipo totalizadores (ES = "T"), pois estes serão recalculados pelo sistema.
+Gerando o DCP
+ Ao entrar na tela do DCP deve-se informar a empresa, pois o DCP é gerado para cada empresa, o período e então utilizar o botão Atualiza para que sejam mostrados os dados caso já tenha sido gerado anteriormente.
+O processo de geração de DCP é feito através do botão Gera DCP, que ao ser acionado caso ja tenha sido gerado ele pode reprocessar gerando novamente buscando sempre os dados das Notas Fiscais que movimentem estoque do período informado.
+Ao posicionar em um produto, será mostrado ao lado direito os dados do DCP gerado para aquele produto.
+O campo Origem / Destino do DCP pode receber valores de acordo com o tipo de operação. 
+ Para operações de transacao com congênere ou recebimento de refinaria ou usina (compra) o sistema utiliza o código DCP cadastrado na entidade. 
+ Para operações de devolução ou transferencia de produto, busca o código DCP do deposito. 
+ Em operações de saída para processamento, produto resultante, total de entrada, total de saída e saldo de estoque anterior e atual o sistema preenche com zeros este campo de Origem / Destino. 
+ Nas demais operações a Origem / Destino passa a ser o código DNC da entidade.
+Na aba de NFs serão mostrados detalhadamente toda a movimentação que se refere a cada registro da aba DCP, que normalmente são as Notas Fiscais de entrada e saída, as quantidades apresentadas nesta aba sofreram a proporção definida no produto conforme explicado acima.
+Depois de feito o processo de geração do DCP pode-se fazer ajustes manuais através da aba NFs alterando ou incluindo registros. 
+ Após estes ajustes utiliza-se o botão Recalcula Totais para que o sistema refaça os cálculos dos valores nas operações de saída para processamento, produto resultante, total de entrada, total de saída e saldo de estoque anterior e atual.
+Após finalizar todos os eventuais ajustes e conferir todos os valores gerados para o DCP poderá ser gerado o arquivo para entrega à ANP informando o nome e caminho do arquivo e acionando o botão Gera Arquivo.
+Na aba transferências serão apresentadas as Notas Fiscais de transferência de produtos no período, podendo ser gerado um arquivo somente das transferências, porém não há necessidade de ser entregue à ANP.
+A aba de Críticas apresenta algumas das ocorrências encontradas pelo sistema na geração do DCP por falta de alguma configuração inicial de código DCP não informado.

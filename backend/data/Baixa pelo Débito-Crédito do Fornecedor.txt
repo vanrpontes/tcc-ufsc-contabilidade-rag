@@ -1,0 +1,121 @@
+TITULO: Baixa pelo Débito-Crédito do Fornecedor
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701721
+--------------------------------------------------
+Esta baixa permite que o sistema selecione automaticamente os adiantamentos (créditos) do fornecedor para quitar os lançamentos (débitos) selecionados. Pode ser acionada pelo Menu 
+Movimentação / Financeiro / Débito/Crédito de Fornecedor.
+Na versão 10.14 foi adicionada a aba 
+Impressão de Recibo
+, permitindo a impressão do 
+Recibo de Baixa
+Na versão 10.16 foi adicionado o botão 
+Atualiza
+ único. Ele irá atualizar tanto débitos quanto créditos.
+Filtra Empresa (Débito/Crédito):
+ Caso deseje filtrar a empresa do lançamento, marcar essa opção e informá-la.
+Entidade:
+ Informar o fornecedor
+Pendências de: 
+informar o tipo de pendência da entidade faturado ou do comprador
+Informa Período de Vencimento:
+ Caso deseje filtrar as pendências por uma determinada data, marcar a opção e informá-la.
+Filtra PMM (Débito/Crédito):
+ Caso deseje filtrar os lançamentos de um determinado PMM, marcar a opção. No quadro de 
+Crédito
+ só serão apresentados os adiantamentos vinculados a este PMM.
+O sistema apresentará todos os títulos pendentes para este fornecedor.  Para restringir o número de adiantamentos ou títulos envolvidos na baixa, o usuário pode utilizar o botão 
+"Filtro" 
+fica ao lado de algumas colunas como a 
+Data Emissão
+  por exemplo. Importante lembrar que os adiantamentos bloqueados não estarão disponíveis.
+O sistema já sugere para o fornecedor (entidade) o qual serão utilizados os adiantamentos (créditos) o mesmo fornecedor que foi informado para os débitos. Para poder informar um fornecedor diferente é preciso que na configuração
+ da empresa (Menu 
+Ferramentas / Sistema - painel Financeiro
+) esteja 
+marcada a opção 
+Tela Débito/Crédito - utiliza créditos de outra entidade
+.
+A seguir, indique a data limite para utilização dos adiantamentos (evita o uso de adiantamentos recém incluídos) e se deve incluir os adiantamentos cujo comprador seja o mesmo que o fornecedor informado. 
+O perfil 
+"Utiliza créditos de outras empresas"
+ foi trocado para 
+"Permite utilizar Adiantamentos de outras empresas na Baixa"
+ , com este perfil habilitado é possível utilizar créditos de outras empresas para quitar um débito.
+Cenário
+:
+Empresa 1
+Débito de R$ 10.000,00 para Fornecedor 900
+Empresa 2
+Crédito de R$ 15.000,00 para Fornecedor 900
+Assim se este perfil for habilitado e, este crédito poderá ser utilizado na empresa 1, porém será transferido na sua 
+totalidade
+Para utilizar créditos de outras empresas, deve-se marcar a opção 
+Permite utilizar Adiantamentos de outras empresas na Baixa
+ .Assim, nesta tela vai aparecer os adiantamentos de todas as empresas para este cliente 
+Ferramentas / Sistema / Financeiro
+ , a opção:
+Caso seja necessário providenciar alguma transferência de adiantamentos entre entidades, é possível realizá-la sem abandonar esta tela. Utilizando o botão
+Mais detalhes em: 
+Transferindo um Crédito de um Fornecedor para Outro
+.
+ Ao ser concluída, será retornado para a tela de Débito Crédito atualizando os créditos levando em consideração a transferência realizada.
+Informe os dados para a baixa, como a
+ 
+conta
+ 
+a ser movimentada,
+ 
+datas
+,
+ 
+documentos
+ 
+e
+ 
+históricos
+.
+A opção
+ 
+Pode Contabilizar
+ 
+só estará visível para as empresas que utilizam o módulo contábil em seguida deve-se informar o código de contabilização, veja mais informações sobre contabilização em 
+Contabilização real durante baixas
+. É possível configurar no perfil da empresa para que o
+ 
+código de contabilização
+ 
+seja sugerido na tela, facilitando e evitando erros de digitação no momento da baixa. E o mesmo pode ser alterado, caso for necessário.
+Para configurar a sugestão do código de contabilização da tela de Baixa, deve-se ir no Menu
+ 
+Ferramentas / Sistema / painel Contab.Real
+ 
+e selecionar a seguinte opção:
+Vide tópico
+ 
+Consolidação de Lotes
+ 
+para obter maiores detalhes sobre a consolidação do lote no momento da baixa.
+Caso tenha marcado a opção para utilizar créditos de outras empresas, na parte inferior da tela, vá para o painel
+ 
+Dados p/ Transf. Créditos entre empresas
+ 
+e informe os dados para a transferência automática dos créditos.
+Clique no botão
+ 
+Baixa
+ 
+para concretizar o processo.
+Impressão do Recibo de Baixa
+Emite um único relatório, contendo
+ todas as baixas realizadas. Agilizando os controles, e evitando a geração de um recibo para cada baixa. 
+Na aba Impressão de Recibo, marcar a opção 
+e selecionar uma impressora 
+.
+Utilizando Adiantamento do PMM.
+A partir da versão 9.12 é possível baixar os títulos que foram filtrados utilizando os adiantamentos do PMM
+. Para utilizar essa opção é necessário realizar as devidas configurações do 
+Sistema
+ e 
+Usuário
+, veja maiores detalhes em 
+Utilização do Crédito Fornecedor (Adiantamento)
+.

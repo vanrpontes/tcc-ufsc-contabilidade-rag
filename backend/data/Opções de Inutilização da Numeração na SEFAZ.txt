@@ -1,0 +1,25 @@
+TITULO: Opções de Inutilização da Numeração na SEFAZ
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2915074447
+--------------------------------------------------
+Quando uma NF-e foi rejeitada pela SEFAZ o procedimento padrão do SisPetro ao cancelar a NF é enviar a inutilização do número. Porém há um cenário em que isso não deveria ocorrer, q
+uando o erro retornado pela SEFAZ impede a inutilização, como por exemplo os erros de Modelo da NF diferente de 55 ou de numeração da NF já inutilizada na SEFAZ ou duplicidade de numeração. Nesses casos não adianta enviar o comando de inutilização. Anteriormente para que o envio não ficasse pendente o usuário poderia colocar o sistema em Offline, cancelar e excluir a nota ou, se tivesse o protocolo de inutilização anterior, preenchê-lo. Apesar de parecer simples, é um conjunto de procedimentos sérios, principalmente devido a empresa ter que ficar em Offl
+ine. Independente desse cenário, há empresas que não querem ficar inutilizando numeração, pois números inutilizados precisam ser escriturados. 
+Devido a isso o SisPetro 
+disponibilizou
+ um recurso que permite o cancelamento de NF-e sem protocolo na SEFAZ sem ter que enviar a Inutilização da Numeração.
+A configuração desse processo é definida em basicamente 3 passos:
+Perfil de Empresa
+No perfil de empresa 
+Ação no cancelamento de NF-e sem protocolo
+, que está localizado na aba 
+NF-e/CT-e
+ definiremos qual a Ação que ficará como padrão para todas as inutilizações:
+As opções são:
+Perfil de Usuário
+O perfil 
+Pode informar a ação no cancelamento de NF-e sem protocolo, 
+que fica na aba 
+Faturamento, 
+definirá se o usuário em questão poderá ou não alterar a Ação Padrão (definida no Passo 1) no momento do Cancelamento (Passo 3):
+Escolher a Ação que será feita na SEFAZ no momento do Cancelamento
+Durante o cancelamento da NF-e a tela abaixo será exibida para informar o Motivo do cancelamento, logo em seguida, caso o usuário tenha a permissão (Passo 2) ele poderá escolher a Ação a ser executada na SEFAZ.

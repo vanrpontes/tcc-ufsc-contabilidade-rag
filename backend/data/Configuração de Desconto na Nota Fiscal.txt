@@ -1,0 +1,229 @@
+TITULO: Configuração de Desconto na Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439967
+--------------------------------------------------
+
+
+Como configurar desconto ou acréscimo para nota fiscal de entrada ou de saída e contas a pagar/receber.
+
+
+No exemplo abaixo vamos configurar o sistema para deduzir o ICMS próprio do valor total da nota fiscal.
+
+
+Lembrando que as configurações são as mesmas para outros descontos como IR e ISS para nota fiscal de entrada de prestação de serviço.
+
+
+Configuração do Sispetro para deduzir  o ICMS próprio do valor dos produtos.*
+
+
+
+
+Verificar os perfis de usuário e de empresa:
+
+
+
+
+Ferramentas > Usuário > aba Faturamento > opção 
+Pode incluir desconto/acréscimo
+.
+
+
+
+
+
+
+Ferramentas > Sistema > aba Contas Contábeis > opções 
+Contabiliza desconto no faturamento
+ e 
+Contabiliza desconto no financeiro
+.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Criar Tipo de Desconto:
+
+
+
+
+Tabelas auxiliares > Controladoria > Tipos de Descontos:
+		
+
+
+Seqüencial
+ - é preenchido automaticamente pelo sistema.
+
+
+Descrição
+ - nomenclatura do desconto.
+
+
+Cálculo a efetuar
+ - se é um desconto ou acréscimo
+
+
+Tipo
+ - se será por fórmula (o sistema calculará automaticamente), manual (o usuário preencherá manualmente) ou através de uma tabela progressiva.
+
+
+Conta para Contabilização do Desconto
+ - deve informar as contas onde vai contabilizar o desconto, lembrando que não pode utilizar a opção Acompanha lançamento de débito ou crédito para conta de entidade.
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Criar Tipo de Documento:
+
+
+
+
+Tabelas auxiliares > Financeiro > Tipos de documento.
+		
+
+
+Clicar no '+' para criar o novo documento, marque a opção Calcula Desconto e selecione o grupo contábil, no caso o grupo Faturamento.
+
+ 
+
+
+
+
+Em seguida, vincular o desconto criado no passo anterior.
+
+ 
+
+
+
+
+Clicar no botão de inclusão, depois clicar nos três pontos para preencher cada campo.
+			
+
+
+Cód. Desconto
+ - deve ser preenchido com o código do desconto que acabou de criar.
+
+
+Base Cálculo
+ - deve informar o campo que será a base de cálculo para o desconto. Neste caso, usaremos o campo 
+ValProd
+ da tabela 
+NotaFiscal
+.
+
+
+
+Na tela Auxiliar de Fórmulas Contabilização, localizar o campo, clicar duas vezes sobre ele para que fique disponível no lado direito da tela, em seguida clique em OK.
+
+
+
+Antes do próximo passo, temos que observar o seguinte:
+ a Natureza de Operação que vai utilizar gerar ICMS ou não?
+
+
+Caso gere, o sistema salva a campo 
+ValIcms
+ da tabela 
+NotaFiscal
+ que pode utilizar como valor do desconto.
+
+ 
+
+
+
+Caso não gere, informar uma alíquota fixa para que o sistema faça o calculo.
+
+
+
+ 
+Exemplo:
+
+Aliquota de 12% = 
+ValProd*12/100.
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Configuração da natureza de operação.
+
+
+
+
+Na aba Dados Gerais, vincular o tipo de documento.
+
+ 
+
+
+
+
+Na aba Contabilização, configurar o desconto como automático, determinar a regra para rateio do desconto nos itens da nota e as obrigações a receber. Neste caso, deve escolher a opção 
+Conta indicada pelo Tipo de Desconto
+, para crédito e para débito.
+
+ 
+
+
+
+
+De acordo com a configuração da natureza de operação, na inclusão da nota fiscal os campos 
+Base de Cálculo
+ e 
+Valor calc.
+ estarão livres para preencher manualmente ou serão preenchidos automaticamente pelo sistema (isso conforme configuração do tipo de desconto criado anteriormente).
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+Pronto! O Sispetro já está pronto para deduzir imposto da Nota Fiscal (Entrada e Saída) e Contas a Pagar/ Receber.
+

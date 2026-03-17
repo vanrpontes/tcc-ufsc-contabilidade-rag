@@ -1,0 +1,60 @@
+TITULO: Conversão de valores para Adiantamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2898395148
+--------------------------------------------------
+O sispetro permite a conversão de moeda na inclusão de adiantamento. Este processo se dá apenas na inclusão de 
+Adiantamento a Fornecedor
+. Os adiantamentos serão registrados na moeda em que forem realizados (em dólar, por exemplo) e convertidos em reais para contabilização.
+
+
+Para isso é preciso configurar o SisPetro para que ele acate a conversão de moedas no adiantamento.
+
+
+No SisPetro Normal em Arquivos/ Moedas. É possível criar a moeda e cadastrar a conversão.
+
+
+
+
+Tela de cadastro de Conversão
+
+
+
+
+Informe taxa do dia e a Data Vigencia.
+
+
+Para que a taxa seja efetivada, é necessário marcar a opção "Informa taxa" na tela Detalhes na Manutenção de taxas de moedas
+
+
+
+
+Obs.: Na moeda local não é necessário marcar esta opção, pois não precisa converter Real para Real, por exemplo.
+
+
+A cotação diária para conversão de moedas pode ser utilizada de duas formas:
+
+
+
+
+Obriga informação diária da cotação da moeda para conversão, ou seja, ele sempre olha a conversão para o dia corrente. Se incluir um adiantamento com data de movimento do dia 10 e não tiver uma conversão para este dia, o sispetro não irá fazer a conversão de moedas.
+
+
+
+
+
+
+Pega a ultima cotação cadastrada a partir da data atual, ou seja, o sispetro vai olhar a data da ultima conversão cadastrada na moeda e vai fazer a conversão a partir daquela data. Exemplo: Se incluir um adiantamento no dia 10 e a ultima data de conversão cadastrada na moeda for dia 09, ele vai fazer a conversão na taxa do dia 09.
+
+
+
+
+Para configurar este perfil vá em Ferramentas/ Sistemas / aba Financeiro. Escolha dentre uma das opções disponíveis citadas anteriormente.
+
+
+
+
+Após feito todas as configurações, o sispetro fará a conversão de moeda apenas para efeito de contabilização. Na tela de inclusão de Adiantamento, se marcado a opção Informar taxa, terá um campo com a valor original da moeda na qual será informado pelo usuário. Logo abaixo, o campo com o valor convertido (Vlr Orig. Moeda Padrão).
+
+
+
+
+Perceba que na tela de Manutenção de Adiantamentos, o Valor Original e o Saldo ficarão com o valor já convertido. A moeda ficará com a origem, ou seja, a moeda usada no adiantamento. E o Valor da Moeda e Saldo da moeda, ficarão com o valor da moeda origem.

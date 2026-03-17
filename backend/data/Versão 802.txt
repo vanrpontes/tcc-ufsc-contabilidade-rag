@@ -1,0 +1,47 @@
+TITULO: Versão 8.0.2
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909897931
+--------------------------------------------------
+Dados
+Informações
+Início
+20/07/2012
+Final
+26/07/2012
+Scripts
+cmd802.sql (sem numeração)
+Itens
+8
+Implementações
+1
+Correções
+7
+Geral
+Rotina de Arredondamento
+Por conta de uma alteração na rotina de arredondamento na versão 8.0 do SisPetro, alguma rotinas com comparação de valores estão retornando uma mensagem de erro ao usuário informando diferença no arredondamento. Esse problema foi corrigido. 
+UPA (CCF 17553)
+Estoques
+Tela de Consulta de Fechamento de Estoques
+Na tela de Consulta de Fechamento de Estoques, ao efetuar o filtro por empresa, todos os registros exibidos no grid ficavam com a cor preta e com isso era impossível ler o seu conteúdo. Esse problema foi corrigido. 
+UPA (CCF 17564)
+Financeiro
+Cobrança Eletrônica Banco Votorantim (655)
+Está sendo disponibilizada nessa versão a cobrança eletrônica para o Banco Votorantim. 
+Antes de colocar em produção fazer TESTES com o banco enviando boletos e arquivo de remessa e lendo o arquivo de retorno.
+ UPA (CCF 17102)
+Baixa de Contas a Pagar e a Receber utilizando adiantamento
+Ao executar a baixa de alguns Contas a Receber utilizando um Adiantamento, estava apresentando a mensagem “ Valor do crédito utilizado superior ao saldo existente” mesmo digitando um valor inferior ao saldo disponível. Esse item foi corrigido conforme informado no grupo geral. 
+CPC (CCF 17555)
+Faturamento
+Dados Adicionais no Conhecimento de Frete
+No Conhecimento de Frete há uma aba Dados Adicionais onde são apresentados os dados das NFs vinculadas ao Conhecimento. Na versão 8.0 alteramos para sugerir nesta aba o modelo 55 ao invés do 01 e, nesta alteração, gerou um problema de não sugerir nenhum dado nesta aba quando as NFs vinculadas são de empresas diferentes do Conhecimento de Frete. Esse problema foi solucionado nessa versão. 
+CPC (CCF 17537)
+Vendas
+Liberação Automática do Pedido de Vendas
+Alguns pedidos, após serem emitidos, estavam sendo bloqueado, informando que o preço informado era diferente do preço permitido em tabela. Esse item foi corrigido. Essa correção foi a correção informada no grupo geral. 
+UPA (CCF 17553)
+Custo Financeiro Negativo na Tela de Simulador de Preços
+Após a alteração da tabela de preço por depósito, a tela do Simulador de Preços começou a apresentar o custo financeiro negativo quando não era informado a tabela de preços a ser utilizada. Esse problema foi corrigido. 
+UPA (CCF 17548)
+Edição do campo Deposito digitando o seu código na inclusão de Pedido de Vendas 
+Na versão 8.0 foi criado um recurso de tabela de preço por deposito. Após essa alteração, a inclusão de Pedido de Vendas pelo SisPetro Remoto passou a não permitir editar um Deposito digitando o seu código. Esse problema foi corrigido nessa versão. 
+CPC (CCF 17532)

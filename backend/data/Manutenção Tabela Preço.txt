@@ -1,0 +1,123 @@
+TITULO: Manutenção Tabela Preço
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2880176354
+--------------------------------------------------
+A partir da versão 10.01 o modo de trabalhar com a tabela de preço foi alterada. A Manutenção Tabela de Preço será feita em outras telas. Veja maiores detalhes em 
+Alteração de Valores nas Tabelas de Preços
+Esta tela permite ao usuário configurar os preços de comercialização por produto definindo se será por estado. Além disso, é possível consultar preços de uma determinada tabela para um determinado produto, e por uma determinada data.
+O acesso se dá através do menu 
+Movimentações/ Vendas/ Manutenção Tabela de Preços
+.
+Para definir preço do produto por estado, siga as orientações abaixo.
+Informar o 
+Código do Produto:
+Em seguida, informar o 
+Código da Tabela de Preço
+, a que será utilizada para cadastrar ou consultar.
+Ao definir a tabela de preço o sistema já atualiza a tela com os preços cadastrados e as empresas existentes.
+Defina se esta tabela irá trabalhar com bloqueio por estado, isto através do perfil 
+Bloqueia caso UF sem preço
+.
+Com este perfil marcado, ao incluir um Pedido de Venda Sispetro emitirá a mensagem: 
+Venda não permitida para este Estado. Preço não cadastrado.
+Para definir os preços, observe que a primeira coluna é referente às empresas cadastradas no Sispetro, sendo duas linhas para cada Empresa. Além disso, observe também que, para cada estado existem três colunas referente aos preços, sendo: 
+Revenda/ Cons. Final
+, 
+Mínimo
+ e 
+Máximo
+. Vejamos a imagem abaixo:
+Os preços de 
+Sugestão
+ deverão ser informados nas colunas de 
+Revenda
+ e 
+Cons.Final
+.
+Então teremos:
+Empresas
+UF - Estado
+Revenda
+Mínimo
+Máximo
+Cons. Final
+Mínimo
+Máximo
+Empresa 1 
+Preço Sugestão para Revenda
+Preço Mínimo para Revenda
+Preço Máximo para Revenda
+Preço Sugestão para Cons. Final
+Preço Mínimo para Cons. Final
+Preço Máximo para Cons. Final
+Salve os preços definidos através do botão 
+Salvar
+:
+Além de cadastrar preço por produto e UF, essa tela possui outros recursos disponíveis. Vejamos como funciona:
+Controle de Vigência
+Informe uma 
+Data-Base dos preços
+ para pesquisa dos preços cadastrados, para o produto na tabela definida, naquela data.
+Repare que esta Data-Base é apenas para consulta de preço para uma determinada data. Isto é para o controle de vigência.
+Para cadastrar uma data de Vigência para o produto, deve-se clicar no botão 
+Inclui
+. A nova vigência terá como base os preços da Data-Base informada na tela.
+Para excluir uma data de vigência para o produto, deve-se clicar no botão 
+Exclui
+.
+Para habilitar estes dois botões, o usuário deverá ter habilitado os seguintes perfis 
+Pode incluir data vigência - Tabela Preço?
+ e 
+Pode excluir data vigência - Tabela Preço?
+. Veja maiores informações em 
+Painel Produtos (Usuários)
+.
+Simular Tabela de Preço com Acréscimo Financeiro:
+É possível simular um preço com Acréscimo Financeiro, desde que a Condição de Pagamento informada contenha a informação configurada. Veja maiores informações em 
+Tabela Condições de Pagamento
+Simular com Tabela Percentual:
+É possível simular um preço com tabela percentual, desde que a tabela de preço tenha o campo 
+Percentual
+ marcado. Veja maiores informações em 
+Tabela Preços
+.
+Simular com Tipo de Cobrança
+É possível simular um preço com tipo de cobrança. Veja maiores informações em 
+Tabela de Tipos de Cobrança
+.
+Gerar Planilha Excel
+Nesta tela também é possível salvar a tabela de preço em um arquivo de planilha, isso através do botão 
+Salva Planilha Excel
+Gera Preço por UF
+O botão Gera preço por UF permite gerar os preços para as demais empresas conforme a definição do usuário.
+Somente produtos combustíveis que tem ICMS Retido. Ex Gasolina e Diesel
+Ao clicar neste botão, o sistema irá abrir a seguinte tela:
+Realiza procedimento com todas as empresas: 
+o usuário poderá definir se o preço poderá ser gerado para todas as demais empresas;
+Leva em conta consumidor final
+:
+ poderá definir se irá considerar Consumidor Final;
+Percentual de ressarcimento:
+ poderá definir o percentual para o ressarcimento, através do campo 
+Pescentual de ressarcimento.
+Replica valor na linha
+Permite ao usuário copiar os preços definidos para as demais linhas que não possuírem preços cadastrados.
+Copia Tabela de Preços
+O botão 
+Copia Tabela de Preços
+ permite ao usuário criar uma cópia da tabela de preços que está sendo configurada.
+Ao clicar neste botão, o sistema abrirá a tela abaixo:
+Onde o sistema trará automaticamente a tabela de preço definida na tela principal, e o usuário deverá informar o 
+Produto
+ e em seguida o 
+Valor para Acréscimo
+ (se houver). Assim, o sistema irá criar uma cópia da tabela de preço com as informações alteradas para o produto.
+Consumidor Final = Revenda
+Irá atribuir aos preços de Consumidor Final os mesmos que estiverem cadastrados para a Revenda.
+Se houver a necessidade ou interesse de imprimir a tabela de preço que está sendo configura, deve-se clicar no botão 
+Imprime
+Ao finalizar as configurações na Tabela de Preço e salvar, deve-se clicar no botão 
+Ok
+.
+Para cancelar as alterações efetuadas, clique no botão 
+Cancela
+.

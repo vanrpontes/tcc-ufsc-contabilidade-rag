@@ -1,0 +1,111 @@
+TITULO: Tabela Unidades Federativas - UF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210591
+--------------------------------------------------
+Nesta tabela são cadastradas todas as Unidades Federativas do país, e para cada UF temos associado o código GNRE do estado e o % de alíquota para seguro de carga.
+O código do Estado para GNRE é utilizado quando se necessita emitir uma GNRE (
+Manutenção de Documentos de Arrecadação
+).
+O percentual de alíquota para seguro de carga é normalmente utilizado para cálculos de seguros de carga para cada estado (alíquota multiplicada pela quantidade ou valor da carga) em relatórios para este tipo de controle.
+A tela que permite a manipulação desta tabela é acionada a partir do Menu principal com as opções
+ - Tabelas Auxiliares > Faturamento > UF.
+Para a inserção de uma nova UF, acione o botão de inclusão de registro 
+:
+Preencha os campos:
+Sigla Estado:
+ sigla da UF.
+Descrição:
+ descrição da Unidade Federativa.
+Código Estadual:
+ código para GNRE.
+Máscara para Inscrição Estadual:
+ define qual a máscara a ser utilizada no cadastro de clientes para preenchimento da Inscrição Estadual. Utilize 
+#
+ para números e pontos e barras na posição desejada.
+Bloqueia Pedido/Carga s/ frete?
+:
+ caso o pedido seja feito para esta UF, se deve ser bloqueado caso não tenha valor de frete cadastrado.
+Desabilita validador de IE:
+ se para esta UF específica não será feita a validação da Inscrição Estadual, mesmo se no perfil de sistema 
+ a opção 
+Valida Inscrição Estadual clientes
+ esteja marcada.
+Nota:
+ atualmente a opção Valida Inscrição Estadual clientes deve ser desmarcada, pois a DLL da Sefaz não está mais funcionando.
+CEP padrão para envio CNAB:
+ informar o CEP referente a UF para ser utilizado para envio do CNAB.
+Código IBGE:
+ código adotado pela própria IBGE para representar o código da UF.
+Cód. Receita ICMS Próprio: 
+código da Receita de obrigação a ser utilizado na Apuração Fiscal e consequentemente no 
+SPED EFD - Bloco E
+Cód. Receita ICMS ST: 
+código da Receita de obrigação a ser utilizado na Apuração Fiscal e consequentemente no 
+SPED EFD - Bloco E
+Tempo Acrésc./Decrésc. Data/Hora enviada NFE:
+ campo disponível para configurar diferença de tempo 
+em minutos
+ entre um Estado e outro. É muito utilizado para a emissão da Carta de Correção, onde o servidor se encontra em um Estado e a filial é de outro Estado, e entre os dois Estados existe um fuso horário diferente. Para mais informações, ver 
+Carta de Correção Eletrônica
+.
+Fuso Horário: 
+no Brasil temos 4 fusos diferentes. Para não ocorrer erro de tempo informar em qual fuso horário a empresa está.
+Com a implementação da versão 3.00 do MDF-e, SOMENTE para o 
+cancelamento de MDF-e a SEFAZ valida o fuso horário
+. Para quem emite MDF-e deve configurar o fuso horário. Caso não tenha fuso horário cadastrado, incluir em Menu Tabelas Auxiliares / Faturamento / Fusos Horários.
+Configuração Content Type: 
+alguns Estados podem faturar tanto na Sefaz virtual e como no próprio estado. Em alguns casos faz necessário uma configuração específica do estado. Um exemplo é MS (Mato Grosso do Sul) onde a Sefaz exige a configuração do Content Type (informação que vai destacada no cabeçalho do XML enviado a Sefaz).
+Após contato com a Sefaz de MS, foi informado que é preciso ter a configuração content-type preenchida com:
+application/soap+xml: 
+caso esteja utilizando soap versão 1.2
+text/xml: 
+caso esteja utilizando soap versão 1.1
+Habilita Horário de verão: 
+caso o Estado onde a empresa está localizada tenha horário de verão, habilitar o perfil, pois assim o SisPetro calculará automaticamente qual o horário correto. Para mais informações, ver 
+Como configurar Horário de verão
+.
+Acione o botão 
+OK
+ para atualizar os dados e retornar à tela de navegação.
+No painel Detalhes temos as abas Endereços URL p/ 
+NF-e
+, Endereços URL p/
+ CT-e, 
+Endereços URL p/
+MDF-e 
+e Endereços URL p/ 
+NFC-e,
+ onde são cadastradas as URL necessárias para processamento com a Sefaz do Estado em questão.
+Para mais informações, ver 
+Nota Fiscal Eletrônica - Configuração da UF
+.
+Verifica situação da NF-e na SEFAZ antes de importar?: 
+quando marcado irá realizar a consulta na SEFAZ no momento da importação da NF-e (via tela de Monitoramento).
+Verifica situação do CT-e na SEFAZ antes de importar?: 
+quando habilitado irá realizar a consulta na SEFAZ no momento da importação do CT-e (via tela de Monitoramento).
+Esses dois campos só serão utilizados caso o perfil de sistema "Verifica situação da NF-e/CT-e na SEFAZ antes de importar?" (
+Painel Importação de NF
+) esteja marcado.
+Sendo assim, caso queira desabilitar a consulta de forma geral, basta desmarcar o perfil de sistema.
+O campo na UF é útil para os casos onde uma determinada UF está com problema no serviço de consulta. Nesses casos basta desmarcar esse campo para a UF e serviço com problema.
+Para mais informações, ver 
+Monitoramento da Importação de NF-e/CT-e
+, tópico 2 - Aplicação do De/Para.
+A consulta na SEFAZ não é realizada na Importação Manual de NF.
+Na
+ Aba Seguro
+ apresenta os valores de seguro considerados para cada UF.
+Algumas UF ou municípios exigem de transportadoras algumas licenças. Para cumprir essa exigência, na Aba 
+Exigências em Operações por UF
+, é possível vincular um controle de vencimento, para que o mesmo seja obrigatório em operações 
+Interestaduais
+, 
+Internas
+ ou 
+Todas
+.
+Para mais informações, ver 
+.
+Para retornar ao Menu principal acione o botão 
+Sair
+ 
+.

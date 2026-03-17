@@ -1,0 +1,91 @@
+TITULO: Configurações Iniciais - DPMP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898587
+--------------------------------------------------
+CONFIGURAÇÕES NA EMPRESA
+Estas informações podem ser configuradas a partir do menu 
+Ferramentas / Sistema / painel Estoque
+:
+A necessidade de gerar o DPMP indica que a sua empresa é regulada pela ANP. Se ela é regulada então ela tem duas codificações importantes:
+Nº 
+ARI
+ (Agente Regulado Informante)
+Código de Instalação
+: Número da base/depósito de sua empresa e será apresentado no DPMP como Código de Instalação 1.
+ARI de Distribuidor de Produtos Asfálticos? 
+Opção que identifica se a empresa trabalha com Produtos Asfálticos. Marcando esta opção serão apresentadas no DPMP as seguintes informações:
+Valor Unitário do item em KG: 
+Resultado de: Preço sem Imposto / Fator Conv. Unidade * Proporção DPMP / Massa Específica
+Número do Documento da Qualidade: 
+Será enviado com o valor calculado no campo Valor Unitário do Item em KG
+O SisPetro não tem uma tabela de pesquisa para estas informações, é necessário que cada empresa verifique junto a ANP quais são os seus códigos. Cabe lembrar, que como no DCP, estamos considerando que uma empresa possui somente um código de instalação.
+Importante: Cadastrar ARI e Código de Instalação da sua empresa.
+Soma Percentual Produto Primário no Produto Composto:
+Permite Valor Diferente de 100% (não faz ajuste)
+: Esta opção faz com que o sistema não faça nenhum ajuste nos produtos compostos, apresentando os produtos conforme a proporção cadastrada no produto principal, neste caso, cabe ao usuário fazer o ajuste manual.
+Ao fazer o ajuste manual no produto composto, para zerar o estoque, a quantidade informada, geralmente uma saída, não pode fazer parte do cálculo de decomposição deste produto, senão geraria entradas numa quantidade diferente e o ajuste poderia não ter efeito. Sendo assim, é necessário informar o 
+código de operação a ser utilizado no ajuste manual
+. Com base neste código, ao calcular a decomposição do produto composto, o sistema desconsiderará quaisquer lançamentos que sejam feitos com este código de operação. Os lançamentos de ajustes só serão considerados nos totalizadores de operação, saídas e entradas, zerando assim o estoque.
+Permite Valor Diferente de 100% (faz ajuste no último item)
+: Neste caso, o sistema pega o último item (o aditivo, que foi cadastrado na composição do produto por último) e faz o ajuste necessário. Então, no aditivo a quantidade fica zerada. No final disso se tem a garantia que a soma das saídas dos produtos básicos é igual a entrada do produto composto.
+No tópico 
+Geração dos Dados
+, há uma explicação mais detalhada sobre a 
+"Soma Percentual Produto Primário no Produto Composto"
+.
+No DPMP, quando temos movimentação de Produto Composto, é necessário zerar o estoque deste produto composto e movimentar os produtos básicos. Para isso é feita uma operação de entrada no produto composto com um código de operação 
+"Remessa de Unidade Interna do Informante" (1031001)
+ e uma operação de saída nos produtos básicos com um código de operação 
+"Retorno de Unidade Interna do Informante" (1032002)
+.
+O sistema já sugere esses dois códigos, porém, a ANP pode sugerir outros códigos para essas operações. Neste caso o usuário pode fazer a alteração desses códigos mudando os campos 
+"Cód.Operação de Entrada para Produto Composto" e "Cód.Operação de Saída para produto Básico"
+Alterando esses códigos, o usuário deve gerar novamente o DPMP, desmarcando na tela de geração do DPMP a opção:
+Dessa forma o sistema vai gerar novamente o DPMP utilizando os novos códigos configurados na empresa, caso contrário, o sistema utilizará os códigos antigos, porém, como não haverá referência para esses códigos, o sistema irá considerá-los como códigos incluidos manualmente pelo usuário.
+No tópico 
+Geração dos Dados
+, há uma explicação mais detalhada sobre a 
+"Cód.Operação de Entrada para Produto Composto" e "Cód.Operação de Saída para produto Básico.
+LayOut de Exportação DPMP
+: Neste campo o usuário irá selecionar o layout de exportação que será utilizado como padrão para geração da Midia do DPMP.
+CONFIGURAÇÕES NO PRODUTO
+:
+A principal configuração é a do 
+Produto
+, pois caso o produto não tenha Código DPMP ele não será apresentado na tela de Geração dos Dados do DPMP e não será criticado, afinal o cadastro de produtos pode conter infinitos produtos não regulados pela ANP e não teria como discriminá-los.
+Além disso as informações referentes às características também serão configuradas no Cadastro de Produto.
+Importante: Conferir o código DPMP dos produtos e cadastrar as característícas e respectivos valores.
+CONFIGURAÇÕES NA NATUREZA DE OPERAÇÃO
+:
+ Para indicar se uma nota fiscal será apresentada ou não no DPMP, além de como alguns dados referentes a ela serão apresentados, é necessário fazer a configuração da 
+Natureza de Operação
+. As notas de uma natureza que não esteja configurada para sair no DPMP nem serão criticadas, simplesmente nem farão parte do DPMP.
+ A configuração de Participar ou não do DPMP constante na natureza é transferida para o item da nota. Se necessário alterar essa configuração, poderá ser utilizada a tela 
+Alteração de Dados Mídia Magnética - Anexo
+, posicionando no item desejado e marcando/desmarcando essa opção. Somente em notas 
+importadas
+ poderemos ter (antes da alteração do usuário nesta tela) um item que participe e outro que não participe do DPMP.
+ {}Importante: Conferir se todas as naturezas de operação que devem participar do DPMP tem código de Operação cadastrado.{}
+Em algumas operações triangulares se há necessidade de enviar no DPMP dados da nota fiscal de remessa, para esses casos deve-se marcar o perfil '
+Identifica como 3º a Entidade de NF Remessa referenciadora' 
+na 
+Natureza de Operação
+ da nota de compra, e referenciar as notas de remessa á nota de compra, veja maiores detalhes em 
+DPMP - Operações Triangulares
+. 
+CONFIGURAÇÕES NA ENTIDADE
+:
+ Quando uma nota é apresentada no DPMP,a ela sempre estará vinculada uma entidade, que é para quem se mandou um produto numa operação de Saída, ou de quem se adquiriu o produto numa operação de entrada. Assim, será necessário fazer a devida configuração no Cadastro de 
+Cliente
+ e 
+Fornecedor
+. Inconsistências relacionadas a cliente ou fornecedor serão criticadas.
+Importante: Configurar devidamente o CNAE de todos os clientes e fornecedores que não tenham código de instalação cadastrado. Conferir localidade e código de instalação.
+COMPOSIÇÃO DE PRODUTOS
+ Para o produto composto é necessário cadastrar sua composição para uso no DPMP. Esta composição pode ser cadastrada com vigência. Apesar de não precisarmos mais de "período" (número atribuído pela ANP para Produto e Vigência para uso no DCP), continuaremos cadastrando a composição dos produtos na Tabela 
+Período DCP
+.
+ 
+DADOS DA NOTA FISCAL
+ A 
+Alteração de Dados Mídia Magnética - Anexo
+, pode ser usada para alterar alguns dados da nota fiscal que se façam necessários, entre eles a Densidade e as temperaturas de amostra e tanque.

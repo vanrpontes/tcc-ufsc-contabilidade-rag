@@ -1,0 +1,152 @@
+TITULO: Faturamento Simultâneo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2898657599
+--------------------------------------------------
+Essa opção somente estará disponível no SisPetro à partir da versão 7.13.
+
+
+O início do módulo de Faturamento no SisPetro aconteceu com a utilização de formulários pré-impressos. Sendo assim, a impressora ficava conectada a uma máquina e um faturista por vez poderia mandar uma nota para impressão. O Sispetro, acompanhando essa idéia, tinha o seguinte fluxo de trabalho:
+
+
+
+
+Ao ser informada a série da Nota Fiscal o SisPetro verificava na série o último número utilizado e sugeria o próximo número de nota. Verificava, inclusive, se esse número já estava sendo utilizado, barrando ou não (conforme perfil de sistema e natureza de operação) a inclusão da nota.
+
+
+Ao finalizar a nota, o SisPetro verificava novamente na série o último número utilizado e incrementava um número para que o próximo faturamento pudesse se orientar.
+
+
+
+
+Esse processo, no entanto, não possuía nenhuma segurança para o faturamento simultâneo. Repetindo o processo acima, agora num exemplo prático:
+
+
+O primeiro faturista informava a série e o Sispetro retornava o próximo número: 15.
+
+Antes de terminar o processo o segundo faturista informava a série e o SisPetro retornava o mesmo próximo número: 15.
+
+Ao finalizar a nota do primeiro faturista o SisPetro incrementava um número no número salvo (que era 14), salvando então 15.
+
+Ao finalizar a nota do segundo faturista o SisPetro incrementava um número no número salvo (que então já seria 15), salvando então 16.
+
+Como a NFe não permite duplicidade, rejeitava a segunda nota por já ter sido utilizado o número 15. Porém ao refazer essa nota o número sugerido seria o 17, pulando o 16 e deixando furo na sequência de numeração da Nota Fiscal.
+
+
+Tínhamos portanto a duplicidade de numeração e um furo na seqüência da numeração.
+
+
+Visando melhorias no processo descrito acima, à partir da versão 7.13, o SisPetro foi ajustado nos itens descritos abaixo:
+
+
+
+
+Controlar a numeração da nota durante o faturamento;
+
+
+Não permitir que um mesmo pedido seja faturado ao mesmo tempo;
+
+
+Tratar a numeração durante a importação de notas de emissão própria.
+
+
+
+
+À partir de agora, descreveremos mais detalhadamente cada um desses itens:
+
+
+Controle de numeração da nota durante o faturamento
+
+
+Observação fundamental para o correto funcionamento do faturamento simultâneo
+ Para que o faturamento simultâneo funcione normalmente, a série da nota fiscal utilizada deve estar configurada adequadamente, isto é, caso o usuário esteja emitindo uma nota fiscal, ele deve utilizar uma série de nota fiscal cujo campo 
+Emissão Própria
+ esteja marcado. Caso a nota fiscal tenha sido emitida por terceiros, o usuário deve utilizar uma série da nota fiscal cujo campo 
+emissão própria
+ 
+não
+ esteja marcado. Além disso, caso o usuário utilize o processo de importação de nota fiscal, a série utilizada para esta importação 
+não deve ser a mesma
+ que ele normalmente utiliza para as notas fiscais de sua própria emissão.
+
+
+SERVIDOR SISPETRO
+ 
+É de extrema importância que todos os faturistas estejam com o Sispetro conectado ao mesmo Servidor Sispetro.
+
+
+O Sispetro continuará, ao ser informada a série, sugerindo o próximo número de nota, portanto, se dois usuários estiverem emitindo nota fiscal simultaneamente, irão visualizar o mesmo número. A mudança será na finalização da nota, onde haverá uma verificação do sistema se aquela numeração sugerida no início do processo de emissão da nota fiscal ainda está disponível para utilização, o resultado será:
+
+
+
+
+Caso a numeração esteja livre, continua o processo normalmente e finaliza a nota.
+
+
+Em caso negativo (isto é, um outro usuário conseguiu obter o número antes e finalizou sua nota fiscal utilizando o mesmo número), o sistema automaticamente fará alteração para o próximo número disponível e finalizará a nota fiscal.
+
+
+
+
+No Sispetro existem algumas regras quanto a duplicidade de Notas Fiscais, regras que já existiam antes dessa possibilidade de faturamento simultâneo e continuam valendo, para mais detalhes veja o tópico: 
+Controle de duplicidade de número de Nota Fiscal
+
+
+Para evitar que o usuário não se confunda durante a emissão da nota fiscal, ao visualizar que seu número de nota fiscal é igual ao de um outro usuário que esteja emitindo uma nota fiscal simultaneamente e tente alterar o seu número, e para sinalizar claramente que quem controla o número da nota fiscal de emissão própria é o Sispetro, quando a nota fiscal for de emissão própria, foi 
+desabilitado o controle para edição do número da nota fiscal
+ impossibilitando o usuário de alterar o número (permitindo, entretanto, sua visualização).
+
+
+Não permitir que um mesmo pedido seja faturado ao mesmo tempo
+
+
+Não será possível faturar o mesmo pedido (emitir OC ou NF) por mais de um usuário simultaneamente.
+
+Assim, os usuários poderão emitir NF simultaneamente desde que não seja para o mesmo pedido.
+
+
+Caso seja feita uma OC para o mesmo pedido será exibida a mensagem abaixo ao usuário. 
+
+
+
+
+A mensagem abaixo será semelhante a citada acima, porém para faturamento do pedido.
+
+
+ 
+
+
+Onde está ilustrado na imagem o valor 127.0.0.1 entenda o número de IP do computador que está fazendo a mesma OC ou pedido.
+
+
+Importação de notas de emissão própria
+
+
+Durante o processo de importação de notas fiscais de emissão própria, o Sispetro irá validar através da série a numeração da nota a ser importada, exemplos:
+
+
+Exemplo 01:
+
+Conteúdo do arquivo de importação: Nota fiscal de venda número 33900 série 15
+
+Situação do Sistema: Na série 15 a última nota gerada foi a 33920
+
+Resultado: Será emitida uma mensagem que já existe nota com esse número
+
+
+Exemplo 02:
+
+Conteúdo do arquivo de importação: Nota fiscal de venda número 33900 série 15
+
+Situação do Sistema: Na série 15 a última nota gerada foi a 33000
+
+Resultado: A nota será importada na numeração original do arquivo 33900
+
+
+Analisando os exemplos acima, poderemos notar que no 
+exemplo 02
+, ficará uma lacuna de numeração, 
+sendo responsabilidade do Administrador do Sistema
+ controlar a numeração de notas de importadas. Quando o sistema chegar à nota 33899, a próxima será a 33900 que já existirá, pois foi importada, não será mais possível incluir notas nessa série até que seja alterado o campo próximo número. Para saber como alterar o próximo número, veja o tópico 
+Tabela Série Nota Fiscal
+
+
+O ideal é que para notas de importação não sejam usadas as mesmas séries utilizadas no faturamento, evitando problemas de numeração.

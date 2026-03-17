@@ -1,0 +1,219 @@
+TITULO: Validações Importação de Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2949416662
+--------------------------------------------------
+Essa página tem como finalidade listar as validações que ocorrem no processo de importação de nota fiscal.
+Validações
+Validação
+Motivo da Ocorrência
+Perfil
+Observações
+O valor do frete do item da nota fiscal está diferente do valor da OC (0,120000) e a natureza de operação não permite o vínculo com esse dado diferente.
+Essa validação ocorre quando o perfil de natureza "Frete Unitário" está configurado para "Interrompe processo se frete unitário da OC/PMM estiver diferente da NF"
+Perfil Natureza: Frete Unitário
+Nem todos os itens da nota foram importados
+Ocorre quando um dos itens da nota fiscal foi desprezado por não ter vínculo de OC ou PMM, ou no caso de importação manual, a nota não foi excluída por completo
+Importação NF (Painel Geral)
+ perfil 
+Tipo de Vínculo. 
+Em alguns casos, quando a nota é importada e deletada várias vezes fica uma sujeira no banco de dados. O suporte deve verificar e limpar essa sujeira para nota ser importada. 
+Os valores dos itens da nota fiscal estão diferentes dos itens do pedido ou fora da faixa de variação permitida
+Ocorre quando o valor do item da NF vinculada ao PMM esta diferente e/ou percentual configurado no perfil de sistema é menor do que a diferença entre o valor do item da NF e do PMM
+Importação NF (Painel Geral)
+ perfil 
+Tipo de Vínculo. 
+Painel Compras
+ perfil
+ Percentual de Discrepância para PMM
+A Unidade de Medida dos itens da Nota Fiscal não são iguais aos itens do Pedido
+Ocorre quando a unidade de medida do item da NF vinculada ao PMM estão diferentes. Verifique se as unidades estão corretas ou desfaça o vínculo do PMM e desmarque o perfil da natureza de operação
+Importação NF (Painel Geral)
+ perfil 
+Tipo de Vínculo. 
+A unidade de medida dos itens da nota fiscal são diferentes dos itens da OC
+Ocorre quando o item da NF vinculada a OC está com a unidade de medida diferente. Verifique se as unidades estão corretas ou desfaça o vínculo da OC e desmarque o perfil da natureza de operação
+Importação NF (Painel Geral)
+ perfil 
+Tipo de Vínculo. 
+A Nota fiscal não está vinculada a um PMM e a Natureza exige que seja vinculada
+Essa validação ocorre quando o tipo de vínculo na Natureza de Operação está configurado para PMM e o vínculo não foi feito. 
+Importação NF (Painel Geral)
+ perfil 
+Tipo de Vínculo. 
+A Natureza de operação está Inativa
+Ocorre quando a natureza está Inativa
+Importação NF (Painel Geral)
+ 
+A Nota fiscal não está vinculada a um OC e a Natureza exige que seja vinculada
+Essa validação ocorre quando o tipo de vínculo na Natureza de Operação está configurado para OC e o vínculo não foi feito. 
+Importação NF (Painel Geral)
+ perfil 
+Tipo de Vínculo. 
+Ainda não 
+foi aplicada a transformação de importação nessa nota fiscal
+Ocorre quando há transformação de NF cadastrada, o perfil está marcado e o serviço do Hermes não está ativo ou não foi executado.
+Painel Importação de NF
+ perfil 
+Aplica Transformação no processo de para 
+O Motorista da nota fiscal é diferente da OC (00001) e a natureza de operação não permite o vínculo com esse dado diferente. 
+Ocorre quando o perfil está configurado para 
+Interrompe processo caso Motorista da OC seja diferente da NF
+. Corrija o motorista na NF ou na OC, ou desmarque a opção da natureza. 
+Painel Importação de NF
+ 
+perfil, Dados
+ do Motorista
+O frota da nota fiscal é diferente da OC (0001) e a natureza de operação não permite o vínculo com esse dado diferente
+Ocorre quando o perfil está configurado para 
+Interrompe processo caso Frota da OC seja diferente da NF. 
+Corrija o frota na NF ou na OC ou desmarque a opção da natureza.
+Painel Importação de NF
+ 
+perfil, Dados
+ do Frota
+O valor do item da Nota Fiscal (com possível desconto) está diferente do valor do Pedido (2,201405) e a natureza de operação não permite o vínculo com esse dado diferente.
+Ocorre quando o perfil está configurado para 
+Interrompe processo se o preço unitário da OC/PMM estiver diferente da NF
+Painel Importação de NF
+ 
+perfil 
+Preço Unitário
+O valor do item da Nota Fiscal (com possível desconto) está fora da faixa de variação permitida em relação ao preço do Pedido (2,201405)
+Ocorre quando o perfil está configurado com a opção 
+Aceita um % de variação em relação a OC/PMM (Menor ou Maior)
+ e o valor da nota está fora da faixa de variação de valor permitido.
+Painel Importação de NF
+ 
+perfil 
+Preço Unitário
+A data de Movimento está inválida Verifique a Data de Movimento
+Essa validação ocorre quando o perfil está para 
+Deixa Pendente para o Usuário Preencher
+ e não foi informado uma data.
+Painel Importação de NF
+ perfil 
+Data/Hora Movimento NF Importada
+Não é permitido incluir títulos com datas de vencimento inferiores à data de emissão. Datas inválidas: 28/07/2900)
+Ocorre quando o perfil está configurado para 
+Deixa Pendente para o Usuário Preencher
+ e foi informado uma data menor que 31/12/1990 ou maior que 01/01/2050.
+Painel Importação de NF
+ perfil 
+Data/Hora Movimento NF Importada
+A natureza de operação da nota fiscal exige que ela 
+NÃO
+ esteja vinculada a uma OC e o item 1 tem vínculo com a OC 121854
+O Tipo de Vínculo está configurado como "Nenhum" e em algum momento foi realizado o Vínculo de uma OC com a Nota
+Painel Importação de NF
+ perfil 
+Tipo de Vínculo
+Isso pode ocorrer quando a natureza estava configurada para vínculo com OC de Terceiros, o usuário vincula e, antes de processar a NF, troca o tipo de vínculo.
+A nota Fiscal não está vinculada a uma OC de Terceiros ou a Natureza de operação exige esse vínculo
+Ocorre quando o perfil está configurado como 
+OC de Terceiros
+ e não foi realizado o Vínculo de uma OC com a Nota
+Painel Importação de NF
+ perfil 
+Tipo de Vínculo
+A nota fiscal ainda não tem confirmação de vínculo de OC automático
+Ocorre quando o perfil está diferente de 
+Não vincula
+ e o SisPetro não encontrou uma OC compatível com a nota
+Painel Importação de NF
+ perfil 
+Vínculo automático de OC na importação
+Eventos não configurados devidamente para geração na inclusão da NF
+Ocorre quando a natureza está configurada para vincular as despesas com o Frota, e antes de processar a NF, desmarca o perfil na natureza.
+O inverso também ocasiona esse problema, no caso a natureza estava com o perfil desmarcado, e antes de processar a NF, marca o perfil da natureza.
+A Natureza de Operação não está configurada para Enviar Manifestação, mas há dados de Manifestação
+Ocorre quando a natureza está configurada para exigir manifestação, o usuário preenche os dados de manifestação e, antes de processar a NF, desmarca o perfil na natureza.
+Dados Gerais (Painel Por Filial)
+ perfil 
+Envia Manifestação de Destinatário
+A NF Referenciada n.º 10014 emitida em 26/10/2020 não é passível de Frete
+Ocorre quando o perfil 
+está configurado com a opção 
+Valida e impede a inclusão
+ 
+Painel Transportes
+ perfil 
+Validação de CT-e indevido para a empresa (NF referenciada não passível de frete)
+A Chave de Acesso dessa NF <XXX> ainda não está referenciada a um CT-e Lance o CT-e ou verifique a Natureza de Operação, pois a mesma exige que já tenha sido lançado um CT-e se referenciando a essa Chave de Acesso.
+Ocorre quando o perfil 
+está configurado com a opção 
+Exige que tenha um CT-e já lançando com referência à chave de acesso
+Dados Gerais (Painel Por Filial)
+ perfil 
+Exige que tenha um CT-e já lançando com referência à chave de acesso
+Impede que a NF-e seja sempre antes do CT-e. Isso é útil especialmente para contabilização e custos, já que o valor do frete pode ter interferência e será obtido mais efetivamente com o CT-e.
+O valor do frete do item da nota fiscal está diferente do valor do item do Pedido e a natureza de operação está configurada para usar o Valor do Frete do Item da NF.
+Ocorre quando a natureza está não configurada para usar o Valor do Frete do item da NF
+Importação NF (Painel Geral)
+ 
+A Nota Fiscal já tem confirmação de Depósito,
+a Nota Fiscal, ainda não confirmação de Depósito
+Ocorre quando a Nota Fiscal ainda não tem a confirmação de Depósito
+Importação NF (Painel Geral)
+ perfil 
+Tipo de Vínculo. 
+A Natureza de Operação da NF envia Manifestação, mas não foi configurado nenhum evento para ser incluído Não é permitido incluir evento de manifestação "Operação Não Realizada" quando importada pelo serviço
+'Não é permitido incluir evento de manifestação "Operação Não Realizada" quando importada pelo serviço
+Importação NF (Painel Geral)
+ perfil 
+Tipo de Vínculo. 
+A Natureza de Operação da NF exige que já tenha um carregamento para usar Data Saída Base como Data de Movimento, conforme o vínculo com a OC.
+Verifique se a NF possui OC/Carregamento.
+Importação NF (Painel Geral)
+ perfil 
+Tipo de Vínculo. 
+Itens da NF constante na aba, Dados a serem validados, nem todos os itens da Nota Fiscal foram importados
+Ocorreo quando existem itens na aba Dados a serem validados, localize os itens faltantes
+Importação NF (Painel Geral)
+ 
+A natureza de operação dessa nota fiscal exige vinculo com OC de terceiros, mas a nota fiscal não possui nenhum vínculo
+Ocorre quando a natureza não tem vinculo com a OC e não está configurada para exigir manifestação, 
+Importação NF (Painel Geral)
+ 
+A Natureza de Operação não está configurada para Vínculo de OC de Terceiros, mas há OC vinculada
+Ocorre quando não esta apontado o tipo de para vinculo em Nat. Oper / aba Importação NF / quadro vinculo de PMM/OC
+Importação NF (Painel Geral)
+ 
+A nota fiscal está vinculada a OC de terceiros, porém somente é permitido para nota dos tipos Outras Entradas
+Ocorre quando a OC de terceiros ou natureza de operação exige esse vinculo
+Importação NF (Painel Geral)
+ 
+Não foi efetuada a liberação para processamento
+Ocorre quando o serviço de DE/PARA esta travado, precisa ir no Hermes Serviços e reiniciar o DE/PARA
+Serviço de Importação de NF - De/Para
+ 
+Não foi efetuada a confirmação do Vínculo de OC automático
+Ocorre quando o tipo de vinculo em importação NF não esta selecionado corretamente
+Importação NF (Painel Geral)
+ 
+A Nota Fiscal ainda não tem confirmação de Depósito
+Ocorre que ao dar entrada de NF não foi preenchido o campo deposito, volte e edite clicando no botão editação de NF
+Importação NF (Painel Geral)
+ 
+A Nota Fiscal não tem um evento de Manifestação configurado para inclusão e a Natureza de Operação não está configurada para Enviar Manifestação'
+Ocorre quando a natureza de operação não esta configurada para enviar manifestação
+Dados Gerais (Painel Por Filial)
+ 
+A natureza de operação da nota exige que ela esteja vinculada a um PMM
+Ocorre quando se importa uma NF e não esta apontado o tipo de para vinculo em Nat. Oper / aba Importação NF / quadro vinculo de PMM/OC
+Importação NF (Painel Geral)
+ 
+A unidade de medida do item da nota fiscal está diferente da unidade do Pedido
+Ocorre quando existe uma diferença entre o cadastro do produto e a nota fiscal, no cadastro de produto insira uma nova unidade de medida
+Tabela Unidades
+ 
+Os valores de frete dos itens da Nota Fiscal estão diferentes dos itens do Pedido
+Ocorre quando a uma discrepancia entre a Nota Fiscal e o Pedido 
+Destaque de frete na Nota Fiscal
+ 
+O valor do item da Nota Fiscal (com possível desconto) está diferente do valor do Pedido e a natureza de operação não permite o vínculo com esse dado diferente
+Ocorre quando o valor do item da NF não esta igual com o valor do pedido em importação da NF, verifique na aba "Detalhes > Importação NF," o campo % Variação do Preço (OC/PMM)
+Importação NF (Painel Geral)
+ 
+A unidade de medida do item da nota fiscal está diferente da unidade da OC
+Ocorre quando existe uma diferença entre o cadastro do produto e a nota fiscal, e a OC no cadastro de produto insira uma nova unidade de medida
+Tabela Unidades
+ 

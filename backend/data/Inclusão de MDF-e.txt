@@ -1,0 +1,307 @@
+TITULO: Inclusão de MDF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919992491
+--------------------------------------------------
+none
+Objetivo
+O processo de emissão de MDF-e no SisPetro permite incluir documentos fiscais (NF-e e CT-e), aplicar filtros e validar informações como motorista, frota, depósito e transportadora, garantindo que os documentos possam compor o mesmo manifesto. Há opções para emissão normal ou avulsa, permitindo gerar o MDF-e antes da nota chegar, utilizando apenas a chave de acesso. O sistema também contempla regras específicas conforme a responsabilidade pelo frete, notas de terceiros, notas off-line e tags exigidas pela SEFAZ, incluindo CIOT, seguro e produto predominante. O usuário deve ajustar percursos, dados de transporte e acompanhar MDF-e avulso, além de atender permissões e perfis configurados para inclusão, manutenção e processamento.
+Há tags especificas para MDF-e de CT-e conforme nota técnica 2020.001 do MDF-e. Veja mais em 
+Regras para MDF-e
+.
+É possível incluir MDFe, cuja Nota Fiscal ou CTe selecionada, utilizem depósitos deferentes situados na mesma UF.
+Na versão 3.00 do MDF-e, é exigido, em alguns casos dados do CIOT e seguro. Esses dados são informados na inclusão do CTe. Para mais informações, veja o help 
+Emitindo um Conhecimento de Transporte CT-e
+. Nota: os dados de CIOT e seguro são obrigatórios somente para emitentes de CTe.
+O processo inicial do MDF-e foi previsto para NFs próprias. Com o tempo (e exigência da SEFAZ) estendeu-se para NF de Terceiros, mas em ambos os casos, sempre com a NF que já se encontravam lançadas no SisPetro.
+Para os casos de notas de terceiros, como normalmente a nota fiscal ainda não chegou na empresa, o usuário lança a nota, mas quando ela chega, precisa ser cancelada e lançada novamente. Assim, existem duas possibilidades:
+Incluir a nota fiscal com o vínculo e, se necessário, cancelar a nota fiscal de terceiros, retirando assim o vínculo com o MDF-e
+Possibilidade de emitir MDF-e Normal e de forma Avulso onde é utilizada a chave de acesso da nota
+Na época que foi implementado o MDF-e, foi colocado como regra que toda NF-e deveria estar autorizada na Sefaz para poder fazer parte do MDF. Porém, com o tempo essa regra foi flexibilizada pela Sefaz, sendo possível indicar qualquer Chave de Acesso, independente de estar autorizada. Para atender a essa flexibilidade da Sefaz a é possível realizar a emissão do MDF-e utilizando notas pendentes na Sefaz.
+Mas antes de iniciar o uso de emissão de MDF-e avulso, é importante salientar que 
+é de responsabilidade do usuário
+ o acompanhamento dos MDF-e avulso para tomada de providências (por exemplo lançar a Nota Fiscal faltante).
+Inclusão MDF-e Normal
+O menu será liberado somente se o usuário tiver o perfil 
+Pode incluir/processar MDF-e
+ marcado. Para mais informações ver 
+Perfil de Usuário - Painel Faturamento
+.
+Menu Movimentação / Faturamento / Manifesto Eletrônico / Inclusão de MDF-e:
+Nessa tela, na parte superior, o usuário informará os dados para localização de Notas Fiscais ou Conhecimentos.
+O 
+período
+ sugerido é de 7 dias anteriores da data atual.
+A opção
+ CT-e/NF-e
+ indica se serão escolhidas NF-e ou CT-e. Essa opção é sugerida como CT-e se a empresa for Transportadora e como NF-e se a empresa 
+NÃO
+ for Transportadora:
+NF-es
+ 
+NF-e de saída
+NF-e de entrada
+CT-es
+Informa Tipo de Carga:
+ será habilitado caso seja escolhida a opção CT-e. O SisPetro localizará Conhecimentos conforme o 
+Tipo de Carga
+ informado, tendo as seguintes opções:
+Somente Fracionada (padrão)
+Somente Lotação
+Todos
+Informa N. Notas Motorista:
+ será habilitado caso a opção seja NF-e. É útil para identificar Nota Fiscal cujo Motorista esteja alocado também para outras Notas. Isso significa uma carga compartilhada que exige MDF-e. A sugestão padrão é >= 1, ou seja, independente de fazer parte de uma Carga Compartilhada ou Exclusiva a nota fiscal é apresentada, respeitando os demais filtros.
+Também é  possível alterar dados de Motorista/Transportadora/Frotas em MDF-e não processados na Sefaz, através da tela de manutenção de MDFe
+.
+Filtros: 
+é possível selecionar os filtros de forma conjunta ou independente.
+Informa Frota: 
+seleciona somente notas/conhecimentos que estão com o Frota informado.
+Informa Depósitos:
+ seleciona somente notas/conhecimentos que estão com o Depósito informado.
+Informa Motorista:
+ seleciona somente notas/conhecimentos que estão com o Motorista informado.
+Ao clicar no botão 
+Atualiza
+, além dos filtros da tela, são consideradas as notas/conhecimentos que:
+São da empresa conectada;
+Passíveis de MDF-e (conforme perfil da Natureza salvo na NF/Conhecimento);
+Não têm MDF-e vinculado;
+Não foram marcados para Desconsiderar MDF-e;
+Quando eletrônicos, que estejam autorizados na Sefaz;
+Não estão cancelados.
+Apresenta as Notas emitidas em Off-Line caso o perfil de Sistema 
+Permite NF-e Off-Line
+ do  
+Painel MDF-e
+ esteja marcado.
+Serão apresentado em 
+NEGRITO 
+todos os 
+Conhecimentos de Frete(CT-e)
+ cujo o campo averbação não esteja informado.
+Ao clicar no botão 
+OK
+, apresenta a nova tela para inclusão/confirmação dos dados para MDF-e, antes porém validará se as notas/conhecimentos selecionados podem estar juntos num mesmo MDF-e:
+Mesmo depósito;
+Mesmo motorista;
+Mesma transportadora;
+Mesmos frotas (frota, carreta e treminhão).
+O botão 
+Desconsidera para MDF-e
+ é utilizado para as notas/conhecimentos não serem mais apresentados nessa tela, independente de não terem MDF-e, bastando selecionar e clicar no botão. É útil para as notas/conhecimentos de Carga Exclusiva, cuja Natureza de Operação indica que é passível de MDF-e, mas devido a carga ser exclusiva não deveria ter MDF-e.
+Configuravel no 
+Perfil de usuário
+/Aba Faturamento 
+"Pode considerar/desconsiderar NF no MDF-e"
+. Tal perfil habilita ou desabilita o botão. Também é utilizado na 
+Manutenção de Notas Fiscais
+/Aba Frete. Sendo possível considerar ou desconsiderar uma NF no MDF, que não estava configurar para tal fim. 
+Os dados de data/hora da operação e usuário que desconsiderou são salvos na Nota Fiscal/Conhecimento para a nota/conhecimento que foi desconsiderado.
+A tela de 
+Inclusão MDF-e
+ já virá preenchida e dependendo da situação o usuário só precisará clicar no botão 
+Inclui MDF-e
+  para processar o MDF-e:
+O campo 
+série
+ é sugerido do perfil da empresa - ver 
+Painel MDF-e
+. O usuário poderá trocar por outra série que seja do tipo Emissão Própria. Através da série é sugerido o 
+Número do MDF 
+e não pode ser alterado.
+O 
+modelo
+ é sugerido do perfil da empresa e não pode ser alterado. Ver 
+Painel MDF-e
+.
+A 
+Data/Hora de Emissão
+ será sugerida conforme a data/hora atual e pode ser alterada pelo usuário.
+O campo
+ Valor Total da Carga
+ é sugerido com a soma dos Valores Totais das notas selecionadas (quando NF-e) ou com a soma dos Valores Totais das notas que acobertam o Conhecimento (quando CT-e), podendo ser alterado pelo usuário. 
+O campo 
+Peso Total
+ é sugerido com a soma dos Pesos das notas selecionadas (quando NF-e) ou com 0 (zero) (quando CT-e), podendo ser alterado pelo usuário.
+Os campos 
+Frota
+, 
+Carreta
+, 
+Treminhão
+, 
+Motorista
+ e 
+Transportadora
+ são sugeridos conforme as notas/conhecimentos selecionados na tela anterior, 
+só poderão ser alterados quando utilizado a opção de inclusão Avulso
+. No caso do campo Cidade Carregto é a mesma regra, porém obtida do Cadastro do Depósito da nota/conhecimento.
+Para Frota, Carreta e Treminhão alguns dados do proprietário são obrigatórios: CNJP/CPF, Nome, UF e RNTRC. No SisPetro esses dados são cadastrados em 
+Painel Dados Adicionais (Frotas)
+. Para mais informações, acesse 
+Regras de envio de dados do MDF-e - RNTRC
+.
+NF-e:
+Cidade Carregto:
+ será sugerida a cidade cadastrada no endereço de entrega.
+Nota de entrada:
+ cidade do endereço de entrega cadastrado no fornecedor
+Nota de saída:
+ cidade do endereço de entrega cadastrado no cliente
+Cidade Descarregto:
+ será sugerida a cidade cadastrada no Depósito
+Nota de entrada:
+ cidade cadastrada no depósito informado para descarregamento
+Nota de saída:
+ cidade cadastrada no depósito informado para carregamento
+Caso queira, o usuário pode alterar as cidades de carregamento e descarregamento.
+CT-e:
+Cidade Carregto:
+ será sugerida a cidade cadastrada no depósito informado no conhecimento
+Cidade Descarregto:
+ será sugerida a cidade do endereço de entrega do destinatário
+Caso queira, o usuário pode alterar as cidades de carregamento e descarregamento.
+Para MDF-e de CT-e temos a opção de envio de tags especificas conforme nota técnica 2020.01 do MDF-e. Para habilitar o envio das mesmas é necessário habilitar o perfil de UF
+ "Envia Grupo de Informações do Produto Predominante (quando MDF-e c/ CT-e)"
+.
+Os campos de 
+Informações Adicionais
+ e 
+Informações Complementares
+ podem ser alterados pelo usuário. Essas informações podem ser sugeridas no perfil da empresa - Para mais informações, ver 
+Painel MDF-e
+.
+Para MDF-e que tenha mais de uma nota com 2 produtos dintinttos o produto predominante será o de maior quantidade sendo destacado no campo produto
+Aba Percurso
+Nesta aba são informadas os estados que o caminhão passará até seu destino. Esse recurso deve ser usado quando o transporte é feito entre estados que não fazem divisa. A Sefaz valida o percurso indicado, ou seja, caso seja indicado estados fora de ordem ou que não estejam no trajeto do caminhão o MDF-e não será aceito.
+Essas informações podem ser informadas manualmente, na hora em que o usuário for fazer o MDF-e ou também pode ser cadastrado em 
+Percursos MDF-e
+O grupo 
+Notas Selecionadas
+ é preenchido com as notas/conhecimentos selecionados na tela anterior. 
+A cidade final do MDF-e (de Descarregamento) será obtida da última nota/conhecimento apresentado na tela (não permite ordenação de colunas pelo usuário). Assim, a ordem das notas/conhecimentos deve representar o percurso da viagem e o usuário deve utilizar as setas laterais para ajustar essa ordem caso não venha correta.
+Caso tenha a necessidade de retirar uma nota/conhecimento do processo o usuário deve clicar no botão 
+Cancela
+, retornando para a tela anterior e desmarcar a nota/conhecimento a ser retirado.
+Aba Informações de Pagamento do Contrato
+Nesta Aba são informados dados de pagamento de frete para atender a NT 2025.001
+Sendo possível informar a entidade, a chave PIX e ou Banco e Cód Agência de pagamento, estes dados são encaminhados apenas na emissão de MDF-e para um item.
+Necessário informar um componente para identificar o custo.
+Ao clicar no botão incluir será possível informar os dados manualmente caso tenha permissão, Para mais informações ver 
+Tabela Componentes da Prestação de Serviço
+Inclusão de MDF-e
+Ao clicar no botão 
+Inclui MDF-e, 
+iniciará os procedimentos para solicitação de recibo e protocolo:
+Confirmando o envio:
+Uso autorizado:
+Selecionando a impressora - necessário perfil de usuário - 
+Painel Faturamento (Usuários)
+. Caso não tenha perfil, o DAMDF-e será impresso diretamente na impressora padrão do usuário.
+Inclusão de MDF-e Avulso
+A ferramenta de inclusão de MDF-e Avulso foi criada para facilitar a emissão de MDF-e das Empresas que realizam uma compra e são as responsável pelo transporte do produto. Utilizando a opção de Inclusão Avulsa o usuário pode realizar a emissão do MDF-e antes da nota chegar na empresa, utilizando somente a chave de acesso da nota emitida pelo Fornecedor, e após a mercadoria ser entregue basta dar entrada normalmente na nota que o vinculo entre o MDF-e e a Nota é realizado automaticamente.
+Só é permitido realizar a inclusão de MDF-e Avulso utilizando uma chave de acesso que não tenha MDF-e já emitido para essa chave.
+Em casos de emissão de nota fiscal utilizando a chave de acesso que já existe um MDF-e incluso no Sistema, a regra para cancelamento da nota é igual ao do MDF normal, só é possível cancelar a nota caso seja cancelado o MDF-e primeiro.
+O primeiro passo para a emissão do MDF-e avulso é acionar o botão 
+'Inclui Avulso'
+ na tela de Manutenção de MDF-e. O mesmo é habilitado caso perfil de usuário 
+Pode incluir/processar MDF-e
+ esteja marcado.
+Após acionar o botão 
+Inclui Avulso
+, será exibido a tela de
+ Inclusão de MDF-e
+:
+Quando realizado inclusão avulsa, é de responsabilidade do usuário informar a 
+Data de Emissão, Hora Emissão, Valor Total Carga, Peso Bruto Carga, CTe/NFe Entrada ou Saída, Motorista, Transportadora, Frota, Carreta, Treminhão, Cidade Carregto e Cidade Descarregto.
+Não permitido - indicar documentos: 
+quando selecionado será obrigatório informar o Documento Fiscal (NF-e) 
+Permitido - documentos enviados posteriormente:
+ caso tenha a necessidade de informar o Documento Nota Fiscal (NF-e) posteriormente, prosseguindo com o envio a sefaz.
+Ao clicar na opção
+ Inclui Chave de Acesso, 
+o sistema apresentará a tela abaixo, para que sejam vinculadas as notas (podendo incluir mais de uma chave de acesso a um MDF-e).
+Nessa tela teremos as seguintes informações:
+Chave de Acesso da NF
+: Nesse campo é digitado a chave de acesso.
+O SisPetro não faz validação de chave de acesso. É de responsabilidade do usuário informar a chave de acesso de acordo com o tipo de documento escolhido anteriormente (nf-e entrada/saída ou ct-e). 
+Botão "
+Atualiza
+": Ao acionar o botão atualiza o SisPetro busca na empresa conectada a chave de Acesso informada, atualizando os demais campos.
+Situação da NF: 
+Apresenta a situação da nota no Sistema, podendo apresentar a Situação da NF como 
+Avulsa 
+ou
+ Encontrada no SisPetro
+, só é possível incluir MDF-e utilizando essa opção para notas que se encontram com Status igual á Avulsa.
+#NF
+: Apresenta o numero da nota, obtido pela chave de acesso
+CNPJ Emitente
+: Apresenta o CNPJ do emitente, obtido pela chave de acesso.
+Mês/Ano Emissão
+: Apresenta o Mês e ano de emissão, obtido pela chave de acesso
+Fornecedor
+: Busca no SisPetro um Fornecedor que tenha o mesmo CNPJ que o CNPJ emitente. Se encontrar apresenta código e Razão Social. Se não encontrar apresenta "DESCONHECIDO".
+Cod Barra Adicional:
+ Nesse campo é incluído o Código de Barras Adicional, para o caso desta NF-e ter sido emitida em ambiente de Contingência.
+Inclui MDF-e:
+ Ao acionar o botão Inclui MDF-e, é realizada uma verificação no Banco de Dados, buscando a existência de uma nota e checando se o tipo de nota é compatível com o campo 
+CTe/NFe
+ informado na tela anterior. 
+Se a nota já existe, o sistema fará o vínculo. Caso não, o sistema salvará somente a chave de acesso e a nota será incluída como NF de Entrada.
+A opção 
+Exclui Chave de Acesso
+, exclui o vínculo da nota fiscal que está posicionado (independente de ser só Chave de Acesso ou NF)
+Para que o SisPetro identifique corretamente a qual NF o MDF-e está se referindo (Ex: NFs de Transferência), no momento da inclusão da Chave de Acesso serão feitas as seguintes validações: 
+Só será considerada a NF-e como encontrada caso ela tenha o mesmo Tipo de Entrada/Saída do MDF-e;
+No caso da Chave de Acesso não ser encontrada, será sempre considerada como Entrada.
+Inclusão de MDF-e por Responsabilidade pelo Frete
+O MDF-e é um documento necessário para as Distribuidoras que fazem transporte próprio ou para Transportadoras. O MDF-e engloba todas as NF-e ou CT-e envolvidas numa viagem, de forma a facilitar a conferência dos documentos por órgãos fiscais. Atualmente, no Sispetro, para indicar que uma NF-e precisa ou não de MDF-e, a configuração está na Natureza de Operação. Porém, uma mesma operação pode ser feito Retira, com Transporte Próprio ou com Transporte de Terceiros, e nesses casos somente o Transporte Próprio exigiria o MDF-e. Para todos os demais casos é necessário escolher as NF-e manualmente e marcá-las para desconsiderar MDF-e. Além disso, nos casos de Transferência entre filiais, nem sempre a Emissora (que está transferindo o produto) é a responsável pelo Frete.
+Para atender a necessidade é possível configurar na Natureza de Operação para que só permita MDF-e conforme a Empresa Responsável pelo Frete. Com isso, na Inclusão de NF só permitiremos MDF-e para Transporte Próprio (é utilizado a situação do frete para identificar) e, em notas de Transferência, salvaremos a empresa responsável pelo Frete, que pode ser a empresa destinatária (verificado a partir do Responsável pelo Frete da OC de Carregamento Próprio).
+Na 
+Natureza de Operação
+ aba Por Filial / Dados Gerais utilizar a opção de 
+'Conforme Empresa Responsável pelo Frete'
+.
+Emissão de Nota.
+Somente notas com a situação de frete 
+3
+ -
+Transp. Próprio Remetente 
+vão gerar MDFe, e o responsável pelo MDFe será a empresa que emitiu a nota.
+Para notas de transferência a regra muda um pouco, veja mais detalhes abaixo em notas de transferências
+Notas de Transferências 
+Nas transferências a empresa responsável pela emissão do MDFe vai ser de acordo com o Responsável pelo Frete da Ordem de Carregamento Destino.
+Para as notas onde o Responsável pelo Frete é o 
+Emitente
+ só será gerado o MDFe caso a situação do Frete seja 
+3
+ -
+Transp. Próprio Remetente, 
+onde a empresa responsável pela emissão do MDF-e será a empresa emitente da nota.
+Para as notas onde o Responsável pelo Frete é o 
+Destino
+ só será gerado o MDFe caso a situação do Frete seja 
+4 Transp. Próprio Destinatário, 
+onde a empresa responsável pela emissão do MDF-e será a empresa de destino. 
+Após realizar a emissão da nota fiscal de transferência utilizando a ordem de carregamento, a mesma ficara pendente para emissão do MDFe, onde será possível visualizar qual é a empresa que vai emitir o MDFe através da coluna 
+#Emp. MDFe.
+Todos os dados para envio do MDFe (Certificado, layout, etc...) serão utilizados os da Empresa responsável pelo Frete (#Emp. MDFe), independente da filial que o usuário estiver conectado.
+Ao emitir o MDFe será aberto a tela de inclusão de MDFe avulso, informando apenas dados básicos como o cliente e a chave de acesso.
+Inclusão de MDF-e com NF-e Off-Line
+A inclusão de MDF-e com NF-e Off-Line foi criado para facilitar a Empresa emissora do MDF-e, possibilitando assim a emissão do MDF-e para Notas Fiscais emitidas em Modo Off-Line.
+Para utilizar essa função do Sistema basta marcar o Perfil de Sistema/aba MDF-e/
+ "Permite NF-e Off-Line". 
+Assim na tela de Seleção de NF-e / CT-e Pendentes serão filtrados também as notas Fiscais que foram emitidas em modo Off-Line
+Não aconselhamos a utilização dessa função sem que aja realmente a necessidade da emitir o MDF-e.
+Lembramos que após o período de contingencia própria da empresa, onde a mesma realizou emissão de notas em modo off-line, é necessário processar as Notas na Sefaz, podendo ocorrer alguma rejeição na mesma, impossibilitando o cancelamento da mesma caso o MDF-e já esteja encerrado.
+Aconselhamos que o MDF-e só seja encerrado após a nota ser autorizada na Sefaz.
+Para mais informações:
+MDF-e - Manifesto Eletrônico de Documentos Fiscais
+Manutenção de MDF-e
+Manutenção de MDF-e Pendentes
+Consulta Status Serviço do MDF-e
+Tabela Unidades Federativas - UF's
+Configuração da UF
+Natureza de Operação - Dados Gerais (Painel Por Filial)
+Perfil de Empresa - Painel MDF-e
+Perfil de Usuário - Painel Faturamento

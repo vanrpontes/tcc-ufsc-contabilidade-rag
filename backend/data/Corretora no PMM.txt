@@ -1,0 +1,70 @@
+TITULO: Corretora no PMM
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921694480
+--------------------------------------------------
+Histórico
+O PMM é utilizado na compra de Combustíveis, em especial na compra de Etanol nas Usinas. Porém, o processo com as Usinas normalmente envolve corretoras, que funcionam como intermediárias na compra. Essa informação não está no PMM, além das informações de Local de Carregamento e Vendedor, que também são necessárias.
+Para isso, foram adicionados 3 novos campos na inclusão do PMM: 
+Corretora, Vendedor 
+e
+ Local de Carregamento.
+Para as empresas que desejarem utilizar essas informações no PMM, são necessárias as seguintes configurações no SisPetro:
+Perfil de Empresa
+ 
+ 
+Menu Ferramentas / Sistema / Painel Compras, marcando as opções:
+Indica Vendedor na inclusão do PMM.
+Indica Corretora na inclusão do PMM.
+Indica Fornecedor de Carregamento diferenciado na inclusão do PMM.
+ 
+Para mais informações, ver help 
+.
+Perfil de Usuário
+ 
+ 
+Menu Ferramentas / Usuário / Painel Compras
+, marcando a opção, caso o usuário tenha permissão:
+ 
+Pode alterar Fornecedor de Carregamento no PMM
+Para mais informações, ver help 
+.
+ 
+ 
+Vendedor: 
+corretora indica qual é o vendedor que será o contato para o contrato.
+ 
+Menu Arquivos / Vendedores:
+Campo Uso do Vendedor:
+ por padrão é Somente Vendas. Caso utilize, deve configurar o vendedor como Vendas e Compras. 
+Para mais informações, ver help 
+.
+Corretora:
+ é
+ a empresa que comercializa pelas Usinas o Etanol. Normalmente já está cadastrada como Fornecedor devido a possibilidade de emissão de Contas a Pagar para as taxas de corretagem.
+Menu Arquivos / Fornecedores / aba Observações:
+Campo Pode ser Corretora?:
+ se marcado, o fornecedor poderá ser selecionado na inclusão do PMM no campo Corretora.
+ 
+Para mais informações, ver help 
+.
+Local Carregamento
+:
+ às vezes, a Usina orienta ao cliente que deve carregar num determinado local (uma outra Usina do grupo). Essa outra Usina, que é um outro Fornecedor, deve ser indicado no PMM.
+ 
+Menu Arquivos / Fornecedores / aba Padrão para Compras: 
+Campo Endereço de Carregamento no PMM:
+Escolhe somente entre os cadastrados (padrão): 
+se for selecionado, os endereços devem estar cadastrados na aba Outros Endereços e informados no quadro Endereço Preferencial
+Endereço deve ser o endereço principal do fornecedor:
+ se for selecionado, será usado o endereço cadastrado na aba Dados Gerais
+Pode digitar um avulso: 
+se for selecionado, na inclusão do PMM o usuário pode informar um endereço diferente dos endereços cadastrados.
+Os dados do endereço de carregamento são salvos nos campos do endereço de entrega do PMM, ficando disponíveis para uso no layout da OC (
+) e no layout do pedido de compra (
+).
+Para mais informações, ver help 
+.
+Inclusão de PMM: 
+ver help
+ 
+.
+ 

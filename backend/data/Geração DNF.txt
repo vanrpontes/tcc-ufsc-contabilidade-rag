@@ -1,0 +1,62 @@
+TITULO: Geração DNF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2895446192
+--------------------------------------------------
+Para empresas que atuam como Refinaria, uma das obrigações fiscais federais é a geração de arquivo DNF.
+
+Este arquivo é no formato texto e é uma listagem de notas fiscais de produtos específicos.
+
+
+Configurações
+
+
+Cadastro de Produtos
+
+
+Para gerar o DNF, foi criado no Cadastro de Produtos / aba Detalhes / aba inferior Dados Adicionais, onde podemos preencher com o código que está definido na documentação do DNF para cada produto.
+
+
+
+
+Natureza de Operação
+
+
+Nas naturezas de saídas destes produtos  devemos marcar a participação no DNF, para as notas geradas com esta natureza, criamos o perfil 
+Participa DNF
+ na aba Dados Gerais por Filial.
+
+
+
+
+Geração
+
+
+Foi disponibilizado o layout dnf.rtm que deverá ser importado pela manutenção de exportação de dados.
+
+Para gerar o arquivo acessar o 
+menu  Ferramentas /  Manutenção Exportação de Dados / Exportação de Dados
+ escolher o layout DNF.
+
+Preencher os dados do formulário, após clicar em 
+OK
+, devemos informar o nome do arquivo.
+
+
+
+
+Quanto ao nome do arquivo recomendamos gravar como “dnfnf.txt”, pois o validador do DNF filtra arquivos com este nome. Caso o arquivo seja salvo com um nome diferente, causa a falsa impressão que não foi salvo.
+
+
+
+
+Midia Magnética Anexo
+
+
+Caso sejam emitidas notas sem que fossem feitas as configurações necessárias e isso só foi detectado no momento da geração do arquivo, devemos fazer as configurações dos produtos e marcar a participação das notas no 
+menu ferramentas / Alteração Dados Midia Magnética
+ marcando o check box 
+Participa DNF
+.
+
+
+Em caso de notas com dois ou mais itens em que um ou mais itens não participem do DNF, isso é definido pelo perfil do produto.
+

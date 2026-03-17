@@ -1,0 +1,63 @@
+TITULO: Configuração de campos da tabela (se necessário)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879128163
+--------------------------------------------------
+Nesta tela será possível configurar os campos, podendo definir tamanho do campo, se possui decimais e definir máscara para formatação do conteúdo.
+Para configuração dos campos, o usuário deve acessar o menu 
+Ferramentas / Tabelas dos Conjuntos de Dados
+Na tela de Manutenção de Conjunto de Dados, o usuário deverá definir o campo Conjunto de Dados e em seguida clicar no botão 
+Atualiza
+.
+Importante: Não é necessário efetuar o preenchimento dos dados, pois essas alterações de fórmula afetarão a formatação do campo da tabela, e não o conteúdo.
+Após atualizar a tela com as informações do Conjunto de Dados, o usuário poderá selecionar a tabela desejada (considerando que existe a necessidade para tal) e em seguida clicar no botão 
+Configuração
+.
+Na tela de Configuração de Campos da Tabela, o SisPetro irá trazer preenchidos os campos de 
+Conjunto de Dados
+ e 
+Tabela
+, pois foram definidos na tela de Manutenção de Conjunto de Dados.
+Dados da Tabela da Tabela do Conjunto de Dados
+Ordem de Saída:
+ 
+não alterar
+Arquivo de Exportação:
+ se marcado, o registro será exportado para o arquivo. Marcando ou desmarcando essa opção, não será necessário um novo preenchimento. Basta gerar o arquivo
+UFs Excluídas:
+ caso seja necessário é possível definir quais as UF que não devem ter esse registros gerado.
+Caso uma UF seja incluída na lista de UFs excluídas:
+Não serão gerados os dados do registro para essa UF
+Nos testes do registro, caso tente gerar o registro para essa UF, apresentará a mensagem:
+ Não foi possível gerar um comando para o registro selecionado
+Nota:
+ no preenchimento dos dados do SPED nenhuma informação será apresentada. O registro não será gerado para a UF em questão
+Campo: 
+selecionar o campo que receberá alteração (o SisPetro já filtrará os campos conforme a tabela definida) e em seguida clicar no botão 
+Atualiza
+.
+Definir as configurações necessárias do campo através das opções:
+Participa do Arquivo de Exportação?:
+ se o campo irá sair no arquivo de exportação
+Limpa os caracteres?:
+ limpa caracteres de . , - em campos numéricos, por exemplo o CNPJ que contém . / e -
+Tamanho:
+ tamanho do campo
+Decimais:
+ quantidade de casas decimais (se houver)
+Caracter de Preenchimento: 
+preenche o campo com o carácter informando aqui
+Tipo de Formatação:
+ permite definir o tipo de formatação que terá o campo, podendo ser: 
+Sem Formatação
+Formatação Numérica/Monetária
+Formatação de data
+Formatação: 
+formatação específica para o campo
+Exemplo: campo do tipo data: DD/MM/AAAA
+Ao finalizar a configuração do campo, clicar no botão 
+Salva
+O usuário poderá abortar a configuração através do botão 
+Cancela
+O usuário também poderá excluir a configuração através do botão 
+Exclui
+Ao término da configuração de todos os campos necessários, clicar em 
+Sai

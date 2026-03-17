@@ -1,0 +1,217 @@
+TITULO: Contabilização de Frete
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927273284
+--------------------------------------------------
+Objetivo
+Mostrar como configurar o processo de contabilização e do CMV do Frete, quando a Empresa deseja diminuir o valor do ICMS do Frete da NF de Compra. Além disso, é possível também deduzir os valores a crédito de PIS e COFINS, caso tenha, calculados na inclusão do CT-e (depende da correta configuração na natureza de operação > 
+)
+Será necessário configurar a Contabilização da NF de Compra para que lance o valor integral do Frete em uma conta transitória e configurar a fórmula de custo para também utilizar esse valor.
+Ao receber o CT-e será sabido o valor do ICMS de Frete, sendo assim, a Contabilização do CT-e diminuirá o ICMS de Frete e zerará a conta transitória.
+Caso o CT-e se referencie à NF de Compra (o que acontece automaticamente se o XML for importado e a Natureza estiver configurada devidamente), será necessário utilizar a tela de Atualização de Custo Médio para, ao invés de usar o Valor de Frete total, passar a diminuir o ICMS de Frete conforme foi informado no CT-e.
+Veja abaixo as configurações necessárias:
+Conta Transitória
+Antes de começarmos a fazer a contabilização é necessário criar uma conta do Transitória (Tipo Resultado). Essa conta será creditada na Entrada da NF e no momento que for incluído o 
+CT-e
+ será debitada o mesmo valor, ficando sempre zerada.
+Nota Fiscal de Compra
+ 
+Para a 
+Contabilização Gerencial:
+Natureza de Operação - 
+Aba Contabilização 
+Tipo de Contabilização:
+ automático
+Débito:
+ conta estoque produto
+Crédito:
+ conta entidade
+Utiliza Contabilização Auxiliar:
+ marcado
+Desdobramento de Contas
+D/C
+Conta
+Valor
+Débito
+ICMS S/COMPRAS A COMPENSAR 
+ Informar direto a conta
+<ItensNF.ValICMS>
+Crédito
+ <ItensNF.CCEstoque>
+<ItensNF.ValICMS>
+Débito
+ <ItensNF.CCEstoque>
+ ArredondaDelphi((isnull(<ItensNF.FreteUnitReal>,0)*<ItensNF.Qtde>),2)
+Crédito
+CONTA TRANSITÓRIA DE FRETES S/COMPRAS 
+ Informar 
+direto a conta
+ ArredondaDelphi((isnull(<ItensNF.FreteUnitReal>,0)*<ItensNF.Qtde>),2)
+Onde estiver se referenciando à tabela e ao campo (por exemplo, <ItensNF.CCEstoque>), localizar na janela de Fórmulas a tabela/campo correspondente e utilizá-lo com o sequencial do campo (ainda neste exemplo ficaria <773>).
+Exemplo com valores de uma NF de Compra:
+Qtde: 59.472
+Preço Real: 2,409
+Frete Unitário: 0,10
+Valor da NF: Qtde * Preço Real -> 59.472 * 2,409 = 143.268,05 
+Valor ICMS: 17.192,17 
+Valor do Frete:
+ Qtde * Frete Unitário -> 59.472 * 0,10 = 5.947,20
+Gerado pela contabilização automática
+D - CONTA ESTOQUE => 143.268,05 
+C - ENTIDADE => 143.268,05 
+Gerado pelo desdobramento de contas
+D - ICMS S/ COMPRAS A COMPENSAR 
+=>
+ 17.192,17 
+C - CONTA ESTOQUE 
+=>
+ 17.192,17 
+D - CONTA ESTOQUE 
+=>
+ 5.947,20 
+C - CONTA TRANSITÓRIA DE FRETES S/COMPRAS 
+=>
+ 5.947,20 
+Para a Contabilização Real:
+Opção 1
+Criar um código de Contabilização similar ao Desdobramento de Contas
+Na Natureza, aba Contabilização
+No campo 
+Código de Contabilização
+ indicar o código de Contabilização criado
+Opção 2
+Na Natureza, aba Contabilização
+Marcar 
+Desconsidera Código de Contabilização
+ (com isso a contabilização real será idêntica à gerencial)
+ 
+CT-e de Compra
+Contabilização Gerencial
+Natureza de Operação 
+Aba Dados Gerais / Geral 
+ 
+Tipo da Nota Fiscal
+ 
+Conhecimento
+Aba Contabilização
+Tipo de Contabilização
+: manual (definido na Natureza)
+Débito:
+ conta Especifica => CONTA TRANSITÓRIA DE FRETES S/COMPRAS 
+Crédito:
+ conta Entidade
+Utiliza Contabilização Auxiliar
+: marcado
+Desdobramento de Contas
+D/C
+Conta
+Valor
+Débito
+ ( - ) ICMS FRETE 
+ Informar direto a conta
+<ItensNF.ValICMS>
+Crédito
+ICMS A RECUPERAR 
+ Informar direto a conta
+<ItensNF.ValICMS>
+Exemplo com valores de um CT-e de Compra:
+Valor do CT-e: 5.947,20
+Valor ICMS: 
+5.947,20
+Gerado pela contabilização automática
+C - ENTIDADE 
+=> 5.947,20
+D - CONTA TRANSITÓRIA DE FRETES S/COMPRAS => 5.947,20
+Gerado pelo desdobramento de contas
+D - ( - ) ICMS FRETE
+=>
+ 570,93
+C - CREDITO DE ICMS
+=>
+ 570,93
+A conta ( - ) ICMS FRETE tem que estar no grupo de Estoque abaixo de todos produtos
+Contabilização Real:
+Opção 1
+Criar um código de Contabilização similar ao Desdobramento de Contas
+Na Natureza, aba Contabilização
+No campo Código de Contabilização indicar o código de Contabilização criado
+Opção 2
+Na Natureza, aba Contabilização
+Marcar "Desconsidera Código de Contabilização" (com isso a contabilização real será idêntica à gerencial)
+ 
+Contabilização de CT-e de entrada a partir do item da Nota Fiscal de Compra vinculada 
+Foi criada a função 
+GetCCEstoqueNFVinc
+ com o objetivo de contabilizar o valor do frete na conta de estoque (CCEstoque) do item da Nota de Compra. Quando lançamos no SisPetro o CT-e de Compra, no xml não vem especificado qual produto foi carregado. É necessário buscar na Nota de Compra que foi vinculada a esse CT-e qual o produto dessa nota. Dessa forma, a função criada utilizará a Conta de Estoque ( CCEstoque) gravada na nota fiscal e contabilizar o frete na mesma.
+Exemplo de uso da função:
+D/C
+Conta
+Valor
+Débito
+ContaReal(GetCCEstoqueNFVinc(<ItensNF.CodEmpresa>,<ItensNF.Sequencial>))
+ArredondaDelphi(((<ItensNF.Precoreal>)*<ItensNF.Qtde>),2)
+Crédito
+<Entidade.SeqConta>
+ArredondaDelphi(((<ItensNF.Precoreal>)*<ItensNF.Qtde>),2)
+1 - A função tem que ser colocada na coluna Conta conforme exemplo acima.
+2 - Onde estiver se referenciando à tabela e ao campo (por exemplo, <ItensNF.CodEmpresa>), localizar na janela de Fórmulas a tabela/campo correspondente e utilizá-lo com o sequencial do campo (ainda neste exemplo ficaria <729>).
+3 - A Nota de Compra já deve estar lançada no SisPetro 
+Custo
+A Fórmula do Custo deve ser configurada na Natureza da NF de Compra
+Natureza de Operação
+Aba Por Filial / Custos
+Campo Fórmula de Cálculo
+ : informar opção Fórmula
+Campo Fórmula
+A função 
+GetValorICMSFretePorItem
+ tem como objetivo 
+obter
+ o 
+valor
+ do 
+ICMS do Frete
+ e 
+deduzir
+ do 
+valor unitário
+ do 
+frete
+ na 
+NF de Compra
+.
+Esta função obtém o valor proporcional do ICMS do frete em CT-e quando tem mais de uma NF-e vinculada ou tem uma NF-e vinculada com mais de um item.
+Exemplo de Fórmula com a Função GetValorICMSFretePorItem
+(<ItensNF.PrecoReal> + isnull(<ItensNF.FreteUnitReal>,0))-(if <ItensNF.QtdeAmb > = 0 then 0 else GetValorICMSFretePorItem(<ItensNF.CodEmpresa>,<ItensNF>Sequencial>,<ItensNF.NumItem>)/<ItensNF.QtdeAmb> endif)
+As funções 
+GetPISCTeVinc 
+e 
+GetCOFINSCTeVinc 
+tem como objetivo 
+obter
+ os 
+valores 
+do 
+PIS
+ e da 
+COFINS
+ e 
+deduzir
+ do 
+valor unitário
+ do 
+frete
+ na 
+NF de Compra.
+Exemplo de Fórmula com as funções GetPISCTeVinc e GetCOFINSCTeVinc
+(<ItensNF.PrecoReal> + isnull(<ItensNF.FreteUnitReal>,0))-((if <ItensNF.QtdeAmb> = 0 then 0 else GetValorICMSFretePorItem(<ItensNF.CodEmpresa>,<ItensNF>Sequencial>,<ItensNF.NumItem>) + GetPISCTeVinc(<ItensNF.CodEmpresa>,<ItensNF>Sequencial>,<ItensNF.NumItem>) + GetCOFINSCTeVinc(<ItensNF.CodEmpresa>,<ItensNF>Sequencial>,<ItensNF.NumItem>)) / <ItensNF.QtdeAmb> endif)
+Após a inclusão do CT-e é necessário atualizar o Custo Médio ( 
+Atualização de Custo Médio
+ ) para que o SisPetro possa recalcular o CMV já deduzindo o valor do ICMS do Frete e os valores de PIS e COFINS, caso tenha e queira deduzir tais valores.
+A fórmula só deduzirá o ICMS do CT-e e dos valores de PIS e COFINS após o mesmo estar vinculado com a NF de Compra
+Formula para Livro Fiscal
+A função GetUFDestCTe tem como objetivo identificar o Estado/Cidade de Origem do CT-e, onde foi carregado.
+Sispetro Controladoria
+Arquivo / Formula para Livro Fiscal
+Detalhes
+ : uf
+Exemplo de Fórmula com a Função GetUFDestCTe
+GetUFDestCTe(<NotaFiscal.CodEmpresa>,<NotaFiscal.Sequencial>)

@@ -1,0 +1,172 @@
+TITULO: Configuração para utilizar o banco como Serviço
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903508159
+--------------------------------------------------
+Após efetuar a migração do banco de dados atual para a nova versão do Sybase 12, é 
+importante
+ que o usuário configure o seu respectivo banco de dados para trabalhar como serviço. Configurando dessa forma, o processo de inicialização do banco ficará automático. 
+
+
+
+
+
+
+Acesse o SQL Anywhere 12;
+
+
+
+Acessar a opção SQL Anywhere 12;
+
+
+
+
+
+
+
+Acessar a aba 
+Services
+;
+
+
+
+
+
+
+
+Clique no botão 
+New Service
+;
+
+
+
+
+
+
+
+Na tela 
+Create Service Wizard
+, informe o nome do serviço no campo 
+What do you want to name the new service?
+. Clique em 
+Next
+;
+
+
+
+
+
+
+
+Na tela 
+Select a Type
+, selecione o Tipo de serviço que será criado, optando pela opção 
+Network Database Server
+. Clique em 
+Next
+;
+
+
+
+
+
+
+
+Na tela 
+Specify an Executable
+, confirme o caminho e nome do executável sugerido para iniciar o serviço (
+manter o caminho e executável sugerido!). Clique em *Next
+;
+
+
+
+
+
+
+
+Na tela de 
+Specify Parameters
+ informe os parâmentros necessários para iniciar o serviço.
+
+
+
+
+Exemplo:
+
+-c128M -nscgwin c:\bancos\scgwin12.db
+
+
+
+
+
+Importante:
+
+
+-c128m =
+ número de memória a ser utilizada. Ficará a critério da empresa a definição do tamanho.
+
+
+-nscgwin =
+ nome do serviço referente a utilização do banco, devendo ser o mesmo a ser configurado no ODBC.
+
+
+c:\bancos\scgwin12.db =
+ definição do caminho onde se encontra o arquivo .db referente ao banco de dados, lembrando que o arquivo também deverá ser mencionado.
+
+
+
+
+Clicar em 
+Next
+;
+
+
+
+Na tela de 
+Select Acount
+, mantenha a opção 
+Local System
+ marcado, e clique em 
+Next
+;
+
+
+
+
+
+
+
+Na tela de 
+Startup Type
+, selecione a opção 
+Automatic
+, e clique em 
+Next
+;
+
+
+
+
+
+
+
+Na tela de 
+Star the Service
+, marque a opção 
+Start the service now
+ para iniciar o serviço assim que finalizar.
+
+
+
+
+
+
+
+Clique em 
+Finish
+;
+
+
+
+Após iniciar o banco de dados como serviço, o usuário deverá 
+executar comandos para validação do banco de dados
+.
+

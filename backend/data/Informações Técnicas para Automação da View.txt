@@ -1,0 +1,131 @@
+TITULO: Informações Técnicas para Automação da View
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898297
+--------------------------------------------------
+Ao gravar os dados no banco de dados SQL Server da Automação da View, algumas informações técnicas são importantes:
+
+
+
+
+Conexão
+
+
+
+
+É necessário que a máquina (microcomputador) que utiliza o SisPetro para pegar fila da OC e as telas de Portaria de Entrada e Saída tenham condições de acessar o banco de dados SQL Server via ODBC. Deve ser criada uma fonte de dados de sistema, conforme figura:
+
+
+
+
+Para o SisPetro conseguir fazer a conexão é necessário que, no micro onde será utilizado o SisPetro, o teste desta conexão seja executado com sucesso.
+
+
+
+
+
+
+Esta fonte de dados deverá ser informada no arquivo SCG.Ini conforme tópico 
+Seção Automação
+.
+
+
+
+
+Tabelas utilizadas
+
+Basicamente as tabelas utilizadas do banco SQL Server são OrdCar e Carreta.
+
+
+
+
+
+
+
+
+
+
+Carreta
+
+A tabela carreta contém informações do frota utilizado na OC. Assim, a cada OC que pega fila, gravamos um registro nesta tabela Carreta. Caso a placa já exista o registro só é atualizado. Se não existir é feita a inclusão.
+
+
+A placa que será gravada é a placa do Frota utilizado, caso seja informado somente um na OC (truck ou toco) ou então a placa da Carreta, caso seja informado o cavalo e outros frotas vinculados.
+
+A compartimentação e capacidade do frota seguirá uma regra similar.
+
+
+Se for informado somente um frota, a compartimentação configurada para ele na Manutenção de Frotas será gravada na tabela Carreta.
+
+
+Se for informado o cavalo e carreta, a compartimentação configurada para a carreta na Manutenção de Frotas será gravada na tabela Carreta.
+
+
+Se for informado o cavalo, carreta e treminhã, a compartimentação configurada para a carreta ocupará as primeiras compartimentações e em seguida a compartimentação do treminhão, totalizando no máximo 7 compartimentos.
+
+
+
+Ex.: Se a carreta tiver 3 compartimentos e o treminhão 4 compartimentos, será feita a seguinte gravação:
+
+Compartimento 1: Compartimento 1 da Carreta
+
+Compartimento 2: Compartimento 2 da Carreta
+
+Compartimento 3: Compartimento 3 da Carreta
+
+Compartimento 4: Compartimento 1 do Treminhão
+
+Compartimento 5: Compartimento 2 do Treminhão
+
+Compartimento 6: Compartimento 3 do Treminhão
+
+Compartimento 7: Compartimento 4 do Treminhão
+
+Ou seja, se a carreta tivesse mais que 3 compartimentos, alguns compartimentos do treminhão não seriam gravados.
+
+
+
+
+
+
+
+
+Além dos dados de compartimentação há a gravação da senha do veículo, que no SisPetro foi denominado de Código de Automação.
+
+
+Grava-se também os dados do motorista informado na OC, a placa do cavalo (se houver) e a data de aferição do veículo. Neste caso conforme 
+configurações
+ no perfil do sistema.
+
+
+
+
+
+
+
+
+OrdCar
+
+A tabela OrdCar terá um registro para cada item de OC do SisPetro. Ou seja, o que o sistema de automação da View chama de OC para o SisPetro é um item da Portaria de Entrada (ou da OC).
+
+
+O número da OC na tabela OrdCar será a chave de automação gravado no SisPetro e que pode ser consultado na Manutenção de Ordem de Carregamento ou na Portaria de Entrada.
+
+
+O código do Produto será conforme o código de exportação configurado no 
+Cadastro de Produtos
+.
+
+
+
+
+
+
+
+
+
+
+Na leitura dos dados se o produto for Gasolina C, lemos nos campos TEMORC1, VOLBRUTO1 e VOLLIQUIDO1 a temperatura, volume ambiente e volume 20C, respectivamente, da Gasolina A e dos TEMORC2, VOLBRUTO2 e VOLLIQUIDO2 a temperatura, volume ambiente e volume 20C, respectivamente, do Álcool Anidro. Para os demais produtos os dados utilizados serão sempre dos campos TEMORC, VOLBRUTO e VOLLIQUIDO.
+
+O campo DATAMOV indicará a data do carregamento e o campo ORDFINALIZ, quando estiver com o valor 1, indica que a ordem já foi finalizada (efetivamente carregada).
+
+
+Ao cancelar a fila no SisPetro, atualizamos o campo STSORD para 12, o que indica o cancelamento. 

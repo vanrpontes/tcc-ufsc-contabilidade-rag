@@ -1,0 +1,30 @@
+TITULO: Alteração em Pedido de Venda em Lote
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2942469647
+--------------------------------------------------
+A ferramenta de Alteração em Pedido de Venda em Lote, foi desenvolvida para que o usuário possa imprimir o pedido de venda, efetuar alteração de Tipo de Cobrança e Alteração de Depósito e sempre, no máximo, até 10 pedidos.
+O usuário poderá indicar as alterações necessárias, mas uma por vez.
+O acesso a tela é através do menu 
+"Movimentação > Vendas > Alteração de Pedidos de Venda em Lote"  (por padrão visível, porém desabilitado).
+A tela possui filtro por data, onde serão exibidos apenas os pedidos aprovados ou não, sem ordem de carregamento ou faturados.
+O cabeçalho possui também possui filtro em todas as colunas para facilitar a localização dos pedidos que o usuário deseje alterar.
+Para realizar a alteração, primeiro o usuário deve marcar o pedido através do combo da primeira coluna, também existe a possibilidade de marcar todos os pedidos de uma única vez através do botão, 
+ lembrando que é permitido alterar apenas 10 pedidos por vez.
+Após marcar os pedidos que deseja alterar, selecione a operação desejada:
+Alterar Depósito no pedido
+Os dados para Altera Depósito só estarão habilitados se o 
+perfil de usuário "Permite alterar depósito no pedido?"
+ estiver diferente de "Não Permite".
+Na opção de alteração do depósito, o pedido original é cancelado e é gerado um novo pedido. Por conta disso é solicitado ao usuário um motivo de cancelamento.
+Após selecionar o novo Depósito, não pode ser utilizado o mesmo Depósito do pedido original, selecione também o Motivo de Alteração, basta clicar no botão "Processa," para confirmar a operação.
+ "Aviso de Estoque Negativo"
+Considera como erro
+Quando o deposito estiver com o perfil "Verificação de Estoque" = Avisa no pedido quando negativo, o Sispetro barra a alteração e não permite a conclusão.
+Considera como ok
+Quando o deposito estiver com o perfil "Verificação de Estoque" = Avisa no pedido quando negativo, o Sispetro avisa mas permite a alteração.
+Alterar Tipo de Cobrança
+Os dados para Altera Depósito só estarão habilitados se o 
+perfil de usuário "Pode alterar tipo cobrança pedido"
+ estiver marcado. 
+Após selecionar o novo Tipo de Cobrança, que deve ser diferente da cobrança do pedido original, clique no botão "Processa" para gravar as alterações.
+Impressão Pedidos
+Após selecionar a impressora e n° de vias dos pedidos, basta clicar no botão "Processa," para imprimir.

@@ -1,0 +1,173 @@
+TITULO: Grupo Contábil - Faturamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4213768202
+--------------------------------------------------
+Cabeçalho do lote: 
+Fórmula para Data:
+ NotaFiscal.DataNF
+Fórmula para Código Histórico: 
+NotaFiscal.CodHistorico
+Fórmula para Histórico:
+ NOTA FISCAL Nº NotaFiscal.NumeroNF
+Fórmula para Numero Docto:
+ NotaFiscal.NumeroNF
+Fórmula para Informações Adicionais:
+ NotaFiscal.RzSocial
+VENDA SEM IMPOSTOS:
+Operação
+Conta
+Campo da Conta
+Valor
+Campo de Valor
+Débito
+Cliente
+Entidade.SeqConta*
+Nota
+ArredondaDelphi(((ItensNF.PrecoReal+ Isnull(ItensNF.FreteUnitReal,0))*ItensNF.qtde),2)
+Crédito
+Receita
+ItensNF.CCReceitaVenda
+Nota
+ArredondaDelphi(((ItensNF.PrecoReal+ Isnull(ItensNF.FreteUnitReal,0))*ItensNF.qtde),2)
+*Não precisa utilizar a função ContaReal
+Obs.:
+ nos campos da Conta colocar o conteúdo dentro da função ContaReal(), desde que a conta contábil informada seja gerencial. A conta contábil é gerencial quando informa a tabela e o campo conforme exemplo.
+Exemplo:
+ ContaReal(ItensNF.CCReceitaVenda).
+COMPRA SEM IMPOSTOS:
+Operação
+Conta
+Campo da Conta
+Valor
+Campo de Valor
+Débito
+Estoque
+ItensNF.CCEstoque
+Nota
+ArredondaDelphi(((ItensNF.PrecoReal+ Isnull(ItensNF.FreteUnitReal,0))*ItensNF.qtde),2)
+Crédito
+Fornecedor
+Entidade.SeqConta*
+Nota
+ArredondaDelphi(((ItensNF.PrecoReal+ Isnull(ItensNF.FreteUnitReal,0))*ItensNF.qtde),2)
+*Não precisa utilizar a função ContaReal
+Obs.:
+ nos campos da Conta colocar o conteúdo dentro da função ContaReal(), desde que a conta contábil informada seja gerencial. A conta contábil é gerencial quando informa a tabela e o campo conforme exemplo.
+Exemplo:
+ ContaReal(ItensNF.CCEstoque).
+VENDA COM IMPOSTOS:
+ 
+Operação
+Conta
+Campo da Conta
+Valor
+Campo de Valor
+Débito
+Cliente
+Entidade.SeqConta*
+Nota
+ArredondaDelphi(((ItensNF.PrecoReal+ Isnull(ItensNF.FreteUnitReal,0))*ItensNF.qtde),2)
+Débito
+Despesas Impostos
+430 - Conta contábil real Despesas ICMS
+Nota
+ItensNF.ValICMS
+Débito
+Despesas Impostos
+431 - Conta contábil real Despesas PIS
+Nota
+PegaValorOutrosImpostos(ItensNF.CodEmpresa,ItensNF.Sequencial,ItensNF.NumItem,
+PegaCodOutImpPISNF(ItensNF.CodEmpresa,ItensNF.Sequencial))
+Débito
+Despesas Impostos
+432 - Conta contábil real Despesas COFINS
+Nota
+PegaValorOutrosImpostos(ItensNF.CodEmpresa,ItensNF.Sequencial,ItensNF.NumItem,
+PegaCodOutImpCOFINSNF(ItensNF.CodEmpresa,ItensNF.Sequencial))
+Crédito
+Receita
+ItensNF.CCReceitaVenda
+Nota
+ArredondaDelphi(((ItensNF.PrecoReal+ Isnull(ItensNF.FreteUnitReal,0))*ItensNF.qtde),2) - ItensNF.ICMSSubst
+Crédito
+Impostos Retenção
+205 - Conta contábil real ICMS ST Retenção
+Nota
+ItensNF.ICMSSubst
+Crédito
+Impostos a Recolher
+200 - Conta contábil real ICMS Próprio a Recolher
+Nota
+ItensNF.ValICMS
+Crédito
+Impostos a Recolher
+230 - Conta contábil real PIS a Recolher
+Nota
+PegaValorOutrosImpostos(ItensNF.CodEmpresa,ItensNF.Sequencial,ItensNF.NumItem,
+PegaCodOutImpPISNF(ItensNF.CodEmpresa,ItensNF.Sequencial))
+Crédito
+Impostos a Recolher
+228 - Conta contábil real COFINS a Recolher
+Nota
+PegaValorOutrosImpostos(ItensNF.CodEmpresa,ItensNF.Sequencial,ItensNF.NumItem,
+PegaCodOutImpCOFINSNF(ItensNF.CodEmpresa,ItensNF.Sequencial))
+*Não precisa utilizar a função ContaReal 
+Obs.:
+ nos campos da Conta colocar o conteúdo dentro da função ContaReal(), desde que a conta contábil informada seja gerencial. A conta contábil é gerencial quando informa a tabela e o campo conforme exemplo.
+Exemplo:
+ ContaReal(ItensNF.CCReceitaVenda).
+ 
+COMPRA COM IMPOSTOS:
+Operação
+Conta
+Campo da Conta
+Valor
+Campo de Valor
+Débito
+Estoque
+ItensNF.CCEstoque
+Nota
+ArredondaDelphi(((ItensNF.PrecoReal + if ItensNF.DestacaFrete=1 then Isnull(ItensNF.FreteUnitReal,0)else 0 endif)*ItensNF.qtde),2)+isnull(ItensNF.ValAcrDesc,0)+isnull(ItensNF.ValDespAcess,0)+ItensNF.ValIPI
+Débito
+Impostos a Recuperar
+57 - Conta contábil real ICMS Próprio a Recuperar
+Nota
+ItensNF.ValICMS
+Débito
+Impostos a Compensar
+45 - Conta contábil real PIS a Compensar
+Nota
+PegaValorOutrosImpostos(ItensNF.CodEmpresa,ItensNF.Sequencial,ItensNF.NumItem,
+PegaCodOutImpPISNF(ItensNF.CodEmpresa,ItensNF.Sequencial))
+Débito
+Impostos a Compensar
+42 - Conta contábil real COFINS a Compensar
+Nota
+PegaValorOutrosImpostos(ItensNF.CodEmpresa,ItensNF.Sequencial,ItensNF.NumItem,
+PegaCodOutImpPISNF(ItensNF.CodEmpresa,ItensNF.Sequencial))
+Crédito
+Fornecedor
+Entidade.SeqConta*
+Nota
+ArredondaDelphi(((ItensNF.PrecoReal + if ItensNF.DestacaFrete=1 then Isnull(ItensNF.FreteUnitReal,0) else 0 endif)*ItensNF.qtde),2)+isnull(ItensNF.ValAcrDesc,0)+isnull(ItensNF.ValDespAcess,0)+ItensNF.ValIPI
+Crédito
+Estoque
+ItensNF.CCEstoque
+Nota
+ItensNF.ValICMS
+Crédito
+Estoque
+ItensNF.CCEstoque
+Nota
+PegaValorOutrosImpostos(ItensNF.CodEmpresa,ItensNF.Sequencial,ItensNF.NumItem,
+PegaCodOutImpPISNF(ItensNF.CodEmpresa,ItensNF.Sequencial))
+Crédito
+Estoque
+ItensNF.CCEstoque
+Nota
+PegaValorOutrosImpostos(ItensNF.CodEmpresa,ItensNF.Sequencial,ItensNF.NumItem,
+PegaCodOutImpPISNF(ItensNF.CodEmpresa,ItensNF.Sequencial))
+*Não precisa utilizar a função ContaReal
+Obs.:
+ nos campos da Conta colocar o conteúdo dentro da função ContaReal(), desde que a conta contábil informada seja gerencial. A conta contábil é gerencial quando informa a tabela e o campo conforme exemplo.
+Exemplo:
+ ContaReal(ItensNF.CCEstoque).

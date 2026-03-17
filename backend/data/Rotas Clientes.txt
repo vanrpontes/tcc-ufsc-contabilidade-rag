@@ -1,0 +1,54 @@
+TITULO: Rotas (Clientes)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210648
+--------------------------------------------------
+O painel "Rotas" é acessado pelo cliente através do painel 
+Detalhes
+, do cadastro do cliente. Aqui o usuário poderá definir rotas para o cliente selecionado.
+A opção 
+Trava Rota
+ serve para impedir atualizações automáticas. Por exemplo, se uma cidade é incluída numa rota, o sistema procurará clientes que sejam desta cidade e incluem esta rota para estes clientes. Porém isso só ocorrerá se o cliente não estiver com esta opção Trava Rota marcada. Maiores esclarecimentos sobre a atualização automática em 
+Tabela Rotas
+.
+O código 
+Região para Frete
+ é utilizado em casos que o município do Cliente é muito extenso e se opta por cadastrar regiões para identificar melhor a localização do cliente. A região deverá estar cadastrada previamente na 
+Tabela Cidades
+, o sistema sempre cadastrará automaticamente o Região para Frete de acordo com o município do Cliente, caso esta informação não seja preenchida. Este código será utilizada em duas situações:
+se a empresa trabalha com cálculo do frete por região, no cálculo do frete será calculado o valor especificamente para essa região.
+Através desta região é que se pode pesquisar as rotas compatíveis, explicada mais abaixo.
+Rota Preferencial
+: é a rota principal para acesso a localização do cliente, será a rota apresentada na tela de 
+Composição de carga
+, para que seja utilizada como referencial no agrupamento de pedidos numa carga. Só pode ser uma e ela não poderá ser repetida no grid de rotas não preferenciais.
+Rotas não preferenciais
+: são as rotas alternativas para acesso à localização do cliente, utilizadas em casos que não tenha carregamento direto para a rota preferencial.
+Para inserir as rotas não preferencias acione o botão 
+Inclui
+ e selecione o código da rota. Caso deseje excluir uma rota não preferencial basta acionar o botão 
+Exclui
+.
+O botão 
+Inclui Rotas Compatíveis
+ verificará quais as rotas cadastradas cujo itinerário passa pela região do cliente e providencia a inclusão destas rotas, facilitando o trabalho do usuário, o usuário poderá excluir aquelas que ele julgar desnecessárias.
+Clique no botão 
+Salva
+ para salvar as movimentações feitas nessa tela.
+Quadro Sobretaxa de Frete: 
+p
+ermite que seja informada uma sobretaxa de frete por cliente para uso nas Vendas.
+Valor: 
+definirá a taxa conforme valor informado, podendo ser utilizado também valor negativo.
+Percentual:
+ definirá a taxa conforme percentual informado, podendo ser utilizado também valor negativo.
+Justificativa: 
+o
+nde poderá ser informada a justificativa para a sobretaxa.
+Observação: O valor a ser informado deverá ser o 
+valor unitário
+ (
+exemplo: R$ 0,010 * 10.000 litros = R$ 100,00
+), uma vez que este valor será somado ao valor de frete no momento do lançamento do Pedido de Venda. 
+Para que funcione a Sobretaxa, de acordo com o endereço de entrega, precisa ajustar o Perfil de Sistema → Aba Clientes → Endereço no Cálculo de Frete e outras validações Vendas para 
+Do endereço pref. entrega. 
+Para mais informações, ver 
+Painel Clientes

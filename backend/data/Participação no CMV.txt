@@ -1,0 +1,107 @@
+TITULO: Participação no CMV
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898991
+--------------------------------------------------
+Para que as movimentações de 
+entrada e saída
+ de um produto, participe da apuração do CMV, primeiramente deve-se identificar a origem deste movimento:
+
+
+Estoque Escritural
+
+
+
+
+Notas Fiscais
+:
+
+Neste caso, a nota (Entrada ou Saída) só participará do CMV se na 
+Natureza de Operação
+ utilizada estiver marcada a opção 
+Participa do CMV
+. Caso alguma natureza seja alterada para participar ou não do CMV e seja necessário atualizar algumas notas anteriores a alteração, deve-se utilizar a opção 
+.
+
+
+
+
+
+
+Pedidos de Outras entradas/ Outras saídas (ajustes)
+:
+
+Nestes casos, ao invés de informar uma natureza de operação, o usuário informa o Histórico Padrão para aquele movimento. Configurando o 
+histórico
+, pode-se optar pela participação ou não do ajuste no CMV, com algumas ressalvas descritas a seguir.
+
+
+
+
+Nos ajustes de Outras Saídas, qualquer movimentação sempre participará do CMV, mesmo tendo o parâmetro no histórico desmarcado, afinal a movimentação não foi contabilizada.
+
+
+No caso de Outras Entradas, temos os seguintes tipos de movimentação:
+
+
+
+
+Movimentações que serão cobertas por documento posterior como o bombeio cujo documento será utilizado para CMV, assim esse tipo de movimentação não deve ser levado em consideração. Assim, pedidos gerados com esta finalidade nunca participarão do CMV, independente da configuração do histórico.
+
+
+Movimentos de Terceiros (OCs avulsas): não é necessário calcular CMV, pedidos gerados com esta finalidade nunca participarão do CMV, independente da configuração do histórico.
+
+
+Movimentos próprios que não serão acobertados por documento: Pedidos OE (através do menu ou do 
+Fechamento de Estoque
+), 
+Transferência entre filiais
+ ou Transferência entre depósitos e 
+. Nestes casos, exceto o Rateio (que nunca participará do CMV, será conforme a escolha do histórico.
+
+O cálculo do CMV é feito via 
+Fechamento de Custo
+.
+
+
+
+
+Estoque Físico
+
+
+A partir da versão 7.12 o Sispetro fará o cálculo online do Custo Médio do Estoque Físico.
+
+Há semelhanças e diferenças em relação ao Estoque Escritural.
+
+
+Entradas
+
+
+
+
+Descargas com OCs que a NF já foi recebida
+
+Como no estoque escritural, a entrada participará do CMV se a 
+Natureza de Operação
+ utilizada na NF estiver marcada a opção 
+Participa do CMV
+. 
+
+
+Descargas com OCs sem NF
+
+Dependerá do 
+histórico
+ utilizado nesse movimento, se está marcada ou não a opção 
+Participa do CMV
+.
+
+
+
+
+Saídas
+
+Como a contabilização do CMV é feita no Estoque Escritural. 
+Todas as saídas não participam do CMV
+.
+
+
+O cálculo do CMV é feito lançamento a lançamento.

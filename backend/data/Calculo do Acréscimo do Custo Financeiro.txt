@@ -1,0 +1,104 @@
+TITULO: Calculo do Acréscimo do Custo Financeiro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439741
+--------------------------------------------------
+Para calcular o acréscimo de custo financeiro, poderá optar por uma das duas opções de acordo com o perfil de sistema.
+Custo Financeiro fixo (em valor) por produto.
+Custo Financeiro variável (em percentual) - mais comum.
+Existe ainda um caso particular quando queremos definir para determinados clientes um custo financeiro especial (somente para estes clientes). Assim, depois de definir o padrão (na tabela de 
+condições de pagamento
+), deve-se acessar no cadastro de clientes - na aba Preços, a tabela de preços deste cliente e definir ali o custo financeiro (que será utilizado somente para este cliente). Ver mais em 
+Preços
+.
+Definindo perfis de sistema para funcionamento:
+Ferramentas / Sistema 
+/ Aba 
+Vendas
+ 
+/
+ Quadro Preço no Ped. Venda / 
+Marcar Inclui acréscimo/decr. no preço p/ condição pagto. 
+Tipo Acréscimo Financeiro Tabela Preços:
+ em ambos os casos, define-se o valor ou percentual por meio da condição de pagamento na manutenção de condições de pagamento. Esta configuração é por filial.
+Percentual de Preço: 
+se selecionado, deve-se informar o percentual que será considerado para acréscimo financeiro no preço de tabela.
+Valor por Litro:
+ se selecionado, deve-se informar o valor por litro que será considerado para acréscimo financeiro no preço de tabela.
+Para controle por filial
+ é necessário habilitar o 
+perfil em Sistema / Aba
+ 
+Vendas
+ /
+ 
+Quadro Preço Ped. Venda / e
+ 
+marcar a opção
+ 
+Trabalha com Acréscimo Financeiro por filial. 
+Para definir o custo financeiro padrão, deve-se abrir a janela de manutenção de condições de pagamento 
+Tabelas Auxiliares / Vendas / 
+Condições Pagamento
+.
+ 
+Selecione a condição que deseja editar caso você queira atualizar ou editar o custo financeiro de determinado intervalo - por exemplo, deseja-se editar para que o custos financeiros que tenham prazos entre 7 e 10 dias seja de 3%, escolha uma condição de pagamento que esteja neste intervalo campo prazo.
+Para informar os acréscimos acesse Tabelas Auxiliares / Vendas / Condições de Pagamento / Seleciona a Condição de Pagamento / Aba superior 
+Preços/Acréscimos.
+Aba Acréscimo: 
+t
+ela para cadastro de percentuais de acréscimo.
+Fator Acréscimo FInanceiro (%): 
+p
+ercentual geral afetando todas empresas.
+Replica estes valores p/ o intervalo de prazos:
+ pode-se replicar este percentual para as condições de pagamento que tem como prazo os valores inicial e final definidos nos controles Prazo Inicial e Final - apertando em seguida o botão
+ 
+Replica
+.
+Acréscimo Por Filial:
+ Neste quadro é informado o percentual de acréscimo por filial, o mesmo irá sobrepor o valor informado na aba geral.
+Aba Preço: 
+custo Financeiro Fixo (valor por litro)
+Note que, caso a empresa esteja com o tipo de custo financeiro habilitado como sendo
+ 
+Percentual do Preço
+, fica desabilitado o controle superior da tela (onde aparecem os produtos para que se defina um valor fixo por litro de custo financeiro - para esta condição de pagamento).
+Para cálculo por litro 
+acesse a tela Ferramentas / Sistema
+ / Quadro Preço no Ped. Venda / Opção 
+Tipo Acréscimo Financeiro Tabela Preços / selecionar Valor por Litro.
+Na tela de condições de pagamento, note que agora está habilitado um controle para entrada de custo financeiro por produto (em valores por litro). 
+Você tem a opção de replicar estes custos para outras tabelas de condições de pagamento indicando as condições de pagamento cujo prazo inicial e final deseja replicar apertando em seguida o botão
+ 
+Replica
+.
+Fórmula
+ utilizada pra calculo do preço com Percentual definido na condição de Pagamento
+Preço Final = Preço * (1+(Fator Acréscimo Condição Pagamento /100))
+Exemplo: p
+roduto: OLEO DIESEL B S500 - Valor Preço - R$ 5,00 - Condição de Pagamento 05 DIAS - Fator de Acréscimo Financeiro - 5%
+R$5,00 * (1+(5 /100)) = Preço Final R$ 5,25
+Aplicação do Custo Financeiro Sobre Preço Tabela
+Abra a tela de Configuração de Sistema (Ferramentas / Empresa) e clique na aba 
+Vendas
+ (tela abaixo). 
+Através do perfil  
+Calcula custo financeiro segundo Preço Tabela 
+se define a aplicação do Custo Financeiro.
+Com o perfil marcado, o calculo do Custo Financeiro se dá sobre 
+o preço da tabela de Preços.
+Com o perfil desmarcado, o calculo do Custo Financeiro se dá sobre o preço inserido na inclusão do Pedido de Vendas.
+Cálculos específicos para determinados clientes
+Como foi dito anteriormente, pode-se utilizar o procedimento acima para todos os clientes automaticamente independente da tabela de preços que cada um deles utilize. Porém, caso determinado cliente necessite de um cálculo de custo financeiro diferente, pode-se cadastrá-lo no cadastro de clientes (
+especificamente
+ para este cliente na aba Preços) sem que seja preciso alterar a tabela de preços dele. Basta portanto especificar na coluna %Custo Financeiro Dia o CF que se deseja para este cliente e produto. Não esquecer que este custo financeiro é por filial. Com isso, para os clientes que não possuem este custo financeiro cadastrado especificamente para eles (ou para os que possuem mas não para todas as filiais), o Sispetro 
+obtêm
+ o custo financeiro da tabela de condições de pagamento. Quando ele encontrar um custo financeiro cadastrado para a filial do pedido, para o produto e para o cliente especificado, ele irá utilizar este custo financeiro.
+Exemplo:* um cliente tem o custo de 1% ao dia, o nº de dias para início de cálculo do custo financeiro é 3 e o preço do produto é R$ 1,00.
+a) Condição de pagamento com prazo de 1 dia a 3 dias:
+ não será calculado custo financeiro.
+b) Condição de pagamento com prazo superior a 3 dias:
+ será calculado o custo financeiro multiplicando o percentual ao dia (1%) pelo número de dias do prazo da condição de pagamento, ou seja, uma condição com 5 dias terá um percentual de 5% aplicado ao preço de R$ 1,00, ficando o preço então R$ 1,05.
+Atenção:
+ no caso de pedidos de venda do tipo Adiantamento Quantificado ou Contrato de Venda não é feito o cálculo do Custo Financeiro, já que o preço foi acordado no momento da inclusão do Adiantamento ou do Contrato de Venda.*
+MUITO IMPORTANTE:
+ caso o custo financeiro definido no cliente para um determinado produto estiver ZERADO, o Sispetro entenderá que este custo financeiro NÃO foi definido para este cliente/produto e, portanto, não irá levá-lo em consideração no cálculo do custo financeiro obtendo o custo financeiro da tabela de condição de pagamento (como se o custo financeiro não tivesse sido especificado). Caso voce deseje realmente zerar o custo financeiro para este cliente/produto, basta especificar um período para inicio do cálculo superior a maior condição de pagamento praticada na empresa (por exemplo, 100 dias). Isso forçará o Sispetro a calcular o custo financeiro pela condição de pagamento porém irá zerá-la já que o prazo inicial para cálculo é superior ao prazo da condição praticada.*

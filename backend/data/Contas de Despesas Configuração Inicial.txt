@@ -1,0 +1,82 @@
+TITULO: Contas de Despesas Configuração Inicial
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4989780015
+--------------------------------------------------
+Objetivo
+Implementar uma análise de despesas baseada em Grupos e Subgrupos, permitindo uma gestão mais detalhada e eficaz das contas de despesas, independente da estrutura contábil padrão da empresa.
+Benefícios da Tela
+Análise Detalhada
+: facilita a análise de despesas por setores específicos, promovendo uma gestão mais eficiente.
+Flexibilidade
+: permite que a classificação de despesas seja ajustada conforme as necessidades da empresa.
+Integração
+: a estrutura de Grupos e Subgrupos já utilizada em eventos de frota será ampliada, oferecendo familiaridade para os usuários.
+Facilidade de Uso
+: com a integração aos processos de compra e PMM, a classificação de despesas será intuitiva e rápida.
+Como Pode Ser Utilizado no Dia a Dia
+Cadastro de Produtos
+: ao cadastrar produtos, os usuários poderão definir Grupos e Subgrupos de despesas, garantindo que cada aquisição esteja corretamente classificada desde o início.
+Requisições de Compras
+: durante a criação de requisições, os novos campos de Grupos e Subgrupos de despesas garantem que as despesas sejam alocadas corretamente.
+Processo de Importação de NF
+: ao importar notas fiscais, o SisPetro sugerirá automaticamente os Grupos e Subgrupos, minimizando erros.
+Consultas Gerenciais
+: as telas de consulta permitirão que os gestores analisem despesas por período e unidade de negócios, facilitando a tomada de decisão.
+Roteiro de Configuração Inicial
+1. Configuração da Empresa
+Acessar Configuração da Empresa
+:
+Navegar até a aba 
+Compras
+.
+Habilitar o perfil 
+Trabalha com Grupo e SubGrupo de Despesas
+.
+Para mais informações, ver 
+Painel Compras
+ 
+2. Cadastro de Produtos
+Acesse o Cadastro de Produtos
+:
+Selecionar a aba Detalhes / Dados Adicionais.
+Exige Grupo/Subgrupo de Despesas no processo de Compras?
+Para criar Grupo/Subgrupo de Despesas, é necessário configurar em 
+Tabela de Eventos Frota
+ 
+Grupo de Despesas padrão
+: preencher com o Grupo sugerido.
+Subgrupo de Despesas padrão
+: preencher com o Subgrupo sugerido.
+3. Inclusão/Alteração de Requisições de Compras
+Acessar a Requisição de Compras
+:
+Ao selecionar o produto, vai atribuir o Grupo de Despesas e Subgrupo definidos como padrão, sendo possível alterar.
+Se a requisição for oriunda de Ordem de Serviço, sugerir Grupo e Subgrupo automaticamente.
+Para mais informações, ver 
+Requisição de Material
+ 
+4. Inclusão/Alteração de PMM
+Adicionar Campos ao Grid de Itens
+:
+Ao selecionar o produto vai atribuir o Grupo de Despesas e Subgrupo definidos como padrão, sendo possível alterar.
+Se o PMM for oriunda de Ordem de Serviço, vai sugerir Grupo e Subgrupo automaticamente, sendo possível alterar.
+Para mais informações, ver 
+Pedido de Movimentação de Material
+ 
+5. Monitoramento de Importação de NF
+Processo de De/Para
+:
+Ao processar, sugerir Grupo e Subgrupo se disponíveis.
+Tela de Edição de Notas Fiscais
+:
+Use o botão 
+Despesas 
+para editar Grupos e Subgrupos
+Para mais informações, ver 
+Monitoramento da Importação de NF-e/CT-e
+ 
+6. Consulta de Despesas
+No caminho Consulta / Consulta de Despesas
+Será possível realizar a consulta das despesas conforme os Grupos e Subgrupos configurados
+Ao realizar duplo clique no preço é possível obter o detalhamento dos lançamentos
+ 
+Esse roteiro proporciona uma visão clara e organizada das etapas necessárias para implementar a nova funcionalidade de Grupos e Subgrupos de despesas, garantindo que todos os usuários possam aproveitar ao máximo as novas ferramentas.

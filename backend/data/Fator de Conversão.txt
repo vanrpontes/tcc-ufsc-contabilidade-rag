@@ -1,0 +1,57 @@
+TITULO: Fator de Conversão
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898850
+--------------------------------------------------
+Objetivo
+Os combustíveis alteram o seu volume conforme a temperatura. Assim, um caminhão de 40.000 litros carregado a uma temperatura de 15ºC ao chegar no seu destino numa temperatura de 25ºC não terá os mesmos 40.000 litros de combustível.
+Assim, fica complicado o controle de estoque, devido a variação de temperatura. Para facilitar o controle de estoque, convencionou-se a conversão do volume à temperatura ambiente sempre a 20ºC.
+Para converter o volume a 20ºC são necessárias as seguintes informações:
+Densidade Amostra
+Temperatura Amostra
+Temperatura Tanque
+Com base nestes dados se chega ao fator de conversão que será aplicado ao volume ambiente para que se tenha o volume a 20ºC.
+O acesso a essa tela se dá através de 
+Movimentação / Base / Fator Conversão.
+Primeiramente deve-se definir o tipo de produto que será feito o cálculo, podendo ser:
+Derivados de Petróleo
+Álcool
+Em seguida será necessário informar no quadro parâmetros, sendo:
+Densidade da amostra:
+ densidade obtida na amostra do combustível.
+Temperatura da amostra:
+ temperatura obtida na amostra do combustível.
+Temperatura do tanque:
+ esta informação é necessária caso se deseje obter o fator de conversão com base na temperatura do tanque, em caso contrário pode ser repetida aqui a própria temperatura da amostra.
+Volume ambiente:
+ volume para o qual se queira aplicar o fator de conversão a ser encontrado.
+Pega fator de conversão exato:
+ este item será melhor explicado no item que detalha o cálculo para produtos do tipo 
+Álcool
+, pois só será utilizado para este tipo de produto
+Com base nessas informações, serão apresentados no quadro resultado:
+Densidade a 20 graus: 
+densidade convertida a 20ºC
+Fator de Correção: 
+o fator de conversão utilizado. 
+Teor alcoólico:
+ no caso de Álcool
+Volume a 20 graus: 
+caso seja informado o volume ambiente para que o fator de correção encontrado seja aplicado.
+Qtde em Kg: 
+caso seja informado o volume ambiente.
+O resultado dependerá também da fórmula configurada em 
+ no quadro 
+Fator de Conversão. 
+A fórmula utilizada será mostrada no campo 
+Forma de Cálculo
+ 
+Para efetuar um novo cálculo e, consequentemente limpar a tela, utilize o botão 
+Novo Cálc.
+Para edição da tabela de conversão, clique no botão 
+Edita
+Para mais informações, ver
+ 
+Edição de dados do Fator de Conversão
+.
+Vale lembrar que este botão só estará habilitado para usuários que tenham permissão. Para dar permissão, na Manutenção de Usuários, painel Carregamento, grupo Tanques, marque a seguinte opção:
+Para sair da tela, basta utilizar o botão 
+Sair

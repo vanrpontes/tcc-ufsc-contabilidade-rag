@@ -1,0 +1,61 @@
+TITULO: BDE: arquivos MB/DB e PDOXUSRS
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921695973
+--------------------------------------------------
+Erro de lock file has grown too large ou erro de conflitos e erro de PDOXUSRS, não permitindo que o usuário acesse o Sispetro.
+Para explicar melhor é necessário entender arquivos temporários criados pelo BDE (DEL.MB, DEL.DB, DEL1.MB, DEL1.DB e assim sucessivamente) e os arquivos PDOXUSRS (lck e net).
+1 - 
+Arquivos *.MB/.DB:
+ são arquivos temporários criados quando um usuário acessa um aplicativo baseado no BDE. Esses arquivos SÃO ÚNICOS por usuário (aplicações multi-usuários) e NÃO DEVE  ter outros usuários concorrendo.
+Exemplo: no Sispetro, o cadastro de clientes.
+Assim, ao configurar os atalhos do Sispetro nas máquinas dos usuários deve-se tomar o cuidado de colocar uma pasta INDIVIDUAL para cada usuário no campo INICIAR EM. Recomendamos colocar C:\Usuarios\Publico, evitando qualquer configuração adicional (mapeamente de rede, criação de pastas, etc).
+2 -
+ Arquivos PDOXUSRS:
+ são gravados de acordo com o que determinado no path netdir do Paradox (BDE) e são sempre únicos para todos os usuários que estão acessando o mesmo banco de dados. Podem também ser definidos pastas individuais para cada usuários. Nesses casos, são criados arquivos PDOXUSRS individuais e não podem ter outros PDXOUSRS de uso comum (um usuário em pasta individual e os demais em pasta comum).
+O BDE deve ser configurado na máquina onde será executado o SisPetro e definir o path netdir, onde serão gravados os arquivos PDOXUSRS. Erros de PDOXUSRS normalmente significam que foram definidos path netdir diferentes e existem vários arquivos PDXOUSRS na rede. Para corrigir, localizar esses arquivos e apagar.
+Esses cuidados na configuração do BDE devem ser tomados especialmente quando se trabalha com vários bancos de dados startados.
+Os arquivos *.MB/.DB são 
+obrigatórios ter uma pasta INDIVIDUAL
+ para cada usuário.
+Os arquivos PDOXUSRS 
+PODEM ser ÚNICOS
+ para todos os usuários (definido uma única pasta no path netdir) ou
+ INDIVIDUAL
+ para cada usuário (mais comum é colocar o path netdir em C:\), tomando os devidos cuidados para não ter usuários acessando o banco de dados e ter definido path netdir em pastas diferentes (o que gera erro de PDOXUSRS).
+ 
+Para mais informações: 
+Configurações do BDE em ambientes multi-usuários:
+http://www.dstreamd.com/Configuring_the_Borland_Database_Engine.jsp#Multi-user
+Private Folders
+Cada usuário deve ter ler / escrever / criar acesso a um único local separado para armazenar arquivos temporários em um sistema multi-usuário. Aplicações BDE exigem que todos os usuários tenham uma pasta particular. Uma pasta particular é aquela que é usada pelo BDE, e talvez pelo aplicativo diretamente, para arquivos temporários. O BDE cria muitos arquivos temporários e exige uma pasta particular para garantir que ele tem um lugar para escrever esses arquivos sem causar conflitos com outros usuários. Assim que o usuário estabelece uma conexão BDE, arquivos de bloqueio são escritos para a pasta particular. Esses arquivos de bloqueio estabelecem a pasta como sendo disponível apenas para esse usuário. Nenhum outro usuário BDE terá acesso a essa pasta de forma alguma - nem mesmo para ler arquivos . O exemplo mais comum de um arquivo armazenado na pasta particular é a tabela de resposta criada como resultado de uma consulta .
+ 
+Em uma instalação nova ou uma reinstalação, após executar o INSTALADOR DO SISPETRO - ver 
+Instalador Sybase/ BDE
+, ATENTAR para as corretas configurações do campo INICIAR EM do atalho do SisPetro e a definição do PATH NET DIR, conforme seguem:
+Configuração do campo INICIAR EM do atalho do SisPetro
+Nota: 
+no Windows Vista, 7, 8, 8.1 e superiores, o acesso ao C:\ é protegido (não permite gravar). Portanto, deve apontar para uma pasta que o Sispetro possa gravar. Exemplo: C:\Usuarios\Publico. 
+Exemplos de configuração do atalho do Sispetro para arquivos temporários *.MB/.DB:
+Iniciar em C:\Usuarios\Publico
+ - recomendado para evitar problemas de LOCK FILE HAS GROWN TOO LARGE ou CONFLITOS e também evitar configurações adicionais. Iniciando em C:\Usuarios\Publico, garante que todos os usuários gravarão os arquivos *.MB/.DB em sua máquina local.
+Quando se tratar de acessos TS (Terminal Server - acesso remoto), 
+ATENTAR para que o campo INICIAR EM do atalho do SisPetro esteja apontando para a pasta de usuário do TS
+. Exemplo: C:\Usuarios\NomedoUsuarioTS. Caso aponte para uma pasta na raiz (C:\ ou C:\Sispetro, por exemplo), TODOS os usuários de TS que acessam o Sispetro gravarão os arquivos MB/DB na mesma pasta, provocando o erro de arquivos MB/DB - share violation.
+Iniciar em Y:\
+ - onde Y é uma unidade mapeada, um diretório de rede. Caso os atalhos dos usuários apontem para uma única pasta ou diretório, pode ocorrer erro de LOCK FILE HAS GROWN TOO LARGE ou CONFLITOS (Share Violation - arquivos MB/DB). 
+NÃO RECOMENDAMOS essa configuração.
+Acessando o cadastro de clientes no Sispetro:
+ por utilizar o BDE, são gerados os arquivos temporários *.MB. 
+Configurando path netdir no BDE - usando o instalador, o path netdir por padrão, 
+no momento da instalação,
+ é definido na pasta C:\Sispetro, podendo ser alterado conforme abaixo
+Abra a tela de administração do BDE - para Windows XP
+Para as versões superiores do Windows (7, 8 ou 12): 
+normalmente o BDE é instalado na pasta C:\Sispetro\Bin\BDE ou C:\Sispetro\Bin. Dentro da pasta localizar e executar o BDEADMIN.EXE, clicando com o botão direito e escolher Executar como Administrador. Em algumas máquinas o .EXE não aparece.
+ 
+Selecione a aba Configuration > Drivers > Native > Paradox > campo NET DIR:
+ informe o diretório. 
+No exemplo, os arquivos PDOXUSRS serão criados no diretório Y e todos os usuários estarão apontados para esse net dir.
+Ao acessar o Sispetro, os arquivos PDOXUSRS serão criados na pasta Y ou na pasta definida.
+No exemplo, os arquivos PDOXUSRS serão criados no diretório C local da máquina de cada usuário.
+ 
+ 

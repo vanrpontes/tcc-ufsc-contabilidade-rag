@@ -1,0 +1,105 @@
+TITULO: DPMP - Produtos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210998
+--------------------------------------------------
+Através do Menu 
+Arquivos / Produtos / painel Detalhes / painel DPMP
+ é possível se fazer todas as configurações necessárias no que tange a Produtos para o DPMP. 
+Selecione o 
+Código DPMP
+ do produto, conforme tabela implementada no SisPetro. Caso o produto não esteja cadastrado, entre em contato com o Suporte da Futura.
+Para os combustíveis básicos (Gasolina, Álcool e Óleo Diesel), com base no código DCP fizemos a atualização do Código DPMP. Portanto estes combustíveis já devem ter o seu Código DPMP preenchido, basta conferir.
+Para os produtos que não possuírem este campo preenchido, o SisPetro irá preencher com '999999999' para a geração da Nota Fiscal Eletrônica. Com isso, atenderá as obrigações da Secretária da Fazenda de alguns estados.
+Caso o produto 
+não
+ seja do tipo combustível, isto é, no cadastro de produtos seu tipo não esteja configurado para o tipo Combustível, não será enviada nenhuma informação.
+É importante que os produtos que sejam efetivamente combustíveis líquidos estejam configurados no cadastro de produtos como combustível (campo Tipo de Produto na Aba Dados Adicionais do cadastro de produtos). 
+Para mais informações, ver 
+Tabela de Produtos
+Para outros produtos, como lubrificantes, é necessário atualizar cada produto com o seu código.
+Participa do Envio de Estoque Diário ANP
+Determina se o produto 
+participará 
+do
+ Envio de Estoque Diário ANP 
+em conjunto com as demais configurações de envio.
+ Para mais informações, ver 
+Envio de Estoque Diário ANP
+Características
+As características dos produtos são novas informações solicitadas pela ANP para constarem do DPMP. Uma delas, exigida praticamente para todos combustíveis é a 
+Massa Específica (20c)
+.
+Entendemos como Massa Específica 20c a densidade a 20c obtida com base na temperatura e densidade da amostra. Esse processo o SisPetro já faz para obter o fator de conversão e chegar na Quantidade a 20c. Assim, essa característica teria como ser gerada automaticamente no SisPetro partindo dos dados da NF. Por isso, damos duas opções:
+Se optar por 
+preencher manualmente nas características
+, pouco interessará os valores cadastrados na NF no momento de gerar esta característica. Dependerá exclusivamente de como o usuário preencheu o valor para esta característica (o que será explicado mais adiante). Com esta opção não é necessário informar a característica, o método de Aferição nem a Unidade de Medida.
+Se optar por 
+Obter automaticamente através da NF
+, é necessário, primeiramente, informar 
+a característica, o método de Aferição e a Unidade de Medida
+ (é possível utilizar a pesquisa, já que importamos estes dados da ANP).
+Então, para cada NF, conforme a temperatura e densidade da amostra armazenada nela, chegaremos a densidade a 20C que será informado como valor da característica que foi pré-cadastrada.
+Como ter armazenada na NF a temperatura e densidade da amostra? Esta é uma pergunta importante, pois sem elas não teremos o valor da característica. Esta informação é útil também para que estes dados sejam impressos na NF e é explicada no item 
+Temperaturas e densidade na Impressão da Nota Fiscal
+.
+Tudo isso que foi explicado para a Massa Específica também vale para o Teor Alcoólico. Ele também é exigido como característica e pode ser calculado através da NF. Assim, do lado direito é possível também fazer a configuração para a característica do Teor Alcoólico. Pode ser consultado o teor alcoólico a ser retornado para uma densidade e temperatura a partir da tela de 
+Fator de Conversão
+.
+A diferença entre a Massa Específica e o Teor Alcoólico é que a Massa Específica é exigida para mais produtos (Gasolina, Diesel e Álcool) enquanto o Teor Alcoólico é só para Álcool. Assim nos produtos que não sejam Álcool deve-se deixar a configuração da Característica de Teor Alcoólico como 
+preencher manualmente nas características
+.
+Manutenção de Características
+Conforme explicado um pouco antes, as características (excetuando a Massa Específica e Teor Alcoólico) devem ser configuradas manualmente para cada produto. Eis a tela a ser utilizada:
+A primeira informação importante é que a configuração das características é por 
+empresa
+, pois em cada base pode-se ter um valor de característica devido ao ambiente, método utilizado entre outras coisas. Atente-se sempre de estar posicionado na empresa correta.
+Na parte intermediária da tela temos a configuração das características a serem utilizadas neste produto. Para saber quais as características que devem ser incluídas, verifique o regulamento técnico do DPMP. Informe a característica, o método (se tiver, ) e a unidade de medida. Estas informações podem ser pesquisadas no SisPetro, já que importamos estas tabelas da ANP. Utilize os botões 
+Inclui
+, 
+Exclui
+, 
+Salva
+ e 
+Cancela
+ para manusear os dados (atente-se sempre para a característica que estiver posicionado o cursor).
+Após cadastrar uma característica numa empresa é possível copiar esta característica para uma ou todas as empresas, acessando o botão 
+Copia Características p/ Empresa(s)
+, que mostrará a seguinte tela:
+Para o destino temos duas opções:
+Escolha uma das opções e clique em 
+OK
+ que a cópia será feita.
+Na parte inferior da tela é onde cadastraremos os valores das características a serem utilizadas no DPMP. Algumas características podem ter um valor único para todo mês, já outras podem ter valores variados a cada dia. Assim, optamos por trabalhar com vigência para atender os dois casos.
+Ex.:
+Se for informado um valor com vigência a partir de 01/11/2004 e não for informado mais nenhuma outra vigência, para todas as notas do mês de novembro/2004 será utilizado sempre o mesmo valor.
+Se for informado um valor com vigência a partir de 01/11/2004 e outra vigência com valor a partir de 05/11/2004, para todas as notas 01/11/2004 a 04/11/2004 será utilizado o valor configurado em 01/11/2004. Para todos os demais dias será utilizado o valor configurado em 05/11/2004.
+Utilize os botões 
+Inclui
+, 
+Exclui
+, 
+Salva
+ e 
+Cancela
+ para manusear os dados. No caso do botão 
+Inclui
+ será sempre sugerida como data de vigência a data atual e o valor da vigência que estiver posicionado.
+Como podemos ter muitos valores cadastrados, sempre configure a data de vigência a partir da qual serão apresentados os dados e clique em seguida no botão 
+Atualiza
+:
+Escolha uma das opções e clique em 
+OK
+ que a cópia será feita para aquelas empresas que já tenha a característica cadastrada. No entanto, não pode ter a vigência copiada cadastrada, pois se tiver o valor não será atualizado.
+Além das informações constantes neste painel, temos ainda a 
+proporção
+ do produto para o DPMP, ou seja, quando a unidade de medida utilizada no SisPetro é diferente do DPMP, configurando a proporção é possível fazer o ajuste necessário:
+Ex.: Para o DPMP um lubrificante deve ser apresentado em m3, porém no SisPetro as notas são incluídas em litros. Como 1 litro representa 0,001 m3, esta será a proporção cadastrada para o produto. Assim, numa nota de 5000 litros será apresentada com a quantidade igual a 5 (5000 * 0,001). Ou seja, sempre multiplicaremos a proporção indicada pela quantidade.
+A configuração da proporção é feita no painel 
+Dados Adicionais
+, no campo a seguir:
+Para casos de produtos que utilizam o mesmo código DPMP de outro produto deve-se marcar a opção 
+Utiliza Código DCP/DPMP de outro produto
+.
+Ex.: Digamos que por algum motivo tenhamos no cadastro dois tipos de Gasolina, porém a Gasolina C, para a ANP é úm único produto. Na segunda Gasolina marcamos que utiliza o mesmo código DPMP, para agrupar as duas gasolinas por código DPMP.
+Esta configuração também é feita no painel 
+Dados Adicionais
+, no campo:

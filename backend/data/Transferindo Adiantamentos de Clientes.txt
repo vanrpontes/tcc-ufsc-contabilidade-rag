@@ -1,0 +1,124 @@
+TITULO: Transferindo Adiantamentos de Clientes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701875
+--------------------------------------------------
+Pela tela de manutenção de adiantamentos de clientes (menu 
+Movimentação / Financeiro / Contas a Receber / Manutenção de Adiantamento de Clientes
+), pode-se realizar as transferências de adiantamentos.
+Ao acionar os botões de 
+"Transf. p/ Entidade", "Transf. p/ Conta" 
+ou
+ "Paga ao Cliente"
+ será aberta a tela de transferência onde sua estrutura de busca dos Dados de Origem são iguais para as 3 telas, veja maiores detalhes abaixo:
+Busca por:
+ Através dessa opção podemos definir se será realizado a busca pela Entidade Faturada, Entidade Compradora e Não identificado.
+ Na 'Busca por' ao selecionar a opção  
+Não Identificado 
+o campo de 'Código Entidade Origem' ficará desabilitado.
+Código Entidade Origem:
+ Informamos o código da entidade de origem do lançamento, será sugerido a entidade conforme o lançamento que estava selecionado na tela de lançamentos, o usuário pode alterar a entidade caso haja a necessidade.
+Data Movto até:
+ Através desse campo definimos até que data de Movimento será buscado os lançamentos.
+Adiantamento Quantificado:
+ Apresenta somente os adiantamentos com Adiantamento Quantificado.
+Botão Marca/Desmarca Todos:
+ Acionando esse botão será marcado ou desmarcado todos os registros do grid. 
+Lembrando que somente os Adiantamentos marcados serão transferidos.
+Botão Altera Valor:
+ Acionando esse botão será apresentado a tela de alteração de valor do lançamento que esta selecionado.
+Transferindo para Entidade
+Para transferir o crédito de um cliente para outro basta clicar no botão 
+A soma das colunas 
+Saldo
+, 
+Valor Transf
+, e 
+Valor Original
+ são dinâmicas, ou seja, elas acompanham os adiantamentos que estão selecionados na coluna 
+Transf?.
+Cabe lembrar que esta tela apresenta todos os adiantamentos da entidade informada independente da empresa conectada. Consequentemente a transferência respeitará a informação de que empresa este adiantamento pertence.
+Lembrando que se o perfil => Faz restrição de grupo econômico em adiantamentos de cliente, estiver marcado, ele fará uma verificação, onde poderá ser restrita a inclusão de um adiantamento ou movimentação de transferência.
+Maiores detalhes em: 
+Validação Adiantamento de Cliente e Grupo Econômico
+A seguir deve ser informado para que
+ 
+entidade destino
+ 
+estes adiantamentos apresentados em tela serão transferidos e também os detalhes da transferência como
+ 
+Data
+,
+ 
+Histórico
+,
+ 
+Informações Adicionais
+ 
+e
+ 
+Dados da contabilização real
+ 
+(para empresas que possuem a contabilidade real habilitada). O código de contabilização pode ser configurado para ser sugerido de forma automática. Mais informações no tópico:
+ 
+Códigos de Contabilização Padrão na Transferência de Adiantamentos
+.
+No caso de 
+adiantamentos quantificados
+ algumas considerações são feitas:
+O valor ficará desabilitado pois a transferência terá que ser sempre total.
+Será sempre verificado se o adiantamento pode ser transferido, ou seja, não pode ter pedidos vinculados a este adiantamento sem faturar ou títulos em aberto.
+Poderá ser marcada ou não a opção de Transferir os produtos, isto porque pode ser necessário transferir para outro cliente o valor referente ao adiantamento, mas não se deseje transferir o que foi negociado em relação aos produtos (preço e quantidade). No caso da opção Transferir produtos ficar desmarcada, o novo adiantamento gerado para a entidade destino será normal, não sendo mais quantificado.
+Através dessa tela também podemos realizar a Transferência em LOTE para isso basta marcar todos os adiantamentos que deseja transferir,  informar a Entidade de Destino e confirmar a transferência.
+Caso seu adiantamento esteja vinculado a um Cheque, veja alguns detalhes no tópico 
+Transferência de Adiantamentos X Cheques
+.
+Transferindo para Conta Contábil 
+Para transferir o crédito de um cliente para outro basta clicar no botão 
+A soma das colunas 
+Saldo
+, 
+Valor Transf
+, e 
+Valor Original
+ são dinâmicas, ou seja, elas acompanham os adiantamentos que estão selecionados na coluna 
+Transf?.
+A transferência de Conta Contábil segue a mesma ideia que a transferência de entidade, com uma diferença ao invés de informarmos uma entidade de destino nessa tela iremos informar uma conta de destino.
+A seguir deve ser informado para que
+ 
+Conta destino
+ 
+estes adiantamentos apresentados em tela serão transferidos e também os detalhes da transferência como
+ 
+Data
+,
+ 
+Histórico
+,
+ 
+Informações Adicionais
+ 
+e
+ 
+Dados da contabilização real
+ 
+(para empresas que possuem a contabilidade real habilitada). O código de contabilização pode ser configurado para ser sugerido de forma automática. Mais informações no tópico:
+ 
+Códigos de Contabilização Padrão na Transferência de Adiantamentos
+.
+Através dessa tela também podemos realizar a Transferência em LOTE para isso basta marcar todos os adiantamentos que deseja transferir,  informar a Conta de Destino e confirmar a transferência.
+Paga ao Cliente
+Para realizar o pagamento de um adiantamento ao cliente basta clicar no botão 
+'Paga ao Cliente'
+. Veja maiores detalhes em 
+Pagamento de Crédito (Adiantamentos) a Cliente
+Utilização de Créditos não identificados
+Para utilizar um crédito não identificado para baixar alguma nota fiscal, pode-se proceder da seguinte maneira:
+1. Identificar o crédito e transferi-lo para o cliente correto antes de se utilizar dele. Esta é a maneira mais segura de utilização do crédito pois o Sistema somente mostra ( na tela de baixa ) os créditos referentes a cada cliente (ou comprador). Assim, o Sistema continuaria mostrando somente os créditos de cada cliente no momento da baixa evitando de se utilizar algum crédito não identificado erroneamente para o cliente errado. Porém, você deve fazer o procedimento de transferência do crédito antes de poder utilizar o crédito não identificado.
+2. Utilizar diretamente o crédito não identificado numa baixa. Pode-se instruir o Sistema para mostrar (na tela de baixas) além dos créditos do próprio cliente, todos os créditos pendentes não identificados podendo-se assim utilizar diretamente o crédito não identificado na baixa para algum cliente. Este é um procedimento arriscado e só deve ser utilizado se realmente o usuário identificou cada crédito não identificado e somente ele realiza as baixas pois uma baixa não identificada lançada incorretamente deve ser cancelada e retificada porém é um procedimento mais rápido que o anterior.
+Fora a situação acima, a utilização de um crédito não identificado segue o mesmo padrão de uma utilização de crédito conforme está descrito mais acima.
+Obs. Para transferência de crédito não identificado, caso a empresa venha estar configurada para Atualizar o Histórico do Movimento na identificação de adiantamento (menu 
+Ferramentas / Sistema / Financeiro
+) e o adiantamento tenha realizado uma contabilização real, o histórico do Lote Contábil vinculado ao Adiantamento não identificado será atualizado para o histórico informado no momento da identificação do mesmo.
+Utilização de Adiantamentos (créditos) Quantificados
+Um 
+Adiantamento Quantificado
+ é vinculado a um pedido de venda que, consequentemente ao ser faturado, gera um título do Contas a Receber. Assim sendo, ele só pode ser utilizado para baixar um título oriundo deste pedido, bem como este título só consegue ser baixado através da utilização deste adiantamento.

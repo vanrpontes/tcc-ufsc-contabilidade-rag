@@ -1,0 +1,99 @@
+TITULO: Tabela Controle de Vencimentos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878211028
+--------------------------------------------------
+Entende-se por Controle de Vencimento todo documento/ processo pertencente a uma Transportadora e/ ou Frota que possui uma data de validade. Ou seja, que precisa de reanalise periódica.
+Para se ter o controle desses documentos, é necessário informar no Sispetro quais são esses documentos. E para cada Transportadora/Motorista e Frota vincular os que lhe referem.
+O cadastro de documentos deverá ser feito através da tela 
+T
+abelas Auxiliares / Transportes / Frotas / Controle Vencimentos
+:
+ 
+Para acrescentar um novo Controle de Vencimento acione o botão 
+Incluir
+Na tela para preenchimento dos novos dados, informe:
+Descrição:
+ Nome para este controle de vencimento.
+Tipo:
+ Como será o controle, podendo ser por:
+Data
+Km
+Ambos
+Controle Para:
+ a quem se destina:
+Frota
+Transportadora.
+Controle para os tipo de Frota: 
+Definir para quem irá atender esse controle de vencimento quando o campo Controle Para estiver como Frota:
+Cavalo
+Carreta
+Treminhão
+Toco
+Truck
+Vagão
+Dolly
+TriTrem
+Controle para Transportadoras:
+ Definir se o controle deve ser considerado para transportadoras ou para os motoristas
+Transportadora
+Motorista
+Regra de Vencimento:
+ que possui as seguintes opções:
+Considera vencido caso não tenha esse controle cadastrado: 
+Ao incluir um controle de vencimento com as opções 
+Controla no Faturamento
+ e 
+Ativo
+ marcados ele já estará sendo verificado para cada frota ou transportadora (dependendo da escolha) imediatamente, pois o controle de vencimento é destinado para documentos obrigatórios e não facultativos. Ou seja, independe se o controle está cadastrado para o Frota/Transportadora, ele é indispensável.
+Exemplo:
+Foi incluído um controle de vencimento para Transportadora "Vencimento de CNH", porém não se informou para nenhuma transportadora/motorista qual o vencimento da CNH. Ao tentar fazer uma OC utilizando a transportadora o SisPetro identificará que deve controlar para as transportadoras o vencimento da CNH. Ele consultará na transportadora utilizada qual o vencimento da CNH dela. Como não há vencimento cadastrado, ele supõe então que está vencido e não deixa utilizar esta transportadora.
+Considera vencido somente se tiver esse controle cadastrado e ele estiver vencido: 
+Esta opção é útil quando se quer controlar o vencimento de um controle, mas não para todos os Frota/Transportadoras, mas sim para quem tiver o controle cadastrado. Com isso, ao ter o controle cadastrado, será verificado o vencimento e se estiver vencido, aí sim barra na emissão da Ordem de Carregamento.
+Exemplo:
+Foi incluído um controle de vencimento para Transportadora Seguro de carga pois uma Transportadora XPTO só foi contratada por ter esse tipo de seguro, as demais transportadoras (geralmente motoristas autônomos não têm esse seguro.
+Com isso, marcamos para esse controle essa opção e incluímos ele para a Transporta XPTO com a data de vencimento. Assim, só a Transportadora XPTO terá o controle verificado e será barrada se ele estiver vencido.
+Ativo:
+ para indicar que este controle está em vigor.
+Somente próprio:
+ para quando o controle for para frotas próprias da empresa.
+Bloqueia Carregamento: 
+Define se o controle irá impedir o processo de carregamento.
+Uso em depósitos específicos:
+  Essa opção é utilizada por empresas que necessitam incluir controles de vencimento para um determinado depósito. Para essa situação basta habilitar esse perfil e incluir os depósitos que serão realizado a validação na aba de Depósitos Permitidos.
+Desconsidera Retira: 
+Valida no momento da emissão da ordem de carregamento e/ou na portaria de entra, caso o pedido de venda seja igual retira,  se o controle de vencimento será checado.
+Se desmarcado, toda Ordem de carregamento ou portaria de entrada será validado.
+Caso o controle esteja marcado, para os pedido de vendas cujo o frete seja do tipo retira, o controle de vencimento não será verificado na emissão da ordem de carregamento e/ou na portaria de entrada.
+Uso: 
+definir quando o controle de vencimentos será utilizado
+Carregamento e Descarga (padrão):
+ em carregamento e descarregamentos será a utilização padrão.
+Somente Carregamento:
+ somente em carregamentos validara os vencimentos.
+Somente Descarga:
+ somente em descargas validara os vencimentos.
+Observação:
+   Para ordens de carregamento de Transferência entre depósito será realizado a validação para o depósito de destino, para todos os outros tipos de Ordem de Carregamento será visto o depósito de origem.
+Clique no botão 
+OK
+ para atualizar os dados no Sistema.
+Clique no botão 
+Cancela
+ para abortar o processo.
+Algumas UFs ou municípios exigem de transportadoras algumas licenças específicas. Para cumprir essa exigência, temos a 
+Aba Exigências em Operações
+, onde o sistema apresenta a UF que foi vinculada a esse controle de vencimento.
+Para incluir as exigências, acesse 
+ e 
+.
+Para habilitar essa exigência, acesse as configurações em 
+.
+Depósitos Permitidos
+Através da aba de Depósitos Permitidos será realizado a inclusão dos depósitos permitidos para o controle de vencimento, e caso o perfil 
+'Uso em depósitos específicos'
+ estiver marcado, ao incluir uma Ordem de Carregamento e informar um depósito que tenha sido informado nessa lista, será realizado a verificação para esse controle de Vencimento.
+Há dois lugares para consultar os vencimentos
+ 
+Manutenção de Ordem de Carregamento
+Para retornar ao Menu principal acione o botão 
+Sair
+ .

@@ -1,0 +1,27 @@
+TITULO: Hora de Emissão na Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926188203
+--------------------------------------------------
+ 
+Nos pontos que se refere a Nota Fiscal, o Sispetro sugere a Hora de Movimento e de Emissão da Nota Fiscal, pegando como base normalmente a hora do Servidor do Banco de Dados,
+ porém há casos em que isso não fica correto, em especial quando o fuso horário do cliente (onde o Sispetro é executado) é diferente do fuso horário do servidor (esse problema se amplia no horário de verão). 
+A partir da versão 9.4 o Sispetro irá sugerir o horário de movimento e de emissão da nota fiscal com base no Fuso Horário informado na UF da empresa. C
+aso não exista um Fuso horário informado na UF da Empresa, a hora de movimento e de Emissão é obtida pela hora do Servidor onde se encontra o banco de Dados.
+ 
+Segue exemplo onde o Servidor do banco de Dados se encontra em SP que se encontra no HORÁRIO DE VERÃO e a Filial que está faturando se encontra na Bahia onde não existe horário de verão.
+O Horário do Servidor do Banco de Dados que se encontra em São Paulo é as
+ 12:00.
+O Horário da Filial da Bahia que está emitindo a Nota é as 
+11:00.
+A Configuração da UF BA ficaria da seguinte forma:
+Informar o Fuso Horário da UF, no caso da Bahia informar igual a UTC -3.
+Deixar desabilitado a opção de Habilita Horário de Verão.
+Dessa forma ao emitir as notas o horário de movimentação e emissão sugerido ficara conforme o Estado de emissão, nesse exemplo o sugerido seria 11:00 já que a Filial que está emitindo a nota se encontra na BA onde não tem horário de verão, e o Servidor se encontra em SP onde no momento da emissão o horário é 12:00 com horário de verão.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

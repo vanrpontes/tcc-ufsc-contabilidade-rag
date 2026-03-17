@@ -1,0 +1,96 @@
+TITULO: Entrada de aditivo de frascos com volumes diversos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4318724097
+--------------------------------------------------
+É comum distribuidoras comprarem aditivo de fornecedores diferentes, com frascos de volumes diferentes.
+Neste help, veremos como receber frascos de aditivo de 300ml e 500ml, utilizando unidade de medida adicional.
+Cadastre as unidades de medidas a serem utilizadas.
+Acesse o menu, 
+Tabelas Auxiliares / Estoque / Unidades
+.
+Clique no botão 
++
+ para incluir uma nova unidade de medida.
+Preencha os campos:
+Código: 
+código de identificação
+ 
+da unidade 
+Descrição: 
+descrição da unidade, utilize para identificar o volume do frasco conforme a imagem acima.
+Código DCP:
+ código equivalente para uso no DCP.
+Se a unidade é considerada uma unidade que reflete o peso do produto, clique com o mouse sobre o campo
+ 
+Unidade é Peso
+.
+Clique no botão 
+OK 
+para salvar. Para mais informações, ver 
+No produto, o código de unidade de medida principal deve ser Litros, pois é essa a movimentação de estoque feita pelo SisPetro. Para mais informações, ver 
+.
+Em seguida, localize o perfil  
+Utiliza Fator de Conversão na Unidade
+  
+e selecione a opção, 
+Utiliza somente para as unidades vinculadas,
+ será aplicado o fator de conversão de acordo com a unidade selecionada. 
+Vincule as unidades de medidas adicionais ao produto, clicando no botão 
+Unid. Adic
+.
+Na tela de 
+vínculo
+, clique no botão 
+Incluir
+ para vincular uma nova unidade de medida ao produto.
+Selecione o código da unidade de medida que deseja vincular.
+Informe o Fator de conversão de unidade e clique em salvar.
+Exemplo:
+No caso cadastramos um
+ frasco de 300ML.
+Unidade de medida do fornecedor: FC (Frasco)
+Unidade de medida no SisPetro: LT (Litro)
+No cadastro do produto, a unidade de medida principal é LT e a unidade adicional é FC. O Fator de conversão cadastrado na unidade adicional é 3,333.
+Na nota fiscal do fornecedor:
+Quantidade: 3
+Unidade de medida: FC
+Ao lançar a NF, deve informar a 
+unidade de medida adicional
+ que é a mesma unidade informada na nota do fornecedor:
+Quantidade informada na inclusão da nota
+: 
+3
+Unidade de medida: FC
+Fator de conversão: 3,333
+Cálculo de conversão realizado pelo SisPetro: 1 LT / 3,333 = 0,30 * 3 = 0,900 LT
+Caso seja um 
+frasco de 500ML  
+Unidade de medida do fornecedor: FR (Frasco)
+Unidade de medida no SisPetro: LT (Litro)
+No cadastro do produto, a unidade de medida principal é LT e a unidade adicional é FC. O Fator de conversão cadastrado na unidade adicional é 2.
+Na nota fiscal do fornecedor:
+Quantidade: 2
+Unidade de medida: FR
+Ao lançar a NF, deve informar a 
+unidade de medida adicional
+ que é a mesma unidade informada na nota do fornecedor:
+Quantidade informada na inclusão da nota: 2
+Unidade de medida: FR
+Fator de conversão: 2
+Cálculo de conversão realizado pelo SisPetro: 1 LT / 2 = 0,50 * 2 = 1 LT
+Para mais informações, ver 
+Várias unidades de compra para um mesmo produto
+.
+A Natureza de Operação de compra deve possuir a configuração
+Acesse o cadastro de Natureza de Operação no menu
+ 
+Tabelas Auxiliares \ Faturamento \ Natureza Operação
+ 
+na aba
+ 
+Detalhes \ Geral \ Dados Gerais
+.
+Localize e marque o perfil
+ 
+Usa Fator de Conversão para Unidade. 
+Para mais informações, ver 
+Painel Geral - Natureza de Operação

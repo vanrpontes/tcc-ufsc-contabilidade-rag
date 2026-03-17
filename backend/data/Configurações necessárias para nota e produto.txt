@@ -1,0 +1,48 @@
+TITULO: Configurações necessárias para nota e produto
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2884796438
+--------------------------------------------------
+Neste tópico daremos algumas dicas para a configuração de determinadas notas.
+Nota de Venda ou Transferência de Óleo Diesel / Gasolina
+A Distribuidora não é a responsável pela Substituição Tributária, e sim a Entidade imediatamente anterior. No caso de Óleo Diesel e Gasolina esta entidade é a Refinaria. 
+No cadastro de Produto cadastre o PMPF (Base cálculo destino) para este produto em cada uma das UFs. 
+Atenção:
+ Se a UF tiver um MVA sobre o preço de compra, faça a devida conversão.
+Se o preço de compra é 2,28 e o MVA é 67,00%, faça o seguinte cálculo:
+2,28 X 1,67 = 3,8076 -> esse deve ser o valor a ser colocado como PMPF
+Só podem estar preenchidas no grid de Substituição Tributária do produto as colunas: UF, Base de Cálculo Destino (PMPF) e Preço de Partida do Anexo. As demais colunas devem estar vazias, zeradas ou desmarcadas!
+Configure as alíquotas de ICMS. Para isso veja o código de ICMS que o produto está utilizando.
+Na Natureza de Operação:
+Aba Por Filial / Impostos: Só deve estar marcada a opção "Gera ICMS retido fonte". As demais opções devem estar desmarcadas. Somente se houver a possibilidade de redução de base de cálculo em alguma UF que deve ser preenchido o campo correspondente.
+Aba Geral / Dados Gerais: Marque a opção 
+Uso somente em Vendas
+ somente para naturezas de Venda.
+Em notas de 
+vendas internas
+ de 
+Gasolina C Comum
+ e 
+Gasolina C Aditivada
+ no estado do 
+Rio Grande do Sul
+, ver 
+,
+ 
+Margem Subst. Tributária
+, 
+ e 
+Cálculo de Imposto - Exemplo Prático
+.
+Nota de Venda Álcool Hidratado
+No cadastro de Produto cadastre o PMPF (Base cálculo destino) ou o MVA para este produto em cada uma das UFs.
+Só podem estar preenchidas no grid de Substituição Tributária do produto as colunas: UF, Base de Cálculo Destino (PMPF), MVA e Preço de Partida do Anexo. As demais colunas devem estar vazias, zeradas ou desmarcadas!
+Atente-se em colocar no MVA o percentual divulgado. Ou seja, se o MVA é 68% cadastre diretamente 68. O SisPetro se encarregará de acrescer esse percentual (multiplicando por 1,68).
+No caso de prevalecer o maior valor entre MVA e PMPF preencha as duas colunas, senão preencha somente uma delas.
+Configure as alíquotas de ICMS. Para isso veja o código de ICMS que o produto está utilizando.
+Na Natureza de Operação:
+Aba Por Filial / Impostos: Só devem estar marcadas as opções:
+"Gera ICMS"
+"Mostra valores de ICMS nos itens da NF"
+"Gera ICMS Substituição"
+"Deduz impostos do preço unitário": este item indicará que o preço informado para a nota é o preço cheio (com imposto) e o SisPetro é que calculará o preço sem imposto, utilizado para chegar ao Valor dos Produtos. 
+É importantíssimo que este item esteja sempre marcado, pois na nota de Venda não tem como o vendedor colocar o preço sem imposto, sendo sempre necessário calcular essa dedução.
+As demais opções devem estar desmarcadas. Somente se houver a possibilidade de redução de base de cálculo em alguma UF que deve ser preenchido o campo correspondente.

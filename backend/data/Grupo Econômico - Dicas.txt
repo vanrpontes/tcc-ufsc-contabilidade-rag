@@ -1,0 +1,263 @@
+TITULO: Grupo Econômico - Dicas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879946880
+--------------------------------------------------
+
+
+ O que é Grupo Econômico?
+
+
+Algumas empresas trabalham com venda para 
+rede de postos
+, onde existe um determinado grupo de postos que normalmente efetuam suas compras de combustíveis na distribuidora em conjunto. Porém determinados postos não podem pagar por compras, ficando a cargo de um (ou mais) posto específico, sendo assim temos:
+
+
+
+
+Cliente comprador:
+ Cliente que paga pelas compras do grupo, e não pode faturar para si mesmo;
+
+
+
+
+
+
+Cliente Faturado:
+ Cliente que não pode pagar pelas compras do grupo e nem de suas próprias compras. Ficando dependente de um cliente comprador;
+
+
+
+
+
+
+Cliente Comprador e Faturado:
+ Cliente que paga pelas compras do grupo, e pode ser cliente faturando.
+
+
+
+
+
+
+
+ O que configurar no Sispetro
+
+
+Para trabalhar com Grupo Econômico no Sispetro deve-se configurar os seguintes perfis:
+
+
+
+
+Perfil de Empresa: Aba Vendas
+
+
+
+
+Controla Venda por Grupo Econômico.
+
+
+
+
+
+
+
+
+
+
+
+Perfil do Cadastro de Cliente: Aba Cadastro Detalhado
+
+
+
+
+Pertence a Grupo Econômico (Crédito, Faturamento)
+
+
+Pertence a Grupo Econômico (Análise de Venda)
+
+
+Situação do Comprador:
+		
+
+
+Pode ser comprador:
+ A entidade pode ser compradora de outra entidade e dela própria.
+
+
+Não pode ser comprador de outra entidade faturada:
+ A entidade só pode ser compradora dela própria, ou seja, a entidade
+
+compradora e a entidade faturada devem ser iguais.
+
+
+Não pode ser comprador sob nenhuma hipótese:
+ A entidade não pode ser compradora de nenhuma outra entidade e nem dela própria. Pertencendo a um grupo econômico, ao fazer o pedido de vendas onde essa entidade seja colocada como compradora, o sistema não permitirá que se finalize o pedido, mostrando na tela uma mensagem onde será exibido os compradores vinculados a essa entidade.
+
+
+Só pode ser comprador:
+ A entidade não pode ser uma entidade faturada, nem dela mesma e nem de outras entidades, ela apenas poderá ser compradora.
+
+
+
+Exemplos:
+
+
+Um Posto Comprador e os demais Postos faturados:
+
+
+Exemplo 1
+M
+5210249
+
+
+Portanto, para esta situação temos:
+
+
+
+
+Cliente A: Só pode ser comprador, não pode ser faturado.
+
+
+Cliente B: Pertence ao Grupo Econômico do Posto A, pode ser cliente faturado, e não pode ser cliente comprador nem de suas compras.
+
+
+Cliente C: Pertence ao Grupo Econômico do Posto A, pode ser cliente faturado, e não pode ser cliente comprador nem de suas compras.
+
+
+
+
+
+
+Resumo: Posto A compra para o Posto B e o Posto C. Posto B e C não podem comprar.
+
+
+
+
+
+
+
+
+Um Posto Comprador (pode ser faturado) e os demais Postos Faturados (podendo ou não serem compradores deles mesmo):
+
+
+Exemplo 2
+M
+5210249
+
+
+Portanto, para esta situação temos:
+
+
+
+
+Cliente A: Pode ser comprador, e pode ser faturado dele mesmo.
+
+
+Cliente B: Pertence ao Grupo Econômico do Posto A, pode ser cliente faturado, e pode ser cliente comprador somente dele mesmo.
+
+
+Cliente C: Pertence ao Grupo Econômico do Posto A, pode ser cliente faturado, e não pode ser cliente comprador nem de suas compras.
+
+
+
+
+
+
+Resumo: Posto A compra para ele mesmo, para o Posto B e o Posto C. Posto B pode comprar para ele mesmo e o Posto C não pode comprar.
+
+
+
+
+
+
+
+
+Um Posto Comprador (pode ser faturado) e os demais Postos Faturados (podem ser compradores deles mesmo):
+
+
+Exemplo 3
+M
+5210249
+
+
+Portanto, para esta situação temos:
+
+
+
+
+Cliente A: Pode ser comprador, e pode ser faturado dele mesmo.
+
+
+Cliente B: Pertence ao Grupo Econômico do Posto A, pode ser cliente faturado, e pode ser cliente comprador somente dele mesmo.
+
+
+Cliente C: Pertence ao Grupo Econômico do Posto A, pode ser cliente faturado, e pode ser cliente comprador somente dele mesmo.
+
+
+
+
+
+
+Resumo: Posto A compra para ele mesmo, para o Posto B e o Posto C. Posto B pode comprar para ele mesmo e o Posto C pode comprar para ele mesmo.
+
+
+
+
+
+
+
+
+Um Posto Comprador (pode ser faturado) e os demais Postos Faturados/Compradores (podem ser compradores deles mesmo):
+
+
+Exemplo 4
+M
+5210249
+
+
+Portanto, para esta situação temos:
+
+
+
+
+Cliente A: Pode ser comprador, e pode ser faturado dele mesmo.
+
+
+Cliente B: Pertence ao Grupo Econômico do Posto A, pode ser cliente faturado, e pode ser cliente comprador de outra entidade faturada.
+
+
+Cliente C: Pertence ao Grupo Econômico do Posto A, pode ser cliente faturado, e pode ser cliente comprador de outra entidade faturada.
+
+
+
+
+
+
+Resumo: Posto A compra para ele mesmo, para o Posto B e o Posto C. Posto B pode comprar para ele mesmo, para o Posto A e o Posto C. E o Posto C pode comprar para ele mesmo, para o Posto A e o Posto B.
+
+
+
+
+
+
+Legenda
+
+
+Legenda
+L
+5210249
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+TITULO: Tabela Série Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210585
+--------------------------------------------------
+Esta é uma tabela que armazena o número da última Nota Fiscal emitida da série. A série está amarrada à tabela de Natureza de Operação. Assim, nesta tabela, temos o código da série que ela movimenta. Sempre que o faturista emitir uma Nota Fiscal com determinada natureza de operação, o Sistema pesquisa a série associada a ela e busca o último número de Nota Fiscal (incrementando-o no final da emissão da Nota Fiscal).
+A cada Nota Fiscal emitida incrementa-se em um (1) o contador de número de série de Nota Fiscal.
+A tela que permite a manutenção do número de série de Nota Fiscal é acionada com as opções a partir do Menu principal - 
+Tabelas Auxiliares / Faturamento / Série Nota Fiscal
+:
+Para a inserção de um novo controle para emissão de Notas Fiscais, acione o botão de inclusão de registro 
+.
+O Sistema exibe a tela abaixo:
+ 
+Digite o código do novo controle de série de Nota Fiscal.
+ Preencha os campos de próximo 
+número
+, 
+série
+ e 
+subsérie
+ para as Notas Fiscais de Entrada e Saída.
+As informações referentes a 
+Selo
+, só estarão disponíveis caso no Menu 
+Ferramentas / Sistema / painel Nota Fiscal
+ esteja marcada a opção 
+Controla selo
+.
+Tanto a numeração da nota fiscal como a do selo podem ser alteradas no momento da reemissão da nota fiscal. Mais informações no tópico 
+Imprimindo Nota Fiscal Venda
+.
+O campo 
+Regra quando duplicar nº NF
+ tem como padrão a opção Série e Número NF, mas pode ser alterado para a opção Série, Número NF e Entidade.
+ Esta segunda opção pode ser interessante para ser utilizada em notas fiscais de entrada, por exemplo, onde deve permitir repetição de número da nota para entidades emitentes diferentes.
+ Mas este campo 
+Regra quando duplicar nº NF
+ somente passará a ter funcionalidade após configurar corretamente este controle através de Sistema. Para maiores informações consulte o tópico 
+.
+O Campo 
+Controle de Numeração 
+permite que o usúario inclua o numero da NF manualmente caso a opção esteja selecionado 
+Usuário informa - sem controle pelo Sistema. 
+Deixando selecionado a opção 
+Sugestão do numero pelo Sistema, 
+toda nota inserida será gerado com numero de NF em sequencial.
+ 
+ 
+Acione o botão 
+OK
+ para atualizar os novos dados no Sistema.
+Após finalizada a inclusão de uma nova Série, o sistema sugerirá para que seja criada a mesma Série em todas as empresas cadastradas no Sistema, será exibida a mensagem abaixo:
+Escolha entre as opções Sim ou Não.
+Para retornar ao Menu principal acione no menu superior da tela as opções - 
+Arquivo / Fecha Janela
+.

@@ -1,0 +1,120 @@
+TITULO: GIA-RJ
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2902163535
+--------------------------------------------------
+A maioria dos Estados exigem uma obrigação acessória com detalhes da movimentação Fiscal mensal, denominada GIA ou por um descritivo específico para o Estado. O Estado do RJ tem a GIA de ICMS.
+O layout da GIA RJ é mensal e contém vários registros. Veja a lista dos registros e quais serão gerados pelo SisPetro:
+Registro
+Conteúdo
+SisPetro?
+Tabelas envolvidas
+0000
+Header do Arquivo
+Nenhuma
+0110
+Identificador da Declaração
+Empresas e LFiscalApuracaoGRJ
+0120
+Movimentação de Entradas
+LFiscal_CIZ
+0130
+Movimentação de Saídas
+LFiscal_CIZ
+0140
+Movimentação de Outros Débitos
+LFiscalApuracaoItens
+0150
+Movimentação de Estornos Créditos
+LFiscalApuracaoItens
+0160
+Movimentação de Outros Créditos
+LFiscalApuracaoItens
+0170
+Movimentação de Estornos Débitos
+LFiscalApuracaoItens
+0180
+Movimentação de Deduções
+LFiscalApuracaoItens
+0190
+Movimentação de Operações Prazo Especial
+0200
+Movimentação de Outros ICMS devido
+LFiscalApuracaoGRJOutros
+0210
+Movimentação de Entradas Interestaduais
+LFiscal_CIZ
+0220
+Movimentação de Saídas Interestaduais
+LFiscal_CIZ
+0230
+Movimentação de Saídas ZFM
+0240
+Movimentação SCE Comp. Estabelecimentos
+0250
+Movimentação SCE Comp. Próprio
+0260
+Movimentação SCE Recebido
+0270
+Movimentação SCE Transferido
+9999
+Trailler
+nenhum
+Não há um validador. O arquivo gerado deve ser transmitido 
+de forma oficial
+ via site da Secretaria da Fazenda do RJ e serão apontados os erros caso existam.
+Gerando a GIA
+Pré-requisitos
+Carregar o layout de exportação da GIA-RJ, para isso utilize a tela 
+Manutenção Exportação de Dados
+.
+Será necessário o uso do arquivo 
+GIA_RJ.rtm
+, disponibilizado na versão 7.19 do SisPetro
+É necessário que a 
+Apuração do Livro Fiscal
+ do mês que for gerado a GIA esteja incluída.
+Gerando o arquivo
+Para gerar o arquivo da GIA, no SisPetro Controladoria, acesse o menu 
+Geração Mídia GIA/GIM/DIME/DAC
+ e selecione a aba 
+GIA-RJ
+.
+Geração do Arquivo:
+De: 
+informe a data inicial e a data final 
+Header do Arquivo:
+Texto Versão Sefaz:
+ nesse campo deve conter a última versão publicada na página da SEFAZ para GIA-ICMS.
+Indicador de Retificadora:
+ marque essa opção somente se estiver enviado uma GIA retificadora.
+Indicador Sem Movimentação:
+ ao marcar uma dessas opções no registro 0110 será especificado a não movimentação dessas operações.
+Outros ICMS Devidos:
+Registros 0200 não estão informados na Apuração. O usuário deve digitá-los:
+Botão 
+Incluir  
+Preencher os dados:
+O código da ocorrência deve ser preenchido
+A descrição deve ser preenchida
+O valor deve ser maior ou igual a zero
+Botão 
+Editar
+Para editar um código de ocorrência
+Botão 
+Excluir
+Para excluir um código de ocorrência cadastrado
+Dados do Arquivo:
+Layout de Exportação:
+ 
+selecione o layout a ser utilizado para gerar o arquivo. Para mais informações, ver 
+Manutenção Exportação de Dados
+Nome do arquivo:
+ 
+informe a pasta onde o arquivo será gravado e o nome do arquivo
+Clique no botão
+ 
+OK 
+para iniciar a geração do arquivo ou no botão 
+Cancela 
+para cancelar.
+Caso tenham operações com o Exterior e utilizem a UF EX, atentem-se para o preenchimento correto do campo Código Estadual na 
+, que deve ser preenchido com números.

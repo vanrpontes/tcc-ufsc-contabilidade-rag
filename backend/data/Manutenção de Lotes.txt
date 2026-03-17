@@ -1,0 +1,86 @@
+TITULO: Manutenção de Lotes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899576
+--------------------------------------------------
+none
+Objetivo
+Permite visualizar e incluir contabilizações gerenciais no SisPetro. O acesso é feito através do Menu 
+Movimentação / Controladoria / Manutenção de Lotes
+Nesta tela podem ser visualizados todos os lotes contábeis. Um lote representa dois ou mais lançamentos de débitos, ou créditos em determinadas contas.
+Os lotes são gerados de forma automática por diversos procedimentos do SisPetro, entre eles, Nota Fiscal, inclusão de Contas Pagar/Receber, Baixas do Contas a Pagar/Receber, lançamentos feitos pela tela de Manutenção de Bancos, etc. Em cada tela de manutenção específica tem o número do lote gerado para o processo, este número de lote poderá ser consultado nesta tela. A numeração de lote é por empresa e na tela só são apresentados lotes da empresa na qual o usuário está conectado.
+Além disso, é possível incluir lotes manuais, para movimentação de contas fora de procedimentos do SisPetro.
+Para incluir lotes Manuais utilize o botão 
+, o SisPetro apresentará o painel de 
+Detalhes
+:
+Detalhes
+Informe os dados do cabeçalho do lote, estes dados serão os mesmos para todas as contas movimentadas neste lote:
+Data:
+ informe a data de movimentação desejada. Além da data de movimentação que pode ser preenchida com data retroativa (desde que não se tenha 
+Travamento Contábil
+, o SisPetro grava a data de inclusão do lançamento. Esse campo poderá ser utilizado em relatórios se for necessário.
+Cód. Histórico:
+ informe ou selecione um código de histórico.
+#Centro de Custo: 
+centro de custo, informar em apenas um dos itens.
+Histórico:
+ caso tenha sido informado ou selecionado um código de histórico, o histórico já é preenchido automaticamente, permitindo incluir mais informações ou mesmo ser alterado totalmente.
+Informações Adicionais:
+ dados complementares que sejam necessários.
+Moeda:
+ geralmente, informe a moeda REAL.
+#Docto:
+ informe um número de documento que representa este lançamento contábil.
+Sugere valor da diferença entre itens?:
+ deixe esta opção marcada para que a cada conta informada o SisPetro sugere a diferença necessária para compor os valores, já que os valores de crédito e débito devem ser iguais.
+Restrito:
+ obsoleto, não marcar.
+Copia Histórico para os Itens:
+ esta opção faz com que, no momento de uma inclusão de lote manual, o SisPetro copie o histórico lançado no cabeçalho do lote para todos os itens, ou seja, para as contas de débito e crédito que serão movimentadas no lote.
+Além de copiar, o usuário pode alterar ou cadastrar um novo histórico e uma nova informação adicional para cada item do lote, porém, isso só será possível se o usuário tiver o perfil localizado nas configurações do usuário marcado. Este perfil pode ser acessado pelo 
+Menu Ferramentas / Usuário / 
+Contabilidade
+ / 
+opção 
+Utiliza histórico nos itens do lote gerencial
+Pode Contabilizar: esta
+ opção só estará visível para empresas que estejam com a Contabilidade real habilitada. Marcando esta opção, escolha o código de Contabilização desejado. Geralmente só terá um código de contabilização deste tipo e já será sugerido o código definido em 
+Ferramentas / Sistema / painel 
+Contab. Real
+ /
+ opção 
+Código de Contabilização para Lançamentos Lote  
+Nesse caso, será criado um lote na contabilidade real que estará vinculado a esse lote gerencial. O campo 
+# Lote Real
+, localizado no painel 
+Navegação
+, mostra o número do lote real vinculado a cada lote gerencial.
+A seguir, o usuário deve informar no painel inferior às contas a serem movimentadas. 
+Não há restrições quanto ao número de contas informadas, desde que o 
+valor total de débitos seja igual ao valor total de créditos
+, as restrições são as seguintes:
+Não pode ser informada conta do tipo Banco. Lançamentos com este tipo de conta devem ser feitos pela tela de 
+Manutenção de Bancos
+.
+Só pode ser movimentada contas de Entidades (Fornecedores e Clientes) se estiver desmarcado o perfil do 
+Menu Ferramentas / Sistema /
+painel Contas Contábeis
+ /
+ opção 
+Impede inclusão de lote gerencial manual para contas de entidades 
+É recomendável que este perfil esteja marcado, pois as contas de entidades devem ser movimentadas pelo Contas a Pagar/Receber.
+Este é um passo muito importante, utilize o botão 
+ Para incluir e consolidar o lote. Para mais informações, ver 
+Consolidação de Lotes
+.
+Para estornar lotes, utilize o botão 
+. O SisPetro mostrará uma tela onde o usuário pode informar a data do estorno do lote, que pode ser diferente da data atual. O SisPetro sempre irá sugerir a data do lote que será estornado.
+O estorno só será possível para lotes manuais. Os demais lotes, na tentativa de estorno, será apresentada uma mensagem em formato semelhante à apresentada a seguir:
+Alterações
+No painel 
+Alterações
+ é possível consultar as alterações feitas para determinados lotes em 
+Alteração de Lote Contábil
+. Neste painel são mostrados os valores originais, anteriores às alterações.
+Vale a pena ressaltar que essa aba de 
+Alterações
+ é totalmente independente da tela de Manutenção de Lotes, a informação exibida será sempre a mesma, seja qual for o lote selecionado.

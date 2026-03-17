@@ -1,0 +1,350 @@
+TITULO: Armazenadora - Retorno de Armazenagem
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4466245642
+--------------------------------------------------
+none
+Objetivo
+Tratar sobre o processo de retorno de armazenagem feito por uma 
+Armazenadora.
+O objetivo dessa tela é permitir um controle das Notas de  Retorno de Armazenagem da Armazenadora, 
+e também para a Distribuidora que é Armazenadora
+, através do vínculo entre as ordens de carregamento da Distribuidora/Congênere e essas notas.
+O recebimento do produto na Base, enviado por uma Distribuidora/Congênere, pode ocorrer de duas formas de transporte:
+Rodoviário:
+ geralmente Compra de Usinas, transferências de outras Distribuidoras ou Compra de Refinarias
+Dutoviário:
+ bombeio da Petrobrás
+Para acessar a tela de retorno de armazenagem: 
+Menu Movimentação
+ /
+ Faturamento
+ /
+ Retorno de Armazenagem
+Histórico
+Quando o meio de transporte é Dutoviário a Distribuidora terá uma Nota Fiscal para acobertar essa movimentação, por exemplo, a Nota de Venda da Usina endereçada a ela. No caso do Bombeio, há a solicitação de Bombeio e o envio posterior da Nota à Distribuidora. No entanto, para a Armazenadora, o que comprova esse recebimento é uma Nota de Remessa de Armazenagem que a Distribuidora mandará para ela. Só que esta nota só é enviada no final de um dia ou período, então, para o Controle de Estoque da Base, a Armazenadora faz 
+OC de Descarga de Terceiros
+, seja para providenciar a Descarga do Caminhão, seja aquela gerada pela 
+Distribuição do Bombeio
+.
+Assim, no final do dia, a Armazenadora precisa saber todas as Descargas feitas para então cobrar da Distribuidora a NF de Remessa de Armazenagem. Então, o vínculo da OC de Descarga de Terceiros à NF de Remessa de Armazenagem permite esse controle, pois todas as OC sem vínculo estão pendentes do recebimento da Nota Fiscal.
+Nas retiradas de produto, as Distribuidoras utilizam suas Notas de Venda ou de Transferência para acobertar a movimentação do produto. Desta vez, é a Armazenadora que deve gerar uma Nota de Retorno de Armazenagem para Distribuidora, para justificar essa retirada. Da mesma forma que as descargas, esses carregamentos são feitos por 
+OC de Carregamento de Terceiros
+, que fazem a movimentação do estoque na base.
+No final do dia a Base verifica as OC de Carregamento de Terceiros e emite, baseada nelas, a Nota de Retorno de Armazenagem. Ou seja, para os carregamentos, o vínculo entre OC de Carregamento de Terceiros e NF de Retorno de Armazenagem também são obrigatórios.
+O funcionamento da tela de Retorno de armazenagem será somente de forma automática, porém será possível realizar a alteração da natureza de faturamento caso o usuário tenha perfil. 
+É possível emitir notas de clientes (congêneres) e naturezas de operação diferentes. Desta forma o processo será mais ágil e assertivo uma vez que as configurações de entidade, natureza, condição de pagamento, tipo de cobrança, transportadora e frota já foram configuradas previamente.
+Configurações
+Na empresa armazenadora:
+Perfil de sistema / Aba remessa Retorno/Armazenagem:
+Condição de Pagamento
+Tipo de Cobrança
+Transportadora
+Frota.
+Tipo de Quantidade utilizada
+Para mais informações, ver 
+Painel Remessa/Retorno Armazenagem
+Nas Congêneres:
+Perfil de Sistema / Aba Clientes:
+Configurar o Código do Cliente que representa a Filial.
+Para mais Informações, ver 
+Painel Clientes
+Arquivo / Produto:
+Configurar  a Natureza de Operação que deverá ser utilizada no Retorno de Armazenagem.
+Para mais informações, ver
+ 
+Natureza de Operação - Produto
+Arquivo / Depósito / Aba Tabela Preço Tipo Cliente:
+Configurar tabela de preço. Esse preço será usado quando não houver vínculo da nota de remessa
+Para mais informações, ver 
+Depósitos - Tabela de Preços / Tipo Cliente
+Perfil de Cliente
+Pode ser configurados os perfis de alteração de natureza de operação, geração de itens da NF com produtos primários do composto e agrupamento de itens.
+Para mais informações, ver 
+Painel Faturamento (Usuários)
+Na tela de 
+Retorno de Armazenagem
+ são apresentadas as ordens de 
+Carregamento de Terceiros, Carregamento Próprio e Ordens de Vendas
+. 
+Botões 
+Aciona Serviço Importação OC:
+Ele aciona o serviço de importação de OC da Autoload. Para mais informações, ver 
+Importação de OC Autoload
+.
+Quando se tratar de 
+Armazenadora pura
+, deve estar HABILITADO o perfil É Armazenadora (Restringe acesso de usuários remotos - congêneres) na configuração da empresa, Painel Dados Gerais da empresa.
+Quando se tratar de 
+Distribuidora e Armazenadora
+, 
+NÃO HABILITAR
+ o perfil É Armazenadora (Restringe acesso de usuários remotos - congêneres).
+NF Remessa Conta Ordem: 
+Ele permite ao usuário realizar a 
+Emissão Automática de Nf de Remessa Conta e Ordem por Armazenadoras para transportar produto vendido pela Usina / Distribuidora
+ 
+Como utilizar:
+Na tela de retorno de armazenagem 
+informar a empresa no filtro de empresa.
+No quadro Itens da Nota Fiscal, clicar no botão 
+incluir,
+ informar o produto, depósito, e preço.
+Botão 
+Vinculo por Item, 
+realizar o vinculo com as notas e prosseguir com o faturamento.
+ Para mais informações, ver 
+NF de armazenagem sem vínculo com OC
+Quadro Itens de OC para Vínculo:
+O usuário pode utilizar o campo 
+Filtro Empresa
+ para consultar as OC de uma determinada filial ou utilizar o campo 
+Produto Específico
+ para verificar apenas as OC de um determinado produto. Através do campo 
+Período
+, pode-se selecionar um intervalo maior de data, caso queira. 
+Quadro Tipos de OC:
+Somente de Terceiros:
+ marcando essa opção só serão apresentadas as OC de Carregamentos de Terceiros na tela de Retorno.
+Todas:
+  marcando essa opção serão apresentadas as OC de Carregamento de Terceiros, Carregamento Próprio e Vendas na tela de Retorno.
+Após selecionar os filtros desejados, o usuário deve utilizar o botão 
+Atualiza
+ para que as informações sejam apresentadas na tela:
+Abas
+Ordem de Carregamento
+: são mostradas as informações das OC's. É possível incluir e remover campos clicando no botão 
+Dados Carregamento
+: são mostradas as informações de quantidades dos carregamentos e descargas. Para ver as informações selecione a OC e clique em 
+Dados Carregamento
+.
+Para alterar os campos abaixo é necessário perfil de usuário. Para mais informações, ver 
+ 
+Painel Faturamento (Usuários)
+Gera Itens da NF c/Produtos Primários do Produto Composto: 
+habilitado irá gerar a nota fiscal informando os produtos primários.
+Tipo de Quantidade: 
+habilitado será possível alterar o tipo de quantidade. 
+Desmembra itens da NF vinculados a mais de uma NF: 
+habilitado desmembra os itens que estiverem vinculados amais de uma nota fiscal.
+Agrupa itens da NF por Produto: 
+habilitado vai agrupar todos os produtos iguais.
+Para faturar a Ordem de Carregamento via tela de retorno de armazenagem, selecione o tipo de quantidade:
+Quantidade programada Ambiente: 
+quantidade informada na portaria de saída, campo 
+Quantidade programada
+Quantidade programada 20 graus: 
+quantidade programada 
+com o cálculo a 20 graus
+Quantidade real ambiente:
+ quantidade real informada na
+ hora de realizar a OC 
+Quantidade real 20 graus: 
+quantidade real informada na hora de realizar a OC
+ com o cálculo a 20 graus
+Produtos Compostos
+: com o item 
+Quando o produto composto gera itens da NF com produtos primários
+ 
+DESMARCADO
+ e for escolhido:
+Quantidade programada 20 graus
+Quantidade real ambiente
+Quantidade real 20 graus
+O SisPetro não tem condições de calcular pois os dados da Portaria de Saída são dos
+ produtos base. 
+Exemplo Gasolina C, composta de Etanol Anidro e Gasolina A, na portaria de saída são informadas as temperaturas dos dois produtos, e podem ser diferentes gerando um fator de conversão para cada um, sendo assim o SisPetro não tem como calcular os dados apenas da Gasolina C.
+O SisPetro mostrará as OC que poderão ser usadas para gerar uma nota e serem vinculadas a elas.
+Como gerar a Nota Fiscal de retorno:
+O usuário pode utilizar o botão 
+Sugere Dados para os Itens
+, para que os dados dos itens da nota fiscal a ser gerada seja igual aos dados da OC selecionada.
+Caso o perfil, 
+Não permite duplicar item 
+estiver marcado, o usuário não poderá sugerir a mesma OC mais de uma vez como item.
+Selecionar a OC desejada
+Clicar no Botão 
+Sugere Dados
+Feito isso apresentará nos quadros 
+Itens da Nota Fiscal
+ e 
+Vínculo da OC
+, os dados da OC selecionada.
+Essa tela permite que o usuário faça uma nota vinculando-a com uma OC, cujo item e quantidade sejam diferentes. 
+Isso não é validado
+. Para haver um maior controle por parte da empresa, é possível forçar ou indicar um vínculo com alguma nota fiscal e controlar tal quantidade. Para mais informações, ver 
+Dados Gerais (Painel Por Filial)
+,
+ painel 
+Dados Gerais
+ quadro
+ Vínculo de Nota Fiscal
+.
+ 
+Para incluir, excluir ou alterar um item da NF, usar os respectivos botões
+ Incluir, Excluir e Editar.
+O Botão 
+Marca/Desmarca Finalização,
+ serve para informar ao SisPetro que este item não é o último da OC, ou seja, informando isso 
+poderá ainda ser faturada
+ até sua totalidade. O padrão é vir
+ marcado. Verifique a coluna 
+Final
+ no quadro Vínculo da OC.
+Caso seja necessário excluir o item da nota no quadro, 
+Itens da Nota Fiscal
+ ou cancelar o vínculo, o usuário deve clicar no botão 
+Excluir
+.
+É possível gerar os itens da nota fiscal com produtos básicos, quando o item da OC selecionada for produto composto. Para isso, o usuário deve selecionar a OC, marcar o item 
+Quando produto composto gera itens da NF com os produtos primários
+ e clicar no botão 
+Sugere Dados para os Itens.
+Neste caso será gerada uma nota fiscal com dois itens, Etanol Anidro e Gasolina A.
+É possível agrupar os itens da nota fiscal quando os produtos são iguais na OC selecionada. Para isso, o usuário deve selecionar a OC, marcar a opção 
+Agrupar Itens da NF por Produto
+ e clicar no botão 
+Sugere Dados para os Itens
+.
+Exemplo de itens não agrupados quando a opção 
+Agrupar Itens da NF por Produto 
+esta
+ desabilitada
+Não agrupando os itens da NF:
+Nesta situação, cada item da OC corresponderá a um item da NF, exceto quando for um produto composto e estiver marcada a opção 
+Quando produto composto gera itens da NF com os produtos primários
+. Neste caso, os produtos básicos que compõe o produto composto serão os itens da NF.
+Agrupando os itens da NF:
+ 
+Nesta situação, cada produto igual da OC será agrupado em um item da NF.
+O SisPetro necessita que o usuário informe o valor unitário de cada item, que será sugerido conforme a Tabela de Preço informada. Porém, caso seja necessário alterar esse valor sugerido, antes de finalizar essa fase, é necessário selecionar cada item da nota, clicar no botão 
+Editar
+ e através da tela 
+Item da Nota Fiscal
+, informar o valor unitário dos itens. 
+ No caso de produto composto, cuja nota será feita para produtos básicos, será apresentado o 
+Fator de Conversão
+ do Produto configurado no campo 
+Produto armazenado no tanque
+, conforme 
+Cadastro de Produtos
+. No entanto, ao sugerir os itens dos produtos primários, será verificado o fator de conversão de cada produto básico, para a sugestão da quantidade realmente utilizada na Portaria.
+Desmembra itens da NF vinculados a mais de uma NF: 
+ao marcar essa opção será realizado o desmembramento do item da nota, de acordo com os itens vinculados ao mesmo. O perfil vem marcado ou desmarcado de acordo com o perfil de Sistema 
+Desmembra itens vinculados a mais de uma NF? 
+que fica no 
+Painel Remessa/Retorno Armazenagem
+, e para poder alterar o perfil na tela o usuário deve ter o perfil 
+Desmembramento itens vinculados a mais de uma NF 
+que fica no 
+Painel Faturamento (Usuários)
+ habilitado.
+Vínculo por Item:
+No botão Vínculo por item é disponibilizado para realizar o vinculo entre OC e Nota fiscal e quando houver o vinculo será exibido o item que já possui vinculo em negrito.
+Informações Complementares da Nota Fiscal - quadro Dados da NF:
+Os itens da nota fiscal serão gerados conforme as informações do quadro 
+Itens da Nota Fiscal
+ e as informações principais serão geradas de acordo com o painel 
+Principal
+ e 
+Dados Adicionais
+.
+Painel 
+Dados da NF:
+    
+Condição de Pagamento:
+ preenchida automaticamente com a entidade informada no perfil de Sistema 
+Código da Entidade que Representa a Filial
+É possível bloquear a edição do campo Entidade, permitindo emitir a nota somente com a entidade vinda do perfil de Sistema 
+Código da Entidade que Representa a Filial
+,
+ configurada no perfil da filial, para isso o perfil de usuário 
+Pode alterar Entidade na NF Remessa/Retorno Armazenagem?
+ deve estar desmarcado.
+Tipo de Cobrança:
+ Informa o tipo de cobrança podendo ser alterado caso o perfil 
+Painel Faturamento (Usuários)
+Transp/Motorista: 
+Transportadora / Motorista da OC
+Frota:
+ frota relacionado a Transportadora / Motorista da OC
+A numeração da nota fiscal é automaticamente sugerida devido as informações vindas do painel 
+Dados Adicionais
+.
+Painel 
+Dados Adicionais 
+é preenchido conforme padrão definido em 
+Painel Remessa/Retorno Armazenagem
+:
+Condições de Pagamento: 
+Informar a condição de pagamento pretendida no perfil de sistema em 
+Painel Remessa/Retorno Armazenagem
+Tipo de Cobrança: 
+informar no perfil de sistema  em 
+Painel Remessa/Retorno Armazenagem
+Tabela de Preços: 
+a tabela de preço é sugerida conforme a tabela de preço informada no 
+depósito
+, e para tipo de cliente  que forem informados  e vinculados ao 
+Cliente
+/
+Fornecedor
+. O campo só ficara habilitado caso o usuário tenha permissão e se a nota for de emissão própria. A tabela de preço é sugerida de acordo com a tabela de preço informada no depósito para a empresa informada na remessa/retorno e tipo de cliente amarrado ao Cliente/Fornecedor. 
+Clientes:
+ a tabela de preço será sugerida de acordo com o 
+tipo de Cliente
+ cadastrado no cliente em 
+Padrão para Vendas (Clientes)
+, e o tipo de cliente informado no 
+depósito
+ para a empresa conectada. 
+Fornecedor:
+ a regra para à sugestão da tabela de preço para Fornecedores segue a mesma regra que para clientes, com uma única diferença, o 
+tipo de clientes
+ informado no depósito deve ser do tipo 
+Ambos, 
+e também deve ser vinculado ao fornecedor no campo de
+ Tipo de Fornecedor 
+em 
+Padrão para Compras
+.
+Série NF: 
+sistema carrega a série padrão definida na natureza de operação, podendo ser alterada.
+Situação Frete: 
+é possível indicar a situação do frete. Para mais informações, ver 
+Dados Gerais (Painel Por Filial)
+Botão 
+Fat. Automático:
+Irá encaminhar para a tela de 
+Processamento de NF
+:
+Painel 
+Processamento de NF:
+Dados NF: 
+Aba Geral:
+Natureza de Operação: 
+neste campo é possível alterar a natureza de operação conforme a desejada, para realizar o processamento.
+Data Emissão: 
+informar a data de emissão.
+Data Movto:
+ informar a data de movimento.
+Hora Movto:
+ informar a hora de movimento.
+Aba Observações: 
+informa as observação que seguirá na nota fiscal.
+Aba Inf.Comp: 
+informa as informações complementares que seguirão na nota fiscal.
+Aba Ad.Fisco: 
+i
+nformações Adicionais de Interesse do Fisco
+ que seguirão na nota fiscal.
+Botão Processa: 
+realiza o processamento e envio de notas para validação junto a sefaz.
+Natureza de Operação: 
+Neste campo é possível alterar a natureza de operação conforme a desejada, para realizar o processamento.
+Data Emissão: 
+informar a data de emissão 
+Data Movto:
+ informar a data de movimento
+Hora Movto:
+ informar a hora de movimento
+Para mais informações sobre vínculo de notas de retorno de armazenagem a outras notas fiscais, acesse 
+Notas para Vínculos

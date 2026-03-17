@@ -1,0 +1,237 @@
+TITULO: Nota Técnica 2023.001 v1.30 - validação da unidade de medida (unidade de tributação)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4430921729
+--------------------------------------------------
+Histórico
+Com a tributação monofásica dos combustíveis, houve alteração também na validação das unidades de medida (unidade de tributação).
+Conforme a Nota Técnica 2023.001 v1.30 de 24/08/2023, os combustíveis sujeitos à tributação monofásica devem, obrigatoriamente, utilizar as unidades de medida conforme  a 
+Tabela de códigos de combustíveis sujeitos à tributação monofásica de ICMS - Publicada em 19/04/2023.
+Código Produto ANP
+Descrição
+%Biocombustível
+UF Origem Comb
+Unidade Tributação
+Alíquota AdRem ICMS
+210203001
+GLP
+0
+-
+KG
+1,2571
+210203003
+PROPANO COMERCIAL
+0
+-
+KG
+1,2571
+210203004
+PROPANO ESPECIAL
+0
+-
+KG
+1,2571
+210203005
+BUTANO COMERCIAL
+0
+-
+KG
+1,2571
+420102004
+ÓLEO DIESEL A S500
+1
+0
+L
+0,9456
+420102005
+ÓLEO DIESEL A S500 - ADITIVADO
+1
+0
+L
+0,9456
+420105001
+ÓLEO DIESEL A S10
+1
+0
+L
+0,9456
+420201001
+ÓLEO DIESEL MARÍTIMO (DMA-MGO)
+0
+0
+L
+0,9456
+420201003
+ÓLEO DIESEL MARÍTIMO (DMA-MDO)
+0
+0
+L
+0,9456
+420301002
+OUTROS ÓLEOS DIESEL (Sem Adição de B100)
+0
+0
+L
+0,9456
+820101001
+BIODIESEL B100
+0
+1
+L
+0,9456
+820101012
+ÓLEO DIESEL B S500 - COMUM
+1
+1
+L
+0,9456
+820101013
+ÓLEO DIESEL B S500 - ADITIVADO
+1
+1
+L
+0,9456
+820101033
+ÓLEO DIESEL B S10 - ADITIVADO
+1
+1
+L
+0,9456
+820101034
+ÓLEO DIESEL B S10 - COMUM
+1
+1
+L
+0,9456
+320101001
+GASOLINA A COMUM
+1
+0
+L
+1,2200
+320101002
+GASOLINA A PREMIUM
+1
+0
+L
+1,2200
+320102001
+GASOLINA C COMUM
+1
+1
+L
+1,2200
+320102002
+GASOLINA C COMUM ADITIVADA
+1
+1
+L
+1,2200
+320102003
+GASOLINA C PREMIUM
+1
+1
+L
+1,2200
+320102005
+GASOLINA C PREMIUM ADITIVADA
+1
+1
+L
+1,2200
+320201001
+GASOLINA DE AVIAÇÃO
+0
+0
+L
+1,2200
+810102001
+ETANOL ANIDRO
+0
+1
+L
+1,2200
+810102004
+ETANOL ANIDRO COM CORANTE
+0
+1
+L
+1,2200
+810102003
+ETANOL ANIDRO DE REFERÊNCIA - EAR
+0
+1
+L
+1,2200
+320103001
+GASOLINA DE REFERÊNCIA - NBR 16038
+1
+1
+L
+1,2200
+320103003
+GASOLINA DE REFERÊNCIA - PROCONVE L-6
+1
+1
+L
+1,2200
+320301002
+GASOLINA PARA EXPORTAÇÃO
+1
+1
+L
+1,2200
+320301001
+OUTRAS GASOLINAS
+1
+1
+L
+1,2200
+320103002
+OUTRAS GASOLINAS AUTOMOTIVAS
+1
+1
+L
+1,2200
+A partir de 25/09/2023  a unidade de medida (unidade de tributação) será validada. Caso uma nota fiscal de combustível esteja com unidade diferente de L (litros), a nota não será autorizada apresentando erro 854: Rejeição: Unidade Tributável (tag:uTrib) incompatível com produto informado
+O que altera no SisPetro com a validação
+1 - 
+Tabela Unidades:
+ 
+cadastrar a unidade L, caso não tenha cadastrado
+2 - 
+Cadastro de Produto
+ 
+-
+ aba Ficha Produto: 
+Campo Cod. Unidade:
+ alterar para 
+L
+Botão Unid. Adic.: 
+no campo 
+Unidade
+ informe LT (ou qualquer unidade que represente Litros e seja diferente de L) e no campo 
+Fator Conversão Unidade
+ informe 
+1
+Campo Utiliza Fator de Conversão na Unidade:
+ selecione 
+Utiliza somente para as unidades vinculadas
+ ou 
+Utiliza para as unidades vinculadas, as unidades não vinculadas o fator será 1
+Para mais informações, ver 
+Várias unidades de compra para um mesmo produto
+Nota 1: 
+os campos Unid. Adic. e Utiliza Fator de Conversão na Unidade serão utilizados para os PMMs já emitidos e cujos produtos combustíveis estejam a com a unidade de medida diferente de L, considerando que esses PMMs estarão em aberto no dia 04/09.
+Nota 2:
+ caso um produto tenha uma unidade adicional cadastrada para LT, deve ser incluída também para a unidade L.
+3 - 
+Natureza de Operação
+ - aba Dados Gerais:
+Opção Usa Fator de Conversão para Unidade:
+ marcar
+Com as configurações acima, os PMMs que foram emitidos com produtos combustíveis cujas unidades sejam diferentes de L, o SisPetro incluirá as notas com as unidades corretas.
+4 - Notas de Emissão Própria (como Venda):
+ só utilizará a unidade padrão do produto, por isso a necessidade de alterar para L que é a unidade aceita pela SEFAZ para a maioria dos combustíveis (conforme tabela acima).
+5 - Pedido de Vendas: 
+caso tenham pedidos de vendas emitidas com unidade de medida diferente de L e que serão faturados a partir de 04/09, devem ser cancelados e incluídos novamente com a unidade de medida correta.
+6 - Cargas sem fechamento: 
+caso tenham cargas sem fechamento cujos pedidos/OCs estejam com unidades de medida diferente e que serão enviados a partir de 04/09, devem ser canceladas e incluídas novamente.

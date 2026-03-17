@@ -1,0 +1,53 @@
+TITULO: Configuração de Compartimentos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2884435979
+--------------------------------------------------
+Atualmente o Sispetro permite ao usuário configurar a compartimentação por frota com a quantidade indeterminada por placa.
+Menu 
+Tabelas Auxiliares/ Transportes/ Frotas/ Manutenção de Frotas
+ 
+Exemplo de uma Frota Comum:
+Frota
+Placa
+Compartimentação
+Qtde por compartimento
+Capacidade
+Cavalo
+ABC-1234
+Sem Compartimentação
+ 
+ 
+Carreta
+DEF-5678
+N
+1. 5000 
+ 2. 5000
+ 3. 5000
+ 4. 5000
+ 5. 5000
+ 6. 5000
+ 7. 5000
+ 8. 5000
+ 9. 5000 
+45.000
+Treminhão
+GHI-9123
+N
+1. 2500
+ 2. 2500
+ 3. 2500
+ 4. 2500
+ 5. 2500
+ 6. 2500
+ 7. 2500
+17.500
+No perfil de Sistema - 
+Ferramentas/ Sistema/ aba Ordem Carregto
+:
+Hoje trabalhando com Compartimentação por Depósito:
+MARQUE o perfil Sugere compartimentação de acordo com o frota
+: Este perfil quando marcado faz com que o sistema sugira nas compartimentação definidas no frota a quantidade do produto utilizado na OC, levando sempre em consideração a quantidade permitida para cada compartimento. Este perfil não é obrigatório, é apenas para quem já utiliza.
+DESMARQUE o perfil Valida compartimentação de acordo com o frota
+: Este perfil quando marcado faz com que o sistema valide a quantidade de compartimentos definidos no frota com a quantidade de compartimentos utilizado na compartimentação da OC, e no caso de ter frotas com mais compartimentos isso impedirá de fazer a OC.
+ 
+Notas Técnicas: Ao responsável pela alteração do layout (rtm) da OC.
+Cada compartimento é salvo como uma linha (registro) na tabela de Compartimentação da OC. Assim, no layout da OC, como as informações estão no detalhe, sempre serão impressos os compartimentos definidos durante a inclusão da OC, não sendo necessário alterar o layout para aumentar ou diminuir o número de compartimentos. A mudança ocorre dinamicamente.

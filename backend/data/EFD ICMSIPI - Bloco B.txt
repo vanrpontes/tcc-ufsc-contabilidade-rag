@@ -1,0 +1,46 @@
+TITULO: EFD ICMS/IPI - Bloco B
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927271955
+--------------------------------------------------
+O Bloco B é responsável pelas Notas Fiscais de Serviços para empresas sediadas no Distrito Federal. Para empresas sediadas em outros Estados, serão gerados somente os registros de abertura (B001) e encerramento (B990).
+Registro
+Descrição
+Observações
+Emissão 
+(P ou T)
+Pai
+B020
+NOTA FISCAL modelo 01, modelo 03, modelo 3B, modelo 04, modelo 08, modelo 55 e modelo 65.
+Natureza Operação
+Participação no Registro da LFE
+Modelo da Nota
+Situação do Documento
+Condições de Pagamento (A vista/A prazo)
+Indicador de Pagamento
+Data de Filtro: Apuração
+Para a NF ser selecionada no período informado para a EFD é usado o campo DataReferencia, o qual pode ser preenchido com a Data de Movimento. Porém, como isso é feito na inclusão da NF, a Data de Referência utiliza a Data de Movimento Original, pois não é alterada posteriormente.
+Entidade para uso da LFE - 
+campo Entidade para uso do Livro Eletrônico em 
+Cadastro Detalhado (Clientes)
+ 
+e
+ 
+Observações Fornecedores
+A partir de 2023 notas fiscais denegadas ou inutilizadas (numeração inutilizada) não devem mais ser apresentadas
+P/T
+B001
+B025
+Combinação de alíquota de incidência do ISS e Item da Lista de Serviços da Lei Complementar 116/2003
+Dados das notas fiscais de serviços. Deve ser um registro B025 para cada B020
+P/T
+B020
+B440
+Totalização dos Valores Retidos
+Totaliza os valores de ISS retido informados nos registros B020. Caso não tenha, será enviado com valores zerados.
+A partir de 2023 notas fiscais denegadas ou inutilizadas (numeração inutilizada) não devem mais ser apresentadas
+P/T
+B001
+B470
+Apuração do ISS
+Somente gerado os registros sem dados. As informações devem ser incluídas diretamente no validador
+P/T
+B001

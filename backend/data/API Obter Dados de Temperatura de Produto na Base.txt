@@ -1,0 +1,64 @@
+TITULO: API Obter Dados de Temperatura de Produto na Base
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4722393089
+--------------------------------------------------
+Objetivo
+Obter os dados de temperatura e densidade para um determinado produto na base conforme o tanque ativo no momento para este produto.
+1. Obter token autenticação
+Introdução
+Qualquer webservice do projeto 
+SispetroWeb 
+exigirá um token de autenticação. Este token é gerado a partir deste webservice e será válido por 24 horas. Assim, recomendamos que o sistema consumidor dos webservices aqui descritos salvem o token armazenando também a data e hora em que ele foi gerado para que, quando chegar próximo de sua validade, seja obtido novo token.
+Para mais informações, ver 
+Documentação - API Obtenção de Token
+2. Informações sobre Produto
+Introdução
+Este webservice tem por finalidade retornar os dados de temperatura do produto conforme o tanque ativo na base.
+Endereço
+ <endereço do SispetroWeb>/deposito/consulta_dados
+Parâmetros
+Nome
+Descritivo
+Tipo
+Restrições
+Observações
+Exemplo
+id_produto
+código do produto dentro do Sispetro
+string
+Obrigatório
+Sem aspas
+05
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+Content-Type
+tipo do formato de envio
+application/json
+Accept
+tipo do formato de envio
+application/json
+Metodo
+GET
+Exemplo de Chamada do WebService
+curl -H "Content-Type: application/json" -H "Accept: application/json" -X GET -d '{"id_produto":05}' http://192.168.0.107:3000/deposito/consulta_dados
+Retorno Sem Sucesso
+Em formato JSON, será obtido um token caso os dados informados sejam validados e autenticados, a empresa esteja vinculada ao usuário, usuário esteja ativo e válido e empresa esteja ativa e válida. 
+O status da resposta sempre será 200.
+{
+    "id_deposito": "1",
+    "id_produto": "05",
+    "id_tanque": "T01",
+    "temperatura_tanque": "23.0",
+    "temperatura_amostra": "24.0",
+    "densidade": "0.75"
+}
+Retorno Sem Sucesso
+Se, por algum motivo, não for possível gerar o token, será gerado uma resposta com formato JSON a seguinte resposta (
+O status da resposta sempre será diferente de 200)
+:
+{"error":"Erro Autenticacao","status":403}

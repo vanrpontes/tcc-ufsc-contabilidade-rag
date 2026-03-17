@@ -1,0 +1,99 @@
+TITULO: Manutenção De-Para - Pagar-Receber
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899472
+--------------------------------------------------
+No processo de importação, o SisPetro vai receber um arquivo e passar as informações desse arquivo para dentro do sistema. Porém, nem sempre os dados desse arquivo a ser importado são comuns ao sistema.
+Ex. No Sistema da PetroBras a "Gasolina A" está com o código "GASO-A" e no SisPetro a mesma "Gasolina A" possui o código "05".
+Para que o sistema saiba interpretar as informações contidas no arquivo a ser importado, o usuário deve definir parâmetros de transformação através da manutenção do De/Para, ou seja, informar para o sistema que determinado valor no arquivo equivale a outro valor válido dentro do SisPetro.
+Para acessar a tela de Manutenção De/Para, o usuário deve entrar no Menu 
+Ferramentas / Importação de Dados / 
+Manutenção De/Para
+:
+Para iniciar o cadastro do De/Para, o usuário deve clicar no botão 
+. O sistema entrará no painel 
+Detalhes
+ esperando que seja informada uma descrição.
+Estando no painel 
+Detalhes
+, o usuário só conseguirá voltar para o painel 
+Navegação
+ ou 
+De/Para Itens
+, cancelando ou salvando as alterações desse painel. Uma vez cadastrada a descrição, o sistema permite que seja cadastrado os 
+Itens do De/Para
+, através do painel 
+De/Para Itens
+.
+Por meio deste painel, o usuário definirá os parâmetros de transformação para o Produto, Natureza de Operação, Tipo de Cobrança, Vendedor, Transportadora, Frota e Tabela de Preço. Todos os itens devem ser configurados, independente do layout que esteja sendo usado para a importação.
+Vale lembrar que as informações aqui cadastradas irão influenciar no processo final de importação. O cadastramento não correto pode fazer com que o sistema importe informações erradas ou até mesmo não importe.
+Inclusão de De/Para:
+Para a inclusão de um De/Para, o usuário deve escolher o item através do campo 
+Item
+ e clicar no botão 
+.
+O sistema abrirá a tela para inclusão do 
+De
+ e 
+Para
+, sensível ao contexto do item selecionado onde:
+De:
+ O código que vem do arquivo - O.DIESEL AUT. INTERIOR(B) (Descrição do produto no arquivo Petrobrás, por exemplo).
+Para:
+ 03 - Oleo Diesel B - Código dentro do SisPetro.
+Em qualquer item do 
+De/Para
+, o usuário pode utilizar a tela de pesquisa quando for cadastrar o 
+Para
+, se isso for necessário.
+Basta posicionar o cursor no campo 
+Para
+ e teclar <ENTER>. Lembre-se que o campo 
+Para
+ tem que estar em branco.
+Para confirmar a inclusão, o usuário deve clicar no botão 
+.
+O sistema retorna para o painel 
+De/Para Itens
+, mostrando o item salvo.
+Esse processo deve ser repetido para todos os itens (Produto,Natureza de Operação, Tipo de Cobrança, Vendedor, transportadora, Frota, Tabela de Preço). Apenas o item Natureza de Operação difere dos demais itens no momento do cadastro, pelo fato do usuário ter que cadastrar além do "De" e "Para", o tipo de Nota Fiscal ao qual se refere aquela natureza de operação.
+O tipo de Nota Fiscal (Complemento Preço/Imposto,Devolução de Clientes,Devolução p/ Fornecedor, Outras Entradas, Outras Saídas, Venda), deve ser selecionado através do campo 
+Tipo NF
+, sendo extremamente importante uma vez que algumas validações serão aplicadas a determinados tipos de nota, além é claro de definir para o arquivo como será realizada a conferência do Emitente e Destinatário.
+Exemplo: Para Notas onde a Natureza de Operação estiver com o Tipo "Entrada" o Emitente será o fornecedor e o Destinatário a filial, enquanto que para as Notas onde a natureza de operação estiver como o tipo "Saída" o Emitente será a filial e o Destinatário o Cliente.
+Excluindo e Editando um De/Para:
+Para Excluir qualquer item do De/Para, o usuário deve se posicionar sobre o registro e clicar no botão 
+.
+O sistema solicitará uma confirmação de exclusão, antes de apagar o registro:
+O usuário clicando no botão 
+Yes
+ o registro será apagado, caso contrário, o sistema volta para o painel 
+De/Para Itens
+.
+Para Editar o registro, o usuário deve seguir o mesmo procedimento, posicionando sobre o registro e clicando no botão 
+.
+O sistema abrirá a tela de alterações, onde o usuário poderá alterar as informações.
+Configurando "De" como Nulo ou Branco:
+Nos arquivos importados, algumas informações podem não vir preenchidas, até por não fazerem parte do layout.
+Exemplo: No layout da Petrobrás não há tipo de cobrança e nem transportadora, no layout do SisPetro há os dois campos, mais não necessáriamente podem estar preenchido.
+O tipo de cobrança e a transportadora são informações importante para o sistema, sendo necessário que essa informações sejam salvas, porque alguns processos internos do sistema dependem delas. Para contornar essa situação, o usuário deve criar um 
+De
+ nulo:
+Na tela acima, o sistema entenderá que toda a vez que não tiver essa informação não arquivo, para a tabela de preço, o sistema deve importar como tabela de preço 01 - Geral. Esse procedimento pode ser feito para todos os itens do 
+De/Para
+, caso haja necessidade. Apenas o campo 
+De
+ poderá ficar em branco.
+Importante:
+Não será permitido o cadastro de mais de um registro usando um "De" igual.
+Ex. De "GASI" Para "03" e De "GASI" Para "05"
+O usuário deve ter muita atenção no momento de cadastrar a descrição dos itens do "De/Para", campo "De". Dependendo do arquivo a ser importado, os campos podem estar em código, porém, outros arquivos podem ter esses mesmos campos descritos em palavras, o que torna o processo de importação mais sensivel no momento de comparar a informação do arquivo com a informação do item do "De/Para".
+Exemplo:
+Editando um arquivo texto pelo bloco de notas, a posição que traz o produto, tem como valor "O.DIESEL AUT. INTERIOR(B)".
+Para esse caso, o usuário precisa ter atenção redobrada para cadastrar o campo "De" nos itens do De/Para. Note que no arquivo há um espaço entre a palavra "AUT." e a palavra "INTERIOR(B)", esse detalhe faz com que o sistema veja diferença entre a frase escrita no arquivo e a frase escrita no item do De/Para - campo "De", se o usuário escrever 
+O.DIESEL AUT.INTERIOR(B)
+ sem o espaço, não localizando o produto em questão e invalidando a importação da Nota Fiscal.
+Veja também:
+Estrutura do Layout de Importação
+Importação de NF´s 
+Manutenção Importação de Dados
+Configuração de De/Para
+Manutenção de Processos

@@ -1,0 +1,682 @@
+TITULO: Painel Financeiro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2915795037
+--------------------------------------------------
+O acesso a essa tela se dá através de 
+Ferramentas / Sistemas / Aba Financeiro
+Títulos
+Geral (Contas Pagar/Receber)
+Muda data de vencimento para próximo dia útil:
+ este perfil tem o objetivo de ajustar automaticamente a data de vencimento, para que não seja finais de semana ou feriados configurados no SisPetro. Para vendas está associado ao cadastro realizado na Tabela Feriados. Para maiores informações, ver 
+Tabela Feriados
+.
+Impede Vencimento Contas Pagar/Receber menor que Emissão: 
+este perfil bloqueia a inclusão de lançamentos a pagar e receber, com data de vencimento anterior a data de emissão do lançamento/data de emissão do título (que pode variar conforme perfil 
+Lança Dt Emissão a partir da
+).
+Muda cor caso financeiro diferente da NF: 
+trabalha em conjunto com 
+Valores Financeiros X Faturamento
+, quando o valor da NF for menor ou maior, o título ficará com cor diferente.
+Bloqueia lançamentos com número de NF duplicado: 
+não permite inclusão de títulos, cujo número da nota fiscal já existe.
+Travamento de Entidade no Contas Pagar/Receber
+Avisa na NF que Tipo de Entidade é incompatível: 
+permite fazer operação com entidade incompatível a NF, porém alerta.
+Não permite NF c/ Tipo de Entidade incompatível: 
+não permite operação com entidade incompatível na NF.
+Controla Tipo Documento origem do movto financeiro
+Tipo Documento Padrão Natureza Operação: 
+tipo de documento que será usado no momento da criação da natureza de operação.
+Nome comprador lançado no Financeiro: 
+estipula qual nome será impresso no financeiro.
+Razão Social: 
+se selecionado, no financeiro será impresso a Razão Social da Entidade.
+Nome Usual: 
+se selecionado, no financeiro será impresso a Nome Usual da Entidade.
+Calcula Data Vencto a partir da: 
+informar como o SisPetro irá calcular a data de vencimento do título. Esta opção afeta apenas o financeiro (Contas a Receber/Pagar).
+C. Pagar
+Data Saída (Movto) NF: 
+utilizando esta opção, ele irá calcular a data de vencimento do título a partir da data de saída da nota (movimento).
+Por exemplo:
+Data de Emissão: dia 01.
+Data de Saída (data de movimento): dia 05.
+Data de Inclusão: dia 06.
+Selecionando a opção Data Saída NF (data de movimento), a data de vencimento do título será calculado a partir da data de saída, ou seja, dia 05.
+Data Inclusão NF: 
+utilizando esta opção, ele irá calcular a data de vencimento do título a partir da data de inclusão da nota.
+Por exemplo:
+Data de Emissão: dia 01.
+Data de Saída (data de movimento): dia 05.
+Data de Inclusão: dia 06.
+Selecionando a opção Data Inclusão NF, a data de vencimento do título será calculado a partir da data de inclusão, ou seja, dia 06.
+Data Emissão NF: 
+utilizando esta opção, ele irá calcular a data de vencimento do título a partir da data de emissão da nota.
+Por exemplo:
+Data de Emissão: dia 01.
+Data de Saída (data de movimento): dia 05.
+Data de Inclusão: dia 06.
+Selecionando a opção Data Emissão NF, a data de vencimento do título será calculado a partir da data de emissão da NF, ou seja, dia 01.
+C. Receber
+Data Saída (Movto) NF: 
+utilizando esta opção, ele irá calcular a data de vencimento do título a partir da data de saída da nota (movimento).
+Por exemplo:
+Data de Emissão: dia 01.
+Data de Saída (data de movimento): dia 05.
+Data de Inclusão: dia 06.
+Selecionando a opção Data Saída NF (data de movimento), a data de vencimento do título será calculado a partir da data de saída, ou seja, dia 05.
+Data Inclusão NF: 
+utilizando esta opção, ele irá calcular a data de vencimento do título a partir da data de inclusão da nota.
+Por exemplo:
+Data de Emissão: dia 01.
+Data de Saída (data de movimento): dia 05.
+Data de Inclusão: dia 06.
+Selecionando a opção Data Inclusão NF, a data de vencimento do título será calculado a partir da data de inclusão, ou seja, dia 06.
+Data Emissão NF: 
+utilizando esta opção, ele irá calcular a data de vencimento do título a partir da data de emissão da nota.
+Por exemplo:
+Data de Emissão: dia 01.
+Data de Saída (data de movimento): dia 05.
+Data de Inclusão: dia 06.
+Selecionando a opção Data Emissão NF, a data de vencimento do título será calculado a partir da data de emissão da NF, ou seja, dia 01.
+Calcula Dt Emissão a partir da: 
+informar como o SisPetro irá calcular a data de emissão dos títulos. Esta opção afeta Contabilidade, Fiscal e Financeiro.
+C. Pagar
+Data Emissão NF: 
+selecionando esta opção, a data de emissão do título será calculada a partir da data de emissão da nota, e utilizará essa data na contabilização da nota e no livro fiscal.
+Data Movto NF: 
+selecionando esta opção, a data de emissão do título será calculada a partir da data de movimento da nota, e utilizará essa data na contabilização da nota e no livro fiscal, na qual pode dar problema quando nota emitida no fim do mês e lançada no sistema no começo do mês seguinte.
+Data Inclusão NF: 
+selecionando esta opção, a data de emissão do título será calculada a partir da data de inclusão da nota, e utilizará essa data na contabilização da nota e no livro fiscal.
+C. Receber
+Data Emissão NF: 
+selecionando esta opção, a data de emissão do título será calculada a partir da data de emissão da nota, e utilizará essa data na contabilização da nota e no livro fiscal.
+Data Movto NF: 
+selecionando esta opção, a data de emissão do título será calculada a partir da data de movimento da nota, e utilizará essa data na contabilização da nota e no livro fiscal, na qual pode dar problema quando nota emitida no fim do mês e lançada no sistema no começo do mês seguinte.
+Data Inclusão NF: 
+selecionando esta opção, a data de emissão do título será calculada a partir da data de inclusão da nota, e utilizará essa data na contabilização da nota e no livro fiscal.
+Período para exibição na Man. de Contas Pagar/Receber: 
+na tela de 
+Manutenção Arquivos Cobrança
+ temos o filtro de data. Este perfil servirá apenas para a primeira vez que o usuário entrar na tela, será sugerido o número de dias aqui configurados. 
+Data Inicial (n.º de dias anteriores a data atual): 
+informar quantos dias antes a data atual, para exibir na manutenção do contas a Pagar/Receber ao abrir a tela, referente a data inicial.
+Data Final (n.º de dias posteriores a data atual): 
+informar quantos dias após a data atual, para exibir na manutenção do contas a Pagar/Receber ao abrir a tela, referente a data final
+Após inclusão, mostra nova tela de inclusão lançamento: 
+ habilitando essa opção, assim que incluir um título no contas a receber/pagar a tela de lançamento permanecerá aberta.
+Habilita opção para manter os dados da última inclusão efetuada:
+ ao marcar esta opção, ao fazer o lançamento manual de um título, virá marcado por padrão a opção 
+Mantém os dados da última inclusão efetuada?
+, com isso ele irá permanecer na tela as informações do último lançamento feito.
+Habilita Transferência de Títulos entre Empresas: 
+ao marcar essa opção o SisPetro irá verificar se o tipo de cobrança está configurado para fazer a transferência de títulos e, a partir daí, transferir todos os títulos do Contas a Receber gerados por emissão de Nota Fiscal para a empresa apontada como 
+Controladora. 
+Para mais informações, ver 
+Transferência de títulos a Receber entre Empresas
+Contas a Receber
+Força Contas a Receber segundo padrão empresa: 
+quando selecionado esta opção irá forçar seguir o que estiver configurado em 
+Valor Faturamento X Financeiro
+.
+Controla portador no Contas a Receber: 
+com esta opção marcada, obriga informar o portador do título.
+Valores Financeiros x Faturamento: 
+Caso a empresa deseje trabalhar com valores diferentes para o Faturamento (NF) e para o Financeiro (Contas a Receber), pode-se no momento da inclusão do Pedido de Venda definir o valor que deverá ir para cada área. Para maiores informações, ver 
+Valor Faturamento X Financeiro
+.
+Valor NF (pedido) = Valor Financeiro (pedido);
+ 
+Valor NF (tabela) <> Valor Financeiro (pedido);
+Valor NF (pedido) <> Valor Financeiro (tabela);
+.
+Adiantamentos
+Geral (Clientes e Fornecedores)
+Verifica débitos na inclusão de adiantamentos (créditos): 
+caso este perfil selecionado, ao incluir adiantamento, irá verificar se cliente/fornecedor tem algum débito, caso houver ele quitará. Para 
+maiores
+ informações, ver 
+Baixa Automática utilizando Adiantamentos
+Atualiza histórico do movimento identificação adiantamento: 
+caso este perfil selecionado, ao incluir um adiantamento ele atualizará a identificação que antes era não identificado. Para 
+maiores
+ informações, ver 
+Roteiro de Inclusão de Adiantamento de Clientes Não Identificados
+Nome Arquivo Recibo de Adiantamento: 
+informar caminho e nome do arquivo de recibo.
+Adiantamento Multi-Empresa:
+ Esse perfil define se a Empresa trabalha com inclusão de adiantamento Multi-Empresa, onde caso o usuário tenha acesso será permitido incluir adiantamentos para qualquer empresa que o usuário tenha acesso.
+Conforme permissão do usuário:
+ permite incluir o adiantamento selecionando as empresas que o usuário tem acesso, para isso o usuário deve ter as devidas permissões de usuário. Para 
+maiores
+ informações, ver 
+Painel Financeiro (Usuário)
+.
+Somente para Empresa conectada:
+ selecionando essa opção ao incluir um adiantamento, o usuário não ira conseguir mudar a empresa, e o adiantamento será incluído para a empresa conectada.
+Clientes
+Analisa Pedidos não Aprovados após Inclusão Adiantamento: 
+caso este perfil selecionado, ao incluir adiantamento será feito uma reanalise dos Pedidos não Aprovados. Para 
+maiores
+ informações, ver 
+Aprovação Automática do Pedido de Venda
+Faz restrição do Grupo Econ. em Adiantamentos Clientes: 
+caso este perfil selecionado, somente na 
+tela de adiantamento de cliente, ao incluir um adiantamento ele fará uma verificação de controle de grupo econômico onde será restrita a inclusão caso o cliente não seja comprador do outro, ou que não faça parte do mesmo grupo econômico. Para 
+maiores
+ informações, ver 
+Validação na Transferência de Adiantamento de Cliente entre o Grupo Econômico
+CC Crédito Não Ident.: 
+ao informar conta contábil, levará automaticamente este como padrão, quando incluído um credito não identificado.
+Quantificado
+Pode controlar depósito adiantamento quantificado clientes: 
+caso este perfil selecionado, será disponibilizado o campo depósito quando estiver fazendo um adiantamento quantificado. Para 
+maiores
+ informações, ver 
+Adiantamento Quantificado de Clientes
+Aprova automaticamente pedidos c/ adiant. quantificado: 
+caso este perfil selecionado, aprovará automaticamente pedidos com adiantamento quantificado, referente Financeiro e Vendas. Para 
+maiores
+ informações, ver 
+Adiantamento Quantificado de Clientes
+Utiliza adiant. quantificado Multi-Empresa (outras empresas): 
+caso este perfil selecionado, 
+o usuário consegue incluir adiantamento para uma empresa diferente da empresa conectada. Para 
+maiores
+ informações, ver 
+Adiantamentos de Clientes
+.
+Habilita adiantamento quantificado de produtos: 
+caso este perfil selecionado, será disponibilizado para utilizar o adiantamento quantificado. Para 
+maiores
+ informações, ver 
+Adiantamento Quantificado de Clientes
+.
+Tipo de Documento na Inclusão de Adiantamentos: 
+ao configurar este perfil, na tela de Inclusão de Adiantamento de Clientes o Tipo de Documento será sugerido automaticamente.
+Baixa de adiantamentos com Contrato de Venda: 
+Livremente:
+ baixa os títulos livremente, ou seja, o Adiantamento não precisa estar vinculado ao contrato de venda.
+Somente títulos com mesmo contrato: 
+baixa apenas títulos com adiantamento vinculados ao contrato. 
+Quadro Contratos de Venda
+Visualização de Contratos de Venda:
+ 
+Somente Pendentes: 
+no vínculo de adiantamento ao Contrato de Venda, mostra apenas os pendentes, ou seja, que a quantidade não foi entregue por completo.
+Todos (ver Nº Dias):
+ mostra todos os contratos, respeitando o número de dias configurado na opção 
+Nº de Dias para Visualização Todos Contratos.
+Nº de Dias para Visualização Todos Contratos: o número de dias configurado: 
+número de dias para mostrar os contratos no vínculo de Contrato de Venda com Adiantamento de Clientes. 
+Fornecedores
+Habilita geração autom. de Adiantamentos pelo Financeiro: 
+com este perfil selecionado, irá disponibilizar na inclusão do contas a pagar, a opção Gera Adiantamento. Para 
+maiores
+ informações, ver 
+Tabela Tipo de Documento
+.
+Exige #Docto em Adto Fornecedores: 
+com este perfil selecionado, se tornará obrigatório a informação de um número de Documento ao Gerar Adiantamento de Fornecedores.
+Permite fazer transferência de Adiantamentos com PMM vinculado: 
+com este perfil selecionado, 
+permitirá que Adiantamentos de Fornecedor vinculados a PMM sejam transferidos 
+somente 
+para Conta Contábil. Para 
+maiores
+ informações, ver 
+Transferindo um Crédito de um Fornecedor para Outro
+.
+Faz restrições do Grupo Econ. em Adiantamentos Fornecedor: 
+caso este perfil selecionado, somente na 
+tela de adiantamento de cliente, ao incluir um adiantamento ele fará uma verificação de controle de grupo econômico onde será restrita a inclusão caso o fornecedor não seja comprador do outro, ou que não faça parte do mesmo grupo econômico.
+Na inclusão avisa se tiver adiantamentos pendentes: 
+se o perfil estiver marcado, ao incluir um pagamento para um fornecedor que possua pré adiantamento ou adiantamento uma mensagem de alerta será exibida.
+Validação de #Docto em Adto Fornecedores
+Não controlar #Docto: 
+se esta opção selecionada, não faz nada.
+Avisar duplicidade #Docto: 
+se esta opção selecionada, irá validar e avisar caso tenha um número de documento igual.
+Preço em Adiantamentos Quantificados com PMM
+Sugere o Preço do PMM e não permite alterar: 
+com este perfil selecionado, irá sugerir o preço do PMM e não deixará fazer alteração do preço.
+Sugere o Preço do PMM e verificar se o usuário pode alterar: 
+com este perfil selecionado, irá sugerir o preço do PMM e verificar se o usuário tem permissão para fazer alteração do preço.
+Tipo de Documento na Inclusão de Adiantamentos: 
+ao configurar este perfil, na tela de Inclusão de Adiantamento de Clientes o Tipo de Documento será sugerido automaticamente.
+%Tx Juros (ao
+ 
+dia):
+ aqui informa qual a taxa de juros ao dia padrão.
+Nº Máx. Tít. por Reneg: 
+quantidade máxima de títulos que pode juntar para renegociação.
+% Multa C. Receber:
+ percentual de multa do contas a receber.
+Portador padrão para os títulos gerados por Nf de Venda: 
+Informa qual o portador (banco) dos títulos gerados por Notas de venda.
+Utiliza vínculo de Portador ao Tipo de Cobrança: 
+permite vínculo do Portador ao Tipo de Cobrança no Lançamento Financeiro.
+Controla Mudança de Portador de Clientes em Atraso: 
+este perfil tem como objetivo mudar o portador do título de contas a receber no caso de atraso. Para 
+maiores
+ informações, ver 
+Baixa com Restrição de Clientes em Atraso
+Número de dia em atraso:
+ informa o número de dias de atraso. É o número de dias entre a Data do Vencimento do título e a Data da Baixa (Data de Movimento) ou a Data do Fluxo.
+Tipo de Ocorrência
+Atraso
+ - opção que verifica se houve determinado número de dias de atraso entre as datas informadas no item anterior.
+Preenchido Valor Acréscimo
+ - opção que verifica se o campo valor acréscimo na tela de baixa tenha sido preenchido.
+Campo de Comparação:
+ data da Baixa (Data de Movimento) e Data do Fluxo da Baixa.
+Código Portador:
+ portador do título a receber que gera restrição financeira. Para 
+maiores
+ informações, ver 
+Tabela Portador
+.
+Cobrança Eletrônica
+Comunicação Serial
+Número de Dígitos do Boleto:
+ Informar qual a quantidade de dígitos na geração
+Pode Alterar Nosso Número e Banco qualquer lancto: 
+com este perfil selecionado permite alterar o campo nosso número, porém não recomendamos para garantir a integridade dos dados junto ao banco.
+Número de boleto para aviso do fim da faixa de cobrança: 
+estipula quantos boletos antes será informado do fim da faixa de cobrança cadastrada.
+Exibição de Dados na Manutenção
+Data Inicial (n.º de dias anteriores a data atual: 
+informe quantos dias anteriores a data atual o SisPetro irá mostrar a quantidade de boletos.
+Tipo de Documento para baixa automática: 
+informe o código do Tipo de Documento que será utilizado na baixa via serviço
+Tipo de cobrança para obtenção de Contas na Baixa Eletrônica
+Indicado em tela ou configurado no Banco: 
+utiliza a conta contábil que está configurada no banco, ou indicado na tela quando se tratar de baixa manual
+Do Título que está sendo baixado: 
+utiliza as contas indicadas no Tipo de Cobrança do título que está sendo baixado, ou seja, caso a empresa trabalhe com um banco, dois ou mais tipos de cobrança e essas tiverem contas banco diferentes o SisPetro irá respeitar cada uma delas, indiferente do arquivo de retorno ser único (contendo vários títulos com tipos de cobrança distintos).
+Pesquisa de Conta Contábil
+Filtra tipo de conta na tela de Baixa: 
+com esta opção marcada na tela de baixa, irá trazer apenas contas do tipo Banco.
+Filtra tipo de conta na tela de Adiantamento: 
+com esta opção marcada na tela de Adiantamento, virá com a opção 
+Sugere somente conta Bancos
+ marcada como padrão.
+Filtra tipo de conta na tela de Transferência entre Contas: 
+com esta opção marcada na tela de Transferência entre Contas, irá trazer apenas contas do tipo Banco, no campo Conta Destino.
+Filtra tipo de conta na tela de Pagamentos Adiantamentos: 
+com esta opção marcada na tela de Pagamento de Adiantamento, irá trazer apenas contas do tipo Banco.
+Filtra tipo de conta na tela de Renegociação (Baixa): 
+com esta opção marcada na tela de renegociação no campo CC Baixa, irá trazer apenas contas do tipo Banco.
+Filtra tipo de conta na tela de Renegociação (Juros): 
+com esta opção marcada na tela de renegociação no campo CC Receita de Juros, irá trazer apenas contas do tipo Receita.
+Filtra Tipos de Conta na Tela de Pagto Despesas Extraordinárias:
+ATIVO, PASSIVO, RECEITA, DESPESA, CUSTO, BANCO, RESULTADO: 
+na tela de Manutenção de Bancos > botão Pagamento > aba Despesas Extraordinárias, serão apresentadas as contas contábeis, conforme as opções marcadas.
+Filtra Tipos de Conta na Tela de Recebimentos Extraordinárias:
+ATIVO, PASSIVO, RECEITA, DESPESA, CUSTO, BANCO, RESULTADO: 
+na tela de Manutenção de Bancos > botão Recebimento > aba Receitas Extraordinárias, serão apresentadas as contas contábeis, conforme as opções marcadas.
+Manutenção de Bancos
+Despesas Extraordinárias
+Imprime Recibo de Despesas Extraordinárias: 
+informar caminho e nome do arquivo de recibo.
+Conciliação Bancária
+Conciliação Automática: 
+tem o objetivo de auxiliar e automatizar o processo de conciliação bancárias. Para 
+maiores
+ informações, ver 
+Conciliação Automática - Informações Gerais
+.
+Tela de Manutenção
+Data Inicial (n.º de dias anteriores a data atual): 
+informar quantos dias antes a data atual, para exibir na manutenção do contas a Pagar/Receber ao abrir a tela, referente a data inicial.
+Data Final (n.º de dias posteriores a data atual): 
+informar quantos dias após a data atual, para exibir na manutenção do contas a Pagar/Receber ao abrir a tela, referente a data final.
+Número de dias para a Data Final da conciliação: 
+irá sugerir que a data final, sena a data atual menos a quantidade de dias aqui preenchido. Para 
+maiores
+ informações, ver 
+Conciliação Automática - Informações Gerais
+.
+PIX
+Ambiente API PIX Recebidos: 
+o usuário irá escolher qual ambiente o SisPetro irá trabalhar
+Produção: 
+Ambiente que a empresa trabalhará na produção. 
+Homologação: 
+Ambiente de testes
+Entidade do Adiantamento gerado pelo PIX: 
+selecionar qual a entidade que será gerado o adiantamento do PIX
+Endidade do Pedido (padrão): 
+adiantamento gerado pela entidade do pedido
+CNPJ/CPF do Pagador: 
+adiantamento será gerado para o CNPJ/CPF do pagador, somente sera gerado adiantamento caso o arquivo de retorno tenha a informação de CNPJ/CPF do pagador.
+Não Gera Adiantamento se Pagador for diferente: 
+não gera o adiantamento se o pagador for diferente do esperado
+Ação nos Pagtos Atrasados de PIX via Contas a Receber: 
+ação que irá ocorrer em caso de pagamento atrasado do PIX no contas a receber
+Baixa o título de forma integral (padrão): 
+irá baixar o titulo de forma integral mesmo atrasado
+Não baixa o título: 
+se pagamento atrasado não irá realizar a baixa
+Baixa o título deixando pendente o valor de juros/multa: 
+baixa o título permanecendo o juros e multa pendente
+Timeout p/comunicação API QR Code Dinâmico:
+ definir o tempo em segundos que irá apresentar falha de comunicação para geração do QR Code Dinâmico.
+Para mais informações, ver 
+PIX
+Efetua o fechamento da conciliação mesmo com diferença: 
+este perfil se marcado, irá permitir efetuar o fechamento da conciliação independente se tiver com diferença.
+Conciliação Manual
+Confirma conciliação/desconciliação dos lançamentos: 
+com este perfil marcado, conciliação ou desconciliação será permitido fazer manualmente.
+Serviço de Cobrança Eletrônica: 
+os perfis do painel de Serviço de Cobrança Eletrônica são utilizados para configurar o serviço de geração de arquivos de remessa e retorno de cobrança eletrônica via serviço.
+Retorno
+Data de Movimento do Serviço de Leitura: 
+nesse campo é definido de onde será pego a data de movimento, onde o usuário pode definir se vai pegar a data vinda do arquivo ou a data atual.
+Usa a data de efetivação do débito vinda no arquivo: 
+nesse perfil, usa a data de débito que estiver estipulado no arquivo.
+Usa a data atual: 
+nesse perfil, usa a data atual que estiver importando o retorno.
+Conforme Configuração do Banco: 
+nesse perfil, usa a configuração realizada no banco.
+Remessa
+Permite geração de remessa automática: 
+através desse perfil que definimos se a empresa selecionada ira trabalhar ou não com o serviço de geração de remessa.
+Nomenclatura do arquivo:
+ nesse perfil definimos como será a nomenclatura do arquivo.
+Tipo_Tipo Cobranca_DiaMesAno_SequencialRemessa.rem
+Banco_Convenio_Sequencial Remessa.rem
+'COB'BancoContaDiaMesAno.rem
+Contas a Pagar
+Faz Integração com Sistema de Recebíveis: 
+ao habilitar essa opção a empresa ira habilitar a opção de trabalhar com a integração com o Sistema de Recebíveis. Para 
+maiores
+ informações, ver 
+Trabalhando com Sistema de Recebíveis
+.
+Nome Arquivo Autoriz.Contab. Pagto: 
+indica o rtm utilizado para impressão da autorização de pagamento
+Validação de #Docto em Pagamentos:
+ controla ou não o número de documento nos pagamentos de mesmo fornecedor
+Não controlar #Docto: 
+permite incluir números de documentos iguais
+Avisar duplicidade #Docto: 
+avisa que o número de documento já existe. O usuário define se permite ou não a duplicidade
+Bloquear duplicidade #Docto: 
+não permite incluir número de documento igual.
+Cotação Diária:
+ este perfil destina-se a informar a forma que será utilizado a cotação diária, fazendo a conversão de moeda na inclusão do adiantamento, sendo ele utilizado apenas para Fornecedor. Para 
+maiores
+ informações, ver 
+Conversão de valores para Adiantamento
+Obriga informação diária da cotação da moeda para conversão
+Pega a última cotação cadastrada a partir da data atual
+Baixa
+Geral
+Na Baixa, alerta caso Data Fluxo seja menor que Data Vencimento: 
+habilitando esta opção, ao realizar uma baixa, o sistema alertará o usuário, caso a data de fluxo seja menor que a data de vencimento do titulo.
+Permite Utilizar Adiantamento de Outras Filiais: 
+com este perfil selecionado, permite utilizar crédito de outras filiais, porém cliente ou fornecedor devem ser o mesmo. Para 
+maiores
+ informações, ver 
+Baixa Automática utilizando Adiantamentos
+.
+Histórico Transf. Adto Filiais: 
+define um histórico a ser utilizado para adiantamento entre filiais.
+CC Transf. Adto Filiais: 
+define conta contábil a ser utilizada quando feito adiantamento entre filiais.
+Contas a Pagar: 
+este perfil tem como objetivo minimizar erros ao realizar baixas utilizando adiantamentos, onde o usuário selecionava um adiantamento aleatório pertencente ao fornecedor para realizar a baixa, quando o correto seria realizar a baixa utilizando o adiantamento pertencente ao PMM do título, ao utilizar o perfil Sugere Adiantamento ao Título pelo PMM quando realizado baixa de um título vindo de um PMM que tem um adiantamento, é sugerido o adiantamento pertencente ao PMM na hora da baixa. Para 
+maiores
+ informações, ver 
+Utilização do Crédito Fornecedor (Adiantamento)
+.
+Permite livremente para o Fornecedor:
+ permite utilizar qualquer adiantamento para o fornecedor na hora da baixa.
+Sugere Adiantamento ao Título pelo PMM:
+ sugere o adiantamento vindo do PMM que gerou a Nota.
+Automática: 
+para que a Baixa Automática funcione, é preciso configurar alguns parâmetros antes. Para 
+maiores
+ informações, ver 
+Baixa Automática utilizando Adiantamentos
+.
+Faz Baixa Automática
+Faz Baixa Automática Devolução
+Faz Baixa Automática Adiantamento Quantificado
+Data Baixa e Data Fluxo (com três opções)
+Data Atual;
+Maior entre Data Credito e Data NF
+Menor entre Data Crédito e Data NF
+Débito/Crédito:
+ esta baixa permite que o sistema selecione automaticamente os adiantamentos (créditos) do fornecedor para quitar os lançamentos (débitos) selecionados. Para 
+maiores
+ informações, ver 
+Baixa pelo Débito-Crédito do Fornecedor
+.
+Padrão é comprador: 
+se esta opção marcada, traz por padrão a opção comprador no filtro de pendências.
+Utiliza crédito de outra entidade:
+ na opção débito/crédito permite utilizar créditos de outras entidades
+Exibe débitos de cobrança eletrônica: 
+se esta opção marcada, aparece débitos com a forma de pagamento cobrança eletrônica.
+Mostra créditos bloqueados na baixa: 
+com este perfil marcado, irá exibir os créditos que estiverem bloqueados.
+Bloqueia Baixas em Cheque: 
+com este perfil marcado bloqueia baixas com chegue.
+Alerta caso tente fazer baixa sem realizar fechamento: 
+com este perfil marcado, irá alertar caso não tenha feito o fechamento e tente fazer uma baixa.
+Permite bloqueio automático baixa eletrônica em cheque: 
+quando se recebe um título com cheque o mesmo é trocado o pelo cheque, baixando o antigo e deixando o atual (cheque) em aberto, com este perfil marcado, quando receber do banco um retorno e no arquivo constar um pagamento em cheque, ele não irá baixar o título, visando assim uma maior segurança.
+Calcula acréscimo automaticamente na baixa de Contas a Receber: 
+com este perfil selecionado, irá fazer o calculo automático de acréscimo em baixas do Contas a Receber.
+Nome Arquivo Recibo de Baixa: 
+informar caminho e nome do arquivo de recibo.
+Nome Arquivo Recibo de Baixa Eletrônica:
+ informar caminho e nome do arquivo de recibo.
+Centro de Custo
+Força uso painel de contas e c. custos: 
+se marcada, as contas contábeis e os centros de custos ficam em abas separadas. É sobreposta pela opção 
+Vincula Conta Gerencial ao C. Custo
+, caso esta esteja marcada também.
+Pode modificar o código Centro Custo:
+ em desuso e será retirado do perfil. Substituído pela 
+Máscara p/Centro de Custo (ordenação)
+Vincula Conta Gerencial ao C. Custo:
+ se marcada, apresenta em uma única aba as informações de conta contábil e centro de custo e é obrigatório informar o centro de custo. Se não marcada, não é obrigatório informar o centro de custo. Esta opção é sobreposta pelo perfil da natureza de operação, 
+Painel Centro Custo
+.
+Exibe autorização:
+ esse perfil ficou em desuso, e a autorização de pagamento passou a ser controlado através do painel 
+aprovação por alçada.
+C. Custo obrigatório:
+ se marcada, obriga a informar centro de custo em qualquer lançamento
+Máscara p/Centro de Custo (ordenação):
+ informe a máscara do código de ordenação para uso nos centros de custos. Para 
+maiores
+ informações, ver 
+Tabela Centro de Custo
+.
+Máscara p/Centro de Custo (código):
+ em desuso e será retirado do perfil. Substituído pela 
+Máscara p/Centro de Custo (ordenação)
+Pagamento Eletrônico
+Tipo Documento: 
+criado na versão 8.41, é utilizado na baixa do
+ 
+Serviço Pagamento Eletrônico
+. 
+O usuário precisa indicar qual o
+ 
+Tipo de Documento
+ 
+que o SisPetro irá utilizar na baixa automática do arquivo. Este Tipo de Documento será sugerido de forma automática na baixa manual, via 
+Pagamento Eletrônico
+.
+Exibição de Dados na Man. Pagto Eletrônico
+Data inicial (n° de dias anteriores a data atual): 
+informar quantos dias antes a data atual, para exibir na manutenção do Pagamento Eletrônico ao abrir a tela, referente a data inicial.
+Nome dos arquivos de Remessa: 
+este perfil especifica como se formará o nome do arquivo de remessa.
+Simples (Data + Num. Remessa)
+Com Tipo Pagamento, Código Banco, Nome Empresa e Data/Hora
+CNPJ Pagador: 
+CNPJ da empresa que realizará os pagamentos.
+Na Inclusão avisa se tiver adiantamentos pendentes:
+ se o perfil estiver marcado, ao incluir um pagamento para um fornecedor que possua pré adiantamento ou adiantamento uma mensagem de alerta será exibida.
+Agrupamento de Títulos:
+ esse perfil define a forma de agrupamento de títulos para gerar o pagamento eletrônico.
+Por Fornecedor e Vencimento:
+ utilizando essa opção o SisPetro vai agrupar os títulos por fornecedor e vencimento.
+Usuário escolhe:
+ ao selecionar essa opção o usuário terá a opção de selecionar se o agrupamento vai ser por Fornecedor e vencimento ou somente por vencimento.
+Serviço de Pagamento Eletrônico
+Processamento de Envio - Fornecedores
+Manual (padrão): 
+é a forma como o SisPetro trabalhava até a versão 8.40, ou seja, todo o processo é feito de forma manual.
+Automático (Via Servidor Hermes):
+ é a nova maneira de trabalho, os arquivos são gerados de forma automática. Para que o
+ 
+Serviço Pagamento Eletrônico
+ 
+funcione é preciso que essa opção esteja marcada.
+Processamento de Envio - Tributos
+Manual (padrão): 
+é a forma como o SisPetro trabalhava até a versão 8.40, ou seja, todo o processo é feito de forma manual.
+Automático (Via Servidor Hermes):
+ é a nova maneira de trabalho, os arquivos são gerados de forma automática. Para que o
+ 
+Serviço Pagamento Eletrônico
+ 
+funcione é preciso que essa opção esteja marcada.
+Data de Movimento no Serviço de Leitura: 
+foi criado na versão 8.41. Na tela de Manutenção de 
+Pagamento Eletrônico
+ foi acrescentado o filtro de data. Este perfil servirá apenas para a primeira vez que o usuário entrar na tela, será sugerido o número de dias aqui configurados. 
+Caso seja alterada a data do filtro o SisPetro salvará este novo valor e o usará para as próximas consultas, até que seja alterado novamente.
+Usa a data de efetivação do débito vinda no arquivo (padrão): 
+na baixa do arquivo de retorno será utilizada a data que estiver no arquivo.
+Usa a data atual:
+ será desconsiderada a data do arquivo de retorno e o SisPetro utilizará a data atua
+Conta De Baixa para DDA: 
+Informar a conta que será utilizada para baixa do arquivo importado. 
+Na Inclusão, Atualiza Linha Digitável do Arquivo de DDA? 
+Ao marcar este perfil, ao importar o arquivo DDA, o mesmo atualiza a linha digitavel do boleto.
+Permite agendamento para títulos encontrados no DDA? 
+Com este perfil marcado, o Sispetro irá agendar o pagamento dos títulos que forem localizados automaticamente via DDA.
+Diversos
+Mostra tela pré-pagamento: 
+com este perfil selecionado, irá mostrar a tela pré-pagamento após a finalização da inclusão de uma Nota Fiscal de Venda. Para 
+maiores
+ informações, ver 
+Pré-Pagamento - Aviso
+.
+#Dias Padrão Bloquei Financ.: 
+a quantidade de dias estipulada neste perfil, será padrão para bloqueios financeiro.
+Sugere a data atual como data de cancelamento: 
+ com este perfil selecionado, irá sugerir a data atual como data de cancelamento.
+Exige #Docto na Renegociação para novos títulos: 
+com este perfil selecionado, irá exigir um número de documento para renegociação de novos títulos.
+Habilita filtro troca tipo de cobrança na nota de venda: 
+este perfil se refere a 
+quando o pedido for faturado, sua cobrança é automaticamente trocada por outra. Para 
+maiores
+ informações, ver 
+Manutenção Filtro Tipo de Cobrança
+.
+Forma de contabilização de Lançamentos (gerencial): 
+este perfil estipula por qual entidade será contabilizado os lançamentos gerenciais. Para 
+maiores
+ informações, ver 
+Contabilização de Lançamentos Gerenciais
+.
+Contabiliza pelo comprador;
+Contabiliza pela entidade faturada;
+Verificação no pedido da venda: 
+este grupo de perfil está relacionado com a utilização de limite de crédito da entidade na inclusão do pedido.
+Não permite incluir pedido por saldo insuficiente - comprador: 
+quando marcado usará o limite de crédito de todo o grupo econômico de um determinado comprador. Esteja este limite todo no comprador ou dividido no grupo.
+Não permite incluir pedido por saldo insuficiente - entidade faturada: 
+quando marcado usará o limite de crédito individual para cada entidade.
+Verificação de limite de crédito em relação a pedidos
+Pedidos com liberação financeira e não faturados: 
+só utilizará o limite de crédito quando o pedido for aprovado financeiramente.
+Pedidos não faturados: 
+utilizará o limite de crédito na inclusão do pedido.
+Baixa Multi-Empresa: 
+permite baixar os títulos de várias empresas de uma única vez. 
+Contas a Receber: 
+para 
+maiores
+ informações, ver 
+Baixa Multi-Empresa do Contas a Receber
+.
+Ordenação Padrão: 
+este perfil tem como função organizar a ordenação dos títulos do contas a receber, conforme selecionado é a ordenação que irá apresentar.
+Vencimento e Empresa
+Empresa e vencimento
+Contas a Pagar: 
+para 
+maiores
+ informações, ver 
+Baixa Multi-Empresa do Contas a Pagar
+.
+Ordenação Padrão: 
+este perfil tem como função organizar a ordenação dos títulos do contas a pagar, conforme selecionado é a ordenação que irá apresentar.
+Vencimento e Empresa
+Empresa e vencimento
+Fechamento Financeiro:
+ 
+ consiste em centralizar as informações financeiras e contábeis e demonstrar a evolução patrimonial da empresa. Para 
+maiores
+ informações, ver 
+Manutenção de Fechamento Financeiro - Versão 2.0
+.
+Permite fazer fechamento por Grupo Empresa
+Tem fechamento financeiro exclusivo
+Tipo de Fechamento Financeiro
+Versão 2.0 - Balanço Patrimonial
+Verifica Fechamento Financeiro na Conciliação Bancária: 
+com este perfil selecionado, irá verificar o fechamento financeiro quando feito a conciliação bancária.
+Devedores Duvidosos: 
+para 
+maiores
+ informações, ver 
+Devedores Duvidosos
+.
+Tipo Documento Baixa/Perda: 
+neste perfil específica, qual o tipo de documento será impresso no caso de baixa ou perda.
+Cheques
+Habilita controle portador cheques no faturamento: 
+com este perfil selecionado, poderá informar e controlar portador de cheques.
+Portador (Cheques recebidos no Faturamento): 
+informa quem será o portador dos cheques recebidos no faturamento.
+Portador (Cheques enviados no Faturamento): 
+informa quem será o portador dos cheques enviados no faturamento.
+Filtra empresa na Lista Cheques Recebidos em Pagto Desp. Extra.:
+Habilita controle Multi-Empresa na Utilização de Cheques: 
+com este perfil selecionado, permite controlar cheques de qualquer empresa. Para 
+maiores
+ informações, ver 
+Utilização de Cheques
+.
+Altera o #Docto Lanctos conforme #Cheque alterado:
+Impressão Cheques: 
+é possível fazer a impressão de cheques. Para 
+maiores
+ informações, ver 
+Como Imprimir-Reimprimir Cheque
+.
+Formulário Contínuo?: 
+com este perfil selecionado, estipula que a impressão dos cheques é feito em formulário contínuo.
+Imprime cópia cheque?: 
+com este perfil selecionado, irá imprimir uma cópia do cheque.
+Confirma impressão após cada cheque: 
+com este perfil selecionado, irá pedir confirmação após cada cheque impresso.
+Pode mudar #cheque na emissão: 
+com este perfil selecionado, irá permitir alterar o número do cheque na emissão do mesmo.
+Impressora cheque: 
+estipula qual a impressora de cheque.
+Impressora cópia: 
+estipula qual a impressora cópia de cheque.

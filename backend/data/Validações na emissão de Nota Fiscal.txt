@@ -1,0 +1,136 @@
+TITULO: Validações na emissão de Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921693344
+--------------------------------------------------
+A partir da versão 8.16 o SisPetro validará a maior parte das informações no final da emissão da Nota Fiscal. A tela de erros tem as seguintes colunas:
+Explicação Adicional:
+ Informa ao usuário o que está errado
+Valor Esperado:
+ O que o SisPetro esperava que tivesse sido preenchido ou informado
+Valor Obtido:
+ O que foi informado ao sistema
+Continua:
+ Há algumas informações que são primordiais para outras validações, data, natureza de operação, entre outras, caso uma dessas informações esteja errada, o SisPetro não continuará a validação. 
+Data Avaliação:
+ Data em que a Nota Fiscal foi finalizada
+Usuário Avaliação:
+ Usuário que finalizou a Nota Fiscal
+Abaixo segue a lista de erros.
+Explicação Adicional
+Onde corrigir?
+Perfil de empresa configurado para bloquear a emissão de NF quando houver pendências de envio a Sefaz
+Corrigir as pendencias das NFs antigas ou alterar o perfil de empresa 
+"Aviso de NF-e/CT-e pendente"
+. Veja mais informações em 
+A empresa não esta configurada para emissão de NF-e
+Verificar se o perfil de Sistema 
+"Tipo de emissão da Sefaz",
+ esta configurado para o fim correto, NF-e ou CT-e. Veja mais informações em
+ 
+Configuração da Empresa para NF-e e CT-e
+Entidade com problemas cadastrais
+Verificar entidade utilizada no Faturamento.
+Natureza de Operação com problemas cadastrais
+Verificar dados da Natureza de Operação utilizada.
+Tipo de Documento com problemas cadastrais
+Verificar dados do Tipo de Documento.
+Código de Histórico com problemas cadastrais
+Verificar dados do Tipo do Código Histórico.
+Transportadora com problemas cadastrais
+Verificar dados da Transportadora.
+Série com problemas cadastrais
+Verificar dados da Série da Nota Fiscal utilizada.
+Tipo de Cobrança com problemas cadastrais
+Verificar dados do Tipo de Cobrança .
+Frota com problemas cadastrais
+Verificar dados do Frota.
+A data de emissão não foi preenchida
+A data de emissão da Nota Fiscal não foi preenchida na emissão da NF. Verifique os campos 
+"Data Nota Fiscal"
+ e 
+"Data Movimento", 
+veja help
+ 
+O valor das parcelas geradas deve ser maior que zero
+A Nota Fiscal não pode ter valor zerado. Sendo assim confira os dados de quantidade e preço dos itens. Veja mais informações em 
+Os itens da nota fiscal estão com depósitos diferentes
+Os depósitos da Nota Fiscal devem ser os mesmos, verificar os dados informados. Veja mais informações em 
+O Perfil de empresa limita o numero de itens até "X" itens
+O número máximo de itens foi atingido, alterar o perfil de Empresa "# Máximo Itens". Veja mais informações em 
+Transportadora Bloqueada ou Inativa
+Não é possível utilizar Transportadora e/ou Frotas inativos. Verifique os cadastros em
+ 
+ e 
+ 
+Motorista sem CNH. Favor Preencher CNH na Tabela de Motorista
+Preencher no Cadastro de motorista o número da CNH. O perfil de sistema "Controla CNH motorista", esta marcado. Preencher o número da CNH em 
+ ou configure o peril em
+ 
+Transportadora Não Encontrada. Informar uma Transportadora válida
+A transportadora não foi informada na emissão da NF, informar uma transportadora válida. Veja mais informações em 
+O valor do frete não pode ser negativo
+Informar um valor de frete válido.
+O endereço de entrega não foi totalmente preenchido
+Corrigir o endereço de entrega no cadastro da entidade utilizada. Veja mais informações em 
+Nota Fiscal - Endereços
+O endereço de cobrança não foi totalmente preenchido
+Corrigir o endereço de cobrança no cadastro da entidade utilizada. 
+Veja mais informações em 
+Nota Fiscal - Endereços
+O endereço de faturamento não foi totalmente preenchido
+Corrigir o endereço de faturamento no cadastro da entidade utilizada. 
+Veja mais informações em 
+Nota Fiscal - Endereços
+O Depósito "X" Não está Preenchido
+Informar um depósito válido na emissão da NF. Veja mais informações em 
+A Situação Tributária Não está Preenchida
+Corrigir o CST na Natureza de Operação ou Produto utilizado. Caso esteja preenchido nos dois, o SisPetro utilizará o que estiver na Natureza de Operação
+Natureza de operação configurada para verificar os dados de densidade e temperatura
+Verificar perfil da Natureza de Operação, "Verificação dos dados de densidade e temp. na NF". Veja mais informações em 
+Peso do produto através da densidade utilizada na NF
+O tipo de emissão da natureza de operação e série da nota fiscal selecionados são incompatíveis. Altere as configurações da série da nota fiscal.
+Verificar o Tipo de emissão da Natureza de Operação e Série utilizada na Nota Fiscal, os dados não estão condizentes. Veja mais informações em 
+Tabela Série Nota Fiscal
+ e 
+A soma das parcelas geradas para essa nota fiscal não corresponde ao valor final da nota
+Verificar a soma das parcelas da Nota Fiscal, o valor não esta igual ao valor da NF. Veja mais informações em 
+A UF da Entidade Não está Igual a UF da Cidade de Faturamento
+A natureza de operação selecionada não permite nota de venda direta
+Verifique o perfil "Permite Venda Direta", na Natureza de Operação. Veja mais informações em 
+ e 
+A natureza de operação deve ser compatível com as UF da empresa e do cliente
+Verificar perfil "Operação interestadual" na Natureza de Operação. Veja mais informações em 
+Deve ter conta da entidade para débito e não para crédito. Corrija o tipo de contabilização na natureza de operação.
+Verificar a contabilização na Natureza de Operação. 
+Veja informações sobre contabilização em 
+Contabilização (Painel Geral)
+NF que gera contas a pagar/receber deve contabilizar! Corrija o tipo de contabilização na natureza de operação
+Verificar a contabilização na Natureza de Operação. Veja informações sobre contabilização em 
+Contabilização (Painel Geral)
+A data de movimento da nota fiscal não poder ser menor que a data da nota fiscal
+Verificar a Data de Movimento, na emissão da Nota Fiscal. 
+Veja mais informações em 
+Notas que adquirem o volume através do carregamento não podem ser de produto composto.
+Verificar perfil "Obtém dados do carregamento p/ NF", na Natureza de Operação e o produto faturado. Veja mais informações em 
+Faturamento a 20ºC - Dados da Movimentação Física
+Nota configuradas para obter volume do carregamento já devem possuir o carregamento
+Como a natureza esta configurada para obter volume através do carregamento, o Sistema precisa destes dados para realizar a movimentação. É necessário fazer as 
+Portarias de Entrada
+ e Portaria de 
+Saída
+O ES dessa nota fiscal está diferente do ES da natureza de operação escolhida
+A natureza utilizada não condiz com a operação, verifique a entidade 
+(
+Clientes
+ ou 
+ Fornecedores
+) 
+Não é possível emitir uma nota fiscal de venda para uma natureza de operação do Tipo Sem Transporte
+Verificar perfil "Via Transporte (DCP/Sintegra)" na Natureza de Operação, pois para Notas de vendas o campo transportadora é obrigatório. 
+ e 
+Não permitir concluir a Nota Fiscal caso ela faça parte de uma carga com Vale Pedágio sem compra processada e OK.
+Verificar Vale Pedágio da nota fiscal em 
+Manutenção de Pedágios
+. A compra tem que ser processada para que se obtenha o custo e seja possível emitir a nota fiscal.
+Não é possível emitir um anota vinculando a um PMM com valor disponível menor que o valor da nota.
+Verifique no PMM o valor aprovado que se encontra disponível. 
+.

@@ -1,0 +1,44 @@
+TITULO: Validação da Chave Acesso na inclusão de NFs de Terceiros
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2907309522
+--------------------------------------------------
+Em NFs de terceiros que são eletrônicas, ao dar entrada, o usuário deve informar a Chave de Acesso. Porém, durante o processo de digitação, por ser um campo com 44 dígitos, muitos erros podem ocorrer, desde errar a digitação de um número, como usar a chave de acesso de uma NFe indevida.
+Como forma de prevenir esse tipo de erro, o Sispetro disponibiliza um recurso de validação da chave de acesso, onde algumas informações contidas na chave serão comparadas com a nota fiscal que está sendo incluida.
+Para habilitar esse recurso marque o 
+Perfil de Empresa
+ na aba 
+Nota Fiscal
+, 
+"Valida Chave de Acesso informada em NFs de Terceiros". 
+As regras de validação serão as listadas abaixo:
+O 
+DV
+ deve ser válido
+O 
+Número da NF
+ deve ser igual ao Número NF informado pelo usuário
+O 
+Ano
+ de emissão deve ser igual ao ano da data de emissão informada pelo usuário
+O 
+Mês
+ de emissão deve ser igual ao mês da data de emissão informada pelo usuário
+O 
+Modelo
+ deve ser igual ao modelo configurado na Natureza de Operação informada pelo usuário
+O 
+CNPJ
+ deve ser igual ao CNPJ da entidade informada pelo usuário (cliente ou fornecedor)
+A 
+Série
+ deve ser igual a série cadastrada na tabela de Séries informada pelo usuário
+Durante a digitação da NF, caso alguma das regras acima não seja validada, serão exibidas mensagens como as abaixo.
+Para que o campo de chave de acesso esteja disponível para digitação, algumas regras devem ser levadas em consideração conforme citado no tópico 
+.
+Para ver mais detalhes sobre a composição da chave de acesso, veja o tópico 
+.
+ 
+ 
+ 
+ 
+ 
+ 

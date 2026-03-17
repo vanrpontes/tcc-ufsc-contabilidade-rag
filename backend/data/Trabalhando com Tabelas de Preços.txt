@@ -1,0 +1,101 @@
+TITULO: Trabalhando com Tabelas de Preços
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439717
+--------------------------------------------------
+A partir da versão 10.01 o modo de trabalhar com a tabela de preço foi alterada. Veja maiores detalhes em 
+Nova Tabela de Preço
+As 
+Tabelas de Preços
+ dentro do Sispetro são ilimitadas, isto é, podem ser criadas quantas tabelas de preços o usuário quiser, considerando sua estrutura gerencial e o que o controle permitir (sempre lembrando que o código da tabela de preços é alfanumérico e composto por três dígitos).
+As tabelas de preços dentro do Sispetro tem como funções principais:
+Controlar o preço que será sugerido para o usuário quando determinado cliente for escolhido numa inclusão de pedido de venda (já que a tabela fica amarrada ao cliente em seu cadastro).  
+Controlar a liberdade que o usuário possui para modificar este preço (pois são cadastrados além do preço de tabela um preço mínimo e um preço máximo).
+Veja alguns dos modos de se trabalhar com Tabela de Preço no Sispetro!
+Independente da maneira é necessário criar a Tabela de Preço (código e descriçao), que deve ser feito através de Tabelas Auxiliares / Vendas > Tabela Preços. Veja maiores informações em 
+Tabela Manutenção de Tabela de Preços
+. O que vai variar é onde se informa o preço do produto e se haverá mais separação como UF ou cliente.
+1. CONFIGURAÇÃO ATUAL - TABELA PREÇO NO CLIENTE (SÓ PRINCIPAL)
+Tabelas de Preço
+ID
+Tipo
+Tabela Vinculada
+Preço Sugestão
+1
+Principal
+2,50
+2. CONFIGURAÇÃO SIMPLES  - TABELA DE PREÇO NO CLIENTE (PRINCIPAL E VINCULADA)
+Tabelas de preço:
+ID
+Tipo
+Tabela Vinculada
+Preço Sugestão
+1
+Principal
+2,50
+2
+Vinculada por Valor 
+1
+0,02
+3. CONFIGURAÇÃO INTERMEDIÁRIA - TABELA DE PREÇO DEPÓSITO (SÓ PRINCIPAL) E CLIENTE (PRINCIPAL + VINCULADA)
+ 
+Tabelas de Preço
+ 
+ID
+Tipo
+Tabela Vinculada
+Preço Sugestão
+1
+Principal
+2,50
+2
+Vinculada por Valor
+1
+0,02
+3
+Principal (depósito)
+2,45
+4. CONFIGURAÇÃO COMPLEXA - TABELA DE PREÇO NO DEPÓSITO (PRINCIPAL E VINCULADA POR TIPO DE CLIENTE) E CLIENTE (VINCULADA)
+Tabelas de Preço 
+ID
+Tipo
+Tabela Vinculada
+Preço Sugestão
+1
+Principal
+2,50
+2
+Vinculada por Valor
+1
+0,02
+3
+Principal (depósito)
+2,45
+4
+Vinculada por Valor (depósito por tipo de cliente)
+3
+0,01
+Em resumo, será possível
+:
+Criar uma tabela de preços que represente os Custos do Depósito → essa será a tabela principal
+Criar uma tabela de preços que seja um valor adicional ou percentual sobre a tabela do depósito → essa será a tabela vinculada à tabela principal. No depósito, por Tipo de Cliente e Empresa, será possível informar essa tabela de preço vinculada.
+Criar uma tabela de preços que seja um valor adicional ou percentual vinculada a um cliente específico que será aplicada sobre o preço final do depósito → essa será uma tabela vinculada. Será informada no Cadastro do Cliente (por empresa). No momento  da Venda, a partir do preço final do depósito será acrescido esse valor ou percentual do cliente.
+No caso de Clientes que possuam desconto, basta informar na sua tabela vinculada valores negativos, isso diminuirá o preço final do Depósito.
+Informações Importantes:
+Deve-se pensar também que o preço sugerido na tabela de preços é 
+o preço a vista sem frete.
+Por que preço a vista sem frete?
+Porque separando o custo financeiro (colocando-o em outra tabela) e o frete (quando for entrega) nos permite trabalhar com poucas tabelas de preços fazendo com que o próprio sistema acrescente o custo financeiro (derivado de outra tabela) e o frete quando necessário.
+Assim, você verificará que quando o seu pedido for a vista e retira, o preço sugerido será
+ 
+exatamente
+ 
+igual ao da tabela do cliente escolhido (para o estado do cliente).
+Alteração de preço 
+Alteração via Tela Alteração de Preço:
+ Através da tela de alteração de preço o usuário pode alterar o preço em lote, podendo alterar o preço de uma determinada tabela de preço ou varias ao mesmo tempo. Veja maiores informações em 
+Alteração de Valores nas Tabelas de Preços
+.
+Alteração via Tela de 
+Pedido Alteração Preços:
+ Através da tela de Pedido alteração preços o usuário realiza uma solicitação de alteração de preço para um determinado cliente, e ao ser aprovado, o sistema altera os preços automaticamente. Veja maiores detalhes em  
+3. Pedido Alteração de Preços
+.

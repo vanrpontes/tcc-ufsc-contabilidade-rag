@@ -1,0 +1,20 @@
+TITULO: Cálculo de Depreciação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210392
+--------------------------------------------------
+O cálculo de  depreciação de bens pode ser feito por taxa diária e por taxa mensal. Por padrão  o SisPetro faz o cálculo utilizando a taxa mensal, no entanto esta configuração  pode ser mudada.
+No SisPetro local, tela Sistema, painel Compras,  utilize a opção abaixo:
+Eis a diferença  entre os cálculos:
+Taxa  mensal
+Quando é  informada a taxa anual de depreciação do bem o SisPetro calcula o tempo de vida  útil do mesmo em meses. 
+De acordo com o número de meses, é feita a divisão do  valor de aquisição do bem para se ter o valor de depreciação por período, ou  seja, quanto deve ser depreciado a cada mês. 
+A partir desta informação, em cada  depreciação (excetuando a primeira e a última), o SisPetro utilizará este valor  para calcular o valor a depreciar do bem, levando somente em consideração o  número de meses que precisa ser depreciado. Ou seja, um bem de R$ 2400,00 que  será depreciado em 24 meses, o valor de depreciação do período será R$ 100,00,  valor este que será depreciado a cada mês. 
+Portanto, quando não for feita a  depreciação num determinado mês e se for fazer a do próximo mês, serão dois  meses acumulados, o que totalizará um valor de R$ 200,00 de depreciação. 
+A taxa  mensal é a mais prática de ser utilizada e a mais compatível com empresas que  fazem o processo de depreciação mensal ou em período de meses (mas não diário). 
+O que  excetua na primeira depreciação, é que partindo do princípio que o processo é  feito mensalmente, o bem pode ainda não ter atingido um mês de aquisição, não  podendo assim utilizar o valor de depreciação do período. 
+Desta forma é feito o  cálculo do número de dias que o bem foi adquirido até a data desta depreciação e  calculado o valor proporcional. 
+Se a primeira depreciação não atingir o valor de  depreciação do período, a última depreciação também terá um valor proporcional  com a diferença do valor do período e o valor da primeira depreciação, para  assim atingir o valor total do bem.
+Taxa  diária
+Para  fazer a depreciação com taxa diária, é utilizada a taxa anual de depreciação  informada para se adquirir a taxa diária. 
+A cada depreciação é calculado o  número de dias entre a data de aquisição do bem ou a última depreciação e a data  em que está sendo feita a depreciação atual. 
+Assim, se multiplica a taxa diária  pelo número dias, para que seja aplicado sobre o valor de aquisição do bem e se  obter o valor a depreciar.
+Este tipo  de cálculo é exato, mas como os meses possuem número de dias diferentes, o prazo  final de depreciação pode ter alguma alteração a maior ou a menor, dependendo do  caso. Por este motivo, não é o tipo de cálculo recomendado.

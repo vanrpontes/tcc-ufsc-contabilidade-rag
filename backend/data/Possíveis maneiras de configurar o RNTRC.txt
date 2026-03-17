@@ -1,0 +1,37 @@
+TITULO: Possíveis maneiras de configurar o RNTRC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921071546
+--------------------------------------------------
+Na versão 8.11 houve algumas mudanças, visando agilizar e facilitar a emissão de CT-e e MDF-e, no cadastro das transportadoras, frota e perfil de sistema.
+Há algumas maneiras de configurar o RNTRC, vamos aos cenários:
+1. Empresas Transportadoras e Distribuidoras que tenham caminhão e RNTT
+Empresas que possuem RNTT podem ter três tipos de situações no dia-dia.
+Frota é próprio
+Frota é de terceiros
+O frota é utilizado por ela e outra empresa
+Como a empresa possui seu próprio RNTT, esse deve ser cadastrado no
+ Perfil de Sistema, 
+ e na
+ 
+Situação 1:
+ como o Frota é próprio.
+Pode deixar o RNTT no frota, como era a antiga  forma de trabalho, ou cadastra-lo na transportadora. Desta maneira o SisPetro, no cabeçalho da nota, enviará o RNTT indicado no Perfil de Sistema e nas Tags referentes a veículo o RNTT indicado na tabela frota ou transportadora. 
+Situação 2:
+ como o Frota é de terceiros.
+Assim como no exemplo anterior, é necessário indicar na tabela transportadora ou frota  qual o RNTT do frota, no XML, os pontos referentes à transportadora irão com as informações da transportadora e o cabeçalho informações referentes a empresa.
+Situação 3:
+ Nesta situação, nas versões anteriores, era preciso que o usuário alterasse todas as vezes o RNTT do frota em questão. A partir desta versão, não será mais necessário, basta criar mais uma transportadora, ficaria assim:
+Transportadora "própria"
+ - RNTT cadastrado na tabela Transportadora, próprio vinculada ao frota " ABC". 
+Transportadora "terceiros"
+ - RNTT cadastrado na tabela Transportadora , note que este RNTT é do terceiro, e vinculada ao frota " ABC"
+ 
+Note que em nenhum dos casos é necessário informar na tabela Frota o RNTT, apenas na Transportadora
+2. Demais distribuidoras
+Para empresas que não emitem CT-e não possuem RNTT, não há o que colocar no Perfil de Sistema. Contudo a alteração veio para facilitar o modo de operação, assim a situação que mais causa trabalho é quando um mesmo frota é utilizado por mais de uma transportadora, como na 
+Situação 3
+Para facilitar o processo, é necessário:
+Criar uma transportadora para cada frota e indicar o RNTT nesta transportadora. 
+Vincula-la ao frota em questão ( o frota que é utilizado por mais de uma transportadora)
+Deixar em branco o campo RNTT no frota, pois o SisPetro utilizará o cadastrado anteriormente na Transportadora
+Deste modo, o trabalho é feito apenas uma vez, é criado a transportadora, e não mais necessário trocar o RNTT toda vez que for utilizar o frota com outra transportadora.
+ 

@@ -1,0 +1,53 @@
+TITULO: Nota Fiscal - Informação de Frete
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2917991235
+--------------------------------------------------
+Esta tela informa os dados de frete, marca, espécie e quantidade de volumes.
+Informe nesta tela as seguintes informações:
+Quadro Frete
+Valor:
+ campo para informar o valor total do frete a ser destacado na nota fiscal. Havendo informado no pedido de venda, o mesmo será preenchido automaticamente.
+Situação Frete:
+ definição do frete podendo ser:
+Por conta de Terceiros
+Por conta do destinatário
+Por conta do emitente
+Sem cobrança de frete
+Retira(FOB)/Entrega(CIF):
+ definição de forma de retirada do produto, se será retira ou entrega.
+Marca: 
+marca do produto, sugerido automaticamente conforme perfil de sistema no quadro Dados da NF. Veja maiores informações no tópico 
+.
+Espécie Mercadorias:
+ espécie do produto, sugerido automaticamente conforme perfil de sistema no quadro Dados da NF. Veja maiores informações no tópico 
+.
+Qtde Volumes
+ poderá ser preenchido manualmente pelo usuário ou gerado automaticamente.
+Manualmente:
+ basta o usuário informar neste campo a quantidade desejada.
+Automaticamente:
+ Necessário cadastrar a quantidade no Cadastro de Produtos. Na digitação da nota fiscal, o usuário 
+não deve
+ preencher este campo, e o Sispetro irá calcular automaticamente considerando a quantidade informada nos itens da nota fiscal.
+Exemplo:
+Cadastro de Produto
+Qtde Volume = 10
+Nota Fiscal
+Qtde Volume = 0
+Qtde dos Itens da Nota Fiscal = 150
+Quantidade salva na nota fiscal: 15
+Quando a divisão for um número com casas decimais, a quantidade de volume será automaticamente arredondada.
+#Pedido Entidade:
+ Número de pedido do cliente, de preenchimento opcional.
+Informações Complementares
+ é possível colocar qualquer texto (com até 80 caracteres) que precise ser armazenado ou impresso na Nota Fiscal. No caso da necessidade de impressão, pode ser útil quando a informação não possa ser impressa no campo de Observações da Nota.
+Exemplo:
+A ANP permite que o Cliente peça um Envelope de Segurança à Distribuidora para coletar amostras do combustível. Esses envelopes são numerados e estes números devem ser impressos no canhoto da nota (ou seja, não podem ser digitados no campo de Observação). Dessa forma, digita-se os números e o texto necessário no campo de Informações Complementares (veja figura acima).
+Veja maiores informações sobre procedimentos referentes a frete no tópico
+ 
+.
+Esta tela é a mesma para todas as situações de emissão de saída, considerando:
+Nota Fiscal de Venda
+Nota Fiscal de Outras Saídas com Ordem de Carregamento
+Nota Fiscal de Outras Saídas sem Ordem de Carregamento
+Após informar todos os dados necessários, clique no botão 
+Avança

@@ -1,0 +1,35 @@
+TITULO: Mudando o Status de um Cliente
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440147
+--------------------------------------------------
+O cliente pode possuir um de três status:
+Potencial:
+ o cliente acabou de ser cadastrado e seu cadastro precisa ser aprovado, isto é, o setor de cadastro necessita emitir Serasa ou equivalente, analisar o prazo de pagamento do cliente, sua capacidade de crédito, etc. Assim, quando o cliente está com este status, nenhuma venda pode ser realizada para ele.
+Livre:
+ o cadastro do cliente já foi aprovado, isto é, pode ser realizada uma venda para o mesmo, porém nenhum vendedor foi cadastrado para ele ou, mesmo que tenha sido, como nenhuma venda foi ainda realizada (nenhuma Nota Fiscal de Venda foi emitida contra este cliente), este cliente ainda não é exclusivo do vendedor que o cadastrou. Por isso, qualquer vendedor no pedido de venda, pode mudar o código do vendedor para o dele próprio. No momento da emissão da Nota Fiscal, o SisPetro muda automaticamente o Status do cliente para o abaixo (Ativo) mudando o código do vendedor atribuído ao cliente para o vendedor que realizou esta venda.
+Ativo:
+ o cliente está ativo e com um vendedor exclusivo cadastrado para ele. Mesmo que outro vendedor faça um pedido de venda para este cliente, ele não poderá mudar o código do vendedor atribuído no cadastro do cliente para o dele, fazendo com que todos os controles e consultas indiquem o vendedor cadastrado como o que realizou a venda.
+Para mudar o Status do cliente deve-se proceder da seguinte maneira:
+Caso o Status seja Potencial e você deseja aprovar o cadastro do cliente acesse 
+Menu Ferramentas / Cadastro Clientes / Aprovação:
+Por Cliente Específico:
+ digite o código do cliente que deseja aprovar (caso não saiba tecle <Enter> para abrir a tela de consulta de clientes) e, em seguida, aperte o botão OK. 
+O SisPetro irá mudar o status do cliente de Potencial para Livre.
+Por Data Liberação:
+ libera todos os clientes que tenham data liberação menor ou igual a de hoje e com limite de crédito dentro do valor especificado.
+É possível também alterar o vendedor alocado aos clientes que atenderem a essa condição. Para isso, marque a opção Altera Vendedor e selecione o novo vendedor para os clientes.
+Caso deseje atribuir um vendedor a determinado cliente passando o Status do cliente para Ativo, isto é, o cliente se tornará exclusivo deste vendedor, acesse Menu 
+Ferramentas / Cadastro Clientes / Alocar
+ 
+entidade a vendedor
+:
+Digite, então, o código do cliente e o código do vendedor que deseja atribuir. O Sistema passará o status do cliente de Livre para Ativo tornando o cliente exclusivo daquele vendedor.
+Caso deseje fazer a operação inversa, isto é, tornar determinados clientes não exclusivos de vendedores (para promover vendas para estes clientes, por exemplo) a fim de que qualquer vendedor possa vender para estes clientes, navegue pelo menu principal 
+Ferramentas / Cadastro Clientes / Desalocar entidade do Vendedor 
+exibindo a tela abaixo:
+Você poderá mudar o Status de um 
+cliente específico
+ (para Livre) ou de todos os clientes que não compraram nada a partir de determinada data (especificar a 
+data de corte
+). Se for pela data de corte, o SisPetro habilita o filtro para vendedor e UF, além de habilitar também a opção 
+Não modifica caso outro posto do grupo esteja ativo
+. Assim, clientes que não compram há muito tempo, podem se tornar Livres (caso estejam Ativos) para que outros vendedores trabalhem com eles.

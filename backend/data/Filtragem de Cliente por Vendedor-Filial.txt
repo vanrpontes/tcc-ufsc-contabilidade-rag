@@ -1,0 +1,48 @@
+TITULO: Filtragem de Cliente por Vendedor-Filial
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210628
+--------------------------------------------------
+O Sispetro possibilita, que um cliente possa ser vinculado para mais de um vendedor de acordo com a filial ativa no momento, conforme pré-configurações. (Ex. Temos o cliente ABC que na filial em São Paulo tem como vendedor responsável o Sr. Fábio, enquanto na Filial do Paraná o vendedor reposável é o Sr. Cesar).
+
+
+Configurando o sistema para controlar um vendedor por filial.
+
+
+Para configurarmos um vendedor por filial no cadastro do cliente precisamos informar ao sistema que será realizado esse controle e para isso precisaremos acessar o menu 
+Ferramentas / Sistema
+ painel Clientes e marcar a opção Controla vendedor por filial para os clientes
+
+
+
+
+A partir deste momento na tela de cadastro de cliente o botão "Define Vendedor por filial" torna-se funcional e ao pressioná-lo será possível vincular um vendedor a cada filial.
+
+
+
+
+Para vincular o vendedor basta apenas pressionar o botão "Vincula Vendedor" e ao ser apresentada a tela de consulta com os vendedores ativos selecionar o responsável para a filial selecionada, para realizar o processo de retirada do vendedor como responsável basta selecionar em qual filial será realizado esse processo e pressionar a tecla "Desvincula Vendedor"
+
+
+
+
+Lembrando que esse processo de vinculo de um vendedor a uma filial será de grande importância para os casos onde haja a necessidade de realizar uma filtragem a fim de que cada vendedor visualize seus próprios clientes.
+
+
+Importante: Para a filtragem por vendedor torne-se ativa é necessário marcar a opção Filtra vendas por vendedor e informar o código do vendedor que o usuário representa (menu Ferramentas / Usuário painel Vendas dentro do painel Perfil), além deste controle por filial do vendedor o processo de visualização dos clientes sofre influência de outro perfil na filial que independe das configurações do usuário (no menu Ferramentas / Sistema painel Clientes item "Visualiza todos os clientes independente do setup do usuário") neste caso é possível filtrar os clientes por status que pode ser: Potencial, Livre e Ativo. Permitindo 3 formas de filtragem por status, são elas: Não Visualiza Clientes, Visualiza Clientes cujo vendedor seja o mesmo do usuário, Visualiza Clientes independente do filtro de vendedor.
+
+
+
+
+Ex.
+
+Podemos definir na Filial de São Paulo que o vendedor Fábio, visualize todos os clientes potênciais, não visualize nenhum cliente Livre e visualize somente os clientes ativos vinculados a ele. Para isso realizariamos a seguinte configuração:
+
+1º - No parametro da empresa o item "Visualiza todos os clientes independente do setup do usuário" (no menu Ferramentas / Sistema / Clientes) deverá estar desmarcado
+
+2º - No campo "Visualização de Clientes com Status Potêncial" a opção ficaria como "Visualiza Clientes independente do filtro de vendedor"
+
+3º - No campo "Visualização de Clientes com Status Livre" a opção ficaria como "Não Visualiza Clientes"
+
+4º - No campo "Visualização de Clientes com Status Ativo" a opção ficaria como "Visualiza Clientes cujo vendedor seja o mesmo do usuário"
+
+
+Lembrando que os filtros informados acima quanto aos status, funcionam tanto para Empresas que controlam vendedor por filial para clientes quanto as empresas que possui apenas um vendedor vinculado ao cliente.

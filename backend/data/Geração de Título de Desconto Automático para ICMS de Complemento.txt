@@ -1,0 +1,89 @@
+TITULO: Geração de Título de Desconto Automático para ICMS de Complemento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924283749
+--------------------------------------------------
+A partir da versão 8.26 é possível gerar títulos para o ICMS de complemento, a partir da Nota Fiscal. 
+Para que seja gerado, as configurações são as mesmas da 
+Geração de Título de Desconto por Nota Fiscal de Saída
+, sendo as diferenças (destacados em azul) conforme segue:
+1. Geração de Títulos de Desconto Automático
+Em Menus Tabelas Auxiliares->Financeiro->Geração de Títulos de Desconto Automático->clique no botão + para incluir:
+Campo Conta Contábil:
+ deverá estar cadastrado previamente no Plano de Contas Gerencial e Real
+Campo Tipo Data Base:
+ A data base é utilizada para identificar a faixa de vencimento do título de retenção. Veja mais detalhes sobre esse campo no tópico 
+Tipo Data Base no Título de Desconto Automático pela Data Emissão da NF
+Campo Código CC:
+ se usa centro de custo informe, do contrário informe o padrão (1)
+Campo Tipo Vencimento:
+ via faixa
+Campo Faixa para Cálculo:
+ informe a faixa cadastrada no item 2.
+Campo Tipo Fornecedor:
+ fixo
+Campo Fornecedor:
+ informe um fornecedor cadastrado como ÓRGÃO PÚBLICO no cadastro de Fornecedores
+Campo Vencimento em dia não útil:
+ informe a opção desejada
+Campo Tipo de Documento:
+ informe qualquer um.
+Campo Código do Histório:
+ informe um histórico que descreve o tipo de despesa
+Campo ATIVO:
+ marcar
+Campo Desabilita Contabilização Desconto Original:
+ marcar
+Campo Conta débito acompanha conta título original:
+ DESMARCAR
+Clique no botão 
+OK
+ para salvar.
+Para mais informações sobre Geração de títulos, acesse o Help 
+Tabela Geração de Títulos de Desconto Automático
+2. Tipo de Desconto
+Caso o Tipo de Desconto seja utilizado nas NFs de venda, este não pode ser calculado Manualmente. Se assim estiver marcado tanto no faturamento manual quanto automático não será calculado nem dará opção ao usuário de digita-lo. 
+Em Menu Tabelas Auxiliares->Controladoria->Tipo de Desconto-> clique no botão + para incluir:
+Campo Descrição:
+ IRRF (sugestão)
+Campo Cálculo a efetuar:
+ escolha Desconta Valor Calculado
+Campo Tipo:
+ escolha Fórmula
+Campo Geração de Título de Desconto Automático:
+ informe o código cadastrado no item 1
+Campo Conta p/Contabilização do Desconto
+Acompanha Lançamento de débito: informe a conta contábil
+Acompanha Lançamento de crédito: informe a conta contábil 
+Clique em OK para Salvar.
+Para mais informações sobre Tipo de Desconto, acesse o Help 
+Tabela Tipo Desconto
+3. Manutenção de Tipo de Documento
+É onde são informados os campos para a fórmula do desconto. Veja mais informações sobre esta tela em 
+.
+Marcar o perfil 
+"Calcula Desconto?"
+Escolher, no Grupo de Contabilização, a opção
+ FATURAMENTO
+Clicar em botão
+ "Inclusão"
+Informar o
+ Código do Desconto
+, que deve ter sido cadastrado anteriormente. 
+O nome do campo, referente ao ICMS de complemento é 
+AjusteICMSSubstTotal.
+Como já é sabido, quando há o ICMS de complemento a distribuidora deve pagar ao Fisco. Sendo assim este valor, internamente no SisPetro, é gerado como negativo. Assim é preciso usar a seguinte fórmula para o título ser gerado no Contas a Pagar.
+If sign(<
+AjusteICMSSubstTotal
+>) = -1 then (<
+AjusteICMSSubstTotal
+>*(-1)) else 0 endif 
+Depois de clicar no botão "Incluir" a seguinte tela abrirá. Nela é preciso encontrar o campo "AjusteICMSSubstTotal", dar duplo clique, para que o campo seja utilizado na fórmula. Deve ser trocado AjusteICMSSubstTotal pelo número do campo referente.
+Repetir o mesmo passo acima para os campos "Base de Cálculo" e "Desconto"
+Confirmar as operações clicando em "Ok"
+4. Natureza de operação não gera contas a pagar/receber
+Nas naturezas de operação que não gerem financeiro e estiverem configuradas para gerar títulos de descontos automático, a data de emissão dos títulos será a data de emissão das notas fiscais.
+ 
+Os demais passos são iguais a 
+Geração de Título de Desconto por Nota Fiscal de Saída
+.
+ 
+ 

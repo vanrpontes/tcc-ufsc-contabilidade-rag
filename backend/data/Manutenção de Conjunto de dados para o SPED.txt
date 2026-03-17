@@ -1,0 +1,104 @@
+TITULO: Manutenção de Conjunto de dados para o SPED
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879128135
+--------------------------------------------------
+Conjunto de dados é um conjunto de tabelas que podem receber manutenção, ou seja, inclusão, exclusão e alteração para um determinado fim, por exemplo, o 
+Ato Cotepe
+ que obriga a geração de arquivos com dados fiscais e contábeis para uso do fisco.
+Para acessar a manutenção de conjunto de dados, o usuário deve acessar o menu 
+Ferramentas / Tabelas dos Conjuntos de Dados
+.
+Para manutenção dos dados, primeiro é necessário incluir as tabelas referentes a este conjunto. É possível excluir a tabela do conjunto, porém, isso não significa que os seus dados serão excluídos.
+O usuário deve verificar através do campo 
+Conjunto de dados
+, que por padrão, o SisPetro já possui alguns conjuntos de dados configurados e suas respectivas tabelas vinculadas, sendo eles:
+1 - Livro Fiscal Eletrônico - EFD: EFD ICMS IPI
+2 - EFD - Tabelas Auxiliares: tabelas utilizadas pela EFD ICMS IPI
+4 - Livro Fiscal Eletrônico - ECD: Escrituração Contábil Digital
+5 - ECD - Tabelas Auxiliares: tabelas utilizadas pela ECD
+6 - Livro PIS e COFINS: EFD Contribuições
+7 - PIS COFINS Auxiliares: tabelas utilizadas pela EFD Contribuições
+8 - FCONT: em desuso, substituído pela ECF
+9 - Livro Fiscal Eletrônico - EFD DF: Escrituração fiscal utilizada pelo Distrito Federal
+10 - Livro Fiscal Eletrônico - EFD PE: em desuso, substituída pela EFD ICMS IPI
+11 - Livro Fiscal Eletrônico - EFD-PE E-DOC: em desuso, substituída pela EFD ICMS IPI
+12 - Escrituração Contábil e Fiscal: ECF
+13 - SPED REINF: não é gerado nesta tela. Para mais informações, ver 
+SPED REINF - Configurações
+.
+14 - E-Ressarcimento: ressarcimento de ICMS ST para o estado de São Paulo - não é gerado nesta tela e não faz parte do Projeto SPED da Receita Federal.  Para mais informações, ver 
+Ressarcimento de Substituição Tributária do ICMS - e‑Ressarcimento SP
+.
+15 - DRCST-SC: ressarcimento de ICMS ST para o estado de Santa Catarina - não faz parte do Projeto SPED da Receita Federal.
+Após selecionar o conjunto de dados, o usuário deverá clicar em 
+ para que na tela seja apresentada as tabelas vinculadas ao conjunto de dados selecionado.
+Painel Geral:
+Quadro 
+- 
+recomendamos que este quadro não seja habilitado para alterações:
+Botão 
+:
+ caso o conjunto ainda não tenha tabelas vinculadas, o usuário deve utilizar o botão 
+Inclui
+ para efetuar a inclusão das tabelas. Abrirá a tela de 
+Manutenção das tabelas do conjunto de dados
+, onde será possível através do campo 
+Tabela
+, selecionar a tabela desejada:
+Para confirmar a tabela escolhida, o usuário deve utilizar o botão 
+Salvar
+. Caso seja necessário abortar o processo, o usuário deve utilizar o botão 
+Cancela
+.
+Botão 
+:
+ caso o conjunto tenha alguma tabela que não deveria, o usuário deve utilizar o botão 
+Excluir
+ para efetuar a exclusão da tabela. Para isso, o usuário deve, antes, selecionar a tabela que deseja excluir.
+Para incluir ou excluir as tabelas vinculadas ao conjunto de dados, o usuário precisa ter as seguintes permissões configuradas através do menu 
+Ferramentas / Usuário / Dicionário de Dados:
+Quadro 
+Botão 
+:
+ possibilita ao usuário visualizar e alterar fórmulas para geração do conteúdo do arquivo, sem a necessidade do 
+Preenchimento dos dados para o SPED
+ Para mais informações, ver 
+Edição de Fórmulas
+.
+Botão 
+:
+ possibilita ao usuário efetuar alterações na formatação dos campos, definido se participará da exportação do arquivo de exportação, tamanho do campo, se possuirá decimais e se terá máscara para formatação do conteúdo. Para mais informações, ver 
+Configurando Campos.
+Botão 
+: possibilita ao usuários efetuar alterações nos registros gerados com base nas informações originais, para geração do arquivo para o SPED. Lembrando que os campos poderão ser editados conforme configuração no dicionário de dados. Para mais informações, ver
+ Edição de Dados
+.
+Botão 
+: aplica a configuração original das ordens das colunas e filtros utilizados na tela, já que o layout da tela será salvo para cada usuário que acessá-la.
+Botão 
+:
+ finaliza a utilização da tela de Manutenção de Conjunto de Dados.
+Quadro 
+Botão 
+:
+ buscar os dados das tabelas originais e salva em tabelas criadas especificamente para o projeto SPED. E assim, possibilita ao usuário a edição dos dados e a geração do arquivo para envio ao SPED. Para mais informações, ver 
+Preenchimento dos dados para o SPED.
+Botão 
+:
+ gera o arquivo para o envio ao SPED. Arquivo este que conterá os dados das tabelas preenchidas com o processo de Preenchimento de Dados. Para mais informações, ver 
+Geração do Arquivo para o SPED.
+Botão 
+: 
+faz o mesmo que os processos de Preenche os dados e Gera o arquivo em um único clique, devendo configurar a pasta onde será salvo o arquivo. Para mais informações, ver 
+Preenchimento dos dados para o SPED.
+Quando o conjunto de dados estiver marcado como 
+Manutenção de Dados em Tela Própria
+, o quadro 
+ ficará desabilitado. Atualmente são os conjuntos de dados 13-SPED REINF e 14-E-Ressarcimento.
+Painel Parâmetros - Dados informativos
+Caminho da Dll de Exportação dos Dados:
+ pasta onde a dll para gerar o arquivo do SPED se encontra. Cada conjunto de dados tem sua própria Dll. Para mais informações, ver 
+.
+Tabela de Parâmetro:
+ tabela das opções informadas no momento de preencher os dados.
+Importa Fórmula:
+ em desuso

@@ -1,0 +1,31 @@
+TITULO: Possíveis formas de configurar os vínculos de e-mail no SisPetro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2896035903
+--------------------------------------------------
+Objetivo
+Mostrar os diferentes cenários para vínculo das contas de e-mail à filial:
+Quando temos, por exemplo, 50 filiais, das quais 40 utilizam a mesma configuração de e-mail e 10 utilizam outra, para não ter que configurar as 50 manualmente, deixaremos 
+40 com a configuração padrão do sistema
+ e as outras 10 configuraremos no 
+Vínculo Filial x Conta
+. Assim, o SisPetro, quando tiver que enviar para o grupo de e-mail igual (40 filiais) vai procurar primeiro o vínculo da 
+filialxconta
+ , que não vai existir,assim vai usar o padrão do sistema.
+Quando todas as filiais utilizam a mesma configuração padrão de e-mail, não é necessário criar um vínculo 
+filial x conta
+ , pois com a configuração padrão do sistema, todos os e-mails serão mandados da mesma conta.
+Temos novamente 50 filiais, e apenas uma não mandará NF-e, nem boletos de cobrança.Para não configurarmos as 50, manualmente, vamos configurar as 50 normalmente, e 
+somente
+ nesta , que não mandará e-mail, criaremos um vínculo, mas 
+inativo
+, assim, o SisPetro primeiro buscará o vínculo 
+filial x conta
+, que está inativo, e esse vínculo se sobrepõem, a configuração padrão do sistema.Assim essa única filial não enviará e-mail.
+Ver também:
+Serviço de E-mail
+Configuração de "Filial x Conta"
+Configuração de Conta de E-mail
+Painel E-mail
+E-mail do cliente
+E-mail do Fornecedor
+E-mail Transportadora
+Habilitando Envio de NF-e

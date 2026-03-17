@@ -1,0 +1,41 @@
+TITULO: Tabela Tipo de Entidade
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439628
+--------------------------------------------------
+Nesta tabela são cadastrados os tipos de entidade, utilizados para diferenciação dos clientes no cadastro.
+A tela que permite manipular esta tabela é acionada a partir do Menu principal com as opções - 
+Tabelas Auxiliares / Tipo de Entidade:
+O Sistema cadastra automaticamente um tipo de cliente denominado 
+NORMAL
+. Para acrescentar um novo Tipo de Cliente à tabela, acione o botão de inclusão de registro 
+.
+O Sistema exibe a tela para preenchimento dos novos dados.
+Será necessário preencher os seguintes campos:
+Descrição:
+ texto que denomina o tipo de Cliente.
+Descrição na Tabela de Cliente/Fornecedores:
+ o que será apresentado na tela de Clientes ou Fornecedores.
+Uso em:
+ Define onde será utilizado o Tipo de Entidade, podendo ser marcado para utilizar em Clientes, Fornecedor e Ambos.
+Habilita Cor:
+ caso marque esta opção na tela de Cliente todos os clientes que façam parte deste tipo terão a cor de frente (fonte) e de fundo coloridos de acordo com a cor aqui indicada:
+Cor de Frente:
+ cor para a fonte na tela de clientes quando o cliente for deste tipo.
+Cor de Fundo:
+ cor para o fundo na tela de clientes.
+Muda Cor de Todos os Clientes:
+ quando esta opção estiver desmarcada, somente os clientes com status ATIVO serão coloridos. Ao estar marcada, a coloração abrangerá também os clientes com status LIVRE e POTENCIAL. Cabe lembrar que isso sobrepõe as cores padrão do sistema (Branco para ATIVO, Verde-piscina para POTENCIAL e Amarelo para LIVRE). 
+Essa opção é especifica para Clientes.
+Bloqueia Vendas: 
+caso marque essa opção, os clientes que fizerem parte deste tipo serão bloqueados para venda, conforme o Tipo de Bloqueio selecionado abaixo. O processo é automático e funciona da seguinte forma:
+Só são abrangidos no processo automático de bloqueio os clientes que têm marcada a opção 
+Bloqueia automaticamente 
+na aba Padrão para Vendas.
+Caso esta opção estiver desmarcada e alguém a alterar para ficar marcada, automaticamente o SisPetro bloqueará as vendas dos clientes desse tipo de entidade. O mesmo ocorre na operação inversa.
+No cadastro de clientes caso o tipo de entidade for alterado para um cuja opção 
+Bloqueia Vendas
+ estiver marcada o SisPetro bloqueará as vendas dos clientes desse tipo de entidade. O mesmo ocorre na operação inversa.
+Acione o botão
+ para atualizar os dados no Sistema.
+O Sistema retorna a tela de navegação.
+S
+ó é permitida a exclusão de Tipos de Entidades que não são utilizados em nenhuma entidade.

@@ -1,0 +1,61 @@
+TITULO: Saldo Financeiro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878900286
+--------------------------------------------------
+A função disponibilizada para retornar o saldo financeiro de uma entidade numa determinada data é a 
+SaldoFin
+. Ela retorna um valor do tipo Extended que é o saldo do cliente ou fornecedor.
+
+
+Esta função tem a seguinte estrutura de parâmetros:
+
+
+SaldoFin(<
+Data
+>, <
+Tipo - Pagar ou Receber
+>,<
+Fonte
+>,<
+Código da Empresa
+>,<
+Código do Grupo Empresa
+>, <
+Código do Conglomerado
+>,<
+Código da Entidade
+>,<
+Código do Comprador
+>);
+
+
+Data:
+ a data para o qual se quer o saldo inicial do cliente/fornecedor.
+
+
+Tipo:
+ informe P para o Contas a Pagar e R para o Contas a Receber.
+
+
+Fonte:
+ indique 0 se quiser tanto títulos como adiantamentos, 1 só para títulos e 2 só para adiantamentos.
+
+
+Código da Empresa:
+ código da empresa para o qual se quer o saldo, caso se opte pelo saldo de um grupo empresa ou conglomerado, colocar 0.
+
+
+Código do grupo Empresa:
+ código do grupo empresa para o qual se quer o saldo, caso se opte pelo saldo de uma empresa ou conglomerado, colocar 0.
+
+
+Código do Conglomerado:
+ código do 
+ para o qual se quer o saldo, caso se opte pelo saldo de uma empresa ou grupo, colocar 0.
+
+
+Eis um exemplo da utilização da função para o saldo financeiro geral (fonte igual a 0) do cliente 1 (contas a receber):}
+
+
+
+
+Variable1.Value := SaldoFin(xData,'R',0,0,0,0,0,Entidade['CodEnt'], 0);

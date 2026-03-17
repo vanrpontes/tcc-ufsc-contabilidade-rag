@@ -1,0 +1,34 @@
+TITULO: Estrutura do Arquivo INI do Sispetro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927274048
+--------------------------------------------------
+A estrutura do arquivo ini do Sispetro Normal (SCG.INI) baseia-se em Seções, e para maiores detalhes sobre a estrutura das Seções, acesse os links abaixo:
+Seção Geral
+Seção ServidorSefaz
+Seção Splash
+Seção Automação
+Abaixo segue o modelo do arquivo ini com as principais seções:
+[Geral]
+CaracteresSenhaMinimo=4
+PrazoTrocaSenha=60
+ip=192.168.0.111 ou nomedoservidor
+Porta=8098
+CaminhoArquivosAuxiliares=F:\Estrutura\DocsAux
+SenhaSeguranca=010101
+LeParametrosServidorSefazAoExecutar=1
+SemServidorSispetro=1
+ 
+[Log]
+NivelLog=1
+RotacaoLog=0
+TamanhoMaximoLog=4
+NumeroArqLog=30
+ModoLog=0
+DestinoLog=F:\Estrutura\DocsAux
+ 
+[Roteador]
+Rotear=0
+
+[ServidorSefaz]
+servidor1=192.168.0.111:8098:010101
+ou
+servidor1=nomedoservidor:8098:010101

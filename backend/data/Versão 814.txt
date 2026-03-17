@@ -1,0 +1,60 @@
+TITULO: Versão 8.14
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921075308
+--------------------------------------------------
+Dados
+Informações
+Início
+22/07/2014
+Final
+01/08/2014
+Scripts
+CMD814.sql (3516 a 3526)
+Itens
+8
+Implementações
+3
+Correções
+5
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+ 
+SisPetroControl.Dll
+ 
+ 
+Geral
+Cadastro de Produtos aba Margem Subst.Tributária
+Foi realizada uma melhoria no SisPetro para garantir a navegação rápida pelos registros de Empresa mesmo quando o sistema possua muitos dados. 
+CPC (CCF 24839)
+Estoque
+Ativação de Mais de um Tanques no mesmo depósito
+Foi implementada no SisPetro funcionalidade que possibilita a ativação de mais que um tanque no mesmo depósito. 
+A funcionalidade de Tanque Virtual tem como objetivo "ativar" múltiplos tanques, mas para isso é necessário  informar cada proporção corretamente
+.
+ 
+Help: 
+. 
+PRFC (CCF 24284)
+Faturamento
+Melhoria na Exibição de Avisos na Emissão de NF
+Foi implementada melhoria ao exibir avisos referentes ao vinculo entre notas, agora é possível escolher entre cancelar ou continuar o processo de emissão dentro da mesma tela em que são exibidos os avisos. PRFC (CCF 24872)
+Erro ao imprimir DANFE sem OC vinculada
+Corrigida impressão do DANFE no SisPetro Remoto que apresentava mensagem de erro por não haver OC vinculada. 
+PRFC (CCF 24986)
+Financeiro
+Melhoria na Exibição de Avisos na Baixa
+Foi implementada melhoria ao exibir avisos referentes a data de fechamento financeiro e dados da autenticação na tela de baixa de contas pagar/receber, agora 
+é possível escolher entre cancelar ou continuar o processo de emissão dentro da mesma tela em que são exibidos os avisos
+. PRFC (CCF 24872)
+Otimização de Performance na Baixa Automática
+Corrigido o processo de Baixa Automática otimizado na versão passada para que não passe mais de uma vez, desnecessariamente, pelo mesmo título, o que, em alguns bancos de dados, pode causar lentidão. O processo continuará com o mesmo funcionamento. 
+GSN (CCF 25177)
+Transporte
+Alteração na Exibição de Avisos na Inclusão de OC
+Foi implementada alteração ao exibir avisos referentes a controle de vencimento de frota e transportadora. Antes o SisPetro estava considerando os mesmos como erros, impedindo a continuidade do processo. Agora exibirá os mesmos em tela especifica para avisos e possibilitará a escolha de cancelar ou continuar o processo dentro da mesma tela.
+ PRFC (CCF 24872)
+Vendas
+Validação de Controle de Vencimento da Frota no Pedido de Venda
+Foi corrigida validação indevida dos controles de vencimento da frota ao incluir pedido de venda. Agora o sistema validará se a mesma está ativa e seu bloqueio.
+ PRFC (CCF 24872)

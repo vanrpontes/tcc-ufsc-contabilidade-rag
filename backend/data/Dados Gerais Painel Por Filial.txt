@@ -1,0 +1,511 @@
+TITULO: Dados Gerais (Painel Por Filial)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913239346
+--------------------------------------------------
+none
+Objetivo
+O texto descreve de forma detalhada as configurações fiscais e operacionais da Natureza de Operação no SisPetro, organizadas por empresa e filial. Aborda regras de emissão de notas (NF-e, NFS-e, NFC-e), validações fiscais, manifestações, benefícios fiscais e participação em obrigações acessórias como SPED, ANP e DECLAN. Explica controles de frete, despesas acessórias, MDF-e, estoque, densidade/temperatura e impacto nos cálculos fiscais.
+Detalha vínculos entre notas fiscais, CT-e, validações de quantidade, referências no XML e regras de importação ou inclusão manual. Por fim, apresenta parâmetros avançados para livros fiscais, ressarcimento de ICMS-ST, registros SPED e configurações específicas por UF e tipo de operação.
+O painel dados gerais também possui configurações por empresa. Para acessar essas configurações, o usuário deve clicar no painel 
+Por Filial
+.
+Quando a natureza estiver configurada com: 
+Emissão própria:
+ o campo chave de acesso na NF 
+não ficará habilitado
+, pois a nota será processada na Sefaz.
+Emissão de terceiros:
+ a nota já foi processada na Sefaz. São notas emitidas por terceiros para a empresa. Assim o campo chave de acesso 
+ficará habilitado
+ para que o usuário informar a chave da nota (
+obrigatório
+).
+Fiscal
+Habilita NF-eletrônica
+: indica que é uma nota fiscal eletrônica, Nota Fiscal de Serviço eletrônica ou se não é Nota Fiscal Eletrônica. Esta opção somente estará disponível se em 
+Painel NF-e/CT-e
+ no quadro Configurações Gerais, o campo 
+Habilita emissão de NF-eletrônica
+ estiver marcado.
+Não é NF-e:
+ para notas que não sejam eletrônicas
+É NF-e:
+ para notas fiscais eletrônicas
+É NFS-e:
+ para notas fiscais de serviços eletrônicas. Para empresas sediadas em São Paulo ou em Guarulhos ou em cidades que utilizam o GINFES igual de Guarulhos. Há 2 padrões do GINFES. Padrão diferente do GINFES de Guarulhos deve consultar a Futura para analisar a possibilidade de implementação no SisPetro.
+É NFC-e: 
+para nota fiscal Eletrônica direcionada ao 
+Consumidor Final
+. Esse tipo de operação é realizado apenas para 
+operações internas
+.
+Caso seja selecionada essa opção e a natureza seja configurada para ser interestadual, a Sefaz retornará o erro 
+707 – NFC-e para com operação interestadual ou com o exterior
+Envia Manifestação Destinatário: 
+utilizado para Notas Fiscais de terceiros, será gerado o evento de manifestação ao final da inclusão da NF. Para mais informações, ver 
+Evento de Manifestação do Destinatário da NF-e
+.
+Nota:
+ esta opção 
+não
+ deve ser 
+marcada
+ para naturezas de operação de 
+aquisição de serviço de frete. 
+Para mais informações, ver 
+Evento de Manifestação do Destinatário do CT-e
+.
+Participa da DNF:  
+uso de refinarias. Para mais informações, ver 
+Geração DNF
+.
+Participa da DECLAN RJ Municipal: 
+para empresas localizadas no município do Rio de Janeiro. Para mais informações, ver 
+DECLAN (Municipal)
+.
+Participa do arquivo de Comercialização da ANP: 
+para refinarias, formuladores ou importadores. Para mais informações, ver 
+Geração Arquivo de comercialização ANP
+.
+Verifica se existe IE Substituição na UF de Faturamento (NF Própria):
+ este perfil foi criado para impedir faturamento para estado de destino na qual a empresa não tenha IE Substituição. Para mais informações, ver 
+Painel IE Substituição
+NFC-e
+Indicador de presença:
+ o
+ usuário deve selecionar uma das opções abaixo. 
+Obrigatório.
+0 Não se aplica
+1 Presença consumidor
+2 Operação pela Internet
+3 Operação pelo Tele Atendimento
+4 Entrega a domicílio
+5 Entrega a domicílio
+9 Outros
+Vincular NF Última Entrada: 
+permite vincular automaticamente uma ou mais notas fiscais de entrada (última nota de entrada) a uma ou mais notas de saídas, de acordo com os produtos. Deve ser configurado nas naturezas de operação de notas de saída.
+Não Salva:
+ não vincula nota
+Salvar somente produto com maior composição:
+ vincula a última nota de entrada do produto de maior composição.
+Exemplo:
+ em nota de venda de gasolina C, será vinculada última nota de entrada da Gasolina A
+Salvar todos os produtos primários:
+ vincula as últimas notas de entrada dos produtos que compõe o produto composto.
+Exemplo:
+ em nota de venda de gasolina C, serão vinculadas as últimas notas de entrada da Gasolina A e do Etanol Anidro
+Para mais informações, ver 
+Vínculo de NF com Última NF de Entrada
+Esta opção é utilizada para gerar o 
+Ressarcimento ICMS - AM
+ e também os registros C176 do SPED ICMS IPI. Porém, para empresas que entregam o SCANC, esses registros não devem ser enviados. Caso vinculem as notas de entradas com as notas de saída, devem desabilitar o envio desses registros no SPED, 
+desmarcando a opção Arquivo de Exportação.
+ Para mais informações, ver 
+Configuração de campos da tabela
+.
+Controle Despesas Acessórias
+Tipo
+: se deve ser informado o valor de despesas acessórias e como, as opções são:
+Não Habilitado
+Fixo em Valor:
+ deve então ser informado o valor que será utilizado sempre para cada item da nota. No momento da geração da Nota Fiscal serão utilizados estes parâmetros influenciando no preço de pedido do item da Nota.
+Fixo em % sobre o valor dos produtos:
+ deve então ser informado o percentual, e só serão aceitos valores de 0 a 100, que será utilizado sempre para cada item da nota. No momento da geração da Nota Fiscal serão utilizados estes parâmetros influenciando no preço de pedido do item da Nota.
+Variável - usuário pode editar
+: neste caso habilitado para ser informado o tipo de rateio entre os itens da NF.
+Valor:
+ para preenchimento do valor fixo da despesa acessória, ou do percentual.
+Rateio entre os Itens da NF:
+Rateia pelo Valor do Produto (qtde x preço)
+: grava nos itens da nota o valor da despesa acessória informada para a nota fiscal, contudo a regra para se realizar o rateio é feito em função do valor total do item
+Exemplo:
+Suponhamos que temos uma despesa acessória de 50 reais e dois itens na nota, o primeiro com quantidade de 200 a um valor de 0,50 centavos e o segundo item com quantidade de 100 a um valor de 2,10 reais para esse caso será gravado na coluna de despesa acessória no primeiro item um valor de 16,13 e no segundo item 33,87.
+Rateio pela Quantidade
+: grava nos itens da nota o valor da despesa acessória da nota fiscal, contudo a regra para se realizar o rateio é feito em função da quantidade do item
+Exemplo:
+Suponhamos que temos uma despesa acessória de 50 reais e dois itens na nota, o primeiro com quantidade de 200 e o segundo item com quantidade de 100, nesse caso será gravado na coluna de despesa acessória no primeiro item um valor de 33,33 e no segundo item 16,67.
+Sendo importante também lembramos que o valor da despesa acessória é considerada no sistema como valor integrante do valor informado, logo ao informarmos um produto que possua um valor de 0,50 centavos dentro do sistema é considerado que esse valor já tem embutido o valor da despesa acessório vinculada ao mesmo.
+NFS-e: 
+para notas fiscais de serviços eletrônicas. Para empresas sediadas em São Paulo ou em Guarulhos ou em cidades que utilizam o GINFES igual de Guarulhos. Há 2 padrões do GINFES. Padrão diferente do GINFES de Guarulhos deve consultar a Futura para analisar a possibilidade de implementação no SisPetro.
+Código Serviço NFS-e: 
+ indica o código do serviço
+Código Natureza Operação NFS-e:
+ indica o tipo de tributação
+Código Tributação NFS-e:
+ código da tributação do serviço
+CNAE: 
+selecionar o código CNAE que foi configurado no perfil de sistema. Para mais informações, ver 
+Painel IE Substituição/CNAE
+Para mais informações, ver 
+Como Emitir Nota Fiscal de Serviço
+Situação Tributária de ICMS: 
+a partir da versão 8.34 a empresa poderá se enquadrar no Regime Tributário Simples Nacional, para isso é necessário informar o CSOSN para a natureza (verifique os códigos suportados em 
+Simples Nacional
+). A regra do CST continua a mesma.
+C.S.T. Produto
+: código da Situação Tributária do Produto a ser alterado, ou seja, ao faturar a nota, se este campo estiver preenchido, na nota irá salvar o CST da natureza de operação e não o que estiver cadastrado no produto. Este caso pode ocorrer quando surgir alguma operação ao qual o CST do produto para aquela operação seja diferente do padrão. O campo deve ser preenchido com 3 (três) caracteres, podendo informar o caracter 
+?
+ (interrogação), que indica que no lugar da 
+?
+, será substituído pelo valor que estiver cadastrado no CST do produto na mesma posição da 
+?
+.
+Exemplo:
+CST informado na natureza de operação: ?4?
+CST cadastrado no produto: 123
+Valor que será salvo ao faturar a nota: 143
+Se este campo não estiver preenchido ou o tamanho do conteúdo informado for menos que 3 (três), a nota irá salvar o CST com o CST cadastrado no produto.
+Emissão de MDF-e
+Não permite: 
+utilizando essa opção não será emitido MDF-e.
+Para todas as NF:
+ utilizando essa opção todas as notas/conhecimentos podem ser vinculados a um MDF-e. 
+Conforme Empresa Responsável pelo Frete: 
+utilizando essa opção somente as Notas com responsabilidade sobre o Frete ficarão pendentes para emissão do MDF-e.
+Responsável pelo frete nota de Saída:
+ o responsável pelo MDFe em notas de Saída são as notas cujo a situação do frete é a 
+3 - TRANSP. PROPRIO REMETENTE
+ quando a nota é da própria empresa, e 
+4 - TRANSP. PROPRIO DESTINATAR
+ quando a nota é de transferência, e a empresa responsável pelo frete e a empresa de destino
+. Para mais informações, ver 
+Inclusão de MDF-e
+.
+Responsável pelo frete nota de Entrada: 
+o responsável pelo MDFe em notas de Entrada são as notas cujo a situação do frete é a
+ 
+4 - TRANSP. PROPRIO DESTINATAR
+.
+Para mais informações, ver 
+MDF-e - Manifesto Eletrônico de Documentos Fiscais
+.
+Diversos
+NF Bombeio
+: permite a associação da Nota Fiscal a bombeios cadastrados no SisPetro.  Essa opção é incompatível (com ressalvas) caso o perfil 
+Movimenta estoque na confirmação de bombeio 
+no 
+Painel Estoque
+ está marcado pois a movimentação de estoque é feita na 
+confirmação do pedido de bombeio
+. 
+Gera Obrigação Antecipada
+: não utilizado.
+Inclui itens na Nota Fiscal
+: se a Nota Fiscal deve ter itens ou somente uma descrição (notas fiscais de ressarcimento por exemplo, não possuem itens, somente uma descrição de seu objetivo). Caso esta opção esteja desabilitada, o Sistema não mostrará, no momento da emissão da Nota, a tela de itens para ser preenchida. 
+Em razão do SPED é obrigatório marcar essa opção.
+Exige dados de Exportação Indireta?: 
+ao marcar este perfil, será carregado o número de registro de importação do perdido de venda na nota fiscal, Para mais informações, ver 
+Como emitir Nota Fiscal exportação indireta
+.
+Atualiza Qtde da OC de Descarga Própria c/ Qtde NF OS: 
+Marcada: 
+ atualiza a Qtde da OC de Descarga Própria com a Quantidade da NF vinculada ao Carregamento Próprio que gerou a descarga
+Desmarcada: 
+utiliza a quantidade da OC de carregamento próprio que gerou a OC de descarga própria
+Permite Utilizar na Inclusão Manual ?:
+ este perfil prevalece sobre o perfil geral 
+Dados Gerais (Painel Geral)
+. Permite incluir uma nota fiscal manual e/ou somente através de importação.
+Segue o Perfil Geral da Natureza de Operação - perfil padrão:
+ este perfil segue a configuração em 
+Dados Gerais (Painel Geral)
+.
+Não, Só Permite Via Importação:
+ este perfil permite incluir nota fiscal somente via importação. Não considera o perfil geral em 
+Dados Gerais (Painel Geral)
+.
+Sim, Permite Manual e Via Importação:
+ este perfil permite incluir nota fiscal manualmente e via importação. Não considera o perfil geral em 
+Dados Gerais (Painel Geral)
+Perfil 
+Dados Gerais (Painel Geral)
+x
+Perfil 
+Dados Gerais (Painel Por Filial)
+Inclusão Manual
+Inclusão Via Importação
+Sim, Permite Manual e Via Importação
+x
+Segue Perfil Geral da Natureza de Operação
+Não, Só Permite Via Importação
+x
+Segue Perfil Geral da Natureza de Operação
+Desconsiderado
+x
+Não, Só Permite Via Importação
+Desconsiderado
+x
+Sim, Permite Manual e Via Importação
+Endereço de Entrega em NF Outras Saídas:
+ define qual Endereço de Entrega a considerar para NFs de Outras Saídas.
+Utiliza endereço de entrega da entidade
+Utiliza endereço de entrega do depósito destino (se houver)
+Validação de Valores de PMM
+Segue perfil da empresa: 
+seguirá o que está definido no perfil de sistema, aba Compras, 
+Validação de Valores do PMM. 
+Para mais informações, ver 
+Painel Compras
+.
+Considera na validação de Valores do PMM: 
+o SisPetro verificará o saldo financeiro do PMM com  as notas recebidas com essa natureza de operação. 
+Não considera na validação de Valores do PMM: 
+o SisPetro 
+não
+ verificará o saldo financeiro do PMM com  as notas recebidas com essa natureza de operação. 
+Retorno de Armazenagem
+Situação do Frete: 
+neste campo é responsável por informar a situação de frete que seguirá no XML do retorno de armazenagem na tag <modfrete>. Essa opção também é utilizada na 
+Emissão Automática de Nf de Remessa Conta e Ordem por Armazenadoras para transportar produto vendido pela Usina / Distribuidora
+ 
+0 - CONTRATACAO CONTA REMETENT:
+ contratação por conta do remetente.
+1 - CONTRATACAO CONTA DESTINAT: 
+contratação por conta do destinatário.
+2 - POR CONTA DE TERCEIROS:
+ frete por conta de terceiros.
+3 - TRANSP. PROPRIO REMETENTE: 
+próprio frete por conta do remetente.
+4 - TRANSP. PROPRIO DESTINATAR: 
+próprio por conta do destinatário.
+9 - SEM COBRANÇA DE FRETE: 
+sem cobrança de frete.
+Frete
+Informa frete nos itens da nota
+: habilita no item da nota fiscal o campo de valor de frete unitário, permitindo ao usuário o seu preenchimento.
+Transfere Frete unitário do PMM para a Nota Fiscal
+: essa opção faz com que o frete unitário informado em um PMM (tipo Recebimento Direto do Fornecedor) seja atribuído para os itens da Nota Fiscal de Compra. Consequentemente, se assim configurado, será transferido também para Manutenção de Frete.
+Desconsidera Frete Informado da NF: 
+através dessa opção é possível desconsiderar o valor do Frete na Nota fiscal, informar o mesmo na Nota porem sem somar o valor do Frete na Nota.
+Incorpora Valor do Frete na Base de ICMS: 
+Incorpora o valor do frete ao ICMS
+Permite disponibilizar NF para emissão de CT-e: 
+Permite incorporar as notas fiscais de venda ao efetuar o CT-e
+Destaca frete no Rodapé da NF
+: através deste campos temos uma maior flexibilidade quanto ao cálculo do frete, sendo possível três formas:
+Respeita o perfil da empresa
+: neste caso a Natureza de Operação irá destacar o frete conforme estiver marcado no parâmetro da empresa para a filial em questão - 
+Painel Fretes
+;
+Força o destaque do frete
+: neste caso ao selecionar a natureza da operação o campo 
+Destaca frete no Rodapé da Nota Fiscal
+ será marcado automaticamente, independente da configuração da empresa;
+Não destaca o frete
+: ao selecionar a natureza de operação o campo 
+Destaca frete no Rodapé da Nota Fiscal
+ será desmarcado automaticamente, independente da configuração da empresa. Para mais informações, ver 
+Destaque de frete na Nota Fiscal
+.
+Marcar a opção Incorpora Valor do Frete na Base de ICMS e Destaca Frete no Rodapé da NF for Forçar o destaque do frete ou Respeita o perfil da empresa (e o perfil está marcado para destacar o frete), gerará erro na SEFAZ, uma vez que a base de cálculo do ICMS ficará diferente do valor dos produtos.
+Cancelamento de Frete na Devolução
+Sugere Desmarcado: 
+sugere a opção 
+Cancela Frete desmarcado
+ na emissão de nota de devolução.
+Sugere Marcado: 
+sugere a opção 
+Cancela Frete
+ 
+marcado
+ na emissão de nota de devolução.
+Dados de pedágio/CIOT nas Observações da NF: 
+para empresas que utilizam o vale Pedágio ou CIOT. Define onde serão informados os dados do vale pedágio/CIOT na nota fiscal, podendo ser nas Informações Complementares, Fisco ou nas observações Livres. Os dados informados na nota são fixos: 
+Informações do Vale Pedágio Adiantado ao Transportador - Fornecedor: 00.000.000/0000-01 - Responsável: 99.999.999/9999-99 - Valor: 266,40 #CIOT registrado na ANTT: 1234567890 
+Não apresentadas:
+ não apresenta os dados do vale pedágio nas observações da Nota Fiscal. Recomendado para empresas que não utilizam o vale pedágio.
+Nas Informações Complementares: 
+as informações do vale pedágio serão apresentadas nas Informações Complementares da Nota Fiscal. Essas informações também irão para o XML.
+Nas Informações para uso do Fisco: 
+as informações do vale pedágio serão apresentadas no Fisco da Nota Fiscal. Essas informações também irão para o XML.
+Nas Observações livres (não enviadas no XML):
+ as informações do vale pedágio serão apresentadas nas Observações Livres. Não serão enviadas no XML. 
+Estoque
+Verificação dos dados de densidade e temp. na NF
+: para melhor compreensão desse perfil, ver 
+Temperaturas e densidade na Impressão da Nota Fiscal
+.
+Não verifica, permite qualquer valor:
+ não validará e aceitará qualquer valor de temperatura e densidade no momento de emitir a nota fiscal, tanto utilizando as informações do cadastro do produto ou do tanque, ou o usuário informando no momento de emitir a nota fiscal.
+Impede nota fiscal que esteja sem valor para densidade e temperatura:
+ validará e não permitirá que a nota seja finalizada se algum dado de temperatura ou densidade estiver sem valor ou zerado, isso vale utilizando as informações do cadastro do produto ou do tanque, ou o usuário informando no momento de emitir a nota fiscal.
+Impede nota fiscal que esteja cuja densidade e temperatura resulte em densidade a 20º igual a zero:
+ não finalizará a nota fiscal se as informações coletadas de temperatura e densidade gerarem a densidade a 20º igual a zero. Essa validação vale tanto para as informações retiradas do cadastro do produto ou tanque, ou se o usuário estiver informando no momento de emitir a nota fiscal.
+Obtém dados do Carregamento p/NF: 
+para mais informações, ver 
+Faturamento a 20ºC - Dados da Movimentação Física
+Não utiliza dados do Carregamento
+Utiliza volume ambiente do carregamento
+Utiliza volume a 20º do carregamento
+O SisPetro permite que sejam selecionadas as opções 
+Utiliza Volume Ambiente do Carregamento
+ e 
+Utiliza Volume a 20º do Carregamento
+ apenas para Naturezas cadastradas com Tipo de Emissão 
+Própria
+. 
+Obtém dados do Carregamento/Descarga: 
+define de onde são obtidos os dados de Densidade, Temperatura, Fator e Qtde20 para o estoque escritural, onde a Nota Fiscal é emitida após a realização da portaria de saída.
+Não Obtém:
+ não obtêm a temperatura e densidade informadas na portaria. Utiliza os dados do Depósito ou do Produto, conforme configuração de sistema.
+Obtém Densidade, Temperaturas, Fator e Qtde20:
+ utiliza como base os dados informados na portaria de saída.
+Fator conversão unidade
+: utilizado para conversão de produto em KG para quantidade em litros. Para mais informações, ver 
+Fator de Conversão na NF pela densidade da Descarga
+Ação na Inclusão da NF
+Avisa o Usuário
+Impede a Inclusão da NF
+Vínculo de Nota Fiscal
+Permite ser NF de Origem p/ controle de quantidade) no vínculo entre NFs
+: permitirá que na tela de 
+Seleção de Notas para Vínculos
+ só apareçam as notas fiscais que foram emitidas com esse perfil marcado.
+Permite vincular NF a outra NF Emitida
+: permitirá ao usuário vincular uma nova nota com outras existentes. Para mais informações, ver 
+Seleção de Notas para Vínculos
+.
+Sem ação:
+ não utilizará este perfil na tela de inclusão de notas fiscais.
+Sugere referenciar outras NF:
+ permitirá que o usuário faça vínculo com uma ou mais nota já existente, ficando a critério do usuário vincular ou não as outras notas fiscais.
+Força referência a outras NFs:
+ forçará o vínculo com outras notas, obrigando ao usuário a seleção das notas.
+Validação de Qtde. no Vínculo de NF:
+ controlará a quantidade dos itens de uma nota fiscal vinculada a outra nota fiscal.
+Não controla qtde. no vínculo:
+ não validará a quantidade na tela de seleção de notas para vínculos.
+Avisa qtde. de vínculo maior que origem:
+ avisará ao usuário caso a nota fiscal a ser vinculada possui uma quantidade do item maior que a nota fiscal de origem, porém permitirá o vínculo.
+Perfil deve ser combinado com o perfl 
+Permite vincular NF a outra NF Emitida igual a Sugere referenciar outras NF.
+Barra qtde. de vínculo maior que origem:
+ não permitirá ao usuário vincular uma nota fiscal com a quantidade do item maior que a nota fiscal de origem.
+NFs vinculadas nas Obs. da NF de Emissão Própria: 
+ apresentará ou não os dados da nota vinculada na nota a ser emitida.
+Não são Apresentadas:
+ não informará nos dados adicionais as informações da nota vinculada
+Nas Informações Complementares:
+ apresentará as informações da nota vinculada nas informações complementares.
+Nas Informações para uso do Fisco:
+ apresentará as informações da nota vinculada nas informações para uso do fisco.
+Nas observações livres (não enviadas no XML da NF-e):
+ apresentará as informações da nota vinculada nas observações livres (não vai par ao XML)
+Envia NF(s) referenciada(s) no XML da NF-e (tag <refNFe>)?: 
+permitirá o envio de chave de acesso na tag <refNFe> de NF referenciada, independente de ser NF de devolução. No recibo da NFe será apresentado o vínculo, independente do mesmo ser por NF ou por Item e, caso uma nota fiscal tenha sido referenciada mais do que uma vez, ou tenha mais que um item referenciado, só será apresentada uma única vez (devido validação de duplicidade na Sefaz)
+Valida Data Emissão da NF com NF referenciadas
+: validará se a data de emissão do CT-e de entrada é igual às NF referenciadas a ele.
+Exige que tenha um CT-e já lançado com referência à chave de acesso:
+ impede que uma NF-e seja lançada antes que o CT-e, 
+por padrão desmarcado.
+Vincula-se automaticamente a um CT-e que tenha chave de acesso referenciada: 
+fará o vinculo automaticamente entre a NF-e e o CT-e no qual está referenciada.
+NF-e referenciada a CT-e pendente importação:  
+limpa o erro do CT-e que está parado, aguardando a importação da nota fiscal.
+Não faz nada (padrão): 
+o CT-e continuará com erro aguardando a NF-e referenciada
+Limpa erros para forçar nova validação do CT-e: 
+na inclusão da nota fiscal, caso o CT-e esteja parado na tela de 
+Monitoramento da Importação de NF-e/CT-e
+ ou na 
+Importação Manual de Notas Fiscais
+ com erro aguardando a NF-e referenciada, o SisPetro irá importar a nota, limpar o erro do CT-e deixando ele como Não processado para passar novamente pelas validações. Se não houver mais nenhum erro ou pendência, o CT-e será importado.
+Dados da NF Referenciada a Serem Enviados:
+ definirá quais informações da NF vinculada que serão impressos na NF de emissão própria.
+Data de Emissão:
+ data de emissão da nota fiscal vinculada
+Nome Usual do Produto:
+ nome usual, cadastrado no produto, da nota fiscal vinculada.
+Razão Social da Entidade:
+ razão social da entidade da nota fiscal vinculada
+Quantidade Utilizada no Vínculo: 
+exibirá a quantidade da NF vinculada.
+Por padrão, quando definimos que as informações da NF vinculada serão apresentadas na NF de emissão própria, o SisPetro já imprime a série e o número da nota referenciada.
+Forma de Preenchimento de UF de Origem
+: 
+na emissão de nota fiscal o preenchimento de UF pode ocorrer automaticamente pelo cadastro do produto ou pela uf informada na remessa
+Incluída automaticamente: 
+quando selecionada esta opção, irá preenche a UF com a mesma realizada na configuração do Cadastro de Produtos.
+Obtida da NF de Remessa (se houver):
+ quando selecionada esta opção, irá utiliza a mesma UF de origem da nota de remessa para a nota de retorno.
+Preenchimento de Tags opcionais XML NF-e
+#Pedido Cliente:  
+campo preenchido no Pedido de Venda - 
+#Pedido Cliente
+#Item Ped. Cliente: 
+campo preenchido no Pedido de Venda, tela de itens (ao lado do preço do pedido) 
+#Item Ped. Cliente, caso habilitado em 
+Painel Vendas
+.
+Lembrando que estes campos não serão validados pelo SisPetro.
+ Essas informações são opcionais, caso seja marcado para saírem no XML, devem ser informadas no Pedido de Venda. Um dos cenários em que elas seriam úteis é no processo de venda casada, onde a informação é uma referência a um pedido de compra (a Distribuidora compra de um fornecedor e vende exatamente o mesmo item na mesma operação, assim manda o número do Pedido de Compra do Fornecedor em sua Nota de Venda, já que o Motorista irá com ela até a base do Fornecedor para carregar o produto e seguir para a entrega ao cliente)
+Benefício Fiscal
+Este perfil define o código do Benefício Fiscal que será informado na nota e no XML, na tag cBenef.
+  
+Código do Benefício
+:
+ selecione o código do benefício que será enviado na nota.
+Envio de Benefício nas Observações da Nota Fiscal:
+ define se enviaremos o código do benefício, podendo ser:
+Não envia:
+ não envia a informação do benefício
+Nas informações complementares:
+ envia a informação nas informações complementares da nota
+Nas informações para Uso do Fisco:
+ envia a informação no campo para Uso do Fisco
+Nas observações livres (não enviadas no xml da nota):
+ envia a informação nas observações da nota, porém não enviará no xml.
+Livros Fiscais
+Fórmula Livro Fiscal:
+ informar a fórmula desejada 
+Utilizado quando o perfil 
+Indicação do uso da Fórmula Livro Fiscal 
+for selecionado 
+Conforme informado na Filial
+ ou 
+Conforme informado na Filial (se não tiver usa Geral) 
+na 
+Dados Adicionais (Fiscal) (Painel Geral)
+.
+SPED EFD ICMS/IPI
+Configuração para participar dos registros C180/C181/C185/C186 e dos registros 1400
+Ressarcimento/Complemento ST
+Envio de Dados nos Registros C18X
+Não Envia
+Envia Ressarc/Compl Salvo na NF: 
+calculado nas notas de saídas na diferença entre os valores de ICMS Origem e ICMS Destino
+Envia Ressarc/Compl calculado para o SPED: 
+cálculos automáticos para o SPED, com regras específicas.
+Valor total da nota fiscal* alíquota interna do ICMS - Valor do ICMS Retido
+Registros 1400
+Gera Registros 1400 para NF-e: 
+se marcada, as notas fiscais serão informadas nos registros
+Gera Registros 1400 para CT-e de emissão própria: 
+se marcada, os CT-es emitidos serão informados nos registros
+Índice de Participação dos Municípios (1400): 
+se uma das opções for 
+marcada
+, 
+obrigatoriamente
+ deve informar qual o 
+código do item
+ que será enviado nos registros. Esses 
+códigos
+ são 
+específicos
+ e somente 
+algumas UFs exigem
+. Serão 
+habilitados
+ conforme a 
+UF
+ da 
+filial selecionada
+. Caso 
+não
+ seja 
+informado
+, nos registros serão 
+enviados
+ os códigos dos 
+produtos cadastrados no SisPetro
+.

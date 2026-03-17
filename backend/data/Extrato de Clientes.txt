@@ -1,0 +1,69 @@
+TITULO: Extrato de Clientes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898894
+--------------------------------------------------
+O Relatório de Extrato de Clientes apresenta os movimentos realizados para cada cliente no período especificado, com apresentação de saldo inicial e final.
+Este relatório é útil para simulação/conferência do Fechamento Financeiro - Versão 2.0.
+O acesso a esse relatório é através do Menu 
+Relatórios / Financeiro / Contas a Receber / 
+Extrato de Clientes
+:
+Este relatório também pode ser acessado pela 
+Manutenção de Fechamento Financeiro
+. A tela deste relatório não é exibida, mas na tela do 
+ pode selecionar a ordenação desejada e o relatório apresenta a movimentação realizada entre um fechamento e outro. Através deste relatório pode-se emitir o Extrato do Contas a Receber e o Extrato de Cliente, filtrando pelo campo 
+Fonte
+.
+Pode ser realizado filtros por:
+Unidade de Negócios:
+ Onde pode ser selecionado uma Filial específica, um Grupo de Filiais, um Conglomerado ou mesmo todas as Filiais cadastradas. 
+Filial:
+ Caso tenha sido selecionado 
+Filial (escolher)
+ em 
+Unidade de Negócios
+, será habilitado este campo onde pode ser informada ou selecionada uma filial. O relatório apresentará a posição dos saldos das contas relativas a esta filial. 
+Caso o usuário não tenha acesso a filial escolhida, a geração do relatório não trará nenhum resultado
+Grupo de Filiais:
+ Caso tenha sido selecionado 
+Grupo de Filiais (escolher)
+ em 
+Unidade de Negócios
+, será habilitado este campo onde pode ser informado ou selecionado um grupo de filiais. O relatório apresentará a posição dos saldos das contas relativas a este grupo de filiais.
+Conglomerado de Filiais:
+ Caso tenha sido selecionado 
+Conglomerado de Filiais (escolher)
+ em 
+Unidade de Negócios
+, será habilitado este campo onde pode ser informado ou selecionado um conglomerado de filiais. O relatório apresentará a posição dos saldos das contas relativas a este conglomerado de filiais.
+Considera regra de fechamento financeiro:
+ Se marcada esta opção, serão consideradas no relatório somente as empresas que não estejam configuradas como fechamento exclusivo.
+Filtra Cliente:
+ Se marcada esta opção, será habilitado o campo 
+Cliente
+ para que seja selecionado um determinado cliente.
+Cliente:
+ Deve ser informado ou selecionado um cliente que deve ser filtrado. O relatório apresentará as movimentações relativas a este cliente. 
+Filtra por entidade faturada:
+ Serão apresentados os títulos do cliente faturado apenas
+Filtra por entidade compradora do título:
+ Serão apresentados os títulos dos
+ clientes compradores
+Filtra por entidade compradora do cadastro: 
+Serão apresentado os títulos para a entidade que esta configurada no grupo econômico como compradora
+Período:
+ Deverá ser informado o período ao qual se deseja imprimir o relatório.
+Fonte:
+ Apresenta os títulos e/ou adiantamentos.
+Agrupamento:
+ Apresenta os movimentos e os saldos inicial e final do tipo de agrupamento escolhido. 
+ 
+ 
+ Quando agrupado por data, a cada dia é apresentado o saldo inicial na data, a movimentação do dia e o saldo a cada movimentação. A movimentação é separada em Título e Adiantamento. 
+ 
+ No caso do agrupamento por entidade, é apresentado o saldo do cliente na data inicial do período informado e a movimentação ocorrida para este cliente, com o saldo a cada movimentação. Esta movimentação também é separada em Título e Adiantamento. Ao final é calculado o saldo, que é a posição desta entidade na data final. Ou seja, esse relatório pode ser utilizado para posição, no entanto, a entidade só é apresentada se teve movimentação no período especificado.
+O layout do relatório será gerado conforme o arquivo 
+ExtratoCliFor.rtm
+ que estiver no caminho do executável. É possível editar o Layout do relatório através do botão 
+Edita Layout
+:
+ 

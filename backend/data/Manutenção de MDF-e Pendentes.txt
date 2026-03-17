@@ -1,0 +1,60 @@
+TITULO: Manutenção de MDF-e Pendentes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919992495
+--------------------------------------------------
+O menu será liberado somente se o usuário tiver o perfil 
+Pode incluir/processar MDF-e
+ marcado. Para mais informações ver 
+Perfil de Usuário - Painel Faturamento
+.
+Menu Movimentação / Faturamento / Manifesto Eletrônico / Manutenção de MDF-e:
+Manutenção de MDF-e Pendentes:
+Botões
+Processa: 
+envia o processamento para Sefaz de acordo com o tipo de pendência das notas/conhecimentos selecionados. Considerando que o MDF-e não contenha erros:
+Pendente de Recibo:
+ retorna Pendente Protocolo, devendo processar novamente.
+Pendente de Protocolo:
+ retorna Pendente Encerramento. Caso queira encerrar, enviar novo processamento.
+Pendente de Cancelamento:
+ não processar. Fazer sincronização.
+Pendente de Encerramento:
+ retorna Encerrado não sendo mais possível qualquer ação para o MDF-e. Permitido caso o perfil 
+Pode encerrar MDF-e? 
+esteja habilitado. Para mais informações, ver  
+Painel Faturamento (Usuários)
+.
+Sincroniza:
+ faz a consulta da chave de acesso do MDF-e posicionado para identificar sua situação na SEFAZ.
+Encerramento:
+ caso seja necessário, o usuário pode alterar a Data/Hora do encerramento e a cidade de descarregamento. 
+Atenção: deve ser alterado antes de processar.
+ 
+Tipos de Pendência: 
+Pendente Recibo:
+ quando o MDF-e foi incluído e, mas seja pela empresa estar off-line ou por erro no processamento da SEFAZ, não foi processado.
+Pendente Protocolo:
+ quando o MDF-e tem recibo, mas por algum erro (SEFAZ ou empresa) não conseguiu obter o protocolo
+Pendente Cancelamento:
+ quando o MDF-e, por algum motivo, ficar pendente de cancelamento, basta Sincronizar.
+Pendente Encerramento:
+ quando o MDF-e está autorizado (tem protocolo), não está cancelado e ainda não está encerrado.
+Encerramento automático para NF-e de entrada via serviço
+Apenas para MDF-e referentes a nota de entrada e para responsável pela emissão do MDF-e, ao dar entrada na NF-e vinculada ao MDF-e o SisPetro fará o encerramento automatícamente via serviço. 
+Para mais informações, ver 
+Encerramento de MDF-e Automático pela NF-e Entrada
+ 
+Para mais informações:
+ 
+MDF-e - Manifesto Eletrônico de Documentos Fiscais
+Inclusão de MDF-e
+Manutenção de MDF-e
+Encerramento de MDF-e 
+Encerramento de MDF-e pela Chave de acesso
+Encerramento de MDF-e Automático pela NF-e Entrada 
+Serviço de Encerramento de MDF-e - Sispetro
+Consulta Status Serviço do MDF-e
+Tabela Unidades Federativas - UF's
+Configuração da UF
+Natureza de Operação - Dados Gerais (Painel Por Filial)
+Perfil de Empresa - Painel MDF-e
+Perfil de Usuário - Painel Faturamento

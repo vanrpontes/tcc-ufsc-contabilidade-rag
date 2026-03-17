@@ -1,0 +1,115 @@
+TITULO: ABN - AMRO
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878211210
+--------------------------------------------------
+Dados Gerais
+O Banco ABN Amro adquiriu o Banco Real.
+O arquivo de remessa é conforme o layout do Banco ABN AMRO, parecido com o layout do Banco Real, mas não idêntico.
+Painel Cobrança Eletrônica
+No campo 
+banco
+ deve ser informado 356 - ABN AMRO.
+Apesar do banco ABN AMRO não ter número de 
+convênio
+ é necessário colocar alguma informação para geração do arquivo de cobrança. Coloque neste campo o número da 
+conta
+ da empresa no ABN AMRO.
+A 
+carteira
+ deve ter 2 (dois) dígitos, que pode ser:
+00 - Carteira do Convênio
+20 - Cobrança Simples
+31 - Cobrança Câmbio
+42 - Cobrança Caucionada
+47 - Cobrança Caucionada Crédito Imobiliário
+85 - Cobrança Partilhada
+O 
+modo de cobrança
+ deve ser configurado para 
+Simples
+.
+Informe 
+Variação da Carteira
+, onde 
+1=Cobrança Simples
+ e 
+5=Cobrança Escritural
+.
+Os campos 
+Indica sacador/avalista
+, 
+#Docto no arquivo remessa
+ e 
+Informação de juros no Arquivo Remessa
+ NÃO são considerados ao gerar o arquivo de remessa.
+A cobrança para o Banco ABN AMRO no SisPetro não permite utilização de desconto, então a opção 
+Utiliza desconto na baixa eletrônica
+ NÃO deve ser marcada.
+Painel Informações sobre a Cobrança
+A cobrança para o Banco AMRO NÃO utiliza banco correspondente, portanto, a opção 
+Utiliza Banco Correspondente
+ NÃO deve ser marcada.
+Faixa Nosso Número
+Só deve ser informada uma faixa com até 7 dígitos.
+Campo Livre (usado na Linha Digitável)
+275 - Real
+Conteúdo
+Tamanho
+Início
+Fim
+Agência
+4
+1
+4
+Convênio
+7
+5
+11
+DV Conta
+1
+12
+12
+Nosso Número
+13
+13
+25
+Exemplo do Campo Livre:
+Agência: 1234-5
+Convênio: 9841214
+Dígito Verificador da Conta: 4
+Nosso Número: 8749653217851
+Campo Livre:
+ 1234 9841214 4 8749653217851
+Linha Digitável:
+ | 2 7 5 | 1 | 1 2 3 4 9 | 0 | 9 8 4 1 2 1 4 4 8 7 | 0 | 4 9 6 5 3 2 1 7 8 5 | 0 | 0 | 4 5 6 7 | 0 0 0 1 0 0 0 0 0 0 |
+356 - ABN Amro (Real)
+Conteúdo
+Tamanho
+Início
+Fim
+Agência
+4
+1
+4
+Conta
+7
+5
+11
+DV Nosso Número
+1
+12
+12
+Nosso Número
+13
+13
+25
+Exemplo do Campo Livre:
+Agência: 1234-5
+Conta: 87542-1
+Dígito Verificador da Conta: 5
+Nosso Número: 00000012000000
+Campo Livre:
+ 1234 087542 5 0000 001200000
+Linha Digitável:
+ | 3 5 6 | 1 | 1 2 3 4 0 | 0 | 8 7 5 4 2 5 0 0 0 0 | 0 | 0 0 1 2 0 0 0 0 0 0 | 1 | 1 | 4 5 6 7 | 0 0 0 1 0 0 0 0 0 0 |
+Para informações sobre a montagem da linha digitável para este banco, veja o tópico 
+Montagem da Linha Digitável

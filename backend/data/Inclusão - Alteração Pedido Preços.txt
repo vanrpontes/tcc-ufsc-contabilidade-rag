@@ -1,0 +1,87 @@
+TITULO: Inclusão - Alteração Pedido Preços
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440118
+--------------------------------------------------
+Para incluir/alterar o pedido de alteração de preços, acessar o menu Movimentação / Vendas / Pedido Alteração Preços - botões Inclui e Altera.
+A seguinte tela é apresentada:
+Somente poderá incluir, alterar ou excluir o pedido de alteração de preços se o usuário tiver permissão. Para habilitar a permissão, deve acessar o menu Ferramentas / Usuário / painel Perfil / painel Vendas  :
+ 
+Os seguintes campos devem ser preenchidos:
+Solicitante: o nome do solicitante desse pedido.
+Observações: informações adicionais referentes a solicitação de alteração de preços.
+No painel 
+Itens Pedido
+, é possível visualizar os produtos que devem sofrer alteração de preço para a Empresa e Entidade solicitada. Para informar os produtos cujo os preços devem ser alterados, deve-se clicar no botão 
+"Inclui Produto"
+. A seguinte tela é apresentada:
+A partir da versão 8.6, o usuário pode informar 
+Preço mínimo
+ e
+ Preço máximo
+, ainda é informado no quadro
+ "Valores Atuais"
+ os valores de:
+ Preço mínimo a vista 
+e
+ preço máximo a vista
+.
+Quadro
+ "Valores atuais" 
+Preço Mínimo 
+a vista
+: Valor informado como sendo Preço minímo descontado o custo financeiro e/ou acréssimo financeiro, que podem ser configurados no cadastro de 
+ Clientes
+ e 
+ Condições Pagamento
+Preço Máximo 
+a vista
+: Valor informado como sendo o Preço máximo, descontado o custo financeiro e/ou acréssimo financeiro, que podem ser configurados no cadastro de 
+ Clientes
+ e 
+ Condições Pagamento
+Quadro 
+"Valores Propostos" 
+Preço minímo: menor que preço que o produto pode ser vendido.
+Preco máximo: maior preço que o produto pode ser vendido.
+Note que esses dois preços, são 
+sem os custos
+, assim que forem preenchidos tais valores o SisPetro calcularará o 
+preço com os custos
+, 
+margem
+ e etc.
+Devem ser preenchidos os campos 
+Produto, Condição Pagamento
+ e 
+Preço Proposto
+. Os demais campos e o campo Preço Proposto serão calculados e preenchidos após informar a condição de pagamento.
+Esta tela é importante para analisar os cálculos entre o Preço Proposto e o Preço Autal (que está cadastrado para o produto).
+No quadro para Valores Atuais, os campos de 
+Preço, Preço Vista, Desconto Cond., Valor Final AV, Margem R$, Margem
+ % serão conforme o cadastro de preço para o produto em questão. Assim também será para o campo de Custo e os campos do quadro Valores Propostos que serão calculados automaticamente, com base no Preço Proposto informado e a Condição de Pagamento para o Produto escolhido.
+Nota: O campo Desconto Cond foi acrescentado para informar o valor do desconto condicional cadastrado para o produto. Caso a empresa não trabalhe com Desconto Condicional, este valor será zerado, ou seja, não será incluido nos demais cálculos.
+Após informar os campos na tela e clicar no botão OK, será apresentada na grid o produto cadastrado para o pedido:
+Para excluir o produto da grid, clicar no botão 
+"Exclui Produto"
+.
+Para efetuar a inclusão/alteração da tela de Solicitação de Alteração de Preços, clicar no botão "OK".
+Como é calculado o CUSTO ATUAL
+O campo 
+Custo atual
+ é calculado conforme o PREÇO A VISTA ATUAL. Se acessar a tela de Análise de Custo e informar como preço o Preço a vista atual verificará que o custo será o mesmo. Lembrando que como o custo é salvo no pedido de alteração, qualquer alteração no custo 
+não refletirá no pedido de alteração de preço
+.
+Perfil para visualizar Custos
+A partir da versão 7.13, o SisPetro conta com o perfil de usuário para visualizar os custos nas telas de Simulador de Preços, no Cadastro de Clientes e Pedido de Alteração de Preços.
+Pode visualizar custos/margens
+ é acessado por: 
+Ferramentas / Usuário / Perfil / Vendas
+ 
+Com o perfil desmarcado, os campos 
+Margem R$ e Margem %
+, não aparecerão dados,
+ 
+No Painel de Inclusão, os campos 
+Custo,Margem R$ e Margem %
+ também não aparecerão
+. 
+ 

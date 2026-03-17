@@ -1,0 +1,132 @@
+TITULO: Observações - Fornecedores
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210947
+--------------------------------------------------
+none
+Objetivo
+O painel 
+Observações
+ permite registrar informações adicionais sobre o fornecedor, como observações gerais e telefones extras. Nele também são configurados dados para o 
+Livro Eletrônico
+ e 
+SPED
+, como Códigos de Entidade, PIS/PASEP, SUFRAMA e INSS. O painel inclui campos para e-mails automáticos de envio de NF-e, perfis fiscais (ICMS, CPRB, DCP, corretora) e validação de chaves de acesso. Permite ainda indicar vínculo a 
+grupo econômico
+, definir responsabilidade em 
+apuração de frete
+ e informar a 
+natureza jurídica
+ e o 
+tipo de ente governamental
+ quando aplicável.
+A partir do painel 
+Detalhes
+ é possível acionar o painel 
+Observações
+ localizado no menu inferior da tela, para ter acesso à tela de observações relativas ao fornecedor e aos outros telefones do mesmo.
+O campo 
+Observações
+ fica destinado a cadastro de informações pertinentes ao fornecedor.
+O campo 
+Outros Telefones
+ servirá para cadastro de novos telefones do fornecedor, considerando que no cadastro principal em 
+Dados Gerais
+ só existe um campo para telefone e outro para fax.
+Note que tudo o que for preenchido nesta janela aparecerá na janela principal do cadastro de fornecedores - painel 
+Navegação
+ - facilitando o acesso às informações deste cadastro.
+Quadro Livro Eletrônico:
+Nº PIS/PASEP:
+ informar, caso tenha
+Cadastro Específ. INSS:
+ informar, caso tenha
+Nº SUFRAMA:
+ informar, caso tenha. Utilizado no SPED, caso seja informado
+Inscrição Municipal:
+ informar, caso tenha. Utilizado no SPED, caso seja informado
+Código Entidade p/ uso no Livro Eletrônico: 
+informe qual a entidade que vai no SPED.
+O SPED permite somente um CNPJ por entidade, independente de ser cliente, fornecedor ou transportadora
+Quando um cliente com o mesmo CNPJ de um fornecedor, deve-se definir qual deles será enviado no SPED: cliente ou fornecedor
+No caso de Transportadoras, estas devem estar cadastradas no SisPetro como Cliente ou Fornecedor
+Ao vincular a entidade, certifique-se que os CNPJ são iguais. Caso não sejam iguais, o SisPetro emitirá a mensagem 
+CNPJ Diferente da Entidade."Verifique Código Entidade p/ uso no Livro Eletrônico na aba Observações"
+, conforme imagem abaixo:
+Caso o usuário não altere, o campo 
+Código da Entidade para uso no Livro Eletrônico
+, o mesmo será preenchido automaticamente com o código da própria entidade.
+O campo 
+Código DCP
+ este código será utilizado nas operações de Recebimento de Refinaria ou Destilaria, na geração do DCP. Para mais informações, ver 
+DCP
+.
+O campo 
+Pode ser Corretora?
+, se marcado, poderá ser selecionado na inclusão de PMM. Para mais informações, ver 
+Corretora no PMM
+.
+Quadro DPMP:
+Para mais informações, ver 
+DPMP - Fornecedores
+.
+Quadro E-mails Automáticos:
+Email para Envio de NF-e:
+ campo a ser preenchido com o email do fornecedor para que sejam enviados os arquivos XML de suas respectivas Notas Fiscais Eletrônicas. O campo possui tamanho de 250 caracteres, possibilitando ao usuário cadastrar vários e-mails para recebimento do XML.
+O separador utilizado é a vírgula ( , )
+ 
+Configuração de Contribuinte de ICMS
+Através do perfil Contribuinte do ICMS, é possível definir se o fornecedor e contribuinte ou não do ICMS. Utilizado para operações interestaduais com consumidor final não contribuinte.
+Contribuição Previdênciária (uso SPED REINF) 
+Usado nos registros R2010:
+Não é Contribuinte:
+ fornecedor não é contribuinte da 
+Contribuição Previdenciária sobre a Receita Bruta (CPRB)
+Contribuinte:
+ fornecedor é contribuinte da 
+Contribuição Previdenciária sobre a Receita Bruta (CPRB)
+Despreza CNPJ na Validação da Chave de Acesso
+Se marcado o perfil de 
+sistema 
+Valida Chave de Acesso informada em NFs de terceiros,
+ o SisPetro valida a Chave de Acesso nas NFs de Terceiros. 
+Quando uma NFe é emitida através do emissor gratuito da Sefaz, o CNPJ da chave de acesso é o da SEFAZ e não da entidade emitente da nota, para escriturar a nota é necessário marcar o 
+Despreza CNPJ na Validação da Chave de Acesso, 
+para que o SisPetro Despreze o CNPJ que consta na chave de acesso. Detalhes 
+Validação de Chave de Acesso de NF-e emitida pela SEFAZ
+Gerenciadora de Recebíveis
+Este perfil indica se o fornecedor pode trabalhar com a Gerenciadora de Recebíveis Terras Raras. Para mais informações, ver 
+Trabalhando com Sistema de Recebíveis
+.
+Pertence ao Grupo Econômico?
+Através desse perfil é possível indicar um responsável pelo grupo econômico que o Fornecedor pertence. Para habilitar essa opção o usuário deve ter permissão no perfil 
+Permite Indicar Grupo econômico de Fornecedores. 
+Para mais informações, ver 
+Painel Segurança (Usuários)
+.
+Para visualizar os fornecedores que pertencem ao grupo econômico basta acionar a aba 
+Grupo Econômico
+. 
+Apuração de Frete
+Este perfil é utilizado na apuração de frete e permite indicar se o fornecedor é ou não responsável pelas diferenças apuradas no frete:
+Diferença de Produto
+Não é responsável: 
+padrão. Não é o responsável pelas diferenças de produtos encontradas na apuração de frete
+É responsável:
+ é o responsável pelas diferenças de produtos encontradas na apuração de frete
+Diferença de Frete
+Não é responsável: 
+padrão. Não é o responsável pelas diferenças de fretes encontradas na apuração de frete
+É responsável:
+ é o responsável pelas diferenças de fretes encontradas na apuração de frete
+Natureza Jurídica
+Esse perfil será possível informar a natureza jurídica quando for utilizar órgão publico
+Tipo Ente Governamental
+:
+Não se Aplica: Não se enquadra
+União: Representa o governo federal
+Estado: Possuem autonomia política, administrativa e financeira
+Distrito Federal: Reúne as competências dos 
+estados
+ e dos 
+municípios
+.
+Municipal: Têm autonomia local

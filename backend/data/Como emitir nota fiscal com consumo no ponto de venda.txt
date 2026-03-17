@@ -1,0 +1,52 @@
+TITULO: Como emitir nota fiscal com consumo no ponto de venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4271407105
+--------------------------------------------------
+Nas operações de venda de combustível cujo consumo ocorre no ponto de venda, é necessário, para calcular os impostos corretamente, determinar a UF de consumo e a UF da distribuidora que está realizando as vendas.
+Essas operações acontecem em vendas realizadas em aeroportos e para TRR (Transportador-Revendedor Retalhista).
+No SisPetro, para essas operações, o endereço de entrega do cliente será o endereço do depósito da distribuidora, permanecendo o endereço de faturamento do cliente.
+Para que as notas sejam emitidas corretamente são necessárias configurações na natureza de operação e nos produtos.
+Configurando a natureza de operação
+Menu Tabelas Auxiliares / Faturamento / aba Por Filial / aba 
+Impostos
+ 
+Quadro Endereço/UF
+UF Utilizada para Impostos: 
+UF de Faturamento: 
+utiliza a UF do endereço de faturamento (endereço principal) do cliente. Não considera a opção Endereço de Consumo
+UF de Consumo:
+UF do Faturamento
+UF da Entrega
+UF  da Cobrança
+Endereço de Consumo: 
+Endereço conforme cadastro do Cliente
+ 
+Utiliza conforme a UF de Consumo definida no cadastro de cliente em 
+Padrão para Vendas (Clientes)
+ - quadro UF de Consumo e em 
+Outros Endereços (Clientes)
+A configuração abaixo deve ser feita para notas fiscais de vendas com consumo no ponto de venda
+UF de Consumo 
+Endereço de Consumo: Endereço do Depósito
+Utiliza a UF do endereço principal do depósito. Para mais informações, ver 
+Depósitos - Aba Endereços
+Configurando a natureza de operação no produto
+A configuração abaixo deve ser feita para notas fiscais de vendas com consumo no ponto de venda
+Menu Arquivos / Produtos / aba 
+Natureza de Operação
+Quando na natureza de operação a 
+UF Utilizada para Impostos
+ é a 
+UF de Consumo
+ e o 
+Endereço de Consumo
+ é o 
+Endereço do Depósito
+, nos campos 
+Nat.OP.Venda Estado
+ e 
+Nat.OP.Fora Estado
+, devem informar o mesmo código da natureza de operação, ou seja, de operação interna.
+Para as operações de venda com consumo no ponto de venda, as configurações da UF Utilizada para Impostos sendo UF de Consumo e o Endereço de Consumo sendo Endereço do Depósito,  não será necessário a empresa cadastrar vários endereços de entrega nos clientes conforme o aeroporto ou TRR
+Realizadas as configurações, basta incluir o pedido de venda e emitir a nota fiscal, que será gerada de acordo com a natureza de operação selecionada através do 
+produto
+.

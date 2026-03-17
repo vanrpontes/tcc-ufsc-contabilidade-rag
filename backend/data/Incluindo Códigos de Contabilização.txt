@@ -1,0 +1,82 @@
+TITULO: Incluindo Códigos de Contabilização
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210339
+--------------------------------------------------
+Para que esta opção esteja disponível, no sispetro normal, é necessário habilitar no perfil do usuário a opção "Pode acessar Códigos de Contabilização". Para isso, vá em : Ferramentas / Usuário/ Aba Perfil/ Aba Contabilidade
+Os códigos de contabilização são os padrões que cada processo no Sispetro vai utilizar para fazer a contabilização. Para configurar estes padrões é preciso escolher no Menu principal as opções -
+ 
+Arquivos / Códigos de Contabilização.
+Acione o botão de inclusão de novo registro.
+O Sistema ativa a tela que permite a inclusão de um novo código de contabilização.
+O novo código é apresentado pelo Sistema. Dê uma descrição para este código.
+O campo
+ 
+Ativo,
+ 
+por padrão, sempre estará marcado ao incluir um código de contabilização novo. Caso deseje inativar um código de contabilização, basta desmarcar esse campo. Cabe lembrar, que ao inativar um código o mesmo deixa de executar a contabilização onde era requerido. A seguir, em Grupo Contábil, clique na seta à direita e escolha um dos grupos contábeis disponíveis.
+O usuário deve selecionar se a fórmula a ser incluída utilizará itens ou não. Caso seja uma fórmula para contabilizar notas fiscais sem itens, por exemplo, o usuário deve desmarcar essa opção.
+Para preencher os demais campos clique nas reticências (...) que se encontra no lado direito, onde será apresentada a tela "Auxiliar Fórmula de Contabilização". Escolha o(s) campo(s) que são correspondentes ao dado a ser preenchido, dando um duplo clique no campo desejado, o código deste campo será apresentado na tela da direita.
+Atente-se para escolher campos compatíveis com o tipo de dados que se deseja gravar, por exemplo, campos númericos, número e assim por diante. É possível acrescentar texto antes ou após o campo, só textos, funções do banco de dados, bem como fazer fórmulas entre campos. Para maiores esclarecimentos veja o item
+ "
+Códigos de Contabilização - padrões do SisPetro
+"
+.
+Faça este processo para
+ 
+Data
+,
+ 
+Código Histórico
+,
+ 
+Histórico
+,
+ 
+Número de Documento
+ 
+e
+ 
+Informações Adicionais
+. Estes campos referem-se ao cabeçalho do lote, portanto, os campos disponíveis para a montagem da fórmula serão aqueles das tabelas não referenciadas a itens (como ItensNF, ItensBaixa e ItensLote). O Número de Documento para a contabilidade gerencial pode-se utilizar caracteres, ou seja letras e números juntos, porém para a contabilidade real o sistema verifica se existe letras junto de números e aproveita somente os números,
+ 
+por exemplo: documento NF1234, só é aproveitado os números 1234.
+Na parte inferior será necessário informar as contas para contabilização e seus respectivos valores, especificando inclusive se o lançamento será de débito ou de crédito. Nesta parte estarão disponíveis todos os campos das tabelas envolvidas no grupo contábil, inclusive aqueles de tabelas referenciadas a itens, conforme foi citado acima. Cabe lembrar que a montagem destas fórmulas é muito importante, pois se os valores de crédito não forem iguais ao de débito o lote não será
+ 
+Consolidação de Lote
+ 
+e consequentemente não movimentará as contas envolvidas.
+No caso das
+ 
+contas contábeis
+, é possível escolher campos referentes às contas gerenciais e acrescentar a elas a função ContaReal que retornará a conta contábil a qual esta conta gerencial está vinculada, conforme descrito em
+ "
+"
+. Para acrescentar a função ContaReal, selecione o campo e em seguida clique no botão
+ 
+"Inclui ContaReal" .
+Veja um exemplo na tela abaixo, foi selecionado o campo CCReceitaVenda da tabela ItensNF, neste campo é armazenado o código da conta gerencial de receita de venda do produto, assim a função ContaReal pesquisará a que conta real esta conta gerencial está vinculada e retornará então o código reduzido da conta real vinculada.
+É possível também informar diretamente o código reduzido da conta real que deve ser movimentada. Isto é comum nos casos de contabilização de tributos, já que nas tabelas do Sispetro geralmente não armazenam contas de tributos, mas sim os valores.
+Exemplo: No caso de contabilização do ICMS é possível informar diretamente o código reduzido da conta de passivo de ICMS a Recolher e a conta dedutiva de receita de ICMS sobre vendas sem nenhuma formatação, função ou <>, somente o código, alertando para incluir uma linha para cada conta.
+Quanto ao
+ 
+Centro de Custo
+ 
+informe o código do Centro de Custo desejado, quando necessário contabilizar num Centro de Custo, idem quando informado o código da conta, sem formatação, função ou <>.
+Para testar um código de contabilização, utilize o botão 
+"Testa código de contabilização" 
+localizado no painel Detalhes. Caso o código esteja sendo incluído ou alterado, para não salvar automaticamente estes dados ainda em andamento, o sistema efetua uma cópia do código em andamento e com base neste novo código providenciará o teste. Veja maiores detalhes de como isto será feito em
+ 
+Teste de Código de Contabilização
+.
+Para fazer a
+ 
+cópia
+ 
+de um código de contabilização já existente para um código novo, utilize o botão 
+ 
+ 
+na parte superior da tela . A cópia evita erros de digitação no novo código de contabilização e é útil principalmente quando há uma pequena diferença entre o código original e o novo.
+Ao ser concluída a cópia será informado o novo código do código de contabilização criado.
+Para excluir algum item de código de contabilização basta clicar no botão
+ "Excluir"
+Importante: Ao ser desmarcada a opção "Utiliza itens", o sistema entenderá que a formúla a ser inserida não utilizará dados dos itens, apenas dados do cabeçalho. Sendo assim, os campos referentes a tabela ItensNf não estarão disponíveis na tela "Auxiliar Fórmula de Contabilização".
+Pressione o botão OK para confirmar a operação.

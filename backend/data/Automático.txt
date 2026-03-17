@@ -1,0 +1,31 @@
+TITULO: Automático
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899644
+--------------------------------------------------
+Em 2008 o Estado de São Paulo aboliu o envio de CODIF para distribuidoras devido a implementação da NF-e. A partir da versão 8.11 toda a estrutura do CODIF foi removida.
+ 
+A integração automática com o CODIF é um recurso rápido e seguro para solicitar e registrar autorizações, sem a necessidade de realizar as tarefas manualmente acessando o site do CODIF. Para utilizar o processo automático basta ter uma conexão com a Internet, e o Sispetro realiza todo o procedimento, utilizando um serviço do CODIF chamado WebService, que informa e recebe os dados de autorização para cada nota fiscal. O processo é feito entre o CODIF e o Sispetro, sem a intervenção do usuário.
+Sendo assim, podemos descrever esse processo nos seguintes passos:
+Usuário inclui (fatura) a nota no SisPetro.
+Será questionado se o usuário quer imprimir a nota
+Se o usuário responder que SIM:
+É apresentada uma tela para que o usuário aguarde (o processo dura entre 2 e 5 segundos quando tudo está OK!)
+Ao terminar o processo o usuário imprime a nota na seqüência
+Caso o usuário deseje, pode não aguardar o processo (o máximo que o processo demora é o tempo configurado no perfil do Sistema, recomendado 60 segundos). Neste caso, a tela é fechada e ele imprime a nota posteriormente.
+Se o usuário responder que NÃO quer imprimir a nota:
+Internamente o SisPetro vai se conectar no CODIF para solicitar a autorização, mas libera o SisPetro para o usuário de forma que ele possa ir fazendo outras coisas.
+Esse recurso, nós chamamos de 
+processo expresso
+. Ou seja, a cada nota que você incluir a solicitação de autorização já é feita internamente pelo SisPetro. Caso você esteja com conexão com a Internet e o site do CODIF esteja no ar, tudo fluirá devidamente para solicitação de autorização.
+Para obter esse recurso basta fazer as configurações necessárias, conforme apontado no tópico 
+Configurações para Integração com o CODIF
+.
+Porém, digamos que por algum motivo esse processo expresso não possa ser feito. Neste caso, precisamos solicitar a autorização por algum recurso. Teremos para isso algumas opções:
+Esperar a próxima nota. Já que a cada nota, o SisPetro se conecta ao CODIF e faz todas as solicitações de autorizações pendentes, e não só da nota em questão. Com isso, alguma nota retardatária será abrangida pela inclusão desta nova nota.
+Utilizar o timer do Servidor SisPetro, que verificará de tempo em tempo se há algo a ser solicitado para o CODIF (autorização, registro de nota ou criação de passe fiscal). Veja melhor no tópico 
+.
+ Solicitar autorização manualmente. Neste caso, o termo manualmente não é tão manual. Na verdade, na tela de Manutenção de Autorizações você seleciona as autorizações desejadas e então, o SisPetro, internamente, se conecta ao CODIF e faz a solicitação. Veja melhor no tópico Solicita Autorização.
+Para 
+antecipação de Solicitação de Autorização
+ e 
+Cancelamento de Nota com vínculo com o CODIF
+ veja tópico correspondente.

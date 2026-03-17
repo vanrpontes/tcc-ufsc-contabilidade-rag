@@ -1,0 +1,252 @@
+TITULO: Consulta de Destinatário de NF-e/CT-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918973778
+--------------------------------------------------
+A 
+Consulta de Destinatário de NF-e/CT-e
+ utiliza o Ambiente de Trabalho conforme configurado mas somente para Homologação ou Produção. Se o Ambiente de Trabalho estiver configurado como Homologação para emissão da NF-e e/ou do CT-e, a Consulta de Destinatário também realizará as consultas em Homologação.
+Através deste webservice é possível consultar as NF-e emitidas para um determinado CNPJ, podendo ser todos, somente os sem manifestação ou somente os sem manifestação e sem o evento de ciência.
+Como cada NF-e tem um NSU (número sequencial único que identifica a NF-e), é possível  indicar a partir de que NSU deve ser feita a consulta, para evitar a consulta indevida. No retorno são enviados os dados principais dessas NF-e, como a Chave de Acesso, dados do Emitente, Data, Valor Total, Tipo de Operação (Entrada ou Saída), Dados da autorização, Dados da Manifestação, Dados do possível Cancelamento e Dados de possíveis Carta de Correção.
+Esse webservice é útil para a empresa verificar se alguma NF-e foi emitida para o seu CNPJ indevidamente ou se falta cobrar o arquivo XML de algum fornecedor.
+Por conta dos downloads do XML, o SisPetro utiliza o webservice informado no campo 
+NFe Distribuicao DFe 
+para NF-e e no campo 
+Distribuicao DFe 
+para CT-e, devendo ser definida a versão na 
+Tabela Unidades Federativas - UF
+ (somente para NF-e):
+NF-e:
+CT-e:
+Para mais informações, ver 
+Serviço automático para Consulta NF-e/CT-e Destinatário
+.
+Intervalo de execuções
+De modo a evitar penalidade de consumo indevido junto ao Ambiente Nacional (AN), caso a 
+consulta
+ retorne com o Status 137 - Nenhum Documento Localizado, SisPetro só fará a próxima consulta depois de 71 minutos, caso o tempo configurado para consulta seja menor que isso.
+Para mais informações, ver, 
+Consultas Destinatário Efetuadas
+.
+Processamento de NF-e e CT-e emitidos para Empresa (Conferência do processo de Manifestação)
+Foi criada uma tela que faz a consulta na SEFAZ em busca de NF-e e CT-e emitidos para a empresa, para acompanhar a situação deles em relação a Manifestação no SisPetro.
+Manifestação de CT-e é somente para Prestação de Serviço em Desacordo. Para mais informações, ver 
+Evento de Manifestação do Destinatário do CT-e
+Para isso é necessário configurar Usuário (se for o caso) e Sistema:
+Perfil de 
+usuário
+ 
+Pode alterar NSU na Consulta de Destinatário
+. Para mais informações, ver 
+Painel Faturamento (Usuários)
+.
+Perfil de 
+sistema
+ 
+Último NSU consultado nas NF-es emitidas para Empresa. 
+Para mais informações, ver 
+Painel Serviços Sefaz
+.  
+Esse campo é atualizado automaticamente pela tela de consulta, mas pode ser alterado pelo usuário.
+Perfil de 
+sistema
+ 
+Último NSU consultado nos CT-es emitidos para Empresa. 
+Para mais informações, ver 
+Painel Serviços Sefaz
+.  
+Esse campo é atualizado automaticamente pela tela de consulta, mas pode ser alterado pelo usuário.
+Em Menu Movimentação / Faturamento / Nota Fiscal Eletrônica / Consulta Chave de Acesso
+Empresa: 
+Pode ser selecionada a empresa desejada para filtras as NF-es ou CT-es
+Tipo de Documento Fiscal
+NF-e
+CT-e
+Período: 
+período de emissão dos documentos que deseja consultar
+Somente Manifestação Pendente:
+ ative esta opção caso deseje visualizar somente os documentos com manifestação pendente.
+Clicando no botão  
+, o SisPetro abre a tela abaixo, trazendo as informações de acordo com o filtro selecionado (se NF-e ou CT-e):
+Último NSU
+: campo numérico que indica o Número Sequencial Único da NF-e ou do CT-e, utilizado para evitar que todas as NF-es ou todos os CT-es sejam sempre trazidos. É sugerido na tela conforme o perfil de sistema criado (sendo 0 na primeira vez e traz as NF-es ou os CT-es dos últimos 15 dias). O usuário pode alterar esse número, desde que tenha as devidas 
+permissões de usuário
+, voltando para um NSU já utilizado em uma consulta anterior (isso poderá trazer novamente NF-es ou CT-es trazidos em consultas anteriores), ou pulando algumas numerações (muito útil para empresas que estão começando a utilizar essa consulta, dessa forma não tendo a necessidade de iniciar as consultas do NSU 0). 
+Botão Consulta
+: Utilizando as opções da tela, é executada a Consulta para a empresa conectada (execução do Webservice de Consulta de NF-e/CT-e Destinatário).
+ Essa solicitação não tem como cancelar
+, tendo assim que esperar a resposta do Servidor.
+Caso encontre alguma impossibilidade de consulta ou erro, o SisPetro apresenta mensagem na tela e não salva o último NSU consultado (se por ventura vier retornado na consulta).
+Caso tudo ocorra bem, apresenta 
+Último NSU retornado
+ e 
+Indicador de Continuação retornado
+ que pode ter duas opções: 
+Não há mais NF-es/CT-es a partir desse NSU
+ ou 
+Há mais NF-es/CT-es a partir desse NSU 
+e
+ Máximo de NSU no momento dessa consulta.
+Todas informações obtidas serão salvas e podem ser consultadas na tela de 
+Manutenção de Consulta de NF-e Destinatário
+. Antes de apresentar as NF-es/CT-es retornados, o SisPetro fará a 
+Sincronização de NF-es/Ct-es
+, que é procurar para cada Chave de Acesso, uma NF-e/CT-e correspondente no SisPetro, e em que situação se encontra.
+Após a Sincronização, apresentará uma tela com as NF-es/CT-es retornados com as seguintes informações:
+Obtidas do Retorno da SEFAZ
+NSU
+Chave de Acesso
+CNPJ do Emitente
+Razão Social do Emitente
+IE Emitente
+Data de Emissão
+E/S
+Valor Total
+Situação: Autorizada ou Cancelada
+Data/Hora Autorização
+Data/Hora Cancelamento
+Manifestação: Sem, Confirmada, Desconhecida, Não Realizada ou Ciente
+Data/Hora de Envio Carta Correção
+Texto da Carta de Correção
+Data/Hora Autorização Carta Correção
+Usuário que fez a consulta
+Data/Hora que o usuário fez a consulta
+Obtidas no SisPetro pelo processo de Sincronização
+ (quando encontrada)
+Dados principais da NF
+Sequencial da NF
+Data de Emissão
+Código da Entidade
+CNPJ Entidade
+IE Entidade
+Razão Social Entidade
+Situação: Ativa ou Cancelada
+Manifestação: Sem, Confirmada, Desconhecida, Não Realizada ou Ciente
+Data/hora Manifestação
+Situação
+Dados obtidos no confronto entre SisPetro e Sefaz
+Crítica Chave de Acesso
+: inclusão de NF-es/CT-es com mesma Chave de Acesso - se a empresa incluiu mais de uma vez apresentará mensagem no 
+campo Ação 
+que existe chave de acesso duplicada
+Crítica Entidade
+: entidades diferentes (conforme CNPJ, IE recebido X obtido no SisPetro)
+Crítica Data Emissão
+: datas diferentes (conforme Data de Emissão recebida X obtida no SisPetro)
+Crítica Manifestação
+: manifestação diferente (conforme Manifestação recebida X obtida no SisPetro)
+Crítica Cancelamento
+: NF-e/CT-e Cancelado ou Não (conforme Situação da NF-e recebida X obtida no SisPetro)
+Crítica Valor
+: valor diferente 
+Não
+ (conforme Valor recebido X obtido no SisPetro)
+Crítica Nat. Operação: c
+onsulta retornou uma NF-e e no SisPetro a nota foi lançada mas não foi manifestada porque a natureza de operação não está marcada para enviar evento.
+Ação
+: é uma orientação sobre qual deve ser a ação do usuário sobre essa NF-e/CT-e. Abaixo listamos as possibilidades de ação:
+ 
+NF-e não encontrada no SisPetro. Inclua-a ou envie Manifestação de Desconhecimento ou Operação Não Realizada:
+ quando for uma NF-e não encontrada no SisPetro, o usuário pode desconsiderar e providenciar o XML ou DANFE dessa NF-e para incluir no SisPetro (e consequentemente enviar Manifestação de Confirmação da Operação). Caso seja uma NF-e indevida ou recusada, é possível enviar a Manifestação de Desconhecimento (NF-e indevida) ou Manifestação de Operação Não Realizada (NF-e recusada) através desse processo, selecionando o evento na coluna 
+Evento Manifestação
+.
+NF-e encontrada no SisPetro. Envie Manifestação: 
+quando a NF-e é encontrada no SisPetro e ainda não tem Manifestação enviada. É possível enviar qualquer Evento de Manifestação através desse processo, selecionando o evento na coluna 
+Evento Manifestação
+.
+NF-e encontrada no SisPetro já Manifestada
+: quando a NF-e é encontrada no SisPetro já manifestada, teoricamente o usuário não tem o que fazer. Mas, caso queira pode enviar um novo evento de Manifestação, desde que seja diferente do evento já cadastrado na SEFAZ.
+ NF-e Manifestada encontrada no SisPetro sem Manifestação. Atualize o Protocolo
+: quando a NF-e está Manifestada na SEFAZ mas foi encontrada no SisPetro sem manifestação. Neste caso o usuário deve ir na Manutenção de NFs e 
+Confirmar Evento.
+A ação será atualizada toda vez que o processo de sincronização for feito. Para que  se tenha uma situação real da NF-e/CT-e, no processo de 
+Salvamento da Manifestação
+, será atualizada a situação da NF-e em sua consulta correspondente (sempre localizando pela chave de acesso). 
+Se a NF-e/CT-e fizer parte de mais de uma consulta, essa ação será atualizada em todas as consultas.
+Além disso, no processo de Sincronização, ao atualizar a ação da NF-e/CT-e na consulta em questão, atualizará também a ação dessa mesma NF-e/CT-e em quaisquer outras consultas existentes.
+Todos os dados apresentados na tela são salvos para consulta via tela de Manutenção, inclusive o Evento enviado.
+Na parte inferior da tela há três botões:
+Sincroniza NF-es/CT-es: 
+o uso desse botão não é obrigatório, já que assim que for feita a Consulta na Sefaz a sincronização será acionada. Poderá ser acionado quantas vezes o usuário quiser. A cada vez que for acionado, o SisPetro fará a verificação, pela Chave de Acesso, da situação da NF-e/CT-e. Acionar mais do que uma vez só será necessário caso outro usuário esteja fazendo alguma operação que o interessasse, como por exemplo, incluindo uma NF-e/CT-e que estava faltando.
+Envia Evento Manifestação: 
+envia a Manifestação para as NF-es que tenham Evento informado, utilizando o WebService de Manifestação. Esse evento também será salvo nesta Consulta para verificações futuras.
+Para mais informações, ver 
+Salvar XML de Manifestações processadas como Ciência
+.
+Fechar
+: sair da tela.
+Caso retorne erro no processo de consulta na Sefaz (seja por falta de comunicação com a Internet, problema de certificado, CNPJ da empresa indevido), os dados informados pelo usuário serão salvos, mas sem NF-e retornadas. Esses dados funcionarão como um log, já que não será possível refazer a consulta, ou qualquer outra operação com uma consulta que retornou erro. Para refazer a consulta, inclua o processo novamente, utilizando o mesmo NSU.
+Outra situação que pode ocorrer é a consulta na Sefaz estar correta, porém não ter NF-es/CT-es para retornar naquele intervalo de NSU. Será similar ao caso anterior. Essa consulta é encerrada, não permitindo nenhuma intervenção nela.
+Nos demais casos, consultas que retornem NF-es/CT-es, verificar tela de Manutenção a seguir.
+Manutenção de Processamento de NF-es/CT-es emitidas para empresa 
+Faz Consulta:
+ 
+  
+ abre a tela de 
+Processamento de NF-es/CT-es emitidas para empresa
+ que permite a consulta na Sefaz.
+Processa Consulta selecionada: 
+ a
+bre a tela de 
+Processamento de NF-es/CT-es emitidas para empresa
+ porém sem permitir a Consulta na Sefaz, permitindo somente a Sincronização ou o envio de Manifestação.
+Legenda:
+ 
+ apresenta a legenda dos itens da tela.
+Atualiza
+: 
+ atualiza os dados conforme os filtros da tela
+Sair 
+sai da tela de manutenção.
+Layout Padrão:
+ 
+ retorna o layout da tela para o layout padrão
+Filtro:
+Período:
+ sendo sugerido os 7 dias anteriores a data atual até a data atual. Utilizado para filtrar as NF-es/CT-es pela data da última alteração autorizada da NFe/CT-e constante na SEFAZ.
+Aba NF-es/CT-es:
+Nesta aba serão exibidos os mesmos dados apresentados na tela de 
+Processamento de NF-es/CT-es emitidas para empresa
+ (Obtidas na Sefaz, no SisPetro e dados de Manifestação). 
+Essa tela sofre influência do filtro de 
+Período
+ (que será conforme a  data da última alteração autorizada da NF-e/CT-e na Sefaz).
+Aba Consultas
+Exibirá os dados principais da consulta, conforme NF-e posicionada na tela principal:
+Sequencial
+Data/hora
+NSU
+Último NSU
+Indicador de Continuação
+Usuário
+Ambiente
+Status Resposta (código e descrição da consulta e descrição do Status pelo Sispetro)
+Aba Eventos
+Exibirá os dados principais da consulta, conforme NF-e posicionada na tela principal:
+Evento
+Tipo de Evento
+Pendente Processamento
+Data Envio
+Usuário
+Num. Protocolo
+Tipo de Manifestação
+Motivo Não Realizado
+Data Inclusão 
+Manual
+Status da Resposta
+Descrição da Resposta
+Empresa
+NF
+Chave de Acesso
+Erro
+Esta tela sempre exibirá os dados da empresa conectada.
+Consultas diversas
+Na Tela de 
+Manutenção de NFs
+:
+Na aba 
+Diversos
+, foi acrescentada a aba 
+Consulta NF-e Destinatário
+ com dados gerais da consulta dessa NF-e (localizada pela Chave de Acesso). Ou seja, caso essa NF seja consultada mais que uma vez, terá mais que uma linha. Para mais informações, ver 
+Manutenção de Notas Fiscais
+Para mais informações, ver 
+Manutenção Chaves de Acesso

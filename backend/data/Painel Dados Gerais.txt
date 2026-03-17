@@ -1,0 +1,126 @@
+TITULO: Painel Dados Gerais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903998675
+--------------------------------------------------
+O acesso a essa tela se dá através de 
+Ferramentas > Sistemas > Dados Gerais
+Conhecendo os campos e perfis existentes:
+Quadro Dados Gerais
+Nome Fantasia: 
+é
+ 
+obrigatório
+ informar o 
+Nome Fantasia
+ da Empresa. Atualmente enviamos a informação do campo 
+Nome Usual
+ para o campo 
+Nome Fantasia 
+(visto que esse não pode ficar em branco), porém o Cliente deve informar o 
+Nome Fantasia
+ a ser utilizado. 
+Esse campo também estará disponível para ser utilizado nos layouts: 
+DANFE/NFS-e, DACTE e DAMDFE. 
+No XML de Recibo dos processos: 
+NF-e, CT-e e MDF-e 
+o campo 
+Nome Fantasia
+ irá ser informado na tag 
+<xFant>
+.
+ 
+Razão Social: 
+assim como o campo anterior, é obrigatório informar a Razão Social da empresa, utilizado em diversos processos no SisPetro. Esse campo também estará disponível para ser utilizado nos layouts: 
+DANFE/NFS-e, DACTE e DAMDFE. 
+No XML de Recibo dos processos: 
+NF-e, CT-e e MDF-e 
+o campo 
+Nome Fantasia
+ irá ser informado na tag 
+<xNome>
+Empresa Ativa: 
+possibilita ativar ou inativar uma empresa no SisPetro.
+CNPJ: 
+informar o CNPJ da empresa cadastrada, caso a empresa seja criada a partir de outra filial, será carregado os dados da empresa de origem, necessário alterar.
+Inscrição Estadual: 
+informar a inscrição da empresa cadastrada, caso a empresa seja criada a partir de outra filial, será carregado os dados da empresa de origem, necessário alterar.
+RNTRC: 
+Registro Nacional de Transportador de Carga. Código do registro do frota obtido na ANTT. Também conhecido com RNTRC ou RNTT. Visando facilitar o processo, empresas transportadoras podem cadastrar seus RNTRC no Perfil de Sistema, e não precisa replicar o dado nos demais frotas ou transportadoras. Para mais informações, ver 
+Possíveis maneiras de configurar o RNTRC
+Definição da Empresa: 
+indica se a empresa em questão é matriz ou filial.
+Código DCP: 
+código demonstrativo de controle de produtos ANP
+Inscrição na Junta Comercial: 
+número de inscrição na Junta Comercial, utilizado em obrigações acessórias.
+Data do Cadastro Junta Comercial: 
+data do cadastro na Junta Comercial, utilizado em obrigações acessórias.
+Data do Cadastro na Secretaria da Fazenda: 
+data do cadastro na Secretaria da Fazenda, utilizado em obrigações acessórias.
+Código CNAE
+ O cadastro do código CNAE será realizado no 
+painel IE substituição/CNAE
+. Para mais informações, ver 
+Painel IE Substituição/CNAE
+Quadro Endereço: 
+deve-se incluir os dados cadastrais da empresa, essencial para diversas operações no SisPetro. São eles:
+Endereço
+Número
+Complemento
+Bairro
+CEP 
+Cidade
+Estado
+Telefone
+Fax
+Quadro Classificação da Empresa: 
+nesse quadro será informada a atividade da empresa no SisPetro. As opções são:
+É Transportadora: 
+marcar exclusivamente para empresas que sejam apenas transportadora, recursos de distribuidoras serão desabilitados.
+É Congênere: 
+identifica uma empresa como congênere, limitando os recursos e acessos para empresas que são armazenadoras, identificar as movimentações dessa empresa.
+É Armazenadora: 
+identificar a empresa como armazenadora, restringe de usuário remotos, como empresas congêneres.
+É conjugada: 
+identifica empresa que além de distribuidora, opera como transportadora sob o mesmo CNPJ.
+Tema Padrão: 
+Tema Visual no SisPetro 
+que será utilizado como padrão.
+Conta para envio e-mail ao Suporte da Futura: 
+para mais informações, ver 
+Enviar/ Criar CCF sem sair do SisPetro
+Grupo Empresa: 
+caso a empresa queira trabalhar com grupo de filiais, será necessário cadastrar um ou mais Grupos de Empresas que agrupará as filiais desejadas. Após cadastrar o Grupo de Empresas, será necessário configurar para cada empresa o Grupo ao qual ela pertence, utilizando o perfil citado. 
+Para o SisPetro Controladoria
+Será necessário também habilitar a opção que permite a utilização do módulo contábil no SisPetro. Para isso. Para mais informações, ver 
+Painel Contab. Real
+Importante:
+ a configuração de Grupo Empresa deve ser feita antes das movimentações da empresa. Alterações posteriores às movimentações podem causar danos as informações da Contabilidade. Caso a empresa não possua configuração de Grupo Empresa, e queira alterar esta informação, entre em contato com 
+Suporte Futura Tecnologia
+.
+Tempo para encerramento por inatividade do usuário [Minutos]:
+ configurar quantos minutos o SisPetro permanecerá aberto quando não estiver sendo utilizado, antes de encerrar e liberar a licença para outro usuário. 
+Importante:
+ após configurar ou alterar o tempo, para ter efeito, os usuários devem sair do SisPetro (Normal e Controladoria) e entrar novamente.
+Quadro Integração com Active Directory (AD) 
+Integração com o Active Directory (AD): 
+es
+te perfil permite realizar login automático no SisPetro através de uma conta de AD (Active directory). Para mais informações, ver 
+Configuração de Active Directory (AD)
+.
+Mostra nome da empresa no fundo da tela: 
+apresenta o nome da empresa que o usuário está conectado no fundo da tela do SisPetro.
+Habilita segurança Gerador de Relatórios: 
+com este parâmetro marcado é possível definir os direitos de acesso ao Gerenciador de Relatórios do SisPetro. Para mais informações, ver 
+Painel Gerenciador Relatórios (Usuários)
+.
+Restringe Visualização de Movimentação Conforme Grupo de Usuários: 
+este perfil é utilizado para restringir a visualização das Movimentações em diversas telas do SisPetro. Para mais informações, ver 
+Visualização de Movimentação por Grupo de Usuários
+. 
+Utiliza Controle de Projetos: 
+este perfil permite o uso de Controle de Projetos em vários pontos do SisPetro. Para mais informações ver 
+Controle de Projetos
+Força o encerramento ao sair do SisPetro Normal / Controladoria:
+ envia um comando ao sistema operacional para encerrar a aplicação. (Principalmente para o Windows 10)]
+Exibe somente empresas ativas nas pesquisas: 
+este perfil permite ocultar as empresas inativas nas telas de configurações por empresas em determinados cadastros.

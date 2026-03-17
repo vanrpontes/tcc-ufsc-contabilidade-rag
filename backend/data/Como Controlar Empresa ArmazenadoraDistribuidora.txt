@@ -1,0 +1,16 @@
+TITULO: Como Controlar Empresa Armazenadora/Distribuidora
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2958688996
+--------------------------------------------------
+Esse processo foi criado para empresas que tem Armazenadora e Distribuidora e desejam separar da mesma empresa o processo de Bombeio Físico.
+Quando era feito um bombeio físico na Armazenadora o volume entrava e depois saia e depois era distribuído para as congêneres e para a própria Distribuidora, com o processo abaixo o bombeio será feito em uma empresa por exemplo Armazenadora Bombeio e toda a operação de bombeio físico seria feito nessa empresa separando o bombeio da Distribuidora.
+Para realizar o processo basta seguir os passos abaixo:
+1 - Criar uma empresa (Armazenadora Bombeio) copiando da Empresa Principal.
+2 - Criada a empresa, no perfil de Sistema, aba Dados Gerais, criar um Grupo Empresa somente para essa empresa (Armazenadora), não pode ser o mesmo código utilizado pela Empresa principal.
+3 - Perfil de Sistema, aba Dados Gerais, pode usar a opção :Restringe Visualização de Movimentação Conforme Grupo de Usuários, para mais informações : 
+Visualização de Movimentação por Grupo de Usuários
+4 - Perfil de Sistema, aba Dados Gerais, ajustar o quadro Dados da Empresa, pois é somente para Bombeio.
+5 - Perfil de Sistema, aba NF-e/CT-e, desmarcar a opção "Habilita emissão de NF-eletrônica", pois a Emissão de Nota de Remessa e Retorno de Armazenagem vai continuar sendo feita pela Empresa Principal.
+6 - Perfil de Sistema, aba Serviço Sefaz, desmarcar todos os Serviços Manifestação e Consulta Destinatário
+7 - Perfil de Sistema, aba E-mail, informar o Ambiente de envio de e-mail a opção "Homologação".
+8 - O Ideal é não ter Bombeio em andamento.
+OBS: Não pode haver qualquer tipo de movimentação na Empresa Armazenadora, somente o Bombeio Fisico.

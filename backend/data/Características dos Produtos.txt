@@ -1,0 +1,71 @@
+TITULO: Características dos Produtos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2964029891
+--------------------------------------------------
+Foi implementado no SisPetro o recurso de 
+Características dos Produtos
+.
+O que é: 
+Sua finalidade é atender a flexibilização da compra de produtos, 
+indicando características diferenciadas para compra de um mesmo produto (que se enquadra na mesma 
+NCM
+). O usuário irá cadastrar as características como 
+cor, tamanho, lado
+ e etc., relacionar essas características aos produtos e, na Ordem de Serviço (O.S), Requisição de Compras ou Pedido de Movimentação de Material (PMM) complementar conforme suas necessidades.
+Um exemplo prático é a compra de 
+selos para motor
+. O usuário ao fazer a Ordem de Serviço desse produto e solicitar os selos para reparo, ao invés de cadastrar no SisPetro vários produtos 
+selos 
+(traseiro, lateral, frontal, etc..), cadastrará apenas um 
+selo para motor,
+ repetirá o mesmo produto quantas vezes for necessário, bastando informar a característica de cada um. Na finalização do processo (indiferente dele ocorrer via PMM ou Requisição) as características informadas na O.S serão carregadas e poderão ser visualizadas na consulta da nota fiscal recebida.
+O mesmo exemplo pode ser aplicado caso o processo se inicie tanto pela Requisição de Compras ou Pedido de Movimentação de Material - PMM, o usuário irá informar o mesmo produto quantas vezes for necessário, informar a característica relacionada ao produto e, após a finalização do processo, as características informadas serão carregadas e poderão ser visualizadas na consulta da nota fiscal recebida.
+A decisão de usar um único produto e diferenciar as compras pelas características deve levar em conta as regras fiscais (como Código NCM), bem como a necessidade de diferenciação no processo de estoque, já que o controle de estoque continuará sendo por Produto, sem interação com as 
+Características. 
+Importante lembrar que a utilização indevida impacta na entrega de várias obrigações fiscais, tais como o SPED Fiscal entre outras.
+Como configurar para utilizar: 
+Para utilizar as características o usuário deve:
+No Menu Ferramentas / Sistema / 
+Compras
+ definir se as características do produto serão de Múltipla Escolha ou de escolha Única. Por padrão, a configuração vem marcada como 
+Não trabalha
+. 
+No Menu Ferramentas / Usuários / 
+Painel Compras
+ dar permissão ao usuário para dar manutenção as Características dos Produtos
+Em 
+Tabelas Auxiliares / Movimentação de Material / Características
+ cadastrar as características que serão vinculadas ao produto (cor, tamanho, bitola, tipo e etc.)
+Em Arquivos / Produtos, aba Detalhes, Sub Aba Características vincular a característica ao produto. Para mais informações, ver 
+Vínculo das Características no Produto
+Diferenças entre Mono e Multi-Características: 
+Na prática, na inclusão de Ordem de Serviço (O.S), Requisição de Material ou Pedido de Movimentação de Material (PMM) as características irão aparecer de forma distinta para o usuário. Exemplo: 
+Multi-Característica:
+ o usuário pode vincular várias características em um produto e, na inclusão desse item, informar as características conforme imagem abaixo
+Mono Característica: 
+todas as características vinculadas ao produto serão apresentadas em uma única lista. O usuário poderá escolher 
+apenas uma
+, indiferente dela ser aberta ou fechada. 
+A apresentação da Características dos produtos varia muito conforme perfil de sistema. Alterar o perfil de 
+Multi 
+para 
+Mono
+ implica que as O.S, Requisições e PMMs cadastrados antes da alteração cujos produtos possuem mais de uma característica, o SisPetro mostrará apenas a última. No exemplo acima, com o produto PAPEL SULFITE, o SisPetro mostrará apenas a característica TIPO. 
+Páginas para realizar a configuração das Características
+Painel Compras
+ 
+Painel Compras (Usuários)
+ 
+Manutenção de Características do Produto
+ 
+Características - Vínculo no Produto
+ 
+ 
+Mais informações sobre como as telas que foram modificadas ver: 
+Inclusão-Exclusão de Itens da Ordem de Serviço
+ 
+Itens Ordem de Serviço Pendentes
+ 
+Inclusão de Requisição de Material
+ 
+Pedido de Movimentação de Material
+ 

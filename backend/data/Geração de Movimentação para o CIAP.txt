@@ -1,0 +1,80 @@
+TITULO: Geração de Movimentação para o CIAP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2897281094
+--------------------------------------------------
+À partir de Janeiro de 2011, no que se refere ao CIAP, a obrigação prevista na Resolução SEF 3.884/2007 será substituída pela obrigação prevista na Escrituração Fiscal Digital – EFD/SPED, regulamentada pelos Atos Cotepe 38/2009 e 47/2009 e pelo Ajuste SINIEF 02/2009, alterado pelo Ajuste SINIEF 02/2010. Portanto, a partir dessa data, existirá uma única obrigação: o CIAP escriturado na EFD/SPED. Não será exigida mais a entrega das informações do CIAP, conforme previsto atualmente na Resolução SEF 3.884/2007.
+Visando esse objetivo, o SisPetro à partir da versão 7.11, estará preparado para controlar os créditos do CIAP e informá-los no EFD/SPED.
+A partir da versão 7.27, o Sispetro estará preparado para controlar também os créditos do ICMS Substituição e do ICMS Diferencial de Alíquota, quando tiver.
+Para que esses controles sejam feitos, é necessário alterar um perfil de empresa, ou seja, habilitar filial por filial, em Menu Ferramentas / Sistema / aba Patrimônio. Por padrão a opção 
+Faz Apropriação do ICMS Próprio
+ já vem marcado e as opções 
+Faz Apropriação do ICMS Substituição e Faz Apropriação do Diferencial de Alíquota
+ vem desmarcados:
+O controle dessas informações poderão ser realizados através do botão 
+Ciap
+ da Tela de 
+Manutenção Patrimônio
+ no SisPetro Controladoria.
+ 
+Será exibida a tela abaixo:
+A tela de movimentação apresenta o 
+quadro Filial - Unidade de Negócios
+ de acordo com a opção feita no Perfil de Empresas em 
+Painel Patrimônio
+.
+Caso a empresa opte por fazer o CIAP por Grupo de Filiais ou por Filial, é de sua responsabilidade garantir que o CIAP foi feito para TODOS OS GRUPOS ou FILIAIS.
+ 
+Essa tela funciona levando em consideração alguns pontos importantes, a saber:
+Informar uma data e através do botão 
+Calcula
+ serão apresentados os bens que têm crédito para ser utilizado. 
+Os Bens identificados que possuem crédito a ser utilizado serão exibidos no quadro 
+Movimentos
+, seguindo as seguintes regras:
+Somente bem ativos
+Sem suspensão de CIAP
+Com valor ICMS Próprio Utilizado menor que o Valor de ICMS Próprio
+Com valor ICMS Substituição Utilizado menor que o Valor de ICMS Substituição
+Com valor ICMS Diferencial de Alíquota Utilizado menor que o Valor de ICMS Diferencial de Alíquota
+Com data último CIAP maior que a data Anterior e menor que a Data de Movimentação.
+Esta tela agora possui uma coluna chamada 
+Participa
+, que permitirá ao usuário definir quais os bens irão participar do CIAP, além de definir quais serão contabilizados ou não através da coluna 
+Contabiliza
+. O processo poderá ocorrer de forma individual ou geral.
+Importante:
+ Com este processo, o CIAP poderá ser feito para um bem específico no meio do mês, podendo ser baixado em seguida. No final do mês todos os outros bens serão apresentados normalmente com seu valor integral no CIAP.
+Agora temos na tela:
+Quadro Marca/Desmarca com os botões:
+Participação:
+ Este botão irá marcar ou desmarcar todos os bens existentes para participarem do processo do CIAP.
+Contabilização:
+ Este botão irá marcar ou desmarcar todos os bens existentes para serem contabilizados.
+ 
+Quadro Operações com os botões:
+Alterar:
+ é possível alterar as contas crédito e dévito, e também o valor a depreciar. Será apresentada uma outra tela onde o usuário poderá trocar a Conta de Débito ou Crédito do bem posicionado.
+Calcula Lotes:
+ o SisPetro irá calcula a depreciação dos bens que foram selecionados anteriormente. Apresenta a movimentação contábil dos bens marcados para 
+contabilizar
+ devidamente agrupada por filial, conta débito e conta crédito.
+ 
+Serão apresentados os campos do CIAP conforme imagem da tela acima, onde:
+CC Débito: Conta configurada no bem como ICMS a Recolher
+CC Crédito: Conta configurada no bem como ICMS a Recuperar
+Ao dar OK esses dados irão para a tela de Manutenção de Patrimônio como não efetivado. Para efetivá-los utilize o botão de 
+Efetivação
+.
+A partir da versão 7.17 algumas regras foram modificadas, veja as seguintes situações:
+Valor do ICMS, seja Próprio, Substituição ou Diferencial de Alíquota, é R$ 100,00, dividido em 48 parcelas, cada parcela ficará com valor de R$ 2,0833333 o valor real da parcela será de 2,08 e a diferença será distribuída para a última parcela.
+Depois da inclusão do bem,
+Alteração do valor do CIAP
+ As alterações, tanto para mais quanto para menos nos valores referentes ao CIAP, alteram todas as contas que o SisPetro faz para calcular os valores das parcelas. Quando o CIAP é feito de maneira correta, não há motivo para alteraçao do valor ICMS, parcela ou número de parcelas. Para garantir a segurança neste processo, só aparecerão bens que tiverem saldo.
+Diminuição de valor:
+ Quando há uma diminuição de valor do CIAP, temos a possibilidade de não ter saldo para as últimas parcelas do CIAP. Quando não há saldo, o SisPetro não calculará mais o CIAP, assim a responsabilidade fica por conta do usuário, em verificar se essa alteração vai afetar o saldo das parcelas.
+Aumento de valor:
+ Quando há um aumento de valor das parcelas do CIAP, provavelmente afetará as parcelas seguintes, ficando por conta do usuário que modificou o valor, conferir se realmente a última, os demais parcelas terão valor diferente de zero, para que o CIAP seja calculado.
+ 
+Na 
+Alteração de Valor
+, foram incluídos os campos referentes ao ICMS Substituição e ICMS Diferencial de Aliquota:
+Agora na tela de Manutenção de Patrimônio, na aba ITENS apresenta uma nova aba, Detalhamento, onde informa os dados do CIAP:

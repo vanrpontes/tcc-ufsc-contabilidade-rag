@@ -1,0 +1,123 @@
+TITULO: Configurando Geração de Título Adicional do Contas a Receber
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5139628033
+--------------------------------------------------
+none
+Objetivo
+Permitir que o SisPetro gere um Contas a Receber 
+Adicional
+ na emissão de uma nota fiscal de saída.
+Esses títulos podem ser feitos utilizando o 
+Representante 
+de um contrato de venda ou uma 
+Entidade Fixa 
+configurada no título de desconto. 
+No kb 
+Tabela Geração de Títulos de Desconto Automático
+  tem uma explicação adicional de como devem ocorrer as contabilizações. 
+Exemplo de utilização:
+A geração desses títulos extras ocorrem em algumas situações, e nós vamos tomaremos como exemplo o Spread de Representante. 
+Quando uma empresa possui parceiros (representantes) que realizam vendas utilizando seus produtos, é aplicado um valor chamado 
+Spread
+.
+No mercado financeiro, o 
+Spread
+ representa a diferença entre o preço de compra e venda de uma moeda negociada entre a instituição financeira e o comprador.
+No setor de combustíveis, o 
+Spread
+ refere-se ao valor adicional que o representante paga à distribuidora (configurando assim um contas a receber). Esse montante é cobrado, por exemplo, pelo uso da infraestrutura da distribuidora para adquirir o produto e revendê-lo. O valor do 
+Spread
+ pode variar de acordo com o tipo de operação registrado na nota fiscal (como venda normal ou cupom fiscal).
+O SisPetro facilita o gerenciamento desse processo, gerando os títulos de contas a receber relacionados a esse valor adicional, permitindo o controle exato do quanto o representante deve pagar à distribuidora.
+Para que o SisPetro controle todas as etapas, desde a emissão da nota fiscal até os lançamentos contábeis, é necessário realizar os seguintes cadastros:
+Cadastrar um cliente e apontar ele como representante
+Faixas para cálculo de vencimento automático
+Geração de Títulos de Desconto Automático
+Tipo de Desconto
+Tipo de Documento
+Natureza de Operação
+Plano de Contas Gerencial e Real (caso não existam as contas necessárias para a contabilização)
+Contrato de Venda
+Configurações
+Arquivos / 
+Clientes 
+/ Aba Detalhes / Aba inferior Cadastro Detalhado
+Quadro Análise de Crédito / Grupo Econômico
+Pode ser representante: marcar
+Tabelas Auxiliares / Financeiro / Faixas para Cálculos de Vencimento de Desconto
+incluir uma faixa para o imposto e preencher
+Neste item é definido para o Sispetro como calcular a data de vencimento do título gerado pela retenção, de acordo com sua data de emissão.
+Tabelas Auxiliares / Financeiro / Geração de Títulos de Desconto Automático
+Título: receber
+Tipo de Entidade: 
+Representante: para utilizar com um contrato de venda. 
+Fixa: nessa opção o usuário deve apontar no campo 
+Entidade 
+(cliente ou representante) qual a entidade que será utilizada para o contas a receber
+Faixa para Cálculo: informar a faixa cadastrada anteriormente. 
+Desabilita contabilização desconto original: marcar
+Conta débito (pagar) / crédito (receber) acompanha conta título original: desmarcar
+Tabelas Auxiliares / Controladoria / Tipo de Desconto
+Calculo a efetuar: 
+indiferente: para utilizar com Contrato de Venda
+Tipo
+Fórmula
+Geração de Título de Desconto Automático: informar o título de desconto cadastrado anteriormente
+Tabelas Auxiliares / Financeiro / Tipo Documento
+Calcula Desconto: marcar
+Grupo de Contabilização: selecionar 
+Faturamento
+No campo destinado à fórmula, incluir uma fórmula e:
+Desconto: informar o desconto cadastrado previamente
+Quadro Fórmulas
+Campo para Base de Cálculo: selecionar um campo para ser a base de cálculo (exemplo: ValProd da tabela NotaFiscal)
+Desconto: preencher com uma fórmula para calcular o desconto (exemplo: ValProd * 0.01 que na fórmula seria <999>*0.01)
+Observação: pode ser utilizado, por exemplo, o campo 
+QtdeVolume
+ da tabela 
+NotaFiscal
+ caso o usuário queira definir um valor por quantidade da nota. O cálculo é feito apenas no faturamento automático
+Tabelas Auxiliares / Faturamento / Natureza Operação
+Aba Detalhes / Aba Lateral Geral / 
+Aba Inferior Dados Gerais
+Tipo de Documento: informar o cadastrado acima
+Aba Inferior Contabilização / Quadro Descontos
+Acréscimo / Desconto
+Automático
+Rateio do Desconto entre os itens da NF: escolher uma das opções
+Rateia pelo Valor de Produtos (qtde X preço)
+Rateia pela Quantidade
+Como Utilizar
+Título adicional para um representante do Contrato de Venda: 
+Após fazer todas as 
+configurações 
+/ cadastros acima, para que seja gerado um Contas a Receber para o Cliente e outro adicional para o representante, o usuário deve:
+Na 
+Geração de Títulos de Desconto Automático
+ 
+informar no campo Tipo de Entidade: 
+representante
+Criar um contrato de venda e no campo Entidade informar o representante.
+Incluir um pedido de venda para o Cliente desejado e, nos itens, informar o Contrato de Venda criado anteriormente para o representante.
+Feito isso, será gerado um título para o 
+Cliente
+ Posto 20 (obedecendo condição de pagamento e etc.) e outro para o 
+Representante
+ Futura 02
+Dessa forma o título adicional será gerado conforme o representante informado no contrato de venda
+Título adicional para um representante Fixo: 
+Após fazer todas as 
+configurações
+, para que seja gerado um Contas a Receber para o Cliente e outro adicional para um ou mais representantes, o usuário deve:
+Na 
+Geração de Títulos de Desconto Automático
+ 
+informar no campo
+ Tipo de Entidade: 
+Fixo
+Entidade: informar um representante
+Na fórmula do
+ 
+Tipo Documento
+ 
+pode ser informado um ou mais tipos de Desconto de representantes diferentes.
+Desta forma ao faturar uma nota de saída que gere contas a receber utilizando a natureza de operação com o tipo de documento informado será gerado um título para o cliente e mais outros dois para os representantes.

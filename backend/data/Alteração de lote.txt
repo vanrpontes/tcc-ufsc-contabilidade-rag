@@ -1,0 +1,92 @@
+TITULO: Alteração de lote
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210366
+--------------------------------------------------
+A tela de Alteração de Lote Real, possibilita ao usuário alterar os itens do Lote Real sem modificar o valor do lote. Esta tela pode ser acessada pelo menu
+ 
+Movimentação / Alteração de Lote
+.
+Para que esta opção esteja disponível, é necessário habilitar o 
+perfil de usuário
+. 
+Ferramentas/Usuário/Contabilidade / 
+Pode alterar lote real
+ 
+Este perfil pode ser configurado da seguinte forma:
+ 
+Nenhum:
+ 
+Não permite ao usuário alterar lote real (a opção no menu fica desabilitada)
+Só Normal:
+ 
+Permite ao usuário alterar apenas os lotes normais;
+Todos:
+ 
+Permite ao usuário alterar qualquer tipo de lote (normal ou automático)
+O usuário deve digitar o 
+Número do Lote
+ a ser alterado e clicar no botão 
+ATUALIZA
+Se o número do lote digitado 
+existir dentro do sistema
+ e não for um
+ lote cancelado
+, o sistema mostrará as informações referentes a esse parte superior da tela.
+Na parte inferior da tela, em "Dados Alterados", o usuário encontrará os painéis "Movimento" e "Dados Gerais", que mostram as informações que podem ser alteradas.
+Painel
+ 
+"Movimento"
+:
+Através dos botões 
+Incluir
+, 
+Editar
+ e 
+Excluir
+, o usuário poderá incluir, excluir ou alterar as informações da(s) conta(s) apresentadas nesse painel.
+Para incluir uma nova conta no lote, o usuário deverá clicar no botão
+ 
+Inclui
+.
+O sistema abrirá a tela de "Inclusão de movimento", onde o usuário deverá informar a 
+Conta Contábil
+, o 
+Centro de Custo
+ (se habilitado), o 
+Valor Crédito
+ ou 
+Valor Débito
+ que será vinculado a essa conta e centro de custo e os dados do histórico.
+Ao selecionar uma conta de contrapartida, abrirá a tela abaixo:
+Desmarque a opção Filtra contas conforme digitados anteriormente
+Desmarcando a opção, serão apresentadas todas as contas contábeis
+Para gravar a informação deve-se Clicar no botão 
+Salva
+, assim o sistema voltará a tela de alteração de dados e mostrará a nova conta no painel 
+Movimento
+.
+O campo 
+Centro de Custo
+ é habilitado se no lote que está sendo alterado tiver centro de custo informado.
+Deve-se atentar que a soma dos débitos e a soma dos créditos devem ser iguais ao valor total do lote. As contas que não podem ser alteradas participam da somatória com os seus valores originais.
+Os lotes gerados automaticamente pelo sistema, cujo Tipo Movto é Automático, não podem ter o seu valor total original alterado, pois possuem integração com outras áreas.
+Somente os lotes do tipo Normal, que são os incluídos manualmente, podem ter o seu valor total original alterado. Ainda assim, o sistema irá avisar e questionar se deseja realmente alterar o valor total do lote.
+Para fazer ajustes nos valores das contas ou até mesmo trocar as contas que podem ser alteradas do lote, o usuário pode utilizar o botão
+ 
+Editar
+.
+O sistema abrirá a tela de "Alteração do Movimento", onde o usuário poderá selecionar uma nova Conta Contábil, desde que não seja uma sintética, a Conta de contrapartida, o Centro de Custo (se habilitado), alterar o valor do crédito ou débito e as informações do Histórico, conforme a conta original que foi seleciona para ser alterada.
+O campo 
+Centro de Custo
+ é habilitado se no lote que está sendo alterado tiver centro de custo informado.
+Caso deseje consultar quem efetuou as alterações do lote, agora é apresentado o usuário de exclusão e a data que refere-se ao usuário que efetuou a alteração do lote.
+Caso seja necessário, é possível excluir a conta selecionada clicando no botão
+ 
+Exclui
+.
+Caso necessite, o usuário pode alterar a data ou o histórico do lote (cabeçalho do lote), através do painel 
+Dados Gerais
+.
+O lote só terá sua data alterada, se não houve nenhum travamento contábil no período da alteração. Para maiores detalhes, acesse o tópico
+ 
+Travamento Período
+.

@@ -1,0 +1,37 @@
+TITULO: Boas práticas para preencher e gerar o arquivo da ECD
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4026400769
+--------------------------------------------------
+Com o recurso do JOB implementado no SisPetro, para o preenchimento e geração dos arquivos do SPED, em especial a ECD, atentar:
+Para a ECD 2022
+, a alteração ocorrida será liberada na versão 10.32. Como se trata de script, caso queira, solicitar ao Suporte da Futura para execução, independente da versão do SisPetro que a empresa esteja utilizando.
+Atentar para as seguintes configurações:
+DLL da ECD - sped_ecd.dll:
+Verificar se a DLL está atualizada - deve estar conforme a imagem:
+Deve estar configurada em Menu Tabelas Auxiliares > Controladoria > Conjunto de Dados: indicar o caminho da DLL.
+A DLL deve estar na mesma pasta onde se encontra o executável do servidor Hermes que está com o Serviço de Jobs ativado: 
+Serviço de Jobs
+ 
+JOB:
+ 
+A inclusão de um Job é feita no momento que finaliza o preenchimento da tela de opções do conjunto de dados: 
+Jobs
+ 
+Em Menu Ferramentas > 
+Jobs
+:
+Manutenção de Jobs
+ : para consultar ou cancelar jobs (todos os usuários)
+Jobs do Usuário
+ : para consultar ou cancelar jobs do usuário conectado
+Ambos acessos dependem de perfil de usuário:
+Painel Segurança (Usuários)
+ > quadro Jobs
+Pode ser acessado também através da tela de opções de preenchimento e geração do arquivo:
+Menu Ferramentas > 
+Tabelas dos Conjuntos de Dados
+ 
+A ECD trata milhares de registros, portanto recomendamos que o JOB seja programado para executar em 
+horário fora do expediente
+ da empresa.
+Caso já tenha um JOB programado, não incluir outro JOB. 
+Se necessário, cancele o JOB programado e somente então inclua outro JOB: 

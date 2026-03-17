@@ -1,0 +1,96 @@
+TITULO: Apuração de Valores de Fretes a Pagar pela Capacidade do Caminhão
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2945941540
+--------------------------------------------------
+Temos 3 cenários onde a apuração de valores de fretes pode ser feita:
+1 - 
+Empresas com base própria, que tem o volume descarregado no processo de Portaria do SisPetro
+2 - 
+Empresas que utilizam base própria de uma base parceira ou do grupo, que conseguiria ter acesso ao volume descarregado de forma mais padronizada
+3 - 
+Empresas que utilizam base de terceiros, recebendo relatórios diários sobre o volume efetivamente descarregado
+Nesta opção, a apuração será feita com base na capacidade do caminhão (quantidade confirmada da OC). 
+Depende somente da configuração do depósito indicando se será pela Capacidade do Caminhão (as demais opções não são utilizadas) e da configuração de unidade adicional no produto (caso receba volumes com unidade diferente de litro). 
+Nas configurações do 
+Depósitos - Aba Dados Adicionais
+, na opção 
+Origem da Apuração Frete Entrada, 
+selecionar 
+Capacidade do Caminhão. 
+As demais opções não são utilizadas.
+Caso receba produtos com unidade diferente de Litro, nas configurações do 
+Produto
+, 
+no campo Unid.Adic., informar a unidade adicional e o fator de conversão.
+ 
+Utiliza somente o campo Fator Conversão Unidade. As demais opções não são utilizadas. 
+ Para mais informações, ver 
+Várias unidades de compra para um mesmo produto
+.
+O valor do frete é obtido através da quantidade referente à capacidade do caminhão (quantidade confirmada da OC em litros ou em m3) multiplicado pelo valor unitário do frete (em litros ou em m3), conforme informados na OC.
+Configuração para facilitar a identificação dos Conhecimentos de Fretes Recebidos
+Na Natureza de Operação utilizada para o lançamento do Conhecimento de Frete Recebido no SisPetro, como Nota de Outras Entradas, configurar:
+O campo 
+Tipo da Nota Fiscal
+ como sendo 
+Conhecimento
+ em 
+.
+Desmarcar o campo 
+Gera Contas Pagar/Receber
+, na aba 
+, pois o Contas a Pagar não será gerado a partir do Conhecimento e sim a partir da
+ 
+Manutenção de Frete
+.
+Para mais informações, ver 
+Vinculo automático CT-e e frete gerado
+ e 
+Manutenção de Importação de Notas Fiscais
+.
+Configurações quanto à exigência de Apuração e Conhecimento para o Pagamento dos Fretes
+Para evitar que o pagamento do frete seja feito antes que o Conhecimento de Frete seja lançado no SisPetro e devidamente apurado se há diferença ou não, necessário configurar no perfil de sistema em 
+.
+Fretes de Saída
+Exige que o frete esteja vinculado ao Conhecimento?
+Fretes de Entrada
+Exige que o frete esteja apurado?
+Exige que o frete esteja vinculado ao Conhecimento?
+Essas duas últimas configurações serão úteis para controlar a liberação do pagamento dos fretes.
+Feitas as configurações, periodicamente a Distribuidora precisará apurar as diferenças das descargas e depois valorizá-las. 
+Para mais informações, ver 
+Manutenção de Frete
+.
+Lançamento do Conhecimento de Frete
+Fazer a importação dos Conhecimentos de Frete recebidos, usando a Natureza de Operação configurada para esse fim. Com isso, o SisPetro verá no xml do CT-e as Notas Fiscais Referenciadas e já providenciará o vínculo com os fretes a pagar.
+Apuração do Frete Líquido
+Esse é o processo onde realmente saberemos quanto deve ser pago para cada frete. Na Manutenção de Fretes, através do botão Apuração o usuário informará o período. Para todos os fretes da empresa conectada e do período informado, teremos, conforme a opção configurada no Depósito - 
+Depósitos - Aba Dados Adicionais
+, na opção Origem da Apuração de Frete de Entrada:
+Pela capacidade do caminhão
+ (quantidade confirmada da OC).
+Pela diferença de descarga base própria
+. Para mais informações, ver 
+Apuração de Valores de Fretes a Pagar por Diferenças de Descarga Base Própria
+.
+A necessidade de reconverter o valor do Frete Real (conforme indicado na Unidade de Medida do Produto). Para mais informações, ver 
+Várias unidades de compra para um mesmo produto
+.
+A verificação da Diferença encontrada no Controle de Diferenças de Descarga e consequentemente o valor a ser descontado/acrescido ao valor do Frete Real para chegarmos ao Valor do Frete Real Líquido. Para mais informações, ver 
+Controle de Diferenças em Descargas
+.
+A identificação da Diferença do Frete (a ser valorizada pelo Frete Unitário e o Fator indicado na Unidade de Medida do Produto). Para mais informações, ver 
+Várias unidades de compra para um mesmo produto
+.
+A identificação da Diferença do Produto/Excedente (a ser valorizada pelo Preço Unitário e o Fator indicado na Unidade de Medida do Produto). Para mais informações, ver 
+Várias unidades de compra para um mesmo produto
+.
+Pela diferença de descarga via fechamento de estoque
+. Para mais informações, ver 
+Apuração de Valores de Fretes a Pagar pela Diferença via Fechamento de Estoque
+.
+A identificação se o Conhecimento de Frete já foi recebido (tanto para fretes de Entrada como de Saída)
+O Controle de Diferenças de Descargas é necessário para Fretes de Entrada, mas a Apuração de Frete Líquido é útil para todos os fretes: para valorizar as diferenças no caso de entradas e para identificar os conhecimentos de frete recebidos de todos os fretes.
+Com isso, a Distribuidora pode, através da Manutenção de Fretes, selecionar os fretes por Transportadora e gerar um Contas a Pagar manual (via botão Pagto), já considerando o valor do Frete Real Líquido.
+Para mais informações, ver 
+Incluindo Apuração de Frete
+.

@@ -1,0 +1,137 @@
+TITULO: Contrato de Frete
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926189928
+--------------------------------------------------
+none
+Objetivo
+O Controle de Frete permite cadastrar contratos, definir volumes e valores unitários e controlar sua utilização em OCs, notas e conhecimentos. A operação depende de configurações de sistema e de usuário que definem obrigatoriedade, validações, uso de fornecedor e permissões de alteração. A manutenção do contrato possibilita incluir, editar campos específicos, ativar/inativar e acompanhar documentos vinculados. Na OC e na NF, o contrato pode sugerir ou obrigar o valor de frete, respeitando quantidade contratada e conversões de unidade. Na entrada de conhecimento, só é permitido referenciar notas do mesmo contrato quando configurado para bloquear divergências.
+Em alguns casos as distribuidoras têm feito contratos de frete com a transportadora, contratando volumes de frete por um determinado valor unitário. Pensando nisso na versão 9.8 foi desenvolvido a tela de Controle de Frete onde a mesma tem como função incluir contratos de fretes, controlar o volume contratado e o valor unitário do frete.
+Configurações de Sistema
+Para dar início na emissão de contratos de Fretes o usuário deve configurar devidamente os perfis de sistema, veja mais informações em 
+Painel Fretes
+.
+Utiliza Contrato de Frete na OC
+Este perfil habilita a opção de utilizar um contrato de Frete na ordem de carregamento.
+Força utilizar Contrato de Frete caso tenha algum compatível
+Este perfil obriga o usuário a utilizar um Contrato de Frete caso exista um compatível e Contrato de Frete para a Transportadora.
+Valor do Frete na OC vs Contrato de Frete
+Este perfil define como vai ser tratado o valor do frete na OC, podendo ser definidos como:
+     
+Utiliza do contrato de Frete Sempre
+: Sempre pega o valor do contrato de frete e não permite que seja alterado.
+     Sugere do Contrato de Frete e permite alterar conforme usuário:
+ Sugere o valor do frete informado no contrato de Frete, permitindo a alteração do mesmo caso o usuário tenha permissão para alterar.
+     Não utiliza:
+ Não utiliza valor de frete.
+Inclusão de Conhecimento Recebido vs Contrato de Frete
+Este perfil define qual a ação a ser tomada quando é realizado a inclusão de um conhecimento, e realizado a referencia a notas com contratos de fretes diferentes, podendo ser utilizado as opções de:
+      
+Não verifica:
+ Não realiza nenhuma verificação.
+      
+Avisa caso tenha NF referenciada com Contratos diferentes:
+ Realiza a verificação, e caso tenha alguma nota referenciada com contratos diferentes e apresentado uma mensagem de aviso.
+      
+Bloqueia caso tenha NF referenciada com Contratos diferentes:
+ Realiza a verificação, e caso tenha alguma nota referenciada com contratos diferentes e apresentado uma mensagem impedindo a continuidade do processo.
+Sugestão para Transportadora/Motorista para Controle
+Este perfil define se qual vai ser o padrão selecionado para o campo Transportadora/Motorista para Controle 
+      
+Transportadora:
+ Vem selecionada a opção Transportadora.
+      
+Motorista: 
+Vem selecionada a opção Motorista.
+Uso do Fornecedor do Produto no Contrato de Frete
+Este perfil define se vai ser utilizado o Fornecedor do Produto no Contrato de Frete:
+      
+Nunca:
+ Bloqueia o campo Fornecedor do Produto.
+      
+Depende do Usuário:
+ Permite a preenchimento do campo Fornecedor do Produto, porém não valida a sua utilização.
+      
+Sempre:
+ Obriga o preenchimento do campo Fornecedor do Produto.
+Validação Fornecedor produto no cont x fornec da OC
+Este perfil define qual a ação a ser tomada na emissão da OC de acordo com o preenchimento do campo Fornecedor do produto no Contrato de Frete:
+      
+Não valida:
+ Não realiza nenhuma verificação.
+      
+Avisa e permite continuar:
+ Realiza a verificação, e caso o Fornecedor do Produto no Contrato de Frete seja diferente da Entidade da OC apresentada uma mensagem de aviso.
+      
+Bloqueia:
+ Realiza a verificação, e caso o Fornecedor do Produto no Contrato de Frete seja diferente da Entidade da OC, apresenta uma mensagem impedindo a continuidade do processo.
+Configurações de Usuário
+Após realizar as configurações de sistema, é necessário realizar as configurações de usuário onde serão definidos quais usuários vão poder incluir/alterar um contrato de venda e se poderão realizar alteração no valor do Frete ao incluir uma OC. veja maiores informações no 
+Painel Fretes (Usuários)
+.
+Pode incluir/alterar contrato de frete
+Este perfil define se o usuário pode incluir e alterar um contrato de frete
+Pode alterar valor do frete na OC com Contrato de Frete
+Este perfil define se o usuário pode alterar o valor do frete na OC com contrato de frete.
+Pode ativar/inativar Contrato de Frete:
+Este perfil define se o usuário poderá inativar ou voltar a ativar um contrato de frete.
+Pode aprovar Contrato Frete:
+Este perfil dá permissão ao usuário de aprovar os Contratos.
+Manutenção de Contrato de Frete
+É através da tela de Manutenção de Contrato de Frete que será realizado toda a interação com o contrato de frete, desde sua inclusão, alteração, como até mesmo análise da utilização do contrato. Para acessar a tela basta ir em 
+Movimentação / Transportes / Manutenção de Contrato de Frete.
+Itens inativos agora ficarão destacados em 
+vermelho
+Movimentação
+Na aba de Movimentação teremos 3 Sub abas, onde o usuário pode visualizar todas as OC´s, NF-e´s e CTe´s vinculados a esse contrato de Frete.
+Inclusão de Contrato de Frete
+Ao clicar no botão 
+Inserir 
+será apresentado a tela abaixo, onde o usuário deve preencher os dados do contrato tais como transportadora, Fornecedor, Empresa, Data, Frete Unit, Quantidade e Documento.
+Transportadora / Motorista para Controle:
+ Permite definir se o controle será por Transportadora ou para  Motorista. Para definir o padrão, acesse 
+Painel Fretes
+.
+Transportadora / Motorista:
+ Onde é informado o motorista do contrato de frete. 
+Fornecedor / Transportadora:
+ Puxa o fornecedor que está vinculado ao motorista, o campo é somente informativo podendo ser alterado pelo usuário.
+Fornecedor do Produto:
+ Onde é informado o Fornecedor do Produto referente a este Contrato de Frete específico.
+Empresa:
+ Nesse campo que é selecionado à empresa do qual está sendo emitido o contrato, só é permitido utilizar contratos para a empresa selecionada.
+Data:
+ Data do contrato.
+Tipo de OC:
+ Pode ser OCs de Transferência entre Depósitos, Carregamento/Descarga própria. O usuário deverá informar para qual fim é o contrato.
+Frete unit.:
+ Nesse campo é informado o frete unitário do contrato.
+Quantidade: 
+Nesse campo é informado a quantidade do contrato, ao utilizar o contrato de frete em uma OC não será permitido ultrapassar a quantidade total do contrato selecionado.
+Documento:
+ Nesse campo o usuário pode informar um número de documento caso tenha algum.
+Ativo: 
+Quando marcado deixa o contrato como ativo possibilitando a sua utilização, caso esteja desmarcado o mesmo fica como inativo e não disponibilizando a sua utilização na OC.
+Itens inativos estarão sendo destacando 
+Alteração de um contrato
+Através do botão alterar é possível realizar a alteração de um contrato, porem só alguns campos ficarão disponíveis para a alteração.
+Ao realizar a alteração de um contrato o usuário pode alterar a data do contrato, o valor do frete unitário, quantidade do contrato, documento e ativar ou inativar o contrato.
+Em casos de contratos já utilizados a alteração da quantidade só permitira para mais, nunca para uma quantidade menor a quantidade que já foi utilizada.
+O Contrato de Frete sempre é informado com sua quantidade em Litros e, a partir da versão 9.35, na inclusão de OC e NF será levado em consideração a conversão de unidade de medida informada no produto, para que seja utilizada medida diferente de Litros.
+Utilização do Contrato na OC
+Para vincular o contrato de frete na ordem de carregamento basta ir na aba de complemento, e selecionar um contrato de Frete. 
+Serão apresentados os contratos de acordo com a escolha das transportadoras ou do motorista.
+Ao selecionar um contrato de frete o mesmo sugere o valor unitário do frete, podendo ou não ser alterado pelo usuário dependendo do perfil de Sistema 
+Valor do Frete na OC vs Contrato de Frete 
+e do perfil de usuário
+ Pode alterar valor do frete na OC com Contrato de Frete. 
+Caso a unidade de medida informada seja diferente de Litros, será realizado a conversão de acordo com as configurações utilizadas na 
+Tabela de conversão
+.
+Utilização do Contrato na Nota Fiscal
+Ao emitir a nota fiscal utilizando uma Ordem de carregamento amarrada a um contrato de Frete, o usuário tem a opção de marcar a nota como 'É a última NF da OC?' ou não, quando utilizado essa opção é finalizado a utilização da OC, caso essa nota não seja a última da OC deve-se desmarcar essa opção.
+Caso a unidade de medida informada seja diferente de Litros, será realizado a conversão de acordo com as configurações utilizadas na 
+Tabela de conversão
+.
+Utilização do Contrato de frete na entrada do conhecimento 
+Só sera permitido emitir uma nota de conhecimento referenciando notas que participam do mesmo contrato de Frete caso o perfil de sistema '
+Inclusão de Conhecimento Recebido vs Contrato de Frete
+' esteja para bloquear.

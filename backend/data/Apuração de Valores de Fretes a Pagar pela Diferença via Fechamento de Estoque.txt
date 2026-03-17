@@ -1,0 +1,231 @@
+TITULO: Apuração de Valores de Fretes a Pagar pela Diferença via Fechamento de Estoque
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2945941542
+--------------------------------------------------
+Temos 3 cenários onde a apuração de valores de fretes pode ser feita:
+1 - 
+Empresas com base própria, que tem o volume descarregado no processo de Portaria do SisPetro
+2 - 
+Empresas que utilizam base própria de uma base parceira ou do grupo, que conseguiria ter acesso ao volume descarregado de forma mais padronizada
+3 - 
+Empresas que utilizam base de terceiros, recebendo relatórios diários sobre o volume efetivamente descarregado
+Para que a apuração de valores de frete a pagar pelo fechamento de estoques é necessário, através da tela de fechamento de estoque escritural:
+Alterar as notas fiscais, informando a quantidade em litros da Tolerância permitida. Para mais informações, ver 
+Fechamento de estoque
+,
+ item 
+Fechamento de Estoque Escritural.
+Fazer o fechamento de estoque de escritural e somente depois fazer a apuração do frete líquido.
+A diferença em Litros é feita pela Quantidade Ambiente menos a Quantidade 20c. Essa diferença é comparada com a quantidade da Tolerância informada na nota fiscal. Com base nessa comparação, é feita a verificação com as configurações do Depósito em 
+Depósitos - Aba Dados Adicionais
+.
+Quantidade Ambiente:
+ volume programado
+Quantidade 20c:
+ volume descarregado
+Tolerância: 
+quantidade a ser comparada com a diferença entre quantidade ambiente e 20c e verificar se está dentro ou fora do limite. 
+Diferença (litros):
+No Fechamento de Estoque o usuário pode informar a Qtde 20c em uma movimentação escritural e o SisPetro calcula a diferença diminuindo a Qtde 20c da Qtde Ambiente. Com isso, quando a Qtde 20c é menor que a Qtde Ambiente significa que a Transportadora/Fornecedor deve dar satisfação desse produto. Só que essa quantidade positiva dá a falsa impressão que foi sobra quando foi perda. Para facilitar a visualização quando a diferença for 
+positiva
+ será apresentado como 
+PERDA,
+ 
+pois é a diferença a ser cobrada da Transportadora/Fornecedor.
+ 
+É possível apurar a diferença de descarga no fechamento de estoque através de peso, para utilizar esse recurso, basta habilitar o perfil
+ Permite informar dados de apuração por peso. 
+Para mais informações, ver 
+Depósitos - Aba Dados Adicionais
+.
+Na 
+Leitura do XML da NF-e
+, o SisPetro irá ler a tag <pesoL> e irá salvar esse peso nos itens da nota. 
+O peso estará disponível na tela de 
+Monitoramento de Importação de NF
+, abas Dados a Serem validados e Notas Fiscais a serem processadas.
+O usuário poderá editar esse campo, como já ocorre com os demais campos.
+Ao 
+processar a NF
+, esse peso será salvo no Item da NF e será apresentado:
+Na aba Itens NF da 
+Manutenção de NF.
+Na aba 
+Detalhe do Estoque Escritural
+ da tela de Fechamento de Estoque.
+No 
+Fechamento de Estoque:
+Na tela de informação das Temperaturas e Diferença do Estoque Escritural, via duplo clique em movimentação não confirmada.
+Na aba inferior, pesagem, temos os seguintes dados.
+                            
+Denseidade 20c: 
+vinda da aba geral.
+Peso Origem: 
+peso da NF-e, que pode vir preenchido se obtido pela importação, mas o usuário pode alterar ou informar caso não venha.
+Peso Final: 
+peso informado pela base, a ser informado pelo usuário.
+Diferença (peso): 
+ será a diferença entre Peso Origem e Peso Destino
+Tolerancia (%): 
+informado pelo usuário.
+Tolerancia (Peso): 
+ será sugerido, conforme o preeenchimento do campo Tolerancia (%), mas pode ser alterado pelo usuário, se tiver o perfil 
+Pode alterar Tolerância das Descargas? 
+marcado.
+ Para mais informações, ver  
+Painel Estoque (Usuários)
+O quaro Diferença em Litros
+Diferença: será calculado pelo SisPetro, calculando 
+Diferença (peso) / Densidade 20c
+Tolerancia: 
+será calculado pelo SisPetro, calculando 
+Tolerância (peso) / Densidade 20c
+Ao clicar no botão Transfere, o SisPetro ajustará a quantidade 20c, 
+passará a diferença e a tolerância em litros para a aba Geral, além da Tolerância em %, dados que serão utilizados na Apuração de Diferença de Descarga.
+Valorização Diferença Frete
+Configurações Gerais 
+Todas as configurações devem ser feitas na empresa que possui os fretes a serem pagos. Não precisam ser feitas na empresa quando é só armazenadora (utilizada no 
+2° cenário)
+Definição do que deve ser apurado
+No Depósito pode ser indicado o que deve ser apurado nas 3 situações possíveis de Diferença. Para mais informações, ver 
+Depósitos - Aba Dados Adicionais
+.
+Volume descarregado 
+maior
+ que programado
+: pode não ser identificado como diferença (o valor do frete ficará como programado) ou calcular o frete pelo volume descarregado.
+Exemplo da tela de alteração da nota no fechamento de estoques
+Quantidade 20c (volume descarregado) é maior que Quantidade Ambiente (volume programado)
+Tolerância é menor que a Diferença
+Volume descarregado 
+menor
+ que o programado (
+Dentro
+ do limite)
+: pode não ser identificado como diferença (o valor do frete ficará como programado) ou calcular o frete pelo volume descarregado (valorizando esta diferença pelo valor unitário do frete).
+Exemplo da tela de alteração da nota no fechamento de estoques
+Quantidade 20c (volume descarregado) é menor que Quantidade Ambiente (volume programado)
+Tolerância é maior que a Diferença: dentro do limite
+Volume descarregado 
+menor
+ que o programado (
+Fora
+ do limite)
+: as opções são: deixar o valor do frete  como programado; calcular o frete pelo volume descarregado (valorizando a diferença total pelo valor unitário do frete) ou 
+calcular o frete pelo volume descarregado descontando a diferença até o limite definido pelo valor do frete unitário.
+Exemplo da tela de alteração da nota no fechamento de estoques
+Quantidade 20c (volume descarregado) é menor que Quantidade Ambiente (volume programado)
+Tolerância é menor que a Diferença: fora do limite
+Valorização Diferença Produto
+Não calcular a diferença
+Calcular a diferença pela quantidade total ou 
+calcular a diferença pelo volume descarregado descontando a tolerância.
+Apura Diferença sobre Fretes da Origem em NF de Transferência
+Marcar a opção caso queira apurar diferença de frete quando a origem é responsável. 
+Configurações referentes à conversão de unidades de medidas diferenciadas
+A apuração da diferença sempre é realizada em 
+litros
+. 
+Portanto, para a Diferença via Fechamento de Estoques não há qualquer necessidade de conversão de unidade, uma vez que os estoques no SisPetro são sempre em litros.
+Configurações referentes a quem deve ser gerado o pré adiantamento quando o 
+Volume descarregado é 
+menor
+ que o programado 
+No cadastro do 
+Depósitos - Aba Dados Adicionais
+, 
+no quadro 
+Uso do Pré Adiantamento 
+configurar se e para quem será o adiantamento. Caso seja para o Fornecedor, na 
+Aba Observações quadro Apuração do Frete
+ ele deve ser apontado como responsável
+Configuração para facilitar a identificação dos Conhecimentos de Fretes Recebidos
+Na Natureza de Operação utilizada para o lançamento do Conhecimento de Frete Recebido no SisPetro, como Nota de Outras Entradas, configurar:
+O  campo 
+Tipo da Nota Fiscal
+ como sendo 
+Conhecimento
+ em 
+.
+Desmarcar o campo 
+Gera Contas Pagar/Receber
+, na aba 
+, pois o Contas a Pagar não será gerado a partir do Conhecimento e sim a partir da 
+Manutenção de Frete
+.
+Para mais informações, ver 
+Vinculo automático CT-e e frete gerado
+ e 
+Manutenção de Importação de Notas Fiscais
+.
+Configurações quanto à exigência de Apuração e Conhecimento para o Pagamento dos Fretes
+Para evitar que o pagamento do frete seja feito antes que o Conhecimento de Frete seja lançado no SisPetro e devidamente apurado se há diferença ou não, necessário configurar na 
+Configuração do Sistema
+ aba fretes os perfis. Para mais informações, ver 
+.
+Fretes de Saída
+Exige que o frete esteja vinculado ao Conhecimento?
+Fretes de Entrada
+Exige que o frete esteja apurado?
+Exige que o frete esteja vinculado ao Conhecimento?
+Essas duas últimas configurações serão úteis para controlar a liberação do pagamento dos fretes.
+Operacional
+Feitas as configurações, periodicamente a Distribuidora precisará apurar as diferenças das descargas e depois valorizá-las. 
+ 
+Para mais informações, ver help 
+Manutenção de Frete
+.
+Cálculo das Diferenças na Descarga
+1 - Empresa tem base própria - Diferenças de Descarga Base Própria
+A apuração da diferença de descarga deve ser feita pelo menu Movimentação / Base / Controle de Diferenças de Descarga. Serão verificadas todas as descargas de um determinado depósito e período, agrupando por Transportadora/Motorista e OC/Produto a diferença encontrada no processo de Portaria. Para mais informações, ver 
+Controle de Diferenças em Descargas
+ 
+e 
+Apuração de Valores de Fretes a Pagar por Diferenças de Descarga Base Própria
+.
+2 - Empresa recebe o produto em uma base parceira ou do grupo
+A cada descarga a ser feita, a Distribuidora deve avisar a base qual o código da empresa e o número da sua OC (a feita no seu banco de dados como Transferência entre Depósitos ou Descarga Própria). Com isso, a base, ao fazer a OC de Descarga de Terceiros, deve informar essas duas informações (aba Compl)
+Periodicamente a base parceira deve fazer a apuração da diferença de descarga pelo menu Movimentação / Base / e, na sequência gerar um arquivo de exportação. Conterá o código da empresa e o número da OC da Distribuidora nesse arquivo.
+A Distribuidora também utilizará a tela de Controle de Diferenças de Descarga, porém através do processo de Importação, indicando o arquivo recebido pela Base. Assim, terá a diferença encontrada em cada OC/Produto. Para mais informações, ver 
+Importação/ Exportação de Diferenças de Descargas
+. 
+Neste cenário, a empresa pode optar por apurar os valores de frete através do fechamento de estoque.
+3 - Empresa utiliza base de terceiros
+Para este cenário foi desenvolvido o recurso para apurar valores de frete através do fechamento de estoque. Pode também optar por montar um arquivo, seguindo o layout especificado, para então importar na tela de Controle de Diferença de Descargas. Para mais informações, ver 
+Importação/ Exportação de Diferenças de Descargas
+.
+ 
+Lançamento do Conhecimento de Frete
+Fazer a importação dos Conhecimentos de Frete recebidos, usando a Natureza de Operação configurada para esse fim. Com isso, o SisPetro verá no xml do CT-e as Notas Fiscais Referenciadas e já providenciará o vínculo com os fretes a pagar.
+Apuração do Frete Líquido
+Esse é o processo onde realmente saberemos quanto deve ser pago para cada frete. Na Manutenção de Fretes, através do botão Apuração o usuário informará o período. Para todos os fretes da empresa conectada e do período informado, teremos, conforme a opção configurada no Depósito - 
+Depósitos - Aba Dados Adicionais
+, na opção Origem da Apuração de Frete de Entrada:
+Pela capacidade do caminhão
+ 
+(quantidade confirmada da OC). Para mais informações, ver 
+Apuração de Valores de Fretes a Pagar pela Capacidade do Caminhão
+.
+Pela diferença de descarga base própria
+. Para mais informações, ver 
+Apuração de Valores de Fretes a Pagar por Diferenças de Descarga Base Própria
+.
+A necessidade de reconverter o valor do Frete Real (conforme indicado na Unidade de Medida do Produto). Para mais informações, ver 
+Várias unidades de compra para um mesmo produto
+.
+A verificação da Diferença encontrada no Controle de Diferenças de Descarga e consequentemente o valor a ser descontado/acrescido ao valor do Frete Real para chegarmos ao Valor do Frete Real Líquido. Para mais informações, ver 
+Controle de Diferenças em Descargas
+.
+A identificação da Diferença do Frete (a ser valorizada pelo Frete Unitário e o Fator indicado na Unidade de Medida do Produto). Para mais informações, ver 
+Várias unidades de compra para um mesmo produto
+.
+A identificação da Diferença do Produto/Excedente (a ser valorizada pelo Preço Unitário e o Fator indicado na Unidade de Medida do Produto). Para mais informações, ver 
+Várias unidades de compra para um mesmo produto
+.
+Pela diferença de descarga via fechamento de estoque
+.
+A identificação se o Conhecimento de Frete já foi recebido (tanto para fretes de Entrada como de Saída)
+O Controle de Diferenças de Descargas é necessário para Fretes de Entrada, mas a Apuração de Frete Líquido é útil para todos os fretes: para valorizar as diferenças no caso de entradas e para identificar os conhecimentos de frete recebidos de todos os fretes.
+Com isso, a Distribuidora pode, através da Manutenção de Fretes, selecionar os fretes por Transportadora e gerar um Contas a Pagar manual (via botão Pagto), já considerando o valor do Frete Real Líquido.
+Para mais informações, ver 
+Incluindo Apuração de Frete
+.

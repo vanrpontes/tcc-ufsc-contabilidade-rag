@@ -1,0 +1,172 @@
+TITULO: Importação Manual de Notas Fiscais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899574
+--------------------------------------------------
+none
+Objetivo
+Após as pré-configurações, o processo de importação de notas fiscais é iniciado pelo menu Ferramentas > Importação de Dados > Importação NF. O usuário define o processo, depósito e origem da data de movimento, podendo importar arquivos XML por seleção direta ou busca por chave de acesso. O sistema valida a estrutura do arquivo e os dados conforme o De/Para, apresentando pendências, erros e notas prontas para processamento.
+A importação permite vínculo automático ou manual entre NF-e, CT-e e fretes, além de considerar regras fiscais, versões e configurações da natureza de operação. Também é possível visualizar, importar e alterar parcelas da nota, respeitando o valor total e as regras de contas a pagar/receber.
+Importante
+A partir da versão 10.49 essa tela será desabilitada, devendo ser utilizada a tela de 
+Monitoramento da Importação de NF-e/CT-e
+.
+O perfil de 
+Data/hora de movimento das NFs
+ deve ser configurado na Natureza de operação. Para mais informações, ver 
+Importação NF (Painel Geral)
+.
+Na versão 9.22 foi criado o perfil 
+Origem da Data/Hora de Movimento 
+onde permite informar uma data fixa ou conforme configurado na 
+Natureza
+.
+Após realizarmos todas pré-configurações necessárias para realização da importação, conforme os itens:
+Manutenção Importação de Dados
+Configuração de De/Para
+Manutenção de Processos
+Importação NF (Painel Geral)
+Pode-se iniciar o processo de importação da nota fiscal por meio do arquivo magnético. Para mais informações, ver 
+Estrutura do Layout de Importação
+.
+Para acessar a Importação de Nota Fiscal, o usuário deve acessar o menu 
+Ferramentas > Importação de Dados > Importação NF
+Itens inativos agora ficarão destacados em 
+vermelho
+Para iniciar a importação da nota fiscal é preciso informar o 
+Processo 
+que será realizado, este carregará a 
+Importação
+ que será utilizada e o 
+De/Para
+ a ser empregado, bem como as notas que tiveram sua importação iniciada, mas não tiveram seus dados totalmente validado ou não foram processadas. Estes dados serão apresentados no quadro 
+Configuração do processo selecionado
+.
+Informe o 
+Depósito
+ para o qual destina-se a Nota Fiscal. Lembrando que este será o depósito onde ocorrerá a movimentação escritural da nota fiscal, considerando que a natureza de operação utilizada esteja marcada para movimentar estoque.
+Configure o campo 
+Origem da Data/Hora de Movimento
+, podendo ser:
+Respeita a natureza de Operação:
+ Marcando esta opção a data de movimento vai vir conforme configuração do perfil 
+Data/Hora Movimento NF importada
+ da Natureza de operação . Para mais informações, ver 
+Importação NF (Painel Geral)
+Informa uma Data Fixa:
+ Esta opção quando definida irá disponibilizar o campo 
+Data/Hora de Movimento
+ para digitação do usuário.
+Para atualizar a tela basta clicar no botão 
+Havendo informações pendentes em tela, serão apresentadas com este recurso nas abas 
+Erros de Importação
+, 
+Dados a serem validados
+ e 
+Notas fiscais a serem processadas
+.
+Para importar novos arquivos temos 2 opções: através do botão 
+Importa
+ ou do botão 
+Buscar.
+Importando arquivo através do botão 
+Através deste recurso, a tela para localizar os arquivos será aberta para definição do usuário.
+Localize o diretório e selecione os arquivos desejados para importação. Ao término da seleção, clique em 
+Abrir
+A primeira validação a ser feita é a de estrutura. Existindo erros de estrutura, estes serão apresentados na aba 
+Erros de Importação
+ ou através de mensagens, tais como:
+Considerando que a estrutura está correta, o próximo passo é a validação das configurações feitas pelo De/Para com os dados existentes no SisPetro. Esta poderá ser feita através do botão 
+Este processo visa validar o conteúdo do arquivo a ser importado com os dados cadastrados atualmente no SisPetro, considerando também as configurações do De/Para.
+Após a correção dos dados necessários, e a validação completa, pode-se iniciar o processamento das notas fiscais através do botão 
+Para mais informações, ver 
+Como importar manualmente notas fiscais
+ 
+e 
+Roteiro para Importação de XML
+.
+Além disso, existe outros recursos na tela que poderão ser utilizados, sendo:
+Caso existam registros antigos, que não serão mais importados ou que apresentam erros, pode-se clicar no botão 
+Caso necessite editar informações dos registros a serem importados, pode-se clicar no botão 
+Caso seja preciso editar as configurações feitas no De/Para, existe um atalho através do botão 
+. Para mais informações, ver 
+Manutenção De - Para - NF-e/CT-e
+Caso queira imprimir o registro selecionado, clique no botão 
+Para sair da tela, basta clicar no botão 
+Importando arquivo através do botão Buscar.
+Ao acionar o botão 
+ o SisPetro abrirá a tela de 
+Busca de NF, 
+onde iremos informar uma chave de acesso e um diretório válido. Através dessas informações o SisPetro buscará arquivos do tipo .XML cuja descrição contenha essa chave de acesso. A pesquisa é realizada dentro da pasta que foi informada no campo 
+Diretórios dos Arquivos 
+e em suas Sub-Pastas.
+Chave de Acesso: 
+nesse campo é informada uma chave de acesso que contenha 44 caracteres. Essa chave será utilizada para realizar a busca do arquivo.
+Diretório dos Arquivos: 
+nesse campo é informado um diretório valido para a realização da pesquisa. A pesquisa será realizada dentro do diretório informado e em suas Sub-Pastas.
+Após informar a Chave de Acesso e uma pasta basta clicar em 
+Busca XML 
+para iniciar a busca.
+Caso contenha 2 arquivos no diretório informado que possuem a mesma chave de acesso na descrição do arquivo, o SisPetro ira abrir a tela abaixo, onde serão apresentado os arquivos. Nesse caso basta selecionar o arquivo que deseja importar e clicar em 
+Escolher Arquivos Selecionados. 
+Caso a Busca da chave de acesso encontre somente um arquivo, ou seja selecionada um dos arquivos e clicado em Escolher Arquivos Selecionados, o SisPetro realizará as mesmas validações que a importação via botão Importa.
+A Inscrição Estadual do Fornecedor da nota a ser importada pode ser considerada a do cadastro do Fornecedor (que é o padrão), ou pode  pegar do arquivo xml, tudo vai depender da opção 
+Obtenção da IE da Entidade na NF
+ selecionado na natureza de operação. Para mais informações, ver 
+Importação NF (Painel Geral)
+Vínculo de Frete e Vinculo de Notas Fiscais
+A importação de CT-e verificará a chave de acesso da NF-e vinculada a este. Este processo facilitará o vínculo das Notas Fiscais de entrada, de usina por exemplo, com os fretes a serem pagos. 
+É possível verificar qual a chave de acesso da NF-e em dois lugares.
+Aba 
+Dados a Serem Validados:
+ caso haja algum erro de 
+DE/PARA,
+ o CT-e ficará nesta aba, até que sejam resolvidas as pendências. Nela é possível verificar a chave de acesso da NF-e vinculada ao CT-e.
+Aba 
+Notas Fiscais a serem processadas:
+ depois de feito todos os 
+DE/PARA,
+ o CT-e irá para a aba 
+Notas Fiscais a serem processadas
+. Nesta foi criada uma nova aba 
+Notas Vinculadas
+, que mostrará todas as chaves de acessos que o CT-e possui. Caso estas chaves de acesso ainda não estejam no SisPetro nada acontecerá, apenas não será feito o vinculo do Frete. 
+Através do botão 
+ é possível realizar o vínculo da nota, selecionando a nota a ser vinculada através da tela 
+Seleção de Notas Fiscais.
+Para realizar o vínculo manual basta  buscar a nota a ser vinculada, após encontrar a nota selecionar a nota, clicar no botão
+ 
+depois em 
+O vínculo da nota fiscal é realizado de forma automático caso no XML a tag  
+<RefNF>
+ esteja preenchida com uma chave existente no SisPetro.
+Se houver uma NF no SisPetro igual a chave de acesso informado no XML,  é validado se ela:
+É da mesma Entidade
+É da mesma Empresa
+É não cancelada
+Estes vínculos podem ser verificados pela 
+Manutenção de Notas Fiscais
+, aba Fiscal, aba inferior Documentos Fiscais Vinculados por Nota. Nela serão exibidos todos os vínculos que a NF possuí, esteja ela vinculada ou referenciada.
+Pode ser verificado o vínculo do Conhecimento com os Fretes, através da tela 
+Manutenção de Frete
+.
+A partir da versão 9.31, a importação de NF-e, passará a considerar os dados do FCP de NFs emitidas por terceiros. Os dados serão exibidos no grid da tela de importação e na aba 
+Dados FCP  
+da tela de 
+Alteração - Importação de NF.
+Na versão 10.4 foi implementada a opção que possibilita o usuário alterar o tipo de documento na importação de Notas Fiscais.
+Para que o campo Tipo de Documento fique habilitado na edição da nota é necessário que a opção 
+Permite alterar Tipo de Documento na nota fiscal esteja marcada na Natureza de Operação, aba Geral - Dados Gerais
+Aba Parcelas
+Podem ser visualizadas, através da aba de Parcelas, todas as parcelas existentes no arquivo XML. 
+Ao realizar a importação da nota as parcelas serão importadas conforme for definido no perfil de natureza 
+Geração de Parcelas do Contas Pagar/Receber
+.   
+Os valores das parcelas serão distribuídos proporcionalmente entre os itens da Nota Fiscal. A soma das parcelas será igual ao valor contido no arquivo .XML.
+Para os casos nos quais a natureza de operação gera Contas Pagar/Receber e estiver configurada para usar os vencimentos do arquivo, quando a nota tem mais que um item, ou parcelas com o mesmo vencimento, elas serão agrupadas, somando seus valores, tendo somente uma parcela por data de vencimento.
+Alterando as parcelas
+Para alterar as parcelas basta acessar aba de Parcelas, selecionar a parcela em questão e acionar o botão Edita.
+Após isso basta informar uma data/valor válidos.
+A mesma lógica se aplica para alterações de parcelas quando a nota se encontra em 
+Dados a serem validados.
+ Basta acessar a aba de parcelas, selecionar a parcela e acionar o botão Edita. 
+Após isso será aberta uma tela de Importação de NF-e/CT-e, onde logo abaixo teremos um grid com todas as parcelas, onde podemos incluir parcelas, alterar ou até mesmo excluir.
+Por essa tela podemos realizar qualquer alteração nas parcelas, porém lembrando que o valor total das mesmas tem que ser igual ao valor total da nota.

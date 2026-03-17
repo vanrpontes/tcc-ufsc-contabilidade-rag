@@ -1,0 +1,68 @@
+TITULO: De/Para CT-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921074506
+--------------------------------------------------
+ 
+Importação de CT-e tem como propósito importar no Sispetro os CT-e emitidos para a distribuidora, segue abaixo os campos obrigatórios:
+ 
+Produto -
+ Deve ser informado o produto que está vindo na nota no campo 
+De
+, e no campo 
+Para
+, deve ser informado o código do produto no Sispetro que corresponde ao produto da nota.
+ 
+Natureza de Operação - 
+Deve ser informado no campo 
+DE 
+a natureza de operação que está no CT-e, e no campo 
+PARA, 
+deve ser informado o código da natureza de operação  que corresponde a natureza da nota. Além do 
+DE/PARA 
+deve ser informado o 
+Tipo de NF 
+, no caso do CT-e o tipo de NF é outras entradas. O campo ICMS Retido não interfere na importação de CT-e, não é necessário altera-lo.
+Tipo de Cobrança - 
+ Essa informação não vem no XML, porém na importação de CT-e é obrigatório. Nesse caso é necessário fazer um 
+DE/PARA
+ onde 
+DE
+ ficará em branco e o 
+PARA
+ o Tipo de Cobrança que está cadastrado no Sispetro;
+Vendedor - 
+Essa informação não vem no XML, porém na importação de CT-e é obrigatório. Nesse caso é necessário fazer um 
+DE/PARA
+ onde
+ DE 
+ficará em branco e o
+ PARA
+ o vendedor que está cadastrado no Sispetro;
+Tabela de Preço - 
+Essa informação não vem no XML, porém na importação de CT-e é obrigatório. Nesse caso é necessário fazer um 
+DE/PARA
+ onde
+ DE 
+ficará em branco e o
+ PARA
+ a tabela de preço  que está cadastrado no Sispetro;
+Série Nota Fiscal
+ - 
+ 
+A aplicação do De/Para na Série do CT-e poderá ser aplicada ou não, existe um perfil de
+ Natureza de operação
+ no quadro 
+Importação NF´s
+, onde pode ser definido se a série sera utilizada 
+do DE/PARA
+ ou da
+ natureza de operação que está sendo utilizada na importação
+.
+Frota - 
+Como no SisPetro já temos frotas cadastrados, se no XML estes dados forem os já cadastrados não é necessário utilizar o DE/PARA. Não é necessário excluir os DE/PARA já existentes, porém são desnecessários para os casos em que são os mesmos dados cadastrados.
+Transportadora - 
+Caso a transportadora que está no XML esteja cadastrada no Sispetro, não sera necessário utilizar o DE/PARA, o Sispetro irá buscar no cadastro de transportadoras o CNPJ da transportara que está no XML. Não é necessário excluir os DE/PARA já existentes, porém são desnecessários para os casos em que são os mesmos dados cadastrados. 
+Nas versões anteriores,o Sispetro verificava a transportadora vinculada ao motorista, na Versão 8.11 o Sispetro não verifica mais o vinculo, é utilizada na importação a transportadora que emitiu o conhecimento, pois no CT-e já contém a TAG do motorista.
+Importação CT-e nas versões anteriores
+Na imagem acima, o Xml que está sendo importado possui o Motorista 01, no Sispetro o motorista 01 está vinculado a transportadora 02. Quando é concluída a importação, o Sispetro insere a transportadora de acordo com o vinculo com o motorista.
+VersãoAtual
+Na imagem acima seguindo no mesmo exemplo, a imagem retrata a seguinte situação: o XML está com o motorista 01, utilizando o exemplo anterior o motorista 01 está vinculado a transportadora 02 no Sispetro. Porém esse XML o emitente é a Transportadora que está cadastrada no sispetro como transportadora 3. Como o Sispetro está utilizando o emitente do CT-e, após a conclusão da importação o CT-e sera importado com a Transportadora 03 ao invés da transportadora 02 que está vinculada ao motorista 01. 

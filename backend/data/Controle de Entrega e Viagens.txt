@@ -1,0 +1,80 @@
+TITULO: Controle de Entrega e Viagens
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4615929857
+--------------------------------------------------
+Objetivo
+O SisPetro já possuía o controle de 
+ e 
+, porém, no que se refere a controle de entregas, tínhamos o 
+Emissão de Comprovante Eletrônico de Entrega CT-e
+.
+Surgiu a necessidade de controlar as entregas do motorista e frota, controlando e armazenando o canhotos das notas / CT-e entregues, as previsões de início de viagem, entrega e término de viagem. Será possível também controlar também as datas e hora reais de cada entrega. Utilizando essa ferramenta o responsável pela logística saberá aonde o frota e seu motorista estão, o tempo das entregas por região, qual entrega já foi feita e qual está pendente e até a quilometragem (odômetro) inicial e final de cada caminhão. Com essas informações a majoração do frete será mais efetiva. Esses dados poderão ser informados tanto pelo usuário que está na base ou pelo motorista no 
+SisPetro App - Módulo de Controle de Entregas
+.
+Configurações
+Ferramenta / Sistema / 
+Aba NF-e / CT-e
+Quadro Diversos /
+ opção
+ Nome da Pasta de Comprovantes de Entregas: 
+informar um nome. Já será sugerido 
+COMPROV_ENTREGA
+Para mais informações, ver 
+Painel NFN-e/CT-e
+Aba Ordem Carregto
+Quadro Controle de Entregas /
+opção 
+Ação p/ entrega realizada s/ Previsão registrada p/ Entidade: 
+escolher uma das opções
+Não faz nada
+Inclui um registro somente com os dados reais
+Para mais informações, ver 
+Ferramentas / Usuário / Aba Carregamento
+Pode dar manutenção nas Entregas da OC: 
+marcar
+Para mais informações, ver 
+Painel Carregamento (Usuários)
+Ferramentas / Usuário / Aba Frete 
+Pode inclui /Alterar/ Cancelar dados de Entrega?: 
+marcar
+Para mais informações, ver 
+Painel Fretes (Usuários)
+Tabelas Auxiliares / Transportes / Frotas / Manutenção de Frotas
+Aba Detalhes / 
+opção 
+Controla entregas via OC?: 
+marcar
+Para mais informações, ver 
+Como Utilizar 
+Para que as informações da entrega fiquem completas, o usuário irá  preencher as informações na seguinte ordem:
+1 -  Na aba 
+ da Manutenção de Ordem de carregamento, preencher datas e horários 
+previsto
+ de saída e retorno à base e de cada entrega que compõem a OC.
+2 - Com as informações já preenchidas e caminhão carregado, antes de sair da base, na 
+ alterar a situação da Entrega para 
+Em Andamento
+ e preencher a 
+Quilometragem Inicial 
+3 - No decorrer das entregas, na 
+, a informação 
+Data Entrega Real
+ de cada entrega deve ser atualizada
+4 - Na 
+Manutenção de Notas Fiscais de Saída / Aba Transporte / Aba inferior Comprovante de Entrega
+ incluir ou alterar as informações
+Nome do Recebedor
+Documento do Recebedor
+Data/ Hora Entrega
+Latitude / Longitude (elas virão do cadastro do cliente caso esteja informada)
+Arquivo (foto do canhoto) devidamente assinado
+5 - Após finalizar todas as entregas, na aba 
+ da Manutenção de Ordem de carregamento, preencher as datas e horários 
+reais 
+e alterar a situação da Entrega para 
+Realizada Última Entrega
+6 - Assim que o veículo retornar a base, na aba 
+ da Manutenção de Ordem de carregamento, alterar a situação da Entrega para 
+Chegada à Base
+Caso o  motorista esteja utilizando o 
+SisPetro App
+ as informações serão alimentadas por ele e trazidas automaticamente para o SisPetro Normal. 

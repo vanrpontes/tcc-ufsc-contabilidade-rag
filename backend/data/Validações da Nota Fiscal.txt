@@ -1,0 +1,44 @@
+TITULO: Validações da Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926194954
+--------------------------------------------------
+Nesse KB temos o proposito de listar os erros mais comuns (e o que fazer) no momento de finalizar a inclusão de uma nota fiscal contemplando as vertentes tanto de 
+saída
+ quanto 
+entrada.
+Endereço
+Na análise de nota fiscal, caso alguma informação relacionada aos endereços não estejam devidamente preenchidas, o SisPetro irá mostrar uma ou mais mensagens de erro se:
+O endereço de entrega não foi totalmente preenchido. 
+O endereço de cobrança não foi totalmente preenchido.
+O endereço de faturamento não foi totalmente preenchido.
+O usuário deverá clicar em sair e, logo em seguida, clicar em voltar até a tela que mostra os endereços do cliente e verificar se os campos pertencentes ao endereço estão preenchidos.
+Verificar também o cadastro do cliente em questão na opção do menu Arquivos / Clientes aba Detalhes conforme imagem abaixo:
+2.
+ Natureza de operação com UF incompatível
+A natureza de operação deve ser compatível com as UF da empresa e do cliente.
+O SisPetro mostrará o erro abaixo se:
+A natureza de operação estiver configurada como 
+interestadual 
+e a UF do cliente e UF da empresa forem a mesma. 
+A natureza de operação 
+não
+ estiver configurada como 
+interestadual
+ e a UF do cliente for diferente da UF da empresa.
+O usuário deverá clicar em sair e, logo em seguida, acessar o menu Tabelas auxiliares - Faturamento - Natureza de Operação, aba Detalhes e verificar se a opção 
+operação interestadual 
+está compatível com a operação, ou selecionar uma natureza de operação compatível com a operação. 
+3. Valor de frete
+O valor do frete não pode ser negativo. 
+O SisPetro mostrará o erro abaixo caso o valor do frete informado no item for negativo. O usuário deverá clicar em sair e, logo em seguida, retornar aos itens da nota fiscal e corrigir o valor do frete para zero ou informar um valor positivo, se for o caso.  
+4.
+ Depósitos diferente entre os itens. 
+O itens da nota fiscal estão com depósitos diferentes.
+5.
+ Tabela de preços Inativa
+Quando o usuário utiliza uma tabela de preços inativa para emitir uma nota fiscal o SisPetro mostra a mensagem: Verifique a Tabela de Preço informada para a NF
+Caso a tabela em questão seja válida, o usuário deveria acessar o menu 
+Tabelas Auxiliares / Vendas / Manutenção de Tabela de Preço 
+e ticar o campo 
+ativo
+ conforme imagem abaixo.
+Caso não bastar selecionar uma tabela de preço ativa

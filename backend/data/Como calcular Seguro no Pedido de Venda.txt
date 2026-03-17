@@ -1,0 +1,87 @@
+TITULO: Como calcular Seguro no Pedido de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2889383963
+--------------------------------------------------
+Algumas empresas possuem o procedimento de fazer seguros de carga, e estes seguros são embutidos no preço final do pedido de venda. Assim, o valor do pedido seria acrescido do percentual para o seguro e este valor seria transferido para o valor da nota fiscal para que o cliente pagasse.
+Para configurar o seguro no Sispetro, será necessário acessar o cadastro de cliente. Veja maiores informações no tópico do Help 
+Tabela de Clientes - Aba Padrão para Vendas
+.
+Agora, iremos ver como funciona o Seguro no Sispetro:
+Na inclusão do Pedido de Venda, o usuário deverá efetuar o mesmo procedimento atual. Para maiores informações, veja o tópico do help sobre 
+.
+Na tela referente aos dados de transporte o usuário deverá se atentar para o perfil 
+Pedido Segurado
+:
+Este perfil deverá estar marcado para o caso do pedido de venda ter seguro para carga.
+Exemplos de configurações
+Cliente = COM SEGURO e perfil de Sistema de Modalidade de Frete = Somente Retira
+O perfil Pedido Segurado deverá estar 
+MARCADO
+.
+Caso altere no Pedido de Venda para ser Entrega, o perfil Pedido Segurado deverá estar 
+DESMARCADO
+.
+Cliente = COM SEGURO e perfil de Sistema de Modalidade de Frete = Somente Entrega
+O perfil Pedido Segurado deverá estar 
+MARCADO
+.
+Caso altere no Pedido de Venda para ser Retira, o perfil Pedido Segurado deverá estar 
+DESMARCADO.
+Cliente = COM SEGURO e perfil de Sistema de Modalidade de Frete = Ambas Modalidades
+O perfil Pedido Segurado deverá estar 
+MARCADO
+ independente se o Pedido de Venda é Retira ou Entrega.
+Cliente = Usuário Escolhe e perfil de Sistema de Modalidade de Frete = Somente Retira, Somente Entrega ou Ambas Modalidades
+O perfil Pedido Segurado deverá habilitado para que o usuário defina se terá seguro ou não.
+Cliente = SEM SEGURO e perfil de Sistema de Modalidade de Frete = Somente Retira, Somente Entrega ou Ambas Modalidades
+O perfil Pedido Segurado deverá estar 
+DESMARCADO
+ independente se o Pedido de Venda é Retira ou Entrega.
+Ao avançar para a inclusão de itens duas novas colunas serão apresentadas em tela, sendo elas:
+Val. Unit. Seguro
+Valor Seguro
+Estes campos serão calculados automaticamente através do percentual informado na 
+.
+Ainda nos itens do pedido, ao informar o produto e a quantidade, automaticamente o valor unitário e o valor total do seguro já serão calculados automaticamente:
+ 
+1º Exemplo:
+Vamos entender o cálculo para o pedido de venda que não possui Custo Financeiro e nem Frete:
+Cadastrei um seguro com o percentual de 15%
+O cliente está configurado para 
+Usuário escolhe
+ se terá seguro, além de ter o vínculo com o seguro cadastrado.
+O Pedido de Venda foi marcado para ter 
+Pedido Segurado
+.
+Nos itens do pedido de venda, informei o produto: Álcool Hidratado
+O preço de venda do Álcool Hidratado é de R$ 1,2556
+A quantidade a ser vendida é de 10.000 m³ 
+O cálculo em R$:
+Valor do Pedido: 10.000 * 1,2556 = 12.556
+Seguro Unitário: 1,2556 * 0,15 = 0,18834
+Seguro Total: 0,18834 * 10.000 = 1883,40
+Valor total do Pedido: 12.556 + 1883,40 = 14.439,40 
+Vejamos detalhadamente na imagem abaixo:
+ 
+2º Exemplo:
+Vamos entender agora o cálculo para o pedido de venda que possui Custo Financeiro e Frete:
+Utilizando o mesmo seguro com o percentual de 15%
+O mesmo cliente configurado para 
+Usuário escolhe
+ se terá seguro, além de ter o vínculo com o seguro cadastrado.
+O Pedido de Venda foi marcado para ter 
+Pedido Segurado
+ e é do tipo Entrega (por causa do frete).
+Nos itens do pedido de venda, informei o produto: Gasolina C
+O preço de venda da Gasolina C é de R$ 2,4699
+A quantidade a ser vendida é de 10.000 m³
+O valor do frete unitário: R$ 0,05 
+O cálculo em R$:
+Custo financeiro de 5%: 2,4699 * 0,05 = 0,1235
+Preço de Venda: 2,4699 + 0,1235 = 2,5934
+Preço de Venda mais Frete: 2,5934 + 0,05 = 2,6434
+Seguro Unitário: 2,6434 * 0,15 = 0,39651
+Seguro Total: 0,39651 * 10.000 = 3965,10
+Valor do Pedido sem Frete: (10.000 * 2,5934) + 3965,10 = 29.899
+Valor total do Pedido com o frete: 29.899 + 500 = 30.399,00 
+Vejamos detalhadamente na imagem abaixo:
+5. Após definir os itens do Pedido, basta avançar até finalizar o Pedido.

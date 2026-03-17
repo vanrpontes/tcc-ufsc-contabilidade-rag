@@ -1,0 +1,42 @@
+TITULO: Automação Smart Card
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879127553
+--------------------------------------------------
+A automação utilizando Smart Card é uma das mais utilizadas na base.
+O motorista do caminhão, ao chegar na base, se dirige à Portaria de Entrada onde pega um cartão SmartCard gravado pelo SisPetro com o volume e o produto a ser carregado.
+Entra então na base para fazer o carregamento e lá apresenta o cartão para que seja lido e carregado em seu caminhão o produto.
+Ao terminar o carregamento o sistema de automação grava neste mesmo cartão o volume real carregado.
+O motorista passa pela Portaria de Saída e entrega esse cartão. O SisPetro lê o cartão para fazer a movimentação do estoque físico conforme o volume real gravado no cartão.
+Foi implementado recentemente um aumento na segurança deste processo, nosso foco foi atuar na Portaria de Saída, tratando cada uma das três situações citadas abaixo:
+Desistência
+ No caso de desistência precisaremos ter a prova de que o produto não foi carregado. Para isso, ao clicar no botão Voltar p/ Entrada deve ser feita a leitura do smartcard.
+Problemas durante carregamento
+ Nesta situação não adianta solicitarmos o cartão, pois a leitura dele pode acusar um carregamento (total ou parcial) ou pode não ter a informação da OC. Assim, para esses casos somente usuários com perfil específico poderão continuar
+Má fé
+ Se o procedimento não foi confirmado nem pela leitura do cartão, nem pela autorização de um responsável, nenhuma outra situação permitirá o retorno para Portaria de Entrada.
+Ainda como implementação de segurança, estamos verificando os status das gravações do cartão, temos as situações listadas na tabela de status.
+Status
+Situação
+Ação
+0
+Cartão vazio
+Erro
+1
+Cartão gravado pelo Sispetro
+Pode continuar
+2
+Cartão incorreto
+Erro
+3
+Desconhecida
+Erro
+4
+Em operação com saldo
+Erro
+5
+Em operação sem saldo
+Erro
+Para que esse processo seja feito são necessárias algumas configurações no Sistema, painel Ordem Carregto. Veja o Painel Smart Card em 
+ e também no perfil de usuário 
+ painel Smart Card.
+ 
+ 

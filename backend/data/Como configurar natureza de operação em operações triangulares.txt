@@ -1,0 +1,152 @@
+TITULO: Como configurar natureza de operação em operações triangulares
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4536107009
+--------------------------------------------------
+Esse help, visa orientar o analista de como proceder com operações de compra de B100 e inclusão de suas respectivas notas.
+O processo de compra de B100, funciona da seguinte maneira:
+A Distribuidora faz a compra com a  Petrobras, porém quem faz a entrega do produto é a Usina produtora do B100, sendo assim a Distribuidora recebe duas notas fiscais referente esta operação, uma nota de Compra e outra de Remessa de Compra e ordem, abaixo faremos o processo de inclusão das notas, mostrando a movimentação de estoque, geração de contas a pagar e o vinculo o para operação triangular para o DPMP.
+Como esse processo é feito no Sispetro.
+incluir um PMM do tipo transferência entre Depósitos
+Menu "Movimentação >Movimentação de Material > Pedido de Movimentação de Material >  Pedido de Movimentação de Material".
+Selecione o 
+Fornecedor (PETROBRAS).
+Informe data e condição de pagamento.
+Em seguida informe o deposito de origem do produto 
+"Depósito Compras."
+Recomendamos que force o depósito de destino para não haver problemas na emissão de OC, marque a opção 
+"Força deposito destino."
+Informe o deposito destino 
+(onde será descarregado)
+Clique em Avançar, avence até a tela de item.
+Informe o código do produto, unidade de medida e quantidade e preço unitário.
+Avance Até Finalizar.
+Aprove o PMM.
+Através do Menu 
+"Consulta > Pedidos de Movimentação de Material Pendente"
+A tela de Pedidos de Movimentação de material pendente permite executar varias ações.
+Localize e selecione o PMM, Clique em 
+"aprovar"
+Caso o possua adiantamento para essa operação, selecione o pmm e clique em 
+"+ Adto"
+Emitir OC do tipo "Transferência Entre Depósitos"
+Ainda na tela de manutenção de pedidos pendentes, selecione o PMM aprovado.
+Clique no botão
+ "Emite OC"
+Informe a data da OC
+Informe o depósito de destino 
+"DEPÓSITO ONDE SERÁ DESCARREGADO"
+Informe o deposito transito - 
+"Transito" 
+(Ao confirmar a OC, o Sispetro movimentar o produto do depósito 
+"Compras"
+ para o Deposito 
+"Transito"
+).
+Informe o Motorista, Neste caso provavelmente a nota virá sem o motorista, porém se faz necessário informar um motorista para vinculo da nota com a OC.
+Sugerimos que seja criado um cadastro de 
+Motorista Padrão, Vinculada a uma Transportadora Padrão.
+Também se faz necessário informar um Frota, para isso crie um Frota 
+"XXX-0000" 
+para ser utilizado apenas nessa operação.
+O item da OC será o mesmo produto do PMM, certifique-se que na coluna 
+"#Pedido Mov. Material" 
+conste o código do pmm selecionado.
+Clique em OK
+Confirma a Ordem de Carregamento
+Através do Menu "Movimentação > Estoque > Manutenção de Ordem de Carregamento"
+Localize e selecione a ordem de carregamento correspondente ao pmm
+Em seguida na parte superior da tela, clique no botão 
+"Confirma"
+Uma nova tela será apresentada, confira o volume, caso necessite alterar, clique em editar e altere o volume.
+(Ao confirmar a OC, o Sispetro movimentar o produto do depósito 
+"Compras"
+ para o Deposito 
+"Transito"
+).
+Recebimento da Nota Fiscal de Compra
+Neste passo ocorre a movimentação do produto do deposito 
+"Transito,"
+ para o deposito do 
+"ONDE SERÁ DESCARREGADO."
+Através do Menu "Movimentação > Estoque > Entradas > Recebe"
+Será exibida uma mensagem
+ "Recebimento através de ordem de carregamento?" = SIM
+Na tela seguinte, pode-se filtrar tanto por entidade, quanto por depósito.
+No caso, faremos pela Entidade, informe o código da entidade 
+"PETROBRAS," 
+a mesma da Nota de compra, mesma do PMM.
+Clique em 
+"Atualizar," 
+no gride abaixo, será listado todas as Ordens de Carregamento, emitidas para o fornecedor em questão.
+Selecione a Ordem de Carregamento correspondente ao PMM, em seguida clique em 
+"Avançar"
+Na próxima tela, selecione a natureza de
+ "Compras" 
+correspondente a operação. 
+(Natureza deve movimentar Estoque).
+Na próxima tela confira as informações de endereço do fornecedor, clique em avançar.
+Informe a 
+Série da Nota, Número da NF, Data de Emissão da Nota Fiscal e Data de Movimento.
+Informe também a
+ CHAVE DE ACESSO DA NOTA e 
+no próximo campo a
+  Tipo de Cobrança.
+Os próximos campos serão carregados da OC e PMM, Condição de Pagamento, Motorista, Transportadora e Frota.
+Avence até a tela dos Itens da Nota, que também será carregado da OC e PMM, confira as informações.
+Clique em avançar e Finalize.
+CONFIGURAÇÃO NATUREZA DE COMPRA
+Ao marcar o perfil 
+'Identifica como 3º a Entidade de NF Remessa reverenciadora'
+ será levado para o DPMP os dados de Identificação Terceiro, Código Município Terceiro e CNAE Terceiro da nota de remessa que está vinculada a nota de compra.
+Deve 
+Movimentar Estoque
+Deve
+ Gerar Contas a Pagar
+Ordem de Carregamento Descarga Própria (Para receber a nota de Remessa e Informar o Frete)
+Através do menu "Movimentação > Estoque> Ordem Carregamento."
+Selecionar o tipo de ordem de carregamento = 
+"Descarga Própria"
+Informar o código da Entidade 
+Usina da Nota de Remessa
+Informar data
+Informar o Depósito onde será descarregado o produto
+Motorista e Frota
+Informe o produto e quantidade 
+É de extrema importância que se informe o frete caso tenha.
+Clique em OK 
+Recebendo a Nota de Remessa de Compra e Ordem
+Através do menu "Movimentação > Estoque> Entradas > Recebe"
+Será exibida uma mensagem
+ "Recebimento através de ordem de carregamento?" = SIM
+Na tela seguinte, pode-se filtrar tanto por entidade, quanto por depósito.
+No caso, faremos pela Entidade, informe o código da entidade 
+"USINA - MESMA DA NOTA"
+Clique em 
+"Atualizar," 
+no gride abaixo, será listado todas as Ordens de Carregamento, emitidas para o fornecedor em questão.
+Selecione a Ordem de Carregamento correspondente a 
+Descarga própria, 
+em seguida clique em 
+"Avançar"
+Informe a Natureza de Operação Criada especialmente para essa operação.
+Remessa de Compra e Ordem B100 (Geralmente com esse nome, consulte o fiscal)
+Natureza não deve movimentar estoque tampouco gerar financeiro.
+Na próxima tela confira as informações de endereço do fornecedor, clique em avançar.
+Informe a 
+Série da Nota, Número da NF, Data de Emissão da Nota Fiscal e Data de Movimento.
+Informe também a
+ CHAVE DE ACESSO DA NOTA e 
+no próximo campo a
+  Tipo de Cobrança(apesar de não gerar contas a pagar é necessário informar).
+Os próximos campos serão carregados da OC,  Motorista, Transportadora e Frota.
+Avence até a tela dos Itens da Nota, que também será carregado da OC, confira as informações.
+Clique em avançar e Finalize
+CONFIGURAÇÃO NATUREZA DE OPERAÇÃO DA NOTA DE REMESSA
+Na Natureza de Operação da Nota de remessa, deve ser selecionada a opção
+ 
+Sugere Referenciar outras NF(s)
+ caso queira que seja sugerido a referência a outra nota, ou 
+Força referência a outras NF(s)
+ 
+caso queira que seja forçado a referência da Nota.
+Não deve Movimentar Estoque
+Não deve Gerar Contas a Pagar

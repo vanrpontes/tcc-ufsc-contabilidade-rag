@@ -1,0 +1,68 @@
+TITULO: Validação de Valor Carga para Seguro de Transportadora
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4045307905
+--------------------------------------------------
+No processo de contratação de seguro de carga, é normal que a seguradora só aceite cargas até um determinado valor, o valor da carga pode ser originada de diversos pontos:
+Pedido de Venda: 
+o
+ valor da carga é o valor estipulado no Pedido de Venda.
+Oc de Transf. Entre Depósitos c/PMM: 
+o
+ valor da carga é o valor estipulado no PMM
+OC de Carregamento Próprio: 
+o valor da carga deve ser o mesmo que a Nota Fiscal de Outras Saídas estipular. Ou seja, via Natureza de Operação, saberemos se o preço original será tabela de preços ou custo e que custos devem ser somados.
+Considerando isso, precisaremos saber, ainda na fase de OC, qual a Natureza de Operação que será utilizada. Como já temos a indicação de Natureza no Cadastro de Produtos, continuaremos nessa linha.
+Ou seja, adicionaremos um Tipo de Operação denominado 
+Transferência
+ e para ele, por Atividade Econômica, poderá ser informada a Natureza para uso dentro e fora do Estado. 
+Para mais informações, ver
+ 
+Preço para uso em Transferência
+.
+Frete na valorização de carga: 
+nas OC de carregamento próprio 
+só considerar o frete se não foi gerada OC de Descarga Própria ou se a responsabilidade do Frete for por conta do Emitente (OC de Origem).
+Frete na Ordem de Carregamento
+Para que o frete seja considerado na valorização de carga, mesmo que o frete seja negociado na emissão da 
+Ordem de Carregamento é necessário que 
+as cidades de origem e de destino estejam cadastradas
+ na 
+Tabela de Distância
+ com seus devidos valores.
+Para que o SisPetro valide  e não permita que uma carga seja montada com valor superior ao seguro contratado pela transportadora, 
+deve-se configurar conforme segue:
+Configurações
+É possível parametrizar através do perfil de sistema ou direetamente no cadastro de transportadora.
+Em Ferramentas > Sistema > Aba Frete
+Valida Valor Carga no Fechamento de Carga
+Não valida o valor da carga 
+(padrão)
+Valida o valor da carga conforme o valor máximo transportadora: faz validação no fechamento de carga conforme valor determinado no campo Valor Máximo Permitido para Carga, no cadastro de Transportadoras/Motoristas.
+Para mais informações, ver
+ 
+Em Tabelas Auxiliares > Transportes > Transportadoras/Motoristas
+Quadro Seguro de Carga
+Segue a configuração de sistema:
+ valida conforme configurado no perfil 
+de sistema
+, 
+Valida Valor Carga no Fechamento de Carga
+. 
+(padrão)
+Não valida valor da carga:
+ não faz validação de valor no fechamento de carga.
+Valida o valor da carga conforme valor máximo:
+ 
+faz validação no fechamento de carga conforme valor determinado no campo Valor Máximo Permitido para Carga.
+Para mais informações, ver 
+Importante
+A validação é somente para os cadastros do tipo Transportadora ou Livres
+Fechamento de Carga
+Na tela de fechamento de carga, o campo valor carga, que é calculado conforme 
+pedido de venda
+, 
+Oc de Transf. Entre Depósitos c/PMM, 
+OC de Carregamento Próprio,
+ explicado no ínico do documento.  
+Para mais informações, ver 
+Caso esteja parametrizado para validar 
+o valor da carga conforme o valor máximo transportadora, e o valor da carga seja maior que o valor cadastrado na transportadora, não será permitido o fechamento da carga.

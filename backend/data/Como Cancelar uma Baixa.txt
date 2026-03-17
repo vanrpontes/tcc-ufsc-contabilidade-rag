@@ -1,0 +1,58 @@
+TITULO: Como Cancelar uma Baixa
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701732
+--------------------------------------------------
+A partir da versão 8.18 o botão "Canc. Item" foi alterado de lugar. 
+Seu funcionamento continua o mesmo, 
+veja abaixo o novo layout da tela
+ 
+Um lançamento em contas a pagar/receber pode ser quitado com uma única baixa ou várias baixas.
+Para se cancelar uma baixa efetuada para um determinado lançamento,verifique o campo 
+Tipo 
+(status da conta). Deve ser igual a Pendentes ou Quitados.
+O Lançamento pode estar parcialmente quitado (ou seja, Pendente), mas com baixas efetuadas, ou o Lançamento pode estar totalmente Quitado.
+Procure o lançamento que deseja cancelar a baixa. Selecione-o clicando sob o mesmo.
+ 
+Lembre-se de que neste tipo de operação somente um lançamento pode ser selecionado.
+ Clique no painel 
+Baixas
+ situado ao lado do painel 
+Lançamentos
+.
+O Sistema exibe a tela com as baixas efetuadas para o lançamento selecionado.
+ Na parte superior, ele exibe uma ou mais baixas do título selecionado.
+ Na parte inferior, exibe os outros itens da baixa selecionada.
+Caso deseje cancelar a baixa inteira (selecionada na parte superior), o Sistema irá cancelar os outros itens dela (informado, se tiver, na parte inferior da tela). Vide 
+Roteiro de Baixa do Contas a Receber
+ e 
+Roteiro de Baixa do Contas a Pagar
+ para maiores detalhes.
+Caso queira cancelar a baixa inteira (todos os itens), selecione o botão 
+Canc.Baixa
+.
+Caso deseje cancelar somente o item relacionado a este lançamento, aperte o botão 
+Canc.Item
+. Caso o lançamento tenha somente 1 item, o Sistema emitirá uma mensagem de erro informando que deverá utilizar o botão 
+Canc.Baixa.
+Após clicar na opção desejada o Sispetro irá exigir a confirmação de cancelamento.
+Ao cancelar várias baixas de um determinado lançamento, o Sispetro irá informar qual a data de cancelamento que irá trabalhar. Essa data será conforme a configuração do perfil de sistema 
+Sugere a data atual como data de cancelamento
+, que se encontra em 
+Ferramentas / Sistemas / Financeiro / quadro Diversos
+ Considerando que o perfil citado esteja 
+marcado
+, ao efetuar o cancelamento das baixas de um títulos, o Sispetro emitirá a mensagem
+A data de cancelamento a ser utilizada será a data atual
+ 
+Considerando que o perfil citado 
+desmarcado
+, ao efetuar o cancelamento das baixas de um títulos, o Sispetro emitirá a mensagem
+A data de cancelamento a ser utilizada será a data de origem
+ 
+Essa alteração irá auxiliar no trabalho contábil de identificação de um estorno (cancelamento).
+Informe o motivo de cancelamento
+Depois de informado o Histórico o SisPetro confirmará as principais informações do título para cancelamento
+Se estiver tudo certo, basta confirmar o cancelamento
+É importante entender a diferença dos dois métodos
+.
+Quando um determinado lançamento participa de uma baixa junto a outros lançamentos (por exemplo, determinado dono de rede de postos emite um cheque para quitar duas notas fiscais de postos de sua propriedade), o Sistema realiza uma única baixa contemplando estes títulos. Assim, se voce selecionar qualquer um dos dois títulos (continuando o exemplo acima), e exibir a tela de baixas, o Sistema trará no lado superior o item da baixa relacionado a este título e no lado inferior todos os itens (no caso, os dois).
+Assim, caso clicasse para cancelar a baixa inteira, você estaria cancelando os dois itens da baixa (retornando os dois títulos para os títulos pendentes no Contas a Receber). Caso quisesse somente cancelar um item da baixa (o relacionado ao título selecionado), você teria de clicar no botão Canc.Item para que ele cancelasse somente o item da baixa relacionado ao título escolhido e deixasse o outro item intacto.

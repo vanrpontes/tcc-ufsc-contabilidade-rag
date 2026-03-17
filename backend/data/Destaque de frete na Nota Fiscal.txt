@@ -1,0 +1,25 @@
+TITULO: Destaque de frete na Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440488
+--------------------------------------------------
+Para explicar como funciona o Destaque de Frete na Nota Fiscal, cabe esclarecermos alguns pontos:
+Valor do Frete do item X Valor do Frete no Rodapé:
+ Quando o valor do frete é informado no item (proveniente de uma Ordem de Carregamento ou informado pelo usuário), automaticamente o Valor de Frete no Rodapé será a somatória dos valores informados nos itens, contudo o inverso não é verdade, isto quer dizer que o fato de informar o frete no rodapé, não distribui nos itens.
+Quando o valor do frete vai para a Manutenção de Fretes e quando não vai:
+ O valor do frete só será apresentado na janela de Manutenção de Fretes quando estiver cadastrado no item da nota. Caso ele tenha sido informado só no rodapé da nota, não tem como ir para manutenção de Fretes. Assim, somente notas vinculadas a Ordem de carregamento que contém frete (pode ser de venda) ou com natureza de operação configurada para informar frete nos itens, geram registro na Manutenção de Fretes.
+Quando destacar ou não o frete na Nota - Frete informado no rodapé:
+ Se o usuário optar por informar o Valor Total do Frete no rodapé da nota, não adianta ter perfil para destacar ou não o frete (Ver. 
+Tabela Natureza Operação
+), pois se ele informar é sinal que o frete é destacado. Ou seja, essa situação prevalecerá sobre o perfil de destaque de frete.
+Quando destacar ou não o frete na Nota - Frete informado no item:
+ Neste caso, o usuário pode querer informar o frete para gerar a manutenção de frete, mas não necessariamente ele quer que esse valor seja destacado no rodapé da nota, assim, só nestas opções o perfil destaca frete entra em ação. Podemos então ter o destaque do frete vindo do perfil da empresa, ou da natureza de operação e ainda esse padrão sendo alterado pelo usuário, quando na nota esse parametro estiver desmarcado mesmo que eu tenha os valores de frete informado no(s) item(s) da nota a somatório não será empregada no valor total de frete da nota, a não ser que o mesmo esteja marcado.
+Informando frete nos itens da nota fiscal:
+ Na emissão das notas fiscais de venda o usuário não pode alterar o frete, já que este vem do pedido de vendas, porém, em notas fiscais como a de compra, por exemplo, o usuário poderá digitar essa informação ou alterá-la (em algumas situações, o frete já é informado na nota, proveniente de outro processo, por exemplo, no recebimento de uma nota vinculada ao PMM. O frete já foi incluido no PMM e conforme configuração, é transferido para nota fiscal). O perfil "Informa Frete nos itens da nota", localizado na natureza de operação, permite configurar o sistema de forma que o campo de frete esteja visível ou não na emissão da nota fiscal. Mais detalhes no tópico 
+Tabela Natureza Operação
+.
+Transferindo frete unitário do PMM para a Nota Fiscal:
+ O frete unitário informado em um PMM do tipo "Recebimento Direto do Fornecedor", pode ser transferido para os itens da Nota Fiscal de Compra, no momento do recebimento, inclusive, se o sistema estiver configurado de forma correta, os valores do frete serão transferidos para Manutenção de fretes. Mais informações no campo "Transfere frete unitário do PMM para a Nota fiscal", no tópico 
+Tabela Natureza Operação
+ .
+Para que o usuario tenha permissão para alterar se destaca frete na nota fiscal o perfil de usuário 
+Pode alterar se destaca frete na NF (caso a caso) 
+tem que estar habilitado.

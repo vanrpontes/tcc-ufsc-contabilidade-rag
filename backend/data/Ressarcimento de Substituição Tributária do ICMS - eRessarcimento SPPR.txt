@@ -1,0 +1,66 @@
+TITULO: Ressarcimento de Substituição Tributária do ICMS - e‑Ressarcimento SP/PR
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210568
+--------------------------------------------------
+Conforme Portaria CAT 42/2018 da Sefaz de SP, foi instituído o 
+Sistema Eletrônico de Gerenciamento do Ressarcimento - e‑Ressarcimento.
+ 
+No SisPetro, foram necessárias algumas alterações para gerar o arquivo eletrônico nos moldes apresentados pela Sefaz de SP
+Para emitir o relatório e/ou gerar a mídia do 
+ é necessário fazer algumas configurações no 
+Painel Fiscal
+, na 
+Natureza de Operação
+ e na aba 
+Dados Adicionais
+ do Cadastro de Produtos.
+Perfil de Sistema
+Na aba 
+Painel Fiscal
+, quadro E-Ressarcimento SP, informe a DLL para gerar o arquivo do ressarcimento:
+Natureza de Operação
+Na aba 
+:
+Participa do cálculo no Ressarcimento SP/SC:
+ Indica se a nota participará ou não do cálculo de Ressarcimento.
+Essa configuração, se participa ou não do Ressarcimento, é salva na Nota Fiscal. Portanto, só vale para notas incluídas após a mudança.
+Enquadramento das Saídas:
+ define qual enquadramento legal deve ser utilizado para as operações
+Saída Comercialização/Cons. Final:
+ código de enquadramento legal 0 (operação sem ressarcimento/complemento) ou 1 (consumidor final)
+Fato Gerador Não Realizado:
+ código de enquadramento legal 2
+Saída com Isenção ou Não Incidência:
+ código de enquadramento legal 3
+Saída para Outro Estado:
+ código de enquadramento legal 4
+Notas de devolução de vendas ou devolução de compras:
+ a configuração do Enquadramento das Saídas nas naturezas de operação de devolução deve ser exatamente igual a configuração das naturezas de vendas ou de compras.
+         
+Valor a ser utilizado nos Demais Confrontos
+Valor Constante na NF:
+ utiliza valor total da operação para calcular o ICMS
+Custo Médio Aquisição:
+ utiliza o custo médio calculado pelo SisPetro para calcular o ICMS. Necessário ter fechamento de custos
+CFOP a ser utilizado no arquivo:
+ c
+omo o programa validador não foi atualizado, alguns CFOP´s mais novos ainda não são aceitos. Configure neste campo o CFOP que deve ser utilizado no arquivo, podendo ser igual ao CFOP da Natureza, se o validador assim aceitar.
+As configurações referentes ao Fato Gerador e CFOP são verificadas no momento da emissão do relatório ou geração do arquivo. Portanto, vale para notas antigas.
+Ressarcimento PR
+Para o 
+Ressarcimento PR, não há necessidade de parametrização na Natureza de Operação.
+Basta informar no cadastro de produto sua participação.
+Cadastro de Produto
+Na aba 
+Dados Adicionais
+:
+Nos produtos participantes do relatório, no campo 
+Ressarcimento
+ deve-se definir qual o tipo de produto conforme opções abaixo:
+No campo 
+Proporção
+ definiremos a quantidade do produto que será gerada no relatório, exemplo:
+No caso de Gasolina C onde é composta por 73% de Gasolina A e 27% de Etanol Anidro, será necessário gerar no relatório apenas o valor correspondente aos 73% de Gasolina A, o Etanol Anidro não será gerado.
+Para isso deve-se informa no campo o valor 0,73. (O valor deve ser em decimal, conforme exemplificado).
+Caso não utilize proporção, 
+manter o valor 1
+, correspondente a 100%.

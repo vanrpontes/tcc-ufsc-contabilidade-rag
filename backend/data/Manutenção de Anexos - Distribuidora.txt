@@ -1,0 +1,184 @@
+TITULO: Manutenção de Anexos - Distribuidora
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898678
+--------------------------------------------------
+none
+Objetivo
+O SisPetro permite gerar todos os anexos do SCANC, desde movimentações de combustíveis até apurações interestaduais, exigindo antes configurações corretas de categorias, responsáveis e naturezas de operação. A Manutenção de Anexos possibilita incluir, alterar, cancelar e recalcular informações por categoria, com apurações automáticas de médias, proporcionalidades e estoque. O Sispetro também controla dados de ICMS próprio, retido ou substituição, conforme configurações definidas nas naturezas de operação. GNREs podem ser importadas automaticamente do Contas a Pagar ou lançadas manualmente, compondo registros da mídia SCANC. Após conferências, é possível imprimir os anexos, gerar a mídia e visualizar críticas na aba específica.
+O SisPetro permite a geração dos Anexos I, II, III, IV, V e VIII e inclusive a 
+Geração Mídia para o SCANC
+, armazenando estas informações para que possam ser reimpressos sempre que necessário.
+Mas antes de iniciar a geração dos anexos é necessário que alguns parâmetros estejam corretamente configurados. Vide tópico 
+Configurações Necessárias - Anexo
+ para saber detalhes desses procedimentos.
+Tipos de Anexos:
+Gasolina e Óleo Diesel
+Anexo I - movimentação de combustível (resumo de estoque e apuração de entradas por fornecedor).
+Anexo Ia - detalhamento das entradas por fornecedor e saídas resumidas.
+Anexo II - saídas interestaduais (nota a nota, acrescidas das operações realizadas por terceiros).
+Anexo III - resumo das operações interestaduais e apurações.
+Álcool Anidro:
+Anexo IV - recebimentos interestaduais de álcool anidro.
+Anexo V - resumo das operações interestaduais de álcool anidro (recebimentos).
+Anexo VIII - demonstrativo da apuração das saídas interestaduais de AEAC misturada à gasolina.
+A partir do mês 01/08/2015, a categoria Diesel foi separada onde estavam os produtos S10 e S500 que agora vão estar em categorias diferentes. Para alterar a categoria verificar no help 
+Dados Adicionais em Produtos
+Manutenção de Anexos
+Para se gerar um anexo, devemos acessar o Menu Movimentação / Controladoria / Manutenção de Anexos - Distribuidora.
+Aba Geral
+Nesta tela estarão todos os anexos gerados para a empresa que estiver conectada. Através dela é possível incluir, alterar, cancelar ou imprimir os anexos, somente com os dados da empresa em que estiver conectado:
+A partir de: 
+informe a data inicial de um período apurado, a partir da qual deseja que mostre na tela os anexos gerados
+Visualiza Anexos Cancelados:
+ se marcada, os anexos cancelados em vermelho
+Ao incluir um novo Anexo, através do botão 
+Incluir
+, irá aparecer a seguinte tela:
+Com exceção do painel Geral, nos demais painéis, as informações serão geradas por categoria de produto devendo ser atualizadas uma a uma
+. Portanto deverá ser informado a data de emissão, período e também os dados do responsável para todas as Categorias de Produtos. E devido a isso, o campo 
+Categoria do Produto
+ e o botão 
+Atualiza
+ ficam desabilitados somente nesse painel.
+Os dados do responsável pode ser definido nas configurações do Sispetro, acessando o Menu Ferramentas / Sistema / painel Fiscal, na parte de 
+Dados para o Anexo/Sintegra
+. Estando esses campos preenchidos nas Configurações da Empresa, o Sispetro trará de forma automática esses dados toda a vez que se for incluir um novo anexo. É importante definir neste local o Tipo da Filial, se é Distribuidora (padrão), TRR, Importador ou Outros.
+Aba Apuração Média e Proporc. Fornecedores
+O SisPetro busca a informação da proporção da Gasolina A(%) no perfil da empresa, Menu Ferramentas / Sistema / painel Dados Gerais:
+Na inclusão de Anexo, após informar o período e os dados do responsável no painel 
+Geral
+, deve-se ir para o painel 
+Apuração Média e Proporcionalidade Fornecedores
+:
+Selecione uma 
+Categoria de Produto
+ que deseja obter as informações. Após escolher a Categoria deve-se clicar no botão 
+Atualiza
+ para que o Sispetro gere as informações de acordo. Além disso, é bom lembrar que sempre que for acionado, ele irá recalcular os dados. É emitida uma mensagem de confirmação para o usuário decidir se deseja realmente executar a operação: 
+Caso clique em SIM, é emitida uma mensagem se deseja atualizar dados de pagamento de GNRE, caso tenha:
+No Quadro 1 será mostrado a apuração da média ponderada do valor da base de cálculo através da movimentação do estoque. E o Quadro 2 irá mostrar a apuração da proporcionalidade por fornecedor através dos recebimentos e também irá compor dados para a 
+Geração da Mídia do SCANC
+. Pode ser informado também no Quadro 1, a Base de Cálculo da ST, quando for o primeiro anexo, e nos próximos esta informação virá do anexo anterior.
+Ainda no Quadro 1 é importante ressaltar que a coluna 
+Qtde de Gasolina "A"
+ no Sispetro, é sempre a coluna considerada para enviar o valor da quantidade para os Anexos e SCANC - 
+Registro 62
+. Ou seja, no caso da Gasolina essa coluna pode ser diferente da coluna 
+Qtde de Combustível
+ devido a proporção da Gasolina C, porém no caso do Óleo Diesel, as duas colunas sempre vão ser iguais, por isso é sempre considerada a coluna 
+Qtde de Gasolina "A"
+ de todos os produtos.
+É importante ressaltar que o controle do B100 está sendo feito da mesma forma como é feita para o Álcool Anidro. Tanto o Álcool Anidro como o B100 utilizam do Código de ICMS vinculado ao produto, o que também inclui a geração de registros de estoque para o B100.
+Ao calcular os recebimentos, há uma configuração na Natureza de Operação que opta entre os seguintes valores: ICMS Subst, ICMS Retido e o preço de pauta. Esta poderá ser acessada via 
+Tabelas Auxiliares / Faturamento / Natureza de Operação / Detalhes / aba Lateral Geral / aba inferior Dados Adicionais 
+Valores ST p/ Scanc: 
+selecionar como serão obtidos os 
+das Notas Fiscais de 
+Entrada
+. 
+Esses valores irão compor dados para o 
+Registro 45
+, campos 22 e 23
+Não obtém Valores ST da NF: 
+essa opção deve ser configurada para as
+ Notas Fiscais de Saída
+, pois elas não são exigidas no SCANC. É importante entender como o SisPetro trabalha e precisa ser configurado para que os valores saiam corretamente. Para mais informações, ver 
+Cálculo de Imposto - Exemplo Prático
+Obtém Valores ST pelo ICMS Próprio (primário) e ST (biocombustível): 
+se desejar que os valores sejam pelo ICMS Substituição, existem duas formas de informar esses valores no momento da inclusão da nota física no SisPetro: manual ou automática.
+Inclusão Manual: 
+geralmente estes valores, 
+Base ICMS Substituição
+ e 
+Valor ICMS Substituição
+, das Notas Fiscais de Entrada são informados pelo usuário no momento da inclusão, devido ao preço de pauta (PMPF) que a Petrobras trabalha, ser diferente do preço que a empresa (distribuidora) cadastra no SisPetro. Portanto, para poder informar nas colunas Base ICMS Substituição e Valor ICMS Substituição os valores, conforme a Nota de Entrada, deve-se configurar na 
+Natureza de Operação
+, painel Por Filial / Impostos, a opção 
+Usuário deve informar ICMS Substituição
+. Dessa forma, o SisPetro habilita as colunas para preenchimento.
+Inclusão Automática: 
+para a empresa que deseja fazer esse cálculo automático, basta configurar na Natureza de Operação, painel 
+Por Filial / painel Impostos
+, a opção 
+Gera ICMS Substituição
+. É importante ver também 
+Cálculos dos Impostos
+, pois é necessário para obter esses valores corretamente e fazer as devidas configurações. 
+Para entender como deve ser configurado corretamente a natureza de operação para obter esses valores, vamos tomar como exemplo uma Nota Fiscal física (ou seja, uma nota que esteja realmente em mãos), lá podem existir duas formas desses valores de ICMS Substituição Tributária serem apresentados:
+Nos campos de ICMS Substituição, onde também é informado os valores totais dos produtos e etc.
+Nas observações, em caráter informativo.
+Obtém Valores ST pelo ICMS Retido: 
+para obter esses valores no momento da inclusão da Nota Fiscal de Entrada, pode-se informá-los manualmente ou configurar para que o SisPetro calcule-os automaticamente.
+Inclusão Manual: 
+se desejar digitar esses valores, basta configurar na Natureza de Operação, painel 
+Por Filial / Impostos
+, a opção 
+Permite alterar ICMS retido na Nota Fiscal
+. assim, no momento da inclusão da Nota Fiscal de Entrada, o SisPetro permitirá que seja informado os valores Base ICMS Retido e ICMS Retido, conforme exemplo dado logo abaixo.
+Inclusão Automática: 
+para obter o cálculo desses valores automaticamente configure na Natureza de Operação, painel Por Filial / Impostos, a opção 
+Gera ICMS Retido Fonte
+. No momento da inclusão da Nota não será preciso informar os valores do ICMS Retido.
+Obtém Valores ST pelo ICMS próprio total
+: utilizado para notas fiscais sem ICMS de Substituição.
+Esta opção deve ser utilizada em notas de compras de congênere, já que esse tipo de nota não possui informações de ICMS Subst ou Retido, por já terem sido recolhidos/apresentados no momento em que a congênere comprou da Refinaria.
+Obtém Valores ST pelo ICMS próprio total diminuído do ICMS Diferido: 
+essa opção deve ser utilizada para compra cuja parte do Biocombustível possui diferimento. 
+Caso não tenha nenhum desses valores, o SCANC não considera a quantidade na geração da mídia.
+É possível digitar valores vazios nos campos de perdas e ganho, bem como a atualização dos dados apresentando mensagens de erro e validação devidamente claras.
+No caso de ser o primeiro Anexo poderá ser informado o estoque inicial por fornecedor, pois caso contrário o Sispetro buscará do estoque final do último Anexo do período anterior e que não esteja cancelado.
+É importante saber que sempre que utilizar o botão 
+Preenche Dados
+ o Sispetro irá recalcular os dados desconsiderando os dados alterados manualmente como estoque inicial e a Base Calculo ST do estoque inicial.
+O painel 
+Operações Realizadas p/ Cliente
+ serve para informar manualmente caso existam operações interestaduais realizadas pelos destinatários ou aquisições de álcool anidro efetuadas por clientes do emitente, pois não constam no SisPetro tais informações.
+Aba Operação Ralizada p/ Cliente
+Havendo uma operação interestadual realizada pelo destinatário, deve-se então incluir os dados informando a UF, CNPJ do destinatário, quantidade, valor unitário médio, Alíquota e o ICMS Devido. Estas informações serão utilizadas no Anexo V para a categoria de Álcool Anidro, e nos Anexos II e III para as demais categorias de produto.
+Há duas formas de se informar o 
+Valor Unitário de Partida
+ que sai no Anexo II:
+Usar um preço fixo por UF, que é lançado na inclusão ou alteração do anexo, vide na tela 
+Manutenção de Anexos / Painel Preço p/ UF
+.
+Configurar o Sispetro de forma que se possa alterar o 
+Valor Unitário de Partida
+, por exemplo, durante o mês, sem perder o 
+Valor Unitário de Partida
+ de notas que foram emitidas antes da modificação. Essa configuração oculta o painel de 
+Preço p/ UF na Manutenção de Anexos
+. Para mais informações, ver 
+Margem Subst. Tributária
+.
+Aba Preço p/ UF
+Aba GNRE
+No painel 
+GNRE
+ serão mostrados os pagamentos efetuados e baixados no período pelo Contas a Pagar com 
+Tipo de Documento
+, podendo alterar estes valores, excluir ou incluir manualmente por UF. Para mais informações, ver 
+Configurações Necessárias - Anexo
+. Para incluir uma GNRE acesse o painel 
+Detalhes
+, que fica na parte inferior da tela, e clique no botão 
+Inclui
+:
+Deverá ser preenchido todos os campos corretamente da tela acima, pois são dados que compõem o 
+Registro 80
+ do SCANC.
+Para os valores das GNRE's, sugeridos automaticamente através de lançamentos baixados pelo Contas a Pagar, deve-se clicar no botão 
+Altera
+ para poder informar o 
+Número Autenticação
+, pois essa informação o SisPetro não possui. Já as outras informações (Banco, Agência, Valor e etc), o SisPetro busca as informações utilizadas da baixa do lançamento.
+Cabe ressaltar que ao clicar no botão Atualiza, para atualizar os dados, o Sispetro irá sobrepor somente os dados automáticos (ou seja os oriundos da Baixa do Contas a Pagar), já os dados inclusos manualmente permanecerão inalterados.
+O Anexo III distribui o valor pago em GNRE para os fornecedores, de forma que o valor total do complemento recolhido através de GNRE a favor de cada UF de destino apresentado no relatório seja igual ao valor total pago em GNRE.
+A cada fornecedor só é informado valor de GNRE, se o mesmo tiver imposto a ser complementado. O máximo de cada valor de GNRE será o valor deste imposto, assim é feita a diminuição do valor total da GNRE informada para a UF. Ao chegar no último fornecedor, se o valor de GNRE restante for maior que o imposto complementado, ou mesmo, o fornecedor não tiver imposto a ser complementado, sempre será informado este valor restante, para que atinja assim o valor total.
+Para imprimir os anexos que desejar, ver 
+Impressão dos Anexos
+. E para gerar arquivo magnético para o SCANC, ver 
+Geração Mídia SCANC
+.
+As criticas da geração do SCANC poderão ser vista através da aba 
+Críticas
+Desmarcar essa opção
+Aba Criticas

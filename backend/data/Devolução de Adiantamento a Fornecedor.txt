@@ -1,0 +1,103 @@
+TITULO: Devolução de Adiantamento a Fornecedor
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2908490154
+--------------------------------------------------
+Existe uma determinada situação onde a Distribuidora compra um determinado produto do seu fornecedor, e no final resta um saldo do produto comprado a ser retirado. Porém o volume em litros que sobrou é muito pouco para retirada de um caminhão, sendo assim o saldo é convertido em valores (conforme o preço negociado no pedido de compra) e a devolução pode ocorrer de duas formas: depósito do valor na conta bancária da empresa ou utilização desse volume em um novo contrato.
+Exemplo:
+Pedido de Compra 1
+Quantidade: 30.000
+Preço Unitário: R$ 1,20
+Valor Total a Pagar: R$ 36.000,00
+Normalmente, quando se efetua a compra, já é feito um pagamento antecipado pelo produto ao Fornecedor. Então neste caso, teremos no Sispetro:
+Inclusão do 
+Adiantamento Quantificado ao Fornecedor 
+(Manutenção de Adiantamento a Fornecedores)
+Recibo
+Fornecedor
+Data
+Conta Banco
+Produto
+Quantidade
+Preço Unitário
+Valor Bruto
+123
+321 - Teste
+01/01/2012
+0100001 - Banco A
+02 - Álcool Hidratado
+35.000
+R$ 1,20
+R$ 42.000
+Após a inclusão do Adiantamento, que é o pagamento efetivo ao fornecedor, o PMM é incluído, ficando da seguinte forma:
+Pedido de Compra
+Quantidade Pedido
+Preço Unitário
+1
+35.000
+R$ 1,20
+ 
+Iniciada a retirada, e com a conversão a 20 graus, resta um saldo. Vejamos:
+PMM
+Qtde Pedido
+Preço Unitário
+Numero OC
+Qtde Alocada
+Qtde OC (Separada)
+Qtde Faturada (NF)
+Saldo PMM
+Saldo Inicial Adto
+Quantidade Paga
+Saldo Final Adto
+1
+35.000
+R$ 1,20
+9
+35.000
+15.000
+14.919
+20.081
+R$ 42.000,00
+R$17.902,80
+R$ 24.097,20
+1
+35.000
+R$ 1,20
+8
+20.081
+20.000
+19.870
+211
+R$ 24.097,20
+R$ 23.844,00
+R$ 253,20
+ 
+ 
+Vejamos as duas formas de devolução para o saldo de 
+211
+ litros do PMM 1 a 
+R$ 1,20
+ no valor total de R$ 253,20:
+Depósito na Conta Bancária
+Transferir
+ o saldo restante do Adiantamento para Conta Contábil, informando a conta de banco onde foi depositado o valor.
+Com esse passo o adiantamento será finalizado e ocorre a entrada do valor na conta bancária.
+Há um perfil de sistema "Permite fazer transferência de Adiantamentos com PMM vinculado" que deve estar marcado para que essa operação possa ser realizada.
+Garantir que todo o processo de recebimento do PMM tenha sido encerrado até sobrar a quantidade a ser devolvida. Com o processo finalizado, aí pode ser feito o 
+desalocamento
+ do PMM, que irá zerar a quantidade pendente e separada do mesmo. 
+Com esse passo o PMM não poderá mais ser utilizado.
+Utilização do saldo em um novo Contrato
+Ter uma conta Transitória (
+NÃO 
+recomendamos utilizar a conta do tipo Banco já que não ocorrerá a movimentação efetiva)
+Sugerimos usar uma conta do Tipo Resultado
+Ela será utilizada somente para esta situação.
+Transferir o saldo restante do Adiantamento para Conta Contábil, informando a conta transitória
+Com esse passo o adiantamento estará finalizado e o valor referente ao saldo restante está na conta transitória
+ 
+Garantir que todo o processo de recebimento do PMM tenha sido encerrado até sobrar a quantidade a ser devolvida. Com o processo finalizado, aí pode ser feito o desalocamento do PMM, que irá zerar a quantidade pendente e separada do mesmo.
+Com esse passo o PMM não poderá mais ser utilizado.
+Incluir
+ o novo PMM referente à quantidade total do novo Contrato
+Incluir um adiantamento vinculando a este novo PMM informando como CC Banco a conta transitória utilizada e o valor referente ao saldo restante.
+Com esse passo o novo PMM terá aquele saldo restante (do PMM antigo) já vinculado. A conta transitória será zerada.
+Incluir novos adiantamentos deste novo PMM normalmente conforme ocorrer os pagamentos.

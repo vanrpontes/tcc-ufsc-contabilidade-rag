@@ -1,0 +1,64 @@
+TITULO: Modo AutoAtendimento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4112220161
+--------------------------------------------------
+Objetivo
+O objetivo deste módulo é permitir ao motorista realizar a inclusão de uma Ordem de Carregamento de Venda e o seu faturamento, podendo ainda imprimir todos os documentos associados a estes procedimentos.
+É portanto um procedimento indicado as distribuidoras.
+A ideia básica é que, quando o motorista for habilitado via SisPetro Normal (habilitando-o a acessar este módulo), seja criada uma senha de acesso a ele (também no SisPetro Normal). Esta senha é passada ao motorista via e-mail 
+ou fornecida pessoalmente de modo verbal
+.
+A base terá então um Tablet conectado via wireless a uma impressora e, opcionalmente, a uma leitora de código de barras para facilitar a leitura dos números dos lacres e envelopes.
+O motorista se autentica indicando seu CPF, sua senha e a placa do frota principal para o carregamento.
+O SisPetro consulta os pedidos aprovados para o dia (data de entrega = dia corrente) e o motorista escolhe quais itens deseja carregar (pois podem existir vários pedidos direcionados a ele). Em seguida, digita os lacres e envelopes conforme o frota indicado emitindo a Ordem de Carregamento e, feito isso, processando as NF envolvidas na OC incluída, imprimindo tudo e saindo de lá com todos os documentos para carregar.
+,
+Configurações Iniciais
+Ferramentas / Sistema / Aba SispetroApp / Quadro Auto Atendimento Base
+Habilitar a opção Auto Atendimento Habilitado
+Escolher a opção 
+Permitir
+ na Configuração Ação para Login de Motorista.
+Configurar a exibição de pedidos anteriores a data atual em Qtde de Dias para Exibição do Pedido
+Independente desta configuração, deverá ser criada uma senha individual para cada motorista. Portanto, habilitar aqui o acesso a todos os motoristas
+ não 
+irá permitir a qualquer motorista acessar o módulo, já que teremos de criar senha para cada um deles individualmente.
+Para mais informações, ver 
+Ferramenta / Usuário
+Painel 
+Vendas
+Pode incluir pedidos via APP (Quadro Diversos)
+Painel Carregamento
+Pode incluir Ordem Carregamento
+ (Quadro SisPetroApp)
+Painel Faturamento
+Pode imprimir NF? (Quadro Impressão de Nota Fiscal)
+Esses perfis devem estar habilitados para o usuário que irá logar antes do motorista. Para mais informações, ver 
+Tabelas Auxiliares / Transportes / Transportadoras / Motoristas
+ - Quadro Auto Atendimento Base
+Em Login Usuário escolher a opção 
+Habilitado
+Clicar no botão 
+Gerar Nova Senha
+ para gerar a senha para o usuário
+Esta senha só será vista uma única vez no momento da geração e poderá ser enviada via e-mail ao motorista.
+Para mais informações, ver 
+Arquivo / Depósito / OC
+Habilitar a opção 
+Trabalha com Série Lacres
+Habilitar a opção 
+Trabalha com Série Envelope
+Tanto a Série de Lacres quanto a série de Envelopes deve ser 
+manual
+. Para mais informações ver 
+Tabela Série de Lacres
+ e 
+Tabela Série de Envelopes
+Tabelas Auxiliares / Vendas / Tipo de Cobrança / 
+aba
+ por Empresa / 
+aba 
+Diversos / 
+quadro
+ Auto Atendimento
+É possível realizar o envio de e-mail de cobrança com o boleto para pedidos do SispetroApp - AutoAtendimento. Para mais informações, ver 
+Aba Diversos
+Ver Também

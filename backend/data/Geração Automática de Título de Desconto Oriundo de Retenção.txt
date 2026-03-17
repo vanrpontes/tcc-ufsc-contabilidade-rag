@@ -1,0 +1,27 @@
+TITULO: Geração Automática de Título de Desconto Oriundo de Retenção
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440440
+--------------------------------------------------
+Os títulos a pagar podem sofrer retenção na sua fonte, isto é, a empresa que contrata os serviços, quando vai pagar e dependendo do valor do pagamento, pode reter um percentual do valor e recolher antecipadamente alguns tributos. Este procedimento é lei e deve ser executado pelas empresas, pois caso elas não paguem estes tributos poderão ser multadas pelo fisco municipal, estadual ou federal.
+Por exemplo, toda nota fiscal de serviços deve ter uma retenção de 1,5% relativos ao imposto de renda. Assim, se a empresa X emite uma NF de R$ 1.000,00, provavelmente receberá o valor de R$ 985,00 e a empresa que tomou os serviços irá emitir um DARF (Documento de Arrecadação de Receita Federal) pagando ao governo diretamente R$ 15,00.
+Isso é vantagem para o governo que recebe antecipadamente (pois este tributo normalmente é apurado mensalmente e recolhido trimestralmente) e para as empresas participantes não interfere nos valores recebidos ou pagos (pois a empresa X teria de recolher este tributo mais cedo ou mais tarde).
+O Sispetro calcula estas retenções e pode abater do valor original do título ou da nota fiscal estas retenções (chamados de descontos).
+Para que o sistema gere automaticamente um título de desconto após a 
+inclusão de um título manual
+ ou através da 
+emissão da nota fiscal
+, deve efetuar os seguintes passos:
+1. Cadastrar as faixas para cálculo de vencimento. Ver em 
+.
+ 
+2. Cadastrar as configurações para geração de título de desconto. Ver em
+ 
+.
+ 
+3. Vincular a configuração criada no passo anterior ao tipo de desconto na
+ 
+.
+ 
+4. Na emissão da nota, somente será gerado o título automático se na natureza de operação, o perfil "Desconsidera código de contabilização" estiver marcado e a nota deve ser do tipo compra ou outras entradas.
+É fundamental para todo o esquema funcionar que o valor da retenção esteja sendo gerado corretamente. Assim, para colocar para funcionar esta geração, é recomendado que os tipos de desconto (como chamamos genericamente qualquer valor que esteja sendo subtraído do valor bruto do título ou nota fiscal) estejam configurados corretamente para que, em seguida, seja configurada a sua geração ou seja, a transformação daquela retenção num título.
+A partir da versão 7.13 é possível também gerar título de desconto para notas de saídas. Para mais informações, ver help 
+.

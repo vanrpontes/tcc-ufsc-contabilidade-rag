@@ -1,0 +1,519 @@
+TITULO: Configurações - EFD Contribuições
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439919
+--------------------------------------------------
+Perfil de Usuário
+ 
+Ferramentas > Usuário > aba Faturamento
+Definir o perfil 
+Pode Alterar Outros Impostos na NF
+É preciso ter permissão para alterar os Outros Impostos na Nota Fiscal, e com esse perfil marcado será possível incluir/ alterar o vínculo de Outros Impostos na Natureza de Operação.
+Perfil de Empresa
+ 
+Ferramentas > Sistema > aba Dados Gerais
+Configurar os 
+dados cadastrais da empresa
+ 
+Ferramentas > Sistema > aba Livro Eletrônico
+Configurar as Informações da Empresa:
+Nº PIS/PASEP
+Nº Suframa
+Inscrição Municipal
+Escrituração
+Estabelecimento centralizador de Escrituração
+Estabelecimento com escrituração centralizada
+Estabelecimento sem escrituração centralizada
+ 
+Definir para a empresa conectada qual a opção para
+ 
+Apuração de PIS/Cofins
+Tributado por Alíquota:
+ para 
+cálculo por Alíquota, ou seja, por percentual. Utilizada para CST PIS/COFINS de Operação Tributável com Alíquota Básica;
+Tributado por Valor Fixo por m3: 
+ para 
+cálculo por Valor Monetário, ou seja, por Unidade de Medida. 
+Utilizada para CST PIS/COFINS 
+de Operação Tributável com Alíquota por Unidade de Medida de Produto;
+Quadro SPED EFD Contribuições (PIS/COFINS)
+Método de Apropriação de Créditos
+Não se Aplica: 
+quando a empresa não se enquadra nos métodos direto e proporcional
+Método de Apropriação Direta:
+ No arquivo do SPED o desmembramento de valores de créditos referentes ao CST de Tributação Mista - Tributado ou Não Tributado - (Por exemplo: CST 53) será detalhado. Além disso, o registro 0111 não será gerado, com o detalhamento da Receita Tributada ou Não Tributada.
+Método de Rateio Proporcional (Receita Bruta): 
+Com esta configuração o método será proporcional a receita da empresa. Consequentemente é preciso enviar o registro 0111 com o detalhamento da Receita Tributada ou Não Tributada. Trabalhará junto com o perfil 
+Rateio créditos com CST de Tributação Mista?
+Tipo de Contribuição Apurada
+Exclusivamente a Alíquota Básica:
+ no caso de apuração das contribuições exclusivamente às alíquotas básicas de 0,65% ou 1,65% (PIS/Pasep) e de 3% ou 7,6% (Cofins)
+Alíquotas Específicas (Diferenciadas e/ou por Unidade de Medida de Produto):
+ No caso de apuração das contribuições às alíquotas específicas, decorrentes de operações tributadas no regime monofásico (combustíveis; produtos farmacêuticos, de perfumaria e de toucador; veículos, autopeças e pneus; bebidas frias e embalagens para bebidas; etc) e/ou em regimes especiais
+ 
+Incidência Tributária
+Exclusivamente no regime não-cumulativo
+Exclusivamente no regime cumulativo
+Regimes não-cumulativo e cumulativo
+Critério de Escrituração e Apuração
+Não se Aplica
+Regime de Caixa - Escrituração Consolidada
+Regime de Competência - Escrituração Consolidada
+Regime de Competência - Escrituração Detalhada
+Definir o campo
+ 
+Rateio Créditos com CST de Tributação Mista?
+, que trabalha em conjunto com o perfil Método de Apropriação de Crédito
+Cliente / Fornecedor
+O arquivo da EFD deverá conter somente 
+UM CNPJ por entidade
+, independente de ser cliente ou fornecedor. Neste caso, quando houver um cliente com o mesmo CNPJ de um fornecedor, deve-se definir qual deles será enviado na EFD: o cliente ou o fornecedor. Para isso, faça as seguintes configurações:
+No caso do Cliente ser enviado no SPED
+:
+Acessar o cadastro do fornecedor (que não será enviado na EFD) e configurar o 
+campo Código Entidade para uso no Livro Eletrônico
+ informando o código do Cliente.
+Arquivos > Fornecedores > aba Detalhes > aba inferior Observações;
+No caso do Fornecedor ser enviado no SPED
+:
+Acessar o cadastro do cliente (que não será enviado na EFD) e configurar o 
+campo Código Entidade para uso no Livro Eletrônico
+ informando o código do Fornecedor.
+Arquivos > Clientes > aba Detalhes > aba inferior Cadastro Detalhado;
+Relatório para Conferência de CNPJ: SPEDConfCGCEntidade.rtm
+Tabela Clientes 
+Arquivos > Clientes > aba Detalhes > aba inferior Dados Gerais
+Indicar a opção de
+ Apuração de PIS/Cofins
+ 
+com as seguintes opções;
+Respeita configuração para a empresa:
+ esta opção irá respeitar a definição do perfil de empresa Apuração de PIS/COFINS, citado no item de 
+Perfil de Empresa
+Tributado por Alíquota: e
+sta opção irá trabalhar com cálculo por Alíquota, ou seja, por percentual. 
+Utilizada para CST PIS/COFINS de Operação Tributável com Alíquota Básica;
+Tributado por Valor Fixo por m3: utilizar esta configuração, pois a Base de Cáculo não será o valor total da Nota Fiscal. 
+Esta opção irá trabalhar com cálculo por Valor Monetário, ou seja, por Unidade de Medida. 
+Utilizada para CST PIS/COFINS 
+de Operação Tributável com Alíquota por Unidade de Medida de Produto.
+Tabela Fornecedores  
+Arquivos > Fornecedores > aba Detalhes > aba inferior Dados Gerais
+Indicar a opção de 
+Apuração de PIS/Cofins
+ com as seguintes opções;
+Respeita configuração para a empresa:
+ esta opção irá respeitar a definição do perfil de empresa Apuração de PIS/Cofins, citado no item de 
+Perfil de Empresa
+Tributado por Alíquota: e
+sta opção irá trabalhar com cálculo por Alíquota, ou seja, por percentual. 
+Utilizada para CST PIS/COFINS de Operação Tributável com Alíquota Básica;
+Tributado por Valor Fixo por m3: utilizar esta configuração, pois a Base de Cáculo não será o valor total da Nota Fiscal. 
+Esta opção irá trabalhar com cálculo por Valor Monetário, ou seja, por Unidade de Medida. 
+Utilizada para CST PIS/COFINS 
+de Operação Tributável com Alíquota por Unidade de Medida de Produto.
+Notas Fiscais 
+Para que os dados da EFD Contribuições sejam gerados corretamente é preciso configurar a Natureza de Operação para gerar tais informações. Mas não basta somente a Natureza de Operação, temos também Outros Impostos. Porém, o primeiro passo a ser feito é a definição das operações de 
+Débito
+ e 
+Crédito
+.
+Definir operações que geram Débito:
+Normalmente são as operações de Venda de Álcool Hidratado, mas pode ser que a empresa tenha outras operações geradoras de débito
+Definir operações que geram Crédito
+, podendo ser passíveis de Crédito:
+Compra de Álcool Hidratado
+Compra de Álcool Anidro
+Aquisições de Serviço
+Aquisições de Frete
+Notas de Energia Elétrica
+Notas de Comunicação
+ 
+Lembre-se que essa decisão varia de empresa a empresa e a área Fiscal deve estar envolvida.
+Tabela Produtos  
+Arquivos > Produtos > aba Detalhes > aba inferior Dados Adicionais
+Através destes campos será possível definir os valores fixos por m³ para o produto selecionado.
+Os valores a serem utilizados também dependerão das configurações de 
+Apuração Pis/Cofins
+ do cadastro de 
+Cliente/
+Fornecedor
+.
+Informar os campos conforme a definição de empresa, considerando:
+Quadro Geral
+Todas as empresas que se encaixam no perfil de Distribuidora, Transportadora, Conjugada (Distribuidora/Transportadora), Armazenadora.
+Quadro Congêneres
+Deve ser utilizado para empresas que possuem este perfil.
+Para notas fiscais emitidas pela empresa em questão, os valores utilizados serão conforme o perfil de sistema 
+É Congênere?
+.
+Campos a serem preenchidos em seu respectivo quadro:
+Quadro Débito
+Valor fixo PIS por m3:
+ Definir o valor para Débito do PIS neste campo quando a empresa trabalhar com Alíquota por Unidade de Medida de Produto.
+Alíquota PIS: 
+Definir o valor para Débito do PIS neste campo quando a empresa trabalhar com Alíquota Fixa.
+Valor fixo COFINS por m3: 
+Definir o valor para Débito do PIS neste campo quando a empresa trabalhar com Alíquota por Unidade de Medida de Produto.
+Alíquota COFINS: 
+Definir o valor para Débito do PIS neste campo quando a empresa trabalhar com Alíquota Fixa.
+Quadro Crédito
+Valor fixo PIS por m3:
+ Definir o valor para Crédito do PIS neste campo quando a empresa trabalhar com Alíquota por Unidade de Medida de Produto.
+Alíquota PIS: 
+Definir o valor para Crédito do PIS neste campo quando a empresa trabalhar com Alíquota Fixa.
+Valor fixo COFINS por m3: 
+Definir o valor para Crédito do PIS neste campo quando a empresa trabalhar com Alíquota por Unidade de Medida de Produto.
+Alíquota COFINS: 
+Definir o valor para Crédito do PIS neste campo quando a empresa trabalhar com Alíquota Fixa.
+Tabela Outros Impostos
+Tabelas Auxiliares > Faturamento > Outros Impostos
+Antes de configurar a natureza de operação, é preciso cadastrar e configurar os outros impostos que serão gerados na Nota Fiscal.
+Informar os campos:
+Descrição
+Tipo: 
+define se o imposto será por alíquota ou por fórmula, podendo ser:
+Alíquota Fixa: 
+Esta opção irá trabalhar com cálculo por Alíquota que deverá ser informada diretamente no Cadastro de Produto.. 
+Utilizada para CST PIS/COFINS de Operação Tributável com Alíquota Básica. Por Exemplo: CST 01
+Por Fórmula: Utilizar esta configuração, pois a Base de Cáculo não será o valor total da Nota Fiscal. 
+Esta opção irá trabalhar com cálculo por Valor Monetário baseado na fórmula a ser definida. 
+Utilizada para CST PIS/COFINS 
+de Operação Tributável com Alíquota por Unidade de Medida de Produto. Por Exemplo: CST 03
+Tipo Alíquota: 
+após definir o campo Tipo como 
+Por Fórmula
+, defina o tipo de alíquota:
+Calculada como Taxa Percentual:
+ é o modo como era calculado anteriormente quando definido o imposto por alíquota.
+Calculada como Valor Monetário:
+ quando o usuário definir que o imposto vai ser calculado a partir do valor monetário, se a fórmula estiver correta, o SisPetro irá fazer os cálculos com base na quantidade em metros cúbicos e qual o valor definido pelo governo, sobre este mesmo metro cúbico.
+Nº de Decimais Alíquota:
+ 
+Definir o número de casas decimais, que por padrão deverá ser 4;
+PIS/COFINS:
+ Definir o Imposto a que se refere, podendo ser:
+PIS
+COFINS
+Não é PIS/COFINS
+Tipo Receita:
+ 
+conforme for selecionado o campo PIS/COFINS deve-se definir este campo como:
+Não é Receita
+Receita não Cumulativa:
+ 
+para empresas que trabalham com regime de alíquota de 0,65% (PIS) e 3% (COFINS)
+Receita Cumulativa
+:
+ 
+para empresas que trabalham com regime de alíquota de 1,65% (PIS) e 7,6% (COFINS)
+Tipo Crédito:
+ 
+Definição do Tipo de Crédito a que se refere o Imposto. Utilizado para Operações de Crédito (Compras/ Entradas).
+Base de Cálculo Crédito: 
+Definição da Base de Cálculo a que se refere o Imposto. Utilizado para Operações de Crédito (Compras/ Entradas).
+Natureza Frete: 
+Definição da Natureza de Frete do Conhecimento. Utilizado para Operações de Crédito (Entradas de Conhecimento).
+Conta Contábil: 
+Informar uma Conta Contábil. Apenas informativo, não possui validação.
+Código de Contribuição: 
+Definição da Contribuição. Utilizado para Operações de Débito (Vendas/ Saídas)
+Tabela Natureza de Operação 
+Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Geral > aba inferior Dados Adicionais
+Indicar em que 
+Registro do SPED PIS/COFINS
+ a Natureza será encaixada
+É importante que se tenha conhecimento do manual da EFD Contribuições.
+Quadro Livro Eletrônico
+Quadro PIS/Cofins
+Registro LPC:
+Definir a 
+Natureza da Receita
+ para a EFD Contribuições. Utilizada para totalizar as receitas não tributadas. No SisPetro, receitas não tributadas são notas de saída sem Outros Impostos. 
+Definir se a 
+tela de edição de Outros Impostos será aberta ao finalizar a nota fiscal
+.
+ 
+Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Por Filial > aba inferior Impostos
+Indicar o 
+CST PIS e CST COFINS
+O CST será salvo na Nota Fiscal, portanto esta configuração será aplicada em notas novas.
+Para notas antigas é necessário, após a configuração, cancelar, excluir e lançar a nota novamente.
+Configurar impostos no quadro
+ PIS / Cofins e Outros
+, considerando os campos:
+CST (Situação Tributária) PIS
+CST (Situação Tributária) COFINS
+CST (Situação Tributária) PIS sem valor
+CST (Situação Tributária) COFINS sem valor
+Usuário deve informar CST na digitação da NF
+Tabelas Auxiliares > Faturamento > Natureza de Operação > aba Detalhes > aba lateral Por Filial > aba inferior Outros Impostos
+Vincular os 
+ referente ao PIS/COFINS. 
+Para maiores informações a respeito de como criar fórmulas, veja o tópico sobre 
+Apuração de PIS e COFINS
+. 
+Este, quando configurado na Natureza de Operação, será salvo como 
+AUTOMÁTICO 
+para diferenciar dos Outros Impostos incluídos manualmente pelos usuários.
+Automaticamente: Configurando na Natureza de Operação os Outros Impostos esses valores ficarão salvos na Nota.
+Manualmente: Na tela de 
+Manutenção de NFs
+ é possível indicar os valores. Este, sendo útil para notas anteriores à configuração do procedimento automático.
+ 
+Dica: 
+Notas de Venda e Compra de Combustíveis sem Outros Impostos
+Os registros dessas notas (C180 e C190) são totalizadores. Emita relatórios de Faturamento/Fiscal para ver a quantidade movimentada e inclua diretamente no Validador
+Criando as fórmulas de outros impostos para cálculo do PIS/COFINS na Natureza de Operação 
+A fórmula de outros impostos permite a utilização de campos do Cadastro de Clientes/Fornecedores (tabela Entidade) e de Produtos (tabela Produto). Dessa forma, ao invés de ter uma fórmula fixa direcionada para Alíquota e outra fórmula fixa direcionada para Valores fixo, pode-se ter uma fórmula genérica que, conforme configuração, faça os cálculos necessários. Com isso, não é necessário ter duas naturezas de operação distintas.
+Vamos fazer um exemplo de uma fórmula de PIS para uma natureza de operação de entrada:
+Na aba de Outros Impostos da Natureza de Operação, clique no
+ Botão Inclui.
+No campo Código de Outros Impostos, selecione o outro imposto criado correspondente ao PIS.
+Para isso é necessário que tenha em Tabelas Auxiliares > Outros Impostos, o cadastro referente ao PIS. 
+Também é importante que o mesmo esteja definido para trabalhar por fórmula. 
+Mais detalhes veja o tópico 
+Para construir esta fórmula, devemos ter configurado no Cadastro de Produto os campos de valores de alíquota e m³ . Supondo que definimos o perfil do fornecedor para utilizar Tributação por alíquota, poderemos pensar nas seguintes fórmulas:
+Base de Cálculo: Se <Entidade.ApuPisCofins> = 1 Entao <NotaFiscal.Valprod> Senao <ItensNF.Qtde> / 1000 FimSe
+Aliquota: Se <Entidade.ApuPisCofins> = 1 Entao <NotaFiscal.Valprod> * (<Produto.PIS_CR_Aliquota> / 100) Senao <ItensNF.Qtde> * (<Produto.PIS_CR_Aliquota> / 100) FimSe
+
+Na fórmula de outros impostos é necessário colocar ao invés do nome das tabelas, o código dos campos no banco de dados, dessa forma, a fórmula final configurada ficaria da seguinte maneira, já com o Se substituido por IF:
+Base de Calculo: if <16620> = 1 then <564> else <734>/1000 endif
+Aliquota: if <16620> = 1 then <564>*(<16612>/100) else <734>*(<16611>/100)  endif
+
+Exemplos de Fórmulas para PIS/COFINS
+ 
+Imposto: PIS
+Operação: Crédito
+Compra de Álcool Anidro por M³ ou 
+Compra de Álcool Hidratado por M³
+Fórmula Base Cálculo
+Fórmula Imposto
+Tipo Crédito
+Base Cálculo Crédito
+Natureza Frete
+Conta Contábil
+Código Contribuição
+<ItensNF.Qtde> 
+/ 1000
+(
+<ItensNF.Qtde> 
+/ 1000
+) * <
+Produto.PIS_CR_ValorM3>
+Em branco
+Em branco
+Imposto: COFINS
+ 
+Operação: Crédito
+ 
+Compra de Álcool Anidro por M³ ou 
+Compra de Álcool Hidratado por M³
+ 
+Fórmula Base Cálculo
+Fórmula Imposto
+Tipo Crédito
+Base Cálculo Crédito
+Natureza Frete
+Conta Contábil
+Código Contribuição
+<ItensNF.Qtde> 
+/ 1000
+(
+<ItensNF.Qtde> 
+/ 1000
+) * <
+Produto.
+COFINS_CR_ValorM3>
+Em branco
+Em branco
+Imposto: PIS
+Operação: Crédito
+Compra de Álcool Anidro de Congenere M³ ou 
+Compra de Álcool Hidratado de Congenere M³
+Fórmula Base Cálculo
+Fórmula Imposto
+Tipo Crédito
+Base Cálculo Crédito
+Natureza Frete
+Conta Contábil
+Código Contribuição
+<ItensNF.Qtde> 
+/ 1000
+(
+<ItensNF.Qtde> 
+/ 1000
+) * <
+Produto.
+PIS_CR_ValorM3_Cong>
+Em branco
+Em branco
+Imposto: COFINS
+ 
+Operação: Crédito
+ 
+Compra de Álcool Anidro de Congenere M³ ou 
+Compra de Álcool Hidratado de Congenere M³
+Fórmula Base Cálculo
+Fórmula Imposto
+Tipo Crédito
+Base Cálculo Crédito
+Natureza Frete
+Conta Contábil
+Código Contribuição
+<ItensNF.Qtde> 
+/ 1000
+(
+<ItensNF.Qtde> 
+/ 1000
+) * <
+Produto.COFINS_CR_ValorM3_Cong>
+Em branco
+Em branco
+Imposto: PIS
+Operação: Crédito
+Compra de Álcool Hidratado por Alíquota % ou Outras Entradas com Créditos
+Fórmula Base Cálculo
+Fórmula Imposto
+Tipo Crédito
+Base Cálculo Crédito
+Natureza Frete
+Conta Contábil
+Código Contribuição
+<ItensNF.Qtde> 
+* <
+ItensNF.PrecoPedido>
+(
+<ItensNF.Qtde> 
+ 
+* <
+ItensNF.PrecoPedido>
+) 
+* <
+Produto.PIS_CR_Aliquota>
+Em branco
+ 
+Em branco
+Imposto: COFINS
+Operação: Crédito
+Compra de Álcool Hidratado por Alíquota % ou Outras Entradas com Créditos
+Fórmula Base Cálculo
+Fórmula Imposto
+Tipo Crédito
+Base Cálculo Crédito
+Natureza Frete
+Conta Contábil
+Código Contribuição
+<ItensNF.Qtde> 
+ 
+* <
+ItensNF.PrecoPedido>
+(
+<ItensNF.Qtde> 
+ 
+* <
+ItensNF.PrecoPedido>
+) 
+* <
+Produto.COFINS_CR_Aliquota>
+Em branco
+Em branco
+Imposto: PIS
+Operação: Crédito
+Aquisição de Fretes
+Fórmula Base Cálculo
+Fórmula Imposto
+Tipo Crédito
+Base Cálculo Crédito
+Natureza Frete
+Conta Contábil
+Código Contribuição
+<ItensNF.Qtde> 
+ 
+* <
+ItensNF.PrecoPedido>
+(
+<ItensNF.Qtde> 
+ 
+* <
+ItensNF.PrecoPedido>
+) 
+* <
+Produto.PIS_CR_Aliquota>
+Em branco
+Imposto: COFINS
+Operação: Crédito
+Aquisição de Fretes
+Fórmula Base Cálculo
+Fórmula Imposto
+Tipo Crédito
+Base Cálculo Crédito
+Natureza Frete
+Conta Contábil
+Código Contribuição
+<ItensNF.Qtde> 
+ 
+* <
+ItensNF.PrecoPedido>
+(
+<ItensNF.Qtde> 
+ 
+* <
+ItensNF.PrecoPedido>
+) 
+* <
+Produto.COFINS_CR_Aliquota>
+Em branco
+Imposto: PIS
+Operação: Débito
+Venda de Álcool Hidratado por M³
+Fórmula Base Cálculo
+Fórmula Imposto
+Tipo Crédito
+Base Cálculo Crédito
+Natureza Frete
+Conta Contábil
+Código Contribuição
+<ItensNF.Qtde> 
+/ 1000
+(
+<ItensNF.Qtde> 
+/ 1000
+) * <
+Produto.PIS_DB_ValorM3>
+Em branco
+Em branco
+Em branco
+Imposto: COFINS
+Operação: Débito
+Venda de Álcool Hidratado por M³
+Fórmula Base Cálculo
+Fórmula Imposto
+Tipo Crédito
+Base Cálculo Crédito
+Natureza Frete
+Conta Contábil
+Código Contribuição
+<ItensNF.Qtde> 
+/ 1000
+(
+<ItensNF.Qtde> 
+/ 1000
+) * <
+Produto.COFINS_DB_ValorM3>
+Em branco
+Em branco
+Em branco
+O Quadro acima é somente um EXEMPLO. 
+Os nomes dos campos estão destacados dentro dos símbolos <campo>. Seus nomes são idênticos em qualquer banco de dados, o que muda é o respectivo código do banco. Efetue a busca pelo nome do campo. Além disso, os valores citados de Alíquota podem ser diferentes. 
+Se atente!
+Nas fórmulas utilize . (ponto decimal) no lugar de vírgula. 
+Exemplo: 3.21 (e não 3,21), 1,65% pode ser informado como: 1.65/100 ou 0.0165
+Tabela Conjunto de Dados
+ 
+Informar o diretório onde está armazenada a DLL utilizada no preenchimento e na geração do arquivo para a EFD, no serviço de Livro Pis e Cofins.
+ 
+Tabelas Auxiliares > Faturamento > Controladoria > Conjunto de Dados
+Campo
+ DLL Arquivo de Exportação
+ 
+ 
+No caso de apuração das contribuições  exclusivamente  às alíquotas básicas de 0,65% ou 1,65% (PIS/Pasep) e de 3% ou 7,6% (Cofins);

@@ -1,0 +1,235 @@
+TITULO: Geração de arquivo de remessa e correção para o Serasa
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2886336707
+--------------------------------------------------
+O Sispetro possui o recurso de gerar os arquivos de remessa e correção conforme o documento 
+Relato Serasa
+.
+
+
+Mas para gerar estes arquivos através do Sispetro você deve seguir as orientações abaixo:
+
+
+
+
+Verificar se o seu banco de dados possui a tabela 
+Serasa
+.
+	
+
+
+Abrir o DBISQLC no servidor (Menu Iniciar -> Executar -> DBISQLC);
+
+
+Conecte no banco de dados informando usuário e senha do banco;
+
+
+No quadro Command do Dqbisqlc digite o comando:
+
+
+select * from serasa
+
+
+
+Caso este comando retorne com o erro abaixo:
+
+
+
+
+
+ 
+ Error at line 1
+
+Table serasa not found 
+
+
+
+
+
+
+
+
+Execute o script 
+Serasa.sql
+ para criação da tabela Serasa e da procedure ProcessaSerasa no banco de dados.
+
+
+
+
+
+
+Caso este comando retorno com a tabela serasa sem conteúdo, o script citado acima não precisará ser executado.
+
+IMPORTANTE:
+ Para obter o script 
+SERASA.SQL
+ solicite ao Suporte Futura Tecnologia.
+
+
+
+
+
+
+Processar os dados do Serasa para via banco de dados
+	
+
+
+Abrir o DBISQLC no servidor (Menu Iniciar -> Executar -> DBISQLC);
+
+
+Conecte no banco de dados informando usuário e senha do banco;
+
+
+No quadro Command do Dqbisqlc digite o comando:
+
+
+call ProcessaSerasa(<DataInicio>,<DataFim>,<CodEmpresa>)
+
+
+Onde: 
+		
+
+
+DataInicio:
+ é a data inicial desejada no formato AAAAMMDD
+
+
+DataFim:
+ é a data final desejada no formato AAAAMMDD
+
+
+CodEmpresa:
+ código da empresa que serão gerados os dados, porém este campo é 
+opcional
+.
+
+Exemplo:
+
+Período Inicial de: 01/07/2009
+
+Período Final de: 31/07/2009
+
+Código da Empresa: 1
+
+
+
+call ProcessaSerasa(20090701,20090731,1)
+
+
+
+
+
+Execute este item somente uma vez para o mesmo período, caso contrário os dados serão 
+DUPLICADOS
+ e não sobrepostos.
+
+
+
+
+
+
+
+
+
+
+Configurar os layout's de Remessa e Correção no Sispetro
+	
+
+
+Acesse o menu Ferramentas/ Exportação de Dados/ Manutenção Exportação de Dados
+
+
+Clicar no botão + (Incluir)
+
+
+Informar uma 
+Descrição
+ para o layout de Remessa
+
+ 
+Exemplo:
+ 
+
+Serasa - Remessa
+
+
+Clicar novamente no botão + (Incluir)
+
+
+Informar uma 
+Descrição
+ para o layout de Correção
+
+ 
+Exemplo:
+ 
+
+Serasa - Correção
+
+
+Na aba Navegação, selecione o registro referente ao layout de Remessa
+
+
+Na aba Detalhes, carregue o arquivo 
+Serasa_Normal.rtm
+ clicando no botão 
+Carrega de Arquivo
+
+Localize e selecione o arquivo citado acima.
+
+Importante:
+ Este arquivo irá gerar a movimentação ocorrida no período selecionado (data de ocorrência) - emissões e pagamentos.
+
+
+Volte na aba Navegação e selecione o registro referente ao layout de Correção
+
+
+Na aba Detalhes, carregue o arquivo 
+Serasa_Correcao.rtm
+ clicando no botão 
+Carrega de Arquivo
+
+Localize e selecione o arquivo citado acima.
+
+Importante:
+ Este arquivo efetua alterações e/ou exclusões de informações que estão na base de dados do Relato no Serasa. Ex: cancelamento/exclusão de um título (devolução de mercadoria, negócio desfeito, etc.).
+
+
+IMPORTANTE:
+ Para obter o script 
+SERASA_NORMAL.RTM
+ e 
+SERASA_CORRECAO.RTM
+ solicite ao Suporte Futura Tecnologia.
+
+
+
+
+
+
+Gerar o arquivo de remessa e/ oiu correção via Sispetro
+	
+
+
+Acesse o menu Ferramentas/ Exportação de Dados/ Exportação de Dados
+
+
+Informar o código do layout a ser gerado, conforme o que foi criado no item 3, podendo ser Serasa - Remessa ou Serasa - Correção
+
+
+Na aba Entidade da tela de Filtro informe o período Inicial e Final para geração do arquivo
+
+
+A aba Empresa possui o filtro para informar o código da empresa. Lembrando que este filtro é opcional.
+
+
+Salve o arquivo em um local apropriado.
+
+
+
+
+
+
+
+
+
+Boa sorte!

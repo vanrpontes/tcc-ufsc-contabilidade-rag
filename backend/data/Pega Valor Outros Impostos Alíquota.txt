@@ -1,0 +1,37 @@
+TITULO: Pega Valor Outros Impostos Alíquota
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926192276
+--------------------------------------------------
+Esta função foi disponibilizada no Gerenciador de Relatórios com a finalidade de apresentar a alíquota dos outros imposto.
+Irá apresentar a alíquota de impostos como:
+PIS
+Cofins
+A partir da versão 9.24, a função foi alterada para que seja utilizada também na impressão do DANFE, em função de ajustes para envio de e-mail.
+A função antiga será desativada em breve.
+ 
+Deverá ser utilizada da seguinte forma: PegaValorOutrosImpostosAliquota2 (xCodEmpresa,xSequencialNF,xNumItem,xCodOutImp,
+lReport
+);
+xCodEmpresa:
+ Campo com o Código da empresa que está cadastrado os Outros Impostos.
+xSequencialNF:
+ Campo com o sequencial da nota fiscal.
+xNumItem:
+ Campo com o número do item.
+xCodOutImp:
+ Campo com Código dos Outros Impostos cadastrados.
+lReport
+: Campo com informação do objeto do Report Builder.
+Para utilização no Gerenciador de Relatórios:
+Coloque uma variável no relatório, e vá até a opção Cálculos da variável.
+Na tela seguinte, o sistema trará a condição Value:=. Após esta condição deve-se digitar a função e os seus respectivos valores.
+Caso queira pode-se vincular campos de tabelas aos campos solicitados na função.
+ 
+Exemplo:
+Value :=  
+PegaValorOutrosImpostosAliquot
+a2 ( NF['CodEmpresa'],NF['
+Sequencial'] ,ItensNF['NumItem'],7, 
+Report.MainReport
+);
+ 
+ 

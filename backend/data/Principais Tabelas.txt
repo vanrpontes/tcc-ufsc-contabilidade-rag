@@ -1,0 +1,331 @@
+TITULO: Principais Tabelas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2901705130
+--------------------------------------------------
+
+
+
+
+Tabela
+
+
+Descrição
+
+
+Chave Primária
+
+
+Campos importantes
+
+
+Principais tabelas relacionadas
+
+
+
+
+
+
+Empresas
+
+
+ Empresas 
+
+
+ CodEmpresa
+
+
+ 
+
+
+ EmpresasPerfil, NaturezaOperaçãoEmp, NFe 
+
+
+
+
+
+
+Entidade
+
+
+ Entidade 
+
+
+ CodEnt
+
+
+ Tipo - C: Cliente, F: Fornecedor 
+
+
+ ContratoEntidade, Pedido, NotaFiscal
+
+
+
+
+
+
+NotaFiscal
+
+
+ Nota Fiscal 
+
+
+ CodEmpresa, Sequencial 
+
+
+ ES- E: Entrada, S: Saída, N: Conhecimento Emitido
+
+
+ NFe, LFiscal, ContasPagarReceber
+
+
+
+
+
+
+ItensNF
+
+
+ Itens NF 
+
+
+ CodEmpresa, Sequencial  NumItem
+
+
+ CodProd: Produto, PreçoReal: Preço com imposto (ICMS-ST), PreçoPedido: Preço sem imposto (ICMS-ST), FretUnitReal: Frete Unitário  
+
+
+ ItensNFImportacao, ItensNFVinculoNF, OutrosImpostosNF
+
+
+
+
+
+
+ContasPagarReceber
+
+
+ Títulos de Contas à Pagar e Receber 
+
+
+ CodEmpresa, NumLancamento 
+
+
+ Tipo- AR: A Receber, AP: A Pagar, PG: Pago (títulos à pagar), RC: Receber (títulos à receber), CP: Cancelado (Cancelados em Contas à Pagar), CR: (Cancelados Títulos à Receber) 
+
+
+ FFinanceiro2CRP, OcorrenciasCRP
+
+
+
+
+
+
+Baixa
+
+
+ Baixa 
+
+
+ CodEmpresa, NumBaixa 
+
+
+ 
+
+
+ –  
+
+
+
+
+
+
+ItensBaixa
+
+
+ Itens Baixa 
+
+
+ CodEmpresa, NumBaixa, Item 
+
+
+ NumLançamento: Chave título
+
+
+ ItensBaixaMoeda 
+
+
+
+
+
+
+Produto
+
+
+ Produto 
+
+
+ CodProduto 
+
+
+ 
+
+
+ DPMP, MovimentoProdutoItens, ItensNF, Produto 
+
+
+
+
+
+
+Pedido
+
+
+ Pedido
+
+
+ CodEmpresa, NumPedido
+
+
+ Tipo - VD: Venda, CP: Compras (PMM), OS: Outras Saídas, OE: Outras Entradas 
+
+
+ NotaFiscal, PedidoCotaDia 
+
+
+
+
+
+
+ItensPedido
+
+
+ Itens Pedido 
+
+
+ CodEmpresa, NumPed, Seq
+
+
+ 
+
+
+ DPMP, ContratoVenda
+
+
+
+
+
+
+LFiscal
+
+
+ Livro Fiscal 
+
+
+ CodEmpresa, Sequencial 
+
+
+ 
+
+
+ – 
+
+
+
+
+
+
+MovimentoPlanoContas
+
+
+ Movimento Plano Contas 
+
+
+ CodConta, CodCompl, NumLote, Parcela 
+
+
+ 
+
+
+ CentroCustoRateio 
+
+
+
+
+
+
+PlanosContaRealMovimento 
+
+
+ Movimento Contábil Real 
+
+
+ SeqMovto 
+
+
+ 
+
+
+ – 
+
+
+
+
+
+
+MovimentoEstoqueReal
+
+
+ Movimento Estoque 
+
+
+ View 
+
+
+ 
+
+
+ – 
+
+
+
+
+
+
+OrdemCarregto
+
+
+ Ordem de Carregamento 
+
+
+ CodEmpresa, NumeroOC 
+
+
+ 
+
+
+ NotaFiscal, OrdemCarregto, Pedido 
+
+
+
+
+
+
+ItensOrdemCarregamento
+
+
+ Itens de Ordem de Carregamento 
+
+
+ CodEmpresa, NumeroOC, Item 
+
+
+ 
+
+
+ Bombeio Distribuicao, NotaFiscalOC 
+
+
+
+
+
+
+Maiores detalhes ver Dicionário de Dados

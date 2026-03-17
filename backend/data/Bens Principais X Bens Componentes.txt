@@ -1,0 +1,81 @@
+TITULO: Bens Principais X Bens Componentes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2915074078
+--------------------------------------------------
+1. Diferenças:
+Bem Principal
+: é o bem oriundo da composição de outros bens, sejam bens físicos ou não. Enquanto não concluído é um imobilizado em andamento.
+Bem Componente
+: é o bem que irá compor um bem principal.
+2. Alterações a serem feitas no Sispetro:
+Implementar uma data de início da depreciação
+Implementar uma forma de diferenciar de bem principal e de bem componente.
+3. CIAP:
+Um bem principal tem CIAP calculado a partir do momento que for concluído, para contribuinte localizado em UF que considere que os bens componentes não atende as condições para se ter direito ao crédito de ICMS. No Sispetro deve marcar para SUSPENDER CIAP enquanto não for concluído.
+Um bem componente não calcula CIAP para contribuinte localizado em UF que considere que não atende as condições para se ter direito ao crédito de ICMS. No Sispetro deve marcar para SUSPENDER CIAP pois será calculado no bem principal.
+4. Depreciação:
+Um bem principal tem depreciação calculada a partir do momento que for concluído.  No Sispetro deve marcar para SUSPENDER DEPRECIAÇÃO enquanto não for concluído.
+Um bem componente não calcula depreciação. No Sispetro deve marcar para SUSPENDER DEPRECIAÇÃO pois será calculada no bem principal.
+A partir da versão 8.8 é possível digitar a data de início da depreciação, que pode ser diferente da data de aquisição do bem. Tela de manutenção de bens, campo "data início depreciação"
+ 
+5. Alterações no SPED FISCAL -  bloco G:
+O Bloco “G”, relativo ao livro “Controle do Créditode ICMS do Ativo Permanente – CIAP – Modelos C e D”, foi inserido no leiaute estabelecido pelo Ato COTEPE 38/2009 e modificado, posteriormente, pelo leiaute determinado no Ato COTEPE 47/2009.
+A entrega mensal da escrituração fiscal digital do livro CIAP, por meio do Bloco “G”, é obrigatória a partir de janeiro/2011 para os contribuintes de ICMS que apuram créditos de ICMS sobre o Ativo Imobilizado (Ajuste SINIEF 02/2010). São obrigados a entregar o EFD todos os contribuintes do ICMS e/ou do IPI. Entretanto, o Protocolo ICMS 77/2008 restringe a obrigatoriedade para os contribuintes relacionados por cada unidade federada. Isso pode ocasionar situações diversas para empresas com estabelecimentos em vários Estados, como por exemplo: obrigar a entrega da EFD em alguns Estados e desobrigar em outros, fazendo com que as empresas mantenham os seus sistemas em condições de gerar as obrigações acessórias nos moldes das regras estabelecidas. 
+ 
+Como tratar a aquisição de partes e peças para Construção de Ativo Imobilizado
+A aquisição de partes e peças para a construção do Ativo Imobilizado, devem ser cadastradas como Bem, porém as mesmas 
+não sofreram depreciação e também não poderá ocorrer apropriação de crédito de ICMS
+. O Bem em questão, ainda não é um imobilizado definitivo, ou seja, não está em uso ou operação. Este será um Imobilizado em Andamento.
+Segue breve explanação com exemplos para o devido tratamento no Bloco G, para aquisição de partes e peças:
+A - AQUISIÇÃO DE PEÇAS PARA CONSTRUÇÃO DO ATIVO IMOBILIZADO
+Nesta situação deverá ser gerado no Registro 0300:
+1.O bem que está sendo construído no estabelecimentodo contribuinte (o futuro Ativo Imobilizado) Ex: Máquina.
+Obs:Mesmo que não existe fisicamente, consta a observação no último parágrafo (antes da tabela) das informações sobre o Registro 0300.
+2.Todos os componentes que forem adquiridos para construção do ativo imobilizado. Ex: Parafuso, porca e alavanca.
+Os componentes deverão ser classificados no CAMPO-3_IDENT_MERC como "2" (componente) e no CAMPO-5_COD_PRNC obrigatoriamente deverá ser indicado o código criado para o bem em construção. Ex: Máquina.
+|0300|0001|1|Maquina||xx|48| 
+|0300|0002|2|Parafuso|0001|xxx|48| 
+|0300|0003|2|Porca|0001|xxxx|48| 
+|0300|0004|2|Alavanca|0001|xxxxx|48
+No Registro G125, deverão ser informadas somente as ocorrências referentes aos componentes, indicados no CAMPO-4_TIPO_MOV como "IA" = Imobilização em andamento – Componente.
+Não deverão ser informados os CAMPOS 09 e 10, tendoem vista que ainda não são passíveis da apropriação de crédito.
+Obs:No segundo parágrafo dasinformações para preenchimento do CAMPO 04 do Registro G110 é identificado que não compõe saldo inicial passível de apropriação de crédito aqueles classificados como movimentação IA – Imobilização em andamento .
+O bem principal não deverá ser lançado no Registro G125, tendo em vista que ainda está sendo construído (não ocorrendo sua movimentação).
+|G125|0002|25012011|IA|100,00|||||| 
+|G125|0003|25012011|IA|100,00|||||| 
+|G125|0004|25012011|IA|100,00||||||
+Isso deverá ser feito em todas as aquisições de componentes até a completa construção do bem.
+B - CONCLUSÃO DO ATIVO IMOBILIZADO
+Quando for concluído o processo de construção do ativo, deverão ser lançados todos os componentes e o bem construído no 
+Registro 0300
+.
+|0300|0001|1|Maquina||xx|48| 
+|0300|0002|2|Parafuso|0001|xxx|48| 
+|0300|0003|2|Porca|0001|xxxx|48| 
+|0300|0004|2|Alavanca|0001|xxxxx|48|
+No 
+Registro G125
+, serão lançados todos os componentes (com movimentação "IA") e o Bem Principal (Ativo imobilizado construído) com movimento "CI", fazendo constar nos campos de valores a somatória dos registros com tipo de movimento "IA".
+|G125|0002|25012011|IA|100,00|||||| 
+|G125|0003|25012011|IA|100,00|||||| 
+|G125|0004|25012011|IA|100,00|||||| 
+|G125|0001|20022011|CI|300,00||||||
+No mês subseqüente até a conclusão dos créditos deverá ser repetido o mesmo processo, somente será alterada a movimentação do bem no Registro G125, que passará a ser informada "SI".
+Registro 0300
+ 
+|0300|0001|1|Maquina||xx|48| 
+|0300|0002|2|Parafuso|0001|xxx|48| 
+|0300|0003|2|Porca|0001|xxxx|48| 
+|0300|0004|2|Alavanca|0001|xxxxx|48|
+Registro G125
+ 
+|G125|0002|25012011|IA|100,00|||||| 
+|G125|0003|25012011|IA|100,00|||||| 
+|G125|0004|25012011|IA|100,00|||||| 
+|G125|0001|20022011|SI|300,00||||||.
+Fonte: 
+www.spednews.com.br
+.
+ 
+Os exemplos acima referem-se ao CIAP para contribuinte localizado em UF que considere que os bens componentes não atende as condições para se ter direito ao crédito de ICMS.
+Para calcular CIAP cujo contribuinte esteja localizado em UF que considere que os bens componentes atendem as condições para ser ter direito ao crédito de ICMS seguem as regras comuns, conforme consta nas páginas 136-137 do Guia Prático da EFD versão 2.0.12.
+ 

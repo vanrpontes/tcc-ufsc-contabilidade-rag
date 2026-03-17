@@ -1,0 +1,220 @@
+TITULO: Tabela ICMS
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210561
+--------------------------------------------------
+O acesso a esta tela se da através do menu T
+abelas Auxiliares / Faturamento / ICMS
+Nesta tela são cadastradas as alíquotas de ICMS.
+O código do ICMS é muito importante, pois na venda de um produto, o SisPetro busca através deste código e da UF Origem ( da empresa ) a alíquota de ICMS próprio, e deste código mais a UF Destino ( do cliente ) a alíquota de ICMS Substituição. Os dados podem ser diferenciados para cada empresa.
+Esta tabela é ligada à tabela de Produtos via código de ICMS. Cada produto tem associado um código de ICMS. Assim, o SisPetro busca o código do ICMS no cadastro do produto movimentado e, no cadastro de ICMS, as alíquotas necessárias aos cálculos dos impostos.
+Alíquota Padrão
+A alíquota padrão (para cada código de ICMS) é uma alíquota que o SisPetro utilizará caso, para o código de ICMS do produto, não encontre a UF do cliente cadastrada.
+Para evitar a digitação do código do Produto + UF para todas as UF sendo que a maioria deles segue as mesmas alíquotas, tem-se a figura da alíquota padrão.
+Para cada código de ICMS, deve existir uma que seja a padrão, isto é, o usuário deve escolher uma que represente o maior número possível de UF (que tenham as mesmas alíquotas) para torná-la padrão.
+Assim, só necessitamos cadastrar as alíquotas (código de ICMS + UF) das UF que sejam diferentes da padrão para cada código de ICMS.
+O SisPetro busca a combinação código de ICMS+UF, e caso não encontre, assume que a UF aplica alíquotas padrão para o código de ICMS proposto.
+Aba Navegação
+Nesta aba são informados todos os códigos de ICMS cadastrados, sua descrição e se estão ativos ou não. Através do botão 
+ pode ser adicionado mais um registro.
+Aba Detalhes
+Nesta aba é possível alterar a Descrição do código de ICMS e ativar ou inativar.
+Código:
+ sequencial e automático pelo SisPetro
+Descrição:
+ informe uma descrição para esse código de ICMS
+Ativo:
+ se marcada, indica que o código está ativo e disponível para uso nos produtos
+Aba Alíquotas
+Nesta aba são cadastradas as alíquotas de ICMS
+UF de Origem:
+ 
+O SisPetro sugere a UF da empresa, porém pode ser alterado. Na alteração se deve tomar cuidado com a UF de origem, pois se forem cadastradas as alíquotas na UF errada, não serão utilizadas.
+# UF Destino: 
+Informe a UF do cliente, para a qual as alíquotas serão cadastradas.
+Tipo ICMS: 
+Próprio
+ST (Substituição)
+Frete
+FCP (Fundo de Combate à Pobreza 
+e às Desigualdades Sociais
+)
+Alíquota - tributação normal:
+Mostra a alíquota cadastrada para cada tipo de ICMS
+% Redução B.C.: 
+Mostra o percentual de redução da base de calculo e/ou o percentual de diferimento. Só é utilizada se a 
+Natureza de Operação
+ estiver configurada para permitir sua utilização.
+Alíquota AdRem:
+Mostra a alíquota AdRem (valor) utilizada nos cálculos da tributação monofásica. Para mais informações, ver 
+Configurações necessárias para emissão de notas com tributação monofásica
+Padrão (Utiliza essa alíquota para Outras UF):
+Caso marcada, a alíquota será utilizada em outras UF.
+Caso não marcada, a alíquota será utilizada somente na UF selecionada:
+Exemplo:
+No SisPetro, temos alíquotas cadastradas:
+SP → SP
+SP → BA
+SP → MG
+Caso o usuário fature para SP, BA e MG vai obter as alíquotas corretas.
+Caso faturar para RJ não teria alíquota.
+Se o usuário marcar em uma das três UF acima o perfil 
+Utiliza essa alíquota para outras UF?
+, por exemplo na BA, ao faturar para RJ, o SisPetro usa a mesma alíquota de BA.
+Logo, não pode marcar o perfil em todas. Deve-se escolher uma UF 
+padrão
+ e então todas que não tem alíquota usa a padrão.
+Para o 
+ADREM
+ isso é perfeito, afinal todas UF são iguais. Basta cadastrar uma UF, marcar o perfil e todas as outras seguem o padrão
+Não pode ter o par cadastrado com Alíquota 0. No exemplo acima, se tiver SP → RJ com 0, mesmo BA estando marcada, vai respeitar o que tem para a UF RJ. 
+Incluindo/alterando alíquota
+Clicar no botão 
+Incluir
+ (para uma nova alíquota) ou 
+Alterar
+ para editar uma alíquota já existente. Nos dois casos será aberta a seguinte tela:
+Tipo de ICMS:
+Próprio
+ST(Substituição)
+Frete
+FCP 
+(Fundo de Combate à Pobreza e às Desigualdades Sociais)
+UF de Origem: 
+por padrão, carrega a UF da empresa conectada
+UF de Destino: 
+selecione a UF de destino
+Alíquota (percentual): 
+informe a alíquota conforme o Tipo de ICMS
+% Red/Diferimento Base Cálculo: 
+caso tenha, informe o percentual de redução da base de cálculo ou do diferimento do ICMS
+Alíquota AdRem:
+ informe a alíquota AdRem (Valor), caso o produto esteja sujeito à tributação monofásica. Para mais informações, ver 
+Configurações necessárias para emissão de notas com tributação monofásica
+.
+Nota: 
+deve ser cadastrada somente para Tipo de ICMS Próprio e/ou ST(Substituição).
+Utliza essa alíquota para outras UF? (Padrão): 
+Caso marcada, a alíquota será utilizada em outras UF.
+Caso não marcada, a alíquota será utilizada somente na UF selecionada
+Para salvar clicar no botão 
+OK
+.
+Cadastradas as UFs e alíquotas já podem ser utilizadas, por exemplo, 25% ou 25,15%
+Configurando alíquotas para operações interestaduais com consumidor final não contribuinte
+Considerando uma operação da UF de São Paulo para UF de Minas Gerais:
+Alíquota Interestadual:
+Tipo de ICMS:
+ selecione Próprio
+UF de Origem: 
+selecione SP
+UF de Destino: 
+selecione MG
+Alíquota: 
+informe a alíquota interestadual do produto
+%Red/Diferimento Base Cálculo: 
+caso tenha, informe o percentual de redução da base de cálculo ou do diferimento do ICMS
+Alíquota Interna da UF Destino:
+Tipo de ICMS: 
+selecione Próprio
+UF de Origem: 
+selecione MG
+UF de Destino:
+ selecione MG
+Alíquota: 
+informe a alíquota interna do produto
+%Red/Diferimento Base Cálculo: 
+caso tenha, informe o percentual de redução da base de cálculo ou do diferimento do ICMS
+Com essas informações, o SisPetro efetua o cálculo do diferencial de alíquota entre a UF de Origem e a UF de Destino, fazendo a partilha do ICMS.
+Exemplo de cálculo para uma operação interestadual de venda a não contribuinte de SP para MG:
+Valor dos produtos:
+ 15.565,00
+Base de Cálculo do ICMS Próprio:
+ 15.565,00
+Alíquota Interestadual do produto de SP para MG:
+ 12%
+Alíquota Interna do produto em MG:
+ 22%
+% de Partilha (2016):
+ 40% para MG e 60% para SP
+Cálculos efetuados pelo SisPetro:
+ICMS Próprio:
+ 15.565,00 * 12% = 1.867,80
+Diferencial de alíquota:
+Alíquota Interna de MG:
+ 15.565,00 * 22% = 3.424,30
+Alíquota Interestadual de SP para MG:
+ 15.565,00 * 12% = 1.867,80
+Base de cálculo do ICMS Partilha:
+ 3.424,30 - 1.867,80 = 1.556,50
+Valores do ICMS Partilha, sendo 40% para MG e 60% para SP:
+1.556,50 * 40% = 622,60
+1.556,50 * 60% = 933,90
+Configurações e cálculos de ICMS para Tributação Monofásica conforme cada CST
+Cálculos de ICMS para Tributação Monofásica de Diesel e afins conforme cada CST e o que configurar
+Aba Alíquotas Adrem Por Empresa
+Importante: a data de transição (entenda-se data de vigência simples) é a data a partir da qual as novas alíquotas AdRem serão aplicadas nas notas emitidas
+Nesta aba é possível cadastrar a alíquota Adrem por Empresa. O SisPetro irá utilizar essa alíquota caso o perfil de sistema da Aba 
+Nota Fiscal
+ / Quadro Impostos 
+Definição da Alíquota do Adrem 
+seja diferente de Por UF.
+Tendo neles duas alíquotas, sendo elas:
+Alíquota Pré-Transição: 
+está será a alíquota atual que estará sendo utilizada
+Alíquota ADRem: 
+está será utilizada a partir da Data informada em Data Transição Atual.
+Por exemplo:
+Ao informar campo 
+Nova Data Transição
+ (por exemplo 06/07) e clicar no botão 
+Faz Transição
+, as alíquotas do campo 
+Alíquota AdRem
+ serão copiadas para o campo 
+Alíquota Pré-Transição, 
+e a Data ficará informada no campo Data Transição Atual, as alíquotas copiadas serão utilizadas para as notas emitidas a partir da Data em que fez a transição, até o dia 05/07.
+Importante lembrar que as notas emitidas antes da pré-transição, utilizaram as alíquotas do campo Alíquota Pré-Transição;
+Após os procedimentos acima, deve então cadastrar as novas alíquotas no campo Alíquota AdRem. Essas alíquotas serão utilizadas para as notas emitidas a partir do dia 06/07.
+Esses procedimentos devem ser realizados todos os meses após o SCANC calcular as alíquotas médias. Normalmente, o SCANC tem as alíquotas médias a partir do segundo ou terceiro dia útil do mês.
+Para mais informações, ver 
+Configurações necessárias para emissão de notas com tributação monofásica
+Quadro Alíquota
+Empresa:
+ mostra as empresas selecionadas conforme os botões:
+Incluir Todas:
+ quando selecionado vai incluir todas as empresas disponíveis para edição das alíquotas.
+Excluir: 
+selecione a empresa que deseja remover da lista
+Alíquota Pré-Transição:
+ alíquotas que está em uso até a Data da Transição Atual.
+Alíquota AdRem:
+ alíquotas que serão utilizadas a partir de uma determinada data que será informado em (campo 
+Nova Data Transição
+), após isso fazer a transição e o mesmo ficará no campo 
+Data Transição Atual.
+Gravar: 
+irá salvar as alíquotas informadas no campo 
+Alíquota AdRem.
+Cancelar: 
+irá cancelar as alterações feitas no campo 
+Alíquota AdRem
+, desde que não tenha gravado.
+Quadro Transição
+Data Transição Atual: 
+grava a data informada no campo
+ Nova Data Transição 
+ao clicar no botão
+ Faz Transição
+. A partir dessa data, as novas alíquotas cadastradas no campo 
+Alíquota AdRem
+ serão utilizadas nas notas.
+Nova Data Transição:
+ informe a data a partir da qual as novas alíquotas deverão ser utilizadas, porém para o mesmo ser aceito precisa clicar em 
+Faz Transição
+, caso contrário não fará nada e sempre mostrará a Data atual neste campo.
+Faz Transição: 
+ao clicar, o valor do campo 
+Aliquota AdRem
+ será copiado para o campo 
+Alíquota Pré-Transição. 
+Atenção: deve ser clicado antes da inclusão das novas alíquotas no campo Alíquota AdRem
+Para mais informações de como atualizar as alíquotas AdRem, assista o vídeo abaixo.

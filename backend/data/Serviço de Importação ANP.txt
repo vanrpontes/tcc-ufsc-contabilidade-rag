@@ -1,0 +1,40 @@
+TITULO: Serviço de Importação ANP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/3980361782
+--------------------------------------------------
+O Serviço em questão foi criado para ler a planilha de clientes autorizados disponibilizada pela ANP. O serviço sempre pega a planilha mais recente (.xls) da pasta “A processar” e tentar abrir como planilha da ANP. Feito isso, move o arquivo para pasta “Processadas”, caso contrário para a pasta “Com erro". Vale lembrar que o SisPetro só fará a consulta pela planilha caso a configuração do painel clientes esteja direcionada para planilha. Para mais informações, ver 
+Painel Clientes
+ e 
+Consulta ANP
+Para ativar o serviço de
+ Importação ANP 
+deve-se acessar o 
+Controlador Hermes
+, na aba
+ Serviços,
+ selecionar 
+Importação ANP 
+e clicar em 
+. Será a
+berta a tela de configurações para informar os dados necessários:
+Intervalo Entre as Execuções:
+ de 
+quanto em quanto tempo 
+(de dez em dez minutos, por exemplo) o serviço irá olhar se há uma planilha nova na pasta. O tempo mínimo de execução desse Serviço é de dez minutos. 
+Horário de Execução:
+ entre 
+quais horas
+ (das 08:00 hs as 18:00 hs, por exemplo) é para o serviço funcionar.
+Executar Automaticamente Quando Servidor for Iniciado
+: parâmetro que define se o serviço deve ser iniciado sempre que o 
+Servidor Hermes
+ for iniciado.
+Pasta de Arquivos a Processar:
+ 
+Indique de qual local o serviço irá ler a planilha da ANP
+Pasta de Arquivos Processados:
+ 
+indique para qual local o serviço irá mover a planilha lida
+Pasta de Arquivos com Erros:
+ indique para qual local o serviço irá mover a planilha com erro. O SisPetro criará também um arquivo nessa pasta com o mesmo nome da planilha indicando qual o motivo de não leitura. 
+Usuário:
+ informar um usuário cadastrado no SisPetro

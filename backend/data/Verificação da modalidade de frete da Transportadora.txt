@@ -1,0 +1,26 @@
+TITULO: Verificação da modalidade de frete da Transportadora
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2894726273
+--------------------------------------------------
+No processo de uma venda, escolhemos uma transportadora que irá entregar os produtos. Esta transportadora pode ser contratada pelo cliente (modalidade Retira, isto é, o cliente está retirando a mercadoria) ou pela distribuidora (modalidade entrega quando a distribuidora entrega os itens por sua conta, logicamente cobrando um adicional de frete).
+Existe uma necessidade das empresas de controlar qual transportadora pode ser escolhida para cada modalidade, isto é, existem transportadoras que só podem fazer retiradas, outras somente entregas e existem transportadoras que podem ser escolhidas em ambas as modalidades.
+No cadastro de transportadoras (ver 
+), é definido qual modalidade de frete ela pode participar no processo de venda e para que seja feito esse controle.
+Existem situações em que a transportadora (motorista, no caso) pode estar vinculada a uma outra transportadora responsável pelo frete (que irá inclusive sair na NF) o Sispetro irá pesquisar esta transportadora para verificar a modalidade do frete permitida. 
+ Exemplo: Caso o motorista esteja configurado apenas para Retira, mas esteja vinculado a uma transportadora do tipo Entrega, será possível incluir esse motorista em uma nota do tipo Entrega.
+Esse tipo de validação será aplicado nas seguintes operações do Sispetro:
+Pedido de Vendas
+Notas Fiscais
+Ordem de Carregamento
+Mudança da Transportadora no Pedido
+Mudança da Transportadora na Ordem de Carregamento
+Mudança da Transportadora na Nota Fiscal
+Importação de Nota Fiscal
+Notas de Remessa e Retorno de Armazenagem
+ 
+ 
+Tal validação se dá apenas para notas de emissão própria, pois quando a emissão é de terceiros (ou seja, outra empresa esta emitindo não há motivos para a restrição).
+ 
+Exemplo de Validação
+Vamos incluir uma nota fiscal utilizando uma transportadora definida no cadastro de transportadora, campo modalidade para somente Entrega.
+Em seguida iremos definir a NF para que seja do tipo Retira:
+A validação será executada e mostrará a mensagem de erro exibida abaixo e não permitirá incluir o pedido.

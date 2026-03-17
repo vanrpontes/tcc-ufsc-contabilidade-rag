@@ -1,0 +1,52 @@
+TITULO: Preço para uso em Transferência
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2949415293
+--------------------------------------------------
+Nas NF de Venda, em que há um grande volume de emissão, o preço é definido a partir da tabela de preço e do pedido de venda, não dependendo do Faturista. No entanto, em NF de Transferência, que em algumas empresas também tem um grande volume, isso fica sob a responsabilidade do faturista, que nem sempre tem o conhecimento do preço a utilizar. Além disso, na Transferência, normalmente o valor da NF será conforme o custo do produto, que envolve desde o valor do produto no estoque, bem como outros custos como Frete, Impostos, Armazenagem, etc. Sendo assim, implementamos a sugestão de preços em transferências considerando:
+Custo do Produto no Estoque: que é o valor base (via Configuração da Natureza de Operação, sugestão de preço pelo Custo Médio)
+Custos Internos, como Frete e Impostos, configurados na Natureza de Operação, aba Custos
+Custos Externos, como armazenagem, configurados no Produto, aba Custos, desde que indicados para uso em Transferencias ou uso em Ambos (Vendas e Transferências)
+Essa sugestão de preço ocorrerá tanto na NF de Outras Saídas (emissão própria), como na Carga em OC de Carregamento Próprio (em especial na valorização da carga para uso no Monitoramento de Viagem)
+Logo abaixo veja maiores detalhes de como realizar as configurações.
+Configurações
+Cadastro do Produto:
+ O primeiro passo é configurar no cadastro dos produtos qual natureza utilizar para notas de transferências, e informar na aba de Custo Venda/Trasf quais custos externos serão utilizados na composição do preço. 
+Custo Venda/Transf:
+ Através da tela de custo de venda/Transf nos produtos, podemos cadastrar os custos externos para notas de venda / Transferências.
+Natureza
+:
+  Através da aba de Natureza de Operação iremos definir a natureza a ser utilizada em Notas de Transferências (antes da versão 10.11 só havia possibilidade de indicar naturezas de Venda).
+Para valorização da carga é fundamental que essa Natureza também esteja configurada.
+Natureza de Operação: 
+Na natureza de operação iremos definir de onde será obtida a base para a sugestão do preço se da tabela de preço ou do Custo médio do produto, e quais custos internos irão compor o valor do item.
+Aba Geral/Dados Gerais:
+ Definir através do perfil "Sugere custo médio Notas Fiscais Outras Saídas" como será realizado a sugestão do preço nas notas de outras saídas.
+Aba Custos:
+ Definir no grupo "
+Custos NF (Venda/Devolução/Transferências)" quais custos vão compor o valor.
+Ao configurar os custos na Natureza de Operação, a opção 
+Salva Custo Inicial (Aquisição) 
+deve ficar 
+DESMARCADA
+, pois o Custo de Aquisição já será utilizado quando definiu na Natureza para usar o Custo Médio.
+Composição de carga
+Na composição da carga quando utilizadas as Ordens de Carregamento Próprio será sugerido o valor da carga conforme configurações cadastradas na natureza de operação que está vinculada ao produto. Veja também 
+Composição de Carga
+.
+Essa etapa é útil para empresas que utilizam o Monitoramento de Viagem conforme o valor da carga. Não interfere no processo de Emissão de NF.
+Inclusão da Nota Fiscal de Outras Saídas
+Caso seja vinculada a uma OC de Carregamento Próprio, será sugerida a Natureza de Operação de Transferência configurada no Cadastro de Produtos
+Caso a OC tenha mais que um produto e cada um seja relacionado a uma Natureza de Operação diferente, a sugestão da Natureza 
+não será realizada.
+O preço será sugerido com a soma de:
+Preço de Tabela ou Custo Médio
+Custos Internos configurados na Natureza
+No caso da NF ser vinculada a uma OC e for configurado para salvar custo de Frete, o valor de Frete utilizado será o indicado na OC
+Custos externos configurados no Produto que estejam com o Tipo NF Transferência ou Ambos
+O preço do item pode ou não ser alterado conforme o perfil de usuário "Pode alterar preço" da aba Faturamento
+Caso o preço seja alterado, serão salvos os custos conforme o preço sugerido e não conforme o alterado.
+Sempre que o usuário chegar na parte dos Itens (avançando ou voltando durante a inclusão), se a NF for de emissão própria (sem vínculo com Pedido de Venda, PMM ou Devoluções) 
+s
+erão recalculados os preços para todos os itens.
+Como conferir o preço em notas emitidas
+Após emitir uma nota de transferência é possível conferir os custos que compõem o preço do item via tela de Manutenção de Nota Fiscal, aba Diversos / Custos.
+O valor do item será composto do valor do Custo Médio/Tabela de preço + (Custos / Qtde Itens)

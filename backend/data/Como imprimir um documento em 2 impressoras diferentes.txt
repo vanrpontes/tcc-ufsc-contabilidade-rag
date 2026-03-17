@@ -1,0 +1,14 @@
+TITULO: Como imprimir um documento em 2 impressoras diferentes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921071386
+--------------------------------------------------
+ 
+O Report Builder tem uma função de fazer a impressão de um documento com 3 paginas por exemplo e uma dessas paginas ir para uma impressora diferente.
+Essa pagina tem que estar em um SubReport, (
+)estando dessa forma o processo para configurar é o seguinte:
+- No desenho do Report Principal, posicione no SubReport, com botão da direita mude para Seção e marque a opção Novo Trabalho de Impressão
+- No desenho do SubReport mude as propriedades PrinterSetup para uma impressora fixa ( PrinterName ).
+ 
+Importante:
+Esse processo só pode ser utilizado quando o SubReport pode ser configurado como Seção. Quando ele tem que ser Sucessor não permite impressão diferenciada.
+ 
+Esse processo pode ser feito com Documento Associado direcionando para uma outra impressora uns dos documentos.

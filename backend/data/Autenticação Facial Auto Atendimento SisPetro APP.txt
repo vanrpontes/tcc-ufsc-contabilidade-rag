@@ -1,0 +1,91 @@
+TITULO: Autenticação Facial Auto Atendimento SisPetro APP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5769429019
+--------------------------------------------------
+1
+6
+false
+none
+list
+true
+O SisPetro apresenta sua nova funcionalidade de 
+Identificação por Biometria Facial
+, projetada para modernizar a autenticação de motoristas e otimizar o fluxo de atendimento. Este sistema substitui métodos manuais por uma validação digital segura, garantindo que apenas profissionais autorizados acessem a plataforma de autoatendimento.
+Configuração inicial para utilizar biometria facial
+Habilitar o perfil (
+Permite Autenticação do Motorista via Biometria Facial?
+) de identificação facial para login ao SisPetroAPP. 
+Para mais informações, ver
+ 
+Depósitos - Aba Dados Adicionais
+ 
+Ao realizar os procedimento de Biometria facial o motorista poderá ser avisado via WhatsApp ou SMS, para isso é necessário realizar a configuração das mensagens padrão em mensagens enviadas via Twilio 
+Tabela Mensagem Padrão
+  e cadastramento dos números de telefone informados pela Twilio. 
+Para mais informações, ver
+ 
+Manutenção do Gerenciador de Mensagens
+ 
+Configuração necessária junto a Twilio para realizar envio de WhatsApp ou SMS. 
+Para mais informações, ver
+ 
+Configuração Prévia Twilio para envio de Mensagem via SMS e WhatsApp
+ 
+Realizar a configuração necessária para o envio das mensagens conforme pré determinadas em, e se o envio será por WhatsApp, SMS ou desabilitado o envio 
+Painel Comunicações
+ , desde que o envio não esteja habilitado na Transportadora. 
+Para mais informações, ver
+ 
+Tabela Transportadoras / Motoristas
+ 
+Aprovar ou rejeitar a biometria facial do motorista.
+Enviar mensagens padronizadas ao motorista, como notificações de aprovação/rejeição da biometria ou comunicação de senha.
+Excluir biometria de terceiros, quando autorizado pelo perfil de acesso.
+Boas práticas de utilização
+Incentivar o cadastro da biometria facial para agilizar o acesso dos motoristas; manter os tipos de documentos claramente definidos (foto do motorista e documento com foto).
+Assegurar que os perfis de usuário estejam devidamente configurados antes do início das operações (aprovação, exclusão, comunicação).
+Divulgar aos motoristas o procedimento para acesso ao autoatendimento no aplicativo e a forma de consultar a fila.
+Uma vez logado na tela de AutoAtendimento será possível realizar inclusão de foto Facial e do Documento que será verificado para liberação ao acesso. 
+Colhendo a biometria do motorista 
+Colhendo foto do Documento (CNH ou RG)
+:warning:
+atlassian-warning
+#FF8F73
+Colhendo a documento do motorista, clicando em 
+Tirar foto do documento:
+o documento será gravado com data de vencimento na 
+data de carregamento
+, logo as regras de vencimento de arquivos não deve ser utilizada nestas situações. Para mais informações, ver 
+Manutenção de Documentos de Transporte
+ 
+Analise de Biometria e documentos para Aprovação
+Após estes procedimentos é necessário no SisPetro efetuar a verificação e aprovação de documento e CNH em 
+Movimentação \ Transporte \ Biometria Motorista aba Itens
+Identificaremos os dados do motorista e imagens para prosseguirmos com a 
+Aprovação, na aba Biometria
+Os documentos após aprovação podem ser acessados em 
+Manutenção de Documentos de Transporte
+ 
+Aba itens
+Após identificação dos documentos realizar a aprovação na aba Biometria, desta forma o motorista estará apto para acessar o SisPetroAPP via biometria facial.
+Exclusão de Biometria para acesso ao SisPetroAPP
+Para cancelar o acesso a biometria facial é necessário Excluir a biometria em 
+ 
+Excluir dados da Biometria
+. 
+Para mais informações ver:
+ 
+Tabela Transportadoras / Motoristas
+ aba Detalhes.
+Perguntas frequentes
+A biometria é obrigatória?
+760
+Não. A empresa pode optar por autenticação exclusiva via senha. Caso a biometria esteja habilitada e aprovada, ela proporciona maior agilidade no acesso.
+Como verificar se a biometria foi aprovada?
+760
+No aplicativo, a consulta da fila exibe o status da biometria. Internamente, essa informação pode ser verificada na rotina de análise de biometria do motorista.
+É possível excluir minha biometria?
+760
+Sim. Após o login no aplicativo, há uma opção para exclusão da biometria. Após a confirmação, o status retorna para "não cadastrado" e o acesso poderá ser realizado por senha.
+A empresa pode restringir a alteração da senha pelo motorista?
+760
+Sim. Essa permissão é gerenciada pela empresa. Caso esteja desabilitada, a opção para alteração de senha não estará disponível para o motorista.

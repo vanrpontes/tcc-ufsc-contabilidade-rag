@@ -1,0 +1,69 @@
+TITULO: Valorização de PMM por Índice
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5879365633
+--------------------------------------------------
+none
+Objetivo
+A nova funcionalidade de Valorização de PMM no 
+SisPetro
+ foi desenvolvida para otimizar a gestão de contratos de compra cujos preços são variáveis e baseados em índices de mercado, como o Esalq, amplamente utilizado no setor de agronegócio para o Etanol.
+Conceito
+O principal objetivo desta implementação é automatizar a atualização de preços em contratos de longo prazo, geralmente anuais, firmados com usinas. Nesses contratos, o valor do produto é atualizado periodicamente através de índices de mercado.
+O índice Esalq, por exemplo, é calculado pelo CEPEA com base em médias ponderadas de valores praticados no mercado, com variações semanais. A partir desta atualização, o 
+Sispetro
+ permite que o PMM seja lançado utilizando uma Moeda de Índice, como o Esalq Anidro.
+Esta mudança elimina a necessidade de redigitar contratos a cada variação de preço e assegura que todas as notas fiscais recebidas passem por uma validação financeira rigorosa, baseada no valor vigente do índice no momento da operação
+Configurações e Pré-requisitos
+Para utilizar a valorização por índice, é necessário realizar as seguintes definições:
+Usuário que irá informar as taxas semanais precisa ter permissão ao perfil: 
+pode informar dados de conversão no cadastro de moeda, 
+dentro do perfil de usuário na 
+aba Financeiro.
+Cadastro de Moeda:
+ deve existir a 
+Moeda de Índice
+ cadastrada (ex: esalq anidro) com suas respectivas taxas semanais atualizadas na tabela de Moeda.
+Caminho: Arquivos \Moedas
+Necessário habilitar o campo 
+Informar Taxa, 
+para que seja visualizada a 
+aba Conversão. Para mais informações, ver 
+Tabela Moedas
+ 
+Cadastro de Fornecedor:
+ na aba 
+Padrão para Compras
+, poderá ser definido a moeda(índice) padrão a ser utilizado pelo fornecedor 
+Uso Moeda: 
+Permite usuário alterar:
+ quando selecionado na geração do PMM o usuário pode alterar para outra moeda(índice).
+Usa Sempre do Fornecedor: 
+quando selecionado na geração do PMM o usuário não poderá alterar para outra moeda(índice)
+Perfil de Empresa:
+ As validações de preço unitário e variação permitida devem estar configuradas, lembrando que o cálculo será baseado na conversão do índice na data de referência.
+Caminho:
+ Ferramentas\Sistema
+ aba Importação NF 
+quadro 
+Importação de NFe.
+Ex: quando o valor de Esalq for 3,57 este valor será multiplicado pelo valor definido no PMM para que ocorra a validação na esteira de
+ Importação de NF
+Valor no PMM por unidade (2,57*3,57 valor do Esalq = 9,1749 por unidade, logo a NF-e a ser importada precisa ter a mesma quantidade e valor 
+9,1749
+)
+Inclusão de PMM
+Exemplo do preço para realização do calculo Esalq
+Após a geração do PMM utilizando a Moeda (índice) o procedimento de recebimento do material, seguirá o já existente sem alterações, sendo que a validação de quantidade x valor unitário por NF de entrada será realizada apenas na esteira de 
+Importação de NFe,
+ conforme configuração anterior.
+Processamento em Fila Importação NF
+Para realização do calculo da ESALQ será utilizada a data de recebimento do XML da NF, disponível em: 
+Realização do Vinculo do PMM a nota fiscal
+Analise realizada pelo SisPetro para vinculo: 
+combustível se igual ao do PMM, Quantidade disponível, preço unitário da NF-e = (Esalq da semana * preço unidade do PMM, caso o cálculos batam o preço exibido em 
+Preço PMM
+ será igual ao da NF-e permitindo o vinculo.
+Cenario em que o valor da taxa não bate ao valor da Nota impossibilitando o vinculo.
+Uma vez que temos notas vinculadas ao PMM poderemos consulta-las em 
+Movimentação/ Movimentação de Material / Pedido de Movimentação de Material tela de
+ Manutenção de pedidos de movimentação de Material 
+na Aba Nota Fiscal

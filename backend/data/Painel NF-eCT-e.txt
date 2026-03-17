@@ -1,0 +1,232 @@
+TITULO: Painel NF-e/CT-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2912846205
+--------------------------------------------------
+O acesso as configurações referentes a NF-e e CT-e são acessadas via Ferramentas / Sistemas / NF-e/CT-e
+, ver 
+Configuração da Empresa para NF-Eletrônica
+Configurações Gerais:
+Habilita Nota Fiscal Eletrônica: 
+se marcado, a empresa emitira NF-e ou CT-e 
+Habilita NFS-e: 
+essa opção define o ambiente para emissão de nota Fiscal de serviço. Para mais informações, ver 
+Como Emitir Nota Fiscal de Serviço
+Processo Automático: 
+utilizará o processo automático para o envio do processamento das notas
+Nunca
+Notas não serão processadas automaticamente.
+Conforme Configuração.
+Informar o intervalo de tempo (segundos) para envio de notas.
+Informar o número de notas, que serão enviadas para a solicitação.
+Os procedimentos do SisPetro forçarão o processo automático? 
+Ao fazer uma nota, imediatamente a nota será enviada para solicitação do recibo e obtenção do protocolo.
+Número máximo de notas na solicitação: 
+informe a quantidade de notas que irão na solicitação.
+Quadro NF-e
+Ambiente de Trabalho: 
+Homologação: 
+ambiente de testes, para envio de NF-e no webservice da Secretaria de Fazenda Estadual;
+Produção: 
+ambiente de produção, para envio de NF-e no webservice da Secretaria de Fazenda Estadual;
+Contingência: 
+é quando o site da Secretaria de Fazenda Estadual não estiver disponível, emitir a nota fiscal eletrônica através do site da Secretaria de Receita Federal. Caso a indisponibilidade ocorra no ambiente operacional do contribuinte, o mesmo poderá emitir notas fiscais em formulários contínuos, que substituirão momentaneamente as NF-e até o restabelecimento da conexão e envio dos arquivos das NF-e.
+Valida intervalo mínimo para processamento de Recibo/Protocolo: 
+marcando este perfil, o SisPetro analisará o intervalo mínimo informado, e bloqueará o processamento de NF-e, caso a solicitação esteja fora do intervalo mínimo informado.
+Intervalo mínimo (em segundos): 
+informar intervalo mínimo que o SisPetro considerará para o bloqueio do processamento de NF-e.
+A 
+Consulta de Destinatário de NF-e/CT-e
+ utiliza o Ambiente de Trabalho conforme configurado mas somente para Homologação ou Produção. Se o Ambiente de Trabalho estiver configurado como Homologação para emissão da NF-e, a Consulta de Destinatário também realizará as consultas em Homologação.
+Estes parâmetros são importantes para que o SisPetro não fique conectando-se ao Web Service da Sefaz, punindo assim a empresa por consumo indevido.
+Tipo de Emissão SEFAZ: 
+informar se a empresa emitirá NF-e, CT-e ou Ambos.
+Valida Schema NF-e/CT-e: 
+faz a validação do Schema. 
+Envia NF-e/CT-e por e-mail: 
+marcando essa opção permite ao usuário enviar ou não por e-mail 
+Agrupa Envio E-mail de NF-e por OC: 
+nesse combo há duas opções:
+Não agrupa, envia a cada NF-e 
+Agrupa o Envio do E-mail por OC: 
+este perfil, quando marcado, 
+trabalha em conjunto com o perfil de cliente 
+Cadastro Detalhado Clientes -Agrupa envio de e-mail conforme perfil de sistema
+.
+ Para mais informações, ver 
+ e 
+Cadastro Detalhado Clientes
+Envia e-mail na NF-e inclusive para o comprador: 
+habilitando essa opção envia e-mail para o comprador. Para mais informações, ver
+ 
+Habilita Horário de Verão
+: este perfil é utilizado no Layout 3.1 da Nota Fiscal Eletrônica. Caso a empresa opere em locais que tenham horário de verão não precisará mais se preocupar com falhas no processamento de NF-e, resultantes do espaço de tempo entre a empresa e a SEFAZ. Para mais informações, ver 
+Nota Fiscal Eletrônica 3.1
+Aviso do Vencimento do Certificado: 
+configurar para quantos dias o SisPetro irá avisar o usuário que o certificado irá vencer.
+Numero de tentativas para obtenção do protocolo: 
+define a quantidade de tentativas que o SisPetro tentará obter o protocolo na SEFAZ
+Tempo máximo execução WebService (segundos): 
+p
+erfil que determina a configuração de TimeOut para conexão de WebServices. Caso o WebService não responda no tempo informado a conexão é desfeita.
+Quadro CT-e
+Ambiente de Trabalho: 
+Homologação: 
+ambiente de testes, para envio de NF-e no webservice da Secretaria de Fazenda Estadual;
+Produção: 
+ambiente de produção, para envio de NF-e no webservice da Secretaria de Fazenda Estadual;
+Contingência: 
+é quando o site da Secretaria de Fazenda Estadual não estiver disponível, emitir a nota fiscal eletrônica através do site da Secretaria de Receita Federal. Caso a indisponibilidade ocorra no ambiente operacional do contribuinte, o mesmo poderá emitir notas fiscais em formulários contínuos, que substituirão momentaneamente as NF-e até o restabelecimento da conexão e envio dos arquivos das NF-e.
+Versão dos dados SEFAZ para CT-e: 
+versão que a SEFAZ está operando. 
+A partir 04/12/2017 será obrigatório usar a versão 3.00.
+A 
+Consulta de Destinatário de NF-e/CT-e
+ utiliza o Ambiente de Trabalho conforme configurado mas somente para Homologação ou Produção. Se o Ambiente de Trabalho estiver configurado como Homologação para emissão do CT-e, a Consulta de Destinatário também realizará as consultas em Homologação.
+Quadro NFC-e
+ID ToKen
+: ID usado para gerar o hash do QRCode, obtido na SEFAZ para empresas que emitem NFC-e
+Código Token (CSC)
+: Token usado no QRCode
+Impostos
+ICMS Retido no XML
+Para mais informações, ver
+ 
+.
+#Casas decimais para preço sem imposto no XML:
+ informar a quantidade de casas decimais para preço unitário sem impostos. Recomendamos informar de 8 a 10 casas decimais.
+A Sefaz valida o valor total dos produtos multiplicando o preço unitário sem impostos pela quantidade. O resultado dessa multiplicação deve ser igual ao valor dos produtos. 
+Contingência
+Quadro Trabalha off-line (sem conexão com a Internet) 
+Esse quadro, quando habilitado, permite ao usuário escolher o tipo de formulário ao qual deseja trabalhar, sendo eles: 
+Formulário de Segurança (FS) NF-e
+Formulário de Segurança Doc. Aux(FS-DA) NF-e/Cte
+Além disso, ao habilitar essa opção, ficará disponível também 
+Motivo da entrada em contingência: 
+selecionar o motivo que o ambiente de contingência foi ativado
+Número do protocolo de entrada em Contingência Própria NF-e: 
+informar o número que a SEFAZ disponibilizou para ambiente de contingência
+Número do protocolo de entrada em Contingência Própria CT-e: 
+informar o número que a SEFAZ disponibilizou para ambiente de contingência
+Sistema de Contingência para NF-e: 
+selecionar qual o ambiente de contingência disponibilizado sendo eles: 
+SVC - RS (NF-e / CT-e):
+ 
+indica que será usado o ambiente de autorização da SVC do Rio Grande do Sul. Utilizado tanto para emissão de NF-e como para CT-e.
+SVC - AN (NF-e): 
+indica que será usado o ambiente de autorização da SVC do Ambiente Nacional. Utilizado para emissão de NF-e.
+Sistema de Contingência para CT-e: 
+selecionar qual o ambiente de contingência disponibilizado sendo eles: 
+SVC-SP:
+ 
+indica que será usado o ambiente de autorização da SVC de São Paulo. Utilizado para emissão de CT-e.
+SVC - RS: (NF-e / CT-e):
+ 
+indica que será usado o ambiente de autorização da SVC do Rio Grande do Sul. Utilizado tanto para emissão de NF-e como para CT-e.
+Quadro EPEC
+Através dos perfis do quadro de EPEC que podemos ativar o modo de EPEC para NF-e e CT-e. Para mais informações, ver 
+EPEC - Evento Prévio de Emissão em Contingência
+.
+Quadro NF-e
+Situação Sistema de Contingência Eletrônica(EPEC):
+ ativa ou inativa a contingência para a NF-e.
+Endereço WebService Solicitação EPEC(Produção):
+ nesse campo é informado a URL do ambiente de produção, para solicitação do EPEC de NF-e na SEFAZ
+Endereço WebService Solicitação EPEC(Homologação):
+ nesse campo é informado a URL do ambiente de 
+homolog
+ação para solicitação do EPEC de NF-e na SEFAZ
+Quadro CT-e
+Situação Sistema de Contingência Eletrônica(EPEC):
+ ativa ou inativa a contingência para a CT-e.
+Endereço WebService Solicitação EPEC(Produção):
+ nesse campo é informado a URL do ambiente de produção, para solicitação do EPEC de CT-e 
+na SEFAZ.
+Endereço WebService Solicitação EPEC(Homologação):
+ nesse campo é informado a URL do ambiente de 
+homolog
+ação para solicitação do EPEC de CT-e 
+na SEFAZ.
+Código IBGE para EPEC de CT-e:
+ nesse campo deve-se informar o código de IBGE para EPEC de CT-e.
+Impressão
+Imprime Eletrônico e normal (em papel): 
+para empresas que emitem documento eletrônico, esse perfil deve estar 
+desmarcado
+. 
+Perfil atualmente em desuso.
+Foi utilizado na transição entre a impressão de NF em papel e NF eletrônica.  
+Local de Impressão: 
+aqui é possível selecionar uma impressora. 
+Layout: 
+perfil em desuso.
+NF-e DANFE: 
+informe o caminho do layout do Danfe.
+CT-e DACTE: 
+informe o caminho do layout do Dacte.
+NFS-e Layout:
+ informe o caminho do layout da NFS-e.
+NFC-e Layout:
+ informe o caminho do layout da NFC-e.
+Diversos
+Nº Máximo de Dias para Emissão de Carta de Correção: 
+informar o número máximo de dias para emitir Carta de Correção.
+Ação no cancelamento de NF-e/CT-e sem protocolo: 
+indicar a ação do SisPetro ao cancelar uma NF-e/CT-e que não possui protocolo. Elas podem ser: 
+Inutiliza Numeração na Sefaz
+Não Processa Nada na Sefaz (mantém Numeração Ativa);
+NF-e
+Valida Chave de Acesso informada em NFs de terceiros:
+ quando marcada o SisPetro valida a Chave de Acesso nas NFs de Terceiros.
+Envia Código de Barras (GTIN) do produto no XML do Recibo da NF-e?: 
+se marcado, 
+ao faturar a NF, caso o produto tenha código de barras, 
+ele será enviado no XML do Recibo da NF-e. Para mais informações, ver 
+Código de Barras do Produto Tags, <cEAN> e <cEANTrib> na NF-e.
+Nota via emissor SEFAZ
+Para notas fiscais emitidas via emissor gratuito da SEFAZ, é necessário indicar no cadastro de 
+Fornecedor
+ o perfil, 
+Despreza CNPJ na Validação da Chave de Acesso, 
+pois o CNPJ que consta na chave é o da Sefaz e não do emitente da nota.
+CT-e
+Entidade do Conhecimento para o Livro Fiscal e Envio de Email/XML: 
+indicar qual a entidade do Conhecimento será enviada no Livro Fiscal, e Email/XML. Elas podem ser:
+Destinatária
+Remente
+Pagadora
+Consignatário
+Envia Comprovante de Entrega: 
+habilitando esse perfil permite que a empresa trabalhe com envio de comprovante de entrega.
+Dados para Comprovante de Entrega na Inclusão do CT-e: 
+através desse perfil definimos como será realizado o preenchimento dos dados do comprovante de entrega na inclusão do CTe.
+Não Preenche:
+ não preenche e impede alteração pelo usuário.
+Sugere preenchimento e permite usuário alterar:
+ marcando essa opção os dados serão preenchidos automaticamente e caso o 
+usuário tenha permissão
+ será possível realizar alterações nos dados do comprovante. 
+Preenche automaticamente:
+ marcando essa opção os dados serão preenchidos automaticamente, porem não será permitida a alteração pelo usuário.
+#Dias padrão para Data Entrega (a partir da Data da Prestação):
+ esse perfil define a data de entrega sugerido na inclusão de um comprovante de entrega. Para cada dia informado nesse perfil será somado à data do Serviço.
+Exemplo: a 
+Data do Serviço:
+ 18/10/2019; 
+#Dias Padrão para Entrega:
+ 2; 
+Data Sugerida:
+  20/10/2019.
+Nome da Pasta de Comprovante de Entrega: 
+SisPetro já sugere o nome 
+COMPROV_ENTREGA. 
+Nome da pasta que irá guardar os comprovantes ou canhotos de recebimento da nota fiscal. Para mais informações, ver 
+Aviso de NF-e/CT-e Pendente: 
+avisa se possui NF-e/CT-e Pendentes de envio. Há três opções: 
+Não avisa sobre NFs Pendentes;
+Avisa NF-e Pendente e Permite incluir NF;
+Avisa NF-e Pendente e Bloqueia Emissão de NF (Somente online);
+Autorizados para download do XML
+NF-e / CT-e
+ 
+É possível dar acesso as entidades para baixar os arquivos 
+.XML
+ na Sefaz das Notas Fiscais e Conhecimentos como: escritórios de contabilidade, contadores e etc.

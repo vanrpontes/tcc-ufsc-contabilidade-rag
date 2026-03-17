@@ -1,0 +1,35 @@
+TITULO: Configurando
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899479
+--------------------------------------------------
+No SisPetro, temos a emissão de Cupom Fiscal pela impressora Bematech, mas como essa funcionalidade está em desuso pelos nossos clientes, a partir da versão 8.6 
+foi retirada do sistema.
+ 
+Para o uso adequado do ECF (Emissor de Cupom Fiscal) será necessária a realização da configuração dos seguintes cadastros:
+Configuração da Empresa
+ Antes de iniciarmos os passos para a configuração, é importante frisarmos que no caso da empresa possuir outras filiais, para cada filial deverá ter sua configuração própria.
+Menu Ferramentas / Sistema / Nota Fiscal
+:
+Campos:
+Habilita emissor de cupom fiscal:
+ esta opção deve ser marcada, caso a filial selecionada utilizará o emissão do cupom fiscal, sendo importante salientar que no caso da Natureza de operação estar marcada para impressão de cupom, mas a filial não estiver com essa opção marcada, a nota será impressa normalmente e não como um cupom fiscal.
+ 
+Número de casas decimais no valor unitário:
+ por meio deste campo será realizado o controle do número de casas decimais que serão permitidos no valor unitário dos itens da nota fiscal, caso venha a ser informado um número de casas decimais superior ao definido será apresentada uma mensagem ao usuário informando o produto que possui um número de casa decimais superior ao permitido pela impressora fiscal.
+ 
+Informa ao usuário quando o papel da impressora estiver pouco:
+ por meio deste perfil será permitido que antes da realização de qualquer processo que envolva impressão no ECF, venha a ser conferido a quantidade de papel, sendo importante ficar claro que essa informação é passada pelo ECF e não controlado pelo Sispetro, ficando a cargo deste parâmetro no sistema apresentar a mensagem de pouco papel ou não somente.
+ 
+Mensagem ao final do cupom:
+ Neste campo poderá ser informada uma mensagem a ser impressa ao termino de cada cupom fiscal, podendo ser uma mensagem promocional
+Exemplo:
+ SUA SATISFAÇÃO NOS MOTIVA A EXCELÊNCIA.
+Natureza de Operação
+ Neste cadastro será necessário selecionar a(s) natureza(s) de operação que venha(m) a ser de venda direta ao consumidor, marcando o campo "Imprime cupom fiscal" (maiores informações veja 
+Impressão NF
+).
+Produto
+ Neste cadastro deverá ser configurado a classificação do produto pelo ECF para casos onde sua alíquota estiver zerada, sendo permitida as opções Isento ou Sem incidência do ICMS (padrão).
+Importante: Esse processo deverá ser feito uma vez que o ECF, durante a impressão da Redução Z, irá agrupar os produto com alíquota zerada dentro de um dos dois grupos (maiores informações veja
+ 
+Tabela Produtos
+).

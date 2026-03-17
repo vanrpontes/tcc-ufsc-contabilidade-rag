@@ -1,0 +1,163 @@
+TITULO: Critérios para Utilização de Centro de Custo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440447
+--------------------------------------------------
+A utilização de Centro de Custo depende basicamente de duas configurações no Sistema, existentes no menu 
+Ferramentas / Sistema, painel Financeiro
+:
+Esta opção fará com que seja obrigatório informar o centro de custo, por empresa, caso a opção a seguir (de vínculo) esteja desmarcada.
+No caso desta opção estar desmarcada, nas telas onde são solicitados os centros de custos, estes serão solicitados isoladamente, sendo informado, em relação ao valor do lançamento, o valor proporcional a cada centro de custo. Independe da conta informada. No momento da contabilização, de acordo com as contas informadas, aí sim o sistema fará o devido rateio em cada conta de acordo com a proporção informada.
+No caso desta opção estar marcada, a proporção entre centro de custos e contas é feita pelo próprio usuário. Assim sendo, o usuário informa para cada conta e centro de custo qual a proporção em relação ao valor do lançamento. Assim, mesmo não estando marcada a opção Centro de custo obrigatório, acaba sendo obrigatório informar o centro de custo.
+Telas que utilizam informações de Centro de Custo:
+Pagamentos de Despesas Extraordinárias
+Inclusão de Contas a Pagar manual
+Alteração de Lote Contábil
+Telas que não poderão utilizar de 
+Centros de Custos Sintéticos
+ :
+Tabela de Padrão Contábil via menu 
+Tabelas Auxiliares/ Controladoria
+Na Inclusão de Nota Fiscal com contabilidade manual definida pelo usuário
+Na Inclusão de Contas a Pagar manual
+Na Inclusão de Contas a Pagar Recorrente
+Na inclusão de Despesa Extraordinária pela tela de 
+Manutenção de Bancos
+Na inclusão de Lotes reais manuais (DDigitação em Lote) no SisPetro Controladoria
+Nos procedimentos de Importação do Contas a Pagar
+No Cadastro de Fornecedores
+Na Manutenção de Plano de Contas
+Na Alteração de Lote Gerencial (SisPetro Normal) e Alteração de Lote Real (Sispetro Controladoria)
+Na Edição de Lançamentos na Conciliação Bancária Automática
+Na Manutenção de Títulos de Desconto Automático
+As novas formas de utilização de centros de custos não alteram os processos já existentes de centros de custos: cadastramento de 
+Centros de Custos
+ (códigos de ordenação, contas sintéticas, contas analíticas, etc), o cadastramento de 
+Padrão Contábil
+ para uso na contabilização de diversos lançamentos (podendo informar centros de custos), o perfil de sistema 
+ 
+para uso ou não de centros de custos e separando ou não as contas contábeis dos centros de custos, as configurações existentes de centros de custos nas 
+contas contábeis gerenciais
+ e 
+contas contábeis reais
+.
+Dos processos já existentes, à exceção das configurações existentes nas contas contábeis (obrigatório configurar somente se usar centros de custos em contas contábeis), todos os demais devem estar previamente cadastrados/configurados para que as novas formas de utilização de centros de custos sejam configuradas.
+Permitir usuário informar somente centro de custo no faturamento 
+Esta opção, ao fazer uma inclusão manual de uma nota fiscal, quando a natureza de operação estiver configurada, permite ao usuário informar somente os centros de custo.
+Dessa forma, ao selecionar esta opção, na aba Contabilização não pode estar como Usuário Informa, pois o usuário não pode informar as contas contábeis.
+Com esta opção, o usuário somente pode distribuir os centros de custos na conta contábil.
+Caso a opção seja Respeita a Configuração da Contabilização, seguirá o que estiver na aba Contabilização, inclusive podendo usar a opção Usuário Informar e neste caso, o usuário poderá alterar as contas contábeis e os centros de custos.
+Para mais informações ver 
+.
+A partir da versão 10.15, foram incluídas novas formas de utilização dos centros de custos, permitindo agora dar manutenção nos centros de custo nas Requisições, PMM e Notas Fiscais. Para as empresas que QUEIRAM utilizar as novas formas, DEVEM EFETUAR as CONFIGURAÇÕES conforme descritas abaixo:
+Utilizar centros de custo definidos nos setores requisitantes, PMM e Nota Fiscal
+Esta opção utiliza os centros de custos informados no setor requisitante informado em uma requisição ou PMM.
+Obrigatoriamente deverá utilizar um 
+Padrão Contábil
+ 
+(cujo escopo seja somente Centro de Custo) e este padrão selecionado em 
+Manutenção de Setores
+. 
+O usuário consegue informar somente os centros de custos
+.
+Assim, ao 
+incluir o PMM através dessa requisição ou de uma cotação vinculada a essa requisição
+, os centros de custos serão lançados conforme o padrão contábil configurado no setor requisitante.
+Para casos onde ao incluir o PMM através de uma requisição que 
+não
+ contem um Setor configurado com o padrão contábil, é possível incluir um centro de custo direto no PMM, para isso basta informar um Setor com um padrão contábil direto no PMM.
+Ao dar entrada em uma nota fiscal vinculada a um PMM seja via entrada manual, importação manual ou importação via serviço, os centros de custos serão utilizados conforme informados no PMM, com a diferença que na entrada manual e importação via serviço é possível alterar os centros de custo antes de dar a entrada na nota. veja mais em 
+Tela de Distribuição de Centro de Custo
+.
+Ao emitir uma Nota Fiscal vinculada a um PMM, a distribuição dos centros de custo serão apresentados sempre conforme o que foi salvo no PMM, podendo realizar a alteração do centro de custo na inclusão da nota fiscal, porém hoje só é permitido realizar essa ação via inclusão de 
+Nota Manual
+ ou utilizando a 
+importação via serviço
+. 
+Para que o usuário tenha acesso a 
+Tela de Distribuição de Centro de Custo
+ o mesmo tem que habilitar o perfil de usuário 
+'Pode distribuir Centro de Custos em Compras'
+.
+Para utilizar os centros de custo configurados no padrão contábil, o perfil de natureza de operação 
+Preenchimento C. Custo
+ deve estar configurado com a opção 
+Usuário Informa
+.
+É possível obrigar que seja informado um centro de custo na emissão da nota, para isso basta utilizar a opção 
+'Força que seja informado ao menos um Centro de Custo'
+ na 
+Natureza de operação
+.
+Para mais informações ver 
+Tabela Padrão Contábil
+ , 
+Manutenção de Setores
+, 
+Tela de Distribuição de Centro de Custo
+ e 
+.
+Utilizar centros de custos na inclusão manual de contas a pagar
+Esta opção, ao incluir um título manual no contas a pagar, quando usuário informar um fornecedor e for sugerida a conta contábil gerencial de Despesa ou digitar no campo de CC Despesa uma conta contábil, e esta esteja com um padrão contábil informado, preenchendo os centros de custo definidos nessa conta. 
+No 
+Plano de Contas Gerencial
+, 
+é possível configurar centro de custos de uma conta contábil de 2 formas:
+Força Centro Custo
+ - solicita um centro de custo que será sugerido nos lançamentos de contas a pagar, no caso de marcado é necessário informar o 
+centro de custo
+ ou informar que aceita 
+Qualquer Centro de Custo
+. 
+Nota:
+ caso opte pelas novas formas de uso de centro de custos, esta opção deve estar DESMARCADA e usar a opção abaixo.
+Padrão Contábil:
+ caso a opção 
+Usa Padrão Contábil Centro Custo da Conta no Lote Gerencial 
+esteja marcada, os centros de custos serão distribuídos conforme definido no padrão contábil selecionado, 
+desde que o lote gerencial não tenha qualquer centro de custo informado.
+Para mais informações ver 
+.
+Utilizar centros de custo de padrão contábil indicado em uma conta contábil gerencial 
+Caso a opção 
+Usa Padrão Contábil Centro Custo da Conta no Lote Gerencial
+ 
+esteja marcada (ver 
+Painel Contas Contábeis
+), os centros de custos serão distribuídos conforme definido no padrão contábil informado na conta contábil gerencial, 
+desde que o lote gerencial não tenha qualquer centro de custo informado
+.
+Com esta opção pode-se informar padrões contábeis nas contas contábeis gerenciais e quando estas forem utilizadas, os centros de custos serão preenchidos conforme definidos no padrão contábil, sem intervenção do usuário.
+Utilizar centros de custo de padrão contábil indicado em uma conta contábil real
+Caso a opção 
+Usa Padrão Contábil Centro Custo da Conta no Lote Real
+ 
+esteja marcada (ver 
+Painel Contas Contábeis
+), os centros de custos serão distribuídos conforme definido no padrão contábil informado na conta contábil real, 
+desde que o lote real não tenha qualquer centro de custo informado
+.
+No 
+Plano de Contas Real
+, 
+é possível configurar centro de custos de uma conta contábil de 2 formas:
+Permite Centro de Custos
+: há três opções: Todos Centros de Custos (qualquer centro de custo é permitido), Somente um Centro de Custo (necessário informar abaixo qual o centro de custo) ou Nenhum Centro de Custo (o que não permite a contabilização em centro de custos para esta conta).
+Centro de Custo: 
+código do Centro de Custo vinculado. 
+Nota:
+ caso opte pelas novas formas de uso de centro de custos, essas opções não devem ser configuradas e usar a opção abaixo.
+Padrão Contábil:
+  caso a opção 
+Usa Padrão Contábil Centro Custo da Conta no Lote Real 
+esteja marcada, os centros de custos serão distribuídos conforme definido no padrão contábil selecionado, 
+desde que o lote real não tenha qualquer centro de custo informado.
+Com esta opção pode-se informar padrões contábeis nas contas contábeis reais e quando estas forem utilizadas, os centros de custos serão preenchidos conforme definidos no padrão contábil, sem intervenção do usuário.
+Para mais informações ver 
+.
+Tela de Manutenção de Notas Fiscais
+Na tela é possível analisar a distribuição nos centros de custos das notas. Ver 
+Manutenção de Notas Fiscais
+ - aba Contabilidade.
+Tela de Manutenção de Lançamentos Contas a Pagar
+Na tela é possível analisar a distribuição nos centros de custos dos títulos. Ver 
+Manutenção do Contas a Pagar
+ - aba Contabilização.

@@ -1,0 +1,130 @@
+TITULO: Versão 7.8.1
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2895708183
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 12/08/2010 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 13/08/2010 
+
+
+
+
+
+
+ 
+Script
+ 
+
+
+ cmd781.sql 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 03 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 00 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 03 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+ 
+
+
+
+
+
+
+Geral
+
+
+
+
+Demora para Entrar no Cadastro de Clientes
+
+Ao entrar no cadastro de clientes, estávamos atualizando os valores da página de preços, mesmo quando o cliente não estava nessa página. Isso deixou a entrada no cadastro de clientes lenta em alguns usuários e por conta disso voltamos ao padrão anterior em que a atualização dos dados da aba de preços é feita somente quando o usuário acessa essa página. 
+UPA (CCF 10110)
+
+
+Dados de Custos na Aba de Preços
+
+As informações de custos na aba de preços no cadastro de clientes estavam sendo apresentados com 2 casas decimais quando o padrão do SisPetro para custos é apresentar esse valor com 6 casas decimais. Essa diferença foi corrigida e provavelmente alguns valores que não estavam sendo apresentados em versões anteriores, por conta do arredondamento, serão apresentados a partir de agora. 
+UPA (CCF 10110)
+
+
+
+
+Fiscal
+
+
+
+
+DPMP - Duplicidade de lançamentos
+
+Na geração do DPMP, foi identificado um problema que buscava o estoque final de um código DPMP do mês anterior e gerava o estoque inicial do mês seguinte para vários códigos DPMP, duplicando os valores. Esse problema foi corrigido. 
+ALP (CCF 10118)
+

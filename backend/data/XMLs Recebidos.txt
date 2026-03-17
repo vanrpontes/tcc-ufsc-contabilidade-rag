@@ -1,0 +1,52 @@
+TITULO: XML´s Recebidos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924283908
+--------------------------------------------------
+É possível salvar os XMLs da 
+Consulta de NF-e
+ mesmo sem o Fornecedor ter lhe enviado. Veja mais informações em 
+ e 
+Salvar XML de Manifestações processadas como Ciência
+. Para que o processo funcione as pastas, descritas abaixo, precisam estar devidamente configuradas.
+No Servidor Sispetro são configurados os caminhos das pastas onde serão salvos os XML. Veja abaixo:
+Anexos Duplicados ou Com Erros
+Move para a Pasta de Erros: 
+os anexos XML's duplicados ou com erros serão movidos para a pasta especificada em "Pasta dos XMLs com Erro".
+Renomeia o Arquivo: 
+os anexos XML's duplicados ou com erros serão movidos para a pasta especificada em "Pasta dos XMLs com Erro" e renomeados, mantendo todos os xmls recebidos.
+Sobrepõe o Arquivo: 
+ao encontrar um arquivo com o mesmo nome, o sistema irá sobrepor o arquivo, independente do conteúdo do arquivo.
+Essas pastas devem existir e ter as permissões necessárias de leitura, gravação, alteração e exclusão. O
+ 
+botão 
+Testar Acesso da Pasta
+ 
+verifica se o caminho da pasta  e as permissões estão corretas.
+Caso utilize o serviço, deve configurar as pastas onde devem ser gravados os XML com ou sem erro:
+Pasta dos XML´s Recebidos:
+ nesta pasta, todo anexo XML recebido, válido ou não, é gravado e depois movido para sua respectiva pasta (duplicado ou com erro, NFe ou CTe). O processo é feito automaticamente pelo SisPetro, não sendo necessário intervenção do usuário.
+Pasta dos 
+XML´s
+ com Erro:
+ quando um XML não for de NFe ou CTe ou estiver duplicado, será movido para esta pasta, ficando à disposição do usuário para análises futuras. Os anexos não são apagados automaticamente.
+Pasta de Destino das NF-e's Recebidos:
+ nesta pasta são gravados os arquivos XMLs válidos de NF-es. 
+Pasta de Destino das CT-e's Recebidos:
+ nesta pasta são gravados os arquivos XMLs válidos de CT-es. 
+Os erros eventualmente encontrados no momento da leitura dos e-mails recebidos são mostrados na Aba LOG, facilitando uma análise.
+Nomenclatura da Pasta de Destino - níveis: 
+podem ser criadas até 3 níveis de pastas dentro das pastas definidas para gravar os XMLs recebidos, com exceção das Pasta dos xmls e Pasta dos xmls com Erro. Os níveis tem 4 opções cada um: 
+Nenhum, Filial, CNPJ Emissor e Mês/Ano.
+Nenhum: 
+os anexos XML's serão gravados na pasta indicada, sem criação de pastas e sub-pastas.
+Filial: 
+os anexos XML's serão agrupados por Filial e gravados em uma pasta para cada Filial. A pasta é criada automaticamente no momento que o anexo XML é baixado.
+CNPJ Emissor: 
+os anexos XML's serão agrupados por CNPJ do Emissor e gravados em uma pasta para cada CNPJ. A pasta é criada automaticamente no momento que o anexo XML é baixado.
+Mês/Ano:
+ os anexos XML's serão agrupados por Mês e Ano e gravados em uma pasta para cada Mês/Ano. A pasta é criada automaticamente no momento que o anexo XML é baixado.
+Os níveis podem ser combinados de várias formas, observando:
+Quando o Nível 1 for configurado para NENHUM, os demais níveis são desconsiderados.
+Quando o Nível 1 for diferente de NENHUM e o Nível 2 for configurado para NENHUM, o Nível 3 é desconsiderado.
+Quando todos os níveis forem configurados iguais (exceto NENHUM), são criadas pastas e sub-pastas iguais.
+Somente arquivos XML's serão baixados para as pastas especificadas. Demais tipos de arquivos não serão baixados.
+ É de responsabilidade do usuário criar as pastas, definir os níveis de pastas e sub-pastas e a forma como serão tratados os arquivos XML's com erros ou duplicados. Também é de responsabilidade do usuário dar as devidas permissões nessas pastas e sub-pastas, devendo prever também o espaço necessário no disco rígido para comportar os arquivos baixados.

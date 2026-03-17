@@ -1,0 +1,170 @@
+TITULO: Controle Cheques Devolvidos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898523
+--------------------------------------------------
+Para controlar os cheques devolvidos, devemos fazer um lançamento manual no Contas a Receber.
+
+
+Assim, na tela abaixo (inclusão manual), vemos:
+
+
+
+
+Preencher os campos conforme o tópico 
+ com as seguintes alterações:
+
+
+
+
+O 
+código da entidade
+ deve ser o código do cliente que devolveu o cheque. Caso ainda não tenha identificado o emitente deste cheque devolvido deve-se lançar um débito não identificado, vide maiores detalhes no tópico 
+.
+
+
+A 
+data de vencimento
+ deve ser a mesma da obrigação que este cheque iria saldar para que possamos calcular juros e atrasos referentes ao vencimento original do título.
+
+
+O 
+tipo de documento
+ pode ser um específico para cheque devolvido (dessa forma permitirá a emissão de relatórios com os cheques devolvidos).
+
+
+O 
+histórico
+ deve ser o histórico padronizado para devolução de cheques ou aquele que representar melhor a situação.
+
+
+O 
+código da receita
+ deve ser o Banco onde foi depositado originalmente o cheque e posteriormente devolvido.
+
+
+O 
+vendedor
+ deve ser o mesmo que realizou a venda que deu origem ao cheque devolvido.
+
+
+
+
+Para ter controle do que realmente foi pago para cada título é importante que você informe quais a(s) baixa(s) que representa(m) este cheque. Sendo assim, apesar do título anterior estar baixado, será possível ter a noção do valor devolvido desta baixa. Para isso, clique no botão
+
+
+
+
+Obs.: Este botão só estará disponível depois que for informado o valor do lançamento.
+
+
+Será apresentada a tela a seguir:
+
+
+
+
+Nesta tela você informará quais as baixas que foram feitas com este cheque que foi devolvido. Para isso será necessário pesquisar os dados desta entidade.
+
+
+
+
+Informe o número do cheque no item #Docto, pois, geralmente, nas baixas em cheque, no item Número de Documento é informado o número do cheque.
+
+
+Informe a partir de que data de movimento (data da baixa) se encontra a(s) baixa(s) deste cheque.
+
+
+Informe também a partir de que data de fluxo.
+
+
+Caso queira pesquisar por comprador, marque a opção 
+Pesquisar entidade como compradora
+.
+
+
+Se for necessário acrescente mais filtros, clicando no botão
+
+
+
+
+
+
+A seguir, clique no botão
+
+
+
+
+Serão apresentadas todas as baixas que foram feitas para esta entidade atendendo os filtros especificados.
+
+
+A partir daí será necessário selecionar, entre as baixas apresentadas, quais fazem parte do cheque devolvido. Selecione a baixa desejada e dê um duplo clique com o mouse ou clique no botão
+
+
+
+
+A cada baixa selecionada ela será apresentada na tabela localizada na parte inferior na tela e ela só poderá ser selecionada uma única vez.
+
+
+Selecionadas as baixas, é possível informar o valor devolvido de cada baixa, que pode não ser integral. Na tabela das baixas selecionadas há uma coluna 
+Valor Devolvido
+, o sistema sugere o valor movimentado, porém pode ser alterado para o valor efetivamente devolvido. No rodapé desta columa tem a somatória do valor devolvido, que deve ser igual ao valor do lançamento que está sendo feito. Este valor é apresentado na parte central da tela.
+
+
+Clique no botão 
+OK
+ para confirmar o vínculo. Se o valor devolvido das baixas selecionadas for diferente do valor do lançamento será apresentada a mensagem:
+
+
+
+
+Clique em 
+OK
+ e corrija os valores.
+
+
+No caso dos valores estarem iguais, será retornada para a tela de inclusão de lançamento.
+
+
+Caso, após ter feito o vínculo de baixas, o valor do lançamento tenha sido alterado, o vínculo não poderá ser concretizado, portanto será apresentada a seguinte mensagem:
+
+
+
+
+Escolha 
+No
+, clique novamente no botão 
+Vínculo Baixas
+ e corrija os valores. E clique no botão 
+OK
+ novamente.
+
+
+Para ter um histórico completo do cheque
+ (contas e utilizações). Utilize o painel 
+Devolução de Cheque
+ para informar o(s) cheque(s) referentes a este lançamento.
+
+
+
+
+Caso o cheque já esteja cadastrado no sistema e este lançamento refira-se a somente um cheque, informe o seu número ou utilize o botão
+
+
+
+
+Caso queira relacionar a vários cheques ou a cheque(s) não cadastrado(s) no sistema ainda utilize o botão
+
+
+
+
+Maiores detalhes sobre a tela apresentada podem ser vistos em 
+.
+
+
+Após ter informado todos os cheques clique no botão OK que será retornado para a tela de inclusão de lançamento.
+
+
+Clique no botão 
+OK
+ para confirmar o lançamento.
+
+
+O Sistema irá movimentar a conta de banco (retirando o montante do cheque) e a conta do cliente, fazendo o processo oposto ao ocorrido na baixa deste título.

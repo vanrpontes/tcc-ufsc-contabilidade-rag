@@ -1,0 +1,93 @@
+TITULO: Versão 8.29
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924286380
+--------------------------------------------------
+Dados
+Informações
+Início
+16/09/2015
+Final
+29/09/2015
+Scripts
+CMD829.sql (3879 a 3896)
+Itens
+13
+Implementações
+6
+Correções
+7
+DLLs
+SisPetroControl.Dll
+ 
+ 
+Avisos importantes
+O perfil de empresa "Gera Frete s/ICMS quando Autônomo ou Fora do Estado" (abas Fretes) foi removido, já que está em desuso.
+Compras
+Carregar Unidade de Medida no Fluxo do PMM
+Ao emitir Pedido de Movimentação de Material o usuário pode indicar outra unidade de medida, diferente da indicada no cadastro de produto. Esta informação deveria ser considerada na emissão de OC originada desse Pedido. Nessa versão, foi realizada uma alteração para garantir esse fluxo. CPC (CCF 29422)
+Estoque
+Controle de Lacres
+Nesta versão foi implementado o controle de utilização de lacres nas série Manuais. O SisPetro passará a verificar se a numeração já foi utilizada em outra OC ou se está inutilizada, caso tenha sido não será permitido incluir a OC com tal lacre. 
+Help: 
+Tabela Série de Lacres
+, 
+ 
+e
+ 
+ CPC (CCF 28821)
+Faturamento
+Ajuste da Apuração de Frete Líquido
+A partir dessa versão não será permitido itens de um mesmo produto com unidades de medidas diferentes, na Ordem de Carregamento, Pedido de Venda e Faturamento. 
+O perfil de empresa "Gera Frete s/ICMS quando Autônomo ou Fora do Estado" (aba Fretes) foi removido, já que está em desuso. 
+Help:
+ 
+ 
+FLS (
+CCF 29159)
+Peso na Inclusão de Nota Fiscal
+A tela de Natureza de Operação foi alterada e o perfil "Peso total da Nota Fiscal" foi incluído para indicar se o usuário poderá informar o peso na inclusão de Nota Fiscal ou se o peso será o calculado pelo Sistema. 
+Help:
+ 
+  PRFC (CCF 29175)
+Uso de Fator de Conversão de Unidade em NF de emissão própria
+ 
+ 
+Antes só era permitido a utilização do Fator de Conversão para NF de terceiros, porém, na Devolução de Fornecedor, NF de emissão própria, tem que ser na mesma unidade de medida da NF de origem. Nessa versão, foi realizada a alteração para permitir o uso do fator de Conversão de Unidade para NFs próprias. Além disso, foi disponibilizada a edição da Unidade de Medida também para OCs de Carregto/Descarga Própria. 
+Help:
+ 
+ e 
+Painel Carregamento (Usuários)
+ 
+CPC (CCF 21502)
+Financeiro
+Impressão de Recibo de Baixa
+Ajustado a impressão do recibo de baixa para multi-empresa. 
+FLS (CCF 29329)
+Melhoria de performance da tela de Manutenção de Bancos
+Feita alteração para melhoria de performance da tela. 
+FLS (CCF 29161)
+Fiscal
+Estoque Inicial e Final no DPMP
+As funcionalidades do DPMP foram alteradas para permitir que estoque inicial/final de Terceiros e Venda para Entrega Futura sejam incluídos mais de uma vez para um mesmo código de instalação. 
+Help: 
+Saldos de Estoque no DPMP
+  
+PRFC (CCF 29251)
+Transporte
+Troca de Transportadora pela Manutenção de OC
+Na tela de Manutenção de Ordem de Carregamento, é possível Mudar a Transportadora. Porém, ao gravar os dados, a Descrição Motorista e Descrição Transportadora não estavaM sendo gravadoS corretamente. Nessa versão, foi corrigido. 
+CPC (CCF 29274)
+Volume de Tolerância na Apuração de Frete Líquido
+A Apuração de Frete Líquido foi alterada para considerar corretamente o volume de tolerância indicado no depósito, transportadora ou motorista. 
+PRFC (CCF 29314)
+Vendas
+ 
+Consulta Pedidos de Venda
+Incluído os campos Bandeira e Tipo de Cliente na tela de Consulta Pedidos de Venda. CPC (CCF 29178)
+Consulta Geral de Vendas
+Incluído o campo Comprador NF e ajustada formatação do campo Tipo de Cliente, para apresentar Descrição e Código, na tela de Consulta Geral de Venda. 
+Help:
+ 
+ CPC (CCF 28949)
+Melhoria de performance da tela de Consulta de Pedidos Aprovados para Faturamento
+Feita alteração para melhoria de performance da tela. 
+FLS (CCF 29161)

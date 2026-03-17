@@ -1,0 +1,317 @@
+TITULO: 5. Rateio de Custos de Produção
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2899609555
+--------------------------------------------------
+O objetivo do Rateio de Custos de produção é apurar as horas/custos necessárias para elaboração de cada OF por centro de custo (Insumos), permitindo sua valorização pelo usuário no final do período, rateando este valor pelos produtos produzidos e recalculando o custo do produto no módulo de custos transferindo estes novos custos inclusive para o CMV das vendas realizadas.
+
+
+Utilizando o Rateio nos Processos de Fabricação (OF)
+
+
+Cadastrando o produto
+
+
+O primeiro passo é cadastrar os Insumos (dentro do cadastro de produtos). No cadastro, temos um novo 
+Tipo de Produto
+ (além dos produtos normais) que seria classificado como 
+Insumo
+. Este tipo não tem controle de estoque e é utilizado na fórmula de fabricação para o rateio.
+
+
+
+
+Cadastrando as fórmulas de fabricação
+
+
+O segundo passo é cadastrar os Insumos nas Formulas de Fabricação (produto, qtde padrão, ccusto/insumo/unidade/quantidade).
+
+Este cadastro armazena as quantidades de determinado insumo por centro de custo para se fabricar algo. Estará vinculado à fabricação de um determinado produto e será utilizado na emissão da OF, onde o usuário escolherá uma rota dentre as possíveis para o produto a ser fabricado e o Sispetro sugerirá os itens vinculados a esta rota na OF (permitindo ao usuário alterar caso necessário).
+
+
+Para cadastrar os insumos acesse o menu 
+Movimentação \ Base \ Manutenção de Formulação de Produtos
+.
+
+Inclua ou edite uma Fórmula, será apresentada a tela abaixo:
+
+
+
+
+O campo 
+Quantidade Base para insumos
+ será melhor detalhado ainda nesse tópico.
+
+
+Ao clicar no botão 
+Incluir
+ será mostrada a tela abaixo, onde:
+
+
+Produto
+: Somente produtos do Tipo Insumo estarão disponíveis para seleção.
+
+
+Centro de Custo
+: Centro de Custo ao qual pertence o Insumo cadastrado.
+
+
+Unidade
+: Por padrão será sugerida a Unidade cadastrada no Produto, mas é possível que seja alterada.
+
+
+Proporcionalidade
+: Veremos mais detalhes abaixo.
+
+
+Quantidade
+: Veremos mais detalhes abaixo.
+
+
+Um produto poderá ser cadastrado para vários centro de custos, e um centro de custo para vários produtos. Não será permitido a duplicidade de um mesmo produto para o mesmo centro de custo.
+
+
+
+
+Quantidade base para insumos X Proporcionalidade
+
+
+Ao cadastrar a formulação devemos preecher o campo 
+Quantidade base para insumos
+ que tem por finalidade definir a base de calculo da proporcionalidade, caso o insumo cadastrado na mesma fórmula seja proporcional a produção, vejamos em um exemplo:
+
+
+
+
+No cadastro da Formulação
+:
+	
+
+
+Descrição: 
+Gasolina A
+
+
+Campo quantidade base para insumos (em litros): 
+100 litros
+
+
+
+
+
+
+
+
+
+
+No cadastro do Insumo
+:
+	
+
+
+Insumo: 
+Mão de Obra
+
+
+Unidade: 
+HR (horas)
+
+
+Proporcionalidade: 
+Consumo é proporcional à produção
+
+
+Quantidade: 
+1 hr
+
+
+
+
+
+
+
+
+De acordo com os dados acima, temos: 
+A cada 100 litros de Gasolina A Produzida, será gasta 1 hora de Mão de Obra.
+
+Consequentemente, caso seja fabricado 200 litros de Gasolina A, serão gastos 2 horas de mão de Obra, e assim sucessivamente.
+
+
+Vejamos um segundo exemplo, onde o Consumo não é proporcional à produção.
+
+
+
+
+No cadastro da Formulação
+:
+	
+
+
+Descrição: 
+Gasolina A
+
+
+Campo quantidade base para insumos (em litros): 
+100 litros
+
+
+
+
+
+
+
+
+
+
+No cadastro do Insumo
+:
+	
+
+
+Insumo: 
+Energia Eletrica
+
+
+Unidade: 
+KW (Kilo Watt)
+
+
+Proporcionalidade: 
+Consumo NÃO é proporcional à produção
+
+
+Quantidade: 
+300 KW
+
+
+
+
+
+
+
+
+Na situação acima, caso seja fabricado 100 litros de Gasolina A, serão gastos 300 KW de energia elétrica. 
+Porém, caso seja fabricado 15.000 litros de Gasolina A, serão gastos os mesmos 300 KW de energia elétrica, pois esse consumo não é proporcional a quantidade produzida.
+
+
+Processo de Ordem de Fabricação (OF)
+
+
+Durante a inclusão da OF, na aba 
+Insumos
+, poderá ser visualizada a relação de Insumos bem como as quantidades proporcionais já calculadas e as quantidades não proporcionais.
+
+
+
+
+Através do Botão 
+Alterar Insumos
+ (imagem acima), será possível alterar na OF a quantidade real de cada insumo.
+
+
+Caso, em um determinado insumo, seja definida a quantidade real para 0 (zero), esse não será mais visualizado nas etapas seguintes.
+
+
+Alocação de Custos por Ordem de Fabricação
+
+
+Para concluir o processo de rateio, será necessário realizar a distribuição dos custos, esse processo será realizado na tela de 
+Alocação de Custos por Ordem de Fabricação
+, que poderá ser acionada através do menu 
+Movimentação \ Base
+ ou através do Botão 
+Alocação
+ disponível na tela Manutenção de Ordem de Fabricação.
+
+
+Atente-se para possuir as devidas permissões de acesso ao menu, concedida na aba Acesso Menus no Perfil de 
+.
+
+
+
+
+Para incluir uma alocação existem duas regras básicas:
+
+
+
+
+Não poderá haver OF pendentes no periodo.
+
+
+Não poderá haver fechamento de estoque no período.
+
+
+
+
+Na aba 
+Manutenção
+ selecione o botão 
+Incluir
+, será aberta a tela abaixo:
+
+
+
+
+Nesta tela, o Sispetro irá agrupar os recursos de cada OF por um determinado período (sempre se baseando ou na data de início ou da finalização da OF conforme perfil da empresa) por centro de custo, permitindo ao usuário informar um valor total de gastos por insumos a ser rateado.
+
+
+
+
+Selecione o botão 
+Obter Dados
+ para carregar as informações do período na tela.
+
+
+Selecione o Insumo que deseja valorizar.
+
+
+Utilize o botão 
+Alterar Valor Total
+ para definir o custo total desse Insumo. Note que o valor unitário será calculado automaticamente.
+
+
+Salve
+
+
+
+
+Após os passos acima a inclusão da Alocação dos custos estará realizada, porém, o rateio ainda não foi realizado, para realizá-lo será necessário utilizar o botão 
+
+
+O processo de Distribuição (Rateio) se dará da seguinte forma:
+
+
+
+
+As unidades gastas em cada OF serão valorizadas conforme o valor unitário do rateio por centro de custo obtido no passo anterior.
+
+
+O valor total de cada centro de custo em cada OF será dividido pela quantidade total do produto produzido (quantidade real) para se chegar a um valor unitário de rateio por unidade de produto.
+
+
+
+
+O processo de Distribuição ainda não aplicará os Custos. Para aplicar os cálculos utilize o botão 
+.
+
+
+Será apresentada a tela abaixo demonstrando os calculos de rateio realizados na Distribuição:
+
+
+
+
+Sendo que o 
+Custo Original
+ refere-se ao Custo Medio das Matérias Primas e o 
+Custo Alocado
+ ao Rateio dos Insumos.
+
+
+Ao finalizar serão aplicadas no banco de dados as seguintes operações:
+
+
+
+
+A soma dos valores unitários de rateio por unidade de produto será somada ao custo unitário final do produto da OF resultando num novo custo unitário.
+
+
+Este novo custo será salvo junto à cada movimentação da OF para posterior recálculo do custo.
+

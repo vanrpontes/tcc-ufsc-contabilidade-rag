@@ -1,0 +1,188 @@
+TITULO: Tabela de Fórmula para Livro Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210268
+--------------------------------------------------
+A tabela de Fórmulas para Livro Fiscal é utilizada para gerar movimentos de Notas Fiscais no Livro Fiscal a partir da tabela de Natureza de Operação. A manutenção desta tabela é acionada a partir do Menu principal com as opções -
+ 
+Arquivos / Fórmulas para Livro Fiscal. 
+
+
+
+
+Acione o botão de inserção de registro. 
+
+
+
+
+O Sistema exibe a tela para o cadastramento da nova fórmula. 
+
+
+
+
+Informe primeiramente se esta fórmula dará origem a um livro
+ 
+Gerado por Item
+ 
+da Nota Fiscal. Esta informação só poderá ser alterada na inclusão da fórmula, pois a partir dela o sistema saberá se o livro será por
+ 
+cabeçalho
+ 
+ou por
+ 
+item
+ 
+e quais os campos que deverão estar disponíveis.
+
+
+
+
+Por cabeçalho de Nota
+
+
+Por padrão o sistema gera o livro Fiscal pelo cabeçalho da nota, ou seja, para cada nota fiscal é gerado um único livro fiscal, independente do número de itens que esta nota possua, sendo assim os campos disponíveis para a fórmula são aqueles que fazem parte do cabeçalho da mesma, da tabela NotaFiscal. O número do item no Livro Fiscal será sempre 0 (zero) e os campos de código de produto, valor unitário e quantidade não são preenchidos, pois quando necessário (como na emissão da mídia do Sintegra) serão pesquisados na tabela ItensNF.
+
+
+Por Item da Nota
+
+
+Quando marcada a opção
+ 
+Gerado por Item
+ 
+o sistema gerará livros fiscais na quantidade equivalente ao número de itens da nota, assim o sistema disponibiliza os campos de itens da nota, para que sejam preenchidos (alerte-se sempre) os campos de valores (alíquota, base de cálculo, isentas, outras,etc) sempre referenciados a campos da tabela ItensNF e não mais à tabela NotaFiscal. O número do item no Livro Fiscal será preenchido sequencialmente, e serão preenchidos os campos de código do produto, valor unitário e quantidade automaticamente a partir de cada item de nota. Fórmulas e livros deste tipo serão apresentados na tela de manutenção correspondente com a fonte no estilo
+ 
+itálico
+. Isto é útil para notas de entradas que possuam produtos com alíquotas diferenciadas. Como o sistema gerará os livros de acordo com o número de itens, atente-se para agrupar (antes da inclusão da nota) os produtos com a mesma alíquota, caso assim deseje.
+
+
+Exemplo: Uma nota com dois produtos com alíquota de 12% e outro com alíquota de 25%. No momento da inclusão da nota poderão ser informados três produtos, cada um com seus detalhes e serão gerados assim três livros. Ou então, agrupa-se os dois produtos de 12% somando os valores, incluindo uma nota com dois itens para então o sistema gerar dois livros.
+
+
+
+
+Preencha a
+ 
+descrição
+ 
+da Fórmula. A seguir, preencha para cada campo (existente no Livro Fiscal) de onde você quer que seja retirada a informação. Para isso clique no ... e será exibida a tela para montagem de fórmula. 
+
+
+
+
+Esta tela disponibilizará os campos de tabelas envolvidas no processo de Faturamento (dependendo da opção Gerado por Item conforme explicado acimo). Escolha o campo desejado, sendo possível fazer cálculo entre eles, desde que seja respeitada a compatibilidade entre campos. É possível inclusive digitar textos ou valores fixos.
+
+
+O campo do 
+Código da Entidade
+ pode ser preenchido de quatro formas:
+
+
+
+
+referenciando-se ao campo 
+CodEnt
+ da tabela 
+NotaFiscal
+, que é o padrão. Se a nota está direcionada para aquela entidade é comum que o livro fiscal seja então para a mesma entidade.
+
+
+
+
+
+
+referenciando-se ao campo 
+CodEntLF
+ da tabela 
+NotaFiscal
+. Este campo, no caso de Conhecimentos de Frete é preenchido conforme configuração do sistema (Entidade remetente, Entidade Destinatária ou Entidade pagadora - que pode ser a remetente ou destinatária). Assim será útil utilizá-lo nas fórmulas de livro de Conhecimento de Frete, porém, como nos casos de nota que não são do tipo Conhecimento este campo é sempre igualado ao campo 
+CodEnt
+, é possível utilizá-lo nas demais fórmulas, que é o que sugerimos no 
+exemplo de fórmulas
+.
+
+
+
+
+ Para Conhecimentos de Frete, nas fórmulas deve utilizar sempre o campo 
+CodEntLF
+ da tabela 
+NotaFiscal
+. 
+
+
+
+
+referenciando-se ao campo 
+CodEnt
+ da tabela 
+Empresas
+. Este campo será utilizado numa fórmula adicional para que este segundo livro seja gerado para a entidade que representa a empresa do primeiro livro. Exemplo: A transportadora LeveBem gera um conhecimento de frete para a empresa distribuidora GasolinaBoa. A natureza de operação pode ser configurada para gerar um livro fiscal (com uma fórmula de livro de saída para a transportadora) e gerar um livro fiscal adicional (com uma fórmula de livro de entrada para a distribuidora). Neste livro adicional a entidade será a empresa transportadora LeveBem, fornecedora do serviço. Vide maiores detalhes em 
+ (não conjugadas).
+
+
+
+
+
+
+Com um código de entidade fixo, caso seja necessário, informando-o sem formatação, função ou <>.
+
+
+
+
+ Caso a fórmula desejada seja para um livro fiscal adicional, geralmente utilizado em 
+, preencha os 
+Dados Complementares
+ conforme a necessidade:
+
+
+Os dados referentes a entidade (
+Razão Social, CNPJ, IE, Município, Código DNC e UF
+) quando não definidos são preenchidos com os dados da Entidade da Nota Fiscal que está gerando o livro Fiscal.
+
+
+
+
+O campo 
+Entrada/Saída
+ quando não informado é preenchido automaticamente pelo campo da NF, mas atente-se que no caso de Conhecimento de Frete na NF este campo é preenchido com N, portanto ele deve ser preenchido via fórmula indicando S ou E.
+
+
+
+
+
+
+O campo 
+Código da Empresa
+ é preenchido automaticamente pelo código da empresa da NF que está gerando o Livro Fiscal.
+
+
+
+
+ Atenção: Quando informado o livro fiscal será gerado como do tipo Manual e preencherá os dados referentes a produto de acordo com os itens da NF que está sendo gerada!! Portanto, só informe o código da empresa, caso esteja fazendo uma fórmula adicional.
+
+
+Clique no botão OK para retornar para a tela de Fórmulas para Livros Fiscais.
+
+
+Depois de preencher todos os campos, pois todos eles são imprescindíveis para o Livro Fiscal, acione o botão OK para atualizar os dados no Sistema.
+
+
+O Sistema retorna a tela de navegação.
+
+
+Para fazer a 
+cópia
+ de uma fórmula já existente para uma fórmula nova, utilize o botão  
+ na parte superior da tela . A cópia evita erros de digitação da nova fórmula e é útil principalmente quando há uma pequena diferença entre a fórmula original e a nova.
+
+
+Ao ser concluída a cópia será informado o novo código de fórmula criado.
+
+
+Para deixar a tela de Fórmulas para Livro Fiscal acione o botão Ok ou Cancela.
+
+
+
+
+Para conferir as fórmulas cadastradas utilize o relatório de conferência:
+ 
+.

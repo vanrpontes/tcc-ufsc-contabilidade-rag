@@ -1,0 +1,28 @@
+TITULO: Pré venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913894614
+--------------------------------------------------
+Este não é uma movimentação comum, porém os passos são:
+1 -
+ Precisa de uma
+ Nota Fiscal
+ para mandar para o Cliente; Essa nota deve ser um pedido de vendas nesse caso essa nota
+ não pode gerar movimento de estoque
+, porém, 
+deve gerar contas a receber
+, chame essa nota de nota Mãe, então para que essa nota mãe não movimente estoque
+ precisa utilizar uma natureza de operação que esteja configurada para não movimentar estoque
+, esta Natureza deve ter os campos
+Aba Geral / Perfil Gera Contas a Pagar e Receber (Marcado)
+Aba Geral / Perfil Movimenta Estoque (Desmarcado)
+Aba Por Filial / Quadro Vínculo de Nota Fiscal (Desmarcado)
+2 -
+ No segundo passo você deve gerar uma nota fiscal de simples remessa utilizando o menu outras saídas chame essa nota de nota filho, a nota filho 
+não pode gerar contas a receber
+ e nem pode ser uma nota de vendas para 
+não gerar lançamentos em duplicidade
+, então você deve utilizar uma
+ natureza de operação que movimenta estoque
+.Esta Natureza deve ter os campos
+Aba Geral / Perfil Gera Contas a Pagar e Receber (desmarcado)
+Aba Geral / Perfil Movimenta Estoque (marcado)
+Aba Por Filial / Quadro Vínculo de Nota Fiscal (Marcado)

@@ -1,0 +1,79 @@
+TITULO: Informações para Anexo - Exemplo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210931
+--------------------------------------------------
+A partir do painel 
+Dados Adicionais
+ da 
+Tabela Natureza de Operação
+, quadro 
+Sai no Anexo
+ são configurados as informações que irá compor dados para o Anexo e para a 
+Geração Mídia SCANC
+.
+Abaixo uma breve explicação de como são obtidos os valores de ST.
+Valores ST 
+(Substituição Tributária): 
+selecionar como serão obtidos os 
+ das Notas Fiscais de 
+Entrada
+. Esses valores irão compor dados para o 
+Obtém Valores ST pelo ICMS Próprio (primário) e ST (biocombustível): 
+se desejar que os valores sejam pelo ICMS Substituição, existem duas formas de informar esses valores no momento da inclusão da nota física no SisPetro: manual ou automática.
+Inclusão Manual: 
+geralmente estes valores, 
+Base ICMS Substituição
+ e 
+Valor ICMS Substituição
+, das Notas Fiscais de Entrada são informados pelo usuário no momento da inclusão, devido ao preço de pauta  (PMPF) que a Petrobras trabalha, ser diferente do preço que a empresa (distribuidora) cadastra no SisPetro. Portanto, para poder informar nas colunas Base ICMS Substituição e Valor ICMS Substituição os valores, conforme a Nota de Entrada, deve-se configurar na 
+Natureza de Operação
+, painel Por Filial / Impostos, a opção 
+Usuário deve informar ICMS Substituição
+. Dessa forma, o SisPetro habilita as colunas para preenchimento.
+Inclusão Automática: 
+para a empresa que deseja fazer esse cálculo automático, basta configurar na Natureza de Operação, painel 
+Por Filial / painel Impostos
+, a opção 
+"Gera ICMS Substituição"
+. Vide também o tópico 
+Cálculos dos Impostos
+, pois é necessário para obter esses valores corretamente e fazer as devidas configurações.
+Abaixo um exemplo de uma nota com os valores preenchidos. 
+Obtém Valores ST pelo ICMS Retido.: 
+para obter esses valores no momento da inclusão da Nota Fiscal de Entrada, pode-se informá-los manualmente ou configurar para que o SisPetro calcule-os automaticamente.
+Inclusão Manual: 
+se desejar digitar esses valores, basta configurar na Natureza de Operação, painel 
+Por Filial / Impostos
+, a opção 
+Permite alterar ICMS retido na Nota Fiscal
+. assim, no momento da inclusão da Nota Fiscal de Entrada, o SisPetro permitirá que seja informado os valores Base ICMS Retido e ICMS Retido, conforme exemplo dado logo abaixo.
+Inclusão Automática: 
+para obter o cálculo desses valores automaticamente configure na Natureza de Operação, painel Por Filial / Impostos, a opção 
+Gera ICMS Retido Fonte
+. No momento da inclusão da Nota não será preciso informar os valores do ICMS Retido.
+Abaixo um exemplo de uma nota com os valores preenchidos. 
+Obtém Valores ST pelo ICMS próprio total
+: as notas fiscais sem ICMS de Substituição.
+Esta opção deve ser utilizada em notas de compras de 
+congênere
+, já que esse tipo de nota não possui informações de ICMS Subst ou Retido, por já terem sido recolhidos/apresentados no momento em que a congênere comprou da Refinaria.
+Abaixo um exemplo de uma nota com os valores preenchidos. 
+Obtém Valores ST pelo ICMS próprio total diminuído do ICMS Diferido: 
+essa opção deve ser utilizada para compra cuja parte do Biocombustível possui diferimento. 
+Abaixo um exemplo de uma nota com os valores preenchidos.   
+Esses valores, diferente do ICMS Subst e os outros acima, não pode ser digitado. caso a NF seja incluída manualmente o usuário deve acessar a Edição da Midia Magnética Anexo e alterar. 
+Não obtém Valores ST da NF: 
+essa opção deve ser configurada para as 
+Notas Fiscais de Saída
+, pois as elas 
+não são exigidas no SCANC
+. 
+É importante acessar o tópico 
+Cálculo de Imposto - Exemplo Prático
+ para entender como o SisPetro trabalha e precisa ser configurado para que os valores saiam corretamente.
+Todos os valores obtidos/informados na inclusão de uma Nota Fiscal podem ser conferidos na tela de Manutenção de Nota Fiscal, inclusive os valores acima citados. Para isso acesse o tópico 
+Manutenção de Nota Fiscal
+ para maiores detalhes.
+Para mais informações sobre, ver
+Manutenção de Anexos - Distribuidora
+.
+Configurações Necessárias - Anexos SCANC

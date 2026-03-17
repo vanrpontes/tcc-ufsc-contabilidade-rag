@@ -1,0 +1,132 @@
+TITULO: CMV - Exemplos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2968388845
+--------------------------------------------------
+Objetivo
+Abaixo, são listados alguns exemplos de movimentação e sua influência no processo do cálculo do CMV.
+Serão mostrados os processos:
+none
+Compra
+ 
+Relatório Kardex - Sem movimento
+Foi realizado um lançamento de uma nota de compra de combustível
+ Tela de Fechamento de Custo somente com as notas de entrada
+ Relatório Kardex - Após entrada da Nota e realizar o Fechamento de Estoque e Fechamento de Custo no relatório Kardex podemos ver que a contabilização está igual na Contabilidade e no Estoque.
+Razão - Contabilização da Nota de Entrada, mostrando a conta de Estoque Hidratado
+Venda
+Na Natureza de Operação de Venda com a configuração de não interferir no Custo Médio de Notas de Saídas.
+Emissão da Nota de Venda com quantidade de 2.000 LT e preço unitário da nota R$ 1,00
+Emissão da segunda Nota de Saída com quantidade de 1.000 LT e preço unitário da nota R$ 3,00
+Tela de Fechamento de Custo após emissão das duas Notas de Venda (repare que manteve o valor do último custo médio). 
+Relatorio Kardex 
+(Antes Fechamento Custo)
+ - No relatório abaixo não existe movimentação porque a contabilização acontece quando é feito o Fechamento de Custo.
+Relatório Kardex
+ (após fechamento de Custo)
+ - Após o fechamento de Custo, foi gerado um lote exatamente do valor que saiu do estoque nas vendas que foram feitas, respeitando o último custo médio. Não existe diferença como mostra a contabilização entre a contabilidade e o estoque.
+Razão - Abaixo mostra no relatório Razão a contabilização do lote creditando da conta de Estoque e debitando na conta de Custo.
+Conta de Estoque
+Conta de Custo
+No relatório Analise Geral de Vendas podemos observar que o valor do lote que foi gerado, mostrado no relatório acima do razão,  foi exatamente o Custo das Notas de Venda - 
+Coluna Custo Gerencial
+ (R$ 1,00 multiplicado pela quantidade de cada NF, 2000 litros e 1000 litros respectivamente)
+Transferências
+Abaixo um exemplo do processo de Transferência de um Depósito para outro.
+Para nota de saída de Transferência temos 2 opções: as que participam do CMV e as que não participam:
+Participa do CMV desmarcada:
+Efeito:
+ não será contabilizado no Fechamento de Custos e será apresentado detalhado.
+Participa do CMV marcada - não é possível utilizar em conjunto com a Sugestão de Custo Médio (somente Saídas) igual a Valor Unitário da NF.
+Efeito:
+ será contabilizado no Fechamento de Custos e será apresentado agrupado. 
+Sugestão de Custo Médio (somente Saídas):
+ esta opção permite selecionar de que modo as notas de saídas que não participam nos custos vão interferir ou não nos cálculos do custo médio.
+Não se Aplica:
+ naturezas de entrada ou naturezas de saídas que não são de produtos combustíveis
+Valor Unitário da NF - não é possível utilizar em conjunto com Participa do CMV marcada
+Efeito:
+ terá interferência no custo médio final do Fechamento de Custo com o valor unitário da NF
+Último Custo Médio Conhecido: 
+Efeito:
+ não terá interferência no custo médio final do Fechamento de Custo 
+Nota Fiscal Transferência Saída
+No exemplo que vamos passar optamos pela configuração conforme a imagem acima, sem participar do CMV e salvando na nota de saída o custo médio do último fechamento.
+Na imagem abaixo a tela de Fechamento de Custo mostra o valor de 2,00, ultimo custo fechado
+Foi emitida uma nota fiscal de transferência o Sispetro trouxe no lançamento da nota o preço unitário do ultimo fechamento
+Tela de Fechamento de Custo não alterou o custo unitário da nota de saída.
+Razão - A contabilização da nota ficou conforme o os valores da nota de transferência saída
+Relatório Kardex os valores ficaram iguais na contabilidade e no estoque
+Nota Fiscal Transferência Entrada
+Para garantir que o custo médio unitário da nota de entrada tenha o mesmo custo da nota de saída, criamos uma função que permite que sejam iguais, bastando apenas vincular a nota de entrada na nota de saída.
+Exemplo de como usar na fórmula:
+GetCustoMedioNFVinc(<ItensNF.CodEmpresa>,<ItensNF.Sequencial>,<ItensNF.NumItem>)
+Essa formula é configurada na Natureza de Operação de entrada conforme imagem abaixo:
+Nota de Entrada
+Tela de Fechamento de Custo no deposito de entrada, o valor do custo ficou 2,00 o mesmo valor da nota de saída.
+Razão - A contabilização da nota ficou conforme o os valores da nota de transferência entrada
+Kardex - Entrada realizada após a transferência, o valor do estoque está o mesmo da contabilidade
+Conhecimento de Frete
+A análise a seguir tem como pré-requisito que as fórmulas de CMV, incluindo o frete, estejam devidamente configuradas e em funcionamento no Fechamento de Custo.
+Na composição do CMV, consideramos o frete informado na ordem de carregamento, embutido nas fórmulas das naturezas de compra,  o valor do frete é somado na NFe, apenas no fechamento do CMV.
+Já a contabilização do frete é feita através do conhecimento da NF-e transportada.
+Quando analisamos o relatório de Movimentação de Estoque Escritural Contábil (Kardex), temos a NF-e de compra refletindo os valores que carregamos da fórmula, ou seja, valor da nota, mais o frete.
+Via Sispetro Controladoria, menu Relatórios, Auxiliares, Contábil, Movimentação de Estoque Escritural Contábil. Para mais informações, ver 
+Movimentação de Estoque Escritural Contábil
+Ao colocar nos parâmetros do Kardex para exibir a contabilização da NF-e, será apresentado apenas o valor da NF, pois o frete é contabilizado na importação do CT-e.
+No exemplo temos a seguinte situação:
+NF 470575 
+Qtde. 58529 * 3,15 Preço Unitário  = 184.366,35
+Frete  58529 * 0,09 = 5.267,61
+(Fórmula do CMV, pega esse valor da Ordem de Carregamento)
+O relatório só exibe a contabilização das notas do produto que movimenta estoque, ou seja, conhecimento não será exibido no relatório, porém a movimentação, consta na composição do CMV.
+A diferença apresentada no relatório é exatamente o frete carregado da fórmula.
+Quando o conhecimento é escriturado, seja diretamente na conta de estoque de produto ou em uma conta redutora, precisa ser exatamente o saldo final movimentado, no caso temos duas formas de validar o Kardex com a Contabilidade.
+Relatório Razão.
+ Via Sispetro Controladoria, menu Relatórios, Razão. Para mais informações, ver 
+Razão
+Se emitirmos um relatório razão da conta, na mesma data do fechamento do CMV, iremos notar que além da NFe que escrituramos, teremos o CTe com mesmo valor do frete que compôs o CMV.
+Note que o valor da contabilizado do conhecimento é exatamente a diferença apontada no relatório, porém o saldo da conta no razão, reflete exatamente o saldo do relatório Kardex.
+Um ponto importe a ser considerado, data de movimento da NFe e do CT-e, precisa ser iguais, isso destaca a importância da escrituração correta dos documento conforme acontece a operação.
+Caso ocorra diferença entre o kardex e o relatório razão, precisa analisar os ajuste e incluir os lotes na conta para que os saldos sejam igualados.
+Conciliação Contábil
+Via Sispetro Controladoria, menu Movimentação, Conciliação de Mov. Contábil. Para mais informações, ver 
+Conciliação de Movimento Contábil Gerencial x Real
+Uma ferramenta que possibilita validar se os lançamentos Reais e Gerenciais estão ocorrendo corretamente nas devidas contas.
+Indique a conta de estoque do gerencial, conta real vinculada será carregada automaticamente.
+Na tela, podemos confrontar se os lançamentos estão conciliados de forma simultânea. 
+Recomendamos que o CMV seja fechado e conferido diariamente, acompanhando o fechamento de estoque.
+Caso seja estritamente necessário fazer um fechamento por período, toda diferença apontada entre o razão e o Kardex 
+deve ser lançado diretamente na conta de estoque na contabilidade. 
+Correções quando o CMV muda depois da NF emitida
+Com base no exemplo acima, pode acontecer de, após a emissão da Nota de Transferência de saída, no qual o valor unitário contabilizado do custo foi de R$ 2,00 pois no momento esse era o ultimo custo médio, foi realizada uma entrada de uma nota (com um custo unitário diferente portanto que irá influenciar o CMV) e, ao fazer o fechamento do dia, foi atualizado o custo médio de acordo e, no Razão,  é exibido que a contabilização foi realizada pelo valor que estava no momento da emissão da nota.
+Tela de Fechamento de Custo ANTES da entrada da nota de compra de Gasolina A (mostrando a NF de transferência de saída).
+Relatório Kardex -  Custo da nota de transferência saída ANTES da entrada da nota de compra, foi feito o fechamento para mostra como estava o estoque antes do lançamento da nota de compra que virá logo a seguir
+Nota fiscal de compra entrando depois que foi emitida a nota fiscal de transferência
+Tela de Fechamento de Custo DEPOIS da entrada da nota de compra. Repare que o custo unitário foi atualizado e é diferente da contabilização original.
+Contabilização da nota de transferência foi feita na emissão portanto o que foi contabilizado o valor de 6,000 conforme imagem
+Relatório Kardex -  Após o fechamento de custo no relatório Kardex está  Custo da nota de transferência saída DEPOIS da entrada da nota de compra sitada acima.
+O valor unitário do CMV (contabilizado pela NF de transferência de saída) era de R$ 2,00 porém este valor foi alterado posteriormente para R$ 2,819672. A diferença (apontada pelo relatório) de R$ 2.459,02 é exatamente a diferença unitária entre os CMV original e o novo (R$ 2,819672 - R$ 2,00 = R$ 0,819672) multiplicado pela quantidade, ou seja, R$  R$ 0,819672 x 3.000 = R$ 2.459,02. 
+Para acertar a diferença recomendamos fazer um lote manual com a diferença para a contabilidade ficar com o mesmo valor do estoque
+Atualização do Custo da nota de venda em consulta gerencial
+Nas notas fiscais de saída,  gravamos internamente o CMV para compor o custo final da venda e poder ser comparado com o valor da venda em relatórios gerenciais. Este valor é salvo inicialmente quanto a NF é emitida com o último CMV calculado. Porém, como no exemplo acima da transferência, podem existir NFs de entrada que não tenham sido incluídas ainda e que irão modificar o CMV salvo na NF de saída. Mostraremos a seguir que, quando se apura este novo CMV, este valor salvo das NFs de venda são alterados para que sejam igualados ao novo valor encontrado. 
+Abaixo um passo a passo de como isso funciona:
+Tela de fechamento de Custo mostrando o valor do ultimo fechamento
+Relatório Kardex 
+Ao emitir as notas de venda é salvo o ultimo custo médio do ultimo fechamento.
+.
+No relatório Analise Geral de Vendas podem verificar que foi salvo o custo do ultimo fechamento para as 2 notas emitidas
+NF 70047
+ - Custo 
+R$ 1,00 x 4.000 litros = R$ 4.000
+NF 70049
+ - Custo 
+R$ 1,00 x 2.000 litros = R$ 2.000
+Após a entrada da nota de compra, os valores unitários das notas de venda foram atualizados de acordo com o calculo do custo medio que foi alterado devido à nota de compra.
+Os valores que eram 1,00 foram atualizados para 1,701754
+Após o fechamento do custo do dia as notas de venda foram atualizadas com novos custos que agora passou a ser de 1,701754, esse custo é o custo do dia já com o fechamento de custo feito.
+NF 70047
+ - Custo 
+R$ 1,701754  x 4.000 litros = R$ 6.807,02
+NF 70049
+ - Custo 
+R$ 1,701754  x 2.000 litros = R$ 3.403,51
+Tela do fechamento de custo 

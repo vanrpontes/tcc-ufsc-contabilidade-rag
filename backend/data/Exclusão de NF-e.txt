@@ -1,0 +1,51 @@
+TITULO: Exclusão de NF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899406
+--------------------------------------------------
+As notas fiscais que estão marcadas como NF-e e que já foram processadas para pedido de autorização ou inutilização de nota na Sefaz e obtiveram o número de protocolo, o SisPetro NÃO permite a exclusão no sistema, para que não haja inconsistências com as notas autorizadas na Sefaz.
+Somente poderão ser excluídas do sistema, as notas que não tenham sido registradas na Sefaz, ou seja, que não tenham obtido recibo e nem protocolo.
+Para excluir uma nota fiscal marcada como NF-e no Sispetro, deve fazer o seguinte:
+1. No perfil de empresas, aba Nota Fiscal, na caixa NF-Eletrônica, 
+marcar
+ a opção "Trabalha off-line";
+2. Na tela de 
+Manutenção de NF´s
+, selecionar a nota e clicar no botão Cancela;
+3. Após cancelada a nota, clicar no botão Exclui;
+4. No perfil de empresas, aba Nota Fiscal, na caixa NF-Eletrônica, 
+desmarcar
+ a opção "Trabalha off-line";
+NF-e Excluída do Sispetro
+Quando uma NF-e (ainda não processada na Sefaz) é cancelada e excluída do Sispetro, é possível verificar em algumas tabelas o histórico dessa NF-e, como por exemplo:
+1. 
+Tabela Lote
+ > pode ser consultada através do menu: 
+Movimentação
+ > 
+Controladoria
+ > 
+Manutenção de Lotes
+ (Coluna: #NF)
+2. 
+Tabela ContasPagarReceber
+ > pode ser consultada através do menu: 
+Movimentação 
+>
+ Financeiro
+ > 
+Contas a Receber
+ > 
+Manutenção Lançamentos
+ (Coluna: #Nota Fiscal)
+3.
+ Tabela Log Eventos
+ > pode ser consultada através do menu: 
+Ferramentas 
+>
+ Log de Eventos 
+(
+Tipo de Operação:
+ Geral, 
+Tabela/Procedimento:
+ NOTAFISCAL, 
+Coluna:
+ Valor Anterior(filtrar pelo número da NF)):

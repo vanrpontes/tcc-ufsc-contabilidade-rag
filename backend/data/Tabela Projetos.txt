@@ -1,0 +1,90 @@
+TITULO: Tabela Projetos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927269421
+--------------------------------------------------
+Esta tabela guarda os projetos cadastrados pela empresa, podendo ser ativados ou inativados e restritos a empresas.
+Valor de Projeto, Versão 10.24 
+Na versão 10.24, implementamos o  recurso que possibilita a validação do valor do projeto, através do PMM, Nota Fiscal, Titulos a Pagar e Despesas Extraordinárias. 
+Com esse recurso o Sispetro passa a validar os valores incorporados ao projeto para que não ultrapassem o valor determinado.
+Para acessar, em 
+Menu Tabelas Auxiliares / Projetos.
+Incluindo, alterando ou excluindo um projeto
+Clique no botão 
+Código:
+ Automático pelo SisPetro
+Descrição:
+ Informe uma descrição do projeto
+Data Início: 
+Informe a data de início do projeto
+Data Término: 
+Informe a data de término do projeto
+Data Prevista Término: 
+Informe a data prevista para o término do projeto
+Valor do Projeto: 
+Informe o valor total previsto para o projeto
+Valida o Valor do Projeto: 
+Essa opção determina se o Sispetro fará a validação do valor do projeto, possuindo as seguintes opções de validação.
+Não Valida: 
+Sispetro não fará validação dos valores no projeto.
+Valor por Projeto e Projeto/Fornecedor: 
+Sispetro Fará validação, pelo Valor do projeto e pelos valores indicado no Fornecedor.
+Valor somente por projeto: 
+Sispetro fará a validação apenas pelo valor total indicado no projeto.
+Ativo:
+ Marque se o projeto está ativo ou não
+Restrito a Empresas:
+ Marque se o projeto será utilizado somente por determinadas empresas. O projeto ficará disponível para seleção somente para essas empresas.
+Caso a opção 
+Restrito a Empresas
+ esteja 
+marcada
+, clicar na aba 
+Empresas Restritas
+ e informe quais as empresas que podem utilizar o projeto:
+Botão Inclui:
+ Inclui uma determinada empresa
+Botão Inclui Todas:
+ Inclui todas as empresas cadastradas no banco de dados
+Botão Exclui:
+ Exclui a empresa selecionada 
+Fornecedor Associado, 
+caso a opção 
+Valor por Projeto e Projeto/Fornecedor, 
+esteja marcado o Sispetro passa a validar o Valor do Projeto e através da aba 
+Fornecedor Associado, 
+é possível determinar um valor limite por Fornecedor.
+Para incluir um fornecedor é necessário ter permissão de usuário:
+Na 
+Configuração de Usuário
+ aba Segurança, no grupo Fornecedores
+ "Pode alterar valor por Projeto", por padrão desmarcado.
+Botão Inclui:
+ inclui um novo Fornecedor e o valor permitido para ele.
+Fornecedor:
+ Apresenta a tabela de fornecedores para seleção.
+Valor:
+ Determina o Valor atribuído ao Fornecedor,  a soma dos valores não pode ultrapassar o valor do projeto.
+Valor Utilizado,
+ aba em questão apresenta os valores utilizados no projeto e a origem dos mesmos.
+A tela apresenta as seguintes informações sobre os valores do Projeto.
+Valor do projeto:
+ Valor total do projeto
+Valor Utilizado:
+ Valor utilizado até o momento no projeto
+V
+alor Pendente:
+ Valor restante a ser utilizado no projeto 
+Na parte central da tela, as abas indicam qual é a origem dos valores no projeto.
+PMM:
+ Caso indicado o projeto na inclusão do PMM, Sispetro passa a contabilizar os valores no projeto e os pedidos serão exibidos na aba em questão.
+Títulos a Pagar:
+ Caso Indicado em uma inclusão manual ou de um titulo oriundo de uma Nota Fiscal, as informações do titulo ou Nota, serão exibidos na aba em questão  
+Despesas Extraordinárias:
+ Caso uma despesa extraordinária seja lançada na manutenção de bancos, serão exibidos na aba em questão
+Notas de devolução:
+ As notas de devolução associadas ao projeto, após incluída devolve o valor ao projeto.
+Excluindo um projeto:
+ Selecione o projeto e clique no botão 
+Somente será permitido excluir um projeto desde que não tenha sido utilizado. Se utilizado em algum ponto do SisPetro, e o projeto tenha finalizado, 
+desmarcar
+ a opção 
+Ativo.

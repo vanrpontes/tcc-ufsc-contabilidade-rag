@@ -1,0 +1,162 @@
+TITULO: Manutenção de Códigos Estendidos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926199681
+--------------------------------------------------
+A empresa começa no SisPetro com um determinado Plano de Contas, mas é normal, geralmente no início de um novo ano, ela resolver trocar a disposição das contas. Até temos ferramentas que propiciam isso, porém, no caso de emitir relatórios dos anos anteriores, vale a disposição atual. Por esse motivo foi implementada a Manutenção de Códigos Estendidos, onde a
+ ideia é que cada conjunto de códigos estendidos sejam salvos para um determinado período.
+De uma forma geral, a solução para permitir que uma conta tem Código Estendido diferenciado por período seria:
+Na tabela 
+Plano Contas Real
+ teremos o Plano de Contas base. Ele será utilizado até o mês anterior ao primeiro Conjunto de Código Estendido criado. Se a empresa quer modificar o Plano de Contas pela primeira vez em Janeiro de 2017, o Plano de Contas que ela tem será utilizado para dados até Dezembro de 2016.
+Tanto o Plano de Contas base, como os novos Conjuntos de Códigos Estendidos deverão ter a mesma máscara de Plano de Contas. Através da máscara que temos o número de dígitos e o agrupamento de contas.
+O que está sendo oferecido é que contas possam estar em posição diferente no Plano de Contas em períodos diferentes.
+Para saber como alterar a máscara do Plano de Contas base, veja 
+Troca de Máscara do Plano de Contas
+.
+Uma conta é salva/identificada nas movimentações através do código reduzido, que não irá mudar. Cada conta poderá ter vários códigos estendidos, um para cada período, conforme o Conjunto de Código Estendido. Para períodos em que a conta não terá alteração, basta repetir o código estendido do período anterior. Veja um exemplo na figura abaixo
+Planos Codigos Estendidos
+1
+O Conjunto de Código Estendido do Plano de Contas é a cópia do Plano de Contas base, porém identificando para cada código reduzido qual o código estendido utilizará.
+Sempre que for incluído um Conjunto de Códigos Estendidos, o mesmo só terá validade após ser processado. Enquanto não é processado o usuário poderá alterar o código estendido de cada conta calmamente, em etapas. Só no processamento que serão validadas as inconsistências e duplicidades.
+Para grupos de contas com muitas contas analíticas (como contas de Clientes e Fornecedores), basta alterar o código estendido da conta sintética e pedir para replicar nas contas analíticas.
+A utilização de um determinado Conjunto de Código Estendido conta a partir do Mês/Ano de início dele até o Mês anterior ao próximo Conjunto cadastrado (e processado).
+Se tivermos os seguintes Conjuntos de Códigos Estendidos:
+Sequencial
+Mês/Ano Início
+Processado?
+1
+01/2017
+2
+06/2017
+3
+01/2018
+Ao emitir um relatório para 05/2016, será utilizado o Plano de Contas base (da tabela Plano Contas Real)
+Para 04/2017, será utilizado o Conjunto do Sequencial 1, válido a partir de 01/2017.
+Para 07/2017, continuará utilizando 
+o Conjunto do Sequencial 1, válido a partir de 01/2017, pois o sequencial 2 de 06/2017 ainda não foi processado.
+Para qualquer data a partir de 01/2018 será utilizado 
+o Conjunto do Sequencial 3.
+Nos relatórios contábeis, conforme o período informado, o Sispetro utilizará o Plano de Contas base ou um determinado Conjunto de Código Estendido.
+Não serão utilizados mais de um Conjunto de Código Estendido numa emissão de relatório. Por exemplo, se houver um Conjunto para o ano de 2018 e outro para o ano de 2019, caso o relatório abranja meses dos dois anos, o Sispetro optará por um deles para exibir/agrupar as contas pelos códigos estendidos. Veja o critério utilizado em cada relatório contábil.
+Para utilizar esse recurso, em SisPetro Controladoria, menu Ferramentas, Manutenção de Códigos Estendidos:
+Configurações
+Sistema
+O perfil de sistema 
+Utiliza Múltiplos Códigos Estendidos é marcado AUTOMATICAMENTE a partir do momento que inclui dados através da tela de Manutenção de Códigos Estendidos e processe as alterações - botão PROCESSA.
+Usuário
+No perfil de usuário deve ser habilitado os perfis nos quais o usuário terá acesso, podendo dar permissão para incluir, alterar, excluir e processar . 
+Grid
+Aba Período
+Na aba Período são exibidos os dados básicos da Manutenção de códigos estendidos, contendo o Mês/Ano de Destino, a data de inclusão, usuário de inclusão, status, Data de Processamento e o usuário de processamento.
+Na tela de manutenção de códigos estendidos podemos incluir diversos Conjuntos de Códigos Estendidos, identificando o Mês/Ano de início de cada um deles, e por meio do grid ir selecionando e trabalhando com o período desejado.
+Aba Contas
+Através da aba 
+Contas
+ é possível visualizar as contas do Plano de Contas e seus respectivos códigos estendidos para esse Conjunto. Os códigos estendidos apresentados já são os códigos alterados na edição de código estendido.
+Inclusão
+Ao acionar o botão 
+Inclui
+ será apresentada a tela de inclusão de códigos estendidos, onde o usuário irá informar o Mês/Ano Base e o Mês/Ano de destino.
+Mês/Ano Base:
+ Nesse campo iremos informar o Mês/Ano Base para os códigos estendidos, com base nesse campo que teremos a base dos códigos estendidos. Na primeira inclusão o campo virá em branco e a base será o código atual do Plano de Contas.
+Mês/Ano Destino:
+ Nesse campo é informado o Mês/Ano de Destino que será adotado para esse novo Conjunto. Sendo assim o Conjunto de Contas será utilizado a partir da data informada nesse campo. 
+Não é possível ter mais que um Conjunto para um mesmo Mês/Ano Destino
+.
+Máscara Base: 
+Nesse campo o sistema apresenta a máscara do plano de contas atual.
+Máscara Nova: 
+Nesse campo é informada a nova máscara para o plano de contas. No exemplo acima, foi incluído um nível de contas, com dois dígitos e a máscara passou de A.B.C.DE.FFFFFF para 
+A.B.C.DE.
+GH.
+FFFFFF.
+ 
+Inclusão de Contas Sintéticas
+ 
+Após a inclusão do novo nível de contas, é necessário incluir as novas contas sintéticas que representam esse novo nível.
+Essas contas devem ser criadas para que o plano de contas seja reajustado e para que a ordenação fique correta, tanto nas movimentações quanto nos relatórios.
+Acesse o menu 
+Arquivos / Plano Contas
+ e selecione a opção incluir 
+:
+Informe os dados da nova conta, selecionando a opção "
+Conta Sintética
+" e clique em 
+OK
+. Se desejar mais informações, acesse 
+.
+ 
+ 
+Alteração
+Após incluir um Conjunto de Códigos Estendidos e as novas contas sintéticas, é necessário alterar o código estendido das contas para que a ordenação fique correta.
+Ao fim desse trabalho é fundamental 
+Processar
+ para que esse Conjunto de contas passe a ser utilizado para o período informado em Mês/Ano destino.
+Para realizar a alteração das contas, basta selecionar no grid principal o Conjunto de Contas desejado e acionar o botão 
+Altera.
+Após acionar o botão 
+Altera
+, será apresentada a tela abaixo, onde serão listadas todas as contas.
+Altera Mês/Ano: 
+Ao acionar o botão Altera Mês/Ano, o campo referente ao Mês/Ano Destino ficará habilitado possibilitando alterar. A regra é a mesma que a da inclusão, não permitindo incluir um Conjunto para um Mês/Ano já cadastrado no sistema.
+Traz Dados: 
+ Ao acionar esse botão serão trazidos os códigos estendidos originais até o último salvamento. 
+Altera: 
+Ao acionar o botão Altera será exibida a tela de Alteração de Código Estendido para a conta posicionada. Na tela de alteração serão exibidos o Código Estendido Base da conta (baseado no código válido para o Mês/Ano Base) e o Código Estendido Destino, que ficará habilitado para edição do novo código estendido.
+Replica nas Contas inferiores:
+ O botão replica nas contas inferiores, serve para replicar a alteração realizada em uma conta do tipo sintetica para as contas inferiores. 
+ 
+ 
+Esse recurso é muito útil em contas sintéticas com muitas contas analíticas abaixo delas e que permanecerão na mesma estrutura!
+ 
+Salva: 
+Ao acionar o botão Salva, serão salvas as alterações realizadas na tela.
+Fechar: 
+Fecha a tela de alteração de código estendidos.
+Legenda: 
+Ao acionar o botão legenda serão apresentadas as legendas (negrito indica que a conta é sintética)
+Finalizando a alteração - Processa
+Após realizar a alteração dos códigos das contas, basta selecionar na manutenção de Códigos Estendidos o conjunto desejado para efetivação, e acionar o botão 
+Processa
+.
+Será exibida uma mensagem de confirmação de processamento do Conjunto de Códigos Estendidos.
+Só é possível concluir o processamento de Conjunto de Códigos estendidos que se encontram como Pendente. Aqueles já processados não poderão ser processados novamente.
+Cancelando um processamento
+Caso haja a nescessidade de cancelar uma operação que já foi processada, basta acionar o botão 
+Reverte
+. 
+Após acionar a opção de reverter o Sispetro irá questionar o usuário se realmente deseja reverter, e em caso de confirmação deixará o Conjunto de Códigos Estendidos pendente novamente, podendo ser alterado novamente ou até mesmo excluído. 
+Ao reverter um Conjunto de Códigos Estendidos o mesmo não será mais utilizado nos relatórios
+.
+Tabela Plano de Contas
+Também é possível visualizar os códigos estendidos de uma conta através da aba 
+Estendido 
+na tabela de Plano de Contas.
+Relatórios
+Ao finalizar o processamento já é possível emitir os relatórios com os novos códigos estendidos.
+De acordo com o período do relatório a ser emitido, o Sispetro encontrará o código estendido correspondente e os relatórios 
+Razão
+, 
+Balanço Patrimonial
+, 
+ e 
+Diário
+ apresentarão o código estendido.
+Na emissão do Razão, caso seja informado um período e um intervalo de contas, ao alterar este período para nova emissão - sem sair da tela, deve-se definir novamente o intervalo de contas.
+ 
+As telas e relatórios abaixo 
+não foram afetadas
+ pela inclusão dos códigos estendidos:
+Plano de Contas Real
+Usará a máscara da tabela Sistema e apresenta os códigos estendidos originais (na aba 'Estendido' mostrará os códigos de outros conjuntos, caso tenha)
+Telas de Manutenção, Digitação e Alteração de Lotes
+As contas serão apresentadas com a máscara original e o Código Estendido do Plano de Contas
+Tela de Troca de Máscara de Conta
+Essa tela permanecerá somente para alteração no Plano de Contas Real. No Conjunto de Código Estendido terá essa funcionalidade embutida.
+Tela de Transferência de Movimentações
+As contas serão apresentadas com a máscara original e o Código Estendido do Plano de Contas
+Relatório de Plano de Contas
+Apesar de ter período para mostrar saldo, não será utilizado o Conjunto de Código Estendido
+SPED Fiscal e Contribuições
+Enviam as contas contábeis utilizadas a partir da tabela de Plano Contas Real, que usa o código estendido original e a máscara da tabela Sistema
+SPED ECD
+Enviam as contas contábeis utilizadas a partir da tabela de Plano Contas Real, que usa o código estendido original e a máscara da tabela Sistema

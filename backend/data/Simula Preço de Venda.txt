@@ -1,0 +1,127 @@
+TITULO: Simula Preço de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440197
+--------------------------------------------------
+Objetivo
+none
+O Simulador de Preço de Venda do SisPetro permite simular o preço de venda de um produto para um cliente específico, considerando, dados como tabela de preços, condição de pagamento, tipo de cobrança e frete. Através da aba 
+Simulação
+, o usuário pode informar valores e recalcular margens e custos com base em diferentes parâmetros. O sistema diferencia os cálculos entre valores 
+padrões
+ e 
+simulados
+, exibindo preços, custos, descontos, frete e margens em reais e percentuais. A aba 
+Custos
+ apresenta os custos internos e externos do produto, permitindo edições e controle por vigência. O acesso a informações de custo depende das permissões configuradas no perfil de usuário.
+Simulador de Preços
+O simulador de preço de venda tem como objetivo, como o próprio nome diz, simular o preço de uma venda para um determinado cliente, produto, entre outras informações, a fim de obter os valores padrões do cliente e os valores calculados para simulação.
+Esta opção se encontra no menu
+ Consultas / Simulador Preço
+ de Venda e também na 
+Clientes - Painel Detalhes
+:
+Após informar os dados solicitados, basta clicar no botão 
+Atualiza
+. Serão apresentados no painel 
+Preços Atuais
+, a relação dos preços atuais de todos os produtos.
+Aba Preços Atuais
+Aba Simulação
+Nesta aba serão apresentados os preços simulados para a venda de um determinado produto.
+Primeiro, deve informar os campos na parte superior como 
+Produto, Condição de Pagamento, Tipo de Cobrança, Tabela de preço, Preço utilizado para cálculos do custo e Retira/Entrega
+.
+No campo 
+Preço utilizado para cálculos do custo
+ será definido se o custo apresentado na coluna 7 será conforme o preço à vista ou conforme o preço final informado (que geralmente contém o custo financeiro e frete).
+Caso a empresa não trabalhe com Condição de Pagamento por Produto, o SisPetro irá mostrar as Condições de Pagamento cadastradas no Cliente, na aba Padrão p/ Vendas.
+No campo 
+Cálculo da Margem
+ informe se na margem calculada na coluna 8 será considerado o valor de frete ou não.
+Informar também a Quantidade e o Preço Unitário Final (que o cliente vai pagar). Se informar 1 na Quantidade, os valores serão apresentados em valor unitário com o número de casas decimais configurado no perfil de empresa. Se informar maior que 1, os valores serão apresentados com o valor total com 2 (duas) casas decimais.
+No campo 
+Preço Unitário Final
+ será sugerido o preço conforme a tabela de preço informada. Assim para aquelas empresas que não trabalham com tabela de preços por cliente, a simulação poderia ocorrer com as tabelas diferenciadas.
+Clique no botão 
+Recalcula
+. Os valores serão calculados e apresentados na tela:
+O botão 
+Reseta para Padrão Vendas
+, irá recalcular novamente os valores, mas com a condição de pagamento e tipo de cobrança padrão do cliente e produto escolhido.
+Cálculo dos Valores
+Padrão:
+Preço à Vista
+: calculado pelo SisPetro. Maiores informações em Tabela 
+Cliente - Preços
+.
+Custo Financeiro
+: preço Final sem Desconto - Preço à Vista.
+Frete:
+ calculado pelo SisPetro. O frete somente será calculado se for do tipo entrega e no perfil de empresas, painel Frete, a opção "Controla frete padrão Vendas estiver marcado. Mais informações em 
+Cálculo do Valor do Frete
+.
+Preço Final Sem Desconto:
+ calculado pelo SisPetro. Maiores informações em 
+Tabela Cliente - Preços
+Desconto Condicional
+: valor informado na 
+Tabela Cliente - Preços
+.
+Total Final
+: preço Final sem Desconto + Frete - Desconto Condicional.
+Custo
+: calculado pelo SisPetro. Maiores informações em 
+Custo para Venda
+.
+Margem (R$)
+: total Final - Custo - Frete.
+Margem (%)
+: ((Total Final - Custo - Frete) / Custo) x 100).
+Simulado:
+Preço à Vista
+: calculado pelo SisPetro, tendo como base o valor informado pelo usuário no campo Preço Unitário Final.
+Custo Financeiro
+: preço Final sem Desconto - Preço à Vista.
+Frete
+: calculado pelo SisPetro. O frete somente será calculado se for do tipo entrega e no perfil de empresas, painel Frete, a opção "Controla frete padrão Vendas estiver marcado. Mais informações em 
+Cálculo do Valor do Frete
+.
+Preço Final Sem Desconto
+: preço Final (informado pelo usuário) + Desconto Condicional - Frete.
+Desconto Condicional
+: valor informado na 
+Tabela Cliente - Preços
+.
+Total Final
+: preço Final (informado pelo usuário).
+Custo
+: calculado pelo SisPetro, tendo como base o valor informado pelo usuário no campo Preço Final. Maiores informações em 
+Custo para Venda
+.
+Margem (R$)
+: total Final - Custo - Frete.
+Margem (%)
+: ((Total Final - Custo - Frete) / Custo) x 100.
+Perfil para visualizar Custos
+O SisPetro conta com o perfil de usuário para visualizar os custos nas telas de Simulador de Preços, no Cadastro de Clientes e Pedido de Alteração de Preços.
+Veja que, com o perfil 
+desmarcado
+, não é possível visualizar os campos: Custo, Margem R$ e Margem %. 
+Para visualizar tais campos, devem ser marcados os perfis em Ferramentas / Usuário / Perfil / Vendas: 
+Pode recalcular custos de NF
+Pode visualizar custos de NF
+Para mais informações ver 
+Painel Vendas (Usuários)
+Aba Custos
+Nesta aba serão apresentados os custos internos (em negrito) e externos do produto. Caso a empresa trabalhe com 
+vigência 
+no custo dos produtos, ao selecionar uma data posterior a atual e clicar no botão 
+Atualiza, 
+o SisPetro irá buscar a última vigência anterior ou igual a data escolhida para trazer os dados e mostrar na tela. 
+Nos custos externos, clicando no botão 
+Edita
+ é possível alterar os custos da mesma forma que feita via 
+cadastro de produto
+.
+Botão Inclui 
+Vigência
+Sendo possível definir inicio do Custo, através da data de vigência.

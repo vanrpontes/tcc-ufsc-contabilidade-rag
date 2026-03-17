@@ -1,0 +1,210 @@
+TITULO: Alteração de Valores nas Tabelas de Preços
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879390042
+--------------------------------------------------
+A partir da versão 10.01 o modo de trabalhar com a tabela de preço foi alterada. Ela poderá ser realizada através de 3 Formas: Vila Cadastro de Clientes, Via Manutenção de Preço por produto
+ ou 
+Via Manutenção de Preço. Para 
+maiores detalhes em 
+Alteração de Valores nas Tabelas de Preços
+Alteração via
+ 
+Manutenção de Preços por Tabela
+Escolha a 
+Tabela de Preço
+ e selecione uma data de Vigência, clicar no botão atualizar, para que os itens da tabela seja carregado na tela. Um tipo de alteração e incluir os produtos que irão ter o preço definido para a tabela selecionada, para adicionar os produtos basta acionar a opção de 
+Incluir Produtos
+ ou 
+Incluir Produto.
+A alteração dos preços é realizada direta na tela e, após a sua alteração, basta clicar em Salvar para gravar as alterações.
+Exemplo de alterações de preços.
+Para exemplificar as alterações utilizaremos 2 tabelas de preço onde temos a 
+Tabela 724 - (TABELA VINCULADA 0,53) 
+que é do tipo Vinculada tem o preço de 0,53 e está vinculada a 
+Tabela 721 - (TABELA 02) 
+que o preço de 2,50, e é uma tabela do tipo Principal.
+Alteração de preço com tipo de alteração
+ 
+Valor Tabela.
+A alteração de preço utilizando a opção de 
+Valor Tabela
+ é bem simples, basicamente o valor dos produtos que são apresentados na tela são o valor referente a própria tabela selecionada.
+Alteração de preço com tipo de alteração
+ 
+Resultado Final.
+ 
+A alteração de preço utilizando a opção de 
+Resultado Final, 
+é um pouco diferente, basicamente o valor apresentado na tela é o valor da soma entre as tabelas que fazem parte do vinculo da tabela que foi selecionada para alteração. Seguindo o exemplo acima a tabela que selecionamos foi a 
+Tabela 724 - (TABELA VINCULADA 0,53) 
+que é uma tabela dó tipo vinculada por valor é esta vinculada uma tabela principal à 
+Tabela 721 - (TABELA 02), 
+onde a soma entre os valores da o preço mínimo de 2,02, preço de 3,03  e preço máximo de 4,15.
+Ao alterar um desses preços será adicionado ou subtraído o valor da tabela selecionada para alteração que no caso do nosso exemplo é a 
+Tabela 724 - (TABELA VINCULADA 0,53).
+Para exemplificar na pratica vamos alterar o preço minimo de 2,02 para 2,05, o preço sugerido vai de 3,03 para 3,13 e o preço máximo vai de 4,15 para 4,00, um acréscimo de 0,03 centavos no preço minimo, um acréscimo de 0,10 centavos no preço, e uma subtração de 0,15 centavos no preço máximo.
+Ao consultar o valor da tabela 
+Tabela 724 - (TABELA VINCULADA 0,53) 
+podemos ver que o valor alterado foi acrescentado/subtraído da tabela 
+Tabela 724 - (TABELA VINCULADA 0,53).
+Preço minimo: 0,52 + 0,03 = 0,55
+Preço: 0,53 + 0,10 = 0,63
+Preço máximo:   0,65 - 0,15 = 0,50
+Alteração via 
+Manutenção de Preços por Produto
+A tela de Manutenção de Preços por Produto foi criada especialmente para facilitar a alteração dos preços das tabelas de preço vinculadas a uma tabela principal. Ao acessar a tela informamos uma tabela principal, um produto e uma data de vigência e, clicando no botão Atualiza, serão apresentadas na tela todas as tabelas que estão vinculadas à tabela principal. Após isso basta alterar direto na tela os preços. 
+Não é permitido alterar o valor de tabelas do tipo Vinculada por Percentual
+Alteração de Preço
+Alteração de preço com tipo de alteração
+ 
+Valor Tabela.
+   
+A alteração de preço utilizando a opção de
+ 
+Valor Tabela
+ 
+é bem simples, basicamente serão apresentados na tela os preços individuais de cada tabela e, após realizar a alteração, o preço alterado será da própria tabela de preço. 
+No exemplo acima temos a tabela principal 
+TABELA 02
+ que no caso tem 2 tabelas de preço vinculadas a ela, "
+TABELA VINCULADA 01
+" e "
+TABELA VINCULADA 02
+".  veja que a tabela de preço "TABELA VINCULADA 01" traz os preços individualmente sem somar aos valores do preço ao da tabela principal, os preços que são alterados na tela sempre será o da tabela Vinculada.
+Alteração de preço com tipo de alteração
+ 
+Resultado Final.
+ 
+  Resultado Final:
+ 
+A alteração de preço utilizando a opção de
+ 
+Resultado Final, 
+é um pouco diferente, basicamente o valor apresentado na tela é o valor da soma do preço cadastrado na tabela principal com o preço da tabela vinculada.
+       
+No exemplo acima o valor dos preços é a soma dos preços da 
+tabela de preços principal
+ com os preços da
+ tabela de preço vinculada
+, após o usuário realizar a alteração do preço, a diferença alterada sera aplicada na tabela de preço vinculada, no caso do exemplo acima seria na tabela 
+"
+TABELA VINCULADA 01
+".
+Alteração via 
+Preços (Clientes)
+O acesso a esta tela se dá via 
+Arquivos > Clientes > aba Detalhes > aba inferior Preços
+.
+Para realizar alteração do preço, basta selecionar na parte superior da tela a empresa e tabela, e na parte inferior da tela selecionar o produto que deseja alterar o preço e acionar o botão 
+. A opção de edição só ficara disponível para usuários que tiverem permissão para 
+Editar Tabela de preços. 
+Localizado pelo menu 
+Ferramentas/ Usuário/ Vendas.
+ 
+A seguinte tela é apresentada:
+Os campos 
+Empresa
+, 
+Codigo Entidade
+ , 
+Produto 
+e
+ Tabela Preço 
+ serão apresentados automaticamente conforme seleção na tela anterior.
+O campo de 
+Tabela de Preço Principal
+ só sera apresentado na tela caso a tabela de preço selecionada seja do tipo Vinculada.
+O usuário deve informar os seguintes campos:
+Preço Mínimo
+: Será o preço mínimo, que dependendo da configuração da filial, o Sispetro aceitará (caso o usuário possa modificar o preço sugerido na venda).
+Preço Máximo
+: Será o preço máximo, que dependendo da configuração da filial, o Sispetro aceitará (caso o usuário possa modificar o preço sugerido na venda).
+Preço Sugestão
+: O preço que será sugerido no momento da realização de um pedido de venda.
+Os campos de 
+Preço Mínimo Final, Preço Maximo Final 
+e
+ Sugestão Final
+ são úteis para quando o cliente utiliza uma tabela do tipo Vinculada e a mesma está vinculada a uma outra tabela de preço. 
+Exemplo:
+Valor Tabela Vinculada 
+Valor Tabela Principal
+Valor Final
+Preço Mínimo Final
+0,50
+1,50
+2,0
+Sugestão Final
+0,30
+2,50
+2,80
+Preço Maximo Final
+0,50
+3,50
+4,00
+Veja maiores detalhes  da composição de preço em 
+Manutenção de Preços por Tabela
+.
+Alteração via Tela Alteração de Preços
+A tela Alteração de Preços é uma ferramenta que possibilita a mudança de preços em massa para determinado produto, ou seja, aplica alterações em diversas tabelas de preços de uma única vez sem a necessidade de se alterar uma a uma.
+É acessada pelo menu
+ 
+Movimentação/ Vendas/ Alteração de Preços.
+Apenas os usuários que tiverem permissão para
+ 
+Editar Tabela de preços.
+ 
+Localizado pelo menu
+ 
+Ferramentas/ Usuário/ Vendas
+ 
+Deverá ser marcado o grupo 
+Edita Tabela Preços
+ e selecionado qual o tipo de preço que o usuário poderá alterar: 
+Preço sugestão
+, 
+Preço Mínimo
+ ou 
+Preço Máximo
+.
+Esta ferramenta será muito útil para quem utiliza várias
+ tabelas de Preço.
+As devidas permissões de usuário para alteração de preço, poderão ser verificadas na própria tela, a partir dos campos
+ 
+Altera o preço
+,
+ 
+Altera preço mínimo
+ 
+e
+ 
+Altera preço máximo
+. Caso algum campo esteja desabilitado, significa que o usuário não tem permissão para alterar os preços. Se o usuário tiver permissão e não quiser alterar determinado preço, basta desmarcar a opção que o sistema não irá realizar as modificações neste item.
+Alterações:
+As alterações de preço poderão ser feitas por
+ 
+valor
+ 
+ou
+ 
+Percentual
+, ou seja, pode-se fazer um acréscimo de R$ 0,10 ou de 10%, por exemplo. Caso o usuário opte por acréscimo em percentual deve-se mudar o campo
+ 
+Tipo Acréscimo
+ 
+para
+ 
+Percentual
+ 
+e informar o valor no campo correspondente que ficará habilitado.
+Antes de aplicar as alterações, o usuário pode consultar o resultado dessa modificações, ou seja, verificar como ficará o preço e as tabelas que serão alteradas.
+Para isso, clicar no botão
+ 
+Mostra Alteração
+. O sistema abrirá o painel
+ 
+Tabelas Afetadas
+, onde o usuário poderá conferir as alterações antes de serem efetuadas.
+Para processar as alterações de forma definitiva, o usuário deverá clicar no botão
+ 
+Aplica Alteração
+. Este processo de alteração de preço será registrado no Log do Sistema.

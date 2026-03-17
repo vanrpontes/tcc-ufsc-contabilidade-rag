@@ -1,0 +1,27 @@
+TITULO: Incluir QR Code no RTM da CT-e/MDF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936700983
+--------------------------------------------------
+Para inclusão do QR Code é necessário acessar o arquivo RTM 
+Para CT-e:
+ Ferramentas / Sistema / aba NF-e/CT-e: 
+Para MDF-e: 
+Ferramentas / Sistema / aba MDF-e:
+Ao clicar no botão Edita layout do Danfe será aberta a tela do Report Builder com as informações deste RTM.
+Inclua um campo do tipo DB2DBarCode e posicione no local onde será impresso.
+Selecione o campo que acabou de incluir e no canto inferior esquerdo será apresentada as Propriedades deste item e faça as seguintes alterações:
+No grupo 
+BarCode:
+Selecione a opção 
+bcQRCode
+ para o campo 
+BarCodeType
+Desmarque a opção 
+PrintHumanReadable
+No grupo 
+Data:
+Selecione a opção 
+MDFe_QRCode
+ (Para MDF-e) ou 
+CTe_QRCode
+ (Para CT-e)
+    

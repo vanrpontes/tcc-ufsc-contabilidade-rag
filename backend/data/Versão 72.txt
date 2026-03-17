@@ -1,0 +1,602 @@
+TITULO: Versão 7.2
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2887221350
+--------------------------------------------------
+Versão 7.2
+
+
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 07/07/2009 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 26/08/2009 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ CMD72.sql (cmd2159 a cmd2197) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 55 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 31 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 24 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+DLLInsc32.dll
+
+SPED_EFD.dll
+
+Sintegra2004-PR.rtm
+
+Sintegra2008-SEF.rtm
+
+ContabilizaNF.rtm
+
+Danfe.rtm
+
+PedidoAlteracaoPreco.rtm
+
+ResumoMovimentoBase.rtm
+
+
+
+
+
+
+IMPORTANTE: É necessária a atualização da versão o mais rápido possível devido a Nota Técnica 003/2009 da Nfe que prevê alterações no DANFE vigentes a partir de 01/09/2009. Assim que atualizar a versão providencie as alterações no DANFE e faça a conferência necessária.
+
+
+Servidor SisPetro
+
+
+
+
+Certificados Instalados no Cliente
+
+
+A Sefaz do Rio Grande do Sul fez uma alteração em sua cadeia certificadora obrigando a todos os clientes desse estado a instalarem novas autoridades certificadoras em seus servidores. 
+ No SisPetro estamos desabilitando a obrigatoriedade desta instalação, ou seja, para o SisPetro, mesmo não tendo sido instalada essa nova cadeia certificadora (ou mesmo uma antiga ou qualquer outra nova) o SisPetro conseguirá enviar os dados a Sefaz sem nenhum problema. 
+ 
+Help:
+ 
+Configuração do Certificado Digital
+ UPA (CCF 6566)
+
+
+
+
+Geral
+
+
+
+
+Captura de Mensagens de Erro pelos Temas do SisPetro
+
+Algumas mensagens de erro do sistema não estavam sendo apresentadas aos usuários por estarem sendo interceptadas pelo tema visual utilizado no SisPetro. A partir dessa versão isso não irá mais ocorrer e caso seja gerado qualquer erro no sistema, o mesmo será apresentado ao usuário, facilitando assim a sua correção. 
+UPA (CCF 6669)
+
+
+Não utilização dos temas visuais do SisPetro
+
+
+Na versão 7.0 adotamos os temas visuais no SisPetro e configuramos um deles como nosso padrão, porém o usuário tinha a possibilidade de desabilitá-lo e visualizar o SisPetro como na sua versão antiga. A partir dessa versão isso não será mais possível e o tema padrão da Futura ficará como a opção Nenhum. Essa medida se torna necessária para evitar problemas de memória no SisPetro. UPA (CCF 6669)
+
+
+Erro ao Entrar na Tela de Aniversariantes
+
+Existe no SisPetro a opção de cadastrar contatos para serem utilizados com entidades do sistema ou não. Alguns contatos estão amarrados a clientes e com isso cadastramos a sua data de nascimento para sermos lembrados de sua data de aniversário. Só que quando era acessada a tela de aniversariantes sem que a empresa possuísse algum contato cadastrado era gerado um erro ao usuário. Esse problema foi corrigido nesta versão. 
+UPA (CCF 6678)
+ 
+
+
+Cadastro de Produtos
+
+Nos bancos de dados que possuem muitas empresas e muitos depósitos cadastrados foi detectada uma demora excessiva para acessar, no cadastro de Produtos, as abas de Custos para Venda, DPMP/Manutenção de Características e Subst. Tributária. Essa versão está corrigindo esse problema. 
+UPA (CCF 6782, 6747)
+
+
+Gerenciador de Relatórios
+
+Na versão 7.1 fizemos uma alteração no procedimento de salvamento do Gerenciador de Relatórios que, em empresas com redes mais lentas e muitos relatórios, ocasionou lentidão para abertura da tela. Mudamos o recurso de forma dar mais agilidade ao processo. 
+MCL (CCF 6866)
+
+
+Botão para Teste de conexão com a SEFAZ e Internet
+
+
+No Servidor SisPetro, aba Certificado Digital (NF-e), na aba Empresas X Certificados, foi disponibilizado o 
+novo botão "Verificar Conexão", que testa a conexão com a Internet e verifica o status do serviço no site da SEFAZ.
+ O Servidor SisPetro também testa a conexão com a Internet antes de utilizar qualquer serviço no site da SEFAZ. 
+Isto ajuda a diferenciar o que pode ser um problema de conexão do servidor com a Internet (problema este que pode ser diagnosticado e resolvido pela área de TI da empresa) de um problema no site da SEFAZ (problema que somente pode ser resolvido pela própria SEFAZ).
+ EPQ (CCF 5783)
+
+
+Item de menu do SisPetro Controladoria
+
+O item de menu Configuração Sistema em Ferramentas foi removido do SisPetro Controladoria pois, não apresentava funcionalidade. 
+EPQ (CCF 6475)
+
+
+Consultas no Cadastro de Clientes
+
+No cadastro de clientes do SisPetro Normal, ao abrir as abas Movto. Pedidos, Bloqueios e Restrições Financeiro poderiam ocorrer erros nas consultas ao banco de dados em algumas versões do Sybase. Estas consultas foram alteradas a fim de funcionarem em diferentes versões do banco de dados. 
+EPQ (CCF 5544)
+
+
+Rotina de Licenciamento do SisPetro
+
+
+A rotina de geração / leitura dos arquivos de licenciamento do SisPetro  sofreram uma pequena alteração para tornarem-se aptas ao novo compilador do sistema. Essa migração do compilador está dentro do plano para homologação do SisPetro no Windows Vista. UPA (CCF 6698)
+
+
+Mensagens Enviadas do Servidor SisPetro para as Estações Logadas ao Sistema
+
+
+A partir dessa versão, as mensagens enviadas do Servidor SisPetro para seus clientes (SisPetro Normal, Remoto e Controladoria) será exibida ao usuário como no MSN Messenger. Quando o cliente receber a mensagem, em cima do relógio do Windows subirá uma janela ao usuário que ficará visível até o sistema ser fechado ou essa janela ser fechada pelo usuário. UPA (CCF 6115)
+
+
+Removendo Caracteres Especiais das NF-e para Envio a Sefaz
+
+
+A algumas versões passadas, removemos toda a acentuação dos campos texto enviados a Sefaz como, por exemplo, o nome do cliente, seu endereço, o produto. Nesta versão estamos removendo os caracteres especiais como º, "", $, por exemplo. 
+Essa alteração é necessária para que a Sefaz não rejeite as NF-e enviadas com erros de "Assinatura difere do calculado".
+ UPA (CCF 6695,6672)
+
+
+Nova versão da DLL para validação da Inscrição Estadual
+
+
+Disponibilizada a nova versão da DLL "DLLInsc32.dll" fornecida pelo Sintegra devido alterações no formato e cálculo do Dígito da Inscrição Estadual do estado de Pernambuco. 
+Em testes com essa nova DLL, além de alterações para o Estado de Pernambuco, notamos alteração com MG (Minas Gerais), DF (Distrito Federal) e ES (Espírito Santo). Dessa forma é responsabilidade da empresa decidir utilizá-la ou não.
+ Para utilização dessa nova DLL ela precisa ser salva no mesmo diretório do executável do SisPetro (inclusive do SisPetro Remoto, se for o caso de utilizá-lo). GSN (CCF 5359)
+
+
+
+
+Estoques
+
+
+
+
+Leitura de Tanques - Carregar Dados da Última Leitura
+
+
+Nova configuração por Empresa na aba Estoque "Carregar densidade e temp. da última leitura ao fazer novas leituras"
+ que, quando ativada, 
+faz com que sejam carregados os dados da última leitura ao fazer uma nova leitura manual.
+ Ao informar a data e o tanque onde está sendo feita a leitura, o sistema apresentará os dados da última leitura, agilizando o processo, pois a densidade e temperatura da amostra normalmente mantêm-se iguais ao longo do dia em um mesmo tanque. 
+Help:
+ 
+Como efetuar leitura do tanque
+ EPQ (CCF 5412)
+
+
+Portaria de Saída
+
+Em um dos clientes do SisPetro a rotina de Portaria de Saída estava apresentando um erro ao executar esse processo. O sistema foi alterado para ficar compatível em todas as empresas e com isso esse problema foi solucionado. 
+UPA (CCF 6553)
+
+
+Fechamento de Estoque pelo Sispetro Remoto
+
+Foi identificado que o Fechamento de estoque no Sispetro Remoto estava dependendo do perfil de usuário para Pode fazer ajuste manual de estoque escritural. O que já foi corrigido. 
+GSN (CCF 6892)
+
+
+Relatório Resumo Movimento Base
+
+Ao acessar o relatório de menu Resumo Movimento Base via menu Relatórios/ Estoque ocorria um erro de violação de acesso, devido o fato do arquivo rtm externo estar desatualizado em comparação ao rtm interno existente no Sispetro Normal. 
+É necessário alterar o arquivo rtm ResumoMovimentoBase.rtm
+ 
+UPA (CCF 6929)
+
+
+
+
+Faturamento
+
+
+
+
+Comprador nos Títulos de Notas Fiscais
+
+Títulos oriundos de Notas Fiscais com Ordem de Carregamento estão sendo gerados sem Comprador, causando problemas no momento de efetuar uma baixa vinculada a um Adiantamento. Isto foi corrigido para que o comprador seja a mesma entidade da Nota Fiscal. 
+EPQ (CCF 6657)
+
+
+Novas legendas com status da NF-e na Manutenção de Notas Fiscais
+
+
+No SisPetro Normal e Remoto, 
+na tela de Manutenção de Notas Fiscais, foram adicionadas legendas que identificam o status da NF-e
+. Serão destacadas as notas que estiverem pendentes de envio de recibo, protocolo, cancelamento e inutilização. 
+Help:
+ 
+Tela de Manutenção de NF-e
+ EPQ (CCF 5783)
+
+
+Sistema de aviso para NF-e Pendentes de Envio
+
+
+Foi criado um perfil de empresa para que o usuário seja avisado quando existem notas fiscais pendentes de envio a Sefaz.
+ 
+Esse aviso será exibido no canto inferior direito da tela (como no MSN Messenger) durante a emissão da nota fiscal através. O perfil permite avisar ao usuário e continuar com a emissão da nota ou avisar ao usuário e bloquear a emissão da nota, evitando assim que mais notas fiquem acumuladas. Esse recurso é útil para evitar que notas feitas em offline fiquem esquecidas de envio. 
+Help:
+ 
+Mensagens de Alerta para NF-e Pendente
+ UPA (CCF 6115)
+
+
+Notas Fiscais de Remessa e Retorno de Armazenagem para Distribuidoras
+
+
+Empresas cadastradas no SisPetro como distribuidoras agora também podem emitir notas fiscais de remessa e retorno de Armazenagem.
+ Antes este recurso apenas estava disponível para empresas cadastradas no SisPetro como armazenadoras. 
+Help:
+ 
+Armazenadora - Remessa e Retorno de Armazenagem
+ EPQ (CCF 6527)
+
+
+Cálculo do Peso Bruto e Líquido na Nota Fiscal
+
+
+No cadastro de produtos, aba Detalhes, sub-aba Ficha Produto, foi adicionada a opção Cálculo do Peso. 
+Esta nova opção determina se o cálculo do peso bruto e líquido dos produtos na Nota Fiscal será através dos pesos informados no cadastro de produtos (opção padrão) ou pela densidade informadas dos produtos na nota fiscal, permitindo o uso dos campos referentes a peso diretamente no DANFE.
+ 
+Help:
+ 
+Tabela de Produtos
+ EPQ (CCF 6478)
+
+
+Alteração da Inscrição Estadual no Danfe
+
+
+Foram adicionadas instruções para alterar no layout do Danfe o campo de Inscrição Estadual.
+Help:
+Alterar a I.E. no layout do Danfe
+ GFP (CCF 5904)
+ 
+
+
+Removido Botão "Limpa Recibo"
+
+
+Foi removido da manutenção de notas fiscais, aba NF-e o botão Limpa Recibo. Este botão limpava o nº de recibo podendo gerar um problema no sistema caso a nota fiscal estivesse em processamento na Sefaz. UPA (CCF 6752)
+
+
+Mudança no perfil "Imprime Danfe sem Protocolo"
+
+Ao mudar o ambiente da NFe para Contingência, o perfil "Imprime Danfe sem Protocolo" era desmarcado automaticamente. Ao voltar para o ambiente de Produção ele não era remarcado. Para evitar isso, ao trocar o ambiente não haverá nenhum tipo de alteração neste perfil. 
+GSN (CCF 6819)
+
+
+Alteração de Código DNC na tabela de UF
+
+
+Algumas cidades sofreram alteração em seu respectivo Código DNC conforme a divulgação no site do IBGE. Com base nisso foi criado um tópico no Help orientando o usuário de como proceder na troca de Código DNC das cidades. As cidades que sofreram alteração foram: Várzea Grande - SP: 355645-3/ Campo Novo do Parecis - MT: 510263-7/ Jaboticaba - RS: 431085-0/ São Jose do Rio Claro - MT: 510730-5/ Cerro Grande - RS: 430515-7. GFP (6520)
+
+
+Help:
+ 
+Inclusão e Alteração de Cidades
+ 
+GFP (CCF 6520)
+
+
+Adaptação do DANFE à Nota Técnica 2009/003 da Nota Fiscal Eletrônica
+
+
+Alterado o layout do DANFE para adaptações à Nota Técnica 2009/003. Foi diminuído o tamanho do canhoto e ajustados os campos de Dados da NFe e do Emitente. Nos dados da NFE teremos três situações: Impressão do Protocolo de Autorização (Ambiente Produção ou Contingência), Impressão do Protocolo do DPEC (SCE ativado) ou Impressão do Código de Barras Adicional (Off line - Formulário de Segurança). 
+Importante: Esta alteração é obrigatória a partir de 01/09/2009. A empresa tem duas opções: usar o arquivo DANFE.RTM anexo a esta versão e nele fazer suas customizações, se houver, ou Alterar o arquivo DANFE.RTM da empresa para conter os novos campos. Se escolher esta última opção, siga o passo-a-passo em 
+Alteração do Layout do DANFE
+ UPA (CCF 6479)
+
+
+DPEC/SCE - Sistema de Contingência Eletrônica
+
+
+Disponibilizada a solicitação de autorização do DPEC quando o ambiente de Produção e Contingência não estiver em operação. Deve-se deixar o ambiente configurado como "Produção" e configurar o novo campo "Situação Sistema de Contingência Eletrônica (DPEC)" para ATIVO. Quando o ambiente de produção retornar basta colocar o SCE para INATIVO e transmitir as notas normalmente. 
+Este recurso não deve ser utilizado quando a empresa estiver com problemas técnicos (por exemplo sem conexão com a Internet). Nesses casos deve ser utilizado o Formulário de Segurança. 
+Help:
+DPEC - Declaração Prévia de Emissão em Contingência
+ MCL/UPA (CCF 4556)
+
+
+
+
+Vendas
+
+
+
+
+Arredondamento de Preços no Pedido de Vendas
+
+Foi detectada uma situação extremamente rara, mas que eventualmente pode ter ocorrido. O SisPetro, nas rotinas referentes a pedidos e Notas Fiscais, tem um recurso de forçar as configurações regionais do Windows para o número de casas decimais estipulado no perfil do sistema (na maioria das empresas igual a 4). A situação onde conseguimos simular o ocorrido foi, durante a inclusão do Pedido de Venda, alterando diretamente no Painel de Controle as configurações regionais para 2 decimais. No início da inclusão o SisPetro tinha configurado 4, mas com essa alteração externa, ele passou a utilizar as 2 decimais e gerou um pedido com os custos financeiros arredondados para 2 casas decimais. Cabe lembrar que, apesar de termos feito isso manualmente, essa alteração poderia ter sido feita por algum outro software, o que desconhecemos. Devido essa possibilidade de intervenção externa (apesar desse procedimento ter mais de 7 anos dessa forma e essa intervenção não ser comum), modificamos o procedimento para garantir a utilização de casas decimais conforme perfil de sistema.  . 
+UPA (CCF 6791)
+
+
+Alteração da Condição de Pagamento nos Pedidos de Venda
+
+Após um pedido já possuir itens, mesmo na inclusão quanto na alteração, a condição de pagamento não pode mais ser alterada. Foi detectada uma situação em que se nos itens do pedido o usuário pressionasse juntas as teclas CTRL + END e voltasse até a informação da condição de pagamento o sistema lhe permitia alterar essa informação. Esse problema foi corrigido, evitando inclusive alterações no Depósito, Entidade, Tabela de Preço e Retira/Entrega. 
+UPA (CCF 6818)
+
+
+Análise de Vendas com filtro por Filiais
+
+
+A Análise de Vendas agora permite selecionar uma determinada empresa, um grupo de empresas ou um conglomerado de empresas
+ antes de sua execução, com isso, o tempo de geração do relatório para empresas específicas será reduzido. Devido a inclusão deste filtro a tela será aberta maximizada. 
+Para que os dados sejam exibidos corretamente, no primeiro acesso deve-se clicar no botão "Layout Padrão".
+ EPQ (CCF 6286)
+
+
+Melhoria na tela de Aprovação de Pedido
+
+
+No SisPetro Normal e Remoto, a tela de Aprovação de Pedido recebeu a nova opção "Fecha esta tela ao final do processo". Antes, a tela sempre era mantida aberta após cada aprovação. Com esta nova opção, salva por usuário, a tela pode ser fechada após a aprovação, agilizando o processo de aprovação quando os pedidos são aprovados pontualmente. EPQ (CCF 5624)
+
+
+Quantidade Total em Manutenção de Pedidos
+
+
+Na tela de Manutenção de Pedidos, abas Ordem Carregamento e Nota Fiscal, temos grids que apresentam produtos. Nestes grids, foram adicionados totais para a quantidade dos itens. EPQ (CCF 6588)
+
+
+Desmembramento de Pedidos
+
+Ao realizar um desmembramento de Pedido, é realizado uma cópia fiel de todos os campos do pedido. Porém, alguns deles não estavam sendo copiados corretamente, fato que foi corrigido nessa versão. Os campos são referentes a Movimentação de Estoque Fechado, Prazo e Condição de Pagamento Original, Custo, Carga e Endereço Preferencial de Entrega e Cobrança. 
+GSN (CCF 6809)
+
+
+Relatório de Pedido de Alteração de Preços
+
+Corrigido no cabeçalho do Relatório de Pedido de Alteração de Preço o filtro por cliente que apresentava o nome da filial. 
+É necessário atualizar o arquivo PedidoAlteracaoPreco.rtm na pasta de relatórios e no Gerenciador de Relatórios.
+ GSN (CCF 4129)
+
+
+
+
+Transportes
+
+
+
+
+Histórico nos Adiantamentos de Viagens
+
+
+Agora é permitido informar históricos nos complementos de adiantamentos de viagem. Ao contabilizar um adiantamento de viagem, utiliza o histórico informado.
+ EPQ (CCF 6455)
+
+
+Vínculo de Frete com Contas a Pagar
+
+
+Antes, os fretes apenas podiam gerar contas a pagar. 
+A partir dessa versão, permite-se lançar uma nota fiscal de uma transportadora, gerando contas a pagar, além de todo o controle fiscal, e posteriormente vincular o título do contas a pagar a um ou mais fretes da transportadora.
+ 
+Help:
+ 
+Vínculo de Frete com Contas a Pagar
+  EPQ (CCF 4488 e 5914)
+
+
+
+
+Fiscal
+
+
+
+
+SINTEGRA - Telefone do Contador no Registro 11
+
+O campo 8 do registro 11 do SINTEGRA é utilizado para informar o telefone do contador. Antes os arquivos eram gerados com zeros para esta informação. O SisPetro foi alterado para enviar o DDD e telefone do contador cadastrados no perfil de sistema, aba Fiscal, grupo Dados do Contador por Filial. 
+É necessário atualizar os arquivos Sintegra2004-PR.rtm e Sintegra2008-SEF.rtm para que as alterações tenham efeito.
+ EPQ (CCF 5668)
+
+
+Laudo na tela de Edição da Mídia Magnética
+
+
+Disponibilizado o campo Laudo na tela de Edição da Mídia Magnética - Anexo. Assim, no caso de alguma nota não ter esse campo preenchido, ele pode ser alterado por essa tela para uso no DPMP. GSN (CCF 6823)
+
+
+Bloqueio de Produto por Filial no DPMP
+
+No bloqueio de Produto por Filial para informação do DPMP, a movimentação do produto não era enviada, mas estava enviando indevidamente os registros de Estoque Inicial e Estoque Final, o que foi corrigido. 
+GSN (CCF 6078)
+
+
+SPED EFD - Ajuste de Apuração
+
+
+Permitido o vínculo do Tipo de Apuração à tabela de Ajuste de Apuração do SPED EFD a ser utilizado nas fórmulas do Registro E111. GSN (CCF 6606)
+
+
+SPED EFD - Atualização de Configurações
+
+
+Disponibilizadas alterações realizadas no SPED EFD desde a liberação da versão 7.1. 
+Atualizar o arquivo SPED_EFD.dll na pasta indicada na configuração do Conjunto de Dados do SPED EFD. Esse arquivo pode ser sobreposto por um com data posterior sem problemas. 
+ GSN (CCF 6606)
+
+
+
+
+Financeiro
+
+
+
+
+Baixa Automática
+
+Em algumas situações o processo de baixa automática, a partir da versão 7.1, não conseguia ser efetuado, mas não apresentando erros, o que foi corrigido. 
+UPA (CCF 6794)
+
+
+Manutenção de Bancos
+
+O acesso à aba de dados do movimento na manutenção de bancos, em empresas que trabalham com a contabilidade real, estava exigindo muito processamento do sistema, dando a impressão de estar travado em alguns casos. Esse procedimento foi alterado tornando o acesso a esses dados quase que instantâneo. 
+UPA (CCF 6814)
+
+
+Consulta de Contas a Pagar e a Receber Pendentes
+
+
+No SisPetro Normal, menu Consultas, foi adicionado o menu Financeiro com as 
+novas consultas "Contas a Pagar Pendente" e "Contas a Receber Pendente". Estas consultas tridimensionais podem ser feitas tanto na posição atual como em datas de fechamento específicas.
+ 
+Help:
+Consultas Financeiro
+EPQ (CCF 6033)
+
+
+Transferência de Adiantamento com Comprador
+
+Ao transferir um adiantamento de cliente com comprador, o comprador era trocado pela entidade selecionada. O SisPetro foi alterado para que o comprador seja mantido e apenas a entidade seja trocada. 
+EPQ (CCF 6161)
+
+
+Baixa de Título Utilizando Adiantamento
+
+As baixas de títulos utilizando adiantamento em algumas situações estavam gerando uma mensagem de erro ao usuário e não estavam sendo efetuadas. Esse erro estava acontecendo devido um problemas nas rotinas codificadas no banco de dados. Esse problema foi corrigido. 
+UPA (CCF 6794)
+
+
+Devolução de Adiantamento Quantificado de Cliente
+
+Em alguns casos, na devolução ("Paga ao cliente") do Adiantamento Quantificado de Cliente, ao comparar o saldo financeiro do adiantamento com o saldo em produtos, a validação não era feita devidamente devido arredondamento de valores, o que foi corrigido. 
+GSN (CCF 6731)
+
+
+Abatimento na Cobrança Eletrônica
+
+
+Nos bancos Brasil, Santander (incluindo Banespa e Meridional), Itaú e Bradesco, quando o título tiver desconto condicional, será possível indicar no Tipo de Cobrança se esse desconto será enviado no Arquivo de Remessa como Desconto (com data limite para concessão) ou como Abatimento (independente da data de pagamento). Nos demais bancos onde o Desconto Condicional é considerado o mesmo será enviado ainda como Desconto.
+Help:
+ 
+Tabela de Tipos de Cobrança 
+GSN (CCF 6264)
+
+
+
+
+Controladoria
+
+
+
+
+Contas de Resultado no Demonstrativo de Resultados
+
+No SisPetro Normal e Remoto, na tela de Manutenção de Demonstrativo de Resultados, aba Contas, agora apenas é possível selecionar contas de resultado, impedindo o usuário de selecionar outros tipos de contas erroneamente. 
+EPQ (CCF 6426)
+
+
+Melhoria na tela de Troca Código Extendido de Conta
+
+
+No SisPetro Controladoria, menu Ferramentas, Contabilidade, temos a "Troca Código Extendido de Conta". Nesta tela foi incluída a opção  "Fecha esta tela ao final do processo". Antes, a tela sempre era fechada a cada troca de conta. Com esta nova opção estando desmarcado, salva por usuário, a tela pode permanecer aberta para a troca de outras contas, agilizando o processo de troca para várias contas. EPQ (CCF 6242)
+
+
+Pesquisa de Conta Contábil Real - Máscara no Código Extendido
+
+
+A pesquisa de Conta Contábil Real agora apresenta o Código Extendido com a máscara do Plano de Contas Real. Isto visa melhor apresentar a conta. EPQ (CCF 6420)
+
+
+Geração Automática de Conta Contábil da Contabilidade Real
+
+O SisPetro pode ser configurado para gerar contas contábeis automaticamente para clientes e fornecedores. Se a conta sintética sob a qual as contas analíticas seriam geradas para os clientes/fornecedores estivesse mal configurada (com noves ao invés de zeros no último nível da conta, por exemplo) ou se o número máximo de contas analíticas permitida fosse atingido o sistema travaria em telas que fazem alguns tipos de processamento contábil. Este problema foi corrigido para que uma mensagem de erro clara seja emitida ao invés de travar o sistema. 
+EPQ (CCF 6420)
+
+
+Relatório de Contabilização de Notas Fiscais
+
+Em algumas configurações de impressora, este relatório estava cortando a ultima nota impressa. As alteras das bandas desse relatório foram revistas. 
+É necessário atualizar o arquivo ContabilizaNF.rtm para que essas alterações sejam efetuadas.
+ 
+ 
+UPA (CCF 4891)
+
+
+Vínculo de Conta Real à Conta Gerencial
+
+Quando a conta real de cliente ou fornecedor era incluída automaticamente, o SisPetro vinculava esta conta à conta Gerencial, mas não atualizava o campo que indicava se possuía vínculo ou não, causando problemas em relatórios que utilizassem esse campo. Nos procedimentos de contabilização esse campo não interferia, funcionando tudo normalmente. 
+GSN (CCF 6476)
+

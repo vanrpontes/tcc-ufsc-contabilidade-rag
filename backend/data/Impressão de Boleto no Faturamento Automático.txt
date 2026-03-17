@@ -1,0 +1,21 @@
+TITULO: Impressão de Boleto no Faturamento Automático
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2947711373
+--------------------------------------------------
+Na configuração no Cadastro de Cliente, detalhes,  existe uma opção que informa se solicita ou não a impressão do boleto. Ela vem sendo utilizada na emissão de Nota Fiscal de Venda manual, mas estava sendo desconsiderada no Faturamento Automático. Visto a utilidade dela para os clientes adeptos ao DDA,
+Indicação no Cadastro de Clientes sobre DDA
+,
+ implementamos uma solução que atende o cliente no Faturamento Automático. 
+Utilizando Faturamento Automático
+O objetivo é que para os clientes que estejam com a opção "
+Solicita imp. boleto na geração da NF
+" desmarcado os boletos não sejam impressos na tela de Faturamento Automático.
+O Faturamento Automático permite que seja escolhido clientes com perfis diferentes na questão da impressão de boleto. Em função disso se o usuário indicar que não quer imprimir cobrança na tela, ela prevalecerá, sem considerar o perfil de cada cliente. No entanto caso indique para imprimir, e o perfil do cliente esteja desmarcado a opção "
+Solicita imp. boleto na geração da NF
+"  o boleto não será impresso.
+O Faturamento Automático pode ser visualizado através do menu
+ 
+Consulta / Pedidos Aprovados p/ Faturamento
+  apresentando a seguinte tela:
+Após selecionar os clientes a serem faturados, Clicar no botão:
+E teremos está Tela:
+Na qual o usuário indicará a opção de Cobrança.

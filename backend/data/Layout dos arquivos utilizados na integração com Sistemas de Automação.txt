@@ -1,0 +1,279 @@
+TITULO: Layout dos arquivos utilizados na integração com Sistemas de Automação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2930082400
+--------------------------------------------------
+Estrutura dos arquivos
+Verifique o padrão conforme o Sistema de Automação utilizado pela base.
+Integração Basecom
+Nome dos arquivos gerados pelo SisPetro
+Os arquivos gerados pelo SisPetro terão sempre os mesmos nomes, exemplos, PE_00001234.txt  e PS_00001234.txt, onde:
+PE = Portaria de Entrada
+PS = Portaria de Saída
+00001234 = É o número da 
+FILA
+ com zeros a esquerda 
+E
+strutura dos arquivos gerados pelo SisPetro
+Importante:
+ a esquerda temos o nome do campo (por exemplo CaminhoBancoDados) que deve ocupar até 25 posições. A direita temos o conteúdo do campo (por exemplo C:\Banco) que deve iniciar na 26ª posição.
+Portaria de Entrada:
+Grava_Ordem              -> Comando 
+CaminhoBancoDados        C:\Banco 			-> caminho do banco conforme configurado no Depósito
+Ordem                    9999 				-> Sequencial da fila, sem zeros a esquerda
+Cliente                  EMPRESA 			-> Nome usual da empresa no SisPetro
+Placa                    ABC-1234 			-> Placa principal do caminhao
+Motorista                JOAO DA SILVA 		-> Nome do motorista
+IdProduto_1              GC -> Código fixo do produto no Sistema de Automação (cadastrado no SispPtro no campo Código de Automação). No caso de produto composto, será o código e volume do produto composto.
+Cap_Compartimento_1      10000 				-> Volume alocado ao compartimento (pode ser menor que a capacidade)
+Lacre_1                   					-> em desuso, mas deve ser informado no arquivo, sem valor
+// Repetir as 3 informações (ID, Cap e Lacre) de 1 a 12 para cada compartimento, exemplo: IdProduto_9, Cap_Compartimento_9 e Lacre_9 para o compartimento 9
+// No caso de treminhões, bi-trens, colocamos os compartimentos do 1º frota e depois do 2º frota na sequencia (se o 1º tem 3 compartimentos, os compartimentos do 2º frota começará em 4, e assim por diante)
+Portaria de Saída:
+Ler_Dados                					-> Comando
+CaminhoBancoDados        C:\Banco 			-> caminho do banco conforme configurado no Depósito
+Ordem                    9999				-> Sequencial da fila, sem zeros a esquerda
+Nome dos arquivos gerados pela automação Basecom
+Os arquivos gerados pela automação Zylix seguira o mesmo nome de arquivo gerado pelo SisPetro, com a inicial 
+"R", 
+que significa 
+Retorno,
+ exemplos, RPE_00001234.txt  e RPS_00001234.txt, onde:
+RPE = Portaria de Entrada
+RPS = Portaria de Saída
+00001234 = É o número da 
+FILA
+ com zeros a esquerda 
+Estrutura dos arquivos gerados pela automação Basecom
+Importante: A esquerda temos o nome do campo e o conteúdo do campo deve iniciar na 26ª posição.
+Portaria de Entrada:
+Grava_Ordem              OK 				-> status
+// um ticket para cada compartimento informado 
+Ticket_1                 1128 				-> Senha a ser usada para liberar o Compartimento 1
+Ticket_2                 
+Ticket_3                 7796
+Ticket_4                 8344
+Ticket_5                 7097
+Ticket_6                 9315
+Ticket_7                 3510
+Ticket_8                 
+Ticket_9                 
+Ticket_10                
+Ticket_11                
+Ticket_12                
+Qtd_Erros                0 					-> até 20 erros
+Erro_1                   
+Erro_2                   
+Erro_3                   
+Erro_4                   
+Erro_5                   
+Erro_6                   
+Erro_7                   
+Erro_8                   
+Erro_9                   
+Erro_10                  
+Erro_11                  
+Erro_12                  
+Erro_13                  
+Erro_14                  
+Erro_15                  
+Erro_16                  
+Erro_17                  
+Erro_18                  
+Erro_19                  
+Erro_20                  
+Portaria de Saída:
+Ordem                    9999				-> Sequencial da fila, sem zeros a esquerda)
+Cliente                  EMPRESA 			-> Nome usual da empresa no SisPetro
+Placa                    ABC-1234 			-> Placa principal do caminhão
+Motorista                JOAO DA SILVA 		-> Nome do motorista
+Status_Ordem             2 					-> Ver tabela abaixo
+// QUANDO PRODUTO SIMPLES
+IdProduto_1              S5 				-> Código fixo do produto no Sistema de Automação (cadastrado no SisPetro no campo Código de Automação). No caso de produto composto, será o código e volume do produto composto.
+Cap_Compartimento_1      5000 				-> Volume solicitado
+Total_Carregado_1        4975 				-> Volume efetivamente carregado
+Composto_1A              S5 				-> Se for produto básico, repete o código enviado em IdProduto, se for produto composto, o código do 1º produto básico da composição
+Quant_Solicitada_1A      5000 				-> Volume solicitado, se for produto composto, refere-se ao volume do do produto básico acima
+Quant_Carregada_1A       4975 				-> Volume efetivamente carregado, se for produto composto, refere-se ao volume do do produto básico acima
+Ticket_1A                00001077 			-> A mesma senha retornada no arquivo da entrada
+Lacre_1A                  					-> Em desuso, mas deve ter a linha no arquivo
+Data_Carregado_1A        03/05/2019 		-> Data do carregamento
+Hora_Carregado_1A        15:25:06 			-> Hora do carregamento
+Pre_Determinador_1A      2 					-> Qual foi o determinador utilizado, não utilizado no SisPetro, mas a linha deve ser enviada
+Medidor_1A               1 					-> Qual foi o medidor utilizado, não utilizado no SisPetro, mas a linha deve ser enviada
+Status_Composto_1A       3 					-> Ver tabela abaixo
+Densidade_1A             0 					-> Retornado no formato 9,999999 (similar ao SisPetro)
+Temperatura_1A           29,26 				-> Temperatura obtida para esse produto
+Inpm_1A                  0 					-> Retornado no formato 99,9 (similar ao SisPetro)
+Cod_Operador_1A          4 					-> Código do operador no sistema, não utilizado no SisPetro, mas a linha deve ser enviada
+Operador_1A              TURNO B 			-> Nome do operador, não utilizado no SisPetro, mas a linha deve ser enviada
+Composto_1B              AA 				-> Todos os dados abaixo são similares ao ?A acima, porém refere-se ao 2º produto da composição
+Quant_Solicitada_1B      1750
+Quant_Carregada_1B       1750
+Ticket_1B                00000084 			-> Mesma senha do produto A
+Lacre_1B                 
+Data_Carregado_1B        03/02/2019
+Hora_Carregado_1B        15:30:40
+Pre_Determinador_1B      1
+Medidor_1B               2
+Status_Composto_1B       3
+Densidade_1B             0
+Temperatura_1B           28,12 
+Inpm_1B                  0
+Cod_Operador_1B          4
+Operador_1B              TURNO B
+ // Repetir as informações de IdProduto_? a Operador_?B para todos os compartimentos, de 1 a 12 
+Integração Infitech
+Nome dos arquivos gerados pelo SisPetro
+Os arquivos gerados pelo SisPetro terão sempre os mesmos nomes, sendo OC_20201001130025 e PS_20201001130025, onde:
+OC = Portaria de Entrada
+PS = Portaria de Saída
+20201001130025 = É a identificação da OC definido pelo Ano, Mês, Dia, Hora, Minutos e segundos.
+Nome dos arquivos gerados pela automação Infitech
+O nome do arquivo de retorno gerado pela automação Infitech, será o mesmo gerado pelo SisPetro no processo da portaria de entrada.
+OC = Portaria de Saída
+Estrutura dos arquivos gerados pelo SisPetro
+Portaria de Entrada:
+text
+FLAG=OC
+TRANSPORTADOR=MOTORISTA TARGET 00001
+PLACA=XXX-7577
+E/R=E
+DATA=30/10/2020
+HORA=09:59:56
+COMPLEMENTAR=0
+OC_1=121945
+PRODUTO_1=AZ
+VOLUME_1=10000
+PRODUTO_1A=AZ
+VOLUME_1A=10000
+PRODUTO_1B=N/A
+VOLUME_1B=0
+OC_2=0
+PRODUTO_2=N/A
+VOLUME_2=0
+PRODUTO_2A=N/A
+VOLUME_2A=0
+PRODUTO_2B=N/A
+VOLUME_2B=0
+OC_3=0
+PRODUTO_3=N/A
+VOLUME_3=0
+PRODUTO_3A=N/A
+VOLUME_3A=0
+PRODUTO_3B=N/A
+VOLUME_3B=0
+OC_4=0
+Portaria de Saída:
+text
+FLAG=PS
+KEY=112039
+TRANSPORTADOR=MOTORISTA TARGET 00001
+PLACA=XXX-7577
+DATA=30/10/2020
+HORA=13:05:08
+Estrutura dos arquivos gerados pela automação Infitech
+Portaria de Saída:
+text
+FLAG=OC
+TRANSPORTADOR=MOTORISTA TARGET 00001
+PLACA=XXX-7577
+E/R=E
+DATA=30/10/2020
+HORA=09:59:56
+COMPLEMENTAR=0
+OC_1=121945
+PRODUTO_1=AZ
+VOLUME_1=10000
+PRODUTO_1A=AZ
+VOLUME_1A=10000
+PRODUTO_1B=N/A
+VOLUME_1B=0
+OC_2=0
+PRODUTO_2=N/A
+VOLUME_2=0
+PRODUTO_2A=N/A
+VOLUME_2A=0
+PRODUTO_2B=N/A
+VOLUME_2B=0
+Integração Zylix
+Nome dos arquivos gerados pelo SisPetro
+Os arquivos gerados pelo SisPetro terão sempre os mesmos nomes, exemplos, PE_00001234.txt  e PS_00001234.txt, onde:
+PE = Portaria de Entrada
+PS = Portaria de Saída
+00001234 = É o número da 
+FILA
+ com zeros a esquerda 
+Estrutura dos arquivos gerados pelo SisPetro
+Portaria de Entrada:
+text
+Grava_Ordem              					-> Comando 
+CaminhoBancoDados        C:\Users\futura 	-> caminho do banco conforme configurado no Depósito
+Ordem                    134 		 		-> Sequencial da fila, sem zeros a esquerda
+TipoOrdem                Descarga			-> Tipo da OC, Carregamento ou Descarga
+Cliente                  Empresa			-> Nome usual da empresa no SisPetro		
+Placa                    XXX-0000			-> Placa principal do caminhão
+Motorista                Motorista			-> Nome do motorista
+IdProduto_1              GASA				-> Código fixo do produto no Sistema de Automação (cadastrado no SisPetro no campo Código de Automação). No caso de produto composto, será o código e volume do produto composto.
+Cap_Compartimento_1      30000				-> Volume alocado ao compartimento (pode ser menor que a capacidade)
+Lacre_1       								-> em desuso, mas deve ser informado no arquivo, sem valor           
+Portaria de Saída:
+text
+Ler_Dados                					-> Comando
+CaminhoBancoDados        C:\Users\futura	-> caminho do banco conforme configurado no Depósito
+Ordem                    134				-> Sequencial da fila, sem zeros a esquerda
+Nome dos arquivos gerados pela automação Zylix
+Os arquivos gerados pela automação Zylix seguirá o mesmo nome de arquivo gerado pelo SisPetro, com a inicial 
+"R", 
+que significa 
+Retorno,
+ exemplos, RPE_00001234.txt  e RPS_00001234.txt, onde:
+RPE = Portaria de Entrada
+RPS = Portaria de Saída
+00001234 = É o número da 
+FILA
+ com zeros a esquerda 
+Estrutura dos arquivos gerados pela automação Zylix
+Portaria de Entrada:
+text
+Grava_Ordem				OK					-> status
+Ticket_1				1200				-> Senha a ser usada para liberar o Compartimento 1
+Portaria de Saída:
+text
+Ler_Dados																															
+Ordem					142					->	Sequencial	da	fila,	sem	zeros	a	esquerda)																						
+Cliente					Empresa				->	Nome	usual	da	empresa	no	SisPetro																							
+Placa					EDU-4589			->	Placa	principal	do	caminhão																									
+Motorista				GENEROSO FILHO		->	Nome	do	motorista																										
+Status_Ordem			1					->	Ver	tabela	abaixo	//	QUANDO	PRODUTO	SIMPLES																						
+IdProduto_1				GAS A				-> Código fixo do produto no Sistema de Automação (cadastrado no SisPetro no campo Código de Automação). 
+Cap_Compartimento_1		30000				->	Volume	solicitado																											
+Total_Carregado_1		31700				->	Volume	efetivamente	carregado																										
+Composto_1A	GAS 		A					->	Se	for	produto	básico,	repete	o	código	enviado	em	IdProduto,	se	for	produto	composto,	o	código	do	1º	produto	básico	da	composição							
+Quant_Solicitada_1A		30000				->	Volume	solicitado,	se	for	produto	composto,	refere-se	ao	volume	do	do	produto	básico	acima															
+Quant_Carregada_1A		31700				->	Volume	efetivamente	carregado,	se	for	produto	composto,	refere-se	ao	volume	do	do	produto	básico	acima														
+Ticket_1A				142					->		A	mesma	senha	retornada	no	arquivo	da	entrada																					
+Lacre_1A									->	Em	desuso,	mas	deve	ter	a	linha	no	arquivo																				
+Data_Carregado_1A		03/05/2019			->	Data	do	carregamento																										
+Hora_Carregado_1A		15:25:06			->	Hora	do	carregamento																										
+Pre_Determinador_1A		2					->	Qual	foi	o	determinador	utilizado,	não	utilizado	no	SisPetro,	mas	a	linha	deve	ser	enviada														
+Medidor_1A				1					->	Qual	foi	o	medidor	utilizado,	não	utilizado	no	SisPetro,	mas	a	linha	deve	ser	enviada														
+Status_Composto_1A		3					->	Ver	tabela	abaixo																										
+Densidade_1A			0					->	Retornado	no	formato	9,999999	(similar	ao	SisPetro)																						
+Temperatura_1A			29,26				->	Temperatura	obtida	para	esse	produto																								
+Inpm_1A					0					->	Retornado	no	formato	99,9	(similar	ao	SisPetro)																						
+Cod_Operador_1A			4					->	Código	do	operador	no	sistema,	não	utilizado	no	SisPetro,	mas	a	linha	deve	ser	enviada														
+Operador_1A	TURNO 		B					->	Nome	do	operador,	não	utilizado	no	SisPetro,	mas	a	linha	deve	ser	enviada																
+Composto_1B				AA					->	Todos	os	dados	abaixo	são	similares	ao	?A	acima,	porém	refere-se	ao	2º	produto	da	composição													
+Quant_Solicitada_1B		1750																														
+Quant_Carregada_1B		1750																														
+Ticket_1B				84					->	Mesma	senha	do	produto	A																								
+Lacre_1B																															
+Data_Carregado_1B		03/02/2019																														
+Hora_Carregado_1B		15:30:40																														
+Pre_Determinador_1B		1																														
+Medidor_1B	2																														
+Status_Composto_1B		3																														
+Densidade_1B			0																														
+Temperatura_1B			28,12																														
+Inpm_1B					0																														
+Cod_Operador_1B			4																														
+Operador_1B	TURNO		B																													

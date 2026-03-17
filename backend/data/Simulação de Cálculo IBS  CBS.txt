@@ -1,0 +1,91 @@
+TITULO: Simulação de Cálculo IBS / CBS
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5686722591
+--------------------------------------------------
+none
+Objetivo
+Essa tela visa agilizar o processo de conferência dos cálculos de IBS, CBS e IS, não sendo necessária a emissão da NF-e para saber os valores destes tributos. 
+O acesso é feito através do menu 
+Movimentação / Faturamento / Simulação de Cálculo IBS/CBS
+Pré-requisitos
+É necessário fazer as configurações necessárias conforme indicado em 
+Roteiro de utilização - Reforma Tributária 2026
+ 
+Funcionamento
+Para verificar os valores calculados informe:
+Produto
+: nele estão indicadas as tabelas de Alíquota IBS, CBS e IS ou está indicado para usar da Configuração do Sistema.
+Natureza de Operação
+: é onde estão vinculadas as Classificações Tributárias de IBS/CBS e IS. Na tabela de Classificação Tributária de IBS/CBS temos se deve ser feita alguma redução (governamental, de alíquota ou diferimento) e com que percentual.
+Data:
+ quando for implementada a vigência simples das tabelas de Alíquotas, a data será fundamental para saber de qual coluna deve ser obtida a alíquota, da Alíquota Pré Transição ou da Alíquota. No momento pode deixar a data atual que será sugerida.
+Preço e Quantidade
+: Será a Base de Cálculo inicial para o cálculo do Imposto Seletivo ou do IBS e CBS quando a alíquota for percentual.
+Quantidade
+: Será a Base de Cálculo inicial para o cálculo do IBS e CBS para os produtos combustíveis, que usam alíquota AdRem.
+A 
+Classificação Tributária IBS/CBS
+ vinculada à Natureza é a 620006 que calcula os valores retidos anteriormente (que será utilizada nas vendas, transferências, remessa e retorno de armazenagem dos combustíveis.
+Ao clicar em 
+Atualiza
+ os valores serão apresentados. 
+Na imagem acima, temos uma Alíquota AdRem de R$ 0,80 de CBS e de R$0,20 para a Etanol Hidratado. A Base de Cálculo é a Quantidade informada, não fazendo uso do Preço Unitário.
+Não há cálculo de IBS Mun, isso porque a configuração do sistema está com 100% do IBS para a UF.
+O Imposto Seletivo, por ser um produto combustível, não foi calculado, o que justifica não ter a Classificação Tributária IS indicada na Natureza.
+Neste primeiro momento, utilize essa tela para calcular valores para NF-e. Por enquanto o CT-e será enviado sem tributação com a Classificação Tributária 410999.
+Questões Frequentes
+Por que o Produto é apresentado no grid?
+Quando a Classificação Tributária vinculada à Natureza for a 620002, que envia a tag MonoPadrao e MonoReten e o produto for Gasolina A ou Oleo Diesel, teremos o valor calculado para o produto da NF e também para o Biocombustível da Composição Fiscal desse Produto.
+Veja a Composição Fiscal da Gasolina A:
+Veja como são apresentados os cálculos:
+A Base de Cálculo do Anidro é referente ao seguinte cálculo:
+(Qtde NF / (1 - (Proporção/100))) - Qtde NF
+(10.000 / (1 - (30/100))) - 10.000
+(10.000 / 0,70) - 10.000
+14.285,71 - 10.000 =
+ 4.285,71
+ → Volume necessário de Anidro para uso com 10.000 l Gasolina A
+Os valores do produto 00005 - Gasolina A vão no grupo de tags 
+MonoPadrao
+ e do produto 00004 - Anidro vão no grupo 
+MonoReten.
+Por que há tantas colunas para cada tributo?
+Em operações sem nenhum tipo de redução os valores entre as colunas serão os mesmos. Porém, quando temos os 3 tipos de redução (Governamental, Alíquota e Diferimento) as colunas passam a ter mais sentido e representar cada uma dessas reduções.
+Veja a ordem dos cálculos, sempre lembrando que, caso não tenha alguma das reduções abaixo, os valores serão os mesmos do passo imediatamente anterior.
+I - Cálculo Percentual Simples
+Base Calculo 
+= Valor Item + Valor IS
+Alíquota
+ = Alíquota % do Tributo para o Produto
+Valor Tributo Simples 
+= Base Cálculo * Aliquota/100
+II - Cálculo Compras Governo
+Perc. Redutor Gov
+ = % configurado na Classificação Tributária
+Aliquota Efetiva Red Gov 
+= Aliquota * (1-(% gov/100))
+Valor Tributo Red Gov
+= Valor Tributo Simples * (1-(% gov/100)) 
+III - Cálculo Redução de Alíquota
+Perc. Reducao Aliq
+ = % configurado na Classificação Tributária
+Aliquota Efetiva Red Aliq 
+= Aliquota Efetiva Red Gov * (1-(% Red Aliq/100))
+Valor Tributo Red Aliq 
+= Valor Tributo * (1-(% Red Aliq/100))
+Valor Reducao 
+= Valor Tributo Red Gov *(% Red/100)
+IV - Cálculo Diferimento
+Perc. Diferimento
+ = % configurado na Classificação Tributária
+Aliquota Efetiva 
+= Aliquota Efetiva Red Aliq * (1-(% Dif/100))
+Valor Tributo Dif 
+= Valor Tributo Red Aliq * (1-(% Dif/100))
+Valor Diferido 
+= Valor Tributo Red Aliq *(% Dif/100)
+Valores Finais 
+Base Cálculo Final
+Aliquota Final
+Valor Tributo Final
+Por que precisa informar uma Classificação Tributária para o IS?
+O Imposto Seletivo, apesar de ser criado na Reforma Tributária, ainda é algo não plenamente definido. No layout do XML da NF-e há um grupo de tags para o IS, com uma classificação tributária (tag <cClassTribIS>) e outro grupo para o IBS e CBS também com uma classificação tributária (tag <cClassTrib). Como não sabemos se elas serão iguais, julgamos ser melhor ter dois campos distintos e, caso venham a ser iguais, basta repetir a Classificação Tributária utilizada.

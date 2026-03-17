@@ -1,0 +1,691 @@
+TITULO: Versão 7.7
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2894725301
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 13/05/2010 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 14/06/2010 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd77.sql (cmd2309 a cmd2346) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 54 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 34 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 20 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+ RlFrete.rtm, SispetroBanco001.dll, Sintegra-2010-SEF.rtm, Sintegra-2010-PR.rtm, Sintegra-2010-DIC-SE.rtm, Sintegra-2010-GRF.rtm, DIME-SC.rtm 
+
+
+
+
+
+
+Devido as alterações dos dados enviados a Sefaz pela Nota Fiscal Eletrônica, após atualização para a versão 7.7, não será mais possível executar as versões anteiores do SisPetro nos bancos de dados atualizados.
+
+
+Compras
+
+
+Contabilidade
+
+
+
+
+Mais informação nas mensagens de erro dos códigos de contabilização
+
+
+Na execução de um código de contabilização, caso o mesmo gere algum erro, agora será exibido o código do campo que está sendo convertido, facilitando assim a sua localização dentro do código de contabilização. UPA (CCF 9175)
+
+
+Controle de Acesso
+
+
+Incluído no SisPetro Controladoria novos controles de acesso por usuário em procedimento da área Fiscal e Contábil.
+ 
+É necessário reconfigurar os perfis de acesso para usuários do Sispetro Controladoria, caso se queira limitar os acessos
+.
+ 
+Help:
+ 
+Controle de Acesso ao Controladoria
+. UPA (CCF 8005)
+
+
+Movimentação de Patrimônio
+
+
+Foi incluído no processo de Movimentação de Patrimônio uma verificação antes de efetuar o cancelamento, exclusão ou reversão.
+ 
+Através dessa tela, não será possível cancelar, excluír ou reverter os lotes de movimentação de patrimônio.
+ 
+Além disso, os lotes cancelados foram atualizados no campo "Data de Cancelamento do Lote", para corrigir uma divergência na emissão do relatório de Imobilizado.
+ 
+ALP (CCF 9256)
+
+
+DIME-SC para empresas com Regime Especial
+
+
+Acrescentada uma opção em tela "Regime Especial" e feitas as adaptações no layout para atender empresas que possuem Regime Especial na SEFAZ SC.
+Necessário atualizar o layout de exportação DIME-SC.RTM.
+ 
+GSN (CCF 8170)
+
+
+SPED-ECD - Dados de Balanço e DRE
+
+Feito ajustes em fórmula para ordenar os dados de Balanço (J100) e DRE (J150) no SPED-ECD. GSN (CCF 6427)*
+
+
+
+
+Estoque
+
+
+
+
+CACL (Certificado de Arqueação de Cargas Líquidas)
+
+
+Ao efetuar uma transferência de produtos entre depósitos é possível informar os dados da Medição dos tanques (antes só era possível na inclusão do Bombeio Físico) para apurar o volume movimentado.
+ 
+A Medição da Origem e do Destino do produto movimentado pode ser impressa pela tela de "Manutenção de Movimento entre Depósitos"
+.
+ 
+Help:
+ 
+Movimento Entre Depósitos
+. ALP (CCF 8381)
+
+
+Boletim de conformidade - dados incorretos do carregamento
+
+
+Foi corrigida a emissão do Boletim de Conformidade, deixando de agrupar na mesma via os produtos compostos e básicos.
+ 
+Agora, o sistema só emitirá o boletim em duas vias apenas se, na mesma OC, existirem dois itens com o mesmo código de produto.
+ 
+ALP (CCF 8634)
+
+
+Fator de Conversão por Tabela para Derivados de Petróleo
+
+
+Assim como é feito para os produtos claros (álcool), a partir dessa versão, é possível configurar o SisPetro para que nos produtos derivados de petroleo ao invés de calcular a densidade, essa informação seja pega de uma tabela préviamente cadastrada.
+ 
+Essa opção auxilia as empresas com pequenas variações no cálculo atualmente efetuado em clima muito quente.
+ 
+Help:
+ 
+Fator de Conversão por Tabela para Derivados de Petróleo
+ 
+UPA (CCF 9169)
+
+
+Validação da Transportadora e do Frota na Mudança da Transportadora da OC
+
+
+Na tela de mudança de transportadora da OC estaremos fazendo a mesma validação de transportadora e frota que é feito na inclusão de uma OC, o que inclui a verificação de Controle de Vencimento. UPA (CCF 9046)
+
+
+
+
+Faturamento
+
+
+
+
+Visualizar informações na tela de manutenção de NF
+
+
+Os campos "Cód. Natureza de Operação" e "Data Movimento" foram disponibilizados na tela de manutenção de NF.
+ 
+Além disso, o botão "Cancela" (que antes estava acima do botão de NF-e) teve sua localização alternada com o botão "Rec. Custo".
+ 
+ALP (CCF 7473, 8596 e 8815)
+
+
+PIS e COFINS no XML da NFe - Ajustes
+
+
+Foram implementadas mais algumas opções do CST do PIS e COFINS. São elas:
+
+
+02-Tributável com alíquota diferenciada
+
+
+04-Tributação Monofásica-Alíquota zero
+
+
+06-Tributável alíquota zero
+
+
+07-Isenta de Contribuição
+
+
+08-Sem incidência da Contribuição
+
+
+09-Suspensão da Contribuição
+
+
+Essas opções estão disponíveis no cadastro de Naturezas de Operação.
+ 
+Help:
+ 
+Impostos Natureza Operação
+ 
+ALP (CCF 8335)
+
+
+Regra NFe x Tipo de Emissão
+
+
+Foi alterada a regra de geração de chave de acesso e envio de NF-e a Sefaz.
+ 
+O sistema passará a verificar os campo "Tipo de Emissao" e "Habilita NF-e" (tabela Natureza de Operação) ao invés de verificar somente o campo NF-e (tabela NotaFiscal).
+ 
+Dessa forma é evitado que uma nota fiscal de terceiros seja enviada a Sefaz indevidamente.
+ 
+Help:
+ 
+Regras NFe x Tipo de Emissão
+ 
+ALP (CCF 9155)
+
+
+Manual de Integração Contribuintes - Versão 4.01
+
+
+Toda comunicação efetuada com a Sefaz através da NFe foi migrada da versão 1.XX para 2.00.
+ 
+Para os estados que já atendem esse novo padrão, basta o usuário configurar a empresa para enviar os dados no formato 2.00.
+ 
+Por enquanto essa alteração não é obrigatória, podendo a empresa permancer na versão 1.XX, mesmo para os estados que já possuem a nova versão.
+ 
+Help:
+ 
+Nota Fiscal Eletrônica versão 2.0
+ 
+UPA (CCF 8563)
+
+
+Conforme o 
+Portal Nacional da Nota Fiscal Eletrônica
+, estão disponíveis nos ambientes de produção das Sefaz Virtual do Ambiente Nacional, Sefaz Virtual do Rio Grande do Sul, Sefaz Rio Grande do Sul, Sefaz São Paulo e SCAN as URLs da nova versão 4.01 - NT006/2009 do Manual de Integração Contribuintes, que passará a vigorar a partir de 01/04/2010, conforme definido no Ato COTEPE ICMS 49/09 de 27/11/2009.
+
+
+Perfil de Redução de ICMS da Natureza na Nota Fiscal
+
+
+Foi disponibilizado na tela de Manutenção de Notas Fiscais o campo referente ao perfil de Redução de ICMS.
+ 
+Esse novo campo é gravado na Nota Fiscal no momento da sua emissão, e é proveniente do perfil que é configurado na tela de Cadastro de Natureza de Operação
+. ALP (CCF 9280)
+
+
+Erro ao incluir Nota Fiscal com desconto
+
+Foi corrigido um erro ao incluir uma Nota Fiscal com vários descontos. 
+Ocorria um erro quando o total da Nota Fiscal e o total de itens apresentava uma diferença de arredondamento
+. ALP (CCF 8121 e 8679)
+
+
+
+
+Financeiro
+
+
+
+
+Tamanho de Campo para Nome de Arquivo
+
+
+Nas rotinas "Geração Arquivo Remessa Cobrança", "Geração Arquivo Retorno Cobrança" e "Manutenção de Cobrança Eletrônica", o nome do arquivo foi aumentado para que seja possível acessar caminhos mais longos no Windows. ALP (CCF 8803)
+
+
+Geração de arquivo de cobrança - Cortando o nome do caminho do arquivo
+
+
+Na tela de "Manutenção de Tipos de Cobrança", o campo "Arquivo Layout" foi aumentado para permitir que o caminho do arquivo possa ser escrito por completo. ALP (CCF 8693)
+
+
+Dados de Cancelamento de Adiantamentos
+
+
+Quando o usuário efetuar um cancelamento de adiantamento, a data, hora e o nome do usuário serão gravados no banco de dados.
+ 
+Também será possível visualizar o usuário e a data de cancelamento de adiantamento na tela "Manutenção de Adiantamentos".
+ 
+ALP (CCF 8877)
+
+
+Cobrança Eletrônica - Banco HSBC
+
+
+Foi implementada a cobrança eletrônica para o banco HSBC (399).
+ 
+Essa cobrança utiliza CNAB com 400 posições.
+ 
+Help:
+ 
+Como configurar cobrança eletrônica no HSBC Bank
+.
+ 
+ALP (CCF 8966)
+
+
+Correção da DLL de Conciliação - Banco do Brasil
+
+Foi corrigido o erro "Access Violation" na DLL de conciliação automática do Banco do Brasil. 
+O arquivo anexo é o "SispetroBanco001.dll"
+. 
+ALP (CCF 9118)
+
+
+Impressão da tela de Manutenção do Vendor
+
+O botão Imprime da tela de Manutenção de Vendor não estava acionando a impressão, o que foi corrigido. 
+GSN (CCF 9324)
+
+
+Dados da Transferência de Adiantamentos
+
+
+Na tela de Manutenção de adiantamentos (Clientes e Fornecedores) foram disponibilizados os campos referentes à transferência entre empresas e entidades.
+ 
+Os mesmos podem ser consultados na aba "Lançamentos" e também na aba "Utilização".
+ 
+Help:
+ 
+Dados da Transferência de Adiantamentos
+ 
+ALP (CCF 9029).
+
+
+Alteração de Contas na Efetivação de Recorrentes
+
+
+A partir dessa versão será possível alterar/incluir as contas gerenciais, contas reais e centros de custos na efetivação de um lançamento recorrente.
+ 
+Com essa alteração, no momento da efetivação de um recorrente o usuário poderá alterar o seu valor e com isso solucionar os problemas encontrados em recorrentes como a contabilização de empréstimos cujo valor das parcelas não possua um percentual fixo e constante.
+ 
+Help:
+ 
+Alteração de Contas Contábeis na Efetivação de Títulos Recorrentes
+ 
+UPA (CCF 8385)
+
+
+Manutenção de Contas a Pagar e Receber
+
+Foi corrigida uma mensagem de erro na Manutenção de Contas a Pagar e Receber, quando utilizado o banco de dados Sybase versão 8.0. 
+ALP (CCF 9222)
+
+
+Nova Taxa de Juros na Tela de Postergação
+
+
+A partir dessa versão, na tela de Postergação de títulos é possível alterar a taxa de juros e percentual de multa de um título, como já é feito na tela de cálculo de juros, não sendo mais necessário sair da tela de postergação.
+ 
+Help:
+ 
+Postergação de Títulos
+ 
+UPA (CCF 8395)
+
+
+Baixa automatica: #NF grande e perfil indevido
+
+Foi corrigido o processo de Baixa para aceitar NF com mais de 8 caracteres. E também foi corrigido o perfil "Faz baixa Aut. Adto Quant." para gravar no campo correto do banco de dados. 
+ALP (CCF 6350)
+
+
+Cálculo de Multa do Contas a Receber Indevidamente na Tela de Cálculo do Juros
+
+Na tela de cálculo de juros, temos separado os valores de juros e multa. A multa só deveria ser calculada quando o título está em atraso, mas estava sendo calculada sempre e com isso alguns valores ficavam negativos. 
+UPA (CCF 9516)
+
+
+Posição do Nosso Número na Leitura do Arquivo do Banco Daycoval
+
+Ajustada a posição de leitura do nosso número do Arquivo de Retorno do banco Daycoval (707) 
+GSN (CCF 9398)
+
+
+
+
+Fiscal
+
+
+
+
+Alterações Sintegra GRF-SP
+
+
+Foi alterada a geração dos arquivos 50, 54, 74, 75, 88D e 88E filtrando apenas produtos do tipo combustível (CB). Também foram retirados alguns campos desnecessários no levantamento de dados para a geração do arquivo 101 (GRF-SP, SEF, SE e PR), melhorando a performance na geração do mesmo.
+ 
+Para essa alteração é necessário atualizar os anexos
+ 
+Sintegra-2010-SEF.rtm, Sintegra-2010-PR.rtm, Sintegra-2010-DIC-SE.rtm e o novo arquivo Sintegra-2010-GRF.rtm
+ 
+. ALP (CCF 9142)
+
+
+Notas com dois itens do mesmo produto no DPMP
+
+No DPMP, quando se fazia a geração dos dados com Características e uma nota tinha dois itens do mesmo produto, ao visualizar o agrupamento do DPMP as quantidades dessa nota eram apresentadas duplicadas, o que foi corrigido. 
+GSN (CCF 9257)
+
+
+Configuração de PIS e COFINS
+
+
+Foram incluídas no SisPetro algumas configurações de empresas, cliente, fornecedores e produtos para Apuração de PIS e COFINS. Na empresa, clientes e fornecedores, poderá ser informado o tipo de apuração: por valor fixo por m3 (metro cúbico) ou por percentual (alíquota). No cadastro de produtos, poderão ser informados os valores a serem usados em cada configuração.
+ 
+Help:
+ 
+Apuração de PIS e COFINS
+ 
+UPA (CCF 8497)
+
+
+Edição de campos na Manutenção de Apuração de Livro Fiscal
+
+O Sispetro Controladoria foi corrigido na tela de Manutenção de Apuração de Livro Fiscal, impedindo que os novos campos sejam editados: Usuário Inclusão, Data Inclusão, Usuário Encerramento, Data Encerramento, Usuário Cancelamento e Data Cancelamento. 
+Esses novos campos, assim como os outros, apenas são exibidos, não podendo ser alterados
+. 
+ALP (CCF 9089)
+
+
+Salvar dados da apuração - GIA's
+
+Foi corrigido erro de conversão apresentado na tela de GIA's do SisPetro Controladoria quando se clicava no botão "Salva Dados na Apuração" sem preencher as informações na aba DIME-SC. 
+GSN(CCF 9318)
+
+
+
+
+Geral
+
+
+
+
+Segurança no Gerenciador de Relatórios - Ajuste
+
+O sistema não permitirá gravar as alterações de um relatório, na tela de alteração de segurança, se a opção "Modificação - Somente estes" estiver marcada e a lista "Usuários selecionados" estiver vazia. Outra alteração foi referente aos usuários que podem modificar e executar o relatório, quando o relatório estava definido que somente um usuário poderia alterar o relatório mas não havia nenhum usuário selecionado para executá-lo, esse relatório não era mais apresentado no gerenciador de relatórios, esse problema foi corrigido e a partir dessa versão, serão listados aos usuários os relatórios que ele pode executar e/ou alterar. 
+ALP (CCF 7276)
+
+
+
+
+Caso exista algum relatório na situação acima(possui usuário de alteração mas não possui usuário para execução), com essa alteração o relatório estará novamente visivel ao usuário que possa alterá-lo.
+
+
+Os relatórios marcados que podem ser modificados por todos os usuários serão exibidos a todos os usuários, independente do usuário não pertencer ao grupo que possa visualizá-lo pois se o usuário pode alterar o relatório, ele também pode executa-lo pela ferramente de desenho do relatório.
+
+
+
+
+
+
+Exibir endereço no Google Maps
+
+
+É possível exibir o endereço de um cliente ou fornecedor direto no Google Maps através do SisPetro, para isso basta clicar no botão Mapa na página de navegação ou na página de outros endereços desses respectivos cadastros. **
+ 
+Help:
+ 
+**
+Localizador de endereços no Google Maps
+ 
+UPA (CCF 9131)
+
+
+Custo Médio Real - Formatação de Valores no Cadastro de Produtos
+
+Foi corrigido o problema da mensagem "Caracteres inválidos" na tela de cadastro de produtos. 
+ALP (CCF 9038)
+
+
+Erros de tela - versão anterior
+
+Algumas telas do Sispetro estavam "cortando" os botões "OK" e "Cancela" localizados na parte de baixo da tela. As telas foram corrigidas para exibir os botões inteiramente. 
+ALP (CCF 9102 e 9534)
+
+
+Tabelas Abertas Indevidamente
+
+Foi detectado em algumas rotinas do SisPetro um problema que "prendia" as informações solicitadas ao banco de dados no sistema e com isso gerava o erro 
+Resource Governor for Prepared Statements Exceeded
+ a cada 50 notas fiscais emitidas em sequência ou na Importação de Notas Fiscais. Esse problema foi corrigido. 
+UPA (CCF 9369, 9351, 9341, 9344)
+
+
+Outros Impostos para uso da NFe
+
+Na configuração do sistema, aba Nota Fiscal, ao ser selecionado um campo de Outros Impostos para uso da NFe, caso não tenha um Outro Imposto cadastrado será apresentada a mensagem de "Arquivo Vazio" ao invés de abrir a tela de pesquisa. 
+GSN (CCF 9396)
+
+
+Impressão da Movimentação de Estoque no Cadastro de Produtos
+
+Na versão 7.6 fizemos uma atualização em nosso sistema que causou falha na impressão dos dados de movimentação de estoque no cadastro de produtos. Nessa versão esse problema foi corrigido e a impressão voltou a funcionar.
+UPA (CCF 9189)
+
+
+Endereço no Cadastro de Transportadoras
+
+
+Para deixar o cadastro de Transportadoras mais completo adicionamos os campos CEP, Inscrição Municipal, SUFRAMA e Bairro, além do Código do Município no IBGE que é interno.
+ 
+Importante: Foi ajustada a permissão para que, se o usuário não tiver permissão para alterar a Transportadora para também não alterar esses novos campos, além do Número, Complemento, Fone, CNH e Entidade que estavam liberados.
+GSN (CCF 9545)
+
+
+Tela de Erro ao Navegar nas Páginas do Cadastro de Produtos
+
+Em casos em que o usuário não possuía permissão para alterar dados do produtos e o usuário ficava navegando entre as páginas desse cadastro, em algumas situações era gerado um erro ao usuário. Esse erro foi localizado e corrigido. 
+UPA (CCF 9557)
+
+
+
+
+Transporte
+
+
+
+
+Frota com placa inválida
+
+O sistema Sispetro Remoto somente permitirá o cadastro de uma frota com uma placa válida (3 letras e 4 números). 
+ALP (CCF 7977)
+
+
+Relatório de Frete por Tipo de OC
+
+
+Foi implementado um filtro por "Tipo de OC" no relatório de Fretes. O tipo de OC escolhido aparecerá no cabeçalho do relatório.
+ 
+Só será possível utilizar esse filtro se a opção "por Ordem Carregto" estiver marcada.
+ 
+Para essa alteração é necessário atualizar o anexo
+ 
+RlFrete.rtm
+ 
+ALP (CCF 7547)
+
+
+Relatório de Frete - Duas notas para o mesmo item de OC
+
+
+Foi corrigida a apresentação do campo "Qtde" no relatório de fretes.
+ 
+Se a Ordem de Carregamento (OC) não está vinculada a nenhuma NF, o campo "Qtde" será obtido da própria OC. Caso a OC esteja vinculada a uma ou mais NF, o campo "Qtde" será obtido dos itens da NF
+ 
+. ALP (CCF 8762)
+
+
+Custo por KM no Relatório de Viagens
+
+
+Foram disponibilizados dois campos para serem utilizados no Relatórios de Viagens: "KMViagem" (Diferença entre a KM de Retorno e a KM de Saída) e "CustoKM" (Resultado da divisão de "Total de Eventos" por "KMViagem").
+ 
+Os novos campos foram disponibilizados apenas na estrutura de dados "FrotaViagem". Não foram disponibilizados no layout atual do relatório.
+ 
+ALP (CCF 8513)
+
+
+
+
+Vendas
+
+
+
+
+Visualização de dados de bloqueios de Clientes
+
+
+Na aba "Navegação" da tela de cadastro de clientes foi disponibilizado o botão "Bloqueios" para visualização dos motivos de bloqueio do cliente.
+Esse botão só estará disponível se o cliente estiver bloqueado
+ 
+e não permitirá que sejam adicionados ou removidos motivos de bloqueio.
+ 
+ALP (CCF 8017)
+
+
+Dados de Fiança e Hipoteca - Ajustes
+
+
+Foi disponibilizado um perfil no cadastro de usuários para permitir alterações nas informações sobre Hipoteca e Fiança do cadastro de clientes. Também foi disponibilizado no cadastro de clientes um campo para cadastro de observações da Fiança.
+ 
+Para facilitar a visualização, o Nome do Fiador foi disponibilizado na aba "Navegação", no grupo "Hipoteca e Fiança". E na consulta de pedidos pendentes, os dados de Fiança e Hipoteca foram colocados em abas separadas.
+ 
+ALP (CCF 8289 e 8809)
+
+
+Edição das Observações na tela de Pedidos Pendentes
+
+Corrigido o problema do aparecimento de caracteres estranhos na edição das observações do pedido em algumas situações. 
+ALP (CCF 7916)
+
+
+Verificação de Débitos em Atraso do Grupo Econômico
+
+
+Quando o perfil "Verifica Limites e Valores do G.Econômico para Aprovação do Pedido" estiver habilitado, além do limite de crédito do grupo, serão analisadas também as pendências financeiras do grupo. UPA (CCF 9306)
+
+
+Bloqueio de Clientes pelo Arquivo da SEF
+
+
+Na tela de bloqueio de Clientes, a partir dessa versão, no bloqueio via Arquivo SEF-RS haverá a verificação de duas informações para efetuar o bloqueio: o CGC e a Inscrição Estadual (IE).
+ 
+Dessa forma, o cliente será bloqueado mediante arquivo da SEF-RS somente se o CGC e a IE coincidirem com as informações do arquivo.
+ 
+Help:
+ 
+Bloqueio Automático de Clientes
+ 
+ALP (CCF 2877)
+
+
+Assistente de Vendedor na tela de Consulta de Pedidos Pendentes
+
+
+O Assistente de Vendas foi disponibilizado para visualização nas telas de Pedidos Pendentes e Pedidos Aprovados para Faturamento.
+ 
+Caso o pedido não tenha um Assistente de Vendas, o campo referente será exibido em branco. 
+ALP (CCF 9184)
+
+
+Arredondamento do ICMS ST e Próprio nos Custos
+
+
+Na tela de Análise de Custos passamos a não mais arredondar em 2 casas decimais os custos de ICMS Substituição e Próprio, facilitando a análise em quantidades pequenas (1 unidade, por exemplo). Será utilizado o número de casas decimais configurado para o preço. GSN (CCF 9523)
+
+
+Fonte Itálica nas telas de Consulta de Pedidos
+
+
+Os Pedidos Fora do Estado que eram apresentados com fonte Itálica (na tela de consulta de pedido) passarão a ser apresentados com fonte Sublinhada. ALP (CCF 7343)
+

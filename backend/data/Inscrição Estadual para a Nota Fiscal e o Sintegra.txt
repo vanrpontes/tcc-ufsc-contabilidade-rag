@@ -1,0 +1,132 @@
+TITULO: Inscrição Estadual para a Nota Fiscal e o Sintegra
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2888204309
+--------------------------------------------------
+Existem alguns casos onde a UF de Faturamento é diferente da UF da entidade e, no Sintegra vai a IE da Entidade em conjunto com a UF, que não corresponde a esta IE.
+
+
+ 
+Exemplo:
+
+A Empresa é do Rio Grande do Sul - RS e o Fornecedor também é do Rio Grande do Sul - RS com Inscrição Estadual no RS.
+
+No momento do faturamento escolhe-se o endereço de Faturamento como Paraná - PR, pois o serviço foi prestado lá. No Sintegra deverá ir a Inscrição Estadual do PR e a UF também como PR.
+
+
+Como fazer isso? Veja os passos abaixo com a configurações necessárias:
+
+Para a Nota Fiscal:
+
+
+
+
+Acessar o Sispetro Normal;
+
+
+Acessar o Cadastro de Cliente - 
+Arquivos > Clientes
+;
+
+
+Configurar o endereço para faturamento, através de 
+Outros Endereços
+ - 
+Arquivos > Clientes > aba Detalhes > aba inferior Outros Endereços
+;
+	
+
+
+Informar, inclusive, a Inscrição Estadual para o estado do endereço.
+
+
+
+
+ Caso necessite, pode-se colocar a I.E. dos Outros Endereços como 
+ISENTA
+. 
+
+
+
+
+
+
+
+
+Vincular este novo endereço ao 
+Endereço de Faturamento
+, na aba Padrão para Vendas - 
+Arquivos - Clientes > aba Detalhes > aba inferior Padrão p/ Vendas
+;
+
+
+
+
+
+
+Com isso, ao emitir as notas fiscais para determinado cliente, a Inscrição Estadual que será salva na nota fiscal é a de Faturamento.
+
+
+Para o Sintegra:
+
+
+
+
+Acessar o Sispetro Controladoria;
+
+
+Acessar a tela de 
+Fórmulas para Livro Fiscal
+ - 
+Arquivos > Fórmulas para Livro Fiscal
+;
+
+
+Configurar o campo 
+IE
+ para pegar a IE da tabela Nota Fiscal - 
+Arquivos > Fórmulas para Livro Fiscal - aba Detalhe
+
+
+
+
+
+
+Clicar no botão ... ao lado do campo;
+
+
+
+
+Procurar por 
+IE
+ na coluna NomeCampo, cuja a coluna NomeTabela deverá ser NotaFiscal;
+
+
+
+
+Dê um duplo clique sobre o registro localizado, de forma que sua numeração apareça no quadro ao lado entre os símbolos <xxx>;
+
+
+
+
+Clicar em OK;
+
+
+
+
+
+
+
+
+Efetuar o mesmo processo para as demais fórmulas e, por fim, clique no botão OK.
+
+
+
+
+Com isso, após emitir as notas fiscais, a *Inscrição Estadual
+ que será salva no livro fiscal é a nota fiscal.*
+
+
+E como resolver o problema para as notas fiscais já emitidas, as antigas?
+
+Para estes casos, faça o 
+Reprocessamento dos Livros Fiscais
+ que as Inscrições Estaduais serão salvas.

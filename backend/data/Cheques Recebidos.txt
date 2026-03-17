@@ -1,0 +1,152 @@
+TITULO: Cheques Recebidos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899154
+--------------------------------------------------
+O SisPetro trabalha de modo a acompanhar a movimentação dos cheques recebidos. Para isso, foram identificados os seguintes pontos onde os cheques podem ser interceptados pelo sistema:
+
+
+
+
+Vínculo com a Nota Fiscal
+: No momento em que é feito o vínculo o cheque já é incluído no sistema, mas sem ser atribuído uma conta para sua localização. É possível, no entanto, ter o controle do portador. Para isso, no Menu 
+Ferramentas / Sistema, painel Financeiro
+, deve-se marcar a opção 
+Habilita controle portador cheques no faturamento
+ e se informar o portador devidamente.
+
+
+
+
+
+
+Baixa do Contas a 
+Pagar
+/
+Receber
+: Caso o cheque já tenha sido incluído pelo processo de vínculo é possível selecionar os cheques desejados, caso contrário, é possível providenciar a inclusão neste momento.
+
+
+
+
+
+
+Adiantamentos de 
+Clientes
+/
+Fornecedor
+: Idem a baixa, porém a possibilidade de ter ocorrido o vínculo é menor, se levarmos em consideração que a maior parte dos cheques para adiantamentos chegam antes da emissão da Nota Fiscal.
+
+
+
+
+
+
+Transferências entre Bancos
+: Nas transações de depósito em Conta Corrente ou envio de cheques para desconto ou custódia.
+
+
+
+
+
+
+Pagamentos de despesas extraordinárias
+: Nos pagamentos de despesas utilizando cheques recebidos de clientes.
+
+
+
+
+
+
+Recebimentos extraordinários
+: Nos recebimentos extraordinários que tiveram cheques na transação.
+
+
+
+
+
+
+Contas a Pagar/Receber: No 
+controle de cheques devolvidos
+, onde pode ser selecionado o cheque lançado na baixa, ou caso os processos anteriores não tenham providenciado a sua inclusão, pode ser providenciada a inclusão do mesmo.
+
+
+
+
+Nos processos citados acima teremos sempre um botão semelhante ao seguinte:
+
+
+
+
+Ao clicar neste botão será apresentada a tela para para pesquisa e inclusão de cheques:
+
+
+
+
+Digite os dados padrões que serão utilizados para inclusão de novos cheques, que são 
+Data Emissão
+, 
+Bom Para
+, 
+Tipo de Documento
+ e 
+Portador
+.
+
+
+Digite o número do cheque em 
+#Cheque
+. Caso haja algum cheque cadastrado no sistema com esta numeração para o mesmo banco e agência informados, seus dados serão apresentados em tela e será apresentada a informação 
+ALTERAÇÃO
+ no lado direito da tela. Altere o que for necessário e clique no botão confirma para selecionar este cheque. Caso o cheque em mãos tenha a mesma numeração que o cheque encontrado, mas não seja o mesmo (conta diferente), marque a opção 
+Inclusão
+ e preencha os dados deste cheque. Se o cheque não foi encontrado será apresentada a mensagem 
+INCLUSÃO
+ e você deve preencher os dados e clicar no botão 
+Confirma
+.
+
+
+É possível utilizar o botão 
+Pesquisa Cheque
+ para pesquisar um cheque específico em períodos anteriores, para isso, caso o processo tenha especificado uma conta fixa, será possível escolher o filtro da pesquisa, conforme opções abaixo:
+
+
+
+
+
+
+Indiferente:
+ Mesmo o processo especificando uma conta fixa, será possível escolher qualquer cheque de outra conta.
+
+
+Cor diferente p/ outras contas:
+ Mesmo o processo especificando uma conta fixa, será possível escolher qualquer cheque de outra conta, porém os cheques das outras contas serão apresentados com o fundo na cor amarela.
+
+
+Somente cheques da conta:
+ Só poderá ser escolhido um cheque da conta especificada pelo processo.
+
+
+
+
+Digite todos os cheques seguindo o processo acima. Caso tenha incluído/selecionado um cheque indevidamente. Selecione-o entre os cheques apresentados e clique no botão 
+Exclui
+.
+
+
+Antes de concluir o processo, caso seja necessário relacionar os cheques listados, utilize o botão 
+Imprime
+. O arquivo de layout utilizado é 
+ListaCheque.rtm
+ e deve estar no mesmo diretório que o executável. Tal arquivo pode ser editado no Gerenciador de Relatórios.
+
+
+Ao concluir o processo clique no botão 
+OK
+ para confirmar a seleção de cheques.
+
+
+Se na tela que solicitou a tela de cheques recebidos tiver a informação do tipo de documento, o valor total dos cheques selecionados será verificado ou não com o valor de movimento da tela origem. Vide em 
+Tipos de Documentos
+ o item 
+Valida valor do movimento associado
+.

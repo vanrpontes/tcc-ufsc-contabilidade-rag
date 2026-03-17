@@ -1,0 +1,42 @@
+TITULO: Encerramento de Ordens de Serviço
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878900202
+--------------------------------------------------
+Ao encerrar a Ordem de Serviço, seus itens se transformarão em eventos e aparecerão na tela 
+Manutenção de Eventos Frota
+, com o numero da Ordem de Serviço vinculada a estes eventos. Também aparecerão na 
+Manutenção de Pedidos
+, caso haja movimentação de estoque para estes itens. Na 
+Manutenção de Ordens de Serviço
+, o status desta Ordem de Serviço aparecerá como "Encerrada".
+É necessário informar a 
+data e hora da finalização
+. 
+Pois a data de término e finalização no SisPetro podem ser diferentes
+.
+Após informas a Data e Hora da Finalização, o Sispetro irá validar a opção selecionada no campo 
+Evento Via NF
+ de cada um dos itens e em seguida caso esteja definido como:
+Evento é gerado sem dados de NF: Evento é gerado automaticamente conforme o Item;
+Evento exige NF para ser gerado: Irá procurar se a NF já foi lançada, seguindo o fluxo abaixo:
+Se os itens possuem quantidades iguais entre a Ordem de Serviço, NF e PMM, o Sispetro irá gerar o Evento automaticamente, caso possua ao menos um item 
+será apresentada a tela abaixo, constando
+ 
+todos os itens da Ordem de Serviço,
+ 
+inclusive os automáticos, mas só será permitido realizar alterações nos itens marcados como Manual:
+Na parte superior da tela são apresentadas os Itens da OS
+A coluna Manual marcada indica que existe uma divergência na quantidade do item entre o PMM e/ou a NF .
+Na parte central, serão apresentados os dados relacionados ao item selecionado no grid superior:
+NF relacionadas ao PMM do item da OS;
+PMM gerado a partir do item da OS;
+Todas OS envolvidas: todos os itens de OS que originaram o PMM
+Na parte inferior, será apresentado uma sugestão para o evento conforme os dados do item da OS e a última NF lançada. só será possível editar nos itens que requerem alteração manual.
+Alterar: 
+quantidade, valor, #Docto e Data, de forma que seja compatível com a NF desejada;
+Excluir:
+ caso se decida que esse item de OS não deve gerar evento agora;
+Incluir:
+ utilizando os dados do item da OS selecionada no grid superior e da NF do grid central, para os casos onde se quer mais que um evento para a mesma OS;
+A coluna #NF não poderá ser alterada pelo usuário, pois depende da NF que gerou o evento.
+Os eventos apresentados serão conforme o item da OS, não sendo filtrados conforme a NF posicionada no grid central.
+Após clicar em salvar, será gerado o Evento vinculado a OS e a NF.

@@ -1,0 +1,56 @@
+TITULO: Tabela Clientes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913239638
+--------------------------------------------------
+Objetivo
+Esta tabela armazena os Clientes da Empresa, ou seja, as pessoas físicas e jurídicas que compram os produtos vendidos pela Empresa. Esta tela permite a manipulação dos dados de Clientes. Seu acesso no SisPetro se dá através do menu Arquivos > Clientes.
+Na aba Ocorrências/Pendências, será mostrada a observação cadastrada em manutenção de ocorrência e na manutenção de pendência. Para mais informações, ver 
+Ocorrências
+ / 
+Pendências
+.
+Só é possível incluir , alterar e excluir um Cliente caso o usuário tenha as determinadas permissões de usuário. Para mais informações, ver 
+Painel Segurança (Usuários)
+.
+No SisPetro há duas referências para Cliente:
+Cliente Comprador
+ é o cliente que se responsabiliza com a compra do produto. Este cliente pode ser a holding ou o grupo corporativo que tem controle sobre o Cliente Faturado ou algum intermediário que compre da distribuidora e repasse diretamente para a revenda, fazendo com que a distribuidora fature diretamente para ela.
+Cliente Faturado
+ é o cliente que constará na Nota Fiscal de Venda, ou seja, que será cobrado. Um Cliente pode ter três endereços distintos associados: endereço de cobrança, endereço de entrega e endereço de faturamento.
+O sistema possui uma validação para definir quando uma entidade será 
+compradora
+ ou 
+faturada
+ no momento da emissão do pedido de vendas. Mais detalhes sobre essa configuração no tópico 
+Cadastro Detalhado
+.
+Nesta tabela, estão incluídos todos os clientes, tanto os compradores como os clientes faturados. A distinção entre o cliente comprador e o cliente faturado se dá no momento da elaboração do pedido de venda, quando indicamos o cliente comprador e, para cada item, o cliente faturado do pedido. O Sistema faz automaticamente a separação no momento da elaboração da Nota Fiscal.
+É importante salientar que o Sistema pode trabalhar de duas maneiras com relação aos clientes compradores x clientes faturados:
+Totalmente aberto:
+ O vendedor é que define no momento da venda qual será o cliente comprador e qual serão os clientes faturados para o pedido.
+Controla cliente comprador:
+ O Sistema só permitirá que o vendedor indique os clientes faturados pertencentes a determinado comprador ou grupo econômico ( ou o próprio comprador quando são a mesma entidade, isto é, cliente comprador = cliente faturado ). Esta amarração ( cliente pertencente a grupo econômico ) se dá no cadastro de clientes, onde se amarra cada cliente que pertença a uma rede de postos a esta rede fazendo com que o comprador seja ou o próprio posto ou o dono da rede.
+O Sistema irá respeitar e controlar limite de crédito, condições de pagamento, etc, no momento da elaboração do pedido, 
+do cliente comprador
+.
+No cadastramento de um 
+Cliente
+, devemos fazer sua associação com as seguintes tabelas do Sistema:
+Tabela de Preços
+ de produtos que será utilizada para este cliente.
+Tabela Vendedores
+, de onde será selecionado o responsável pelos pedidos de venda.
+Tabela de Condições de Pagamento
+, condição de prazos que será dada ao cliente.
+Tabela de Tipos de Cobrança
+, de onde será selecionado o tipo adotado ao cliente: cheque, ordem pagamento, boleto bancário, ...
+Tabela Moedas
+, de onde será selecionada a moeda utilizada nas vendas ao cliente.
+Tabela Transportadoras / Motoristas
+, de onde será selecionada uma transportadora/motorista que fará a entrega dos produtos comprados.
+Tabela de Contas Contabeis
+, cada cliente deve possuir sua conta contábil, composta por um código conta fixo + código do cliente no SisPetro.
+Tabela de Ramos de Atividade
+ do cliente, utilizado na montagem dos relatórios relacionados ao DNC (Departamento Nacional de Combustíveis).
+Para mais informações,  ver:
+Clientes - Painel Navegação
+Clientes - Painel Detalhes

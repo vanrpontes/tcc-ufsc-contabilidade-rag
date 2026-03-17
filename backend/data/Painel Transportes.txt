@@ -1,0 +1,833 @@
+TITULO: Painel Transportes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909897323
+--------------------------------------------------
+Objetivo
+O acesso a esta tela ocorre pelo menu 
+Ferramentas / Sistemas / Transporte
+, centralizando todas as configurações operacionais e fiscais relacionadas ao transporte no SisPetro. Ela permite controlar frotas, transportadoras e motoristas, definindo regras de vínculo, validações de documentos, CNH, chassi, modalidades de frete e uso de frota própria ou de terceiros. Também reúne parâmetros de pedidos de venda, ordens de carregamento, cargas e viagens, incluindo aprovação de frete, controle de valores mínimos e máximos, vale-pedágio, CIOT, seguro e monitoramento de carga. No âmbito fiscal e financeiro, a tela define regras para emissão e validação de CT-e, cálculo de frete, geração de contas a pagar/receber, vínculo com notas fiscais e contratos de frete. Por fim, oferece configurações avançadas de controle, como exigência de carga fechada, validações de valor, averbação, integração com monitoramento e alertas de vencimento de documentos.
+O acesso a essa tela se dá através de Ferramentas / Sistemas / Transporte.
+Quadro Cadastro de Frotas
+Exibe só Frota Próprio na Inclusão de Eventos do Frota:
+ utilizado na tela de inclusão de eventos do frota (
+Inclusão de eventos relacionados ao Frota - sem vínculo
+ e 
+Inclusão de eventos relacionados ao Frota - com vínculo
+). Caso a empresa deseje incluir eventos de frota, apenas para os frotas próprios é uma alternativa para evitar erros. Com ele marcado só será possível pesquisar e incluir frotas marcados como próprio. Para mais informações, ver 
+Configurando Frotas próprios e não próprios
+.
+Utiliza indicação de frota próprio por empresa: 
+utilizado para indicar se o frota é próprio ou não. 
+Para mais informações, ver 
+Configurando Frotas próprios e não próprios
+.
+Verifica Tipo de Movimentação do Frota na OC (exceto de Terceiros): 
+faz a verificação se o Tipo de Movimentação do Frota informado está conforme o cadastro, exceto OC de Terceiros (tanto Carregamento como Descarga)
+Todas:
+ permitir incluir a OC
+Transferências:
+ só permitir se a OC não for de Venda
+Vendas Entrega (CIF) ou Vendas Retira (FOB):
+ só permitir se a OC for de Venda e o campo Retira/Entrega for compatível
+Impede frotas com Nº de Chassi repetido:
+ se marcada, impede a inclusão ou alteração de um frota cujo número de chassi esteja repetido, inclusive se não estiver preenchido (brancos)
+Permite vários clientes em um compartimento nos frotas com Bomba p/ Descarga?: 
+quando marcado e usado com frota com bomba para descarga, que a compartimentação manual aceite pedidos de clientes diferentes no mesmo compartimento.
+Quadro Nota Fiscal
+Destaca Frete na Nota Fiscal ?:
+ se marcada, ao incluir uma nota fiscal o campo Destaca Frete no Rodapé da Nota Fiscal ficará selecionado.
+Situação do Frete para Venda Retira:
+ para os casos de frete retira, permite que seja definido se a contratação do frete é por conta do destinatário ou se o transporte próprio é por conta do destinatário. Parâmetro exigido para versão 4.0 da nota fiscal eletrônica
+Contratação do Frete por conta do Destinatário:
+ considera sempre como frete por contas de terceiros quando a venda é do tipo retira, informando a situação de frete 2 - Por conta do Destinatário.
+Transporte Próprio por conta do Destinatário: 
+considera sempre como frete Próprio quando a venda é do tipo retira, informando a situação de frete 5 - Transp. Próprio Destinatário.
+Uso da Tabela de Fretes NF-e:
+ permite que seja definida a versão da Nota Fiscal Eletrônica a ser utilizada. Esta opção se faz necessária por conta das mudanças em relação a necessidade de envio de informações da contratação do frete no xml
+Quadro Cadastro de Transportadoras/Motoristas
+Padrão para ação motorista sem vínculo com Transportadora:
+ utilizado na inclusão de um novo motorista ou transportadora. É possível controlar as transportadoras/motoristas por seu vínculo. Ou seja, caso um motorista não tenha vínculo com transportadora o usuário poderá bloqueá-lo e assim só será possível utilizar registros que tenham vínculo. Porém não se torna obrigatório, caso deseje que qualquer registro, mesmo sem vínculo, possa ser utilizado, basta configurá-lo para assumir que é autônomo
+Assume que é autônomo: 
+caso seja configurado desta forma, ao incluir um novo motorista/transportadora o perfil 
+Ação Motorista sem vínculo c/ Transportadora
+ na
+ 
+Tabela Transportadoras / Motoristas
+ será preenchido para assumir que é autônomo, ou seja, não bloqueará registros que não tenham vínculos
+Bloqueia ação: 
+caso seja configurado para bloquear ação, ao incluir um novo motorista/transportadora o perfil 
+Ação Motorista sem vínculo c/ Transportadora 
+na
+ 
+Tabela Transportadoras / Motoristas
+ será preenchido para bloquear registros que não tenham vínculo, assim nenhum usuário poderá utilizar motoristas que não tenham vínculos com transportadoras e vice- versa
+Validação Transportadoras/Motoristas
+Qualquer Tipo:
+ não há validação entre motorista e transportadora
+Permite somente Tipo Motorista ou Livre:
+ com este perfil, o SisPetro trabalhará 
+selecionando
+ o 
+motorista
+ e 
+não
+ mais a 
+transportadora
+, nas telas de  
+Painel Dados Gerais
+, 
+Tabela Transportadoras / Motoristas
+, 
+Armazenadora - Remessa de Armazenagem
+, 
+Mudar Transportadora e Frota da OC e da NF
+, 
+Preenchimento de Dados na Nota Fiscal
+, 
+Inclusão de Ordem de Carregamento
+, 
+Manutenção de Ordem de Carregamento
+, 
+Composição de carga
+, 
+Controle de Carga
+, 
+Fechamento de Carga
+, 
+Consulta Pedidos aprovados para Faturamento
+, 
+Aprovação do Pedido de Venda
+. Para mais informações, ver 
+Tabela Transportadoras / Motoristas
+Transportadora Vínculo Motorista Padrão: 
+caso esteja selecionada, na inclusão de um motorista a transportadora será automaticamente vinculada.
+Comissão Motorista:
+ caso tenha um acordo e o motorista cumpra determinadas condições de números de viagens 
+Informa Percentual
+Informa Valor
+Valida Categoria da CNH do Motorista com o Tipo de Frota. 
+Para mais informações, ver 
+Tabela Transportadoras / Motoristas
+Não valida:
+ não realiza a validação.
+Valida Somente para os Motoristas que tiverem categoria definida:
+ valida somente os motoristas que tiverem uma categoria definida.
+Valida para todos:
+ valida todos os motoristas, impedindo a inclusão da ordem de carregamento caso o frota definido não esteja de acordo com a categoria da CNH.
+Obriga Dados Básicos Transportadora:  
+utilizado na inclusão de um novo motorista ou transportadora, ou na edição de um já existente. Ao ativar esse perfil será validado se os dados básicos do cadastro foram preenchidos
+Motorista: 
+quando o cadastro estiver com 
+Tipo de pessoa
+ igual a 
+Física 
+serão validados os campos referentes a 
+Razão Social, IE/RG 
+e
+ Telefone.
+Transportadora:
+ quando o cadastro estiver com o 
+Tipo de pessoa
+ igual a 
+Jurídica
+ serão validados os campos referentes a 
+Razão Social, IE/RG, Telefone, Endereço, Numero, Bairro, Cidade
+ e
+ CEP
+Valida Inscrição Estadual Transportadora:
+ valida o conteúdo digitado no campo Inscrição Estadual / RG do cadastro de Transportadora/ Motorista.
+Permite não apropriar frete à transportadora:
+ permite a empresa em questão, ao emitir o Conhecimento do Frete, só gere Frete caso a transportadora e/ou o motorista não sejam próprios.
+Nota:
+ este perfil é aplicado somente a empresas transportadoras. Não se aplica a distribuidoras.
+Modifica Código Transportadora:
+ permite modificar/informar o código de uma transportadora/motorista. O código passa a ser de responsabilidade do usuário, deixando de ser automático. Apresenta sempre o último código cadastrado, devendo o usuário alterar.
+Controla Transportadora
+Mostra grupo de relacionamento motorista x transportadora de forma simplificado:
+ 
+em desuso
+Trabalha com mais de um vínculo com transportadora para o mesmo motorista ? (Uso na OC): 
+ permite que um motorista tenha mais que uma transportadora por empresa. E na OC pode escolher qual transportadora usar.
+Modalidade Padrão Inclusão Transportadora: 
+permite definir, para o SisPetro (todas as empresas), qual a Modalidade padrão para as Transportadoras. Sendo assim, sempre que uma nova transportadora/motorista for cadastrada, a informação de Modalidade será conforme este perfil.
+Ambas modalidades
+Somente Entrega
+Somente Retira
+Verificação Modalidade: 
+a verificação da modalidade de frete permitido para a transportadora que está vinculada à transportadora informada no pedido de venda (ou OC ou Nota Fiscal oriunda de venda) deve ser configurada através deste perfil
+Somente Motorista
+Transportadora Vinculada
+Verificação da Modalidade de Frete:
+ faz a verificação em processos de vendas ou em todos os processos necessários
+Só nos processos de Venda
+Em todos os procedimentos necessários
+Valida duplicidade de CNH de Motorista: 
+permite configurar o sistema para bloquear o cadastro de motoristas com número de CNH já existente, garantindo a integridade dos dados e evitando duplicidade. Aplicável tanto no Sispetro quanto no SispetroApp, mediante ativação de parâmetro específico.
+Quadro Pedido de Venda
+Quando frota próprio escolhido no pedido de venda sugerir entrega:
+ caso marcada, no pedido de venda será sugerido o frete como entrega, se o frota for próprio
+Trabalha com Frete Mínimo e Máximo na Tabela Distância:
+ permite que a empresa trabalhe com Frete mínimo e máximo. Após habilitar e caso o usuário tenha as devidas permissões, será possível incluir valores mínimo e máximo na 
+tabela Distância
+. Para mais informações, ver 
+Como trabalhar com Frete Mínimo e Máximo
+Verificação da Aprovação de Transportes na Alteração de Transportadora/Frota:
+ define a regra para a alteração de transportadora/Frota através da tela de 
+Mudança de transportadora no Pedido de Venda
+Não verifica (pode alterar pedidos aprovados):
+ selecionando essa opção o usuário pode alterar a transportadora/frota de pedidos aprovados e não aprovados.
+Não permite alterar pedidos aprovados em Transportes:
+  selecionando essa opção 
+não será permitido
+ 
+alterar a transportadora/frota
+ caso o 
+pedido
+ se encontre como 
+Aprovado.
+Não permite alterar pedido ENTREGA aprovado: 
+selecionando essa opção 
+não será permitido
+ 
+alterar a transportadora/frota
+ caso o 
+pedido
+ se encontre como 
+Aprovado
+ do tipo 
+Entrega
+.
+Verificação do Frete Real na Inclusão do Pedido Entrega:
+ define como será realizada a verificação do Frete na inclusão do Pedido de Venda do tipo entrega.
+Permite zero: 
+selecionando essa opção 
+não 
+será
+ realizada
+ nenhuma 
+validação
+ do 
+frete
+ na 
+inclusão
+ do frete.
+Exige valor maior que Zero:
+ selecionando essa opção 
+não
+ será 
+permitido
+ utilizar um 
+frete
+ com 
+valor zerado
+Exige valor entre Frete mínimo e Máximo (ou Maior que 0):
+ selecionando essa opção 
+realizará
+ a 
+verificação
+ do 
+valor mínimo e máximo
+ do 
+frete
+ ao realizar a 
+inclusão
+ de 
+itens
+ no 
+pedido de venda
+. Trabalha em conjunto com a perfil de sistema 
+Trabalha com Frete mínimo e Máximo
+ na 
+Tabela Distância
+ 
+Quadro Verificação de Valor Frete - Pedido Venda e Carga
+Ação para Pedidos/OC
+ do Tipo Retira:
+ define a aprovação de pedido para pedidos do tipo Retira
+Aprovação Manual:
+ selecionando essa opção, o pedido vai para aprovação manual
+Aprovação Automática:
+ selecionando essa opção, o pedido será aprovado automaticamente
+Ação para Pedidos/OC
+ do Tipo Entrega - Frota Próprio: 
+define a regra para análise de aprovação de transporte para pedidos do tipo Entrega que utilizarem o frota próprio.
+Analisa se Aprova (Frete Negociado >= Padrão):
+ selecionando essa opção 
+não serão aprovados
+ os pedidos do tipo 
+Entrega
+ que o 
+valor do frete
+ seja 
+menor
+ que o 
+valor do Frete Padrão
+. Caso o 
+valor do Frete
+ do pedido seja 
+maior ou igual
+ ao 
+valor do Frete Padrão
+, o pedido será 
+aprovado
+.
+Nunca Aprova (Aprovação Manual):
+ selecionando essa opção o Pedido 
+nunca será aprovado
+, e sempre irá para 
+aprovação manual
+Analisa se Aprova (Frete Negociado <= Padrão):
+ selecionando essa opção 
+não serão aprovados
+ os pedidos do tipo 
+Entrega
+ que o 
+valor do frete
+ seja 
+maior
+ que o 
+valor do Frete Padrão
+. Caso o 
+valor do Frete
+ do pedido seja 
+menor ou igual
+ ao 
+valor do Frete Padrão
+, o Pedido será 
+aprovado
+.
+Ação para Pedidos/OC
+ do Tipo Entrega - Frota de Terceiros:
+ define a regra para análise de aprovação de transporte para pedidos do tipo Entrega que utilizarem o frota de terceiros.
+Analisa se Aprova (Frete Negociado >= Padrão):
+ selecionando essa opção 
+não serão aprovados
+ os pedidos do tipo 
+Entrega
+ que o 
+valor do frete
+ seja 
+menor
+ que o 
+valor do Frete Padrão
+. Caso o 
+valor do Frete
+ do pedido seja 
+maior ou igual
+ ao 
+valor do Frete Padrão
+, o Pedido será 
+aprovado
+.
+Nunca Aprova (Aprovação Manual):
+ selecionando essa opção o Pedido 
+nunca será aprovado
+, e sempre irá para 
+aprovação manual
+Analisa se Aprova (Frete Negociado <= Padrão):
+ selecionando essa opção 
+não serão aprovados
+ os pedidos do tipo 
+Entrega
+ que o 
+valor do frete
+ seja 
+maior
+ que o 
+valor do Frete Padrão
+. Caso o 
+valor do Frete
+ do pedido seja 
+menor ou igual
+ ao 
+valor do Frete Padrão,
+ o Pedido será 
+aprovado.
+Permite Pedido/OC para Cidade sem distância definida
+:
+ caso utilize 
+Tabela de Distâncias
+ e se marcada, permite emitir pedido mesmo que a cidade esteja sem distância definida na tabela.
+Quadro Ordem de Serviço
+Período para exibição na Man de OS:
+ define o limite de datas para apresentação das OS na tela de manutenção
+Data Inicial (nº de dias anteriores à data atual):
+ informe o número de dias desejado para data inicial para apresentar as OS na tela de manutenção
+Data Final (nº de dias posteriores à data atual):
+ informe o número de dias desejado para data final para apresentar as OS na tela de manutenção
+Incluir mais de uma Ordem Serviço ao mesmo tempo p/ o mesmo frota:
+ define se poderá incluir mais de uma OS para um Frota ao mesmo tempo
+Não Permitir
+Confirmar inclusão de mais de uma OS
+Incluir sem confirmar
+Sugestão para o campo Evento x NF no item da OS:
+ define a opção padrão do campo na inclusão do Item da OS
+Evento é gerado sem dados de NF
+Evento exige somente NF para ser gerado
+Evento exige PMM/NF para ser gerado
+Quadro Carga
+Permite ao usuário escolher transportadora / frota ao criar Carga:
+ se marcada, o usuário poderá selecionar transportadora/frota
+Utiliza roteamento automático
+Fechar carga com pedidos não aprovados:
+ permite fechar carga mesmo com pedidos não aprovados
+Valida # compartimentos com # itens dos ped. na comp. de carga
+Apresenta OC na Composição de Carga: 
+se marcada, o usuário terá acesso a aba de Ordem Carregamento na composição de carga
+Exige dados Frota/Motorista da OC iguais ao da Carga:
+ se marcada, o SisPetro só fechará carga onde os frotas/motoristas sejam iguais. Se desmarcada, ao fechar uma carga, o SisPetro altera o frota/motorista do item pertencente à carga
+Trabalha com controle de Status de Viagem do Frota: 
+ao marcar essa opção será possível alterar o status do frota conforme o perfil de viagem, ver 
+Monitoramento de Viagem
+Valida documentos de Frotas e Transportadoras no Fechamento?: 
+ao marcar essa opção o SisPetro irá validar os documentos dos frotas e/ou transportadoras dependendo do tipo de Controle de Vencimento. 
+Obs.: A validação 
+não se aplica
+ a Depósito Específico. Para mais informações, ver 
+Controle de Documentos para Transportadora / Motoristas e Frotas
+. 
+Nº de dias para data de Entrega:
+ número de dias posteriores à data atual para o SisPetro sugerir a data de entrega na inclusão da carga
+Motorista padrão para Cargas: 
+define qual será o motorista padrão para realizar a composição de cargas
+Frota padrão para Cargas:
+ define qual será o frota padrão para realizar a composição de cargas
+Edita Layout Carga
+: permite editar os layouts de carga
+ControleCarga.rtm (para cargas sem compartimento)
+ControleCargaCompart.rtm (para cargas compartimentadas)
+OC de Venda X Seguro
+Permite pedidos com ou sem seguro na mesma OC: 
+se marcada, permite utilizar pedidos com e sem seguro na mesma ordem de carregamento
+Todos os pedidos com ou sem seguro na mesma OC:
+ se marcada, não permite incluir pedidos com seguro e pedidos sem seguro na mesma ordem de carregamento. Só permitirá incluir na Ordem de carregamento todos os pedidos com seguro, ou todos os pedidos sem seguro
+Considera Frota Passível de Utilização na Composição de Carga: 
+esse perfil possibilita um maior controle para utilização de um Frota na Carga.
+Bloqueios
+Independente de estar bloqueado:
+ permite qualquer Frota independente de bloqueado ou não
+Somente não bloqueados:
+ permite a utilização de apenas de Frota sem nenhum tipo de bloqueio
+Status de Viagem
+Independente de estar em viagem:
+ permite a utilização de qualquer frota independente do status de Viagem
+Somente aqueles que não estão em viagem:
+ permite a utilização de apenas de Frota com status 
+Disponível para Viagem
+Verificação de Valor de Frete - Tipo de OC
+Não verifica: 
+não verifica valor de frete.
+Só Transf. Entre Depósitos: 
+verifica valor de frete em OC de transferência entre depósitos.
+Só Carregamento Próprio: 
+verifica valor de frete em OC de carregamento próprio.
+Carreg. Próprio e Transf. Depósitos: 
+verifica valor de frete em OC de carregamento próprio e transferência entre depósitos.
+Verificação de Valor de Frete - Pedido de Venda
+Não verifica: 
+não verifica o valor de frete.
+Verifica: 
+verifica o valor de frete.
+Utilização de Vale Pedágio: 
+define como a empresa vai trabalhar com o vale pedágio
+Não emite vale-pedágio:
+ selecionando esta opção, a empresa não trabalhará com vale pedágio
+Emite conforme regras Frota/Empresa:
+ selecionando esta opção, a empresa trabalhará com vale pedágio utilizando as configurações conforme Frota/Empresa 
+sem
+ permissão para alterar na inclusão ou no fechamento de carga.
+Emite conforme regras Frota/Empresa e/ou Usuário:
+ selecionando esta opção, a empresa trabalhará com vale pedágio utilizando as configurações conforme Frota/Empresa 
+com
+ permissão para alterar na inclusão e no fechamento de carga
+Pode cancelar OC mesmo com Vale Pedágio ativo:
+ permite realizar o cancelamento de OC mesmo estando vinculado a um vale pedágio ativo. Será necessário ter as devidas permissões de usuário também para poder realizar o cancelamento. Para mais informações, ver 
+Painel Fretes (Usuários)
+Gerenciador de Pedágios Padrão:
+ permite que seja definido qual o Gerenciador de Pedágios padrão. Se selecionado indevidamente, use a tecla Backspace para limpar o campo.
+Impacto Valor de Pedágio no Valor do Frete
+Diminui o valor do frete:
+ se tiver valor de pedágio, o SisPetro já salva o valor do frete real líquido 
+sem
+ o valor do pedágio
+Não altera o valor do frete:
+ se tiver valor de pedágio, o SisPetro salva o valor do frete real líquido 
+com
+ o valor do pedágio
+Target
+Ordem de Obtenção de Custo do Pedágio: 
+define a ordem de obter o custo do pedágio, se antes ou depois da compra
+Efetua a Compra e Depois Obtém o Custo
+Obtém o Custo e Depois Efetua a Compra
+CIOT:
+ o SisPetro possui a emissão de carga com CIOT (Código Identificador da Operação de Transportes). Define se a empresa trabalha ou não com CIOT e qual a data base para pagamento do Frete
+Utilização de CIOT
+Trabalha com CIOT:
+ selecionando esta opção, permite a Empresa trabalhar ou não com CIOT na composição de carga
+Não trabalha com CIOT:
+ selecionando esta opção, não será possível trabalhar com CIOT
+Data Base para Pagamento do Frete
+Data de Embarque:
+  selecionando esta opção, o SisPetro usará como data base para pagamento do Frete a data de Embarque
+Data de Entrega:
+  selecionando esta opção, o SisPetro usará como data base para pagamento do Frete a data de Entrega
+Para o SisPetro usar como data base a data informada em um dos perfis de Sistema acima, 
+o Fornecedor vinculado à transportadora deve selecionar no campo 
+Data base Para Pagamentos
+ opção
+ Respeita Perfil de Empresa. Caso contrário, a data base irá de acordo com o que foi configurado no 
+Fornecedor
+Consulta CIOT Transportadora: 
+o SisPetro possui a 
+Consulta Situação do Transportador antes do envio do CIOT na Composição de carga. A consulta verificará se a transportadora é dispensada ou não do CIOT. Caso seja dispensada, o processo do CIOT não será executado, realizando apenas o processo de compra do Vale Pedágio. As informações da consulta serão gravada na 
+Tabela Transportadoras / Motoristas
+Sempre:
+  selecionando esta opção o sistema sempre executará a consulta da Transportadora antes do envio do CIOT
+Nunca:
+  selecionando esta opção o sistema não efetuará a consulta da Transportadora
+A Cada N Dias: 
+selecionando esta opção a consulta será executada obedecendo o número de dias informado no campo Nº de Dias
+Nº de Dias: 
+informar o número de dias para consulta da transportadora
+Quadro Monitoramento: 
+temos a Integração Monitoramento de Carga para que sejam enviados os dados de agendamento, cancelamento e Status de Viagem, permitindo o monitoramento da Frota
+Integração com Sistema de Monitoramento:
+ se marcada, permitirá monitorar as viagens de um frota
+Gerenciador de Monitoramento:
+ com duas opções:
+ANGELLIRA
+ENGERISCO
+Para mais informações, ver 
+Monitoramento de Viagem
+Quadro Exigência de carga fechada
+A validação de fechamento de carga, exigirá que o processo tenha ou não a obrigatoriedade de composição e fechamento da carga.
+Pedido de Venda:
+ a exigência da carga fechada ocorre na Inclusão da OC de venda
+OC Transf. Entre Depósitos:
+ a exigência da carga fechada ocorre na tela de Confirmação de OC
+OC Carregamento Próprio:
+ a exigência será no Faturamento e o novo perfil terá as seguintes opções:
+Não exige carga fechada 
+Avisa se não tiver carga fechada 
+Barra se não tiver carga fechada
+ 
+Valida Valor de Carga no Fechamento de Carga
+Não valida o valor da carga (padrão)
+Valida o valor da carga conforme o valor máximo Transportadora:
+ faz validação no fechamento de carga conforme valor determinado no campo Valor Máximo Permitido para Carga, no cadastro de 
+Transportadoras/Motoristas.
+Carga x Empresa:
+ esse perfil indica se na 
+Composição de Carga
+ o SisPetro permitirá incluir Pedidos e OC de uma ou várias empresas no mesmo caminhão.
+Quadro Aviso de Vencimento de Controle
+Permite configurar o SisPetro um número de dias de antecedência para avisar na Ordem de Carregamento se um determinado documento do frota ou da transportadora está para vencer. É preciso configurar um número de dias para Frota e um número de dias para Transportadora. Lembrando que 0 (zero) é o valor padrão e caso não seja alterado não será exibido nenhum aviso.
+Nº de dias de antecedência - Frota
+Nº de dias de antecedência - Transportadora
+Quadro Viagem
+Gera Viagem através de OC:
+ se marcada, a viagem será gerada na inclusão da OC
+Gera Viagem através do Conhecimento:
+ se marcada, a viagem será gerada na inclusão de um conhecimento de frete
+Não inclui valor de frete na viagem:
+ se marcada, não inclui valor de frete na viagem
+Nº de dias para exibição de dados em Manutenção de Viagens:
+ informe o número de dias desejados (nº de dias anteriores à data atual) para exibir as viagens na tela de manutenção
+Quadro Período para exibição na Man. de Fretes
+Data Inicial (nº de dias anteriores à data atual):
+ informe o número de dias desejado para data inicial para apresentar os fretes na tela de manutenção
+Data Final (nº de dias posteriores à data atual):
+ informe o número de dias desejado para data final para apresentar os fretes na tela de manutenção
+Conhecimento
+Inclusão de CT-e
+Validação de CT-e indevido para a empresa (NF referenciada não passível de frete): 
+conforme a opção selecionada abaixo, o Sispetro irá validar se o conhecimento de frete que esta sendo incluído é um conhecimento de frete valido. 
+Não valida: 
+esta opção é equivalente a perfil não habilitado para verificar se a nota em referencia é passível de frete.
+Valida e impede a inclusão: 
+esta opção verifica se a nota fiscal em referencia é uma nota fiscal passível de frete, caso não seja, o Sispetro não ira permitir a sua inclusão.
+Cod. Nat. Oper. Dentro Estado: 
+informe um código de natureza operação padrão para emissão de CT-e para dentro do Estado
+Cod. Nat. Oper. fora Estado: 
+informe um código de natureza operação padrão para emissão de CT-e para fora do Estado
+Tipo de informação do valor do frete no conhecimento: 
+permite informar o valor do frete unitário ou total no 
+Conhecimento de Frete
+Unitário: 
+selecionando esta opção, deve informar o campo 
+Valor Frete Unit.
+ e será calculado o campo 
+Valor Frete Total
+Total: 
+selecionando esta opção, deve informar o campo 
+Valor Frete Total
+ e será calculado o campo 
+Valor Frete Unit.
+Neste caso poderá ter problemas de arredondamento, mas o que vale é o campo 
+Valor Frete Total
+, pois é este valor que é utilizado para gerar a Nota Fiscal que representa o conhecimento
+Informa valor diferenciado para o financeiro no Conhecimento de Frete: 
+se marcada, permite informar um valor diferente do conhecimento. 
+Informa entidade de retirada da mercadoria no Conhecimento de Frete:
+ se marcada, deve indicar a empresa onde será retirada a mercadoria
+No conhecimento de frete obriga informar NF que o acobertam: 
+em desuso
+Pode duplicar numero de conhecimento de frete:
+ se marcada, permitirá duplicar número do conhecimento
+Valida se NF-e referenciada consta em outro CT-e:
+ s
+e 
+desmarcado
+,
+ 
+permite
+ informar uma 
+NF-e já utilizada
+ em outro 
+CT-e. 
+Recomenda-se 
+sempre
+ deixar marcado.
+Perfil deve ser 
+desmarcado esporadicamente
+, pois foi desenvolvido para casos bem específicos em que a Sefaz faz cancelamento extemporâneo do CT-e e necessita utilizar a NF-e em um novo CT-e 
+Arquivo LayOut Padrão Conhecimento: 
+em desuso
+Envio de Informações da Carga (tag qCarga):
+ define como serão preenchidas as tags 
+nUnid
+, 
+tpMed
+ e 
+qCarga
+ no XML do conhecimento.  
+Envia a Qtde da NF (em litros)
+: selecionando esta opção, a tag 
+qCarga 
+será preenchida conforme 
+quantidade da nota
+. As demais tags serão preenchidas conforme a tabela abaixo:
+nUnid
+04
+tpMed
+LITRAGEM
+qCarga
+Qtde da NF
+Envia o Peso da NF (em KG):
+ selecionando esta opção, a tag 
+qCarga
+ será preenchida conforme 
+peso líquido da nota
+. As demais tags serão preenchidas conforme a tabela abaixo:
+nUnid
+01
+tpMed
+PESO AFERIDO
+qCarga
+Peso Líquido da NF
+Movimentação Financeira
+Habilitar Gerar Mov. Financeira p/:
+ se marcada, permite selecionar para quem deve ser gerado o título
+Responsável do contas a receber sugerido: 
+d
+efine o padrão para a cobrança na emissão do conhecimento de transporte. P
+ara mais informações, ver 
+Emitindo um Conhecimento de Transporte CT-e
+Remetente
+Destinatário
+Consignatário
+Geração de Contas a Receber no Conhecimento Manual
+Tipo Venda e Transferência
+Usuário Escolhe
+Conforme Natureza, usuário pode alterar
+Conforme Natureza, usuário não pode alterar
+Tipo Avulsa
+Usuário Escolhe
+Conforme Natureza, usuário pode alterar
+Conforme Natureza, usuário não pode alterar
+Para mais informações, ver 
+Configurações Complementares
+Um CT-e pode se referenciar a NF-e de 3 formas:
+Via NF já incluída no SisPetro (caso do CT-e de Venda ou Transferência)
+Via Botão de Seleção de XML, onde o usuário informa o XML da NF-e e obtemos as informações automaticamente a partir dele
+Manualmente, informando os dados na aba NF-e
+Hoje só temos como obter o peso nas duas primeiras opções, pois não teremos o campo em tela e nem teremos interação do usuário.
+Despesas Acessórias Conhecimento: 
+para mais informações, ver 
+Despesas Acessórias
+Responsável pelo Seguro por Tipo de Conhecimento: 
+para mais informações, ver 
+Emitindo um Conhecimento de Transporte CT-e
+Venda
+Remetente
+Expedidor
+Recebedor
+Destinatário
+Emitente do CT-e
+Tomador de Serviço
+Transferência
+Remetente
+Expedidor
+Recebedor
+Destinatário
+Emitente do CT-e
+Tomador de Serviço
+Avulso
+Remetente
+Expedidor
+Recebedor
+Destinatário
+Emitente do CT-e
+Tomador de Serviço
+Consulta Destinatário
+Ação para CT-e indevido na empresa (NF referenciada não passível de frete)
+Não faz nada:
+ perfil desabilitado, não irá executar a manifestação em desacordo caso o CT-e seja indevido.
+Envia manifestação de Prestação de Serviço em Desacordo:
+ com esta opção selecionado, o SisPetro processará automaticamente o manifesto em desacordo do CT-e emitido para a empresa. Este processo ocorrerá sempre na validação da inclusão do CT-e, onde, caso a nota fiscal referenciada não seja uma nota fiscal passivo de frete.
+Cálculo do Frete
+Controla frete padrão Vendas:
+ permite trabalhar utilizando os valores de frete padrão informados no perfil 
+Fator Frete Padrão por KM / Litro
+ 
+Pode calcular frete diretamente na tabela de distâncias:
+ utiliza a 
+Tabela de Distâncias
+ para cálculo do frete
+Permite Cálculo de Frete por Região:
+ permite trabalhar com frete por região. Para mais informações, ver 
+Tabela de Distâncias
+Origem no cálculo do Frete:
+ define a cidade de origem para calcular o frete
+Sempre pela cidade da Empresa
+Conforme configuração no Depósito
+#Casas Decimais Frete Unitário:
+ informe o número de casas decimais para o valor do frete unitário, sendo o máximo de 6 casas decimais
+Tabela de Distância Padrão
+É possível incluir mais de uma 
+Tabela de Distância
+, porém o SisPetro precisa de uma tabela padrão para o cálculo do frete no 
+Pedido de Movimentação de Material
+ e 
+Simulação do Cálculo do Frete
+. É neste campo que esta tabela deve ser informada. Para mais informações, ver 
+Tabela de Distância por Transportadora
+Fator Frete Padrão por KM /Litro:
+ é habilitado quando o perfil 
+Pode calcular frete diretamente na tabela de distâncias
+ está 
+desmarcado
+. Neste caso, utilizará as informações cadastradas neste perfil
+Toco
+Carreta
+Treminhão
+Truck
+Vagão
+Gera Lançamento de Frete através de OC: 
+permite informar o valor do frete unitário na inclusão de OC e será incluído valor do frete
+Permite Desconto de Frete:
+  permite configurar para trabalhar com desconto de frete através do cadastro de Transportadora/ Motorista, painel Empresa Transportadora
+Vincula Frete ao Contas a Pagar na entrada do CT-e:
+ verifica as Notas Fiscais vinculadas a esse conhecimento (seja pelo usuário ou pela leitura do XML do CT-e) e vincula o Contas a Pagar do CT-e aos fretes gerados por essa Nota Fiscal. O cancelamento do vínculo continua sendo feito manualmente.
+Este perfil terá efeito somente se no quadro 
+Lançamento/Vínculo de Pagamento ao Frete,  
+o perfil 
+Exige que o frete esteja apurado? 
+esteja selecionado 
+Exige Apuração Antes do Pagamento.
+Valor utilizado para vínculo do Frete com Títulos gerados por NF
+Valor do
+ 
+Título: 
+é utilizado o valor da nota fiscal
+Valor Bruto da NF (dos produtos): 
+é utilizado o valor dos produtos. Essa opção utilizada para CT-e cujo serviço 
+tem retenções (ISS, ISSQN entre outros) e o valor final fica menor que o valor original. Consequentemente o Contas a Pagar também fica menor e, no momento de realizar o vínculo para não dar erro de diferença de valor, o SisPetro compara o valor do produto ao invés do valor da Nota.
+Margem Diferença no vínculo do frete com Títulos gerados por nf: 
+se informado, o SisPetro irá considerar esse valor (tanto para mais ou para menos) para realizar o vínculo do frete. Caso queira que não haja diferença de valor, além de informar 0 (zero) nesse campo, deve-se também marcar no perfil da natureza de operação Quadro Vínculo de Frete, Tipo de vínculo como 
+Baixa do Contas a Pagar exige vínculo com Frete do mesmo valor. Para mais informações, ver 
+Dados Gerais (Painel Geral)
+ Nome Empresa Emitente
+Entradas
+Controla frete padrão PMM: 
+se marcado, fará o controle de frete em PMM
+Controle de Fretes por Tipo de OC:  
+se marcado, fará o controle de frete por tipo de OC
+Transferência entre Depósitos
+Desabilitado
+Habilitado - deixa passar zerado
+Habilitado - não deixa passar zerado
+Transferência entre Empresas (Carregamento e Descarga Própria)
+Desabilitado
+Habilitado - deixa passar zerado
+Habilitado - não deixa passar zerado
+Valida Frete da OC conforme Frete Indicado no PMM: 
+se marcado, fará a validação do valor do frete da OC com o valor do frete do PMM
+Contrato de Frete
+Utiliza Contrato de Frete na OC: 
+permite que o usuário possa utilizar contratos de frete na Ordem de carregamento
+Força utilizar Contrato de Frete caso tenha algum compatível:
+ caso marcado, o usuário é obrigado a utilizar um contrato
+Utiliza Tabela de Fator de Correção de Frete: 
+caso marcado, habilita o SisPetro utilizar fator de correção de frete, para Bitruck por exemplo. Para mais informações, ver 
+Fator de correção de Frete
+Valor do Frete na OC vs Contrato de Frete:
+ definição do valor do frete na OC
+Utiliza do Contrato de Frete sempre
+Sugere do Contrato de Frete e permite alterar conforme usuário
+Não utiliza
+Inclusão de Conhecimento Recebido vs Contrato de Frete
+Não verifica
+Avisa caso tenha NF referenciada com Contratos Diferentes
+Bloqueia caso tenha NF referenciada com Contratos Diferentes
+Sugestão para Transportadora/Motorista para Controle:
+ permite indicar o padrão para inclusão do contrato de frete
+Motorista
+Transportadora
+Uso do Fornecedor do Produto no Contrato de Frete
+Nunca
+Depende do Usuário
+Sempre
+Validação fornecedor produto no cont. X fornec. da OC
+Não valida
+Avisa e permite continuar
+Bloqueia
+Lançamento/Vínculo de Pagamento ao Frete
+Fretes de Entrada
+Exige que o frete esteja apurado?: 
+para mais informações, ver 
+Como Apurar Valores de Frete a Pagar
+ 
+Não exige Apuração:
+ poderá ser gerado o Contas a Pagar mesmo se o frete não estiver apurado
+Exige Apuração antes de vincular o Pagamento:
+ só poderá vincular o frete ao contas a pagar após apuração. 
+Exige Apuração Antes do Pagamento:
+ o título não poderá ser baixado se o frete não estiver apurado. Verificação é feita no momento da baixa.
+Exige que o frete esteja vinculado ao Conhecimento?
+Não exige vínculo com Conhecimento:
+ poderá ser gerado o Contas a Pagar mesmo se o frete estiver sem vínculo com CT-e
+Exige vínculo com Conhecimento antes do pagamento:
+ só poderá ser gerado o Contas a Pagar se o frete estiver vinculado ao CT-e
+Fretes de Saída/Conhecimento
+Exige que o frete esteja vinculado ao Conhecimento?
+Não exige vínculo com Conhecimento:
+ poderá ser gerado o Contas a Pagar mesmo se o frete estiver sem vínculo com CT-e
+Exige vínculo com Conhecimento antes do pagamento:
+ só poderá ser gerado o Contas a Pagar se o frete estiver vinculado ao CT-e
+Averbação
+Envio de CT-e para Averbação: 
+para mais informações, ver 
+Automatizar Averbação de CT-e e NF-e
+Nunca (padrão)
+Sempre
+Conforme indicado na Transportadora vinculada ao Motorista
+Gerenciadora de Averbação:
+ escolher qual a gerenciadora que a empresa trabalha. Atualmente trabalhamos com a AT&M.
+Para mais informações, ver:
+Emitindo um Conhecimento de Transporte CT-e
+Configurações Complementares
+Despesas Acessórias
+Tabela de Distâncias
+Tabela de Distância por Transportadora
+Simulação do Cálculo do Frete
+Validação de Valor Carga para Seguro de Transportadora

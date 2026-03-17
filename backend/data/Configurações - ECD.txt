@@ -1,0 +1,78 @@
+TITULO: Configurações - ECD
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2894726471
+--------------------------------------------------
+Tabela Conjunto de Dados
+ 
+Informar o diretório onde está armazenada a DLL - sped_ecd.dll - utilizada para geração do arquivo para a ECD:
+ 
+Tabelas Auxiliares > Faturamento > Controladoria > Conjunto de Dados
+Campo
+ DLL Arquivo de Exportação
+ 
+Perfil de Empresa
+Ferramentas > Sistema > aba Dados Gerais
+Configurar os 
+dados cadastrais da empresa
+,
+sendo 
+obrigatórios os campos Razão Social, CNPJ, Inscrição Estadual, UF, Inscrição na Junta Comercial e Data Cadastro Junta Comercial
+.
+Ferramentas > Sistema > aba Livro Eletrônico
+Quadro ECD
+Nível do Balanço para ECD
+: este perfil corresponde ao nível que o Sispetro vai gerar as informações do registro J100.
+Data do Arquivamento dos Atos Consecutivos
+: data da entrega dos livros anteriores, se for o caso.
+Data do Arquivamento dos Ato Conversão Sociedade Simples para Empresária
+: se for o caso.
+Numero da Ordem Atual do Livro ECD
+: corresponde a numeração que deve ser gerada para o livro a ser entregue.
+ OBRIGATÓRIO.
+Escrituração Contabil
+: representa o tipo de escrituração da Empresa 
+"Centralizada ou Individual"
+.
+Indicador de porte da empresa:
+ obrigatório a partir do ano-base 2013. Selecione a opção conforme o porte da empresa, onde:
+- Empresa não é de grande porte: 
+não está sujeita a auditoria independente
+- Empresa de grande porte:  
+sujeita a auditoria independente
+Nome do Auditor Independente:
+ se empresa de grande porte, obrigatório informar
+Registro do Auditor na CVM: 
+se empresa de grande porte, obrigatório informar.
+Quadro Signatários da ECD
+:
+Neste perfil devemos cadastrar os responsáveis legais da empresa, onde
+ OBRIGATORIAMENTE um dos signatários deve ser CONTADOR. Obrigatório também indicar QUAL dos signatários é o responsável legal da empresa.
+Controladoria: Arquivos > Plano Contas
+Configurar o vínculo com o
+ 
+Plano de Contas Referencial
+ - 
+PREENCHIMENTO OBRIGATÓRIO para o FCONT e para a ECF.
+Configurar a
+ 
+Natureza da Conta SPED ECD - este campo indica a natureza da conta contábil para a ECD - PREENCHIMENTO OBRIGATÓRIO.
+Informações importantes:
+Antes de gerar a ECD, garantir que foi feito encerramento de resultado do período, que os saldos iniciais, as movimentações e os saldos finais estão corretos, ter emitido Balanço, Balancete e Demonstrativo de Resultados, de acordo com o o tipo de escrituração adotado (centralizado ou individual).
+Caso seja a primeira vez que está gerando a ECD no SisPetro, é obrigatório fazer um encerramento com data de 31/12 do ano anterior ao ano de encerramento no SisPetro. Exemplo: se estiver encerrando o ano de 2013 no SisPetro, é obrigatório incluir um encerramento com data de 31/12/2012.
+Contas Inativas:
+ não ter saldo em contas inativas no período da ECD. Caso tenha utilize a
+ ferramenta Transferência da Movimentação de Conta em SisPetro Controladoria / Menu Ferramentas / Contabilidade.
+Encerramento de Resultados:
+ deve ser TRIMESTRAL ou ANUAL. No SisPetro deve ser feito o encerramento de acordo com a opção feita pela empresa. Apesar do SisPetro permitir encerramentos em qualquer período, para a
+ ECD OS ENCERRAMENTOS DEVEM SER TRIMESTRAIS ou ANUAL.
+Encerramentos de Resultados Cancelados:
+ caso tenha cancelado algum encerramento de resultado, 
+EXCLUA OS LOTES GERADOS tanto da inclusão como do cancelamento.
+A partir da versão 8.31, no cancelamento do Encerramento de Resultado, os lotes gerados serão EXCLUÍDOS automaticamente, não sendo mais necessária a exclusão manual.
+Plano de Contas Referencial:
+ 
+apesar de não ser obrigatório para a ECD seu vínculo com o Plano de Contas utilizado pela empresa, é obrigatório para o FCont e ECF
+. 
+Efetuar o vínculo do Plano de Contas com o Plano de Contas Referencial em Sispetro Controladoria / Menu Arquivos / Plano Contas / selecione a conta / aba Detalhes / Campo  Plano Contas Referencial.
+As validações podem ser alteradas sem que haja aviso prévio por parte da Receita Federal. É importante iniciar a validação do arquivo o quanto antes para que, em caso de problemas, seja possível corrigi-los em tempo hábil.
+ 
+ 

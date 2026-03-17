@@ -1,0 +1,19 @@
+TITULO: Fator de Conversão na NF pela densidade da Descarga
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926189580
+--------------------------------------------------
+Nos processos de compra de produto em KG, o fator de conversão para chegar à quantidade em litros é a densidade do produto. Assim, ao dar entrada em um produto o usuário precisa saber essa densidade para informar no Cadastro de Unidades do Produto ou então informar manualmente. Pensando nesse cenário, hoje é possível dar entrada nas notas utilizando como fator de conversão a densidade informada na descarga.
+Este recurso foi desenvolvido para as Empresas que trabalham com a realização da Portaria antes da inclusão da Nota Fiscal.
+Na Natureza de Operação deve-se marcar o perfil 
+Utiliza
+ 
+Densidade da Descarga. 
+Marcado esse perfil, o SisPetro utiliza como fator de conversão a densidade informada na Descarga. Após informar que a natureza de operação selecionada vai utilizar a densidade na descarga como fator de conversão, deve-se informar uma ação para quando não for informada a densidade na descarga e for finalizada a nota. 
+Hoje temos as seguintes ações: 
+Avisa o Usuário
+ ou 
+Impede Inclusão da NF
+.
+Toda a conversão só será realizada ao finalizar a nota fiscal.
+Ao incluir a nota pode ser visualizada qual a densidade utilizada como fator de conversão, através do campo 
+Fator Conversão Unidade.
+ 

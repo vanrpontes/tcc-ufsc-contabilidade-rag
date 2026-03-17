@@ -1,0 +1,101 @@
+TITULO: Santander (Antigo Banespa)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439613
+--------------------------------------------------
+O Santander trabalha com
+ 240 ou 400 
+posições.
+Configurações
+Tabelas Auxiliares / Vendas / Tipo de Cobrança / Aba Por empresa / Aba inferior Cob. Eletrônica
+No campo 
+banco
+ deve ser informado  
+033
+ - Banco Santander.
+Variação da Carteira:
+ deve ser colocado o número que identifica o tipo da carteira no arquivo de remessa, sendo 
+1-Cobrança com Registro
+ e 
+3-Cobrança Caucionada
+.
+Foi implementado o uso do Prefixo no Tipo de Cobrança de até 4 dígitos para o Banco Santander. Normalmente os nosso numero tem 8 dígitos, mas o Banco Santader tem até uma faixa de nosso numero com até 12 dígitos. Caso tenha 12 dígitos o nosso numero ficaria 4 dígitos no Prefixo + 8 dígitos na Faixa.
+240 Posições
+Linha Digitável
+033- Santander
+Conteúdo
+Tamanho
+Início
+Fim
+Fixo '9'
+1
+1
+1
+Convênio
+7
+2
+8
+Nosso Número
+12
+9
+20
+DV Nosso Número
+1
+21
+21
+Carteira
+4
+22
+25
+Exemplo:
+Convênio: 1111111
+Nosso Número: 222222222222
+DV Nosso Número: 3
+Carteira: 4444
+Campo Livre:
+ 9 1111111 222222222222 3 4444
+Linha Digitável:
+ | 3 5 3 | 1 | 9 1 1 1 1 | 1 | 1 1 1 2 2 2 2 2 2 2 | 1 | 2 2 2 2 2 3 4 4 4 4 | 1 | 1 | 4 5 6 7 | 0 0 0 1 0 0 0 0 0 0 |
+Para informações sobre a montagem da linha digitável para este banco, veja o tópico 
+Montagem da Linha Digitável
+400 posições
+Arquivo de Remessa 
+- Campos que devem aparecer ou não
+Funcionalidade
+Detalhes
+Envio de Abatimento
+Envio de Chave Acesso NF-e
+ (no envio fica com 444 posições)
+Envio de Desconto
+Envio de Juros
+Envio de Multa
+Envio de Sacador Avalista
+Uso de Prefixo no Nosso Número
+Campo Livre da Linha Digitável
+Conteúdo
+Tamanho
+Início
+Fim
+Fixo '9'
+1
+1
+1
+Código Beneficiário
+7
+2
+8
+Zeros
+5
+9
+14
+Nosso Número
+8
+15
+23
+Fixo '0'
+1
+22
+22
+Carteira '101'
+3
+23
+25
+ 

@@ -1,0 +1,33 @@
+TITULO: Contrato de Vendor
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898366
+--------------------------------------------------
+O vendor é um contrato feito com o banco para financiar as dívidas de um cliente. Deste modo o cliente pode pagar suas dívidas em prestações enquanto a empresa recebe o total do banco.
+Também pode ser cobrado os juros das prestações pagas pelo cliente.
+O processo de contrato de vendor ocorre da seguinte forma:
+Pede-se uma aprovação via planilha para o pedido ser emitido e, sendo aprovado, a planilha segue para a local que o digita no sistema.
+No pedido, escolher o tipo de cobrança cuja opção Vendor esteja marcada e com o prazo de pagamento alterado para à vista (ou 1 dia) e cobrança para carteira.
+A Nota Fiscal é emitida pelo valor da venda com o prazo sendo à vista. Neste momento, é realizada uma contabilização, debitando a Conta do Cliente e creditando a Conta de Receita de Vendas no valor da nota fiscal.
+O sistema não gera boleto ao cliente, somente nota fiscal.
+O financeiro emite relatório e pesquisa quais as notas fiscais emitidas durante o dia que precisam ser cadastradas no banco como Vendor (tipo cobrança do tipo Vendor).
+O financeiro liga para os bancos para saber a melhor taxa de juros (que varia diariamente).
+O usuário entra no Sistema do banco escolhido e cadastra o documento acrescentando ao valor original, o spread da empresa distribuidora e colocando os vencimentos sugeridos.
+O Banco irá calcular o boleto que enviará ao cliente partindo do valor original, acrescentando IOF (taxa ao dia) e acrescentando o spread do comprador (a própria distribuidora).
+No mesmo dia ou no dia seguinte, dependendo do horário, o Banco credita o montante à distribuidora descontando o IOF e o valor de sua taxa (taxa cliente que foi negociada anteriormente).
+Neste momento, o financeiro entra no Sistema, informa o código do banco, a conta contábil de Vendor, o número de um contrato – somente referência – , o valor creditado total (que o Banco creditará na conta da distribuidora) e uma conta de despesas bancárias (para o caso em que o valor final creditado for diferente do valor da soma de cada título com seus juros) e o Sispetro apresentará todos os títulos pendentes para processamento do vendor.
+O usuário informa, para cada título, o valor dos juros de cada um deles e seu novo vencimento, negociado com o cliente e o valor que o cliente irá pagar no total (boleto que será pago no Banco). A soma dos valores creditados deveria bater com o valor creditado no Banco porém pode haver alguma pequena diferença e esta é lançada como despesas bancárias.
+Após efetivar o(s) título(s), este(s) será(ão) marcado(s) como Vendor.
+Finalizando este processo, é feita a contabilização que debita a Conta de Banco da distribuidora, credita a Conta de Vendor e credita a Conta de Receita de Juros.
+Cada nota fiscal é então desmarcada como pendente para processamento de vendor.
+O título continua pendente e carregando o valor de crédito total do cliente (pelo valor original do mesmo).
+Quando o cliente pagar, o banco informa via relatório ou pesquisa via Internet (não é troca de arquivos) e, no processamento da baixa, existe a contabilização que credita Conta do Cliente no valor original do título e debita a Conta de Vendor.
+Caso o cliente não pague dentro de determinado período após o vencimento, o banco irá debitar o valor da conta da distribuidora acrescentando juros e outros encargos, quando deverá haver então uma contabilização de acordo movimentando a conta de banco da distribuidora, a conta de Vendor do Banco e despesas bancárias.
+Pode ocorrer também a situação da venda ter sido realizada normalmente com outro tipo de cobrança e prazo de pagamento e o cliente entrar em contato para postergar o vencimento utilizando esta linha de crédito. Neste caso, deve-se proceder à alteração do tipo de cobrança na nota fiscal.
+Para utilização do contrato de vendor, veja os tópicos a seguir:
+Tabela Tipos de Cobrança
+ 
+Mudança do Tipo de Cobrança
+ 
+ 
+ 
+ 
+Relatório Contas a Receber

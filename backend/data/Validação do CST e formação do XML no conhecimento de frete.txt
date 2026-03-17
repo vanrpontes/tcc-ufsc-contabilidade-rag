@@ -1,0 +1,72 @@
+TITULO: Validação do CST e formação do XML no conhecimento de frete
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921074416
+--------------------------------------------------
+A validação do CST e a formação do XML do CT-e começará a valer a partir da versão 8.7, considerando os CST's abaixo:
+CST 000 - 
+Tributado Integralmente
+:
+ Ao informar este CST, o Sispetro entenderá que deverá gerar no XML as tag's:
+<ICMS00>
+<CST>
+<vBC>
+<pICMS>
+<vICMS>
+CST 020 
+- Tributado com Reduçao de Base de Cálculo: 
+Ao informar este CST, o Sispetro entenderá que deverá gerar no XML as tag's:
+<
+ICMS20
+>
+<
+CST
+>
+<
+pRedBC
+>
+<
+vBC
+> 
+<
+pICMS
+> 
+<
+vICMS
+> 
+Nota:
+ liberada na versão 8.8.
+CST's 040, 041 e 051 - Isento, Nao Tributado ou Diferido: 
+Ao informar um destes CST's, o Sispetro entenderá que deverá gerar no XML as tag's:
+<ICMS45>
+<CST>
+CST 060 - ICMS Retido: 
+Ao informar  este CST, o Sispetro entenderá que deverá gerar no XML as tag's:
+<ICMS60>
+<CST>
+<vBCSTRet> 
+<pICMSSTRet>
+<vICMSSTRet>
+Nota:
+ liberada na versão 8.8. Deve ser configurada na 
+ e na tabela Natureza de Operação em 
+.
+CST 090 - Outros: 
+Este CST já é validado se é dentro do estado ou fora do estado, a partir da versão 8.7. Sendo assim, ao informar este CST's, o Sispetro entenderá que deverá gerar no XML as tag's:
+Dentro do Estado:
+<ICMS90>
+<CST>
+<vBC>
+<pRedBC> - se tiver
+<pICMS>
+<vICMS>
+Fora do Estado:
+<ICMSOutraUF>
+<CST>
+<vBCOutraUF>
+<pRedBCOutraUF> - se tiver
+<pICMSOutraUF>
+<vICMSOutraUF>
+Nota:
+ a partir da versão 8.8 as tag's <pRedBC> e <pRedBCOutraUF> 
+serão geradas, desde que devidamente configuradas na 
+ e na 
+.

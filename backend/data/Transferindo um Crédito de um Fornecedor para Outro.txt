@@ -1,0 +1,91 @@
+TITULO: Transferindo um Crédito de um Fornecedor para Outro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701958
+--------------------------------------------------
+Pela tela de manutenção de adiantamentos de Fornecedores (menu 
+Movimentação / Financeiro / Contas a Pagar / Manutenção de Adiantamento de Fornecedores
+), pode-se realizar uma série de procedimentos com os créditos de Fornecedores.
+Ao acionar os botões de
+ 
+"Transf. p/ Entidade", Transf p/ Ñ identific.
+ ou
+ "Transf. p/ Conta"
+ 
+sera acionado a tela de transferência onde sua estrutura de busca dos Dados de Origem são iguais para as 2 telas, veja maiores detalhes abaixo:
+Código Entidade Origem:
+ 
+Informamos o código da entidade de origem do lançamento, será sugerido a entidade conforme o lançamento que estava selecionado na tela de lançamentos, podem o usuário pode alterar a entidade caso haja a necessidade.
+Busca por:
+ Através dessa opção podemos definir se será realizado a busca pela entidade faturada ou pela entidade compradora.
+Data Movto até:
+ Através desse campo definimos ate que data de Movimento será buscado os lançamentos.
+Botão Marca/Desmarca Todos:
+ Acionando esse botão será marcado ou desmarcado todos os registros do grid.
+ 
+Lembrando que somente os Adiantamentos marcados serão transferidos.
+Botão Altera Valor:
+ Acionando esse botão sera apresentado a tela de alteração de valor do lançamento que esta selecionado.
+Transferindo adiantamento para outro
+ Fornecedor
+Para transferir o crédito de um fornecedor para outro Fornecedor, basta clicar no botão 
+Transf. p/ Entidade
+.
+A soma das colunas 
+Saldo
+, 
+Valor Transf
+, e 
+Valor Original
+ são dinâmicas, ou seja, elas acompanham os adiantamentos que estão selecionados na coluna 
+Transf?.
+O Sistema lista todos os adiantamentos conforme filtro utilizado na parte superior da tela, e fica a cargo do usuário escolher o destino do crédito. Deve-se selecionar a data da transferência, o valor a ser transferido (que pode ser total ou parcial), histórico da transferência e caso o usuário desejar, poderá realizar a contabilização real do adiantamento, sendo neste caso necessário informar um código de contabilização que pertença ao grupo "Transferência de Crédito".
+Caso a empresa trabalhe com a opção de restrição de grupo econômico, só será possível realizar transferências de fornecedores caso o responsável pelo grupo econômico do novo fornecedor seja igual ao responsável do fornecedor anterior. Veja também 
+Grupo Econômico - Fornecedores
+.
+ Esse código de contabilização pode ser configurado para ser sugerido de forma automática. Mais informações no tópico: 
+Códigos de contabilização padrão na transferência de adiantamentos
+Através dessa tela também podemos realizar a Transferência em LOTE para isso basta marcar todos os adiantamentos que deseja transferir,  informar a Entidade de Destino e confirmar a transferência.
+Transferindo adiantamento para uma conta contábil 
+Para transferir o crédito de um fornecedor para outro Fornecedor, basta clicar no botão 
+Transf. p/ Conta
+.
+A soma das colunas 
+Saldo
+, 
+Valor Transf
+, e 
+Valor Original
+ são dinâmicas, ou seja, elas acompanham os adiantamentos que estão selecionados na coluna 
+Transf?.
+A transferência de Conta Contábil segue a mesma ideia que a transferência de entidade, com uma diferença ao invés de informarmos uma entidade de destino nessa tela iremos informar uma conta de destino.
+A seguir deve ser informado para que
+ 
+Conta destino
+ 
+estes adiantamentos apresentados em tela serão transferidos e também os detalhes da transferência como
+ 
+Data
+,
+ 
+Histórico
+,
+ 
+Informações Adicionais
+ 
+e
+ 
+Dados da contabilização real
+ 
+(para empresas que possuem a contabilidade real habilitada). O código de contabilização pode ser configurado para ser sugerido de forma automática. Mais informações no tópico:
+ 
+Códigos de Contabilização Padrão na Transferência de Adiantamentos
+.
+Através dessa tela também podemos realizar a Transferência em LOTE para isso basta marcar todos os adiantamentos que deseja transferir,  informar a Conta de Destino e confirmar a transferência.
+Transferindo créditos com PMM vinculado
+No caso de um adiantamento possuir um PMM vinculado, é possível que seja realizada a transferência apenas para uma 
+Conta Contábil
+, porém, para que essa operação seja concluída com sucesso, um perfil de Empresa deve estar habilitado.
+O perfil de Empresa fica na aba Financeiro:
+Caso o adiantamento transferido seja quantificado, será incluído automaticamente um Pedido de Outras Saídas para ajustar o estoque do depósito usina, com a quantidade 
+indicada no Adiantamento dividido pelo Fator Conversão Unidade do item do PMM.
+Caso a transferência seja cancelada, o pedido também será.
+Transferência para outra entidade, tendo PMM vinculado não será possível, independentemente do perfil, pois faria com que o vínculo não tivesse sentido.

@@ -1,0 +1,96 @@
+TITULO: NFS-e Envio de valor de Outras Retenções
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5043486731
+--------------------------------------------------
+Objetivo Geral
+Este documento tem como objetivo orientar os usuários do SisPetro sobre a configuração e utilização de funcionalidades relacionadas à emissão de Notas Fiscais de Serviços (NFS-e) e retenções de impostos diferenciadas, garantindo conformidade com as exigências legais e fiscais.
+Objetivos Específicos
+Configurar a emissão de NFS-e, incluindo o cálculo de ISS com base em valores diferenciados para cenários específicos, como o Gerenciamento de Frota em Jardinópolis - SP.
+Aplicar retenções fiscais diferenciadas, como CSLL e IRRF, para clientes classificados como Órgãos Públicos Federais, conforme legislação vigente.
+Garantir a correta configuração de cadastros e tabelas para permitir cálculos automáticos e emissão de documentos fiscais com precisão.
+Configuração e Utilização da NFS-e
+Passos para Configuração
+Configuração do 
+Tipo de Desconto
+Criar o tipo de desconto Ex: 
+DEDUÇÕES PERMITIDAS POR LEI - JARDINÓPOLIS
+ como 
+Indiferente
+ e manual.
+Configuração do 
+Tipo de Documento
+Criar o tipo de documento Ex: 
+NF SERVIÇO ÓRGÃO PÚBLICO JARDINÓPOLIS
+, vinculando-o ao tipo de desconto criado anteriormente.
+Configuração de 
+Outros Impostos
+Criar o imposto Ex: 
+ISS JARDINÓPOLIS
+ com cálculo por 
+Fórmula
+, alíquota percentual (duas casas decimais).
+Configuração da 
+Natureza de Operação
+Vincular o tipo de documento e configurar as fórmulas de cálculo para base de cálculo, alíquota e imposto.
+Emissão de Nota Fiscal
+Preencher os itens com valores totais (produtos + serviços).
+Informar os descontos equivalentes ao valor dos produtos.
+O SisPetro calculará automaticamente o ISS com base na diferença entre o valor total e os descontos.
+Configuração e Utilização de Retenções Diferenciadas para Órgãos Públicos
+Passos para Configuração
+Cadastro de Clientes
+Acesse o menu 
+Cadastro de Clientes
+ e localize o campo 
+Natureza Jurídica
+.
+Selecione a natureza jurídica correspondente ao cliente (ex. Órgão Público do Poder Executivo Federal).
+Essa configuração permitirá aplicar automaticamente as retenções de CSLL e IRRF, conforme a legislação fiscal.
+Cadastro de Fornecedores
+Acesse o menu 
+Cadastro de Fornecedores
+ e localize o campo 
+Natureza Jurídica
+.
+Selecione a natureza jurídica apropriada para o fornecedor, permitindo a aplicação de retenções fiscais, como CSLL.
+Atualização da Tabela de Tipo de Documento
+Configure o tipo de documento para que o SisPetro utilize a Natureza Jurídica ao aplicar retenções de CSLL e IRRF automaticamente.
+Emissão de Nota Fiscal
+Selecione o cliente previamente cadastrado como Órgão Público Federal.
+O SisPetro aplicará automaticamente as retenções fiscais, calculando e registrando a Natureza Jurídica na Nota Fiscal.
+Outras Operações
+Para outros cenários de emissão (ex. Faturamento Automático, Auto Atendimento), o SisPetro verificará automaticamente a Natureza Jurídica para aplicar as retenções fiscais.
+Fórmulas de Cálculo
+Base de Cálculo:
+<NotaFiscal.ValNF> - (GetValorDescontoNF(<NotaFiscal.CodEmpresa>,<NotaFiscal.Sequencial>,No. Tipo Desc.))
+Exemplo:
+<569> - (GetValorDescontoNF(<556>,<557>,14))
+Onde 14 é o tipo de desconto.
+Alíquota:
+5%
+Imposto:
+(<NotaFiscal.ValNF> - (GetValorDescontoNF(<NotaFiscal.CodEmpresa>,<NotaFiscal.Sequencial>,No. Tipo Desc))) * 0.05
+Exemplo:
+(<569> - (GetValorDescontoNF(<556>,<557>,14))) * 0.05
+Onde 0.05 é a alíquota de ISS.
+Cálculo de Retenções Fiscais
+O SisPetro utiliza a Natureza Jurídica e os parâmetros configurados para aplicar CSLL e IRRF conforme a legislação.
+Emissão de Nota Fiscal
+Informar no item da NF:
+Quantidade: 1
+Valor total: soma do valor dos produtos e serviços
+Na aba Descontos:
+Preencher o valor do desconto como o valor dos produtos.
+Finalização da NF:
+O SisPetro calcula automaticamente o ISS considerando a diferença entre o valor total e os descontos.
+Cenários de Utilização
+Cadastro de Cliente
+Configure a Natureza Jurídica como Órgão Público Federal, garantindo retenções de IRRF e CSLL.
+Cadastro de Fornecedor
+Configure a Natureza Jurídica para fornecedores públicos federais, permitindo a retenção de CSLL.
+Emissão de Nota Fiscal
+O SisPetro calculará automaticamente as retenções de IRRF e CSLL com base na Natureza Jurídica do cliente ou fornecedor.
+Outros Cenários
+Para operações diversas, o SisPetro garantirá a aplicação das retenções fiscais com base nos cadastros configurados.
+Considerações Finais
+Com as configurações acima, o SisPetro garante o cálculo preciso de impostos e retenções, atendendo às exigências legais. Certifique-se de que os cadastros estejam atualizados e em conformidade com as regras fiscais aplicáveis.
+Em caso de dúvidas ou problemas, entre em contato com o suporte técnico do SisPetro.

@@ -1,0 +1,43 @@
+TITULO: Protesto Cobrança Eletrônica
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210630
+--------------------------------------------------
+A partir do 
+Cadastro do Cliente
+, painel 
+ pode-se fazer a configuração para cada cliente do tipo de 
+Protesto para Cobrança Eletrônica
+.
+As opções possíveis para configuração são: 
+ 
+1- Depende Convênio
+ - opção utilizada para cobrança eletrônica dos bancos que utilizam o código do convênio para identificar a forma de protesto e dias. Veja abaixo no item, 
+Informações Importantes dos Bancos
+, os bancos que não tem código conforme convênio (segundo manual do banco), pois esses não serão protestados. Sendo assim, para esses casos é necessário enviar outro comando para poder protestar.
+2- Nunca
+ - opção utilizada para informar ao banco que não será protestado.
+3- Sempre
+ - opção utilizada para informar ao banco que será protestado. Nesse caso, também é necessário informar o 
+"Número de Dias para Protesto"
+.
+Informações Importantes dos Bancos:
+a) Bancos que não possuem código conforme convênio - 
+SAFRA
+,
+BIC
+, 
+MERCANTIL
+ e 
+SUDAMERIS
+.
+b) Bancos que para protestar tem que enviar um novo comando com um novo código de serviço, pois na remessa normal só vai o número de dias - 
+BCN
+ e 
+BMC
+.
+c) Banco que trabalha com códigos fixos por número de dias.
+ou seja, ao informar o número de dias = 6 no cadastro do cliente, na geração do arquivo o sistema vai assumir o código fixo, segundo o manual do banco, que será o código 22 - 
+MERCANTIL
+Para maiores detalhes de como proceder para a geração de cobrança eletrônica, vide tópico 
+. Importante também fazer algumas configurações, vide também o tópico 
+Tipo de Cobrança
+.

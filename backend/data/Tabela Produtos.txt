@@ -1,0 +1,35 @@
+TITULO: Tabela Produtos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440486
+--------------------------------------------------
+Na tabela de produtos ( 
+Arquivos -> Produtos
+ ), posicionamos o cursor sobre o produto correspondente,
+clicamos no botão Detalhes e, logo após, no botão 
+Margem Subst
+. Tributária aparecendo a tela abaixo.
+Nesta tela há dois painéis de navegação. Na parte superior, as empresas cadastradas no Sistema e na parte inferior, os dados relativos às margens e bases de cálculos para o produto selecionado e respectiva empresa.
+Assim, pode-se alterar os dados relativos a cada empresa sem ter de proceder à troca de empresas no Sistema.
+O primeiro campo a ser verificado é o Tipo de Cálculo de Substituição Tributária. Este campo informa ao Sistema qual coluna ele deve utilizar (base cálculo destino ou % margem de valor agregado) e qual método para calcular a base de ICMS retido (no caso da gasolina / diesel) ou ICMS substituição (no caso do álcool).
+Gasolina C / Aditivada / Biodiesel
+No caso da gasolina e biodiesel, repare que a coluna a ser preenchida é a de base de cálculo Destino, calculando-se este valor multiplicando o preço portaria (publicado pela ANP sem o valor do duto) pela margem de valor agregado ( para a gasolina A ) multiplicada pelo percentual de gasolina A na gasolina C (atualmente em 80%). Quando for calcular a base de cálculo destino para o próprio estado em que a empresa está situada, deve-se acrescer o ICMS próprio à este cálculo (dividindo-se, no caso da alícota de 25%, o preço portaria por 0,75) e, depois, multiplicar o resultado pela margem de valor agregado com a proporção de gasolina A.
+Como exemplo, tomemos o caso de São Paulo, para o convênio em vigor a partir de 01/11/2000. Assumindo que o preço portaria seja de R$ 0,8963 por litro de Gasolina A, incluimos nele o ICMS próprio de 25%, resultando em R$ 1,195066. Acrecentando-se a margem de 72,58% (margem para o estado de SP - venda dentro do estado), temos R$ 2,062446 que, aplicando a proporção de 80% para a gasolina C, resulta no valor final de R$ 1,649956. Este será o valor que devemos preencher na tela acima na coluna Base de Cálculo Destino. No caso de outros estados, basta, portanto, multiplicar o preço portaria pela margem de venda partindo do estado onde se localiza a empresa para o estado destinatário para se chegar no valor a ser preenchido.
+Deve-se também ser preenchido a coluna % sobre ICMS Consumidor Final com o percentual que devemos obter (no momento da elaboração da NF) para, quando o cliente for consumidor final, descontarmos o percentual de gasolina A. Normalmente, todos os estados utilizam 80% (ou o percentual vigente) para a gasolina exceto GO que utiliza 100% do preço unitário da NF para o cálculo do ICMS retido.
+Alcool Hidratado / Anidro
+No caso do alcool, o tipo de cálculo utilizado normalmente é o % de margem de Valor Agregado, que utiliza o percentual ( também publicado pela ANP ) multiplicado pelo valor unitário do produto e aliquota de ICMS (indicado no tópico ICMS Substituição) para chegar no ICMS Substituição.
+Existe alguns Estados que são exceção neste cálculo (não sabemos por quanto tempo e se outros proderão seguir o exemplo, por isso, deixamos o cálculo parametrizado também). Nestes Estados o governo fixou o valor do preço do álcool em determinado valor (sem levar em conta o preço da NF versus a margem de valor agregado). Assim, neste caso, preenchemos a coluna Base de Cálculo Destino com este valor. O Sistema sabe que, quando o produto tiver o tipo de cálculo de substituição tributária através do percentual de margem de valor agregado, ele irá obter o percentual desta coluna, porém, se neste caso, tiver preenchida a coluna de Base de Cálculo, ele irá obter a base de ICMS Susbtituição desta coluna.
+Outra exceção deste Estado é que, normalmente, o ICMS substituição é calculado pela diferença entre o ICMS Substituto e o ICMS próprio. Existe, porém, casos em que o Estado determina que o cálculo não leve em consideração o ICMS próprio. Neste caso, deve preencher a coluna ICMS Substituição sem desconto do ICMS Próprio.
+Outros Campos desta Tela
+% Sobre Venda para PIS Substituição
+Quando houver necessidade de calcular o PIS Substituição, este percentual deve ser o de alcool na mistura de combustível. Portanto, no caso de alcool hidratado / anidro deve ser de 100%, no caso de gasolina C/Aditivada deve ser de 20% (ou o percentual vigente) e, no diesel, de 0%.
+% Sobre Venda para COFINS Substituição
+Quando houver necessidade de calcular o COFINS Substituição, este percentual deve ser o de alcool na mistura de combustível. Portanto, no caso de alcool hidratado / anidro deve ser de 100%, no caso de gasolina C/Aditivada deve ser de 20% (ou o percentual vigente) e, no diesel, de 0%.
+% Margem para PIS/COFINS Substituição
+Quando houver necessidade de calcular o PIS ou COFINS Substituição, este percentual deve mostrar o valor agregado para o cálculo destes impostos. Portanto, no alcool hidratado e na gasolina C (que utiliza alcool anidro), este percentual deve ser de 40% (ou o vigente, publicado pela ANP). No caso de diesel, 0%.
+ICMS
+Para que o Sistema calcule encontre corretamente as alíquotas de ICMS, cada produto tem um código de ICMS. Este código pode ser encontrado posicionando o cursor sobre o produto correto, na lista de produtos cadastrados e clicando no botão Detalhes e, em seguida, no botão Ficha do Produto.
+Este código é muito importante pois o Sistema busca através deste código e da UF Origem a alíquota de ICMS próprio e deste código mais a UF Destino a alíquota de ICMS Substituição. Ele pode se repetir entre produtos com mesmas alíquotas ( caso de Gasolina C e aditivada ou Diesel e Diesel aditivado). Mais detalhes de como ele encontra as alíquotas podem ser encontrados no tópico 
+ICMS/ICMS Substituição
+.
+Esclarecimentos sobre Vigência e Cópia de Valores para empresas vide o Tópico 
+Tabela de Produtos
+.

@@ -1,0 +1,39 @@
+TITULO: Definições - Licenciamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879128260
+--------------------------------------------------
+Estação trabalho:
+ Equipamento (computador) onde foi instalado o Sispetro, Sispetro remoto ou Sispetro Controladoria. Pode-se encaixar nesta definição, uma sessão baseada em terminal (Windows Terminal Server). Cada computador monousuário ou sessão aberta num computador multiusuário é considerada uma estação de trabalho. 
+
+
+Credenciais:
+ É o que define unicamente a estação ou sessão. Formada por um número que depende do equipamento instalado no computador + nome do computador na rede local. Quando a credencial for de uma estação de trabalho baseada em terminal (Windows Terminal Server), o nome do computador da rede é obtido através do nome do computador que originou a sessão. 
+
+
+Arquivo Licenciamento:
+ Arquivo com os dados do cliente (nome, CNPJ, tipo de licenciamento, numero de licenças) e as estações de trabalho tanto habilitadas quanto propostas para habilitação. Este arquivo é composto de duas partes: real e proposta. A parte que o cliente pode editar é a proposta. No processo de habilitação, a parte proposta é validada e gera a parte real do arquivo. 
+
+
+Habilitação:
+ Processo que habilita o arquivo de licenciamento para uso. Consiste nas seguintes etapas: edição do arquivo de licenciamento (para adequar o numero de licenças e dados do cliente à sua realidade - parte proposta), geração do arquivo de licenciamento para envio e habilitação, envio via Internet (e-mail) para Futura do arquivo de licenciamento, validação, retorno do arquivo ao cliente, carregamento no banco de dados. 
+
+
+Período de Transição:
+ Número de acessos em uma única estação de trabalho (5 acessos), válidos somente para o primeiro dia do primeiro acesso. Mesmo que não utilize os 5 acessos no mesmo dia, os acessos restantes não serão válidos para os dias seguintes. 
+
+
+Tipo Licenciamento:
+ É o tipo de licenciamento que o cliente contratou no momento da compra do Sispetro. Atualmente, só temos um tipo de licenciamento comprado: Número de Licenças Definido (onde o cliente compra o número de licenças que necessita). Existem ainda: Número de Licenças Indefinido (o cliente não precisa definir o número de licenças) - este não é mais vendido, e Versão Demonstração (onde o cliente só pode instalar o Sispetro em uma única estação de trabalho e fica limitado ao período de transição acima definido). 
+
+
+Estação Ativada:
+ É uma estação de trabalho incluída na lista de estações ativas de um arquivo de licenciamento habilitado. 
+
+
+Estação não Ativada:
+ É uma estação de trabalho não incluída da lista de estações ativas de um arquivo de licenciamento habilitado. Esta estação pode estar na lista de ativações propostas (e ainda não validadas), uma estação nova ou uma estação cujo equipamento interno fora trocado, portanto gerou nova credencial. Serão permitidos os acessos conforme o 
+Período de Transição
+. 
+
+
+Validação Credenciais:
+ Processo através do qual o Sispetro verifica se a estação de trabalho é autorizada ou não a trabalhar com o Sispetro (se ela está na lista de estações ativadas ou não). Isso ocorre no momento do login do usuário (no momento em que ele digita o nome, senha e filial). É neste ponto que o Sispetro realizará o processo de validação da estação de trabalho e permitirá ou não a utilização do mesmo.

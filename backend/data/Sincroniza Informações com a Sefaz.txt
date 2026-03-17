@@ -1,0 +1,31 @@
+TITULO: Sincroniza Informações com a Sefaz
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879390004
+--------------------------------------------------
+Para verificar o status da nota na Sefaz, deve acessar a tela de 
+Manutenção de Nota Fiscal Eletrônica
+.
+Somente será atualizado no sistema as notas que estiverem autorizadas, canceladas ou denegadas pela resposta da Sefaz.
+Quando é feito a sincronização da nota ela busca todas as informações da Sefaz incluindo as manifestações feitas pelo destinatário da nota (Confirmação de Operação/ Operação não Realizada/ Desconhecimento de Operação)
+Antes de processar a nota para solicitar o pedido de 
+protocolo
+, clique neste botão, pois em alguns casos a Sefaz retorna o erro 
+204 - Duplicidade de NF-e
+ após a solicitação do pedido de protocolo.
+Quando cancelada pelo Sispetro através da tela de 
+Manutenção de Notas Fiscais
+, ao enviar o pedido de cancelamento para a Sefaz, se este retornar o erro 
+218 - NF-e já cancelada na base de dados da Sefaz
+, o usuário deverá acessar a tela de 
+Manutenção de Nota Fiscal Eletrônica
+.
+Selecionar e marcar a nota fiscal em questão, e clicar no botão 
+Sincroniza
+Marque também a opção "
+Envia e-mail com XML e DANFE/DACTE na Sincronização
+", desta forma o 
+o Sispetro enviará e-mail com o XML e Danfe/Dacte, conforme regras padrões para obtenção de protocolo.
+E assim, verificar se a nota está realmente cancelada na Sefaz.
+Caso o retorno seja Ok, o sistema irá gravar o número do protocolo de cancelamento.
+Para cancelamento de nota fiscal no Sispetro, veja maiores informações no tópico sobre 
+.
+ 

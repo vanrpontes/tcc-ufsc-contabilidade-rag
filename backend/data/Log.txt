@@ -1,0 +1,48 @@
+TITULO: Log
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921693646
+--------------------------------------------------
+As configurações do Log são obrigatórias. São gravadas em um log todas as transações internas que um cliente (usuário) utilizando o SisPetro Remoto, Controladoria ou Normal está realizando com o Banco de Dados.
+Nível de Log: 
+Padrão:
+ para uso no dia a dia.
+Debug: 
+para uso somente quando o 
+Servidor SisPetro apresentar problemas E a pedido da Futura
+. Este nível grava inúmeras informações técnicas que serão utilizadas para análise dos eventuais problemas que ocorreram em um determinado período.
+Rotação: 
+define de que forma os arquivos de log serão gravados.
+Dia:
+ gera 1 arquivo de log diário.
+Semana: 
+gera 1 arquivo de log semanal.
+Mês: 
+gera 1 arquivo de log mensal.
+Tamanho Máximo:
+ define o tamanho que o arquivo de log terá, sendo por padrão 4MB, o mínimo de 1MB e o máximo de 10MB. Quando o arquivo de log atinge o tamanho definido, é criado um novo arquivo de log.
+Nº Máximo de Arquivos:
+ define a quantidade mínima e máxima de arquivos de log gerados, sendo o mínimo de 10 e o máximo de 30 arquivos.
+O nível de log no modo Padrão, gera arquivos pequenos. Assim as configurações de tamanho máximo e nº máximo de arquivos atendem sem qualquer problema. No modo Debug, os arquivos gerados são maiores, mas esse modo é adotado somente quando o Servidor SisPetro apresenta problemas e por solicitação da Futura.
+Modo:
+ define o modo como o log será visualizado. 
+Produção: 
+é gerado um arquivo de log na pasta de destino informada. Para visualizar, utilize o aplicativo SmartInspect Console.
+Desenvolvimento: 
+o log é gerado diretamente no aplicativo SmartInspect Console. 
+O aplicativo SmartInspect Console está disponível na área de downloads.
+Pasta de destino: 
+informar a pasta onde serão gravados os arquvios de log. 
+É OBRIGATÓRIO. Sem a pasta definida, o Servidor Sispetro NÃO INICIA.
+ 
+Testando a pasta de destino: 
+deve ser permitido gravar, alterar e excluir na pasta de destino.
+Ao iniciar o Servidor Sispetro, será gerado automaticamente um arquivo de log, conforme as opções:
+Se a pasta de destino NÃO FOR INFORMADA, o Servidor SisPetro não iniciará:
+Aplicativo SMARTINSPECT CONSOLE: 
+disponível na área de download da Futura.
+Tela inicial:
+Abrindo um arquivo de log: Nível de Log Debug e Modo Produção (gera arquivo na pasta definida).
+Arquivo de log no nível Debug:
+O nível DEBUG deve ser acionado SOMENTE a pedido da Futura E quando o Servidor Sispetro apresentar possíveis problemas, dado o volume de informações que é gerado.
+ 
+Nível de log Padrão: 
+neste nível gera log das informações principais de forma resumida.

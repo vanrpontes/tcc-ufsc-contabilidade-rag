@@ -1,0 +1,29 @@
+TITULO: Alteração DANFE - Versão 8.7.1
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918974938
+--------------------------------------------------
+Histórico  
+Na versão 8.7 foi alterado o modo como o SisPetro trabalhava, em alguns casos é utilizado o Transporte diferente do padrão, como Dutoviário ou Ferroviário, ou até não possuir Transporte, o que não obriga o envio de informações sobre a transportadora no arquivo .XML, porém quando o modo de transporte era diferente de "Rodoviário" nenhum dado estava indo no DANFE.
+Objetivo
+Alterar o conteúdo de um campo do layout do danfe.
+Solução
+1.
+ Acessar o layout do Danfe:
+Menu Ferramentas/ Sistema/ aba Nota Fiscal
+Localizar no quadro de NF-Eletrônica o campo 
+Caminho de arquivo de layout do Danfe
+Clicar no botão
+ Edita Layout do Danfe
+Lembrar de ter uma cópia do DANFE, para caso haja algum erro.
+ 
+2. 
+Identificar
+ os 
+objetos
+ que estão dentro da parte da transportadora, como na imagem abaixo.
+3. Ir em 
+cálculo/ header/ before print.
+4. Substituir os campos abaixo, pelo nome dos objetos antes 
+já identificados
+ (item número 2)
+ 
+ 

@@ -1,0 +1,111 @@
+TITULO: Composição de Carga -  Pedidos de clientes  diferentes no mesmo compartimento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5526093825
+--------------------------------------------------
+none
+Objetivo
+Permitir que pedidos de clientes diferentes possa ser incluído em um mesmo compartimento do frota.
+Configurações
+Acesse 
+Configuração de Sistema
+. /  
+Painel Fretes
+ 
+Permite vários clientes em um compartimento nos frotas com Bomba: 
+marcar
+Inclusão de OC
+Na 
+Inclusão de OC
+, caso existam 
+Pedidos com carga definida
+, o SisPetro irá:
+Sugerir a compartimentação 
+conforme a carga
+, permitindo 
+produtos de múltiplas entidades
+ no mesmo compartimento.
+Na tela de 
+Compartimentação de OC
+, o sistema verifica se a OC atende à regra para 
+trabalhar com múltiplas entidades em um compartimento
+, sendo necessário:
+Ter o 
+perfil de sistema
+ marcado.
+Frota principal ser do tipo 
+‘Cavalo’
+ ou possuir 
+Bomba de Descarga
+.
+Caso possua 
+Carreta vinculada
+, a Carreta deve ter 
+Bomba de Descarga
+.
+Caso possua 
+Treminhão vinculado
+, o Treminhão deve ter 
+Bomba de Descarga
+.
+Caso possua 
+Frota 4 vinculada
+, o Frota 4 deve ter 
+Bomba de Descarga
+.
+Se estiver na habilitado conforme mencionado acima:
+Os produtos serão agrupados:
+Na coluna 
+Cliente
+, será exibida uma lista numerada dos clientes com a respectiva quantidade individual.
+Na coluna 
+Municípios
+, será exibida uma lista numerada dos municípios de cada cliente.
+O restante da tela mantém o comportamento padrão, permitindo ao usuário realizar a 
+distribuição manual ou automática
+ nos compartimentos, como já era feito.
+Compartimentação via Manutenção de OC
+Na 
+Compartimentação de OC
+ acessada pela 
+Manutenção de OC
+, o comportamento é o mesmo descrito para a inclusão da OC.
+ Reordenação de Compartimentação
+Na tela de 
+Reordenação de Compartimentação de OC
+, se a OC atender à regra de múltiplas entidades:
+O campo 
+Cliente
+ exibirá a lista de entidades.
+O campo 
+Município
+ exibirá apenas o texto 
+‘MÚLTIPLOS MUNICÍPIOS’
+ quando houver dados de pedidos de entidades diferentes no mesmo compartimento.
+Composição de Carga
+Na tela de 
+Composição de Carga
+, ao incluir ou alterar uma carga, será ajustada a regra para permitir ou não múltiplas entidades em um compartimento:
+Ter o 
+perfil de sistema
+ marcado.
+Frota principal ser do tipo 
+‘Cavalo’
+ ou possuir 
+Bomba de Descarga
+.
+Se informada 
+Carreta
+, esta deve ter 
+Bomba de Descarga
+.
+Se informada 
+Treminhão
+, este deve ter 
+Bomba de Descarga
+.
+Para Saber Mais
+Tabela Gerenciador de Monitoramento
+ 
+Inclusão de Carga
+Monitoramento de Viagem
+Controle de Carga
+Tabela Manutenção de Frota

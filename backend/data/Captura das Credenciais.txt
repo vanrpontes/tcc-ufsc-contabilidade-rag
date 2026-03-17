@@ -1,0 +1,43 @@
+TITULO: Captura das Credenciais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879128264
+--------------------------------------------------
+Esta etapa é realizada automaticamente pelo Sispetro na medida em que cada estação de trabalho de conecte para iniciar seus trabalhos no Sispetro. Nesta etapa, são geradas as credenciais para a estação e enviadas para um arquivo que armazena toda e qualquer estação que tenha se conectado ao Sispetro.
+
+
+Não há portanto intervenção do usuário aqui.
+
+
+O único ponto importante é que todas as estações tenham pelo menos uma vez conectado ao Sispetro. Caso seja uma estação nova, não estará na lista de estações ativadas e assim receberá uma mensagem durante o período de transição avisando-a que deve proceder com o processo de licenciamento até o fim do período de transição.
+
+
+A partir da versão 7.12, o acesso temporário estará restrito a somente 1 (uma) única máquina. Ou seja, somente poderá ter uma máquina sem licença acessando o SisPetro. E essa máquina sem licença estará restrita a 5 (cinco) acessos, válidos somente para o primeiro dia de acesso. Assim, se no mesmo dia houver 3 acessos ao Sispetro, os mesmos serão permitidos. Se tentar acessar o Sispetro no dia seguinte, mesmo não tendo utilizado os 5 acessos, não será permitido.
+
+
+
+
+Para verificar os acessos temporários, abra o Servidor Sispetro e clique na aba 
+Usuários
+:
+
+
+
+
+
+
+
+
+Na coluna 
+TEMPORARIO
+ informa a situação do acesso. Caso seja 
+VERDADEIRO
+, significa que a estação de trabalho está sem licença e sujeita ao 
+período de transição
+.
+ Caso seja 
+FALSO
+, significa que a estação de trabalho está devidamente licenciada.
+
+
+
+
+Nota: As estações de trabalho da Futura Tecnologia não precisam ser ativadas e não devem contar como licenças de uso (estações que utilizamos através do módulo remoto para prestar suporte).

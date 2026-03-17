@@ -1,0 +1,20 @@
+TITULO: Transferência de Adiantamentos X Cheques
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909898473
+--------------------------------------------------
+Temos no Sispetro dois tipos de Controles de Cheques: Recebidos e Emitidos. Esse controle permite que se saiba o andamento do cheque nos diversos procedimentos financeiros. Porém, quando se trata de transferência de adiantamentos que utilizam cheques, temos algumas considerações a fazer, detalharemos abaixo:
+ 
+Transferência Total do adiantamento
+: Ao realizar uma transferência total de um adiantamento, seja para outra entidade, por lote ou entre empresas, o cheque vinculado originalmente será 
+Cancelado 
+automaticamente na Manutenção de Cheques e incluído um novo cheque já vinculado ao ao adiantamento transferido.
+Assim, temos ao final do processo:
+Adiantamento Original - vinculado a um cheque cancelado
+Adiantamento que recebeu a transferência - vinculado a um novo cheque ativo
+ 
+Transferência Parcial do Adiantamento:
+ Nesse caso o cheque original não sofrerá alterações, será mantido na Manutenção de cheques onde foi originalmente incluído, mesmo que seja feita a transferência entre empresas. O vínculo com o adiantamento transferido será criado normalmente. Esse procedimento evita inconsistências no Sistema, pois não é possível transferir parcialmente um cheque.
+Assim, temos ao final do processo:
+Adiantamento Original - vinculado ao cheque original.
+Primeiro Adiantamento que recebeu a transferência - vinculado ao cheque original.
+Segundo Adiantamento que recebeu a transferência - vinculado ao cheque original.
+ 

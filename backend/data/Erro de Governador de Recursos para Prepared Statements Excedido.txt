@@ -1,0 +1,22 @@
+TITULO: Erro de Governador de Recursos para 'Prepared Statements' Excedido
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2923955118
+--------------------------------------------------
+ 
+ 
+Em bancos de dados SQL (Oracle, SQL Server, Sybase, etc) tem uma opção para controlar o número máximo de declarações (statements) abertas por um usuário quando este faz alguma operação: inclusão de dados, alteração de dados, consultas, emissão de relatórios, etc. O número máximo de statements é definido por banco (não é por usuário conectado) e é permanente, ou seja, uma vez alterado permanece o número definido, mesmo reiniciando o banco.
+Ao realizar uma operação qualquer, caso o número de declarações (statements) ultrapasse um valor pré-determinado, ocorre o erro de Governador de Recursos para 'Prepared Statements' Excedido ou em inglês Resource Governor for Prepared Statementes Exceeded.
+Normalmente é uma opção que não é alterada, pois afeta a performance do banco de dados. Mas, dependendo da quantidade de registros existentes no banco de dados pode acontecer do número máximo de declarações não ser suficiente.
+Assim, quando isso ocorrer, deve ser alterada essa opção, aumentando o número máximo de declarações.
+No Sybase, é a opção max_statement_count = 'nn', onde nn é o seu valor. O padrão é 50.
+Para alterar, entrar no DBISQLC e executar, alterando, por exemplo, para 60:
+set option public.max_statement_count = '60';
+Muita atenção ao definir o novo valor, pois quanto maior o número máximo de declarações, maior a possibilidade de afetar a performance do banco de dados, podendo torná-lo mais lento e até mesmo travar.
+ 
+Para verificar o número de prepared statements de cada usuário conectado:
+ 
+select * from sa_conn_properties() where PropNum = 171 order by cast(Value as integer) desc
+Para verificar as tabelas abertas para essas conexões:
+ 
+select * from sa_locks() where conn_id = ?? => informe o conn_id que deseja verificar
+ 
+ 

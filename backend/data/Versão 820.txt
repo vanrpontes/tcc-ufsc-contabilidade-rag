@@ -1,0 +1,234 @@
+TITULO: Versão 8.20
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2922971390
+--------------------------------------------------
+Versão 8.20
+Dados
+Informações
+Início
+16/12/2014
+Final
+02/02/2015
+Scripts
+CMD820.sql (3603 a 3625)
+Itens
+34
+Implementações
+19
+Correções
+15
+Relatórios
+Layouts de Exportação
+Layout de Importação
+DLL
+RlFrete.rtm
+ 
+ 
+SisPetroControl.dll
+ 
+ 
+ 
+SisPetroBancos.dll
+ 
+ 
+ 
+Banco104_SICOB.dll
+ 
+ 
+ 
+Banco104_SIGCB.dll
+ 
+ 
+ 
+SisPetroANP.dll
+ 
+ 
+ 
+SisPetroSintegra.dll
+ 
+ 
+ 
+Banco237.dll
+ 
+ 
+ 
+Banco254.dll
+ 
+ 
+ 
+Banco320.dll
+ 
+ 
+ 
+Banco320_vSemReg2.dll
+ 
+ 
+ 
+Banco422.dll
+ 
+ 
+ 
+Banco999.dll
+Avisos importantes
+Para que as consultas da ANP e Sintegra funcionem corretamente, as DLL SisPetroANP.dll e SisPetroSintegra.dll devem ser salvas, a partir desta versão, na pasta onde está executável do Servidor SisPetro.
+No Relatório de Fretes, foram excluídos os condutores de dados Frota, FrotaCarreta, FrotaTreminhão e Transportadora, para as empresas que utilizam esses condutores, será necessário fazer uma adaptação no layout RlFrete.rtm.
+Geral
+Sybase 16
+A partir dessa versão estaremos atualizando o SisPetro para rodar e atualizar as rotinas do Sybase 16. UPA (CCF 26764)
+Manutenção Fornecedor – Aba principal
+A tela foi alterada para não apresentar as colunas desnecessárias. CPC (CCF 25729)
+Criação de Usuário
+A rotina de criação de usuário a partir dos dados de um usuário já existente estava mantendo o nome do usuário de origem dos dados como usuário de perfil. Usuários criados nessa situação não respeitam o seu perfil utilizando sempre os perfis do usuário de origem. Esse problema foi corrigido, porém, é necessário alterar no cadastro de usuários os usuários nessa condição. 
+UPA (CCF 26925)
+Perfil de Usuário "Inclui adiantamento quantificado de produto"
+O Perfil "Inclui adiantamento quantificado de produto" estava oculto. Foi corrigido. 
+PRFC (CCF 27036)
+Acesso Sispetro Web
+Disponibilizada a aba "Acesso Web" no Cadastro de Clientes e Cadastro de Usuários onde é possível vincular os usuários do Sispetro aos Clientes para acesso ao Sispetro Web. 
+O Sispetro Web já está em fase de testes, com previsão de disponibilização para comercialização em Março/2015, onde, nessa fase, será permitida a inclusão de Pedido de Venda pela Web, seja por Vendedores Externos, Clientes, etc. 
+Help:
+ 
+ UPA (CCF 26749)
+Compras
+Escolha da melhor Cotação
+Nessa versão, foi realizada uma alteração para que a escolha da Melhor Cotação seja por item da cotação. 
+Help:
+  
+ e  
+ CPC (CCF 26524)
+Estoque
+Tela de Manutenção de Rateio de Estoque
+Foi incluída nessa tela a opção de filtrar os registros por período. 
+No SisPetro Remoto, o filtro existente "A partir de" foi substituído pelo filtro "por período" por ser mais completo
+. 
+CPC (CCF 21848)
+Tela de Alteração de Itens de Carregamento
+A tela de Alteração de Itens de Carregamento apresentava no campo Volume NF a somatória da Quantidade do Item da NF, foi realizada uma alteração para nesse campo seja apresentada a somatória da Quantidade Ambiente do Item da NF.
+ CPC (CCF 26038)
+Atualização do Fator de Conversão e Quantidade 20c
+Na versão 8.18, foram feitos ajustes na atualização do Fator de Conversão e Quantidade a 20c. Nessa versão, essa alteração foi replicada para o Faturamento Automático, 
+o que também corrige o fato do campo Qtde20 ir sempre zerado nos Pedidos de OS dos produtos básicos
+. 
+CPC (CCF 26073, CCF 26856)
+Faturamento
+Validação de Chave de Acesso em Emissão de Terceiros
+A validação de chave de acesso em Notas Fiscais de Terceiros será realizada apenas ao finalizar a nota. PRFC (CCF 26412)
+Indicação do Número da NF para Emissão Própria
+Foi criada uma nova configuração na tabela de Série da NF para possibilitar que o usuário informe o Número da Nota quando a série for do Tipo Emissão Própria. 
+A alteração descrita não se aplica para o Faturamento Automático, o mesmo continuará com a regra anterior e será alterado em uma próxima versão. As Distribuidoras não devem alterar a numeração de Notas Próprias.
+ 
+A partir dessa versão, não será permitido incluir/alterar uma Série com o Tipo Emissão "Indefinido". 
+Help: 
+ 
+CPC (CCF 26710)
+Cliente com Endereço de Consumo não definido
+Foi realizada uma alteração no SisPetro para não permitir que no cadastro de Cliente, seja salvo um cliente com o Endereço de Consumo indefinido. O campo também foi disponibilizado no Remoto. CPC (CCF 25967) 
+Impresso de Nota Fiscal e Conhecimento de Frete
+Incluir os erros gerados nos impressos de Nota Fiscal e Conhecimento de Frete em uma estrutura de lista e apresentá-los ao usuário.
+ 
+CPC (CCF 26958)
+Impresso da Carta de Correção
+Alterado o impresso da Carta de Correção para listar as Irregularidades ordenadas pelo Código. 
+CPC (CCF 24925)
+Filtro Tipo de Cobrança no Faturamento Automático 
+Implementado no Faturamento Automático o recurso de Filtro Tipo de Cobrança, que no momento do faturamento, troca o tipo de Cobrança indicado no Pedido. 
+CPC (CCF 26885)
+Prevenção de dados serem apagados indevidamente
+Na tela de Geração de Arquivo de Distribuição da NF-e a opção "Apaga conteúdo do diretório onde os arquivos serão criados" será sugerida desmarcada para evitar que o conteúdo do diretório seja apagado devido usuário não ter reparado na opção. GSN (CCF 26843)
+ 
+Vínculo de NF em empresa transportadora 
+Apresentar no campo "Tipo NF" todas as opções de NF, mesmo quando a empresa for transportadora, ao Vincular um Documento Fiscal. 
+CPC (CCF 26887)
+Erro de CPF na Geração do XML do CT-e
+O arquivo XML do CT-e estava considerando o campo errado para geração de dados referente ao CPF do Remetente, Destinatário e Retirada. Após correção, será considerado corretamento o valor do campo "CNPJ/CPF".
+ PRFC (CCF 26978)
+Acréscimo/Desconto no Tipo de Cobrança para Faturamento Automático
+No faturamento automático, em algumas situações em que o tipo de cobrança possuía acréscimo ou desconto, a parcela a ser gerada não estava sendo calculada corretamente. Esse problema foi corrigido. 
+UPA (CCF 26992)
+Financeiro
+Bibliotecas de Cobrança da Caixa Econômica Federal
+Foi implementado nova biblioteca de cobrança para a Caixa Econômica Federal com o novo layout CNAB 240 SIGCB. Aproveitando a alteração, as rotinas do layout antigo SICOB foram movidas para uma biblioteca própria. 
+Será necessário atualizar e baixar as bibliotecas 
+SisPetroBancos.DLL, 
+Banco104_SICOB.DLL e 
+Banco104_SIGCB.DLL
+. 
+Help:
+ 
+ e 
+ PRFC (CCF 23899)
+Erro ao ler ultima linha do Retorno.
+O Sispetro estava acusando erro de leitura de linha ao ler determinados arquivos de Retornos, após correção a leitura será feita corretamente.
+ 
+Será necessário atualizar e baixar as bibliotecas 
+Banco237.DLL, 
+Banco254.DLL, 
+Banco320.DLL, 
+Banco320_vSemReg2.DLL, 
+Banco422.DLL e 
+Banco999.DLL.
+ 
+PRFC (CCF 25103)
+Erro de Impressão de Duplicata 
+O Sispetro Remoto estava acusando um erro de abertura na estrutura "empresa" quando solicitado imprimir duplicatas, o erro foi corrigido.
+ PRFC (CCF 26891)
+Fiscal
+Documento de Arrecadação SPED
+ 
+ 
+ 
+Alterado texto do campo #NF para Sequencial NF da tela de inclusão de Documento de Arrecadação SPED, pois é apresentado o sequencial da nota e não o número
+. GSN (CCF 26335)
+ 
+Dados de Características no DPMP
+ 
+ 
+ 
+Devido o desuso dos dados de Características dos Produtos, na tela do DPMP a opção "Gerar dados de Características dos Produtos" será sempre sugerida desmarcada. Caso seja necessário gerar um DPMP antigo com essa informação basta marcar a opção na tela. GSN (CCF 26923)
+ 
+Novo código de Versão para SPED EFD ICMS/IPI 
+ 
+Alterado o código de Versão para 009 no caso de geração do SPED EFD ICMS/IPI com data a partir de janeiro/2015. GSN (CCF 27001)
+ 
+Transporte
+Manutenção de Frete - botão Pagto
+Na tela de Manutenção de Frete é possível selecionar vários Fretes e gerar o Contas a Pagar pelo botão "Pagto", ao fazer isso, o SisPetro realiza uma validação em cada um dos fretes selecionados. Nessa versão, foi realizada uma alteração para otimizar a performance dessa validação. 
+CPC (CCF 26762)
+ 
+Relatório de Fretes
+Nessa versão, foram excluídos os condutores de dados referente a Frota, FrotaCarreta, FrotaTreminhão e Transportadora. Os respectivos campos, foram disponibilizados no condutor de dados Principal - Frete.
+ Para as empresas que utilizam esses condutores de dados, será necessário fazer uma adaptação no layout RlFrete.rtm
+. CPC (CCF 26855)
+Vendas
+ 
+Consulta de Status na ANP na Inclusão de Pedido
+A partir dessa versão é possível consultar, também, o status do cliente na ANP na inclusão/alteração do pedido de venda. Com isso, pode-se 
+impedir que seja incluído um pedido para um cliente que está bloqueado pela ANP por exemplo
+. UPA (CCF 25661) - 
+Help: 
+Bloqueio/Desbloqueio Automático de Cliente na Consulta de Status da ANP/Sintegra
+Ao consultar o status de um cliente na ANP/Sintegra através do cadastro de cliente, será possível bloquear/desbloqueá-lo automaticamente dependendo do status dele no órgão consultado. UPA (CCF 25661) - 
+Help: 
+ / 
+Controle de Transportadora nos Pedidos de Venda Retira 
+Foi realizada uma alteração no SisPetro que permite configurar que, em Pedidos de Venda Retira, só sejam utilizadas transportadoras previamente cadastradas para o Cliente. 
+Help:
+ 
+ CPC (CCF 23795)
+Pedido de Venda
+Alterado o tamanho do Campo Código Cliente, diminuindo o espaço para código e aumentado o espaço para a Razão Social. CPC (CCF 26687)
+Dados do Comprador na Consulta de Pedidos Pendentes
+Foi incluído o Código e Razão Social do Comprador vinculado ao cliente na tela de Consulta de Pedidos Pendentes. PRFC (CCF 26457)
+Alteração de Transportadora na OC de Venda
+ 
+ 
+ 
+Ao lançar uma OC de Venda, caso o usuário altere a Transportadora, o SisPetro altera automaticamente os dados do Pedido Pendente de Faturamento. Nessa versão, foi realizada uma alteração para não permitir isso, já que o dado alterado foi o da OC e não do Pedido.
+ CPC (CCF 25747)
+ 
+Botão Atualiza da Tabela de Preços
+ 
+ 
+ 
+Corrigida a ação do botão "Atualiza" da Tabela de Preços (menu Tabela Auxiliares / Vendas) que saía da tela indevidamente, quando só deveria atualizar os dados na tela
+. GSN (CCF 26773)
+ 

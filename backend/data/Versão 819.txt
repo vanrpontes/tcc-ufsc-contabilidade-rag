@@ -1,0 +1,191 @@
+TITULO: Versão 8.19
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921697495
+--------------------------------------------------
+Dados
+Informações
+Início
+27/11/2014
+Final
+17/12/2014
+Scripts
+CMD819.sql (3586 a 3602)
+Itens
+ 37
+Implementações
+ 19
+Correções
+ 18
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+Apuracao.rtm
+SisPetroControl.Dll
+ 
+ 
+Aviso importante
+Nesta versão, a execução dos scripts está um pouco mais demorada, em decorrência da necessidade de atualização do novo campo “Lacre” da tabela “Nota Fiscal”.  Antes de executá-lo, é recomendado que o banco seja iniciado com o parâmetro 
+-b
+ (junto com os demais parâmetros), que garante que apenas um usuário se conecte ao banco. Após finalizar a execução dos scripts, parar o banco, remover o parâmetro 
+-b 
+e iniciar novamente.
+Geral
+Log no SisPetro
+A partir desta versão toda vez que for carregado um novo arquivo de licenciamento no SisPetro, essa informação será logada no Servidor SisPetro para facilitar a análise de eventuais problemas. UPA (CCF 26421)
+Descrição da Entidade e Situação da Pendência no relatório de pendencias
+Os campos "
+Descrição da Entidade" e "Situação da Pendencia" foram disponibilizados para uso no Relatório de Pendências, sendo necessário alterar o layout de impressão para que os mesmo sejam exibidos
+. PRFC (CCF 25974)
+Acesso ao SisPetro e Mudança de Empresa
+Otimizadas as rotinas de acesso ao SisPetro e mudança de empresa para que essas rotinas sejam mais rápidas para o acesso do usuário. UPA (CCF 26600)
+Novos dados na aba Movimentação Estoque Escritural do Cadastro de Produtos
+Foram incluídos novos campos no Cadastro de Produtos, aba Movimentação, sub-aba Estoque Escritural. #Pedido, NF/PD, Sequencial, Data Inclusão e Fator Conversão
+. 
+CPC (CCF 26388)
+Novos dados na aba Movimentação Estoque Físico do Cadastro de Produtos
+Alterado o Cadastro de Produtos, aba Movimentação, sub-aba Estoque Físico para incluir a média dos campos Temperatura e Temp. Tanque. 
+Help:
+ 
+. 
+CPC (CCF 26479)
+Acesso ao SisPetro com a Opção /LICENCIAMENTO
+Ao acessar o SisPetro com a opção /LICENCIAMENTO, estava gerando um erro ao usuário que impedia a entrada no SisPetro. Esse problema foi corrigido. 
+UPA (CCF 26534)
+Uso de funções em fórmulas de campos textos
+Corrigido erro apresentado em fórmulas de campos textos quando era usada alguma função. 
+GSN (CCF 26105)
+Uso de dados da NF nas fórmulas de Histórico e Informações Adicionais
+Melhorada a formação do Histórico ou Informações Adicionais da Nota Fiscal quando na Natureza de Operação era usado na fórmula um campo da Nota e a mesma tinha mais que um item. Nesses casos ,anteriormente, repetia-se a informação da Nota conforme o número de itens, o que não ocorrerá mais. 
+GSN (CCF 16871)
+Correção do texto do perfil "Permite copiar valores alícotas substituição tributária entre empresas"
+O perfil de usuário "Permite copiar valores alícotas substituição tributária entre empresas" teve a palavra "alícotas" alterada para "alíquotas".
+ PRFC (CCF 26260)
+Correção no perfil de sistema "Versão Dados Sefaz para a NF-e"
+Em determinados casos o SisPetro estava gravando incorretamente esse perfil. Foi feita a correção. 
+PRFC (CCF 26645)
+Ordenação pelo Código NCM no Cadastro de Produto
+A aba de navegação no cadastro de produto foi alterado para permitir a ordenação pelo Código NCM. O campo "Código NCM" também teve sua localização alterada, para próximo do campo "Código DPMP".
+ PRFC (CCF 26211)
+Compras
+Adiantamento Quantificado X Saldo Excedente 
+Nessa versão
+, foi criada uma nova funcionalidade no Adiantamento Quantificado para permitir configurar se aumenta ou não a quantidade pendente do PMM em pedidos controlados pela quantidade paga. 
+Help:
+ 
+ CPC (CCF 26126)
+ 
+Tela de consulta de Posição de PMM
+Foi incluído o botão Sair na tela de Posição do PMM. 
+Help: 
+. CPC (CCF 26597)
+Apresentação do Erro Original na alteração de PMM
+Foi feita melhoria na mensagem apresentada quando havia erro na alteração do PMM. Agora, será apresentado também a mensagem original do erro. PRFC (CCF 26223)
+Correção do saldo excedente na Ordem de Carregamento
+Quando era emitida uma Ordem de Carregamento com quantidade maior que a liberada, independente do PMM estar configurado para utilização do Saldo Excedente, o SisPetro estava colocando automaticamente um valor negativo no saldo excedente utilizado dos itens da OC.
+ 
+O que foi corrigido. Casos antigos manter contato com Suporte.
+ PRFC (CCF 26657)
+Faturamento
+Melhoria no Agrupamento de Email por OC
+O envio de e-mail agrupado por Ordem de Carregamento foi alterado para melhorar a legibilidade do e-mail enviado. PRFC (CCF 25105)
+Situação do Frete na Importação da Nota
+Na importação da Nota a Situação do Frete é preenchida pela informação vinda do arquivo. Nessa versão, foi criado o recurso De/Para para o preenchimento da mesma.
+ 
+Help: 
+De/Para para Situação do Frete na Importação de NF
+ 
+CPC (CCF 23231)
+Controle de Lacre e Envelope da Amostra na OC para a NF
+Nessa versão, foram criados, na Ordem de Carregamento o campo Envelope de Amostra. Tal informação, junto com as informações de Lacre irão para a Nota Fiscal. Para as notas antigas, será realizada uma atualização do campo Lacre preenchendo-o com o Lacre da OC vinculada.
+ 
+Help:
+ 
+ CPC (CCF 24079)
+Importação de Nota Fiscal - Gerar parcelas pela Condição de Pagamento quando não vir no arquivo
+No processo de Importação da Nota Fiscal, é possível gerar as parcelas do financeiro a partir das condições de pagamento.  É configurável, através da Natureza de Operação, como será essa geração (“Através dos vencimentos do arquivo” e “Através da condição de pagamento”). Nessa versão, foi incluída mais uma opção, “Através da condição de pagamento se não tiver vencimentos no arquivo”. Assim, se o arquivo não tiver as parcelas definidas, será utilizada a Condição de Pagamento para gerar as mesmas. 
+Help:
+ 
+. CPC (CCF 26167)
+Exclusão de Nota Fiscal com vínculo de Despesas do PMM
+Nesta versão, foi realizada uma alteração para quando uma Nota Fiscal, vinculada a um PMM com despesas, for excluída, exclua também o vinculo com as despesas.
+ CPC (CCF 25771)
+Envio do endereço de e-mail no arquivo XML do CT-e
+O SisPetro, ao gerar CT-e, não estava enviando o endereço de e-mail nos XML e a Sefaz acusava rejeição do arquivo pelo campo estar vazio. Após correção, quando não tiver o endereço de e-mail, o campo que deveria conter esta informação, não será gerado.
+ PRFC (CCF 26372)
+Vínculo de OC e PMM na importação de Nota Fiscal
+No processo de importação de Nota Fiscal é possível vincular OC e PMM. Porém, está permitindo vincular OC com NF indevida. Nesta versão, foi realizada uma alteração para que NF de Outras Saídas só permitam vínculos com OC de Carregamento Próprio e NF de Outras Entradas ou Compras com OC de Descarga Própria ou Transferência entre Depósitos. 
+CPC (CCF 26356)
+Erro ao Cancelar o Cancelamento de Nota Fiscal
+Foi detectado que, ao teclar ESC, o cancelamento de uma nota fiscal via manutenção de notas fiscais estava gerando um erro, que não impedia prosseguir com a interrupção do processo de cancelamento. Esse erro foi corrigido.
+UPA (CCF 26483)
+Validação da Chave de Acesso
+O SisPetro tem um perfil de sistema para fazer a validação da Chave de Acesso em NF-e de Terceiros. Porém o usuário consegue burlar essa validação caso, ainda com o cursor no campo da Chave de Acesso, use a tecla de atalho <ALT> + <A> para acessar o botão Avança. Nessa versão, essa validação foi ajustada para garantir que a mesma seja executada corretamente. 
+CPC (CCF 26412)
+Atualização da quantidade de Volume na Nota Fiscal
+O SisPetro ao finalizar a nota, atualiza o volume com base nos itens e seus produtos, porém caso o usuário retorne alguns passos e altere os itens, o valor para o Volume da Nota Fiscal não é atualizado. Nessa versão, foi realizada uma alteração para corrigir essa situação. 
+CPC (CCF 26291)
+Edição de Item na Importação de Notas Fiscal
+Na importação de notas fiscais, aba "Notas Fiscais a serem processadas", o SisPetro não estava editando o item selecionado. Ao clicar em "Editar", sempre abria-se a tela de edição com os dados do primeiro item da nota, após correção será aberta com os dados do item selecionado.
+ PRFC (CCF 26681)
+Financeiro
+Impressão de Recibo de Baixa
+A impressão de recibo de baixa estava apresentando incorretamente uma mensagem de erro . Após correção, a impressão não apresentará mais o problema.
+ PRFC (CCF 26589)
+Fiscal
+Valor do Item para IR no Inventário
+A EFD ICMS/IPI passará a exigir, a partir de Janeiro de 2015, o valor do item para o Imposto de Renda. Nesta versão, foi incluído um novo campo “Valor Unit. IR” no Inventário para salvar essa informação. 
+Help: 
+. CPC (CCF 25295)
+Apuração Fiscal - Outros Débitos do ICMS Próprio
+Na impressão da Apuração Fiscal, no ICMS Próprio, não era apresentado o valor de Outros Débitos, o que foi corrigido. 
+Necessário atualizar o arquivo Apuracao.rtm na pasta do executável do SisPetro Controladoria (ou nos caminhos auxiliares)
+.
+ 
+GSN (CCF 26295)
+Servidor Sispetro
+Desconectar Automaticamente Conexões Inativas
+Foram implementadas no Servidor SisPetro algumas rotinas para desconectar as conexões que estão inativas sem a interação do usuário. 
+Por exemplo, uma máquina que está com o SisPetro aberto e travou, essa máquina não envia ao Servidor SisPetro uma solicitação de cancelamento da sua conexão com isso essa conexão continua aberta. A partir desta versão, de tempos em tempos o Servidor SisPetro verificará as conexões que estão inativas e irá desconecta-las, liberando as conexões no Servidor SisPetro
+. 
+Help: 
+.
+ 
+UPA (CCF 26009)
+Transporte
+Tela de Transportadoras/Motoristas - aba Empresas Transportadoras
+Na aba Empresas Transportadoras, o usuário vincula o Motorista a Transportadora para cada uma das empresas cadastradas. Nesta versão, foi implementado um recurso para facilitar esse cadastro quando for a mesma Transportadora para todas as Empresas. Foram criados dois novos botões “Vincula em todas as empresas” e “Vincula nas empresas sem vinculo” que permite vincular de forma automática todas as empresas ou somente as empresas que ainda não tenham quaisquer vínculos cadastrados.
+ 
+Help:
+ 
+ CPC (CCF 25737)
+Controle de motorista autônomo 
+Foi criado um novo campo para configurar se o Motorista sem Transportadora Vincula, é Autônomo ou se é uma falha cadastral. Sendo assim, é possível que na emissão de OC e NF seja bloqueada a utilização do mesmo.
+ Help:
+ 
+ e 
+ CPC (CCF 26258)
+ 
+Tela de Configurações de Usuário - aba Frete 
+Nesta versão, foi realizada uma reorganização dos perfis de usuário das tabelas Frota e Transportadora. Além disso, foram separados os perfis que eram usados em comum para as duas tabelas, 
+deixando perfis específicos para a Transportadora e perfis específicos para o Frota
+.
+ Help:
+ 
+ CPC (CCF 25738)
+Vendas
+ 
+Total do Seguro na Consulta Geral de Vendas
+Foi incluído campo Seguro Total na tela de Consulta Geral de Vendas. 
+ PRFC (CCF 26324)
+Inclusão de Pedido Sem Quantidade
+Foi detectado um problema no SisPetro que permitia ao usuário clicar diversas vezes, de forma bem rápida, o botão Finaliza no pedido de vendas ou no PMM. Assim ocorria o erro de incluir um pedido sem quantidade. Esse problema foi corrigido. 
+UPA (CCF 18750)
+Edição de Pedido de Venda vinculado a um Contrato
+Ao alterar um Pedido de Venda vinculado a um Contrato com Status “Entrega Total”, o SisPetro não permite a alteração. Nessa versão, foi realizada uma alteração para validar o Status do Contrato somente na inclusão do Pedido, tornando assim possível a sua edição. 
+CPC (CCF 25654)
+Data da OC x Data de Entrega do Pedido
+Ao finalizar uma OC vinculada a um Pedido de Venda, foi incluída uma nova validação para verificar se a Data de Entrega do Pedido é posterior a data da OC, não permitindo lançar uma OC vinculada a um Pedido com data de entrega menor que a data da OC. 
+Help:
+ 
+. CPC (CCF 25479)
+ 

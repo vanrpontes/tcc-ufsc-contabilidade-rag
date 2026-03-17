@@ -1,0 +1,83 @@
+TITULO: Extenso
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2882535506
+--------------------------------------------------
+Esta função foi disponibilizada no Gerenciador de Relatórios com a finalidade de exibir (quando utilizada) o valor monetário por extenso. O sistema possui outra função que exibe o valor não monetário por extenso, vide tópico de 
+.
+
+
+
+
+Permitirá exibir por extenso valores como:
+
+
+
+
+Valor Total de Produtos
+
+
+Valor Total da Nota Fiscal
+
+
+Preço Unitário de Produto ou tabela de preço;
+
+
+
+
+
+
+Deverá ser utilizada da seguinte forma: 
+Extenso(valor,fechastring);
+
+
+
+
+Valor:
+ Campo de valor a ser transformado para extenso.
+
+
+FechaString:
+ Campo que deve receber valor de True ou False.
+	
+
+
+Decidindo por TRUE, após o número o extenso, o campo será completado com asterisco e hífem.
+
+Por exemplo:
+ 
+
+Valor: R$ 35,50
+
+Resultado: Trinta e cinco reais e cinqüenta centavos*
+*
+
+
+Decidindo por FALSE, após o número o extenso, o campo não terá nenhuma informação completando
+
+Por exemplo:
+ 
+
+Valor: R$ 35,50
+
+Resultado: Trinta e cinco reais e cinqüenta centavos
+
+
+
+
+
+
+
+
+Para utilização no Gerenciador de Relatórios:
+
+
+
+
+Coloque uma variável no relatório, e vá até a opção 
+Cálculos
+ da variável.
+
+
+Na tela seguinte, o sistema trará a condição 
+Value:=
+. Após esta condição deve-se digitar a função e os seus respectivos valores.
+

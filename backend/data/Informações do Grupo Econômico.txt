@@ -1,0 +1,113 @@
+TITULO: Informações do Grupo Econômico
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892890446
+--------------------------------------------------
+Com a finalidade de melhorar a forma de analisar o Grupo Econômico no SisPetro, implementamos um novo recurso no SisPetro. Trata-se da tela de 
+Informações do Grupo Econômico
+:
+O campo 
+Nome Usual Alternativo 
+é preenchido no cadastro de clientes / aba 
+Dados Gerais
+.
+ Ele está disponível, para consulta nas telas de: 
+Consulta Pedidos aprovados para Faturamento,
+ 
+ e 
+Manutenção do Pedido
+ Acesso ao Grupo Econômico
+O recurso poderá ser acessado pelas seguintes telas:
+Consulta de Pedidos Pendentes
+.
+Inclusão do Pedido de Venda
+  
+Funcionalidade da tela
+Composição do Saldo:
+ nesta aba serão mostradas as seguintes informações:
+( +) Limite de Crédito:
+ soma dos limites de todos os clientes que fazem parte do mesmo Grupo Econômico.
+( -) Pedidos Não Faturados:
+ soma dos pedidos de vendas não faturados de todos os clientes do mesmo Grupo Econômico.
+( -) Financeiro Pendente:
+ soma de todos os títulos do Contas a Receber de clientes do mesmo Grupo Econômico que estão pendentes.
+( -) Baixas Bloqueadas:
+ soma de todos as baixas bloqueadas do Contas a Receber de clientes do mesmo Grupo Econômico.
+( +) Adiantamentos:
+ soma de todos os Adiantamentos de clientes do mesmo Grupo Econômico.
+( =) Saldo Final:
+ cálculo feito em cima das informações citadas acima, onde temos a seguinte fórmula:
+Sem Antecipação:
+Saldo = Limite de Crédito + Adiantamentos(a) - Pedidos Aprovados e Não faturados(b) - Valor Pendente - Baixas Bloqueadas
+Onde:
+(a) =  
+Adiantamentos:
+ serão considerados os adiantamentos não bloqueados, pois adiantamentos bloqueados são utilizados para cheques ainda não compensados.
+(b) = 
+Pedidos Aprovados e Não faturados:
+ serão considerados os pedidos aprovados e não faturados ao menos no Financeiro, conforme o perfil de empresa 
+Verificação de limite de crédito em relação aos pedidos
+.
+Com Antecipação 
+Saldo = Limite de Crédito + Adiantamentos(c) - Adiantamentos Antecipados(d) - Pedidos Aprovados e Não faturados(e) +Pedidos Aprovados e Não faturados Antecipados(f)  - Valor Pendente - Baixas Bloqueadas
+Onde:
+(c) =
+  Adiantamentos: 
+serão considerados os adiantamentos não bloqueados, pois adiantamentos bloqueados são utilizados para cheques ainda não compensados.
+(d) =
+Adiantamentos Antecipados: 
+são os adiantamentos incluídos manualmente com tipo de antecipação igual a 
+Antecipado
+ ou adiantamentos gerados através de devolução de vendas ou PIX cujo tipo de cobrança estava marcado como 
+Antecipado
+ 
+(e) = 
+Pedidos Aprovados e Não faturados: 
+serão considerados os pedidos aprovados e não faturados ao menos no Financeiro, conforme o perfil de empresa Verificação de limite de crédito em relação aos pedidos. 
+(f) = 
+Pedidos Aprovados e Não faturados Antecipados: 
+serão considerados os pedidos aprovados e não faturados cujo tipo de cobrançaestava marcado como 
+Antecipado
+ 
+Quando a empresa utiliza pedidos e adiantamentos do tipo 
+antecipado, 
+esses
+ são somados nos seus respectivos campos, porém 
+não interferem no saldo do limite de crédito do cliente
+. Para mais informações sobre, ver 
+Painel Detalhes - Tipo de Cobrança
+ e 
+Roteiro de Inclusão de Adiantamento de Clientes
+Limite por Usuário:
+ limite definido conforme perfil de usuário 
+%Limite Excesso Crédito para Aprovação
+Financeiro em Atraso:
+ soma de todos os títulos que estão em atrasado dos clientes que fazem parte do mesmo Grupo Econômico.
+Adiantamentos Bloqueados:
+ soma de todos os adiantamentos de clientes do mesmo grupo econômico que estão bloqueados.
+Abas
+Clientes do Grupo:
+ nesta aba serão mostrados todos os clientes que fazem parte do grupo econômico em questão
+Pedidos não Faturados:
+ nesta aba serão mostrados todos os pedidos não faturados de clientes que fazem parte do grupo econômico em questão.
+Arrastando a coluna 
+Tipo Antecipação
+ fica mais fácil verificar os pedidos Antecipados que 
+não participam 
+da análise de crédito.
+Financeiro Pendentes:
+ nesta aba serão mostrados todos os Títulos pendentes de clientes que fazem parte do grupo econômico em questão.
+Baixas Bloqueadas:
+ nesta aba serão mostrados todas as baixas bloqueadas de clientes que fazem parte do grupo econômico em questão.
+Adiantamentos:
+ nesta aba serão mostrados todos os adiantamentos de clientes que fazem parte do grupo econômico em questão.
+Arrastando a coluna 
+Tipo Antecipação
+ fica mais fácil verificar os adiantamentos Antecipados que 
+não participam 
+da análise de crédito.
+Botões
+Layout Padrão: 
+este botão retornará ao layout padrão da tela caso o usuário altere alguma coluna em qualquer uma das abas.
+Imprimir: 
+permitirá ao usuário imprimir os dados em tela.
+Para mais informações sobre, ver 
+Grupo Econômico - Detalhamento

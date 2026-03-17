@@ -1,0 +1,19 @@
+TITULO: SisPetro e sites bancários
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918973625
+--------------------------------------------------
+Situação: 
+no computador que estava executando o SisPetro, ao abrir sites de alguns bancos para uso do serviço de Internet Banking, o SisPetro era encerrado e não executava mais até sair dos sites desses bancos.
+Motivo:
+ essa situação ocorre em computadores onde o executável utilizado do SisPetro é o executável compactado. Nos computadores que acessam serviços de Internet Banking, esses sites instalam um pequeno aplicativo de segurança que monitoram o acesso. Esse aplicativo, quando o site está aberto, monitora o computador à procura de atividades consideradas perigosas. O uso de um executável compactado é considerado por esse aplicativo como atividade perigosa e por isso fecha e impede seu uso.
+Solução: 
+nos computadores que acessam os sites bancários para utilizar o serviço de Internet Banking, utilizar os executáveis 
+não compactados
+ do SisPetro.
+Obs.: houve um caso em que o aplicativo do Banco do Brasil estava com problemas e não permitia executar os demais aplicativos na mesma máquina. O problema foi solucionado pelo próprio banco, que atualizou o seu aplicativo.
+Bancos: 
+por enquanto apresentam esse problema os sites do
+ 
+Banco do Brasil, Bradesco e Caixa Econômica Federal
+Nota: 
+os executáveis compactados e não compactados do SisPetro são disponibilizados na área de download. 
+ 

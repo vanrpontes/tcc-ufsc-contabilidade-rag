@@ -1,0 +1,137 @@
+TITULO: PIX Configurações Iniciais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4277075969
+--------------------------------------------------
+none
+Objetivo
+Para utilizar as funcionalidades relacionadas ao PIX:
+Geração de QR Code para pagamento
+Consulta de PIX Recebidos através de API disponibilizada pelo banco
+Geração e Validação do adiantamento a ser gerado que será recepcionado pela entidade do pedido, sendo possível não liberar o adiantamento caso o pagador seja uma entidade diferente do esperado.
+Será necessário realizar as configurações abaixo
+Atenção QRCode dinâmico esta disponível apenas para os Bancos 
+Itaú, Bradesco e Banco do Brasil
+, sendo necessário configurar o Envio de QR Code para 
+Contas a Receber
+Configurações
+Ferramentas / Sistema / Aba Financeiro / Quadro PIX:
+Entidade do Adiantamento gerado pelo PIX: 
+selecionar qual a Entidade que o SisPetro irá gerar o adiantamento de PIX avulso (sem ligação de pedido ou contas a receber)
+Entidade do Pedido (padrão)
+Entidade do CNPJ/CPF do Pagador
+Não Gera Adiantamento se Pagador for diferente
+Ação nos Pagtos Atrasados de PIX via Contas a Receber: 
+selecionar qual a ação que o SisPetro realizara
+Baixa o título de forma integral (Padrão)  
+Não Baixa o Título 
+Baixa o título deixando pendente o valor de juros/multa
+Tabelas Auxiliares / Vendas / Tipo de Cobrança / Aba PIX
+Forma de Pagamento NF-e: 
+selecionar, pagamento Instantâneo (PIX)
+Ativo: 
+habilitar campo
+ Aba PIX
+Habilita PIX?: 
+habilitar o campo
+Envio de QR code: 
+selecionar a forma que o QR code do PIX será gerado:
+Pelo Pedido de Venda 
+Pelo Contas a Receber (obrigatório para utilizar QR code dinâmico)
+Tipo de QR code:
+Estático - uso livre: quando
+ selecionado o QR code será fixo
+Dinâmico - Com Vencimento e restrito: 
+quando
+ selecionado será encaminhado o QR code dinâmico no qual é possível informar data de vencimento, 
+desconto condicional, juros e multa
+Envia Pedido de Venda Após Geração do QR code: 
+o pedido de venda será enviado somente após geração do QR code.
+Tabelas Auxiliares / Financeiro
+Controle Chave PIX
+ 
+Cadastrar a chave PIX utilizada pela empresa
+Para mais informações, ver 
+Tabela Controle Chaves PIX
+Bancos / Aba Detalhes / Aba API’s: 
+configuração para gerar adiantamento a clientes de PIX recebidos avulsos. Deverá ser informado
+Cód. Histórico p/ Adto 
+Tipo Docto. p/ Adto
+  
+Cód. Histórico p/ Baixa 
+Tipo Docto. p/ Baixa
+API QrCode com Vencimento
+Implementada no SisPetro?: 
+quando marcado, será possível utilizar o QR code Dinâmico, enviando os dados de vencimento, juros e multa.
+Habilita?: 
+quando ativo irá utilizar o QR code Dinâmico. 
+Para mais informações, ver 
+Tabela Bancos
+ 
+e 
+PIX com recebimentos antecipados e a vista (Adiantamento)
+Configuração de PIX Recebidos: 
+para clientes que utilizam integração da API de PIX recebidos junto ao banco 
+Bradesco,
+ 
+Banco do Brasil 
+e 
+Itaú
+. Essa configuração só deve ser feita após o usuário receber as credenciais do banco. Selecionar:
+Empresa
+Banco
+Uso de certificado
+Certificado digital: 
+se necessário
+DLL Configuração: 
+se necessário
+No quadro Parâmetro, informar: 
+Clientkey
+SecretKey
+KeyApplication
+Para mais informações, ver 
+Tabela Configuração de PIX Recebidos
+A partir da versão 10.63 
+não utilizar 
+a dll PIXRecebidoBanco001.dll na consulta do Banco do Brasil
+Serviços do Hermes: 
+configurar o serviço e ativá-lo no 
+Controlador Hermes
+PIX Recebido Bancos 
+PIX Recebidos - Processa
+PIX: Geração QR Code
+Falha geração QRcode:
+ caso ocorra falha na geração do QR code é possível realizar reprocessamento via 
+Abas da Manutenção de Notas Fiscais
+  Aba Titulos Gerados, e realizar o reprocessamento da geração dos que estiverem pendentes de geração.
+Para mais informações, ver 
+Serviço de PIX Recebidos - Bancos
+, 
+Serviço de PIX Recebidos - Processa
+, e 
+Serviço de PIX: Geração QR Code
+Para clientes que utilizam a consulta do PIX do Banco do Brasil, caso ela retorno 
+Erro: 276: error during handshake[2]...... 
+será necessário incluir um registro no Windows. Esse passo a passo foi orientado pelo próprio FAQ do BB e está descrito no site  no 
+https://learn.microsoft.com/en-us/windows-server/security/tls/tls-registry-settings?tabs=diffie-hellman
+. Esse procedimento deve ser feito por um profissional com conhecimento mínimo na área de TI. 
+1 - Abra o REGEDIT  e acesse a estrutura 
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Messaging 
+Caso a pasta Messaging não exista, clicar com o botão direito na pasta SCHANNEL e selecionar New > Key ou Novo > Chave
+2 - Inclua um registro do tipo 
+DWORD 32 bits 
+com o nome 
+MessageLimitClient
+3 - Modifique os dados para Base 
+Hexadecimal 
+e Dados do valor 
+80000000
+Obs. De acordo com o FAQ do BB o .NET trabalha com um campo padrão de 32K para handshake, mas o BB precisa de no mínimo 64K no ambiente Windows. A documentação da Microsoft (no aviso) mostra os passos acima.  
+Para mais informações, ver
+ 
+Manutenção de PIX
+Para mais informações, ver
+ 
+PIX com recebimentos antecipados e a vista (Adiantamento)
+ 
+Para mais informações, ver
+ 
+PIX com recebimentos a Prazo (Títulos)

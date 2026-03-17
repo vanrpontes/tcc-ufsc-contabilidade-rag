@@ -1,0 +1,74 @@
+TITULO: Valor total de pedido de movimentação de material com vários itens
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2941190764
+--------------------------------------------------
+Em pedidos de movimentação de material do tipo Direto do Fornecedor é comum ter vários itens, inclusive podendo ter descontos.
+Neste help, explicamos como os cálculos são feitos, para não gerar diferença no valor total do pedido.
+Considerando um PMM direto do fornecedor com 6 itens e 10% de desconto:
+Na tela de inclusão de itens:
+Código Produto
+Descrição
+Quantidade
+Vlr Unit Sem Desc
+Vlr Tot Sem Desc
+Vlr Desc
+Vlr Tot Item Com Desc
+01
+Produto 01
+1
+72,15
+72,15
+7,21
+64,94
+02
+Produto 02
+1
+60,00
+60,00
+6,00
+54,00
+03
+Produto 03
+1
+18,75
+18,75
+1,87
+16,88
+04
+Produto 04
+1
+4,04
+4,04
+0,40
+3,64
+05
+Produto 05
+2
+5,25
+10,50
+1,05
+9,45
+06
+Produto 06
+1
+40,00
+40,00
+4,00
+36,00
+TOTAL GERAL
+205,44
+20,53
+184,91
+O SisPetro calcula os descontos sobre o valor total do item (Vlr Tot Sem Desc)
+Os cálculos são feitos conforme segue:
+Total Tabela:
+ é a soma do valor total dos itens sem desconto
+Valor Frete:
+ é a soma do valor total do frete dos itens
+Valor Desconto:
+ é a soma do valor total do desconto dos itens
+É o valor total do item sem desconto menos valor total do item com desconto
+O % desconto do pedido é calculado através Valor Desconto dividido pelo Total Tabela
+Valor IPI:
+ caso tenha, é a soma do valor total do IPI dos itens
+Total Pedido:
+ é a soma do Total Tabela menos o Valor Desconto e, caso tenha, mais o valor total do IPI e o valor total do frete.

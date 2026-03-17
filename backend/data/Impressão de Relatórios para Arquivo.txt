@@ -1,0 +1,63 @@
+TITULO: Impressão de Relatórios para Arquivo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879389737
+--------------------------------------------------
+
+
+Existem algumas solicitações para que determinados relatórios sejam impressos para arquivo: pdf, excel, texto, etc.
+
+
+Em alguns relatórios antigos do SisPetro, ao ser solicitada impressão, permite somente imprimir para papel, conforme a tela de exemplo abaixo:
+
+
+
+
+
+
+Na tela acima, o relatório solicitado é o 
+ExtratoCMVGerente.rtm
+, da tela de 
+Consulta de Fechamento de Estoque/ aba Custos, botão Imprime,
+ na parte superior à direita.
+
+
+Ao clicar no botão Imprime, a tela de visualização do relatório é aberta. Nesta tela clicando no ícone da impressora, mostra a tela de impressão:
+
+
+
+
+
+
+Os relatórios mais antigos só permitem imprimir para impressora.
+
+
+Isso se deve ao fato da função 
+AllowPrintToFile = True
+ não fazer parte do código desses relatórios.
+
+
+Então, faça o seguinte:
+
+
+Abra o arquivo RTM do relatório em questão em um editor de texto (NotePad ou Context, por exemplo).
+
+
+
+
+Inncluir a linha com a função 
+AllowPrintToFile = True
+ exatamente abaixo do comando citado, conforme a imagem abaixo:
+
+
+
+
+Após a alteração, a tela de impressão mostra também a opção 
+Imprimir para Arquivo
+:
+
+
+
+
+
+
+Boa Sorte!
+

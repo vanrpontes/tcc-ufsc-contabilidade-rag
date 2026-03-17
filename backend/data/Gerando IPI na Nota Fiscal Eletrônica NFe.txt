@@ -1,0 +1,88 @@
+TITULO: Gerando IPI na Nota Fiscal Eletrônica (NFe)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903081270
+--------------------------------------------------
+O Sispetro está preparado para gerar o Imposto Sobre Produtos Industrializados (IPI) em algumas situações específicas, podendo ser tributado ou não tributado. Abaixo citaremos os dois casos mais comuns onde foram utilizados o IPI no Sispetro:
+Notas Fiscais de Importação de Produtos (Não Tributado)
+Devido a necessidade de algumas empresas que importam produtos, nas notas de nacionalização de produto (onde a distribuidora emite a NF de entrada como NFe para fornecedores estrangeiros) o IPI é necessário. Para complementar, à partir de 01/11/2011, com a Nota Técnica 004/2011 da NFe, além de necessário é obrigatório.
+Apenas será enviado a SEFAZ no XML dados referente ao CST do imposto, não serão enviados valores de IPI.
+Notas Fiscais de Devolução de Fornecedor (Tributado)
+Em Notas Fiscais de Devolução de Fornecedor, quando o produto adquirido contém IPI, será necessário enviar o IPI como Tributado no XML da NFe.
+Serão enviados a SEFAZ além do CST a Base de cálculo, Alíquota e Valor IPI.
+Mais abaixo detalharemos quais os códigos de CST específicos para operações Tributadas e Não Tributadas.
+Devido a falta de informações sobre diferentes cenários que utilizem esse imposto, nem todas as Tags de XML referentes a IPI serão enviadas a SEFAZ, apenas as necessárias para atender aos dois casos citados acima. Caso algum cliente venha a ter um cenário que seja diferente dos citados, será necessário que entre em contato com o suporte do Sispetro para análise do caso.
+Configurando o Sispetro
+Tabela IPI
+Primeiramente na tabela de 
+IPI
+ deve ser configurada a 
+Alíquota
+, conforme o código de IPI do produto. Veja como fazer isso no tópico 
+.
+Só serão enviados valores de IPI calculados por alíquota quando a operação for 
+Tributada
+.
+Natureza de Operação
+Nos 
+Impostos da Natureza Operação
+ atentar-se para a opção 
+Gera IPI
+ com a seguinte regra:
+Caso a NF a ser gerada utilize IPI 
+Não Tributado
+ essa opção deve estar 
+DESMARCADA. 
+(Essa opção deve estar desmarcada para que não seja gerado valores de IPI, caso contrário a SEFAZ rejeitará a NF)
+Caso a NF a ser gerada utilize IPI 
+Tributado
+ essa opção deve estar 
+MARCADA.
+Cadastro de Produtos
+Acesse o cadastro de Produtos no menu 
+Arquivo \ Produtos
+, selecione o produto desejado e na aba 
+Detalhes \ Ficha do Produto
+ Dentro do quadro informações sobre o IPI, localize o quadro
+ Informações sobre o IPI.
+Código IPI: 
+Informe o código cadastrado na Tabela IPI
+CST Entrada:
+ CST para Notas Fiscais de Entrada
+Cód. Enq.:
+ Código de enquadramento de Entrada
+CST Saída:
+ CST para Notas Fiscais de Saída
+Cód. Enq.:
+ Código de enquadramento de Saída
+Regras Isentas, Imunes e Suspensão
+CST de Isenção e Código de Enquadramento: CST=02(Entrada) e 52(Saída) e cEnq na faixa 301 a 399
+CST de Imunidade e Código de Enquadramento: CST=04(Entrada) e 54(Saída) e cEnq na faixa 001 a 099
+CST de Suspensão e Código de Enquadramento: CST=05(Entrada) e 55(Saída) e cEnq na faixa 101 a 199
+Tabela ref. a cEnq na nota técnica em anexo.
+ 
+ 
+Detalhamento do CST no XML
+Obs: Todas as informações que serão descritas abaixo foram tiradas do 
+Manual de Orientação do Contribuinte - versão 5.0 - Março 2012
+ páginas 182 e 183.
+IPI Não Tributado
+Nos campos CST Entrada e CST Saida do cadastro de Produto devem ser utilizados apenas os códigos 01, 02, 03, 04, 51, 52, 53, 54 e 55. 
+Abaixo detalhes das Tags informadas no XML:
+ 
+IPI Tributado
+Nos campos CST Entrada e CST Saida do cadastro de Produto devem ser utilizados apenas os códigos 00, 49, 50 e 99.
+Abaixo detalhes das Tags informadas no XML:
+Conforme já mencionado anteriormente, o Sispetro trabalha com IPI apenas por alíquota, sendo assim, as Tags
+ qUnid
+ e 
+vUnid
+ não serão enviadas.
+Caso seja informado um código de CST diferente dos citados, a informação não será gerada no XML da NFe.
+Outras Tags como por exemplo 
+clEnq
+, 
+CNPJProd
+, 
+cSelo
+ e 
+qSelo
+ não serão enviadas, por não sabermos o cenário que são utilizadas nem os valores válidos.

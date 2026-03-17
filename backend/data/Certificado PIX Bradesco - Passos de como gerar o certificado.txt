@@ -1,0 +1,54 @@
+TITULO: Certificado PIX Bradesco - Passos de como gerar o certificado
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5711265793
+--------------------------------------------------
+none
+Objetivo
+Abaixo os procedimentos para receber as informações de acesso e obter o certificado para utilização da API do PIX
+Passos para obter o certificado em .PFX
+1. Preparação / pré-requisitos
+Verifique se você tem o(s) arquivo(s) .CER fornecido(s) pelo banco.
+Confirme que a chave privada associada ao certificado está disponível e marcada como “exportável”. Se a chave privada não estiver presente ou não for exportável, 
+não será possível gerar o .PFX
+.
+2. Importar o certificado .CER
+Localize o arquivo .CER fornecido pelo banco (por exemplo, em uma pasta local ou rede).
+Pressione 
+Win + R
+, digite 
+mmc
+ e pressione Enter para abrir o console de gerenciamento.
+No menu superior, vá em 
+Arquivo → Adicionar/Remover Snap-in
+Selecione 
+“Certificados”
+, clique em “Adicionar”, escolha 
+“Conta do computador (Computador local)”
+, depois clique em “Concluir” e “OK”.
+No painel esquerdo, vá até 
+Certificados (Computador Local) → Pessoal → Certificados
+.
+Clique com o botão direito em “Certificados” → 
+Todas as Tarefas → Importar
+No assistente de importação, clique em “Avançar”, navegue até o .CER, selecione-o e clique em “Avançar”.
+Quando solicitado, aceite os padrões sugeridos para o repositório (normalmente “Colocar todos os certificados no repositório a seguir”). Clique em “Avançar” e depois em “Concluir”.
+Confirme a mensagem de sucesso; o certificado .CER estará importado no repositório de certificados pessoais do computador.
+2. Exportar para .PFX
+Ainda no console de certificados, localize o certificado importado em 
+Certificados (Computador Local) → Pessoal → Certificados
+.
+Clique com o botão direito sobre ele → 
+Todas as Tarefas → Exportar
+No assistente de exportação:
+Clique em “Avançar”.
+Marque a opção 
+“Sim, exportar a chave privada”
+ e clique em “Avançar”.
+Escolha o formato 
+“Intercâmbio de Informações Pessoais – PKCS #12 (.PFX)”
+ marque “Incluir todos os certificados no caminho de certificação, se possível”; clique em “Avançar”.
+Defina uma senha para proteger o .PFX; clique em “Avançar”.
+Escolha onde salvar o arquivo .PFX; clique em “Avançar” e depois em “Concluir”.
+Verifique a mensagem de que a exportação foi concluída com sucesso, o arquivo .PFX estará pronto para uso pela API.
+Atenção
+A exportação da chave privada só será possível se o certificado tiver sido importado com chave privada disponível. Se não estiver, o Windows não permitirá exportar como .PFX.
+Proteja o .PFX com senha forte e guarde-o em local seguro, pois ele contém a chave privada, essencial para autenticação da API.

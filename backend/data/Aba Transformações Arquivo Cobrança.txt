@@ -1,0 +1,66 @@
+TITULO: Aba Transformações Arquivo Cobrança
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878211202
+--------------------------------------------------
+O SisPetro gera o arquivo de remessa e lê o arquivo de retorno de acordo com os layouts fornecidos pelos Bancos.
+ Em determinados campos, o SisPetro preenche com valor fixo, sendo que para alguns casos, estes campos que são preenchidos com este valor fixo, não atende às exigências do banco.
+ Para substituir os valores de determinados campos nos arquivos de remessa e retorno da cobrança eletrônica, acesse o painel 
+Transformações Arquivo Cobrança:
+Tipo do Arquivo:
+ informar o tipo de arquivo que será alterado. 
+ 
+ 
+Tipo da Linha:
+ indica qual o tipo da linha deseja ser alterado. Para o arquivo de retorno, somente estará disponível a opção 
+Detalhe Segmento P
+. 
+ 
+ 
+Botão Atualiza:
+ traz os dados na grid conforme as opções selecionadas nos campos 
+Tipo do Arquivo
+ e 
+Tipo da Linha
+.
+Botão Inclui:
+ será apresentada a seguinte tela, onde deverão ser informados as posições inicial e final e o conteúdo que deseja ser substituído de acordo com as opções selecionadas nos campos 
+Tipo do Arquivo
+ e 
+Tipo da Linha
+: 
+ 
+ 
+Botão Editar:
+ permite alterar o registro selecionado na grid. Ao clicar no botão será apresentada a seguinte tela: 
+ 
+ 
+Botão Exclui:
+ exclui o registro posicionado na grid.
+Dependendo do CNAB utilizado no Tipo de Cobrança/
+, a transformação segue o layout abaixo:
+CNAB 240
+CNAB 400
+Tipo Cobrança
+Header de Arquivo
+Registro 0
+Cabeçalho Arquivo/Registro 0
+Header de Lote
+-
+Cabeçalho Lote
+Segmento P
+Registro 1
+Detalhe Segmento P/Registro 1
+Segmento Q
+Registro 2
+Detalhe Segmento Q/Registro 2
+Segmento R
+-
+Detalhe Segmento R
+Segmento S
+Registro 4
+Detalhe Segmento S/Registro 4
+Footer de Lote
+-
+Rodapé Lote
+Footer de Arquivo
+Registro 9
+Rodapé Arquivo/Registro 9

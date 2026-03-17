@@ -1,0 +1,203 @@
+TITULO: Tabela de Produtos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210178
+--------------------------------------------------
+none
+Objetivo
+No SisPetro, todos os itens movimentados pela empresa devem ser cadastrados como produtos, associados a tabelas fiscais, contábeis, de unidades de medida, classificação e natureza de operação. O cadastro é feito pelo menu Arquivos / Produtos, onde são definidos código, descrições, tipo, classificação, unidades, tributos (IPI e ICMS), pesos, moeda e regras de cálculo. Também são configuradas contas contábeis, controles de estoque, permissões de venda, participação em fechamento de estoque e fatores de conversão. O sistema permite complementar o cadastro com diversos painéis adicionais, além de duplicar produtos para agilizar cadastros semelhantes. Após o cadastro, é possível consultar saldos por empresa e depósito, bem como acompanhar as movimentações do produto.
+Todos os itens que entram e saem da Empresa, de matéria prima básica ao produto final passando por produtos consumidos (como material de escritório, automóveis, etc) são considerados Produtos e devem ser cadastrados como tal.
+Ao realizar o cadastro de um 
+Produto
+, devemos fazer sua associação com as seguintes tabelas do SisPetro:
+Tabela de Classificação de Produtos
+:
+ base, para revenda, materiais diversos, etc.
+Tabela de Códigos de Unidade de medida
+ do produto: quilo, litro, bloco, caixa, peça, pacote, etc.
+Tabela de Códigos de IPI
+, ao código do IPI está associada a alíquota aplicada.
+Tabela de Código de ICMS
+, contém a combinação código de ICMS+UF = alíquota aplicada.
+Tabela de Natureza de Operação
+ - quando se tratar de produto para venda.
+Tabela de Moedas
+Tabela de Contas Contábeis
+Navegação
+A manutenção do cadastro de Produtos no SisPetro é feita através do Menu 
+Arquivos / Produtos
+:
+Itens inativos agora ficarão destacados em 
+vermelho
+É possível deixar como obrigatório o preenchimento de campos na inclusão e na edição dos produtos. Para isso, basta acionar o suporte da Futura solicitando o bloqueio dos campos desejados. Para visualizar os campos obrigatórios basta acionar a tabela de 
+Dicionário de Dados
+.
+Acione o botão de 
+inclusão
+ de novo registro.
+Aba Detalhes
+O SisPetro a tela que permite o preenchimento dos dados de um novo Produto, painel 
+Detalhes / Ficha Produto
+.
+Nesta tela devem ser cadastrados:
+Código do Produto:
+ o código do produto deve ser único, isto é, não poderá se repetir, sendo gerado automaticamente pelo SisPetro conforme configuração pré-definida no Menu 
+Ferramentas / Sistema / painel Estoque / Código de Produto Atual
+, sendo carregado para este campo no momento da confirmação de uma inserção o valor informado no parâmetro 
+Código de Produto Atual.
+(Ex. Está definido nos parametros da empresa "Código de Produto Atual", o valor de 200, ao inserirmos um novo produto será gerado automaticamente o código 201).
+Descrição completa 
+- utilizado para informar a descrição completa do nome do produto.
+Descrição para Nota Fiscal - 
+utilizado para informar a descrição do nome do produto que será apresentada na nota fiscal.
+Tipo do Produto:
+ simples, composto, serviços, imobilizado, etc. Estas definições do Tipo, não seguem nenhuma regra no Sispetro, salvo o tipo 
+Combustível
+, pois nas telas de Consulta/Relatório de Estoque, pode-se filtrar o tipo, entretanto esta opção é apenas para filtrar somente combustíveis ou não. Além disso, o uso das Portarias de Entrada e Saída e Tanques (estoque físico) é restrito para esse tipo de produto. Todas outras opções, devem ser definidas pelo próprio usuário afim de auxiliá-lo na classificação dos produtos, podendo ser usado como filtro em um eventual relatório.
+Para produtos que são aditivos e que não deverão aparecer no Registro 88 da GRF, este campo deverá ser configurado para qualquer tipo exceto 
+Combustível
+, pois irá fazer com que o registro seja gerado para o produto. Os demais registros da GRF serão gerados normalmente para o produto aditivo.
+Classificação do Produto:
+ produto para revenda, produto base, etc. Após selecionar o código da classificação do produto, automaticamente serão preenchidos as Contas Contábeis, de acordo com o que estiver no cadastro da 
+Tabela de Classificação de Produtos
+.
+Desc. Reduz.
+: descrição reduzida do nome do produto. Utilizada principalmente na impressão de Ordem de Carregamento compartimentada do SispetroWeb. Para esses casos, se o campo não estiver preenchido, o SisPetro apresentará o código do produto.
+Nome Usual:
+ Nome usual do produto, para utilização nas telas de pesquisa do Sispetro.
+Cód. Unidade:
+ informação da unidade de medida do produto - LT, KG, peça, etc.
+Botão Unid. Adic.:
+ possibilita cadastrar outras as unidades de medida específicas desse produto e seus respectivos fatores de conversão. Para maiores informações veja o tópico do Help: 
+Várias unidades de compra para um mesmo produto
+Marca 
+- campo para informar a marca do produto.
+Qtde por número de série:
+ indica o número de produtos que poderão ter o mesmo número de série.
+Quantidade Mínima:
+ neste campo poderá ser informada a quantidade mínima em estoque para o produto, sendo utilizada apenas para fins informativos ao usuário.
+C.S.T.:
+ Código de Situação Tributária do produto, utilizado principalmente para geração da mídia do Sintegra.
+Peso bruto 
+- informação do peso bruto do produto
+Peso líquido 
+- informação do peso líquido do produto
+Qtde Volume: 
+Quando informado este campo, e não preenchido na nota Fiscal o campo Qtde Volumes, esse conteúdo será utilizado para fazer o cálculo da quantidade automaticamente. Veja maiores informações em 
+Preenchimento de Dados na Nota Fiscal
+.
+Moeda:
+ utilizada na compra/venda deste produto.
+Cálculo do Peso: 
+indica se o peso será calculado pelo Cadastro de Produto ou se deve ser utilizada a Densidade cadastrada na NF. Podendo ser utilizada as seguintes opções:
+Utiliza sempre o peso informado no Cadastro do Produto: 
+sempre utilizará o peso informado no produto
+Utiliza sempre a densidade informada na Nota Fiscal: 
+utiliza a densidade informada na nota fiscal para cálculo do peso do produto
+Utiliza a dens. na NF. Na ausência usa o peso do Produto: 
+utiliza a densidade informada na nota fiscal para cálculo do peso do produto, porém caso não tenha, utiliza o peso direto do cadastro de produtos.
+Quadro Informações Sobre o IPI
+Código IPI:
+ selecione da tabela de códigos IPI, aquele que associar a alíquota que deve ser aplicada ao produto.
+Quadro Entrada
+CST:
+ No campo de CST é informado o código da CST do IPI para notas de Entrada.
+Cód. Enq.: 
+Nesse campo é informado o código de enquadramento do IPI, para notas de Entrada.
+Quadro Saída
+CST:
+ No campo de CST é informado o código da CST do IPI para notas de Saída.
+Cód. Enq.: 
+Nesse campo é informado o código de enquadramento do IPI, para notas de Saída.
+Código ICMS:
+ este código é muito importante, pois o SisPetro busca através deste código + UF origem, a alíquota de ICMS próprio e deste código + UF destino, a alíquota de substituição.
+Os campos de 
+Localização - principal, complementar e sub localização -
+ são utilizados para localizar o produto em estoque. Eles são complementares, onde, por exemplo, pode-se informar o setor no campo de localização principal, a prateleira no de localização complementar...
+Aplicação -
+ informação da utilização do produto. Normalmente utilizado para não combustíveis.
+Código de Exportação:
+ utilizado para identificar o produto na 
+Automação da View
+. Caso não utilize este tipo de automação pode ser utilizado para fins próprios da empresa.
+Conta Contábil da Receita de Vendas
+ associada ao produto.
+Conta Contábil do Custo de Vendas
+ associada ao produto, utilizada para Contabilização do 
+CMV
+.
+Conta Contábil de Estoque
+ associada ao produto, que é utilizada quando o produto é adquirido para revenda. Utilizada também para Contabilização do 
+CMV
+.
+Conta Contábil de Despesa
+ associada ao produto, que é utilizada quando o produto for adquirido para consumo.
+Sai na lista de preços (permite venda):
+ indica se este produto fará parte da lista de preços, participando assim de seus controles e também impede a venda do produto por vendedor. Ou seja, se na configuração do usuário, 
+Ferramentas / Usuário / painel Vendas
+, a opção 
+Vende somente produtos que saem na lista de preço
+ estiver marcada, o vendedor somente poderá fazer pedido de venda para os produtos que estejam com essa opção 
+Sai na lista de preços (permite venda)
+ marcada, caso contrário, se essa opção estiver desmarcada e o vendedor tiver na sua configuração do usuário marcada a opção citada logo acima, o mesmo não conseguirá incluir o produto no 
+Pedido de Venda
+. 
+Os tipos de produtos apresentados nesta tela podem ser definidos na 
+Configuração de Sistemas - Painel Controle Preços
+ no campo 
+Apresentação dos Produtos
+.
+Ativo:
+ se o produto está disponível para utilização no SisPetro.
+Permitido para venda: 
+se habilitado este produto poderá ser utilizado para venda.
+Controla Cota:
+ se o produto controla conta para utilização no Pedido Compra.
+Altera preço sugestão quando custo menor que atual:
+ em desuso.
+Participa do Fechamento de Estoque:
+ indica se o produto participará do Fechamento de Estoque (tanto por depósito como por produto).
+Tipo Fator de Conversão: através desse campo o usuário irá definir em qual categoria o produto fará parte para cálculo do fator de conversão: Produtos Claros (álcool), Produtos escuros ou Não definido. Para poder configurar esse campo o usuário precisa ter o perfil localizado nas configurações do usuário, Menu Ferramentas / Usuário / Produtos, marcado:
+Permite Venda Direta: 
+é utilizada para que este produto possa ser utilizado exclusivamente em 
+Pedidos de Venda Direta
+, não ficando disponível para uso no Pedido de Venda normal.
+É importante o usuário atentar que o SisPetro só conseguirá calcular corretamente o fator de conversão se o produto estiver devidamente configurado no campo 
+Tipo Fator de Conversão
+. Para mais informações sobre cálculo de fator de conversão, ver 
+Fator de Conversão
+.
+Finalizado o preenchimento dos dados nesta tela, acione o botão 
+OK
+ para que o SisPetro atualize o cadastro.
+O SisPetro permite o cadastramento de outros dados considerados importantes. Os painéis do menu inferior da tela permitem acionar as telas para a entrada destes dados.
+Este cadastro é composto pelos seguintes painéis:
+Dados Adicionais
+Natureza de Operação - Produto
+Bloqueios
+Temperatura - Densidade
+Produtos Correlatos
+Composição
+Margem Subst. Tributária
+Características
+DPMP
+Custos para Venda/Transf.
+Venda Município
+Crédito Provisório
+Contas por Depósito
+Finalizado o cadastro dos dados, acione o botão 
+OK
+ para efetivar a inclusão.
+O SisPetro também dispõe de um botão que duplica o cadastro de produtos. Ele serve para facilitar quando for cadastrar um produto que seja semelhante a outro já cadastrado. Para fazer isso, selecione o produto que já estiver cadastrado e clique no botão 
+copiar produto
+, ele irá fazer uma cópia do produto já cadastrado mas com código diferente.
+Caso o SisPetro não tenha preenchido no produto de origem as tabelas que guardam o histórico da composição,
+ 
+será mostrada uma mensagem de erro similar a abaixo (O produto de origem é um produto composto....)
+Para prosseguir com a cópia, vá até a aba 
+Composição
+ 
+faça qualquer alteração nos dados (pode voltar depois para mesma informação que estava antes) e salve-as. Assim as tabelas que guardam o histórico da composição serão preenchidas e a cópia pode ser feita sem problemas
+Nessa tela de produtos também é possível visualizar movimentações de determinado produto. Para mais informações, ver 
+Consultas
+.
+Quadro de Saldo do Produto
+Nos quadros abaixo serão apresentados o saldo do produto por Empresa e por Depósito. Nos dois quadros só são apresentados o saldo de empresas que se encontram ativas.

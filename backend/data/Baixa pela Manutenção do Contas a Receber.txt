@@ -1,0 +1,118 @@
+TITULO: Baixa pela Manutenção do Contas a Receber
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701678
+--------------------------------------------------
+Para "baixar" um título no contas a receber, o usuário deve acessar o menu principal, as opções - 
+Movimentação / Financeiro / Contas a Receber / Manutenção de Lançamentos
+.
+O usuário deve ter certeza que os títulos mostrados na manutenção do Contas a Receber, são títulos pendentes. Para isso, deve-se verificar se o campo 
+"Tipo"
+ é igual a 
+"Pendentes"
+.
+Caso contrário, deve-se clique na seta à direita e alterar o conteúdo para "Pendentes".
+Selecione um registro da Lista de Contas a receber, clicando com o mouse sobre a linha correspondente. O sistema permite que seja marcado mais de um título, caso seja uma baixa múltipla (vários títulos). Para selecionar mais um título, basta manter apertada a tecla Control e ir clicando nos lançamentos que deseja selecionar para a baixa.
+Se estiver selecionando vários títulos de vendor, somente será permitida a baixa desses títulos se a conta de vendor for a mesma para eles. Na conta contábil de baixa será preenchida a conta contábil de vendor.
+Clicando no botão 
+"Baixa"
+, no menu superior da tela, o sistema abrirá a tela de Baixa.
+No campo 
+CC Destino/Origem
+, o usuário deve teclar <Enter> e selecionar a conta contábil destino na lista apresentada, ou seja, a conta para onde se destina o pagamento do cliente, normalmente uma conta do banco onde foi depositado o cheque ou realizado o pagamento, enfim, para onde o montante foi depositado. É possível filtrar para que apareçam apenas contas do tipo Banco nesse campo. Para isso, deve-se marcar em Ferramentas / Sistema / painel Financeiro a opção:
+Data Baixa:
+ É a data em que foi realizada a baixa (o Sistema sugere a data atual).
+Data Fluxo:
+ É a data que será considerada nos extratos do cliente e banco para este movimento. Assim, por exemplo, quando a Baixa for através de cheque pré-datado, deve-se colocar a data de depósito do cheque neste campo para que o Sistema considere no extrato bancário esta data. Caso necessário digite o número do documento que identifique a baixa (número do cheque, DOC, etc).
+Se a baixa for em valor diferente do apresentado na tela, altere, conforme necessidade, os campos:
+Valor Desconto:
+ Valor descontado incondicionalmente do título, isto é, num título de 100,00 foi concedido um desconto de 10,00. Assim, o cliente só irá pagar 90,00 (valor que será recebido pela empresa) embora o título seja de 100,00 (valor que será movimentado na conta do cliente).
+Valor Acréscimo:
+ Valor que o cliente irá pagar a mais pela liquidação do título (normalmente juros e outras despesas não incluídas no valor do título original), sendo permitida sua alteração conforme permissão do usuário (quando o campo "Pode alterar acréscimo na baixa" estiver marcado para o usuário conectado esse poderá alterar o valor do acréscimo).
+Valor Movimento:
+ Valor que será recebido pela empresa. Normalmente é a soma do valor do título mais acréscimos menos descontos.
+Vale lembrar, que no caso de títulos vinculados a 
+[
+adiantamento quantificado de clientes], não será possível informar nenhum destes valores, pois a baixa deverá ser feita exclusivamente com o adiantamento ao qual ele foi vinculado.
+Não é permitido que finalize a baixa se alguns dos itens da baixa não tiver sido informado. Portanto, deve-se preencher o valor do desconto ou do acréscimo ou do movimento, ou ainda, o valor do crédito utilizado. Esse último só será preenchido quando o título for vinculado a um adiantamento (crédito).
+Restrito
+: Quando a baixa é realizada, mas passou por algum tipo de cobrança e se que registrar a ocorrência. 
+Baixa com Restrição de Clientes em Atraso - Sispetro - KB Futura
+Caso o pagamento for efetuado em cheque, clique no campo 
+"Baixa em cheque"
+ e entre com os dados solicitados para o cheque. Esta ação irá lançar o cheque no cadastro de cheques recebidos vinculando-o a esta baixa. É possível configurar para que automaticamente o sistema marque o campo 
+"Bloqueado"
+, fazendo uma baixa bloqueada. Assim o usuário terá apenas que se preocupar com a data do Bom Para.
+Para isso, deve-se configurar o perfil da empresa, menu Ferramentas / Sistema / Financeiro a opção:
+Posteriormente, poderemos pesquisar este cheque na 
+Manutenção de Cheques
+ para ver as baixas relacionadas a ele. Ou no caso de serem vários cheques utilize o botão
+Maiores detalhes sobre seleção/inclusão dos cheques no tópico 
+ e para desbloquear um ou mais títulos o tópico 
+.
+Painel Geral:
+Neste painel podemos utilizar o crédito de uma entidade, através da opção 
+"Utilização Crédito"
+Quando um cliente tem um crédito anterior (gerado por uma Nota Fiscal de Devolução, por exemplo), o usuário pode utilizar este crédito para baixar títulos desta mesma entidade. Sempre que a entidade possuir crédito anterior, no momento da baixa, os campos 
+"#Recibo"
+ e 
+"Valor"
+, que estão dentro do grupo "Utilização Crédito", estarão habilitados.
+O Sistema abrirá uma tela com os créditos, mostrando seus respectivos saldos, para que o usuário possa escolher um deles. Mais detalhes no tópico 
+Utilização do Crédito Cliente (Adiantamento)
+.
+Caso queira, nos recebimentos em cheque, o usuário pode bloquear o lançamento clicando no campo "Bloqueado" e indicando em seguida, a data de desbloqueio no campo " Data Desbloqueio" , o sistema sugere dois dias após a data de fluxo do mesmo. Este valor será somado no campo 
+"Valor Bloqueado"
+ no cadastro do cliente e sempre apresentado em consultas de clientes como valor bloqueado, informando que embora este valor tenha saído das pendências do cliente, porque foi baixado, ele ainda está sob suspeita, pois não foi inteiramente liquidado pelo Banco ficando bloqueado.
+É necessário que o usuário informe o 
+.
+Para que o sistema já calcule o valor de acréscimo do título, de acordo com a taxa de juros cadastrada para ele, o vencimento e a data de fluxo informada, clique no botão:
+Sendo lançado na coluna "Acréscimo" o valor do juros calculado e agregado ao valor do Movimento. veja maiores detalhes de como é realizado o calculo dos juros em 
+Calculo de Juros em Títulos
+Existe um perfil definido na empresa ("Calcula acréscimo automaticamente na baixa de Contas a Receber" no painel "Financeiro") que tem por finalidade realizar o cálculo do Juros automaticamente ao acessar a tela de baixa quando marcado, não sendo necessário que o usuário pressione o botão "Calc. Juros" para calcular os títulos atrasados, que no caso da empresa realizar o cálculo automaticamente, esse procedimento de cálculo será realizado ao abrir a tela de baixa. Sendo importante atentar que ao ser alterada a data de Fluxo Caixa, o valor do acréscimo será recalculado em função desta nova data.
+Painel Histórico:
+Neste painel, o usuário deve informar o histórico do "cabeçalho" da baixa.
+Conforme a configuração do sistema, o código do histórico já será sugerido e consequentemente as informações adicionais, porém, isso não impede que o usuário possa trocar o campo "Código do histórico, os campos "Histórico" e "Informações Adicionais", ou alterá-los. Uma vez que o histórico a ser utilizado permita a utilização de fórmula, o usuário poderá modificar as fórmulas tanto do histórico quanto das informações adicionais. Maiores informações no tópico 
+Tabela Histórico Padrão
+.
+Painel Histórico dos itens:
+Conforme mencionado anteriormente, o sistema permite que o usuário faça uma baixa, selecionando um ou mais de um título. Para as baixas que possuem mais de um título, o usuário pode determinar históricos diferentes para cada item da baixa.
+Na tela acima, só há um item, ou seja, a baixa foi feita para apenas um título.
+Neste outro exemplo, há três títulos que estão sendo quitados por essa baixa, então o sistema sugere o histórico padrão (configurado na empresa) para cada item da baixa.
+Caso queira, o usuário pode alterar o histórico de cada item dessa baixa, selecionando o item desejado e clicando no botão botão "Edita Histórico".
+O sistema abrirá a tela de histórico do item da baixa, permitindo ao usuário fazer a alteração do histórico e das informações adicionais.
+Caso o histórico esteja configurado, é possível alterar ou criar fórmulas dentro dessa tela. Para gravar as alterações o usuário deve clicar no botão "Salvar", caso contrário o botão "Cancela" aborta o processo.
+Para poder alterar os itens do histórico, o usuário precisa configurar o perfil localizado no menu 
+Ferramentas / Usuário / Contabilidade
+:
+O usuário pode copiar o histórico e informações adicionais que foi configurado em um item para todos os demais, utilizando o botão "Copia histórico".
+Painel Contabilização:
+Neste painel, serão informados as contas CC Desconto e CC Acréscimo, além do código de contabilização.
+As contas 
+CC Desconto
+ e 
+CC Acréscimo
+ serão movimentadas caso haja desconto ou acréscimo digitado pelo usuário. A opção 
+"Pode Contabilizar"
+, só estará visível para as empresas que utilizam o módulo contábil. Veja mais detalhes em 
+Contabilização real durante baixas
+. É possível configurar no perfil da empresa para que o 
+código de contabilização
+ seja sugerido na tela, facilitando e evitando erros de digitação no momento da baixa. E o mesmo pode ser alterado, caso for necessário.
+Para configurar a sugestão do código de contabilização da tela de Baixa, deve-se ir no Menu 
+Ferramentas / Sistema / Contab.Real
+ e selecionar a seguinte opção:
+O botão ao lado da opção é o botão chamado 
+Limpa Dados
+, caso for necessário limpar o dado informado e deixar a opção "vazia", basta dar um clique que a opção ficará sem dado e não será mais sugerido nenhum código na tela de Baixa.
+Vide tópico 
+Consolidação de Lotes
+ para obter maiores detalhes sobre a consolidação do lote no momento da baixa.
+Painel Observações:
+Neste painel, informar as observações da baixa.
+Painel GNRE
+Tal painel serve para o usuário digitar ou editar a linha digitável da GNRE, para maiores informações sobre GNRE vide o help 
+Documentos de Arrecadação SPED
+Finalize a Baixa acionando o botão OK.
+O Sistema questiona sobre a 
+impressão do documento
+ de emissão de baixa.
+Fica a critério do usuário emitir ou não o documento neste momento. O Sistema emitirá um relatório contendo o resumo da baixa (todos os itens baixados, valores de descontos, acréscimos, etc).

@@ -1,0 +1,404 @@
+TITULO: Versão 7.12
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2898657436
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 15/12/2010 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 17/01/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd711.sql (cmd2511 a cmd2552) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 20 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 16 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 04 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Relatórios 
+
+
+DLLs
+
+
+
+
+
+
+ PMMPagamento.Rtm 
+
+
+SPED-EFD.dll
+
+
+
+
+
+
+ NatOpSerieNF.Rtm 
+
+
+ 
+
+
+
+
+
+
+Importante!! Licenciamento!
+Nesta versão houve alterações na utilização do Sispetro por máquinas não licenciadas. 
+Somente uma máquina não licenciada por vez poderá utilizar o Sispetro
+, para que outra máquina não licenciada acesse é necessário que a anterior se desconecte. Além disso, foi 
+diminuído o número de vezes e período que uma máquina pode utilizar o Sispetro sem estar licenciada
+. 
+Programe a atualização das máquinas para que o processo de licenciamento possa ser solicitado sem problemas.
+
+
+Nas próximas versões implementaremos o faturamento simultâneo no SisPetro. Para que esse processo seja possível, precisaremos fazer algumas alterações/validações no cadastro e já estamos implementando essas alterações. Por favor, leiam com atenção os itens alterados do Faturamento e já saibam quais serão essas validações.
+
+
+Geral
+
+
+
+
+Controle de Importação
+
+
+Incluímos no SisPetro ferramentas para controle do processo de importação. Com isso o usuário poderá saber a qualquer momentos quais as pendências e em que status se encontra o processo de importação. Esses controles estarão distribuídos nos módulos de compras, faturamento e financeiro. DIVERSOS (CCF 11017)
+
+
+Erro ao Excluir Dois LayOut's de Usuário Seguidos
+
+Nas consultas tridimensionais do SisPetro, com a opção do usuário de salvar diversos layout's, caso o usuário tentasse excluir dois layout's seguidos, era gerada uma mensagem de erro e o segundo layout não era excluído. A partir dessa versão esse problema não ocorrerá mais. 
+UPA (CCF 11462)
+
+
+
+
+Compras
+
+
+
+
+Seleção do Depósito Virtual no PMM
+
+
+Na tela de Pedido de Movimentação de Material (PMM) alteramos os campos de "Depósito" e "Depósito Destino" para que filtrem apenas os depósitos disponíveis.
+ 
+Dessa forma, não será possível selecionar os depósitos virtuais.
+ 
+ALP (CCF 11476)
+
+
+Tipo de PMM
+
+
+Na inclusão de um PMM, a partir dessa versão poderemos informar o seu tipo para podermos criar filtros e relatórios com base nessa informação. Na manutenção dos cadastros disponibilizamos uma manutenção para esses tipos.
+Help:
+ 
+Tipos de PMM
+ 
+UPA (CCF 11017)
+
+
+Processos e Etapas no PMM
+
+
+Para podemos controlar a importação, criamos mais dois cadastros de Processos e Etapas de Processos, esses cadastros estão disponíveis na manutenção de cadastros e poderão ser associados a PMM, Títulos do Contas a Pagar e Notas de Entrada.
+Help:
+ 
+Processos de Importação
+ 
+Help:
+ 
+Etapas de Importação
+ 
+UPA (CCF 11017)
+
+
+
+
+Contabilidade
+
+
+
+
+Contabilização Auxiliar nas Notas Fiscais
+
+Revertido para permitir que seja desabilitado o Crédito e Débito na configuração da Contabilização na Natureza de Operação, o qual seria complementado pela contabilização auxiliar (desdobramento de Contas). 
+Importante: No caso de usar a contabilização auxiliar com valores além da Nota Fiscal o rateio das Despesas nos relatórios de Saídas do Banco (Saídas Banco/Origem, Extrato Bancário, etc) considerará todas as contas informadas em débito.
+ 
+GSN (CCF 11561)
+
+
+
+
+Estoques
+
+
+
+
+Possibilidade de Salvar os Layouts de Usuário nas Consultas de Estoque que Envolvem Depósito
+
+
+Nas consultas de disponibilidade e saldo de estoques, foi habilitada a opção de salvar o layout dos dados exibidos por usuário.
+ 
+Com esse recurso será possível montar layouts, filtrando por depósitos específicos e com isso, exibir por exemplo o total de produtos de um determinado grupo de depósitos, como é feito quando se é utilizado o Depósito Virtual.
+ 
+UPA (CCF 11462)
+
+
+Produto Correlatos
+
+
+No cadastro de produtos foi disponibilizada uma nova aba permitindo o cadastro de produtos correlatos.
+ 
+Um produto não pode ser correlato dele mesmo.
+ 
+Help:
+ 
+Produtos Correlatos
+ 
+ALP (CCF 11202)
+
+
+Fabricação de Produtos
+
+
+Nessa versão implementamos o processo de Fabricação de Produtos, para isso criamos os módulos de
+ 
+Formulação de Produtos
+ 
+e
+ 
+Ordem de Fabricação. Na Formulação de Produtos, informamos o produto que poderemos fabricar e qual a sua composição (matéria-prima a ser utilizada e percentual de cada produto). No módulo de Ordem de Fabricação, poderemos produzir os produtos informados na Formulação de Produtos. As ordens de fabricação irão movimentar os estoques dos produtos fabricados e dos produtos utilizados para fabricação.
+ 
+Outro recurso implementado para atender a fabricação de produtos foi a utilização de produtos correlatos que são armazenados no mesmo tanque, com isso, o usuário poderá definir qual produto será utilizado e de qual tanque será gerada a movimentação de estoques. 
+Help:
+ 
+Manutenção de Formulação de Produtos
+ 
+Help:
+ 
+Manutenção de Ordem de Fabricação
+ 
+DIVERSOS (CCF 11046, 11202)
+
+
+Ajuste de Custo Médio de Venda (CMV)
+
+
+Foi criada a tela de Ajuste de CMV, onde os volumes e o valor do CMV serão informados para um determinado tanque.
+ 
+Essas informações podem ser visualizadas em uma nova tela, também disponibilizada nessa versão. É possível visualizar o saldo dos tanques e as leituras e movimentações efetuadas.
+ 
+Help:
+ 
+Ajuste de CMV Estoque Físico
+ 
+ALP (CCF 11202)
+
+
+Carregamento Próprio e Descarga Própria
+
+
+Na tela de Ordem de Carregamento (OC), o tipo de OC "Avulsa" foi desmembrado em dois tipos: "Carregamento Próprio" e "Descarga Própria".
+ 
+Ambos terão as mesmas características, com uma diferença entre elas, onde a "Descarga Própria" não obriga a realizar uma OC destino.
+ 
+Help:
+ 
+Manutenção de Ordem de Carregamento
+ 
+Help:
+ 
+Como emitir Ordem de Carregamento
+ 
+Help:
+ 
+Movimentações de Estoque via OC
+ 
+ALP (CCF 11202)
+
+
+
+
+Faturamento
+
+
+
+
+Controle do Tipo de Emissão na Emissão da Nota Fiscal
+
+
+A partir dessa versão estaremos validando o tipo de emissão da série da nota fiscal contra o tipo de emissão da natureza de operação selecionada, essa validação nessa versão apenas avisará ao usuário e solicitará a confirmação para continuar.
+ 
+A partir da próxima versão, essa situação será bloqueada e o usuário deverá ajustar o tipo de emissão da séria ao tipo de emissão da natureza.
+ 
+Essa validação é necessária para iniciarmos o processo de faturamento simultâneo que será implementado nas próximas versões.
+ 
+Utilize o relatório NatOPSerieNF.rtm no Gerenciador de Relatórios para fazer a conferência.
+UPA (CCF 11594)
+
+
+Não Fecha a Tela de Emissão da Nota Quando o RTM da Nota não é Localizado
+
+Na impressão da nota fiscal após a sua emissão, se o rtm da nota não for encontrado, o SisPetro gera um erro para avisar o usuário mas depois disso não consegue mais fechar a tela de nota através do botão finaliza. Esse problema está corrigido e nessas situações, será utilizado o layout padrão da nota fiscal. 
+UPA (CCF 11628)
+
+
+Nota Fiscal Vínculada a PMM Gerando Contas a Pagar em Moeda que Utiliza Conversão
+
+
+A geração do contas a pagar das notas vínculadas a PMM a partir dessa versão irão utilizar a mesma moeda informada no PMM ou seja, se for dada entrada em uma nota com um PMM em dólar, o contas a pagar gerado para essa nota também será em dólar. UPA (CCF 11017)
+
+
+Total de Pagamentos do PMM para Fórmula do Custo Médio
+
+
+Nos itens da nota foi disponibilizado o campo Total de Pagamentos do PMM, nesse campo, será gravado o total de pagamentos feito ao PMM informado até aquele momento para que essa informação fique disponível para a formulação do custo médio.
+ 
+Essa informação não será alterada posteriormente e o valor gravado nesse campo será a posição atual, mesmo o usuário incluíndo lançamentos após a emissão da nota esse valor não será alterado.
+ 
+UPA (CCF 11017)
+
+
+
+
+Financeiro
+
+
+
+
+Vínculo de Processo e Etapa de PMM no Contas a Pagar
+
+
+No cadastro de um título de Contas a Pagar foi disponibilizada uma opção que permite vincular o título a um Processo ou Etapa de PMM.
+ 
+Não é permitido vincular o título a um Processo e Etapa ao mesmo tempo.
+ 
+Help:
+ 
+Inclusão do Contas a Pagar manual
+ 
+ALP (CCF 11017)
+
+
+Relatório de Pagamentos de PMM
+
+
+Nessa versão foi criado um relatório, disponível no Menu "Relatórios-Movimentação Material", onde será possível listar os pagamentos de um título de Contas a Pagar que foi vinculado a um Processo ou Etapa de PMM.
+ 
+É necessário atualizar o arquivo PMMPagamento.Rtm.
+ 
+Help:
+ 
+Pagamentos de PMM
+ 
+ALP (CCF 11017)
+
+
+Adiantamentos de Fornecedores com Moeda que Utiliza Conversão
+
+
+Assim como foi feito no contas a pagar, a partir dessa versão será possível incluir um adiantamento a fornecedor utilizando moeda de conversão.
+ 
+Esses adiantamentos só poderão ser utilizados para baixar títulos na mesma moeda ou seja, um adiantamento em dólar, só poderá ser utilizado para baixar títulos em dólar.
+ 
+UPA (CCF 11017)
+
+
+
+
+Fiscal
+
+
+
+
+SPED-EFD - Registros do bloco 0 não gerados
+
+Corrigido erro de não gerar no arquivo texto os registros dos blocos 0. 
+Necessário atualizar a DLL SPED-EFD no caminho indicado no Conjunto de Dados.
+ 
+GSN (CCF 11472)
+

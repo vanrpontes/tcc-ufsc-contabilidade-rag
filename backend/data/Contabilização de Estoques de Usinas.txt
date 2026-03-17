@@ -1,0 +1,67 @@
+TITULO: Contabilização de Estoques de Usinas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918975030
+--------------------------------------------------
+Este tópico trata da contabilização de estoques de compras feitas nas usinas.
+Nesse processo, a usina emite uma nota fiscal de venda para entrega futura (nota fiscal mãe), que gera contas a pagar e não movimenta estoques. Não tem ICMS.
+Quando a distribuidora retira o produto, a usina emite uma nota fiscal de simples remessa, que não gera contas a pagar e movimenta estoques . Tem ICMS.
+Contabilizando a nota fiscal de venda para entrega futura - gera contas a pagar e não movimenta estoques
+DC
+Conta
+Valor
+D
+Conta de despesa do fornecedor
+Valor da NF
+C
+Entidade (fornecedor)
+Valor da NF
+ 
+Contabilizando a nota fiscal de simples remessa - não gera contas a pagar e movimenta estoques
+DC
+Conta
+Valor
+D
+Conta de estoque
+Valor da NF
+C
+Conta de despesa do fornecedor
+Valor da NF
+ou
+Contabilizando a nota fiscal de simples remessa - não gera contas a pagar e movimenta estoques
+DC
+Conta
+Valor
+D
+Conta de estoque
+Valor da NF 
+ Impostos
+D
+Despesas com impostos
+Valor dos impostos
+C
+Conta de despesa do fornecedor
+Valor da NF
+Nota: 
+cada empresa pode adotar diferentes critérios para contabilizar estoques. As contabilizações de estoques acima são meramente ilustrativas.
+No lugar da conta de Despesa do Fornecedor, a empresa pode utilizar a conta do Estoque em Terceiros específica para esse fornecedor ou qualquer conta transitória que o contador indique para controlar esse estoque a ser retirado.
+ 
+Contabilizando o adiantamento - caso tenha
+DC
+Conta
+Valor
+D
+Adiantamento a Fornecedor
+Valor do Adiantamento
+C
+Conta Banco ou Caixa
+Valor do Adiantamento
+ 
+Contabilizando a baixa do título a pagar gerado pela nota fiscal mãe
+DC
+Conta
+Valor
+D
+Entidade (fornecedor)
+Valor da NF
+C
+Adiantamento a Fornecedor
+Valor da NF

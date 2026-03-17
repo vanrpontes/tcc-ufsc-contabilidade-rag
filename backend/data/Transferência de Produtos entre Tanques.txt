@@ -1,0 +1,67 @@
+TITULO: Transferência de Produtos entre Tanques
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899904
+--------------------------------------------------
+A tela de Transferência de Produtos entre Tanques permite transferir determinado produto de um tanque para outro, e eventualmente de produtos diferentes, de empresas diferentes e com quantidades diferentes.
+Nessa mesma tela pode-se realizar também o 
+Movimento entre Filiais e/ou Congêneres
+ de um determinado depósito e produto gerando a movimentação no estoque escritural e no estoque físico (caso o depósito seja base própria). O objetivo de ambos os processos utilizarem a mesma tela é simplificar e agilizar o processo de transferência de estoque entre empresas de um mesmo depósito.
+Essa tela somente deve ser usada para Armazenadora e para Distribuidora que tem Base Propria
+ 
+ 
+ 
+ 
+A transferência entre produtos entre tanques pode ser acessada pelo menu 
+Movimentação / Base / Transferência de Produtos entre Tanques
+ ou pela manutenção de tanques através do botão Transfere que somente estará habilitado por usuário de acordo com o acesso ao menu.
+ 
+ 
+Poderá ser configurado no perfil do usuário (
+Usuários / Perfil / Carregamento / Transferência de Produtos entre Tanques
+) a permissão para realizar transferências não somente entre tanques, mas também para transferir produto entre empresas diferentes, de produtos diferentes e até mesmo com quantidades diferentes de um tanque para o outro.
+O Movimento entre Filiais/Congêneres também pode ser acessada através do Menu 
+Movimentação / Estoque / Movimento entre Filiais/Congêneres
+. Este recurso deve ser utilizado quando necessite somente movimentar o estoque de uma empresa para outra, pois este processo não irá gerar informações para as demais áreas de controladoria, faturamento, financeiro, transportes, etc. Portanto esta tela não irá substituir o processo de transferência entre empresas através de Ordem de Carregamento que é normalmente utilizado quando entre depósitos diferentes.
+Para saber como emitir a ordem de Carregamento de Transferências entre Empresas, veja o tópico Transferências Efetuadas para Outra Empresa.
+Será necessário informar na tela, caso for Transferência de Produtos entre Tanques, um deposito que seja base própria, a data de movimento, um histórico da movimentação e as informações referentes aos tanques de origem e de destino.
+Ao informar o histórico é importante se atentar as configurações do mesmo referente a participação no CMV e no DPMP, tanto o histórico informado na origem quanto do deposito de destino.
+O campo Empresa Destino somente ficará disponível caso o usuário tenha permissão de transferir para empresas diferentes.
+ 
+ 
+Caso seja feita transferência para empresas diferentes ou de produtos diferentes poderá ser feita também a movimentação no estoque escritural, habilitando para isso a opção 
+Movimenta estoque escritural
+ na parte superior da tela.
+Caso contrário o sistema movimentará somente o estoque físico, pois como a transferência é somente de um tanque para o outro não há a necessidade de se movimentar o estoque escritural.
+Se o usuário tiver permissão de efetuar a transferência com as quantidades diferentes entre os tanques de origem e destino, a opção 
+Altera Valores
+ destino ficará disponível, possibilitando ao usuário informar quaisquer valores na parte do tanque destino.
+Se o usuário não tiver permissão de transferir para tanques de produtos diferentes o sistema irá mostrar somente os tanques de mesmo produto no campo do Tanque Destino.
+Se for informado um depósito de base não própria, a transferência será entre Filiais/Congêneres.
+ Só será feita a transferência no estoque escritural e, ao invés de tanque, deverá ser informado o produto desabilitando as funcionalidades quando for base própria. Conforme mostra a tela abaixo:
+ 
+Para inserir produto no destino basta clicar no Botão incluir.
+É possível incluir mais de um produto no destino, eles ficarão visíveis no grid e podem ser alterados ou excluídos.
+Para finalizar basta pressionar o botão OK, e após fazer as devidas validações o sistema irá pedir uma confirmação, que caso positiva, então iniciará o processamento tanto quando for base própria como também, quando for base não própria, que no caso da primeira será gerado uma movimentação de saída no estoque físico para a empresa e tanque de origem e de entrada para a empresa e tanque destino, e também irá gerar as mesmas movimentações no estoque escritural, caso a opção Movimenta estoque escritural esteja marcada, e no caso da segunda, será apenas movimentado o estoque escritural.
+Os pedidos e carregamentos gerados através da transferência serão vinculados e o cancelamento de um deles acarretará no cancelamento de todos os outros envolvidos no vínculo. Para facilitar nas telas de Manutenção de Carregamentos e na Manutenção de Pedidos eles serão apresentados com o fundo na cor azul piscina, conforme o botão legenda.
+Transferência de Produtos Correlatos
+Para a transferência de 
+Produtos Correlatos
+, como temos dois produtos em um mesmo tanque, saída será proporcional, ou dependendo do volume de corte, será apenas de um produto, para maiores informações vide help 
+Manutenção de Tanques
+, tópico de Volume de Corte
+O campo 
+valor unitário
+ só será habilitado para alteração do custo médio quando:
+O depósito não foi 
+base própria
+O histórico 
+participar
+ do CMV
+Com essa combinação o campo é habilitado, porém como o depósito não é uma base própria, só haverá movimentação do estoque escritural.
+Regras da transferência:
+No tanque origem será informado um produto tanque, não pode ser produto correlato.
+No tanque destino, se o usuário tiver permissão, poderá informar um outro produto, este sim correlato
+Na saída do tanque origem, se houver movimentação física (o depósito é base própria), a quantidade de saída dos produtos será proporcional aos produtos armazenados no tanque.
+Na entrada do tanque destino a quantidade total será feita no produto informado diretamente.
+ 
+ 
+ 

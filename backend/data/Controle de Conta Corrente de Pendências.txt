@@ -1,0 +1,80 @@
+TITULO: Controle de Conta Corrente de Pendências
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899133
+--------------------------------------------------
+O SisPetro permite que se tenha uma conta corrente no plano de contas onde se possa controlar toda a movimentação do Contas a Receber da empresa.
+
+
+Para isso é preciso configurar no Menu 
+Ferramentas / Sistema, painel Contas contábeis/Histórico
+ algumas informações:
+
+
+
+
+Marque a opção 
+Controla Conta Corrente Pendências do Financeiro
+.
+
+
+Informe as contas para 
+Pendências
+ e contra partida de 
+Baixa
+ e 
+Receita
+.
+
+
+Estas contas serão utilizadas na contabilização da movimentação do Contas a Receber.
+
+
+Em seguida, é necessário acertar o saldo da Conta Corrente de Pendências com os lançamentos pendentes até o momento. Clique no botão
+
+
+
+
+Será apresentada a tela a seguir:
+
+
+
+
+Informe a 
+data de movimento, histórico
+ e 
+informações adicionais
+ para o ajuste. O valor apresentado será o total de títulos pendentes no momento e não pode ser alterado. Clique em 
+OK
+ para confirmar o ajuste.
+
+
+A partir de então, os processos envolvidos no Contas a Receber serão monitorados pelo sistema.
+
+
+No caso de 
+inclusão de Notas Fiscais
+ de Venda, Complemento/Preço e Outras Saídas cuja 
+Natureza de Operação
+ esteja marcada para Gerar Contas Pagar/Receber e no caso de inclusões manuais no Contas a Receber que sejam identificados e não sejam de previsão será feito o 
+débito na Conta Corrente de Pendências e o crédito na Conta de Receita
+ informadas.
+
+
+No caso de 
+baixa
+ de um dos títulos nas condições citadas acima, será feito o 
+crédito na Conta Corrente de Pendências e o débito na Conta de Baixa
+ informadas.
+
+
+Estes lançamentos contábeis serão itens do lote já gerado pelo processo.
+
+
+No cancelamento destes títulos ou de baixas será feito também o estorno dos lançamentos nas contas de controle movimentadas. Caso refiram-se a lançamentos anteriores ao início do controle, o estorno não poderá ser feito mas será incluído um novo lote com a contabilização inversa (simulando o estorno).
+
+
+O saldo da Conta Corrente de Pendências representará o valor de Pendentes apresentado no Fechamento Financeiro:
+
+
+
+
+Será possível através do extrato da Conta Corrente de Pendências se ter um perfil da movimentação do Financeiro em relação a pendências.

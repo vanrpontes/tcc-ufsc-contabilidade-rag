@@ -1,0 +1,151 @@
+TITULO: Baixa pela Manutenção do Contas a Pagar
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701715
+--------------------------------------------------
+Para dar baixa em uma conta da Empresa, acione a partir do menu principal as opções - 
+Movimentação / Financeiro / Contas a pagar / Manutenção Lançamentos
+:
+Verifique se o campo 
+Tipo
+ (status da conta) é igual a Pendentes, senão clique na seta à direita e altere seu conteúdo para Pendente.
+ Selecione um registro da Lista de Contas a pagar, clicando com o mouse sobre a linha correspondente.
+ Acione o botão 
+Baixa
+ no menu superior da tela. (Esse botão só estará habilitado caso o usuário tenha seu perfil configurado para realizar baixas).
+No campo 
+CC Destino/Origem
+, o usuário deve teclar <Enter> e selecione a conta contábil origem na lista apresentada. Normalmente esta é a conta do banco origem de onde sairá o montante a ser pago nesta baixa.
+Data Baixa:
+ é a data em que foi realizada a baixa (o Sistema sugere a data atual).
+Data Fluxo:
+ é a data que será considerada nos extratos do cliente e banco para este movimento. Assim, por exemplo, quando a Baixa for através de cheque pré-datado, deve-se colocar a data de depósito do cheque neste campo para que o Sistema considere no extrato bancário esta data. Caso necessário digite o número do documento que identifique a baixa (número do cheque, DOC, etc).
+Se a baixa for em valor diferente do apresentado na tela, altere conforme a necessidade os campos:
+Valor Desconto:
+ valor descontado incondicionalmente do título, isto é, num título de 100,00 foi concedido um desconto de 10,00. Assim, a empresa só irá pagar 90,00 (valor que será pago pela empresa - valor do cheque, por exemplo) embora o título seja de 100,00 (valor que será movimentado na conta do fornecedor).
+Valor Acréscimo:
+ valor que o fornecedor irá receber a mais pela liquidação do título (normalmente juros e outras despesas não incluídas no valor do título original).
+Valor Movimento:
+ valor que será pago pela empresa. Normalmente é a soma do valor do título mais acréscimos menos descontos.
+Se o pagamento for efetuado em cheque, clique no campo 
+Baixa em cheque
+ e entre com os dados solicitados para o cheque. Esta ação irá lançar o cheque no cadastro de cheques enviados vinculando-o a esta baixa. Posteriormente, poderemos pesquisar este cheque na 
+Manutenção de Cheques
+ para ver as baixas relacionadas a ele.
+É possível ao marcar essa opção (Baixa em cheque) configurar para que automaticamente o sistema marque o campo 
+Bloqueado
+, fazendo uma baixa bloqueada, assim o usuário terá apenas que se preocupar com a data do Bom Para. Para isso, deve-se configurar o perfil da empresa, Menu 
+Ferramentas / Sistema / Financeiro
+ a opção:
+Para a impressão do cheque, habilite o controle "Imprime".
+No caso de estar utilizando cheques de terceiros (dos clientes) para efetuar este pagamento, selecione os cheques pelo botão 
+Veja maiores detalhes para a seleção em 
+.
+Painel Geral:
+Neste painel podemos utilizar o crédito de uma entidade, através da opção 
+Utilização Crédito
+.
+Quando um fornecedor tem um crédito anterior (gerado por uma Nota Fiscal de Devolução, por exemplo), o usuário pode utilizar este crédito para baixar títulos desta mesma entidade. Sempre que a entidade possuir crédito anterior, no momento da baixa, os campos 
+#Recibo
+ e 
+Valor
+, que estão dentro do grupo 
+Utilização Crédito
+, estarão habilitados.
+A partir da versão 9.12 é possível mostrar somente os adiantamentos do PMM do título selecionado, para isso basta marcar o perfil '
+Mostra Somente Adiantamentos do PMM do Título
+'. Para utilizar essa opção é necessário realizar as devidas configurações de 
+Sistema
+ e 
+Usuário
+, veja maiores detalhes em 
+Utilização do Crédito Fornecedor (Adiantamento)
+.
+O Sistema abrirá uma tela com os créditos, mostrando seus respectivos saldos, para que o usuário possa escolher um deles. Mais detalhes no tópico 
+Utilização de Crédito de Fornecedor
+.
+Caso queira, nos recebimentos em cheque, o usuário pode bloquear o lançamento clicando no campo 
+Bloqueado" e indicando em seguida, a data de desbloqueio no campo *Data Desbloqueio
+, o sistema sugere dois dias após a data de fluxo do mesmo. Este valor será somado no campo 
+Valor Bloqueado
+ no cadastro do cliente e sempre apresentado em consultas de clientes como valor bloqueado, informando que embora este valor tenha saído das pendências do cliente, porque foi baixado, ele ainda está sob suspeita, pois não foi inteiramente liquidado pelo Banco ficando bloqueado.
+É necessário que o usuário informe o 
+Tipo de Documento
+.
+É possível vincular a baixa a um banco, informando agência e número de autenticação do pagamento. Isto através dos campos de 
+Banco
+, 
+Agência
+ e 
+Autenticação
+. Porém estes campos só ficarão habilitandos após definição de perfil definido na 
+.
+Painel Histórico:
+Neste painel, o usuário deve informar o histórico do "cabeçalho" da baixa.
+Conforme a configuração do sistema, o código do histórico já será sugerido e consequentemente as informações adicionais, porém, isso não impede que o usuário possa trocar o campo 
+Código do histórico
+, os campos 
+Histórico
+ e 
+Informações Adicionais
+, ou alterá-los. Uma vez que o histórico a ser utilizado permita a utilização de fórmula, o usuário poderá modificar as fórmulas tanto do histórico quanto das informações adicionais. Maiores informações no tópico 
+históricos
+.
+Painel Histórico dos itens:
+Conforme mencionado anteriormente, o sistema permite que o usuário faça uma baixa, selecionando um ou mais de um título. Para as baixas que possuem mais de um título, o usuário pode determinar históricos diferentes para cada item da baixa.
+Na tela acima, só há um item, ou seja, a baixa foi feita para apenas um título.
+Neste outro exemplo, há dois títulos que estão sendo quitados por essa baixa, então o sistema sugere o histórico padrão (configurado na empresa) para cada item da baixa.
+Caso queira, o usuário pode alterar o histórico de cada item dessa baixa, selecionando o item desejado e clicando no botão 
+Edita Histórico
+:
+O sistema abrirá a tela de histórico do item da baixa, permitindo ao usuário fazer a alteração do histórico e das informações adicionais.
+Caso o histórico esteja configurado, é possível alterar ou criar fórmulas dentro dessa tela. Para gravar as alterações o usuário deve clicar no botão 
+Salvar
+, caso contrário o botão 
+Cancela
+ aborta o processo.
+Para poder alterar os itens do histórico, o usuário precisa configurar o perfil localizado no Menu 
+Ferramentas / Usuário / Contabilidade
+:
+O usuário pode copiar o histórico e informações adicionais que foi configurado em um item para todos os demais, utilizando o botão 
+Copia histórico
+.
+Painel Contabilização:
+Neste painel, serão informados as contas CC Desconto e CC Acréscimo, além do código de contabilização.
+As contas 
+CC Desconto
+ e 
+CC Acréscimo
+ serão movimentadas caso haja desconto ou acréscimo digitado pelo usuário. A opção 
+Pode Contabilizar
+, só estará visível para as empresas que utilizam o módulo contábil. É possível configurar no perfil da empresa para que o 
+código de contabilização
+ seja sugerido na tela, facilitando e evitando erros de digitação no momento da baixa. E o mesmo pode ser alterado, caso for necessário.
+Para configurar a sugestão do código de contabilização da tela de Baixa, deve-se ir no Menu 
+Ferramentas / Sistema / Contab.Real
+ e selecionar a seguinte opção:
+O botão ao lado da opção é o botão chamado 
+Limpa Dados
+, caso for necessário limpar o dado informado e deixar a opção 
+vazia
+, basta dar um clique que a opção ficará sem dado e não será mais sugerido nenhum código na tela de Baixa.
+Vide tópico 
+Consolidação de Lotes
+ para obter maiores detalhes sobre a consolidação do lote no momento da baixa.
+Para que o sistema já calcule o valor de acréscimo do título, de acordo com a taxa de juros cadastrada para ele, o vencimento e a data de fluxo informada, clique no botão:
+Sendo lançado na coluna 
+Acréscimo
+ o valor do juros calculado e agregado ao valor do Movimento.
+Painel Observações:
+Neste painel, informar as observações da baixa.
+Painel Conversão de Moeda
+Neste painel estão as informações quando a baixa envolve uma moeda que não seja o Real, para casos onde o produto é importado. Para maiores informações vide o help 
+Inclusão de Contas a Pagar em moeda estrangeira
+Painel GNRE
+Tal painel serve para o usuário digitar ou editar a linha digitável da GNRE, para maiores informações sobre GNRE vide o help 
+Documentos de Arrecadação SPED
+Finalize a Baixa acionando o botão 
+OK
+.
+O Sistema questiona sobre a 
+impressão do documento
+ de emissão de baixa.
+Fica a critério do usuário emitir ou não o documento neste momento. O Sistema emitirá um relatório contendo o resumo da baixa (todos os itens baixados, valores de descontos, acréscimos, etc).

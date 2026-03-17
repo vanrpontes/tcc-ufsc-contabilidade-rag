@@ -1,0 +1,52 @@
+TITULO: Imprimir parâmetros digitados pelo usuário
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2881454286
+--------------------------------------------------
+Está ai uma coisa que melhora muito a estética do relatório.
+Por exemplo: imprimir relatório conforme o período definido pelo usuário para impressão dos dados.
+Vamos lá!
+A princípio a idéia é permitir que o usuário informe o período e também a filial desejada ou 
+todas as filiais
+.
+O primeiro passo, e muito importante, é verificar a 
+ordem dos filtros no condutor de dados
+, pois você terá que passar essa informação no evento da variável ou label.
+Na imagem abaixo, o campo 
+CodEmpresa
+ da tabela Nota Fiscal é a 
+posição 0
+ e o campo 
+DataNF
+ da mesma tabela é a 
+posição 1
+, e assim por diante.
+ 
+Como imprimir o período digitado pelo usuário.
+Nos Eventos do Report Builder, acesse o evento OnPrint de um objeto Label, e coloque o seguinte comando:
+begin
+  Label12.Caption := DateToStr(Report.AutoSearchFields[parametro].Value)+ ' a ' +   
+  DateToStr(Report.AutoSearchFields[parametro].Value);
+end;
+O comando 
+AutoSearchFields[RTF:1].Value
+ irá pegar o campo digitado na posição 1, e o 
+DateToStr
+ converte a data para string.
+[parametro] - Deverá ser preenchido sempre com a posição do parâmetro que você quer pegar.
+ 
+Como imprimir a empresa que o usuário informou ou Todas as Empresas
+Nos Eventos do Report Builder, acesse o evento OnGetText de um objeto Label, e coloque o seguinte comando:
+begin
+  if Report.AutoSearchFields[0].ShowAllValues then begin
+    Text:= 'Todas as Filiais';
+  end else begin
+    Text:= 'Filial: '+Report.AutoSearchFields[0].Value + ' - '+NotaFiscal['NomeUsual (2)'] ;
+  end;                                                         
+end;
+O comando 
+Report.AutoSearchFields[parametro].ShowAllValues
+ identifica quando o usuário seleciona a opção de todos.
+[parametro] - Deverá ser preenchido sempre com a posição do parâmetro que você quer pegar.
+Feito isso, se o usuário selecionar uma determinada empresa será impresso o nome usual daquela empresa se ele selecionar 
+Mostrar todos os valores do campos CodEmpresa
+, no relatório será impresso "
+Todas as Empresas".

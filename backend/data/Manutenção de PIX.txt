@@ -1,0 +1,76 @@
+TITULO: Manutenção de PIX
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2962358360
+--------------------------------------------------
+none
+Objetivo
+A tela 
+Manutenção de PIX
+ permite consultar e gerenciar PIX ligado a Pedidos de Venda e Contas a Receber. É possível incluir ou cancelar recebimentos, imprimir QR codes e visualizar registros processados. Cancelamentos e situações de origem cancelada são destacados para evitar erros. As abas mostram detalhes dos recebimentos, processamentos e retornos do serviço de PIX.
+Através da tela de Manutenção de PIX o usuário poderá consultar tudo que é relacionado ao PIX gerados via pedidos de venda ou contas a receber.
+Ela é acessada através do menu Movimentação > Financeiro > PIX > Manutenção de PIX. 
+Botão Inclui Recebimento:
+ esse recurso inclui automaticamente um registro de PIX Recebido para os PIX selecionados. Esse registro será processado posteriormente pelo 
+Serviço do Hermes
+, gerando uma baixa para PIX oriundos do 
+Contas a Receber
+ e um adiantamento para o cliente para registros oriundos do 
+Pedido de Venda
+. Caso queira incluir um recebimento para todos os registros (em lote) exibidos na tela, basta clicar no botão 
+marcar todos
+ e incluir um recebimento.
+Para que o adiantamento seja gerado, será necessário configurar o Histórico e Tipo de Documento na 
+Tabela Bancos
+, aba PIX.
+Cancela Recebimento: 
+realiza o cancelamento de um recebimento, porém só permite cancelar o recebimento quando o ele ainda não foi processado, excluindo o registro de Recebimento. Caso já tenha sido processado, o cancelamento se dará pelo cancelamento do adiantamento gerado ou da baixa realizada (se possível). 
+Diferente do recebimento, mesmo que o usuário 
+marcar todos
+ os registros exibidos e tentar cancelar o SisPetro irá processar o cancelamento apenas para o registro pintado de azul.
+QR Code:
+ impressão do QR Code de um PIX com QRCode. O layout a ser utilizado dependerá da origem.
+Pedido:
+ layout do Pedido de Venda.
+Contas a Receber:
+ layout definido no Tipo de Cobrança (duplicata ou boleto).
+Legenda:
+ apresenta a legenda dos registros.
+Atualiza:
+ atualiza os registos da tela.
+Sai:
+ sai da tela.
+Marca Todos: 
+marca ou desmarca todos os itens apresentados. 
+Origem Cancelada
+Quando a origem do registro (Pedido de Venda ou Contas a Receber) do 
+PIX 
+for cancelado, o registro será mostrado em vermelho, diferenciando o registro cancelado dos demais registros. Dessa forma, o SisPetro garante que não haverá falha operacional na confirmação de recebimentos.
+Aba Recebimentos
+Aba Processados
+Através da aba de recebimentos é possível visualizar os dados do recebimento do PIX, o recebimento só é gerado após o usuário incluir um recebimento através do botão 
+inclui Recebimento 
+e o serviço de 
+Serviço de PIX Recebidos - Processa
+ for executado.
+Para recebimentos de PIX do 
+contas a receber
+ 
+será preenchido a coluna de 
+Num. Baixa
+ com o numero da baixa utilizado no título em questão. 
+Para mais informações, ver 
+PIX com pagamentos a Prazo (Títulos)
+Botão Recibo de Baixa:
+ realiza a impressão do recibo de baixa.
+Para recebimentos de PIX do 
+Pedido de Venda
+ 
+será preenchido a coluna de 
+Seq. Crédito
+ com o numero do adiantamento gerado para esse recebimento. 
+Para mais informações, ver 
+PIX com recebimentos antecipados e a vista (Adiantamento)
+Aba Histórico Processamento
+Processamento
+: exibe os dados conforme o período e a empresa informados na tela de Manutenção.
+PIX Retornados
+: exibe os dados recebidos do processamento posicionado na aba de Processamento.

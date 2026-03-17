@@ -1,0 +1,47 @@
+TITULO: Impressão do Pedido de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440032
+--------------------------------------------------
+A partir da versão 9.17 é possível indicar se a tela de impressão será aberta ou não, na finalização do Pedido de Venda. Se trata de um perfil de sistema "
+Exibe tela "Destino da Emissão". Ver mais informações em
+ Perfil de Sistema/
+Vendas
+ 
+O Sispetro permite ao usuário imprimir um pedido de vendas, utilizando um formulário padrão definido internamente dentro do sistema ou utilizando um formulário (layout) definido nas configurações da empresa.
+Para indicar onde se encontra um determinado layout, o usuário deve acessar as configurações da empresa, menu 
+Ferramentas / Sistema / Vendas
+ e apontar o caminho do rtm no campo "Arquivo layOutPedido":
+Clicando no botão "Edita", o usuário entrará na estrutura do formulário, onde será possível fazer alterações.
+ 
+Caso não seja preenchido o campo "Arquivo LayOut Pedido", nas configurações da empresa, o sistema utilizará um formulário padrão, definido internamente dentro do sistema, com as mesmas caracteristicas do arquivo pedido.rtm, utilizado no exemplo acima.
+O pedido de vendas pode ser impresso ao finalizar a emissão do pedido (veja tópico 
+Inclusão do Pedido de Venda
+) ou pela manutenção de pedidos de vendas (veja tópico 
+Manutenção do Pedido de Venda
+).
+Imprimindo pela inclusão do pedido de vendas:
+Após a finalização do pedido o sistema abrirá a tela de 
+Impressão de Pedido de Vendas:
+Através da tela de impressão de Pedido de Vendas, temos as seguintes opções:
+Impressão: 
+Caso selecionado será realizado a impressão do Pedido.
+Em Tela: 
+Abre a tela de visualização de impressão.
+E-mail:
+ Caso essa opção esteja selecionada, será enviado um e-mail  do Pedido de Venda em PDF para o cliente. Para utilizar esse serviço veja mais em 
+Configuração de Conta de E-mail
+Deseja alterar corpo da Mensagem?:
+  Com esta opção é possível incluir um destinatário em cópia e também como cópia oculta , alterar o assunto e também a mensagem.  Para isso basta marcar o perfil de usuário 
+Altera Destinatários do Pedido de Vendas. 
+Veja maiores detalhes em 
+Painel E-mail (Usuários)
+Em Arquivo:
+ Selecionando essa opção é possível salvar em forma de arquivo PDF o Pedido de venda, para isto basta selecionar um diretório em Arquivo de Destino.
+Por padrão o sispetro informa a descrição do arquivo a nomenclatura: PVendas + Codigo da empresa + Numero do Pedido
+ 
+*Imprimindo pela Manutenção do Pedido de vendas: *
+Pela manutenção do pedido de vendas (menu 
+Movimentação / Vendas
+), o usuário deve selecionar o pedido que se deseja imprimir e clicar no botão "Emite":
+O processo de impressão funciona da mesma forma demonstrado anteriormente na impressão pela emissão do pedido, inclusive dando a possibilidade do usuário imprimir normalmente o pedido ou imprimi-lo em um arquivo em PDF.
+Alguns rtms, dependendo da origem, podem estar configurados para não abrirem a tela de direcionamento de impressão, lembrando que se não tiver nenhum caminho preenchido nas configurações da empresa, indicando o local onde se encontra o rtm, o sistema usará o rtm padrão, definido internamente dentro do sistema e a tela de direcionamento será aberta normalmente. 
+ Caso a empresa esteja usando um rtm antigo e queira continuar utilizando o mesmo rtm, porém, com o recurso de abrir a tela de direcionamento de impressão, será necessário entrar em contato com o Suporte Técnico da Futura Tecnologia, solicitando a alteração desse rtm.

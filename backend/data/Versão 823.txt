@@ -1,0 +1,164 @@
+TITULO: Versão 8.23
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2923955929
+--------------------------------------------------
+Dados
+Informações
+Início
+31/03/2015
+Final
+04/04/2015
+Scripts
+CMD823.sql (3672 a 3702)
+Itens
+21
+Implementações
+16
+Correções
+5
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+ 
+SisPetroControl.Dll
+SCANC_v823.rtm
+ 
+ 
+ 
+ 
+Avisos importantes
+A partir da 
+próxima versão (8.24)
+ o 
+layout de impressão
+ e a configuração da Compartimentação de uma 
+OC de Transferência entre Depósitos
+ serão conforme o depósito de Origem (
+Usina
+). Atualmente o layout de impressão está configurado no Depósito Destino (base onde será feita a descarga). Atente-se para já fazer um levantamento de que depósitos Usina deverão ser configurados com essa alteração.
+Alterações importantes nessa versão relacionadas a 
+Lacre
+:
+Permitida a informação de Lacre na Compartimentação da OC. Veja maiores detalhes em 
+.
+Não será permitida a mudança de Transportadora de uma OC já incluída (via Manutenção de OC) caso a OC esteja trabalhando com Série de Lacre e o frota atual tenha número de Lacres total diferente do frota antigo.
+Só será permitido informar lacre (independente de usar série) para OC de Venda e Carregamento Próprio
+Geral
+Atualização de Componente
+Nessa versão estamos atualizando os grids para exibição de dados utilizados em telas como Manutenção do Contas a Receber, Manutenção do Contas a Pagar, Manutenção de Notas Fiscais, Manutenção do Pedido de Vendas entre outras. UPA(CCF 27553)
+Compras
+Edição das Observações do PMM
+A partir dessa versão será possível editar as observações do PMM nas tela de Consulta de PMM Pendente e Manutenção de PMM. 
+Help:
+  
+Painel Compras (Usuário)
+,  
+Pedidos de Movimentação de Material Pendentes
+, 
+Aba Observações
+ UPA (CCF 27325 , 24779)
+Sugerir o Nome do Contato Associado ao Fornecedor na Cotação
+Na inclusão de uma cotação, podemos informar o nome do contato. A partir dessa versão, se for informado um fornecedor para a cotação, o nome do contato associado a este será incluído automaticamente como contato na cotação em questão.
+ Help:
+ 
+Inclusão de Cotações
+ UPA (CCF 27352)
+Estoque
+Envio de E-Mail com a Ordem de Carregamento
+O processo de impressão de Ordem de Carregamento de Transferência entre Depósitos foi alterado para possibilitar também o envio de e-mail com a mesma para o Fornecedor.
+ Este recurso será bem útil para agilizar a liberação de caminhão da Usina.
+ Help: 
+, 
+, 
+Manutenção de Ordem de Carregamento
+ e 
+ PRFC (CCF 26375)
+Controle de Diferença de Descarga de Transportadora
+Alterado para permitir configurar um percentual por Transportadora ou Depósito da diferença permitida. O valor unitário a ser cobrado será o valor unitário por litro informado na Nota Fiscal. Help: 
+Controle de Diferenças em Descargas
+, 
+ e 
+Depósitos - Aba Dados Adicionais
+ CPC (CCF 27770)
+Preenchimento de Compartimentação ao emitir uma OC
+Ao emitir uma OC, o usuário pode efetuar a compartimentação. Caso o usuário preencha a compartimentação e saia da tela, ao retornar, os dados informados não eram exibidos. Nessa versão o problema foi corrigido. 
+CPC (CCF 27664)
+Controle de Lacre
+Foi implementado no SisPetro, funcionalidades que possibilitam o controle, manutenção e inutilização de números de lacres. Via configuração de Série de Lacre é possível configurar o tipo de controle, automático ou manual, sendo que neste último ficará a cargo do usuário informar a numeração para os compartimentos da Ordem de Carregamento. 
+Esta implementação tem o intuito de facilitar e organizar o uso de lacres na emissão de Ordem de Carregamento e compartimentação. 
+Help:
+ 
+ PRFC (CCF 26203)
+Faturamento
+Perfil de Usuário para Considerar/Desconsiderar Nota Fiscal para MDF-e
+A tela de Manutenção de Notas Fiscais foi alterada para permitir que a Nota seja Desconsiderada ou Considerada para emissão de MDF-e. Para ativar esta funcionalidade é necessário marcar perfil de usuário. 
+Com esse recurso não será mais necessário acionar o Suporte caso o usuário desconsidere a NF para o MDF-e por engano.
+ 
+Help: 
+Painel Faturamento (Usuários)
+,  
+Abas da Manutenção de Notas Fiscais
+,  
+Manutenção de MDF-e
+ 
+e
+ 
+Inclusão de MDF-e
+ PRFC (CCF 25096)
+Consulta de Status do Serviço e Sincronização de NF-e na Bahia
+A Sefaz da Bahia liberou uma alteração que em conjunto com uma alteração no SisPetro permite a consulta do status de serviço e a sincronização das NF-e. UPA (CCF 27833)
+Informação do Lacre na OC
+Alterada a tela de Inclusão da OC para que só permita informação de Lacre para OC de Venda e Carregamento Próprio. 
+Retirada informação de lacre das OC de Descarga Própria e Transferência entre Depósitos pois entendemos que por ser NF de terceiros a responsabilidade não é da empresa. 
+Help:
+ 
+ PRFC (CCF 26203)
+Mudança de Transportadora na OC
+Não será permitida a mudança de Transportadora na OC já incluída (via Manutenção de OC) caso a OC esteja trabalhando com Série de Lacre e o frota atual tenha número de Lacres total diferente do frota antigo. 
+Isso é necessário porque os lacres disponibilizados na Inclusão da OC seriam incoerentes com o número de lacres necessários para o novo frota. 
+Help: 
+ UPA (CCF 26203)
+Financeiro
+Troca de Portador por Atraso pela Data de Movimento da Baixa
+Ajustada a troca de Portador por Atraso para utilizar a Data de Baixa (Data de Movimento) quando o perfil de sistema estiver configurado para tal, pois estava sempre utilizando a Data de Fluxo da Baixa.
+ 
+Help:
+ 
+, 
+Baixa com Restrição de Clientes em Atraso
+ e 
+ GSN (CCF 27784)
+Fiscal
+Dados de Estoque do B100 e Álcool Anidro
+Alterado o Layout de Geração do Arquivo do SCANC para apresentar nos Registros 60, 62 e 70 (Estoque e Perdas/Ganhos) os dados do B100 e Álcool Anidro, já que os mesmos são considerados nos outros Registros. 
+Necessário atualizar na Manutenção de Exportação de Dados o arquivo SCANC_v823.rtm.
+ GSN (CCF 27077)
+SPED EFD ICMS/IPI - Performance do preenchimento
+Melhorada a performance do preenchimento dos Registros C190, D100 e D190 devido esses registros ter um preenchimento mais lento em alguns bancos de dados.  GSN (CCF 22881, 24745)
+SPED EFD
+ ICMS/IPI 
+ - Apuração por Decêndio
+Alterado preenchimento do Registro E200 para permitir várias apurações fiscais num mesmo mês (Apuração por Decêndio) .  GSN (CCF 27680)
+SPED EFD
+ ICMS/IPI 
+- ICMS Diferido no Registro C190
+Corrigido preenchimento do Registro C190 para que não apresente erro de divisão por zero quando houver NF com ICMS diferido
+.  GSN (CCF 27809)
+SPED EFD
+ ICMS/IPI 
+- Valor de ICMS com CST 051
+Alterado preenchimento dos Registros do SPED EFD para que apresente os valores de ICMS quando o CST for 051 e tiver valor de ICMS. Caso só tenha a Base de ICMS e o Valor do ICMS esteja zerado (ICMS 100% diferido) não serão enviados os valores. GSN (CCF 27582)
+SPED EFD
+ ICMS/IPI 
+- NF duplicadas devido ter CFOP diferentes
+Corrigido preenchimento dos Registro C170 e C190 para que considere os itens de todas as NF consideradas duplicadas (aquelas lançadas mais de uma vez, mas com mesmo número, entidade e data de emissão)
+. GSN (CCF 27853)
+Vendas
+ 
+Legenda para Pedidos feitos via SisPetro WEB
+Os pedidos feitos via SisPetro WEB serão exibidos em itálico nas telas de Manutenção de Pedidos e Pedidos Aprovados para Faturamento. PRFC (CCF 27134)
+Cor do Saldo do Grupo Econômico
+Ajustada a tela de Consulta de Pedidos Pendentes para que mude a cor devidamente do campo de Saldo do Grupo Econômico, vermelho quando negativo e azul quando positivo.
+ GSN (CCF 27120)
+Consulta Sintegra no Cadastro de Clientes
+Ajustado o texto da tela de Ocorrências da Consulta On-Line do Cadastro de Clientes de "Consulta ANP para "Consulta ANP/Sintegra", já que serão apresentados erros das duas consultas. GSN (CCF 27872)

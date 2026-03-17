@@ -1,0 +1,97 @@
+TITULO: Controle de Depósito Almoxarifado
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2525102668
+--------------------------------------------------
+Para controlar os produtos armazenados no depósito Almoxarifado, teremos as seguintes configurações:
+Cadastrar um depósito
+ com o nome de 
+Almoxarifado
+;
+Cadastrar os produtos
+ participando do fechamento de estoque;
+Cadastrar o estoque inicial
+ para cada produto em questão;
+Controlar Compras
+ de produtos;
+Controlar Saídas
+ de produtos;
+1.
+ Para cadastrar um Depósito, acesse:
+Acessar o menu Arquivos > Depósitos
+Para maiores informações, ver 
+Tabela Depósitos
+Clicar em Incluir
+Preencha os dados do Depósito: informar obrigatoriamente os dados abaixo para cadastro do depósito
+Código
+: código do depósito a ser utilizado no SisPetro.
+Descrição
+: realizar o cadastro dom o nome de 
+Almoxarifado.
+Tipo
+: tipo de depósito, se existirá movimentação de estoque ou não. No caso, cadastrar como 
+Disponível.
+Verificação do Estoque
+: se o SisPetro avisará ou bloqueará caso o saldo do produto esteja negativo no depósito.
+Tipo de Fechamento:
+ depósito ou produto, no caso por Depósito, visto que a grande maioria dos produtos ficarão no Almoxarifado.
+Perfil Ativo
+: marcado.
+Perfil Controla Empresa: 
+marcado, dependendo da forma de trabalho.
+Os demais perfis nesta tela não precisarão estar marcados ou configurados.
+Na aba Endereços, informar obrigatoriamente os dados abaixo para cadastro do depósito:
+Razão Social
+, 
+Endereço
+, 
+Número
+, 
+Complemento
+, 
+Bairro
+, 
+Cidade
+, 
+UF
+, 
+CGC
+, 
+I.E.
+Os demais perfis nesta tela não precisarão estar marcados ou configurados.
+2 . Caso o perfil Controla Empresa? da aba Detalhes esteja marcado, configure na aba Empresas p/ Movto as empresas que poderão trabalhar com esse depósito.
+3. Como cadastrar um produto
+Acessar o menu Arquivos > Produtos
+Clicar em Incluir ( + )
+Na aba Detalhes, informar obrigatoriamente os dados abaixo:
+Descrição Completa:
+ descrição completa do produto
+Descrição p/ Nota Fiscal:
+ descrição exata do produto como deverá sair na emissão da Nota Fiscal
+Tipo Produto:
+ tipo do produto em que se encaixa
+Classif:
+ classificação do produto
+Nome Usual:
+ nome usual do produto em que aparecerá nas telas de pesquisas e relatórios configurados
+Cód. Unidade:
+ código da unidade em que se encaixa o produto, podendo ter mais de um tipo de unidade (Botão Unid. Adic)
+Preencher os demais dados do Produto, conforme suas características, marcando de fato o perfil 
+Participa do fechamento de estoque
+.
+Nas demais abas do Produto, configure conforme as características do produto.
+Para mais informações, ver 
+.
+4. Como cadastrar o saldo inicial para cada produto
+Acessar o menu Movimentação > Estoque > Ajuste de Estoque Inicial por Depósito
+Informar a 
+Data Final de Movimento
+. Esta data deverá ser informada como a última data antes do início das operações. Normalmente é a data anterior a data atual.
+Informar o Depósito de Almoxarifado
+Informar a Empresa onde o saldo do produto se encontra
+Clicar no botão Atualiza
+Todos os produtos que Participam do Fechamento de Estoque serão apresentados no quadro inferior com os seguintes dados:
+Cód Prod., Descrição, Saldo 20c, Saldo Ambiente, Custo Médio, Valor Total Ambiente, Altera?, Fechamento
+Somente as colunas Saldo 20c, Saldo Ambiente, Custo Médio e Altera? serão ajustadas pelo usuário.
+Após informar esses dados, clicar no botão Atualiza Saldos.
+Para mais informações, ver 
+Ajuste de Estoque Inicial por Depósito
+.

@@ -1,0 +1,303 @@
+TITULO: Transferências das Movimentações de Contas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2880798902
+--------------------------------------------------
+
+
+Este recurso permite que o usuário faça uma transferência e toda a movimentação existente em uma determinada conta para uma outra conta. 
+
+
+Esta não é uma tela para ser utilizada com frequência.
+ Sua maior utilização deve se dar em uma implantação ou em mudanças radicais do Plano de Contas, como no enquadramento de uma empresa na Lei 11.638/07 conforme o Art 9º, que exige um plano de contas padronizado. Com isso 
+não recomendamos
+ a utilização deste tela apenas para pequenas alterações. 
+
+
+Este processo consome muito a performance do banco de dados pois é extremamente criterioso, causando lentidão no banco de dados e demora em todo o processo devido a grande quantidade de informações que precisarão ser transferidas.
+
+
+Importante:
+ A transferência das movimentações de conta não tem um filtro por empresa. Sendo assim ao efetuar a transferência ele vai transferir a movimentação de todas as filiais.
+
+
+Para utilizar este recurso acesse o menu 
+Ferramentas / Contabilidade/ Transferência da Movimentação da Conta
+.
+
+
+
+
+É necessário ter permissão de usuário para utilizar este recurso, que se encontra no Painel Contabilidade do perfil de usuário:
+
+
+
+
+No painel principal da tela temos os seguintes campos:
+
+
+
+
+Conta de Origem:
+ que deverá ter seu movimento transferido.
+
+
+
+
+Conta de Destino:
+ que deverá receber o movimento transferido
+
+
+
+
+
+
+Importante: Os campos de Conta de Origem e Destino poderão ser informados pelo código reduzido da conta ou pelo código extendido da conta.
+
+
+Para isso, deve-se definir o perfil de usuário no Painel Contabilidade:
+
+
+
+
+
+
+No quadro 
+Opções
+, definir os perfis de tela:
+	
+
+
+Apresenta contas abaixo na estrutura:
+ Este perfil só funcionará para contas de resumo/ sintética. Com ele habilitado, o usuário deverá definir na Conta de Origem uma Conta Sintética, e tendo a possibilidade de definir a Conta Destino para uma conta sintética ou não. Em ambas situações, o sistema irá trazer as contas analiticas da conta sintética.
+
+
+Exclui conta origem após concluir o processo:
+ Após a transferência a conta de origem será excluída.
+
+
+Contabilidade Gerencial:
+ Movimenta além da contabilidade real a contabilidade gerencial. Além disso, ao definir este perfil, deve-se definir também os pares corretos das contas de Origem e Destino.
+
+
+Altera somente as movimentações:
+ Permite ao usuário definir se a transferência será somente para as contas que possuem movimentações (tais como Lotes, Nota Fiscal), ou se será para todas as contas inclusive as de cadastro (como por exemplo Produtos, Empresas).
+
+
+
+
+
+
+
+
+
+
+*Importante: Os códigos digitados nos campos de Conta Origem e Conta Destino deverão ser referentes a Contabilidade Real, e não a Gerencial. A transferência de movimentação de contas é baseada nas contas reais. Para transferir as movimentações das contas gerenciais é de extrema importância que a conta gerencial tenha vínculo com uma conta real, caso contrário não existirá meios de efetuar a transferência somente na contabilidade gerencial. Para verificação de vínculo de contas gerenciais com a contabilidade real, vide tópico de 
+ do Help do Sispetro Normal. Existe também o relatório 
+. *
+
+
+ As contas gerenciais de clientes não farão parte deste processo de transferência.
+
+
+
+
+Filtro Adicional:
+ Pode-se acrescentar um filtro de data para que as movimentações sejam feitas somente para o período desejado. Para isso, clique no botão:
+
+
+
+
+
+
+Em seguida o sispetro abrirá a tela referente ao Filtro Adicional, conforme imagem abaixo:
+
+
+
+
+Nesta tela marque a opção 
+Utiliza filtro adicional
+ para poder informar o período desejado.
+
+Observe que os campos de Período: 
+Data Inicial
+ e 
+Data Final
+, ficarão habilitados para digitação.
+
+
+Após informar as datas, clique no botão Ok;
+
+
+
+
+
+
+Botão Atualiza:
+ Atualiza a tela conforme as contas definidas nos campos de Conta Origem e Conta Destino
+
+
+
+
+
+
+Verificar se as contas que participarão do processo de transferência através dos paineis 
+Contas Reais
+ e 
+Contas Gerenciais
+ se apresentam no .
+
+
+IMPORTANTE: O sistema trará contas inativas com movimentação antigas ao definir um grupo de contas (Sintética). Atente-se caso não haja a necessidade de efetuar a transferência para esta conta.
+
+
+Ao clicar no botão de atualização o sistema enviará uma mensagem de confirmação para os relacionamentos anteriores feitos manualmente, caso confirmado os relacionamentos manuais serão desfeitos.
+
+
+
+
+Sem confirmação pelo botão Atualiza, não será possível efetuar o processo de transferência. O sistema irá avisar através da mensagem:
+
+
+
+Ao confirmar a atualização, conforme mensagem anterior, o sistema irá atualizar a tela com os dados das contas que estão sendo movimentadas neste processo, além disso irá o vínculo com a conta real atual da conta gerencial que está tendo sua movimentação transferida (conta origem) para a mesma conta real da conta que está recebendo a transferência (conta destino). 
+
+
+Após confirmar, o sistema iniciará o processo de atualização de tela com os dados das contas selecionadas.
+
+
+O usuário deverá verificar se todos os dados estão corretos nos paineis de 
+Contas Reais
+, 
+Contas Gerenciais
+ e 
+Transferências Incorretas
+. 
+
+
+
+
+Botão Transferir:
+ Inicia procedimento de transferência
+
+
+
+
+
+
+Após clicar no botão Transferir, o sistema enviará uma mensagem para confirmação da e contas:
+
+
+
+
+Ao confirmar a movimentação das contas, o sistema iniciará o processo de transferência. Este processo afetará várias tabelas da base de dados, onde todas as movimentações da Conta de Origem irá para a Conta de Destino, e poderá ser acompanhado através da tela de Status da Transferência.
+
+
+
+
+Caso ocorra o processo tenha que ser cancelado, o usuário deve clicar no botão Cancelar:
+
+
+
+
+Para maiores informações, vide tópico de 
+.
+
+
+Ao terminar o processo de transferência, o sistema enviará uma mensagem informando a finalização:
+
+
+
+
+
+
+Botão Fechar:
+ Fecha a tela de transferência
+
+
+
+
+
+
+
+
+Painel Contas Reais:
+ Mostra o códigos e descrição das contas que estão sendo movimentadas
+
+
+
+
+
+
+Conta de Origem Real
+
+
+Descrição
+ (da conta de origem)
+
+
+Conta de Destino Real
+
+
+Descrição
+ (da conta de destino)
+
+
+
+
+
+
+
+
+
+
+Painel Contas Gerenciais:
+ Mostra os dados das contas reais e gerencias que serão movimentadas.
+
+
+
+
+Conta de Origem
+ - Código da conta de origem Gerencial
+
+
+Compl
+ - Complemento da conta de origem
+
+
+Descrição
+ - Descrição da conta de origem
+
+
+Conta Real Origem
+ - Código da conta real de origem Gerencial
+
+
+Conta Destino
+ - Código da conta destino
+
+
+Compl
+ - Complemento da conta de destino
+
+
+Descrição
+ - Descrição da conta de destino
+
+
+Conta Real Destino
+ - Código da Conta Real de Destino
+
+
+
+
+ 
+Importante:
+ Verificar com a Contabilidade da empresa se as contas de Origem e Destino estão corretas. Se o relacionamento entre as contas estão corretos, ou seja, se o DE/PARA está correto. Isso tanto para contas sintéticas como para as analíticas.
+
+
+
+
+Painel Transferências:
+ Mostra todas as transferências efetuadas e que foram interrompidas. Neste caso, só irá trazer tudo o que já foi transferido até o momento da interrupção, que pode ser um erro ou até mesmo a solicitação de Cancelar o processo.
+
+
+

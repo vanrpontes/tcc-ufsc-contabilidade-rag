@@ -1,0 +1,18 @@
+TITULO: Função GetCCEstoqueNFVinc
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5534154753
+--------------------------------------------------
+Histórico
+Função criada com o objetivo de contabilizar o valor do frete na conta de estoque (CCEstoque) do item da Nota de Compra. Quando lançamos no SisPetro o CT-e de Compra, no xml não vem especificado qual produto foi carregado. É necessário buscar na Nota de Compra que foi vinculada a esse CT-e qual o produto dessa nota. Dessa forma, a função criada utilizará a Conta de Estoque (CCEstoque) gravada na nota fiscal e contabilizar o frete na mesma.
+Exemplo de uso da função:
+D/C
+Conta
+Valor
+Débito
+ContaReal(GetCCEstoqueNFVinc(<ItensNF.CodEmpresa>,<ItensNF.Sequencial>))
+ArredondaDelphi(((<ItensNF.Precoreal>)*<ItensNF.Qtde>),2)
+Crédito
+<Entidade.SeqConta>
+ArredondaDelphi(((<ItensNF.Precoreal>)*<ItensNF.Qtde>),2)
+1 - A função tem que ser colocada na coluna Conta conforme exemplo acima.
+2 - Onde estiver se referenciando à tabela e ao campo (por exemplo, <ItensNF.CodEmpresa>), localizar na janela de Fórmulas a tabela/campo correspondente e utilizá-lo com o sequencial do campo (ainda neste exemplo ficaria <729>).
+3 - A Nota de Compra já deve estar lançada no SisPetro 

@@ -1,0 +1,245 @@
+TITULO: Tributação Monofásica para Diesel e BioDiesel
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4348313601
+--------------------------------------------------
+EM ALTERAÇÃO
+Termos utilizados
+DA:
+ Diesel A (sem mistura, não pode ser utilizado em nada, somente após mistura do B100).
+B100
+: BioDiesel.
+UF de Origem:
+UF do produtor nacional
+UF do importador:
+ UF onde o B100 importado foi descarregado
+DB
+: Diesel B (Diesel A misturado com B100)
+Diesel Comum
+: outros tipos de Diesel (marítimo, por exemplo) aos quais não são misturados nenhum tipo de biodiesel e são comercializados e utilizados da forma como foram produzidos.
+GA:
+ Gasolina A (sem mistura, não pode ser utilizado em nada, somente após mistura do Etanol Anidro).
+EA:
+ Etanol Anidro
+GC:
+ Gasolina C (Gasolina A misturada com Etanol Anidro)
+ICMS Próprio
+: é o ICMS que o contribuinte deve ao governo.
+ICMS Substituição:
+ é o ICMS que o contribuinte retém da cadeia posterior (outros contribuintes/consumidor final).
+ICMS Retido anteriormente:
+ é o ICMS que outro contribuinte reteve em uma operação 
+anterior
+ a que está sendo realizada.
+ICMS Diferido:
+ é o ICMS que outro contribuinte será responsável por reter e pagar em outra operação 
+posterior 
+a que está sendo realizada.
+AdRem: 
+AdRem significa 
+conforme a quantidade
+ e são calculados aplicando um 
+valor unitário multiplicado pela sua quantidade
+.
+Introdução
+DIESEL e B100
+O governo fixou uma alíquota AdRem (valor fixo unitário por litro) para todo o Brasil para cada componente da cadeia (DA e B100). Este valor será multiplicado pela quantidade movimentada para se chegar ao valor do imposto.
+Com as alterações, o ICMS do B100 é partilhado entre a UF de Origem (UF do produtor/importador) e a UF de Destino e a parcela do imposto do B100 para a UF de Destino deve ser retida pelo produtor ou importador de DA (como o DA não pode ser utilizado a não ser com a mistura do B100, foi 
+simplificado 
+para o restante da cadeia cobrando de antemão este imposto ao movimentar DA).
+Assim, quando se movimenta DA (sendo uma venda ou transferência) do produtor para outro estabelecimento ou se nacionaliza o DA quando no caso de importador, deve-se calcular seu imposto da seguinte forma:
+100% do ICMS próprio do Diesel A
+: alíquota AdRem multiplicada pela quantidade movimentada 
+ 
+X% do ICMS sobre o B100:
+ que será posteriormente misturado (por outro contribuinte).
+Partilha para a UF de Destino: alíquota AdRem x quantidade necessária do B100 (percentual na composição do DB, por exemplo 10%).
+Exemplo:
+ na venda de 9000 litros de DA, é necessário calcular  a quantidade de B100 para se chegar à composição de 90% de DA e 10%  de B100, que no caso são 1000 litros.
+É necessário saber a UF de Origem e a UF de Destino do B100 para saber o percentual que fica com o ICMS na UF de Destino. Esta operação utiliza o CST (código de situação tributária) 15 no diagrama abaixo.
+Por outro lado, para a movimentação do B100, iremos calcular somente o percentual que fica na UF de Origem (como ICMS próprio) mostrando ainda que o resto será 
+diferido
+ (retido e pago posteriormente por outro contribuinte conforme cálculo anterior). É uma conta simples (quantidade x alíquota AdRem x percentual da UF origem) mostrado pela operação de CST 53 abaixo.
+ 
+GASOLINA e ETANOL ANIDRO
+Diferente das operações com Diesel e B100 Com as alterações, o ICMS do B100 é partilhado entre a UF de Origem (UF do produtor/importador) e a UF de Destino e a parcela do imposto do B100 para a UF de Destino deve ser retida pelo produtor ou importador de DA (como o DA não pode ser utilizado a não ser com a mistura do B100, foi 
+simplificado 
+para o restante da cadeia cobrando de antemão este imposto ao movimentar DA).
+Assim, quando se movimenta DA (sendo uma venda ou transferência) do produtor para outro estabelecimento ou se nacionaliza o DA quando no caso de importador, deve-se calcular seu imposto da seguinte forma:
+100% do ICMS próprio do Diesel A
+: alíquota AdRem multiplicada pela quantidade movimentada 
+ 
+X% do ICMS sobre o B100:
+ que será posteriormente misturado (por outro contribuinte).
+Partilha para a UF de Destino: alíquota AdRem x quantidade necessária do B100 (percentual na composição do DB, por exemplo 10%).
+Exemplo:
+ na venda de 9000 litros de DA, é necessário calcular  a quantidade de B100 para se chegar à composição de 90% de DA e 10%  de B100, que no caso são 1000 litros.
+É necessário saber a UF de Origem e a UF de Destino do B100 para saber o percentual que fica com o ICMS na UF de Destino. Esta operação utiliza o CST (código de situação tributária) 15 no diagrama abaixo.
+Por outro lado, para a movimentação do B100, iremos calcular somente o percentual que fica na UF de Origem (como ICMS próprio) mostrando ainda que o resto será 
+diferido
+ (retido e pago posteriormente por outro contribuinte conforme cálculo anterior). É uma conta simples (quantidade x alíquota AdRem x percentual da UF origem) mostrado pela operação de CST 53 abaixo.
+Alterações no SisPetro
+Produto
+Origem: 
+Indicar se é de origem nacional ou importado (pois isso influencia o percentual de imposto origem/destino).
+Tipo (Tributação AdRem)
+: Produto Primário ou BioCombustível. Para poder saber, via natureza de operação, qual tipo de cálculo deverá ser aplicado ao produto.
+Para cada Empresa/UF:
+ indicar o percentual de ICMS Destino para o produto de origem nacional ou importada (o percentual de ICMS origem nos cálculos será sempre 100 - este percentual)
+Composição Fiscal: 
+indicar caso necessário (numa nova tabela) a composição fiscal do produto (por exemplo, no caso do DA, será 100% DA + 10% B100 - sendo que estes 10% são por dentro, isto é, deverá ser 10% da mistura final entre ele e o produto primário) conforme tela abaixo:
+CST
+Nos produtos sujeitos à tributação monofásica, abaixo os CST correspondentes:
+CST anterior
+CST monofásico
+000
+002
+010
+015
+051
+053
+060
+061
+ICMS
+Indicar o valor AdRem para o código de ICMS vinculado ao produto
+Natureza Operação
+È necessário ter naturezas de operação com CST 02, 15, 53 e 61 (conforme a utilização pela empresa) informando os cálculos AdRem e habilitando a opção AdRem conforme tela abaixo:
+Caso seja criada uma nova natureza, no dia da virada o usuário deverá alterar o vínculo das naturezas com o produto para indicar a nova natureza.
+Porém, é possível deixar as configurações prontas e só deixar desmarcado o campo 
+Habilita cálculo AdRem
+. No dia da virada, ao marcar esse campo, as configurações antigas serão desconsideradas.
+Nota:
+ para as empresas que utilizam uma única natureza de operação de venda/transferência de gasolina e diesel, devem separar em duas naturezas, sendo uma para gasolina e outra para diesel. 
+Em cada grupo (Produto Primário ou Produto BioCombustível), 
+dependendo do CST
+, somente um dos impostos deve estar marcado. Ao lado temos qual o percentual do seu cálculo, podendo ser 100% (integral) ou ser conforme o % UF de Origem ou % UF de Destino (no Cadastro de Produto / aba Margem Substituição Tributária teremos o % UF de Destino, portanto o 
+% UF de Origem será 100 - % UF de Destino
+). 
+Abaixo uma recomendação do uso da natureza
+Operação
+CST
+Produto Primário
+Biocombustível
+Venda / Transferência
+Diesel B
+61
+ICMS Retido (MonoRet) 
+100%
+ICMS Retido (MonoRet) 
+100%
+Venda / Transferência
+Diesel A
+61
+ICMS Retido (MonoRet) 
+100%
+ICMS Retido (MonoRet) 
+%UF Destino
+Venda / Transferência
+B100
+61
+ICMS Retido (MonoRet) 
+%UF Origem
+Venda / Transferência
+Diesel Marítimo
+ **
+02
+ICMS Próprio (Mono) 
+100%
+Produção / Nacionalização
+Diesel Marítimo
+02
+ICMS Próprio (Mono) 
+100%
+Produção / Nacionalização
+Diesel A
+15
+ICMS Próprio (Mono) 
+100%
+ICMS Subst (MonoReten) 
+%UF Destino
+Produção / Nacionalização B100
+53
+ICMS Próprio (Mono) 
+100%
+ICMS Diferido (MonoDif) 
+%UF Destino
+ 
+**
+ Deve ser confirmado pela área fiscal da empresa
+ Produtos sem composição fiscal, como B100 e Diesel Marítimo, serão considerados como produtos primários. Só será feita a diferenciação de produto primário e biocombustível caso haja composição fiscal
+Informações Técnicas
+Abaixo uma tabela com o Tipo do imposto e o que será gravado nos campos das tabela NotaFiscal e ItensNF além da respectiva tag no XML. 
+Tipo de Imposto
+Informação
+Campo ItensNF
+Campo NotaFiscal
+Tag XML
+ICMS Próprio
+Base de Cálculo
+BaseICMS
+BaseICMSAdRem
+qBCMono
+Alíquota AdRem
+AlicICMS
+-
+adRemICMS
+Valor do Imposto
+ValICMS
+ValICMSAdRem
+vICMSMono
+ICMS Substituição
+Base de Cálculo
+BaseICMSSubst
+BaseICMSSubstAdRem
+qBCMonoReten
+Alíquota AdRem
+AlicICMSSubst
+-
+adRemICMSReten
+Valor do Imposto
+ICMSSubst
+ICMSSubstAdRem
+vICMSMonoReten
+ICMS 
+Retido
+Base de Cálculo
+BaseICMSRet
+BaseICMSRetAdRem
+qBCMonoRet
+Alíquota AdRem
+AlicICMSRet
+-
+adRemICMSRet
+Valor do Imposto
+ICMSRet
+ICMSRetAdRem
+vICMSMonoRet
+ICMS Diferido
+Base de Cálculo
+BaseICMS
+BaseICMSAdRem
+qBCMono
+Alíquota AdRem
+AlicICMS
+-
+adRemICMS
+Valor do Imposto da Operação
+ValorICMSOriginal
+-
+vICMSMonoOp
+Percentual de Diferimento
+PercentualReducaoBCICMS
+-
+pDif
+Valor do Imposto Diferido
+ValorICMSDiferido
+-
+vICMSMonoDif
+Valor do Imposto Devido
+ValICMS
+ValICMSAdRem
+vICMSMono
+Foi criada a tabela 
+ItensNFImpostosComposicao 
+que armazenará os impostos dos produtos primário e biocombustível para uso no SCANC.
+Configurações necessárias para a tributação monofásica, ver: 
+Configurações necessárias para emissão de notas com tributação monofásica
+Cálculos de ICMS para Tributação Monofásica de Diesel e afins conforme cada CST e o que configurar

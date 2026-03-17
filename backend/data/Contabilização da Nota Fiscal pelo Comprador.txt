@@ -1,0 +1,12 @@
+TITULO: Contabilização da Nota Fiscal pelo Comprador
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2888597875
+--------------------------------------------------
+Ao tentar faturar uma nota fiscal, seja ela de venda ou de transferência era apresentado a mensagem, que o CodInterno da tabela PlanoContaSaldoAcumuladoConta não pode conter um valor nulo, conforme imagem abaixo.
+
+
+
+
+Porém foi alterado o procedimento de contabilização para que o Sispetro possa setar a conta da entidade com a conta da entidade compradora caso seja necessária a contabilização pelo comprador. 
+
+
+Caso a conta não exista também não será mais apresentada uma mensagem de erro genérica, como imagem acima, e sim uma mais especifica indicando a conta não encontrada, o valor movimento e tipo de operação.

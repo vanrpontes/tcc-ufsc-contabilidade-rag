@@ -1,0 +1,58 @@
+TITULO: Configuração do Certificado Digital
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2882535591
+--------------------------------------------------
+As configurações são realizadas através do
+ 
+Hermes Controlador
+, botão 
+Clique em 
+ para incluir um Certificado Digital
+Descrição:
+ informe uma descrição que identifique de forma fácil o Certificado, especialmente para quem tem mais de um certificado.
+Caminho Certificado com nome:
+ informe pasta onde se encontra o Certificado, incluindo o nome do Certificado (arquivo .pfx ou .p12)
+Senha:
+ informe a senha fornecida pela empresa certificadora.
+Clique em 
+ para confirmar os dados ou em 
+ para sair da tela sem alterar os dados
+Após confirmar a inclusão, e estando tudo correto, apresenta a mensagem:
+Após incluir um certificado, é necessário clicar em 
+. Com o caminho e a senha corretos, apresenta a mensagem:
+Clique em  
+ para editar as informações de um certificado já configurado
+          
+Estando tudo correto, apresenta mensagem:
+Clique em 
+ para deletar um certificado configurado. Apresenta uma mensagem para confirmar a exclusão do certificado.
+Caso esteja tudo correto, apresenta a mensagem que a exclusão foi feita.
+Caso a inclusão, alteração, validação ou exclusão apresente problemas, serão apresentadas as mensagens de erros conforme a ação executada.
+Inclusão/Alteração:
+ erro de caminho do certificado ou senha
+Validação:
+ erro de caminho do certificado
+Exclusão:
+ erro por vínculo a uma empresa
+Incluídos os Certificados (caso tenha mais de um) no Hermes Controlador, é necessário vincular as empresas (caso tenha mais uma) no SisPetro Normal e que estejam habilitadas para uso de nota fiscal eletrônica
+Acesse o menu 
+Movimentação/ Faturamento/ Nota Fiscal Eletrônica/ Manutenção de Certificados Digital. 
+Nesta tela, são apresentadas todas as empresas cadastradas no banco de dados. Selecione a empresa a qual deseja vincular o Certificado Digital e clique em 
+Clique em 
+ para que o Certificado selecionado seja efetivado para a empresa
+O botão 
+, limpará o certificado da empresa selecionada e em seguida deve clicar em 
+ para efetivar.
+ 
+Clique no botão 
+Sair
+ após finalizar a definição dos certificados.
+Enquanto os Certificados são configurados no SisPetro Normal e nos Hermes, os usuários de faturamento não devem entrar no SisPetro Normal. Os demais usuários que não tem necessidade de sair do SisPetro Normal.
+Configurados os Certificados no SisPetro Normal, no 
+, botão 
+, aba Empresas Vinculadas
+: 
+Nesta aba, são mostradas todas as empresas que estão vinculadas a um Certificado Digital. 
+Com todas as configurações dos Certificados (caso tenha mais de um) corretas, tanto o Hermes como o SisPetro Normal devem ser reiniciados para que as alterações tenham efeito.
+Quando o Certificado Digital for atualizado, é necessário parar o Servidor Hermes e Iniciar novamente. Isso força o certificado atual a substituir o antigo na memória, evitando erros de assinatura
+Ver também 
+Notificação de Validade do Certificado Digital

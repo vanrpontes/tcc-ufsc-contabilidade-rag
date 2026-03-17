@@ -1,0 +1,67 @@
+TITULO: Controle de PMM pela Quantidade Paga
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921072441
+--------------------------------------------------
+Temos como padrão no Sispetro o fluxo do PMM do Tipo Transferência entre Depósitos que é:
+Inclusão
+Aprovação
+Inclusão do Adiantamento Quantificado (que dá entrada do produto no depósito de origem), mas que não é obrigatório
+Inclusão de OC, que dependem da quantidade do pedido, independente da quantidade já paga
+Faturamento
+Este procedimento acima libera para ser feito o carregamento na Usina a quantidade total, no campo quantidade pendente, do PMM. Isso permite que as OC sejam feitas mesmo sem o pagamento.
+Esta nova opção de tipo de PMM, não deixa incluir a OC caso não tenha sido pago. Na prática é fazer com que a quantidade pendente do PMM seja "liberada" após inclusão do Adiantamento Quantificado.
+Para isso temos algumas configurações:
+Perfil de Sistema
+Menu 
+Ferramenta/Sistema/Aba Compras
+ 
+"
+Quantidade Pendente no PMM
+" - Ver informações de 
+Perfil de Sistema - Compras
+ 
+Escolher a opção 
+Pela quantidade paga (Adiantamento Quantificado). 
+Este perfil traz sugerido na inclusão do PMM o campo 
+Liberação da Quantidade Pendente 
+com a opção 
+Pela quantidade paga
+ que poderá ser mudado pelo Usuário, caso tenha permissão.
+Perfil de Usuário
+Menu 
+Ferramenta/Usuário/Aba Perfil/Aba Compras perfil
+ 
+"
+Pode indicar Forma de Liberação de quantidade pendente
+" -  veja informações sobre 
+Perfil Usuário - Compras
+Permite que usuário troque o campo 
+Liberação da Quantidade Pendente
+ do PMM que é sugerido pelo perfil de sistema.
+Inclusão de PMM
+Com a configuração acima ao incluir o PMM já virá preenchido o campo 
+Liberação da Quantidade Pendente
+ com a opção 
+Pela quantidade paga. 
+ 
+ 
+Com esta opção será requisito obrigatório a utilização de Adiantamento Quantificado. Ver detalhes 
+Adiantamento a Fornecedor
+Ao concluir o pedido o campo 
+Qtde Alocada
+ e 
+Qtde Paga
+ ficará com quantidade 0. Estes só serão preenchidos na inclusão do Adiantamento.
+Inclusão Adiantamento 
+Inclusão de 
+Adiantamento Quantificado
+ vinculado ao PMM. Este Poderá ser da quantidade integral ou parcial do pedido, possibilitando a inclusão de diversos adiantamento para o mesmo PMM. Veja informações em 
+Após o pagamento o Sispetro liberará a 
+Qtde Alocada
+ e 
+Qtde Paga 
+do pedi para que a Ordem de carregamento seja feita.
+Inclusão OC
+Incluir OC do tipo 
+Transferência entre Depósitos
+ - veja informações sobre esta OC em 
+, vinculando com o PMM.

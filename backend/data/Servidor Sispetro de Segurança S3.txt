@@ -1,0 +1,28 @@
+TITULO: Servidor Sispetro de Segurança (S3)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2910486706
+--------------------------------------------------
+Visando aumentar a segurança do Sispetro, à partir da versão 8.1, torna-se obrigatório a ativação do Servidor Sispetro de Segurança (S3). 
+Sua função será controlar toda a infra-estrutura de segurança, desde o número de usuários conectados ao banco, até a ativação de novas versões.
+Este servidor (que pode ser o mesmo Servidor Sispetro atual) tem uma característica importante: ele é 
+único
+ por banco de dados. Atualmente, o usuário pode subir quantos servidores sispetro desejar porém somente um poderá ser o servidor sispetro de segurança.
+Veja na prática mais detalhes abaixo:
+No Servidor Sispetro, note a aba 
+Servidor de Segurança.
+ 
+No campo 
+Ativar como S3
+, teremos as seguintes opções:
+Ativar este servidor como S3
+:
+ O nome é bem sugestivo, fará com que esse Servidor Sispetro seja iniciado como S3.
+Subir sem alterar a configuração atual: 
+fará com que esse Servidor Sispetro seja iniciado sem ser um S3, porém, isso será possível apenas caso já exista um S3 ativo em outro Servidor Sispetro conectado ao mesmo banco de dados.
+O campo 
+IP/Porta do S3 
+é apenas informativo, não permite edição do usuário. Nele será mostrado o endereço IP e a Porta do servidor S3 ativo para esse banco de dados. Será útil caso tenha mais de um Servidor Sispetro ativo, pois apontará quem é o S3.
+Após ativado o S3 também poderá ser identificado na tela principal do Servidor Sispetro, conforme imagem abaixo:
+ 
+Caso seja iniciado um Segundo Servidor Sispetro como S3, o sistema não impedirá que ele seja iniciado, porém o primeiro será automaticamente 
+PARADO
+, e consequentemente todos os clientes Sispetro conectados a ele também terão suas conexões derrubadas.

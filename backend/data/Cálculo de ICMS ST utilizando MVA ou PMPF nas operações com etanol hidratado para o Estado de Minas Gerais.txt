@@ -1,0 +1,107 @@
+TITULO: Cálculo de ICMS ST utilizando MVA ou PMPF nas operações com etanol hidratado para o Estado de Minas Gerais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918974041
+--------------------------------------------------
+Histórico
+O Estado de Minas Gerais por meio do Decreto nº 46.260, de 20 de junho de 2013 alterou o artigo 76 da Parte 1 do Anexo XV do Regulamento do ICMS em relação as formas de cálculo e recolhimento do ICMS Substituição Tributária nas operações internas e interestaduais com etanol hidratado combustível, podendo as formas de cálculo sofrer alternâncias entre as sistemáticas de Margem de Valor Agregado (MVA) e Preço Médio Ponderado a Consumidor Final – PMPF de acordo com as regras estabelecidas no referido artigo.
+Nota: essas regras entram em vigor a partir de 01/08/2013.
+A sistemática de MVA em Substituição ao PMPF deve ser adotada conforme segue:
+1 – Na operação interna em que o valor da operação própria (valor unitário NF + frete) praticado pelo remetente seja superior a 77% (setenta e sete por cento) do preço médio ponderado a consumidor final (PMPF);
+2 - Etanol Nacional - Na operação interestadual sujeita à alíquota de 12% (doze por cento) em que o valor da operação própria (valor unitário NF + Frete) praticado pelo remetente seja superior a 71% (setenta e um por cento) do preço médio ponderado a consumidor final (PMPF);
+3 - Etanol Importado - Na operação interestadual sujeita à alíquota de 4% (quatro por cento) em que o valor da operação própria (valor unitário NF + Frete) praticado pelo remetente seja superior a 65% (sessenta e cinco por cento) do preço médio ponderado a consumidor final (PMPF)
+Atualmente o Sispetro, p
+ara cálculo do ICMS de Substituição, pode trabalhar de 3 formas, que atende a todas UF's:
+Pelo PMPF: onde a Base de ICMS ST é o PMPF divulgado em Ato Cotepe multiplicado pela quantidade.
+Pelo MVA: onde a Base do ICMS ST é  o Preço unitário (sem impostos) + % MVA divulgado em Ato Cotepe
+Conforme o maior: o Sispetro aplica os dois cálculos acima e aquele que resultar o maior valor de ST é então utilizado
+Com as novas regras adotadas pelo Estado de MG, o Sispetro, além das 3 formas que já trabalha, foi alterado para atender essas regras.
+No Sispetro as configurações para que as novas regras sejam consideradas, basta incluir os percentuais adotados no 
+Cadastro de Produtos - aba Margem Substituição Tributária
+:
+Maiores detalhes podem ser vistos em 
+Cálculo de Imposto - Exemplo Prático
+ e 
+Configurações necessárias para nota e produto
+.
+Deve apenas cadastrar os percentuais nos campos % Comp. PMPF na UF, %Comp. PMPF fora UF e %Comp.PMPF Import. Os cálculos serão feitos automaticamente pelo Sispetro que selecionará o que for maior.
+Exemplos:
+Dados Gerais
+PMPF
+MVA
+% Comparacao PMPF
+Alíquota ICMS Próprio
+Alíquota ICMS ST
+Geral
+Dentro UF
+Fora UF
+Dentro UF
+Fora UF
+Dentro UF
+Fora UF
+Geral
+2,1711
+30,45
+41,72
+77%
+71%
+19%
+12%
+19%
+Caso 1: Venda dentro da UF, preço 1,77, qtde 1.000
+Preço para comparação com PMPF: 
+1,671747 = 2,1711 * 77%
+Cálculo utilizando PMPF 2,1711
+Preço Unit.
+Valor Prod.
+Base ICMS
+ICMS
+Base ICMS ST
+ICMS ST
+1,67591481
+1.675,91
+1.675,91
+318,42
+2.171,10
+94,09
+Cálculo utilizando MVA 30,45%
+Preço Unit.
+Valor Prod.
+Base ICMS
+ICMS
+Base ICMS ST
+ICMS ST
+1,67319717
+1.673,20
+1.673,20
+317,91
+2.182,69
+96,80
+Resultado: preço unitário de MVA é superior ao preço para comparação (77% do valor do PMPF), usa MVA.
+Caso 2: Venda dentro UF, preço 1,76, qtde 1.000
+Cálculo utilizando PMPF 2,1711
+Preço Unit.
+Valor Prod.
+Base ICMS
+ICMS
+Base ICMS ST
+ICMS ST
+1,66356913
+1.663,57
+1.663,57
+316,08
+2.171,10
+96,43
+Cálculo utilizando MVA 30,45%
+Preço Unit.
+Valor Prod.
+Base ICMS
+ICMS
+Base ICMS ST
+ICMS ST
+1,66374408
+1.663,74
+1.663,74
+316,11
+2.170,35
+96,26
+Resultado: preço
+ unitário de MVA é inferior ao preço para comparação (77% do valor do PMPF), usa PMPF.

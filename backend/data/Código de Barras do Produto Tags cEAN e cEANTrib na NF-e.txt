@@ -1,0 +1,57 @@
+TITULO: Código de Barras do Produto Tags, <cEAN> e <cEANTrib> na NF-e.
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4369809409
+--------------------------------------------------
+Introdução
+O código GTIN, ou Global Trade Item Number, é o 
+identificador
+ desenvolvido e controlado pela GS1. Serve para que seja possível recuperar informações pré-definidas sobre o produto. Antigamente, o 
+GTIN era conhecido como código EAN
+, mas o termo foi atualizado para que pudesse abranger informações de objetos que vão desde a matéria-prima até o produto final.
+ Agora, para 
+fabricantes de combustíveis
+, será necessário o envio desse código na NF-e em suas respectivas tags  conforme a Nota Técnica 2021.003 – Validação de GTIN
+Campo
+Descrição
+prod
+Detalhamento de Produtos e Serviços
+cEAN
+GTIN (Global Trade Item Number) do produto, antigo 
+código EAN ou código de barras
+cEANTrib
+GTIN (Global Trade Item Number) da unidade tributável, 
+antigo código EAN ou código de barras
+O que deve ser configurado no SisPetro para o envio do código de barras do produto na NF-e?
+1 - 
+Cadastro de Produtos
+ 
+Tabela Dados Adicionais em Produto
+Campo 
+Código de Barras: 
+cadastro do Gtin (código de Barras).
+Nota: 
+cada empresa vai ter que se associar ao GS1 e adquirir seus códigos GTIN para cada produto combustível ou mesmo produtos não combustíveis que vende. Neste primeiro momento somente para vendas de produção do estabelecimento. A validação do GTIN é associada ao CFOP.
+2 - 
+Configuração de Sistema
+Quadro
+ NF-e
+Envia Código de Barras (GTIN) do produto no XML do Recibo da NF-e?: 
+se marcado, 
+ao faturar a NF, caso o produto tenha código de barras, 
+ele será enviado no XML do Recibo da NF-e, se o produto não possuir código de barras cadastrado, será enviado na tag a informação, 
+SEM GTIN.
+Inclusão do código de barras na Danfe
+Acessar o layout do Danfe
+Quadro DANFE: 
+caminho do arquivo de layout - NF-e, clique no botão 
+editar.
+Edição do layout da Danfe: 
+na barra de ferramentas, localize o botão 
+código de barras
+ para inserir o um campo
+.
+Clique no botão, em seguida clique na área do layout que deseja incluir o campo.
+Em seguida selecione o campo e na barra de ferramentas insira o campo 
+código de barras, 
+do condutor de dados
+ ItensNF.
+Para salvar a alteração, clique no menu Arquivo, Salvar.

@@ -1,0 +1,214 @@
+TITULO: Cenários de Importação de NF-e/CT-e: Manual ou via Serviço
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2942469460
+--------------------------------------------------
+Considerando um cenário em que o 
+Serviço de Recebimento de E-mail
+ está inativo e estão ativos o 
+Serviço de Consulta Destinatário CT-e
+ e o 
+Serviço de Consulta Destinatário NF-e
+.
+Recomendamos 
+não utilizar
+ o Serviço de 
+Recebimento de E-mail
+ e os Serviços de
+ Consultas Destinatários
+ ao
+ mesmo tempo
+. Pode gerar erros de 
+duplicidade
+ de arquivos XMLs, ocasionando 
+problemas de entendimento
+, achando que os serviços não estão funcionando de acordo. A
+ funcionalidade
+ dos 
+serviços não é afetada 
+caso os 3 serviços sejam ativados.
+Para um melhor 
+entendimento
+, é 
+necessário
+ conhecer a forma como o 
+SisPetro
+ faz o 
+tratamento
+ dos 
+arquivos
+ nesses serviços, 
+especialmente
+ em relação às 
+pastas
+ onde os
+ arquivos
+ são 
+gravados
+.
+Os serviços envolvidos são: 
+Serviço de Consulta Destinatário CT-e
+, 
+Serviço de Consulta Destinatário NF-e
+, 
+Serviço de Movimentação XML Sefaz
+ 
+e 
+Serviço de Importação de NF - Leitura de XML
+.
+O caminho e as pastas utilizadas são apenas exemplos
+Para empresas que 
+importam 
+os
+ XMLs de CT-e
+ e os 
+XMLs de NF-e
+ pelo 
+Serviço de Importação de NF - Leitura de XML
+ 
+e o 
+Serviço de Movimentação XML Sefaz
+ 
+fazendo a movimentação de dos XMLs de CT-es e NF-es recebidos.
+Neste cenário, todos os XMLs serão apresentados na tela do 
+Monitoramento da Importação de NF/CT
+Serviço de Consulta Destinatário CT-e
+Pasta XML's Recebidos: 
+C:\Sispetro\Recebidos
+Pasta XML's com Erro: 
+C:\Sispetro\ErrosCTe
+Serviço de Consulta Destinatário NF-e
+Pasta XML's Recebidos: 
+C:\Sispetro\Recebidos
+Pasta XML's com Erro: 
+C:\Sispetro\ErrosNFe
+Serviço de Importação de NF - Leitura de XML
+Pasta de Arquivos a Processar: 
+C:\Sispetro\Recebidos
+Pasta de Arquivos Processados: 
+C:\Sispetro\RecebidosProcessados
+Pasta de Arquivos com Erros: 
+C:\Sispetro\RecebidosErros
+Serviço de Movimentação XML Sefaz
+Pasta XML's Recebidos: 
+C:\Sispetro\RecebidosProcessados
+Pasta XML's com Erro: 
+C:\Sispetro\MovimentacaoErros
+Onde:
+C:\Sispetro\Recebidos:
+ é comum para os Serviços de Consulta e Importação de NF. 
+Os Serviços de Consulta fazem a consulta na Sefaz e gravam os XMLs nesta pasta. 
+O Serviço de Importação de NF utiliza a mesma pasta para fazer a leitura e importar para o SisPetro.
+C:\Sispetro\ErrosCTe
+ e
+ C:\Sispetro\ErrosNFe:
+ nessas pastas os Serviços de Consulta gravam os XMLs que apresentaram algum tipo de erro, permitindo que o usuário faça a análise desses XMLs. Pode configurar uma única pasta de erros, caso queira.
+C:\Sispetro\RecebidosProcessados:
+ é comum para os Serviços de Importação de NF e Movimentação XML. 
+O Serviço de Importação faz a leitura em 
+C:\Sispetro\Recebidos
+ e os XMLs estando corretos, move para esta pasta. 
+O Serviço de Movimentação faz a leitura dos XMLs nesta pasta, faz a validação e move os XMLs para as respectivas pastas (CT-e e NF-e) de acordo com as configurações.
+C:\Sispetro\RecebidosErros:
+ os XMLs que foram lidos em 
+C:\Sispetro\Recebidos
+ 
+e apresentaram algum tipo de erro, são movidos para esta pasta pelo Serviço de Importação. Nota: não se tratam de erros de importação e sim de problemas no XML.
+ 
+C:\Sispetro\MovimentacaoErros:
+ os XMLs que foram lidos em 
+C:\Sispetro\RecebidosProcessados
+ 
+e apresentaram algum tipo de erro são movidos para esta pasta pelo Serviço de Movimentação.
+O cenário abaixo é válido a partir da versão 10.9
+Para empresas que 
+importam manualmente
+ os
+ XMLs de CT-e
+ e fazem 
+leitura
+ somente dos 
+XMLs de NF-e
+ pelo 
+Serviço de Importação de NF - Leitura de XML
+. 
+Porém, ainda necessitam que o 
+Serviço de Movimentação XML Sefaz
+ 
+continue fazendo a movimentação de dos XMLs de CT-es e NF-es recebidos.
+Neste cenário, somente os XMLs de NF-e serão apresentados na tela do 
+Monitoramento da Importação de NF/CT
+A única alteração necessária é na pasta de XMLs recebidos de CT-e
+Serviço de Consulta Destinatário CT-e
+Pasta XML's Recebidos: 
+C:\Sispetro\RecebidosProcessados
+Pasta XML's com Erro: 
+C:\Sispetro\ErrosCTe
+Serviço de Consulta Destinatário NF-e
+Pasta XML's Recebidos: 
+C:\Sispetro\Recebidos
+Pasta XML's com Erro: 
+C:\Sispetro\ErrosNFe
+Serviço de Importação de NF - Leitura de XML
+Pasta de Arquivos a Processar: 
+C:\Sispetro\Recebidos
+Pasta de Arquivos Processados: 
+C:\Sispetro\RecebidosProcessados
+Pasta de Arquivos com Erros: 
+C:\Sispetro\RecebidosErros
+Serviço de Movimentação XML Sefaz
+Pasta XML's Recebidos: 
+C:\Sispetro\RecebidosProcessados
+Pasta XML's com Erro: 
+C:\Sispetro\MovimentacaoErros
+Onde:
+C:\Sispetro\Recebidos:
+ é comum para o Serviços de Consulta Destinatário NFe e Importação de NF. 
+Os Serviços de Consulta fazem a consulta na Sefaz e gravam os XMLs nesta pasta. 
+O Serviço de Importação de NF utiliza a mesma pasta para fazer a leitura e importar para o SisPetro.
+C:\Sispetro\ErrosCTe
+ e 
+C:\Sispetro\ErrosNFe:
+ nessas pastas os Serviços de Consulta gravam os XMLs que apresentaram algum tipo de erro, permitindo que o usuário faça a análise desses XMLs. Pode configurar uma única pasta de erros, caso queira.
+C:\Sispetro\RecebidosProcessados:
+ é comum para os Serviços de Consulta Destinatário CT-e, Importação de NF e Movimentação XML. 
+O Serviço de Consulta de Destinatário de CT-e faz a consulta na Sefaz e grava nesta pasta. 
+O serviço de Importação faz a leitura em 
+C:\Sispetro\Recebidos
+ e os XMLs estando corretos, move para esta pasta. 
+O Serviço de Movimentação faz a leitura dos XMLs nesta pasta, faz a validação e move os XMLs para as respectivas pastas (CT-e e NF-e) de acordo com as configurações.
+C:\Sispetro\RecebidosErros:
+ os XMLs que foram lidos em 
+C:\Sispetro\Recebidos
+ 
+e apresentaram algum tipo de erro, são movidos para esta pasta pelo Serviço de Importação. Nota: não se tratam de erros de importação e sim de problemas no XML.
+ 
+C:\Sispetro\MovimentacaoErros:
+ os XMLs que foram lidos em 
+C:\Sispetro\RecebidosProcessados
+ 
+e apresentaram algum tipo de erro são movidos para esta pasta pelo Serviço de Movimentação.
+Para quem 
+utiliza
+ o Serviço de 
+Importação NF - Leitura XML
+ e o Serviço de 
+Movimentação XML Sefaz
+, as pastas
+ Arquivos a Processar (Importação)
+ e 
+XMLs Recebidos (Movimentação)
+ 
+não podem ser as mesmas
+, uma vez que
+ ambas movem os XMLs 
+após a leitura. Caso as
+ pastas
+ sejam as 
+mesmas
+, os XMLs 
+podem não ser importados
+ ou 
+não ser movimentados
+, dependendo de qual 
+serviço executou primeiro
+.
+Os cenários apresentados acima são os mais comuns. Podem existir outros cenários diferentes. Nesses casos, basta aplicar o mesmo raciocínio aplicado para os cenários apresentados.

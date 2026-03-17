@@ -1,0 +1,295 @@
+TITULO: Nossa Caixa
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878439607
+--------------------------------------------------
+Para configurar o tipo de cobrança para o Banco Nossa Caixa (151), os campos abaixo deverão ser preenchidos obrigatoriamente da seguinte forma:
+
+
+Painel Cobrança Eletrônica
+
+
+
+
+Banco Oficial:
+ 151 - BANCO NOSSA CAIXA S.A.
+
+
+
+
+
+
+Nome Banco:
+ BANCO NOSSA CAIXA
+
+
+
+
+
+
+Tipo Convênio:
+ deve ser informado o código da modalidade da conta corrente que é utilizado no preenchimento no arquivo de remessa e utilizado também no cálculo do dígito verificador do nosso número e composição do campo livre. Pode ser: 01, 04, 09, 13, 16, 17 ou 18. Verificar junto ao Banco qual código deverá ser utilizado.
+
+
+
+
+
+
+Número Conta:
+ número da conta corrente com até 6 dígitos.
+
+
+
+
+
+
+Dígito Conta:
+ dígito verificador da conta corrente com 1 dígito.
+
+
+
+
+
+
+#Agência:
+ número da agência com até 4 dígitos.
+
+
+
+
+
+
+Dígito Agência:
+ dígito verificador da agência com 1 dígito.
+
+
+
+
+
+
+Carteira:
+ deve ser preenchido 
+06
+.
+
+
+
+
+
+
+#Docto no Arquivo Remessa:
+ se informado a opção 
+Com Parcela...
+, será acrescentado no lado do campo 
+Número de Documento no Arquivo de Remessa
+, a identificação da parcela.
+
+
+
+
+
+
+Informação de Juros no Arquivo Remessa:
+ utilizado para informação do campo código de mora (posição 119) e o campo valor de juros ao dia ou taxa mensal (posições 128 a 142) no arquivo de remessa.
+
+
+
+
+Faixa Nosso Número
+
+Só deve ser informada uma faixa com até 7 dígitos.
+
+
+Dados Técnicos
+
+
+
+
+Nosso Número:
+ é salvo no SisPetro com 10 dígitos (apesar da faixa ser até 7 dígitos), porém os dois primeiros dígitos são '99' e o último dígito é calculado no módulo 10, utilizando os campos Número da Agência, Tipo de Convênio (Modalidade da Conta Corrente), Número da Conta, Dígito da Conta e o Nosso Número ('99' + 7 posições).
+
+
+
+
+Linha Digitável
+
+
+
+
+151 -  Nossa Caixa
+
+
+
+
+
+
+ Conteúdo 
+
+
+ Tamanho 
+
+
+ Início 
+
+
+ Fim 
+
+
+
+
+
+
+Fixo '9'	
+
+
+1	
+
+
+1	
+
+
+1
+
+
+
+
+
+
+Nosso número 	
+
+
+8
+
+
+	2
+
+
+	9
+
+
+
+
+
+
+Agência	
+
+
+4
+
+
+	10	
+
+
+13
+
+
+
+
+
+
+Modalidade da Conta Corrente	
+
+
+1
+
+
+	14
+
+
+	14
+
+
+
+
+
+
+Conta	
+
+
+6	
+
+
+15	
+
+
+20
+
+
+
+
+
+
+Banco (151)	
+
+
+3	
+
+
+21	
+
+
+23
+
+
+
+
+
+
+1º Dígito - Módulo 10	
+
+
+1	
+
+
+24	
+
+
+24
+
+
+
+
+
+
+2º Dígito - Módulo 11	
+
+
+1	
+
+
+25	
+
+
+25
+
+
+
+
+
+
+
+
+
+
+Exemplo:
+
+Nosso Número: 11111111
+
+Agência: 2222
+
+Modalidade da Conta Corrente: 3
+
+Conta: 444444
+
+Banco: 151
+
+1º Dígito - Módulo 10: 5 
+
+2º Dígito - Módulo 11: 6
+
+
+Campo Livre:
+ 9 11111111 2222 3 444444 151 5 6
+
+*Linha Digitável: | 1 5 1 | 1 | 9 1 1 1 1 | 1 | 1 1 1 1 2 2 2 2 3 4 | 1 | 4 4 4 4 4 1 5 1 5 6 | 1 | 1 | 4 5 6 7 | 0 0 0 1 0 0 0 0 0 0 |
+
+
+Para informações sobre a montagem da linha digitável para este banco, veja o tópico 

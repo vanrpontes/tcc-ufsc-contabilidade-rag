@@ -1,0 +1,42 @@
+TITULO: Livro Fiscal Adicional para Conhecimento de Frete de Transportadoras
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210347
+--------------------------------------------------
+O Livro Fiscal Adicional é útil para Distribuidoras e Transportadoras que pertencem ao mesmo Grupo, pois é possível configurar o sistema para que gere automaticamente os Livros Fiscais de Entrada na Distribuidora referente aos Conhecimentos de Fretes (serviços) emitidos pela Transportadora, ou seja, quando for emitido um Conhecimento de Frete será gerado um livro fiscal para a empresa que está emitindo o Conhecimento (Transportadora) e também será gerado um livro fiscal para a empresa que pagou pelo serviço de transporte (Distribuidora).
+
+
+Pontos básicos para gerar o Livro Adicional:
+
+
+
+
+Deve-se criar uma fórmula na Tabela Fórmulas para Livro Fiscal, que atenda essa situação. Vide maiores detalhes no tópico 
+ 
+
+
+Deve-se criar Natureza de Operação específica para esse caso, uma para entrada e outra para saída.  
+ 
+ 
+
+
+
+
+Depois de criar a fórmula para o livro fiscal adicional será necessário configurar a Natureza de Operação para que a mesma gere automaticamente um registro no Livro Fiscal Adicional, conforme explicado acima.
+
+
+
+
+No painel Dados Adicionais a opção "Gera movimento para Livros Fiscais" deverá estar marcada para que a opção
+ 
+"Gera movto p/ Livros Fiscais Adicional"
+ 
+fique habilitada. Marque essa opção e no campo
+ 
+Fórmula Adicional
+ 
+aperte <enter> ou acione as reticências para selecionar a fórmula.
+
+
+Essa configuração deverá ser feita em todas as Naturezas de Operação que irão utilizar esse recurso da fórmula para Livros Fiscais Adicional.
+
+
+A emissão de Conhecimento de Frete para empresas que não pertencem ao mesmo Grupo, por exemplo Usinas, deve-se criar outra Natureza de Operação para esse tipo de situação, pois esses conhecimentos não irão gerar entrada nas empresas do Grupo.

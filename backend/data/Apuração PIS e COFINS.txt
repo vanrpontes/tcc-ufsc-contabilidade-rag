@@ -1,0 +1,419 @@
+TITULO: Apuração PIS e COFINS
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4868047006
+--------------------------------------------------
+1
+6
+false
+default
+list
+true
+Objetivo
+A Apuração de PIS e COFINS no 
+SisPetro
+ permite calcular, registrar e controlar as contribuições sociais de forma semelhante ao 
+SPED Contribuições
+, incluindo créditos, débitos e ajustes. O processo envolve habilitar o acesso do usuário, incluir a primeira apuração com o 
+Saldo Credor manual
+, e utilizar as abas de 
+Crédito
+, 
+Contribuição
+ e 
+Saldo Credor
+ para acompanhamento e ajustes. O Sispetro realiza cálculos automáticos e possibilita inclusão, alteração, cancelamento e impressão das apurações, refletindo os registros oficiais (M100–M600 e 1100/1500).
+:warning:
+atlassian-warning
+#FFFAE6
+Importante: 
+Antes de seguir para as configurações, temos que ter configurado 3 pontos
+Outros impostos: 
+Tabela Outros Impostos
+, 
+Outros Impostos (Painel Por Filial)
+ e 
+Manutenção de Retenções de PIS e COFINS
+ 
+O que é Apuração de PIS e COFINS
+PIS (Programa de Integração Social)
+ e 
+COFINS (Contribuição para o Financiamento da Seguridade Social)
+ são contribuições sociais que as empresas devem pagar ao governo federal. O objetivo dessas contribuições é financiar a seguridade social, que inclui a previdência social, a saúde e a assistência social.
+A 
+apuração
+ é o processo de calcular o valor que uma empresa deve pagar de PIS e COFINS. Esse processo envolve a determinação da base de cálculo e a aplicação das alíquotas correspondentes, além de permitir a compensação de créditos, quando aplicável.
+Com esta breve explicação iremos configurar no SisPetro as permissões para o usuário ter acesso a inclusão/Alteração/Cancelamento.
+Como Configurar o Perfil do Usuário
+Para liberar um usuário para a Apuração de PIS e COFINS, siga estes passos:
+Habilitar a Configuração do Usuário:
+Acesse o menu 
+Ferramentas
+.
+Selecione 
+Usuários
+.
+Escolha a opção Aba: 
+Acesso Menus /Menus / Movimentação / Controladoria / Apuração PIS e COFINS.
+Clique em 
+Habilitado
+.
+Para configurar as permissões de usuário para a 
+Apuração PIS e COFINS
+, consulte 
+Painel Fiscal (Usuários)
+.
+Acessando a tela de Apuração de PIS e COFINS, você deve seguir o caminho: 
+Movimentação > Controladoria > Apuração PIS e COFINS
+.
+Itens inativos agora ficarão destacados em 
+vermelho
+Inclui:
+ Botão para incluir uma nova apuração.
+Altera:
+ Permite o usuário fazer alterações na apuração em andamento.
+Encerra:
+ Permite o encerramento de uma Apuração em andamento.
+Reabre:
+ Permite reabrir uma Apuração já encerrada. 
+Cancela:
+ Permite cancelamento de uma Apuração em andamento.
+Imprime:
+ Imprime o RTM da Apuração PIS e COFINS em andamento.
+Legenda:
+ Apresenta a legenda da situação das Apurações listadas.
+Atualiza:
+ Permite listar as Apurações feitas a partir da data filtrada. 
+Sair:
+ Encerra a tela de Apuração PIS e COFINS.
+A partir de:
+ Filtro de data no qual deseja visualizar as Apurações.
+Empresa:
+ Empresa no qual será feito a Apuração ou filtrada para visualizações.
+Status:
+ Opções a qual é possível fazer filtro.
+Todos exceto cancelados: 
+Permite listar as Apurações encerradas e em andamento.
+Somente aberto: 
+Lista somente a Apuração em andamento.
+Todos: 
+Permite visualizar todas, canceladas, encerradas e em andamento.
+Imprime - Relatório Apuração PIS e COFINS
+Esta função ira apresentar o relatório de PIS e COFINS, semelhante ao apresentado no EFD-Contribuição, para ser apresentado na tela basta selecionar uma apuração, estando encerrada ou em andamento, que apresentará as informações no relatório. 
+"Em todas as telas de apuração, você encontrará a função de filtro, que permite:
+Ordenar as informações
+Ocultar colunas da visualização
+Reorganizar a posição das colunas (Clicando na coluna e movendo com o mouse)
+Essas opções ajudam a personalizar e facilitar a visualização dos dados de acordo com suas necessidades."
+Para a inserção da primeira Apuração no SisPetro é necessário o lançamento manual do Saldo Credor. Importante lançar as informações de um período do SPED CONTRIBUIÇÃO efetuado no SisPetro e que já tenha sido validado pela receita.
+Nos painéis:
+Apuração: 
+apresentação das lista de Apurações no Sispetro.
+Crédito: 
+tela que mostrará as informações de crédito do PIS e COFINS.
+Resumo: 
+O Resumo é uma seção equivalente aos registros M100 do SPED Contribuições. Ele resume os valores de PIS e COFINS com base nas seguintes informações notas de entrada e dados complementares do período.
+Detalhes: 
+os detalhes apresentam as informações do registro M105.
+Ajustes: 
+caso seja necessário a inclusão de Ajustes de Redução e/ou Acréscimo.
+Inclui:
+ permite inclusão de ajuste de Redução e/ou Acréscimo.
+Altera:
+ permite alteração ajustes efetuados.
+Exclui:
+ permite exclusão do ajuste.
+Contribuição: 
+Resumo: 
+O Resumo é uma seção equivalente aos registros M500 do SPED Contribuições. Ele resume os valores de PIS e COFINS com base nas seguintes informações notas de entrada e dados complementares do período.
+Detalhes: 
+os detalhes apresentam as informações do registro M505.
+Ajustes:
+ caso seja necessário a inclusão de Ajustes de Redução e/ou Acréscimo.
+Inclui:
+ permite inclusão de ajuste de Redução e/ou Acréscimo.
+Altera:
+ permite alteração ajustes efetuados.
+Exclui:
+ permite exclusão do ajuste.
+Saldo Credor: 
+serão lançados de forma manual a primeira manutenção de saldo credor (Registro 1100/1500), após isso as demais serão recalculadas a cada Apuração feita.
+Retenção: 
+informações que serão apresentadas nos registros 1300/1700 do SPED Contribuições, para mais informações verificar o help 
+Manutenção de Retenções de PIS e COFINS
+ 
+Operações Extras:
+ informações que vão ser apresentadas no registro F100 - para mais informações verificar o help 
+Outras Operações - Registro F100 SPED contribuições
+ 
+Inclusão da primeira Apuração PIS e COFINS no SisPetro
+A inclusão da Apuração no SisPetro, somente para o primeiro registro, precisa ser lançado manualmente o 
+Saldo Credor
+, de um SPED CONTRIBUIÇÃO já transmitido e validado na receita, que tenha sido gerado no SisPetro para conter as informações necessárias para recalculo.
+A inclusão da Apuração de PIS e COFINS no 
+SisPetro
+ foi projetada para refletir o funcionamento do Validador EFD-Contribuições. O objetivo é tornar o preenchimento mais fácil e didático. Registros 
+Crédito
+-M100/M105, 
+Contribuições
+-M500/M505, 
+Saldo Credor
+-1100/1500.
+Com essas informações, vamos para a inclusão no SisPetro:
+Botão 
+incluir
+ ira abrir a sub-tela de Inclusão de Apuração PIS/COFINS, conforme a imagem abaixo:
+Data inicial: 
+Data que irá lançar manualmente as informações do mês que irá iniciar no Sispetro a Apuração.
+Data Final: 
+Data final que deseja encerrar a Apuração.
+Empresa:
+ Empresa a qual irá registrar as informações.
+Após inclusão dessas informações clicar no botão Incluir/Cancelar:
+Incluir:
+ Irá dar continuidade nos registros para Apuração.
+Cancelar:
+ Cancela a operação.
+Irá apresentar a tela de as informações registradas no SisPetro do período que lançou na data inicial e final, conforme imagem abaixo:
+Para inclusão do primeiro registro (manualmente) ir para aba 
+Saldo Credor:
+No cabeçalho da tela irá apresentar a Data Inicial e Data Final, Empresa. e no canto direito o botão Atualiza.
+Atualizar: 
+Atualiza os dados apresentados na tela, após a primeira inclusão.
+Entendendo a tela Saldo Credores - Registro1100/1500 SPED - Contribuição
+Imposto:
+PIS: 
+Irá efetuar a inclusão das informações obtidas para o PIS.
+COFINS: 
+Irá efetuar a inclusão das informações obtidas para o COFINS.
+Período de Apuração: 
+Data/Mês que irá lançar o primeiro registro.
+Origem:
+Próprio:
+ Operações Próprias.
+Transferência:
+ Evento de incorporação, cisão ou fusão.
+CNPJ Cedente:
+Tipo de Crédito: 
+Tipo de crédito, código e descrição.
+Quadro 
+Apuração.
+Crédito Apurado: 
+Inclusão do valor (Obrigatório).
+Crédito Extemporâneo: 
+Inclusão do valor (Quando houver).
+Crédito Apurado Total: 
+Campo travado -Somatório dos campos (Crédito Apurado + Crédito Extemporâneo)
+Quadro
+ Períodos Anteriores.
+Utilizado Desconto: 
+Inclusão do valor (Quando houver).
+Utilizado Ressarcimento: 
+Inclusão do valor (Quando houver).
+Utilizado DCOMP: 
+Inclusão do valor (Quando houver).
+Quadro 
+Período Atual.
+Disponível: 
+Campo travado -Saldo total de 
+Crédito Apurado Total 
+subtraindo os valores de 
+Períodos Anteriores.
+Utilizado Desconto: 
+Inclusão do valor (Quando houver).
+Utilizado Ressarcimento: 
+Inclusão do valor (Quando houver).
+Utilizado DCOMP: 
+Inclusão do valor (Quando houver).
+Transferido:
+ Inclusão do valor (Quando houver).
+Outras Formas: 
+Inclusão do valor (Quando houver).
+Final: 
+Campo travado -Totalizador do campo Disponível, subtraindo as opções abaixo.
+Botão Salvar/Cancelar.
+Após as inclusões dos registros ficarão gravados e as próximas serão recalculadas automaticamente após inserir uma nova Apuração.
+Crédito (Resumo, Detalhe, Ajuste)
+No quadro 
+Resumo
+ seria o espelhamento do registro M100/M500 do SPED-Contribuição.
+No quadro 
+Detalhe
+ tem como base o espelhamento do registro M105/M505 do SPED-Contribuição.
+No Quadro 
+Ajuste
+ será permitido a inclusão de ajuste de crédito para PIS/COFINS. 
+Crédito Resumo
+Após o lançamento manual do Saldo Credor, o Sispetro busca automaticamente as informações no SisPetro e recalcula os campos necessários. Nesta etapa, o Sispetro preenche as informações com base nos dados transmitidos no SPED Contribuição.
+Selecione o Imposto que precisa ser feito a alteração e clique em alterar.
+Você pode fazer alterações neste resumo, se necessário, para algumas informações que são liberadas, como: Tipo de Crédito, Origem e Crédito Diferido.
+Clicando no botão 'Altera', você poderá visualizar a tela de forma prática e revisar os cálculos.
+Crédito Detalhe
+Mostra as informações do registro M105. É informado automaticamente após incluir a apuração do mês referenciado.
+É possível fazer alterações em Detalhes de Crédito em alguns campos como: Natureza de Crédito, CST e Descrição de Crédito.
+Clicando no botão 'Alterar', você poderá visualizar a tela de forma prática e revisar os cálculos.
+Crédito Ajustes
+Na seção de Ajustes, é possível realizar lançamentos para Ajustes de PIS e COFINS, tanto para Reduções quanto para Acréscimos. Esses lançamentos devem ser feitos manualmente por usuários que possuem a permissão adequada.
+Ao clicar em Incluir, o Sispetro libera uma tela no qual é feito a inclusão dos dados.
+Entendendo a tela Ajustes de Crédito
+Tipo de Crédito: 
+Tipo de crédito, código e descrição.
+Imposto: 
+PIS/COFINS.
+Tipo de Ajuste;
+Redução: 
+Preencher com os valores de Redução
+.
+Acréscimo: 
+Preencher com os valores de Acréscimos.
+Valor de Ajuste: 
+Inclusão do valor.
+Código de Ajuste: 
+Código do Ajuste a ser incluído.
+#Docto: 
+Numero de documento (Para controle interno).
+Descrição: 
+Descrição do nome (Para controle interno).
+Data de Ajuste: 
+Data da inclusão do Ajuste dentro do mês da vigência a ser incluso.
+Informações Adicionais (Uso em Acréscimos).
+Valor Adicional: 
+Valor para acrescentar caso necessário. 
+CST: 
+CST PIS/COFINS para vinculo.
+Valor Base Cálculo: 
+Valor de Base de Calculo para acrescentar caso necessário.
+Valor Alíquota:
+Data Operação: 
+Descrição:
+Conta Contábil: 
+Vincular a conta contábil já cadastrada, para mais informações 
+Painel Contas Contábeis
+ 
+Info. Complementares:
+Botão Salvar/Cancelar
+Para ajustes de créditos, também há a opção de 'Alterar'. Quando selecionada, o Sispetro permite a edição e correção de determinados campos, conforme necessário.
+A opção Excluir, é necessário clicar no registro de será excluído, e na sequencia clicar em excluir.
+Contribuições (Resumo, Detalhe e Ajuste)
+No quadro 
+Resumo
+ seria o espelhamento do registro M200/M600 do SPED-Contribuição.
+No quadro 
+Detalhe
+ tem como base o espelhamento do registro M210/M610 do SPED-Contribuição.
+No Quadro 
+Ajuste
+ será permitido a inclusão de ajuste de débitos para PIS/COFINS. 
+Contribuições Resumo
+O resumo é similar ao Registro M200/M600 do SPED Contribuições. Os valores que serão usados vêm das Notas de Saída registradas no período ou dos dados complementares, como Ajustes de Contribuições e Retenções.
+No início, o Sispetro irá considerar apenas os valores provenientes das Notas Fiscais, agrupando-os de acordo com o Código de Contribuição. Se houver um Saldo Credor de períodos anteriores, esse saldo também será utilizado.
+Caso seja necessário o SisPetro permite alteração de dados, para isso clicar no Imposto que precisa ser ajustado PIS/COFINS, e ne sequência clicar no botão Altera.
+Não-Cumulativa
+Imposto: 
+PIS/COFINS que precisa ser selecionado antes de clicar no Altera.
+Total: 
+Informa o valor total da apuração para Não Cumulativa.
+Crédito Período: 
+Crédito que há no período vigente da apuração.
+Crédito Anterior: 
+Crédito de períodos anteriores.
+Total Devido: 
+Total de Débito.
+Valor Retido: 
+Valor Retido, neste campo há possibilidade de alterações.
+Outras Deduções: 
+referem-se a valores que podem ser subtraídos da base de cálculo da contribuição, além das deduções mais comuns, como devoluções e descontos incondicionais. 
+Valor Recolher/Pagar: 
+O "Valor a Recolher/Pagar" no Registro M600 refere-se ao montante final que a empresa deve pagar ou receber de volta.
+Cumulativa
+Total: 
+Informa o valor total da apuração para Cumulativa.
+Valor Retido: 
+Valor Retido, neste campo há possibilidade de alterações.
+Outras Deduções: 
+Referem-se a valores que podem ser subtraídos da base de cálculo da contribuição, além das deduções mais comuns, como devoluções e descontos incondicionais. 
+Contribuições Detalhe
+Diferente do que ocorre no Crédito, as Contribuições são informadas nos registros M210/M610 e totalizadas no M200/M600. Sendo assim, será possível, incluir, editar ou excluir os valores de Detalhamento do Resumo, desde que o usuário tenha o perfil configurado para Alteração de Apuração de PIS/COFINS. Os dados de resumo serão sempre calculados a partir desse detalhamento. A alteração do detalhamento só deve ser feito na primeira apuração ou em casos esporádicos e a apuração será marcada de que teve alteração manual e não será mais recalculada.
+Tela de Alteração do Detalhamento de Resumo:
+Imposto: 
+PIS/COFINS que precisa ser selecionado no contribuição Resumo antes de clicar no Altera.
+Cód. Contribuição: 
+Código de Contribuição, Não Cumulativa e Cumulativa. Liberado para alteração.
+Valor Receita Bruta:
+ Valor preenchido automaticamente após a inclusão da Apuração, porém é liberado para alteração.
+Valor Receita Bruta
+Alíquota: 
+Campos que apresentam alíquotas em Base Cálculo.
+Base Calculo
+(+) Ajustes
+(-) Ajustes
+Base Cálculo Ajustada
+Alíquota
+Alíquota (em Reais)
+Base Cálculo (Qtde)
+Alíquota
+Totais:
+(+) Ajustes.
+(-) Ajustes.
+Valor Diferido Período: 
+Este campo é liberado para alteração caso seja necessário.
+Valor Diferido Anterior: 
+Este campo é liberado para alteração caso seja necessário.
+Total Contribuição.
+Salva/Cancela
+Contribuição Ajuste 
+Os ajustes de contribuições funcionam de maneira semelhante aos ajustes de créditos, mas são aplicados de acordo com o Código de Contribuição e o Destino do Ajuste. O Destino do Ajuste pode ser:
+Imposto
+ (o padrão).
+Base de Cálculo
+.
+Esses ajustes são criados a partir de registros detalhados da contribuição.
+Para ajustes de Imposto
+, use a tabela indicada no item 4.3.8 do manual do SPED Contribuições.
+Para ajustes na Base de Cálculo
+, utilize a tabela do item 4.3.18 do mesmo manual.
+Incluir Ajustes
+Código Contribuição: 
+Código da Contribuição Não Cumulativa ou Cumulativa.
+Imposto: 
+Selecione o tipo de Imposto se é PIS ou COFINS.
+Destino Ajuste: 
+O destino é selecionando o se é Imposto ou base de cálculo.
+ 
+Tipo de Ajuste: 
+Acréscimo ou redução.
+Valor Ajuste: 
+Valor a ser incluído para ajuste.
+Código Ajuste: 
+Código de ajustes para inserir explicação do motivo.
+#Docto: 
+Numero para controle interno do documento.
+Descrição: 
+Descrição para controle interno.
+Data do Ajuste: 
+Data do Ajuste para o mês da Apuração.
+CNPJ.
+Informações Adicionais (uso em Acréscimos): 
+Caso tenha informações Adicionais, é necessário preencher os campos abaixo:
+Valor Adicional.
+CST.
+Valor Base Cálculo.
+Valor Alíquota.
+Data Operação.
+Descrição.
+Conta contábil.
+Info. Complementares.
+Alterar/Excluir Ajustes
+Para alterar um ajuste, selecione-o e clique em "Alterar".
+Alguns campos poderão ser editados. Se o campo necessário estiver bloqueado, a solução é excluir o ajuste. Para isso, selecione o ajuste e clique em "Excluir". Depois, refaça o ajuste conforme necessário.
+Saldo Credor
+No Saldo Credor, conforme explicado mais acima, o primeiro registro precisa ser incluído. Após isso, se necessário, é possível incluir ou alterar informações adicionais. Detalhes sobre isso foram abordados no tópico. “
+Entendendo a tela Saldo Credores - Registro1100/1500 SPED - Contribuição.
+“
+Se for necessário excluir, selecione o saldo credor e clique no botão "Excluir".
+Retenção
+A retenção é lançada na Manutenção de Retenções de PIS e COFINS, e após o lançamento as informações vem para a Apuração, para preenchimento.
+Manutenção de Retenções de PIS e COFINS
+ 
+Operações Extras
+As Operações Extras podem ser lançadas manualmente ou através de NF, para efeito do Registro F100 do SPED Contribuições, mais informações verificar o help 
+Outras Operações - Registro F100 SPED contribuições
+ 

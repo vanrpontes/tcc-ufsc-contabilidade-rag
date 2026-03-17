@@ -1,0 +1,57 @@
+TITULO: PIX
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2956067437
+--------------------------------------------------
+O PIX é uma nova forma de pagamento disponibilizada pelo Banco Central (Bacen), similar ao TED e ao DOC, mas que terá liquidação real (após alguns segundos) e funcionamento ininterrupto durante todo o ano.
+Além disso, serão utilizadas 
+Chaves PIX
+, que funcionam como apelidos para a conta bancária. Dessa forma não é mais necessário que o recebedor disponibilize para o pagador os dados da Conta Bancária. Através da Chave PIX o pagamento já será direcionado para a conta correta.
+As Chaves PIX podem ser de 4 tipos:
+CPF ou CNPJ
+Telefone Celular
+E-mail
+Chave Aleatória
+, que é uma sequência alfanumérica gerada pelo Bacen.
+Pessoas Físicas poderão ter até 5 chaves e Pessoas Jurídicas até 20 chaves, vinculadas à conta corrente, poupança ou conta de pagamento.
+Para os pagamentos poderão ser utilizados QR Codes, que conterão a Chave PIX e outras informações de forma simples e rápida. Há dois tipos de QR Code:
+Estático
+: utilizados para um valor fixo e em múltiplas transações.
+Dinâmico
+: utilizado para uma transação específica, possuindo valor, vencimento e outras informações.
+Para as empresas, o PIX trará impacto tanto nos Recebimentos de Clientes como nos Pagamentos a Fornecedores, e consequentemente na Conciliação Bancária. 
+O Serviço de Recebimento via API está disponível atualmente para os bancos 
+Bradesco,
+ 
+Banco do Brasil e Itaú.
+Antes de utilizar o PIX integrado com a Cobrança Eletrônica, conferir com o Banco se haverá cobrança a cada baixa de título enviado pelo SisPetro quando o recebimento for via PIX. Dependendo da tarifa aplicada pode não ser uma boa opção.
+Para comunicação com a API, o Banco 
+Bradesco e Banco do Brasil V2,
+ exigem certificado. Porém o certificado deve pertencer àquela filial que fará a consulta. 
+Exemplo: 
+CNPJ Raiz = 00.000.000/0001-00
+CNPJ FILIAL = 00.000.000/0237-94
+O certificado digital deve ser exclusivo do CNPJ 00.000.000/0237-94
+O banco 
+Itaú
+ utiliza um certificado que deve ser homologado por eles, para cada CNPJ. No KB 
+Certificado PIX ITAÚ - Passos de como gerar o certificado
+ tem um descritivo de como obter o certificado. 
+Recebimento por PIX
+Hoje no SisPetro temos 2 formas de receber pelo PIX, via recebimento à Prazo (Faturamento/Contas a Receber) e via recebimento antecipado (Adiantamento).
+PIX com recebimentos antecipados e a vista (Adiantamento)
+:
+ para o recebimento antecipado (via Adiantamento) o envio do QR Code será pelo Pedido de Venda, sendo gerado após a aprovação de vendas do pedido. 
+Para mais informações, ver 
+PIX com recebimentos antecipados e a vista (Adiantamento)
+.
+PIX com recebimentos a Prazo (Títulos)
+: 
+p
+ara recebimentos a prazo / parcelados 
+o envio do QR Code será pelo faturamento (Contas a Receber), 
+o QR Code é gerado após o faturamento, um para cada parcela do contas a receber, sendo enviado no layout de cobrança (seja somente com o QR Code, seja no Boleto). Ao ser recebido o pagamento, o SisPetro baixará o título do contas a receber correspondente. Se esse título for de cobrança eletrônica, gera um comando de baixa para o banco.
+Para mais informações, ver 
+PIX Configurações Iniciais
+Para mais informações, ver 
+Tabela Configuração API Banco x Empresa
+Para mais informações, ver 
+Manutenção do Contas a Receber

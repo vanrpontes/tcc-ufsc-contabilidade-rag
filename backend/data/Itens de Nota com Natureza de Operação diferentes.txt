@@ -1,0 +1,55 @@
+TITULO: Itens de Nota com Natureza de Operação diferentes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899633
+--------------------------------------------------
+Uma nota fiscal pode ter itens cuja natureza de operação seja diferente. No entanto, temos algumas regras:
+A natureza de operação por item só é permitida através da Importação de Notas Fiscais.
+A natureza de operação do item da nota só será utilizada para definir se o item Gera Livro Fiscal e se Participa do 
+DPMP/DCP
+Esse recurso é útil em notas que engloba a venda de produtos e serviços. É possível ter numa mesma nota itens referentes a produtos e serviços, no entanto, só devem fazer parte do Livro Fiscal os itens referentes a produtos, pois estão sujeitos à apuração de ICMS, os serviços deveriam constar do Livro de ISS, o qual o SisPetro não tem.
+O mesmo ocorre com o DPMP, onde alguns itens devem participar (que se refiram a combustível) e outros não (inclusive os itens referentes a serviços).
+A configuração para 
+Participar do DPMP e Gerar Livro fiscal
+ é na Natureza de Operação e cada nota tinha somente uma 
+Natureza de Operação
+, o que fazia que todos os itens tivessem a mesma consideração para isso.
+Para resolver esse impasse, permitimos na 
+Importação de Notas Fiscais
+, que uma mesma nota tenha itens diferentes com características de DPMP e Livro Fiscal e para isso disponibilizamos a Natureza de Operação nos itens da nota.
+Vamos ao exemplo prático:
+Uma nota 1100 com 3 itens, sendo eles:
+1. PNEU 1un 90,00
+2. ÓLEO COMBUSTÍVEL 1un 5,00
+3. BALANCEAMENTO 1un 45,00
+Três naturezas de operação cadastradas:
+1. V01 VENDA DE PNEUS Gera Livro Não participa DPMP
+2. V02 VENDA DE ÓLEO Gera Livro Participa DPMP
+3. V03 VENDA DE SERVIÇOS Não Gera Livro Não participa DPMP
+O arquivo de importação já teria 3 linhas, uma para cada item de nota. Mas antes só vinha uma natureza de operação informada, agora deverá vir a principal:
+Nº Linha
+Nº da Nota
+Natureza
+Produto
+1
+1100
+V01
+PNEU
+2
+1100
+V02
+ÓLEO COMBUSTÍVEL
+3
+1100
+V03
+BALANCEAMENTO
+4
+1110
+...
+...
+5
+...
+...
+...
+Assim, será gerada uma única Nota Fiscal no SisPetro com número 1100 e a natureza V01. Tudo que se refere à nota como Gerar Contas Receber, Movimentar Estoque e etc será conforme a natureza principal: V01.
+Esta nota terá três itens, cada um com a sua natureza de operação.
+Só participará do DPMP o item 2, pois ele tem a natureza V02, que é a única que Participa do DPMP.
+Irá para o Livro Fiscal somente os itens 1 e 2, pois a natureza V03 (do item 3) não Gera Livro Fiscal.

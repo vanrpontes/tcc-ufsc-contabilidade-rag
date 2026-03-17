@@ -1,0 +1,135 @@
+TITULO: Tabela Unidades de Análise
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879127850
+--------------------------------------------------
+Nesta tabela são armazenados os códigos de Unidade de Característica utilizados na geração do DPMP  e elas também são utilizadas para emitir o boletim de conformidade. Aqui o usuário poderá incluir, excluir e até alterar códigos de Unidade existentes, porém para isso, deverá seguir algumas regras.
+Para acessar a tela de Manutenção de característica, o usuário deve utilizar o menu 
+Tabelas Auxiliares / Estoque / Unidades de Análise.
+O SisPetro abrirá a tela, mostrando dados já cadastrados, que foram importados da ANP. Para inserir um novo código, o usuário deve clicar no botão 
+.
+O SisPetro entrará em modo de edição, permitindo que o usuário preencha os campos:
+Código:
+ deve ser numérico e único, ou seja, o SisPetro não aceitará a inclusão de um código que já exista.
+Descrição:
+ o nome da unidade de característica a ser cadastrada. Neste caso o SisPetro aceitará letra e números, se for o caso.
+Ativa:
+ essa opção deve ser preenchida caso o novo método a ser cadastrado já esteja disponível para uso.
+Para finalizar o cadastrado, o usuário deve clicar no botão 
+. O SisPetro se posicionará na tela de navegação, onde o usuário poderá consultar a unidade que foi cadastrada ou as já existentes.
+Para consultar algum registro, basta o usuário clicar na coluna que se deseja pesquisar (
+Código
+ ou 
+Descrição
+), desta forma o SisPetro organizará as informações e posicionará o cursor no campo 
+Pesquisa
+, aguardando a digitação por parte do usuário
+Os registros que estiverem inativos, ou seja, com a opção 
+Ativa
+ desmarcada, serão exibidos no painel de navegação na cor vermelha.
+Alteração de Código:
+Para o DPMP são necessárias algumas tabelas, disponibilizadas pela ANP. Como mencionado anteriormente, o SisPetro já importou algumas dessas tabelas, porém, são tabelas que sofrem alterações constantes por parte da ANP, um caso mais específico dessas alterações são os códigos.
+Hoje podemos ter, por exemplo, o código 
+1
+ com a descrição 
+%vol
+ e daqui um mês essa descrição 
+%vol
+ pode passar a ter o código 
+10
+.
+Pensando nessa manutenção, o SisPetro possibilita ao usuário alterar um código já existente através do botão 
+  , porém, para se fazer a alteração de um código existente é necessário seguir algumas regras. O usuário pode alterar um código existente para outro código existente na manutenção de Unidades de Características do DPMP, desde que o novo código não esteja vinculado ao produto ou ao DPMP.
+Situação 1:
+O código 
+1
+ que é a 
+%vol
+, passará a ser código 
+100
+ e esse novo código não existe na manutenção de Unidades de Caracteristicas e nem possui nenhum vinculo com os produtos, nem na geração do DPMP.
+Basta o usuário selecionar o Registro com o código 
+1
+:
+E clicar no botão 
+  . O SisPetro emitirá uma mensagem de confirmação, antes de efetuar o processo de alteração do código.
+Confirmando a alteração do Código, o SisPetro solicitará que o usuário informe o novo código:
+Ao informar o código 
+100
+ (conforme o nosso exemplo), o SisPetro fará com que o código 
+1
+ passe a ser código 
+100
+, não alterando a sua descrição.
+Dessa forma, o antigo código 
+1
+ que agora é código 
+100
+, será modificado nos vinculos com o produto e se o usuário estiver gerando o DPMP também.
+Situação 2:
+O código 
+1
+ que é 
+%vol
+, passará a ser código 
+100
+ (o código 
+100
+ não está cadastrado na manutenção de Unidades de Caracteristicas). O código antigo (
+1
+), está vinculado a alguns produtos, ou seja, na manutenção de produtos, Painel DPMP, há produtos que usam esse código de Método e no DPMP também (geração). Ao fazer o processo de alteração (seguindo os passos do exemplo 1), o SisPetro trocará o código 
+1
+ para o código 
+100
+, preservando a descrição do antigo código 
+1
+ e também fará essa substituição nos produtos que utilizam o antigo código e no DPMP. Sendo assim, todos os produtos que tinham como Unidade de Caracteristicas o código 
+1
+, terão agora o código 
+100
+ que foi substituido automaticamente pelo SisPetro, essa substituição será aplicada aos registros vinculados a essa Unidade de Caracteristica no DPMP.
+Situação 3:
+O código 
+1
+ que é 
+%vol
+, passará a ser código 
+100
+, porém, esse código 
+100
+ já está cadastrado na manutenção de Unidades de Caracteristicas. O código 
+1
+ possue vinculo com produtos e na tabela de DPMP (geração) e o código 
+100
+ não. Ao fazer o processo de alteração (seguindo os passos do exemplo 1), o SisPetro trocará o código 
+1
+ para o código 
+100
+, preservando a descrição do código 
+1
+ e também fará essa substitução nos produtos vinculados e no DPMP.
+Situação 4:
+O código 
+1
+ que é %vol, passará a ser código 101, porém, esse código 
+101
+ já está cadastrado na manutenção de Unidades de Caracteristicas e além do código 
+1
+, o código 
+101
+ tem vinculo com produtos e com registros do DPMP. Neste caso, o SisPetro não permitirá a troca do código 
+1
+ pelo código 
+101
+, pelo fato de ter registros vinculados no DPMP e no produto que utilizam o código 
+101
+. O SisPetro só faria a alteração se o código 
+101
+ não tivesse vinculo algum com produtos e com o DPMP.
+Quando acontecer essa situação, o SisPetro emitirá uma mensagem de alerta para o usuário, informando quando houver vinculo no DPMP:
+E também quando houver vinculo com o produto:
+Esse processo de integridade também é realizado pelo SisPetro no momento da exclusão. Ao excluir uma Unidade de Característica, o SisPetro verifica se há vinculo entre o código a ser excluído e as tabelas de produto e DPMP. Caso haja vinculo com alguma dessas tabelas, o SisPetro não fará a exclusão.
+Para mais informações, ver: 
+DPMP
+Para mais informações, ver: 
+DPMP Produtos
+Para mais informações, ver: 
+Como imprimir um Boletim de Conformidade / Certificado de Produção

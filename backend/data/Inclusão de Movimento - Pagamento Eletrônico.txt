@@ -1,0 +1,131 @@
+TITULO: Inclusão de Movimento - Pagamento Eletrônico
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899295
+--------------------------------------------------
+Na inclusão de movimento para 
+Pagamento Eletrônico
+ (Movimentação/Financeiro / Contas a Pagar / Manutenção de Contas a Pagar) Seleciona quais os pagamentos serão enviados para o banco e clica em  
+ é apresentada a seguinte tela para digitação dos dados:
+Caso a empresa trabalhe com o perfil de Sistema 
+Agrupamento de Títulos
+ 
+e selecione a opção de 
+Usuário Escolhe
+ após selecionar os títulos e acionar o botão de 
+, o SisPetro ira apresentar a tela de agrupamento de títulos conforme imagem abaixo:
+O 
+agrupamento dos títulos
+ será realizado conforme a escolha acima, podendo ser por Fornecedor ou por Vencimento. Para mais informações, ver 
+Agrupamento de Títulos
+.
+Os títulos ficarão agrupados por Fornecedor e data de vencimento, podendo ser desagrupados através do botão 
+Desagrupar 
+que fica na aba Itens.
+Para realizar o Desagrupamento de um título basta ir na Aba Itens, selecionar o Título desejado e clicar no botão 
+ , 
+conforme imagem abaixo.
+PIX
+QrCode: 
+informar a linha digitável do QRCode
+Tipo de Chave: 
+informar a chave desejada para o QRCode
+Telefone: 
+informar o número de celular desejado para o PIX
+E-mail: 
+informar o e-mail desejado para o PIX
+CNPJ: 
+informar o número do CNPJ desejado para o PIX
+Aleatória:
+ informar o número da chave Aleatória desejado para o PIX
+CPF:
+ informar o número do CPF desejado para o PIX
+Fornecedores 
+Informe primeiramente a 
+Conta de Banco
+  que providenciará o pagamento.
+A seguir escolha uma das 
+Formas de Pagamento
+ disponíveis para esta conta (cadastradas para o mesmo banco que a conta).
+Os dados do título serão apresentados e o valor de pagamento será sugerido de acordo com o saldo do título.
+O usuário só poderá alterar o valor de pagamento caso em seu perfil, 
+no painel Financeiro, grupo Pagamento Eletrônico
+ esteja marcada a opção: 
+Pode alterar valor pagamento
+. Da mesma forma que o valor de pagamento, quando alterado, só poderá ser maior, quando para o usuário estiver marcada a opção: 
+Pode informar vlr pagto a maior
+.
+Caso o título tenha desconto ou acréscimo, informar no seu devido campo e ao preencher o SisPetro automaticamente vai descontar ou acrescentar o valor informado no campo 
+Valor do pagamento
+.
+Só estarão 
+habilitados
+ os campos que a 
+forma de pagamento
+ exige, porém todos que estiverem habilitados deverão ser preenchidos.
+No caso dos dados da conta do fornecedor é possível, no caso de não ter sido cadastrada antecipadamente, informá-la nesta tela e aproveitar para já salvar no cadastro. Utilize para isso o botão 
+Salva no Fornecedor
+.
+No caso de 
+endereço
+, 
+CEP
+ e 
+CNPJ
+, caso devam ser verificados e estejam incorretos ou incompletos, deve-se abandonar a inclusão e providenciar a devida correção no
+ 
+Cadastro de Fornecedores
+.
+É possível gerar um arquivo de Pagamento Eletrônico com o CNPJ diferente. Essa opção visa atender situações que ocorrem quando a rede de empresas é muito grande, e seu pagamento é centralizado na conta da Matriz, sendo que assim as empresas necessitam enviar o pagamento para um CNPJ diferente do cadastrado no fornecedor. Assim, deve-se 
+configurar um CNPJ de pagamento por Fornecedor e por Dados bancários de fornecedor. 
+Para mais informações, ver 
+Padrão para Compras
+.
+No caso de ter que informar a linha digitável de boleto, é possível fazer a leitura do código de barras para obter esta informação (o sistema já faz a devida conversão). Para isso marque a opção 
+Leitura pelo código de Barras
+ e posicione no campo 
+Linha Digitável
+. Passe o boleto pelo leitor para que então o sistema receba e converta os dados.
+Clique em 
+OK
+ para confirmar a inclusão dos dados, repita o processo selecionando um novo lançamento e preenchendo os dados novamente.
+Caso o usuário tenha a necessidade de alterar algo no cadastro do Fornecedor basta acionar o botão 
+, através do mesmo será aberto a tela de cadastro de fornecedor, permitindo incluir ou alterar um Fornecedor. Lembrando que o usuário só terá acesso a essa função, caso o mesmo tenha permissão de 
+Perfil de Usuário
+.
+Tributos
+Código da Receita/INSS: 
+texto que deve ser informado, com até 4 caracteres, podendo ser código da Receita na DARF, GARE ou Código INSS para pagamento
+Tipo Tributo: 
+escolher entre as opções,
+DARF
+GARE
+GPS
+Outros Tributos
+Tipo de DARF:
+Simples
+Preta Europa
+Número de Referência: 
+Campo utilizado somente em DARF do tipo Preto Europa
+Período de Apuração:
+ 
+Data da ocorrência ou a data do encerramento do período base. Geralmente utilizado na DARF
+Percentual da DARF: 
+Percentual podendo ter até duas casas decimais 
+Valor da Receita Bruta:
+ Valor numérico podendo ter até duas casas decimais 
+V. Acréscimo Financeiro:
+ Valor numérico podendo ter até duas casas decimais 
+V. de Hono. Advocatícios:
+ Valor numérico podendo ter até duas casas decimais 
+Valor Outras Entidades:
+ Valor numérico podendo ter até duas casas decimais 
+Inscrição Estadual
+: 
+Texto com até 20 caracteres. Geralmente utilizado no pagamento da GARE
+Inscrição na Dívida Ativa
+: 
+Texto com até 20 caracteres. Geralmente utilizado no pagamento da GARE 
+Número Parcelamento: 
+Texto com até 20 caracteres. Geralmente utilizado no pagamento da GARE
+O campos serão exibidos para serem preenchidos de acordo com o que foi indicado na 
+.
+ Não podendo ser finalizado sem que todos, necessários, sejam devidamente preenchidos. Estes serão lançados no arquivo de remessa ao banco.

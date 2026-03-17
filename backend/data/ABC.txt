@@ -1,0 +1,163 @@
+TITULO: ABC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2881257621
+--------------------------------------------------
+Dados Gerais
+O Banco ABC trabalha em conjunto com o Banco Bradesco (237). Assim, a empresa tem conta no Banco ABC onde adquire o produto Cobrança Eletrônica, porém, ao imprimir o boleto, o imprime com as características do Banco Bradesco. Dessa forma, o cliente que recebe o boleto não precisa localizar uma agência do Banco ABC para efetuar o pagamento, podendo fazer isso perfeitamente no Banco Bradesco, que tem muito mais agências disponíveis em todo o país. Para atender essa necessidade usaremos a configuração de Banco Correspondente do SisPetro.
+Painel Cobrança Eletrônica
+Tipo:
+ informar o tipo de convênio para o tipo da conta.
+Convênio:
+ informar o número do convênio da empresa com o Rendimento.
+Conta e digito:
+ informar o número da conta e digito no banco ABC.
+CNPJ:
+ informar o CNPJ da conta.
+Nos campos 
+banco oficial
+ e 
+#banco
+ (e dígito do número do banco, se tiver) informar 246 - Banco ABC.
+Nos campos 
+Agência e digito (se tiver)
+, informar.
+Carteira:
+ informar um codigo conforme os disponíveis abaixo (verificar junto ao banco, qual utilizar):
+1
+ - Cobrança Normal com emissão de bloquetes, pelo banco. Ordem para Classificação: Banco preferencial do Cedente, nosso banco e nossos correspondentes, segundo ordem de escolha, ditada pelo nosso banco.
+2
+ - Ordem para Classificação: Banco preferencial do Cedente, nossos correspondentes, nosso banco.
+3
+ - Cobrança com determinação do Cobrador nas posições 140 - 142, (que não é o Nosso Banco).
+4
+ - O código do Banco cobrador ( que não é o Nosso Banco) deve vir nas posições 140-142; Nosso Número do Banco cobrador deve vir nas posições 71 a 83. Nesta carteira, o cliente envia o título para o Nosso Banco, já com o Nosso Número do correspondente e seu DV calculado (Exceto Banco Itaú, cujo layout exige Nosso Número sem DV na remessa). O campo deve ocupar as 13 posições, com zeros à esquerda.
+5
+ - Cobrança exclusivamente para o próprio banco. As posições 140 a 142 devem estar preenchidas com o código do nosso banco.
+6
+ - Cobrança Expressa (sem emissão de bloquetes)
+7
+ - O código do Banco cobrador (que não é o Nosso Banco) deve vir nas posições 140-142.
+Após a aceitação do título pelo Nosso Banco, o Nosso Número do correspondente será gerado pelo sistema.
+Se desejar pode utilizar a opção 
+Pode indicar sacador/avalista
+, se marcá-la deverá então informar o CNPJ do sacador/Avalista e a razão social.
+Se desejar você pode utilizar a opção 
+Pode indicar #docto na remessa
+, escolhendo a opção que melhor atender a empresa.
+A opção 
+Informação de juros na remessa
+ deve estar configurada para 
+Informa valor diário calculado pela taxa diária
+.
+Painel Informações sobre a Cobrança (Para utilização do CNAB 400)
+Marcar
+ a opção 
+Utiliza Banco Correspondente
+Informar no 
+Banco Encarregado da cobrança:
+ informar o banco correspondente.
+Informar o número do banco no campo 
+#Banco
+ e no campo 
+Dig
+ o digito.
+Informar 
+Nome Banco
+ o nome do banco correspondente.
+Informar o número da agência no campo 
+#Agencia
+ e o seu digito no campo 
+dígito
+ (esta é a agência do Banco Bradesco onde o banco ABC tem conta)
+Informar o 
+Número Conta
+ e seu 
+dígito
+ (esta é a conta do banco ABC no Banco Bradesco)
+Informar a 
+Carteira
+As demais informações não precisam ser preenchidas.
+Faixa Nosso Número
+Preencher de acordo com as informações fornecidas pelo banco.
+No processo de leitura de Arquivo de Retorno do Banco ABC (246), O SisPetro lê no retorno o nosso número pelas posições 95 a 106 (11 dígitos).
+Linha Digitável
+A Linha Digitável para o banco ABC será montada conforme o banco correspondente configurado, que no caso deverá ser o Bradesco, no caso de 400 posições e puro no caso de 240 posições. Veja maiores informações sobre a montagem da linha digitável através do tópico 
+Montagem da Linha Digitável
+.
+Campo Livre CNAB 240 posições
+Conteúdo
+Tamanho
+Início
+Fim
+Agência
+4
+1
+4
+Carteira
+3
+5
+7
+Convênio
+7
+8
+14
+Nosso Número + DV
+11
+15
+25
+Exemplo:
+Agencia: 0001
+Carteira: 110
+Convênio: 5019084
+Nosso Número + DV: 9694050011-7
+Campo Livre:
+ 0000 110 1587955 84580120 1
+Linha Digitável:
+ 24690.0011710501.90840396940.5001174992500014 67050
+Banco
+Moeda
+CL 1-5
+DV
+CL 6-15
+DV
+CL 16-25
+DV
+DV
+FV
+VALOR
+246
+9
+00011
+7
+1050190840
+3
+9694050011
+7
+4
+9925
+0001467050
+Campo Livre
+ CNAB 400 posições com correspondente Bradesco
+Conteúdo
+Tamanho
+Início
+Fim
+Agência Correspondente
+4
+1
+4
+Carteira Correspondente
+2
+5
+6
+Nosso Número
+11
+7
+17
+Conta Correspondente
+7
+18
+24
+Zero fixo
+1
+25
+25

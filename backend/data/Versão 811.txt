@@ -1,0 +1,520 @@
+TITULO: Versão 8.11
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921072582
+--------------------------------------------------
+Versão 8.11
+Dados
+Informações
+Início
+10/02/2014
+Final
+09/05/2014
+Scripts
+cmd811.sql (3392 a 3449)
+Itens
+91
+Implementações
+45
+Correções
+46
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+DAMDFe_v811.rtm
+SisPetroControl.dll
+PagForBradesco-Remessa.rtm
+ 
+RentabilidadeVendas.Rtm
+SisPetroBancos.dll
+ 
+ 
+MovimentoImobilizado.rtm
+Banco320.dll
+ 
+ 
+DadosCliGeral.rtm
+Banco004.dll
+ 
+ 
+ 
+Banco237.dll
+ 
+ 
+ 
+Banco254.dll
+ 
+ 
+ 
+Banco320_vSemReg2.dll
+ 
+ 
+ 
+Banco422.dll
+ 
+ 
+ 
+SPED_Edoc.dll
+ 
+ 
+ 
+Banco999.dll
+ 
+ 
+No Arquivo de Remessa do Banco BIC (320) não mais será considerada a transformação do Segmento P e sim Segmento Q na geração do registro 2.
+Nesta versão foi removida a estrutura do CODIF no SisPetro. Na próxima versão (8.12 - CCF 23342) serão removidos os campos e tabelas. Caso a empresa deseje ter cópias dessas informações será necessário fazer uma cópia do banco de dados.
+ 
+Com as alterações de vinculo entre Transportadoras e Motoristas, foi criado um perfil de sistema para configurar se a empresa trabalha somente com o Tipo Motorista ou Livre (todas as operações serão apresentados apenas os Tipos Motoristas ou Livres) ou Qualquer Tipo (continuará como antes, sem nenhuma validação). Por padrão, o campo será setado com o Tipo Motorista Livre.
+Na Importação de NF-e e TXT, o campo Motorista será preenchido com a Transportadora. E na Importação de CT-e, a Transportadora será preenchida com o Emitente do CT-e e o Motorista com o Motorista.
+ 
+Devido a um problema na versão passada no Cadastro de Usuários, será necessário dar permissão novamente aos usuários para acessarem o menu de MDF-e Pendente e também permissão nos processos de Alocação de Custos por Ordem de Fabricação
+A correção referente ao CCF-23734 fará com que, ao pesquisar a Natureza de Operação na emissão de CT-e, o SisPetro indique qual Série será utilizada automaticamente de acordo com o Ambiente da empresa.
+Geral
+Visualização nas Manutenções por Grupo de Usuário
+A partir desta versão será possível cadastrar no SisPetro Grupos de Usuários. Caso isso seja feito o usuário só poderá visualizar as movimentações de pedidos, notas fiscais e ordem de carregamento dos usuários que estão cadastrados com ele no mesmo grupo. 
+Help:
+ 
+ UPA (CCF 23933)
+Controle de Datas
+A partir desta versão compararemos as datas entre os módulos do SisPetro (SisPetro Normal x Servidor SisPetro x Servidor S3 x Banco de Dados) e caso alguma dessas datas não esteja igual o usuário não poderá acessar o SisPetro. 
+Esta validação evitará diversos problemas com datas dentro do SisPetro pois todos os módulos deverão estar com a mesma data
+. 
+Help:
+ 
+ UPA (CCF 23367)
+Salvar o Log do Servidor SisPetro em Arquivo
+A partir desta versão, quando o Servidor SisPetro for parado ou reiniciado, caso existam dados na página de log, essas informações serão salvas em um arquivo de log na mesma pasta do executável do Servidor SisPetro. 
+Com essa alteração, caso seja necessário, será possível enviar esse log ao suporte para análise de problemas que tenham ocorrido nos nossos clientes
+. AO (CCF 22348)
+Troca de Rotinas para Geração de Arquivos PDF
+Foram atualizadas as rotinas de geração de arquivos PDF a serem enviados por e-mail aos clientes. Com essa atualização, a geração desses arquivos será mais rápida e não afetará a performance do computador executando o processo. PRFC (CCF 23343)
+Liberação de memória do Servidor Sispetro
+Alterada a forma de liberação de memória interna do Servidor Sispetro para evitar erros de falta de memória em alguns ambientes.
+ 
+MCL (CCF 23366)
+Salvar o XML Gerado das NF-e/CT-e/MDF-e com Erro de Schema
+Quando a empresa estava configurada para validar o schema do XML gerado para NF-e, CT-e e MDF-e, caso fosse encontrado algum problema no XML, esse XML não estava sendo salvo no SisPetro dificultando ao usuário saber qual o problema que deveria ser corrigido. Essa rotina de validação foi alterada e a partir desta versão o XML será salvo. 
+Help:
+ 
+  
+UPA (CCF 23427)
+Atualização do Nome Exibido da Empresa
+ 
+Quando é feita a alteração do Nome Usual da empresa, essa alteração não estava sendo refletida na tela principal do SisPetro. Mesmo alterando o nome, continuava exibindo o nome antigo. Esse problema foi corrigido. 
+AO (CCF 23103)
+ 
+Validação das Configurações dos Serviços de E-mail
+Quando o usuário solicitar que seja iniciado o serviço de e-mail no Servidor SisPetro, caso exista algum problema com a configuração do e-mail, o SisPetro não tentará ler ou enviar os e-mails pois já determinou que existe um problema de configuração interna que impedirá o processo. Essa alteração melhorará a performance do Servido SisPetro. 
+UPA (CCF 23418)
+Mensagens de Erro nas Movimentações dos XML Recebidos
+Quando os XML recebidos por e-mail apresentam algum problema, esse problema era gravado no log do Servidor SisPetro, um a um, gerando uma lentidão no processamento do Servidor SisPetro. A partir desta versão, esse log será salvo em um arquivo físico na mesma pasta do XML com problema e com o mesmo nome, somente com a extensão log. Com isso, o usuário, abrindo esse arquivo saberá os problemas daquele XML. 
+UPA (CCF23418)
+Solicitação de Parada do Servidor SisPetro
+Se fosse solicitada a parada do Servidor SisPetro e o processo de leitura dos e-mails recebidos estivesse no meio do processo, o processo de leitura dos e-mails não era interrompido mas o Servidor SisPetro ficava com o status de Parado. Esse problema foi corrigido e quando for solicitada a parada do Servidor SisPetro, caso o serviço de leitura de e-mails estiver no meio do processamento, será terminada a leitura do e-mail que estiver sendo processado e o serviço será interrompido imediatamente. 
+UPA (CCF 23418)
+Servidor SisPetro como Serviço
+Nos casos em que o Servidor SisPetro estava configurado como serviço do Windows o serviço do Servidor SisPetro não estava iniciando, pois existia um problema na localização dos arquivos de certificados. Esse problema foi corrigido e o erro referente a esses arquivos será exibido no log do Servidor SisPetro. 
+UPA (CCF 23198)
+O SisPetro não acata alterações no caminho do DAMDFE.
+O SisPetro não estava acatando a troca de caminho do arquivo RTM do DAMDFE na configuração de empresa. Agora trocando o caminho o SisPetro salvará imediatamente a alteração.
+ PRFC (CCF 23698)
+Exclusão de Usuário
+Ao excluir um Usuário, o SisPetro estava apresentando um erro referente aos dados cadastrados nas tabelas “UsuarioFilialAprovacao” e “UsuarioEmpresaFechamentoCarga”. Nesta versão, o SisPetro foi ajustado para quando excluir um usuário, deletar todos o seus dados corretamente. 
+CPC (CCF 15174)
+Gravação de Campos com Sujeira no Cadastro de Usuários
+Na versão passada foi alterada a forma de gravação do cadastro de usuários e com isso foi detectado que alguns campos estão sendo salvos com sujeira na alteração do usuário. Estamos corrigindo esse problema e limpando os cadastros alterados que possuem essa sujeira dentro dos campos. 
+UPA (CCF 24194)
+Compras
+Disponibilização de novos campos na Impressão Pedido de Compra/Venda
+Foram disponibilizados mais campos, referentes aos Dados Gerais da empresa, ao condutor de dados de Empresa na impressão de Pedido de Compra/Venda. 
+Será necessário alterar o arquivo de layout do PMM, incluindo os novos campos para impressão.
+ PRFC (CCF 24256)
+Cancelamento de PMM e gravação correta do Tipo do Pedido da Nota vinculada a um PMM
+Nesta versão, foi realizada uma correção no SisPetro para garantir a gravação correta do Tipo da Nota Fiscal como "Compras" quando vinculada a um PMM. Ao cancelar um PMM não cancelar automaticamente a Nota vinculada a ele e não permitir o cancelamento caso ele estiver vinculado a uma nota que não esteja cancelada.
+ CPC (CCF 23890)
+Sugestão de Representante em Cliente Novo
+O cadastro de Clientes foi alterado para que, ao cadastrar um novo cliente, o SisPetro não marque automaticamente que o mesmo pode ser um Representante.
+ PRFC (CCF 22997)
+Contabilidade
+ECD - Ano Base 2013 - Novo Layout
+A ECD Ano Base 2013 exige algumas informações adicionais que precisam ser incluídas no SisPetro para uso na geração do arquivo. Nesta versão, o Sispetro foi ajustado para gravar essas informações e foi ajustado o Conjunto de Dados da ECD para preencher e gerar o arquivo conforme o novo layout utilizando essas informações. 
+Help:
+ 
+, 
+, 
+, 
+. 
+CPC (CCF 21570)
+ 
+Itens sintéticos no Registro J150 da ECD
+Corrigida a geração do Registro J150, campo IND_VL, para apresentar corretamente quando for itens sintéticos do Demonstrativo de Resultado Real
+. GSN (CCF 23563)
+ 
+Estoque
+Controle de Transação na Inclusão de Ordem de Carregamento
+Na tela de Importação de Ordem de Carregamento foi implementado o recurso no banco de dados p
+ara garantir que tudo seja salvo ou caso ocorra algum erro, seja possível realizar a recuperação. AO (CCF 23200, CCF 21690)
+ 
+Perfil de usuário para inclusão de Ordem de Carregamento
+No Sispetro foi adicionado um novo perfil de usuário chamado "Pode Incluir OC" que tem como objetivo permitir ou não a inclusão de OC. 
+Help:
+ 
+ 
+AO (CCF 22678) 
+ 
+ 
+Tela de Fechamento de Custo
+ 
+No fechamento ou abertura do dia, se o perfil de sistema estiver configurado para Contabilizar CMV e existir um travamento contábil Gerencial ou Real para o período, o SisPetro emitirá um alerta ao usuário e informará também o código da empresa. CPC (CCF 23391)
+ 
+Quantidade Pendente do PMM pela Quantidade Paga
+Atualmente no SisPetro, é possível de se fazer o Adiantamento Quantificado antes de Incluir a OC, assim via análise do estoquista (sem trava do Sispetro), é possível ver se há quantidade paga para ir buscar. Nesta versão, foi criado um controle mais efetivo: Não deixar incluir a OC caso não tenha sido pago. Na prática, é fazer com que a quantidade pendente do PMM seja "liberada" após inclusão do Adiantamento Quantificado, pela quantidade paga. Além disso, nem sempre o contrato com a Usina é com valor fixo, mas sim com quantidade fixa. Então, ao incluir o Adiantamento deve-se permitir que o usuário informe o preço negociado para esse pagamento, ao invés de forçá-lo a usar o preço do PMM. 
+Help:
+ 
+Controle de PMM pela Quantidade Paga
+ 
+CPC (CCF 23931)
+ 
+Erro na Troca de produto de Tanque com saldo do Produto Antigo
+A tela de Alteração de Tanque foi alterada para corrigir erro ao trocar produto do tanque. Agora o SisPetro só permitirá a alteração de produto de um tanque caso não haja saldo do produto anterior. 
+ 
+Help:
+ 
+ PRFC (CCF 23258)
+Consulta de Fechamento de Estoque em dias com estoque aberto
+Na tela de Consulta de Fechamento de Estoque em dias com estoque aberto estava apresentando erro que foi corrigido a partir desta versão. 
+Help:
+ 
+ AO (CCF 23061)
+ 
+ 
+ 
+Botão Legenda de Custo na Tela de Consulta de Fechamento de Estoque
+Na tela de Consulta de Fechamento de Estoque, na aba Custo, apresentamos em negrito os lançamentos que participam do CMV, porém ao clicar no botão Legenda apresenta a mensagem que negrito são lançamentos que NÃO participam do CMV. Nesta versão esse botão foi ajustado para apresentar a legenda corretamente. 
+CPC (CCF 24022)
+Erro nos campos Frota e Transportadora na tela de Remessa/Retorno de Armazenagem
+Ao selecionar um natureza de operação o SisPetro estava limpando 
+indevidamente
+ os campos Frota e Transportadoras todas as vezes. Agora será verificado se a Natureza da Operação gera ou não Transporte, antes de efetuar uma eventual limpeza nos dados dos campos. 
+PRFC (CCF 21398)
+Erro na tela de Acerto de Estoque Inicial
+Corrigido erro ao fazer Acerto de Estoque Inicial quando o produto tinha movimentações de entrada e saída no estoque físico.
+ 
+GSN (CCF 24114)
+ 
+ 
+Saldo de produto indevido
+Ao emitir uma NF de venda que não movimenta estoque, o saldo disponível do produto ficava incorreto (com a quantidade da NF diminuída do saldo), o que foi corrigido. Ao fazer o pedido de Venda o saldo do produto é diminuído, mas ao emitir a NF de venda, se ela não movimentar o estoque, a quantidade do pedido de venda é devolvida ao estoque, aumentando o saldo. 
+Importante: Não recomendamos que NF de venda não movimente estoque, devido a falta de controle que isso pode causar.
+ 
+GSN (CCF 24136)
+ 
+ 
+Faturamento
+Remover Cancelamento de NF-e Sem Evento do SisPetro
+Foi removido do Sispetro a estrutura antiga de cancelamento de uma NF-e feita por WebService totalmente desvinculado da NF-e. Atualmente a
+ rotina de cancelamento de uma NF-e é um evento 
+vinculado
+ à própria NF-e. AO (CCF 18261)
+Acesso ao Cadastro de Fornecedores pela tela de NF de Outras Entradas
+Na tela de inclusão de NF ao entrar na tela de Pesquisa da Entidade será possível escolher entre Cliente ou Fornecedor ao clicar no botão Incluir. 
+Help:
+ 
+  AO (CCF 18723)
+Estrutura do CODIF no Sispetro
+Devido a implantação da NF-e, o Estado de São Paulo aboliu o envio do CODIF pelas distribuidoras, porém, todo o recurso do CODIF ficou ativo no Sispetro. Nesta versão, toda a estrutura do CODIF foi removida do SisPetro e na próxima, serão removidos os campos e tabelas do banco de dados. CPC (CCF 22507)
+Melhoria na identificação de itens de nota fiscal já importados no processo de Importação de Notas Fiscais. 
+Foi feita uma melhoria na identificação de itens de nota fiscal que já se encontram na aba Notas Fiscais a serem processadas. PRFC (CCF 23570)
+Tratamento de Ambiente na Emissão de NF-e, CT-e e MDF-e
+Foi implementado tratamento/validação na emissão 
+de NF-e, CT-e e MDF-e. Agora, caso o perfil referente ao Ambiente (Produção, Homologação e Contingência) seja alterado durante a emissão, será exibido uma mensagem ao usuário pedindo que o SisPetro seja reiniciado. PRFC (CCF 17663)
+Melhorias na utilização e visualização do Processo de Importação de Notas Fiscais
+Foram incluídos novos campos referentes à transportadora, motorista e dados do frota, facilitando para o usuário localizar as notas fiscais e/ou as ordens de carregamento a serem vinculados. Na aba Notas Fiscais a serem processadas e na tela das OC passíveis de vínculo, é possível esconder/exibir campos, bem como alterar a ordem, salvando o layout por usuário. 
+Help: 
+.
+ PRFC (CCF 23929)
+Manutenção de Notas Fiscais, aba Itens NF
+Na tela de manutenção de Notas Fiscais, aba Itens NF, foi incluído o campo Código do Depósito. CPC (CCF 24034)
+Tela de Importação de NF-e vinculo com OC e PMM
+No processo de importação de XML da NF-e sempre vem a transportadora e na OC sempre temos o motorista. Nesta versão, foi realizada uma alteração para permitir que o motorista indicado na OC seja salvo na NF. Além disso, a descrição do campo "É último item da OC"  foi alterada para deixar mais claro o objetivo do campo e as mensagens de validação dos dados da OC x NF e PMM x NF, também foram melhoradas para ficarem mais claras de acordo com as configurações do sistema. 
+ 
+Help: 
+Vínculo de OC e PMM em Notas Fiscais Importadas
+. 
+CPC (CCF 24040 CCF 22451)
+Série diferenciada de acordo com o Ambiente no CT-e
+A emissão de conhecimento foi alterada para acatar a configuração de séries da Natureza de Operação de modo que, de acordo com o Ambiente (Produção, Homologação ou Contingência).
+ 
+Esta correção fará com que o ao pesquisar a Natureza de Operação, o sistema indique qual Serie será utilizada automaticamente de acordo com o Ambiente da empresa.
+ PRFC (CCF 23734)
+Gravação da posição das colunas na Tela da Manutenção de Notas Fiscais
+A partir desta versão na tela de Manutenção de Notas Fiscais, o layout das colunas que não estavam sendo salvos, voltou a funcionar.
+ AO (CCF 22901)
+ 
+ 
+Usuário não está salvando no Log ao Inutilizar NFe/CTe
+A Inutilização de NFe/CTe foi alterada para também exibir o usuário responsável pela Inutilização no Log de Eventos. 
+PRFC (CCF 23265)
+Erro ao tentar processar CT-e na tela de NF-e/CT-e Pendentes
+O SisPetro estava considerando um CT-e como uma NF-e, consequentemente, executava processos trocados, gerando assim um erro de validação. 
+Esta correção 
+só abrangerá novos conhecimentos. Para conhecimentos emitidos antes dessa alteração a empresa deve solicitar um script de ajuste para equipe de Suporte.
+ 
+ PRFC (CCF 23763)
+Exibição de Avisos de envio de e-mail em ambiente de homologação na Importação de NF
+Correção da exibição indevida de avisos informando o envio de e-mail em ambiente de Homologação na Importação de Notas Fiscais e Remessa/Retorno de Armazenagem. 
+PRFC (CCF 23240)
+Importação Incompleta de Notas Fiscais
+O SisPetro, quando ocorria algum erro durante a importação de Notas Fiscais, a mesma era importada com dados faltantes e sem contabilizar. Agora quando houver algum erro, todo o processo será abortado.
+ PRFC (CCF 20398, CCF 22053)
+Versão dos Dados no XML de Distribuição
+No arquivo de distribuição gerado para NF-e e CT-e consta a versão da NF-e / CT-e em que a distribuição foi gerada. Quando migramos uma versão, a distribuição fica sendo gerada com uma versão e os dados da nota fiscal com outra e isso impede que esse XML seja validado na Sefaz. A partir desta versão, o arquivo de distribuição terá a mesma versão da nota fiscal / conhecimento que a gerou. 
+UPA (CCF 23699)
+Ambiente de Execução da NF-e/CT-e
+Na execução dos WebServices da Sefaz para NF-e/CT-e, o ambiente utilizado para as URL eram sempre adquiridos pelo ambiente configurado no perfil de empresa. A partir desta versão, o SisPetro verificará o ambiente no qual a nota foi emitida, independente do perfil de empresa. Sendo assim,  uma NF-e/CT-e emitida em homologação, será enviada para o WebService de homologação, mesmo que o usuário troque o perfil da empresa para Produção e a reprocesse. 
+UPA (CCF 23471)
+Emissão de Conhecimento
+No Conhecimento de Frete, ao clicar mais de uma vez no botão OK, a numeração do Conhecimento é incrementada o número de vezes que for clicado, ou seja, pula a numeração do conhecimento, causando problemas para a área Fiscal. Nesta versão, foi realizada uma alteração para desabilitar o botão OK assim que clicado na primeira vez. 
+CPC (CCF 23884)
+Manutenção de Nota Fiscal
+Na Manutenção de NF's há uma cor específica para cada situação de NF eletrônica. Porém, para diferenciar notas que fazem o processamento na SEFAZ ou não foi utilizado o critério de Entrada ou Saída, sendo as de Saída as que são processadas na SEFAZ. Porém, quando temos uma NF de Entrada que é processada na SEFAZ (Devolução de Clientes, por exemplo), acaba sendo tratada como NF de Terceiros e a legenda fica incorreta.  Nesta versão, esse problema foi corrigido. 
+CPC (CCF 23214)
+DANFE/DACTE Enviados por E-mail com CheckBox
+O DANFE/DACTE que sofreu alteração pelo usuário e nele foi incluído um CheckBox, na impressão em papel está funcionando perfeitamente porém na impressão enviada por e-mail esse componente não estava sendo impresso. Esse problema foi corrigido. 
+UPA (CCF 23888)
+Correção da validação do perfil "Exige que seja através de OC (NFs de saída)"
+Foi feita correção na emissão da nota, para validar o perfil de Natureza de Operação "Exige que seja através de OC (NFs de saída)" ao finalizar o preenchimento dos dados iniciais.
+ PRFC (CCF 24058)
+Erro de Conversão de Nulo para Inteiro na tela de Remessa e Retorno de Armazenagem
+Foi feita correção na tela de Remessa e Retorno de Armazenagem para tratar erro ao clicar em "Sugerir Dados para Itens" de Ordens de Carregamento que não possuam dados de Carregamento.
+ PRFC (CCF 24020)
+Inclusão de Vigência não copia todos os campos para a nova vigência.
+Ao incluir uma nova Vigência, via aba Margem Subst. Tributária no cadastro de Produtos, não eram copiados os campos "% Comp. PMPF na UF", "% Comp. PMPF Fora UF" e "% Comp. PMPF Import.". Agora o SisPetro copiará corretamente os campos. 
+PRFC (CCF 24259)
+Observações da OC no layout do DANFE
+Disponibilizados os campos de Observações, Inspeção Veicular e Número NF da OC no condutor de dados correspondente no layout do DANFE. 
+É responsabilidade da empresa que desejar usar esses campos editar o layout de seu DANFE e adicioná-los
+.
+ GSN (CCF 24080)
+Financeiro
+Ajustes no tratamento de Erro nas DLL de Cobrança
+Foram feitos ajustes e melhorias no tratamento de erro e exibição de erros. Agora o SisPetro avisará quando houver problemas na leitura de arquivo de cobrança. 
+Necessário atualizar as bibliotecas 
+SispetroBancos.dll, Banco004.dll, Banco237.dll, Banco254.dll, Banco320.dll, Banco320_vSemReg2.dll e Banco422.dll 
+no caminho do executável
+. 
+PRFC (CCF 23221 CCF 22968)
+Geração do arquivo de remessa do Banco Sifra
+O SisPetro gera o arquivo remessa do Banco Sifra (999). Porém o arquivo de layout CNAB 400 de remessa que é gerado pelo SisPetro não tem o Registro 4 e sem este segmento o arquivo fica inconsistente. Nesta versão, O SisPetro foi ajustado para gerar o Registro 4 no arquivo remessa. 
+Necessário atualizar as bibliotecas 
+SispetroBancos.dll e Banco999.dll 
+no caminho do executável
+. 
+Help: 
+, 
+, 
+, 
+ 
+CPC (CCF 23146)
+Nome e descrição do Banco na Manutenção de Cobrança Eletrônica
+Na tela de Manutenção de Cobrança Eletrônica, na aba Remessa/Retorno foram retiradas as colunas Número e Nome Banco da lista de remessas/retornos.
+ AO (CCF 23294)
+Correção dos valores padrões para os campos Carteira e Variação da Carteira no Banco Mercantil do Brasil (389)
+Correção na geração do Arquivo de Remessa do banco Mercantil do Brasil. Agora serão considerados padrões, para os campo Carteira e Variação da Carteira, os valores 3 e 16 respectivamente
+. 
+Necessário atualizar a biblioteca 
+SispetroBancos.dll 
+no caminho do executável
+. 
+PRFC (CCF 23568)
+Correção da Transformação do Registro 2 do Arquivo de Remessa Banco BIC (320)
+Foi feita correção na transformação da geração do Arquivo de Remessa  do Banco BIC. Agora não mais será considerada, no registro 2, a transformação do Segmento P e sim Segmento Q.
+ 
+Necessário atualizar a biblioteca 
+Banco320.dll 
+no caminho do executável
+.
+ 
+Help:
+  
+ PRFC (CCF 23749)
+Travamento ao ler Arquivo de Retorno CNAB400 do Banco do Brasil
+Correção de travamento na leitura do arquivo de retorno CNAB400 do Banco do Brasil. Agora o SisPetro identificará o layout do arquivo corretamente. 
+PRFC (CCF 23806)
+Erro de timestamp na Geração da Remessa do Pagamento Eletrônico
+Adaptado o Layout de Exportação utilização na Geração do Arquivo de Remessa do Pagamento Eletrônico para apresentar a data atual com recursos atuais do Banco Sybase 12, não apresentando mais erro. 
+Necessário atualizar na Manutenção de Exportação de Dados o arquivo PagForBradesco-Remessa.rtm
+.
+ GSN (CCF 21129)
+Erro na Validação da Transformação na Remessa
+Correção de erro ao validar as Transformações do Tipo de Cobrança. Agora o SisPetro validará corretamente as transformações ativas nas empresas envolvidas na geração dos títulos
+. 
+Help:
+ 
+  PRFC (CCF 23821)
+Fiscal 
+EFD ICMS/IPI
+ - Chave de Acesso em NF-e e CT-e inutilizados
+Alterada a fórmula do campo Chave de Acesso dos Registros C100 e D100 para que não seja preenchido caso a NF-e ou CT-e tenha sido inutilizado. 
+GSN (CCF 20920)
+EFD ICMS/IPI
+ - Versão do Layout
+No campo COD_VER do Registro 0000 será enviado 008 para os arquivos gerados com data de 2014 .
+ GSN (CCF 20920)
+EFD ICMS/IPI
+ - Registro C190
+Corrigido diferença de R$ 0,01 entre os valores do Registro C100 e C190 devido diferença no arredondamento entre o Valor dos Produtos da Nota e o Preço Unitário do item multiplicado pela Quantidade.
+ GSN (CCF 20920)
+EFD ICMS/IPI
+ - Registro 0460
+Alterado comando do Registro 0460 para enviar neste registro qualquer COD_OBS utilizado no Registro C195 que não estava sendo enviado.
+ GSN (CCF 20920)
+EFD ICMS/IPI
+ - Modelo de Conhecimento
+Ajustada a geração dos Registros do Bloco D para utilizar como modelo o que estiver salvo na Nota Fiscal e não na Natureza e para só gerar registros conforme os modelos permitidos no manual. GSN 
+(CCF 20920)
+EFD ICMS/IPI
+ - Deduções no Registro E210
+Considerado o valor das Deduções no Resultado final da Apuração ST no Registro E210 que não estava sendo considerado. 
+GSN (CCF 20920)
+EFD ICMS/IPI
+ - Registros Analíticos
+Ajustados os valores dos Registros Analíticos (C190, D190, C590 e D590) para somar as Despesas Acessórias no Valor da Operação e desconsiderar os CST não tributados. 
+GSN (CCF 20920)
+EFD ICMS/IPI - CST 090
+Alterada a forma de considerar Notas e Conhecimentos com CST 090. 
+Mesmo que tenha valor de ICMS o CST 090 será considerado como NÃO TRIBUTADO.
+ A legislação permite ambos os casos, mas na prática, quando o documento deve ser considerado como Tributado é usado um CST correspondente. Atualmente o CST 090 só é utilizado em casos que os valores de ICMS não são considerados na Apuração Fiscal. 
+GSN (CCF 20920, CCF-22479)
+EFD Contribuições - Casas decimais do Preço unitário
+Corrigido o número de casas decimais do preço unitário (sem imposto) utilizado nos Registros do EFD Contribuições para ter 8 dígitos como já ocorre no módulo de Faturamento. Anteriormente estava com 6 dígitos e apresentava diferença de alguns centavos na Receita Bruta dos Registros M410 e M810.
+ GSN (CCF 23681)
+EFD ICMS/IPI - Alteração de IE no Registro 0175 
+Conforme mudança no Guia Prático do EFD ICMS/IPI as alterações de IE no Cadastro de Clientes e Fornecedores não serão mais logadas e consequentemente não serão enviadas no Registro 0175. Em casos de alteração de IE deve ser enviado um novo participante, então será necessário criar um novo Cliente ou Fornecedor. 
+Help:
+ 
+. 
+GSN (CCF 23550)
+EFD ICMS/IPI - Código da Receita Registro E250 
+Alterado o tamanho do Código da Receita no Registro E250 para 20 caracteres ficando igual ao mesmo campo no Registro E116. 
+Help:
+ 
+. 
+GSN (CCF 23550).
+Correção do Ajuste Automático no Produto Composto referente a Aditivo no DPMP
+Foi feita correção no ajuste do Produto Composto, agora o sistema pegará corretamente o último item do produto. 
+Help:
+ 
+.
+ PRFC (CCF 21505)
+LFE-LE (DF) - Apuração de ICMS
+Atualizado o Registro E340 para conter os dados da Apuração de ICMS Próprio, sendo também atualizada a tabela de Ajustes da Apuração para uso do Distrito Federal e a geração do Registro 0450 para conter o código de Observação utilizado no Registro E340. 
+GSN (CCF 20921)
+EFD ICMS/IPI - Obrigatoriedade do Registro H005
+Adaptada a geração do Registro H005 para que seja sempre zerado independente de ter inventário informado. Esse registro é obrigatório, porém nem sempre a empresa é obrigada a informar os dados de Inventário. 
+Help:
+ 
+, 
+.
+ 
+GSN (CCF 23721)
+EFD PE (SEF II: E-Doc) Pernambuco
+Criado o Conjunto de Dados 11 para geração do E-doc de Pernambuco que é similar ao SEF II, porém com geração somente dos registros dos Blocos 0 e C.
+ É obrigatório para empresas do Estado de Pernambuco. 
+Necessário indicar a biblioteca SPED_Edoc.dll no Conjunto de Dados correspondente. 
+Help:
+ 
+.
+ 
+GSN ( CCF-21453 CCF-21620 CCF-23386)
+EFD ICMS/IPI - Produtos com várias unidades de medida
+Ajustados os registros 0190 que utilizam a unidade de medida dos registros C170 e C510 e ajustados os registros 0200 que utilizam o produto dos registros C510. 
+GSN (CCF 23018)
+EFD Contribuições - Produtos com várias unidades de medida
+Ajustados os registros 0190 que utilizam a unidade de medida dos registros C170. 
+GSN (CCF 23018)
+EFD ICMS/IPI - Registro 1400 para Transportadoras
+Adicionado o Registro 1400 no Conjunto de Dados do EFD ICMS/IPI que conterá os valores de Conhecimentos de Fretes emitidos agrupados por produto e Município. 
+Help: 
+ 
+GSN (CCF 23833).
+Patrimônio
+Relatório Extrato do Imobilizado
+Em algumas situações em que estava sendo gerado esse relatório, era gerado o erro "Stored Metadata Erro" e esse problema foi corrigido, melhorando inclusive a performance do relatório. 
+Para que essa alteração seja aplicada, é necessário atualizar o arquivo MovimentoImobilizado.rtm
+.
+ 
+UPA (CCF 22093)
+Transporte
+Módulo de Transportes
+O módulo de Transportes tem sido cada vez mais utilizado no SisPetro devido o CT-e e MDF-e. Por isso, foram criados dois novos campos, Tara para informar o peso do caminhão sem o produto e a Capacidade em M3. Outro ponto alterado é a indicação se o Frota é Próprio ou Não. Atualmente ele é genérico no frota, mas como temos grupos de empresas, foi criada a opção de cadastrar Frotas Próprias por Empresa. 
+No processo de 
+Controle de Vencimentos
+ há um campo "Somente Próprio" que não estava sendo considerado, ou seja, mesmo o campo "Somente Próprio" marcado todos os frotas eram verificados. Nesse CCF, esse problema foi corrigido.
+ 
+Help: 
+ CPC (CCF 21565)
+R
+elatório de Receitas / Despesas por Frota
+O relatório de Receitas/Despesas por Frota foi alterado para incluir os campos Marca, Modelo, Ano, Capacidade, Capacidade M3, Tara, Dados do Proprietário e Se é Próprio. CPC (CCF 23178)
+Cadastro de Transportadora
+Com o lançamento da NF-e foi exigido o envio do RNTRC junto com os dados do Frota, considerando isso, esse campo foi criado na tabela de Frotas. Mas o RNTRC é uma informação da Transportadora e além disso, quando a Empresa é Transportadora ou emite MDF-e, é necessário saber qual o RNTRC dela. Nessa versão, o SisPetro foi ajustado para que seja possível a configuração do RNTRC para a Transportadora e a Empresa. 
+Help: 
+, 
+ e 
+ CPC (CCF 15483 CCF 23223)
+Cadastro de Transportadoras e Motorista
+Com as alterações no vínculo entre Transportadora e Motoristas, foi criado um Perfil de Sistema para configurar se a empresa trabalhará ou não com a validação de transportadora e motorista. Por padrão o perfil será marcado para trabalhar com a validação por Tipo motorista ou Livre. 
+Help: 
+, 
+, 
+, 
+, 
+, 
+, 
+, 
+, 
+, 
+, 
+, 
+ 
+Na Importação de NF-e e TXT, o campo Motorista será preenchido com a Transportadora, no CT-e, a Transportadora será preenchida com o Emitente do CT-e e o Motorista com o Motorista
+. 
+ 
+ 
+É necessário atualizar o arquivo DAMDFe_v811.rtm no perfil da empresa, no caminho do DAMDFE
+. CPC (CCF 21823)
+ 
+Alteração no tamanho do campo Placa
+O SisPetro permite o controle de Frotas do Tipo Vagão. Para isso a formatação da placa não é exigida, já que tem uma placa diferenciada. Porém alguns vagões possuem placas com número de dígitos maior que o campo de Placa permite (9 dígitos). Nessa versão, o tamanho do campo Placa foi alterado para 20 dígitos para permitir o cadastro de Placas com tamanho maior que placas de veículos automotores para Frotas do Tipo Vagão. CPC (CCF-22971)
+Validação de CNH
+Atualmente o SisPetro valida se tem CNH em qualquer Transportadora, sendo que temos no Cadastro Motoristas e Transportadoras. Como nesta versão criamos um campo para fazer essa separação, foi necessário alterar para só validar CNH quando o tipo for Motoristas.
+ 
+CPC (CCF 24056)
+Ajustes no MDF-e
+Feitos alguns ajustes na tela de Inclusão do MDF-e, reorganizados os menus referentes ao Manifesto Eletrônico e ajustada a estética do layout do DAMDFE.
+ 
+É necessário atualizar o arquivo DAMDFe_v811.rtm no perfil da empresa, no caminho do DAMDFE
+.
+ 
+UPA (CCF 23469)
+Correção da Tela de Pesquisa de Frotas
+A tela de pesquisa de frotas estava mostrando sempre todos os registros, com a correção o sistema só apresentará Frotas inativas quando necessário.
+ PRFC (CCF 21563 e CCF 23901)
+Vendas
+Melhoria de Performance na Cadastro de Ocorrências
+Alterada Manutenção de Ocorrências para melhoria da performance desta tela. Com isso, o acesso as ocorrências via menu ou cadastro de clientes será mais rápido ao usuário.
+ 
+UPA (CCF 23549)
+Erro ao Imprimir Ficha de Cliente
+Foi feita correção de erro na impressão de Ficha de Cliente, agora o sistema não mais acusará erro ao gerar os dados de Documentos Faltantes.  
+É necessário atualizar o arquivo DadosCliGeral.rtm no caminho dos executáveis.
+ PRFC (CCF 23773)
+Ajustes no Relatório de Análise de Rentabilidade
+Foram feitas correções no cálculo da soma dos Totais e inclusão de um Total Final no relatório de Análise de Rentabilidade. 
+É necessário atualizar o arquivo RentabilidadeVendas.Rtm no caminho dos executáveis
+. 
+Help: 
+ PRFC (CCF 22324)
+Correção ao clicar no botão Recalcula na Tela Análise de Custo
+Foi feita correção ao clicar no botão Recalcula da tela de Análise de Custo. Agora o SisPetro está efetuando devidamente o recálculo.
+ PRFC (CCF 24115)

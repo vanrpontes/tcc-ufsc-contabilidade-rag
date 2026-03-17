@@ -1,0 +1,94 @@
+TITULO: Livro de Entrada
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210303
+--------------------------------------------------
+O Livro de Notas de Entrada pode ser emitido acessando o Sispetro Controladoria  a partir do menu
+ 
+Relatório / Livro de Entrada.
+Para emití-lo é necessário ter 
+encerrado
+ a apuração desejada. Os dados que serão impressos dependerão da configuração de data a ser utilizada na Apuração.
+É possível emitir um intervalo de apurações, informando nos campos 
+Apuração Inicial
+ e 
+Apuração Final
+ . Caso deseje imprimir apenas uma apuração, o usuário deve repitir o número da apuração. Estas informações são desnecessárias caso se deseje apenas imprimir os termos.
+Sendo necessário, o usuário deve marcar a opção Suprime dados do fornecedor e escolher uma das três opções:
+a) Sem impressão dos fornecedores no final
+ - para não emitir a listagem dos fornecedores ao final da apuração escolhida;
+ 
+b) Com impressão dos fornecedores a cada apuração escolhida
+ - para emitir a listagem a cada apuração escolhida, ou seja, se for escolhido um intervalo de apurações, a cada apuração será emitida a lista de fornecedores.
+ 
+c) Com uma única impressão final dos fornecedores após as apurações escolhidas
+ - para uma única listagem de fornecedores quando solicitar um intervalo de apurações, ou seja, se escolher a apuração de janeiro a dezembro só será emitida uma relação com fornecedores que fizeram parte destas apurações.
+Deve-se informar a página inicial, já que os livros têm uma sequência de páginas. Estas informações são desnecessárias caso o usuário só queira imprimir os termos.
+Os livros são impressos num número determinado de páginas. Assim, empresas que têm muita movimentação, podem ter mais que um livro no ano. A cada livro impresso, temos um termo de abertura, no começo e um termo de encerramento no final.
+Se a opção
+ Reservar páginas para os termos entre os livros 
+estiver 
+desmarcada:
+ 
+ 
+ Começamos a imprimir o primeiro livro, informando como 
+página inicial
+ a página 2 e imprimimos até a numeração máxima que um livro pode conter. Porém o término dessa impressão é definido pelo usuário, indicando por exemplo, a impressão da apuração de janeiro a abril. Para o segundo livro, o usuário vê a última página impressa do primeiro livro (por exemplo 499), reserva uma página para o termo de encerramento (a página 500) e outra página para o termo de abertura do próximo livro (501). Então, solicita a impressão do segundo livro, informando a apuração de maio até o mês que dê aproximadamente 500 páginas, e informa como página inicial a página 502. Ou seja, para imprimir dois livros, é preciso fazer o processo em dois passos e informando na tela a página inicial desejada. 
+ 
+ Num próximo passo, para emitir os termos de abertura e encerramento, marcamos a opção 
+Imprime Termo
+ e informamos os layouts de termos desejados e o intervalo de páginas que serão abrangidas por estes termos. No nosso caso, teremos que fazer isso em dois passos, para cada livro gerado. 
+Para mais informações sobre configuração de termos, acesse a 
+Tabela de Termos
+.
+ 
+ Este processo teria que ser repetido conforme o número de livros que a movimentação da empresa, no período, requisitar. Neste exemplo, citamos dois livros. 
+ 
+ Para empresas cuja movimentação não ultrapasse um livro, esta opção pode ser utilizada e não é trabalhosa.
+Se a opção Reservar páginas para os termos entre os livros estiver marcada
+ 
+ 
+ É necessário informar o 
+Número máximo de páginas de um Livro
+. 
+ Com base no número de páginas, o próprio sistema, providenciará a impressão dos livros do período, tantos quantos forem, fazendo a divisão e impressão dos termos necessária. A impressão dos termos não precisará ser num segundo passo, é possível já marcar a opção 
+Imprime Termo
+ e informar os layouts de termos desejados. O intervalo de páginas dos termos não precisará ser informado. 
+ Seguindo nosso exemplo anterior, onde o livro da empresa pode conter 500 páginas. Se as apurações desejadas forem de janeiro a dezembro e realmente for começar do primeiro livro, informe como página 
+inicial a página
+ 2 e o número máximo de páginas 500. 
+ O sistema imprimirá da página 2 até a página 499, pula as páginas 500 e 501, imprimindo novamente da 502 até a 999, pula as páginas 1000 e 1001, e assim sucessivamente até acabar a movimentação da última apuração informada. 
+ Com base nestes livros impressos, os termos já serão impressos ao final, conforme a impressão do livro. Neste exemplo seriam impressos três termos de abertura e encerramento, cada um com o intervalo de páginas de cada livro. A numeração do livro também será impressa devidamente. 
+ 
+ Ou seja, com esta opção, só é necessário se preocupar em informar 
+o número máximo de páginas do livro
+ e a 
+página inicial
+ para impressão (geralmente a 2), o restante do controle é feito pelo próprio sistema. 
+ 
+ Para empresas cuja movimentação ultrapasse um livro, esta opção é muito útil na impressão final dos livros. Esta opção não seria necessária para impressão de livros de um determinado período do ano fiscal utilizado somente para conferência.
+Através da opção 
+Imprime Resumo Final (CFOP e UF)
+ é impresso no final do Livro um Resumo de valores por CFOP e outro Resumo de Valores por UF. Nem todos os estados exige esse resumo.
+Para ter subtotais de página marque a opção 
+Imprime Subtotais de página
+, onde no rodapé de cada página terá a somatória dos valores da página (atente-se que é o total da página exclusivamente, não é acumulativo).
+Ao marcar a opção 
+Imprime numeração do Livro?
+ e informado o 
+Número do Livro
+ será permitida a impressão do mesmo no relatório de Livro de Entrada.
+O Livro de Entrada, por seu layout padrão apresentar para cada registro duas linhas (uma com valores e outra com os dados do Fornecedor), não apresenta linhas divisórias de colunas, porém se desejar que elas sejam apresentadas, marque a opção *Imprime Linhas divisórias de colunas.*
+Os livros que não tiverem movimentação para uma determinada apuração, serão impressos com o cabeçalho do Livro e as palavras  S E M    M O V I M E N T O.
+O layout do livro será gerado conforme o arquivo 
+livroEntrada.rtm
+ que estiver no caminho do executável, sua existência é 
+imprescindível
+. Para alterar o layout utilize o botão 
+ 
+{O usuário deve ter atenção para as atualizações do arquivo .rtm a cada atualização do Sistema, pois o mesmo deve sobrepor o .rtm existente para que as alterações feitas sejam consideradas, caso contrário, corre-se o risco de não obter resultados satisfatórios.
+ 
+Clique no botão OK para confirmar e o relatório será apresentado em tela. Para imprimí-lo clique no botão  
+ 
+A apuração traz as notas conforme a 
+Data de Referência 
+independente dos perfis de sistema 
+Composição da Data de Referência para Livros Fiscais' | ‘Entrada'/'Saída'

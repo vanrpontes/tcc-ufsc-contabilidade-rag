@@ -1,0 +1,52 @@
+TITULO: Livro de Movimentação de Produtos (LMP)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898406
+--------------------------------------------------
+A partir da versão 8.0 do Sispetro essa funcionalidade não está mais disponível.
+O Livro de Movimentação de Produto é um documento exigido pela ANP para empresas que sejam TRR (Transportador Revendedor Retalhista). Este livro tem um formulário pré-impresso, com uma numeração de controle impressa no seu cabeçalho. Ele é diário, ou seja, uma folha por dia. No cabeçalho há ainda a data, o produto e a empresa. As entradas são impressas nas páginas ímpares e as saídas nas páginas pares.
+No LMP temos dois grupos de movimentação: Normais e Outras.
+As Entradas/Saídas normais são todas aquelas que passaram por uma emissão de NF, porém pode ser que nem todas as NFs devam participar do LMP. Para isso é preciso acessar a tela de Manutenção da 
+Natureza de Operação
+ destas notas e desmarcar a opção 
+Sai no LMP
+. A alteração na natureza é aplicada diretamente no momento da emissão do LMP, ou seja, interfere inclusive em notas com data anterior a alteração. No momento da inclusão dos dados não é possível verificar as entradas/saidas normais, pois elas não são armazenadas com os dados do LMP. Este tipo de movimentação poderá ser consultada na tela de Manutencao e sera listada na emissao do LMP. Neste grupo tambem entram pedidos de Outras/Saidas de Gasolina A e Anidro que foram gerados em decorrencia de uma saida de Gasolina C, afinal apesar de serem pedidos (e poderem ser caracterizadas como ajustes) o fato gerador foi uma NF.
+As Outras Entradas/Saidas sao todas as movimentacoes que nao passaram pela emissao de NF, geralmente ajustes. Para indicar quais os ajustes que devem participar do LMP, deve ser configurado o 
+Histórico
+ a ser utilizado no ajuste, marcando/desmarcando a opcao Sai no LMP. Estes valores, no entanto, serao sugestivos, pois o usuario podera alterar a contento, sendo armazenado o valor informado pelo usuario. Neste caso, diferente das movimentacoes normais, qualquer alteracao nos dados referentes aos ajustes nao serao novamente refletidos no LMP. No momento da inclusao dos dados sao verificadas as quantidades de outras entradas/saidas constantes exatamente naquele momento e sugeridas para que o usuario armazene.
+No SisPetro foi criada uma Manutencao de LMP, que pode ser acessada pelo menu 
+Movimento / Estoque / Livro de Movimentação Produto
+. Vide a tela que sera exibida:
+Atraves desta tela teremos as seguintes funcionalidades, nos botões:
+Permite incluir dados para o LMP. Vide maiores detalhes em 
+Inclusão
+.
+Permite a alteração do registro que estiver posicionado na tela. Vide maiores detalhes em 
+Alteração
+.
+Apos confirmação do usuário, efetua o cancelamento do registro que estiver posicionado na tela. Sera possível, na aba LMP, visualizar nas colunas posicionadas ao final (a direita), o nome do usuário, a data e hora do cancelamento.
+Permite a impressão nos moldes do LMP. Selecione um ou mais registros, utilizando as teclas CTRL ou SHIFT e clique então neste botão. Vide maiores detalhes em 
+Impressão
+.
+Permite a atualização da tela, apresentando todos os dados que atendam os filtros apresentados na tela (data, cancelados e produto).
+Além dos filtros apresentados na tela permite filtrar os dados a serem apresentados atraves de outras informações, sendo apresentada a seguinte tela:
+Informe o campo, o intervalo ou o valor específico para este campo e clique em OK. Só serão apresentados na tela os dados cujo campo escolhido atenda o valor informado.
+Permite a localização de um determinado registro conforme alguma condição. É apresentada a tela a seguir:
+Selecione na parte inferior o campo e informe em seguida, na parte superior, o valor desejado. Caso exista algum registro com esta informação no painel principal (LMP), o cursor será posicionado neste registro.
+Indica as cores utilizadas na apresentação dos dados do painel principal, LMP, explicando o que ela representa.
+Utilize este botão para fechar a tela de Manutenção
+Mostra ou não registros cancelados, se estiver marcado ou não.
+Caso queira apresentar dados somente de um produto, marque a opção 
+Seleciona Produto
+ e em seguida escolha um produto. Somente registros de LMP referente ao produto informado serão apresentados.
+Além do painel principal 
+LMP
+, temos outros painéis:
+Observação
+: Mostra a observação cadastrada para o registro posicionado.
+Entrada
+: Mostra todas as Entradas Normais que serão listadas no momento da impressão do LMP, referente ao produto e data do registro posicionado.
+Saída
+: Mostra todas as Saídas Normais que serão listadas no momento da impressão do LMP, referente ao produto e data do registro posicionado.
+Outras Entradas
+: Mostra todas as outras entradas que serviram como sugestão para o total de Outras Entradas armazenado no LMP. Cabe lembrar que o valor é sugestivo e que o usuário pode ter alterado este valor.
+Outras Saídas
+: Mostra todas as outras entradas que serviram como sugestão para o total de Outras Saídas armazenado no LMP. Cabe lembrar que o valor é sugestivo e que o usuário pode ter alterado este valor.

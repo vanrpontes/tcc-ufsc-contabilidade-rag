@@ -1,0 +1,48 @@
+TITULO: API Obtenção de Token
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4893048833
+--------------------------------------------------
+Objetivo
+Obter uma chave (token) para utilizar uma API.
+1. Obter token autenticação
+Introdução
+Qualquer webservice do projeto 
+SispetroWeb/SispetroApp 
+exigirá um token de autenticação. Este token é gerado a partir deste webservice e será válido por 24 horas.
+Assim, recomendamos que o sistema consumidor dos webservices aqui descritos salvem o token armazenando também a data e hora em que o mesmo foi gerado para que, quando chegar próximo de sua validade, seja obtido novo token.
+Endereço
+ <endereço do SispetroWeb>/sessions/create_from_api
+Parâmetros
+Nome
+Descritivo
+Tipo
+Restrições
+Observações
+Exemplo
+access_key
+chave de acesso do usuário cadastrado no Sispetro (obter com armazenadora)
+string
+Obrigatório
+"ojunS9Pwfk0aJ4MFuZPE5g"
+secret_key
+senha de acesso do usuário cadastrado no Sispetro (obter com armazenadora)
+string
+Obrigatório
+"G1KSmt2Mp0KgL-loiyvytw"
+cnpj
+CNPJ da empresa cadastrada no Sispetro
+string
+Obrigatório
+CNPJ com pontuação idêntico ao cadastrado no Sispetro
+"66.060.575/1902-02"
+Método
+POST
+Exemplo de Chamada do WebService
+curl -H "Content-Type: application/json" -H "Accept: application/json" -X POST -d '{"access_key":"ojunS9Pwfk0aJ4MFuZPE5g","secret_key":"G1KSmt2Mp0KgL-loiyvytw", "cnpj":"66.060.575/0001-60"}' http://localhost/sessions/create_from_api
+Retorno Bem Sucedido
+Em formato JSON, será obtido um token caso os dados informados sejam validados e autenticados, a empresa esteja vinculada ao usuário, usuário esteja ativo e válido e empresa esteja ativa e válida. 
+O status da resposta sempre será 200.
+{"auth_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1OTUxMX0.7etazmSJho6qi5Eodxw7QzqHGnaxwLxVZd1I1VL5QA8"}
+Retorno Sem Sucesso
+Se, por algum motivo, não for possível gerar o token, será gerado uma resposta com formato JSON a seguinte resposta 
+(O status da resposta sempre será diferente de 200):
+{"error":"Erro Autenticacao","status":403}

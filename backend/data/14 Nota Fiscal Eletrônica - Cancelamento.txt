@@ -1,0 +1,57 @@
+TITULO: 1.4 Nota Fiscal Eletrônica - Cancelamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2913599827
+--------------------------------------------------
+Neste tópico será tratado dúvidas sobre o cancelamento da NF-e.
+1) Prazo para cancelamento.
+No SisPetro é possível configurar o prazo para o cancelamento da NF-e, é uma configuração de 
+Sistema/nota fiscal/ # dias limite para cancelamento da NF. 
+Lembrando que cada SEFAZ tem uma data limite de dias para cancelamento, é de 
+responsabilidade do cliente saber qual é
+.
+A nota fiscal esta cancelada no SisPetro, porém por algum motivo na SEFAZ consta como ativa, o que fazer?
+Isso pode ocorrer por alguns motivos, cancelamento fora do prazo, falha de comunicação com a SEFAZ, entre outros. Não basta cancela-la no SisPetro
+, pois o protocolo ainda estará ativo na SEFAZ, é preciso entrar em contato com a própria SEFAZ. Caso isso seja feito, há uma solução.
+Como não é possível descancelar uma NF no Sispetro, o procedimento a ser seguido nesse caso:
+Fazer em um horário que ninguém esteja faturando.
+1) Alterar o Tipo de Emissão da Natureza de Operação para Terceiros, desabilitar o Nf-e Eletrônica na aba "Por Filial"
+2) Habilitar o Perfil para Duplicar Nota Fiscal com o mesmo Numero.
+3) Fazer essa Nota Fiscal informando a mesma chave de acesso da nota fiscal cancelada, e com a mesma data da nota cancelada.
+4) Apos isso não esquecer de voltar as configuração normais da natureza de operação, e o perfil para duplicar nota fiscal.
+Importante:
+A nota fiscal original cancelada não será excluída do Sispetro. Ela será mantida como cancelada.
+A natureza de operação utilizada neste caso não poderá ser utilizada para as notas fiscais de venda normais.
+Impactos:
+Scanc: não terá porque não envia notas canceladas
+Simp: não terá porque não envia notas canceladas
+Fiscal: terá a nota cancelada e a ativa, necessário excluir a nota cancelada
+SPED EFD: terá a nota cancelada e a ativa, necessário excluir a nota cancelada diretamente no validador.
+SPED PIS/COFINS: terá a nota cancelada e a ativa, necessário excluir a nota cancelada diretamente no validador.
+Contabilidade: não terá, porque os lançamentos de estornos são excluídos
+Financeiro: não terá da original, somente da nota fiscal lançada neste processo.
+Estoque: não terá movimentação da NF original, somente da nota fiscal lançada neste processo.
+Deve ter muito cuidado no cancelamento de uma NF, pois como visto pode gerar inúmeras dores de cabeça
+Como não permitir que usuários cancelem erroneamente notas fora do prazo?
+Há a configuração de sistema, informada anteriormente, e configuração por usuário,
+ 
+Ferramentas/Usuário/Aba Faturamento/ Pode cancelar NF. Vale a pena olhar o help 
+.  
+2) Emiti uma NF-e com o modelo errado, como cancela-la? 
+Como a nota foi emitida com o modelo errado, não será processada junto a SEFAZ, é necessário:
+ Inutiza-la manualmente via 
+.
+ Ir a 
+, aba fiscal/ NF eletrônica, colocar o número do protocolo recebido anteriormente (botão "
+Edita Prot. Inutiliz.)
+. Assim a nota será cancelada.
+Importante lembrar...
+ 
+Notas, sejam de entrada ou saída, que gerem contas a pagar ou receber, e tiverem já baixas realizadas, deve ser cancelada as baixas antes.
+Notas que movimentem o estoque, só poderão ser canceladas se não houver fechamento de estoque para a data da NF. Porém há um perfil de sistema que deixa faze-lo, 
+"Trava quando existir fechamento de estoque posterior a data de movimento"
+ , aba 
+Estoque.
+ 
+ 
+ 
+ 
+ 

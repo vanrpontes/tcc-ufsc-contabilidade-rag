@@ -1,0 +1,75 @@
+TITULO: Retenções em vendas para Órgão Público
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4522115074
+--------------------------------------------------
+Quando uma distribuidora efetua venda para entidades públicas e suas autarquias por meio de licitação, essas entidades fazem a retenção do IRRF ref. aos pagamentos conforme INSTRUÇÃO NORMATIVA RFB Nº 1234, DE 11 DE JANEIRO DE 2012. Essa retenção deve ser enviada na tag 
+<retTrib> no arquivo
+ no XML da NF-e e deve ser descontado do recebimento desta entidade. Ou seja, o valor da Nota Fiscal é integral, mas o valor do Contas a Receber deve sofrer o desconto. 
+Funcionalidade
+Somente Nota Fiscal de Venda emitida via Faturamento Automático ou Nota Fiscal de Outras Saídas emitida via Retorno de Armazenagem, Apuração de Armazenagem ou Remessa Automática.
+Configurações
+Tabela Cadastro Detalhado 
+Arquivos > Clientes >Detalhes > aba 
+Selecionar atividade econômica e Natureza Jurídica
+Tabela Tipo de Desconto
+Tabelas Auxiliares > Controladoria > 
+Tipo Desconto
+ > Aba Detalhes 
+Selecionar o desconto que deseja configurar ou criar um novo desconto.
+Cálculo a efetuar: 
+selecionar a opção 
+Desconta valor calculado SOMENTE no financeiro
+Tipo:
+ 
+Manual: 
+ usuário informa base de cálculo e desconto no momento do lançamento
+Tabela Progressiva: 
+há uma tabela progressiva para definir desconto de acordo com faixas
+Fórmula: 
+usuário cadastra fórmula no tipo de documento indicando como deverá ser o cálculo da base de cálculo e do desconto
+Limpar:
+ geração de Título de Desconto Automático
+Conta para Contabilização do Desconto SOMENTE no Financeiro: 
+informar a conta válida.
+Acompanha lançamento de crédito:
+ desmarcar
+Informar a conta a crédito (normalmente a conta de receita de vendas)
+Tipo de Documento
+Tabelas Auxiliares > Financeiro> 
+Tipo de Documento
+ > Aba Detalhes em 
+Calcula desconto?: 
+marcar
+Botão Incluir 
+Desconto:
+ selecionar o tipo de desconto com a opção Desconta Val. Calc. SOMENTE no financeiro
+Fórmulas:
+Base de Cálculo: 
+informe a fórmula para a base de cálculo
+Desconto:
+ informe a fórmula para o valor do desconto
+Envia Retenção na tag
+ 
+<retTrib>
+ 
+NF-e
+: marcar
+Classificação do Desconto:
+ classificação do desconto desejada.
+Natureza de Operação
+Tabelas Auxiliares > Faturamento > Natureza de Operação > Aba 
+Dados Gerais
+Tipo de Documento: 
+informar / verificar o Tipo de Documento configurado no passo anterior. 
+Tabelas Auxiliares > Faturamento > Natureza de Operação > Aba 
+Contabilização
+Quadro Contabilização Real
+Desconsidera Código de Contabilização: 
+marcar
+Quadro Descontos
+Acréscimo/Descontos:
+ automático.
+Rateio do Desconto entre os itens da NF
+Rateia pelo Valor de Produtos
+Quadro Obrigação a Receber
+Nos Quadros Débito e Crédito informar a opção 
+conta indicada pelo Tipo de Desconto

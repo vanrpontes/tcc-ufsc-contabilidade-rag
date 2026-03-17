@@ -1,0 +1,142 @@
+TITULO: Serviço de Movimentação XML Sefaz
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927274471
+--------------------------------------------------
+Este serviço 
+realiza a validação e movimentação de XMLs recebidos.
+A partir da versão 10.31, a opção 
+Executar Automaticamente Quando Servidor for Iniciado 
+deixará de ser desabilitado e passa a ser opcional sua ativação. Essa alteração foi criada para corrigir a concorrência entre o Servidor de Serviços e o S3, conflito gerado na busca do arquivo XML quando existe mais de um Hermes Servidor com o serviço ativo.
+A partir da versão 10.31, para evitar o congestionamento na movimentação de arquivos recebidos pelo excesso de arquivos, o tempo mínimo padrão para execução desse serviço passa a ser 10 segundos
+Para habilitar o 
+Serviço de Movimentação XML Sefaz
+ 
+deve-se acessar o 
+, na aba
+ Informações Serviços,
+ selecionar 
+Movimentação XML Sefaz
+ 
+e clicar em 
+Abrirá a tela de configurações, que deverá ser preenchida conforme instruções abaixo descritas:
+Intervalo Entre as Execuções
+: informar o intervalo de tempo que o serviço será executado. O tempo mínimo que pode ser definido é de 4 minutos.
+Horário de Execução
+: definição do período que o serviço será executado, respeitando o tempo de intervalo entre as execuções.
+Executar Automaticamente Quando Servidor for Iniciado
+: parâmetro que define se o serviço deve ser iniciado sempre que o 
+ for iniciado. 
+Este é um serviço obrigatório, e quando utilizado Servidores Hermes de Serviço e S3, apenas em um deverá ter esta opção marcada, assim, evitara conflito deste serviço em Servidores Hermes ativos.
+Ao Receber XML que já Existe na Pasta
+: ao receber um XML que já exista na pasta, qual a ação que o sistema deve tomar.
+Move para pasta de erros
+: os anexos XMLs duplicados serão movidos para a pasta especificada em 
+Pasta XMLs com Erro
+.
+Renomeia o arquivo
+: 
+os anexos XMLs duplicados serão movidos para a pasta especificada em 
+Pasta XMLs com Erro
+ e renomeados, mantendo 
+todos
+ os xmls recebidos.
+Sobrepõe o arquivo
+: ao encontrar um arquivo com o mesmo nome, o SisPetro irá sobrepor o arquivo, independente do conteúdo do arquivo.
+Pasta XMLs Recebidos
+: 
+nesta pasta, todo anexo XML recebido, válido ou não, é gravado e depois movido para sua respectiva pasta (duplicado ou com erro, NFe ou CTe). O processo é feito automaticamente pelo SisPetro, não sendo necessária intervenção do usuário.
+Pasta XMLs com Erro
+: 
+quando um XML não for de NFe ou CTe ou estiver duplicado, será movido para esta pasta, ficando à disposição do usuário para análises futuras. Os anexos não são apagados automaticamente.
+Pasta Destino XML de NF-e
+: 
+nesta pasta são gravados os arquivos XMLs válidos de NF-es. 
+Pasta Destino XML de CT-e
+: 
+nesta pasta são gravados os arquivos XMLs válidos de CT-es. 
+Nomenclatura da Pasta Destino: 
+podem ser criados níveis de pastas dentro das pastas definidas para gravar os XMLs recebidos, com exceção das Pasta dos xmls e Pasta dos xmls com Erro. Os níveis tem 4 opções cada um: 
+Nenhum, Filial, CNPJ Emissor e Mês/Ano
+.
+Nenhum: 
+os anexos XMLs serão gravados na pasta indicada, sem criação de pastas e sub-pastas.
+Filial: 
+os anexos XMLs serão agrupados por Filial e gravados em uma pasta para cada Filial. A pasta é criada automaticamente no momento em que o anexo XML é baixado.
+CNPJ Emissor: 
+os anexos XMLs serão agrupados por CNPJ do Emissor e gravados em uma pasta para cada CNPJ. A pasta é criada automaticamente no momento em que o anexo XML é baixado.
+Mês/Ano:
+ os anexos XMLs serão agrupados por Mês e Ano e gravados em uma pasta para cada Mês/Ano. A pasta é criada automaticamente no momento em que o anexo XML é baixado.
+Os níveis podem ser combinados de várias formas, observando algumas regras descritas abaixo:
+Quando o Nível 1 for configurado para NENHUM, os demais níveis são 
+desconsiderados
+.
+Quando o Nível 1 for diferente de NENHUM e o Nível 2 for configurado para NENHUM, o Nível 3 é desconsiderado.
+Quando todos os níveis forem configurados iguais (exceto NENHUM), são criadas pastas e sub-pastas iguais.
+É de responsabilidade do usuário criar as pastas, definir os níveis de pastas e sub-pastas e a forma como serão tratados os arquivos XMLs com erros ou duplicados. 
+É
+ 
+necessário
+ 
+que os
+ 
+usuários
+ 
+tenham
+ 
+acesso
+ de leitura, gravação, alteração e exclusão nas pastas indicadas.  Caso os usuários não tenham acesso, o SisPetro tentará realizar a ação mas não será permitido. Não é emitido qualquer aviso. É de responsabilidade da empresa que as permissões nas pastas sejam concedidas corretamente para evitar erros de movimentação de arquivos.
+Somente arquivos XMLs serão baixados para as pastas especificadas. Demais tipos de arquivos não serão baixados.
+Clique em 
+ para salvar as configurações e sair da tela.
+Clique em 
+ para não salvar as configurações e sair da tela.
+Após configurado o serviço, na tela principal do
+ 
+, clique em
+ 
+ 
+para verificar se todas as configurações estão corretas.
+Clique em 
+ para ativar o serviço. Caso a opção 
+Executar Automaticamente Quando Servidor for Iniciado 
+estiver
+ 
+desmarcada
+, ao reiniciar o 
+, o serviço ficará desativado.
+Clique em 
+ para desativar o serviço. Caso a opção 
+Executar Automaticamente Quando Servidor for Iniciado 
+estiver
+ 
+marcada
+, ao reiniciar o 
+, o serviço ficará ativado.
+Clique em 
+ para forçar a execução do serviço, independente do intervalo e do horário de execução.
+Apesar dos nomes dos campos 
+Pasta XMLs Recebidos e 
+Pasta XMLs com Erro 
+serem iguais aos dos 
+Serviço de Consulta Destinatário CT-e
+ e 
+Serviço de Consulta Destinatário NF-e
+,
+ as
+ 
+pastas
+ 
+podem
+ 
+ser
+ 
+definidas distintamente
+, ou seja,
+ 
+não é obrigatório
+ 
+informar as
+ 
+mesmas pastas
+.  Depende de como a empresa deseja trabalhar com esses serviços. Para mais informações, ver 
+Cenários de Importação de NFe/CTe: Manual ou via Serviço
+.

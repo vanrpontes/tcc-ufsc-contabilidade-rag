@@ -1,0 +1,98 @@
+TITULO: Perda Devedores Duvidosos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926194574
+--------------------------------------------------
+Depois de 5 anos sem o recebimento, a lei permite que você retire esse valor do balanço. A ideia é ter uma tela que mostre todos os títulos que já passaram pelo processo de 
+Provisão de Perda
+ e ainda estão em aberto, após um determinado tempo, no caso 5 anos, Será permitido ao usuário selecionar os desejados, já que alguns podem ter uma tratativa diferenciada, e então fazer essa "baixa automática", debitando a conta redutora do Ativo - Clientes e creditando a conta de Clientes.
+Menu
+ 
+Movimentação/ Financeiro/ Contas a Receber/Perda de Devedores Duvidosos
+Filtro Filial específica:  
+Filtra os títulos de determinada filial. 
+Empresa: 
+Será sugerida a empresa conectada.
+Faixa de Valor de Corte (por NF): 
+Valor de corte que será apresentado, ou seja, serão apresentados títulos com valores maiores do que o informado na tela
+Provisão anterior a: 
+Serão apresentados títulos com vencimento anterior ao número de dias, meses ou anos informados nesses campos
+A partir de:
+ Informe a data a partir da qual serão calculados os números de dias, meses ou anos informados.
+NOTA:
+ A data de comparação utilizada é 
+DATA DE INCLUSÃO
+ das provisões dos títulos
+Atualiza: 
+Será apresentado o grid com os títulos que atende a seleção.
+Evento:
+ Filtra tipo de evento lançados nos titulo. Ver 
+Eventos no Contas a Pagar/Receber
+Data Movimento: 
+A data em que o título será quitado.
+Data Fluxo de Caixa:
+ Data em que o banco liberou o dinheiro do pagamento referente.
+Código Histórico: 
+Código sugerido pelo perfil de sistema a ser utilizado na baixa.
+Histórico: 
+Descrição do histórico.
+Informações Adicionais e Observações:
+ Conforme regras na tela de Baixa Manual: 
+"Informações Adicionais", ou informações que tenham sido alteradas. Uma vez que o histórico utilizado permita a utilização de fórmula, o usuário poderá modificar as fórmulas tanto do histórico quanto das informações adicionais. Maiores informações no tópico 
+Tabela Histórico Padrão
+.
+Tipo de Documento
+: Será sugerido o tipo de documento informado no perfil de Sistema.
+Ferramenta/Sistema/Aba Financeiro grupo Devedores Duvidosos
+Pode Contabilizar
+: 
+Indica se deve contabilizar na Contabilidade Real
+Código de Contabilização Real
+: Será sugerido o mesmo código de contabilização do perfil de sistema do 
+Contas a Receber, porém, deve alterar para o novo código de contabilização incluído conforme item Contabilização abaixo.
+ 
+Botão "
+Processa
+": Executa procedimento de Perda, conforme seleção, apresentando uma mensagem de processo no final.
+ 
+Botão "
+Cancela
+": Sai da tela sem execução alguma.
+ 
+Contabilização
+Lançando títulos em Perdas de Créditos - contabilização é automática:
+D = Cliente Duvidosos (campo CC Devedores Duvidosos)
+C = Conta Cliente
+Cancelamento do lançamento em Perdas de Créditos - contabilização é automática:
+D = 
+Conta Cliente
+C =
+ Cliente Duvidosos (campo CC Devedores Duvidosos)
+Caso haja uma quitação do titulo neste período, não existirá a baixa no financeiro uma vez que o título já foi devidamente lançado em perdas, porém na contabilidade será feita a movimentação normal da baixa e a reversão do crédito incobrável.
+Contabilidade: 
+Contabilização normal da baixa e reversão de créditos incobráveis pelo valor ORIGINAL.
+Baixando e Revertendo um título lançado em Perdas de Créditos:
+D = Banco: Valor total (valor original do título + juros)
+C = 
+Reversão de Perdas de Créditos (campo CC Reversão de Perdas): Valor original do título
+C = Conta de Receita Juros: Valor dos juros
+ 
+Contabilização
+A contabilização real de Baixa de títulos lançados em Perdas será feita via Código de Contabilização. Para isso, cada empresa deverá incluir um novo código de contabilização no grupo Baixa Contas Pagar Receber:
+D/C
+Conta
+Valor
+Débito
+ContaReal(<Baixa.CCBaixa>)
+<ItensBaixa.ValorMovimento>
+Crédito
+ContaReal(GetCCReversaoPerda())
+<ItensBaixa.ValorMovimento> - <ItensBaixa.ValorAcrescimo> + <ItensBaixa.ValorDesc>
+Crédito
+ContaReal(<Baixa.CCAcrescimo>)
+<ItensBaixa.ValorAcrescimo>
+Débito
+ContaReal(<Baixa.CCDesconto>)
+<ItensBaixa.ValorDesc>
+No momento da baixa deve alterar o código de contabilização, uma vez que, por padrão, utiliza o código BAIXA CONTAS RECEBER.
+ 
+Acesse 
+ para maiores informações.

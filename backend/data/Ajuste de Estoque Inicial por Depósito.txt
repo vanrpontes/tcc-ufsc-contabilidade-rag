@@ -1,0 +1,72 @@
+TITULO: Ajuste de Estoque Inicial por Depósito
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899704
+--------------------------------------------------
+O Ajuste de Estoque Inicial por Depósito pode ser acionado pelo Menu 
+Movimentação / Estoque / Ajuste de Estoque Inicial por Deposito
+:
+É possível se ajustar o custo médio de cada Deposito/Filial/Produto para valorização do estoque e a partir de então, se calcular o 
+CMV
+ dos produtos pelo 
+Fechamento de Estoque
+. Este ajuste não deve ser utilizado para os ajustes diários, nestes casos, veja 
+Roteiro de ajuste de Estoque
+, a finalidade desta tela é providenciar um ajuste para o início do controle de estoque (no que se refere a quantidades) ou início do controle do CMV (no que se refere ao Custo Médio). É apresentada a seguinte tela:
+Esta tela de Ajuste possui as mesmas características da tela de 
+Ajuste de Estoque Inicial
+, exceto de que a tela citada a localização das informações é por Produto e nesta tela é por Depósito.
+Esta tela é de grande utilidade em empresas cujo Fechamento de Estoque é por 
+Depósito
+.
+Para poder fazer o Ajuste de Estoque Inicial é necessário dar permissão no perfil do usuário. Acesse a partir do Menu 
+Ferramentas / Usuário / Perfil / painel Estoque
+, e marque a seguinte opção:
+Caso contrário, se essa opção estiver desmarcada não será possível fazer nenhum Ajuste de Estoque Inicial, 
+Ajuste de Estoque Escritural
+ e não será possível dar Entradas Trânsito.
+Informe a 
+data final
+, o 
+deposito
+ e a 
+empresa
+, clicando em seguida no botão 
+Atualiza
+.
+Serão apresentados os dados de cada depósito.
+Se já teve fechamento de estoque para o depósito na data informada, aparece em 
+itálico
+.
+Com o 
+fundo azul
+ aparece o depósito padrão para atualização do custo a ser utilizado nas notas de venda.
+Em 
+negrito
+ são os depósitos que já tiveram fechamento de estoque posterior à data final informada.
+Regras:
+Nos depósitos sem fechamento de estoque podem ser informadas as quantidades finais no dia e o custo médio. Será providenciado um lançamento de ajuste (entrada e saída) para chegar nesta quantidade e automaticamente um fechamento de estoque para a data. 
+Opção útil para início do controle de estoque, ao invés de se fazer o primeiro fechamento de estoque, se utilize o ajuste de estoque inicial, para a partir dos próximos dias se começar a fazer fechamento.
+Nos depósitos com fechamento p/ data só pode ser informado o custo médio, que será atualizado neste fechamento. 
+Opção útil para início de controle do CMV, a empresa já faz o fechamento de estoque e a partir de então vai atualizar o custo médio inicial para contabilização do CMV.
+Nos depósitos com fechamento posterior não pode ser alterada nenhuma informação, pois o fechamento posterior garante a integridade das quantidades e custo médio. Se necessário for, repita o processo informando como data final uma data posterior.
+Logicamente a data final informada deve ser no máximo a data atual, pois fica incoerente fechar o estoque com data posterior.
+Quando for fazer o primeiro ajuste desse depósito é preciso desmarcar a opção 
+Trava quando existir fechamento de estoque posterior ao movimento.
+ Isso porque no momento de fazer o ajuste o Sispetro primeiro faz o fechamento para saber de quanto é a movimentação para depois ajustar
+. 
+Esse perfil fica em Menu 
+Ferramentas / Sistema, aba Estoque, quadro Fechamento de Estoque.
+Para maiores informações 
+Painel Estoque
+ .
+Marque a coluna 
+Altera
+ para todos os depósitos que seja alterada alguma informação (quantidade ou custo) e clique no botão 
+Atualiza Saldos
+. Caso deseje sair sem fazer nenhuma alteração, utilize o botão 
+Cancela
+.
+Para reverter um ajuste feito, utilize esta mesma tela informando os valores anteriores ou então cancele o 
+Fechamento de Estoque *(botão *Abre Dia
+) gerado pela tela de 
+Ajuste
+.

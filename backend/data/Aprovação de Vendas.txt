@@ -1,0 +1,101 @@
+TITULO: Aprovação de Vendas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440081
+--------------------------------------------------
+Baseado nas explicações sobre como funciona a Aprovação de Pedidos no SisPetro presentes no tópico 
+Aprovação Automática do Pedido de Venda
+, nessa página trataremos um pouco mais detalhadamente sobre as regras de negócio referentes a aprovação do módulo de Vendas.
+O item 6. Análise de Crédito só será verificado caso a empresa configure o recurso. Para mais informações ver 
+Gerenciadora de Análise de Crédito - GAC
+O SisPetro analisará item a item nessa ordem:
+Pedido Cancelado
+Liberação de Vendas
+Contrato de Venda
+Não Aprovar Agora
+Aprovação Automática
+Análise de Crédito
+Usuário Libera Vendas
+Usuário Aprova Vendas
+Usuário Editou Preço Tabela
+Usuário modificou o depósito
+Empresa Controla Cota
+Tabela Preço Entidade
+Valida Prazo Pedido x Produto
+Verificação Custo < Preço
+Preço Fora do Intervalo x Aprovação Manual
+Detalhamento das condições
+Pedido Cancelado:
+ Caso o pedido esteja cancelado não será possível realizar a Análise de Aprovação. Todas as outras etapas abaixo serão ignoradas.
+Liberação de Vendas:
+ Verifica se o Pedido já foi Liberado (Aprovado) no módulo de Vendas, caso a resposta seja SIM, todo o restante do processo será ignorado.
+Contrato de Venda:
+ Verifica se o cliente possui algum contrato de venda ativo e se o mesmo foi utilizado no pedido, caso SIM, o módulo de Vendas do pedido será aprovado automaticamente e o restante do processo será ignorado.
+Não Aprovar Agora:
+ Caso a opção 
+Aguardar para aprovar
+ seja marcada durante a inclusão do pedido de venda, o mesmo não será aprovado automaticamente até que essa opção seja desmarcada na manutenção de Pedidos, todo o restante do processo será ignorado.
+Aprovação Automática: 
+Caso no cadastro do cliente esteja selecionado a opção 
+Aprovar Automaticamente, 
+o pedido será aprovado automaticamente.
+Análise de Crédito:
+ verifica se o cliente tem consulta válida à Gerenciadora. Caso tenha, seguirá para o restante do processo. Caso não tenha uma consulta válida (sem consulta ou consulta com restrições), o pedido ficará pendente.
+Usuário Libera Vendas:
+ Caso o perfil de usuário na aba Vendas, 
+Libera Pedidos de Venda?
+ esteja marcado, todos os pedidos feitos por esse usuário serão aprovados automaticamente no módulo de Vendas, todo o restante do processo será ignorado.
+Usuário Aprova Vendas:
+ Será analisado o perfil de usuário na aba Vendas, 
+Pedido Aprovação Vendas
+, nesse perfil temos 3 opções:
+Nunca:
+ Todos os pedidos realizados por esse usuário 
+NUNCA
+ solicitarão aprovação, ou seja, serão aprovados automaticamente no módulo de Vendas, todo o restante do processo será ignorado.
+Quando preço/prazo discrepante do cadastro:
+ Essa opção significa que o pedido sofrerá o processo de validação das regras de negócio dos passos abaixo, seguirá o fluxo de aprovação para a próxima etapa.
+Sempre:
+ Todos os pedidos realizados por esse usuário 
+SEMPRE
+ solicitarão aprovação, ou seja, não serão aprovados automaticamente no módulo de Vendas, todo o restante do processo será ignorado.
+Usuário Editou Preço Tabela:
+ Será analisado o perfil de Empresa aba Vendas 
+Torna pedido pendente caso preço tabela alterado no pedido
+ caso o mesmo esteja marcado e o preço de tabela tenha sido alterado durante a inclusão dos itens do pedido, essa validação não será aprovada. O módulo de Vendas não poderá mais ser aprovado porém o fluxo seguirá e as próximas validações serão realizadas.
+Usuário modificou depósito do pedido: 
+Será analisado o perfil de Empresa, aba Vendas 
+Verifica mudança de tabela de preço em pedidos com alteração de depósito. 
+Quando habilitado, caso o pedido estiver pendente de aprovação, usuário alterar o depósito e as tabelas de preço entre o depósito antigo e o depósito novo forem diferentes o pedido não será aprovado. Se as tabelas forem iguais o fluxo seguirá para o próximo item. 
+Empresa Controla Cota:
+ Será analisado o perfil de Empresa aba Vendas 
+Controla Cota Venda
+, caso esteja habilitado, será analisado a cota diária para vendas do produto para o vendedor, caso a mesma tenha sido ultrapassada a validação não será aprovada. O fluxo seguirá ao próximo item.
+Tabela Preço Entidade:
+ Será analisado o perfil de Empresa aba Vendas 
+Aprova pedido mesmo quando usuário mudar de tabela de preço
+, caso o mesmo esteja DESMARCADO, e durante a inclusão do pedido a tabela de preços padrão do cliente for alterada, a validação não será aprovada. Caso o perfil esteja MARCADO e for alterada a tabela, essa condição será aprovada. O fluxo seguirá ao próximo item.
+Valida Prazo Pedido x Produto:
+ Durante a inclusão do pedido, caso a condição de pagamento seja definida para uma diferente da condição padrão cadastrada no Cliente, e a mesma estiver com um prazo maior que o prazo da condição de pagamento padrão cadastrada no cliente, essa validação não será aprovada. O Fluxo seguirá ao próximo item.
+Verificação Custo x Preço:
+ Será analisado o perfil de Empresa aba Vendas 
+Ação de Comparação custo X preço no pedido de venda
+, caso esteja definida a opção 
+Avisa e pedido fica pendente para aprovação manual
+, será analisado o Custo Total de Venda e comparado com o preço do pedido, caso o custo seja maior que o preço a condição não será aprovada. O fluxo seguirá ao próximo item. Para mais detalhes sobre esse Custo veja o tópico 
+.
+Preço Fora do Intervalo x Aprovação Manual:
+ 
+Na aba
+ 
+Preço
+ 
+do cadastro de cliente, poderá ser definido um preço sugerido, mínimo e máximo para determinado produto, caso esteja definida a opção
+ 
+Quando Estiver Fora do Mínimo e Máximo
+ o preço unitário do pedido de venda esteja fora dessa faixa a condição não será aprovada. Fim do fluxo. Caso seja definido
+ 
+Quando Estiver abaixo do Preço Sugestão 
+se preço unitário do pedido de venda esteja abaixo do preço sugerido o pedido não será aprovado.
+O preço a ser considerado depende do perfil de sistema "Valor comparado com o preço máximo de tabela", definido em 
+.
+Fluxo de Aprovação
+Vale a pena ressaltar que o fluxo abaixo refere-se apenas ao módulo de Vendas, sendo que, quando é mencionado Pedido Aprovado, entenda que o módulo de Vendas foi aprovado. Para que o pedido seja aprovado como um todo, todos os outros módulos devem ser aprovados.

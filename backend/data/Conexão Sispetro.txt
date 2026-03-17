@@ -1,0 +1,35 @@
+TITULO: Conexão Sispetro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210487
+--------------------------------------------------
+Normalmente, para configuração normal do Sispetro, não é necessário utilizar nenhuma configuração adicional seja via linha de comando seja via SCG.INI para configurar a conexão ao banco de dados. Basta configurar a conexão padrão (via painel de controle - ver mais informações no Treinamento sobre Configuração, Instalação e ambiente Sispetro) com o nome SCGWIN.
+Porém, existem situações onde uma conexão suplementar pode ser útil:
+Ambiente de Testes:
+ Cria-se um novo banco de dados idêntico ao de produção rodando localmente (num servidor local) ou mesmo em paralelo com o servidor de produção e cria-se uma conexão ODBC para este banco de dados. Pode-se utilizar o mesmo executável do Sispetro passando-se o parâmetro /DSN=<Nome conexão ODBC> ou configura-se um SCG.INI numa pasta auxiliar para acessar este banco de dados. Assim, temos a possibilidade de utilizar um outro banco de dados para testes.
+Empresas Estanque:
+ Caso a empresa possua empresas que tenham de ser totalmente separadas (em banco de dados diferentes) e o usuário tenha de acessá-las de uma mesma máquina, pode-se configurar duas conexões ODBC (uma para cada banco de dados) e, com um mesmo executável, pode-se acessar um banco de dados ou outro.
+Enfim, existem inúmeros cenários onde esta configuração é útil.
+A única limitação é que para cada conexão, deve-se rodar um executável, isto é, caso o usuário queira alternar entre uma conexão ou outra, deverá ou executar duas instâncias do Sispetro na sua máquina, ou executar um após o outro. Cada executável deve estar configurado para uma conexão ODBC (via parâmetro de linha de comando ou via SCG.INI).
+Exemplo: Vamos fazer um ambiente em que, num mesmo banco de dados, tenhamos dois bancos sendo executados de forma paralela e independente. Assim, podemos, neste cenário, termos empresas totalmente independentes ou mesmo a própria empresa e um banco de dados de teste.
+Assim, executamos o banco de dados com a seguinte linha de comando:
+dbsrv7.exe OU dbsrv12.exe -ca0 -c128M -xNone -nScgwin
+ 
+c:\scgwin\dados\scgwin.db c:\Scgwin\Teste\Scgwin_Teste.db
+Observações:
+Não foram incluídas na linha de comando do servidor, os parâmetros normais para um servidor de produção (cache, etc). Estes parâmetros não influenciam o exemplo acima e devem ser incluídos conforme a linha de comando atualmente utilizada.
+O nome do banco de dados de teste (SCGWIN_TESTE.DB) coincidirá com o nome da conexão ODBC que criaremos porém não existe nenhuma exigência para que isso ocorra. Podemos ter qualquer outro nome para o arquivo de banco de dados utilizado. A única exigência é que o nome da conexão ODBC criada seja igual ao parâmetro indicado via linha de comando do Sispetro ou via parâmetro do SCG.INI.
+A configuração da conexão ODBC é mostrada abaixo.
+ 
+ 
+Após salvar a conexão ODBC criada, deve-se então configurar o executável do Sispetro para acessá-la.
+Via SCG.INI:
+ Acrescentar uma linha DSN conforme exemplo abaixo.
+ SCG.INI
+ ...
+ DSN=SCGWINTESTE
+ ...
+Via Linha de Comando:
+ Quando executar o Sispetro, deve-se passar o parâmetro /DSN conforme exemplo abaixo:
+ SCG.EXE /DSN=SCGWINTESTE
+Note que, embora a funcionalidade seja a mesma, cada tipo tem uma utilização mais comum. A linha de comando é utilizada quando criamos um atalho no deskTop do usuário (deixando o atalho original, para o Sispetro normal). Assim, clicando-se num atalho, conecta-se num banco de dados e, clicando-se no outro atalho, ao outro banco de dados). A configuração via SCG.INI serve primordialmente, quando desejamos que um grupo de usuários (já que normalmente o SCG.INI está no mesmo diretório do executável e é o mesmo para os usuários que o acessam neste ponto) acesse este ou aquele banco de dados.
+Para maiores informações quanto a configuração do Sispetro veja 
+Configuração do SisPetro

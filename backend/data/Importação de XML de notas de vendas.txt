@@ -1,0 +1,25 @@
+TITULO: Importação de XML de notas de vendas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924286425
+--------------------------------------------------
+Quando ocorre algum problema com o banco de dados (corrompe por queda de energia, etc.) e o backup do banco já foi feito há um certo tempo (horas, dias, etc.), é possível importar os XML das notas de vendas, evitando o retrabalho da digitação.
+A redigitação é recomendada para os casos em que a perda de dados foi pequena.
+Tabela Natureza de Operação:
+1 - Fazer uma cópia das naturezas de vendas
+2 - Alterar as cópias das naturezas de vendas, mudando o tipo de emissão da nota de PRÓPRIA para TERCEIROS. As demais informações podem permanecer iguais.
+Nota:
+ isso é obrigatório em função de que se for uma natureza que o tipo de emissão da nota for PRÓPRIA, a chave de acesso é recalculada.
+Módulos que não são afetados pela importação dos XML de venda:
+1 - Financeiro:
+ se o tipo de cobrança for eletrônica, tomar os devidos cuidados quanto ao nosso número. Deve verificar o nosso número para que fiquem iguais aos já emitidos (caso já tenha gerado arquivo de remessa ao banco antes de ocorrer a recuperação do banco de dados).
+a) Caso esteja aguardando o arquivo de retorno de cobrança, deve fazer os ajustes manualmente nos títulos gerados após a recuperação do banco de dados.
+2 - Contabilidade Gerencial e Real, Fiscal e Estoques:
+ não há qualquer problema. Serão lançados normalmente de acordo com as configurações das naturezas utilizadas para importar os XML.
+3 - SPED:
+ após fazer as importações, nas naturezas utilizadas o tipo de emissão da nota deve ser alterado para PRÓPRIA, pois os SPED utiliza essa informação. Recomendamos que, após utilizadas, essas naturezas sejam inativadas. Caso seja necessário usá-las novamente ATIVAR e alterar tipo de emissão da nota para TERCEIROS.
+Processos que são afetados pela importação dos XML de venda:
+1 - Relatório de Vendas:
+ uma vez que as notas são importadas como Outras Saídas, não aparecem nos relatórios
+2 - Custos de Venda:
+ são calculados somente para notas de vendas. Portanto, para as notas de vendas importadas não são calculados os custos.
+3 - Vínculo com XML:
+ não aparecem na tela de Manutenção de Notas Fiscais > aba Nota Fiscal Eletrônica

@@ -1,0 +1,46 @@
+TITULO: Operações Interestaduais com Consumidor Final Não Contribuinte com Incidência de ICMS
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924289506
+--------------------------------------------------
+Na versão 8.32, liberamos novos campos para emissão de Nota Fiscal e Conhecimento de Frete para atender as
+ NT 2015/003 da NF-e e 2015/004 do CT-e. 
+Foram disponibilizados 
+no Cadastro de Clientes e Fornecedores um campo para indicar se a Entidade é Contribuinte ou não Contribuinte, além do perfil de Sistema para indicar se calcula ou não ICMS para tais situações.
+Na versão 8.33 implementamos os cálculos necessários para as Operações Interestaduais com Consumidor Final Não Contribuinte com incidência de ICMS - diferencial de alíquotas.
+Para emissão de notas fiscais ou conhecimentos de fretes, proceder:
+Configurar perfil de Sistema (
+)
+ - Menu Ferramentas > Empresa > aba Nota Fiscal > quadro Dados da NF:
+Marcar
+ Calcula ICMS Interestadual para Não Contribuinte com Partilha
+Percentual de Partilha do Ano: ver 
+Emenda Constitucional de 87/2015 artigo 99
+Configurar cliente/fornecedor:
+Cadastro de Clientes
+ > aba Dados Gerais:
+Consumidor Final: deve estar marcado
+Cadastro de Clientes
+ > aba Cadastro Detalhado:
+Contribuinte do ICMS: selecionar Não Contribuinte
+Cadastro de Fornecedores
+ > aba Observações:
+Contribuinte do ICMS: selecionar Não Contribuinte
+Configurar as alíquotas de ICMS - ver exemplo em 
+.
+Configurar uma Natureza de Operação (
+Tabela Natureza Operação
+) com os dados necessários. 
+Não existem configurações específicas para essas operações.
+Verificar a 
+Atividade Econômica
+ que foi apontada para o Cliente (aba Cadastro Detalhado) e como as Naturezas foram indicadas no Cadastro de Produtos (aba Natureza de Operação)
+O Fundo de Combate à Pobreza (FCP), neste momento, não é calculado pelo SisPetro.
+O uso de faturamento automático deve ser feito com cuidado, pois não há verificação entre Consumidor Final Contribuinte e Não Contribuinte - ver 
+Cadastro de Clientes
+ e 
+Cadastro de Fornecedores
+. Assim, no 
+Cadastro de Produtos > aba Natureza de Operação
+, só é possível indicar uma única natureza de operação. Recomendamos não utilizar faturamento automático para operações com não contribuinte.
+Os valores calculados de diferencial de alíquota NÃO INTERFEREM nos valores lançados no DANFE (quadro de Impostos). Os novos campos criados para calcular o diferencial de alíquota estão disponíveis na tela de Manutenção de Notas Fiscais > aba Itens NF (
+Abas da Manutenção de Notas Fiscais
+). Estão disponíveis também para uso no DANFE e na DACTE.

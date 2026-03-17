@@ -1,0 +1,164 @@
+TITULO: API Consulta OC do dia Checklist
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4915396609
+--------------------------------------------------
+Objetivo
+Detalhar a API de integração da automação da fila da portaria de entrada da base
+Configurações iniciais para utilização da Consulta de OC na listagem de Checklist do dia:
+Realizar a configuração do quadro checklist no painel de 
+Depósitos - Aba Dados Adicionais
+Realizar a configuração de dias de validade do Checklist
+prazo de validade do checklist, podendo ser informado um número de 1 a 1000. 
+Definir um grupo controle de vencimentos
+Ter um subgupo Frota e dentro dele dois campos Descarga e Carregamento
+Ter um subgrupo Motorista e e dentro dele dois campos Descarga e Carregamento
+Configurar a ação para Checklist recusado
+Não faz nada
+Cancela a OC
+Ter o Perfil Pode 
+Cancelar OC
+ habilitado no perfil 
+ckbCancelaOC
+ no painel de usuários 
+Painel Carregamento (Usuários)
+1. Obter token autenticação
+Introdução
+Qualquer webservice do projeto 
+SispetroWeb 
+exigirá um token de autenticação. Este token é gerado a partir deste webservice e será válido por 24 horas. Assim, recomendamos que o sistema consumidor dos webservices aqui descritos salvem o token armazenando também a data e hora em que o mesmo foi gerado para que, quando chegar próximo de sua validade, seja obtido novo token.
+Para mais informações, ver 
+Documentação - API Obtenção de Token
+2. Ordens de Carregamento/Descarga do dia
+Introdução
+Este webservice tem por finalidade retornar as Ordens de Carregamento, Descarga e Transferência em UMA determinada data. É necessário informar a empresa ao obter o token.
+O usuário autenticado deve ter o perfil 
+ckbVisualizaFilaBase
+ habilitado para poder acessar este método.
+Endereço
+<endereço do SispetroWeb>/ordem_carregamento/ocs_do_dia_checklist
+Será necessário enviar um header com o token. Como parâmetro enviar:
+Nome
+Descritivo
+Tipo
+Restrições
+Exemplo
+Observações
+data
+Data que deseja os dados (formato yyyy-mm-dd)
+2024-10-01
+Obrigatório
+2024-10-01
+opcional, se não enviar assume a data atual. 
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+opcional, se não enviar assume a data atual. 
+Content-Type
+tipo do formato de envio
+application/json
+Accept
+tipo do formato de envio
+application/json
+Método
+GET
+Exemplo de chamada de WebService
+Confluence
+curl --location 'http://localhost/ordem_carregamento/ocs_do_dia_checklist?data=2024-06-01' \
+--header 'Content-Type: application/json' \
+--header 'Accept: application/json' \
+--header 'Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjo4NCwiY25waiI6IjAwLjAwMC4wMDAvMDAwMC0wMSIsImRlcG9zaXRvX3BhZHJhbyI6bnVsbCwiZXhwIjoxNzE3NzY3NDAyfQ.j_CChFzlGOMkfvQ1psP8gaxZiKQ8yiD1pJnyVeUWkg0'
+Retorno Bem Sucedido (Exemplo: ocs_dia_checklist_retorno.json )
+[
+{
+"id": 16209,
+"data": "2024-09-03",
+"es": "S",
+"Cancelada": 0,
+"Fila": null,
+"MovtoFisico": 0,
+"NomeMotorista": "DIELSON FERREIRA DE FREITAS",
+"CPFMotorista": "37319221004",
+"NomeTransportadora": "A PAULA DA SILVA ",
+"CNPJTransportadora": "04201170000195",
+"NecessitaCheckListFrota": 0,
+"NecessitaCheckListTransp": 1,
+"Placa1": "JLY-4653",
+"UFPlaca1": "SP",
+"Placa3": null,
+"UFPlaca3": null,
+"Placa2": null,
+"UFPlaca2": null,
+"Placa4": null,
+"UFPlaca4": null,
+"item_ordem_carregamento": [
+{
+"CodProd": "01",
+"Qtde": "15000.0"
+}
+]
+}
+]
+Será retornada uma matriz contendo os dados de OC conforme estrutura abaixo do Depósito e data informados. 
+O status da resposta sempre será 200. 
+Layout abaixo em formato JSON:
+Chave
+Conteudo
+Pai
+id
+ID da OC - Chave 
+data
+Data da OC
+CPFMotorista
+CPF do Motorista da OC
+NomeMotorista
+Nome do Motorista
+CNH
+CNH do Motorista
+CNPJTransportadora
+CNPJ ou CPF da Transportadora
+NomeTransportadora
+Nome da Transportadora
+Placa1
+Placa principal. No caso de carreta, será a placa do Cavalo.
+UFPlaca1
+UF da primeira placa, se houver.
+Placa2
+Segunda placa, geralmente a carreta.
+UFPlaca2
+UF da segunda placa, se houver.
+Placa3
+Terceira placa, geralmente o treminhão.
+UFPlaca3
+UF da terceira placa, se houver.
+Placa4
+Quarta placa, geralmente o dolly.
+UFPlaca4
+UF da quarta placa, se houver.
+es
+Indica se a OC é de Descarga (E) ou Carregamento (S)
+Cancelada
+Indica se a OC está cancelada (0 - Não, 1 - Sim)
+Fila
+Número da Fila na Portaria
+MovtoFisico
+Indica se já concluiu a movimentação física do estoque - saída da base (0 - Não, 1 - Sim)
+item_ordem_carregamento
+list
+CodProd
+Código do Produto no Sispetro
+item_ordem_carregamento
+Qtde
+Qtde de produto no compartimento
+item_ordem_carregamento
+NecessitaCheckListTransp
+0 - não precisa ou 1 - precisa 
+NecessitaCheckListFrota
+0 - não precisa ou 1 - precisa 
+Retorno Sem Sucesso
+Será retornado um objeto JSON com o motivo da não inclusão (poderá ser um erro de autenticação caso o token tenha expirado ou seja inválido ou alguma regra de negócio não atendida. 
+O status da resposta sempre será diferente de 200.
+{"error":"Deposito... nao e valido","status":422}

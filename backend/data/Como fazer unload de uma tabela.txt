@@ -1,0 +1,51 @@
+TITULO: Como fazer unload de uma tabela
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936701046
+--------------------------------------------------
+Para fazer o unload de uma tabela específica (ou algumas), veja o procedimento abaixo.
+No 
+Sybase Central
+ se conecte no banco de dados desejado.
+No menu 
+Tools
+ , escolha a opção 
+SQL Anywhere ??
+ / 
+Unload Database...
+ 
+A primeira tela a ser apresentada pode de ser a de Welcome (se for clique em Next) ou já a tela para seleção do Banco de Dados.
+Marque a opção  
+Unload a database running on a current version of the server
+ e selecione o banco de dados conectado. Clique em 
+Next.
+Na próxima tela escolha 
+Unload into a reload file
+ e clique em 
+Next.
+Na tela seguinte indique o caminho onde será gerado o script para o reload. Clique em 
+Next.
+Na tela 
+Select What to Unload
+, escolha a opção 
+Unload structure and data. 
+Clique em 
+Next.
+Na tela 
+Select Database Objects
+, escolha a opção 
+Unload the selected tables only. 
+Escolha a(s) tabela(s) desejada(s) e clique em 
+ADD. 
+Clique em 
+Next.
+Na tela 
+Select the Server or Local Computer
+, escolha as opções
+Save the data files on the server computer using UNLOAD statements.
+Indique um caminho no Servidor do Banco de Dados para salvar o arquivo .DAT que conterá os dados
+Use LOAD statements to reload the data from the server computer.
+ 
+ 
+Clique em 
+Finish
+ 
+Será gerado um script e o(s) arquivo(s) .dat referente à(s) tabela(s) escolhida(s).

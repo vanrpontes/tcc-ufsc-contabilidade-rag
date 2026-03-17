@@ -1,0 +1,102 @@
+TITULO: Caixa Econômica Federal - SIGCB
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921697941
+--------------------------------------------------
+Painel Cob. Eletrônica
+No campo B
+anco
+ deve ser informado 104 - Caixa Econômica Federal;
+Informa Sacador Avalista: a Caixa Econômica
+ pode utilizar 
+Sacador Avalista.
+ Caso seja marcada a opção o
+ CNPJ e Razão Social 
+serão levados para o Arquivo de Remessa;
+Carteira:
+ deve ser informado o número da Carteira cadastrada no Banco;
+Agência:
+ deve ser informado o número da agencia, com 5 posições;
+Número da conta:
+ deve ser informado o número da conta cadastrada na Caixa;
+Dígito da conta
+: deve ser informado o dígito da conta cadastrada;
+Código do Serviço de Cobrança
+: o primeiro dígito deste campo é utilizado para formar o campo Nosso Número do boleto. É o primeiro número do Nosso Número. Tem efeito somente para o boleto;
+No campo DLL de Cobrança Eletrônica deve ser informado o caminho da SLL do SIGCB (Banco104_SIGCB.SLL).
+Deve ser preenchido os demais campos com as informações que o banco informou, como: Agência, convênio, número da conta e etc.
+Painel Informações sobre a Cobrança
+Não marcar
+ a opção 
+Utiliza Banco Correspondente
+Campo Livre da Linha Digitável
+Conteúdo
+Tamanho
+Início
+Fim
+Convênio
+6
+1
+6
+DV Convênio
+1
+7
+7
+Nosso Número (Dígitos 1 a 3)
+3
+8
+10
+Código Serviço Cobrança
+1
+11
+11
+Nosso Número (Dígitos 4 a 6)
+3
+12
+14
+Identificação Emissão (Fixo 4)
+1
+15
+15
+Nosso Número (Dígitos 7 a 15)
+9
+16
+24
+DV Campo Livre
+1
+25
+25
+Exemplo:
+Agencia: 4272
+Carteira: 1
+Código Serviço Cobrança: 01
+Convênio: 6375870
+Nosso Número: 000008203
+Campo Livre:
+ 0000 110 1587955 84580120 1
+Linha Digitável:
+ 10496.3758870000.00004500000.820365699180000001000
+Banco
+Moeda
+CL 1-5
+DV
+CL 6-15
+DV
+CL 16-25
+DV
+DV
+FV
+VALOR
+104
+9
+63758
+8
+7000000004
+5
+0000082036
+5
+6
+9918
+0000001000
+Na geração da linha digitável:
+Se convênio tiver 6 dígitos calcula o DV, senão usa os 7 dígitos do convênio.
+Para maiores informações sobre a montagem da linha digitável, veja o help 
+Montagem da Linha Digitável

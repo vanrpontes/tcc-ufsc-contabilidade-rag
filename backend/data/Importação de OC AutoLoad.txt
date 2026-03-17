@@ -1,0 +1,91 @@
+TITULO: Importação de OC AutoLoad
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2958688670
+--------------------------------------------------
+Objetivo
+AutoLoad é um sistema que faz o controle de estoque e portarias. Através de uma API (serviço WEB) o SisPetro utilizará as informações de carregamento desse sistema para incluir uma OC (Ordem de Carregamento) de forma automatizada. Essa OC poderá ser utilizada para emitir uma NF de Retorno de Armazenagem. Para utilizar essa integração o usuário deve:
+1 - Cadastrar informações de acesso: 
+No Menu Arquivo / Depósito / Aba OC no quadro 
+Importação de Dados
+ incluir as informações do 
+Tipo de importação, Token 
+e 
+URL Serviço  Importação
+. Elas serão usadas pelo SisPetro para acessar a API do 
+Sistema AutoLoad. 
+Para mais informações, ver 
+.
+2 - Realizar o relacionamento dos códigos de produto do AutoLoad com os códigos do SisPetro.
+No Menu
+ Arquivo / Depósito / Aba Dados por Produto
+ e informar na coluna 
+#Exportação
+  qual o código do produto do sistema AutoLoad que representa o produto do SisPetro. Para mais informações, ver 
+Dados por Produto
+.
+O SisPetro não trabalhará com produtos compostos retornados pelo AutoLoad. É necessário cadastrar apenas os produtos básicos. 
+3 - Habilitar o serviço de importação no 
+No Servidor Hermes há um novo serviço chamado 
+Importação AutoLoad
+.
+ O usuário deverá informar o 
+Intervalo Entre as Execuções, Horário de Execução, Usuário e N.º de Dias para Consulta. 
+Para mais informações, ver 
+.
+Como utilizar
+As OCs importadas pelo 
+ estarão lançadas na tela de 
+. 
+Nessa tela foi criada uma nova coluna chamada 
+Tipo Importação
+ e nela 
+o SisPetro informará se a OC foi importada (
+sistema AutoLoad
+) ou não (
+não possui importação
+). 
+A partir daí no 
+Menu Movimentação / Faturamento / Armazenagem / 
+Retorno de Armazenagem
+ será possível prosseguir normalmente com a emissão da nota de Retorno de Armazenagem. É importante ressaltar que 
+o campo 
+Tipo de Quantidade
+ deve estar como 
+Programada Ambiente
+ para faturar esse tipo de OC uma vez que o AutoLoad enviará a quantidade real. Outro ponto extremamente importante é que esse tipo de OC 
+não movimentará estoque 
+tampouco 
+dados de portaria.
+Caso a OC não esteja aparecendo na tela de 
+Retorno de Armazenagem
+ há um botão chamado 
+Aciona Serviço Importação OC
+.  Ele aciona o serviço previamente configurado para ser executado nesse momento, independente do horário previsto para a próxima execução. Caso a OC desejada já esteja disponível, com a execução do serviço ela será importada para o SisPetro. 
+Quando o SisPetro não irá importar a OC
+O SisPetro não importará a OC se os itens 1, 2 e 3 não estiverem devidamente preenchidos. 
+O Sistema irá mostrar 
+no arquivo de Log 
+o 
+código de programação 
+(referência da OC no AutoLoad) e a informação que não foi localizada. Se houver dúvidas sobre onde o Hermes gera o arquivo, veja 
+. Abaixo uma lista dos possíveis erros e, logo afrente, o que fazer se a mensagem aparecer, conforme abaixo: 
+AutoLoad: Código de Programação: 1234567890. Código de Cliente não Localizado: 999999990001-99. 
+Veja se o CPNJ da empresa esta cadastrado no Menu Ferramenta - Sistema - 
+Dados Gerais
+ campo CPNJ.
+AutoLoad: Código de Programação: 1234567890. Ordem de Carregamento sem Itens. 
+Veja se no MenuArquivo / Depósito / Aba 
+Dados por Produto
+ há o relacionamento dos itens da AutoLoad com o SisPetro.
+AutoLoad: Código de Programação: 1234567890.  Produto: 1 sem volume informado no XML. 
+O AutoLoad não enviou a quantidade do produto da OC no campo esperado (ItemConsultaProgramacao.VolumeCorrigido)
+AutoLoad: Código de Programação: 1234567890. Motorista não Localizado: 99999999999.
+ Veja se o CPF do motorista que realizará o transporte está cadastrado no Menu Tabelas Auxiliares / Transportes / 
+Transportadoras / Motoristas
+.
+AutoLoad: Código de Programação: 1234567890. Identificação do Veículo não Localizada: BRA2E19: 
+ Veja se a
+ Placa do veículo que realizará o transporte está cadastrada no 
+Menu Tabelas Auxiliares / Transportes / Frotas / 
+Manutenção de Frotas
+. 
+Se as placas enviadas estiverem repetidas (Cavalo, Carreta e Treminhão), o SisPetro irá ler a primeira e desconsiderar as outras.

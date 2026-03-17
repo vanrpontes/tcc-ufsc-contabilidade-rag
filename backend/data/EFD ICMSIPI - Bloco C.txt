@@ -1,0 +1,163 @@
+TITULO: EFD ICMS/IPI - Bloco C
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2897871025
+--------------------------------------------------
+O Bloco C é responsável pelas Notas Fiscais de Produtos ou Produtos/Serviços. É importante separar a obrigatoriedade dos registros para Notas de Emissão Própria e de Terceiros.
+Registro
+Descrição
+Observações
+Emissão 
+(P ou T)
+Pai
+C100
+Notas Fiscais Modelo 01 e 55
+Natureza Operação
+Participação no Registro da LFE
+Modelo da Nota
+Situação do Documento
+Condições de Pagamento (A vista/A prazo)
+Indicador de Pagamento
+Data de Filtro: Apuração
+Para a NF ser selecionada no período informado para a EFD é usado o campo DataReferencia, o qual pode ser preenchido com a Data de Movimento. Porém, como isso é feito na inclusão da NF, a Data de Referência utiliza a Data de Movimento Original, pois não é alterada posteriormente.
+Entidade para uso da LFE - 
+campo Entidade para uso do Livro Eletrônico em 
+ e 
+Observações Fornecedores
+A partir de 2023 notas fiscais denegadas ou inutilizadas (numeração inutilizada) não devem mais ser apresentadas
+P/T
+C001
+C110
+Observações da Nota
+Se não tiver na Nota pega da 
+Natureza de Operação, aba 
+Impressão NF (Painel Por Filial)
+P/T
+C100
+C111
+Processo Referenciado
+Processo Referenciado
+ 
+ é indicado na Natureza e salvo na Nota
+P/T
+C110
+C112
+Documento de Arrecadação Referenciado
+Títulos a Pagar que forem vinculados a Nota 
+Tipo de Documento configurado como GNRE
+ e 
+Documentos de Arrecadação SPED
+P/T
+C110
+C113
+Documento Fiscal Referenciado
+Notas Vinculadas (ver Natureza) ou Devolução. Serão selecionadas todas as notas, independente da data de emissão. Com isso notas de venda/compra futura, independente das suas datas de emissão, constarão neste registro.
+P/T
+C110
+C115
+Dados da Entrega/Coleta
+Só exigido em Notas de Saída cujo modelo não seja 55 
+(improvável de ocorrer para quem emite NFe)
+P
+C110
+C120
+Complemento de documento - operações de importação
+Exigido em notas de importação - emissão própria. Os dados para os registros C120 são informados na inclusão da nota: 
+Como emitir nota fiscal de entrada de emissão própria para importação de produtos combustíveis
+P
+C100
+C140
+Fatura
+Soma dos Títulos de Notas com Modelo 1
+P/T
+C100
+C141
+Detalhamento da Fatura
+Títulos de Notas com Modelo 1
+P/T
+C140
+C160
+Volumes Transportados
+Só exigido em Notas de Saída cujo modelo não seja 55 
+(improvável de ocorrer para quem emite NFe)
+P
+C100
+C165
+Dados de Combustíveis
+Só exigido em Notas de Saída cujo modelo não seja 55 
+(improvável de ocorrer para quem emite NFe)
+P
+C160
+C170
+Itens das Notas Fiscais
+Tipos de Emissão
+:
+Emissão própria:
+Só gerado se a nota tiver direito a Ressarcimento 
+(Venda de Gasolina e Diesel Interestadual com alíquota menor)
+a UF deve exigir o Registro C176
+Emissão de terceiros:
+Sempre será gerado
+P/T
+C100
+C176
+Nota Fiscal de Entrada que justifica o Ressarcimento
+Não é exigido em todas UFs. No caso da não exigência deve ser excluída a UF na Configuração do Registro. No caso de exigência vincular NF de Entrada ao item da NF de Venda em Natureza de Operação , aba 
+). Para mais informações, ver 
+Vínculo de NF com Última NF de Entrada
+P
+C170
+C180
+Itens das Notas Fiscais
+Informações complementares das operações de entrada de mercadorias sujeitas à ST.
+A geração do registro é exclusivo para empresas sediadas no estado do Rio Grande do Sul. 
+P/T
+C170
+C190
+Totais da Nota
+Agrupa valores da Nota por CST,CFOP e Alíquota
+P/T
+C100
+C191
+Informações do Fundo do Combate à Pobreza-FCP
+Dados do FCP nas NFe (modelo 55), observando:
+Os valores deste registro são meramente informativos e não são contabilizados na apuração dos registros no bloco E.
+A obrigatoriedade e forma de apresentação de cada campo deste registro deve ser verificada junto às unidades federativas. 
+Este registro não se aplica aos valores já informados no registro C101, relativos ao Fundo de Combate à Pobreza (FCP) nas hipóteses de aplicabilidade da EC 87/15.
+As configurações para gerar dados de FCP, ver 
+ - quadro 
+Quadro Fundo Estadual de Combate à Pobreza - FCP
+P/T 
+C190
+C195
+Informações Complementares da Nota
+Tag InfAdFisco
+ da NFe
+P/T
+C100
+C197
+Ajuste Apuração/SPED
+Informações de ajustes Apuração/Sped em 
+ e 
+P/T
+C100
+C500
+Notas Fiscais Energia Elétrica  e Gás e Notas Fiscais Eletrônicas de Energia Elétrica
+Natureza Operação
+Participação no Registro da LFE
+Modelo da Nota
+Situação do Documento
+Condições de Pagamento (A vista/A prazo)
+Indicador de Pagamento
+Data de Filtro: Apuração
+Para a NF ser selecionada no período informado para a EFD é usado o campo DataReferencia, o qual pode ser preenchido com a Data de Movimento. Porém, como isso é feito na inclusão da NF, a Data de Referência utiliza a Data de Movimento Original, pois não é alterada posteriormente.
+Entidade para uso da LFE - 
+campo Entidade para uso do Livro Eletrônico em 
+ e 
+Observações Fornecedores
+A partir de 2023 notas fiscais denegadas ou inutilizadas (numeração inutilizada) não devem mais ser apresentadas
+P/T
+C001
+C510
+Itens das Notas Fiscais Energia Elétrica  e Gás e Notas Fiscais Eletrônicas de Energia Elétrica
+Itens das notas fiscais de energia elétrica, comunicações e notas fiscais eletrônica de energia elétrica
+P/T
+C500

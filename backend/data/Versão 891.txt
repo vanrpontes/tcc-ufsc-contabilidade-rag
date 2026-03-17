@@ -1,0 +1,52 @@
+TITULO: Versão 8.9.1
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919992146
+--------------------------------------------------
+Versão 8.9.1
+Dados
+Informações
+Início
+27/01/2014
+Final
+29/01/2014
+Scripts
+cmd891.sql (sem numeração)
+Itens
+7
+Implementações
+1
+Correções
+6
+Compras
+Alteração de PMM com OC cancelada
+Corrigido para que permita fazer a alteração de PMM quando o mesmo estiver vinculado com uma OC cancelada ou Adiantamento cancelado, o que não estava sendo permitido. 
+GSN (CCF 23180)
+Representante na Consulta de PMM
+Acrescentado o Representante no grid principal da Manutenção de Pedidos de Movimentação de Material
+.
+ Help:
+ 
+ 
+GSN (CCF 23066)
+Faturamento
+OC's geradas por Bombeio na tela de NF Remessa de Armazenagem
+Corrigido para permitir o devido funcionamento da tela de NF de Remessa de Armazenagem utilizando OC's de Descarga Própria geradas pelo processo de Distribuição de Bombeio
+. GSN (CCF 23104)
+Processamento incompleto na Importação de Notas Fiscais
+Ao clicar no botão Processa da tela de Importação de Notas Fiscais, somente metade das NF's eram processadas, mesmo que não tivessem erros, obrigando o usuário a ter que clicar no botão Processa até concluir todas as NF's. Esse problema foi corrigido.
+ GSN (CCF 23059,CCF 23162)
+Erro ao Processar NF-e / CT-e
+Quando o usuário deixava sua máquina inativa por muito tempo e após isso tentava processar uma NF-e / CT-e, em alguns casos era gerado um erro no processamento e com isso era necessário reiniciar o SisPetro. Nesta versão colocamos rotinas de atualização nesses processos e com isso esse problema não deverá mais acontecer. 
+UPA (CCF 23090)
+Processamento de NF-e / CT-e sem Retorno
+Alterada a rotina de comunicação entre Servidor SisPetro e SisPetro Normal / Remoto, evitando assim a falsa impressão de sistema travado quando o usuário não recebe a resposta de processamento OK pela Sefaz. 
+MCL (CCF 23096)
+Vendas
+Botões desabilitados na Manutenção de Pedidos
+Corrigido problema de botões desabilitados indevidamente na Manutenção de Pedidos de Venda do Sispetro Normal (botão Cancela) e do Sispetro Remoto (botões Cancela e Emite). Na Consulta de Pedidos de Movimentação de Material Pendentes foi corrigido para usar o perfil de usuário "Pode cancelar PMM" e não mais o "Pode cancelar Pedido" da aba Vendas. 
+Help:
+ 
+, 
+, 
+, 
+. 
+GSN (CCF 23083)

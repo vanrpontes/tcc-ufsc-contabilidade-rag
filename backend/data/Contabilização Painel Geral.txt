@@ -1,0 +1,177 @@
+TITULO: Contabilização (Painel Geral)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210933
+--------------------------------------------------
+O objetivo desse painel é fazer com que a contabilidade gerencial e os descontos (acréscimos/desconto), na parte de notas fiscais, seja configurada para que contabilize conforme a natureza de operação.
+Os perfis contábeis da natureza serão habilitados para edição somente se o usuário possuir a seguinte permissão ativada: 
+'
+Pode alterar dados contábeis na Natureza de Operação'
+.
+Quadro Contabilização Gerencial
+Tipos de Contabilização:
+Automática:
+ contabilização padrão definida internamente pelo SisPetro. Para mais informações, ver 
+Contabilização Automática em Notas Fiscais
+Restrições para Contabilização Automática:
+Se a natureza 
+Não Gera Contas Pagar/Receber
+ não poderá utilizar Contabilização Automática.
+Não contabiliza:
+ opção de não contabilizar;
+Manual:
+ contabilização que permite o usuário (contador) escolher opções de contabilização nas contas Débito e Crédito. 
+Restrições para Contabilização Manual (Definido pela Natureza):
+Não é permitido selecionar conta de entidade no Crédito e Débito simultaneamente.
+Se a opção 
+Gera Contas Pagar/Receber
+ do painel 
+Dados Gerais
+ estiver marcada deverá sempre ser escolhida a conta de entidade em débito se nota for de saída e em crédito se a nota for de entrada.
+A opção 
+Usuário Informa
+ não poderá ser escolhida em débito quando a Natureza de operação for de saída e não poderá ser escolhida em crédito quando for de entrada.
+Se a natureza Movimenta Estoque e/ou Gera Contas Pagar/Receber não poderá ser escolhida o tipo de contabilização 
+Não Contabiliza
+.
+Se a natureza 
+Não Gera Contas Pagar/Receber
+ não poderá ser informado 
+Conta de Entidade
+ para crédito ou débito.
+Não pode ser utilizado em processos automaticos, utilizado somente em processos manuais.
+Quadro Débito ou Crédito: 
+As opções tanto para débito quanto para crédito são as seguintes: 
+Conta Entidade:
+ a conta contábil do Fornecedor ou Cliente que estiver sendo utilizado na nota fiscal.
+Conta específica:
+ conta definida aqui na Natureza de Operação. O campo 
+Conta
+ será habilitado para digitação do usuário.
+Padrão Contábil: 
+padrão contábil
+ pré cadastrado e aqui definido. O campo 
+Padrão Contábil
+ será habilitado para digitação do usuário.
+Conta de Receita de Venda de Produto:
+ a conta de receita definida no 
+cadastro do produto
+ que está sendo utilizado na Nota Fiscal. 
+Conta de Estoque do Produto:
+ a conta de estoque definida no 
+cadastro do produto
+ que está sendo utilizado na Nota Fiscal. 
+Conta Receita/Despesa:
+ a conta associada a entidade como Conta de Despesa. Útil para fornecedores. 
+Usuário Informa:
+ habilitará a contabilização manual. Neste caso, se for escolhida esta opção e a empresa trabalhar com a Contabilidade real, poderá ser marcada a opção 
+Desconsidera código de contabilização
+, assim a contabilidade real nem considera o código de contabilização informado e gera a contabilidade real através das contas vinculadas às contas informadas pelo usuário. 
+Conta Despesa Produto:
+ a conta associada ao produto como Conta de Despesa. Útil quando o produto for adquirido para consumo. 
+Fórmula:
+ será permitido a obtenção da conta por meio de fórmula, dando assim maior flexibilidade quando a origem da conta de crédito/débito que será empregada no lançamento do Lote gerencial . Na fórmula, poderá ser informada uma conta fixa ou variável em função da Nota/Item. Para mais informações, ver 
+Teste Fórmulas
+. O campo 
+Fórmula para a Conta
+ será habilitado para digitação do usuário.
+Desabilitado:
+ não faz contabilização. Esta opção é útil quando utilizada em conjunto com a contabilização auxiliar, pois poderia desabilitar a contabilização do débito ou crédito e configurá-la através de fórmulas pela contabilização auxiliar.
+Pode não contabilizar mesmo movimentando estoque:
+ permite que a natureza de operação seja configurada para não contabilizar, mesmo que esteja movimentar estoque. O padrão é não permitir este tipo de configuração, porém se houver a necessidade de que determinadas notas fiscais façam movimentação de estoque sem contabilizar, isto será possível com esta opção marcada.
+Quadro Contabilização Auxiliar:
+ este recurso, além de permitir incluir lançamentos contábeis adicionais na contabilização gerencial da nota fiscal, possibilita uma forma de contabilização mais flexível permitindo o uso de fórmulas para as contas, valores e históricos a serem lançados.
+A contabilização auxiliar pode ser extremamente útil em diversas situações, como por exemplo:
+Se uma nota fiscal gera impostos a pagar, além de contabilizar a conta do cliente devidamente com o valor do financeiro, podemos debitar e creditar ainda as contas relativas a impostos.
+Na contra partida da contabilização, onde um dos lançamentos é a conta da entidade, podemos informar mais que uma conta.
+Para mais informações, ver 
+Contabilização Auxiliar
+.
+Os dados aqui definidos serão utilizados no momento do Faturamento de Notas de Venda, bem como nas inclusões a partir do menu Faturamento de Outras Entradas, Outras Saídas, Devolução de Clientes, Devolução de Fornecedores e Complemento de Impostos/Preços.
+Contabilização
+:
+Para contabilizar um conhecimento, na Natureza de Operação, aba Contabilização, a Contabilidade Gerencial deve estar como AUTOMÁTICO e a Contabilidade Real deve informar o Código de Contabilização. No perfil de sistema, aba Contas Contábeis, quadro Contabilização em Conhecimento de Frete, deve informar a conta contábil da receita no campo REC.TRANSPORTES.
+ Caso 
+gere contas a receber
+, a contrapartida sempre será a entidade pagadora.
+Caso 
+não gere contas a receber
+, pode optar por não contabilizar ou contabilizar utilizando uma conta específica: campo AÇÃO CONTÁBIL EM CONHECIMENTO (Não Contabiliza ou Contabiliza na conta específica) e campo CONTRA PARTIDA TRANSPORTES.
+Quando for usar a contabilização como 
+Fórmula 
+não pode ser informado campos que se referem a Itens da NF, a opção Formula só pode ser usada quando é uma única conta de Debito e Credito.
+Para utilizar um contabilização dos campos da Itens da NF é necessário utilizar o 
+Quadro Contabilização Auxiliar. 
+Para mais informações, ver 
+Contabilização Auxiliar
+.
+A partir da versão 9.22 foi implementada a opção de informar outra conta contábil para o SPED. O padrão de envio era da conta de estoque, porém em situações especiais era necessário alterar essa conta no SPED.
+Agora é possível defini-la diretamente na natureza de operação, sendo que a informação vai para os registros conforme abaixo:
+ICMS/IPI:
+ C170, D100 e D500
+Contribuições:
+ A170, C170, D100 e F100
+Conta contábil a ser enviada no SPED EFD ICMS/IPI e Contribuições: 
+esta opção permite que seja enviada a conta contábil correta para o SPED.
+Conta de Estoque do item:
+ conta contábil informada no 
+Cadastro de Produtos
+ - aba Ficha Produto - quadro Contas Contábeis - campo CC Estoque
+Conta de Despesa do item:
+ conta contábil informada no 
+Cadastro de Produtos
+ - aba Ficha Produto - quadro Contas Contábeis - campo CC Despesa
+Conta de Receita do item:
+ conta contábil informada no 
+Cadastro de Produtos
+ - aba Ficha Produto - quadro Contas Contábeis - campo CC Receita Vendas
+Conta de Custo do item:
+ conta contábil informada no 
+Cadastro de Produtos
+ - aba Ficha Produto - quadro Contas Contábeis - campo CC Custo Vendas
+Conta de Despesa:
+ conta contábil informada no 
+Cadastro de Clientes
+ - aba Padrão para Vendas - quadro Contas Contábeis - campo Conta Despesa/Receita ou no 
+Cadastro de Fornecedores
+ - aba Padrão para Compras - quadro Contas Contábeis - campo CC Despesa
+Conta debitada de maior valor (igual para todos os itens):
+ conta contábil debitada cujo valor é o maior entre todas as contas contábeis utilizadas e será igual para todos os itens. 
+Exemplo:
+Valor total da nota de 150
+Débito na conta contábil 1 no valor de 100
+Débito na conta contábil 2 no valor de 50
+Para o SPED será usada a conta contábil 1: de maior valor para ambos os débitos
+Conta creditada de maior valor (igual para todos os itens):
+ conta contábil creditada cujo valor é o maior entre todas as contas contábeis utilizadas e será igual para todos os itens. 
+Exemplo:
+Valor total da nota de 150
+Crédito na conta contábil 1 no valor de 100
+Crédito na conta contábil 2 no valor de 50
+Para o SPED será usada a conta contábil 1: de maior valor para ambos os créditos
+Conta específica (igual para todos os itens): 
+caso selecione esta opção o usuário deve informar a conta contábil a ser utilizada
+Conta contábil SPED:
+ usuário deve informar a conta contábil, que será a mesma para todos os itens, mesmo que contabilmente possam ser diferentes para cada item da nota ou cujo valor seja rateado entre várias contas contábeis.
+Não Preencher:
+ não envia conta contábil nos SPEDs
+Quadro 
+Contabilização Real:
+Pode contabilizar?:
+ esta opção só estará visível para as empresas que utilizam o módulo de Contabilidade Real.
+Código de Contabilização Real
+ é a fórmula de contabilização criada para contabilizar as notas fiscais. Escolha um entre os códigos existentes para o grupo contábil 
+Faturamento
+.
+Desconsidera código de contabilização:
+ somente será habilitado se o tipo de contabilização gerencial for 
+Usuário Informa
+. Se marcado indica que a contabilidade real não considera o código de contabilização informado e gera a contabilidade real através das contas vinculadas às contas informadas pelo usuário. Caso o tipo de desconto esteja configurado para gerar título automático de desconto, somente será gerado o título se este perfil estiver marcado.
+Caso seja utilizada a Contabilização por Centro de Custo e, na importação de uma nota fiscal (por exemplo) essa opção deve estar 
+marcada. 
+Para mais informações, ver 
+Depósitos - Aba Detalhes
+Sendo importante frisar que a nota não será finalizada caso haja alguma irregularidade quanto as informações nas tabelas envolvidas no código de contabilização da Natureza, sendo que para isso é preciso apenas marcar o campo "Bloqueia Cód. de Contabilização sem Dados" presente na aba "Contab. Real" da tela de Configurações da Empresa (Ferramentas / Sistema), lembrando que essa configuração influenciará também outros processo que envolvam contabilização, ex.: baixa no contas a receber, adiantamento de clientes, etc.
+Para utilizar a contabilização por centro de custo
+Quadro Descontos: 
+para configurar corretamente a parte de Descontos, ver 
+Contabilização de Descontos/Acréscimos
+.

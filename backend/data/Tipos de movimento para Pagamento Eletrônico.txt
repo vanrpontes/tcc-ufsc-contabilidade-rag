@@ -1,0 +1,21 @@
+TITULO: Tipos de movimento para Pagamento Eletrônico
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2896297979
+--------------------------------------------------
+O Sispetro possui quatro tipos de movimento para Pagamento Eletrônico. São eles:
+100 - Agendamento ok
+101 - Pago
+102 - Desautorização efetuada
+103 - Exclusão efetuada
+Qualquer outro tipo de movimento que retornar, não interessa ao Sispetro. Será somente registrado, não tendo nenhuma ação.
+Para cada banco, há códigos de retorno diferentes que podem se enquadrar na situação acima. Para fazer uma espécie de ' De/Para ', utilizamos o arquivo .smi, discriminado na Manutenção de Importação.
+No arquivo .smi (que funciona como um arquivo de configuração na chave TipoMovimento [ TipoMovimento ] ) faremos o registro dos códigos validados.
+Exemplo: No banco "x" os códigos BD, BE,  BF e 00  significam:
+BD = Inclusão efetuada com sucesso
+BE = Alteração efetuada com sucesso
+BF = Exclusão efetuada com sucesso
+00 = Crédito ou Débito Efetivado
+No Sispetro, teríamos:
+100_0=BD
+100_1=BE
+101_0=00
+103_0=BF

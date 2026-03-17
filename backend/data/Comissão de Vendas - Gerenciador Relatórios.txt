@@ -1,0 +1,54 @@
+TITULO: Comissão de Vendas - Gerenciador Relatórios
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878900284
+--------------------------------------------------
+A função disponibilizada para retornar o fator da comissão de vendas de um vendedor é a 
+PegaFatorComissao
+. Ela retorna um valor do tipo Extended que é o fator da comissão, dependendo do tipo de cálculo de comissão configurado no cadastro de[Vendedores|tabela vendedores. Ou seja, se a comissão for por percentual, será retornado o percentual válido para o vendedor, neste produto e com essa quantidade/valor de venda e devolução. Se for por valor, será retornado o valor. Com esse percentual ou valor retornado se aplica então ao valor desejado para o cálculo.
+
+
+Esta função tem a seguinte estrutura de parâmetros:
+
+
+PegaFatorComissao(<
+Código Vendedor
+>, <
+Código Produto
+>, <
+Qtde Venda
+>,<
+Valor Venda
+>, <
+Qtde Devolucao
+>, <
+ValorDevolucao
+>
+
+
+Código do Vendedor:
+ é o código do vendedor.
+
+
+Código do Produto:
+ código da produto para o cálculo da comissão já que é possível configurar valores diferenciados por produto para um mesmo vendedor.
+
+
+Qtde Venda:
+ quantidade vendida que será utilizada caso o tipo de cálculo seja de faixa por volume.
+
+
+Valor Venda:
+ valor total vendido que será utilizado caso o tipo de cálculo seja de faixa por valor.
+
+
+Qtde Devolucao:
+ quantidade devolvida no período, que quando informada será diminuída da vendida, caso o tipo de cálculo seja de faixa por volume.
+
+
+Valor Devolucao:
+ valor total devolvido que será diminuído do valor vendido, caso o tipo de cálculo seja de faixa por valor.
+
+
+Eis um exemplo da utilização da função para o saldo por grupo empresa:
+
+
+Variable1.Value := PegaFatorComissao(ItensNF['CodVend'],ItensNF['CodProd'],xQtdeVenda,xValorVenda,xQtdeDevolucao, xValorDevolucao);

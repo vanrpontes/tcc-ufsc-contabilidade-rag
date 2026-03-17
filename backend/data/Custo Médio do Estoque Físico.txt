@@ -1,0 +1,180 @@
+TITULO: Custo Médio do Estoque Físico
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2898657283
+--------------------------------------------------
+A partir da versão 7.12 o Sispetro fará o cálculo online do Custo Médio do Estoque Físico.
+
+
+Em cada tanque, para cada produto armazenado (pode ter mais que um se estiver trabalhando com 
+Produtos Correlatos
+), teremos o saldo e o Custo Médio.
+
+
+O primeiro ponto a entender é a 
+Participação no CMV
+ da Entrada. Toda entrada que participa do CMV irá alterar o Custo Médio fazendo o seguinte cálculo:
+
+
+Custo Médio = ((Valor atual do Tanque) + (Valor Total da Entrada)) / ((Qtde Atual do Tanque) + (Qtde Entrada))
+
+
+Vamos aplicar o cálculo numa entrada que 
+participa do CMV
+:
+
+
+
+
+Dados do Tanque antes da Entrada
+
+
+
+
+Qtde: 100.000 litros
+
+
+Valor: 100.000,00
+
+
+Custo Médio: 1,00
+
+
+
+
+Movimentação de Entrada
+
+
+
+
+Qtde: 25.000 litros
+
+
+Custo: 2,00
+
+
+Valor: 50.000,00
+
+
+
+
+Cálculo
+
+Custo Médio = ((100.000,00 + (25.000 * 
+2,00
+)) / (100.000 + 25.000))
+
+Custo Médio = ((100.000,00 + 50.000,00) / (100.000 + 25.000))
+
+Custo Médio = 150.000,00 / 125.000
+
+Custo Médio = 1,20
+
+
+Dados do Tanque após a Entrada
+
+
+
+
+Qtde: 125.000 litros
+
+
+Valor: 150.000,00
+
+
+Custo Médio: 1,20
+
+
+
+
+
+
+Vamos aplicar o cálculo numa entrada que 
+NÃO participa do CMV
+:
+
+
+
+
+Dados do Tanque antes da Entrada
+
+
+
+
+Qtde: 100.000 litros
+
+
+Valor: 100.000,00
+
+
+Custo Médio: 1,00
+
+
+
+
+Movimentação de Entrada
+
+
+
+
+Qtde: 25.000 litros
+
+
+Custo: 2,00
+
+
+Valor: 50.000,00
+
+
+
+
+Cálculo
+
+Não será utilizado o valor da Entrada, mas sim o Custo Médio já existente no Tanque
+
+Custo Médio = ((100.000,00 + (25.000 * 
+1,00
+)) / (100.000 + 25.000))
+
+Custo Médio = ((100.000,00 + 25.000,00) / (100.000 + 25.000))
+
+Custo Médio = 125.000,00 / 125.000
+
+Custo Médio = 1,00
+
+
+Dados do Tanque após a Entrada
+
+
+
+
+Qtde: 125.000 litros
+
+
+Valor: 125.000,00
+
+
+Custo Médio: 1,00
+
+
+
+
+
+
+As saídas sempre diminuirão o Valor do Tanque considerando o custo médio que estiver no Tanque no momento da movimentação.
+
+
+O custo médio poderá ser consultado em:
+
+
+
+
+Manutenção de Tanques
+
+
+Consulta de Saldo de Tanque por Produto
+
+
+
+
+ Caso seja necessário alterar o Custo Médio ou o Saldo do Produto utilize a tela de 
+Ajustes CMV Estoque Físico
+.

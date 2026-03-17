@@ -1,0 +1,74 @@
+TITULO: Distribuição (via D3)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701840
+--------------------------------------------------
+Este procedimento visa ajustar as quantidades que irão ser faturadas pelo fornecedor (Petrobrás) para as companhias participantes deste bombeio.
+Assim, o usuário receberá como informação, a quantidade efetiva do bombeio, medida pelo fornecedor. Esta quantidade pode ser diferente do bombeio medido no tanque (pois o processo de medição é diferente). Assim, ele receberá esta informação, informando ao fornecedor o rateio do bombeio entre as empresas participantes.
+Abra a janela de 
+Manutenção Bombeios
+ e veja as opções disponíveis no painel Distribuição.
+Distribui
+Permite a Distribuição do Bombeio Físico entre as filiais participantes, quando ainda não tiver sido feita nenhuma Distribuição. Quando feita uma vez, providencia a Redistribuição, que permite alterar as quantidades de uma distribuição já realizada. Veja a tela apresentada:
+Informe a 
+data da Distribuição
+. Em seguida preencha o 
+Volume Ambiente
+, 
+Número de CCQ
+, 
+Densidade a 20c
+ e 
+Temperatura
+, que são informações encontradas no documento disponibilizado pela Petrobrás (D3).
+Caso haja alguma 
+Correção no Volume Físico
+, preencha os campos 
+Ajuste Físico Amb
+ e 
+Ajuste Físico 20c
+. As quantidades informadas serão somadas ao Volume Físico apresentado na parte superior da tela para que seja feita a devida Distribuição.
+Agora providencie a distribuição, informando na coluna 
+Escritural 20c
+ a quantidade correspondente a cada filial.
+Utilize então o botão 
+Distribui Físico
+ para distribuir proporcionalmente as demais quantidades. Através da quantidade escritural 20c, se encontra a proporção de cada filial. Com isso se aplica essa proporção sobre o Volume Ambiente informado para encontrar a 
+Quantidade Escritural Ambiente
+. Se aplica a proporção sobre o 
+Volume Físico
+ (na parte superior da tela) para se obter as 
+Quantidades Fisicas
+.
+Informe o 
+código do Histórico
+, 
+Histórico
+ e 
+Custo Unitário
+ para movimentação. Clique em 
+OK
+ para confirmar a distribuição.
+A movimentação escritural, para cada filial, deverá ser feita conforme a movimentação física. Assim, se houver diferença entre o Volume Escritural e Ambiente, essa será apresentada como Sobra. Assim, teremos um pedido de 
+Outras Entradas
+ com a 
+Quantidade Escritural
+ e um outro pedido com a 
+Sobra (será Outras Entradas se Sobra for positiva ou Outras Saídas se a Sobra for negativa)
+. Embora esses dois pedidos sejam gerados no mesmo processo, eles podem apresentar históricos diferentes, ficando mais fácil para o usuário identificar o pedido da movimentação programada e o da movimentação da diferença. Para isso, deve-se configurar corretamente na manutenção da empresa, Menu 
+Ferramentas / Sistema / Históricos
+, os campos:
+ e 
+Além dessa movimentação para cada filial, será feita uma movimentação de Saída (Escritural e/ou Física) conforme o Volume Físico, para a filial que recebeu o Bombeio Físico (a filial conectada). Ou seja, o que estava na filial que tinha recebido o bombeio físico sai, para entrar em cada filial participante do Bombeio. A partir da versão 8.24 é possível escolher entre movimentação Física e Escritural ou apenas Física, na filial que recebeu o bombeio. Veja mais informações em 
+Depósitos - Aba Dados Adicionais
+, tópico "
+Movimentação Estoque do Bombeio Físico
+".
+No caso de ser uma Redistribuição serão apresentadas as quantidades preenchidas anteriormente e possibilitando alterá-las. Ao confirmar, não serão geradas novas movimentações, mas sim será feita a alteração das quantidades das movimentações anteriormente realizadas.
+Cancela
+Possibilita o cancelamento de toda a distribuição feita.
+Quando confirmamos uma distribuição do bombeio, o sistema zera a distribuição provisória incluída automaticamente pelo sistema na confirmação do bombeio físico. E, quando cancelamos uma distribuição de bombeio, o sistema também zera esta distribuição provisória. Desta forma, é importante lembrar que, quando incluimos uma nova distribuição, após o cancelamento de outra, é necessário desabilitarmos a opção "Zera Provisório" para que o sistema não zere a distribuição provisória novamente.
+Redistribui
+É utilizada
+ Atente-se para o botão "Legenda"
+Ele apresenta o esclarecimento de fontes/estilos utilizados na apresentação das Distribuições.
+Ver permissões em 
+Permissões de Usuário para Bombeio

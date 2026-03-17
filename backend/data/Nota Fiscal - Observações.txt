@@ -1,0 +1,28 @@
+TITULO: Nota Fiscal - Observações
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2917991238
+--------------------------------------------------
+Esta tela informa as observações da nota fiscal.
+Quadro de Observações:
+Este campo poderá ser preenchido de forma automática, através de configuração na natureza de operação. Veja informações nos tópicos 
+Impressão NF (Painel Por Filial)
+ e também 
+.
+O usuário poderá efetuar alterações na observação da nota fiscal, a partir da versão 8.16 as Tags não apareceram na tela de obervações, para informar ou alterar dados nas TAGS <infAdicFisco> e <infCpl> basta selecionar a aba e informar o texto.
+ 
+A partir da Versão 8.16, o texto inserido nas TAGS <infAdFisco> e <infCpl> será exibido sem as TAGS apenas com o texto informado na natureza de operação.
+A partir da versão 9.1 foi ajustada a emissão do arquivo .XML referente ao Recibo da NF-e para que as tags "InfCpl" e "InfAdFisco"  sejam preenchidas até o limite de caracteres permitido no manual da NF-e (5000 e 2000 respectivamente). Anteriormente o texto nessas tags estava sendo truncado em 256 caracteres
+. 
+ 
+Na versão 9.1 foi incluso também a opção de inserir formulas dentro das observações, veja mais informações em  
+Impressão NF (Painel Por Filial)
+ e também 
+.
+ 
+ 
+Esta tela é a mesma para todas as situações de emissão de saída, considerando:
+Nota Fiscal de Venda
+Nota Fiscal de Outras Saídas com Ordem de Carregamento
+Nota Fiscal de Outras Saídas sem Ordem de Carregamento
+Após informar todos os dados necessários, clique no botão 
+Avança
+ 

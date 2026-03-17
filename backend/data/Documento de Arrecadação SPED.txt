@@ -1,0 +1,50 @@
+TITULO: Documento de Arrecadação SPED
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926200255
+--------------------------------------------------
+ 
+No SPED EFD ICMS/IPI temos dois registros referentes a valores de arrecadação, um no bloco C (C112) que é vinculado diretamente na Nota Fiscal e outro no bloco E (E230) relacionado à Apuração Fiscal. A partir da versão 9.20 foi implementado 
+recursos para preencher o Registro E230 do SPED EFD ICMS.
+Hoje temos 2 opções de informar o valor de arrecadação, podendo ser de forma 
+avulsa
+ ou via 
+título.
+Documento de Arrecadação SPED Avulso
+Avulso
+ é o caso das transferências entre empresas, onde o título é pago na empresa de origem, mas a referência tem que vir na NF de Destino (ou vice-versa, o importante é que o Contas a Pagar está em outra empresa). Para isso, ao lançar a NF (ou via Manutenção de NF), realizamos a inclusão de um Documento de arrecadação, onde o mesmo sempre será informado no Registro C112, e dependendo do tipo de documento utilizado pode ir ou não para a apuração fiscal e no Registro E230. Veja maiores detalhes em
+ 
+Documentos de Arrecadação SPED Avulso
+. 
+Documento de Arrecadação SPED via Título
+Via 
+Título
+ é quando temos um contas a pagar vinculado a Nota Fiscal, cujo Tipo de Documento está configurado para sair no registro C112, no E230 ou nos dois. Se esse título foi gerado via o esquema de 
+Geração de Título de Desconto Automático
+ ou 
+via manual
+, é indiferente. Quando é automático, fazemos ou não o vínculo automático conforme configuração também do 
+Tipo de Documento
+. Os títulos vinculados podem ser visualizados através da 
+Manutenção de Nota Fiscal
+ ou via 
+Manutenção de Contas a Pagar
+ na aba 
+Vinculo NF
+.
+Tipo de Documento
+Para a geração dos registros C112 e E230 no SPED via título a primeira configuração a ser utilizada é o 
+Tipo de Documento
+, onde deve-se configurar os campos abaixo:
+Participa no SPED EFD
+Tipo de Apuração
+Histórico da Apuração
+Veja maiores detalhes em 
+.
+Apuração Fiscal
+Ao realizar a 
+inclusão da apuração
+ após acionar o botão Calcula Valores, sera carregado todos os dados da apuração inclusive as dos títulos configurados no tipo de documento para sair no E230, que se encontram quitado.  
+Veja maiores detalhes em 
+Incluindo Apuração Fiscal
+.
+ 
+ 

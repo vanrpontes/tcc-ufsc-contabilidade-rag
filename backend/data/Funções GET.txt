@@ -1,0 +1,101 @@
+TITULO: Funções GET
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/3924688905
+--------------------------------------------------
+1. Função GetCustoMedioProdBas
+Descrição
+Essa função é utilizada para contabilizar o Custo dos produtos Básicos em uma determinada Nota Fiscal referenciada pelo CTe.
+Para o funcionamento desta Função, se passa a Sequencial da NF, dados do produto composto e o básico desejados e o Custo Médio Unitário deste produto básico com data correspondente à data de movimento dessa Nota Fiscal. Caso seja informado que quer o Custo Total, com base na quantidade da NF, aplicamos a proporção e então devolvemos o Valor Total do Custo.
+O Custo Médio Unitário do produto básico é obtido no Fechamento de Custo com data correspondente à data de movimento da Nota Fiscal. 
+Essa função tem os seguintes parâmetros:
+Empresa e Sequencial da NF
+Código do Produto Composto
+Código do Produto Básico
+Indicação se deseja Custo Total ou Unitário (0 - Unitário, 1 - Total)
+Exemplo de uso:
+wide
+1800
+if <732> = '01' then GetCustoMedioProdBas(<729>,<730>,'01','05',1) endif
+Parâmetros:
+<732>
+ = Código Produto Composto utilizado na nota fiscal
+<729>
+ = Código da empresa onde foi incluída a nota fiscal
+<730>
+ = Sequencial da nota fiscal
+Onde:
+<732> = campo CodProd da tabela ItensNF
+<729> = campo CodEmpresa da tabela ItensNF
+<730> = campo Sequencial da tabela ItensNF
+Nota: 
+os campos numéricos podem ser diferentes em diferentes bancos de dados. A pesquisa deve ser sempre pelo nome do campo e pelo nome da tabela.
+Exemplo:
+NF Sequencial - 255707
+Quantidade - 5000
+Produto composto - 01 - Gasolina C
+Produto Básico - 05 - Gasolina A
+Composição do Produto Básico em relação ao Produto Composto - 73%
+Data da NF 11/05/2020
+Custo Médio no Fechamento de Custo para 11/05/2020 - 3,261068
+Exemplo
+wide
+1800
+GetCustoMedioProdBas(2,255707,'01','05',1)
+
+
+Valor encontrado: 3,261068 (Custo Médio no Fechamento de Custo para 11/05/2020) x 3650 (73% da quantidade Total da Nota) = 11.902,90
+2. Função GetValorDescontoNF
+Descrição
+Essa função foi criada para obter o valor exato de um determinado desconto, por exemplo, uma Nota Fiscal de Serviço
+Exemplo de uso:
+wide
+1800
+GetValorDescontoNF(<empresa>,<sequencialNF>,<codigo desconto>) 
+Parâmetros:
+<732>
+ = Código Produto Composto utilizado na nota fiscal
+<729>
+ = Código da empresa onde foi incluída a nota fiscal
+<730>
+ = Sequencial da nota fiscal
+Onde:
+<732> = campo CodProd da tabela ItensNF
+<729> = campo CodEmpresa da tabela ItensNF
+<730> = campo Sequencial da tabela ItensNF
+Nota: 
+os campos numéricos podem ser diferentes em diferentes bancos de dados. A pesquisa deve ser sempre pelo nome do campo e pelo nome da tabela.
+Exemplo
+Quando uma Nota Fiscal de Serviço tiver um Desconto Comercial e para calcular a Base do PIS e COFINS sobre o valor da Nota Fiscal menos o Desconto Comercial, temos uma função para fazer esse cálculo.
+Então conforme detalhamento do campo Fórmula Base de Cálculo abaixo informamos o Valor dos Produtos (ValProd) menos a função GetValorDescontoNF que diminuiria o desconto da Base de Cálculo e no campo Fórmula Imposto, é a mesmo ideia da Base só calculando o valor do PIS e COFINS.
+1 - Configurar na Nota Fiscal o PIS e COFINS como Outros imposto
+.
+Configuração: 
+Natureza Operação:
+Aba Outros Impostos e fazer a configuração, por fórmula do PIS e COFINS.
+PIS
+COFINS
+3. Função 
+GetDifICMSRetPrinc 
+Descrição
+Utilizada para mensagem em notas de saída de B100 e calcula a diferença de ICMS Retido do produto principal 
+Configurada na natureza de operação, aba Por Filial, aba Impressão NF.
+Verifica se o ICMS Retido do Produto Principal está configurado pela UF de Destino ou Origem. Se sim, obtém o percentual do inverso e calcula o valor usando a Alíquota AdRem configurada.
+Exemplo de uso:
+ICMS Retido pela UF de Origem para o B100 (1000 litros):
+No XML vai 1000 * (0,9456 * 0,6667) = 630,43
+A função calcula o ICMS da UF de Destino: 1000 * (0,9456 * 0,3333) = 315,17
+wide
+1800
+<infCpl>Valor ICMS UF Destino: [GetDifICMSRetPrinc(<729>,<730>,<731>)] </infCpl>
+Parâmetros:
+<729>
+ = Código da empresa onde foi incluída a nota fiscal
+<730>
+ = Sequencial da nota fiscal
+<731>
+ = Número do item na nota fiscal
+Onde:
+<729> = campo CodEmpresa da tabela ItensNF
+<730> = campo Sequencial da tabela ItensNF
+<731> = campo NumItem da tabela ItensNF
+Nota: 
+os campos numéricos podem ser diferentes em diferentes bancos de dados. A pesquisa deve ser sempre pelo nome do campo e pelo nome da tabela.

@@ -1,0 +1,136 @@
+TITULO: Alterando Compartimentos, Lacres e Envelopes na OC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2923955960
+--------------------------------------------------
+Hoje no SisPetro temos a opção de definir os compartimentos na emissão da OC ou alterando após a emissão da OC.
+Inclusão da Compartimentação na OC
+Após informar todos os dados da OC, ao clicar no botão Compartimentação, caso o perfil da empresa esteja definido para trabalhar com compartimentação, será exibido a tela de compartimentação onde dá possibilidade ao usuário definir o compartimento, lacre e envelope para os produtos.
+Atente-se para o perfil da sua empresa com relação a Compartimentação. 
+Para mais informações, ver 
+ e 
+Compartimentação de OC
+.
+Na tela de compartimentação teremos o quadro 
+Itens para Alocação nos Compartimentos, 
+onde
+ 
+temos os campos responsáveis por informar os dados dos produtos a serem compartimentados.
+Em 
+Compartimentação
+ são apresentadas as informações para alocação dos produtos nos compartimentos:
+O SisPetro permite cadastrar frotas com multissetas. 
+Para mais informações, ver 
+Painel Compartimentos (Frotas)
+ 
+Compartimento:
+ número do compartimento.
+Capacidade:
+ capacidade de cada compartimento, caso o frota possua multissetas cadastradas, será possível selecionar a seta de carregamento desejada.
+Município:
+ município de destino do produto, foi criado com o intuito de auxiliar na distribuição dos produtos no caminhão conforme seus destinos.
+Uso:
+ porcentagem de uso do compartimento.
+Item:
+ campo onde é informado o Item a ser utilizado no compartimento, o código do item é o código que é apresentado no quadro 
+Itens para Alocação nos Compartimentos.
+Produto:
+ descrição do produto selecionado.
+Quantidade:
+ quantidade a ser utilizada no compartimento
+Lacre 1 ao Lacre 8: 
+campos onde serão informados os lacres de cada compartimento. Os campos só ficam habilitados para o preenchimento caso trabalhe com Série de Lacre manual. 
+Para mais informações, ver
+ 
+Envelope:
+ campo onde será informado o envelope de segurança de cada compartimento. O campo só fica habilitado para o preenchimento caso trabalhe com Série de Envelope manual . 
+Para mais informações, ver
+ 
+Controle de Envelope de Segurança
+A quantidade de compartimentos apresentada nessa tela vai variar de acordo com o cadastro do frota informado na OC, 
+Para mais informações, ver
+ 
+Configuração de Compartimentos
+Na tela de compartimentação só será possível informar ou alterar os campos referentes aos 
+Item, Quantidade, Lacres 
+e 
+Envelope. 
+A edição dos campos referentes aos Lacres e Envelope só ficará disponível caso a série de lacre informada trabalhe com Série de Lacre Manual. 
+Para mais informações, ver
+ 
+A tela de compartimentação tem algumas particularidades, para que seja possível realizar algumas alterações devemos nos atentar aos itens abaixo:
+Só será possível acrescentar quantidade à um compartimento caso tenha 
+Qtde Alocada
+ disponível.
+Deixando o campo Quantidade em branco ou informando o numero 0, a tela limpa os registros da coluna, assim liberando a quantidade alocada para que possa ser utilizada em outro compartimento.
+Só será possível trocar produtos de compartimentos, caso a quantidade do compartimento seja zerada antes de dar inicio a troca.
+Para facilitar o preenchimento dos produtos nos compartimentos foi criado o botão 
+. Ao utilizá-lo, os produtos irão se distribuir entre os compartimentos, realizando o preenchimento do primeiro item para o ultimo item, e começando pelo primeiro compartimento em diante.
+Para facilitar a validação e a conferência da integridade dos dados que estão sendo informados, foi criado o botão 
+. Ao utilizar, ele irá realizar a validação dos dados capacidade da seta informada com volume alocado  assim facilitando a correção de alguma possível informação incorreta ou falta do mesmo.
+É possível limpar todos os dados informados nos compartimentos de uma só vez utilizando o botão 
+Caso opte por utilizar o 
+, ao fazer a compartimentação, o SisPetro fará o preenchimento automático dos lacres na finalização da OC (série automática) ou o usuário deve informar os números dos lacres (série manual):
+Série automática:
+O campo #Lacres apresenta o número total de lacres e os possíveis números de lacres a serem utilizados. 
+Os campos de Lacre não são acessíveis. No momento da finalização da inclusão da OC, o SisPetro calculará automaticamente os números e informará ao usuário na tela (caso o Perfil de Sistema esteja configurado). 
+Para mais informações, ver 
+.
+Série manual:
+O campo #Lacres apresenta o número total de lacres. 
+Os campos referentes ao Lacre devem ser informados pelo usuário. Nesses campos deve ser informado um lacre válido, que não esteja sendo utilizado em outra OC, não esteja inutilizado ou fora da faixa, caso contrário a tela de compartimentação não permitirá salvar e será informado qual a divergência encontrada e em qual lacre. No momento da finalização da inclusão da OC, será informado na tela os números digitados pelo usuário (caso o Perfil de Sistema esteja configurado). 
+Para mais informações, ver
+ 
+.
+Alteração da Compartimentação
+Após a Ordem de carregamento já ter sido emitida podemos realizar a alteração nos compartimentos através do 
+Menu Movimentações / Estoques / Manutenção Ordens Carregamento. 
+Selecione a OC e clique no botão 
+Compartimentação:
+Na tela de compartimentação é possível realizar a alteração dos compartimentos, posição dos compartimentos e numeração dos lacres e envelopes. Para que seja possível realizar as alterações, deve configurar devidamente os perfis de usuário 
+Pode alterar produto na compartimentação
+ e
+ Permite edição dos lacres/envelopes?. 
+Para mais informações, ver
+ 
+Painel Carregamento (Usuários)
+Alteração o compartimento onde o produto foi alocado
+Após a Ordem de carregamento já ter sido emitida podemos realizar a alteração do compartimento onde o produto foi alocado através do 
+Menu Movimentações / Estoques / Manutenção Ordens Carregamento. 
+Selecione a OC e clique no botão 
+Reordenar Compart.:
+Na tela de reordenação de compartimentação é possível mover o produto pelos 
+compartimentos e permitirá salvar caso tenham
+ capacidade para atender a quantidade do produto.
+Alterando uma OC com série de lacres/ Envelopes
+Na série de 
+lacres manual
+, a numeração dos lacres/ Envelopes é de responsabilidade do usuário
+. Para mais informações, ver 
+Tabela Série de Lacres
+ e 
+Tabela Série de Envelopes
+Na série de lacres/ Envelopes 
+automática
+, a numeração dos lacres é feita pelo SisPetro de acordo com a configuração feita em 
+Tabela Série de Lacres
+ e 
+Tabela Série de Envelopes
+Série de Lacres
+Reutilizando um número de lacre: 
+Selecione o lacre que será substituído por um lacre novo.
+Informe o novo número de lacre e confirme:
+O SisPetro conta com a funcionalidade de distribuição de número sequencial de lacre a partir de um número inicial informado no campo
+ Lacre Inicial
+ . Dessa forma, o usuário terá maior agilidade quanto a distribuição dos lacres entre os compartimentos da OC.
+A alteração dos lacres, segue conforme informado acima, o usuário poderá editar os números mesmo quando utilizado a funcionalidade de sugestão dos números de lacres, porém, seguirá a seguinte regra:
+Se digitado alguns e/ou todos os números de lacres, caso o usuário decida utilizar a funcionalidade de sugestão de números de lacres, a funcionalidade irá sobrepor todos os lacres.
+Quando utilizada a funcionalidade de sugestão de números de lacres, o usuário poderá reutilizar um lacre, conforme o passo informado acima, basta digitar o lacre na compartimentação desejada. 
+Ao realizar as alterações e realizar a confirmação através do botão Gravar, quando utilizada a opção de lacre automático o número de Lacre que foi substituído é 
+automaticamente inutilizado.
+Será apresentada mensagem de erro se o novo número
+ já estiver em uso 
+em uma OC ou inutilizado e não será concluída a alteração/inutilização.
+Série de Envelopes
+Reutilizando um número de Envelope
+Informe o novo número de Envelope
+Ao realizar as alterações e confirmar através do botão Gravar, quando utilizada a opção de Envelope automático o número do Envelope que foi substituído
+ é automaticamente inutilizado.

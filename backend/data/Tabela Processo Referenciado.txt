@@ -1,0 +1,55 @@
+TITULO: Tabela Processo Referenciado
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879389877
+--------------------------------------------------
+Esta tabela é utilizada para armazenar os dados sobre processos referenciados a uma determinada natureza de operação. Além disso, deve-se informar também a origem do Processo.
+O acesso a essa tela é feito através do menu 
+Tabelas Auxiliares / Faturamento / Processo Referenciado
+Para inserir um novo registro nesta tabela, acione o botão de inclusão.
+O Sistema exibe a tela para preenchimento dos dados do processo referenciado.
+O usuário deve informar a 
+Identificação do Processo
+, 
+Origem do Processo
+ e 
+Situação
+, sendo que:
+Identificação do Processo:
+ descrição do processo referenciado.
+Origem do Processo:
+ definição da origem, conforme opções abaixo:
+SEFAZ - 0
+Justiça Federal - 1
+Justiça Estadual - 2
+Secex - SRF - 3
+Outros - 9
+CONFAZ - 4
+Situação:
+ status do processo, conforme opções abaixo:
+Ativo
+Inativo
+Tipo Ato Concessório:
+ grupo de Informações Adicionais da NF-e.
+Não se aplica
+Termo de acordo
+Regime especial
+Autorização específica
+Ajuste SINIEF
+Convênio ICMS
+Os processos que não estiverem ativos, ou seja, possuírem o campo 
+Situação como Inativo
+, não aparecerão para vínculo na tela de pesquisa da Natureza de Operação. Para mais informações, ver 
+Tabela Natureza Operação
+.
+ 
+Clicando no botão 
+OK
+, o usuário atualiza os dados no SisPetro.
+Para retornar ao Menu principal, acione o botão 
+Sair
+. 
+Processo referenciado XML
+Para que as informações sobre o processo referenciado sejam enviadas ao XML, é necessário habilitar o envio na tabela UF 
+Regras para NF-e
+, campo 
+Regra para tag <tpAdto> de processo referenciado
+.

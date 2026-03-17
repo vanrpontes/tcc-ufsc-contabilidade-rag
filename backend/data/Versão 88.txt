@@ -1,0 +1,361 @@
+TITULO: Versão 8.8
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919335356
+--------------------------------------------------
+Versão 8.8
+Dados
+Informações
+Início
+01/08/2013
+Final
+14/10/2013
+Scripts
+CMD88.sql (3262 a 3302)
+Itens
+64
+Implementações
+31
+Correções
+33
+Relatórios
+DLLs
+Layouts de Exportação
+Layout de Importação
+ResumoMovimentoBase.rtm
+BORLNDMM.DLL
+Scanc_v88.rtm
+ 
+FichaBem.rtm
+SisPetroControl.DLL
+DPMP_v88.rtm
+ 
+TipoMovtoImobilizado.rtm
+SisPetroBancos.DLL
+ 
+ 
+Danfe_Itens_v88.rtm
+Banco237.DLL
+ 
+ 
+Danfe_v88.rtm
+Banco320.DLL
+ 
+ 
+Dacte_v88.rtm
+Banco320_vSemReg2.DLL
+ 
+ 
+ 
+Banco254.DLL
+ 
+ 
+ 
+Bando422.DLL
+ 
+ 
+É expressamente importante nessa versão que seja salvo na mesma pasta onde se encontram os executáveis do SisPetro a dll 
+BORLNDMM.DLL
+ e as dll's das cobranças eletrônicas utilizadas pela empresa.
+Geral
+Controle de Licenciamento OnLine
+A partir desta versão, a cada atualização do SisPetro será necessário via Servidor SisPetro adquirir um arquivo para liberação de versão. Esse arquivo será salvo em uma pasta definida pelo usuário e de tempos em tempos esse arquivo será validado novamente. 
+Help:
+ 
+Serviço de Licenciamento de Versão
+.
+ UPA (CCF 20008)
+Sugestão incorreta de Tipo de Arquivo na Exportação de Dados
+Na tela de Manutenção de Exportação de Dados e Exportação de Dados no momento de imprimir para arquivo será apresentado o tipo de arquivo conforme configurado no layout. AO (CCF 20054)
+Atualização dos Componentes de Criptografia e Conexão Web
+Nesta versão estamos atualizando os componentes responsáveis pela criptografia e conexão com webservices utilizados na comunicação com a Sefaz. Essa atualização foi fornecida pelo fabricante dessas ferramentas. UPA (CCF 21689)
+Permissão de Relatórios para Usuários Inativos
+Na tela de definição de Segurança de Relatórios, o sistema estava exibindo todos os Usuários, mesmo os inativos. Agora é verificado se o mesmo está ativo para aparecer no filtro de usuários disponíveis. 
+Help:
+ 
+Perfil Segurança
+. 
+PRFC (21193)
+Remover Estrutura da DLL MachineID do SisPetro
+A biblioteca MachineID foi completamente removida do sistema por não ser mais utilizada. PRFC (CCF 21660)
+Atualização dos Relatórios e Gerenciador de Relatórios
+Estamos atualizando nessa versão a ferramenta de exibição de relatórios e também a ferramenta do gerenciador de relatórios. Uma das novidades é a geração de miniaturas das páginas do relatório no canto esquerdo da tela, seguindo um padrão do mercado. UPA (CCF 16745)
+Correção nas Cores do Sistema ao Trocar a Empresa
+Foi corrigido no Sispetro Normal a exibição da cor vermelha no fundo da tela principal quando utilizava usuário futura.
+ AO (CCF 21597)
+Log de Alteração
+A rotina de log de alteração não estava logando as alterações efetuadas em campos nulos, por exemplo, um campo que não possuía valor e foi alterado para ter um valor, essa alteração não estava sendo incluída na tabela de logs. Esse problema foi corrigido. 
+UPA (CCF 21930)
+Data de Vigência de Custo para Venda no Cadastro de Produtos
+Foram corrigidos dois erros na tela de Produtos, agora o sistema copia corretamente as configurações de Filtro de UF e Filtro por Deposito, bem como não mais cria vigências vazias ao abrir a tela pela primeira vez no dia.
+ PRFC (CCF 21874)
+Contabilidade
+Contabilização Real no Acerto Saldo Banco
+A tela de Acerto de Saldo, presente na Manutenção de Bancos, foi alterada para permitir que seja feita a contabilização Real. 
+Help:
+ 
+ PRFC (CCF 20286)
+Estoque
+Totalizando Produto no Relatório Resumo Movimento Base
+Corrigido problema de totalização no Relatório Resumo Movimento Base quando o produto tem somente uma linha.
+Para essa funcionalidade a empresa deverá atualizar o layout padrão da Futura (ResumoMovimentoBase.rtm).
+ 
+AO (CCF 21112)
+Formatação do campo "Frete Total" na Inclusão de Ordem de Carregamento
+O campo "Frete Total" foi formatado para permitir duas casas decimais na tela de Ordem de Carregamento, para prevenir cálculos incorretos do frete.
+ AO (CCF 20174)
+Faturamento
+NF com Erro de NF Referenciada nao é importada
+Quando a Natureza estiver configurada para forçar vínculo de NF e é utilizada na Importação, o Sispetro deverá apresentar erro e não 
+importar a NF. 
+AO (CCF 20814)
+Consulta On-Line da ANP retornando Autorização com formato errado
+Melhoria na forma como o sistema busca o campo "Autorização" durante a pesquisa online na ANP, agora irá pegar apenas os 9 
+dígitos
+ significativos. PRFC (CCF 21088).
+ 
+Valor do Frete nos itens da NF na geração do XML da NF-e
+A tag de Frete não será enviada no XML para o item da nota fiscal que não possuir valor de frete informado, quando um dos itens tem frete e outro não.
+ AO (CCF 21251)
+Erro ao Fechar Tela de Alteração de Cor do Lacre
+Foi corrigido o erro na apresentado ao sair da tela de Alteração da cor do lacre sem fazer qualquer alteração. 
+AO (CCF 20594)
+ 
+Informações do Transporte Ferroviário e Outros no DANFE
+Os dados de Transportes (Transportadora e Frota) serão exibidos no DANFE conforme o tipo de Transporte utilizado na NF.
+ 
+Para que essa atualização funcione, será necessário atualizar os rtm's Danfe_v88.rtm e Danfe_Itens_v88.rtm. A partir dessa versão os campos (Transportadora e Frota) não serão mais exibidos pelo Sispetro na impressão do DANFE.
+ 
+AO (CCF 21501)
+Dados do Conhecimento Emitido na Manutenção de NF´s
+A partir dessa versão será apresentado dados específicos do Conhecimento emitido na Manutenção de NFs. 
+Help:
+ 
+ AO (CCF 21059)
+Erro de conversão na Tela de Remessa/Retorno Armazenagem
+Ao emitir uma Nota de Remessa ou Retorno de Armazenagem, o sistema estava exibindo uma mensagem de erro quando a Frota não era informada. Nestes casos, o sistema não mais exibira a mensagem de erro.
+ PRFC (CCF 21035)
+Despesas Acessórias e Seguro na Nota Fiscal sem deduzir do Valor dos Produtos
+Foi implementada uma nova opção na tabela de Natureza de Operações que possibilita ao usuário escolher se o Valor de Despesas Acessórias e/ou do Seguro será deduzido ou não do Valor do Produtos. 
+Help:
+ 
+, 
+.
+ PRFC (CCF 18226)
+Importação XML de NF-e com mais 3 parcelas
+Ao importar XML de  uma NF o sistema se perdia ao pegar a quantidade de parcelas presentes no arquivo, foi feita uma melhoria na leitura destes nós, de modo à corrigir esta situação.
+ PRFC (CCF 21574)
+Último Item da OC marcado no Vínculo com OC da Importação de NF
+Na importação de NF, ao vincular a OC na NF o campo "É O último Item da OC", será marcado conforme a opção "Permite associar OC a mais de uma NF" na Natureza de Operação. 
+Help:
+ 
+, 
+.
+ 
+AO (CCF 21230)
+Alteração no XML da NF-e Enviado na Distribuição Inválida Assinatura
+O processo de distribuição pegava o XML do recibo e o protocolo de autorização salvos no banco eliminava os caracteres especiais e gerava um XML único para enviar aos clientes, porém nesse processo a assinatura não batia mais com o conteúdo. Agora o sistema faz a remoção dos caracteres especiais antes de efetuar o envio para a Sefaz.
+ PRFC (CCF 21477)
+Dados de Frete na OC de Origem e Destino duplicados
+Os dados de Frete não serão repetidos nas OCs de Carregamento Próprio e OC's de Descarga Própria quando vinculadas, independente da NF ser importada ou não.
+ AO (CCF 21671)
+Dados da Entrada de Contingência no DANFE e DACTE
+Foram disponibilizados os seguintes campos paras as informações de Entrada de Contingência no DANFE e DACTE.(Código Motivo Entrada Contingência, Motivo Entrada Contingência, Data Entrada Contingência, Descrição Contingência).
+ 
+Para que essa atualização funcione, será necessário atualizar 
+ou editar os layouts
+ rtm's Danfe_v88.rtm e Danfe_Itens_v88.rtm.
+ 
+Help:
+ 
+ AO (CCF 19193)
+Geração do XML de Distribuição do CT-e
+Quando fazemos o envio automático do CT-e garantimos que o XML fosse enviado para a entidade definida no perfil de sistema "Entidade para uso do Livro Fiscal e envio XML CT-e", na tela de Geração do XML de Distribuição. AO (CCF 21058)
+Sugestão de Preço Unitário em NFs de Devolução
+O preço da NF de Devolução será sugerido pela NF de Venda, quando (Natureza de Operação / Por Filial / Impostos / Deduz impostos do Preço Unitário) estiver marcado, sugerindo o preço corretamente, não sendo necessário o usuário ajustar manualmente quando tinha ICMS e ST
+. AO (CCF 19402)
+Aumento do campo Valor Atual na Carta de Correção
+A Sefaz permite que a Carta de Correção tenha até 1.000 caracteres no XML, concatenando com as cartas anteriores. O Sispetro permitia ao usuário digitar até 40 caracteres. Isso foi ajustado nessa versão, permitindo agora que o usuário digite até 1.000 caracteres. AO (CCF 20514)
+DANFE apresentando erro ao visualizar impressão no Sispetro Remoto
+Foi corrigido o problema que não deixava visualizar uma impressão do DANFE no Sispetro Remoto, e foi corrigido o DANFE para que fosse apresentado corretamente as mensagens no rodapé do DANFE quando é impresso em modo de contingência. 
+A
+tenção após estas alterações o Sispetro não vai mais tratar as informações sobre contingência e que cada cada empresa deverá codificar o seu DANFE. 
+Help:
+ 
+ 
+AO (CCF 21934)
+UF de Consumo no Cálculo de Impostos
+Foi implementada a opção "UF Utilizada para Impostos" no cadastro de Natureza de Operações que permite ao usuário escolher entre U
+F de Consumo ou UF de Faturamento no processamento da Nota Fiscal
+. 
+Help: 
+. 
+PRFC (CCF 19261)
+Erro ao Vincular PMM
+Quando a quantidade do PMM possuía valores decimais, o sistema estava apresentando erro e não deixava vincular o PMM à NF.
+ PRFC (CCF 21693)
+Financeiro
+Trocar Validações na tela de Manutenção de Bancos
+Para não aparecer erros genéricos, 
+na tela de Manutenção de Bancos
+ 
+os erros foram tratados. AO (CCF 20971)
+Tamanho da Autenticação Bancária
+Padronização do tamanho do campo de Autenticação Bancária nas telas de Baixa, Anexos e Sped. Agora é permitido digitar até 40 caracteres. 
+A
+tualizar o layout padrão da Futura (Scanc_v88.rtm).
+  AO (CCF 20674)
+Ordenação por Número NF no Relatório Contas Pagar/Receber
+A partir dessa versão será possível ordenar por Número NF no segundo nível do Relatório do Contas a Pagar/Receber. 
+Help:
+ 
+, 
+.
+ 
+AO (CCF 19778)
+ 
+Data para Identificação de Débitos Não Identificados
+A partir dessa versão será possível através do processo de Identificação de Débitos Não Identificados informar uma data para identificação.
+ 
+Help:
+ 
+ 
+AO (CCF 21128)
+Recibo de Baixa
+O campo onde é informado o nome do arquivo do recibo de baixa nas configurações de empresas não estava aparecendo na pesquisa com a tecla F4. Esse problema foi corrigido. 
+UPA (CCF 21980)
+Trocar Validações na tela de Manutenção de Bancos
+Foram tratadas as mensagens de erros na tela de Manutenção de banco, colocando-a no padrão de mensagens atual do Sispetro. AO (CCF 20971)
+Leitura do Nosso Número no Arquivo de Retorno do Banco Sifra
+A leitura do Nosso Numero do arquivo de retorno do Banco Sifra foi corrigida e agora considera-se prefixo informado.
+ 
+Baixar a Biblioteca: (SisPetroBancos.dll). 
+PRFC (CCF 21458)
+Biblioteca (DLL) para as rotinas do Banco  Paraná
+Foi criada a biblioteca (DLL) com as rotinas de remessa, retorno e impressão de cobranças do Banco Paraná (254). 
+Baixar a Biblioteca: (Banco254.dll). 
+Help:
+ 
+ 
+PRFC (CCF 21637)
+Bibliotecas de Rotinas Bancárias
+As rotinas de remessa, retorno e impressão de cobranças estão sendo transportadas para bibliotecas e separadas por banco, de modo a facilitar a manutenção / alteração das mesmas, agilizando o processo de liberação. 
+Baixar as Bibliotecas:  SisPetroBancos.dll (Demais bancos), Banco237.dll (Bradesco), Banco320.dll (Banco Industrial - Layout novo ), Banco320_vSemReg2.dll (Banco 
+Industrial - 
+Layout antigo) e Banco254.dll (Banco Paraná).
+ Help:
+ 
+ , 
+ , 
+, 
+, 
+ 
+PRFC (CCF 20344)
+Títulos de Renegociação no Extrato Bancário
+Corrigido para que os títulos gerados pela Renegociação sejam apresentados no Extrato Bancário pela data de renegociação e não pela data de vencimento
+. GSN (CCF 21760)
+Enviar desconto ou abatimento no Banco ABC
+Correção para atender configuração no Tipo de Cobrança "Desconto Condicional: Enviar como Desconto/Abatimento" na geração do arquivo de remessa.
+ PRFC (CCF 21926)
+Controle de Alterações na Baixa de Cobranças 
+Eletrônicas
+Foi implementado controle de alterações na janela de Leitura de Arquivo de Retorno de Cobrança, com o intuito de verificar e bloquear os títulos antes de iniciar suas baixas, deste modo, não mais ocorrerá problemas quando mais de um usuário estiver efetuando baixas. 
+Help: 
+. 
+PRFC (CCF 20561)
+Fiscal
+ 
+Cabeçalho da tela de Fórmula do Livro Fiscal
+Corrigido para que não apresente o conteúdo da fórmula no cabeçalho da tela principal da Fórmula do Livro Fiscal do Sispetro Controladoria
+. GSN (CCF 20406)
+Menu Reprocessamento de NF's no Sispetro Controladoria
+Nessa versão foi corrigido o menu do Sispetro Controladoria que não estava sendo liberado conforme configuração de acesso a menu do usuário, e sim através de perfil específico que não estava correto. 
+AO (CCF 21975)
+Formataçao de Datas na Apuraçao Fiscal
+Foi trocado o tipo de componente para manutenção de datas na tela de Apuração Fiscal, que não permitirá ao usuário inserir uma data errada e nem preencher um valor apenas com espaços. AO (CCF 20630)
+Geração do arquivo do DPMP
+Em razão da atualização da ferramenta de exibição e geração de relatórios, o rtm do DPMP foi ajustado em função dessa atualização. 
+A
+tualizar o layout padrão da Futura (DPMP_v88.rtm). 
+UPA (CCF 16745)
+Patrimônio
+Data de Início da Depreciação
+O Sispetro calculava a Depreciação a partir data de Aquisição do Bem, mas a partir dessa versão o cálculo de Depreciação será feito a partir da data  de Inicio da Depreciação permitindo que um bem seja depreciado após a data de aquisição.
+ 
+Recurso bem interessante no caso de bens formados por componentes (Bem Principal)
+.
+ 
+Atualizar os relatórios (FichaBem.rtm, TipoMovtoImobilizado.rtm)
+ 
+Help:
+ 
+ e 
+ AO (CCF 19973)
+Validação de Datas na Movimentação do Patrimônio
+As datas utilizadas na Movimentação do Patrimônio nas telas(Depreciação, Baixa de Bens, Geração de Movimento para o CIAP e Efetivação), estão sendo validadas a partir desta versão. AO (CCF 21013) 
+Dados de Movimentação de Bens por Geral, Grupo de Filiais ou Filial
+Os Dados de Movimentação de Bens serão filtrados por Geral, Grupos de Filiais ou Filial para permitir que sejam feitos os processos de Depreciação e CIAP por Unidade de Negócios. 
+Help: 
+, 
+, 
+.
+ AO (CCF 19766)
+Data de Término da Depreciação
+Quando alterávamos a data de inicio da depreciação e/ou a vida útil de um bem, não estava sendo alterada a data de término da depreciação, calculada a partir dos novos valores informados. Esse problema foi corrigido. 
+Para bens antigos com data de término errado, manter contato com o suporte.
+ 
+UPA (CCF 22004)
+Transporte
+Remover Campos para Geração de Conhecimento de Frete Automático
+Foram removidos os campos e alterado os objetos para Geração de Conhecimento de Frete Automático. 
+AO (CCF 20616)
+Remover os Campos de Capacidade da Tabela de Frota
+Foram removidos em definitivo os campos Cp1, Cp2, Cp3, Cp4, Cp5, Cp6 e Cp7 do banco de dados e do sistema. AO (CCF 20766)
+Remoção da "Configuração de Produtos na Coluna por" das Configurações de Compartimentação
+Foi retirado o uso de verificação da "Configuração de Produtos na Coluna por" do cadastro de empresa nas seguintes telas(Manutenção de Depósitos, Inclusão de Ordem de Carregamento, Produtos). AO (CCF 21388)
+Importação de CT-e com valores duplicados
+Quando se importava o mesmo XML duas vezes, ao invés de acusar que a NF já existe, o segundo arquivo lido acabava se tornando um segundo item da NF, agora o sistema considera também o numero do item no CTe, evitando que este problema ocorra.
+ PRFC (CCF 20969)
+Tag ICMSOutraUF na Importação XML do CT-e
+Corrigido para considerar os valores de ICMS vindos na tag "ICMSOutraUF" na Importação do XML do CT-e, o que antes não estava sendo feito pois essa tag não existia.
+ 
+Help:
+ 
+. 
+PRFC (CCF 20498)
+Envio de Imposto no xml do CT-e II
+Nesta versão esta sendo tratado a situação do ICMS Retido e com Redução de Base de Cálculo, os dados ICMS Retido e % Redução de Base de Cálculo serão devidamente enviados no CT-e. 
+S
+erá necessário atualizar o rtm Dacte_v88.rtm
+. 
+Help:
+ 
+. 
+AO (CCF 18937) 
+Descrição da Natureza de Operação no DACTe
+Quando a Natureza utilizada tinha um código com mais de 3 dígitos a Descrição era apresentada em branco. Para corrigir isso, o tamanho para esse campo foi aumentado para 5 caracteres. 
+PRFC (CCF 21564)
+Dados de Compartimentação na Composição de Carga (view vwFrotaCompartimentacao)
+Após a mudança do processo de compartimentação para ser mais flexível feito na versão 8.7, foi necessário ajustar internamente a seleção de dados para apresentação no grid. AO (CCF 21945)
+Consignatário direcionado para Livro Fiscal/Envio de XML no Conhecimento de Frete
+Quando o Consignatário for a Entidade a ser enviado o XML e representar o Livro Fiscal e o perfil de sistema estiver marcado, deverá ser informado obrigatoriamente o Consignatário. AO (CCF 21928)
+ 
+Sispetro remoto t
+ela manutenção de frota botões ocultos
+Na tela de Manutenção de Frotas os botões de alteração, exclusão e inclusão como estavam ocultos f
+oi aumentado o tamanho da tela para que os botões ficassem visíveis. AO (CCF 21586)
+Vendas
+Cores sobrepostas na Consulta de Pedidos Pendentes
+Apresentar no Grid fundo amarelo, caso a condição de pagamento do item difere da condição de pagamento do pedido. AO (CCF 21226)
+Utilização de outro depósito para o Contrato de Venda
+No Contrato de Venda o usuário informa o depósito onde será retirado o produto para atender o contrato. Porém há casos de faltar produto no depósito estipulado, que nesta situação será permitido a utilização de outro depósito no Contrato de Venda. 
+Help:
+ 
+Contrato de Venda
+. 
+AO (CCF 21454) 
+Análise de Aprovação do Pedido de Venda
+No processo de Análise de Aprovação do Pedido de Venda foram feitas as seguintes melhorias. A Análise de Aprovação do Pedido de Venda será sempre feita partindo do usuário que incluiu o pedido, e foi colocado um perfil de usuário para permitir a Análise de Aprovação. 
+Help:
+ 
+Análise  Venda
+. 
+AO (CCF 20800) 

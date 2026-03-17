@@ -1,0 +1,298 @@
+TITULO: Layout do Arquivo de Importação de OC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899816
+--------------------------------------------------
+A partir da versão 8.39, é possível informar a numeração do Envelope de Segurança e a numeração de Lacre. Veja abaixo.
+ 
+O arquivo em formato texto que será gerado para fazer a 
+Importação de Ordem de Carregamento
+ deverá seguir o layout padrão definido.
+Os campos devem ser separados por ; e colocados na ordem abaixo.
+Campo
+Tipo
+Tam.
+Notas Explicativas
+Número da OC
+Numérico
+ 
+Número temporário para identificação da OC
+Código do Produto
+Alfabético
+10
+Conforme cadastro de produtos do SisPetro
+Compartimento
+Numérico
+ 
+De 1 a 7
+Tipo
+Alfabético
+1
+C-carga e D-descarga
+Data
+Data
+ 
+Formato DD/MM/AAAA
+Código Depósito Origem
+Alfabético
+2
+Conforme cadastro de depósitos do SisPetro
+Código da Transportadora
+Alfabético
+5
+Conforme cadastro transportadoras do SisPetro
+Código do Frota
+Numérico
+ 
+Conforme cadastro de frotas do SisPetro
+Quantidade
+Numérico
+ 
+Quantidade a ser colocada no compartimento
+Informações Adicionais
+Alfabético
+25
+Conteúdo apresentado na manutenção de OC's
+Código da Empresa
+Numérico
+ 
+Código da Empresa
+NCM do Produto
+Alfabético
+10
+Código NCM do Produto a ser importado
+Placa do Frota
+Alfabético
+20
+Placa do Cavalo ou Frota Principal
+Placa da Carreta
+Alfabético
+20
+Placa da Carreta (quando existir)
+Placa do Treminhão
+Alfabético
+20 
+Placa do Treminhão (quando existir) 
+CPF/ CNPJ do Motorista
+Alfabético
+14 
+ 
+CPF ou CNPJ do Motorista
+CNPJ da Transportadora
+Alfabético
+14 
+ CNPJ da Transportadora Vinculada
+Código da Empresa Origem
+Numérico
+ 
+Código, do SisPetro, Empresa de Origem (Utilizado na Apuração de Frete)
+Número da OC Origem
+Numérico
+ 
+Número da OC de Origem 
+(Utilizado na Apuração de Frete)
+Capacidade do caminhão
+Numérico
+ 
+Capacidade do caminhão, caso não seja preenchida será utilizada do cadastro de frota
+Envelope
+Numérico
+ 
+Numero do Envelope
+Lacre 1
+Numérico
+ 
+Numero do Lacre 1
+Lacre 2
+Numérico
+ 
+Numero
+ do Lacre 2
+Lacre 3
+Numérico
+ 
+Numero
+ do Lacre 3
+Lacre 4
+Numérico
+ 
+Numero
+ do Lacre 4
+Lacre 5
+Numérico
+ 
+Numero
+ do Lacre 5
+Lacre 6
+Numérico
+ 
+Numero
+ do Lacre 6
+Os novos campos funcionarão da seguinte forma:
+Produto/NCM
+Caso tenha sido informado o código do produto, será respeitado
+Se não for, será verificado o código NCM e será localizado a partir deste.
+Frota, Carreta e Treminhão
+Se for informado será respeitado
+Se não for, será verificada se a placa informada existe
+Motorista
+Se for informado o código, será respeitado
+Se não for, será verificado o CNPJ/ CPF do motorista. 
+Transportadora Vinculada
+Caso não tenha sido informado o CNPJ da Transportadora, será preenchido com o código da Transportadora vinculada ao Motorista para a empresa da OC que está sendo importada
+Se for informado, localizar a Transportadora correspondente
+Capacidade
+Caso tenha sido informada será respeitada a cadastrada no SisPetro
+Se não for informada será a soma das capacidades do Frota, da Carreta e do Treminhão
+Em cada registro (linha) do arquivo deve ser informada a quantidade a ser alocada em determinado compartimento. A soma dos compartimentos de um determinado produto com um mesmo número de OC é o que dará origem ao item da OC. Na inclusão da ordem, o Sispetro valida os compartimentos para os carregamentos.
+A partir da versão 9.15, o Sispetro não valida a compartimentação para importação de ordens de Descarga de Terceiros.
+O conjunto de itens com um mesmo número de OC dará origem a uma OC que receberá um número específico no SisPetro.
+No caso de necessitar alguma informação que deverá ser consultada na OC (como um número de formulário) esta deverá ser colocada no campo 
+Informações adicionais
+.
+Apesar de ser informado o código da empresa, neste campo poderá ser colocado o valor 0, já que esta OC será atribuída à empresa que o usuário estiver conectado no momento que ele providenciar a importação.
+Obs.: Foi adotada a separação de campos por ; porque o Microsoft Excel gera arquivos .CSV neste formato, facilitando a utilização deste software por quem assim desejar. Portanto quem optar por usá-lo basta digitar cada informação em uma coluna e 
+salvar como
+ o arquivo com extensão 
+.csv
+. O excel informará através de uma mensagem que o arquivo está sendo salvo separado por vírgulas, clique em Sim para aceitar esse formato.
+Logo abaixo será apresentado um exemplo feito no Excel mostrando como preencher um arquivo.
+Note que os campos de Placa devem ser preenchidos com o hífen (DMS-2062), caso contrário não será localizada a placa no SisPetro. 
+No exemplo abaixo foi informado os números de envelope do 1041500 ao 1041504, com Lacres do 1 ao 30 divididos em cinco compartimentos.
+A situação é: Existe uma Ordem de Carregamento com com dois produtos, Gasolina e Diesel. A quantidade total é de 25.000, onde 10.000 é de Gasolina e 15.000 de Diesel. O caminhão possui 5 compartimentações com capacidade de 5.000 cada uma.
+A partir dessa situação o arquivo deverá ser digitado da seguinte forma:
+1000
+01
+1
+C
+04/07/2003
+01
+002
+11
+5000
+OC Demo de Gasolina/Diesel
+0
+29342010
+DMS-2062
+FDG-9963
+PFG-5312
+xxx.164.818-93
+99.999.999/9999-99
+63
+1065
+25000
+1041500
+1
+2
+3
+4
+5
+6
+1000
+01
+2
+C
+04/07/2003
+01
+002
+11
+5000
+OC Demo de Gasolina/Diesel
+0
+29342010
+DMS-2062
+FDG-9963
+PFG-5312
+xxx.164.818-93
+99.999.999/9999-99
+63
+1065
+25000
+1041501
+7
+8
+9
+10
+11
+12
+1000
+03
+3
+C
+04/07/2003
+01
+002
+11
+5000
+OC Demo de Gasolina/Diesel
+0
+30342010
+DMS-2062
+FDG-9963
+PFG-5312
+xxx.164.818-93
+99.999.999/9999-99
+63
+1065
+25000
+1041502
+13
+14
+15
+16
+17
+18
+1000
+03
+4
+C
+04/07/2003
+01
+002
+11
+5000
+OC Demo de Gasolina/Diesel
+0
+30342010
+DMS-2062
+FDG-9963
+PFG-5312
+xxx.164.818-93
+99.999.999/9999-99
+63
+1065
+25000
+1041503
+19
+20
+21
+22
+23
+24
+1000
+03
+5
+C
+04/07/2003
+01
+002
+11
+5000
+OC Demo de Gasolina/Diesel
+0
+30342010
+DMS-2062
+FDG-9963
+PFG-5312
+xxx.164.818-93
+99.999.999/9999-99
+63
+1065
+25000
+1041504
+25
+26
+27
+28
+29
+30
+ 
+Nesse mesmo arquivo pode ser inseridos outras ordens de carregamentos. Depois de digitadas todas as Ordens de Carregamento deve-se salvar o aquivo em formato já especificado acima e enviar para empresa armazenadora que fará a importação dos dados para dentro do sistema.

@@ -1,0 +1,21 @@
+TITULO: Cenário 3: Dois Contratos para uma Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2902164568
+--------------------------------------------------
+Cenário: Casos onde um PMM já foi recebido parcialmente, a empresa faz uma nova compra que, por consequência, tem um novo PMM.
+PMM 1 tem quantidade pendente de 5.000 litros.
+PMM 2 foi incluído para uma compra de 500.000 litros.
+A empresa solicita a entrega de 20.000 litros, sendo que deve-se utilizar todo o saldo do PMM 1 e 15.000 do PMM 2.
+A OC de Transferência Entre Depósitos será feita com 2 itens do mesmo produto, onde 5.000 terá vínculo com o PMM 1 e o segundo item, de 15.000, terá vínculo com o PMM 2 - restando assim um saldo de 485.000 a ser entregue
+A Nota Fiscal poderá ser emitida de 2 formas diferentes:
+Com apenas um item com a quantidade total - nesta situação há duas formas de lanças a nota fiscal:
+Lançar a nota fiscal manualmente, já que através da importação o Sispetro não permite que seja feito o vínculo com os dois itens da Ordem de Carregamento.
+No lançamento da nota manualmente, o Sispetro já sugerirá os 2 itens, dividindo assim conforme o item da OC.
+Incluir a nota fiscal a partir da importação do xml, seguindo as informações abaixo:
+a) 
+PMM por quantidade Paga
+ - Transferir o adiantamento do PMM para uma conta, incluir um adiantamento para outro PMM e confirmar a OC para o novo PMM. Desta forma o PMM ficará com a quantidade e vínculos corretos.
+b) 
+PMM por quantidade do pedido
+ - Utilizar o recurso de transferência do saldo do PMM e fazer o vínculo corretamente.
+Com 2 itens, sendo cada um com a informação do número do PMM
+ 

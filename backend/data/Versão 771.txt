@@ -1,0 +1,156 @@
+TITULO: Versão 7.7.1
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2894725680
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 16/06/2010 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 24/06/2010 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd771.sql 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 05 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 03 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 02 
+
+
+
+
+
+
+ 
+Anexos
+ 
+
+
+ 
+
+
+
+
+
+
+Geral
+
+
+
+
+Tratando Erros de Conexão
+
+
+Incluído no SisPetro Normal, Remoto e Controladoria novos controles para verificação de conexão com o banco de dados, com isso, caso algum dos sistemas não consiga se conectar ao banco de dados, será emitida uma mensagem de erro clara ao usuário e a entrada no sistema será abortada, evitando assim a geração de diversas mensagens de erro ao usuário. UPA (CCF 8720)
+
+
+
+
+Faturamento
+
+
+
+
+Erro - Importação xml de NF
+
+Ao importar arquivos XML de NFe, no caso de campos datas estarem com formatação indevida, era apresentado erro o que foi corrigido. 
+ALP (CCF 9400)
+
+
+Travamento do Sistema ao Importar Notas com Erro
+
+Na rotina de importação de notas fiscais, caso alguma inconsistência fosse detectada somente no botão "Processa" (casos raros pois a maioria das inconsistências são tratadas no botão "Valida"), a nota fiscal não era importada e não estava permitindo ao usuário alterar ou tentar importar novamente esta nota sem antes sair do sistema. Problema corrigido. 
+UPA (CCF 9644)
+
+
+
+
+Financeiro
+
+
+
+
+Cobrança Eletrônica - Banco SIFRA
+
+
+Foi implementada a cobrança eletrônica para o banco SIFRA (código 999) utilizando CNAB com 400 posições.
+ 
+Importante: Deve ser feito o teste com boletos e arquivos de remessa/retorno com o banco antes de colocar em produção.
+. ALP (CCF 9376)
+
+
+Decimais na conversão de moedas
+
+
+Foi alterada a configuração de casas decimais para taxa de conversão da moeda estrangeira (como Dólar).
+ 
+Agora tais taxas passaram a conter 6 casas decimais como padrão do sistema.
+ 
+ALP (CCF 9573)
+

@@ -1,0 +1,512 @@
+TITULO: Versão 7.20
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2902166182
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 01/08/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 06/09/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ cmd720.sql (cmd2726 a cmd2772) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 35 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 14 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 21 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Relatórios 
+
+
+
+
+
+
+ Cotacao.rtm 
+
+
+
+
+
+
+Importante
+O Módulo de Compras foi reformulado em alguns aspectos, veja as alterações realizadas no tópico Compras, nesse mesmo documento. Outros detalhes também poderão ser encontrados no Help 
+Processos - Compras
+
+
+Geral
+
+
+
+
+Migração nos Grids
+
+
+Estamos em um processo de migração dos grids utilizados no SisPetro. Essa migração deixará nossos grids mais bonitos, práticos e com opções de filtros diversos para facilitar o trabalho de nossos usuários. RTS (CCF 13610)
+
+
+Informações na Pesquisa de Tipo de Documento
+
+
+Foi incluído informações adicionais (Calcula desconto, Grupo Contabilização, Pagto. Eletrônico e GNRE) no grid da tela para facilitar ao usuário a seleção do tipo de documento. TDM (CCF 13851)
+
+
+CheckBox desposicionado na Natureza de Operação
+
+Os CheckBoxes "Informa dados do DPMP" e "Informa dados do DCP" estavam desposicionados, os mesmos deveriam estar posicionados em cima de seus respectivos grupos. 
+TDM (CCF 13913)
+
+
+Cadastro e Utilização de Fornecedores do Exterior
+
+
+Ao cadastrar um fornecedor que seja do Exterior, o Sispetro obriga o preenchimento de informações como CNPJ e IE, quando não deveria por se tratar de um fornecedor do exterior. O Sispetro não irá mais obrigar o usuário a cadastrar CNPJ e IE em fornecedores do Exterior. TDM (CCF 13846)
+
+
+Novos campos no Cadastro de Produto
+
+
+Para um melhor controle de estoque foram incluídos no cadastro de produto os campos
+ 
+Localização Complementar
+ 
+e
+ 
+Sub-Localização
+. RTS (CCF 13782)
+
+
+
+
+Contabilidade
+
+
+
+
+Salvamento de dados de custo da Previsão Orçamentária
+
+Na edição da Previsão Orçamentária, quando se altera os dados de Centro de Custo numa conta de Despesa, ao salvar os dados os valores informados o Sispetro não permitia ser salvos. Feita Alteração para permitir o devido salvamento de dados de custos na Previsão Orçamentária.
+Help:
+ 
+Inclusão de Movimento
+GSN(14043)
+
+
+
+
+Compras
+
+
+
+
+Armazenamento de Anexos Via Servidor Sispetro
+
+No servidor Sispetro foi colocado o campo 
+Pasta de Arquivos
+, no qual o usuário informa qual diretório serão salvos os arquivos anexos aos Produtos no Servidor Sispetro. Na tela de manutenção de produtos foi incluída a aba 
+Arquivos Anexados
+, onde o usuário irá informar quais arquivos relacionados ao Produto selecionado serão salvos no Servidor Sispetro. 
+RSI (CCF 13856)
+
+
+Novo módulo de compras - Migração do Grid Principal na Manutenção de Pedidos
+
+
+O grid de Pedidos da tela de Manutenção de Pedidos foi migrado, resultando em um grid mais bonito, prático e com diversas opções de filtros para facilitar o trabalho de nossos usuários. Neste grid o usuário terá também a opção de arrastar as colunas do grid da forma que desejar para sua melhor visualização, podendo a qualquer momento voltar as configurações originais através do botão
+ 
+Layout Padrão
+. 
+RTS (CCF 13831)
+
+
+Novo módulo de compras - Contratos
+
+
+Para um controle mais apurado dos pedidos de movimentação de material, foram criados perfis de usuário
+ 
+Pode Suspender PMM
+ 
+e
+ 
+Pode Alterar PMM
+, perfis de sistema
+ 
+Verifica saldo Financeiro do PMM x Títulos Vinculados
+ 
+e
+ 
+Percentual de discrepância para PMM
+ 
+e campos de
+ 
+Contratos, Suspensão do Pedido, Peso do pedido, Peso Total Concluído e Percentual Concluído
+. Nas telas de
+ 
+Manutenção de Pedido de Movimentação de Material
+ 
+e
+ 
+Manuntenção de Processos PMM
+ 
+o usuário poderá visualizar esses campos e mantê-los. Na tela de
+ 
+Manutenção de Pedido de Movimentação de Material
+ 
+foram incluídos os botões de
+ 
+Supensão
+,
+ 
+Cancela Suspensão
+ 
+e
+ 
+Altera PMM
+. A alteração do PMM pode ser realizada também através do menu
+ 
+Movimentação de Material/Alteração de PMM
+ 
+tela
+ 
+Alteração de Pedido de Movimentação de Material
+. Na tela de
+ 
+Manutenção de Processos PMM
+ 
+foi incluído também a ABA Observações do Pedido. Na tela de
+ 
+Pedido de Movimentação de Material
+ 
+foi incluído o campo
+ 
+Contrato de Prestação de Serviço
+ 
+que, se habilitado, libera uma nova Aba para inclusão do processo de PMM.
+ 
+Help:
+ 
+Contratos de Prestação de Serviços
+ 
+RTS (CCF 13835)
+
+
+Gerenciamento de Arquivos Anexados
+
+
+A partir dessa versão será possível anexar arquivos na Requisição de Compras, Cotação e Pedido de Movimentação de Material. Os arquivos poderão ser adquiridos no computador do usuário ou do cadastro dos produtos incluídos no seu processo.
+ 
+Help:
+ 
+Inclusão de Anexos 
+UPA (CCF 13888)
+
+
+Novo módulo de compras - Status e Ação de Requisição
+
+
+A partir dessa versão o usuário contará com um controle maior da Requisição, onde poderá informar o Código do Setor de Compras, Tipo de requisição (NORMAL: necessário realizar o número de cotações cadastradas no perfil de sistema
+ 
+Quantidade de Cotações para Requisição
+ 
+ou DIRETA: sem a necessidade de Cotação), Prazo para Atendimento, Avisar caso a Requisição seja Emergencial e Sugerir um Fornecedor. O usuário poderá acompanhar o andamento de sua Requisição através do campo
+ 
+Status
+. Nesta versão contará também com a tela de
+ 
+Ação do Requisitante / Estoque
+ 
+onde poderá cancelar, aprovar, liberar, desalocar, alterar informações, duplicar, editar e incluir requisições e a tela de
+ 
+Análise de Estoque
+ 
+onde terá uma visão geral do estoque dos produtos e requisições. Para facilitar o acesso as telas, os itens de menu foram realocados.
+ 
+Help:
+ 
+Status e Ação de Requisição
+ 
+RTS (CCF 13957)
+
+
+Novo módulo de compras - Cotações
+
+
+A partir dessa versão o usuário contará com um controle maior da Cotação, onde poderá informar o Código do Setor de Compras, Cancelar Cotações, enviar cotação para o email do fornecedor, incluir observações internas ao comprador e observações que serão enviadas ao fornecedor. Os itens também possuirão um detalhamento maior, o usuário poderá informar a quantidade garantida pelo fornecedor e observações referente ao item. Nesta versão contará também com a tela de
+ 
+Manutenção de cotações
+ 
+onde poderá incluir, editar, cancelar, duplicar, enviar cotações por email, imprimir as cotações, Incluir informações do fornecedor, Buscar por cotações e escolher a melhor cotação.
+ 
+Help:
+ 
+Cotação
+
+
+RTS (CCF 14035)
+
+
+Novo módulo de compras - Pedido de Movimentação de Material
+
+
+A partir dessa versão será possível emitir PMM´s a partir de cotações ou requisições previamente cadastradas e aprovadas. O usuário contará com uma tela de Seleção de fornecedores para emissão do PMM e novas telas de cancelamento e aprovação de PMM´s onde poderá informar as observações referentes a esses processos. Na tela de Manutenção de PMM Aba Itens, o usuário poderá verificar as Cotações e/ou Requisições vinculadas ao item do pedido. RTS (CCF 14219)
+
+
+Inclusão de PMM não respeita data de Inclusão diferente de Emissão
+
+Na tela de inclusão do PMM temos duas datas: Inclusão e Emissão. Porém, ao salvar o PMM a data de emissão é sempre sobreposta com a data de inclusão informada, o Sispetro não irá mais sobrepor a data de emissão. 
+TDM (CCF 13823)
+
+
+
+
+Faturamento
+
+
+
+
+Exclusão de NF de Importação
+
+Depois de lançar uma NF de importação e por algum motivo o usuário queira excluir, o Sispetro gerava um erro informando que o relacionamento entre as tabelas não permitia a exclusão. Esse problema foi corrigido permitindo tal operação. 
+TDM (CCF 13855)
+
+
+Cancelamento de NF de emissão própria não respeita perfil de usuário
+
+Ajustamos o perfil de usuário 
+Pode Cancelar NFs?
+ para que seja considerado devidamente no cancelamento de NFs de emissão própria. 
+RTS (CCF 13974)
+
+
+Formatação de Decimais no Preço de Tabela (NF Remessa/Retorno Armazenagem)
+
+Atualmente o preço retornado da tabela de preços na tela de Remessa/Retorno de Armazenagem vem sendo exibido com 2 casas decimais após a vírgula. Isso foi corrigido nessa versão, onde agora o formato do preço será exibido de acordo com o perfil do usuário. 
+RSI (CCF 13984)
+
+
+Não informar Empresa inativa na tela de Remessa/Retorno Armazenagem
+
+Na tela de Remessa/Retorno de Armazenagem, no filtro de Empresas, não serão mais exibidas as empresas que estão inativas no SisPetro. 
+RSI (CCF 12728)
+
+
+Erro de divisão por zero na Inclusão de NF com valor baixo
+
+No momento em que era lançada uma Nota Fiscal de Entrada com o valor total abaixo de R$1,00 era apresentado um erro de divisão por zero. Esse erro foi ajustado nesta versão. 
+RSI (CCF 13884)
+
+
+Ordenação de Campos na Manutenção de NFs
+
+Na tela de Manutenção de NFs do SisPetro Normal, ocorre um erro quando o usuário tenta ordenar alguns campos no grid da tela principal. Esse problema foi encontrado e corrigido nos campos onde apresentavam o erro. 
+RSI (CCF 13979)
+
+
+UF de Consumo na NFe
+
+Na versão 2.0 da NFe foi criada uma tag para UF de Consumo. Atualmente essa informação é preenchida com a UF do Faturamento. Nessa versão está sendo colocada uma opção na tela de Cadastro de Cliente, onde é possível configurar qual será a UF de Consumo a ser utilizada na emissão da NFe. 
+RSI (CCF 14213)
+
+
+
+
+Financeiro
+
+
+
+
+Cancelamento de Item de Baixa
+
+Corrigido o cancelamento de item de Baixa para que sejam preservados todas as informações da baixa original. 
+GSN (CCF 13972)
+
+
+Comparação de Valores na tela de Vínculo de Baixa
+
+Ajustamos a tela de vínculo de baixas para que compare devidamente o valor da baixa selecionada e o valor do título a receber que está sendo incluído. 
+RTS (CCF 13818)
+
+
+Informação de Baixa Manual na cobrança eletrônica
+
+Ajustamos a baixa manual garantindo que, nos casos de títulos de cobrança eletrônica que foram pagos diretamente para a empresa (via baixa manual), seja enviado o comando de baixa manual ao banco avisando-o do pagamento do título. 
+RTS (CCF 14201)
+
+
+Validações na Baixa de Títulos de Vendor
+
+Ajustamos o processo de Baixa de títulos de vendor para que permita realizar a baixa de dois títulos que possuam contas iguais. Ajustamos também a mensagem de erro que é apresentada na tela quando os títulos tenham contas diferentes.
+RTS (CCF 14272)
+
+
+Valor do Documento no Pagamento Eletrônico
+
+Ajustamos a Tela de inclusão de pagamento eletrônico de forma que os acréscimos/descontos sejam calculados no campo 
+Valor do Pagamento
+. 
+RTS (CCF 14043)
+
+
+Título de Desconto automático na impressão de Boletos
+
+Ajustamos a rotina impressão de boletos de títulos que geram contas a receber e contas a pagar (títulos de desconto). Antes a tela de manutenção de Notas Fiscais trazia ambos os títulos para gerar o boleto sendo que o contas a pagar não possui os dados necessários para sua emissão gerando assim um erro não tratado na tela. 
+RTS (CCF 13321)
+
+
+
+
+Fiscal
+
+
+
+
+Botões da tela de Outros Impostos
+
+Ajustado o tamanho da tela de Outros Impostos de forma a deixar visíveis todos os botões da tela, como o botão sair. 
+GSN (CCF 13919)
+
+
+SPED-EFD Registro 0450 com campo vazio
+
+Corrigida a fórmula do campo TXT do Registro 0450 para que seja preenchido com o código da Natureza de Operação quando vazio. 
+GSN (CCF 14161)
+
+
+SPED-EFD Erro do Registro C110
+
+Corrigido o comando do Registro C110 que gerava alguns dados repetidos. 
+GSN (CCF 13997)
+
+
+SPED-PIS/COFINS Registro F120
+
+
+Configuradas fórmulas para baixa e depreciação de bens no Registro F120 do SPED PIS/COFINS. GSN (CCF 13454)
+
+
+
+
+Vendas
+
+
+
+
+Tipo de cobrança x Adiantamento Quantificado
+
+
+No tipo de Cobrança existe um campo "Permite Adiantamento Quantificado" que dá a impressão de que é opcional vincular o Adiantamento Quantificado do Pedido. Porém não é opcional, ao usar este tipo de cobrança o usuário precisa vincular o adiantamento quantificado, seja no momento da inclusão do pedido de venda ou na Manutenção de Pedidos. Para que não haja mais essa impressão, o campo passou a se chamar "Adiantamento Quantificado".
+ 
+Help:
+ 
+Painel Detalhes - Tipo de Cobrança
+ 
+TDM (CCF 13808)
+
+
+Campos na Impressão de Pedido de Venda
+
+
+Disponibilizado novos campos (Pedido, Transp, TranspVinculada) para serem adicionados no layout de impressão do Pedido de Venda.
+ 
+Caso a empresa queira adicionar algum campo novo disponibilizado nesta versão, a mesma deve editar o seu layou para acrescentá-los.
+ 
+TDM (CCF 13917)
+
+
+Valor de Pedidos Aprovados e não faturados na tela de Pedidos Pendentes
+
+No SisPetro Remoto foi ajustada a rotina de aprovação de pedidos de forma que o valor dos pedidos aprovados e não faturados não considere o valor dos pedidos não aprovados. 
+RTS (CCF 14148)
+
+
+
+
+Transportes
+
+
+
+
+Redimensionamento da tela de Manutenção de Carga com campos em posição estranha
+
+
+Alguns dos botões da tela de Composição de Carga, quando redimensionados, estavam ficando alinhados de forma errada. A partir de agora eles ficarão alinhados corretamente conforme configuração do usuário. TDM (CCF 13814)
+

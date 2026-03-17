@@ -1,0 +1,47 @@
+TITULO: Recontabilização de lançamentos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210458
+--------------------------------------------------
+Para recontabilizar lançamentos que foram gerados automaticamente utilize o Sispetro Controladoria,  menu
+ 
+Ferramentas / Contabilidade / Recontabilização de Lançamentos.
+Informe os dados para recontabilização:
+Grupo Contábil:
+ 
+Grupo contábil
+ 
+dos lançamentos.
+Código de Contabilização:
+ 
+Código de contabilização que esteja cadastrado para o grupo contábil escolhido 
+Filial:
+ 
+uma das empresas cadastradas.
+Período:
+ 
+Intervalo de datas.
+Caso a quantidade registros selecionados ultrapasse 3500 registros o SisPetro irá encaminhar a recontabilização para um JOB, e, antes de fazer irá mostrar a mensagem abaixo: 
+Inicialmente, só será possível providenciar a contabilização de lançamentos já contabilizados, ou seja, a recontabilização.
+Com estes dados iniciais é possível fazer a recontabilização de todos os lançamentos que utilizaram o código de contabilização informado, num determinado período de uma filial específica. Porém, se for necessário restringir o volume de dados utilize o botão
+ 
+Outro Filtro
+ 
+para indicar valores para determinados campos:
+Ou seja, se quiser abranger somente um intervalo de número de Notas Fiscais, escolha o campo NumeroNF e informe o intervalo inicial e final, por exemplo.
+Para maior detalhamento dos campos, consulte o Dicionário de Dados do Sistema no Sispetro Local.
+A opção
+ 
+"Exclui os lotes originais processados?"
+, se marcado, indica que os lotes originais serão excluídos depois de cancelados. Caso não marque esta opção, os lotes originais serão somente cancelados e estornados.
+Marque a opção
+ 
+"Exibir possíveis erros para serem apresentados após término do processo"
+, caso for necessário identificar os motivos de uma recontabilização que não foi realizada com sucesso. Portanto, no caso de ser encontrado erro em algum lançamento, o processo continuará até o fim, recontabilizando todos os dados que devem ser abrangidos e ao final, caso o usuário opte, exibirá os lançamentos de origem que apresentaram erros e a mensagem original do erro, conforme a figura abaixo:
+Esta relação de erros poderá ser impressa, basta clicar no botão
+ 
+Imprime
+, que fica na parte inferior da tela.
+Confirme a operação utilizando o botão
+ 
+OK
+. Os dados serão processados diretamente no Servidor Sispetro Remoto, para evitar tráfego de dados, já que o acesso é remoto. Será apresentada a tela de mensagem solicitando para aguardar o processamento. Ao final do processo, será apresentado o o total de recontabilizações, as recontabilizações efetuadas com sucesso e as não recontabilizadas:
+ATENÇÃO: Este processo é muito sério, pois cancela os lançamentos anteriormente criados e gera novos lançamentos. O critério de filtro de dados deve ser feito de forma cuidadosa e por pessoas especializadas!

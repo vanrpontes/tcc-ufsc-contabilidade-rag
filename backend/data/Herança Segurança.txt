@@ -1,0 +1,14 @@
+TITULO: Herança Segurança
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898204
+--------------------------------------------------
+Existe um comportamento muito importante na definição do perfil de segurança de cada relatório ou pasta que é a herança. Como padrão, cada relatório incluido numa determinada pasta herda no momento de sua inclusão o perfil de segurança desta pasta. Assim, caso a pasta tenha atribuido uma senha de acesso ou que somente determinados usuários possam acessá-la, este perfil será repassado ao relatório. 
+
+
+Isso também se aplica a pastas dentro de pastas. A pasta incluída em uma outra herda ou copia o perfil de segurança da pasta onde foi incluída. 
+
+
+Pode-se, em seguida, modificar a segurança individual de cada pasta ou relatório tomando-se o cuidado que, qualquer modificação de segurança numa pasta será repassada a todos os relatórios e sub-pastas que estejam contidos na respectiva pasta. 
+
+
+Assim, caso se altere determinado perfil de segurança de uma pasta, todo e qualquer perfil de segurança de sub-pastas ou relatórios contidos nesta pasta será atualizado para este perfil (inclusive perfis modificados anteriormente).
+ 

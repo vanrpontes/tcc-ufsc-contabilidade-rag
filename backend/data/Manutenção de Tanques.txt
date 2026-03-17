@@ -1,0 +1,366 @@
+TITULO: Manutenção de Tanques
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440035
+--------------------------------------------------
+none
+Caso seja necessário trocar o produto principal do tanque, siga os passos abaixo:
+Zere o saldo dos produtos que estão atualmente no tanque.
+Após o ajuste troque o produto principal do tanque.
+O SisPetro possui a leitura de tanque via arquivo. 
+Para mais informações, ver
+ 
+Leitura Automática DPM
+.
+Através do menu 
+Movimentação / Base / Manutenção de Tanques
+ é possível configurar e monitorar os tanques cadastrados no SisPetro:
+Informe o código do depósito para que seus respectivos tanques sejam apresentados na tela. Os tanques são apresentados no painel 
+Tanques
+.
+ Para que seja possível o usuário ter acesso às operações abaixo, é necessário habilitar os 
+perfis de usuário
+ 
+Permite Incluir Tanques, Permite alterar Tanques 
+e 
+Permite Excluir Tanques ,
+ localizado em
+ 
+Menu 
+Ferramentas / Usuário / Perfil / 
+Aba 
+Carregamento 
+ 
+Botões:
+ 
+Atualiza: 
+atualiza dados dos tanques. 
+Incluir: 
+inclui um novo tanque.
+Altera:
+ altera as informações do tanque.
+Exclui: 
+exclui o tanque selecionado.
+Transfere:
+ faz transferência de produtos entre tanques
+.
+Ativa/Inativa: 
+ativa ou inativa o tanque selecionado.
+O SisPetro apresenta as informações dos tanques, conforme descrição abaixo:
+Ativo: 
+mostra se o tanque está ativo ou inativo
+Virtual: 
+apresenta a informação se o tanque é virtual ou não
+Carregamento: 
+apresenta informação conforme campo 
+Tipo de movimentação
+. Se estiver como carga/descarga ou somente carga, apresenta o campo marcado.
+Descarga: 
+apresenta informação conforme campo 
+Tipo de movimentação
+. Se estiver como carga/descarga ou somente descarga, apresenta o campo marcado.
+Descrição: 
+apresenta a descrição cadastrada no tanque.
+Capacidade (a): 
+informação da capacidade do tanque
+Lastro (b): 
+lastro (parte que a bomba não consegue puxar) definido para o tanque
+Abertura: 
+quantidade apontada na leitura de abertura do tanque
+Espaço de Segurança (c): 
+quantidade informada para espaço de segurança no tanque
+Estoque Atual (d): 
+quantidade de estoque atual
+Vol. Operacional (d) - (b): 
+quantidade disponível para venda/entrega, sem considerar o lastro cadastrado (quantidade de estoque atual - lastro)
+Vol. a Completar (a) - (c) - (d):
+ quantidade disponível para completar o tanque (capacidade - espaço de segurança - quantidade de estoque atual)
+Linha: 
+quantidade de produto existente na linha do tanque
+Temp. Tanque: 
+temperatura do produto no tanque
+Temp. Amostra: 
+temperatura do produto obtida na amostra do tanque
+Densidade: 
+densidade do produto no tanque
+Produto: 
+apresenta o código e descrição do produto vinculado ao tanque.
+Inclusão / Alteração de Tanque
+Clicando no botão 
+Incluir / Alterar
+ o SisPetro mostra a tela abaixo
+Para prosseguir com a inclusão, informe os dados do tanque: código, descrição, selecione o código do produto desse tanque, capacidade, lastro e outros.
+O campo 
+Número Laudo
+ pode ser utilizado para informar o número do documento do boletim de conformidade.
+Virtual: 
+permite que este tanque possa vincular tanques reais que estejam utilizando a mesmo linha de carregamento. Para mais informações ver, 
+Tanque Virtual
+.
+ 
+ 
+Ativa Lastro Variável
+, marque caso for necessário. Se marcada, ao incluir uma
+ 
+leitura do tanque
+ será possível informar a altura do lastro variável. 
+Aba Lastro por Empresa:
+ pode ser configurado um lastro fixo (quantidade a permanecer no tanque que não poderá ser usado), utilizado para conferência de saldo em estoque, por empresa.
+Para isso, na Aba Lastro por Empresa, informe o lastro correspondente para cada empresa.
+No cadastro do 
+Depósito
+ / Painel Dados Adicionais / Opção 
+Diminui lastro da Empresa na verificação de saldo da OC
+ estiver marcada, o SisPetro irá considerar o saldo do produto como sendo a quantidade menos o lastro, cadastrado na manutenção de tanques / lastro por empresa:
+Exemplo: se temos 10000 litros em estoque para a empresa 2, que tem 7755 de lastro cadastrado, a empresa tem 2245 litros disponíveis para carregamento.
+Para que o SisPetro considere a quantidade do lastro, é necessário incluir um ajuste escritural e um ajuste físico com a quantidade do lastro. 
+Para mais informações ver,
+ 
+Fechamento de estoque por Produto
+ Código adicional do tanque:
+ é possível dar um código adicional ao tanque, pode ser numérico, com apenas letras ou uma mistura dos dois. Não há validação ao inclui-lo. É necessário cuidado ao escolher o código adicional para não ter um código para dois tanques.
+Tipo de Utilização: 
+escolha qual o tipo do seu tanque: 
+Armazenamento: 
+para os tanques que apenas armazenam produtos indicar esta opção.
+Formulação: 
+para os tanques utilizados para 
+Formulação de Produtos
+, indicar esta opção.
+Importante ressaltar que apenas na 
+INCLUSÃO
+ do tanque será permitido alterar este campo. Caso seja necessário, posteriormente entrar em contato com a Futura. Apenas tanques do tipo Formulação poderão ser utilizados na inclusão e execução de 
+Ordens de Fabricação.
+Volume de Corte:
+ para os tanques que possuam 2 ou mais produtos. Funciona como um regulador, definido o volume de corte, ou seja, o volume máximo para utilização de cada produto. Para mais informações, ver 
+Produtos Correlatos
+.
+      O SisPetro irá funcionar de duas maneiras:
+Tipo de Movimentação:
+ define o tipo de movimentação a ser utilizado pelo tanque na 
+portaria de saída
+.
+Carga/Descarga: 
+permite realizar a portaria de saída para ordem de carregamento do tipo Carga e Descarga.
+Somente Carga:
+ só permite realizar a portaria de Saída para ordens de carregamento.
+Somente Descarga: 
+só permite realizar a portaria de Saída para ordens de carregamento de Descarga.
+Desativado:
+ utilizando essa opção não será possível utilizar esse tanque na portaria de saída.
+O SisPetro apresentará esta informação na tela inicial da manutenção de tanques.
+Exemplo da utilização do 
+Volume de Corte
+Tanque A
+ 
+dois produtos
+Iremos movimentar 30.000 litros.
+Volume de Corte é 26.000 litros
+Produtos Básicos
+Saldo no Tanque
+Proporção no Tanque
+Volume Movimentado
+Saldo Final
+Xileno A
+75.000
+75%
+5.000
+70.000
+Xileno B
+25.000
+25%
+25.00
+0
+Neste caso, como o Volume de corte é 26.000 litros (Xilneno B já está no corte), e o saldo de Xileno B é 
+menor
+, o SisPetro utilizará todo o volume do produto que está inferior, e a diferença do outro.
+dois produtos
+Iremos movimentar 30.000 litros.
+Volume de Corte é 24.000 litros
+Produtos Básicos
+Saldo no Tanque
+Proporção no Tanque
+Volume Movimentado
+Saldo Final
+Xileno A
+75.000
+75%
+22.500
+52.500
+Xileno B
+25.000
+25%
+7.500
+17.500
+Agora, como o volume de corte 
+não tinha sido atingido
+, o SisPetro utilizou a proporção para efetuar a transferência, ou seja, transferiu 75% de xileno A (22.500 litros) e 25 % de xileno B (7.500 litros).
+Quando temos dois produtos num tanque, sem volume de corte, o SisPetro não deixará o saldo ficar negativo, pois, não terá como calcular a proporção de cada produto.
+ 
+Automação via Leitura
+ 
+Para configurar os parâmetros a serem utilizados na Leitura Automática, selecione um Tanque, clique no botão 
+Altera
+ e vá ao painel 
+Automação Leitura
+:
+Cabe lembrar que para o painel Automação Leitura apareça, a empresa tem que estar habilitada para tal. Para mais informações ver,
+ 
+Leitura Automática
+.
+Note que neste exemplo, a leitura do tanque selecionado será feita da seguinte maneira:
+o Volume será informado pelo 
+módulo 
+1 e posição 1 e a temperatura pelo mesmo 
+módulo
+ e posição 5.
+É importante que se cadastre os tanques do módulo 1, depois do 2, ou seja, em sequência, pois, não poderá ter tanques no módulo 2 sem ter no 1.
+Quando o tipo de cálculo for pela
+ 
+Tabela Arqueação
+, é sinal que através da régua obtida na leitura, se verificará as réguas cadastradas para chegar ao volume. No caso do tipo de cálculo estar por
+ 
+Fórmula
+, através da régua obtida na leitura o SisPetro aplicará a fórmula fornecida pela Dwyler para chegar ao volume.
+As informações tais como Range do Equipamento, Valor Mínimo e Máximo para 
+cada
+ posição do módulo, e eventualmente, os fatores para cálculo do volume por fórmula devem ser obtidos exclusivamente com a equipe técnica da Nykon Dwyler.
+Abas / Painéis da Manutenção de Tanque
+Aba Régua:
+Para cada tanque deverá ser cadastrado a régua e seu respectivo volume em centímetro e milímetro, de acordo com a
+ 
+Tabela Arqueação
+.
+A régua poderá ser utilizada como mostrado na imagem acima, utilizando centímetros (cm) e milímetros (mm), mas também é possível, que seja utilizado apenas milímetros, para isso é necessário alterar um perfil no cadastro de depósitos. 
+Para mais informações ver,
+ 
+Tabela Depósitos
+.
+Para o SisPetro mostrar o volume através da Régua, é realizado um cálculo no SisPetro. 
+Para mais informações ver,
+ 
+Cálculo de Volume através da Régua
+.
+Aba Leituras:
+São mostradas todas as leituras do tanque a partir de uma determinada data, que pode ser definida no filtro
+ 
+A partir de
+.
+Para fazer Leitura Manual, deve-se clicar no botão, Leitura Manual. 
+Para mais informações, ver 
+Como efetuar leitura do tanque
+.
+E clique no botão Leitura via Arquivo, caso deseje obter as informações vindas do arquivo. Para mais informações ver,
+ 
+Leitura Automática DPM
+.
+Atenção:
+Ao efetuar a leitura do tanque o SisPetro irá verificar se a data informada é anterior ou posterior a última leitura efetuada.
+Caso seja uma leitura com data anterior a última leitura, os dados de 
+Temperatura Tanque
+, 
+Temperatura Amostra
+ e 
+Densidade
+ do tanque 
+não sofrerão alterações
+.
+Mas caso seja posterior, os dados de 
+Temperatura Tanque
+, 
+Temperatura Amostra
+ e 
+Densidade
+ do tanque 
+sofrerão alterações
+ conforme os novos dados.
+Aba Movimentação:
+É possível fazer o filtro nas colunas de dados e o salvamento do layout conforme a última alteração do usuário.
+Mostra as movimentações ocorridas no tanque em um determinado período, que deve ser indicado na parte inferior da tela para obter a consulta desejada. São mostradas movimentações de bombeio, ajustes, etc.
+Também é possível exportar os dados da tela para Excel.
+Aba Saldo por Produto:
+Esta tela funciona como um painel demonstrativo, onde o usuário consegue ler informações como: Custo Médio, Volume, Volume a 20c e Valor do Tanque. Podemos ter 
+produtos correlatos
+ num mesmo tanque, nesta tela é separado, as quantidades de cada um, seu custo médio e volume. No painel de baixo, é somado todo o volume, tanto ambiente quanto a 20c, do tanque, e seu valor total.
+Aba Boletim:
+Nesta aba é possível visualizar os boletins cadastrados, suas respectivas datas e se eles são do tipo 
+Imagem 
+ou 
+Tabela
+. Para realizar a impressão, ver 
+Impressão de Boletim de Conformidade
+.
+Na 
+Manutenção de Depósito
+, quando o 
+Tipo de Boletim 
+estiver configurado para imagem, é nessa tela que será cadastrada a imagem que será utilizada como Boletim
+Os botões, 
+Inclui
+ e 
+Exclui
+ estarão disponíveis se:
+O usuário está habilitado para dar manutenção em boletim de conformidade. Configurar no menu Ferramentas / Usuário / Aba Perfil / Aba inferior Carregamento o perfil 
+Pode dar manutenção em Boletim de Conformidade
+ 
+Arquivo / Depósito / Aba 
+Boletim / Certificado
+ / Opção 
+Imprime Boletim
+ estiver marcada.  
+Ao clicar no botão 
+Inclui
+, é exibida a seguinte tela:
+Tanque: 
+ preenchido conforme o tanque que estiver selecionado.
+Produto do Tanque: 
+preenchido conforme o produto do tanque que estiver selecionado.
+Data:
+ informe a data, início da validade do Boletim.
+Produto do Boletim:
+ selecione o produto - depende da configuração conforme 
+Depósitos - Aba Detalhes
+ - campo 
+Produto para Impressão do Boletim de Conformidade.
+Caso utilize o produto armazenado no tanque, selecione o mesmo produto do tanque.
+Caso utilize o produto da OC, selecione um produto diferente do produto do tanque.
+Nome do Arquivo: 
+selecione uma imagem BMP, GIF ou JPEG do Boletim.
+Clique em 
+OK
+ para confirmar a inclusão.
+Aba 
+Tanques Vinculados
+: 
+vínculo de tanque real a um tanque cadastrado como tanque virtual.
+Esta aba só será acessada quando o tanque for do tipo Virtual.
+Para mais informações, ver
+ 
+Inclusão de Tanque Virtual
+.
+Inclui: 
+permite incluir um tanque real a um tanque virtual.
+Tanque:
+ já traz preenchido com o tanque selecionado.
+Tanque Vinculado:
+ permite escolher um tanque Real a ser vinculado.
+Proporção:
+ quantidade em porcentagem que será movimentada no tanque que está sendo vinculado.
+Altera: 
+permite alterar o cadastro de um vínculo já existente de um tanque real.
+Exclui:
+ permite a exclusão de um vínculo já existente.
+Aba Caminhões dentro da base:
+mostra  todos  os carregamentos e descargas que passaram pela Portaria de Entrada, mas não saíram ainda, decorrente da utilização 
+Verificação de Volume Útil de Tanque na Portaria
+.
+Na parte inferior da tela temos as seguintes opções:
+Exibe todos independente do Tanque
+: exibe todas as ordens de carregamentos e descargas que passaram pela Portaria de Entrada, mas não saíram ainda.
+Botão Troca Tanque
+: 
+onde apresenta uma tela com alguns dados do Carregamento/Descarga.
+Usuário pode escolher um Tanque que tenha um tipo de movimentação compatível.
+Se Depósito estiver configurado para verificar volume, fazer a verificação e só permitir a troca se ok (ou se optou por continuar quando avisou).
+Mostra Tanques inativos para movimentação: 
+exibe os tanques marcados como inativo.
+Para sair da tela, basta clicar no 
+botão Sai.

@@ -1,0 +1,50 @@
+TITULO: Controle de Documento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927271488
+--------------------------------------------------
+No Cadastro de Clientes/Fornecedor é possível indicar os documentos que a empresa tem do cliente, e sua validade. Para um maior controle é possível indicar no Cadastro de documentos qual é imprescindível, de forma que o Sispetro controle qual cliente ainda não entregou tal documento, impedindo dessa forma a inclusão do pedido, caso o cliente esteja com algum documento irregular, ou até mesmo bloquear os clientes com documentos irregulares.
+Configurações:
+O primeiro passo é configurar no sistema como será realizada a verificação. Para isso, basta ir na tela de 
+Configuração de Sistema
+, aba Vendas, grupo Bloqueios.
+Perfil 
+Controle de Documentos de Clientes:
+ nesse perfil definiremos a forma que será realizada a verificação, podendo ser:
+Verifica somente se falta imprescindível
+Verifica se falta imprescindível e data de validade
+Perfil 
+Valida documentos de Clientes na inclusão de Pedido: 
+nesse perfil definiremos se a validação ocorrerá na inclusão/alteração de pedido de vendas.
+ 
+Veja maiores detalhes em 
+Inclusão do Pedido de Venda
+Será realizada a validação no pedido de venda, caso o perfil 
+'
+Valida documentos de Clientes na inclusão de Pedido
+'
+ esteja habilitado.
+Verifica o perfil de sistema
+ "Controle de Documentos de Clientes":
+Se estiver 
+"Verifica somente se falta imprescindível"
+, não permite salvar o pedido caso os clientes
+ faturados
+ tiverem documentos imprescindíveis faltando.
+Se estiver
+ "Verifica se falta imprescindível e data de validade"
+,  não permite salvar o pedido caso os clientes
+ faturados
+ tiverem documentos imprescindíveis faltando, ou se algum documento estiver com a data de validade anterior à data atual (não considerará documentos sem data para essa verificação).
+Veja maiores detalhes em 
+Inclusão do Pedido de Venda
+Tela de 
+Bloqueio de Clientes
+Através da tela de Bloqueio de Clientes podemos realizar o bloqueio e desbloqueio dos clientes. Ao clicar no botão "Mostra Clientes" ou "Processa Bloqueios":
+Caso o perfil de sistema
+ "Controla validade de Documentos de Clientes"
+ estiver marcado, será apresentado na tela os clientes para bloqueio/desbloqueio:
+Todos os clientes passíveis de bloqueio (seguindo a regra da tela,  veja mais em 
+Bloqueio Automático de Clientes
+)
+Cuja Data de Validade do Documento esteja anterior à data atual (não considerará documentos sem data para essa verificação)
+Veja maiores detalhes em 
+Bloqueio Automático de Clientes

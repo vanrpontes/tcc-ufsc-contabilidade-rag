@@ -1,0 +1,45 @@
+TITULO: Automação Balança Toledo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2895708504
+--------------------------------------------------
+A integração com a balança se dá pela configuração de um arquivo 
+BalancaToledo.DLL
+ que fará a leitura do arquivo texto gerado pela balança com o peso do caminhão.
+Veja as configurações:
+É necessário que seja configurado o 
+perfil de sistema
+ e de 
+deposito
+, podendo ser definido para sempre realizar a integração ou para um determinado tipo de movimentação. Também é necessário colocar o caminho da DLL, conforme imagem abaixo:
+Veja maiores detalhes em 
+Depósitos - Aba Dados Adicionais
+ e no 
+Para obter a DLL da balança, entre em contato com o Suporte.
+Além disso é necessário ter um arquivo BalancaToledo.ini no mesmo caminho do arquivo .dll com os caminhos de onde se encontra o arquivo .bat e o arquivo .txt:
+Nesse arquivo .ini teremos os seguintes parâmetros:
+"Arquivo Batch de Acionamento da Balança" onde será informado o caminho e o nome do arquivo.
+"Arquivo Texto da Balança" onde será informado o caminho e o nome do arquivo correspondente.
+ 
+Abaixo um exemplo de como deverá ser criado o conteúdo do arquivo BalancaToledo.ini:
+[Geral]
+ArquivoBatch=c:\arquivo.bat
+ArquivoTexto=c:\arquivo.txt
+
+É possível apontar diretórios diferentes para arquivos de entrada e saída.
+Segue exemplo:
+[Geral]
+ArquivoBatchEntrada=c:\Entrada\arquivoEntrada.bat
+ArquivoBatchSaida=c:\Saida\arquivoSaida.bat
+ArquivoTextoEntrada=c:\Entrada\arquivoEntrada.txt
+ArquivoTextoSaida=c:\Saida\arquivoSaida.txt
+ 
+Ao ser configurada a integração com a balança, essa será acionada em dois pontos:
+Na Portaria de Entrada, onde o peso do caminhão será salvo como Peso Inicial
+Na Portaria de Saída, onde o peso do caminhão será salvo como Peso Final
+A partir da obtenção do peso do caminhão é possível utilizar esse peso para saber o volume ambiente carregado/descarregado.
+ 
+Peso do caminhão
+Descargas: Peso Inicial - Peso Final
+Carregamentos: Peso Final - Peso Inicial
+Volume ambiente
+ Peso do caminhão / Densidade ambiente
+Essa densidade é a cadastrada no Tanque, através da última leitura de tanque.

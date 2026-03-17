@@ -1,0 +1,97 @@
+TITULO: Versão 8.28
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924285881
+--------------------------------------------------
+Dados
+Informações
+Início
+02/09/2015
+Final
+15/09/2015
+Scripts
+CMD828.sql (3869 a 3878)
+Itens
+11
+Implementações
+3
+Correções
+8
+Relatórios
+DLLs
+Layouts de Exportação
+Anexo3.rtm
+SisPetroControl.Dll
+SCANC_v828.rtm
+ 
+Banco633_v2.Dll
+ 
+ 
+SisPetroBancos.Dll
+ 
+ 
+Geral
+Cadastro de Clientes
+Alterada as rotinas para obter os dados do cadastro de clientes. Com essa alteração, a pesquisa e abertura ficará mais rápido. UPA(CCF 928718)
+Estoque
+Fechamento de Estoque
+As telas de Consulta Fechamento de Estoque, Consulta Movimento Estoque Base e Fechamento de Estoque foram alterada visando uma melhoria na performance durante a abertura e processamento de seus dados. PRFC (CCF-29160)
+Faturamento
+Percentual de Redução da Base de Cálculo na NF-e
+Alteradas as tags pRedBc e pRedBcST para enviar 4 casas decimais para os percentuais de Redução de Base de Cálculo do ICMS. Anteriormente estava enviando no máximo duas casas decimais.
+ 
+GSN (CCF 28893)
+ 
+Nova listagem de dados (Grid) na manutenção de NF
+Atualizado o Grid na tela de Manutenção de NF, com essa alteração a performasse  da tela Manutenção de NF foi melhorado significamento, e agora tem a opção de localização através das colunas. 
+ 
+Help: 
+Manutenção de Nota Fiscal
+ 
+FLS 
+(CCF-25452)
+Financeiro
+Ajuste na cobrança eletrônica Banco Brasil
+Ajuste no tipo de movimento no arquivo de remessa do Banco do Brasil que agora pode ser 01 - remessa, 02 - Baixa e 06 - Alteração de Vencimento. Ajustado também o Número da NF-e quando o mesmo não for acompanhado da parcela. 
+Necessário atualizar a biblioteca SisPetroBancos.dll.
+  
+FLS (CCF 29104, CCF 29088)
+Nosso Número na Cobrança Eletrônica Banco Rendimento (633)
+Corrigida a apresentação do nosso número no Arquivo de Remessa do Banco Rendimento (633), que retirava o primeiro dígito quando a faixa de nosso número tivesse mais que 7 dígitos. 
+Necessário atualizar a biblioteca Banco633_v2.dll.  
+GSN (CCF 29135)
+ 
+Fiscal
+Anexo / SCANC
+Os procedimentos para processamento de Anexos e SCANC foram alterados para permitir que os produtos Óleo Diesel S10 e S500 estejam em categorias diferentes. 
+Necessário atualizar o arquivo Anexo3.rtm na pasta do executável ou nos Caminhos Auxiliares e o arquivo SCANC_v828.rtm no Layout de Exportação
+.
+ 
+Help: 
+Manutenção de Anexos - Distribuidora
+ 
+PRFC (CCF 28595).
+Servidor Sispetro
+Formatação de Casas Decimais
+ 
+Ajustado a formatação de casas decimais de maneira mais específica para seguir o padrão estipulado. 
+FLS (CCF 28986) 
+Transporte
+Placas com letras nos últimos dígitos
+Alteração para atender a resolução do Contran nº 510 de 27 de novembro de 2014, onde fica determinado que as placas dos veículos brasileiros vão se adaptar ao padrão do Mercosul continuando a ser 7 dígitos com o diferencial nos últimos (4 dígitos) que agora permitem letras. 
+A resolução ainda não está em vigor, portanto se atentar para o fato que notas fiscais emitidas com o novo formado da placa podem gerar erros de validação do schema. Homologação prevista para outubro
+.
+ 
+Help:
+ 
+ FLS (CCF 26574)
+Confirmação do Frete na OC vinculada PMM
+Implementação da confirmação do Frete da OC em relação ao Frete do PMM, onde é possível o usuário informar o valor máximo do frete. Caso o frete seja maior que o valor do intervalo definido será necessário a confirmação da OC. 
+Help: 
+Pedido de Movimentação de Material
+ 
+ 
+FLS (CCF 29123)
+Vendas
+ 
+Retirado do vínculo do Contrato de Venda à OC de transferência entre depósito
+O vínculo gerado automaticamente entre um pedido e uma OC de Venda vinculada a uma NF de Entrada está em desuso e foi retirado. 
+FLS (CCF-25595)

@@ -1,0 +1,77 @@
+TITULO: Seção Client
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210491
+--------------------------------------------------
+O SisPetro utiliza o arquivo 
+SCG.Ini
+ que entre outras coisas possui uma seção [
+Client
+ ] para conter informações sobre o banco de dados utilizado, diretórios onde serão instalados os softwares de acesso ao banco de dados, diretórios onde estarão as atualizações para o software de acesso ao banco de dados, parâmetros para ações em situações de emergências. Estas informações são utilizadas na instalação do sistema no computador do cliente e também para a atualização do software de acesso ao banco de dados. Abaixo será descrito cada registro da seção e o que cada um deve conter.
+PathDefaultBDE
+ - Informe o diretório onde será instalado o BDE (Borland Database Engine) na máquina do cliente. Caso seja a primeira vez que o SisPetro esteja sendo executado na máquina do cliente e essa máquina ainda não possua o BDE instalado, o SisPetro fará a instalação do mesmo salvando os arquivos necessários para o BDE no diretório especificado nesse registro. Como padrão caso este parâmetro seja omitido, o SisPetro utiliza o diretório 
+c:\SisPetro\Bin\BDE
+. O SisPetro também se encarrega de criar o diretório especificado para abrigar os arquivos caso o mesmo não exista.
+PathDefaultSybase
+ - Informe o diretório onde será instalado o Client do Sybase na máquina do cliente. Caso seja a primeira vez que o SisPetro esteja sendo executado na máquina do cliente e essa máquina ainda não possua o Client do Sybase instalado, o SisPetro fará a instalação do mesmo salvando os arquivos necessários para o Client do Sybase no diretório especificado nesse registro. Como padrão caso este parâmetro seja omitido, o SisPetro utiliza o diretório 
+C:\SisPetro\Bin\Sybase
+. O SisPetro também se encarrega de criar o diretório especificado para abrigar os arquivos caso o mesmo não exista.
+VersaoServerSybase
+ - Informe o numero inteiro da versão do Servidor Sybase que o SisPetro deverá acessar. Informe
+ 12
+.
+PathDllBDE
+ - Informe o diretório onde serão salvos os arquivos de atualização do BDE. A finalidade deste parâmetro é ter um local na rede onde serão salvas as atualizações do BDE e todas as máquinas que executam o SisPetro busquem os arquivos atualizados automaticamente neste local, evitando assim que o administrador tenha que atualizar máquina a máquina, para que essa atualização automática funcione, basta que o administrador crie uma pasta na rede, salve os arquivos do BDE nela e informe o diretório neste parâmetro.
+PathDllSybase
+ - Informe o diretório onde serão salvos os arquivos de atualização do Client do Sybase. A finalidade deste parâmetro é ter um local na rede onde serão salvas as atualizações do Client do Sybase e todas as máquinas que executam o SisPetro busquem os arquivos atualizados automaticamente neste local, evitando assim que o administrador tenha que atualizar máquina a máquina, para que essa atualização automática funcione, basta que o administrador crie uma pasta na rede, salve os arquivos do Cliente do Sybase nela e informe o diretório neste parâmetro.
+PathNetDir
+ - Configura de forma automática o caminho do BDE de todas as máquinas que estão acessando esse arquivo ini. Necessário ter os arquivos BDEAdmin.exe,BDEAdmin.cnt,BDEAdmin.hlp e BDEAdmin.toc, no mesmo diretório dos arquivos do BDE que o usuário tenha informado ou o diretório padrão 
+(vide PathDefaultBDE)
+.
+AtualizacaoClient
+- Informe qual atitude o SisPetro deve tomar caso os programas de acesso a dados esteja desatualizados e não consiga atualizar o sistema:
+0
+ - Permite acesso ao SisPetro e não emite aviso.
+1
+ - Emite aviso de que não conseguiu atualizar mas permite o acesso ao SisPetro(Padrão).
+2
+ - Emite aviso de que não conseguiu atualizar e bloqueia o acesso ao SisPetro.
+Caso haja algum problema com a atualização das DLLs e o arquivo .INI estiver indicando que é para emitir avisos de atualização, as mensagens serão claras, como abaixo...
+A mensagem é clara, diz que o Client está numa versão mais atualizada que o indicado no arquivo .INI
+A mensagem de erro
+ só ocorrerá em duas ocasiões:
+Quando o arquivo instalado no Client for mais atual que o indicado no arquivo. INI
+Quando a versão mínima do SisPetro (12.0.3484) não for a indicada arquivo .INI
+Caso a versão instalada no Client s
+eja menor que a indicada no arquivo
+ .INI o SisPetro pedirá autorização para atualizar as bibliotecas de DLLs
+ 
+Esta seção do arquivo SCG.Ini deve ficar parecido com a estrutura do exemplo abaixo:
+Exemplo:
+ [ Client ]
+ PathDefaultBDE=c:\SisPetro\Bin\BDE
+ PathDefaultSybase=c:\SisPetro\Bin\Sybase
+ VersaoServerSybase=12
+ PathDllBDE=S:\Atualiza\BDE
+ PathDllSybase=S:\Atualiza\Sybase
+ PathNetDir=S:\
+ AtualizacaoClient=1
+Algumas considerações a serem feitas:
+Para que o usuário consiga atualizar os softwares de acesso aos dados ao entrar no SisPetro, no Windows 2000 e XP, é necessário que o usuário no Windows tenha direitos de administrador da máquina para que ele possa alterar o registro do Windows ou mesmo copiar os arquivos necessários. No Windows 2008 e 7, deve desabilitar a UAC (User Account Control) antes de executar pela primeira vez o Sispetro na máquina. Após a execução inicial, a UAC pode ser habiltiada novamente.
+Caso o diretório onde foi instalado o BDE do cliente seja o mesmo que foi definido no parâmetro 
+PathDllBDE
+, o SisPetro irá somente verificar se a versão dos arquivos disponibilizados está compatível com o sistema, se os arquivos não estiverem atualizados, o SisPetro irá seguir as instruções que foram informadas no parâmetro 
+AtualizacaoClient
+. Cabe lembrar que usar o diretório de atualização 
+(PathDllBDE)
+ como diretório de instalação do cliente, quando utilizado em rede pode causar um trafego desnecessário na rede, bem como no processo de atualização desses arquivos, será necessário que todas as máquinas fechem o SisPetro para que o administrador possa copiar os novos arquivos para a pasta.
+Caso o diretório onde foi instalado o Client do Sybase do cliente seja o mesmo que foi definido no parâmetro 
+PathDllSybase
+, o SisPetro irá somente verificar se a versão dos arquivos disponibilizados está compatível com o sistema, se os arquivos não estiverem atualizados, o SisPetro irá seguir as instruções que foram informadas no parâmetro 
+AtualizacaoClient
+. Cabe lembrar que usar o diretório de atualização 
+(PathDllSybase)
+ como diretório de instalação do cliente, quando utilizado em rede pode causar um trafego desnecessário na rede, bem como no processo de atualização desses arquivos, será necessário que todas as máquinas fechem o SisPetro para que o administrador possa copiar os novos arquivos para a pasta.
+Caso algum arquivo que precisa ser atualizado, o SisPetro irá reiniciar a máquina para que ele possa atualizar este arquivo. Cabe ao usuário, logo após a máquina ter reiniciado, acessar primeiramente ao SisPetro para que ele execute a atualização, evitando assim que outros programas que possam estar também usando estes arquivos, os prendam impedindo a sua atualização.
+Para maiores informações quanto a configuração do Sispetro veja 
+Configuração do SisPetro
+.
+ 

@@ -1,0 +1,84 @@
+TITULO: Relatório de Contas a Receber
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898870
+--------------------------------------------------
+Este relatório mostra exatamente a situação do Contas a Receber da empresa. É possível fazer vários filtros e obter resultados de todos os tipos de lançamentos (quitados, pendentes, cancelados e etc).
+O acesso a esse relatório é através do Menu 
+Relatórios / Financeiro / Contas a Receber / Contas a Receber
+:
+O layout do relatório será gerado conforme o arquivo 
+ContasPagarReceber.rtm
+ que estiver no mesmo caminho do executável, sua existência é imprescindível. Para alterar o layout, caso for necessário ajustar de acordo com a empresa, utilize o botão 
+Edita Layout
+.
+O botão 
+Edita Layout
+ só estará habilitado se o usuário estiver com o perfil correspondente marcado no 
+painel Financeiro
+:
+Utilize as opções de Filtros existentes na tela para obter resultados mais objetivos:
+Clientes:
+ Se deseja obter resultado de todos os clientes do Contas a Receber, basta selecionar a opção 
+Todos
+, caso contrário seleciona a opção 
+Somente este
+ e informe o código do cliente. E também é possível fazer o filtro por 
+Intervalo
+, basta informar o código inicial e o código final, de acordo com o cadastro do cliente.
+ Escolha o 
+Tipo de Entidade
+, se é a entidade 
+Faturada
+ ou 
+Compradora
+.
+Unidade de Negócios:
+ Opte por 
+Todas as Filiais
+, uma 
+Filial
+, um 
+Conglomerado
+ ou um 
+Grupo de Filiais
+ específico. Só serão apresentados os títulos que atendam a Unidade de Negócios informada.
+Data Emissão:
+ Se não deseja imprimir tudo, seleciona a opção 
+Intervalo
+ e informe um período no qual foi feita a emissão do título.
+Data Vencimento:
+ Se não deseja imprimir tudo, seleciona a opção 
+Intervalo
+ e informe um período.
+Ordem:
+ É possível ordenar o relatório por 
+Data Vencimento, Data Emissão, Entidade, Comprador, Vendedor e Histórico
+, basta selecionar uma dessas opções. 
+Porém essas ordenações definem o primeiro nível de quebra do relatório, por exemplo agrupar por Data de Vencimento. Num segundo nível de ordenação é por Numero de Nota.
+Tipo Lançamento:
+ Pode-se filtrar pelo tipo de lançamentos: 
+Pendentes, Quitados, Cancelados, Todos e Todos - Cancelados
+.
+Filtra por Portador:
+ Marque essa opção, caso deseja filtrar por algum tipo de portador e informe abaixo o código do mesmo.
+Filtra Tipo Documento:
+ Marque essa opção, caso deseja filtrar por algum tipo de documento e informe abaixo o código do mesmo.
+Filtra por Tipo de Cobrança:
+ Marque essa opção, caso deseja filtrar por algum tipo de cobrança e informe abaixo o código do mesmo.
+Filtra por Vendedor:
+ Marque essa opção, caso deseja filtrar por algum vendedor e informe o código do mesmo.
+Tipos de Contrato de Vendor:
+ Marque esta opção, caso deseja filtrar por algum status de contrato de vendor: 
+Sem Vendor, Vendor Pendente, Vendor com Contrato, Vendor Inadimplente, Vendor Cancelado ou Vendor Pendente/Contrato
+.
+Opções:
+Inclui lançamentos previstos?
+ - se marcado, serão impressas também os lançamentos previstos.
+Imprime Baixa?
+ - se o lançamento foi quitado e essa opção está marcada, será impresso logo abaixo do lançamento as informações da baixa do mesmo.
+Filtra somente títulos renegociados
+ - se marcado, somente serão impressos os títulos renegociados.
+Mostra baixas bloqueadas
+ - se marcado, serão impressas as baixas bloqueadas da entidade ou comprador, apresentando a soma das baixas bloqueadas e a soma final (dos títulos pendentes + baixas bloqueadas), logo abaixo da lista de títulos pendentes. Esta opção somente estará habilitada se o campo ordem estiver selecionada em entidade ou comprador.
+Clique no botão 
+OK
+ para efetuar a emissão do relatório.

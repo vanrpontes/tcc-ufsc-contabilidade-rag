@@ -1,0 +1,26 @@
+TITULO: Função GetPMPF
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/6017122344
+--------------------------------------------------
+Histórico
+Essa função é utilizada para pegar o valor do PMPF.
+Exemplo (utilizado com a função GetUFEmp):
+sql
+wide
+760
+GetPMPF(<729>,<643>,<732>,GetUFEmp(<729>),<774>) - <774>) 
++ IsNull(<810>,0)) * (<740>/100)) + <774>
+Onde:
+<729>
+ = ItensNF.CodEmpresa
+<643>
+ = NotaFiscal.DataMovto
+<732>
+ = ItensNF.CodProd
+<774>
+ = ItensNF.PrecoPedido
+<810>
+ = ItensNF.FreteUnitReal
+<740>
+ = ItensNF.AlicICMS
+Nota:
+ os campos numéricos podem ser diferentes em bancos de dados diferentes.

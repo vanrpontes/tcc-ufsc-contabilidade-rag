@@ -1,0 +1,251 @@
+TITULO: Exemplos de Fórmulas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210345
+--------------------------------------------------
+A maior parte dos campos referentes às fórmulas são iguais, os que são diferenciados referem-se aos valores a serem lançados em cada livro. Deve-se atentar aos campos padrões no caso de Fórmulas para
+ 
+, 
+como mostra o exemplo no fim desse tópico.
+Campos Disponíveis:
+Dado
+Tabela
+Campo
+Tipo de documento
+NotaFiscal
+SeqDocto
+Série
+SerieNF
+Serie
+Subsérie
+SerieNF
+SubSerie
+Código da Entidade
+NotaFiscal
+CodEntLF
+# Docto
+NotaFiscal
+NumeroNF
+CFOP
+NotaFiscal
+CFOP
+Data de Emissão
+NotaFiscal
+DataNF
+Data Movto
+NotaFiscal
+DataMovto
+Alíquota ICMS
+NotaFiscal
+AlicICMS
+Código Histórico
+NaturezaOperacao
+CodHistoricoLF
+Histórico
+NaturezaOperacao
+HistoricoLF
+Alíquota ICMS Subst
+NotaFiscal
+AlicICMSSubst
+Informações Adicionais
+NotaFiscal
+InfoAdic
+Campos de valores:
+VENDA DE ÁLCOOL
+Dado
+Tabela
+ICMS Próprio
+Base Cálculo
+NotaFiscal.ValNF-(NotaFiscal.ICMSSubst+NotaFiscal.ValFrete)
+Valor ICMS
+NotaFiscal.ValIcms
+Valor Contábil
+NotaFiscal.ValNF-NotaFiscal.ICMSSubst
+Valor Outras
+NotaFiscal.ValFrete
+Valor Isentas
+0
+ICMS Substituição
+Base Cálculo
+NotaFiscal.BaseICMSSubst
+Valor ICMS
+NotaFiscal.ICMSSubst
+Valor Contábil
+0
+Valor Outras
+0
+Valor Isentas
+0
+VENDA DE GASOLINA/DIESEL
+Dado
+*Tabela
+ICMS Próprio
+Base Cálculo
+0
+Valor ICMS
+0
+Valor Contábil
+NotaFiscal.ValNF-NotaFiscal.ICMSSubst
+Valor Outras
+NotaFiscal.ValNF-NotaFiscal.ICMSSubst
+Valor Isentas
+0
+ICMS Substituição
+Base Cálculo
+0
+Valor ICMS
+0
+Valor Contábil
+0
+Valor Outras
+0
+Valor Isentas
+0
+VENDA DIVERSOS
+Dado
+Tabela
+ICMS Próprio
+Base Cálculo
+NotaFiscal.BaseICMS
+Valor ICMS
+NotaFiscal.ValIcms
+Valor Contábil
+NotaFiscal.ValNF
+Valor Outras
+NotaFiscal.ValNF-NotaFiscal.BaseICMS
+Valor Isentas
+0
+ICMS Substituição
+Base Cálculo
+NotaFiscal.BaseICMSSubst
+Valor ICMS
+NotaFiscal.ICMSSubst
+Valor Contábil
+0
+Valor Outras
+0
+Valor Isentas
+0
+COMPRA DE ÁLCOOL HIDRATADO
+Dado
+*Tabela
+ICMS Próprio
+Base Cálculo
+NotaFiscal.BaseICMS
+Valor ICMS
+NotaFiscal.ValIcms
+Valor Contábil
+NotaFiscal.ValNF
+Valor Outras
+NotaFiscal.ValNF-NotaFiscal.BaseICMS
+Valor Isentas
+0
+ICMS Substituição
+Base Cálculo
+0
+Valor ICMS
+0
+Valor Contábil
+0
+Valor Outras
+0
+Valor Isentas
+0
+COMPRA DE GASOLINA/DIESEL
+Dado
+Tabela
+ICMS Próprio
+Base Cálculo
+0
+Valor ICMS
+0
+Valor Contábil
+NotaFiscal.ValNF-NotaFiscal.ICMSSubst
+Valor Outras
+NotaFiscal.ValNF-NotaFiscal.ICMSSubst
+Valor Isentas
+0
+ICMS Substituição
+Base Cálculo
+NotaFiscal.BaseICMSSubst
+Valor ICMS
+NotaFiscal.ICMSSubst
+Valor Contábil
+0
+Valor Outras
+0
+Valor Isentas
+0
+COMPRA DIVERSOS
+Dado
+Tabela
+ICMS Próprio
+Base Cálculo
+0
+Valor ICMS
+0
+Valor Contábil
+NotaFiscal.ValNF
+Valor Outras
+NotaFiscal.ValNF
+Valor Isentas
+0
+ICMS Substituição
+Base Cálculo
+0
+Valor ICMS
+0
+Valor Contábil
+0
+Valor Outras
+0
+Valor Isentas
+0
+Exemplo de Fórmulas Livros Fiscais Adicional:
+Campos padrões:
+Dado
+Tabela
+Campo
+Código da Entidade
+Empresas
+CodEnt
+CFOP
+[If NotaFiscal.CFOP = 6353 Then '<2353>' Else '1353' endif]
+O
+ 
+CodEnt
+ 
+da Tabela Empresas é o código da entidade que representa a filial, a Transportadora, no grupo de empresas como fornecedor. Esse código deve ser indicado no perfil do Sistema/painel Clientes do SisPetro Normal. 
+Para mais informações, ver
+ 
+Tabela de Fórmula para Livro Fiscal
+.
+O
+ 
+CFOP
+ 
+será preenchido com o CFOP que representa a entrada da Nota Fiscal na Distribuidora, dentro ou fora do estado. E a linha de comando exemplificada acima abrange os dois casos.
+Campos de Valores:
+ deverão ser preenchidos de acordo com o que deve sair no Livro de Entrada da Distribuidora, a que receberá o registro do livro fiscal automaticamente quando emitido o conhecimento de frete.  
+Dados Complementares:
+ preencher os campos de Código da Empresa, Entrada/Saída e dados da Entidade da Tabela Empresas, pois são os dados da empresa onde está sendo gerado o Conhecimento de Frete. 
+Para mais informações, ver 
+Fórmulas para Livro Fiscal
+.
+UF salva no Livro Fiscal de Entrada de CT-e
+Na versão 10.10  foi criada uma função que permite tratar a UF que será salva no livro.
+Geralmente para tratar situações em que a operação ocorre dentro do estado, mas o fornecedor (Transportadora) é fora do estado.
+Entrada de CT-e
+Dado
+Tabela
+Campo
+Dados Complementares
+UF
+Nota Fiscal
+GetUFLFCTe(<CodEmpresa>,<Sequencial>)
+No exemplo em questão, a função 
+GetUFLFCTe
+ vai identificar através do Código da Empresa e Sequencial o CT-e, identificado a UF de Origem e Destino da operação que  será salvo no livro.
+Exemplo de como ficará a fórmula: 
+GetUFLFCTe(<556>,<557>)
+Para mais informações, ver 
+UF do Tomador no Livro Fiscal de Entrada de CT-e - Operação Interna e Interestadual
+ 

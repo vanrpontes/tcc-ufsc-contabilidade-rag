@@ -1,0 +1,37 @@
+TITULO: NF-e de Serviços e de Produtos do mesmo Fornecedor com mesma Numeração
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927274455
+--------------------------------------------------
+Para casos onde o fornecedor emitiu duas notas distintas, sendo uma de serviços e uma de produtos, ambas com a mesma série, devemos realizar algumas configurações específicas para que as notas seja escrituradas de forma correta, sem que sejam consideradas como notas conjugadas.
+O agrupamento de notas no Sispetro ocorre quando for o mesmo Fornecedor, Data, Número de Nota e Série (sendo a série do Sispetro).
+Assim, para realizar essas configurações, deve-se seguir os passos abaixo:
+Ter uma série específica para Serviços, configurada para emissão de terceiros e permitindo duplicidade por Série, Número e Entidade. Para incluir, acesse 
+Tabela Série Nota Fiscal
+.
+Manter a sua série usada em compras
+Na 
+Natureza de Operação
+ de Serviços, deve-se configurar para:
+Duplicidade #NF - definir para que fique "Permite somente para CFOP diferente" - 
+.
+Definir a série de serviços (tanto na aba Geral - 
+ - como na Dados Adicionais - 
+).
+Na participação do SPED indicar para "
+Não
+ 
+Participar
+" (
+ - opção Livro Eletrônico - Participação nos Registros).
+Na Natureza de Operação dos Produtos, deve-se configurar para:
+Duplicidade #NF - definir para que fique "Permite somente para CFOP diferente" - 
+.
+Definir a série de compras (tanto na aba Geral - 
+ - como na Dados Adicionais - 
+).
+Na participação do SPED indicar para "
+Participar no C100
+" (
+ - opção Livro Eletrônico - Participação nos Registros).
+Após as configurações, sempre que lançar uma Nota com a Natureza de Operação de Serviços, o Sispetro não agrupará com a Nota dos produtos (pois a série do Sispetro é diferente, mesmo que a série do fornecedor seja a mesma).
+No caso dos diversos produtos com CFOP diferentes, funcionará da mesma forma, desde que todas as Naturezas de Operação de produtos estejam com a mesma série.
+Sobre o envio para o SPED, só deverá ser enviada a nota se a mesma for conjugada. Nesses casos, deve-se usar a mesma série de Entrada para a Natureza de Operação de Serviço, podendo trocar manualmente quando estiver lançando a nota, afinal esses casos devem ser mais raros.

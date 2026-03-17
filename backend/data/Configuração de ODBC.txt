@@ -1,0 +1,50 @@
+TITULO: Configuração de ODBC
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2904621260
+--------------------------------------------------
+Este documento visa orientar o usuário a configurar ODBC nas máquinas que irão trabalhar com o Sispetro. Este roteiro servirá desde o Servidor até as estações de trabalho.
+É importante informar que o Sispetro trabalha em Sistema Operacional com 32 bits, porém existem recursos que poderão auxiliar na configuração de um SO de 64 bits utilizando o Sybase 12. Para maiores informações, veja o tópico sobre
+ 
+Configurar o ODBC para o banco de dados de produção que está no Sybase 12
+Acessar menu 
+Iniciar/ Painel de Controles/ Ferramentas Administrativas/ Fontes de dados (ODBC)
+;
+ 
+Acessar a aba 
+Fonte de Dados Sistema
+;
+ 
+Clicar no botão 
+Adicionar
+ e selecionar o driver para configurar a nova fonte de dados, sendo ele 
+SQL Anywhere 12
+;
+Após escolher a opção 
+SQL Anywhere 12
+, clique em Concluir;
+ 
+Na aba ODBC da janela ODBC Configuration:
+Preencher o campo 
+Data Source name
+ com o nome do ODBC (não precisa ser necessariamente o mesmo nome do banco de dados);
+Habilitar, 
+obrigatoriamente
+, as opções 
+Microsoft applications (Keys in SQLStatistics)
+ e 
+Delphi applications
+;
+Manter as demais opções da forma padrão;
+ 
+Na Aba Login da janela ODBC Configuration:
+Definir o campo 
+Authentication
+ como Database;
+Preencher os campos de User ID e Password;
+Definir o campo 
+Action
+ como Connect to a running database on this computer;
+ 
+Manter o padrão das demais definições;
+Após a configuração do ODBC, é preciso configurar o 
+Servidor Sispetro
+.

@@ -1,0 +1,54 @@
+TITULO: Ressarcimento ICMS - AM
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2932048912
+--------------------------------------------------
+A partir da versão 10.13, foi implementada a geração do arquivo de notas de saídas vinculadas a notas de entradas. 
+Para vincular as últimas notas de entrada nas notas de saídas, deve seguir as configurações em 
+ e 
+Vínculo de NF com Última NF de Entrada
+. As configurações de vínculos automáticos são válidas a partir da configuração das naturezas. Para as notas já emitidas é necessário vincular manualmente conforme 
+Vínculo de NF com Última NF de Entrada
+.
+A geração do arquivo de Ressarcimento para Amazonas pode ser acionado pelo Menu
+ 
+Relatórios / Controladoria / Ressarcimento ICMS - AM
+:
+Aba Notas
+Empresa:
+ Deve ser informada a empresa.
+Período:
+ Referente à Data de Movimentação da NF, não podendo ter a data final maior que a data atual
+Notas Fiscais de Venda:
+Todas
+Somente com Ressarcimento
+Somente com Complemento
+Notas Fiscais de Compra:
+Todas
+Somente com ICMS ST
+Ao clicar no botão
+ 
+Atualiza
+ serão apresentadas os itens de NF conforme os filtros informados, desde que o produto seja Combustível
+Por padrão todas as notas são marcadas para enviar no arquivo. Caso tenha notas que não devem sair no arquivo, desmarque-as.
+Só serão apresentadas as notas do tipo Vendas e Compras
+Aba Produtos
+Para envio do código do produto no fornecedor, será verificado se na NF tem o código salvo. Caso não tenha, será utilizado o 
+De/Para
+ de Produto vinculado ao Fornecedor (que é utilizado para Importação), se houver.
+ 
+Na ausência de ambos, o código do produto no fornecedor não será enviado.
+No caso de ser encontrado mais que um Fornecedor nas NF de entrada para o produto, o mesmo será enviado mais de uma vez no arquivo.
+Se as NF de um mesmo fornecedor tiver mais que um código para o mesmo produto do SisPetro, o produto será enviado mais de uma vez no arquivo
+A unidade de medida do fornecedor será enviada conforme a unidade de medida informada no SisPetro ao lançar a NF
+Por padrão todos os produtos são marcados para enviar no arquivo. Caso tenha produtos que não devem sair no arquivo, desmarque-os.
+Caso algum produto que deveria aparecer e não está, verifique se o produto está cadastrado com o tipo de produto igual a combustível. E caso algum produto não combustível esteja aparecendo, verifique o tipo de produto. Ver em 
+ - aba Ficha Produto > campo Tipo Produto
+Aba NF Saída X Entrada
+São apresentadas as notas de saída cujas naturezas estejam marcadas para vincular.
+Por padrão todas as notas são marcadas para enviar no arquivo. Caso tenha notas que não devem sair no arquivo, desmarque-as.
+Edição da Tela
+Será possível incluir/retirar colunas, bem como mudá-las de posição
+Geração do arquivo
+Após selecionadas as notas, os produtos e as notas vinculadas, o usuário deve informar os nomes/caminho dos arquivos de Notas, Produtos e NF Saída X Entrada e clicar no botão 
+Gera Arquivos.
+ 
+Serão gerados os arquivos na pasta informada:

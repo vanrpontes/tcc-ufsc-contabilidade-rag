@@ -1,0 +1,36 @@
+TITULO: Banco do Nordeste do Brasil
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919990692
+--------------------------------------------------
+Painel Cobrança Eletrônica
+Banco: 
+Deve ser informado o número do banco, 004
+Informar o número de 
+convênio. Informado pelo banco
+Preencher #Agencia com 4 dígitos e o dígito verificador.
+Preencher Número Conta com 7 dígitos. Preencher também o dígito verificador da conta.
+Preencher a Carteira com 2 dígito
+#Docto no Arquivo Remessa:
+ se informado a opção 
+Com Parcela...
+, será acrescentado no lado do campo 
+Número de Documento no Arquivo de Remessa
+, a identificação da parcela.
+O campo 
+Informação de juros no Arquivo Remessa
+ pode ser configurado com qualquer uma das opções, sendo utilizado no arquivo de remessa.
+Desconto Cond. Arquivo Remessa:
+ Em alguns casos há a necessidade de dar um abatimento ao cliente ao invés de desconto condicional. É importante que no ato do pedido de venda saiba o valor total do abatimento a ser concedido. Consequentemente a Nota Fiscal de Venda e o título do Contas a Receber seriam gerados com o valor total e no arquivo de remessa será enviado o valor deste abatimento e a baixa deste arquivo de remessa (via Arquivo de Retorno) irá considerar devidamente o abatimento enviado.
+As opções existentes para este perfil são:
+Informar como Desconto:
+ será informado no arquivo de remessa como desconto condicional.
+Informar como Abatimento:
+ será informado no arquivo de remessa como abatimento.
+Importante ressaltar que os bancos no SisPetro utilizam SLL. É preciso informar o nome dela para que a cobrança funcione corretamente. Neste caso o nome da SLL é Banco004.sll , para mais informações, ver 
+Cobrança Eletrônica
+Painel Informações sobre a Cobrança
+A cobrança para o BNB não utiliza banco correspondente, portanto, a opção 
+Utiliza Banco Correspondente
+ não deve ser marcada.
+Linha digitável
+Para maiores informações sobre a linha digitável, vide help 
+Montagem da Linha Digitável

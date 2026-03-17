@@ -1,0 +1,114 @@
+TITULO: Aprovação do Pedido de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440064
+--------------------------------------------------
+A partir da versão 10.30, a aprovação de pedidos em lotes passa a ser mais flexível com a implementação do perfil de sistema
+ 
+Agrupamento permitido na Aprovação em Lote de Pedidos.
+ 
+A
+ntes a aprovação em lote somente era permitida para os pedidos de mesmo cliente comprador. Agora é possível a aprovação em lote através de pedidos de clientes comprador do mesmo grupo econômico, ou de forma livre sem a análise de cliente comprador ou grupo econômico. Para mais informações, ver 
+Grupo Econômico: formato antigo e formato novo
+.
+Os pedidos de vendas podem ter a sua liberação de forma automática ou não, dependendo das permissões do usuário que está emitindo o pedido. Para mais informações, ver 
+Fluxo de Aprovação de Vendas
+.
+Quando o usuário possui permissão, o pedido emitido por ele é liberado automaticamente, não precisando que outro usuário o libere. Por outro lado, o usuário que não possui esta permissão terá o pedido "parado" na manutenção de Pedidos Pendentes, aguardando a sua liberação por parte do usuário responsável.
+Para liberar um ou mais pedidos pendentes o usuário deve acessar o menu 
+Consulta / Pedidos Pendentes.
+A seleção de vários pedidos para aprovação está disponível a partir da versão 10.23.
+Esta tela apresentará todos os pedidos que estão pendentes, ou seja, que precisam de liberação.
+Só será apresentado os pedidos para a filial que o usuário tem acesso. Para mais informações, ver 
+Perfil para grupos de usuários
+.  
+Importante lembrar que se o usuário não tiver permissão para visualizar os pedidos dessa filial, nesta tela não será exibido nenhum pedido.
+Os Pedidos Aprovados serão mostrados na tela de acordo com o perfil de Grupo de Usuários utilizado. Para mais informações, ver 
+Visualização de Movimentação por Grupo de Usuários
+.
+O status de liberação do pedido pode ser visualizado no quadro 
+pedidos, 
+nas colunas Liberado Financeiro / Vendas / Transporte, conforme imagem abaixo. 
+Aprovando um pedido de venda
+Para aprovar um pedido, basta seleciona-lo e clicar no botão 
+ localizado no canto inferior esquerdo da tela.
+O Sistema exibe a tela de aprovação de pedidos. Esta tela também pode ser acionada pela 
+Composição de Carga
+, pela tela 
+Manutenção do Pedido
+ e pelo Menu movimentação > Vendas >Aprova Pedido de Venda .
+Note que o número do pedido é exibido.
+Acione a tecla <Enter> para que o Sistema exiba os demais dados do pedido.
+Informe o campo 
+Observações
+ caso tenha necessidade de informar alguma observação referente à aprovação.
+Marque o Tipo de liberação a ser efetuado. No exemplo em questão o usuário tem a permissão de liberar as três áreas: Vendas, Financeiro e Transportes. Se a empresa preferir, pode ter um responsável pela liberação para cada área. Para isso basta que o perfil do usuário seja configurado corretamente. Ao acionar o botão 
+ o pedido é liberado. O Sistema permanece na tela de aprovação de pedidos para que o usuário, caso queira, continue a liberar os pedidos um a um, bastando informar o número desses pedidos. Para retornar à tela de Pedidos Pendentes, basta clicar no botão Cancela.
+Caso o usuário queira aprovar vários pedidos de uma vez, basta na tela de Pedidos Pendentes o usuário selecionar vários pedidos segurando a tecla <Ctrl> do teclado, clicando em vários pedidos.
+No quadro Pedidos os pedidos selecionados ficam marcados em azul e com uma bolinha preta do lado esquerdo 
+Após a seleção basta clicar no botão 
+. O SisPetro 
+não mostrará 
+a tela de liberação de pedidos e liberará os pedidos nas instâncias que o usuário liberador tenha permissão e desde que o pedido ainda não tenha sido aprovado.
+Para aprovação de vários pedidos (ou aprovação em lote) o cliente principal do pedido deve ser o mesmo. Se não for o SisPetro não entrará na análise da 
+Aprovação de Vendas
+ e mostrará a mensagem abaixo: 
+Botões: 
+ faz apenas a análise ou a aprovação do pedido selecionado idêntico a aprovação automática. 
+ permite incluir um adiantamento quantificado ao pedido selecionado. Os pedidos cujo tipo de cobrança está configurado para adiantamento quantificado ficam destacados na cor verde escuro.
+ mostra as informações do grupo econômico ao qual o cliente do pedido selecionado está inserido. 
+Botões do rodapé
+ visualiza o pedido selecionado
+ aprova o(s) pedido(s) selecionado(s)
+ cancela o pedido selecionado.
+ permite editar as observações do pedido selecionado. 
+apresentará uma tela que permite a 
+simulação do cálculo do valor do frete
+ mostra a tela de Analise de Custo do Produto. Para mais informações, ver 
+ mostra o cadastro do cliente / aba Movto.Faturado.
+mostra o cadastro do cliente / aba Bloqueios.
+ mostra as pendências financeiras do cliente. 
+ mostra os clientes pertencentes ao mesmo Grupo Econômico do cliente do pedido selecionado.
+ permite alterar a transportadora do pedido selecionado. Para isso ocorrer é necessário:
+Que o pedido seja da empresa conectada
+Que perfil do usuário Aba Vendas / 
+Permite alterar a transportadora do pedido 
+esteja marcado. 
+ permite alterar o depósito do pedido (desmembramento). Para isso ocorrer é necessário:
+Que o pedido seja da empresa conectada
+Que o perfil do usuário Aba Vendas /  
+Permite alterar o depósito do pedido
+ esteja marcado.
+ imprime o pedido selecionado
+ atualiza o quadro pedidos. 
+Informações Importantes
+Para mais informações sobre as pendências financeiras do cliente, ver 
+Saldos de Cliente e Grupo Econômico na Consulta de Pedidos Pendentes
+ 
+Se a empresa trabalha com valores diferenciados do pedido para o Faturamento (NF) e para o Financeiro, pode-se através dessa tela consultar esse valores. Esses valores serão mostrados nas colunas Valor e Valor Tabela que, dependendo de como foi definido no perfil da empresa, uma irá mostrar o valor que irá para o Faturamento(NF) e a outra para o Financeiro. Para mais informações, ver 
+Valor Faturamento x Financeiro
+.
+Se o pedido de venda estiver configurado para ser do tipo 
+Adiantamento Quantificado
+ e ainda não tiver um vínculo, será retornada a mensagem de erro e o pedido não poderá ser aprovado.
+Se para o usuário estiver configurado o controle de liberação por cota, será verificado o limite de aprovação disponível para ele. Para mais informações, ver 
+Liberação de Preço por Cota
+.
+Se o cliente cujo pedido de venda está sob aprovação estiver inadimplente (qualquer título a receber vencido), o usuário aprovador deverá ter um perfil especial (na manutenção de usuários, aba 
+Financeiro
+, perfil 
+Libera Ped. Venda em qq situação financ. (inadimplência)
+.
+Se na empresa estiver configurado para verificar custo x produto e encontrar itens com custo maior que o preço à vista, o pedido ficará pendente para aprovação. Para mais informações, ver 
+Controle de preços abaixo do custo
+.
+Caso o perfil de empresa  no 
+ "
+usuário aprova pedido por filial
+" estiver marcado e o usuário que estiver tentando aprovar o pedido não tiver permissão (
+Painel Filiais p/ Aprovação de Vendas
+) será exibida a mensagem que o usuário não está configurado para fazer a aprovação para a filial desse pedido.
+Se o cliente não estiver com consultas não válidas, expiradas ou com restrições o usuário deve ter o perfil de vendas Pode aprovar Pedido de Venda mesmo com restrição. Para mais informações, ver 
+Painel Vendas (Usuários)
+.
+O usuário poderá verificar a situação da consulta à Gerenciadora. Para mais informações, ver 
+Consulta Análise de Crédito
+.

@@ -1,0 +1,65 @@
+TITULO: Executar comandos para validação do banco de dados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2903998761
+--------------------------------------------------
+Após configurar o banco como serviço e executar o script para atualização das Views, o usuário deverá executar os scripts abaixo:
+
+
+
+
+
+
+Execute os comandos abaixo via Interactive SQL (conhecido como DBISQLC (
+atente-se, pois deve estar na versão 12 do Sybase
+).
+
+
+
+Na tela de conexão, escolha no campo 
+Action
+ a opção 
+Connect with a ODBC Data Source
+. Marque a opção 
+ODBC Data Source name
+ e defina o ODBC configurado para conexão ao banco de dados.
+
+
+
+
+
+
+
+Clique no botão 
+Connect
+;
+
+
+
+Na tela seguinte copie e execute o comando abaixo (clique no botão de Play ou na tecla F9):
+
+
+SET OPTION DBA.TSQL_OUTER_JOINS='ON';
+SET OPTION non_keywords = 'XML';
+
+
+
+
+
+
+
+
+
+Em seguida, execute o comando abaixo para verificação de erros no banco (clique no botão de Play ou na tecla F9):
+
+
+Validate Database;
+
+
+
+
+
+
+
+
+
+O comando acima é demorado, portanto, aguarde sua finalização para dar continuidade no processo de migração.
+

@@ -1,0 +1,36 @@
+TITULO: Como emitir Nota Fiscal com endereço de faturamento no exterior e consumo dentro do País
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/3909189644
+--------------------------------------------------
+Aqui trataremos como emitir uma nota fiscal com
+ endereço de faturamento do cliente no exterior, mas o consumo é dentro do país.
+Configurações
+Para clientes estrangeiro, alguns perfis de cadastro são preenchidos ou tem sua opção selecionada diferente de clientes convencionais.
+Em Arquivos > Clientes > Aba Detalhes
+Aba superior Detalhes
+ 
+No Campos Inscrição Estadual / RG: em operações de consumo no País, é preciso preencher o campo com numero do documento legal do cliente estrangeiro. Esta informação é passada na tag idEstrangeiro do XML.
+Aba inferior
+ Cadastro Detalhado
+No perfil 
+Contribuinte do ICMS,
+ informe a opção 
+Não Contribuinte
+Aba inferior 
+Padrão para Vendas
+No perfil 
+ Endereço de Consumo
+Informe a opção 
+Entrega
+Para mais informações, ver 
+Em Tabelas Auxiliares > Natureza de Operação
+Aba superior Detalhes - aba lateral Por Filial - aba inferior Impostos 
+No perfil 
+UF Utilizada para Impostos
+ 
+Para a Natureza de Exportação, informe a opção UF de Faturamento. Com esta opção o SisPetro ira gerar o XML com os dados de endereço do cliente no exterior.
+Para a Natureza de Consumo no País, informe UF de Consumo. 
+Com esta opção o SisPetro ira gerar o XML com os dados de endereço de consumo no País.
+Para mais informações, ver 
+Impostos (Painel Por Filial)
+ e 
+Outros Impostos (Painel Por Filial)

@@ -1,0 +1,52 @@
+TITULO: Cenário 5: Controle de Representantes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2919990949
+--------------------------------------------------
+Cenário 5: 
+Para empresas que trabalham com representantes, onde cada representante fecha contrato com a Usina, passa as informações para a Distribuidora, que providencia a inclusão do PMM.
+Na sequência, é feita a venda dos produtos por esses Representantes, utilizando seus respectivos estoques. Para identificação das vendas deve ser utilizada a figura do Comprador, ou seja, cada Representante se torna um comprador e as vendas são vinculadas, através do Comprador, aos seus Representantes. No caso do PMM o representante será informado na tela de inclusão.
+Para utilizar esse recurso é necessário seguir os passos abaixo:
+Configurações de empresa
+ - Perfil de empresa, denominado "Informação de Representante no PMM" com 3 opções:
+Não informa Representante (padrão)
+ - caso está opção seja selecionada o usuário inclui o PMM normalmente sem informar o representante;
+Permite informar mas não obriga
+ - caso está opção seja selecionada o usuário tem a opção de informar ou não o Representante;
+Obriga informar Representante
+ - caso está opção seja selecionada o usuário é obrigado a informar um representante, se não for informado o PMM não será incluído.
+Cliente como representante
+No cadastro de 
+Clientes
+, existe o campo "
+Pode ser representante
+?" na aba 
+Cadastro Detalhado
+, dentro do grupo "Análise de Crédito Grupo Econômico.
+Esse campo será acessado por usuários cujo perfil "Pode alterar cadastro detalhado Cliente" esteja marcado;
+Por padrão esse campo é sugerido desmarcado.
+Após habilitar as opções mencionadas acima, quando o usuário for incluir o PMM, ele tem a opção informar o representante. Com essa informação informada no PMM é possível visualizar o representante em várias telas, que veremos a seguir. Mais informações 
+Pedido de Movimentação de Material
+.
+Depois de concluída a emissão, o usuário pode visualizar o representante em outras telas como na inclusão de OC, desde que o 
+"Tipo de Carregamento" 
+seja 
+Transferência entre depósitos
+ e 
+Carga/Descarga própria, 
+pois a opção 
+"informa PMM"
+ só é habilitada quando esses tipos de carregamento são selecionados. Além disso, o perfil "
+Controla Pedido de Movimentação de Material
+" deve estar marcado, em 
+.
+Marcando esse campo, no grid irá exibir o campo 
+"# Pedido Mov. Material" 
+e,
+ 
+clicando nesse campo, é possível visualizar os PMM que correspondem ao fornecedor informado na OC. Note que no grid está sendo exibido o representante que foi escolhido na emissão do PMM.
+Mais informações 
+Inclusão de Ordem de Carregamento
+.
+Além da tela inclusão de OC, o campo representante pode ser visualizado na tela de inclusão de adiantamentos de fornecedor, se a opção informa PMM estiver marcada. Dessa forma é mais fácil identificar quem é o Representante responsável pelo adiantamento.
+Mais informações 
+Roteiro de Inclusão de Adiantamento a Fornecedores
+ 

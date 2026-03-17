@@ -1,0 +1,35 @@
+TITULO: Configurações de dados das obrigações a recolher
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2907309710
+--------------------------------------------------
+A geração da EFD ICMS IPI utiliza informações da Apuração Fiscal nos Registros do 
+Bloco E
+. A partir da versão 7.27 todas as informações pertinentes a este bloco poderão ser geradas conforme configurações de sistema e da apuração fiscal. 
+Vejamos o que precisará ser configurado.
+Definir a Obrigação a Recolher para a empresa:
+Acessar o menu 
+Ferramentas > Sistemas > aba Livro Eletrônico
+.
+Configurar no quadro 
+ICMS Próprio
+, os campos:
+Código da Obrigação a Recolher
+: Definir o código da obrigação a ser considerada para o ICMS Próprio.
+Sequencial do Processo Referenciado
+: Definir o sequencial do processo referenciado a ser considerado para o ICMS Próprio.
+Configurar no quadro 
+ICMS ST
+, os campos:
+Código da Obrigação a Recolher
+: Definir o código da obrigação a ser considerada para o ICMS Próprio.
+Sequencial do Processo Referenciado
+: Definir o sequencial do processo referenciado a ser considerado para o ICMS Próprio.
+Os dados informados nesta tela serão apresentados na Apuração Fiscal, e consequentemente serão gerados nos registros E116 (para ICMS Próprio) e E250 (para ICMS ST).
+ 
+Definir os Códigos da Receita nas UF's geradas na Apuração Fiscal
+Acessar o menu 
+Tabelas Auxiliares > Faturamento > UF > aba Detalhes > aba inferior Dados Gerais
+.
+Para cada UF utilizada pela empresa na Apuração Fiscal, deverá ser configurado o respectivo código da receita para os campos:
+Cód. Receita ICMS Próprio
+Cód. Receita ICMS ST
+Os dados informados nesta tela serão apresentados na Apuração Fiscal.

@@ -1,0 +1,57 @@
+TITULO: Manutenção de Viagens - SisPetro App
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4619730946
+--------------------------------------------------
+Objetivo
+O controle de viagens utiliza o vínculo entre o usuário e um motorista para, ao entrar na tela inicial, mostrar as Ordens de Carregamento do dia para este motorista de forma que ele possa escolher uma (a que fará a viagem).
+Em seguida, irá 
+informar
+ 
+os dados previstos da viagem
+ (data/hora de saída, término das entregas, etc). Isso ele poderá fazer bem antes de sair, na sua preparação.
+Ao sair para a viagem, deve
+ informar que está saindo
+ (viagem mudará de status para 
+Em Entrega
+) informando a quilometragem inicial e data/hora real de saída.
+Assim que começar as entregas, deve 
+informar os dados de cada uma delas
+ (aqui aproveitamos a infraestrutura do controle de canhotos pois os dados são os mesmos).
+Quando voltar à base, deve
+ informar que finalizou a viagem
+ informando a quilometragem final e data/hora. Com isso, o status da viagem é mudado para 
+Viagem Finalizada
+.
+São processos simples mas que devem ser realizados com cuidado pois envolvem horas, datas e etapas que servirão para análises posteriores de performance das entregas.
+Botões
+INFORMAR DADOS PREVISTOS DA VIAGEM 
+Informar a 
+Previsão
+ de início e retorno a base
+Após salvar os dados acima, o usuário irá, 
+por entrega
+, informar a data e hora prevista para cada entrega
+INICIAR VIAGEM
+informar a quilometragem antes de sair da Base e o Início Real da viagem
+INFORMAR DADOS ENTREGAS
+Informar os dados reais de cada entrega. O usuário deve selecionar a entrega que será feita (ela é apresentada em ordem de previsão de entrega), e clicar no botão 
+Editar Entrega
+informar os dados do Recebedor e através do botão 
+Buscar Coordenadas
+ obter a latitude e longitude do local de entrega. 
+Na primeira vez que o usuário utilizar esse recurso, o browser (navegador) irá solicitar permissão de acesso. Clique em 
+Sim 
+para permitir. 
+Será aberta a tela de (a mesma do botão 
+Incluir 
+da 
+Manutenção de Entregas
+ do App onde é possível incluir o canhoto assinado e achave da nota fiscal. Para mais informações, ver 
+Manutenção de Entregas - Sispetro App
+FINALIZAR VIAGEM
+informar os dados reais de entrega e a quilometragem do caminhão quando ele chegar a Base. 
+VIDEO DEMONSTRAÇÃO
+Clique no quadro abaixo para assistir a demonstração.
+INICIANDO VIAGEM
+400
+ENCERRANDO VIAGEM
+400

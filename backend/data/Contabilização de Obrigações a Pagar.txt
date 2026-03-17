@@ -1,0 +1,67 @@
+TITULO: Contabilização de Obrigações a Pagar
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5178261505
+--------------------------------------------------
+Objetivo
+A Contabilidade gerencial no Sispetro obriga que todo Contas a Receber e Contas a Pagar, seja contabilizado na conta da entidade, Cliente e Fornecedor respectivamente. Porém, todas as contas de fornecedores utilizados no Contas a Pagar são geradas a partir da Conta de Fornecedores sintética, mas nem todos os pagamentos são lançados em contas abaixo do grupo Fornecedores, podem ser abaixo da Conta Impostos a Pagar, Salários a Pagar, etc. Aqui explicaremos como utilizar os recursos do Sispetro para cadastrar fornecedores para as Obrigações a Pagar com contas abaixo da conta que não seja a de Fornecedores.
+Configuração
+Cadastrar no perfil de Sistema, aba Contas Contábeis, a conta de Fornecedores com a conta gerencial sintética Fornecedores Nacionais (ou equivalente).
+Essa é a conta onde a maioria dos fornecedores devem ficar, pois só alteraremos as exceções.
+Configurar o perfil “Na Inclusão de Fornecedores” (aba Contab. Real) com a opção “Deixa fornecedor bloqueado para definição posterior”.
+Para cada orgão que é gerado um Contas a Pagar é imprescindível que seja incluído um Fornecedor. Caso esse órgão movimente mais que uma conta no Passivo, devem ser gerados “n” fornecedores para as “n” contas. 
+Para que o Sispetro permita repetir o CNPJ, no Cadastro de Fornecedor devemos marcar os campos “
+Pessoa Jurídica
+” e “
+Órgão Público
+”.
+Exemplo:
+Para a Receita Federal temos os impostos/Contribuições PIS, COFINS e IR.
+No Plano de Contas, temos as contas PIS a Pagar, COFINS a Pagar e IR a pagar.
+Serão 3 fornecedores:
+Razão Social:
+ 
+PIS a Pagar
+ - Secretaria da Receita Federal
+CNPJ: 
+00.394.460/0058-87
+Razão Social:
+ 
+COFINS a Pagar
+ - Secretaria da Receita Federal
+CNPJ: 
+00.394.460/0058-87
+Razão Social:
+ 
+IR a Pagar
+ - Secretaria da Receita Federal
+CNPJ: 
+00.394.460/0058-87
+Para efeito de envio de Participantes no SPED o Sispetro possui no Cadastro do Fornecedor, aba Detalhes / Observações o campo “
+Código Entidade p/ uso no Livro Eletrônico
+“, onde todos os fornecedores com o mesmo CNPJ devem ser direcionados para um deles, que será o enviado nos registros que envolve Participantes no SPED.
+Essa orientação também é válida para os casos, como 
+Salários a pagar.
+ No caso de fazer o lançamento direto nessa conta, deve-se criar um segundo fornecedor com o CNPJ da empresa (o primeiro já deve estar cadastrado para uso nas transferências de produto e outras operações).
+O primeiro fornecedor (oficial) não deve ter o campo Órgão Público marcado.
+Como foi configurado no passo 2 que o Fornecedor vai ser incluído bloqueado, o vínculo das contas e desbloqueio ocorrerá nos próximos passos.
+Acessar o item de Menu Ferramentas / Cadastro de Fornecedores  / 
+Vínculo de fornecedor a conta real.
+Marcar o campo 
+Mostra apenas fornecedores sem conta contábil real
+.
+Escolher cada fornecedor e vincular a sua conta real correta, abaixo do grupo correto.
+Com essa operação o Fornecedor será desbloqueado e sua 
+Conta Real 
+estará configurada. 
+Para ajustar a conta no Plano de Contas Gerencial, no Sispetro Normal, menu Arquivos, deve-se entrar na tela de 
+Plano de Contas
+.
+Localize a conta do Fornecedor (o campo complemento é o código da entidade e pode ser usado para pesquisar). 
+Na aba Detalhes, no campo 
+Código Conta Estendido
+, alterar para usar o mesmo código estendido da conta contábil real vinculada.
+Durante o processo de implantação essa tarefa pode ser feita pela Futura, em lote, pelo banco de dados. Futuramente isso será feito de forma automática.
+Conclusão
+Apesar do trabalho ser feito em etapas, o trabalho maior é durante o processo de implantação, quando devem ser identificadas todas as contas do Passivo a Pagar e definido o Fornecedor que será utilizado para ela. No dia-a-dia teremos somente os casos pontuais de algumas contas analíticas que por ventura venham a ser criadas.
+O código/complemento de contas gerenciais é para uso interno do Sispetro, para identificar cada conta de forma única e não poderá ser alterado pelo usuário. O complemento é usado para indicar a entidade, através dele que gerencialmente é controlado o Contas a Pagar. 
+O saldo total das contas com o mesmo código deve ser o saldo pendente do Contas a Pagar.
+A comparação de saldos ou movimentação entre o Plano de Contas Gerencial e o Plano de Contas Real será pelo vínculo que é feito no Plano de Contas Gerencial indicando a conta real, independente do código das contas.

@@ -1,0 +1,21 @@
+TITULO: Antecipação de solicitação de autorização
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899670
+--------------------------------------------------
+Em 2008 o Estado de São Paulo aboliu o envio de CODIF para distribuidoras devido a implementação da NF-e. A partir da versão 8.11 toda a estrutura do CODIF foi removida.
+Ao identificar que será necessário incluir uma nota para um determinado cliente, produto e quantidade, é possível antecipar a solicitação de autorização do CODIF indo à tela de 
+Manutenção de Autorização
+ e 
+incluindo uma autorização manual
+, informando o cliente, produto e quantidade.
+Em seguida, conforme o tipo de Integração (automática ou semi-automática), solicite a autorização:
+Semi-Automática
+Gere um Arquivo de Autorização ainda na tela de 
+Carregue esse arquivo no site do CODIF
+Salve o arquivo de retorno disponibilizado pelo site do CODIF
+Leia esse arquivo retornado na tela de Manutenção de Autorizações.
+Automática
+Na tela de 
+ solicite uma autorização pelo botão 
+ Com isso, a sua autorização manual já terá um código de autorização.
+Ao incluir uma Nota Fiscal para o mesmo cliente, produto e quantidade, o SisPetro já identificará que há uma autorização manual com as mesmas características e, ao invés de incluir uma autorização, usa essa mesma, vinculando ela à nota.
+Com isso, ao concluir o processo, partindo para a parte da impressão, será identificado que já há código de autorização, então a nota já será impressa, não precisando imprimir a nota num segundo momento.

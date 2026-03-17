@@ -1,0 +1,39 @@
+TITULO: Como emitir Nota Fiscal Complemento de Impostos - FCP
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4145545217
+--------------------------------------------------
+Para emitir Nota Fiscal de complemento de Impostos - FCP (Fundo Estadual de Combate à Pobreza) selecione a partir do menu principal as opções - 
+Movimentação / Faturamento / Complemento Preço/Impostos
+.
+1 - Criar um código ICMS específico para ser utilizado com um produto a ser informado na nota complementar na UF:
+Alíquota ICMS Próprio: 0
+Alíquota FCP: informar a alíquota
+2 - Criar um produto conforme consta na Resolução Sefaz 720/2014:
+Campo Código do Produto ou Serviço (cProd): código escritural gerado pelo próprio contribuinte;
+Campo Descrição da Mercadoria (xProd): a expressão Correção de destaque de ICMS
+Campo Código NCM: 00000000
+Campo Código ICMS: informar o código criado no item 1
+3 - Configurar a natureza de complemento:
+Aba Geral > aba Dados Gerais > Tipo NF: selecionar Complementar
+Aba Por Filial > aba Impostos:
+Quadro ICMS / IPI > marcar as opções:
+Gera ICMS
+Mostra valores de ICMS nos itens da NF
+Não calcula ICMS automaticamente (usuário informa)
+Quadro Fundo Estadual de Combate à Pobreza - FCP
+Campo Envio do FCP nas Informações Adicionais do XML da NF-e: selecionar Nas Informações Adicionais do Produto e Complementares da NF
+Campo Calcula FCP sobre ICMS Próprio?: selecionar Calcula para uso nas Obrigações
+Quadro PIS / COFINS e Outros : marcar a opção Permite item da NF com valor zerado
+4 - Emissão da nota complementar:
+Em Menu Movimentação > Faturamento > selecione Complemento Preço/Impostos:
+Não esquecer de informar a nota fiscal de origem no campo Número da NF Original
+Na tela de itens:
+Campo Preço Unit: informar 0
+Campo Base de Cálculo ICMS: informar a base de cálculo do FCP
+Demais itens deixar como estão (alterar, se necessário, somente os campos que não sejam de valores/alíquotas)
+Finalizar a inclusão da nota e processar na Sefaz
+5 - XML/DANFE
+A única diferença é que no XML a tag vBC será enviada com o valor da base de cálculo.
+Para que a base de cálculo não seja impressa, na aba Por Filial > aba Impressão NF: desmarque todas as opções
+Os valores de FCP serão enviados no XML e impressos no DANFE conforme determinado na Resolução Sefaz 253/2021
+Nota:
+ por conta da tag vBC, recomendamos que seja feito primeiro em base de testes. Nos testes que fizemos a nota foi devidamente autorizada, porém, isso foi na UF de SP.

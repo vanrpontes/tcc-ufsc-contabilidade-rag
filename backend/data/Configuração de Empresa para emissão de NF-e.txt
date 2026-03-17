@@ -1,0 +1,100 @@
+TITULO: Configuração de Empresa para emissão de NF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899372
+--------------------------------------------------
+Objetivo
+A NF-e (modelo 55) que e conhecida como Nota Fiscal Eletrônica é um documento digital que serve para formalizar a venda de produtos e serviços.
+Para realizar emissão de NF-e e necessário:
+Configurações
+Em Ferramentas > Sistema > Aba NF-e/CT-e >
+A opção 
+Habilita emissão de NF-eletrônica? 
+deve estar marcada.
+A opção 
+Tipo de Emissão da Sefaz
+ deve estar selecionada para emissão de NFe,
+Selecionar o tipo de ambiente para trabalho para a emissão de NF-e: no quadro NF-e selecionar Produção, Homologação ou Contingência.
+Quadro Impostos
+Deve-se realizar a configuração dos impostos. Para mais informações ver 
+Quadro Contingência
+Deverá ser habilitada apenas quando houver indisponibilidade da Sefaz para autorização de NFe/CT-e. Para mais informações, ver 
+.
+Quadro Impressão
+Configurar se ira imprimir em Normal(papel) e arquivo informando o diretório onde os arquivos serão salvos.
+Configurar o layout da impressão: 
+Retrato
+ ou 
+Paisagem
+.
+Quadro NF-e DANFE
+Informar o caminho do layout que será utilizado para impressão, ou salvar o arquivo.
+Quadro Diversos
+Configurar o número máximo de dias para emissão de carta de correção.
+Quadro NF-e
+Caso queira validar a chave de acesso marque a opção 
+valida chave de acesso
+ informada em NFs de Terceiros. Para mais informações, ver 
+Quadro Autorizados para download do XML
+ Informar os CNPJ autorizados pela empresa a baixar o XML no quadro autorizados para download do XML. Para mais informações ver 
+Natureza de Operação
+Em Tabelas Auxiliares > Faturamento > Natureza de operação, painel 
+Detalhes > Por Filial > sub aba Dados Gerais
+Deverá marcar o campo 
+Habilita NF-Eletrônica
+.
+Este campo é habilitado se no perfil de
+ 
+empresa
+, o campo 
+Habilita emissão de NF-eletrônica
+ estiver marcado.
+Na 
+aba Detalhes >
+ 
+sub aba Dados Gerais
+, informar as séries NF-e para emissão nos ambientes homologação, produção e contingência.
+OBS.:
+ 
+As séries válidas para a série NF-e de contingência são: 900 a 999.
+Séries da NF-e precisa ser configurada em 
+Tabelas Auxiliares > Faturamento > Série Nota Fiscal. 
+Para mais informações, ver
+ 
+Tabela Série Nota Fiscal
+Informações Adicionais
+Em 
+Painel Filial >
+ 
+Impressão NF, caso
+ precise, informar algumas observações da nota 
+Para que as observações sejam separadas para fisco e para o próprio contribuinte, deverá preencher as observações dentro de tags (<tag>....</tag>), conforme o exemplo abaixo. As tags utilizadas para Informações Adicionais são:
+Informações Adicionais de interesse do Fisco:
+ 
+<infAdFisco> ..... </infAdFisco>
+Informações Complementares de interesse do contribuinte:
+ 
+<infCpl> ..... </infCpl>
+Estas tags serão utilizadas para separar o conteúdo do campo 
+Observações
+ em campos distintos, no layout do DANFE de forma que você possa utilizar estes campos no seu layout (por exemplo, colocando o campo que informa somente as informações adicionais para o Fisco, num determinado local no seu layout de DANFE).
+O preenchimento deve ser feito conforme mostrado no exemplo acima, para que, ao montar o XML, considere as observações informadas pelo usuário.
+Configuração de UF
+Em 
+Tabelas Auxiliares > Faturamento > UF > Aba Detalhes > Sub Aba
+ 
+Endereços URL p/ NF-e
+, deverão ser informados os endereços webservices de cada ambiente de trabalho (homologação, produção e alternativo) para cada tipo de serviço. Os serviços são:
+Recepção (solicitação de recibo)
+Retorno (solicitação de protocolo)
+Inutilizado
+Consulta NF
+Status
+Consulta ao Cadastro
+Dados do Emissor
+Eventos
+Quadro Manifestação :
+Evento
+Nf-e Distribuição DF-e
+Estes endereços serão utilizados para conectar no webservice da Secretaria da Fazenda Estadual da UF do contribuinte ou do ambiente virtual, se for o caso, para solicitação dos serviços da NF-e. Para mais informações ver, 
+Para saber mais:
+Como emitir uma Nota Fiscal Eletrônica (NF-e), ver 
+Como emitir uma NFC-e, ver 

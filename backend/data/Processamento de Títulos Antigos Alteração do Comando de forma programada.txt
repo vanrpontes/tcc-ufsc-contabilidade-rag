@@ -1,0 +1,68 @@
+TITULO: Processamento de Títulos Antigos (Alteração do Comando de forma programada)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2925002803
+--------------------------------------------------
+No serviço de Cobrança Eletrônica, alguns bancos, após algum tempo de Registro do título e o mesmo não teve pagamento, avisa a empresa sobre o "cancelamento de registro" do título, ou seja, o banco retira sua responsabilidade pelo título. Isso pode ocorrer de duas formas, via comando específico no Arquivo de Retorno ou após um prazo fixo, visando atender a essa rotina á
+ partir da versão 8.41 foi Implementado o processamento para retirada de títulos da cobrança eletrônica, onde podemos cadastrar um comando especifico de retorno ou informar um prazo fixo.
+1. Incluindo um comando de retorno
+É possível cadastrar um comando especifico para o banco, dessa forma quando o arquivo de retorno conter o código de comando especificado no comando cadastrado ele poderá realizar as seguintes operações:
+Baixar o titulo utilizando o valor do título.
+Baixar o título utilizando o valor informado no arquivo de retorno.
+Trocar o portador do título.
+Alterar o título para normal. 
+Para realizar o cadastro e as configurações dos comandos basta ir em Tabelas Auxiliares / Financeiro / Bancos / Aba Comandos. Clicando no botão Incluir o Sispetro abrira a tela abaixo:
+Descrição: 
+Campo onde é informada uma descrição para o comando.
+Comando: 
+Campo onde é informado o código do comando que o banco ira retornar no arquivo de retorno.
+Ação durante o Retorno: 
+Esse campo define a ação a ser tomada no processamento do retorno, podendo elas serem:
+Ignora - não faz nada: 
+Vai ignorar e não realizar nenhuma baixa.
+Baixa pelo valor do título: 
+Realiza a baixa do título utilizando o valor informado no título.
+Baixa pelo valor de pagamento vindo no arquivo:
+ Realiza a baixa do título utilizando o valor de pagamento informado no arquivo de retorno.
+Envio/Retorno: 
+Define se o comando é de Envio(Remessa) ou de Retorno, para informações dos comandos do tipo Envio ver 
+Envio Comandos Manuais
+.
+Troca Portador Retorno: 
+No campo de Troca Portador Retorno informamos se ao ler o comando no arquivo de retorno o título deve trocar ou não o portador.
+ Novo Portador no Retorno: 
+É informado o portador a ser informado no título.
+Troca Cobrança Normal: 
+Troca o tipo de cobrança do título para normal.
+Os campos de 
+Ação durante o Retorno, Troca Portador Retorno 
+e 
+Troca Cobrança Normal 
+ são exclusivos para os comandos de 
+Retorno
+Para que o comando seja identificado ao ler o arquivo, é 
+necessário  habilitar a opção "
+Processa comandos extras no Retorno
+"
+ na tela de tipo de Cobrança, para acessar a mesma basta ir em "
+Tabelas Auxiliares / Vendas / Tipos Cobrança / Aba Por empresa / Aba Processamento Retorno"
+2. Incluindo um Prazo Fixo para alteração do título.
+É possível definir um período para atualizar o título para normal ou ate alterar o portador do mesmo, para configurar o mesmo basta ir em 
+"
+Tabelas Auxiliares / Vendas / Tipos Cobrança / Aba Por empresa / Aba Processamento Retorno" 
+Processa Títulos Antigos:
+ Essa opção é a que define se o tipo de cobrança vai ou não realizar o processo dos títulos antigos.
+No. dias para o Título antigo:
+ Esse campo define o numero de dias para que o título seja considerado antigo, e seja realizado as alterações.
+Observação: O prazo máximo para abranger os títulos é de 2 anos, assim se for configurado 90 dias e a data atual for 01/04/2016, o processo será realizado com todos os títulos cuja data seja entre 01/04/2016 e 01/01/2016
+Data do Título a ser atualizada: 
+Esse campo é utilizado para definir qual a data a ser utilizada, podendo ser pela data de Emissão ou pela data de Vencimento.
+Troca para Cobrança Normal: 
+Caso essa opção esteja marcada, quando realizado o processo de troca de títulos antigos, é alterado o título para normal.
+Troca Portador: 
+Essa opção define sé ira ou não trocar o portador.
+Portador:  
+Esse campo é onde informamos o portador que sera utilizado caso o campo Troca portador estiver marcado.
+Gera comando extra:
+  Essa opção define se ira ou não gerar um comando extra na remessa.
+Comando a ser gerado: 
+Através desse campo selecionamos o comando a ser utilizado.
+Os comandos só são atualizados quando é realizado a leitura de um arquivo de retorno pertencente ao mesmo tipo de cobrança que foi realizado as configurações, os títulos a serem alterados que se enquadram nas regras cadastradas no tipo de cobrança não precisam estar presentes no arquivo de retorno, só é necessário que seja o mesmo tipo de cobrança. Dessa forma o Sispetro já inicia a rotina internamente para alteração dos títulos.

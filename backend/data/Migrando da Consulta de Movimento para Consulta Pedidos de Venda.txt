@@ -1,0 +1,459 @@
+TITULO: Migrando da Consulta de Movimento para Consulta Pedidos de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909340409
+--------------------------------------------------
+Abaixo descreveremos cada um dos layouts de relatório que existiam na tela de Consulta de Movimento e como podemos remontá-lo na nova tela de Consulta Pedidos de Venda.
+Os Detalhes de cada campo da Tela nova podem ser encontrados no tópico 
+.
+Importante ressaltar que após criado cada layout é necessário salvá-lo, para isso veja como salvar layout em 
+.
+ 
+Analítico Pedido
+ 
+Através desta consulta será apresentado uma coluna para cada produto vendido no período, apresentando inicialmente algumas informações básicas sobre o pedido de venda e na coluna do produto sua quantidade preço, unitário e valor total, não sendo apresentados pedidos de venda cancelados.
+CAMPOS DA TELA ANTIGA
+CAMPOS DA TELA NOVA
+DETALHAMENTO
+CAMPO PARA LINHA
+Vendedor
+Vendedor
+#Pedido
+Número do Pedido
+CodEmpresa
+Filial
+Data Pedido
+Data
+Data Entrega
+Data de Entrega
+Entidade
+Cliente Faturado
+Código Entidade
+#Cliente Faturado
+Deposito
+Depósito
+Valor Pedido
+ 
+Prazo
+Prazo
+Retira Entrega
+Retira Entrega
+PRODUTO
+CAMPO PARA COLUNA
+Produto
+Produto
+DADOS
+CAMPO PARA DADOS / VALOR
+Quantidade
+Qtde
+Pco Unit
+Preço a Vista
+ 
+Frete Unitário
+ 
+Custo Financeiro
+Total
+Total Preço a vista
+ 
+Total Preço
+ 
+Total (Preço + Frete)
+ 
+Resumido Pedido
+ 
+Através desta consulta será apresentada uma coluna para cada produto vendido no período, apresentando inicialmente somente o vendedor e na coluna do produto sua quantidade preço, unitário e valor total, não sendo apresentados pedidos cancelados.
+CAMPOS DA TELA ANTIGA
+CAMPOS DA TELA NOVA
+DETALHAMENTO
+CAMPO PARA LINHA
+Vendedor
+Vendedor
+PRODUTO
+CAMPO PARA COLUNA
+Produto
+Produto
+DADOS
+CAMPO PARA DADOS
+ / VALOR
+Quantidade
+Qtde
+Pco. Unit
+Preço a Vista
+ 
+Frete Unitário
+ 
+Custo Financeiro
+Total
+Total Preço a Vista
+ 
+Total Preço
+ 
+Total (Preço + Frete)
+ 
+Analítico Pendente
+ 
+Através desta consulta será apresentada uma coluna para cada produto vendido no período e que não tenha sido faturado totalmente, apresentando inicialmente algumas informações básicas sobre o pedido de venda e na coluna do produto sua quantidade preço, unitário e valor total.
+** Veja Observação ao final da Página sobre consultas de pedidos pendentes
+CAMPOS DA TELA ANTIGA
+CAMPOS DA TELA NOVA
+DETALHAMENTO
+CAMPO PARA LINHA
+Vendedor
+Vendedor
+#Pedido
+Numero do Pedido
+Data Entrega
+Data de Entrega
+Entidade
+Cliente Faturado
+Data Pedido
+Data
+Valor Pedido
+ 
+Prazo
+Prazo
+CodEmpresa
+Filial
+PRODUTO
+CAMPO PARA COLUNA
+Produto
+Produto
+DADOS
+CAMPO PARA DADOS
+ / VALOR
+Quantidade
+Qtde Pendente
+ 
+Qtde Separada
+Pco. Unit
+Preço a Vista
+ 
+Frete Unitário
+ 
+Custo Financeiro
+Total
+Total Preço a Vista Pendente
+ 
+Total Preço Pendente
+ 
+Total Pendente (Preço + Frete)
+ 
+Resumido Pendente
+ 
+Através desta consulta será apresentada uma coluna para cada produto vendido no período, apresentando inicialmente somente o vendedor e na coluna do produto sua quantidade preço, unitário e valor total, não sendo apresentados pedidos cancelados e faturados.
+** Veja Observação ao final da Página sobre consultas de pedidos pendentes
+CAMPOS DA TELA ANTIGA
+CAMPOS DA TELA NOVA
+DETALHAMENTO
+CAMPO PARA LINHA
+Vendedor
+Vendedor
+PRODUTO
+CAMPO PARA COLUNA
+Produto
+Produto
+DADOS
+CAMPO PARA DADOS
+ / VALOR
+Quantidade
+Qtde Pendente
+ 
+Qtde Separada
+Pco. Unit
+Preço a Vista
+ 
+Frete Unitário
+ 
+Custo Financeiro
+Total
+Total Preço a Vista Pendente
+ 
+Total Preço Pendente
+ 
+Total Pendente (Preço + Frete)
+ 
+Pedido por Base
+ 
+Através desta consulta será apresentada uma coluna para cada produto vendido no período agrupando por base (Depósito), apresentando inicialmente somente o vendedor, Depósito e na coluna do produto sua quantidade preço, unitário e valor total.
+CAMPOS DA TELA ANTIGA
+CAMPOS DA TELA NOVA
+DETALHAMENTO
+CAMPO PARA LINHA
+DepositoPadrao
+ 
+DescricaoDeposito
+Deposito
+PRODUTO
+CAMPO PARA COLUNA
+Produto
+Produto
+DADOS
+CAMPO PARA DADOS
+ / VALOR
+Quantidade
+Qtde
+Pco. Unit
+Preço a Vista
+ 
+Frete Unitário
+ 
+Custo Financeiro
+Total
+Total Preço a Vista
+ 
+Total Preço
+ 
+Total (Preço + Frete)
+ 
+Pedido Pendente por Base
+ 
+Através desta consulta será apresentada uma coluna para cada produto vendido no período que não tenha sido faturado, agrupando por base (Depósito), apresentando inicialmente somente o vendedor, Depósito e na coluna do produto sua quantidade preço, unitário e valor total.
+CAMPOS DA TELA ANTIGA
+CAMPOS DA TELA NOVA
+DETALHAMENTO
+CAMPO PARA LINHA
+DepositoPadrao
+ 
+DescricaoDeposito
+Deposito
+PRODUTO
+CAMPO PARA COLUNA
+Produto
+Produto
+DADOS
+CAMPO PARA DADOS
+ / VALOR
+Quantidade
+Qtde Pendente
+ 
+Qtde Separada
+Pco. Unit
+Preço a Vista
+ 
+Frete Unitário
+ 
+Custo Financeiro
+Total
+Total Preço a Vista Pendente
+ 
+Total Preço Pendente
+ 
+Total Pendente (Preço + Frete)
+ 
+Resumido Pedido por Estado
+ 
+Através desta consulta será apresentada uma coluna para cada produto vendido no período agrupando por estado, apresentando inicialmente somente o vendedor, Estado e na coluna do produto sua quantidade preço, unitário e valor total.
+CAMPOS DA TELA ANTIGA
+CAMPOS DA TELA NOVA
+DETALHAMENTO
+CAMPO PARA LINHA
+Vendedor
+Vendedor
+Estado
+UF Cliente Comprador
+PRODUTO
+CAMPO PARA COLUNA
+Produto
+Produto
+DADOS
+CAMPO PARA DADOS
+ / VALOR
+Quantidade
+Qtde
+Pco. Unit
+Preço a Vista
+ 
+Frete Unitário
+ 
+Custo Financeiro
+Total
+Total Preço a Vista
+ 
+Total Preço
+ 
+Total (Preço + Frete)
+ 
+Pedido Cancelado por Vendedor
+ 
+Através desta consulta será apresentada uma coluna para cada produto que esteja em um pedido de venda cancelado agrupando por vendedor, apresentando inicialmente o vendedor e na coluna do produto sua quantidade preço, unitário e valor total.
+CAMPOS DA TELA ANTIGA
+CAMPOS DA TELA NOVA
+DETALHAMENTO
+CAMPO PARA LINHA
+Vendedor
+Vendedor
+PRODUTO
+CAMPO PARA COLUNA
+Produto
+Produto
+DADOS
+CAMPO PARA DADOS
+ / VALOR
+Quantidade
+Qtde
+Pco. Unit
+Preço a Vista
+ 
+Frete Unitário
+ 
+Custo Financeiro
+Total
+Total Preço a Vista
+ 
+Total Preço
+ 
+Total (Preço + Frete)
+ 
+Resumido Pend. Por Base / Data Entrega
+ 
+Através desta consulta será apresentada uma coluna para cada produto com data de entrega no período que não tenha sido faturado, agrupando por base (Depósito), apresentando inicialmente somente o vendedor, Depósito e na coluna do produto sua quantidade preço, unitário e valor total.
+** Veja Observação ao final da Página sobre consultas de pedidos pendentes
+CAMPOS DA TELA ANTIGA
+CAMPOS DA TELA NOVA
+DETALHAMENTO
+CAMPO PARA LINHA
+DepositoPadrao
+ 
+DescricaoDeposito
+Deposito
+PRODUTO
+CAMPO PARA COLUNA
+Produto
+Produto
+DADOS
+CAMPO PARA DADOS
+ / VALOR
+Quantidade
+Qtde Pendente
+ 
+Qtde Separada
+Pco. Unit
+Preço a Vista
+ 
+Frete Unitário
+ 
+Custo Financeiro
+Total
+Total Preço a Vista Pendente
+ 
+Total Preço Pendente
+ 
+Total Pendente (Preço + Frete)
+ 
+Pedido Cancelado p/ Dta Cancelamento
+ 
+Através desta consulta será apresentada uma coluna para cada produto com data de cancelamento no período que não tenha sido faturado, agrupando por base (Depósito), apresentando inicialmente somente o vendedor, Depósito e na coluna do produto sua quantidade preço, unitário e valor total.
+CAMPOS DA TELA ANTIGA
+CAMPOS DA TELA NOVA
+DETALHAMENTO
+CAMPO PARA LINHA
+Vendedor
+Vendedor
+PRODUTO
+CAMPO PARA COLUNA
+Produto
+Produto
+DADOS
+CAMPO PARA DADOS
+ / VALOR
+Quantidade
+Qtde
+Pco. Unit
+Preço a Vista
+ 
+Frete Unitário
+ 
+Custo Financeiro
+Total
+Total Preço a Vista
+ 
+Total Preço
+ 
+Total (Preço + Frete)
+ 
+Analítico Pedido por data de entrega
+ 
+Através desta consulta será apresentada uma coluna para cada produto vendido com data de entrega no período, apresentando inicialmente algumas informações básicas sobre o pedido de venda e na coluna do produto sua quantidade preço, unitário e valor total, não sendo apresentados pedidos de venda cancelados.
+CAMPOS DA TELA ANTIGA
+CAMPOS DA TELA NOVA
+DETALHAMENTO
+CAMPO PARA LINHA
+Vendedor
+Vendedor
+#Pedido
+Numero do Pedido
+CodEmpresa
+Filial
+Data Pedido
+Data
+Data Entrega
+Data de Entrega
+Entidade
+Cliente Faturado
+Código Entidade
+#Cliente Faturado
+Deposito
+Deposito
+Valor Pedido
+ 
+Prazo
+Prazo
+Retira Entrega
+Retira Entrega
+PRODUTO
+CAMPO PARA COLUNA
+Produto
+Produto
+DADOS
+CAMPO PARA DADOS
+ / VALOR
+Quantidade
+Qtde
+Pco. Unit
+Preço a Vista
+ 
+Frete Unitário
+ 
+Custo Financeiro
+Total
+Total Preço a Vista
+ 
+Total Preço
+ 
+Total (Preço + Frete)
+ 
+Resumido Pedido Pendente por data Entrega
+ 
+Através desta consulta será apresentada uma coluna para cada produto com data de entrega no período, apresentando inicialmente somente o vendedor e na coluna do produto sua quantidade preço, unitário e valor total, não sendo apresentados pedidos cancelados e faturados.
+CAMPOS DA TELA ANTIGA
+CAMPOS DA TELA NOVA
+DETALHAMENTO
+CAMPO PARA LINHA
+Vendedor
+Vendedor
+PRODUTO
+CAMPO PARA COLUNA
+Produto
+Produto
+DADOS
+CAMPO PARA DADOS
+ / VALOR
+Quantidade
+Qtde
+Pco. Unit
+Preço a Vista
+ 
+Frete Unitário
+ 
+Custo Financeiro
+Total
+Total Preço a Vista
+ 
+Total Preço
+ 
+Total (Preço + Frete)
+ 
+** Consultas de Pedidos Pendentes
+Para que as consultas que envolvem pedidos pendentes funcionem devidamente é necessário criar um filtro mais específico em cima dos dados, para mais detalhes de como fazer, veja no tópico 
+ no subtítulo 
+Construtor de Filtros
+.
+Faça um filtro como o abaixo:

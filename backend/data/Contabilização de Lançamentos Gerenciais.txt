@@ -1,0 +1,33 @@
+TITULO: Contabilização de Lançamentos Gerenciais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440319
+--------------------------------------------------
+A contabilização dos lançamentos gerenciais que envolvem entidade podem ser de dois tipos:
+Por comprador
+Desconsidera totalmente a entidade faturada. Na contabilização, bem como para acumular valores de pendências, créditos e bloqueios para entidade sempre será levada em consideração a entidade que estiver armazenada como comprador. (Antes os valores acumulados, no caso do comprador ser diferente da entidade faturada era feito tanto para a entidade como para o comprador. Agora é só para o comprador ou só para entidade!)
+Por entidade faturada
+Não reconhece a figura do comprador. A contabilização e o acúmulo de valores de pendências, créditos e bloqueios para entidade é de acordo a entidade faturada.
+Esta opção pode ser visualizada no Menu 
+Ferramentas/Sistema, no painel Financeiro
+:
+Esse perfil não pode ser alterado pelos usuários, pois ao ocorrer a mudança precisam ser acertados os valores acumulados de pendências, créditos e bloqueios dos clientes, bem como considerar a contabilização a partir da data da troca. 
+Assim, caso seja necessário alterar, manter contato com a equipe de Suporte da Futura para que sejam tomadas as providências para troca.
+Os lançamentos comuns que envolvem entidades, geralmente são:
+Emissão de Nota Fiscal (oriunda de um Pedido de Venda)
+Na emissão do Pedido de Venda é informado primeiramente a entidade que representa o comprador e para cada item do pedido para que entidade o produto deverá ser faturado. Assim, no momento do faturamento, essas informações são transferidas para a Nota Fiscal, sendo armazenado de forma discriminada a entidade e o comprador e transferindo estas informações para o título.
+Emissão de Nota Fiscal de Outras Entradas/Saídas
+Na inclusão dessas notas a entidade é informada de acordo com o tipo: Entrada - Fornecedor e Saída - Cliente. Porém pode-se incluir a nota utilizando a entidade inversa, ou seja, para Nota Fiscal de Outras Entradas utilizar Clientes ao invés de fornecedor. Maiores detalhes sobre esse item vide tópico
+ 
+Regras para Geração de Obrigação
+.
+Inclusão de adiantamentos
+No momento da Inclusão de adiantamentos é possível informar a entidade e o comprador, armazenando também estas informações de forma discriminada.
+Inclusão de títulos manualmente
+A inclusão de títulos de forma manual é similar a inclusão de adiantamentos, sendo informada a entidade e o comprador.
+Contabilização automática de Descontos/Acréscimos
+No momento da inclusão do título do Contas a Pagar/Receber é possível configurar o sistema para que faça a contabilização automática dos valores de Desconto/Acréscimo. Vide maiores informações no tópico
+ 
+Cálculo de Descontos/Acréscimos
+.
+Baixa de títulos
+Independente da origem do título (da NF ou manual) a baixa utiliza como entidade e comprador a informação que estiver no título que está sendo baixado.
+Assim, na baixa de títulos utilizando adiantamentos, que é o momento que temos de cruzamento destas informações, só será permitido utilizar adiantamento cujo comprador seja igual ao comprador do título (quando a contabilização for por comprador) ou cuja entidade do adiantamento seja igual a entidade faturada do título (quando a contabilização for por entidade faturada).

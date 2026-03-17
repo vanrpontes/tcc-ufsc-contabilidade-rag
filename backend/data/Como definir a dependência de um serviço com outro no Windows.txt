@@ -1,0 +1,42 @@
+TITULO: Como definir a dependência de um serviço com outro no Windows
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2918974416
+--------------------------------------------------
+A maioria dos nossos cliente utiliza o Servidor Sispetro como serviço, assim como o banco de dados. A idéia deste Roteiro é auxiliar na configuração de um serviço para que se inicie somente depois de outro serviço. 
+Por exemplo:
+Fazer com que o Serviço do Servidor Sispetro seja executado somente depois que o Serviço do Banco de Dados já tenha sido executado.
+O que é preciso fazer?
+Abrir o registro do Windows (regedit.exe).
+Digite via Executar do Windows 
+regedit.exe
+Na tela de registro do Windows localize a chave 
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\ <nome do serviço>
+No nosso exemplo, 
+HermesServico_nomeCliente e HermesServidorS3_nomeCliente
+:
+Devemos localizar o serviço que será o serviço dependente (no exemplo, tanto o HermesServico_nomeCliente, como o HermesServidorS3_nomeCliente serão dependentes de um outro serviço, isto é, deverá esperar este serviço subir para ser executado
+Verificar se existe uma chave 
+DependOnService
+ definida, caso não esteja, crie uma.
+→ Clique com o botão direito do mouse em cima da chave → clique em novo → Valor de Cadeia de Caracteres Múltipla → defina como chave o valor 
+DependOnService.
+Edite a chave e coloque como conteúdo o nome do serviço 
+ao qual este serviço será dependente, por exemplo o Banco de Dados. 
+→ Clique com o botão direito em cima do novo conteúdo → Modificar → Preencha com o nome do Serviço que pegou na propriedades dos serviços do windows:
+Para saber seu nome, vá na lista de serviços (Painel de Controle, Ferramentas Administrativas, Serviços), localize o serviço, clique com o botão da direita em cima do serviço, escolha a opção 
+Propriedades
+ e em seguida veja o nome do serviço, por exemplo: 
+SQLANYs_NomeBanco
+ 
+'
+FAÇA ISSO PARA AMBOS SERVIÇOS!
+O nome do serviço, não é o nome do serviço que aparece na lista de serviços do Windows. 
+Clique com o botão direito, propriedades e veja o nome do serviço (que é diferente do nome de exibição do serviço que é o que aparece na lista de serviços).
+Reiniciar ambos os serviços.
+Para saber se o processo deu certo, basta localizar o serviço configurado no passo 3 e 4 (Painel de Controle, Ferramentas Administrativas, Serviços), aba Propriedades, ir até a aba Dependências para ver se o nome do serviço ao qual este serviço depende está listado.
+Homologação feita em 
+Windows 10, 
+Windows Server 2003, 
+Windows Server 2008, 
+Windows Server 2012, 
+Windows Server 2016 e Windows Server 2019
+.

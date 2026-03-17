@@ -1,0 +1,68 @@
+TITULO: Serviço de Recebimento de E-mail
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927274497
+--------------------------------------------------
+Para habilitar o 
+Serviço de Recebimento de E-mail
+ 
+deve-se acessar o 
+, na aba
+ Informações Serviços,
+ selecionar 
+Recebimento de E-mail
+ 
+e clicar em 
+Abrirá a tela de configurações, que deverá ser preenchida conforme instruções abaixo descritas:
+Intervalo Entre as Execuções
+: informar o intervalo de tempo que o serviço será executado. O tempo mínimo que pode ser definido é de 3 minutos.
+Horário de Execução
+: definição do período que o serviço será executado, respeitando o tempo de intervalo entre as execuções.
+Executar Automaticamente Quando Servidor for Iniciado
+: parâmetro que define se o serviço deve ser iniciado sempre que o 
+ for iniciado.
+Ao Receber XML que já Existe na Pasta
+: ao receber um XML que já exista na pasta, qual a ação que o sistema deve tomar.
+Move para pasta de erros
+: os anexos XMLs duplicados serão movidos para a pasta especificada em 
+Pasta XMLs com Erro
+.
+Renomeia o arquivo
+: 
+os anexos XMLs duplicados serão movidos para a pasta especificada em 
+Pasta XMLs com Erro
+ e renomeados, mantendo 
+todos
+ os xmls recebidos.
+Sobrepõe o arquivo
+: ao encontrar um arquivo com o mesmo nome, o SisPetro irá sobrepor o arquivo, independente do conteúdo do arquivo.
+Pasta XMLs Recebidos
+: nesta pasta, todo XML recebido, válido ou não, é gravado e depois movido para sua respectiva pasta (duplicado ou com erro). O processo é feito automaticamente pelo SisPetro, não sendo necessária intervenção do usuário.
+Pasta XMLs com Erro
+: quando um XML não for válido ou estiver duplicado, será movido para esta pasta, ficando à disposição do usuário para análises futuras. Os anexos não são apagados automaticamente.
+Clique em 
+ para salvar as configurações e sair da tela.
+Clique em 
+ para não salvar as configurações e sair da tela.
+Após configurado o serviço, na tela principal do
+ 
+, clique em
+ 
+ 
+para verificar se todas as configurações estão corretas.
+Clique em 
+ para ativar o serviço. Caso a opção 
+Executar Automaticamente Quando Servidor for Iniciado 
+estiver
+ 
+desmarcada
+, ao reiniciar o 
+, o serviço ficará desativado.
+Clique em 
+ para desativar o serviço. Caso a opção 
+Executar Automaticamente Quando Servidor for Iniciado 
+estiver
+ 
+marcada
+, ao reiniciar o 
+, o serviço ficará ativado.
+Clique em 
+ para forçar a execução do serviço, independente do intervalo e do horário de execução.

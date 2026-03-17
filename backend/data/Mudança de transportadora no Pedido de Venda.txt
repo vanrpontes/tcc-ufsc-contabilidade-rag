@@ -1,0 +1,36 @@
+TITULO: Mudança de transportadora no Pedido de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440062
+--------------------------------------------------
+O Sispetro permite que transportadora vinculada a um pedido possa ser alterada, desde que não se tenha feito nenhuma Ordem de Carregamento ou faturado esse pedido.
+Pela tela de Manutenção de Pedidos (
+Movimentação / Estoque / Manutenção Pedidos
+), pode-se mudar a transportadora, selecionando o pedido desejado e clicando no botão 
+"Muda Transp."
+Importante: O botão "Muda Transp" é habilitado conforme o perfil do usuário definido por meio do campo "Permite alterar a transportadora do pedido" presente em seu cadastro na aba "Vendas".
+O sistema abrirá uma tela, onde aparecerá o número do pedido selecionado.
+É possível verificar a transportadora vinculada ao Motorista. Caso não haja vínculo entre motorista e transportadora, será exibido o nome do próprio motorista no campo 
+"Transportadora Vinculada ao Motorista"
+Basta confirmar apertando <ENTER>, os campos Transportadora Original e Frota Original, serão preenchidos com os valores atuais do pedido, o usuário deverá selecionar atráves dos campos "Transportadora Nova" e "Frota Novo" os novos valores para os respectivos campos.
+Se os perfis de sistema e do cliente comprador "Restringe Frotas no Pedido de Venda Retira" estiverem marcados, o sistema validará se o frota principal e os 3 frotas vinculados a ele (se existirem), estão vinculados para a Entidade. Veja maiores informações em 
+Frotas Permitidos
+Se os perfis de sistema e do cliente comprador "Restringe Transportadoras/Motoristas no Pedido de Venda Retira" estiverem marcados,  o sistema validará se a transportadora/motorista estão vinculados para a Entidade. Veja maiores informações em 
+Transportadoras/Motoristas Permitidos
+.
+Se o 
+perfil de Sistema
+ "
+Verificação da Aprovação de Transportes na Alteração de Transportadora/Frota" 
+estiver utilizando a opção de 
+"Não permite alterar pedidos aprovados em Transportes"
+,  o Sispetro 
+não
+ ira permitir alterar a transportadora/Frota em pedidos de venda aprovados em Transportes. Casa haja à necessidade o usuário pode realizar o cancelamento da aprovação de transporte acionando o botão Cancela Aprovação direto na tela de Mudança de Transportadora do Pedido, o botão de cancela Aprovação só ira ficar habilitado caso o pedido esteja aprovado em transportes e o usuário esteja com o 
+perfil de usuário
+ 
+'Pode cancelar aprovação de Transportes'
+ habilitado.
+A partir da versão 10.9, quando houver alteração de Transportadora o Sispetro irá alterar também o valor do Frete Padrão do Pedido para que esta informação seja utilizada em casos de auditoria ou Aprovação do pedido. 
+Para finalizar e salvar as alterações, o usuário deve clicar no botão Ok.
+A mudança de Transportadora também é possível pela tela de 
+Consulta de Pedidos Pendentes
+.

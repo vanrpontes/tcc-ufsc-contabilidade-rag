@@ -1,0 +1,425 @@
+TITULO: Processo de Importação de Combustíveis - Nacionalização
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926185181
+--------------------------------------------------
+none
+Objetivo
+A importação envolve trazer bens do exterior e registrar todo o processo no PMM, onde são definidos dados do contrato, moeda, taxa cambial e parâmetros de pagamento. O processo divide-se em três etapas: inclusão do PMM, pagamentos e nacionalização. Os pagamentos podem ser gerados antes da nota fiscal, exigindo abertura, inclusão e fechamento do processo, com validações rígidas de valores. A nacionalização é feita por item, incluindo dados de DI, LI, BL, despesas e impostos, permitindo depois a emissão da NF de importação. A nota fiscal é emitida somente após fechamento dos processos, respeitando impostos, valores e regras de conferência do SisPetro.
+Importação
+ é o processo comercial e fiscal que consiste em trazer um bem do exterior para o país de referência. O procedimento deve ser efetuado via nacionalização do produto, que ocorre a partir de procedimentos burocráticos ligados à Receita do país de destino, bem como da alfândega, durante o descarregamento e entrega, que pode se dar por via aérea, marítima, rodoviária ou ferroviário. É possível realizar o processo pela opção de
+ 
+emissão de nota própria
+ 
+(porém o controle é simples e há muitas informações não totalmente integradas) e também, pela opção de nacionalização de produto através do
+ 
+Pedido de Movimentação de Material
+ 
+oferecendo um maior controle e automatização do processo.
+Na verdade o processo é bem simples e se inicia no Pedido de Movimentação de Material. Para um melhor entendimento do processo iremos dividir em três partes 
+Inclusão de Pedido de Movimentação de Material
+, 
+Processo de Pagamento 
+e 
+Processo de Nacionalização
+  .
+Inclusão de PMM
+Para poder dar inicio ao processo de importação, na inclusão de  
+Pedido de Movimentação de Material
+ basta selecionar a opção 
+Importação
+ no campo
+ Tipo de Recebimento. 
+Após informado que o tipo de recebimento do PMM é do tipo
+ Importação,
+ ao avançar as páginas do pedido, será apresentada a página abaixo onde serão disponibilizados campos para o preenchimento dos dados do contrato de importação.
+Moeda:
+  Nesse campo é informado a 
+Moeda
+ que foi realizado a compra (DOLAR, EURO, ETC...)
+Taxa Cambial:
+ Nesse campo será possível informar a Taxa cambial da moeda selecionada, sendo sugerida a taxa vigente via 
+Cadastro de Moedas
+#Contrato:
+ Campo onde informamos a numeração do contrato.
+#Pro-Forma:
+ Onde informamos a numeração do Pro-Forma
+Despachante:
+ Onde informamos o despachante.
+Dados para Pagamento: quadro de informações de preenchimento obrigatório para inclusão do PMM do tipo importação.
+Tipo do Documento:
+ Tipo do documento que será utilizado nos pagamentos. 
+Histórico:
+ Histórico que será utilizado nos pagamentos.
+Conta de Contra-Partida:
+ é a conta utilizada na contabilização a débito dos títulos gerados para pagamento. A conta pode ser alterada para qualquer outra conta que seja necessária, por exemplo, para uma conta de importação em andamento. A conta informada pode ser utilizada na contabilização através de fórmula configurada na natureza de operação.
+Observação Referente à Importação:
+  Campo disponível para as observações referente a Importação.
+O PMM de nacionalização com as devidas taxas da moeda cambial, os seus valores serão apresentados com três ou mais casas decimais no valor total, o valor dos pagamentos lançados serão coincididos com todas as casas decimais.
+Após a emissão do PMM já na tela de Manutenção de Pedidos de Material temos a aba 
+Importação
+, onde teremos três abas inferiores, sendo elas 
+Dados Gerais, Pagamentos 
+e 
+Nacionalização
+. Veja abaixo um pouco mais sobre cada uma delas.
+Dados Gerais
+A aba de Dados Gerais é destinada somente para consulta, nela são apresentados os dados do pedido, incluindo seus itens e dados de importação.
+Processo de Pagamento
+No processo antigo de Nacionalização, os pagamentos eram feitos via Adiantamento e ao lançar a NF de nacionalização, essa gerava o Contas a Pagar para ser quitado com esses adiantamentos. Com o controle da compra sendo feito pelo PMM de Importação, permitiremos que os Títulos do Contas a Pagar (referente aos produtos) possam ser gerados antes da NF, vinculados ao PMM.
+Isso pode ser feito através da aba 
+Pagamentos, 
+podendo
+ 
+gerar um ou mais títulos para o PMM, mas num único processo (ou seja, caso opte por esse caminho, a soma dos títulos a serem gerados deve ser igual ao valor total do PMM).
+O processo de pagamento é realizado basicamente em 3 etapas:
+Abrir processo: 
+Realiza a abertura do processo, disponibilizando a opção de poder incluir pagamentos.
+Incluir Pagamentos: 
+Assim que o processo é aberto, o usuário pode incluir os pagamentos para esse contrato, nessa etapa os pagamentos ficam gravados, mas não são gerado os títulos ainda, podendo ser alterados ou excluídos. 
+Fechar processo: 
+Assim que é realizado o fechamento do processo, são gerados os títulos para os pagamentos. Só é possível fechar o processo quando a soma do valor dos pagamentos é igual ao Valor total do Pedido. 
+Segue abaixo o detalhamento do processo, de cada botão e suas particularidades.
+Para iniciar a inclusão dos Pagamentos basta abrir o Processo através do botão 
+Abre, 
+realizando a abertura do
+ 
+processo será possível incluir, alterar ou excluir pagamentos. Os pagamentos só irão gerar títulos no contas a pagar após o fechamento do processo realizado através do botão 
+Fecha. 
+Após realizar o fechamento do Processo não será mais possível realizar a exclusão de um pagamento, só será possível 
+Cancelar 
+o mesmo, para isso basta selecionar o título e solicitar o Cancelamento através do botão 
+Solicita.
+  
+Para mais detalhes, veja o processo abaixo.
+Os botões só ficarão habilitados, além da sua regra individual (apresentada abaixo), se o perfil de usuário 
+Permite dar manutenção em Pagamentos e Dados de Nacionalização
+ estiver marcado
+Detalhamento dos Botões:
+Processo
+Abre
+É o que permite iniciar a digitação dos pagamentos, seja para inclusão inicial ou para alterações
+Só estará habilitado quando:
+não houver nenhum pagamento ou ainda não tenha sido feita a abertura.
+Caso o processo esteja fechado.
+Fecha 
+É realizado uma validação se a soma dos valores dos títulos não cancelados (ou com comando de cancelamento) é igual ao valor do Pedido. Caso não seja, não é permitido continuar o processo. Só fechará o processo se todas as ações abaixo puderem ser feitas:
+Títulos incluídos e ainda não efetivados
+Faz a inclusão no Contas a pagar
+Com os devidos valores em Reais e na moeda. A contabilização será em reais, creditando na conta do Fornecedor e debitando na Conta de Importação em Andamento (informada no PMM).
+Na baixa desses títulos teremos a variação cambial ativa ou passiva, via valores de acréscimo e desconto. Para mais informações, ver 
+Inclusão de Contas a Pagar em moeda estrangeira
+No caso de erro nesse processo, é possível voltar e excluir o pagamento ou então resolver o problema para acionar novamente o Fechamento (por exemplo, se o erro for Travamento Contábil).
+Títulos incluídos anteriormente (efetivados) com comando de cancelamento.
+Tenta fazer o cancelamento do título gerado, seguindo as regras de cancelamento normais de um título a Pagar (não ter baixa, travamentos, etc)
+No caso de erro nesse processo o usuário pode voltar e desistir do cancelamento ou resolver o problema para acionar novamente o Fechamento (por exemplo, se o erro for o fato do título ter baixas).
+O cancelamento do Contas a Pagar poderá ser feito 
+somente
+ por esse processo de Fechamento, não sendo permitido o cancelamento pela Manutenção do Contas a Pagar, porém seguindo as mesmas regras, como não ter Travamento Contábil, não ter baixas, etc.
+Pagamentos
+Inclui
+A inclusão pode ser feita aos poucos, quantos pagamentos forem necessários, porém até atingir o valor do PMM. Mas a validação do valor só será feita no Fechamento. O usuário informa a 
+data de emissão, data de vencimento, #Docto
+ (contrato de câmbio) e o 
+valor na moeda(Dólar, euro, etc...)
+. 
+                      
+Altera: 
+A alteração só será permitida caso o pagamento não tenha sido efetivado ainda, o seu preenchimento segue as mesmas regras que a inclusão.
+Exclui:
+Serve para excluir títulos ainda não efetivados, quando a inclusão foi indevida e o fechamento ainda não foi feito.
+Esse processo é feito instantaneamente, sem precisar aguardar o fechamento.
+Na aba Importação, sub-aba Pagamentos
+Ao Fechar o Processo
+Ao incluir os Títulos a Pagar, deverá copiar os dados de Centro de Custo do PMM para a inclusão do Título
+Na aba Centro de Custos
+Ao Alterar Distribuição
+Somente permitir a alteração se não houver nenhum processo de Pagamento já fechado
+ Cancelamento
+Solicita Cancelamento
+Só poderá ser feita para um título já efetivado e sem solicitação de cancelamento.
+Esse botão só salvará a solicitação de cancelamento, pois o cancelamento em si será feito no processo de Fechamento.
+Desiste do Cancelamento
+Só poderá ser feita para um título com solicitação de cancelamento ainda não efetivada.
+Esse processo é feito instantaneamente, sem precisar aguardar o fechamento
+                            
+Processo de Nacionalização
+O processo de nacionalização é o processo onde informamos os dados de importação da nota fiscal, tais como os dados da DI, LI, BL, etc. Os processos de Nacionalização são realizados por item, já que as informações a serem enviadas na nota fiscal de Entrada são solicitadas por item.
+Na parte inferior da tela teremos o quadro de Processos, onde teremos disponíveis os botões para abrir, incluir, alterar, cancelar e fechar os processos.
+Inclusão de Processo de Nacionalização
+ a tela é acionada através do botão 
+INCLUI 
+do quadro de
+ Processos, 
+após acionado será apresentada a tela abaixo onde o usuário deve informar os dados de nacionalização.
+Os botões só deverão estar habilitados, além da sua regra individual (apresentada abaixo), se o perfil de usuário permitir. O botão 
+Emite NF Nacionalização
+ só é habilitado caso o perfil de usuário 
+Permite emitir NF de nacionalização 
+esteja habilitado. Já os demais botões são controlados pelo perfil de usuário 
+Permite dar manutenção em Pagamentos e Dados de Nacionalização 
+Inclui 
+- a inclusão solicitará ao usuário os dados da Invoice, da DI e do BL.
+Qtde:
+ informe a quantidade a ser nacionalizada, que pode ser uma parte da quantidade do PMM (serão permitidos "n" processos até atingir a quantidade total do PMM, não sendo permitido ultrapassar essa quantidade).
+A quantidade multiplicada pelo preço unitário informado no PMM resultará no 
+Valor Total Moeda
+A partir da versão 9.26 é possível incluir a quantidade com casas decimais. O Sispetro vai respeitar a quantidade de casas decimais inc
+luidas, o
+ valor dos pagamentos lançados irão coincidir com todas as casas decimais.
+Taxa
+: é sugerida a taxa cambial informada no PMM, mas é permitido alterar, já que na data de nacionalização pode-se ter uma outra taxa.
+Conforme a taxa será apresentado o 
+Valor Total em Reais
+O SisPetro apresenta as DIs que estão vinculadas ao PMM.
+Abaixo segue o detalhamento dos botões:
+Inclui
+: apresenta uma tela, conforme abaixo, com as informações de Dados de Nacionalização, exceto Qtde, Preço, Taxa e Valores totais. Ao salvar, o SisPetro  vincula esses dados ao PMM, sem vínculo a um item específico.
+Altera
+: apresenta a mesma tela de Inclusão, porém já com os dados preenchidos conforme o registro posicionado no grid.
+Exclui
+: solicita a confirmação do usuário e exclui a DI, conforme posicionado no grid.
+Copia
+: copia os dados do registro posicionado no grid para o grupo 
+Dados da Nacionalização
+. 
+       
+Altera
+Só é permitido realizar a alteração caso o processo não esteja fechado.
+Permite alterar os dados com as mesmas regras da inclusão.
+Cancela
+Só permitido para processo:
+Fechado.
+Sem despesas efetivadas ativas.
+Sem NF emitida.
+Altera o status do processo para Cancelado.
+Abre
+Só será permitido realizar a abertura do processo caso o mesmo se encontre fechado e sem Nota Fiscal Emitida.
+Fecha 
+Realiza as seguintes validações ao realizar o fechamento do processo:
+Aciona e inclui as despesas marcadas para gerar contas a Pagar.
+Realiza o cancelamento do contas a pagar para os títulos efetivados que contem solicitação de cancelamento.
+Caso encontre erro em uma das ações, o processo não poderá ser fechado.
+Após o fechamento permitirá a emissão de NF de Nacionalização
+O Sispetro realiza o calculo automático do ICMS Próprio e ICMS Substituição na tela de Inclusão de Despesas através do botão Calcular.
+ 
+Após a inclusão do processo de nacionalização é necessário incluir as Despesas da nota (CASO TENHA)
+Despesas
+É através da inclusão de despesas, que o usuário pode informar as despesas da Nota Fiscal, onde podemos até gerar um lançamento para os mesmos.
+Na parte inferior da tela teremos o quadro de Despesas, onde teremos disponíveis os botões para incluir, alterar, excluir, solicita cancelamento de despesa e desiste de um cancelamento de despesa.
+A inclusão de despesas é destinada para informar as despesas que compõem a nota fiscal podendo gerar ou não lançamentos no contas a pagar, normalmente a maioria das despesas são impostos que podem ou não compor o valor total da nota, No quadro de Inclusão de despesas acionando o botão 
+ que fica no quadro Despesas, teremos a tela de Inclusão de Despesas com os campos:
+Categoria:
+ 
+Onde informamos a categoria da despesa, basicamente qual o tipo de despesa podendo ser ICMS Próprio, ICMS Substituição, ICMS Retido, IPI, Outros Impostos, Despesas Acessórias, Outras Despesas e Incorpora no Valor dos Produtos.
+ICMS Próprio:
+ O ICMS Próprio pode ser informado manualmente ou realizando o calculo do mesmo através do botão 
+Calcula, 
+veja mais detalhes de como é realizado o calculo do mesmo abaixo.
+Base de Cálculo: 
+Preço do PMM em Reais multiplicado pela Qtde do PMM 
+Exemplo: 
+Quantidade
+Preço unitário em Reais
+1000
+3,00
+Base do ICMS Próprio: 1000* 3,0 = 
+3000,00
+Valor(Valor do Imposto): 
+Base de Cálculo multiplicado pela Alíquota de ICMS Próprio cadastrada na tabela de ICMS (UF de origem sendo a empresa, UF de destino sendo o fornecedor e código do ICMS conforme cadastrado no produto)
+Exemplo:
+Base de Calculo do ICMS Próprio
+Alíquota
+3000
+18
+Valor do ICMS Próprio: 3000 * 18% = 
+540,00
+O valor do ICMS Próprio independente se informado manualmente ou via botão Calcula, só vai compor o valor total da nota caso o perfil da natureza de operação Somar Valor do ICMS Próprio no Total da NF esteja marcado.
+ICMS Substituição:
+ O ICMS Próprio pode ser informado manualmente ou realizando o calculo do mesmo através do botão 
+Calcula.
+Base de Cálculo: 
+Se o produto for com PMPF, é utilizado o PMPF cadastrado para o produto, empresa e UF do Fornecedor, multiplicado pela Qtde em litros (obtido pela Unidade de Medida e o Fator de Conversão Unidade)
+Se o produto for com MVA, é obtido o MVA cadastrado para o produto, empresa e UF do Fornecedor, aplicado sobre o preço do PMM em Reais e multiplicado pela Qtde do PMM (já que o preço é conforme a unidade de medida, não precisando converter para litros).
+Exemplo quando por PMPF:
+Qtde
+PMPF
+1000
+2,5
+Base do ICMS ST: 1000* 2,5 = 
+2500,00
+Exemplo Quando por MVA:
+Qtde
+Val em reais
+MVA
+2000
+3,00
+50%
+Base do ICMS ST: (3,0 * 50%) * 2000 = 
+3000,00
+Valor(Valor do Imposto): 
+Base de Cálculo multiplicado pela Alíquota de ICMS ST cadastrada na tabela de ICMS (Uf de origem sendo a empresa, UF de destino sendo o fornecedor e código do ICMS conforme cadastrado no produto), diminuindo o ICMS Próprio
+Exemplo:
+Base de Calculo
+Alíquota
+Valor do ICMS Próprio
+2500,00
+18%
+120,00
+Valor do ICMS ST: (2500,00 * 18%) - 120 = 
+330,00
+Para os casos em que o ICMS Substituição não deve compor o valor total da nota é necessário marcar o perfil da Natureza de operação Despreza valor ICMS Substituição no Total da NF.
+Código
+O campo só será habilitado quando selecionado uma categoria do tipo Outros Impostos, aqui informamos qual o código do outros impostos a ser utilizado.
+Base de Cálculo
+Campo onde é informado a base de calculo do imposto selecionado, o valor informado será gravado na nota fiscal e no XML em sua respectiva tag do imposto, quando a categoria é do Tipo 
+ICMS Próprio
+ ou 
+ICMS Substituição
+ o calculo pode ser realizado de forma automática através do botão 
+Calcular. Veja mais detalhes do calculo abaixo no detalhamento do botão calcula.
+Alíquota
+Campo onde é informado a alíquota, esse campo é informativo, assim como a Base de Cálculo o valor informado será gravado na nota fiscal e no XML em sua respectiva tag do imposto (caso tenha e seja preenchido), e quando a categoria é do Tipo 
+ICMS Próprio
+ ou 
+ICMS Substituição 
+o seu preenchimento também pode ser realizado de forma automática através do botão 
+Calcular. Veja mais detalhes do calculo abaixo no detalhamento do botão calcula.
+Botão Calcula 
+ 
+Caso o usuário escolha uma categoria do tipo 
+ICMS Próprio
+ ou
+ ICMS Substituição, 
+ao acionar o botão será sugerido a 
+Base de Cálculo
+, 
+alíquota
+ e 
+Valor do Imposto.
+Outras Despesas
+Campo destinado para o preenchimento de uma descrição de uma despesa do tipo 
+Outras Despesas,
+ o campo só é habilitado quando a categoria selecionada for 
+Outras Despesas.
+Valor 
+Nesse campo é informado o valor da Imposto/Despesa, assim como na Base de Cálculo e Alíquota o valor informado aqui é apresentado na Nota Fiscal e no XML em sua respectiva tag, e quando a categoria é do Tipo 
+ICMS Próprio
+ ou 
+ICMS Substituição 
+o seu preenchimento também pode ser realizado de forma automática através do botão 
+Calcular. Veja mais detalhes de seu preenchimento acima no detalhamento do botão Calcula.
+Quando a categoria é do tipo 
+Incorpora no Valor dos Produtos 
+o valor da despesa informado neste campo será incorporado no valor unitário dos produtos no momento do salvamento da NF. 
+Abaixo segue o cálculo realizado:
+A = Soma de todas as despesas configuradas como 
+Incorpora no Valor dos Produtos
+B = Quantidade de nacionalização
+C = Valor unitário correspondente à Despesas 
+Incorpora no Valor dos Produtos
+A / B = C 
+D - Valor unitário na moeda estrangeira
+E - Taxa cambial
+F - Valor unitário do produto sem despesas
+D * E = F
+Preço Unitário
+ = F + C
+Soma no Total da NF
+Em alguns casos, os valores de PIS, COFINS e IMPOSTO DE IMPORTAÇÃO são somados no total da nota, sendo que existe a opção de realizar a soma dos outros impostos no total da nota. Para realizar a soma dos outros impostos no total da nota basta selecionar o Imposto, informar a Base a Alíquota caso tenha, o valor e marcar a opção 
+. 
+Essa opção só ficara habilitada quando selecionado a categoria de Outros Impostos.
+Gera Contas a Pagar
+ 
+Caso a opção de 
+gera Contas a Pagar 
+for selecionado será possível informar dados para a geração de um título no contas a pagar para a despesa a ser criada, aqui podemos informar dados como Fornecedor, Data Vencimento, Tipo de Documento, Histórico e Observação.
+Esse título a ser gerado será em Reais, conforme o valor informado.
+Categoria Pagamento de Produto
+Categoria: Permitir que o pagamento de PMM seja feito no processo de Nacionalização.
+Gera Contas a Pagar?: Por padrão vem marcado para gerar o contas a pagar
+Fornecedor: Vem preenchido por padrão o nome do fornecedor
+Data de Emissão: Data da emissão do documento
+Data de Vencimento: Data de vencimento do documento
+Tipo de Documento: Seleciona o tipo de documento a ser informado
+Historico: Pesquisa o histórico a ser inserido
+Observações: Informação inserida que agrega ao pagamento inserido
+Moeda (PMM): Tipo de moeda seleciona sendo Real ou Dollar
+Taxa Moeda: Taxa de cambio do dollar do dia
+Valor: Valor do documento a ser inserido
+Valor em Reais: Valor que será mostra em reais
+Todos os pagamentos efetuados vão ser visualizados no grupo Pagamentos via Despesas
+Em resumo temos Valor do pedido o valor total dos pagamentos e valor total pendente, não pode ser emitido a NF enquanto o valor for maior ou menor que o valor total do pedido
+Aviso importante
+Na 
+Manutenção de PMM
+, aba Importação:
+Não será possivel fechar um processo de pagamento caso tenha alguma despesa com a Categoria Pagamento de Produto.
+Ao fechar um processo de Nacionalização:
+Caso a quantidade do PMM seja totalmente utilizada e tenha algum pagamento de produto via Nacionalização (anterior ou atual), não permitir o fechamento se o valor de Pagamentos não coincidir com o valor do PMM.
+Ao cancelar um processo de Nacionalização:
+Não será possivel efetuar o processo caso tenha alguma despesa com a Categoria “Pagamento de Produto” com título já baixado.
+Após ser incluída uma despesa é possível realizar a alteração da mesma acionando o Botão Altera do quadro de Despesas, porém só poderão ser alteradas as despesas que ainda não foram efetivadas. A alteração segue as mesmas regras de preenchimento que a inclusão.
+ 
+A exclusão de uma despesa é acionada através do botão Exclui do quadro de Despesas, porem só será possível excluir despesas ainda não efetivadas. Esse processo é realizado instantaneamente, sem precisar aguardar o fechamento.
+Cancelamento:
+Solicitação de cancelamento: 
+Através do botão Solicita é realizado a solicitação do cancelamento de uma despesa, só poderá ser feito para uma despesa já efetivada e sem solicitação de cancelamento. Esse botão só salvará a solicitação de cancelamento, pois o cancelamento em si será feito no processo de Fechamento.
+Desistência de Cancelamento:
+ Através do botão 
+Desiste 
+é possível desistir de uma solicitação de cancelamento, só poderá ser feito para uma despesa com solicitação de cancelamento ainda não efetivada. Esse processo é feito instantaneamente, sem precisar aguardar o fechamento
+Emissão da Nota de Importação
+Através do botão 
+ é iniciado o processo de emissão da nota fiscal, para que o botão fique habilitado é necessário que o perfil de usuário 
+Emite NF Nacionalização 
+esteja habilitado e que o processo esteja 
+fechado. 
+É possível informar dados como 
+Marca, Espécie, Qtde. Volume, Peso Bruto 
+e 
+Peso Líquido 
+para as notas de nacionalização.
+Para notas de Nacionalização não é permitido utilizar uma Natureza de Operação com a opção de gera Contas Pagar/receber habilitado. O contas a pagar das notas de Nacionalização é realizado a partir da aba de Pagamentos, conforme citado acima no tópico de processo de pagamento
+A tela de 
+Faturamento da NF de Nacionalização
+ é similar ao do faturamento automático, sendo obrigatório informar somente a Natureza de operação.
+Após ser processada será gerado uma nota fiscal do tipo CP (Compra), caso ocorra alguma rejeição ou erro na hora da emissão sera apresentado o erro na aba Resultado.
+Segue abaixo detalhamento dos dados de preenchimento da nota fiscal.
+Dados que virão da configuração da Natureza escolhida pelo usuário:
+Tipo de Emissão.
+Série.
+Histórico.
+Tipo de Documento.
+Destaque de Frete.
+Demais configurações como Movimentação de Estoque, Geração de Contas a Receber, etc.
+Observações.
+Sugerida pela Natureza e alterada pelo usuário, na tela de Faturamento NF de Nacionalização.
+Datas de movimento e emissão: sugerida a data atual.
+Dados obtidos do PMM.
+Entidade
+Condições de Pagamento
+Depósito
+Produto
+Dados obtidos do processo de Nacionalização
+Qtde
+Preço Unitário
+Desp. Prod. Unit.
+Preço Final
+Frete Unitário
+Impostos
+Motorista
+Tipo de Cobrança
+Transportadora: 
+conforme o vínculo com o motorista e empresa.
+Frota: 
+conforme o motorista.
+Marca: 
+Sugere a Marca informada no perfil de Empresa, podendo ser alterado na tela de Faturamento da NF.
+Espécie:
+ Sugere a espécie informada no perfil de Empresa, podendo ser alterado na tela de Faturamento da NF.
+Qtde. Volume: 
+Sugere a quantidade de volumes conforme o item da NF, podendo ser alterado na tela de Faturamento da NF.
+Peso Líquido:
+ É sugerido o peso líquido conforme configurado no produto.
+Peso Bruto:
+ É sugerido o peso bruto conforme configurado no produto.
+A emissão da Nota terá todas as validações passíveis de uma Nota Fiscal de Compra e será emitida em REAIS.

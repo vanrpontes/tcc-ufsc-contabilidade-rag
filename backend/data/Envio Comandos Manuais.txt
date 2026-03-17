@@ -1,0 +1,74 @@
+TITULO: Envio Comandos Manuais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899246
+--------------------------------------------------
+Comandos manuais são comandos que o usuário deseja enviar ao banco sobre determinado título, ou especificar um determinado comando de retorno. Normalmente se utiliza os comandos de Remessa para colocar o título para envio para cartório ou protesto ou retirá-lo antes do envio.
+No caso dos comandos de retorno em alguns casos o banco emite um comando especifico, na maioria dos casos informando que não é mais responsável pelo título, dessa forma temos que retirar o título da cobrança eletrônica também no Sispetro.
+Para o envio de Comandos manuais é necessário configurar o SisPetro para que ele possa enviar o comando correto ao banco. Este processo ocorre em duas etapas:
+Cadastramento dos comandos.
+Configuração dos títulos para envio.
+Além, é claro, do envio do arquivo propriamente dito.
+Cadastramento dos Comandos:
+Através da tela de manutenção de bancos, Menu 
+Tabelas Auxiliares / Financeiro / Bancos
+, o usuário deve selecionar o banco para o qual se deseja enviar comandos.
+O usuário deve clicar no painel 
+Detalhes
+ e marcar a opção 
+Existe definição de arquivos de cobrança eletrônica
+. O próximo passo, é acessar o painel 
+Comandos
+".
+Inclua um ou mais comandos preechendo os campos:
+Descrição:
+ Uma descrição sucinta do que o comando realiza. Essa descrição é interna, ou seja, isso não irá para o banco.
+Envio/Retorno: 
+Define se o comando é de Envio(Remessa) ou de Retorno.
+Comando:
+ Código do comando que será enviado ao banco. Normalmente, este comando é numérico e o próprio banco deverá informar qual é o seu valor. O usuário poderá consultar os código no manual de cobrança fornecido pelo banco.
+Ação durante o Retorno: 
+Esse campo define a ação a ser tomada no processamento do retorno, podendo elas serem:
+Ignora - não faz nada: 
+Vai ignorar e não realizar nenhuma baixa.
+Baixa pelo valor do título: 
+Realiza a baixa do título utilizando o valor informado no título.
+Baixa pelo valor de pagamento vindo no arquivo:
+ Realiza a baixa do título utilizando o valor de pagamento informado no arquivo de retorno.
+Troca Portador Retorno: 
+No campo de Troca Portador Retorno informamos se ao ler o comando no arquivo de retorno o título deve trocar ou não o portador.
+ Novo Portador no Retorno: 
+É informado o portador a ser informado no título.
+Troca Cobrança Normal: 
+Troca o tipo de cobrança do título para normal.
+Os campos de 
+Ação durante o Retorno, Troca Portador Retorno 
+e 
+Troca Cobrança Normal 
+são exclusivos para os comandos de 
+Retorno, 
+para maiores informações ver
+ 
+Processamento de Títulos Antigos
+Vale lembrar que cada banco tem o seu próprio código de comandos, portanto, os comandos devem ser cadastrados para cada banco.
+Configuração dos Títulos para Envio:
+Através da tela de 
+Manutenção do Contas a Receber
+, o usuário deve localizar o título que deseja configurar para envio de algum comando manual, posicionando o cursor sobre ele.
+Deve-se clicar no botão 
+Comando
+.
+Para confirmar o inclusão do comando no título, deve-se clicar no botão 
+OK
+.
+Deve-se notar que só aparecem no campo 
+Comando
+, os comandos do tipo envio e para o banco ao qual este título está vinculado. Logo após a confirmação, a cor de fundo do título irá mudar, informando que aquele título tem um comando de envio para o banco ainda não processado.
+O Sispetro não aceita que os títulos ainda não enviados ao banco sejam passíveis de alteração de comandos para comandos manuais. Deve-se, caso haja necessidade de envio de comandos para estes títulos (coisa rara, pois os títulos ainda não foram enviados pela primeira vez), esperar o envio para depois alterá-los.
+Veja Também:
+Preparação
+Utilização
+Geração Arquivo Remessa - Cobrança Eletrônica
+Leitura Arquivos do Banco - Cobrança Eletrônica
+Manutenção Arquivos Cobrança
+Consulta Movimento de Cobrança
+Como Alterar Nosso Número
+Processamento de Títulos Antigos

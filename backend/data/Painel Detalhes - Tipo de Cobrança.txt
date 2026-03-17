@@ -1,0 +1,116 @@
+TITULO: Painel Detalhes - Tipo de Cobrança
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892890501
+--------------------------------------------------
+Para acessar a tela entrar no menu Tabelas Auxiliares / Vendas / Tipos de Cobrança / Aba Detalhes
+Caso o perfil de Empresa 
+Utiliza vinculo de Portador ao Tipo de Cobrança 
+(Ferramentas / Sistema / aba Financeiro) 
+esteja marcado, no momento da Inclusão de uma Nota Fiscal, seja de Venda, de Outras Saídas, Importada ou de Retorno de Armazenagem (caso seja gerado Financeiro), o título a Receber já será incluído com o campo Portador preenchido com o Portador que está vinculado ao Tipo de Cobrança escolhido. 
+Código: 
+informar o código
+Float de Recebimento:
+ pode ser informado para considerar o tempo de float para previsão de recebimento. No caso de alguns tipos de cobrança, como, por exemplo, boletos, nem sempre o valor pago pelo cliente no vencimento vai estar disponível no mesmo dia. Por este motivo, pode ser interessante informar o Float de Recebimento, porém esta é uma informação que, no momento, está sendo utilizada apenas para o relatório de 
+ e 
+.
+Descrição:
+ informar a descrição
+Uso de Desconto Condicional: 
+p
+ermite utilizar duas opções:
+Com desconto para Pagamento até o Vencimento
+Como Abatimento  
+Para que a tag com complemento seja enviada no xml, será necessário habilitar o perfil 
+Envia Complemento da Forma de Pagamento (tag xPag), 
+na tabela 
+UF, aba Regras para NF-e.
+Forma de Pagamento NF-e:
+ permite definir a forma de pagamento a ser enviada no xml 
+apenas em nota fiscal de emissão própria
+, quando utilizado o código, 
+99 - Outros, 
+é obrigatório informar o complemento no campo, Complemento Forma de Pagamento.
+Complemento Forma de Pagamento: 
+informar o complemento da forma de pagamento 
+Tipo Antecipação:
+ permite informar duas opções:
+Sem Antecipação:
+ padrão SisPetro.
+Antecipado: 
+indica que o pedido e / ou contas a receber gerado com esse tipo de cobrança será pago antecipadamente. Esse tipo deve ser utilizado quando o cliente vai fazer um pedido e pagar logo em seguida, ou já adiantou um determinado valor que será usado em um pedido específico. 
+Tanto pedidos quanto adiantamentos do tipo 
+antecipado
+ não interferem no limite de crédito do cliente. Porém, na análise financeira o pedido só é aprovado se o cliente possuir um adiantamento 
+antecipado
+ com valor igual ou maior ao do pedido gerado com esse Tipo de Cobrança. 
+Adiantamento Quantificado:
+ essa opção
+ obriga 
+que seja vinculado um 
+adiantamento quantificado
+ a um pedido de venda, pode ser durante a inclusão do pedido ou após a inclusão na Manutenção de Pedidos.
+Cobrança eletrônica:
+ indica que os títulos gerados a partir desse tipo de cobrança irão para cobrança eletrônica de um determinado banco. Para mais informações ver 
+Bancos com Cobrança Eletrônica configurada no SisPetro
+Vendor:
+ esse campo
+ deve 
+ser marcado para que os títulos de contas a receber que utilizem esse Tipo de Cobrança sejam controlados como 
+.
+Mútuo:
+ esse campo
+ deve 
+ser marcado para que os títulos de contas a receber que utilizem este Tipo de Cobrança sejam utilizados como origem para 
+Contrato de Mútuo
+.
+Considera no Fluxo de Caixa:
+ geralmente deve ser marcado, para que os títulos que utilizem esse Tipo de Cobrança que participem do 
+. O uso desmarcado, ou seja, desconsiderando, é normal no caso de títulos que são enviados para desconto, pois apesar do título está pendente, ao ser pago o valor não será da empresa, mas sim do banco, pois ele já adiantou o valor do título no momento do desconto (desconto de duplicatas). Pode se ter um Tipo de Cobrança denominado 
+Desconto de Duplicatas
+, desmarcar nele a opção 
+Considera no fluxo de caixa
+ e utilizá-lo nos títulos que atendam essa situação.
+Caso a Tag DUP não saia no Xml na Forma de Pagamento, necessário entrar em contato com o suporte, para ser colocado via script.
+Para o Sispetro assumir que o tipo de cobrança terá baixa automática, na tabela tipo de manutenção o item
+ "Permite Baixa Automática"
+ tem que está marcado.
+Deve ser preenchido o 
+Código
+, 
+Descrição
+, se a cobrança está 
+Ativo, 
+ou seja, está disponível para ser usado no sistema, se é um tipo de 
+Cobrança Eletrônica
+, se utilizará 
+Adiantamento Quantificado
+, se 
+Exige aprovação do Pedido de Venda
+ e se 
+Controla Acréscimo de Preço
+.
+A opção 
+Adiantamento Quantificado
+ obriga que seja vinculado um adiantamento quantificado a um pedido de venda, pode ser durante a inclusão do pedido ou após a inclusão na Manutenção de Pedidos.
+Se o tipo de cobrança for uma Cobrança Eletrônica a opção Adiantamento Quantificado deve estar desmarcado.
+Caso esse tipo de cobrança for controlar acréscimo de preço para os produtos, o usuário deve informar os produtos envolvidos através do botão 
+Inclui Produtos
+, que trará todos os produtos cadastrados que tenham marcada a opção 
+Sai na Lista de Preços
+.
+Dessa forma o usuário poderá informar para cada produto um valor ou percentual (deve-se informar pelo campo 
+Tipo
+ se o valor é percentual ou não).
+Para salvar as alterações feitas, o usuário deve clicar no botão 
+Salva
+. Os valores cadastrados serão praticados sobre o preço do Pedido de Venda após a aplicação do Custo Financeiro. Nos campos de Custo Financeiro dos itens de Pedido e da Nota Fiscal será armazenada a soma do Custo Financeiro e o Acréscimo por Tipo de Cobrança.
+Para atualizar os dados o usuário deve clicar no botão 
+OK
+. O Sistema voltará para a tela de navegação.
+Para mais informações sobre as configurações de Cobrança Eletrônica, volte para o tópico sobre 
+Tabela de Tipos de Cobrança
+.
+Arquivo de Remessa
+Geração de arquivo de Remessa: 
+Este perfil define se o tipo de cobrança vai ser gerado manualmente ou via serviço para as empresas configuradas.
+Valor de Corte:
+ Quando utilizado a opção de gerar via Serviço, pode ser configurado um valor de corte para a geração dos arquivos, onde o primeiro arquivo de remessa vai ser gerado com lançamentos até atingir o valor de corte, os demais lançamentos serão gerados em um segundo arquivo.

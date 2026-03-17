@@ -1,0 +1,41 @@
+TITULO: Pedido de Venda com Contrato de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898650
+--------------------------------------------------
+Objetivo
+Vincular um contrato a um pedido de vendas.
+O 
+Contrato de Venda
+ pode ser vinculado na inclusão do Pedido de Venda. Para isso, basta (além de ter um contrato de venda já cadastrado), clicar no botão contrato e seleciona-lo na lista que aparece. 
+ Depois de selecionar o contrato que será vinculado com o pedido, o SisPetro irá trazer já preenchido, caso  o contrato não seja de um representante: 
+Produto
+Preço
+Frete (se houver)
+Condição de Pagamento
+Vendedor
+Depósito 
+Ao vincular o contrato de venda na inclusão do pedido de venda, o SisPetro irá validar se o depósito informado no Pedido de Venda é o mesmo que está foi cadastrado no Contrato de Venda. Caso não seja o mesmo depósito, o SisPetro emitirá a mensagem: 
+O depósito difere do Depósito de Origem do contrato de venda!
+          
+Caso a empresa trabalhe com Depósito Alternativo, a mesma validação irá ocorrer. Mas neste caso, deve-se se atentar para as seguintes situações:
+Depósito do Pedido de Venda deverá ser o mesmo do Contrato de Venda e/ou do Depósito Alternativo cadastrado para o Contrato de Venda. A mensagem 
+O depósito difere do Depósito de Origem e do Depósito Alternativo do contrato de venda!
+ será exibida:
+Deve estar dentro da validade estipulada no cadastro do Depósito Alternativo. A mensagem 
+Foi usado o Depósito Alternativo mas que está fora da validade
+ será exibida:
+Na inclusão do Contrato de Venda o usuário deve informar o valor do frete. Este valor será sugerido no pedido de venda. Caso haja alteração no pedido de venda, a mensagem 
+O frete real difere do contrato de venda!
+ será exibida:
+           
+Além disso, outras validações serão feitas, tais como:
+Entidade:
+ só poderá ser vinculado ao pedido de venda um contrato de venda com a mesma Entidade;
+Dados como Vendedor, Condição de Pagamento e Preço Unitário
+ serão analisados na aprovação do Pedido de Venda e ele não será aprovado automaticamente.
+Para saber mais
+Painel Vendas
+ 
+6. Contrato de Venda
+ 
+Inclusão do Pedido de Venda
+ 

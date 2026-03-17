@@ -1,0 +1,147 @@
+TITULO: Manutenção de DDA
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5211521034
+--------------------------------------------------
+1
+6
+false
+none
+list
+true
+Objetivo
+DDA é a sigla para Débito Direto Autorizado, serviço bancário que permite receber os boletos de cobrança de forma eletrônica. Tem como principal característica a praticidade de ser notificado quando um boleto é emitido para o CNPJ da empresa, sendo reunidos em um único arquivo enviado pelo banco onde nele consta todos os boletos emitidos para o CNPJ. Assim sendo, o intuito desta ferramenta no SisPetro consiste em ler os arquivos enviados pelo agente bancário, nele constando todos os boletos emitidos para o CNPJ da empresa. 
+O acesso é feito através do menu 
+Movimentação / Financeiro / Contas a Pagar 
+Configurações
+Ferramentas / Sistema / aba Financeiro 
+Grupo Contas a Pagar
+Conta de Baixa para Títulos do DDA
+: informar conta do tipo banco, analítica e ativa. 
+Ferramentas / Usuário / aba Financeiro
+Grupo Contas a Pagar
+Pode reprocessar arquivo DDA?
+: marcar a opção
+Ferramentas / Sistema / aba Financeiro 
+Grupo Contas a Pagar 
+ 
+Na Inclusão, Atualiza Linha Digitável do Arquivo de DDA?
+: marcar a opção. Para mais informações, ver 
+Painel Financeiro
+ 
+Tabelas Auxiliares / Financeiro / Bancos
+Grupo DDA
+Habilita?: 
+marcar
+Atualmente o SisPetro trabalha com os bancos 
+001 - Banco do Brasil 
+e também 
+341 - Itaú. 
+Para mais informações, ver 
+Tabela Bancos
+. 
+Tabelas Auxiliares / Financeiro / Tipo Documento
+Permite agendamento de pagamentos: 
+marcar
+ Para mais informações, ver 
+Tabela Tipo de Documento
+.
+Servidor Hermes
+Ativar e Configurar o serviço 
+DDA
+Pasta a Processar: 
+onde os arquivos retornados do Banco serão salvos para processamento. 
+Pasta Processados: 
+onde os arquivos processados e OK serão salvos. 
+Pasta Erros: 
+onde os arquivos processados e com ERRO serão salvos. 
+Usuário: 
+será o usuário responsável pelo processamento do serviço. 
+Botões
+Reprocessa
+: na execução deste procedimento pode acontecer de que apareça registros não encontrados anteriormente.
+Força
+: executa novamente o serviço de importação de DDA. 
+Impressão
+: usará o arquivo 
+DDATitulos.rtm
+ para os arquivos posicionados no grid, agrupando os títulos encontrados e não encontrados.  
+Atualiza: 
+atualiza as informações em tela
+Legenda: 
+mostra a legenda
+Pagamento Eletrônico: 
+abre a tela 
+Autoriza Pagamento: 
+autoriza o pagamento do título
+ 
+Filtros
+Empresa
+: filtrar a empresa referente ao DDA. 
+Período
+: informar a data inicial e final para pesquisa. 
+Abas
+Arquivos
+: demonstra os itens importados no SisPetro. 
+Itens
+: demonstra as cobranças importadas no arquivo DDA, por exemplo, CNPJ; Nome; Data Emissão; Vencimento; Valor; Código de Barras; Linha Digitável. 
+Como Utilizar:
+O SisPetro irá procurar na pasta de 
+Arquivos a Processar,
+ indicado no serviço, os arquivos do mais antigo para o mais recente. Após isso, faz a 
+Leitura do Arquivo
+ e caso não encontre nenhuma informação válida, move o arquivo para a pasta de 
+Erros
+. Se não encontrar empresa válida com o CNPJ da empresa no (header do arquivo) ficará como
+ Não Localizada.
+Após o 
+Processamento do Arquivo
+, caso tenha ocorrido o processo normalmente, sem erro, o arquivo será salvo na pasta 
+Processados
+. 
+Para cada item do arquivo o Sispetro verifica se foi encontrado um único título na empresa para o Fornecedor ativo (pelo CNPJ), com o mesmo Valor e mesmo Vencimento. 
+Será salvo a
+ Linha Digitável
+ no título do Contas a Pagar. 
+Após o processamento do arquivo pelo SisPetro, as informações serão incluídas na 
+Manutenção de DDA
+Como eu sei se foi vinculado um Boleto com um Lançamento? 
+Ainda na 
+Manutenção de DDA
+, na aba 
+Itens
+ é possível identificar quais boletos já foram localizados e vinculados ao lançamento. Quando não identificado o lançamento o registro fica em 
+AMARELO
+, assim que identificado o título é retirado a cor amarela do fundo, mostrando que o título foi identificado.
+Inclusão de pagamento Eletrônico
+Após o serviço ser executado e localizar os lançamentos com DDA em aberto, é necessário realizar a 
+Inclusão de Pagamento Eletrônico
+.
+Isso pode ser feito ou clicando no botão 
+pagamento eletrônico. 
+O SisPetro irá abrir a tela abaixo: 
+O mesmo processo pode ser feito em Movimentação / Financeiro / Contas a Pagar / Manutenção de Lançamentos, na tela de 
+Manutenção de Lançamentos
+ localizar o título a ser pago, selecionar o título e ir em 
+ e será aberto a tela de 
+inclusão de Movimento para pagamento a Fornecedores
+ 
+CC Banco
+: será a conta banco cadastrada no SisPetro que realizará o pagamento. 
+Forma de Pagamento
+: será a forma de pagamento cadastrada previamente no SisPetro. Para mais informações ver, 
+Tabela Forma Pagamento.
+Linha Digitável: 
+informação será trazida de forma automática da tela de 
+Manutenção de DDA
+.  
+Aba Consulta Avulsa: 
+a consulta avulsa permite visualizar todos os boletos lidos pelo DDA, de qualquer arquivo e de qualquer data, em uma única tela: 
+Nesta tela o usuário pode: 
+Filtrar por período; 
+Agrupar por CNPJ, encontrado, fornecedor, banco, etc. 
+Salvar o layout do grid para próximos acessos à tela. 
+Isso transforma a aba em uma consulta independente. 
+Para saber mais
+Manutenção de Contas a Pagar
+ 
+Pagamento Eletrônico
+ 

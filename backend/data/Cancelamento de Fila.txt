@@ -1,0 +1,25 @@
+TITULO: Cancelamento de Fila
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927271026
+--------------------------------------------------
+Só é permitido Cancelar a Fila de uma Ordem de Carregamento, acionando o botão 
+Cancela Fila,
+ quando a Ordem de Carregamento se encontra na Portaria de Entrada, caso contrário o Sispetro não permitirá realizar o cancelamento da fila.
+Ao acionar a opção de Cancela Fila, será realizada a seguinte verificação: 
+OC está na Portaria de Entrada: 
+SIM 
+ --> Então 
+PERMITE
+ o cancelamento da Fila.
+OC está na Portaria de Entrada: 
+NÃO
+ --> Então 
+NÃO
+PERMITE
+ o cancelamento da Fila.
+Caso a empresa trabalhe com integração com Balança e a OC já tenha tido alguma interação, o Sispetro dará um aviso para que o usuário decida se deve ou não prosseguir com o cancelamento.
+Hoje o cancelamento da fila pode ser acionado via 
+Tela de Manutenção de OC
+ ou via tela de 
+Consulta Pedidos Aprovados e Não Faturados.
+Manutenção de Ordem de Carregamento
+Consulta Pedidos Aprovados e Não Faturados

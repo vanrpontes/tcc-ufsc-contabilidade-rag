@@ -1,0 +1,27 @@
+TITULO: Consulta a Fila de Mensagens do Serviço de E-mail
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2917990949
+--------------------------------------------------
+Através da tela de Manutenção de E-mails é possível consultar os e-mails que foram enviados, que estão aguardando envio ou até o que estão com erro.
+A tela poderá ser acessada através de Ferramentas > Manutenção de E-mails > aba Fila de Mensagens
+Informe o 
+Período
+ desejado e o 
+Status
+ que deseja consultar, podendo ser:
+Aguardando Envio
+Enviado
+Com erro
+Todos
+Texto a ser Pesquisado:
+ Permite pesquisar conteúdo do tipo texto que contenham nos campos de Assunto e corpo do Email.
+Clique no botão 
+Atualizar
+ para trazer os dados conforme os filtros selecionados.
+Status Aguardando Envio
+Todos os e-mails a serem enviados ficarão, inicialmente, com status de aguardando envio.
+Status Enviado
+Após o envio de e-mails, os mesmo ficarão com status enviado. Porém, só poderão ser consultados caso não tenha sido excluídos. Por isso, atente-se para a configuração no perfil de sistema, veja mais informações em 
+.
+Status Com erro
+Caso exista alguma incoerência na configuração, que cause erro de comunicação ou de qualquer outro tipo, os e-mails serão processados e ficarão com status de erro. Além disso, caso haja problema na comunicação, o serviço de e-mails continuará tentando enviar até chegar no número máximo de tentativas de envio, conforme configuração feita no perfil de Sistema.
+*Caso o envio do e-mail já tenha ultrapassado o número de tentativas de e-mail configurados, e esteja com status de erro, basta aumentar o número de tentativas no perfil de sistema. O Sispetro fará uma leitura dos e-mails não processados, e aquele que estiver com um número de tentativas de envio inferior ao perfil de sistema, será processado novamente. Para configurar o perfil, veja maiores informações em 

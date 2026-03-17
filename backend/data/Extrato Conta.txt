@@ -1,0 +1,86 @@
+TITULO: Extrato Conta
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898874
+--------------------------------------------------
+O Relatório Extrato Conta permite imprimir toda a movimentação (débito/crédito) ocorrida em uma determinada conta contábil ou conta de entidade por período, mostrando saldo anterior e o final da mesma.
+
+
+O acesso a esse relatório é através do Menu 
+Relatórios / Financeiro / 
+Extrato Conta
+:
+
+
+
+
+O layout do relatório será gerado conforme o arquivo 
+ExtratoConta.rtm
+ que estiver no mesmo caminho do executável, sua existência é 
+imprescindível
+. Para alterar o layout, caso for necessário ajustar de acordo com a empresa, utilize o botão 
+Edita Layout
+.
+
+
+Tipo da Conta:
+ Selecione a opção 
+Conta Contábil
+ caso deseja emitir o extrato das contas existentes no plano de contas e logo abaixo informe código da conta inicial e final, isso para poder emitir por intervalo de contas, caso for necessário. Pode-se também configurar para emitir por ordem de código conta gerencial ou por código extendido, para isso configure a opção 
+Tipo de Ordenação
+. Agora para emitir extrato de contas de entidades, deve-se marcar a segunda opção 
+Entidade
+ e informar em seguida o código da entidade desejada. Para o extrato de entidades existe mais uma opção de impressão que é o 
+Tipo de Extrato
+, pois pode-se emitir somente o extrato da conta, como também emitir o extrato da conta entidade mais o da conta de adiantamento, basta configurar quando desejar.
+
+
+Para maiores detalhes das contas, códigos das mesmas e outras informações específicas, vide detalhes em 
+Plano Contas
+.
+
+
+Período:
+ Se não deseja imprimir tudo, seleciona a opção 
+Intervalo de
+ e informe um período.
+
+
+No período informado pelo usuário caso não tenha lançamentos, o extrato conta será impresso mostrando apenas saldo desta conta na data inicial solicitada.
+
+
+Para emitir movimentos de apenas uma filial, clique na opção 
+Filtra Movimentos da Empresa
+ e selecione em seguida o código da filial. E para emitir somente de um grupo empresa, caso exista, clique na opção 
+Filtra movimentos do Grupo Empresa
+ e selecione o código do grupo empresa logo abaixo. O sistema valida, caso for marcada essas duas opções simultaneamente. Só é permitido filtrar empresa ou filtrar grupo empresa.
+
+
+Marque a opção 
+Imprime Informações Adicionais
+ caso for necessário.
+
+
+É possível emitir, para contas do Tipo Banco, somente as movimentações conciliadas, portanto para isso selecione no Tipo Conta uma conta tipo Banco e marque a opção 
+Somente movimento Conciliado
+. O saldo final apresentado no relatório deverá ser o mesmo saldo conciliado.
+
+Se for marcada a opção Filtra Empresa e/ou Filtra Movimento Grupo Empresa não será permitido emitir dados de movimento conciliado, e será dada a seguinte mensagem:
+
+
+
+
+Para emitir a conta contra partida para as contas do tipo Banco, basta marcar a opção 
+Imprime contra Partida
+. Para os lançamentos cancelados não serão apresentados a contra partida.
+
+
+Local de Impressão:
+ Se desejar visualizar o relatório primeiramente na tela, marque a opção 
+Tela
+. Caso prefira emitir diretamente o relatório na impressora, basta marcar a opção 
+Impressora
+.
+
+
+Clique 
+OK
+ para obter o relatório. 

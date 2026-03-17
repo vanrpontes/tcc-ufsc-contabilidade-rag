@@ -1,0 +1,283 @@
+TITULO: Álcool
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879127717
+--------------------------------------------------
+O cálculo do fator de conversão de produtos do tipo "Álcool" é feito através de uma tabela cadastrada no sistema.
+No caso do Álcool, além de ser necessário chegar ao fator de conversão para termos o volume a 20 graus, também é necessário conferir seu 
+teor alcoólico
+. 
+O 
+teor alcoólico
+, também chamado de 
+INPM
+, é a porcentagem de álcool encontrado no produto. Com base na temperatura e na densidade existe a porcentagem aceitável para estes dados. Assim, é muito importante saber se o Teor Alcoólico do produto recebido está de acordo com o teor cadastrado na tabela, pois é a certeza de que o produto não contém, por exemplo, mais água que o necessário.
+Esta tabela é a mesma tabela utilizada nas bases para a determinaçãos das massas específicas de álcool etílico. Entende-se por massa específica a densidade do álcool.
+Vejamos um exemplo de tabela:
+ 
+DA
+Densidade da Amostra
+TA
+Temperatura da Amostra
+TT
+Temperatura do Tanque
+Dados armazenados:
+ 
+Nº
+Densidade (DA)
+Temperatura (TA ou TT)
+Densidade 20c
+Fator Conversão
+Teor Alcoólico (INPM)
+1
+0.7835
+29.5
+0.7915
+0.9896
+99.3
+2
+0.7835
+27
+0.7893
+0.9923
+100
+3
+0.7855
+29.5
+0.7934
+0.9896
+98.7
+4
+0.7855
+26
+0.7906
+0.9934
+99.6
+5
+0.7865
+26
+0.7915
+0.9934
+99.3
+6
+0.7875
+27
+0.7934
+0.9923
+98.7
+ 
+Simulação do processo manual de utilização da tabela acima:
+Cálculo Direto:
+A primeira ação a ser feita é localizar na tabela a Temperatura da Amostra (TA) ou Temperatura do Tanque (TT). 
+Exemplo: 
+TA = 27
+Em seguida, localize na linha correspondente à Densidade da Amostra (DA). Nesta mesma linha terá a Densidade a 20 graus e o Teor Alcoólico.
+Exemplo:
+DA = 0.7835
+Densidade 20 graus = 0.7893
+Teor Alcóolico = 100
+Se a empresa não achar necessário considerar a TT diferente da TA, nesta mesma linha poderá ser encontrado o fator de correção desejado, ou seja, na mesma linha referente ao item 1.
+Exemplo: 
+TT = 27
+Fator Conversão = 0.9923
+Nestes casos, na tela de Fator de Conversão do SisPetro será informado no campo da TT a mesma temperatura informada no campo TA. (TT = TA).
+Resumo:
+Para pegar a
+ Densidade 20c
+ e o
+ Fator de Conversão
+ usa a Densidade da Amostra e Temperatura do Tanque.
+Para pegar o
+ Teor Alcoólico
+ usa a Densidade da Amostra e Temperatura da Amostra.
+Cálculo pela Densidade a 20 graus
+Algumas empresas optam por utilizarem a TT para chegar ao fator de conversão. Isto pois possuem a TA e TT diferentes, e acreditam que isso fará diferença no volume a 20 graus a ser encontrado.
+Exemplo:
+TA = 27
+Quando for assim, no item 1 citado acima, ao se obter a Densidade a 20 graus se faz uma nova consulta à tabela, desta vez localizando a TT. 
+Exemplo:
+TT = 26
+Em seguida, se localiza a linha correspondente à Densidade a 20 graus encontrada no item 2. 
+Exemplo:
+Densidade 20 graus = 
+0.7893
+Na linha referente a Temperatura do Tanque então é que se pega o fator de correção desejado.
+Exemplo:
+Fator Conversão = 0.9934
+Resumo:
+Para pegar a
+ Densidade 20c
+ e o
+ Teor Alcoólico
+ usa a Densidade da Amostra e Temperatura da Amostra.
+Para pegar o 
+Fator Conversão
+ usa a Densidade 20C obtida acima e Temperatura do Tanque.
+Importante:
+ 
+a primeira localização da tabela é feita pela Temperatura do Tanque quando a empresa trabalha com o 
+Cá
+lculo Direto
+. Quando a empresa trabalha com o 
+Cálculo pela Densidade a 20 graus
+ a primeira localização é feita pela Temperatura da Amostra.
+Agora, vamos entender como funciona no Sispetro:
+Cálculo pela Densidade a 20 graus:
+É 
+necessário ter o perfil Ferramentas / Sistema / aba Estoque / Calcula fator de conversão do álcool pela densidade a 20 graus 
+marcado
+:
+Exemplos:
+Caso 1
+DA
+TA
+TT
+0,7835
+29,5
+29,5
+Resultado:
+FC
+D20
+INPM
+0,9896
+0,7915
+99,3
+Caso 2
+DA
+TA
+TT
+0,7835
+29,5
+26
+Resultado:
+FC
+D20
+INPM
+0,9934
+0,7915
+99,3
+Caso 3
+DA
+TA
+TT
+0,7855
+29,5
+29,5
+Resultado:
+FC
+D20
+INPM
+0,9896
+0,7934
+98,7
+Caso 4
+DA
+TA
+TT
+0,7855
+29,5
+27
+Resultado:
+FC
+D20
+INPM
+0,9923
+0,7934
+98,7
+ 
+Cálculo Direto:
+É 
+necessário ter o perfil Ferramentas / Sistema / aba Estoque / Calcula fator de conversão do álcool pela densidade a 20 graus 
+desmarcado
+:
+Exemplos:
+Caso 1
+DA
+TA
+TT
+0,7835
+29,5
+29,5
+Resultado:
+FC
+D20
+INPM
+0,9896
+0,7915
+99,3
+Caso 2
+DA
+TA
+TT
+0,7835
+27
+29,5
+Resultado:
+FC
+D20
+INPM
+0,9896
+0,7915
+100
+Caso 3
+DA
+TA
+TT
+0,7855
+29,5
+29,5
+Resultado:
+FC
+D20
+INPM
+0,9896
+0,7934
+98,7
+Caso 4
+DA
+TA
+TT
+0,7855
+27
+29,5
+Resultado:
+FC
+D20
+INPM
+0,9896
+0,7934
+99,6
+ 
+ 
+Densidade exata ou próxima?
+Independente do tipo de cálculo (direto ou pela densidade a 20 graus), pode ser que na tabela não se tenha cadastrada a densidade exata do produto, mas que a próxima densidade sirva. Para isso existe o perfil Ferramentas / Sistema / aba Estoque / 
+Obter fator da próxima densidade 20c caso não exista densidade exata
+:
+Este perfil, quando marcado, pegará sempre pela próxima densidade, caso a densidade informada não seja encontrada. Porém a próxima densidade pode ter uma diferença muito grande entre a desejada. Assim, na tela de 
+ existe o perfil 
+Pega fator de Conversão exato
+, que limita esta diferença num intervalo de 0,5 na temperatura e de 0,005 na densidade.
+Inclusão/Alteração dos dados:
+Como esta é uma tabela cadastrada no sistema, pode ser necessário cadastrar um fator de correção não cadastrado ainda, ou alterar um fator de correção cadastrado indevidamente. Na tela de 
+ pode ser utilizado o botão 
+Edita
+, que mostrará a tela a seguir, que será um pouco diferente dependendo se a empresa trabalha com o cálculo direto ou com o cálculo pela densidade a 20 graus:
+Cálculo pela densidade a 20 graus:
+Na parte superior da tela serão apresentados os dados informados na tela anterior (densidade da amostra, temperatura da amostra e temperatura do tanque).
+A seguir são mostrados os dados encontrados na tabela para o primeiro passo de localização, citado no item a) anteriormente, com base na temperatura da amostra. Veja, que se párassemos nesse passo, o fator de conversão encontrado seria 0,9935.
+Na parte inferior são mostrados os dados do segundo passo de localização, ou seja, localizada a temperatura do tanque (23) e a densidade a 20 graus do painel anterior (0,8086), se obtém então o fator de conversão desejado: 0,9967. Enfim, se não tivesse esse passo, utilizaríamos o fator 0,9935 diferente de 0,9967. A diferença pode ser considerada pequena por algumas empresas, no caso destas, elas utilizam o cálculo direto.
+Cálculo direto:
+  Na parte superior da tela serão apresentados os dados informados na tela anterior (densidade da amostra, temperatura da amostra e temperatura do tanque).
+  A seguir são mostrados os dados encontrados na tabela para o primeiro passo de localização, citado no item a) anteriormente, com base na temperatura do tanque, já que o cálculo é direto.
+  Na parte inferior são mostrados os dados do segundo passo de localização, desnecessário neste caso que o cálculo é direto, estando então todo desabilitado, não podendo nem editar, nem confirmar.
+Utilize o botão 
+Edita
+ para alterar os dados de cada quadro. Caso o Sispetro tenha as informações já cadastradas, estas já serão sugeridas, assim, se os dados não forem apresentados é porque não estão cadastrados. Todas as informações devem ser preenchidas com valores numéricos.
+Utilize o botão Confirma para salvar os dados de cada quadro, porém é importante que ao final se utilize o botão 
+Salva
+, para assim salvar os dois quadros quando for cálculo pela 
+densidade a 20 graus
+ e o primeiro quadro quando for 
+cálculo direto
+.
+Importante:
+ Como o segundo passo depende do primeiro, sempre que se alterar os dados do primeiro passo, o segundo será automaticamente atualizado, afinal a segunda localização na tabela depende da densidade a 20 graus.
+O teor alcoólico deve ser o mesmo para os dois quadros, pois é a mesma densidade e temperatura da amostra.

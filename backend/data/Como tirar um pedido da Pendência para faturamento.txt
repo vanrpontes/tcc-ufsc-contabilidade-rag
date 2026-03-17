@@ -1,0 +1,33 @@
+TITULO: Como tirar um pedido da Pendência (para faturamento)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701929
+--------------------------------------------------
+Um pedido digitado sempre aloca uma determinada quantidade de estoque disponível para si subtraindo as quantidades digitadas em cada item do estoque disponível e incrementando o estoque pendente do produto escolhido.
+
+
+Assim, é 
+extremamente
+ importante que as pessoas responsáveis por estes pedidos, tirem o produto da pendência no caso do cliente desistir total ou parcialmente da venda.
+
+
+Para proceder com este procedimento, temos duas maneiras:
+
+
+1. Nenhum produto foi carregado ou faturado ainda
+.
+
+Neste caso, como ainda não foi emitida nenhuma Ordem de Carregamento para o produto nem Nota Fiscal, podemos simplesmente cancelar o pedido para que o Sistema devolva a quantidade de cada item para a quantidade disponível no estoque do depósito.
+
+Mais informações no tópico 
+Roteiro de Cancelamento de Pedido
+
+
+2. Pedido foi parcialmente carregado ou faturado
+.
+
+Neste caso, temos de proceder com a desalocação dos itens que ainda não foram carregados ou faturados.
+
+Mais informações no tópico 
+Roteiro de Desalocação de Pedido
+
+
+Caso o item que desejamos cancelar já tenha sido carregado ou faturado, temos que cancelar a respectiva Ordem de Carregamento ou Nota Fiscal para que o Sistema cancele todas as implicações de cada procedimento dentro dos módulos envolvidos.

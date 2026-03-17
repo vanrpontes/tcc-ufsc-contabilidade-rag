@@ -1,0 +1,158 @@
+TITULO: Disponibilidades
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899720
+--------------------------------------------------
+1
+6
+false
+default
+list
+true
+Objetivo
+A Consulta Disponibilidades apresenta os saldos escriturais e físicos disponíveis dos produtos no estoque após um fechamento.
+Serve para indicar o quanto há disponível em estoque e realizar projeções com base na média de vendas, ajudando na decisão de novas compras, possibilidade de venda e acionamento de retiradas em PMM pendentes.
+Esta consulta se encontra no 
+Menu Consulta / Estoque / Disponibilidades:
+Abaixo uma lista de todas as informações que são apresentadas na consulta: 
+1 Escritural
+ 
+Neste grupo será apresentado o saldo final escritural para a data de fechamento de estoque informada. Ou seja, é o 
+saldo inicial escritural
+ para ser considerado.
+2 Físico
+ 
+Neste grupo será apresentado o saldo final físico para a data de fechamento de estoque informada. Ou seja, é o 
+saldo inicial físico
+ para ser considerado. Este item só conterá valores se o 
+Depósito
+ for Base Própria e tiver movimentação física. Essa opção só aparece se o campo 
+Exibe Dados do Estoque Físico 
+estiver marcado. 
+3 ( + ) Entradas
+São as entradas escriturais que ocorreram após a data de fechamento informada.
+4 ( + ) Previsto em Terceiros
+Neste grupo será apresentado o saldo total previsto em terceiros, ou seja, todos os PMM com quantidade pendente (abatendo inclusive a quantidade já paga). Porém, para apresentação destes dados é necessário marcar a opção 
+Quantidade Prevista em Terceiros 
+em 
+Depósitos - Aba Detalhes
+ e marcar a opção 
+Considera Qtde. Prevista em Terceiros em PMM
+.
+5 ( - ) Saídas
+ 
+São as saídas escriturais que ocorreram após a data de fechamento informada.
+6 ( - ) Adiantamentos Quantificados
+ 
+Este grupo será apresentado se marcada a opção 
+Considera adiantamentos quantificados
+ em tela. É útil em empresas que quando o cliente faz um adiantamento quantificado, na verdade, faz uma reserva do produto. Ou seja, o disponível para venda deve desconsiderar essas reservas. Assim, apresenta o saldo de 
+Adiantamento Quantificado de Clientes
+. No caso de adiantamentos de produtos compostos, em seus produtos básicos, serão apresentadas as quantidades proporcionais.
+7 ( - ) Pedidos Pendentes
+ 
+Neste grupo será apresentado o saldo total de todos os pedidos pendentes. No caso de pedidos de venda de produtos compostos, em seus produtos básicos, serão apresentadas as quantidades proporcionais, no campo 
+Qtde
+.
+8 ( - ) Contratos Venda Entrega Futura
+Neste grupo serão apresentados o saldo de todos os contratos de entrega futura (VEF) que estão pendentes.
+9 ( - ) Reserva de Produto
+Neste grupo será apresentado 
+a soma do saldo das Reservas de Produto para o Produto / Empresa / Depósito na data atual. 
+Este grupo será apresentado somente se o campo 
+Reserva de Produto 
+estiver 
+diferente
+ de Não utiliza Reserva de Produto. Para mais informações, ver 
+Reserva de Produto por Estoque
+.
+10 ( + ) Estoque em Trânsito
+Neste grupo será apresentado 
+a soma do saldo das OC em trânsito para o Produto / Empresa / Depósito. Para apresentação destes dados é necessário escolher uma das opções em 
+Estoque em Trânsito(OC de Desc) na Disp. do prod
+, 
+se será considerada todas as OC, com um determinado nº de dias, ou que passou pela Portaria de Entrada mas não descarregou. Para mais informações, ver
+ 
+Depósitos - Aba Detalhes
+ e 
+Estoque em Toco
+ 
+EDE ( = ) Disponível Escritural (1+3+4-5-6-7-8-9+10)
+Indica a quantidade disponível escritural resultante do seguinte cálculo: 
+Saldo Inicial + Entradas + Saldo Previsto em 3º - Saídas - Adto Quantificado - Pedidos Pendentes - Pedidos de
+ 
+Venda Entrega Futura
+EDF (=) Disponível Físico (2+3-5-6-7-8)
+Indica a quantidade disponível física resultante do seguinte cálculo: 
+Saldo Inicial + Entradas - Saídas - Adto Quantificado - Pedidos Pendentes - Pedidos de
+ 
+Venda Entrega Futura.  Essa opção só aparece se o campo 
+Exibe Dados do Estoque Físico 
+estiver marcado. 
+As opções abaixo são mostradas apenas se o campo 
+ Calcula Projeção de Estoque
+ estiver marcado e se Empresa, Produto e Depósito estiverem no campo coluna, juntamente com o Tipo. Não respeitando essas condições o SisPetro mostrará a mensagem Não é possível selecionar a opção Calcula Projeção de Estoque com as colunas de depósito, empresa ou produto na região de filtro. 
+MDV ( = ) Média Diária para Vendas
+Indica a média simples das vendas com base na soma dos dias anteriores a 
+Data Fechamento
+ indicado no campo 
+Dias Para Análise de Vendas. 
+Exemplo:  
+Data fechamento informada: 
+31/12/2000
+Dias Para Análise de Vendas:
+ 07 dias
+Período de Vendas analisado:
+ de 24/12/2000 a 30/12/2000
+Soma da Quantidade:
+ 90.000 
+Média Diária de Vendas:
+ 12.857,14
+Ao analisar um produto básico (Óleo Diesel A, por exemplo) a venda dos produtos compostos (a exemplo do Óleo Diesel B S10) irá participar da soma as quantidades proporcionais
+Exemplo:  
+Venda de Óleo Diesel B S10 = 
+100.000 (a)
+Proporção do Óleo Diesel A no Óleo Diesel B S10 = 
+90%
+Venda de Óleo Diesel A = 
+30.000 (b)
+Soma das Vendas = 
+a + (b*90%) =  120.000
+ 
+RV ( = ) Resto de Vendas (MDV*[DPE+1]-05-07)
+É uma soma que será utilizada para calcular os dias de estoque, desconsiderando as vendas já realizadas, sejam elas faturadas (lançadas em Saídas) como as Pendentes de Faturamento.
+ET (=) Estoque em Trânsito
+É a soma de OC de Transferência entre Depósitos confirmada e não faturada + OC de Descarga Própria não faturada.
+Para apresentar OC de Descarga Própria, será necessário marcar a opção 
+Calcula Projeção de Estoque
+ e
+ no campo 
+Dias de Projeção de Estoque
+, o mesmo será preenchido e irá trazer a quantidade em trânsito conforme os dias para a Previsão de Chegada.
+ 
+SP (=) Saldo Projetado (EDE-RV)
+Indica o saldo projetado para cálculo de dias de estoque, somando o Estoque em Trânsito e subtraindo o Resto de Vendas.
+(=) Dias de Estoque (SP/MDV)
+Indica a projeção de dias de estoque. É o resultado da divisão entre o Saldo Projetado pela Média Diária de Vendas
+Com essa informação, o Setor de Suprimentos pode analisar as vendas e projeções de um determinado período para identificar o tempo que durará o saldo em estoque.  
+Em todos os campos de valores, ao dar duplo clique na célula de dados, é apresentada a tela abaixo com o detalhamento das informações. 
+Esse detalhamento dependerá do grupo posicionado, justificando a totalização.
+Ex. Se o grupo for Pedidos Pendentes, apresentará quais os Pedidos de Venda Aprovados e Não Faturados que justificam aquele total.
+Para mais informações sobre as funcionalidades da tela, ver 
+Consultas Tridimensionais
+.
+Produtos compostos
+A partir da versão 
+11.8
+, por padrão, os 
+produtos compostos
+ não serão mais apresentados.
+Caso a empresa deseje que eles sejam destacados na disponibilidade, será necessário criar no arquivo 
+.ini
+ do Sispetro normal a chave “
+ConsultaDisponibilidade”,
+ e logo abaixo inserir o comando “
+ListaProdutoCompostos=1
+”, conforme o exemplo abaixo.
+wide
+1800
+[ConsultaDisponibilidade]
+ListaProdutoCompostos=1

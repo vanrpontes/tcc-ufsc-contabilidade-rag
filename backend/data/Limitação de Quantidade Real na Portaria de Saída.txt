@@ -1,0 +1,223 @@
+TITULO: Limitação de Quantidade Real na Portaria de Saída
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2883125408
+--------------------------------------------------
+De forma manual ou pelo SmartCard, é possível ter um carregamento ou uma descarga com quantidade bem diferente da programada. Se a forma é manual, isso pode ocorrer se estiver configurado no perfil de Sistema que deve ser informada a quantidade. Se a forma é via SmartCard, isso pode ocorrer conforme o que foi gravado no SmartCard.
+
+
+Para evitar que tais quantidades reais sejam liberadas incorretamente, foram implementadas algumas melhorias.
+
+
+Configurando o SisPetro:
+ existem 2 perfis a serem configurados no SisPetro. Um perfil para o usuário administrador e um perfil para o usuário comum.
+
+
+
+
+Em Menu 
+Ferramentas / Usuário / Painel Perfil / aba Carregamento / quadro Limitação de Qtde. no Carregamento/Descarga
+:
+
+
+
+
+
+
+
+
+Para configurar o usuário padrão, marque as opções no quadro Limitação de Qtde. no Carregamento/Descarga:
+
+
+
+
+
+
+Verificar Descarga Real fora do limite permitido e informe o percentual acima ou abaixo em relação à quantidade prevista/programada.
+
+
+
+
+
+
+Verificar Carregamento Real fora do limite permitido e informe o percentual acima ou abaixo em relação à quantidade prevista/programada.
+
+
+
+
+A opção Libera quantidade fora do limite permitido deve estar desmarcada.
+
+
+
+
+
+
+Para configurar o usuário administrador:
+
+
+
+
+
+
+Marque a opção no quadro Limitação de Qtde. no Carregamento/Descarga:
+
+
+
+
+
+
+Libera quantidade fora do limite permitido:
+
+
+
+
+
+
+O bloqueio é feito por Depósito. Para configurar, acesse em Menu 
+Arquivos / Depósitos / painel Detalhes
+:
+
+
+
+
+Marque as opções no quadro Liberação de Estoque Físico:
+
+
+
+
+
+
+Bloquear descarga real fora do limite permitido: informe e confirme a senha.
+
+
+
+
+
+
+Bloquear carregamento real fora do limite permitido: informe e confirme a senha.
+
+
+
+
+
+
+
+
+Para carregamento é obrigatório que o campo Portaria de Entrada e Saída em Carregamentos esteja como Utiliza Tela de Portaria de Entrada e de Saída.
+
+
+
+
+
+
+EXEMPLO PARA CARREGAMENTOS:
+
+
+Após o caminhão ter entrado na base e realizado o carregamento, o usuário deve abrir a tela de Portaria de Saída onde irá proceder com a saída do caminhão da base.
+
+
+
+
+ATENÇÃO: O carregamento não aparecerá nesta tela se o depósito estiver configurado para não passar na portaria de saída, pois a portaria de saída já foi processada automaticamente na portaria de entrada. 
+
+
+Localize o caminhão e clique no botão 
+Le Manual
+ (caso não possua automação de base) ou coloque o cartão smartcard anteriormente programado na leitora e clique no botão 
+Le Smart Card
+.
+
+
+Caso o botão pressionado tenha sido o 
+Le Manual
+, o Sistema irá abrir uma janela onde o usuário poderá informar os dados reais do carregamento.
+
+
+
+
+Informe as seguintes informações:
+
+
+
+
+Quantidade Real:
+ Quantidade real carregada a temperatura ambiente.
+
+
+Densidade:
+ Densidade a temperatura ambiente.
+
+
+Temp.Tanque:
+ Temperatura do Tanque.
+
+
+Temp.Amostra:
+ Temperatura da Amostra.
+
+
+Código Tanque:
+ Vinculo com o Código do Tanque, que poderá ser feito caso o perfil "Informa Tanque para Carregamento na saída da portaria" esteja habilitado. Este perfil pode ser marcado a partir do menu 
+Ferramentas / Sistema / painel Ordem Carregto / quadro Portaria de Saída
+
+
+
+
+Caso o frota seja do tipo vagão, o botão "Volume Vagão" estará habilitado, sendo possivel alterar a quantidade real do produto. Para mais informações sobre o funcionamento do botão "Volume Vagão", acesse o tópico 
+.
+
+
+Para que o usuário possar informar essas informações o perfil da empresa deve estar corretamente configurado. Caso contrário o sistema busca essas informações automaticamente do Tanque Ativo.
+
+Marque a partir do menu 
+Ferramentas / Sistema / painel Ordem Carregto
+, as opções:
+
+
+
+
+
+
+
+
+O Sistema irá calcular automaticamente o fator de correção.
+
+
+Aperte o botão 
+OK
+ para concluir o carregamento.
+
+
+O Sistema irá atualizar o saldo físico a temperatura ambiente e 20 graus conforme a quantidade real informada e atualizar os dados da movimentação de estoque escritural realizado anteriormente (atualizando o fator de correção, as temperaturas e densidade e a movimentação a 20 graus confirmando que esta movimentação realmente ocorreu).
+
+
+O perfil:
+
+
+
+
+Quando habilitado, este perfil irá obter a data de saída do estoque físico a partir da data de movimento da nota fiscal vinculada a ordem de carregamento
+
+
+Caso a quantidade real seja diferente da quantidade programada, o SisPetro bloqueará a ordem automaticamente:
+
+
+
+
+Para liberar, o usuário administrador deve acessar o Sispetro em Menu 
+Movimentação // Base // Portaria // Saída
+, onde pode optar por mostrar somente as ordens bloqueadas, marcando o campo Somente Registros com quantidade fora do limite.
+
+
+As ordens bloqueadas aparecem em vermelho. Para liberar, selecione a ordem desejada e depois clique no botão 
+Libera
+. Será solicitada uma senha, que foi configurada no depósito. Informe a senha e clique no botãp 
+OK
+. A ordem está liberada:
+
+
+Carregamentos:
+
+
+
+
+Descargas:
+

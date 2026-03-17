@@ -1,0 +1,91 @@
+TITULO: Utilizando Faturamento Automático
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921696641
+--------------------------------------------------
+Acesse a tela de 
+:
+Faça as OC individuais ou vários pedidos em uma OC.
+Selecione as OC para faturar - usando as teclas CTRL ou SHIFT em conjunto com o mouse, pode-se fazer múltiplas seleções:
+OC individuais, ou seja, 1 OC para cada item ou
+OC com vários itens e vários pedidos: 
+Nesses casos, basta selecionar somente um dos pedidos com essa OC. O SisPetro automaticamente seleciona todos os pedidos que estão nessa OC.
+Selecionadas as OC a faturar, basta clicar no botão 
+Fat. Automático.
+Será apresentada a seguinte tela:
+Nesta tela são mostradas as OC que serão faturadas. Neste ponto, o usuário pode intervir e caso seja necessário, alterar alguns dados, marcar ou desmarcar OC que serão ou não faturadas, alterar datas, alterar natureza de operação, etc.
+Para permitir troca de natureza de operação, deve ter o seguinte perfil de usuário desmarcado em: menu Ferramentas / Usuário / Aba superior Perfil /  Aba inferior Vendas / Quadro Interação com Faturamento / Desmarcar opção 
+Trava escolha Natur. Operação quando venda.
+Painel Processamento:
+Quadro Dados dos Pedidos:
+Permite visualizar as OCs selecionadas para faturamento. É possível selecionar os campos que deseja visualizar:
+Permite selecionar as OC que serão faturadas, marcando ou desmarcando individualmente, ou todas através do botão 
+Marca/Desmarca Todas
+.
+Dados por NF:
+Permite alterar, caso o usuário tenha perfil para tal, data de emissão e data/hora do movimento.
+Nat. Op.
+Permite alteração da natureza de operação antes do faturamento automático. 
+Observações:
+Permite alterar as informações que serão enviadas no XML (INF CPL e INF AD FISCO) e as Observações da Nota Fiscal. Essas informações podem ser previamente cadastradas na natureza de operação.
+Necessário desmarcar perfil de usuário para permitir alteração de Natureza de Operação. Ver 
+Painel Vendas (Usuários)
+ 
+Dados por NF e Observações são 
+individuais
+, ou seja, as alterações desses campos, caso tenha, são somente para a OC selecionada. Assim, as alterações sairão somente na nota fiscal da OC selecionada. Portanto, caso tenha, as alterações devem ser feitas para cada OC. 
+Processamento NF-e/Impressão NF:
+Permite ao usuário selecionar se deseja processar/imprimir a NF-e ou não.
+Cobrança:
+Permite ao usuário selecionar se deseja enviar e-mail/imprimir boleto ou não.
+Documento Associado:
+Permite ao usuário selecionar se deseja imprimir ou não um documento associado (configurado na natureza de operação).
+Ordem de Impressão dos Documentos:
+Permite ao usuário selecionar a ordem de impressão dos documentos, podendo ser impressos por tipo de Documento (Danfe, Boletos e Documento Associado) ou Por Nota Fiscal.
+Ao selecionar uma das opões de Processamento NF-e/Impressão NF, Cobrança e Documento Associado, as mesmas são gravadas para o usuário em questão, ficando fixas até que sejam alteradas novamente.
+Emitindo as notas fiscais
+Selecionadas as OC que serão faturadas e informadas as opções desejadas, clicar no botão 
+. 
+Será mostrada a seguinte tela:
+Caso o usuário clique em 
+Cancelar
+, o processo será cancelado voltando para a tela do Faturamento Automático. 
+Caso o processo continue normalmente, as notas serão enviadas para a Sefaz - a partir deste ponto, são os mesmos procedimentos do faturamento manual:
+Clicando em OK, será solicitado à Sefaz os protocolos:
+O retorno do processamento em lote, 
+caso alguma nota tenha algum erro,
+ depende de cada SEFAZ. 
+Por exemplo, a SEFAZ de São Paulo considera 
+todas
+ as notas com erro, mesmo que somente 
+uma
+ delas tenha apresentado problemas. Já a SEFAZ do Paraná retorna as notas de acordo com sua situação: autorizadas ou com erro.
+Nota:
+ os testes foram feitos em ambiente de 
+Homologação.
+As notas que foram autorizadas serão impressas e enviadas por e-mail aos clientes (caso estejam configurados para tal) juntamente com a cobrança (caso configurado para impressão e/ou envio de e-mail):
+Após impressão volta para a tela do Faturamento Automático:
+Selecione a nota que apresentou o problema e clique no painel 
+Resultado
+ para ver o erro:
+Os erros em uma nota fiscal podem ocorrer antes ou depois do envio à SEFAZ:
+Erro na nota antes do envio:
+ por algum motivo houve um erro na nota antes do envio à SEFAZ. Nessa situação, é possível reprocessar a nota que apresentou erro sem sair da tela. Basta que outro usuário faça a correção do problema. Após corrigir, basta selecionar a OC e clicar no botão 
+Processar, 
+e a nota será enviada à SEFAZ para autorização ou não.
+Nota:
+ dependendo do erro, o usuário terá que sair da tela de Faturamento Automático.
+Erro na após envio:
+ caso a nota seja enviada à SEFAZ e apresente erro, não é possível processar novamente pela tela de Faturamento Automático. Nos casos que sejam possíveis o envio novamente, utilizar a tela de 
+Manutenção de NF-e/CT-e Pendente
+. Dependendo do erro só é possível cancelar (inutilizar a numeração).
+Caso o usuário tente reprocessar notas já enviadas à SEFAZ, é apresentada a mensagem abaixo:
+Status do processamento:
+Status
+Descrição
+Aguardando processamento
+Processando
+Processada com sucesso
+1 - Com erro de processamento
+ 2 - Nota com erro sem envio à Sefaz. Possibilidade de processar novamente através da tela do Faturamento Automático.
+Nota com erro retornado pela Sefaz. Sem possibilidade de processar novamente pela tela do Faturamento Automático. Em alguns casos, pode processar através da tela de Manutenção de NF-e Pendentes.
+Mais informações:
+Como emitir Nota Fiscal Venda

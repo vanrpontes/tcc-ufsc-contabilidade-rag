@@ -1,0 +1,171 @@
+TITULO: Certificado PIX Itaú - Passos de como gerar o certificado
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4458020865
+--------------------------------------------------
+none
+Objetivo
+Abaixo os procedimentos para receber as informações de acesso e obter o certificado para utilização da API do PIX
+Esse processo foi realizado em 
+Setembro/2023 
+e está conforme orientações definidas pelo banco Itaú. Não nos responsabilizamos por qualquer alteração. 
+É responsabilidade de cada empresa conseguir o certificado digital para uso no PIX. 
+A Futura, por cortesia, detalhou o procedimento para facilitar o trabalho de nossos clientes. Por ter pontos mais técnicos, recomendamos que alguém da área de TI prossiga com o passo a passo. 
+Dados de acesso
+O funcionário que possui acesso à conta corrente da empresa, deve entrar em contato com a central do banco e selecionar a opção 
+falar com os atendentes
+ para solicitar o acesso ao API de consultas do PIX Recebidos.
+A equipe de implantação do banco 
+enviará um e-mail
+ para o funcionário com as instruções necessárias para iniciar a implantação. Esse e-mail contém:
+A instituição financeira realizou o cadastro das credenciais da empresa.
+O TOKEN para que seja realizado o fluxo de autenticação e segurança, que tem validade de 
+sete dias úteis
+. Se o prazo de validade do TOKEN expirar, o processo deverá
+ ser reiniciado
+.
+Um link para acessar o portal onde a instituição financeira fornece as informações necessárias para o desenvolvimento do API PIX.
+Ao acessar o portal, o funcionário com acesso à conta corrente poderá adicionar o desenvolvedor responsável pela implantação para ter acesso ao material fornecido pela instituição financeira.
+Exemplo banco Itaú:
+Tela login:
+Tela para incluir o desenvolvedor:
+Tela para incluir o e-mail do desenvolvedor:
+Tela de convite:
+Obtenção de Certificado
+informar os passos necessários para configurar o Postman para acessar as API's do Banco Itaú.
+Geração dos Arquivos *.csr e *.key com programa Git Bash
+Siga os passos abaixo
+Abra o 
+Git Bash
+Vá até a pasta onde deseja gerar os arquivos
+Execute o comando abaixo:
+openssl req -new
+ 
+-subj "//CN=CLIENT ID RECEBIDO DO ITAU\OU=SisPetro\L=Sao Paulo\ST=SP\C=BR"
+ 
+-out Futura.csr -nodes -sha512 -newkey rsa:2048
+ 
+-keyout Futura.key
+Exemplo do comando com os dados da Futura: 
+openssl req -new -subj "//CN=1exxaf03-05aa-4x2c-96xx-c24c0073ex6x\L=Sao Paulo\ST=SP\C=BR" -out Futura.csr -nodes -sha512 -newkey rsa:2048 -keyout Futura.key
+Informações importantes
+O arquivo csr gerado precisa ter 17 linhas, menos ou mais que isso o arquivo não foi gerado corretamente.
+Gerar o arquivo no prompt de comando do DOS pode gerar problemas no arquivo (má formação).
+Caso o arquivo não seja gerado com a quantidade de linhas que deveria, tente trocar o nome dos arquivos gerados.
+Obter Arquivo de Certificado via Postman
+No 
+Postman
+, é necessário fazer um post na url 
+https://sts.itau.com.br/seguranca/v1/certificado/solicitacao
+Na aba 
+Authorization
+, informe o parâmetro 
+Bearer Token
+, informando o TOKEN recebido através de e-mail do Itaú.
+Na aba 
+Headers
+, informe o parâmetro 
+Content-Type
+ com o valor 
+text/plain
+Na aba 
+Body
+, selecione a opção 
+raw
+ e informe o conteúdo do arquivo csr gerado no inicio desse manual.
+Na aba 
+Settings
+, desabilite a opção 
+Enable SSL certificate verification
+Clique em 
+Send
+. Voltando a aba 
+Body
+ o Postman deverá ter recebido o arquivo do certificado digital gerado pelo Itaú.
+Gerando o arquivo com extensão .crt
+Copie todo o conteúdo do certificado recebido, desde 
+-----BEGIN CERTIFICATE-----
+ até 
+-----END CERTIFICATE-----
+ e salve na pasta dos seus arquivos com a extensão 
+.crt
+Senha (secret) retornada com o certificado 
+Outra informação importante retornada nesse método é a senha ( 
+Secret
+ ) vinda acima, essa senha será necessária para recebimento do token temporário com validade de 5 minutos.
+Atenção salve a informação do 
+secret, 
+pois será utilizado posteriormente para configurações no Sispetro em 
+Client_secret.
+Verificar se o par (.crt e .key) são iguais 
+Este teste tem como finalidade garantir que o arquivo (.crt e .key) estejam iguai para validar as requisições a API do Itau.
+Para realizar o teste utilize o programa Git Bash.
+Com o Git Bash realize os comandos abaixo e garanta que esteja nos diretórios corretos.
+wide
+1800
+#Comando para ver o Hash do arquivo (.crt)
+openssl x509 -noout -modulus -in "Caminho\do\arquivo\nomearquivo.crt" | openssl md5 
+#Comando para ver o Hash do arquivo (.key)
+openssl rsa  -noout -modulus -in "Caminho\do\arquivo\nomearquivo.key" | openssl md5
+Conforme a imagem abaixo os arquivos devem apresentar o mesmo resultado.
+Teste de Comunicação com o Postman
+Configurando os Certificates 
+Para testar a comunicação com o banco Itaú(consulta ao dados) é necessário configurar o 
+Postman
+ conforme regras abaixo.
+Nas configurações do Postman, informe os dados como na imagem abaixo.
+Os endereços listados acima não devem ser copiados e colados no Postman, para funcionarem, é preciso digitar os 
+Hosts
+Obter Token Temporário (Validade de 5 minutos)
+Para obter o arquivo temporário, na página 
+Headers
+ informe os parâmetros abaixo.
+Na página 
+Body
+, informar os parâmetros informados abaixo, lembrando que 
+client_id
+ é a informação recebida por e-mail do Itaú e 
+client_secret
+ é a senha recebida nos passos acima junto com o certificado digital.
+Ao ser enviado o comando, é retornado ao usuário o token temporário para que se possa efetuar as consultas.
+Gerar Arquivo PFX para Uso no SisPetro
+Com a linha de comando abaixo, no 
+Git Bash
+ será possível a geração do arquivo 
+pfx
+ a ser utilizada no SisPetro. Após pressionar enter, será solicitado ao usuário a senha a ser utilizada no arquivo de certificado digital.
+Winpty openssl pkcs12 -export -out 
+domain.name
+.pfx -inkey 
+domain.name
+.key -in 
+domain.name
+.crt
+Caso der erro na inclusão do certificado no Controlador Hermes, ou após a inclusão do certificado no Controlador Hermes erro de comunicação
+Para isso é necessário que o certificado em questão esteja instalado no Windows. Após a instalação, será possível fazer a exportação de um novo certificado, que irá resolver o erro acima.
+Acesse o 
+Painel de Controle
+Clique em 
+Rede e Internet
+Clique em 
+Opções da Internet
+ onde será exibida a janela abaixa. Selecione a aba 
+Conteúdo
+ e depois clique no botão 
+Certificados
+Será exibida a janela abaixo.
+Selecione o certificado que você deseja extrair a chave pública e clique em 
+Exportar…
+. Será exibida a janela abaixo. Clique em 
+Avançar
+Será exibida a janela abaixo e ela necessita de atenção. Você só deve marcar a opção 
+Sim, exportar a chave privada 
+e clique em 
+Avançar
+Deixe as opções 
+Troca de Informações Pessoais/ Incluir todos os certificados no caminho de certificação, se possível/ Habilitar privacidade de certificado
+ marcados. Clique em 
+Avançar.
+Marque a opção 
+Senha
+ e  informe uma senha para o certificado. Clique em 
+Avançar
+Com este novo certificado, vincule no Hermes.

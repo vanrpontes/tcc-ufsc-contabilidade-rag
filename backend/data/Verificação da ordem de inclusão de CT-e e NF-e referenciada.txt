@@ -1,0 +1,44 @@
+TITULO: Verificação da ordem de inclusão de CT-e, e NF-e referenciada
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4115726337
+--------------------------------------------------
+Exige que tenha um CT-e com referência a Chave de Acesso
+Algumas empresas que controlam contabilização de custos, necessitam que o tenha um CT-e já lançado com a chave da NF-e referenciada, antes de entrar com a nota, 
+já que o valor do frete pode interferir no custo, assim será obtido mais efetivamente com o CT-e.
+Para trabalhar dessa maneira e impedir que a nota seja incluída antes do lançamento do CT-e, basta configurar a natureza de operação da NF-e da seguinte maneira.
+Acesse o menu 
+Tabelas Auxiliares > Faturamento > Natureza de Operação
+Também na natureza de operação da NF-e, marque o perfil 
+Vincula-se automaticamente a um CT-e que tenha a chave de acesso referenciada, 
+assim quando a nota for incluída o vículo com o CT-e será automático
+. 
+Para mais informações, ver 
+.
+Aba Detalhes, Por filial, aba inferior Dados Gerais, perfil 
+Exige que tenha um CT-e já lançado com referência à chave de acesso.
+ 
+Para mais informações, ver 
+.
+Ao tentar incluir a NF-e antes do CT-e, com o perfil habilitado, a seguinte mensagem será exibida.
+A validação será feita no momento da importação da NF-e, tando manual quanto na importação automática. Para mais informações ver, 
+Validações Importação de Nota Fiscal
+.
+Após incluir o CT-e, na manutenção de Notas Fiscais é possível verificar as chaves de acesso referenciadas no conhecimento.
+Acesse o menu 
+Movimentação  > Faturamento > Manutenção de Notas Fiscais.
+Aba Fiscal, aba inferior Chaves Acesso Vinculadas
+Após incluir o CT-e o Sispetro irá permitir a inclusão da NF-e, efetuando o vínculo automático com o CT-e.
+Não Exige Que tenha um CT-e com referência a Chave de Acesso
+O Sispetro não fará verificação, basta configurar a natureza de operação da NF-e da seguinte maneira.
+Acesse o menu 
+Tabelas Auxiliares > Faturamento > Natureza de Operação
+Neste caso basta desmarcar o 
+perfil 
+Exige que tenha um CT-e já lançado com referência à chave de acesso.
+ 
+ 
+Aba Detalhes, Por filial, aba inferior Dados Gerais. 
+Para mais informações, ver 
+.
+Caso a NF-e seja incluída antes do CT-e para que o custo seja obtido será necessário executar a  ferramenta Atualização do Custo Médio. Para mais informações, ver
+ 
+Atualização de Custo Médio

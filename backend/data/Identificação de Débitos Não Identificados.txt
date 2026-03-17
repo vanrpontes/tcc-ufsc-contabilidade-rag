@@ -1,0 +1,58 @@
+TITULO: Identificação de Débitos Não Identificados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440403
+--------------------------------------------------
+Quando é feita a identificação de um título do Sispetro, o mesmo é cancelado e um novo título é gerado com as informações. Os dois processos são feitos de forma automática, cabendo ao usuário somente informar os dados do cliente identificado. Vejamos como deverá ser feito logo abaixo. Veja maiores informações sobre 
+Lançamento Débitos Não Identificados
+.
+Na tela de Manutenção de Lançamentos do Contas a Receber, o usuário deve posicionar o cursor sobre o mesmo e clicar no botão 
+Identifica:
+Ao selecionar o titulo e clicar no botão Identifica o sispetro irá apresentar a seguinte mensagem para confirmação: "
+Continua com Identificação de Débito Não Identificado?
+"
+Após clicar em Sim, o SisPetro abrirá uma tela para a entrada dos dados do cliente conforme abaixo:
+Introduza as seguintes informações:
+Código da Entidade:
+ Código da Entidade identificada.
+Código do Comprador
+:
+ 
+Código da Entidade Compradora identificada.
+Código do Vendedor
+:
+ 
+Código do vendedor.
+Taxa de Juros ao dia (para atrasos): 
+Valor da taca de juros diária do título a ser identificado.
+%Multa C. Receber:
+ Percentual da multa do título a ser identificado.
+Data Emissão/Cancto: 
+Data informada pelo usuário que será atribuida como Data de Cancelamento do título não identificado, e como Data de Emissão do título identificado. Lembrando que fazer a identificação, o título não identificado é cancelado, e o um novo título é gerado com a identificação.
+Ao colocar o código do cliente, o SisPetro preenche os campos 
+Código Comprador
+ e 
+Código Vendedor
+, com os dados de comprador e vendedor que estão vinculados a esse cliente no seu cadastro. Mais informações sobre o cadastro de clientes, no tópico 
+.
+Confirmar os dados de Taxa de Juros e %Multa que também são sugeridos conforme o cadastro do cliente. 
+Aperte o botão 
+OK
+ para confirmar a identificação.
+Nesta etapa o Sispetro irá validar as informações lançadas na tela, assim como a 
+Data Emissão/Cancto
+. Esta data deverá ser igual ou maior que a data atual do título não identificado. Caso contrário, o Sispetro emitirá a mensagem "
+A Data de Emissão/Cancto não pode ser menor que Data emissão do Título ou está inválida
+", conforme imagem abaixo:
+Além disso, a data informada não pode estar dentro de Travamento Contábil e/ ou Fechamento Financeiro, tais como mensagens abaixo:
+O lançamento, agora identificado, irá aparecer com a cor normal e o cliente na coluna de razão social (anteriormente nesta coluna o Sispetro mostrava a descrição da conta indicada como contrapartida da conta de banco na inclusão do lançamento).
+Cancelamento de Título gerado através de crédito / Débito não identificado
+Ao identificar um título, seja ele de débito ou crédito, automaticamente um novo será gerado contendo as respectivas informações do Cliente ou Fornecedor e o original (não identificado) automaticamente torna-se cancelado.
+ Em alguns casos, pode-se identificar um título incorretamente, havendo a necessidade de alterar o cliente ou fornecedor, para isso é necessário que seja realizado o cancelamento do título gerado após a identificação, fazendo isso, automaticamente o título original de crédito não identificado será reativado podendo refazer a operação de identificação. Exemplo:
+1) Identificado crédito de R$ 1000,00 na conta.
+ 2) Gerado título número 3342 de contas a receber de R$ 1000,00 como crédito não identificado.
+ 3) Identificado o cliente Auto Posto Futura, será gerado o título de contas a receber número 3343 de R$ 1000,00 para Futura e o título 3342 será cancelado automaticamente.
+ 4) Detectada a falha, o cliente correto era o Auto Posto Petro, será cancelado o título 3343 e o 3342 voltará a ativa automaticamente.
+ 5) Identificar novamente o título 3342 com o cliente correto.
+Quando é realizado o cancelamento do título gerado pelo crédito não identificado, em paralelo, também será cancelado os Lotes contábeis, bem como os lançamentos na manutenção de bancos.
+Para cancelar um título que foi identificado é preciso que 
+NÃO
+ exista fechamento financeiro na data da emissão do título não identificado.

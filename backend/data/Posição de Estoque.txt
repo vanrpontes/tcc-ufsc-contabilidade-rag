@@ -1,0 +1,120 @@
+TITULO: Posição de Estoque
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898908
+--------------------------------------------------
+O Relatório de Posição de Estoque permite identificar a posição do estoque em uma determinada data, inclusive com a valorização do mesmo. Pode ser acionado pelo Menu 
+Relatórios / Estoque / Posição de Estoque
+:
+Este relatório também pode ser acessado pela 
+Manutenção de Fechamento Financeiro
+. A tela deste relatório não é exibida, mas na tela do 
+Relatório de Posição
+ pode selecionar a ordenação desejada e o relatório apresenta a posição do estoque obtida na data do fechamento.
+Unidade de Negócios:
+ 
+onde pode ser selecionado uma Filial específica, um Grupo de Filiais, um Conglomerado ou mesmo todas as Filiais cadastradas.  
+Filial:
+ 
+caso tenha sido selecionado "Filial (escolher)" em
+ 
+Unidade de Negócios
+, será habilitado este campo onde pode ser informada ou selecionada uma filial. O relatório apresentará a posição dos saldos das contas relativas a esta filial.
+Caso o usuário não tenha acesso a filial escolhida, a geração do relatório não trará nenhum resultado
+Grupo de Filiais:
+ 
+caso tenha sido selecionado "Grupo de Filiais (escolher)" em
+ 
+Unidade de Negócios
+, será habilitado este campo onde pode ser informado ou selecionado um grupo de filiais. O relatório apresentará a posição dos saldos das contas relativas a este grupo de filiais.
+Conglomerado de Filiais:
+ 
+caso tenha sido selecionado "Conglomerado de Filiais (escolher)" em
+ 
+Unidade de Negócios
+, será habilitado este campo onde pode ser informado ou selecionado um conglomerado de filiais. O relatório apresentará a posição dos saldos das contas relativas a este conglomerado de filiais.
+Considera regra de fechamento financeiro:
+ 
+se marcado esta opção, será considerado no relatório somente as empresas que não estejam configuradas como fechamento exclusivo. 
+O relatório de Posição de Estoque é baseado em 
+Fechamentos de Estoque
+, não considerando qualquer saldo atual. Suas informações dependerão basicamente dos fechamentos realizados.
+Ele pode apresentar os fechamentos de uma determinada data, conforme 
+data de fechamento
+ informada na tela. Neste caso não serão apresentados produtos/depósitos que não tenham fechamento na data informada.
+Se desejar ter uma posição do estoque na data informada, ou seja, saber qual o saldo final de cada produto/depósito/empresa nesta data, marque a opção 
+Exibe o último fechamento até a data informada
+.
+Ex. Dados de Fechamento
+Data do último Fechamento
+Produto
+Depósito
+01/10/2006
+ALCOOL HIDRATADO
+BASE JAPERI
+30/09/2006
+ALCOOL HIDRATADO
+BASE JURUAPURU
+01/10/2006
+ALCOOL HIDRATADO
+BASE JACORIBA
+Se a opção 
+Exibe o último fechamento até a data informada
+ estiver 
+desmarcada
+ e for informada a data 01/10/2006, só serão apresentados os fechamentos:
+Base Japeri
+Base Jacoriba
+Se a opção 
+Exibe o último fechamento até a data informada
+ estiver 
+marcada
+ e for informada a data 01/10/2006, serão apresentados os fechamentos:
+Base Japeri com data de 01/10/2006
+Base Jacoriba com data de 01/10/2006
+Base Juruapuru com data de 30/09/2006
+Ou seja, se a Base Juruapuru não tem fechamento em 01/10/2006, a posição do seu estoque é o último fechamento anterior à data informada, que é de 30/09/2006.
+A opção 
+Tipo de Estoque
+ tem as seguintes opções:
+Total:
+ Todos os fechamentos serão apresentados.
+Próprio:
+ Somente os fechamentos de empresas não configuradas como Côngenere serão apresentados.
+Terceiros:
+ Somente os fechamentos de empresas configuradas como Côngenere serão apresentados.
+O relatório sempre apresentará os dados por filial, respeitando a 
+unidade de negócios
+ informada em tela. A cada filial a 
+ordenação
+ pode ser:
+Por depósito:
+ A cada depósito serão apresentados os produtos com fechamento de estoque.
+Por produto:
+ A cada produto serão apresentados os depósitos com fechamento de estoque.
+Ao escolher a opção 
+Tipo de Quantidade Utilizada
+, indica que serão apresentados os saldos conforme o tipo de quantidade escolhida:
+Tipo de Deposito:
+ Usuário tem a possibilidade de filtrar apenas os depósitos disponíveis, ou todos. Para mais informações ver: 
+Tabela Depósitos
+ 
+Ao final do relatório é impresso um Resumo, por filial e produto com a posição do estoque (soma dos depósitos com fechamento). Caso queira somente esse Resumo, marque a opção 
+Resumido
+.
+Além do saldo final ambiente apresentado em cada produto/depósito, também é apresentado o custo médio desta data de fechamento e o valor total do estoque (Custo Médio X Saldo). Caso não queira estas colunas de valorização, marque a opção 
+Inibe a impressão de Custo
+.
+Para apresentar somente produtos que sejam combustíveis marque a opção 
+Somente combustíveis
+. 
+ 
+Para agrupar o relatório pela classificação dos produtos, marque a opção 
+Agrupa Produtos por Classificação
+. 
+O layout do relatório será gerado conforme o arquivo 
+PosicaoEstoque.rtm
+ que estiver no mesmo caminho do executável, porém sua existência 
+não é obrigatória
+.
+Se a empresa desejar pode-se alterar o layout utilizando o botão 
+Edita Layout
+.

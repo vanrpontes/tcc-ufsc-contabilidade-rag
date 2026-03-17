@@ -1,0 +1,138 @@
+TITULO: Atualização de Custo Médio
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2909898167
+--------------------------------------------------
+Objetivo
+Permitir a atualização de custo médio em Notas Fiscais (entradas ou saídas) e Ajustes (entradas ou saídas) quando identificado que o custo médio esta incorreto, sem a necessidade do processo de cancelamento, exclusão e inclusão da nota fiscal ou do ajuste.
+É necessário que o usuário tenha o perfil 
+Pode alterar custo médio na tela de Atualização
+ marcado. Para mais informações, ver 
+Painel Estoque (Usuários)
+A partir da versão 10.23 do SisPetro, é possível ajustar o custo médio não só das notas fiscais de entrada como também dos pedidos de ajustes de entrada/saída. Foram implementados também nesta versão, os filtros de busca por 
+Depósito
+ e pelo 
+Tipo Pesquisa.  
+O campo 
+Tipo Pesquisa
+ permite selecionar Notas Fiscais ou pedidos de Ajustes.
+Importante
+As movimentações de saídas de estoques que não participam do CMV interferem no cálculo do custo médio. Por isso é importante, tanto para as notas fiscais como para os ajustes, ter o valor unitário correto:
+Ajustes:
+ o valor unitário de um ajuste de saída utiliza o último custo médio fechado.
+Notas Fiscais
+ - recomendamos utilizar as configurações das naturezas de operação e, sendo o caso, as configurações dos produtos:
+Natureza de Operação:
+:
+ opção 
+Sugestão de Preço em NF de Emissão Própria, 
+selecionar 
+Utiliza o último custo médio do Fechamento
+: 
+desmarcar todas as opções de Salva Custos, pois interferem na formação do preço unitário da nota
+Produtos:
+ caso tenha ou queira adicionar custos ao valor do custo médio para formar o preço unitário 
+:
+ selecione a filial, selecione a aba Custo Padrão. Para cada custo cadastrado é possível determinar se esse custo será utilizado para Vendas, Transferências (qualquer nota de saída que movimente os estoques) ou Ambos
+Menu Ferramentas - Atualização de Custo Médio
+Empresa:
+ selecione a empresa para a qual serão atualizados os custos médios. Obrigatório
+Período:
+ informe a data inicial e a data final. Obrigatório
+Depósito:
+ informe o depósito. Opcional. Caso não informe, carregará as notas fiscais independente do depósito informado nas notas
+Tipo Pesquisa:
+ 
+Notas Fiscais
+Natureza Operação:
+ informe a natureza. Opcional. Caso não informe, carregará todas as notas fiscais, independente das naturezas informadas nas notas
+Entrada:
+ não permite edição. Selecionada de acordo com a natureza informada. Caso não informe a natureza, não mostrará marcada
+Saída:
+ não permite edição. Selecionada de acordo com a natureza informada. Caso não informe a natureza, não mostrará marcada
+Forma de Cálculo:
+ não permite edição. Selecionada de acordo com a natureza informada, caso tenha. Caso não informe a natureza, não mostrará a forma de cálculo
+Fórmula:
+ não permite edição. Selecionada de acordo com a natureza informada, caso tenha. Caso não informe a natureza, não mostrará a fórmula
+Participa do CMV:
+ caso a natureza informada participe do CMV, será marcada. Caso não informe a natureza, não mostrará marcada
+Usuário informa custo manualmente:
+ caso a natureza informada esteja com a opção selecionada, será marcada. Caso não informe a natureza, não mostrará marcada
+Empresa:
+ selecione a empresa para a qual serão atualizados os custos médios. Obrigatório
+Período:
+ informe a data inicial e a data final. Obrigatório
+Depósito:
+ informe o depósito. Opcional. Caso não informe, carregará os ajustes independente do depósito informado nos ajustes
+Tipo Pesquisa:
+ 
+Ajustes
+Histórico:
+ informe o histórico utilizado. Opcional. Caso não informe, carregará todos os ajustes, independente dos históricos informados nos ajustes
+Entrada:
+ 
+selecione para apresentar somente os lançamentos com histórico de entrada
+Saída:
+ selecione para apresentar somente os lançamentos com histórico de saída
+Ambos:
+ 
+selecione para apresentar lançamentos de entrada e saída, considerando que tenha usado um mesmo histórico
+Participa CMV:
+ não permite edição. É selecionado de acordo com o histórico informado
+Alteração de Custo em Lote:
+ permite alterar o custo médio para todos os lançamentos marcados
+Custo Médio:
+ informe o novo custo médio com até 6 casas decimais
+Marca/Desmarca:
+ permite marcar ou desmarcar os itens para alterar ou não o custo médio
+Layout Padrão:
+ caso clicado, retorna o layout do SisPetro, descartando as eventuais alterações feitas pelo usuário no quadro dos itens
+Legenda:
+ de acordo com o Tipo Pesquisa
+Imprime:
+ imprime os dados apresentados na tela
+Excel:
+ exporta os dados apresentados na tela para Excel no formato .xlxs
+Salvar:
+ grava os dados de custo médio alterados
+Fechar:
+ sai da tela de atualização
+Informe a Empresa, o Período, o Depósito, selecione o Tipo de Pesquisa e a Natureza/Histórico e clique no botão Atualizar para carregar os dados:
+Notas Fiscais: 
+No campo Custo Médio Atual informa o valor unitário da nota fiscal
+No campo Novo Custo Médio sugere o valor unitário da nota fiscal, podendo ser alterado para o valor desejado
+Selecione as notas que deseja atualizar o custo médio. Pode selecionar individualmente ou clicar no botão Marca/Desmarca. Por padrão, todas as notas estão marcadas - campo Calcula.
+Para alterar o valor do custo médio:
+Individualmente: quando as notas tem diferentes custos médios altere o campo Novo Custo Médio informando o novo custo para cada nota 
+Em lote: quando as notas tem os mesmos custos médio
+Informe o valor no campo Custo Médio e clique no botão Alterar
+Processando as alterações - utilizando alteração em lote
+Informe o novo custo médio no campo Custo Médio
+Verifique se todas as notas estão marcadas - campo Calcula
+Estando tudo correto clique no botão Alterar. Será apresentada a mensagem:
+Caso esteja tudo de acordo, na mensagem clique em Sim. Voltará para a tela e o campo Novo Custo Médio apresentará o custo médio informado.
+Para que as alterações sejam gravadas, clique no botão Salvar
+Na mensagem clique em OK para finalizar as alterações. As notas serão apresentadas com o novo custo no campo Custo Médio Atual e no campo Novo Custo Médio apresentará o valor unitário original das notas. 
+Para sair da tela, clique em Fechar
+Ajustes: 
+No campo Custo Médio Atual informa o valor unitário do ajuste
+No campo Novo Custo Médio sugere o valor unitário gravado no pedido, podendo ser alterado para o valor desejado
+Selecione os ajustes que deseja atualizar o custo médio. Pode selecionar individualmente ou clicar no botão Marca/Desmarca. Por padrão, todos os ajustes estão marcados - campo Calcula.
+Para alterar o valor do custo médio:
+Individualmente: quando os ajustes tem diferentes custos médios altere o campo Novo Custo Médio informando o novo custo para cada ajuste
+Em lote: quando os ajustes tem os mesmos custos médio
+Informe o valor no campo Custo Médio e clique no botão Alterar
+Processando as alterações - utilizando alteração em lote
+Informe o novo custo médio no campo Custo Médio
+Verifique se todos os ajustes estão marcados - campo Calcula
+Estando tudo correto clique no botão Alterar. Será apresentada a mensagem:
+Caso esteja tudo de acordo, na mensagem clique em Sim. Voltará para a tela e o campo Novo Custo Médio apresentará o custo médio informado.
+Para que as alterações sejam gravadas, clique no botão Salvar
+Na mensagem clique em OK para finalizar as alterações. Os ajustes serão apresentados com o novo custo no campo Custo Médio Atual e no campo Novo Custo Médio. 
+Para sair da tela, clique em Fechar
+Produtos compostos
+A partir da versão 9.30 serão apresentados além do produto composto, os produtos primários em azul.
+Dicas de filtros
+Para facilitar a consulta foi adicionada uma tela mais dinâmica, onde é possível filtrar pela coluna desejada. Para isso basta arrastar a coluna desejada para a parte cinza da tela.
+Veja um exemplo abaixo onde a coluna 
+#Número NF
+ foi arrastada e com isso o SisPetro faz o agrupamento pelo número da nota fiscal.
+Legenda

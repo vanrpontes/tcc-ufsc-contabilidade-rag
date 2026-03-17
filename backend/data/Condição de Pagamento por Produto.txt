@@ -1,0 +1,40 @@
+TITULO: Condição de Pagamento por Produto
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440107
+--------------------------------------------------
+A condição de pagamento pode ser especificado para cada produto vendido a um determinado cliente, e ao fazer o pedido de venda, quando for escolhido uma condição de pagamento, o sistema irá restringir os produtos para venda, caso o usuário não tenha permissão para alterar a condição de pagamento. 
+
+
+Para definir a condição de pagamento por produto, deverá habilitar um perfil para cada cliente, acessando a 
+, painel 
+: 
+
+
+ 
+
+
+Após marcar este perfil na Tabela Clientes, deve ser informado a condição de pagamento para cada produto, acessando 
+, painel 
+. 
+
+
+Na 
+, ao selecionar uma condição de pagamento, será apresentada a seguinte tela, contendo as condições de pagamento especificadas para cada produto e as condições de pagamento que não foram especificadas para nenhum produto: 
+
+
+
+
+Ao finalizar o pedido de venda, é feita a verificação da condição de pagamento praticada no pedido versus as condições de pagamentos especificada para cada produto. 
+
+Se o usuário NÃO tiver permissão para alterar a condição de pagamento e a condição de pagamento do item for diferente da condição de pagamento praticada no pedido, será apresentada mensagem na tela, não permitindo a finalização do pedido. 
+
+
+
+
+Os perfis de usuário que permitem a alteração da condição de pagamento, devem ser configurados no menu 
+Ferramentas / Usuário / painel Perfil / painel Vendas
+: 
+
+
+
+
+ 

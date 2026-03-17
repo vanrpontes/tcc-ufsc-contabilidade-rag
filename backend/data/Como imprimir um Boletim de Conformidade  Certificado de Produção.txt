@@ -1,0 +1,113 @@
+TITULO: Como imprimir um Boletim de Conformidade / Certificado de Produção
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440037
+--------------------------------------------------
+Toda armazenadora deve distribuir para seus clientes (congêneres) um boletim de conformidade (um 
+Certificado
+) que apresenta as características do combustível no tanque. Este documento varia de base para base, sendo que alguns possuem uma 
+tabela 
+com valores, outros contém gráfico e etc. 
+A base tem uma averiguação dos seus tanques por um técnico contratado que analisa o combustível armazenado e emite este boletim por tanque e produto. Durante o dia, toda congênere que for carregar combustível deve receber uma cópia deste boletim e para isso, as armazenadoras tiram uma cópia (ou envia um arquivo de imagem) destes boletins para poder fazer a distribuição. 
+Além disso, em empresas que produzem combustível, a cada batelada (quantidade produzida) deve ser feito um Certificado de Produção com as características do produto.
+Objetivo
+Mostrar como guardar o boletim disponibilizado (imagem) e fazer a impressão.
+Caso seja uma formuladora, a cada 
+Ordem de Fabricação
+, vincular um certificado e realizar a impressão
+Caso a empresa não utilize a imagem, imprimir as características a cada análise (tabela) e realizar a impressão do boletim com essas informações.
+Configurações
+Ferramentas / Usuário / painel Perfil / painel Carregamento
+Pode imprimir Boletim de Conformidade pela OC: marcar
+Ferramentas / Exportação de Dados:
+ incluir os leiautes para impressão
+Certificado (CertificadoOF_v1061.rtm)
+Para impressão do certificado
+Imagem ((BoletimTanque_v1049.rtm)
+Para impressão do Boletim, caso o depósito seja imagem
+Tabela (BoletimOCTabela_v1061.rtm)
+Para impressão do Boletim, caso o depósito  seja Tabela
+Avulso (BoletimAvulso_v1061.rtm)
+Para impressão do Boletim na manutenção de tanque e certificado, caso o depósito seja configurado como Tabela
+Arquivo / Depósito / Aba Boletins Certificados
+Imprime Boletim?: marcar
+Tipo de Boletim / Certificado: escolher o tipo 
+Tabela
+Imagem
+Produto para impressão do Boletim de Conformidade: escolha qual o boletim que será usado
+Produto Armazenado no Tanque
+Produto Armazenado na OC
+Quadro Boletim por OC: informar os leiautes de exportação que serão utilizados
+Layout Exportação (imagem)
+Layout Exportação (tabela)
+Quadro Impressão Avulsa por Tanque: informar os leiautes que serão utilizados para visualizar o boletim
+Layout de Exportação do boletim (imagem)
+Layout Exportação do Certificado (tabela)
+Itens de análise: cadastrar os itens de análise. 
+Como fazer a impressão do boletim
+Após realizar todas as configurações, o usuário deve: 
+Na 
+Manutenção de Boletins e Certificados
+ incluir um 
+boletim 
+informando o produto e todas as características
+Caso o boletim seja por imagem basta ir para o passo seguinte.
+Na
+ Manutenção de Tanque
+, na aba Boletim vincular o boletim cadastrado anteriormente ao tanque do produto em questão
+Caso o boletim seja por imagem é aqui que ela é carregada. 
+Na 
+Manutenção de Ordem de Carregamento
+ e clicar no botão 
+Boletim
+. A tela seguinte é exibida:
+A partir dessa tela poderemos definir em qual impressora e quantas vias do boletim serão impressas .
+No campo 
+Impressora
+ será exibido a lista de impressoras disponíveis.
+Nas colunas #
+Produto OC
+ e 
+Produto OC
+, são apresentados os produtos da OC. Podem ser iguais aos produtos armazenados no tanque, depende da configuração da impressão do Boletim. Para mais informações, ver 
+Depósitos - Aba Detalhes
+ e 
+Manutenção de Tanques
+. No caso de produtos compostos serão exibidos os produtos básicos que fazem parte da composição.
+Na coluna 
+Quantidade
+ são apresentadas as quantidades da OC
+Na coluna 
+Número de Vias
+, pode ser alterada a quantidade de vias que deseja imprimir, alterando na própria coluna. Exemplo: Caso uma OC contenha dados de mais de um cliente será necessário imprimir uma via para cada cliente.
+Na coluna 
+Número de Páginas
+ será apresentado o número de páginas a ser impresso de cada boletim. Exemplo: Caso tenha mais de uma vez o mesmo produto na OC.
+Nas colunas 
+#Produto Tanque
+ e 
+Produto Tanque, 
+são apresentados os produtos armazenados no tanque. Podem ser iguais aos produtos da OC, depende da configuração da impressão do Boletim. Para mais informações, ver 
+Depósitos - Aba Detalhes
+ e 
+Manutenção de Tanques
+.
+Mostrará o Produto de cada item da OC (mostrando qual é o 
+Produto Armazenado no Tanque
+ configurado para cada produto da OC na aba Composição )
+Obterá o tanque Ativo para o produto armazenado no Tanque
+No Tanque encontrado, para escolher o boletim, verificará o perfil do Depósito para usar o Código do Produto na OC ou o Código do Produto Armazenado no tanque.
+Clique no botão 
+OK
+ para imprimir o boletim.
+Como fazer a utilização do Certificado
+Após realizar todas as configurações, o usuário deve: 
+Na 
+Manutenção de Boletins e Certificados
+ incluir um 
+certificado 
+informando o produto e todas as características
+Na 
+Execução da Ordem de Fabricação
+, vincular o certificado cadastrado anteriormente.
+Feito isso, na finalização da execução da Ordem de Fabricação ou na 
+Manutenção de Boletins e Certificados
+  é possível fazer a impressão do certificado

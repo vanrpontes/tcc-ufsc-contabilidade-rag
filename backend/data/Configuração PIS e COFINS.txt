@@ -1,0 +1,184 @@
+TITULO: Configuração PIS e COFINS
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4396810398
+--------------------------------------------------
+Índice da página:
+3
+6
+false
+list
+false
+Para que o PIS e COFINS sejam calculados, é importante primeiro ter algumas informações:
+Nota de Entrada ou Saída?
+A alíquota é percentual ou Valor por M3?
+Já tem fórmula de Outros Impostos para alterar ou vai inserir agora?
+Depois, seguir os passos abaixo:
+1. Configurar alíquota no Produto
+Esse não é um passo obrigatório, mas é o mais prático e o que vai garantir agilidade caso a alíquota mude.
+Alguns clientes colocam a alíquota de forma fixa na fórmula dos Outros Impostos, mas o correto é usar o campo no produto.
+Arquivos / Produtos / Aba Detalhes / Dados Adicionais / grupo Apuração PIS COFINS.
+Cada valor de Alíquota é salvo num campo da tabela Produto conforme regra abaixo (informação útil quando for fazer a fórmula):
+AAA_BB_CCC_DDD onde:
+AAA → PIS ou COFINS
+BB → CR ou DB (crédito quando entrada e débito quando saída)
+CCC → Aliquota ou ValorM3
+DDD → Pode ou não existir, quando não tiver é Geral, senão terá Cong para Congênere
+Exemplos dos nomes dos campos conforme regra acima:
+Grupo Geral / Débito / Valor Fixo PIS por m3  → PIS_DB_ValorM3
+Grupo Congêneres / Crédito / Valor Fixo COFINS por m3  → COFINS_CR_ValorM3_Cong
+Os valores de Alíquota em Julho/2023 são:
+Álcool Hidratado (Valor M3): 
+PIS → 19,81
+ e 
+COFINS → 91,10
+ 
+Gasolina C (Valor M3): 
+PIS → 23,38
+ e 
+COFINS → 107,52 (a confirmar)
+Obs.: Na Gasolina C o valor do PIS e COFINS é correspondente ao Álcool Anidro.
+Além das Alíquotas confira também o CST.
+2. Configurar uso do CST na Natureza
+Na Natureza será possível indicar para usar o CST do Produto, assim, não será necessário ter uma Natureza para cada produto quando eles tiverem CST diferentes.
+Tabelas Auxiliares / Faturamento / Natureza de Operação / Aba Por Filial / Impostos / grupo Pis / COFINS e Outros
+Configure o campo 
+“Obtenção do CST PIS/COFINS”
+ para “Conforme configurado no produto”
+Por ser uma configuração razoavelmente nova pode ser que a Natureza esteja configurada para “Conforme configurado na Natureza”. Se a Natureza não for utilizada por produtos com CST diferentes pode ficar assim.
+3. Configurar Outros Impostos
+O primeiro passo é criar os códigos de Outros Impostos. Mas a parte mais importante, que é configurar como ele deve ser calculado, isso ocorrerá na Natureza.
+Em Tabelas Auxiliares / Faturamento / 
+Outros Impostos
+:
+Inclua um registro para cada PIS e COFINS que for utilizado. Ou seja, se tiver operações que o cálculo é Valor por M3 e também que o cálculo é por Alíquota, é necessário ter 2 registros para o PIS e 2 para o COFINS (mudando o campo 
+Tipo de Alíquota
+). Coloque na descrição algo que deixe claro a diferença entre os dois.
+Atente-se para que o 
+Tipo
+ seja Fórmula.
+O 
+número de Decimais da Alíquota
+ será 2 quando alíquota percentual. Verificar o que colocar quando é por valor.
+O 
+Tipo de Imposto
+ deve ser PIS ou COFINS.
+Os demais campos estão sendo explicados no KB do espaço Sispetro.
+Em Tabelas Auxiliares / Faturamento / Natureza de Operação / Aba Por Filial / Outros Impostos:
+Inclua um registro (ou edite caso já tenha) informando o código cadastrado no passo anterior. Deverá posicionar na aba Fórmula, onde deverão ser colocadas as fórmulas para os 3 campos. Veja tabela a seguir:
+Tipo de Imposto
+Tipo de Campo
+Fórmula
+Entrada de materiais com exclusão do ICMS na Base de Cálculo
+Base de Cálculo
+sql
+PIS e COFINS - percentual: ArredondaDelphi((<ItensNF.PrecoPedido> * <ItensNF.QtdeConvertida>),2) 
+- <ItensNF.ValICMS>
+Alíquota
+sql
+PIS: <Produto.PIS_CR_Aliquota>
+COFINS: <Produto.COFINS_CR_Aliquota>
+Nota:
+ em notas de entrada com exclusão do ICMS da base de cálculo só é possível com alíquotas em percentuais.
+Imposto
+sql
+PIS: (ArredondaDelphi((<ItensNF.PrecoPedido> * <ItensNF.QtdeConvertida>),2) 
+- <ItensNF.ValICMS>) * <Produto.PIS_CR_Aliquota>)
+COFINS: (ArredondaDelphi((<ItensNF.PrecoPedido> * <ItensNF.QtdeConvertida>),2) 
+- <ItensNF.ValICMS>) * <Produto.PIS_CR_Aliquota>)
+Nota:
+ <PIS_CR_ALIQUOTA> / <COFINS_CR_ALIQUOTA> - são os nomes dos campos da tabela Produto. Na fórmula, os nomes dos campos são substituídos por números - exemplo: <PIS_CR_Aliquota> fica <16636>  - números podem ser diferentes em diferentes bancos de dados. Por isso devem sempre ser pesquisados pelos nomes dos campos.
+Compra Anidro
+Base de Cálculo
+sql
+PIS e COFINS - percentual: ArredondaDelphi((<ItensNF.PrecoPedido> * <ItensNF.QtdeConvertida>),2)
+PIS e COFINS - unidade de medida: <ItensNF.QtdeConvertida>)/1000
+Alíquota
+sql
+PIS: <Produto.PIS_CR_Aliquota> ou <Produto.PIS_CR_ValorM3>
+COFINS: <Produto.COFINS_CR_Aliquota> ou <Produto.COFINS_CR_ValorM3>
+Campo <PIS_CR_Aliquota> ou campo <PIS_CR_Valorm3> da tabela Produto: depende se a tributação é por percentual ou por unidade de medida (m3)
+Campo <COFINS_CR_Aliquota> ou <COFINS_CR_Valorm3> da tabela Produto: depende se a tributação é por percentual ou por unidade de medida (m3)
+Nota:
+ <PIS_CR_ALIQUOTA> / <COFINS_CR_ALIQUOTA> / <PIS_CR_Valorm3>/ <COFINS_CR_Valorm3> - são os nomes dos campos da tabela Produto. Na fórmula, os nomes dos campos são substituídos por números - exemplo: <PIS_CR_Valorm3> fica <16607>  - números podem ser diferentes em diferentes bancos de dados. Por isso devem sempre ser pesquisados pelos nomes dos campos.
+Imposto
+sql
+PIS - percentual: ArredondaDelphi((<ItensNF.PrecoPedido> * <ItensNF.QtdeConvertida>),2) * <Produto.PIS_CR_Aliquota> 
+COFINS - percentual: ArredondaDelphi((<ItensNF.PrecoPedido> * <ItensNF.QtdeConvertida>),2) * <Produto.COFINS_CR_Aliquota>
+PIS - unidade de medida: (<ItensNF.QtdeConvertida>/1000) * <Produto.PIS_CR_ValorM3> 
+COFINS - unidade de medida: (<ItensNF.QtdeConvertida>/1000) * <Produto.COFINS_CR_ValorM3>
+Saída de Gasolina C: cálculo referente à composição do etanol anidro 27%, considerando unidade de medida
+Base de Cálculo
+sql
+PIS e COFINS - unidade de medida: ArredondaDelphi((<ItensNF.Qtde>*(1-<ItensNF.PercProdSP_Principal>)/1000),2) 
+Alíquota
+sql
+PIS - unidade de medida: <Produto.PIS_DB.Valorm3>
+COFINS - unidade de medida: <Produto.COFINS_DB.Valorm3>
+Nota:
+ <PIS_DB_Valorm3>/ <COFINS_DB_Valorm3> - são os nomes dos campos da tabela Produto. Na fórmula, os nomes dos campos são substituídos por números - exemplo: <PIS_DB_Valorm3> fica <16608>  - números podem ser diferentes em diferentes bancos de dados. Por isso devem sempre ser pesquisados pelos nomes dos campos.
+Imposto
+sql
+PIS - unidade de medida: ArredondaDelphi((<ItensNF.Qtde>*(1-<ItensNF.PercProdSP_Principal>)/1000),2) * <Produto.PIS_DB_ValorM3>
+COFINS - unidade de medida: ArredondaDelphi((<ItensNF.Qtde>*(1-<ItensNF.PercProdSP_Principal>)/1000),2) * <Produto.COFINS_DB_ValorM3>
+Saída de Álcool Hidratado: considerando unidade de medida
+Base de Cálculo
+sql
+PIS e COFINS - unidade de medida: <ItensNF.QtdeConvertida>/1000
+Alíquota
+sql
+PIS - unidade de medida: <Produto.PIS_DB_ValorM3>
+COFINS - unidade de medida: <Produto.COFINS_DB_ValorM3>
+Nota:
+ <PIS_DB_Valorm3>/ <COFINS_DB_Valorm3> - são os nomes dos campos da tabela Produto. Na fórmula, os nomes dos campos são substituídos por números - exemplo: <PIS_DB_Valorm3> fica <16608>  - números podem ser diferentes em diferentes bancos de dados. Por isso devem sempre ser pesquisados pelos nomes dos campos.
+Imposto
+sql
+PIS - unidade de medida: ArredondaDelphi(((<ItensNF.Qtde>/1000) * <Produto.PIS_DB_ValorM3>),2)
+COFINS - unidade de medida: ArredondaDelphi(((<ItensNF.Qtde>/1000) * <Produto.COFINS_DB_ValorM3>),2)
+Exemplo de como cadastrar a fórmula para venda de Gasolina C:
+Clique nos “três pontos”, que abrirá a tela para montarmos a fórmula:
+Para achar os campos que irá compor as fórmulas, temos que levar em consideração Nome do Campo x Tabela, por exemplo em nossa fórmula temos o campo <28888>, que corresponde ao campo 
+QtdeConvertida
+ da Tabela 
+ItensNF
+:
+Após fazer a fórmula, será possível realizar o teste da fórmula com Notas já emitidas, para isso acesse:
+Faça a seleção dos Dados para teste da Nota:
+Período
+Filial
+Qtde de registro para teste: quantos registros será apresentado para teste
+Tipo de NF
+Clique em Traz NFs
+Selecione a Nota Fiscal e Clique em 
+Testa NF Selecionada
+, abaixo irá apresentar o teste da Fórmula.
+Exemplo de como cadastrar a fórmula para compra de Anidro:
+Clique nos “três pontos”, que abrirá a tela para montarmos a fórmula:
+Para achar os campos que irá compor as fórmulas, temos que levar em consideração Nome do Campo x Tabela, por exemplo em nossa fórmula temos o campo <28888>, que corresponde ao campo 
+QtdeConvertida
+ da Tabela 
+ItensNF
+:
+Após fazer a fórmula, será possível realizar o teste da fórmula com Notas já emitidas, para isso acesse:
+Faça a seleção dos Dados para teste da Nota:
+Período
+Filial
+Qtde de registro para teste: quantos registros será apresentado para teste
+Tipo de NF
+Clique em Traz NFs
+Selecione a Nota Fiscal e Clique em 
+Testa NF Selecionada
+, abaixo irá apresentar o teste da Fórmula.
+4. Código de Contabilização e/ou Contabilização Auxiliar no Gerencial
+Para a contabilização temos funções que retornam o valor do PIS ou COFINS de uma Nota Fiscal. Veja os exemplos abaixo para usar no campo 
+Valor
+ do Código de Contabilização ou da Contabilização Auxiliar (na Natureza de Operação
+GetPISNF(<ItensNF.CodEmpresa>,<ItensNF.Sequencial>,<ItensNF.NumItem>)
+GetCOFINSNF(<ItensNF.CodEmpresa>,<ItensNF.Sequencial>,<ItensNF.NumItem>)
+Lembrando que no campo Conta normalmente se coloca de forma fixa a conta e é importante que se tenha tanto o Débito como o Crédito para o valor do imposto.
+Utilize sempre o recurso de Teste para evitar problemas durante o faturamento. A soma do valor de débito deve ser sempre igual à soma do valor de crédito.
+5. Ajustando Valor do PIS/COFINS após a inclusão da NF
+Essa opção é útil quando se percebe algum valor de PIS e COFINS indevido decorrente de uma fórmula incorreta. O caminho é ajustar a fórmula dos Outros Impostos na Natureza de Operação, para que fique correta e depois fazer a atualização dos dados em Ferramentas / Atualização de dados de PIS/COFINS.
+Escolha o período e a Natureza que sofreu a alteração. As notas desse período ficarão com o valor do imposto conforme a nova fórmula.
+Não é recomendável usar essa tela para notas de emissão própria, pois o PIS e COFINS já foram enviados no XML da NF-e. Caso seja necessário, avalie bem os riscos, afinal o SPED Contribuições terá valores diferentes dos enviados para SEFAZ.
+6. Recontabilizando após Ajuste do Valor do PIS/COFINS
+Essa opção só vale para a Contabilidade Real. No Sispetro Controladoria, menu  Ferramentas / Contabilidade / Recontabilização de Lançamentos.
+Após utilizar a rotina de Atualização de Dados de PIS/COFINS é necessário recontabilizar para que o valor do imposto fique correto.

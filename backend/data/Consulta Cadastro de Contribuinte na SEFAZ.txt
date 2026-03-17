@@ -1,0 +1,124 @@
+TITULO: Consulta Cadastro de Contribuinte na SEFAZ
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924294809
+--------------------------------------------------
+A Consulta cadastro contribuinte SEFAZ, possibilita a verificação da situação cadastral do cliente junto a SEFAZ e obter dados cadastrais para atualização ou inclusão de um novo cliente a partir do CNPJ.
+Para iniciar as configurações, é necessário ativar a Consulta Cadastro Contribuinte, ativando assim as UF's que possuem a Consulta Cadastro Contribuinte ativa junto a Sefaz. Para mais informações, ver 
+Manutenção de UF's
+Aviso
+Para saber quais UF's disponibilizam a Consulta Cadastro Contribuinte via WebService, é necessário consultar a Sefaz.
+Quando a UF não disponibiliza a Consulta Cadastro Contribuinte, não se deve ativar a mesma na UF cadastrada no SisPetro, pois o Serviço irá tentar realizar a consulta e apresentará erros devido a mesma não estar liberada pela Sefaz.
+Esta consulta pode ser feita manualmente ou podemos definir um intervalo de tempo para que o SisPetro a faça automaticamente, antes disso é preciso parametrizar alguns pontos, veja abaixo:
+Configuração de Sistema. Para mais informações, ver
+ 
+Verifique os perfis: 
+Executa Consulta Automática na Sefaz
+, 
+Configuração do Serviço de Consulta Cadastro Contribuinte
+ e 
+Valor Padrão na inclusão de clientes.
+Cadastro de Cliente. 
+Para
+ 
+mais
+ 
+informações
+, ver
+ 
+Verifique os perfis: 
+Consulta Cadastro de Contribuinte
+ e 
+Ação Quando Denegado na Sefaz
+Servidor Hermes. 
+Para
+ 
+mais
+ 
+informações
+, ver 
+Serviço de Consulta Cadastro Contribuinte - Sefaz
+Parametrizar o início do Serviço.
+Após as configurações acima o serviço estará funcionando. Caso deseje fazer a consulta manual veja os passos abaixo:
+Consulta Manual:
+Acionar manualmente a consulta significa antecipar o tempo configurado para execução do serviço. 
+Para
+ 
+mais
+ 
+informações
+, ver
+ 
+Serviço de Consulta Cadastro Contribuinte - Sefaz
+ 
+No Painel Navegação do Cadastro de cliente:
+Clicar no botão 
+CCC SEFAZ. 
+Para mais informações, ver 
+Painel Navegação
+.
+A tela de consulta será exibida.
+Cliente: 
+exibe o código e razão social do cliente consultado.
+UF:
+ unidade federativa em que a consulta está sendo realizada, caso a UF não esteja configurada corretamente a mensagem 
+Não configurada p/ CCC SEFAZ
+ será exibida. Para mais informações, ver 
+Manutenção de UF's
+Última Consulta: 
+exibe a data da última consulta realizada pelo SisPetro.
+Ação Quando Denegado na Sefaz: 
+exibe a configuração definida no cadastro detalhado do cliente. Para mais informações, ver 
+Cadastro Detalhado.
+Para realizar a consulta, deverá clicar no botão 
+Consulta, 
+em seguida o SisPetro, apresentará o resultado:
+Status da Resposta:
+ código de Retorno da SEFAZ
+Status Processamento: 
+informa ao usuário que o comando foi enviado a SEFAZ
+Data Resposta: 
+data da Consulta
+Descrição da Resposta
+: caso houver erros, será informado.
+Situação: 
+situação cadastral do cliente.
+IE:
+ Inscrição Estadual do cliente.
+CNAE:
+ Classificação Nacional de Atividades Econômicas.
+Endereço:
+ logradouro do cliente cadastrado junto a SEFAZ.
+Número: 
+número do logradouro do cliente cadastrado junto a SEFAZ.
+Bairro: bairro 
+do logradouro do cliente cadastrado junto a SEFAZ.
+Município: 
+município do cliente cadastrado junto a SEFAZ.
+CEP: 
+CEP do logradouro do cliente cadastrado junto a SEFAZ.
+Botão XML Enviado:
+ exibe os dados enviado para consulta junto a Sefaz 
+Botão XML Recebido: 
+ exibe os dados retornados da consulta junto a Sefaz 
+É possível utilizar a consulta para obter os dados referentes ao endereço e inscrição estadual para inclusão de um novo cliente ou atualização de clientes já cadastrados no SisPetro
+No cadastro de Clientes, na aba Dados Gerais, é possível realizar a consulta através do botão 
+CCC SEFAZ,
+ .
+Na tela de consulta, selecione a UF de origem do cliente e informe o CNPJ, em seguida clique no botão 
+Consulta
+.
+Caso seja um cliente já cadastrado no SisPetro, será carregado os dados da ultima consulta, se preferir executar uma nova consulta basta clicar no botão 
+Consulta.
+Para utilizar os dados obtidos na consulta, para inclusão ou atualização de um cadastro já existente, basta clicar no botão 
+Transfere Dados
+.
+Para confirmar a transferência dos dados obtidos na consulta, basta clicar no botão 
+SIM
+.
+Os campos, 
+Endereço, Número, CEP, Bairro, Cidade,  Estado, País, CNPJ, Inscrição Estadual e CNAE,
+  serão 
+preenchidos
+ 
+automaticamente.
+Para mais informações sobre as consultas realizadas, acesse 
+.

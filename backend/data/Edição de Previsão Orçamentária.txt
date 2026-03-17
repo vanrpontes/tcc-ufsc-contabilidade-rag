@@ -1,0 +1,58 @@
+TITULO: Edição de Previsão Orçamentária
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899962
+--------------------------------------------------
+A tela de Edição de Previsão Orçamentária é utilizada para informar os valores previstos para o período por conta contábil gerencial, e pode ser acessada através do Menu Movimentação / Controladoria / Previsão Orçamentária / Edição de Previsão Orçamentária:
+Deve ser informado o 
+período
+ (Ano e Mês), o 
+cenário
+ desejado, e a 
+unidade de negócio
+ que pode ser uma 
+filial
+, um 
+grupo de filiais
+, um 
+conglomerado de filiais
+, ou 
+todas as filiais
+.
+Selecionar Filtro que pode ser utilizado:
+Contas Contábeis 
+Centro de Custos
+
+Depois basta pressionar o botão 
+Atualiza
+ e as contas serão apresentadas.
+As contas são apresentadas conforme o filtro de acesso por usuário e por empresa, ou seja, se o usuário ou a empresa não possuir permissão de acesso à conta, ela não será apresentada.
+Os códigos estendidos das contas devem estar corretamente preenchido no plano de contas para que tenham uma ordem hierárquica, pois os valores serão totalizados nas contas sintéticas de acordo com esta hierarquia.
+Por padrão, além de estarem ordenadas por código estendido, as contas também estão agrupadas por empresa e por tipo de conta (receita, custo e despesa), porém o usuário poderá alterar tanto a ordenação quanto o agrupamento. A alteração feita no layout do grid será salva por usuário, podendo retornar ao layout padrão através do botão 
+Layout Padrão
+.
+As contas sintéticas são apresentadas em negrito, não podendo ter seu valor alterado pelo usuário, pois são contas totalizadoras.
+Informa-se, então, o valor previsto para cada conta analítica, editando diretamente na coluna 
+Valor
+.
+Para as contas de despesas, os valores poderão ser informados por centro de custo. Para isso, o botão 
+Seleciona Centro Custo
+ ficará habilitado quando uma conta de despesa for selecionada. Ao clicar neste botão será apresentada uma tela para selecionar os centros de custo para os quais deseja informar valor para a conta posicionada.
+Após selecionar os centros de custos desejados, eles aparecerão vinculados abaixo da conta de despesa selecionada.
+
+Quando houver centro de custo vinculado à conta de despesa, o valor não poderá ser informado na conta, mas sim por centro de custo, que automaticamente deverá atualizar o valor total da conta.
+Após informar valores por conta ou por centro de custo, suas contas sintéticas serão totalizadas automaticamente, como mostrado abaixo.
+Para facilitar a visualização das contas, pode-se fechar ou expandir o agrupamento de centros de custo através do sinal - ou + ao apresentado na primeira coluna. Este sinal facilita a identificação das contas que possuem centro de custo, pois somente estas terão o sinal.
+Após efetuar as alterações na edição da previsão orçamentária, basta clicar no botão 
+Salva
+ para armazenar os dados.
+O botão 
+Consulta Previsto X Realizado
+ abre uma tela que permite uma análise comparativa entre o orçamento previsto com o realizado, e ainda uma comparação entre períodos de meses, de até 12 meses. Veja mais informações no tópico 
+Consulta de Previsto X Realizado
+.
+É possível fazer a cópia de um orçamento previsto, de um período para outro, ou de um cenário para outro, através da tela que pode ser acessada pelo botão 
+Copia Orçamento
+. Veja maiores detalhes sobre este recurso em 
+Cópia de Orçamento
+.
+O menu existente nesta tela de edição de previsão orçamentária, além de possuir acesso aos mesmo controles dos botões, possuem também outros recursos como imprimir, exportar para o Excel, expandir e fechar agrupamentos.
+Ao exportar para o Excel, os dados dos centros de custo não serão exportados, porque o Excel não suporta este recurso de agrupamento utilizado no grid.

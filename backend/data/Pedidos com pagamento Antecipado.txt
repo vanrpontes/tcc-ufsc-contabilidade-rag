@@ -1,0 +1,53 @@
+TITULO: Pedidos com pagamento Antecipado
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4767023105
+--------------------------------------------------
+Objetivo
+Em algumas empresas há casos que os clientes querem garantir a venda do produto com um pagamento antecipado independente de ter ou não limite de crédito. Esse pagamento não deve influenciar no saldo do limite de crédito para compra desse cliente e tampouco deve ser utilizado para vendas a prazo.
+Pensando nesse cenário, foi criado no SisPetro um recurso chamado 
+Antecipação. 
+É uma marca com foco de separar pedidos, títulos do contas a receber gerados através desses pedidos e adiantamentos específicos para esse fim, de forma que não sejam considerados no processo de 
+saldo do cliente
+  
+Como Funciona: 
+1 - O usuário 
+inclui um pedido
+ de venda utilizando o 
+Tipo de Cobrança
+ configurado como 
+Antecipado.
+2 - Caso o usuário não seja um 
+aprovador financeiro
+, o SisPetro verifica se o cliente possui 
+adiantamento do tipo 
+Antecipado.
+ 
+Caso o valor desse adiantamento (ou a soma deles) seja igual ou maior ao valor do pedido, a 
+Aprovação Financeira
+ é feita. 
+3 - Depois da aprovação o pedido de venda antecipado segue as mesmas rotinas de um pedido normal. 
+Na 
+Manutenção de Pedidos de Vendas
+, na 
+Consulta de Pedidos Pendentes
+, 
+na consulta detalhada de pedido de Venda
+ é
+ possível ver uma coluna para separar os pedidos sem antecipação dos Antecipados. Além disso, na 
+Manutenção do Contas a Receber
+ os títulos gerados dos pedidos antecipados também possuem uma coluna para realizar essa separação.
+Caso o cliente por algum motivo tenha adiantamentos do tipo 
+Sem Antecipação
+ e queira utilizar esse valor como adiantamento para 
+Antecipado
+ deve-se na 
+Transferir o Adiantamento
+ para uma conta transitória e, ao incluir o adiantamento novamente informar essa conta. 
+Quando a empresa utiliza pedidos e adiantamentos do tipo 
+antecipado, 
+nas 
+Informações do Grupo Econômico
+ 
+esses
+ são somados nos seus respectivos campos, porém 
+não interferem no saldo do limite de crédito do cliente
+.

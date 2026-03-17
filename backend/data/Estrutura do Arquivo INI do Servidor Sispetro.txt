@@ -1,0 +1,101 @@
+TITULO: Estrutura do Arquivo INI do Servidor Sispetro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926205644
+--------------------------------------------------
+Em desuso. A partir da versão 10 foi substituído pelo 
+.
+Abaixo detalhamos o conteúdo do arquivo INI do Servidor Sispetro
+Os parâmetros 
+em negrito
+ detalhados abaixo são de preenchimento obrigatório.
+Os demais itens são preenchidos automaticamente, sem necessidade de interferência do usuário e 
+não devem ser alterados manualmente.
+ServidorSisPetro.ini (Servidor SisPetro)
+Seção
+Chave
+Tipo
+Valor Padrão
+Detalhamento
+Geral
+Ambiente
+Integer
+1
+Define em qual servidor de licenciamento web o Servidor SisPetro irá se conectar para adquiri o arquivo
+Valor
+Servidor
+0
+Homologação
+1
+Produção
+Server
+IPAddress
+String
+''
+0
+Port
+String
+Atenção ao tipo desse campo
+9000
+1
+RemoverInativosACada
+Integer
+5
+Se o servidor SisPetro estiver configurado para remover os usuários inativos, após o valor desse parâmetro (em minutos) os usuário inativos serão removido. O valor mínimo é 5, mesmo que tenha sido informado outro valor menor que esse ele será sobreposto.
+Roteador
+Rotear
+Integer
+0
+Valor
+Servidor
+0
+Não utilizará o roteamento
+1
+Utilizará o roteamento
+Seção
+Chave
+Tipo
+Valor Default
+Detalhamento
+Geral
+CaminhoArquivosAuxiliares
+String
+Path do executável
+IP
+String
+127.0.0.1
+IP do Servidor SisPetro que deve ser conectado
+Porta
+Inteiro
+9000
+Porta do Servidor SisPetro que deve ser conectado
+SenhaSeguranca
+String
+Senha definida no Servidor Sispetro para segurança de acesso ao banco de dados
+CaracteresSenhaMinimo
+Integer
+4
+Tamanho mínimo da senha a ser informada pelo usuário
+PrazoTrocaSenha
+Integer
+15
+Solicita que o usuário troque/re-cadastre a senha no período de dias informados nesse parâmetro
+Log
+Nivel
+Inteiro
+0
+Nível do log do usuário conectado no Servidor SisPetro (conexão dele no Servidor), independente da configuração do log no Servidor SisPetro
+Nível
+Ação
+0
+Sem Log
+1
+Verbose (normal)
+2
+Debug (a cada procedimento executado)
+Splash
+Tempo
+Integer
+5
+Tempo de espera da apresentação da tela de splash
+Para maiores informações sobre as configurações do arquivo INI do Sispetro e do Controladoria, acesse 
+Configurações
+.

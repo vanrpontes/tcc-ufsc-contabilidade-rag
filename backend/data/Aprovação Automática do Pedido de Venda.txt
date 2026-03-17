@@ -1,0 +1,73 @@
+TITULO: Aprovação Automática do Pedido de Venda
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440070
+--------------------------------------------------
+O processo de avaliação do pedido para verificar se pode ou não ser aprovado é um processo que envolve perfis de usuários, de empresa e diversas informações relativas ao cliente e ao pedido. O Sispetro realiza este procedimento ao longo da inclusão do pedido de venda.
+Além da inclusão do pedido, caso o sistema esteja configurado para isso, é possível reanalisar os pedidos, de forma automática ou manual, ao incluir um adiantamento de Cliente (automático) ou pelas telas de 
+Manutenção de Pedidos
+ e 
+ (Manual).
+A tela de Análise do Pedido de Venda será exibida automaticamente ao final da inclusão de um Pedido ou após acionar os botões 
+ na Manutenção de Pedidos e 
+ na Consulta de Pedidos Pendentes, entretanto só será possível se o 
+Perfil Executa Análise
+ estiver selecionado.
+Será apresentado uma tela que permitirá realizar somente a análise ou mesmo aprovar, caso  o usuário que inclui o pedido tenha esta autonomia, ou seja, o botão de Análise sempre executará a análise ou aprovação com as permissões do usuário que incluiu o pedido.
+Para ter as devidas permissões nessa tela, é necessário que o usuário tenha o perfil da aba Vendas 
+Executa Analise para Aprovação de Pedido
+ marcado. 
+Será dado duas sugestões de perfis para que o usuário no momento de fazer a análise não tenha que ficar mudando as opções. Isso facilitará para usuário que não tenha poder de aprovação fora das regra padrões ou mesmo um aprovador só queira analisar e não aprovar naquele momento.  
+Mesmo que o Usuário que esta executando a análise tenha permissão de aprovação, se o usuário que inclui o pedido não tiver o pedido 
+não será aprovado.
+ Para aprovar é preciso faze-lo pelo botão 
+ na 
+Manutenção Pedido
+ ou 
+Pedidos Pendentes
+Como pode ser visto demarcado na parte esquerda da imagem acima, será exibido o número do pedido e o código do cliente.
+Na direita da tela, mostrará o status do pedido, teremos duas situações:
+O status descrito acima refere-se ao status de aprovação Geral do pedido, se o mesmo foi aprovado ou não. Mas ainda será possível analisar o status da aprovação por módulo (Vendas, Financeiro e Transporte), conforme imagem abaixo:
+Veja mais detalhes sobre as regras de negócio de cada módulo nos links abaixo:
+Vendas
+Financeiro
+Transporte
+Além disso, em cada módulo, poderá ser analisado cada caso individualmente, dessa forma será possível saber quais as regras foram testadas e se foram validadas ou não.
+No exemplo acima, notamos um caso onde um pedido não foi aprovado devido a condição 
+Verificação do Preço Fora do Intervalo da Tabela de Preço
+, pois a mesma não foi validada.
+Tomando como base o exemplo, vamos analisar cada campo da tela:
+Valor Esperado: 
+Mostra a condição (regra de negócio) a ser testada e o valor esperado para que a mesma seja aprovada.
+Exemplo: Verificação do Preço Fora do Intervalo da Tabela de Preço = 
+NÃO
+ (Testará se o preço do pedido está fora do intervalo (preço mínimo e máximo) da tabela de preço, para que essa condição seja aprovada o preço 
+NÃO
+ deve estar fora do intervalo).
+Valor Obtido: 
+Resultado da condição aplicada ao pedido.
+Exemplo: Verificação do Preço Fora do Intervalo da Tabela de Preço = 
+SIM
+ (Após testada a condição (regra de negócio) no pedido foi constatado que o preço do Pedido estava fora do intervalo, fazendo com que essa condição não fosse aprovada).
+Explicação Adicional: 
+Sugestão sobre o porque dessa condição não ter sido aprovada.
+Exemplo: Erro: O Produto 02 - ALCOOL HIDRATADO está fora do intervalo permitido para a tabela de preço selecionada. Ação: Ajusta o valor informado para o Item.
+Data Avaliação:
+ Data e hora em que foi realizado o teste dessa condição.
+Continua:
+ Caso essa opção esteja como 
+ significa que caso a condição testada não seja aprovada, mesmo assim o sistema continuará testando as próximas, caso seja 
+o sistema interromperá os testes e o pedido será marcado como Pendente de Aprovação Imediatamente.
+Quando 
+ o sistema continuará os testes das próximas condições, porém isso não significa que o pedido poderá ser aprovado, pois uma única condição não aprovada fará com que o pedido fique 
+NÃO APROVADO
+.
+Após finalizado o processo, caso deseje consultar detalhes sobre a aprovação do pedido, essas informações poderão ser visualizadas através da aba 
+Itens da Aprovação
+ na manutenção de Pedidos.
+Análise automática
+Conforme descrito no início do tópico, é possível que os pedidos sejam reanalisados de forma automática ao incluir um Adiantamento de Cliente, Transferência de Adiantamento e Transferência de Adiantamento em Lote.
+Será reanalisado o módulo financeiro, a condição do saldo da entidade.
+Para que isso seja possível, será necessário habilitar o Perfil de Empresa aba Financeiro 
+Analisa Pedidos não Aprovados após Inclusão de Adiantamento
+.
+A reanálise da aprovação não leva em conta o usuário que está incluindo ou transferindo o adiantamento.
+ O que isso quer dizer? Vamos dar um exemplo, supondo que um usuário padrão tenha incluído um pedido e o mesmo ficou pendente de aprovação em todos os módulos. Um outro usuário, do Depto Financeiro, que aprova diretamente todos os pedidos incluí um adiantamento para o mesmo cliente daquele pedido, será ativada a reanálise automática e somente o módulo financeiro (caso o saldo do adiantamento permita) será aprovado, os outros módulos (Vendas e Transportes) continuarão pendentes de aprovação (mesmo que o usuário tenha permissões para aprovação direta), será necessário aprovar manualmente os módulos.

@@ -1,0 +1,20 @@
+TITULO: m. Função EhFrotaProprio serve para não cobrar frete quando for Frota Propria.
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4013850625
+--------------------------------------------------
+Histórico
+Essa função foi criada para não somar o valor do Frete no CMV quando o Frota foi Próprio, mesmo que o frete esteja incluído na OC.
+Essa função tem os seguintes parâmetros:
+Sequencial do Frota = NotaFiscal
+.
+SeqFrota 
+Codigo da Empresa = NotaFiscal
+.
+CodEmpresa
+Segue Exemplo de formatação da Função:
+if EhFrotaProprio(<NotaFiscal.SeqFrota >,<NotaFiscal.CodEmpresa>) = 1 then (Montar a Formula) else endif
+Sequencial do Frota
+<702> =  NotaFiscal.SeqFrota
+Codigo da Empresa 
+<556> = NotaFiscal.CodEmpresa
+Segue Exemplo de uma formula com a Função EhFrotaProprio:
+if EhFrotaProprio(<702>,<556>) = 1 then <736> else <736>+isnull(<810>,0) endif

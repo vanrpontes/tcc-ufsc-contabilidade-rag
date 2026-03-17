@@ -1,0 +1,52 @@
+TITULO: Painel E-mail
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2896298317
+--------------------------------------------------
+O acesso a esta tela se dá pelo Menu Ferramentas / Sistema / Aba E-mail.
+Nesta tela são configuradas as contas de e-mail de envio e recebimento e as configurações gerais do e-mail:
+     
+Configurações da conta de envio:
+Número de dias para manter e-mails processados:
+ configuração para manter os e-mails processados na tela de consulta de e-mails. Veja maiores informações no tópico 
+Consulta a Fila de Mensagens do Serviço de E-mail
+.
+Exclusão de e-mails:
+ define se serão excluídos, podendo ser:
+Somente os Enviados
+: todos os e-mails enviados serão excluídos. Os e-mails com status 
+Com erro
+ serão mantidos.
+Enviados e com erro acima do n° de tentativas: 
+todos os e-mails já enviados e os e-mails com erro que apresentam o número superior ao número de tentativas configurado serão excluídos.
+Número de tentativas após envio com erro:
+ número de tentativas que o SisPetro irá tentar enviar o e-mail, caso tenha algum erro ou instabilidade no envio do e-mail.
+Time Out (sobre cada e-mail a enviar):
+ tempo limite que que o sistema vai tentar se conectar com o servidor de e-mail externo, passado esse tempo o SisPetro não tentará enviar e marcará o e-mail como erro.
+Configuração de e-mail padrão: 
+permite selecionar qual a configuração será utilizada no e-mail padrão.
+Ambiente de envio de e-mail:
+ pode ser homologação ou produção, homologação é usado no caso de teste, já produção é usado no dia-dia.
+E-mail homologação:
+ endereço que receberá todos os e-mails, quando o sistema estiver em 
+homologação.
+Vale ressaltar que quando o Sistema estiver em Homologação
+, não enviará e-mail para cliente algum. Este é um ambiente específico para testes, onde o usuário pode configurar e testar todos os vínculos de filial x conta, testar o Hermes Servidor, e outras funcionalidades do Serviço de E-mail, para que depois de testado e adaptado para seu perfil de uso, coloque o Sistema em 
+Produção 
+para que os e-mails sejam enviados..
+Status do Serviço de E-mail: 
+será possível verificar o Status do Serviço.
+Configurações da conta de recebimento
+Tempo de pausa para processar e-mails:
+ tempo mínimo de 7 minutos (não permite um tempo menor que 7 minutos) entre cada acesso ao Servidor de E-mail POP - ver Nota abaixo
+Configuração de e-mail padrão:
+ informar a conta de e-mail para receber os e-mails. Essa conta é configurada na tela de Manutenção de E-mails: 
+Configuração de Conta de E-mail
+.
+O Sispetro acessa somente servidores de e-mail configurados como POP (servidores de recebimento de e-mail). O time out recomendado para acesso a esses servidores é de, no mínimo, 7 minutos. Assim, o Sispetro fará uma verificação se há novos e-mail's a cada 7 minutos, no mínimo, podendo configurar um tempo maior.
+Além de servidores de e-mail configurados como POP, existem também servidores de e-mail configurados como IMAP. 
+O Sispetro não acessa servidores IMAP.
+Ver também:
+Serviço de E-mail
+Configuração de "Filial x Conta"
+Configuração de Conta de E-mail
+Possíveis formas de configurar os vínculos do sistema
+Habilitando Serviço de E-mail

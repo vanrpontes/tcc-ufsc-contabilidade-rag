@@ -1,0 +1,90 @@
+TITULO: Conciliação Automática via API - Banco do Brasil
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5612044289
+--------------------------------------------------
+none
+Objetivo
+Realizar a conciliação de uma conta trazendo os dados via consulta da API.
+Configurações
+Atualmente temos implementada a consulta via API
+.  
+Essa informação pode ser vista na 
+Tabela Bancos
+ / Aba API campo 
+Implementada no SisPetro? 
+Arquivo / Plano de Contas
+ / Aba Detalhes / Quadro Dados de Banco: 
+deve-se identificar a conta banco já utilizada para o banco que será configurada a 
+API, 
+ou na conta que será cadastrada para o banco em questão, informar:
+Banco: escolher o banco da API 
+#Agência
+#Conta
+Conciliação Automática: escolher 
+Somente automática
+Empresa titular da conta: escolher a empresa que é
+ dona da conta
+Tabelas Auxiliares / Financeiro / 
+Bancos
+ 
+Aba Detalhes / Aba API´s
+Grupo API de Extrato
+Habilita: 
+marcar para habilitar a API
+Implementada no Sispetro?: 
+deve estar marcada 
+(essa opção é preenchida pela Futura)
+Para ver informações gravadas, deve-se preencher a empresa e o banco
+Aba Tipo Lançamento: no arquivo tipo JSON que o banco envia ao realizarmos a consulta via API, cada lançamento tem um código de identificação. A Futura já disponibiliza vários tipos de lançamentos com esses códigos, porém o usuário deve verificar se:
+O Tipo de lançamento que a API enviou após a consulta está incluído. 
+Caso não esteja, incluir e preencher todas as informações requisitadas.
+Se tem o tipo de lançamento, verifique as informações como operação, Tipo, Antecipação do Lançamento (no caso de adiantamento) estão condizentes com o lançamento em questão. 
+Certificado digital Hermes
+Acessar o Hermes Controlador / Botão Certificado
+Incluir um certificado criado para realizar a consulta da API. Os passos para geração podem ser obtidos com o banco em questão, no caso do Banco do Brasil o primeiro passo é obter o Certificado Digital A1 no Banco do Brasil, você deve comprar o certificado em uma Autoridade Certificadora (AC) credenciada
+Uso:
+API´s de Bancos
+Tabelas Auxiliares / Financeiro / 
+Configuração API Banco x Empresa
+: 
+aqui será configurado como o SisPetro faz a comunicação com a API do banco. Informar: 
+Empresa: selecionar a empresa
+ dona da conta
+Banco: selecionar o banco (Banco do Brasil) configurado no passo anterior 
+Ambiente
+Homologação: ambiente de teste
+Produção: ambiente real
+API: 
+Extrato
+Uso de Certificado
+Conforme vinculado em PIX recebidos
+Certificado Digital
+Selecione o certificado digital A1 e inclua no 
+Hermes
+ com uso apenas API´s de Banco
+Status da API
+Clique no botão 
+Ativa / Inativa
+ para ativar
+Quadro Parâmetros: as informações de ClientKey, ClientSecret e KeyApplication podem ser obtidas no banco ou são retornadas no processo da geração do certificado. Elas devem ser preenchidas aqui. 
+ClientKey
+ClientSecret
+KeyApplication
+Como utilizar
+Após realizar as configurações o usuário deve abrir um período de conciliação, conforme explicação do tópico 
+Conciliação Automática - Informações Gerais
+. Após isso, clicar no botão 
+Extrato API 
+para trazer as informações conforme o período informado. Na aba 
+Extrato
+ clique no botão 
+Conciliação 
+e siga com a 
+conciliação do extrato
+.
+Veja também:
+Tabela Bancos
+Tabela Plano de Contas
+Conciliação Automática - Informações Gerais
+Conciliação Automática - Digitação Manual
+Conciliando o Extrato
+Utilizando o Tipo de Lançamento

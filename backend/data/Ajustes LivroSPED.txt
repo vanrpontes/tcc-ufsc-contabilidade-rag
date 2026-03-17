@@ -1,0 +1,72 @@
+TITULO: Ajustes Livro/SPED
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927270522
+--------------------------------------------------
+É possível configurar a Natureza de Operação para gerar 
+automaticamente
+ as informações de Ajuste Livro/SPED. Para mais informações, ver 
+.
+Caso a Natureza de Operação não esteja não configurada para incluir automaticamente o Ajuste, ao final da inclusão da Nota Fiscal pela Manutenção de NFs, pode ser adicionado um ajuste manualmente em uma Nota Fiscal, que será incluído na Apuração/SPED.
+Tela de 
+Ajustes Livro/SPED por NF
+:
+Dados da NF/Itens: 
+somente informativos
+Dados do Ajuste: 
+dados para ajuste o
+ 
+preenchimento é realizado  pelo usuário
+Tipo de ICMS
+: selecione o tipo de ICMS
+ICMS Próprio
+ICMS ST 
+Gera Registro E240 SPED ICMS/IPI.
+Outros (Para Ajuste do tipo Informativo não tem efeito.)
+Tipo
+: selecione o tipo de ajuste
+Outros Débitos
+Outros Créditos
+Estorno de Débitos
+Estorno de Créditos
+Deduções
+Débitos Especiais
+Informativo.
+Tipo de Apuração
+: 
+O usuário poderá escolher um tipo de apuração compatível com o Tipo (como na Apuração, sendo que Informativo é para tipos de apuração indiferente).
+Se no campo Tipo for selecionado Informativo, não é obrigatório seu preenchimento.
+Ao ser escolhido deve sugerir o tipo de Ajuste conforme o que estiver configurado nele.
+Para mais informações, ver 
+Tabela de Tipos de Apuração
+.
+Tipo de Ajuste: 
+um dos ajustes cadastrados na tabela LFEAjusteInfo (uso do SPED). Seu cadastro é realizado através do conjunto de dados 
+EFD - Tabela Auxiliares
+ que fica em  
+Manutenção de Conjunto de dados para o SPED
+.
+Histórico: 
+usuário pode escolher um código de histórico pré-cadastrado no SisPetro.
+Descrição do Ajuste:
+ será sugerido a partir do histórico informado.
+Base Calc. de Ajuste:
+ informe o valor, caso tenha
+ICMS de Ajuste:
+ informe o valor, caso tenha
+Alíquota:
+ informe a alíquota, caso tenha
+Outros Valores do Ajuste:
+ informe o valor, caso tenha
+Envia o registro C197/D197:
+ por padrão é marcada.
+Se marcada, será gerado o registro C197/D197 na EFD ICMS IPI
+Se desmarcada, não será gerado o registro C197/D197
+Para os valores do ICMS Retido Substituído (PIR), só será gerado o registro C197 caso o valor do PIR seja positivo. Se o valor do PIR for zero ou negativo, mesmo com a opção marcada, não será gerado o registro C197.
+Valores de ajustes, para o registro D197, serão gerados somente para CT-e de terceiros. CT-e de emissão própria não gera ajuste, mesmo se configurado.
+Validações
+:
+Ter o Valor ou Valor de Outros preenchido (maior que zero).
+Ter o Tipo de ICMS, Tipo, Histórico e Descrição do Ajuste preenchidos.
+Ter o Tipo de Apuração ou Tipo de Ajuste preenchido.
+Os ajustes salvos serão levados para a 
+Apuração Fiscal
+ e para o SPED, preenchendo os registros E110, E111, E210, E220 e C197 / D197.

@@ -1,0 +1,115 @@
+TITULO: API Consulta Fila da Portaria de Entrada (por compartimento)
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5119475713
+--------------------------------------------------
+Objetivo
+Consultar quais frotas estão na portaria de entrada com dados por compartimento. Esta API retornará OCs repetidas pois estará informando dados relativos à compartimentação da OC portanto poderá duplicar OC 
+1. Obter token autenticação
+Introdução
+Qualquer webservice do projeto 
+SispetroWeb 
+exigirá um token de autenticação. Este token é gerado a partir deste webservice e será válido por 24 horas. Assim, recomendamos que o sistema consumidor dos webservices aqui descritos salvem o token armazenando também a data e hora em que ele foi gerado para que, quando chegar próximo de sua validade, seja obtido novo token.
+Para mais informações, ver 
+API Obtenção de Token
+2. Informações sobre Portaria de Entrada (por compartimento)
+Introdução
+Este webservice tem por finalidade retornar os dados da portaria de entrada por compartimento.
+Endereço
+<endereço do SispetroWeb>/portaria/get_portaria_entrada_por_compartimento
+Parâmetros
+Será necessário enviar um header com o token.
+Headers
+Nome
+Descritivo
+Exemplo
+Observações
+Authorization
+Conteúdo do token obtido no passo de autenticação do usuário
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM
+Content-Type
+tipo do formato de envio
+application/json
+Accept
+tipo do formato de envio
+application/json
+Body
+Nada
+Método
+GET
+Exemplo de chamada de WebService
+wide
+1800
+curl -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c3VhcmlvIjozMiwiY25waiI6IjAxLjgwNC4zNDUvMDAwMS02MCIsImV4cCI6MTUwMDA1MzYxN30.-ZvhWFYI8fyx66b3kZY1UVUrfaWUTioV3_M6K2wiPGM" http://localhost/portaria/get_portaria_entrada_por_compartimento
+Retorno Bem Sucedido
+Será retornado um objeto JSON com uma matriz contendo os dados de cada registro na portaria de entrada e o status 200. 
+O status da resposta sempre será 200.
+Nome
+Descrição
+Observações
+fila
+Número da Fila obtido pelo motorista
+Não se repete
+numero_oc
+Número da OC da operação
+status_carregamento
+Status da operação
+0=Motorista aguardando para entrar na base, 1=Motorista dentro da base
+placa
+Placa do frota principal
+Cavalo ou frota único
+tipo
+Tipo da OC
+V=Venda, C=Carregamento, D=Descarga, T=Transferência entre depósitos
+carreta
+Placa da carreta se houver
+codigo_transportadora
+Código do motorista
+codigo_deposito
+Código do depósito da operação
+cod_produto
+Código do produto da operação
+qtde
+Quantidade do produto da operação
+produto
+Descrição do produto
+data_recepcao
+Data/hora em que motorista obteve a fila
+motorista
+Nome do motorista
+congenere
+Nome da congênere da OC
+cod_automacao
+Código do produto para automação 
+Pode ser preenchido no cadastro de produtos para facilitar integração com automações
+fone
+celular do motorista
+automacao_status_entrada
+código do status de entrada para a automação
+0=Sem ação, 1=dados gravados, 2=dados lidos
+nro_compartimento
+Número do compartimento do frota
+tipo_carregamento_frota_1
+Tipo do Frota principal com relação ao carregamento
+0=Top loading, 1=Bottom do lado direito, 2=Bottom do lado esquerdo, 3=Bottom em ambos os lados
+tipo_carregamento_frota_2
+Tipo do Frota carreta com relação ao carregamento
+0=Top loading, 1=Bottom do lado direito, 2=Bottom do lado esquerdo, 3=Bottom em ambos os lados
+tipo_carregamento_frota_3
+Tipo do Frota treminhão com relação ao carregamento
+0=Top loading, 1=Bottom do lado direito, 2=Bottom do lado esquerdo, 3=Bottom em ambos os lados
+AgendamentoInicio
+Data/Hora início do agendamento
+yyyy-mm-dd HH:HH 
+se não tiver agendamento, retorna null
+AgendamentoFim
+Data/Hora do final do agendamento
+yyyy-mm-dd HH:HH
+se não tiver agendamento, retorna null
+wide
+1800
+["fila":725088,"numero_oc":266820,"status_carregamento":1,"placa":"AYF-8A04","tipo":"C","carreta":"AYG-8004","codigo_transportadora":"82903","codigo_deposito":"01","cod_produto":"00234","qtde":"22500.0","produto":"OLEO DIESEL B10 S500","data_recepcao":"2022-01-04 16:29:27","motorista":"SERGIO JOSE MORAES","congenere":"POTENCIAL","cod_automacao":"O5","fone":null,"automacao_status_entrada":0,"Tipo":"C","nro_compartimento":2,"Fila":null,"tipo_descricao":"CARREGAMENTO"]
+Retorno Sem Sucesso
+Será retornado um objeto JSON com o motivo da não inclusão (poderá ser um erro de autenticação caso o token tenha expirado ou seja inválido ou alguma regra de negócio não atendida. 
+O status da resposta sempre será diferente de 200.
+wide
+1800
+{"error":"Forbidden","status":403}

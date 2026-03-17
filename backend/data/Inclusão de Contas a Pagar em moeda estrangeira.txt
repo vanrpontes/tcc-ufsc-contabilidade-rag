@@ -1,0 +1,159 @@
+TITULO: Inclusão de Contas a Pagar em moeda estrangeira
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2897608784
+--------------------------------------------------
+Como os lançamentos em moeda estrangeira acontecem nos pagamentos parcelados de produtos importados, a nota fiscal vem em reais e as duplicatas é que vêm em outra moeda.
+
+
+
+
+É incluída uma pendência no Contas a Pagar em reais. Para chegar no valor em reais, se calcula a quantidade de dólares da pendência pelo valor do dólar do dia.
+
+Pendência: US$ 100,00
+
+Dólar do dia: R$ 1,89.
+
+Pendência lançada no contas a Pagar: R$ 189,00
+
+
+Periodicamente, ao verificar as pendências do Contas a Pagar, se atualiza o valor pendente desse título pelo dólar corrente:
+
+Pendência lançada no contas a Pagar: R$ 189,00
+
+Dólar do dia: R$ 1,91.
+
+Pendência atualizada: R$ 191,00
+
+
+Chegando o dia do vencimento, se faz a baixa pelo valor do dólar do dia, contabilizando a diferença como acréscimo ou desconto
+
+Pendência lançada no contas a Pagar: R$ 189,00
+
+Dólar do dia: R$ 1,85.
+
+Pendência atualizada: R$ 185,00
+
+Diferença encontrada: -4,00 (desconto)
+
+
+
+
+Este processo se dará somente na inclusão do título (manual) com a indicação de uma moeda diferente da do Sistema neste procedimento e no processo de baixa. É importante salientar que a moeda utilizada pode ser qualquer uma 
+diferente
+ da configurada na tabela Sistema como moeda nacional e que os valores inputados sempre serão em reais (convertidos internamente para a moeda indicada no título).
+
+
+Inclusão de 
+NF com conversão de Moeda
+
+
+Para ter uma NF de entrada que gera contas a pagar permitindo o uso de moeda com conversão é preciso que essa nota 
+seja vinculada a um PMM
+ (seja direto do fornecedor ou transferencia entre depósitos).
+
+No momendo da inclusão do PMM, sugere-se qual moeda utilizar, se selecionado uma moeda que tenha conversão, na tela de manutenção de lançamento, o valor e saldo da moeda estará com o valor em dólar e o título com o valor em Real (caso a moeda local for o Real).
+
+
+Importante ressaltar que a conversão é feita por meio da 
+Data de Referência da Moeda
+ definida na Nota Fiscal. No momento da inclusão da NF, o Sispetro fará a conversão de acordo com a taxa definida na 
+ e a Data de Referência de Moeda preenchida.
+
+
+
+
+Para que o campo 
+Data Ref. Moeda
+, conforme visto na imagem acima, esteja disponível para alteração, é necessário que um perfil da 
+Natureza de Operação
+ esteja habilitado. O mesmo encontra-se na aba 
+Detalhes \ Geral \ Dados Gerais
+, dentro do quadro 
+Produtos Importados
+.
+
+
+ 
+
+
+Caso o perfil acima não esteja habilitado, será gravado no campo 
+Data Ref. Moeda
+ a 
+Data da Nota Fiscal
+
+
+No procedimento de 
+inclusão manual do Contas a Pagar
+
+
+
+
+Pela moeda se identifica se há tabela de Conversão, caso tenha:
+	
+
+
+Será habilitado um campo "Valor Bruto na Moeda" onde o usuário digitará o Valor Bruto do Título na moeda correspondente.
+
+
+Será desabilitado o campo "Valor Bruto" que será o resultado da conversão (em Reais) pela Data de Emissão do Título
+
+
+
+
+
+
+Caso não tenha tabela de conversão, não será possível continuar com a inclusão.
+
+
+O Valor Líquido continuará sendo calculado a partir do Valor Bruto podendo ter descontos ou acréscimos
+
+
+
+
+
+
+Salva para esse título o Saldo, Valor Bruto e Valor Liquido convertidos na moeda utilizada.
+
+O Valor Líquido na Moeda deve ser:
+
+
+Valor Líquido Reais / Valor Bruto Reais * Valor Bruto na Moeda
+
+Vejamos a aplicação dessa fórmula:
+
+
+
+
+Valor Bruto Moeda: 50,00
+
+Taxa da Moeda: 2,00
+
+Valor Bruto Reais: 100,00
+
+Desconto em Reais: 30,00
+
+Valor Líquido em Reais: 70,00
+
+Saldo na moeda: 70,00 / 100,00 * 50,00 = 35,00
+
+
+ou
+
+
+
+
+Valor Moeda: 50,00
+
+Taxa da Moeda: 2,00
+
+Valor Bruto Reais: 100,00
+
+Acréscimo em Reais: 20,00
+
+Valor Líquido em Reais: 120,00
+
+Valor na moeda: 120,00 / 100,00 * 50,00 = 60,00
+
+
+
+
+

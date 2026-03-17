@@ -1,0 +1,104 @@
+TITULO: Serviço de Consulta Destinatário NF-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927274485
+--------------------------------------------------
+Intervalo de execuções
+De modo a evitar penalidade de consumo indevido junto a SEFAZ, caso a
+ 
+consulta
+ 
+retorne 
+com os 
+Status 137
+ - Nenhum Documento Localizado ou 
+Status 
+656 - 
+Consumo Indevido, o
+ SisPetro só fará a próxima consulta depois de 61 minutos, caso o tempo configurado para consulta seja menor que isso.
+Para habilitar o 
+Serviço de Consulta Destinatário NF-e
+ 
+deve-se acessar o 
+, na aba
+ Informações Serviços,
+ selecionar 
+Consulta Destinatário NF-e
+ 
+e clicar em 
+Abrirá a tela de configurações, que deverá ser preenchida conforme instruções abaixo descritas:
+Intervalo Entre as Execuções:
+ informar o intervalo de tempo que o serviço será executado. O tempo mínimo que pode ser definido é de 30 segundos, porém a SEFAZ informa que o máximo de consultas que a empresa deve realizar no intervalo de 01 hora são 20 consultas. Recomendamos definir 05 minutos a fim de evitar bloqueio por consumo indevido. 
+Horário de Execução
+: definição do período que o serviço será executado, respeitando o tempo de intervalo entre as execuções.
+Executar Automaticamente Quando Servidor for Iniciado
+: parâmetro que define se o serviço deve ser iniciado sempre que o 
+ for iniciado. 
+Ao receber XML que já Existe na Pasta
+: n
+esse campo podemos definir a ação a ser tomada ao receber um xml que já exista na pasta, podendo ser:
+Move para pasta de erros
+: os XMLs duplicados serão movidos para a pasta especificada em 
+Pasta XMLs com Erro
+.
+Renomeia o arquivo
+: os anexos XMLs duplicados serão movidos para a pasta especificada em 
+Pasta XMLs com Erro
+ e renomeados, mantendo 
+todos
+ os xmls recebidos.
+Sobrepõe o arquivo
+: ao encontrar um arquivo com o mesmo nome, o SisPetro irá sobrepor o arquivo, independente do conteúdo do arquivo.
+Pasta XMLs Recebidos: 
+nesta pasta, todo anexo XML recebido, válido ou não, é gravado e depois movido para sua respectiva pasta. O processo é feito automaticamente pelo SisPetro, não sendo necessária intervenção do usuário.
+Pasta XMLs com Erro
+: quando um XML estiver duplicado, será movido para esta pasta, ficando à disposição do usuário para análises futuras, conforme opção definida em 
+Ao receber XML que já Existe na Pasta
+.
+Usuário
+: deve-se indicar um usuário para gravar nas tabelas de log. Esta informação não afetará em nada o funcionamento ou quaisquer outras funções deste usuário.
+Clique em 
+ para salvar as configurações e sair da tela.
+Clique em 
+ para não salvar as configurações e sair da tela.
+Após configurado o serviço, na tela principal do 
+, clique em
+ 
+ 
+para verificar se todas as configurações estão corretas.
+Clique em 
+ para ativar o serviço. Caso a opção 
+Executar Automaticamente Quando Servidor for Iniciado 
+estiver
+ 
+desmarcada
+, ao reiniciar o 
+, o serviço ficará desativado.
+Clique em 
+ para desativar o serviço. Caso a opção 
+Executar Automaticamente Quando Servidor for Iniciado 
+estiver
+ 
+marcada
+, ao reiniciar o 
+, o serviço ficará ativado.
+Clique em 
+ para forçar a execução do serviço, independente do intervalo e do horário de execução.
+Apesar dos nomes dos campos 
+Pasta XMLs Recebidos e 
+Pasta XMLs com Erro 
+serem iguais aos dos 
+Serviço de Consulta Destinatário CT-e
+ e 
+Serviço de Movimentação XML Sefaz
+, as 
+pastas
+ 
+podem
+ ser 
+definidas distintamente
+, ou seja,
+ não é obrigatório
+ informar as
+ mesmas pastas
+.  Depende de como a empresa deseja trabalhar com esses serviços. Para mais informações, ver 
+Cenários de Importação de NFe/CTe: Manual ou via Serviço
+.

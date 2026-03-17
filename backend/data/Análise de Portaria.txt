@@ -1,0 +1,102 @@
+TITULO: Análise de Portaria
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2951970903
+--------------------------------------------------
+A Consulta Análise de Portaria apresenta os
+ dados da Portaria de Entrada e Saída das Ordens de Carregamento.
+Esta consulta se encontra no Menu
+ 
+Consulta / Estoque / Análise de Portaria
+O acesso a essa tela precisa ser liberado em 
+Ferramentas / Usuários / Acessos Menus / Consulta / Estoque / Análise Portaria
+Período
+Filtros com 
+Data Inicial
+ e 
+Data Final
+, selecionado pela 
+Data OC 
+ou pela 
+Data Entrada Fila, 
+possibilitando visões diferentes da situação do carregamento na base.
+Dados Específicos
+Depósito Específico:
+ 
+para analisar os pedidos somente de um depósito. Se marcado, informe o código do depósito.
+Layout de usuário
+Permite salvar ou excluir layouts específicos por usuário:
+ 
+informe um nome para o layout e clique em Salvar. Caso queira excluir, selecione o layout e clique em Excluir
+Sempre que alterar um layout específico (adicionando ou retirando campos). deve clicar em Salvar. 
+Campos Disponíveis para uso
+O layout é dividido em Colunas/Valores (Dados), Linhas e Colunas. Os campos podem ser adicionados:
+Principais campos:
+Produtos
+Há duas opções: 
+Produto Venda
+, que é o produto utilizado na Ordem de Carregamento (básico ou composto) e o 
+Produto Básico 
+que é o produto que será efetivamente movimentado.
+Datas
+Dos registros envolvidos na portaria, podendo escolher 
+Data 
+da portaria que pode ser relacionada ao 
+Mês
+ e 
+Ano, 
+além da 
+Data da OC
+, 
+Data Entrada Base
+, 
+Data Inclusão OC
+ e horários.
+Frotas / Transportadora
+Campos 
+Frota
+ (placa principal ou do cavalo), 
+Carreta
+ e 
+Treminhão, 
+além da 
+Transportadora
+ e 
+Motorista
+.
+Contador
+Esse campo apresenta a quantidade de itens de uma Ordem de Carregamento.
+Entre outros
+Exemplos de Layouts
+1. Análise por Empresa
+Nesse layout é possível analisar, por Congênere (empresa), quais os carregamentos e descargas que estão na Portaria e para quais produtos.
+Para configurar:
+Arraste para as linhas os campos
+ 
+Empresa
+, 
+Carregto./Descarga
+ e 
+Produto Básico
+Na coluna não colocamos nenhum campo
+Na região do Valor deixamos os campos 
+Contador
+ e
+ Qtde.
+Na região de Filtro é possível, no campo Portaria filtrar as Portarias de Entrada ou Saída, ou deixar ambas.
+Veja como fica a tela após essa configuração:
+Não esqueça de dar um nome para essa análise no campo 
+Layout Usuário
+ e clicar em 
+Salvar
+.
+2. Análise por Descarga e Carregamento
+Nesse layout é possível analisar, por Descarga e Carregamento, para isso basta arrastar o campo 
+Carregto./Descarga
+ para o primeiro item da linha.
+3. Análise por Produto
+Nesse layout é possível analisar, por Produtos, para isso basta arrastar o campo 
+Produto Básico
+ para o primeiro item da linha.
+Para utilizar as funcionalidades da tela, ver tópico
+ 
+Consultas Tridimensionais
+.

@@ -1,0 +1,56 @@
+TITULO: Consulta de Previsto X Realizado
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899964
+--------------------------------------------------
+Pode-se fazer uma análise do orçamento previsto comparando-o com o realizado através desta tela, que pode ser acessada através do Menu Movimentação / Controladoria / Previsão Orçamentária / Consulta de Previsto X Realizado:
+Deve-se informar o 
+período
+ desejado, 
+ano
+, 
+mês
+ e *número de meses anteriores. Se o número de meses anteriores for 0, significa que deseja visualizar apenas o mês informado. Se for informado um número de meses anteriores maior que 0, além do mês informado, serão apresentadas colunas adicionais para estes meses anteriores, de no máximo 12 meses anteriores.
+Informa-se também o cenário do orçamento previsto, e a 
+unidade de negócios
+ que pode ser uma 
+filial
+, um 
+grupo de filiais
+, um 
+conglomerado de filiais
+ ou 
+todas as filiais
+. Quando a unidade de negócio escolhida é uma filial, o agrupamento por empresa é ocultado no grid que apresenta os dados, pois não há a necessidade de mostrá-lo, já que os dados serão todos de uma mesma filial.
+Após informar estes dados, pressione o botão 
+Atualiza
+ para que seja apresentada a consulta. Se nenhum dado for apresentado significa que ainda não foi feita a 
+Edição de Previsão Orçamentária
+ e nem a 
+Consolidação do Realizado
+ para o período, caso contrário os dados deverão ser apresentados como mostra a ilustração abaixo.
+Veja que há uma coluna de valores para 
+Previsto
+, uma para 
+Realizado
+ e outra para 
+Diferença
+. Na coluna 
+Previsto
+ serão apresentados os valores informados na edição da previsão orçamentária, e na coluna 
+Realizado
+ terão os valores da movimentação real para cada conta, obtidos através do processo de 
+Consolidação do Realizado
+. A coluna 
+Diferença exibe o *resultado do Previsto menos o Realizado
+ para cada conta e também para o total.
+O botão 
+Consolida Realizado:
+ abre a tela para efetuar a 
+Consolidação do Realizado
+.
+O layout do grid pode ser alterado pelo usuário, mudando a ordenação das colunas e agrupamentos. Este layout do grid é salvo por usuário, mas pode se obter o layout padrão através do botão 
+Layout Padrão
+.
+Nas contas de Despesa, serão apresentados os valores dos centros de custo vinculados à conta quando houverem.
+No agrupamento por tipo de conta, além de apresentar agrupadas as contas de receita, custo e despesa, é apresentado no final uma linha com o resultado, ou seja, receitas - custos - despesas.
+O menu existente nesta tela de consulta, além de possuir acesso aos mesmo controles dos botões, possuem também outros recursos como imprimir, exportar para o Excel, expandir e fechar agrupamentos.
+Ao exportar para o Excel, os dados dos centros de custo não serão exportados, porque o Excel não suporta este recurso de agrupamento utilizado no grid.

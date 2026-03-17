@@ -1,0 +1,45 @@
+TITULO: Agrupar e-mails por Ordem de Carregamento
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921073456
+--------------------------------------------------
+Agrupar E-mails por Ordem de Carregamento
+É possível agrupar os e-mails por 
+Ordem de Carregamento
+, ou seja, só serão enviados os e-mails quando 
+TODAS 
+as Ordem de Carregamento forem faturadas e processada na SEFAZ e boletos gerados com sucesso.
+Este processo é útil quando o Comprador for um 
+Representante
+, assim ele precisa receber o e-mail de todas as notas e anexos em um só, para então providenciar o que é necessário para o carregamento. 
+Para que o SisPetro trabalhe desta forma é preciso marcar os perfis: 
+Sitema: Aba NF-e/CT-e 
+, 
+escolher a opção
+ 
+Agrupa o Envio do E-mail por OC
+Cadastro de Clientes: 
+Aba Cadastro detalhado
+, marcar a opção
+ 
+Agrupa envio de e-mail conforme perfil de sistema
+. 
+Esta nova funcionalidade pode trabalhar junto com a opção de enviar e-mail para Cliente Comprador. Para mais informações, ver 
+ ) 
+Informações importantes:
+A empresa 
+está marcada para 
+agrupar
+ o envio de e-mail por OC e os 
+clientes
+ também.
+Um pedido de venda tem 3 itens, para 3 clientes diferentes.
+Feito uma Ordem de Carregamento para esses 3 itens.
+Faturado e processado na SEFAZ 
+os dois
+ primeiros itens.
+Como a empresa e clientes estão marcados para agrupar e envio por OC, os e-mails ainda não foram enviados, estão aguardando o terceiro item ser faturado.
+O terceiro item não foi processado na SEFAZ e o faturista constatou que ele não deve mais ser faturado.
+Nesta situação, os dois primeiros e-mails ficarão "presos", à espera do faturamento do terceiro item. 
+O que fazer?
+Neste caso é preciso dizer ao sistema que a Ordem de Carregamento já está concluída, é 
+preciso Desalocar o Pedido de venda
+, referente a esta OC. Veja mais informações em 

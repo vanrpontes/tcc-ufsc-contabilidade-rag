@@ -1,0 +1,18 @@
+TITULO: Servidor Sispetro - Roteador
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926203150
+--------------------------------------------------
+O Servidor Sispetro é um componente fundamental para que o Sispetro possa ser executado. Hoje ele é responsável pelo controle da maioria das funções realmente importantes realizadas pelo Sispetro, como faturamento, emissão de pedidos, controle de acessos, controle de licenciamento, envio de e-mails, etc.
+Para que ele possa executar todas as suas funções de forma eficaz, é necessário que ele seja executado em um ambiente muito estável.
+Para controlar os acessos e essa estabilidade, implementamos uma função de 
+roteador 
+no Servidor Sispetro, de forma que, no login do usuário no sistema, o roteador o direcione para o primeiro servidor disponível definido. Assim, mesmo que haja alguma instabilidade, basta entrar novamente no sistema, para ser dado a ele um outro endereço de Servidor Sispetro.
+Para configurar o Servidor Sispetro Roteador, acesse 
+Servidor Sispetro Roteador - Configurações
+.
+Caso 
+não deseje
+ utilizar esta função, basta 
+não fazer nenhuma configuração
+. O Servidor Sispetro continuará com as mesmas funções já existentes.
+Em 
+ você tem acesso as regras e definições que devem ser feitas antes de iniciar as configurações.

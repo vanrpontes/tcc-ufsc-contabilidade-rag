@@ -1,0 +1,18 @@
+TITULO: Timer do CODIF no Servidor SisPetro
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899666
+--------------------------------------------------
+Em 2008 o Estado de São Paulo aboliu o envio de CODIF para distribuidoras devido a implementação da NF-e. A partir da versão 8.11 toda a estrutura do CODIF foi removida.
+A função do Timer do CODIF no Servidor SisPetro é verificar de tempos em tempos se há algo pendente a ser feito no CODIF, como solicitar autorização, registrar nota e criar passe fiscal.
+Para ativar o timer é necessário parar o servidor e marcar a opção 
+Habilita Timer CODIF
+, conforme mostra tela abaixo:
+O uso do Timer será somente para autorizações do CODIF de empresas que estejam configuradas com Integração 
+Automática
+.
+A vantagem de utilizar o Timer é que, mesmo se, ao incluir uma nota, a Internet estiver fora do ar, ou o site do CODIF, enfim, a solicitação não for feita pelo modo expresso, garantiremos que depois de "x" tempo, o Servidor SisPetro vai identificar essa pendência e providenciar uma nova tentativa.
+Esse tempo é conforme o tempo máximo de execução, configurado no perfil de sistema (veja tópico Configuração para Integração 
+Automática
+).
+A desvantagem é que o Servidor SisPetro ficará sempre trabalhando, verificando se deve ou não se conectar ao CODIF.
+Se na sua empresa o processo fluir normalmente, sem interrupções de conexão, pode ser que nem seja necessário utilizar essa opção.
+Essa opção será desativada na versão 8.9 pois o CODIF não é mais utilizado.

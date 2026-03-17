@@ -1,0 +1,290 @@
+TITULO: Fazer o preenchimento dos dados para o SPED
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879128159
+--------------------------------------------------
+O preenchimento dos dados é a geração dos registros existentes no banco de dados conforme a edição feita pelo usuário e as fórmulas cadastradas, em tabelas específicas. Ou seja, o Sispetro possui tabelas que estão 
+vazias
+ e que serão preenchidas neste processo com base nas fórmulas cadastradas.
+Importante: Este processo deve ser feito antes da edição dos dados ou da geração do arquivo.
+Para preencher os dados, o usuário deve acessar o menu 
+Ferramentas / Tabelas dos Conjuntos de Dados
+Livro Fiscal Eletrônico - EFD: EFD ICMS IPI
+Selecione 1 e clique em 
+Clique em 
+ para o preenchimento dos dados ou em 
+ para o preenchimento dos dados e geração do arquivo
+Confirme (ou não) o processo de preenchimento de dados através das fórmulas configuradas.
+Confirmando, será solicitado para informar os parâmetros necessários para preencher as tabelas do SPED.
+Na tela de Edição/Inclusão, o usuário deve informar as opções para para seleção dos dados necessários para a geração do arquivo de exportação:
+Sequencial:
+ número sequencial do preenchimento gerado automaticamente pelo SisPetro
+Empresa:
+ selecione a empresa/filial que deverá efetuar o preenchimento dos dados
+Data Inicial:
+ informe a data inicial do período desejado
+Data Final:
+ informe a data final do período desejado
+Data Inventário:
+ data do último inventário. 
+Obrigatório informar e deve ter incluído um inventário em 
+Manutenção de Inventário
+.
+SQL:
+ para uso interno e nos testes do Suporte
+Finalidade Arquivo:
+ remessa do arquivo original ou remessa do arquivo substituto.
+Destino do Arquivo:
+ pasta onde será gerado o arquivo do SPED. Somente se foi clicado em 
+Inicia do Zero:
+ usado no preenchimento dos dados. É útil nos casos em que o processo de preenchimento dos dados foi interrompido antes de finalizar.
+Marcada:
+ o preenchimento dos dados será feito desde o início. Procedimento mais demorado.
+Desmarcada:
+ o preenchimento dos dados continuará do ponto onde foi interrompido. Procedimento mais rápido.
+Segundo Inventário:
+ se for o caso, informar a data do segundo inventário.
+Nota:
+ de acordo com o Guia Prático, o PVA indicará uma advertência caso a EFD de fevereiro não contenha um Registro H005 com o campo DT_INV preenchido com a data de 31/12 do ano anterior e o campo MOT_INV preenchido com “01”.
+Ao preencher os campos para preenchimento dos dados, o usuário deve clicar no botão 
+ 
+O usuário poderá cancelar o preenchimento dos dados a qualquer momento, para isso ele deve clicar no botão 
+ 
+Aguarde o preenchimento dos dados, que será concluído com a mensagem:
+ 
+ 
+Após a conclusão do preenchimento dos dados, o usuário poderá 
+Editar o conteúdo preenchido
+ ou gerar o arquivo txt do SPED 
+Para sair da tela, o usuário deverá clicar no botão 
+ 
+Livro PIS e COFINS: EFD Contribuições
+Selecione 6 e clique em
+ 
+Clique em
+ 
+ para o preenchimento dos dados ou em 
+ para o preenchimento dos dados e geração do arquivo
+Confirme (ou não) o processo de preenchimento de dados através das fórmulas configuradas.
+Confirmando, será solicitado para informar os parâmetros necessários para preencher as tabelas do SPED.
+Na tela de Edição/Inclusão, o usuário deve informar as opções para para seleção dos dados necessários para a geração do arquivo de exportação:
+Sequencial:
+ número sequencial do preenchimento gerado automaticamente pelo SisPetro
+Empresa:
+ selecione a empresa Matriz que deverá efetuar o preenchimento dos dados
+Data Inicial:
+ informe a data inicial do período desejado
+Data Final:
+ informe a data final do período desejado
+Tipo de Escrituração:
+ Original ou Retificadora
+Numero Recibo Anterior:
+ informar, caso seja Retificadora.
+SQL:
+ para uso interno e nos testes do Suporte
+Destino do Arquivo:
+ 
+pasta onde será gerado o arquivo do SPED. Somente se foi clicado em 
+Inicia do Zero:
+ 
+usado no preenchimento dos dados. É útil nos casos em que o processo de preenchimento dos dados foi interrompido antes de finalizar.
+Marcada:
+ o preenchimento dos dados será feito desde o início. Procedimento mais demorado.
+Desmarcada:
+ o preenchimento dos dados continuará do ponto onde foi interrompido. Procedimento mais rápido.
+Ao preencher os campos para preenchimento dos dados, o usuário deve clicar no botão 
+O usuário poderá cancelar o preenchimento dos dados a qualquer momento, para isso ele deve clicar no botão 
+ 
+Aguarde o preenchimento dos dados, que será concluído com a mensagem:
+ 
+ 
+Após a conclusão do preenchimento dos dados, o usuário poderá 
+Editar o conteúdo preenchido
+ ou gerar o arquivo txt do SPED
+Para sair da tela, o usuário deverá clicar no botão
+ 
+ 
+Livro Fiscal Eletrônico - ECD: Escrituração Contábil Digital
+Selecione 4 e clique em
+ 
+Clique em
+ 
+ para o preenchimento dos dados ou em 
+ para o preenchimento dos dados e geração do arquivo
+Confirme (ou não) o processo de preenchimento de dados através das fórmulas configuradas.
+Confirmando, será solicitado para informar os parâmetros necessários para preencher as tabelas do SPED.
+Na tela de Edição/Inclusão, o usuário deve informar as opções para para seleção dos dados necessários para a geração do arquivo de exportação:
+Sequencial:
+ número sequencial do preenchimento gerado automaticamente pelo SisPetro
+Empresa:
+ selecione a empresa Matriz que deverá efetuar o preenchimento dos dados
+Data Inicial:
+ informe a data inicial do período desejado
+Data Final:
+ informe a data final do período desejado
+SQL:
+ para uso interno e nos testes do Suporte
+Ind. Finalidade Escrituração:
+ selecionar de acordo com o tipo de escrituração a ser gerada
+Original
+Substituta
+Substituta sem NIRE (até 2017)
+Substituta com troca de NIRE (até 2017)
+Hash Escrituração Anterior:
+ caso seja uma escrituração substituta, informar o código gerado na escrituração original
+Mudança Plano Contas (0-Não 1-Sim):
+ caso não tenha alterado o plano de contas informe 0 ou 1 caso tenha alterado
+Destino do Arquivo:
+ 
+pasta onde será gerado o arquivo do SPED. Somente se foi clicado em 
+Inicia do Zero:
+ 
+usado no preenchimento dos dados. É útil nos casos em que o processo de preenchimento dos dados foi interrompido antes de finalizar.
+Marcada:
+ o preenchimento dos dados será feito desde o início. Procedimento mais demorado.
+Desmarcada:
+ o preenchimento dos dados continuará do ponto onde foi interrompido. Procedimento mais rápido.
+Ao preencher os campos para preenchimento dos dados, o usuário deve clicar no botão 
+O usuário poderá cancelar o preenchimento dos dados a qualquer momento, para isso ele deve clicar no botão 
+Aguarde o preenchimento dos dados, que será concluído com a mensagem:
+Após a conclusão do preenchimento dos dados, o usuário poderá 
+Editar o conteúdo preenchido
+ ou gerar o arquivo txt do SPED
+Para sair da tela, o usuário deverá clicar no botão 
+ 
+Escrituração Contábil e Fiscal: ECF
+Selecione 12 e clique em
+ 
+ 
+Clique em
+ 
+ para o preenchimento dos dados ou em 
+ para o preenchimento dos dados e geração do arquivo
+Confirme (ou não) o processo de preenchimento de dados através das fórmulas configuradas.
+Confirmando, será solicitado para informar os parâmetros necessários para preencher as tabelas do SPED.
+Na tela de Edição/Inclusão, o usuário deve informar as opções para para seleção dos dados necessários para a geração do arquivo de exportação:
+Sequencial:
+ número sequencial do preenchimento gerado automaticamente pelo SisPetro
+Empresa:
+ selecione a empresa Matriz que deverá efetuar o preenchimento dos dados
+Data Inicial:
+ informe a data inicial do período desejado
+Data Final:
+ informe a data final do período desejado
+Retificadora: (S,N ou F): 
+S
+ = ECF Retificadora
+N
+ = ECF Original
+F
+ = ECF Original com mudança de forma de tributação
+#Recibo p/Retif.: 
+caso seja uma escrituração substituta, informar o recibo de entrega da escrituração original
+SQL:
+ para uso interno e nos testes do Suporte
+Destino do Arquivo:
+ 
+pasta onde será gerado o arquivo do SPED. Somente se foi clicado em 
+Inicia do Zero:
+ 
+usado no preenchimento dos dados. É útil nos casos em que o processo de preenchimento dos dados foi interrompido antes de finalizar.
+Marcada:
+ o preenchimento dos dados será feito desde o início. Procedimento mais demorado.
+Desmarcada:
+ o preenchimento dos dados continuará do ponto onde foi interrompido. Procedimento mais rápido.
+Ao preencher os campos para preenchimento dos dados, o usuário deve clicar no botão 
+O usuário poderá cancelar o preenchimento dos dados a qualquer momento, para isso ele deve clicar no botão 
+Aguarde o preenchimento dos dados, que será concluído com a mensagem:
+Após a conclusão do preenchimento dos dados, o usuário poderá 
+Editar o conteúdo preenchido
+ ou gerar o arquivo txt do SPED
+Para sair da tela, o usuário deverá clicar no botão 
+ 
+Livro Fiscal Eletrônico - EFD DF: Escrituração fiscal utilizada pelo Distrito Federal 
+Selecione 9 e clique em 
+ 
+Clique em 
+ para o preenchimento dos dados ou em 
+ para o preenchimento dos dados e geração do arquivo
+Confirme (ou não) o processo de preenchimento de dados através das fórmulas configuradas.
+Confirmando, será solicitado para informar os parâmetros necessários para preencher as tabelas do SPED.
+Na tela de Edição/Inclusão, o usuário deve informar as opções para para seleção dos dados necessários para a geração do arquivo de exportação:
+Sequencial:
+ número sequencial do preenchimento gerado automaticamente pelo SisPetro
+Empresa:
+ selecione a empresa/filial que deverá efetuar o preenchimento dos dados
+Data Inicial:
+ informe a data inicial do período desejado
+Data Final:
+ informe a data final do período desejado
+Data Inventário:
+ data do último inventário.
+ 
+Obrigatório informar e deve ter incluído um inventário em 
+Manutenção de Inventário
+.
+SQL:
+ para uso interno e nos testes do Suporte
+Finalidade Arquivo:
+ remessa do arquivo original ou remessa do arquivo substituto.
+Destino do Arquivo:
+ 
+pasta onde será gerado o arquivo do SPED. Somente se foi clicado em 
+ 
+Inicia do Zero:
+ 
+usado no preenchimento dos dados. É útil nos casos em que o processo de preenchimento dos dados foi interrompido antes de finalizar.
+Marcada:
+ o preenchimento dos dados será feito desde o início. Procedimento mais demorado.
+Desmarcada:
+ o preenchimento dos dados continuará do ponto onde foi interrompido. Procedimento mais rápido.
+Ao preencher os campos para preenchimento dos dados, o usuário deve clicar no botão 
+O usuário poderá cancelar o preenchimento dos dados a qualquer momento, para isso ele deve clicar no botão 
+ 
+Aguarde o preenchimento dos dados, que será concluído com a mensagem: 
+Após a conclusão do preenchimento dos dados, o usuário poderá 
+Editar o conteúdo preenchido
+ ou gerar o arquivo txt do SPED 
+Para sair da tela, o usuário deverá clicar no botão 
+DRCST-SC: ressarcimento de ICMS ST para o estado de Santa Catarina - não faz parte do Projeto SPED da Receita Federal.
+Selecione 15 e clique em 
+Clique em 
+ para o preenchimento dos dados ou em 
+ para o preenchimento dos dados e geração do arquivo
+Confirme (ou não) o processo de preenchimento de dados através das fórmulas configuradas.
+Confirmando, será solicitado para informar os parâmetros necessários para preencher as tabelas do SPED.
+ 
+Na tela de Edição/Inclusão, o usuário deve informar as opções para para seleção dos dados necessários para a geração do arquivo de exportação:
+Sequencial:
+ número sequencial do preenchimento gerado automaticamente pelo SisPetro
+Empresa:
+ selecione a empresa/filial que deverá efetuar o preenchimento dos dados
+Data Inicial:
+ informe a data inicial do período desejado
+Data Final:
+ informe a data final do período desejado
+Finalidade Arquivo:
+ remessa do arquivo original ou remessa do arquivo substituto.
+SQL:
+ para uso interno e nos testes do Suporte
+Destino do Arquivo:
+ 
+pasta onde será gerado o arquivo do SPED. Somente se foi clicado em 
+ 
+Inicia do Zero:
+ 
+usado no preenchimento dos dados. É útil nos casos em que o processo de preenchimento dos dados foi interrompido antes de finalizar.
+Marcada:
+ o preenchimento dos dados será feito desde o início. Procedimento mais demorado.
+Desmarcada:
+ o preenchimento dos dados continuará do ponto onde foi interrompido. Procedimento mais rápido.
+Ao preencher os campos para preenchimento dos dados, o usuário deve clicar no botão 
+O usuário poderá cancelar o preenchimento dos dados a qualquer momento, para isso ele deve clicar no botão 
+Aguarde o preenchimento dos dados, que será concluído com a mensagem: 
+Após a conclusão do preenchimento dos dados, o usuário poderá
+ 
+Editar o conteúdo preenchido
+ 
+ou gerar o arquivo txt do SPED 
+Para sair da tela, o usuário deverá clicar no botão 
+FCONT: em desuso, substituído pela ECF
+Livro Fiscal Eletrônico - EFD PE: em desuso, substituída pela EFD ICMS IPI
+Livro Fiscal Eletrônico - EFD-PE E-DOC: em desuso, substituída pela EFD ICMS IPI

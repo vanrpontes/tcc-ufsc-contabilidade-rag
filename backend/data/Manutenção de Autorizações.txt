@@ -1,0 +1,44 @@
+TITULO: Manutenção de Autorizações
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899692
+--------------------------------------------------
+Em 2008 o Estado de São Paulo aboliu o envio de CODIF para distribuidoras devido a implementação da NF-e. A partir da versão 8.11 toda a estrutura do CODIF foi removida.
+A Manutenção de Autorizações do CODIF consiste em incluir autorizações, gerar arquivos XML para solicitação de autorizações e fazer a leitura do arquivo XML de retorno do CODIF, que contém o código de autorização e/ou mensagens de erro. A tela de manutenção tem também funcionalidades relativas à integração automática com o CODIF que são explicadas abaixo.
+Esta tela é acessa por meio do menu 
+Movimentação / Faturamento / Manutenção de Autorização do CODIF
+, mas somente estará disponível se no perfil de sistema (menu 
+Ferramentas / Sistema - painel Nota Fiscal
+), no campo 
+CODIF
+ estiver marcada uma das opções: "Integração semi-automática com CODIF (SP)" ou "Integração automática com CODIF (SP)" .
+A tela de Manutenção de Autorizações é apresentada como mostra a figura abaixo:
+As funcionalidades referentes ao CODIF disponíveis nesta tela são:
+Inclusão
+ A inclusão da autorização é acionada pelo seu respectivo botão:
+Exclusão
+ Permite excluir uma autorização somente se a autorização não possui nota fiscal vinculada. É acionada pelo botão:
+Cancelamento
+ Permite cancelar um arquivo de autorizações, ou seja, as autorizações que foram enviadas e que ainda não retornaram. Pode acontecer que o arquivo esteja com algum problema e não está sendo lido, a unidade de armazenamento onde foi gravado o arquivo como disco rígido, disquete pode estar danificada ou entre outros tipos de problemas que possam acontecer, então estes arquivos poderão ser cancelados e serem gerados novamente. É acionada pelo botão:
+ A geração de arquivo de autorização é acionada pelo botão:
+ A leitura de arquivo de autorização é acionada pelo botão:
+Verifica Web Service
+ Para verificar a conexão com o site do CODIF (somente para integração automática)
+ Exibe as solicitações e autorizações, transmitidas e recebidas pelo Sispetro (somente para integração automática).
+ Caso durante a inclusão da nota não haja conexão com o site do CODIF, é possível fazer a solicitação de autorizações e o registro das notas pendentes por meio desse botão (somente para integração automática).
+ Com esse botão é possível solicitar passes fiscais para notas de operação interestadual (somente para integração automática).
+Na tela principal é possível consultar os autorizações e filtrá-los pelas opções 
+Filtra Empresa, Período de Inclusão
+ e 
+Exibir
+. Após informar as opções de filtro, deve clicar no botão Atualiza:
+As opções do filtro 
+Exibir
+ são:
+Somente Pendentes:
+ Exibe as autorizações pendentes, ou seja, as autorizações que não foram enviadas para solicitação do código de autorização CODIF e/ou foram enviadas e não retornadas.
+Autorizações em Processo:
+ Exibe as autorizações que estão em processo, ou seja, as autorizações que foram enviadas para solicitação do código de autorização CODIF e não retornadas.
+*Todas: Exibe todas as autorizações.
+Ao posicionar num fechamento no painel principal é possível visualizar os dados deste fechamento, navegando nos demais painéis. Cada painel apresenta as movimentações referentes ao fechamento posicionado.
+O botão 
+ mostra o significado das cores e fontes utilizados no painel principal.
+Os grids podem ter a distribuição das colunas personalizados pelo usuário. Para restaurar o layout padrão oferecido pelo SisPetro utilize o botão:

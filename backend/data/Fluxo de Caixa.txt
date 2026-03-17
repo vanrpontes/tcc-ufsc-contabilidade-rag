@@ -1,0 +1,80 @@
+TITULO: Fluxo de Caixa
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899070
+--------------------------------------------------
+O Fluxo de Caixa no SisPetro pode ser acionado pelo Menu 
+Movimentação / Financeiro / Fluxo de Caixa
+.
+O fluxo de caixa é uma das principais ferramentas de um gestor financeiro.
+ "É um instrumento de controle que tem por objetivo auxiliar o empresário a tomar decisões sobre a situação financeira da empresa. Consiste em um relatório gerencial que informa toda a movimentação de dinheiro (entradas e saídas), sempre considerando um período determinado, que pode ser uma semana, um mês etc" (Sebrae, Guia do Empreendedor, pág. 4). 
+A estrutura do Fluxo de Caixa no SisPetro é a seguinte:
+(A) 
+Saldo Inicial
+(B) 
+Recebimentos Efetivos
+(C) 
+Recebimentos Previstos
+(D) 
+Recebimentos Recorrentes
+(E) 
+Recebimentos Realizados
+(F) Total de recebimentos (B+C+D+E)
+(G) 
+Pagamentos Efetivos
+(H) 
+Pagamentos Previstos
+(I) 
+Pagamentos Recorrentes
+(J) 
+Pagamentos Realizados
+(K) Total de pagamentos (G+H+I+J)
+(L) Total do dia (F-K)
+(M) Saldo final (A+L) 
+Quadro Diversos: 
+Utiliza Float de Recebimento 
+Para mais informações ver
+ 
+Painel Detalhes - Tipo de Cobrança
+ 
+Provisão de PMM 
+Para mais informações ver
+ 
+Provisão de PMM no Fluxo de Caixa
+ 
+Saldo Inicial: só apresenta contas com Saldo. 
+É possível informar a 
+unidade de negócios
+ para qual será montado o fluxo, conforme figura:
+Podendo-se optar entre:
+Todas as filiais
+Uma filial
+Um grupo de Filiais
+A escolha da 
+unidade de negócio
+ definirá a seleção dos valores atrasados (conforme esclarecido no tópico 
+Saldo Inicial
+, Pagamentos (exceto realizados) e Recebimentos (exceto realizados). Servirá também para levantamento de contas que possuam restrição (para obtenção do 
+Saldo Inicial
+ e Movimento realizado).
+A apresentação dos dados tem uma visão tridimensional, conhecida como cubo. Tem esse nome por permitir três dimensões:
+Linhas:
+ ficam no lado esquerdo da tela e define como serão apresentados os dados nas linhas.
+Valores:
+ O valor que será acumulado na parte central da tela, conforme as linhas e colunas definidas.
+Colunas:
+ ficam na parte superior direita da tela, definindo como serão acumulados os valores.
+Para maiores informações sobre o funcionamento da tela, vide help 
+Consultas Tridimensionais
+Acompanhando essa abordagem e comparando com a estrutura definida no fluxo de caixa, temos nas linhas de forma fixa a categoria (indicação se é pagamento ou recebimento...) e o tipo (efetivo ou previsto...). Estas duas informações devem ser fixas, pois são a base do fluxo de caixa.
+No layout padrão apresentamos também a entidade, porém qualquer campo disponível na parte superior esquerda da tela pode ser arrastado para essa região.
+No caso das colunas, a data também é fixa, por ser uma informação primordial no fluxo de caixa, porém podemos ainda ter totalizações por semana, mês e ano, úteis para avaliação do fluxo. Para isso basta arrastar o campo desejado para a região das colunas. É possível também arrastar para retirá-los.
+A partir de agora, o SisPetro contará as semanas como semanas do ano, não mais como semanas do mes, ou seja, a segunda semana de novembro, antes era "semana 2", agora é "semana 45", e assim por diante.
+O layout da tela é salvo por usuário, quando o mesmo sai da tela. Caso não goste do novo layout é possível restaurar o antigo pelo botão
+ "layout Padrão"
+, ao preencher as opções disponíveis na tela utilize o botão "Atualiza" 
+ para visualização do fluxo no período especificado, os dados apresentados em tela podem ser impressos através do botão "imprime" ao clicar nele será questionado sobre a impressão do detalhamento do saldo, podendo optar ou não pela impressão dele.
+Os dados também podem ser exportados para uma planilha do Microsoft Excel, através do botão "Exporta"
+Neste caso não serão exportados o detalhamento do saldo inicial.
+Cada célula onde é apresentado o valor representa a soma de valores correspondentes ao encontro (intersecção) da linha e coluna posicionado. Assim, para saber os valores detalhados que fizeram chegar nessa soma dê um "duplo click".
+Se a célula for da linha do saldo inicial será apresentada a seguinte tela:
+No caso de pagamentos e recebimentos, a tela a seguir:
+No caso dos totais não há o que detalhar, porém é apresentada uma tela similar a:

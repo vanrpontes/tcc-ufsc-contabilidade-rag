@@ -1,0 +1,95 @@
+TITULO: Controle de Viagens
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440521
+--------------------------------------------------
+O controle de viagens engloba a abertura da Viagem (com a possibilidade de informar o adiantamento dado ao motorista), o fechamento da mesma (com a possibilidade de se informar as despesas pagas pelo motorista) e o controle do troco do adiantamento feito.
+Para este controle acione o menu 
+Movimentação / Transportes / Manutenção de Viagens
+.
+O botão 
+"Fechamento"
+ estará habilitado desde que o usuário tenha permissão para fechar viagem através da tela de Manutenção de Viagens Frota. Essa permissão pode ser configurada através do menu 
+Ferramentas / Usuário / Frete
+, marcando a opção:
+O botão 
+"Cancela Fech"
+ estará habilitado desde que o usuário tenha permissão para cancelar o fechamento de viagem através da tela de Manutenção de Viagens Frota. Essa permissão pode ser configurada através do menu 
+Ferramentas / Usuário / Frete
+, marcando a opção:
+O primeiro passo é fazer a abertura da viagem através do botão 
+"Inclui"
+. Será apresentada a tela a seguir:
+O usuário deverá informar os seguintes dados:
+Data Saída:
+ Data do início da viagem, ou melhor, da saída do frota para a viagem.
+Empresa:
+ Empresa ao qual será vinculada à via
+Transportadora:
+ Motorista ou transportadora que está fazendo a viagem.
+Frota:
+ Frota que está sendo utilizado na viagem.
+Importante: Os campos Transportadora e Frota são de preenchimento obrigatórios, pois são campos imprescindíveis para o processo.
+Tem carreta:
+ O sistema trará como sugestão o que estiver cadastrado para o Frota escolhido, podendo ser alterado.
+Tem treminhâo:
+ O sistema trará como sugestão o que estiver cadastrado para o Frota escolhido, podendo ser alterado.
+Frete Terceiros:
+ Marque esta opção caso o frota que está sendo utilizado seja de terceiros, informe inclusive a entidade terceirizada, pois será útil em consultas e relatórios futuros. O sistema não utilizará esta informação para nenhum procedimento automático.
+Comercial:
+ Se esta viagem é comercial, geralmente ela deverá ser desmarcada quando a viagem for aberta para controle de quilometragem de carros de passeio ou para manutenção do veículo.
+KM Saída:
+ Quilometragem do veículo na saída para a viagem.
+Valor Frete:
+ Valor do frete a ser pago quando a viagem é para frota de terceiros.
+Tem adiantamento:
+ Se o motorista receberá um valor de adiantamento para pagamentos de despesas relacionadas a viagem. Se sim, indique o 
+valor do adiantamento
+, a 
+conta de adiantamento
+ e a 
+conta de caixa
+ (de onde está saindo o valor do adiantamento). Esta transação de adiantamento será contabilizada (debitando a conta de adiantamento e creditando a conta de caixa) e por isso precisa do 
+histórico
+ e 
+informações adicionais
+, dados estes que serão transportados para o lote gerado. É possível, depois de incluída uma viagem, incluir/cancelar adiantamentos à viagem. Os adiantamentos não cancelados serão somados no fechamento da viagem e poderão ser visualizados no painel Adiantamentos
+Ao clicar no botão 
+"Inclui Adiantamentos"
+, o sistema abrirá a seguinte tela:
+Pode-se informar além do valor, novas contas de adiantamento e caixa. Deve-se atentar que o troco no fechamento da viagem será contabilizado em somente uma conta de adiantamento e caixa. No caso de ser necessário o desdobro, o lançamento para que o saldo das contas de adiantamento seja zerado deverá ser feito pela tela de Manutenção de Lotes.
+Observações:
+ Dados complementares sobre a viagem.
+Clique no botão "OK" para confirmar os dados.
+No caso de Frete de Terceiros
+ Ao retorno da viagem deverá ser providenciado (ou não, fica a critério) o lançamento do contas a pagar da Transportadora. Selecione esta viagem e clique no botão 
+"Lança Pagto"
+, será então exibida a tela para Inclusão do contas a Pagar, já informando como valor bruto o valor do frete (que não pode ser alterado). Preencha os dados normalmente e clique em OK para confirmar. 
+ Os dados deste lançamento do contas a pagar poderá ser visualizado, ao selecionar a viagem, no painel 
+"Contas a Pagar"
+.
+No caso de Frota Próprio
+ Ao retorno do motorista desta viagem, serão apresentadas as despesas gastas durante a viagem e os eventos ocorridos. As despesas a serem pagas pela empresa ou as que não sofrerem controle financeiro/contábil deverão ser incluídas na 
+Manutenção de Despesas com Frota
+. Depois se providencia o vínculo com a 
+NF
+ ou 
+Contas a Pagar
+ somente das que forem pagas pela empresa. As despesas pagas pelo motorista deverão ser lançadas no Fechamento da Viagem. Clique no botão "Fechamento" e será apresentada a tela a seguir:
+Nesta tela serão solicitados os dados do retorno da viagem e através do botão 
+"Inclui Evento"
+ se providencia a 
+inclusão das despesas pagas pelo motorista
+. Há a possibilidade de se contabilizar ou não este fechamento, marcando as opções 
+Pode Contabilizar Gerencial
+ e 
+Pode Contabilizar Contabilidade Real
+, esta última só visível para empresas que utilizam o módulo Contábil. Serão solicitadas as contas a serem utilizadas para contabilizar o troco (este ocorrerá quando o Total Pagar for negativo), sendo creditado este valor na conta de adiantamento e debitado na conta de Despesa (Caixa).
+Quanto aos eventos, é apresentado em vermelho o valor total dos eventos que foram marcados para não contabilizar, tais eventos não entrarão no cálculo para o troco. A contabilização dos demais eventos se dará creditando a conta de adiantamento e debitando as contas cadastradas para cada padrão contábil informado em cada evento.
+Para vincular as notas fiscais de venda emitidas pela filial que fizeram parte do carregamento desta viagem e a partir daí se tirar uma produtividade por caminhao (por exemplo, quantidade, produto, etc) utilize o botão 
+"Vincular NF's"
+. Será apresentada uma tela de pesquisa, para escolha das notas a partir de uma determinada data.
+Para confirmar o fechamento, deve-se clicar no botão "OK".
+No caso do valor Total Pagar for positivo será debitado este valor na conta de adiantamento e creditado na conta de Despesa (Caixa), ou seja, o processo inverso.
+Responda não ao questionamento se deseja fazer o lançamento no contas a pagar.
+Geração de viagem(sugestão) após emissão de conhecimento:
+Existe a possibilidade de gerar a inclusão da viagem através da emissão do conhecimento de frete. Para isto basta configurar o parâmetro "Gera Viagem através do Conhecimento", nos parâmetros da empresa painel fretes.
+Se este parâmetro estiver habilitado, após emissão de conhecimento, irá perguntar ao usuário se ele deseja gerar uma viagem a partir daquele conhecimento, se o usuário responder que sim, o sistema irá abrir a tela de inclusão de viagem já com algumas informações devidamente preenchidas.

@@ -1,0 +1,62 @@
+TITULO: Exemplos de cadastros de Outros Impostos para NFS-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926199374
+--------------------------------------------------
+Abaixo apresentamos um exemplo de cadastros de Outros Impostos.
+É importante salientar que, mesmo que a empresa 
+não
+ tenha
+ retenção de ISS
+, é necessário cadastrá-lo como Outros Impostos para que o valor seja informado no xml de
+ integração para NFS-e.
+Para notas fiscais de Prestação de Serviços temos:
+PIS = 0,65 %
+COFINS  = 3,00 %
+CSLL = 1,00 %
+ISS = 2% (e, 3% para um código do tipo de serviço diferenciado)
+IR = 1,5 % (para valores maiores ou iguais a R$ 10,00)
+O cadastro do 
+PIS
+ nos 
+Outros Impostos
+ está para cálculo com fórmula:
+e, na 
+Natureza de Operação
+:
+Fórmula Base de Cálculo = (Qtde * Preço Real), neste caso: ArredondaDelphi((<734>*<736>),2)
+Fórmula Alíquota = 0.65
+Fórmula Imposto = ArredondaDelphi(((Qtde * Preço Real) * (Alíquota / 100)), 2), neste caso: ArredondaDelphi(((<734>*<736>) * 0.65 / 100),2)
+Utilizamos a opção de "ArredondaDelphi" para que o valor seja arredondado para 2 casas decimais.
+O mesmo deve ser feito para os itens COFINS e CSLL (sempre respeitando as particularidades de cada imposto, que devem ser definidas pelo responsável pela área Fiscal da empresa).
+Como informado anteriormente, mesmo que não tenha retenção de 
+ISS
+, é necessário configurá-lo para que o valor seja informado no xml de integração da NFSe.
+Assim, o cadastro pode ser feito da seguinte forma:
+Outros Impostos - ISS:
+Natureza de Operação:
+Fórmula Base de Cálculo = (Qtde * Preço Real), neste caso: 
+Fórmula Alíquota = 2.0
+Fórmula Imposto = (Qtde * Preço Real) * (Alíquota / 100), neste caso: ArredondaDelphi(((<734>*<736>) * 2 / 100),2)
+Para casos em que o
+ ISS difere
+ em função de um código de tipo de serviço, será necessário cadastrar um novo '
+Outro Imposto
+' e vinculá-lo a uma nova '
+Natureza de Operação
+', que será utilizada especificamente para esses casos.
+ 
+Para o 
+IR
+, como temos uma condição (IR = 1,5 % (para valores maiores ou iguais a R$ 10,00)), é necessário fazer também uma fórmula, com essa condição, conforme abaixo:
+Outros Impostos:
+Natureza de Operação
+:  
+Fórmula Base de Cálculo = (Qtde * Preço Real), neste caso: ArredondaDelphi((<734>*<736>),2)
+Fórmula Alíquota = Se (Qtde * Preço Real) >= 10, alíquota = 1,5, caso contrário = 0, neste caso ArredondaDelphi((if ((<734>*<736>)>=10) then 1.5 else 0 endif),2)
+Fórmula Imposto = (Qtde * Preço Real) * Alíquota, neste caso: ArredondaDelphi(((<734>*<736>) * ((if ((<734>*<736>)>=10) then 1.5 else 0 endif)/100)),2)
+Importante atentar-se para os campos de 
+Valor Unitário
+ e 
+Quantidade
+, pois os campos <734> e <736> 
+podem variar
+ conforme o banco de dados.

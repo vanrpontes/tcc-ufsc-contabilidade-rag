@@ -1,0 +1,43 @@
+TITULO: MultiPag Itaú
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927271848
+--------------------------------------------------
+Seguem as informações para configuração do MultiPag para o Banco Itaú.
+Configurações
+1 - 
+Tipo de Documentos:
+ Configurar / incluir os
+ 
+Tipos de documentos
+ para que aceitem o pagamento eletrônico. 
+2 - 
+Plano de Contas:
+ Configurar a conta de banco a ser utilizada, cadastrada previamente no 
+Plano Contas
+, para que tenha as informações do Banco (como conta, agência, código de identificação, etc). 
+3 - 
+Forma de Pagamento:
+ Incluir as 
+Formas de Pagamento
+ a serem utilizadas. Atualmente o Sispetro trabalha somente com as Formas de Pagamento: 
+01 - Crédito em Conta Corrente
+13 - Pagto de Contas Concessionárias
+16 - Tributo - DARF Normal
+17 - Tributo - GPS (Guia da Previdência Social)
+18 - Tributo - DARF Simples
+22 - Tributo - GARE-SP ICMS
+31 - Pagamento de Títulos de Outros Bancos
+4 - 
+Tabela Bancos:
+ Configurar na 
+Tabela de Bancos
+ qual será o layout de exportação para a geração do arquivo de Remessa e o layout de importação para a leitura do arquivo de Retorno. 
+O Banco Itaú trabalha com um layout de Exportação diferente dos demais Bancos (MultiPag341_vXXX.rtm), por isso é necessário incluir/alterar um layout de Exportação na tela de 
+Manutenção Exportação de Dados
+ utilizando o ultimo layout disponibilizado pela Futura.
+O Banco Itaú também trabalha com um layout de importação diferente dos demais Bancos (RetornoMultiPag341.smi), por isso é necessário incluir/alterar um layout de Importação na tela de 
+Manutenção Importação de Dados
+, 
+utilizando o último layout disponibilizado pela Futura.
+No caso do Itaú, devido o mesmo não ter um campo no Header de Arquivo para o ID/Convênio, é utilizado o CNPJ da empresa nas posições 19 a 32. Necessário preencher o CNPJ da empresa na 
+conta de banco
+. 

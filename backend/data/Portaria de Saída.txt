@@ -1,0 +1,321 @@
+TITULO: Portaria de Saída
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879127562
+--------------------------------------------------
+Após o caminhão ter entrado na base e realizado o carregamento, o usuário deve abrir a tela de Portaria de Saída onde irá proceder com a saída do caminhão da base.
+Quadro Filtros
+É possível filtrar as OC utilizando uma ou mais das opções do quadro Filtros. 
+Mostra: 
+filtra as OC pelo tipo. O usuário pode escolher:  
+Todos
+Carregamento
+Descarga
+Só avulsos
+Verificação Qtde/Peso: 
+filtra as OC pelo resultado da verificação. O usuário pode escolher:  
+Indiferente
+Fora do limite
+Dentro do limite
+Situação:
+ filtra as OC pela ação que falta ser feita. O usuário pode escolher:
+Todos
+Pendente de Peso
+Pendente de Dados
+Produto:
+ filtra as OC por produto
+É importante que o usuário, caso deixe esta janela aberta todo o tempo, aperte o botão
+ 
+Atualiza
+ 
+para que o SisPetro possa atualizar a tela com novos carregamentos oriundos do módulo de faturamento
+É possível definir como vai ser realizado o cálculo da quantidade real 20c, podendo assim optar por utilizar a densidade 20c no cálculo. Essa opção deve ser definida através do perfil de Sistema 
+Densidade/Peso X Volume na Portaria. 
+Para mais informações, ver 
+.
+É possível indicar no frota o carregamento/descarga do
+ tipo 
+Bottom Loading,
+ onde, através da portaria de entrada é possível visualizar o lado do Bottom do caminhão, agilizando desta forma o encaminhamento a baia de carregamento/descarga. E
+stas informações passam a ficar disponível na portaria de saída. Para mais informações, ver 
+Tabela Manutenção de Frota
+.
+É possível habilitar a Inspeção de Auto Tanque - Sorteio de Bola Preta. Para mais informações, ver 
+Inspeção de Auto Tanque - Sorteio de Bola Preta
+O SisPetro passará a mostrar a balança utilizada na portaria de entrada para a obtenção de peso. Para mais informações, ver 
+.
+Para as OC de Carregamento e o depósito está habilitado para Bola Preta, à medida que são feitas as portarias de entradas, as OC poderão ou não ser selecionadas para inspeção: campos Result.Sorteio e Status Inspeção (por padrão estão no final da tela mas podem ser movidos para onde o usuário desejar). 
+Só será permitido fazer inspeção nas OC (frotas) cuja divulgação do resultado do sorteio já esteja liberada - data de divulgação do sorteio. Caso ainda não esteja liberada a divulgação, apresentará a mensagem de erro:
+Quadro Inspeção
+Dados Inspeção:
+ nesta tela o usuário, com os devidos perfis (ver 
+Painel Carregamento (Usuários)
+) pode realizar uma inspeção, liberando ou não a OC (frota) para saída (leitura Manual, Smart Card, View ou Basecom), informando:
+Status da Inspeção:
+OK:
+ OC (frota) sem inconformidades
+Encontrada Não Conformidade:
+ OC (frota) com inconformidades
+Observações referentes à Inspeção:
+ texto livre para anotações do usuário
+Imprime Formulário:
+ imprime formulário utilizado na inspeção
+ 
+Formulário impresso:
+Portaria de Saída para depósito habilitado Bola Preta:
+Result.Sorteio
+Status Inspeção
+Permite Saída
+OBS.
+​Exigir Inspeção
+Não Realizada​
+Exigir Inspeção
+Realizada e OK
+Exigir Inspeção
+Realizada e Não OK
+Não Exigir Inspeção
+Não Realizada
+Não Exigir Inspeção
+Realizada e OK
+Não Exigir Inspeção
+Realizada e Não OK
+Sem Resultados
+Sem Resultados
+Quando uma inspeção é cancelada, independente do resultado ou do status. Para mais informações, ver 
+Manutenção Ordens Carregamento - Aba Inspeções
+Retornando para Portaria de Entrada: resultados nas OC
+Result.Sorteio
+Status Inspeção
+Fazendo novamente a Portaria de Entrada
+OBS.:
+​Exigir Inspeção
+Não Realizada​
+Entra normalmente para sorteio
+Exigir Inspeção
+Realizada e OK
+Não altera
+Para alterar, deve cancelar a Inspeção. Para mais informações, ver 
+Manutenção Ordens Carregamento - Aba Inspeções
+Exigir Inspeção
+Realizada e Não OK
+Não altera
+Para alterar, deve cancelar a Inspeção. Para mais informações, ver 
+Manutenção Ordens Carregamento - Aba Inspeções
+Não Exigir Inspeção
+Não Realizada
+Entra normalmente para sorteio
+Não Exigir Inspeção
+Realizada e OK
+Não altera
+Para alterar, deve cancelar a Inspeção. Para mais informações, ver 
+Manutenção Ordens Carregamento - Aba Inspeções
+Não Exigir Inspeção
+Realizada e Não OK
+Não Altera
+Para alterar, deve cancelar a Inspeção. Para mais informações, ver 
+Manutenção Ordens Carregamento - Aba Inspeções
+Sem Resultados
+Sem Resultados
+Entra normalmente para sorteio
+ATENÇÃO:
+ o carregamento não aparecerá nesta tela se o depósito estiver configurado para não passar na portaria de saída, pois a portaria de saída já foi processada automaticamente na portaria de entrada.
+Localize o caminhão e clique no botão 
+Le Manual
+ (caso não possua automação de base) ou coloque o cartão 
+SmartCard 
+anteriormente programado na leitora e clique no botão 
+Le Smart Card 
+ou clique no botão 
+Automação via Arquivo
+ para ler arquivo do Basecom / Infitech / Zylix
+Caso a empresa trabalhe com a 
+obtenção de Peso e Volume separadamente
+, o botão 
+Obtém Peso
+ estará habilitado para assim indicá-lo. Para liberar a OC será necessário obter peso e fazer o Carregamento Manual, podendo ser em ordem diferente, porém se os dois processos não forem feitos, não será liberado. Para mais informações, ver 
+Pesagem e Obtenção do Volume Separados
+Ainda na 
+Portaria de Saída
+ pode ou não exibir uma tela com os dados de Qtde, Temperaturas, Tanque, etc. A regra para 
+exibir 
+essa tela (quando não tem automação) é:
+Descarga
+: Sempre vai exibir, pois é necessário ajustar a Qtde conforme o que foi descarregado
+Carregamento
+: Só vai exibir se um dos perfis de empresa abaixo estiverem marcados:
+Informa qtde, densidade e temperaturas do 
+carregamento 
+na portaria de saída
+Informa o tanque para 
+carregamento 
+na portaria de saída
+Informa a temperatura do tanque para 
+carregamentos 
+na portaria de saída
+Considerando que a tela foi apresentada, vamos agora indicar o que pode ser informado pelo usuário nela:
+Descarga
+Qtde Real: só se o perfil de usuário “Pode alterar a quantidade da descarga“ estiver marcado
+Densidade: só se o perfil de usuário “Pode alterar a densidade e temperatura da descarga“ estiver marcado
+Temperatura Amostra: mesma regra da Densidade
+Temperatura do Tanque: só se o perfil de empresa “Informa a temperatura do tanque para 
+carregamentos 
+na portaria de saída” estiver marcado. Nesse caso deve sugerir a temperatura do tanque e o usuário pode alterar. Quando o perfil estiver desmarcado deve considerar a temperatura do tanque
+Código do Tanque: só se o perfil de empresa “Informa o tanque para 
+descarga 
+na portaria de saída” estiver marcado, senão nem exibe o código do tanque
+Carregamento
+Qtde Real: só se o perfil de usuário “Pode alterar a quantidade do carregamento“ estiver marcado
+Densidade: só se o perfil de usuário “Pode alterar a densidade e temperatura do carregamento“ estiver marcado
+Temperatura Amostra: mesma regra da Densidade
+Temperatura do Tanque: só se o perfil de empresa “Informa a temperatura do tanque para 
+carregamentos 
+na portaria de saída” estiver marcado
+Código do Tanque: só se o perfil de empresa “Informa o tanque para 
+carregamento 
+na portaria de saída” estiver marcado, senão nem exibe o código do tanque
+Considerando isso, criar um novo perfil “Informa a temperatura do tanque para 
+descarga 
+na portaria de saída” como cópia do perfil “Informa a temperatura do tanque para 
+carregamentos 
+na portaria de saída”
+Esse novo perfil deve ser usado para habilitar ou não a temperatura do tanque no caso de Descarga e para garantir que a temperatura do tanque seja preenchida conforme o tanque, caso o perfil esteja desmarcado.
+Quantidade Real:
+ quantidade real carregada a temperatura ambiente.
+Densidade:
+ densidade a temperatura ambiente.
+Temp.Tanque:
+ temperatura do Tanque.
+Temp.Amostra:
+ temperatura da Amostra.
+Código Tanque:
+ vínculo com o Código do Tanque, que poderá ser feito caso o perfil 
+Informa Tanque para Carregamento na saída da portaria
+ esteja habilitado. Este perfil pode ser marcado a partir do menu 
+Ferramentas / Sistema / painel Ordem Carregto / quadro Portaria de Saída.
+O Tanque onde o produto será armazenado vai vir sugerido pelo SisPetro, porém se o produto é 
+correlato
+ do produto tanque, ou é o produto 
+tanque
+, pode ser digitado um tanque ativo para descarregar o produto.
+Caso o frota seja do tipo vagão, o botão 
+Volume Vagão
+ estará habilitado, sendo possível alterar a quantidade real do produto. Para mais informações, ver 
+Tabela Manutenção de Frota
+.
+Para que o usuário possa informar esses dados o perfil da empresa deve estar corretamente configurado. Caso contrário o SisPetro busca esses dados automaticamente do Tanque Ativo. 
+Para informar, marque no menu 
+Ferramentas / Sistema / 
+Painel Ordem Carregto
+, as opções:
+Informa qtde, densidade e temperaturas de descarga na portaria de saída
+Informa o tanque para descargas na portaria de saída
+Informa a temperatura do tanque para descargas na portaria de saída
+Informa qtde, densidade e temperaturas do carregamento na portaria de saída
+Informa o tanque para carregamento na portaria de saída
+Informa a temperatura do tanque na saída da portaria de saída
+O SisPetro calculará automaticamente o fator de conversão.
+Aperte o botão 
+OK
+ para concluir o carregamento.
+O SisPetro atualizará o saldo físico, a temperatura ambiente e a 20 graus conforme a quantidade real informada e também os dados da movimentação de estoque escritural realizado anteriormente (atualizando o fator de conversão, as temperaturas e densidade e a movimentação a 20 graus confirmando que esta movimentação realmente ocorreu).
+É possível que o volume sugerido nessa tela seja originado de uma balança. Para mais informações, ver 
+Automação Balança
+.
+O valor do volume (qtde) também poderá sofrer alterações de acordo com a unidade de medida utilizada no faturamento da Nota Fiscal. Para mais informações, ver 
+Várias unidades de compra para um mesmo produto
+.
+Caso o perfil 
+Despreza Fator na portaria
+ no cadastro do Depósito esteja habilitado, o Fator de conversão não será calculado. Para mais informações, ver 
+Tabela Depósitos
+.
+Quando o Perfil de Sistema / Aba Ordem Carregto 
+Iguala a data de saída da base à data de movimento da Nota Fiscal
+ está habilitado, este perfil irá obter a data de saída do estoque físico a partir da data de movimento da nota fiscal vinculada a ordem de carregamento. 
+Na 
+Tabela Depósitos
+, se o perfil 
+Informa o operador na Portaria de Saída?
+ estiver marcado, ao clicar em OK, o sistema irá questionar o nome do Operador que responsável pela portaria de saída.
+Caso o perfil do depósito esteja marcado e o usuário não informe um nome de Operador com ao menos 3 caracteres, o processo de portaria não será finalizado.
+Este é um campo deve ser digitado manualmente e é meramente informativo, podendo ser utilizado nos relatórios.
+Ao efetuar a Portaria de Saída, o Peso Final será registrado na OC em questão, conforme configuração da empresa para controle de Pesos. Para mais informações, ver 
+Automação Balança
+.
+O campo 
+Qtde Real
+ será definido conforme o perfil de Sistema 
+Ferramentas / Sistemas / Ordem Carregto / Quadro Portaria de Saída
+:
+Sendo:
+Volume a ser utilizando para Carregamento:
+ volume a ser considerando para as OC's de Carregamento Próprio e Terceiros, podendo ser:
+Volume Programado
+: a Qtde Real será conforme a Ordem de Carregamento.
+Volume Automação:
+ a Qtde Real será conforme o que foi gravado no Smart Card.
+Volume Balança
+: a Qtde Real será conforme o peso identificado no arquivo TXT. Este, mesmo trabalhando com SmartCard, terá o volume considerado da Balança
+Volume a ser utilizando para Descarga:
+ volume a ser considerando para as OC's de Descarga Própria e Terceiros, podendo ser:
+Volume Programado
+: a Qtde Real será conforme a Ordem de Carregamento.
+Volume Automação:
+ a Qtde Real será conforme o que foi gravado no Smart Card.
+Volume Balança:
+ a Qtde Real será conforme o peso identificado no arquivo TXT. Este, mesmo trabalhando com SmartCard, terá o volume considerado da Balança
+Quando utilizamos a opção de 
+Volume Balança
+ em combinação com o perfil de Sistema 
+Qtde Real = Peso/Dens. Amosta, Qtde 20c = Peso/Dens. 20c
+, 
+o SisPetro realizará o seguinte cálculo:
+Peso Inicial: 53.650
+Peso Final: 18.620
+Peso Liquido: 35.030
+Densidade Ambiente 0,723
+Densidade 20°: 0,7331
+Temperatura: 32°
+Quantidade Real
+ 
+= 48.451
+ (Peso 
+Liquido
+ / Densidade Ambiente)
+Quantidade 20° = 47.783
+ (Peso Liquido / Densidade 20°)
+Caso seja necessário voltar para a portaria de entrada, podemos utilizar o botão 
+Volta p/ Entrada. 
+Se o usuário não tem o Perfil de Usuário
+ Volta para Portaria de entrada s/Cartão, 
+será apresentada a mensagem:
+.
+Caso o tanque utilizado no fechamento da portaria esteja desativado será apresentada a mensagem abaixo:
+Caso o tanque utilizado no fechamento da portaria não esteja habilitado para realizar a operação selecionada (Carga/Descarga), será apresentada a mensagem abaixo:
+Para mais informações, ver 
+Manutenção de Tanques
+.
+Caso o perfil de deposito
+ 
+Exigência de Faturamento antes do Carregamento/Descarga
+ esteja com a opção
+ 
+Exige na Portaria de Saída
+ será realizada a validação das Ordens de Carregamento, exigindo o faturamento da mesma ao realizar a portaria de saída. Para mais informações, ver 
+Exigência do Faturamento na Portaria de Entrada/Saída
+.
+A verificação de faturamento não é feita para OC de Carregamento ou Descarga de Terceiros.
+Quando o frota for do tipo 
+Bottom Loading, 
+será mostrado no quadro 
+Carregamentos/Descargas 
+nas colunas 
+Frota Bottom, Carreta Bottom e Trem Bottom
+ na portaria de saída da seguinte forma:
+Texto sublinhado em cor preta
+O lado do Bottom do frota para carga\descarga.
+Balança
+O SisPetro  trabalha com múltiplas balanças, onde, na portaria de entrada será possível selecionar a balança a ser utilizada na obtenção do peso do caminhão. Na portaria de saída será mostrada a informação da balança utilizada, no quadro 
+Carregamentos/Descargas
+ na coluna 
+Balança. 
+Para mais informações, ver 
+.

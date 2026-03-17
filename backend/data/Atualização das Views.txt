@@ -1,0 +1,77 @@
+TITULO: Atualização das Views
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2904621480
+--------------------------------------------------
+Assim como todo banco de dados, o Sybase possui 
+views
+ que foram criadas para atender especificamente as demandas do Sispetro.
+Mas o que são views?
+View
+ é uma tabela virtual gerada a partir do resultado de uma instrução 
+select
+. Ela não armazena dados, mas auxilia na localização dos mesmos.
+Por que devo atualizar?
+Com a migração do Sybase 7 para o Sybase 12 será necessário atualizar as nossas views, pois podem existir incompatibilidade de sintaxe entre as versões 7 e 12.
+Onde localizo as views no meu banco de dados?
+As views poderão ser acessadas via Sybase Central. Vejamos como:
+Abrir o Sybase Central;
+Selecionar a opção 
+SQL Anywhere 12
+;
+ 
+Conecte ao banco de dados;
+ 
+Selecionar a opção das 
+Views
+ e dar um duplo clique;
+ 
+Todas as Views existentes no banco de dados serão listadas na tela a seguir.
+ 
+Observe a coluna 
+Status
+ de todas as views. Esta deverá estar preenchida como 
+Valid
+.
+O que devo fazer para atualizar?
+Primeiramente deve-se executar o script anexo a este Roteiro para que as views de seu respectivo banco de dados sejam atualizadas. Efetue o Download do script - 
+.
+ Efetue os passos a seguir:
+Abra o 
+DBISQLC
+ ou 
+Interactive SQL
+ (referente ao Sybase 12);
+Conecte-se ao banco de dados informando: User ID, Password e ODBC;
+ 
+Abra e execute o script RecompileViews.sql;
+ 
+ 
+Após este processo é importante verificar se todas as views foram realmente atualizadas.
+ Para isso, verifiquem os passos de 
+Onde localizo as views no meu banco de dados?
+.
+O que devo fazer quando houver um Status da Views como Invalid?
+Durante verificação de status da View, pode acontecer de existir uma com o Status 
+Invalid
+. Uma view poderá ficar inválida após atualização considerando:
+Na atualização do Sybase uma validação é feita no select (comando de pesquisa no banco de dados) para criar a view, mas esse comando poderá ter algum problema de sintaxe (incompatibilidade com a nova versão);
+Caso a view em questão dependa de uma outra view que ainda não foi criada;
+ 
+Caso a view em questão dependa de algum campo ou tabela que não existe;
+Para os casos citados acima, primeiramente siga os passos relacionados a 
+Onde localizo as views no meu banco de dados?
+. Após isso, será preciso efetuar o seguinte processo:
+Na janela do Sybase Central, ordenar a coluna 
+Status
+, de forma que todas as views do tipo 
+Invalid
+ fiquem como primeiras.
+ 
+Clique com o botão direito sobre a View inválida, e selecione a opção 
+Recompile and Enable
+ 
+Se tudo correr bem, a view será recompilada e atualizada com sucesso.
+Caso ocorra um erro, como o a seguir, você deverá localizar a view mencionada na mensagem (destacada como Table e em maiúsculo), e executar o mesmo procedimento a ela. Validando a view, volte na view inicial e repita o mesmo procedimento.
+ 
+Se a view não existir, entre em contato direto com o 
+Suporte Futura Tecnologia
+:

@@ -1,0 +1,203 @@
+TITULO: Gerenciamento de Pedágios automatizados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926188724
+--------------------------------------------------
+none
+Objetivo
+Diariamente a Empresa realiza diversas viagens, e em alguns casos dependendo da rota que o motorista ira realizar essas viagens necessitam que sejam pago um ou mais pedágios, pensando nesse cenário algumas empresas contratam sistemas de gerenciamento de pedágio para poder gerar os vale-pedágios e facilitar todo o processo. Pensando nisso a partir da versão 9.6 o SisPetro ira realizar a comunicação com essas empresas de gerenciamento de pedágios, enviando os principais dados da carga e solicitando a autorização desse movimento, dessa forma facilitando para o usuário já que hoje o SisPetro tem gravado todos os dados do carregamento.
+É possível incluir mais de uma ordem de carregamento na 
+Composição de Carga
+. Também foi implementado a opção de cancelar Ordens de carregamento com Pedidos de vale pedágio Ativos. Para mais informações, ver 
+Manutenção de Ordem de Carregamento
+.
+Independente do tipo de Vale Pedágio é utilizada a tag do xml de comunicação ValorPedagioViaFacil para o SisPetro trazer o valor 
+É possível emitir o CIOT para pedágios da Gerenciadora de Pedágios Target. Para mais informações, ver 
+Configurando CIOT
+.
+Configurações necessárias:
+1 - 
+Cadastro do Gerenciador de Pedágio
+: 
+a primeira configuração a ser realizada é na tela de Manutenção de Gerenciador de de Pedágio, onde devemos cadastrar as URL´s de comunicação e as devidas informações de autenticação. Para mais informações, ver 
+Tabela de Gerenciador de Pedágio
+.
+2 - 
+Gerenciador de Pedágio x Empresa
+: 
+após realizar o cadastro do Gerenciador de pedágio o próximo passo é vincular a empresa à gerenciadora, esse vinculo é realizado através da tela de
+ Gerenciador de Pedágio x Empresa.
+ Para mais informações, ver
+Tabela Gerenciador de Pedágio X Empresa
+.
+3 - 
+Tabela Frota
+:
+ É através da tabela de Frotas que o usuário vai definir os frotas que irão emitir o vale pedágio 
+4 -
+ 
+Tabela Transportadoras / Motoristas
+: na transportadora cadastramos os dados do Motorista e da transportadora que serão utilizados no vale pedágio, é na transportadora que também informamos os dados do cartão utilizado no vale pedágio da Target. Para mais informações, ver 
+Painel Vale Pedágio (Transportadora/Motorista)
+5 - 
+Configurações de Usuário
+: 
+é através do 
+Painel Fretes (Usuários)
+ que são realizado as devidas permissões. 
+6 - 
+Configurações de Sistema:
+ é possível realizar inclusão de cargas através de ordens de carregamento, para isso o usuário deve habilitar o perfil de Sistema 
+Apresenta OC na Composição de Carga
+. Para mais informações, ver 
+Painel Fretes
+Composição de Carga
+Após realizar as configurações acima, o Sistema já estará preparado para emitir o vale pedágio
+. O processo de emissão de vale pedágio é iniciado através da composição de carga, é através dessa rotina que iremos definir quais pedidos irão compor a carga, e qual a ordem de entrega. Para mais informações, ver 
+Composição de Carga
+.
+Ao realizar a inclusão de uma carga é possível marcar se ira realizar um vale pedágio, qual o gerenciador a ser utilizado e qual rota predefinida, a opção de "
+Vale Pedágio Requerido?" 
+vem marcado de acordo com o perfil do Frota e Perfil de Sistema. E só será possível marcar ou desmarcar a opção de "
+Vale Pedágio Requerido?"
+ caso o perfil de usuário 
+Pode Alterar na carga se Requer Pedágio 
+estiver marcado, e o perfil de Sistema 
+Utilização de Vale Pedágio
+ estiver selecionado a opção 
+'Emite conforme regras Frota/Empresa e/ou Usuário'
+. Veja também 
+Painel Fretes
+.
+O campo "Exige Confirmação" é preenchido de acordo com o gerenciador selecionada:
+Target = Com confirmação
+DbTrans = Sem confirmação
+Hoje no SisPetro só conseguimos emitir o vale pedágio que esta amarrado a empresa conectada, caso a Empresa trabalhe com mais de um gerenciador de vale pedágio, deve ser finalizado todos os pedidos de um gerenciador, para depois alterar o vinculo da empresa com o gerenciador quando for utilizar a mesma
+. Para mais informações, ver 
+Tabela Gerenciador de Pedágio X Empresa
+.
+Ao compor uma carga é possível definir a ordem de entrega dos pedidos selecionando o mesmo e clicando nas setas ao lado do quadro 
+itens/Ordem de Entrega.
+Após finalizar a carga e realizar o fechamento dela, será apresentado a tela com as configurações da mesma, caso a opção "
+Vale Pedágio Requerido?"  
+esteja marcado será possível definir se irá processar ao finalizar o fechamento da Carga ou se  o processamento sera realizado manualmente via tela de manutenção.
+Ao realizar o fechamento de carga, o usuário só conseguira realizar o processamento do pedágio caso tenha as devidas permissões de usuário. Para mais informações, ver 
+Painel Fretes (Usuários)
+.
+Para emissão de vale pedágio do tipo TARGET é de extrema importância se atentar ao cadastro da Transportadora/Motorista deixando-o preenchido corretamente.
+ Para mais informações, ver
+ 
+Vale Pedágio Target
+Manutenção de Pedágios
+Através da tela de 
+Manutenção de Pedágios
+ o usuário terá acesso aos pedágios emitidos para a empresa, a tela é acessada através do menu 
+Movimentação / Transportes / 
+Manutenção de Pedágios.
+Para mais informações, ver
+ 
+Manutenção de Pedágios
+Autorização de Token DbTrans
+O SisPetro obtêm o token de autorização 1 vez por dia ao realizar a comunicação com o gerenciador de pedágios, essa comunicação pode ser realizada ao enviar uma solicitação de processamento ou de cancelamento de um vale pedágio. 
+Em alguns casos o código de autenticação enviado pega empresa Gerenciadora de Vale Pedágio pode vir errado, ou simplesmente não realizar a autenticação, nesses casos pode ser utilizado o botão de 
+Renova Token, 
+onde o mesmo ira limpar o campo de autenticação deixando o mesmo disponível para que seja realizado uma nova solicitação de Token.
+Nota Fiscal
+Quando a carga é com OC, o valor do pedágio será rateado utilizando a quantidade total da OC e, para evitar problemas com valores parciais, será sempre atribuído à primeira NF da OC. A partir da segunda NF vinculada à OC (situação rara, mas possível) não será apresentado valor de pedágio. A regra também será aplicada nos casos onde há OC de Descarga Própria vinculada à uma OC de Carregamento Próprio.
+Manutenção de Nota Fiscal
+Na tela de manutenção de nota fiscal, aba Itens NF, temos os campos referentes ao Valor das taxas Administrativos e Valor total do Pedágio. Através deles é possível ver qual o valor do pedágio para a nota e seu valor administrativo. 
+Observações na Nota Fiscal
+É possível informar na nas observações da nota fiscal os dados do pedágio, para isso a Natureza de operação tem que estar devidamente configurada selecionando uma das opções abaixo.
+Veja maiores detalhes em 
+Dados Gerais (Painel Por Filial)
+Manutenção de Frete
+Na tela de manutenção de frete será apresentado o valor do frete total, e o valor proporcional ao pedágio.
+Segue calculo realizado para chegar na proporção do pedágio e da taxa administrativa.
+Valor Pedágio do
+ 
+Item da NF = Valor Total do
+ 
+Pedágio * (Qtde do
+ 
+Item da Nota Fiscal / Qtde Total de Itens da Carga)
+Valor Taxa Administrativa de Pedágio do
+ 
+Item da NF = Valor Total da Taxa Administrativa do
+ 
+Pedágio * (Qtde do
+ 
+Item da Nota Fiscal / Qtde Total de itens da Carga)
+Exemplo:
+Pedido
+Quantidade
+Pedido 1
+233
+Pedido 2
+332
+Quantidade Total dos itens (223+332) = 555
+Valor total do Pedágio = 306,40
+Valor da Taxa Administrativa = 14,49
+Calculo do Valor do Pedágio:
+Ped 1: 
+(306,40 * ( 223 / 555 )) = 
+123,11
+Ped 2: 
+(306,40 * (332 / 555 )) = 
+183,25
+Calculo do Valor da Taxa:
+Ped 1: 
+(14,49 * ( 223 / 555 )) = 
+5,82
+Ped 2: 
+(14,49 * (332 / 555 )) =  
+8,66
+Seguindo o exemplo acima a proporção do pedágio para os pedidos ficariam da seguinte forma:
+Pedido
+Quantidade
+Valor do Pedágio
+Valor da Taxa Administrativa
+Pedido 1
+233
+123,11
+5,82
+Pedido 2
+332
+183,25
+8,66
+Descarga Própria 
+Para notas de 
+Descarga Própria
+ que são geradas automáticas à partir de uma OC de Carregamento, será destacado o valor do pedágio caso o responsável pelo frete seja o
+ destinatário
+.
+Utilizando mais de 1 OC na composição de carga
+Ao realizar uma carga para vale pedágio utilizando mais de uma OC, o valor rateado será com base na quantidade das OC envolvidas.
+Quando for emitido mais de uma nota para 1 OC, o valor do pedágio proporcional à OC, será apresentado sempre na primeira nota.
+Veja alguns exemplos:
+Exemplo de cenário com mais de uma OC e mais de uma NF
+Cenário 1: Total de NF menor que a OC
+NF 1 - 8.000 litros - 100,00
+NF 2 - 1.990 litros - 0,00
+Cenário 2: Total de NF maior que a OC
+NF 1 - 8.000 litros - 100,00
+NF 2 - 2.070 litros - 0,00
+Cenário 3: Total de NF maior que a OC
+NF 1 - 10.050 litros - 100,00
+NF 2 - 100 litros - 0,00
+No caso de OC de Carregamento Próprio vinculada a OC de Descarga Própria, na primeira NF de cada uma delas irá o valor total correspondente a OC.
+Utilizando mais de 1 item de NF
+Ao emitir uma nota com mais de um item, o valor rateado será proporcional ao valor do item da nota fiscal.
+Exemplo de cenário com mais de um item de NF:
+Cenário1: NF com 2 itens, sendo 20.000 litros com o valor de R$ 100,00
+NF 1 - 8.000 litros - Unitário R$ 1,00 - R$ 80,00
+NF 2 - 2.000 litros - Unitário R$ 1,00 - R$ 20,00
+Cenário 2: 
+NF com 3 itens, sendo 60.000 litros com o valor de R$ 320,00
+ 
+NF 1 - 18.000 litros - Unitário R$ 1,00 - R$ 96,00
+NF 2 - 22.000 litros - Unitário R$ 1,00 - R$ 117,33
+NF 3 - 20.000 litros - Unitário R$ 1,00 - R$ 106,67
+Veja também
+Tabela de Gerenciador de Pedágio
+Tabela Gerenciador de Pedágio X Empresa
+Manutenção de Pedágios
+Vale Pedágio
+ 

@@ -1,0 +1,32 @@
+TITULO: Alteração DANFE Versão 8.24
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924282372
+--------------------------------------------------
+Histórico
+O Sispetro permite o vínculo de NF ou OC a uma nota. Porém, no DANFE não está sendo possível utilizar essas informações.
+Objetivo
+Disponibilizar os dados de NF Referenciada e OC vinculada no Layout do DANFE.
+Solução
+No layout de 
+Impressão do DANFE
+ disponibilizar dois novos condutores de dados:
+NFReferenciada
+Dados da NF referenciada (seja por Nota ou por Item, automático como NF de Devolução ou Complemento ou manual via Configuração da Natureza), como Número, Data, Valor, dados da Entidade. No caso de ter sido feito o vínculo por item e tiver mais que um item vinculado da mesma NF, a NF será apresentada uma única vez.
+OCVinculada
+Dados da OC vinculada (seja pelos processos automáticos, pela Manutenção de Nota Fiscal ou pela tela de NF Remessa/Retorno de Armazenagem), como Número, Data, dados do Depósito de Origem, dados da Entidade. No caso de ter mais que um item vinculado da mesma OC, a OC será apresentada uma única vez.
+Solução
+1.
+ Acessar o layout do Danfe:
+Menu Ferramentas/ Sistema/ aba Nota Fiscal
+Localizar no quadro de NF-Eletrônica o campo 
+Caminho de arquivo de layout do Danfe
+Clicar no botão
+ Edita Layout do Danfe
+Lembrar de ter uma cópia do DANFE, para caso haja algum erro.
+ 2. 
+Identificar o condutor (NFReferenciada ou OCVinculada) de dados e os objetos que serão adicionados.
+3. Arrastar os campos para o lugar desejado. Caso haja muitas notas ou OCs vinculadas, talvez seja necessário criar um "sub report", ou seja, este recurso imprimirá todas os registros que ali forem incluídos. Imprimirá UM DANFE e todas as NFs ou OCs referenciadas numa outra página.
+Incluir o Sub Report:
+Depois de escolher o lugar este deverá ficar, devemos escolher qual o seu condutor de dados.
+ em seguida escolher, neste caso foi o "NFVinculadas", para as Notas vinculadas. 
+Escolher o sub report criado (todos os sub reports ficam na parte inferior da tela, veja imagem), escolher a estrutura de dados informado ( no exemplo acima foi o NFVinculadas) e, por fim, quais os campos que serão geradas (no exemplo foram todos as informações que o condutor possuía). Veja abaixo
+Por fim, basta salvar o novo DANFE e testa-lo.

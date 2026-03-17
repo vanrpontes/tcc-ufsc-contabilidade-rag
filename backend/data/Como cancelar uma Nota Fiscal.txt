@@ -1,0 +1,82 @@
+TITULO: Como cancelar uma Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440340
+--------------------------------------------------
+Para se cancelar uma Nota Fiscal de Venda, de Recebimento de Mercadorias, Complemento de Impostos/Preços e outras, acione a partir do Menu principal as opções - 
+Movimentação / Faturamento / Manutenção NFs
+.
+Se a Nota Fiscal estiver com o frete vinculado ao contas a pagar, o cancelamento não será concluído. Para terminar o processo será necessário cancelar o vinculo do frete com o contas na manutenção de fretes.
+Para realizar o cancelamento alguns perfis devem ser verificados, sendo eles: 
+Perfil de Sistema: 
+Ferramentas/Sistema/Aba Nota Fiscal
+Notas Próprias e Terceiros
+"Informa a data de cancelamento da NF" 
+: dependendo da permissão do usuário é possível informar se é possível informar a data para notas próprias, de terceiros ou ambas. Caso o perfil esteja marcado será necessário, no momento do cancelamento, informar a data para o cancelamento do nota fiscal
+"#Dias limite para cancelamento da NF":
+ este parâmetro, a princípio, vai definir como toda a empresa vai trabalhar com relação aos dias para cancelamento de NF. Como os prazos para o cancelamento de notas próprias e de terceiros não são os mesmos, foi criado dois perfis para definir isto.
+Há uma combinação para trabalhar com este perfil, verifique mais abaixo.
+Informa motivo de cancelamento NF
+Será necessário, no momento do cancelamento, informar o motivo de cancelamento.
+No cancelamento da NF verifica Portaria saída e carregamento na base
+Com este perfil habilitado, o sistema não verificará se a nota já foi para a portaria de saída e nem se já foi carregada, 
+não é recomendado marca-lo.
+Perfil de Sistema: Ferramentas/Sistema/Financeiro
+É possível escolher baseado em qual data será grava a data de cancelamento de um nota fiscal. É possível escolher entre:
+Data de inclusão NF: 
+sempre será a data que a nota fiscal foi lançada no SisPetro, independente de que tipo seja, será sempre a data atual.
+Data Movto NF: 
+data de movimento da nota fiscal.
+Data de emissão NF: 
+data em que a nota foi emitida.
+As datas de Movto. e emissão no momento da inclusão, o usuário pode altera-los.
+C. Pagar:
+ Notas de entrada (compras e etc.)
+C. Receber:
+ Notas de saída (vendas e etc.)
+Perfil de usuário: 
+Ferramentas/Usuário/Aba Faturamento
+Pode cancelar NF
+Se este perfil não estiver marcado, o usuário não conseguirá cancelar nenhuma nota independente dos outros perfis.
+Permite exclusão de NF´s canceladas
+Com este perfil habilitado, o usuário poderá excluir do sistema as notas já canceladas.
+Desconsidera #Dias Cancto do usuário e considera o perfil da Empresa
+Este perfil é de
+ 
+extrema importância
+, quando:
+Desmarcado
+, logo abaixo for configurado outro prazo, o perfil da empresa (#Dias limite para cancelamento NF) não valerá mais para este usuário. O usuário terá um prazo diferente do restante da empresa para o cancelamento da NF.
+Marcado, o campo abaixo não estará disponível, pois o sistema respeitará o perfil da empresa (#Dias limite para cancelamento NF).
+Para mais informações, ver
+ 
+Painel Nota Fiscal
+Importante
+Notas Fiscais de Entrada ou Saída que tenham 
+gerado obrigações no Financeiro
+, só poderão ser canceladas se não existir nenhuma baixa vinculadas à elas e também não estiverem em período com fechamento financeiro. Caso exista é necessário o cancelamento da Baixa. 
+Para mais informações, ver
+ 
+.
+Já as Notas Fiscais que movimentaram o estoque só poderão ser canceladas caso ainda não se tenha feito o 
+Fechamento de Estoque
+ na data de movimento da nota fiscal, porém, para que o sistema faça essa validação e não deixe que as notas que geraram movimentação no estoque sejam canceladas é necessário configurar o perfil do sistema localizado através do menu Ferramentas / Sistema / Estoque, opção 
+Trava quando existir fechamento de estoque posterior ao movimento 
+. O sistema permite fazer o cancelamento de Nota Fiscal que não movimente estoque, independente de haver ou não fechamento de estoque na data de movimento da nota fiscal.
+O Sistema só permite cancelar uma nota fiscal vinculada a um documento de arrecadação já processado, caso o perfil de usuário 
+C
+ancela NF com Documento de Arrecadação Processado 
+esteja marcado.
+Vale lembrar que os dados são apresentados na tela de acordo com o grupo 
+Período para Exibição dos Dados. 
+Para mais informações, ver
+ 
+Manutenção de Nota Fiscal
+.
+Para NF-e é necessário ver as regras de 
+Cancelamento/Inutilização
+.
+Para cancelar a nota fiscal, o usuário deve selecionar a Nota Fiscal e clicar no botão "Cancela", localizado no menu superior da tela. O Sistema solicita a confirmação do cancelamento.
+Após o cancelamento, a nota fiscal será destacada na cor vermelha, no painel navegação. Para retornar ao Menu principal acione o botão 
+Sai
+ (parte superior da tela).
+PARA O SPED:
+Ao cancelar uma Nota Fiscal, o sistema irá atualizar no banco de dados o campo COD_SIT da nota fiscal cancelada. Ou seja, quando a nota fiscal for somente cancelada, o sistema atualizará a Situação do Documento, no banco de Dados, com o código 02 "Documento Cancelado". Caso a nota fiscal seja inutilizada, a atualização será para o código 05, que é "Desfazimento de Negócio". Sendo assim, a nota cancelada ou inutilizada sairá no arquivo para o SPED com o seu respectivo código, não necessitando ao usuário alterar manualmente a situação das notas canceladas ou inutilizadas.

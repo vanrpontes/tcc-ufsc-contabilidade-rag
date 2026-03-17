@@ -1,0 +1,37 @@
+TITULO: Alteração do DANFE - Versão 7.6
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2891907260
+--------------------------------------------------
+Para Editar o DANFE
+Acessar o layout do Danfe:
+Menu Ferramentas/ Sistema/ aba Nota Fiscal
+Localizar no quadro de NF-Eletrônica o campo 
+Caminho de arquivo de layout do Danfe
+Clicar no botão 
+Edita Layout do Danfe
+1) Alteração de Data e Hora de Saída da Mercadoria (CCF-7965, 7961)
+Na tela de Edição do layout do Danfe
+Localize o quadro da Data da Entrada
+No quadro de Data de Entrada, selecione o objeto abaixo chamado NF e do tipo DBText
+No quadro do condutor de dados, selecione o pipeline 
+DataMovtoOrig
+.
+Verifique se o campo do condutor de dados é o NF
+Para o objeto Hora, atualmente está como na figura abaixo.
+Selecione o objeto e exclua através do botão delete:
+Para incluir o novo Objeto de Hora é possível através da Barra de Ferramentas e incluíndo um campo texto, mas para facilitar, podemos selecionar o objeto NF (o mesmo que foi alterado no item anterior) e duplicá-lo através dos comandos copiar (Ctrl+C)/ colar (Ctrl+V), após isso colocá-lo em sua posição correta, veja na próxima figura.
+Será necessário alterar também seu condutor de dados, selecionando o pipeline 
+HoraMovtoOrig
+.
+Alterem também o texto dos campos, conforme pode ser visto na imagem abaixo:
+De 
+DATA DA ENTRADA
+ para 
+DATA DA ENTRADA/SAÍDA
+De 
+HORA DE SAÍDA
+ para 
+HORA DE ENTRADA/SAÍDA
+Para Salvar as alterações no DANFE
+Salve as alterações feitas no layout do Danfe
+Menu Arquivo/ Salvar
+Sair da tela de Edição do Layout do Danfe com as alterações efetuadas e testar o novo conteúdo através da emissão da NF-Eletrônica.

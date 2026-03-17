@@ -1,0 +1,83 @@
+TITULO: Extenso Não Monetário
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2882535473
+--------------------------------------------------
+Esta função foi disponibilizada no Gerenciador de Relatórios com a finalidade de exibir (quando utilizada) o valor por extenso. Isto porque atualmente já existe uma função que exibe o valor por extenso, mas serve somente para valores monetários, vide tópico de 
+.
+
+
+
+
+Permitirá exibir por extenso valores como:
+
+
+
+
+Aliquotas
+
+
+Temperaturas
+
+
+Densidade
+
+
+
+
+
+
+Deverá ser utilizada da seguinte forma: 
+ExtensoNaoMonetario(valor,fechastring);
+
+
+
+
+Valor:
+ Campo numérico a ser transformado para extenso.
+
+
+FechaString:
+ Campo que deve receber valor de True ou False.
+	
+
+
+Decidindo por TRUE, após o número o extenso, o campo será completado com asterisco e hífem.
+
+Por exemplo:
+ 
+
+Valor: 35 
+
+Resultado: Trinta e cinco*
+*
+
+
+Decidindo por FALSE, após o número o extenso, o campo não terá nenhuma informação completando
+
+Por exemplo:
+ 
+
+Valor: 35 
+
+Resultado: Trinta e cinco
+
+
+
+
+
+
+
+
+Para utilização no Gerenciador de Relatórios:
+
+
+
+
+Coloque uma variável no relatório, e vá até a opção 
+Cálculos
+ da variável.
+
+
+Na tela seguinte, o sistema trará a condição 
+Value:=
+. Após esta condição deve-se digitar a função e os seus respectivos valores.
+

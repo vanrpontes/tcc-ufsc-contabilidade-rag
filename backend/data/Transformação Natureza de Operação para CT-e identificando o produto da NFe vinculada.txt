@@ -1,0 +1,76 @@
+TITULO: Transformação Natureza de Operação para CT-e, identificando o produto da NFe vinculada.
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4628512769
+--------------------------------------------------
+Objetivo
+Automatizar a seleção de natureza de operação na inclusão de 
+CT
+-e na importação via serviço através de transformação.
+Na importação de 
+CTe
+ utilizamos um produto único para escrituração, informado no perfil de sistema, ao aplicar o DE/PARA, geralmente o 
+SisPetro
+ direciona para naturezas para dentro ou fora do estado.
+Para tratar situações especificas utilizamos a transformação 
+de modo a direcionar o 
+CTe
+ para uma natureza de operação diferente do padrão utilizado no DE/PARA.
+Para realizar 
+essa operação utilizaremos
+ na transformação a 
+Função
+ 
+GetNFVinc
+_
+ImpTemCodProd
+ para identificar o produto da 
+NFe
+ referenciada no 
+CTe
+. Para mais noformações, ver 
+Função GetNFVinc_ImpTemCodProd
+ATENÇÃO
+Os códigos de natureza de operação utilizados como exemplo devem ser substituídos de acordo com os códigos de operações cadastrados no SisPetro do cliente.
+No exemplo a seguir utilizaremos a função
+ 
+GetNFVinc
+_
+ImpTem
+, para identificar o produto da
+ 
+NFe
+ 
+vinculada e trocar a natureza de operação, F01
+ 
+-
+ 
+Frete Compra de Combustível Dentro do Estado, utilizada no padrão do DE/PARA, para a
+ 
+natureza
+ 
+de
+ 
+operação
+ 
+F03
+ 
+-
+ 
+Compra
+ 
+Álcool Anidro.
+CTE TRANSFORMAÇÃO ANIDRO (DE)
+Incluir uma regra para tipo de NF = CT-e, determine em qual filial será aplicada.
+REGRA
+sql
+Exemplo de regra
+true
+GetNFVinc_ImpTemCodProd(NotaFiscal_Imp.SeqNFImp,'04') = 1 and NotaFiscal_Imp.codnatop='F01'
+A regra acima, verifica através da 
+Função GetNFVinc_ImpTemCodProd
+ se o produto da NFe vinculada ao CTe é código do produto 04
+CAMPO E VALOR
+Cadastro do valor a ser aplicado na transformação.
+Veja também:
+Serviço de Importação de NF - Transformação
+Importação de Nota Fiscal via Serviço
+Transformação no processo de importação

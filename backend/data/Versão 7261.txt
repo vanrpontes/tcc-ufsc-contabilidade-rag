@@ -1,0 +1,42 @@
+TITULO: Versão 7.26.1
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2907308516
+--------------------------------------------------
+Dados
+Informações
+Início
+27/03/2012
+Final
+05/03/2012
+Scripts
+CMD7261
+Itens
+7
+Implementações
+2
+Correções
+5
+Geral
+Tipificar Campos Calculados
+Na seleção de dados no banco de dados, em algumas situações precisamos programar uma rotina para retornar o seu conteúdo. Para garantir o seu funcionamento correto no Sybase 12, estamos reprogramando esses campos. UPA (CCF 16078)
+Permitir a Digitação de Vírgula nos Endereços de E-Mail
+Apesar de ser um caracter inválido nos endereços de e-mail, a partir dessa versão estaremos permitindo a digitação de vírgulas nos cadastros para que seja possível ao usuário informar mais de um endereço de e-mail nessa campo, separado por vírgula. 
+Com essa alteração será possível por exemplo cadastrar dois endereços de e-mail em um cliente para receber as NFe emitidas pelo SisPetro.
+ UPA (CCF 16035)
+Colunas de Custos na Aba de Preços do Cadastro de Clientes
+Existe um perfil na aba de preços no cadastro de clientes, para definir se o usuário irá ver ou não as informações sobre o custos dos produtos para o cliente selecionado. O problema é que esse parâmetro não estava sendo levado em conta quando o usuário entrava no cadastro de clientes ou alterava o cliente que estava sendo visualizado. Esse problema foi corrigido. 
+UPA (CCF 16107)
+Estoque
+Ordem de Carregamento
+Ao emitir uma ordem de carregamento de produto composto, em alguns situações estava sendo gerado um erro de relacionamento entre tabelas do banco de dados. Esse problema foi corrigido. 
+UPA (CCF 15997)
+Faturamento
+Importação de Nota Fiscal
+Na versão 7.25 implementamos na rotina de importação de nota fiscal o campo de situação do frete, porém, mesmo esse campo sendo exibido na tela de importação, não estava sendo salvo corretamente na nota fiscal. Esse problema foi corrigido.
+ UPA (CCF 16017)
+Tela de Atualização de PIS/COFINS
+A tela de atualização de valores do PIS/COFINS não estava filtrando os valores de PIS/CONFINS corretamente e com isso em situações que uma nota fosse gerada com o mesmo código interno para duas ou mais empresas, poderia ser apresentado ao usuário valores indevidos nesses dois campos. Esse problema foi corrigido. 
+UPA (CCF 16111)
+Vendas
+Condição e Prazo de Pagamento no Cadastro de Clientes
+ No cadastro de clientes, aba de preços, ao ser alterada a informação de condição de pagamento, o sistema não está gravando corretamente a condição de pagamento e o prazo. Esse problema foi detectado no Sybase 12.
+ UPA (CCF 15843)

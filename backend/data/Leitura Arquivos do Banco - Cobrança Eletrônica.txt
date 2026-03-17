@@ -1,0 +1,128 @@
+TITULO: Leitura Arquivos do Banco - Cobrança Eletrônica
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878899264
+--------------------------------------------------
+Deve-se fazer o processamento do arquivo de retorno (gerado pelo Banco) para que o SisPetro possa principalmente processar as informações enviadas pelo banco. Neste processo, o Banco envia não só as baixas, como também quaisquer ocorrências com os títulos em seu poder.
+Por exemplo: Registro aceito quando enviamos o título para registro e o banco nos informa que o registro para aquele título foi aceito.
+O SisPetro trata automaticamente alguns comandos retornados pelo banco:
+Entradas Confirmadas (comando interno 2):
+ comando de retorno indicando que o título foi aceito e registrado no banco.
+Liquidações Efetuadas (comando interno 6):
+ baixas realizadas pelos clientes (pagamentos) recebidos pelo Banco.
+Baixas Efetuadas (comando interno 9):
+ baixas realizadas através de comandos enviados pelo próprio usuário (em arquivo anterior , pelo fato do cliente ter realizado o pagamento do título diretamente à distribuidora).
+Prorrogações Efetuadas (comando interno 13):
+ confirmação de prorrogação efetuada (normalmente pedida através de envio de comando para o banco quando o usuário postergou o título no SisPetro anteriormente).
+Todos os outros comandos não são tratados pelo SisPetro ficando arquivados e vinculados a cada título, podendo ser visualizados na manutenção de arquivos de cobrança ou na própria manutenção de contas a receber, painel Cobrança Eletrônica.
+O processamento do arquivo retorno se dá em três fases:
+Leitura do Arquivo:
+ o SisPetro irá ler o arquivo carregando-o na memória. Caso o arquivo esteja corrompido ou inválido, serão dados avisos pertinentes.
+Pré-Processamento:
+ o SisPetro tentará identificar cada registro retornado dentro do contas a receber (sem fazer nenhum tipo de processamento de baixa ainda) simplesmente para indicar quais serão os títulos afetados e qual será o comando aplicado a cada um deles.
+Processamento:
+ os títulos serão processados (baixados ou marcados como confirmados).
+Assim, para processar o arquivo de retorno, o usuário deve abrir a tela de leitura de arquivos de retorno, através do Menu Movimentação / Financeiro / Arquivos de Cobrança / Leitura:
+Deve-se preencher os campos:
+Código Tipo Cobrança.
+Nome Arquivo Retorno.
+Após o correto preenchimento dos campos 
+Código Tipo Cobrança
+ e 
+Nome Arquivo Retorno
+, o usuário deve clicar no botão 
+Lê arquivo
+ para processá-lo.
+Assim que o SisPetro terminar de ler o arquivo, será perguntado se o usuário deseja continuar com o pré-processamento.
+Este pré-processamento irá tentar identificar cada título dentro da carteira do contas a receber, a fim de indicar o CNPJ do Cliente, qual o valor original do título, etc. Normalmente o usuário deve confirmar se deseja continuar com o pré-processamento. Caso queira fazer isso posteriormente, basta clicar no botão 
+Pré-Processamento
+.
+Os títulos que irão ser processados pelo SisPetro estão com a coluna 
+OK
+ preenchida. Caso queira verificar o motivo de algum título não ser processado, o SisPetro o indica na coluna 
+Status Processamento
+ conforme os códigos a seguir:
+0 = OK, irá processar o título conforme o comando do banco, indicado na coluna Ocorrência.
+1 = Comando do Banco indica para realizar baixa porém título já está baixado ou cancelado.
+2 = Não encontrou título cadastrado no Contas a Receber. Verifique o nosso número em ambos os arquivos.
+3 = Comando do Banco indica Confirmação de Liquidação (título fora baixado no Banco por instrução do cliente) porém título continua pendente no SisPetro.
+4 = Comando não será processado pelo SisPetro por não ser um comando para processamento. Normalmente, é algum comando de discrepância ou confirmação ao qual o SisPetro não tem o que processar.
+Somente os títulos cuja coluna "Status Processamento" seja igual a 0 sofrerão algum processamento posterior (botão "Processa").
+Os títulos que já possuem baixa parcial - seja manual ou por cobrança eletrônica - não serão baixados pelo processo de retorno de cobrança eletrônica. A baixa, para esses casos, deve ser manual.
+Até esta etapa, o SisPetro não realizou nenhum processamento no módulo financeiro, ou seja, nenhuma baixa foi realizada. Os títulos não encontrados no módulo financeiro estarão em negrito e não serão processados, pois não foram encontrados no contas a receber, e os que forem encontrados estarão com a coluna "OK" marcada e com os campos de número de lançamento, saldo original e código da empresa preenchidos.
+Para verificar o que será processado (qual comando), basta olhar a coluna Ocorrência, ela está preenchida com o comando interno (verificar no início deste tópico qual seu significado) que será aplicado ao título.
+Clicando no botão 
+Processa
+, o SisPetro pedirá uma confirmação e abrirá a tela abaixo.
+Importante: para que a Baixa seja executada com sucesso, deve-se ter preenchido no Tipo de Cobrança uma Conta Contábil, que será o destino para as baixas automáticas.
+O usuário deve preencher os campos:
+Número Documento:
+ número do documento que irá aparecer no extrato de conta do cliente e no processamento das baixas.
+Data Movimento:
+ data de realização da baixa.
+Código Histórico:
+ código do Histórico das baixas. Para configuração de históricos com fórmula veja 
+Tabela Históricos
+.
+Tipo Documento:
+ documento que originou estas baixas (normalmente arquivo retorno ou algum outro convencionado para a sua empresa).
+Contas de Desconto e Acréscimo:
+ caso o banco venha a preencher algum título com valor maior (acréscimo) ou menor (desconto) que o valor do título, o SisPetro automaticamente contabiliza nestas contas.
+Conta de Despesas Cobrança:
+ este campo estará habilitado e preenchido automaticamente se no 
+Tipo de Cobrança
+ estiver habilitado a opção para processar as despesas de cobrança na baixa e tiver sido informada a conta de outros descontos. Esta conta será utilizada para contabilizar as contas de despesas de banco, como custas cartório (tarifas bancárias).
+Observações:
+ preencher com alguma observação ( histórico ) para esta baixa.
+Informações Adicionais:
+ preencher com alguma informação adicional que possa ser útil depois.
+Baixa em Conta Transitória:
+ esta opção estará habilitada se no 
+Tipo de Cobrança
+ a opção 
+Habilita Baixa em Conta Transitória
+ estiver marcada. Poderá alterar o código do histórico e o histórico.
+Pode Contabilizar:
+ esta opção só estará visível para empresas que utilizam o módulo de Contabilidade. Indica se esta baixa deve ser contabilizada. Caso opte pela contabilização, cabe lembrar que a conta para baixa informada acima deverá ter vínculo com o Plano de Contas real.
+Código de Contabilização:
+ escolha qual o código de contabilização será usado na contabilidade real. Caso a empresa preferir pode-se deixar configurado um código de contabilização para ser sugerido em qualquer tela de baixa. Para configurar a sugestão do código de contabilização da tela de Baixa, deve-se ir no Menu Ferramentas / Sistema / painel Contab.Real e selecionar a opção Cód. Contab. para Baixa Receber Manual. Ao lado dessa opção tem o botão chamado Limpa Dados, caso for necessário limpar o dado informado e deixar a opção vazia, basta dar um clique que a opção ficará sem dado e não será mais sugerido nenhum código na tela de Baixa.
+Para iniciar o processamento do arquivo de retorno, o usuário deve clicar no botão 
+Iniciar Baixas
+.
+Os títulos que estiverem identificados no arquivo de retorno do banco como 
+Baixa Bloqueada
+ ou 
+Baixa em cheque
+, podem ser bloqueados automaticamente pelo sistema no momento do processamento do arquivo, ou seja, o sistema fará a baixa do título, porém será uma baixa bloqueada.
+Para controlar se as baixas eletrônicas desse tipo devem ser bloqueadas automaticamente na leitura do arquivo, o usuário deve marcar a opção localizada nas configurações da empresa, Menu Ferramentas/Sistema/Financeiro:
+Para mais informações ver 
+sobre baixa bloqueada, ver 
+Baixa pela Manutenção do Contas a Receber
+.
+Vale lembrar, que o usuário pode consultar o que foi processado na leitura do arquivo, através da Manutenção Cobrança Eletrônica.
+Rejeições com carácter na leitura do Arquivo de Retorno
+Temos na tabela de Retorno da Cobrança Eletrônica um campo para armazenar o código das rejeição e um campo maior para descrição da Rejeição. Em alguns bancos como Caixa Econômica Federal, Brasil, Safra e Real nas posições do arquivo onde contém o código, pode conter informações do tipo texto. Nesse caso o Sistema automaticamente gravará as mesmas no campo descrição da rejeição, deixando o código vazio.
+Novas Funcionalidades à partir da Versão 7.6
+Arquivo de Retorno com Confirmação de Entrada+Abatimento e Liquidação para o mesmo título
+Há um tempo atrás criamos um recurso para permitir que a baixa referente ao valor de abatimento seja feita na leitura do Arquivo Retorno num comando de Confirmação de Entrada. Veja detalhes do procedimento em 
+Cobrança Eletrônica Banco do Brasil
+.
+Só que em alguns casos, o título é registrado no banco e pago pelo cliente no mesmo dia, então quando o banco manda o arquivo com o comando de Confirmação de Entrada, no mesmo arquivo vem também o comando de Liquidação do saldo Final. É nesta situação que temos um problema:
+Na leitura inicial do arquivo, verificamos linha a linha localizando o título e salvando o saldo desse título na tabela responsável pelo retorno.
+Depois vamos passando linha a linha para fazer a baixa, que confere o saldo do título com o que foi salvo no retorno para evitar alterações fora da leitura por outro usuário. A primeira ocorrência para esse título é o abatimento, que é processado e diminui o saldo do título. A segunda ocorrência, ao fazer a liquidação do valor restante, identifica que o saldo está diferente do que foi salvo (afinal a primeira ocorrência diminuiu o saldo) e não deixa fazer a baixa, apresentando a mensagem "O saldo do título foi alterado por outra estação.".
+Arquivo de Retorno com Liquidação com Acréscimo para título postergado
+Quando o cliente não faz o pagamento até a data de vencimento é feito um acréscimo no título e uma postergação do vencimento. Sendo cobrança eletrônica, esse acréscimo é enviado ao banco. Quando o banco faz o recebimento desse boleto o valor acrescido não é somado ao valor principal, sendo discriminado como acréscimo. No Sispetro o valor do acréscimo é somado ao valor principal, então, ao receber o retorno do banco, entende que o valor a maior é acréscimo e não pagamento do valor principal, deixando um saldo em aberto. Nesses casos o financeiro tem que cancelar a baixa que foi feita automaticamente e fazê-la corretamente de forma manual. Vejamos um exemplo:
+Valor Original do Título: 1.000,00
+Valor do Acréscimo: 100,00
+Saldo Final: 1.100,00
+Retorno do banco: Valor pago 1.100,00 Valor acréscimo 100,00
+Baixa do título: Valor Movimento 1.100,00 Valor acréscimo 100,00, ou seja, considera para o título 1.000,00
+Saldo final: 100,00
+Além disso a contabilização do acréscimo é feita duas vezes: no momento da postergação e na baixa.
+Veja também:
+Preparação
+Utilização
+Geração Arquivo Remessa - Cobrança Eletrônica
+Manutenção Arquivos Cobrança
+Consulta Movimento de Cobrança
+Como Alterar Nosso Número
+Tabela Tipos de Cobrança
+Aba Transformações Arquivo Cobrança

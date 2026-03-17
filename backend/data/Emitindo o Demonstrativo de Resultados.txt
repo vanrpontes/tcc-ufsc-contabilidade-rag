@@ -1,0 +1,129 @@
+TITULO: Emitindo o Demonstrativo de Resultados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210400
+--------------------------------------------------
+A partir da versão 9.9, são utilizados 2 layouts para imprimir o Demonstrativo de Resultados: demonstrativo.rtm (imprime o DRE por período e o DRE comparativo 2 períodos) e DemonstrativoMensal.rtm (imprime o DRE com comparativo mensal até 12 meses). 
+ 
+Menu
+ 
+Relatórios / Demonstrativo de Resultados ou Menu Relatórios / Relatórios Contábeis:
+O usuário deve informar a
+ 
+"filial"
+ 
+para qual deseja emitir o demonstrativo ou desmarcar a opção "
+Filial específica
+" para ter os dados consolidados de todas as filiais, além de informar o "
+período"
+ 
+(mês/ano) ao qual se deseja emitir o relatório. Clicando no
+ botão OK
+, o SisPetro emitirá o relatório.
+Demonstrativo de Resultados
+Tipos de Relatórios: habilita conforme selecionado
+Por Período: 
+imprime o demonstrativo no período informado
+Comparativo Dois Períodos:
+ imprime o demonstrativo conforme informado em Por Período e Comparativo Dois Períodos
+Por Período: 
+sempre informar um período mais recente que em Comparativo Dois Períodos
+Comparativo Dois Períodos:
+ sempre informar um período anterior e subsequente ao Por Período
+Impressão Diferença:
+ 
+permite selecionar como deve imprimir as diferenças entre os períodos selecionados
+Não Imprime:
+ imprime sem mostrar as diferenças
+Somente Valor:
+ imprime somente as diferenças em valores
+Somente Percentual:
+ imprime somente as diferenças em percentuais
+Valor e Percentual:
+ imprime as diferenças em valores e percentuais
+Exemplos:
+Por Período:
+ de 02/2015 a 02/2015 e 
+Comparativo Dois Períodos:
+ de 01/2015 a 01/2015 
+Por Período:
+ de 01/2016 a 12/2016 e 
+Comparativo Dois Períodos:
+ de 01/2015 a 12/2015
+Comparativo a Cada Mês:
+ imprime o demonstrativo comparando mês a mês de acordo com o número de meses informados
+Mês/Ano Inicial:
+ indica a partir de que mês serão selecionados os dados para comparação
+Nº Meses Posteriores:
+ indica a quantidade de meses a serem impressos, sendo padrões de layout 3, 7 e 11. Podem ser informados meses diferentes, porém serão mostradas colunas sem dados.
+Impressão Diferença:
+ imprime ou não a diferença percentual entre os períodos comparados. Caso selecionado, imprime somente o percentual de diferença de um mês para outro mês, sem apresentar valores, tendo por base 
+Mês/Ano Inicial
+Não Imprime: 
+ 
+imprime sem mostrar as diferenças
+%Mês Anterior: 
+imprime somente as diferenças em percentuais
+Valores em Milhares de Reais: 
+se marcada, os valores serão divididos por mil. O padrão é apresentar os valores sem as casas decimais.
+Para todos os tipos de relatórios
+Itens Analíticos:
+Todos:
+ imprime as estruturas sintéticas e analíticas, independente se tais estruturas têm valores ou não
+Somente com Valor:
+ imprime somente as estruturas sintéticas e analíticas que têm valores
+Nenhum:
+ imprime somente as estruturas sintéticas
+Termo Final:
+ se marcada, na última página do DRE serão impressos os dados dos responsáveis pela empresa. A configuração é feita em 
+: quadro Dados para o Anexo/Sintegra e quadro Dados do  Contador por Filial.
+Filtra lançamentos de encerramento: 
+a
+o fazer o encerramento de contas de resultado para uma determinada data, o SisPetro fará um lançamento de contra-partida para as contas que tiveram movimentação naquele período, para zerar o seu saldo. Assim, emitindo o relatório de demonstrativo de resultado para o mesmo período do encerramento, as contas seriam apresentadas com o saldo zerado.
+Exemplo:
+ No demonstrativo há um item chamado Receitas Especiais. Apenas a conta "A", do tipo receita, faz parte desse item, ou seja, está vinculada a esse item. No mês 07, houve uma movimentação de R$2.000,00 para essa conta. Até então, essa conta não tinha movimentação nenhuma, por isso, seu saldo agora é de R$2.000,00.
+Ao emitir o relatório de demonstrativo de resultado para o mês 07, o item Receitas Especiais, aparecerá com o saldo de R$2.000,00 (crédito).
+Fazendo o encerramento do período para o mês 07, o sistema fará um lançamento de contra partida na conta "A", dessa forma a conta ficaria com seu saldo zerado para o mês 07. Isso seria apresentado no relatório do demonstrativo. O item Receitas Especiais, que tem a conta "A" vinculada, apareceria com o saldo zero.
+Caso o usuário queira ver a movimentação realizada no mês 07, agregada ao relatório de demonstrativo de resultado, basta marcar a opção 
+Filtra lançamento de Encerramento:
+Dessa forma a movimentação realizada para a conta "A" no mês 07, será apresentada fazendo com que o saldo não fique zerado e sim com R$2.000,00.
+ 
+Caso não se tenha um travamento para o período, é possível fazer movimentações para a conta "A", consequentemente englobando o valor dessa movimentação no saldo. Isso será apresentado no relatório desde que a opção" Filtra lançamento de Encerramento" esteja marcada, ou seja, este perfil refere-se exclusivamente em considerar ou não a movimentação referente ao encerramento e não de mostrar o saldo zerado.
+Mais informações sobre travamento contábil e encerramento do período nos tópicos:
+ 
+Travamento Período
+ 
+e
+ 
+.
+LayOut:
+A emissão do Demonstrativo de Resultado emitirá as Contas Sintéticas assim como as Contas Analíticas, conforme estiver configuradas as estruturas em 
+Demonstrativo de Resultado Real
+O layout do demonstrativo será gerado conforme segue:
+O arquivo
+ 
+demonstrativo.rtm
+ 
+que estiver no caminho do executável ou caso tenha definido na pasta dos caminhos auxiliares: para relatórios do tipo 
+Por Período
+ e 
+Comparativo Dois Períodos
+O arquivo
+ 
+De
+monstrativoMensal.rtm
+ 
+que estiver no caminho do executável ou caso tenha definido na pasta dos caminhos auxiliares: para relatórios do tipo 
+Comparativo a Cada Mês
+Para alterar o layout utilize o botão
+:
+Se clicar em 
+SIM
+, abrirá o layout do Demonstrativo.rtm
+Se clicar em 
+NÃO
+, abrirá o layout do DemonstrativoMensal.rtm
+Para incluir informações sobre o Responsável Legal pela empresa, acesse 
+Dados do Responsável Legal pela empresa nos Relatórios Contábeis
+.
+ 
+Deve-se atentar para as atualizações do arquivo .rtm a cada atualização do Sistema. Para que as alterações feitas sejam consideradas, é necessário sobrepor o .rtm existente pelo atual.
+O Demonstrativo de Resultado sempre considera as movimentações realizadas nas contas inativas no período.

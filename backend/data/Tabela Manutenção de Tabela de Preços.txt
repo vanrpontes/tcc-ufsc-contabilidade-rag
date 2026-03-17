@@ -1,0 +1,80 @@
+TITULO: Tabela Manutenção de Tabela de Preços
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2934538369
+--------------------------------------------------
+A partir da versão 10.01 foi criada uma nova tabela de preços. Podemos incluir uma nova tabela
+ a partir de Tabelas Auxiliares / Vendas / Manutenção de Tabela de Preços. 
+Para quem já utilizava a tabela de preço no SisPetro não deixe de ver o documento 
+Nova Tabela de Preço
+.
+Veja mais detalhes de como utilizar a tabela de preço em 
+Manutenção de Preços por Tabela
+.
+Para adicionar uma tabela de preços nova basta acionar o botão 
+Aba Detalhes
+#Tabela Preço:
+ sequencial da tabela de preço, a inclusão desse campo é realizado pelo sistema de forma sequencial, sem opção de alteração pelo usuário.
+Descrição:
+  campo referente a descrição da tabela. Esse campo é obrigatório.
+Tipo:
+  define o Tipo de tabela podendo ser do tipo Principal, Vinculada por Valor ou Vinculada por Percentual.
+Principal:
+ utilizando essa opção define que a tabela de preço é do tipo principal. Tabelas de preços do tipo principal definem o valor base do preço.
+Vinculada por Percentual:
+ tabela de preço do tipo Vinculada por percentual são tabelas que vinculamos à uma tabela principal, dessa forma podendo acrescentar ou subtrair uma porcentagem na composição do preço.
+Vinculada por Valor:
+ tabela de preço do tipo Vinculada por Valor são tabelas que vinculamos à uma tabela principal, dessa forma podendo acrescentar ou subtrair um determinado valor no preço final do produto.
+Tipo Vínculo:
+ essa opção define qual o tipo de vínculo da tabela.
+Sem Vínculo:
+ essa opção define que a tabela não tem nenhum vínculo.
+Por Tabela de Preço:
+ essa opção define que o vínculo é por tabela de preço.
+Tabela Preços Vinculada:
+ esse campo selecionamos a tabela de preço que será realizado o vinculo. 
+ Só é permitido selecionar tabelas de preços do tipo principal.
+Uso: 
+ define qual o uso da tabela, podendo ser para uso de Vendas ou para aprovação. 
+Vendas:
+ são para tabelas que compõem o valor de venda do Pedido.
+Aprovação: 
+essa opção é utilizada para definir um valor ou percentual de aprovação, Essa tabela de preço deve ser informada no perfil de usuário em questão. 
+Bloqueia Preço Não Encontrado:
+ habilitando essa opção será bloqueado caso não tenha preço cadastrado na tabela.
+Ativo:
+ por padrão esse campo está marcado. Quando vazio indica que a tabela em questão está 
+inativa
+, não podendo ser utilizada para realizar pedidos, notas fiscais, vínculos de usuário, cliente e depósito. 
+O SisPetro 
+não 
+inativa uma tabela de preço se: 
+Há vínculo com:
+cliente
+depósito
+usuário
+Há pedidos pendentes de aprovação ou de faturamento.
+Tabela principal tiver vínculo com uma tabela vinculada 
+ativa.
+Ou seja, para inativar uma tabela nenhuma das alternativas acima podem ocorrer.
+O campo ativo está disponível a partir da versão 10.20
+Aba Preços
+Através da aba de Preços podemos consultar os produtos e seus preços cadastrados para a tabela selecionada.
+Os preços só podem ser alterados alterados a partir da tela 
+Manutenção de Preços por Tabela
+ que pode ser acionada através do botão 
+Manutenção de Preços.
+Para acessar este botão, se faz necessário liberar o perfil:
+Ferramentas / Usuário / Aba Menus / Movimentação / Vendas
+Se faz necessário estar liberado 
+Habilitado 
+e
+ Visível 
+a opção: 
+Manutenção de Tabela de Preços por Tabela
+Aba Clientes
+Através da aba clientes serão apresentado todos os clientes vinculados a tabela de preço selecionada. O vínculo entre cliente e uma tabela de preço é realizado através da tela de 
+Preços(Clientes)
+.
+Aba Depósitos
+Através da aba de depósitos serão apresentados todos os depósitos vinculados a tabela de preço. O vinculo entre o depósito e a tabela de preço é realizado através da tela 
+Depósitos - Tabela de Preços
+.

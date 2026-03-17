@@ -1,0 +1,36 @@
+TITULO: Processo Validação Credenciais
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879128276
+--------------------------------------------------
+O fluxo deste processo pode ser visualizado abaixo:
+FluxoLicenciamento2
+Devido à evolução tecnológica e ao ambiente cada vez mais complexo onde o Sispetro pode ser executado, é necessário o uso de credenciais para execução do Sispetro. Chamamos de 
+credencial do cliente
+ uma string (código) que o identifique de forma inequívoca. Tendo como objetivo impedir o acesso indevido ao Sispetro.
+O processo de validação das credenciais ocorre no momento da tentativa de algum usuário executar o Sispetro. Durante esse processo a mensagem abaixo aparece na tela do Sispetro.
+Assim, logo que o usuário vai conectar no Sispetro, sua estação de trabalho gera uma 
+credencial
+ (que é um código associado ao seu nome na rede local + um código exclusivo gerado pelo hardware da sua máquina + Informações provenientes de um software de segurança de terceiros).
+Para que a credencial seja gerada corretamente, é necessário que a 
+DLL MachineID.dll
+ esteja presente no mesmo diretório onde se encontram todos os executáveis do Sispetro. Essa DLL foi disponibilizada na versão 8.1 do Sispetro.
+O Sispetro, então, procura na sua lista de estações de trabalho ativas uma credencial igual à gerada. Caso encontre, permite à estação de trabalho continuar o processo (ficando todo este processo transparente ao usuário).
+Caso encontre esta credencial na lista de estações de trabalho não ativas, verifica se a estação ainda está no 
+período de transição
+. Caso esteja, permite a entrada no Sispetro, avisando ao usuário que esta estação não está habilitada para os trabalhos no Sispetro e que deve providenciar sua ativação. 
+Quando o período de transição acabar, esta estação de trabalho não poderá executar o Sispetro.
+Caso não encontre esta credencial, registra a credencial como não ativa iniciando o período de transição. Assim, o usuário pode executar o Sispetro precariamente (sempre aparecerá na tela quando executar o Sispetro que aquela estação de trabalho está no período de transição e que deve providenciar sua ativação).
+IMPORTANTE: Caso não exista arquivo de licenciamento registrado, nenhum usuário poderá entrar no Sispetro.
+É MUITO IMPORTANTE SALVAR UMA CÓPIA DO ÚLTIMO ARQUIVO DE LICENCIAMENTO HABILITADO EM UM OUTRO LUGAR PARA O CASO DE RESTAURAÇÃO DE BACKUP OU PERDA DE DADOS.
+ 
+A credencial gerada poderá ser visualizada no Servidor Sispetro, conforme mostrado abaixo:
+No Servidor Sispetro, será normal que apareça duas conexões para cada cliente conectado, e apenas uma delas mostra a credencial. Isso ocorre quando o Servidor Sispetro e o 
+Servidor Sispetro de Segurança (S3)
+ compartilham o mesmo executável, pois uma conexão refere-se ao servidor S3 e outra ao Servidor Sispetro. Sendo que a credencial é gerada na conexão do S3.
+Outro ponto importante no que se referente a quantidade de licenças compradas pelo cliente, o Sispetro validará essa informação e não permitirá que mais sessões sejam iniciadas além da quantidade de licenças adquiridas. Se o cliente possui 5 licenças, apenas 5 conexões simultâneas serão permitidas, caso tente conectar uma sexta sessão, a mesma não terá sucesso, mesmo que seja no 
+período de transição
+.
+A partir da versão 9.30, 
+o SisPetro não utilizará mais a tela de licenciamento por máquina. No Servidor Sispetro configurado com S3 deverá ser informado o seu número de licenças. 
+Caso não seja informado o número de licenças do Sispetro, não será permitido a nenhum usuário se conectar no Sispetro
+.
+No caso de Terminal Service, a credencial será gerada sempre com base nos dados da máquina principal.

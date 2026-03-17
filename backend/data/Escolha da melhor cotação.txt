@@ -1,0 +1,76 @@
+TITULO: Escolha da melhor cotação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2902654998
+--------------------------------------------------
+O recurso de 
+Escolha da melhor cotação
+ tem o intuito de auxiliar o usuário a comparar as cotações e definir a melhor entre elas para efetuar o pedido de compra e assim incluir o PMM.
+Para utilizar esse recurso o usuário precisará ter o perfil de usuário 
+Ferramentas > Usuário > aba Perfil > aba inferior Compras > quadro > Cotação
+ 
+Escolhe melhor cotação?
+ marcado:
+ 
+O acesso a esta tela se dá através da tela de 
+, utilizando o botão 
+Escolher Cotação
+Para acessar esse recurso é necessário selecionar no mínimo 1 (uma) cotação. Caso contrário, o Sispetro emitirá a mensagem abaixo:
+Mensagem: 
+Nenhuma cotação selecionada ou as cotações selecionadas não permitem a escolha da melhor cotação.
+Para que uma cotação participe da Escolha da melhor cotação é necessário que ela tenha o status 
+9 - Para escolha da melhor cotação
+, que poderá ser configurado na inclusão, edição ou ao finalizar a cotação. Para maiores informações, veja o help 
+.
+Na tela de 
+Escolha da Melhor Cotação
+ o usuário poderá trabalhar com o recurso de 
+, configurando os campos da forma desejada e que melhor lhe atender.
+No grid, o usuário poderá analisar as cotações selecionadas através das informações:
+ 
+Data
+, 
+Qtde Cotação
+, 
+Menor Preço
+, 
+Preço Cotação
+, 
+Preço
+, 
+Qtde Fornecedor
+, 
+Percentual %
+, 
+Preço Qtde Fornecedor
+.
+À partir da versão 8.20 foi alterado esse processo. Agora, a Escolha será individual por item, e não mais pela cotação inteira.
+Exemplo:
+ 
+Cotação 1
+Cotação 2
+Produto 1
+Produto 1
+Produto 2
+Produto 2
+Produto 3
+Produto 3
+Foram escolhidos os itens em destaque. 
+ 
+ 
+ Mensagem: 
+Para escolher a melhor cotação dê um duplo clique no nº da Cotação desejada.
+Atente-se para o perfil 
+Marcar como rejeitadas as demais cotações
+ 
+Caso este perfil esteja marcado, as demais cotações ficarão subescritas na tela de 
+ e na tela o Sispetro emitirá a mensagem: 
+Deseja realmente escolher como melhor a cotação nº X (para Emissão de PMM)? As demais serão rejeitadas.
+Estando o perfil desmarcado, as cotações não receberão nenhum destaque em tela, conforme mensagem: 
+Deseja realmente escolher como melhor a cotação nº X (para Emissão de PMM)?
+As cotações rejeitadas terão seus status alterados automaticamente para 
+12 - Cotação Rejeitada
+.
+Após dar o duplo clique sobre a cotação escolhida, caso hajam mais itens a serem escolhidos, a tela permanecerá aberta até a escolha de todos. Após a Escolha do último item, o  Sispetro automaticamente retornará para a tela de 
+, destacando a cotação escolhida na cor amarela
+A cotação escolhida terá seu status alterado automaticamente para 
+12 - Cotação para Emissão de PMM
+.

@@ -1,0 +1,107 @@
+TITULO: Baixa Multi-Empresa do Contas a Receber
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2924286861
+--------------------------------------------------
+Foi adicionado opções para poder realizar alteração ou a impressão do boleto de um lançamento, ou múltiplos
+A tela de Baixa multi-empresa Contas a Receber, foi criada com a finalidade de permitir que o usuário tenha a possibilidade de efetuar a baixa de diversos títulos da mesma entidade para empresas diferentes de uma única vez. 
+A tela é acessada através do
+ Menu
+ 
+Movimentação / Financeiro / Contas a Receber / Baixa multi-empresa do Contas a Receber
+.
+Na tela de
+ 
+Configuração de Sistema, aba Financeiro f
+oi adicionado o perfil de sistema 
+Baixa Multi-Empresa
+ onde é definido qual a ordenação padrão e o Tipo de Documento. Veja mais informações em
+ 
+ 
+ 
+Entidade: 
+Onde é
+ informado o 
+cliente.
+Tipo de Entidade: 
+ É definido se o cliente á ser filtrado será a 
+entidade comprador
+ ou a 
+entidade faturada.
+Período de Vencimento dos Títulos: 
+É informado o período inicial e final dos vencimentos, caso não seja indicado uma data inicial será buscado todos os títulos pendentes ate a data final, caso não seja indicado a data final será apresentado todos os títulos independente da data.
+Ordenação dos Títulos: 
+Onde é definido a ordem dos títulos á ser apresentada na tela, o campo só fica disponível para alteração quando o perfil de usuário 
+Pode alterar ordenação na tela de Baixa
+ esteja marcado. 
+Cálculo de Acréscimo de Títulos Vencidos : 
+É definido se utilizará ou não o Acréscimo 
+Respeita Perfil da Empresa: 
+Vai trazer conforme estiver no perfil da empresa.
+Sempre calcula Acréscimo:
+ Vai Fazer o calculo independente do perfil de empresa.
+Nunca Calcula Acréscimo:
+ Não calcula Acréscimo independente do perfil de empresa. 
+Desconto Condicional até o Vencimento: 
+Esse parâmetro define se vai considerar ou não o Desconto Condicional
+.
+A tela foi projetada para baixar os primeiros títulos que apresentarem no grid, segue abaixo dois exemplos efetuando uma baixa no valor de 357.829,39 porem utilizando 
+Ordenação de Títulos
+ diferentes. 
+Cobrança Eletrônica:
+ É definido se o SisPetro filtrará os Títulos gerados para serem cobranças eletrônicas. Veja mais informações sobre os 
+Tipos de Cobrança
+Apresenta todos os títulos:
+ Todos os títulos serão apresentados
+Somente Cobrança Eletrônica:
+ Somente os títulos configurados para serem Cobrança Eletrônica serão apresentados
+Exceto Cobrança Eletrônica:
+ Todos os títulos, menos os configurados como Cobrança Eletrônica serão apresentados
+Selecionando os Títulos para serem baixados
+A partir da versão 8.40 é possível escolher quais títulos serão baixados, para isso basta clicar na primeira coluna os títulos selecionados ficarão amarelos (caso não haja saldo) ou com o fundo branco (caso haja saldo), os títulos que não forem selecionados ficarão com o fundo cinza.
+Ainda tem o botão "Marca/ Desmarca Todos" que serve para marcar todos os títulos (assim todos serão baixados) ou desmarca todos (nenhum título será baixado)
+Alteração de Título
+Veja o help 
+Alteração Título - Contas a Receber
+Impressão do Boleto
+A partir da versão 9.16 é possível realizar a impressão do boleto através da tela de Baixa Multi-Empresa. Para realizar a impressão basta selecionar o titulo e acionar o botão Impressão.
+Após acionar a impressão será apresentado a tela abaixo, onde pode ser realizado a impressão do boleto, o envio do mesmo por email ou salvar em pdf.
+Veja maiores detalhes do envio de boleto por email em 
+E-mail de Boleto de cobrança
+Aba "Dados Principais para Baixa"
+Conta: 
+a ser movimentada
+Data Movimento: 
+Data que será considerara que o título foi pago.
+Data Fluxo: 
+Data que será considerada que o banco liberou o dinheiro do pagamento referente.
+Tipo Documento: 
+Código do
+ 
+Tipo de Documento
+#Docto: 
+Número do documento que identifique a baixa
+Valor Total da Baixa: 
+Valor total dos títulos a serem baixados. veja os dois exemplos abaixo
+Imprime Recibo de Baixa: 
+Caso deseje imprimir o Recibo da Baixa marque esta opção e informe o Local da impressão
+Aba "Históricos"
+Assim como na baixa manual (
+Baixa pela Manutenção do Contas a Receber
+) na Baixa Multi-Empresa também há as opções referentes ao Histórico da baixa.
+Conforme a configuração do sistema, o código do histórico já será sugerido e consequentemente as informações adicionais, porém, isso não impede que o usuário possa trocar o campo "Código do histórico, os campos "Histórico" e "Informações Adicionais", ou alterá-los. Uma vez que o histórico a ser utilizado permita a utilização de fórmula, o usuário poderá modificar as fórmulas tanto do histórico quanto das informações adicionais. Maiores informações no tópico Tabela Histórico Padrão.
+Cenário 1 
+Utilizando a Ordenação de Títulos como Vencimento e Empresa, os 4  primeiros títulos serão baixados, sendo 2 títulos da EMPRESA 1, 1 título da EMPRESA 2 e 1 título da EMPRESA 7
+Ao efetuar a baixa, os 4 títulos serão baixados com valor integral.
+Cenário 2 
+Utilizando a Ordenação de Títulos como Empresa e Vencimento, os 9 primeiros títulos serão baixados, sendo 2 títulos da EMPRESA 1, 6 títulos da EMPRESA 2 e 1 título da EMPRESA 7.
+Ao efetuar a baixa, os 8 primeiros títulos serão baixados com valor integral, e o ultimo título sera feito a baixa parcial no valor de 79.984,16.
+Em ambos os exemplos o valor a ser baixado é o mesmo, porem a quantidade de títulos é alterado, devido ao valor dos títulos serem diferentes, no primeiro exemplo os 4 primeiros títulos já preencheram o Valor Total da Baixa, já no segundo exemplo para chegar no Valor total da Baixa teve que juntar 9 títulos.
+Ao clicar no botão 
+ o sistema abre a tela de Resumo das Baixa.
+ A tela de 
+Resumo das Baixa
+ faz a baixa agrupando os títulos por empresa, com um limitador de 15 títulos por baixa.
+ 
+Adicionando colunas ao Grid
+ 
+A partir da versão 9.18 foram adicionados mais opções de visualização do grid, para adicionar um campo novo, basta clicar na coluna superior da esqueda no Grid, será aberto uma lista com os campos disponiveis onde o usuário deve selecionar os campos que deseja adicionar ao Grid.
+ 

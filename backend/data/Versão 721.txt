@@ -1,0 +1,423 @@
+TITULO: Versão 7.21
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2902655099
+--------------------------------------------------
+
+
+
+
+ Dados 
+
+
+ Informações 
+
+
+
+
+
+
+ 
+Início
+ 
+
+
+ 06/09/2011 
+
+
+
+
+
+
+ 
+Final
+ 
+
+
+ 06/10/2011 
+
+
+
+
+
+
+ 
+Scripts
+ 
+
+
+ CMD721.sql (cmd2773.sql a cmd2798.sql) 
+
+
+
+
+
+
+ 
+Itens
+ 
+
+
+ 30 
+
+
+
+
+
+
+ 
+Implementações
+ 
+
+
+ 12 
+
+
+
+
+
+
+ 
+Correções
+ 
+
+
+ 18 
+
+
+
+
+
+
+Anexos
+
+
+
+
+
+
+ Relatórios 
+
+
+ DLLs 
+
+
+ Layouts de Exportação 
+
+
+ Layout de Importação 
+
+
+
+
+
+
+ Apuracao.rtm 
+
+
+ 
+
+
+ Sintegra-2011-MS.rtm 
+
+
+ 
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+ DIME-SC.rtm 
+
+
+ 
+
+
+
+
+
+
+Geral
+
+
+
+
+Migração nos Grids
+
+
+Estamos em um processo de migração dos grids utilizados no SisPetro. Essa migração deixará nossos grids mais bonitos, práticos e com opções de filtros diversos para facilitar o trabalho de nossos usuários. TDM (CCF 14356)
+
+
+Telas com Diversas Abas de Informação
+
+Algumas telas com diversas abas com informações, por exemplo aba nota fiscal, aba itens da nota fiscal, ao serem abertas, ao invés de abrir na aba principal (no nosso exemplo aba de notas fiscais) estavam sendo abertas em outras páginas. Essas telas foram alteradas para que isso não aconteça mais. 
+UPA (CCF 14374)
+
+
+Erro na Edição do Vínculo de E-Mail e Empresa
+
+Na tela de Vínculo de Conta de E-mail X Empresa, caso opte pela alteração de dados, não altere nada e clique OK era gerado um erro ao usuário. Esse problema foi corrigido. 
+UPA (CCF 14446)
+
+
+Preparação do Banco de dados para Adequação ao Sybase 12
+
+Iniciamos algumas alterações para permitir a utilização do Sybase 12. Em breve estaremos liberando a migração da versão 7 para o 12. Aguardem! 
+MCL (CCF 14464)
+
+
+
+
+Contabilidade
+
+
+
+
+Erro ao Tentar Alterar um Lote Gerencial não Consolidado
+
+Ao tentar alterar um lote gerencial não consolidado, estava sendo emitido um erro de valor nulo ao usuário. Esse erro foi corrigido e cabe lembrar que lotes gerenciais não consolidados não podem ser alterados. Essa tela apenas exibe as informações do lote nessa situação. 
+UPA (CCF 14545)
+
+
+Usuário que Efetuou a Última Alteração do Lote
+
+Na alteração de lote (gerencial e real), os campos "Usuário da Ultima Alteração" e "Data da Ultima Alteração" não estavam sendo preenchidos. Problema corrigido. 
+UPA (CCF 14531)
+
+
+
+
+Compras
+
+
+
+
+Alterações na Cotação
+
+
+A tela de inclusão de cotação foi alterada para permitir ao usuário informar um fornecedor e/ou condição de pagamento já cadastrada no sistema. Caso essas informações sejam preenchidas elas serão transferidas para o PMM caso o usuário emita um PMM a partir dessa cotação. Disponibilizados também os campos de Validade e Setor de Compras da cotação. UPA (CCF 14540)
+
+
+Tela para Emissão de PMM através de Requisições ou Cotações
+
+
+Incluído menu Movimentação de Material a tela "Emissão de PMM por Requisição/Cotação". Essa tela irá listar todas as requisições e cotações que podem emitir um PMM.
+ 
+Com essa tela, o usuário não precisará entrar na manutenção de requisição e depois na manutenção de cotação para emitir os PMM's pendentes.
+ 
+Help:
+ 
+Emissão de PMM a partir de Requisições e Cotações
+. UPA (CCF 14479)
+
+
+Envio de e-mail para PMM
+
+
+A partir de agora o SisPetro vai possibilitar o envio do PMM por e-mail. Nas telas de Inclusão, Visualização e Manutenção, ao solicitar impressão do PMM, irá abrir uma tela para que o usuário defina se deseja visualizar, imprimir ou enviar o e-mail, já sugerindo o e-mail configurado para fornecedor do PMM.
+ 
+Help:
+ 
+Envio de e-mail para PMM
+ 
+TDM (CCF 14400)
+
+
+Tela para Escolha da Melhor Cotação
+
+
+Na versão passada foi incluído o módulo de compras. Entre uma das solicitações era justamente possuir uma tela de melhor cotação dentre as cotações selecionadas. Nesta tela será possível definir a melhor cotação, imprimir a lista e exportar para o excel as cotações selecionadas.
+ 
+Help:
+ 
+Escolha da melhor cotação
+ 
+TDM (CCF 14411)
+
+
+Validação de Discrepância do Saldo Financeiro no PMM
+
+Na versão 7.20 acrescentamos um perfil de empresa para validar Discrepância no saldo financeiro do PMM. Ao estar marcado, caso recebesse uma NF com PMM seria verificado se o saldo disponível desse PMM permite o recebimento da NF em questão. Porém essa validação estava ocorrendo em duas situações que não devia. 1º Com o perfil de empresa desmarcado, 2º Quando na tela da NF o usuário indica que tem pedido, mas não o indica para o vínculo com a NF. Esses dois pontos foram corrigidos. 
+UPA (CCF 14399)
+
+
+Análise/Liberação de Estoque de Requisições
+
+Corrigido para não apresentar erro quando era feita uma segunda liberação de estoque para uma mesma requisição. Inclusive, foi alterada a tela para só fazer liberação para os itens que tiverem a quantidade a liberar editada (ou o envio para cotação). 
+GSN (CCF 14618)
+
+
+
+
+Estoque
+
+
+
+
+Leitura de Tanque maior que a data atual
+
+No processo de Leitura de Tanque, o SisPetro permite que se faça uma leitura com uma data maior que a existente, mas quando é feita uma leitura com uma data muito avançada até a chegada dessa data, a temperatura e a densidade não são atualizadas. Isso está sendo corrigido nesta versão, onde, foi colocado uma opção na tela de Perfil do Sistema, para permitir ou não que se faça essa leitura futura. 
+Help:
+ 
+Como efetuar leitura do tanque
+ 
+RSI (CCF 8934)
+
+
+Código adicional do Tanque
+
+Anteriormente havia sido adicionado em algumas telas do SisPetro o campo "Código Adicional" para facilitar a identificação do tanque. Nesta versão foi adicionado o mesmo campo em outras telas (Itens da OF, Fechamento de Estoque aba de detalhamento estoque fisico, Consulta de Fechamento de Estoque aba Detalhe Físico). 
+TDM (CCF 14170)
+
+
+
+
+Faturamento
+
+
+
+
+NFe Mato Grosso do Sul
+
+
+A partir dessa versão o Servidor SisPetro está apto a enviar NFe para Mato Grosso do Sul, nas versões passadas, por limitação da Sefaz de MS, as NFe eram enviadas pela Sefaz Virtual. Com a liberação das URL's do MS, fizemos as devidas configurações tornando possível o envio da NFe.
+ 
+Help:
+ 
+Configuração da Empresa para NF-Eletrônica
+ 
+UPA (CCF 14636)
+
+
+Vínculo entre NF e OC
+
+Corrigido para fazer o vínculo correto entre OC e NF ao trocar a Natureza de Operação na tela de Recebimento da NF. 
+GSN (CCF 14175)
+
+
+Títulos da NF apresentados no DANFE e XML
+
+Há algumas versões atrás fizemos uma alteração para NFs de Saída gerarem Títulos de Retenção (a pagar). Na impressão do DANFE desta NF de Saída são listados os títulos a Receber e o título de Retenção também, o que não está correto. Esse problema ocorreu também no XML e ambos os casos foram corrigidos. 
+UPA (CCF 14529)
+
+
+Casas decimais na quantidade de tela de Remessa e Retorno de Armazenagem
+
+
+A tela de Remessa e Retorno de Armazenagem permite que seja realizada a NF baseada na Quantidade Ambiente ou na Quantidade a 20c. Quando se marca na tela de opções "Utiliza quantidade portaria", o resultado da multiplicação entre quantidade ambiente e fator de conversão, esta sendo apresentado com casas decimais, quando se trata de um número inteiro. O SisPetro não irá mais carregar a quantidade com casas decimais. TDM (CCF 13925)
+
+
+
+
+Financeiro
+
+
+
+
+Retirar cobrança agregada do SisPetro
+
+
+Muito antigamente (há mais de 10 anos) havia no SisPetro a possibilidade de transformar vários títulos de Cobrança Eletrônica em uma única cobrança. Só que isso está em desuso há muito tempo e mesmo assim ainda há um perfil de usuário "Emite Cobrança Agregada", que ao ser marcado, tenta fazer o procedimento via Manutenção do Contas a Receber, no botão Cobrança, quando seleciona vários títulos. Todo esse procedimento e o perfil de usuário foram removidos do sistema. UPA (CCF 13940)
+
+
+
+
+Fiscal
+
+
+
+
+Apuração Fiscal
+
+
+A tela de Apuração do Livro Fiscal foi reformulada ficando mais simples e clara para visualização dos dados e separada as informações do ICMS Próprio e de Substituição sendo que o de substituição será informado por UF. 
+Por conta dessa alteração é necessário atualizar o rtm Apuracao.rtm.
+ 
+Help:
+ 
+Apuração Livro Fiscal
+, 
+Help:
+ 
+Incluindo Apuração Fiscal
+ 
+UPA (CCF 11985)
+
+
+Erro no lançamento de NF de entrada devido caractere inválido na Natureza de Operação (NFE)
+
+
+Determinados caracteres retornam erro ao gerar o arquivo xml para NFe. Em versões anteriores foi realizado um trabalho para que esses caracteres fossem removidos, porém o caractere "ñ e Ñ" não havia sido inserido na lista de caracteres especiais. O caractere foi removido para que o erro não ocorra novamente. TDM (CCF 14372)
+
+
+Campo Alíquota na Manutenção de Anexos - Distribuidoras
+
+Corrigido para que na aba Dados Clientes da tela de Manutenção de Anexos seja apresentado devidamente o campo Alíquota. 
+GSN (CCF 13335)
+
+
+SPED-EFD Registros C500 e afins
+
+
+Acertadas as fórmulas da Base e ICMS ST no Registro C500 e disponibilizada a geração do Registro C510 (itens da Nota)
+. 
+GSN (CCF 13335)
+
+
+SPED PIS/COFINS - Ajustes
+
+Acertado o número de casas decimais de alguns campos dos Registros C191, C195, C181 e C185, além de ajustar a fórmula do campo Tipo Escrituração do Registro 0000. 
+GSN (CCF 14490)
+
+
+Sintegra MS
+
+Ajustado o layout do Sintegra MS para geração de dados nos Registros 50, 54 e 75 e acrescentado um espaço no final das linhas do Registro 88CB. 
+Necessário atualizar o arquivo Sintegra-2011-MS.rtm na Manutenção de Exportação de Dados.
+ 
+GSN (CCF 14428)
+
+
+DIME-SC Ajustes em totais
+
+Ajustado o layout da DIME-SC para apresentar alguns registros mesmo quando zerados e não apresentar o Registro 46 quando não for informado Valor DCIP.
+Necessário atualizar o arquivo DIME-SC.rtm na Manutenção de Exportação de Dados.
+ 
+GSN (CCF 12140)
+
+
+Scanc Refinaria Quadro 6.2 do Anexo 6
+
+Alterado procedimento de geração de dados do Anexo 6 para que no Quadro 6.2 obtenha os valores do Anexo 5 das Distribuidoras pela UF de Origem. 
+GSN (CCF 14427)
+
+
+SPED-EFD IND_FRT no Registro C100
+
+Ajustada a fórmula do Registro C100, campo IND_FRT pois apresentava erro em algumas empresas no momento do preenchimento de dados. 
+GSN (CCF 13767)
+
+
+
+
+Transportes
+
+
+
+
+Validação de Transportadora Duplicada
+
+Ao incluir uma transportadora, o seu CPF/CNPJ é validado e verificado se ele já não está cadastrado no sistema, porem, só estava sendo verificado se existia no cadastro dentre as transportadoras ativas. Essa validação foi alterada e a partir dessa versão, o CPF/CNPJ será pesquisado em todas as transportadoras independente do seu status. 
+UPA (CCF 13215)
+
+
+Município Indevido no Cadastro de Transportadoras
+
+No cadastro de Transportadoras existe um combo para escolha do Município. Porém, caso indevidamente o usuário digite um nome de município inválido, esse nome é aceito no cadastro, causando problemas na NFe. Esse problema foi corrigido. 
+UPA (CCF 12795)
+

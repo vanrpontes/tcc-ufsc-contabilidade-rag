@@ -1,0 +1,28 @@
+TITULO: Função GetCCEstoqueByProd
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/5533433879
+--------------------------------------------------
+Histórico
+Esta função foi criada para utilizar a conta de estoque cadastrada no produto. Para mais informações, ver 
+Tabela de Produtos
+.
+GetCCEstoqueByProd('Código do Produto')
+Parâmetro:
+Código do Produto
+Nota:
+ essa função é utilizada quando a empresa não utiliza contas contábeis por depósito e é utilizada em conjunto com a 
+Função GetCustoMedioProdBas
+Exemplo de uso:
+sql
+-- DEVOLUÇÃO DE VENDA DE GASOLINA C - Contabilização Auxiliar
+Conta                        Valor
+GetCCEstoqueByProd('05')	 if <732> = '01' then GetCustoMedioProdBas(<729>,<730>,'01','05',1) 
+GetCCEstoqueByProd('04')	 if <732> = '01' then GetCustoMedioProdBas(<729>,<730>,'01','04',1)
+
+-- DEVOLUÇÃO DE VENDA DE GASOLINA C - Código de Contabilização
+Conta	                             Valor
+ContaReal(GetCCEstoqueByProd('05'))	 if <732> = '01' then GetCustoMedioProdBas(<729>,<730>,'01','05',1)
+ContaReal(GetCCEstoqueByProd('04'))	 if <732> = '01' then GetCustoMedioProdBas(<729>,<730>,'01','04',1)
+Caso utilize contas contábeis cadastradas no depósito, deve usar a 
+Função GetCCEstoqueByProdDep
+, que também permite utilizar as contas contábeis cadastradas no produto.
+ 

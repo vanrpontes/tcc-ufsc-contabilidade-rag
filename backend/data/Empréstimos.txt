@@ -1,0 +1,91 @@
+TITULO: Empréstimos
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892890746
+--------------------------------------------------
+Configuração do Fornecedor
+Empréstimos geralmente são obtidos de Instituições Financeiras. Como teremos a provisão de pagamentos, no Sispetro é preciso ter a figura de um Fornecedor para os lançamentos, representando essa Instituição financeira.
+O fornecedor normalmente tem uma conta de Passivo Circulante, porém, nesses casos é normal fazermos o lançamento no Passivo Exigível a Longo Prazo. 
+Se for o caso, na Contabilidade Gerencial não temos o que fazer, porque a conta é criada automaticamente. Na Contabilidade Real podemos vincular a conta que desejarmos.
+Para isso, vá na aba Padrão para Compras e no campo 
+Conta Contábil
+ vincule a conta de Passivo correta.
+Maiores detalhes em 
+Conta Real do Fornecedor
+Lançamento da Entrada do Valor no Banco
+Faça um Recebimento direto na Manutenção de Bancos. Informe na conta de contra-partida uma Conta Transitória. Informe o valor total creditado em conta.
+Teremos:
+D - Conta Banco (para representar o montante recebido)
+C - Conta transitória (para ser utilizado como contra-partida no Título Recorrente)
+Lançamento das Parcelas
+Neste caso temos a possibilidade de Juros Fixo ou Variável, vejamos a diferença:
+Juros Fixo
+Quando o juros é fixo o trabalho é mais simples. É preciso ter as seguintes informações:
+Valor total da parcela
+Valor dos juros
+Valor da amortização (que multiplicado pelo número de parcelas será igual ao valor creditado em C/C)
+Na tela de Manutenção de Títulos Recorrentes, inclua um 
+Título Recorrente
+, informando:
+Aba 
+Principal
+:
+Fornecedor: Figura do Passivo configurada como fornecedor para o Empréstimo
+Valor do título: Valor total da Parcela
+Recorrências: Configure para terminar após "x" ocorrências, informando nesse campo o número de parcelas
+Aba 
+Dados Adicionais
+Ajuste a filial para qual foi adquirido o empréstimo
+Na aba Conta Gerencial, informe:
+Conta Transitória informada no lançamento bancário no valor da amortização
+Conta de Despesa de Juros no valor dos juros
+Isso resultará na seguinte contabilização quando cada parcela for efetivada:
+D - Conta transitória
+D - Conta Juros
+C - Conta Passivo vinculada ao Fornecedor - Instituição Financeira
+Efetive na sequência as parcelas. Se preferir não utilize uma conta Transitória, de forma que o valor fique pendente e possa ser efetivado mês a mês.
+Juros Variável - contabilizados na provisão da parcela
+Quando os juros são variáveis não podemos, até a versão 7.6, utilizar os títulos Recorrentes, já que no momento da efetivação não é possível ajustar o valor dos juros.
+Fiquem atento porque a partir da versão 7.7 temos um projeto para permitir esse ajuste do valor dos juros na Efetivação!
+Geralmente, nestes casos, temos dois tipos de juros, um fixo e outro variável.
+Configure (marque) dois perfis de Sistema, aba 
+Financeiro
+: 
+Após inclusão, mostra nova tela de inclusão de lançamento
+ e 
+Habilita opção para manter os dados da última inclusão efetuada
+.
+É preciso ter as seguintes informações:
+Valor total da parcela
+Valor dos juros variável (aproximadamente)
+Valor dos juros fixos
+Valor da amortização (que multiplicado pelo número de parcelas será igual ao valor do crédito em C/C)
+Na tela 
+Inclusão de Contas a Pagar
+, no topo da tela, marque a opção 
+Mantém os dados da última inclusão efetuada
+ e 
+Previsto
+. 
+Informe os dados:
+Fornecedor: Figura do Passivo configurada como fornecedor para o Empréstimo
+Valor do título: Valor total da Parcela
+Data de Vencimento: Data da primeira parcela
+Na aba Conta Gerencial, informe:
+Conta Transitória informada na nota no valor da amortização
+Conta de Despesa de Juros no valor dos juros fixos
+Conta de Juros a Apropriar no valor dos juros variável
+Dê "OK" e a tela de Inclusão permanecerá aberta com os dados já informados na tela. Ajuste a Data de Vencimento para a próxima parcela e repita o processo conforme o número de parcelas.
+Repare que assim as parcelas vão ser lançadas como Previstas, já que não podemos efetivá-las por não saber o valor dos juros variável. 
+Para efetivá-las, a cada mês, utilize o botão 
+Efetiva Lançamento Previsto
+ na Manutenção do Contas a Pagar
+Juros Variável - contabilizados na baixa da parcela
+Se o juros variável será contabilizado só no momento da baixa. Utilize o passo-a-passo como se fosse 
+Juros Fixo
+ e no momento da 
+baixa
+, informe como 
+Acréscimo
+ o valor dos juros variável.
+Não se esqueça de ajustar a 
+Conta de acréscimo
+ para a conta desejada.

@@ -1,0 +1,102 @@
+TITULO: Integração com Sistema de Automação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926187395
+--------------------------------------------------
+A partir da versão 10.16 do SisPetro, é possível trabalhar com a troca de arquivo com os sistemas automatizados Basecom e Infitech   
+A integração com sistemas de automação permite a troca de arquivos txt de gravação e leitura entre o SisPetro e os equipamentos de automação, otimizando o processo de carga e descarga com o processamento automático da troca de dados, conforme ilustrado abaixo. 
+Configurações Necessárias 
+Veja em 
+Configurações Integração com Sistema de Automação
+ a configuração necessária para a utilização de sistemas de automação. 
+Estrutura dos arquivos
+Veja a estrutura dos arquivos em 
+Layout dos arquivos utilizados na integração com Sistemas de Automação
+.
+Demonstração do Processo utilizando a integração com Sistema de Automação
+:
+Portaria de Entrada
+Após realizar as devidas configurações no SisPetro, na portaria de entrada será possível gerar um Ticket onde será gravado um arquivo de texto na pasta de gravação, ao realizar a leitura do arquivo de retorno é gravado em cada 
+compartimentação da OC o ticket obtido do Sistema de Automação.
+Para que o usuário tenha acesso ao botão 
+ é necessário que o usuário esteja com o perfil 
+Faz Portaria Entrada/Saída
+ marcado, para isso basta ir em 
+Ferramentas / Usuário / Perfil / Carregamento /  Faz Portaria Entrada/Saída.
+ O resultado final é gravar em cada compartimentação da OC o ticket obtido do Sistema de Automação, que é a senha para permitir o carregamento/descarga daquele compartimento.
+Ao clicar no botão 
+ será apresentada a tela de Integração com o Sistema Automatizado, onde o usuário poderá visualizar algumas informações da ordem de carregamento tais como o caminho do banco de dados do 
+Sistema de Automação
+, a pasta onde está sendo salvo o Ticket, a pasta de onde o SisPetro vai obter o retorno do sistema automatizado, e dados do Depósito, Fila e nome do arquivo.
+Só será possível realizar a Integração e gerar o arquivo, para Ordens de Carregamento que contem compartimentação informada.
+Título da Tela
+O Título da tela será apresentado conforme a DLL do Sistema de Automação 
+Basecom
+ ou 
+Infitech
+ configurado para a 
+Base
+. 
+Para obter o retorno do Ticket com a sua confirmação basta clicar no botão 
+Obtém Dados
+, dessa forma o SisPetro lê o arquivo retornado pelo Sistema de Automação que foi gravado na pasta destinado a leitura. Após obter o arquivo de retorno clicando no botão 
+Obtém Dados
+ caso o arquivo esteja OK o Status da Obtenção de Dados é confirmado ficando com o símbolo 
+ e é apresentada a a mensagem abaixo com a confirmação da leitura, após realizar a confirmação o Carregamento passa da Portaria de Entrada para a a Portaria de Saída.
+Após realizar a confirmação na tela acima, o SisPetro exibe uma mensagem questionando se o usuário quer realizar a impressão do relatório com os dados do carregamento.
+A impressão dos dados de carregamento na portaria de entrada, também pode ser realizada acionando o botão 
+ que fica na tela inicial da Portaria de Entrada, lembrando que essa opção só será possível caso a Leitura do arquivo ainda esteja pendente.
+As informações referente a automação apresentadas no relatório só são preenchidas quando é obtido o retorno do Sistema de Automação. Veja maiores informações no tópico abaixo 
+Impressão de carregamento.
+  
+Portaria de Saída 
+Após a ordem de carregamento sair da Portaria de Entrada ela vai para a portaria de Saída onde será realizado o carregamento do combustível, ao clicar no botão 
+caso o arquivo de retorno do Sistema de Automação 
+NÃO
+ esteja na pasta, será apresentado a tela de Integração com o Sistema de Automação onde o usuário poderá visualizar algumas informações da ordem de carregamento tais como o caminho do banco de dados do Sistema de Automação, a pasta onde está sendo salvo o Ticket, a pasta de onde o Sistema vai obter o retorno do Sistema de Automação, dados do Depósito, Fila e nome do arquivo.
+Título da Tela
+O Título da tela será apresentado conforme a DLL do Sistema de Automação 
+Basecom
+ ou 
+Infitech
+ configurado para a 
+Base
+.
+Caso o arquivo de retorno do Sistema de Automação já esteja na pasta, sua leitura será realizada de forma automática sem ser apresentado a tela de integração com o Sistema de Automação. 
+af6c8eb4-9188-429b-aeeb-c1bd5ef99c6a
+Processo Automatizado da Portaria
+5
+Dados de carregamento
+Após realizar o processo de integração do Sistema de Automação com o SisPetro é possível verificar os dados salvos no sistema através da tela de
+ 
+Manutenção de Carregamento/Descarga
+.
+ 
+O SisPetro pega do arquivo somente o 
+Volume de automação
+ e a
+ Temperatura Automação.
+O usuário pode informar no sistema, via perfil de Sistema, qual o volume a ser utilizado no carregamento e na descarga. Para mais informações, ver 
+.
+Quando o carregamento contém mais de um compartimento do mesmo produto, para realizar o preenchimento da Temperatura, o sistema realiza a média do mesmo. No exemplo abaixo temos 3 compartimentos, onde para cada compartimento foi informado uma temperatura diferente (20,5 / 22,5 / 23,0). Ao ler o arquivo o sistema realiza a média das temperaturas de cada um dos 3 compartimentos e preencherá, na temperatura de automação, a temperatura de 22,00.
+Compartimentos
+Qtde
+Temperatura
+Compartimento 1
+5000
+20,50
+Compartimento 2
+5000
+22,50
+Compartimento 3
+10000
+23,00
+( 20,5 + 22,5 + 23,0) / 3 = 
+22,00
+No exemplo acima a média da temperatura é 22,00
+Impressão de carregamento
+É possível realizar a emissão do relatório de dados de Carregamento ao finalizar a  integração com o automatizado através do botão 
+Os campos do relatório referentes á automação e ao volume  de automação só são preenchidos quando obtido retornos do Sistema de Automação.
+#AUTOMAÇÃO:
+ o campo referente ao número da automação é preenchido na portaria de entrada quando a integração realiza a leitura do arquivo de retorno, e o mesmo vem preenchido com um valor válido.
+VOL. AUTOMAÇÃO:
+ o
+ volume da automação só é informado no relatório quando é realizado a portaria de saída e o arquivo de retorno foi obtido e validado com sucesso. 

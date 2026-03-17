@@ -1,0 +1,199 @@
+TITULO: Tabela Plano de Contas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210180
+--------------------------------------------------
+Objetivo
+Esta tabela contém o planejamento das Contas Correntes utilizadas pela Empresa: contas bancárias, despesas, receitas, custos, clientes, fornecedores, contas a pagar, contas a receber, etc.
+A tela de manutenção do Plano de Contas no Sistema pode ser acionada a partir do
+ Menu Arquivos / Plano de Contas.
+No menu superior da tela, encontram-se painéis que podem ser utilizados para consultas.
+Abas
+Esta consulta é composta pelos seguintes painéis:
+Navegação: 
+mostra as contas cadastradas. 
+Detalhes: 
+aqui é realizado o cadastro da conta. Mais informações sobre, ver tópicos abaixo. 
+Usuários:
+ visualiza os usuários que podem acessar uma conta contábil.
+Movimento:
+ guarda o histórico do movimento efetuado em uma conta contábil.
+Saldo:
+ mostra o saldo acumulado das contas contábeis, podendo consultar também por centro de custo possibilitando o filtro por empresa e por ano.
+Para encontrar determinada conta que já está cadastrada pode-se fazer a pesquisa por código, descrição, tipo, entre outros, para isto basta selecionar uma coluna dessas citadas e digitar no campo 
+Pesquisa
+ que se encontra na parte inferior da tela.
+A opção 
+Mostra contas inativas
+ tem a finalidade de filtrar as contas inativas da tela para melhor visualização e performance do sistema, esse campo sempre guardará o ultimo estado antes do fechamento da tela.
+Ex. Caso o usuário tenha acessado a tela e marcado o campo 
+Mostrar contas Inativas
+ e depois tenha saído da tela, o sistema na próxima vez que abrir esta tela, irá trazer esse campo marcado.
+Novo Registro
+Acione o botão de inclusão de novo registro.
+O Sistema ativa a tela que permite o cadastramento de uma nova Conta Contábil.
+Para mais informações sobre pagamento de Tributos através da opção de pagamento eletrônico, ver 
+Pagamento Eletrônico
+.
+Deve ser atribuído à uma Conta Contábil:
+Código
+ - conforme definido pela contabilidade, caso tenha se optado pela codificação automática das contas (vide Menu 
+Ferramentas / Sistema / painel Codificação de Contas
+) este campo não poderá ser informado, sendo atribuído pelo sistema sequencialmente, conforme prefixo especificado.
+Código da Conta Estendido
+ - para impressões de relatórios hierárquicos. É possível definir uma máscara para a contabilidade gerencial independente da contabilidade real no perfil do 
+Sistema / Conta Contábeis / Máscara Plano de Contas
+. 
+ 
+ Este botão que fica ao lado do campo 
+Código de Conta Estendido
+ ao ser acionado abre uma tela de pesquisa somente com as contas de resumo para auxiliar na escolha do código. Se o código estendido não tiver valor, ao selecionar uma conta de resumo na tela de pesquisa, o sistema irá sugerir aquele código estendido, bastando preencher o final para um número que ainda não exista.
+Código Conta Exportação
+ - código utilizado para exportações para outros Sistemas.
+Descrição
+ - descrição que identifique facilmente uma conta.
+Tipo Conta
+ - Ativo, Passivo, Receita, Despesa, Custos, Bancos, Contas a Pagar, Contas a Receber ou Resultado.
+Sub-Tipo
+ - não se aplica, Mútuo ou Vendor. Este campo somente estará habilitado se o tipo da conta for de Banco.
+Saldo
+ - saldo atual da conta.
+Limite Crédito
+ - é o limite de crédito das contas do tipo Banco. Essa informação é útil para ser exibido no relatório extrato conta.
+Moeda
+ - qual é moeda utilizada nesta conta.
+Grupo de Contas
+ - qual o grupo de conta que esta conta faz parte, para hierarquização do plano.
+Layout do Cheque
+ - caso a conta seja de banco e necessite impressão de cheques, deve-se informar o nome do arquivo de layout deste banco (contate o desenvolvedor para este nome).
+Força Centro Custo
+ - solicita um centro de custo que será sugerido nos lançamentos de contas a pagar, no caso de marcado é necessário informar o 
+centro de custo
+ ou informar que aceita 
+Qualquer Centro de Custo
+.
+Padrão Contábil:
+ caso informado, poderá ser utilizado na inclusão manual de contas a pagar (quando usuário informar um fornecedor e for sugerida a conta contábil de Despesa ou digitar no campo de CC Despesa uma conta, caso esta esteja ligada a um padrão contábil, este seja utilizado preenchendo os centros de custo) ou em conjunto com o perfil de sistema definido em 
+Painel Contas Contábeis
+. Caso a opção 
+Usa Padrão Contábil Centro Custo da Conta no Lote Gerencial 
+esteja marcada, os centros de custos serão distribuídos conforme definido no padrão contábil selecionado, 
+desde que o lote gerencial não tenha qualquer centro de custo informado.
+Conta resumo
+ - indica que a conta é sintética. Além disso, marcando essa opção, a conta fica destacada 
+em negrito
+ na aba Navegação.
+Conta ativa
+ - indica se esta conta poderá ser utilizada nas movimentações.
+Não requer conciliação
+ - retira à necessidade de se fazer a conciliação bancária, mesmo que seja uma conta do tipo Banco.
+Acesso somente a determinados usuários
+ - quando marcada esta opção, somente os usuários que tiverem permissão poderão fazer movimentação utilizando esta conta. 
+Para mais informações, ver 
+Acesso Restrito
+ e 
+Perfil para grupos de usuários
+Participa do Fechamento Financeiro
+ - opção utilizada para que a conta seja controlada através do Fechamento Financeiro. As contas do tipo Banco sempre serão incluídas para participarem do fechamento financeiro, porém existe um perfil do usuário,
+ Ferramentas > Usuário > painel Segurança a opção
+ Pode retirar conta do Fechamento Financeiro que permite o usuário marcar ou não essa opção para participar do fechamento.
+Participa do Fluxo de Caixa
+ - opção utilizada para selecionar contas de banco (apenas) para inclusão ou não no relatório de Saldos Conjugados. Para todas as contas, deverá aparecer marcado e desabilitado, só no caso das contas de banco, esta opção virá habilitada, permitindo que seja desmarcada, retirando assim esta conta do relatório.
+Participa da Previsão Orçamentária: 
+permite que a conta em questão participe da 
+ 
+Previsão Orçamentária
+ 
+Quadro Dados do Banco
+ - as informações cadastradas nesse grupo serão utilizadas na 
+conciliação automática
+. Além de cadastrar o código do banco, #Agência e Díg, #Conta e Díg, o usuário deverá informar o tipo de conciliação que poderá ser realizada para essa conta
+Conciliação automática
+: informe qual será o tipo de conciliação. Para mais informações, ver
+ 
+Conciliação Automática - Informações Gerais
+Desabilitada:
+ o usuário poderá conciliar os lançamentos bancários diretamente na manutenção de contas bancárias (
+Menu Movimentação / Financeiro / Manutenção de Bancos
+);
+Somente manual:
+ o usuário só poderá conciliar os lançamentos bancários para essa conta através da conciliação automática, porém, através de digitação manual.
+Somente automático:
+ o usuário só poderá conciliar os lançamentos bancários para essa conta através da conciliação automática, porém, através de importação de arquivo.
+Uso em Depósito Identificado:
+ marcando essa opção o plano de contas ficará habilitado para uso do deposito identificado. Quando for realizado uma leitura de arquivo do deposito identificado, o Sispetro ira buscar todos os planos de conta com mesmo banco, agencia e conta que foram informados no arquivo e ira sugerir na tela de 
+Depósito Identificado
+.
+Empresa Titular da Conta: 
+essa informação será utilizada na 
+Conciliação Automática via API
+.  Indicar a Empresa que é a Titular dessa conta na Instituição Bancária, já que uma conta só tem um titular. A conta pode ser da Empresa 1 e ser usada por:
+todas as empresas (sem restrição)
+um grupo de empresas específico: neste caso seria mais comum ser o grupo onde a empresa 1 faz parte.
+uma única empresa: neste caso seria mais comum ser também a empresa 1.
+Não é permitido marcar a opção de 
+Uso em depósito identificado 
+em mais de um plano de contas que utilizam banco, agencia e conta exatamente iguais. 
+Lembrando que letras, zeros a esquerda e dígitos, são considerados fatores de diferenciação entre contas e agencia.
+Dados de Banco
+ - habilitado somente para as contas do tipo Banco. Informe banco, agência e conta, e no caso de utilizar o 
+Pagamento Eletrônico
+ o ID informado pelo banco para este processo.
+Participa do Demonstrativo de Resultado
+ - está opção será habilitada para contas resultados já cadastradas em: Tabelas Auxiliares > Controladoria > Demonstrativos Resultados.
+Quando selecionado ele apresentará as informações para vinculo das contas Resultados.
+Grupo Uso da Conta
+Somente uma empresa
+ - indica se esta conta poderá ser movimentada somente por uma empresa específica, neste caso deverá ser informada qual a E
+mpresa
+. A partir daí, o acesso passa a ser filtrado de acordo com a empresa. 
+Para mais informações, ver 
+Acesso Restrito
+ e 
+Perfil para grupos de usuários
+Somente um Grupo Empresa
+ - indica se esta conta poderá ser movimentada somente por um grupo de empresas, neste caso deverá ser informado qual o 
+grupo empresa
+. E o seu acesso passa a ser filtrado de acordo com o grupo de empresa. 
+Para mais informações, ver 
+Acesso Restrito
+ e 
+Perfil para grupos de usuários
+Vincula c/ Contabilidade Real?
+ - esta opção só estará visível para empresas que estejam utilizando o módulo contábil. Indica se esta conta gerencial deverá ter um vínculo com uma conta contábil.
+Pagamento Eletrônico
+ID/Convênio Pagamento Fornecedores:
+ Informar o código fornecido pelo Banco. Tal informação será enviada no arquivo de Remessa.
+Permite Processamento Automático:
+ Caso a empresa deseje trabalhar com o 
+Serviço Pagamento Eletrônico
+, é preciso habilitar este perfil.
+ID/Convênio Pagamento Tributos
+: Informar o código fornecido pelo Banco. Tal informação será enviada no arquivo de Remessa.
+Permite Processamento Automático:
+ Caso a empresa deseje trabalhar com o 
+Serviço Pagamento Eletrônico
+, é preciso habilitar este perfil.
+Para pagamentos Multipag do Banco Itaú os campos de 
+ID/Convênio Pagamento Fornecedores
+ e 
+ID/Convênio Pagamento Tributos
+ devem ser preenchidos com o numero do CNPJ da Empresa sem pontos ou aspas.
+Para Saber Mais
+Importante: Existe o recurso de transferências de movimentação entre contas, possibilitando ao usuário efetuar a transferência em mais de uma conta, e se quiser excluir a conta errada após a transferência.
+Para mais informações, ver 
+Transferências das Movimentações de Contas
+ 
+Conta Mapeamento Orçamento
+ - este campo é utilizado pelo módulo de 
+Previsão Orçamentária
+ e 
+Fluxo de Caixa
+ para 
+mapeamento das contas
+ no processo de consolidação do realizado. Através deste campo, os valores movimentados em determinada conta, serão consolidados, ou seja, transferidos para a conta mapeada.
+Há algumas regras para o mapeamento:
+Conta resumo só poderá ser mapeada para outra conta resumo e o mesmo para contas analíticas.
+Uma conta de entidade só poderá ser mapeada para conta de entidade somente se for ela mesma.
+Conta de entidade não poderá ser selecionada pela tela de pesquisa, como só pode ser a própria conta, neste caso, o código deverá ser digitado.
+Finalizado o preenchimento dos campos citados acima, acione o botão 
+OK
+ para efetivar a inclusão da nova conta contábil.

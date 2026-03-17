@@ -1,0 +1,82 @@
+TITULO: Campos de condutores de dados vinculados
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892890826
+--------------------------------------------------
+Quando temos uma estrutura Mestre-Detalhe, temos duas formas de selecionar os dados no Gerenciador de Relatórios:
+
+
+
+
+Relacionar as duas tabelas num único condutor de dados
+
+Essa opção é a mais utilizada. Imaginemos exibir dados de Notas Fiscais e Itens das Notas Fiscais. Bastaria selecionar a tabela NotaFiscal, em seguida a tabela ItensNF e indicar os campos de relacionamento (CodEmpresa e Sequencial).
+
+Ainda no condutor de dados ordenaríamos pela chave da tabela Mestre (no nosso exemplo NotaFiscal.CodEmpresa e NotaFiscal.Sequencial).
+
+Já no desenho do relatório criaríamos um Grupo pelos campos da tabela Mestre. Nessa estrutura, teríamos:
+	
+
+
+No cabeçalho de grupo: Dados da Nota Fiscal
+
+
+No detalhe: Dados dos Itens da Nota Fiscal
+
+Não esqueça, o agrupamento indicado no desenho do relatório deve ser sempre compatível com a ordenação do condutor de dados.
+
+Essa estrutura é simples e muito utilizada, porém em casos em que o detalhe pode ou não existir, mas se existir é necessário ter um filtro específico, fica complicado utilizar essa estrutura.
+
+Vejamos uma situação onde queremos que apresente as Notas Fiscais sem dados dos itens ou com dados dos itens de Álcool Hidratado. Nessa situação, iremos para a segunda forma de selecionar os dados.
+
+
+
+
+
+
+Ter dois condutores de dados, um linkado a outro
+
+Nesta situação, um condutor de dados seria o de Nota Fiscal (select na tabela NotaFiscal). O outro condutor de dados seria o dos itens da Nota Fiscal (select na tabela ItensNF), onde nele seria indicado o filtro para o produto Álcool Hidratado.
+
+Agora o que falta é fazer o link entre os dois condutores de dados. Esta é a parte mais importante:
+
+Para linkar dois condutores de dados, ambos condutores devem ter a mesma ordenação de dados e consequentemente os mesmos campos para vínculo.
+
+Neste exemplo: NotaFiscal e ItensNF
+	
+
+
+Condutor NotaFiscal: deve ter os campos CodEmpresa e Sequencial selecionados (aba Campos) e ser ordenado por NotaFiscal.CodEmpresa e NotaFiscal.Sequencial.
+
+
+Condutor ItensNF: deve ter os campos CodEmpresa e Sequencial selecionados (aba Campos) e ser ordenado por ItensNF.CodEmpresa e ItensNF.Sequencial.
+
+Depois, no condutor referente ao Detalhe, no caso ItensNF, fazemos o link entre os dois condutores, indicando os campos utilizados na ordenação.
+
+Caso queira utilizar mais campos na ordenação não há problemas, desde que os primeiros campos sejam aqueles responsáveis pelo vínculo. Neste caso, só utilize para vínculo (link) os primeiros campos destinados para esse fim.
+
+
+Não esqueça de escolher corretamente entre as duas opções:
+
+
+
+
+Mostra somente dados do Mestre que exista nos detalhes
+
+
+Mostra dados do Mestre independente de ter nos detalhes
+
+
+
+
+
+No nosso exemplo, seria a segunda opção, para mostrar notas sem itens de Álcool Hidratado.
+
+
+
+
+
+
+
+
+Ao ter condutores de dados vinculados, é necessário ter um objeto do tipo "DbText" relacionado ao condutor de Detalhe. Caso possua variáveis ou labels que nos eventos façam referência ao condutor de Detalhe, o dado não é apresentado corretamente. Nesta situação coloque um 
+DbText
+ nem que configure a propriedade Visible deste objeto para false.

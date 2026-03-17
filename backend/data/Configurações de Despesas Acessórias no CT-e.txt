@@ -1,0 +1,59 @@
+TITULO: Configurações de Despesas Acessórias no CT-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878900129
+--------------------------------------------------
+Para calcular a base de cálculo de ICMS no conhecimento de frete, existem algumas opções:
+Cálculo Normal:
+ considera como base de cálculo o valor total do frete.
+Cálculo considerando valor do Pedágio:
+ considera o valor do pedágio, cadastrado na tabela de 
+Distâncias
+ para somar ou subtrair da base de cálculo de ICMS.
+Cálculo considerando demais despesas:
+ considera valores informados manualmente para somar ou subtrair da base de cálculo.
+A configuração é feita em 
+Ferramenta / Sistema / Fretes
+:  
+ 
+Caso não haja nenhuma seleção, o sistema irá considerar como
+ 
+Cálculo Normal
+.
+Permite:
+ 
+quando selecionado, entende-se que o SisPetro irá considerar aquele item para o cálculo da base de cálculo de ICMS.
+Descrição:
+ n
+ome da despesa acessória a ser considerada.
+Indiferente:
+ 
+somente mostrará e armazenará o valor
+Soma:
+ 
+acrescentará a despesa ao valor do frete para cálculo da base de cálculo de ICMS.
+Diminui
+: diminuirá a despesa ao valor do frete para cálculo da base de cálculo de ICMS.
+Fonte:
+ d
+efinição de onde o SisPetro buscará o valor a ser somado ou diminuído (considerada somente para o primeiro item, sendo que os demais itens deverão ser informados manualmente).
+Manual:
+ v
+alor será informado manualmente na emissão do conhecimento de frete.
+Pedágio informado na tela de Distância:
+ b
+usca os valores da
+ 
+Tabela de Distâncias
+ 
+para fazer o cálculo da base de cálculo (válido somente para o primeiro item). Neste caso não será possível alterar este item no momento da emissão do conhecimento de frete.
+A inclusão dos valores deverá ser feita na emissão do conhecimento de frete (campo Despesas Acessórias), sendo que nesta tela também pode ser incluído o valor da base de cálculo manualmente (campo Base ICMS Frete).
+Ao clicar no botão 
+Desp. Acess.
+, abrirá a seguinte tela:
+Clicando no botão Calcula, será feito o seguinte cálculo:
+O valor do frete é R$ 240,00. Como há uma uma despesa de pedágio de R$ 20,00 (configurado para diminuir) e outra despesa manual (configurada para somar), o valor da base de cálculo de ICMS é de R$ 250,00 (240 - 20 + 30).
+Ao clicar em 
+OK
+, o SisPetro utilizará este valor (Base de ICMS) para o cálculo do ICMS
+Para mais informações, ver 
+Como emitir um Conhecimento de Frete
+.

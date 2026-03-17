@@ -1,0 +1,85 @@
+TITULO: Vínculo de bombeio com nota fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701857
+--------------------------------------------------
+Quando as Notas Fiscais com os produtos envolvidos no bombeio chegarem, é preciso digitá-las para que haja uma correspondência entre as confirmações de bombeio e as Notas Fiscais que são o amparo legal para estas movimentações de estoque.
+O bombeio poderá ter mais de uma Nota Fiscal associado a ele e também uma Nota Fiscal associada a vários bombeios, desde que os bombeios estejam vinculados ao mesmo PMM ou então não tenham vínculos com PMM.
+Assim, configure a 
+Natureza de Operação
+ como 
+Bombeio
+ e para 
+Movimentar Estoque Fechado
+ (caso já haja fechamento de estoque quando se receber a nota) e proceda a inclusão da Nota conforme tópico 
+Processo de Recebimento
+.
+A partir da versão 9.30, é possível vincular notas com mais de 1 produto desde que seja o mesmo produto, pois notas de Bombeio requerem essa característica para permitir um vínculo correto.
+Regras para vincular
+ 
+NF de Base própria com Bombeio Físico
+NF de Base não própria com Bombeio Escritural
+Após a entrada da Nota Fiscal será questionado se deseja Associar ao Bombeio. Caso responda <SIM>, o Sistema abrirá a tela abaixo para que selecione o bombeio a ser associado.
+Tela de vínculo da nota fiscal com bombeio físico
+Tela de vínculo de nota fiscal com bombeio escritural
+A tela de vínculo é a mesma tanto para vincular com bombeio físico como vincular com bombeio escritural. As diferenças são algumas informações que são apresentadas: campo Tipo de Bombeio (físico ou escritural - identificado automaticamente pelo SisPetro), campo Seq. Carregto (bombeio físico), campo Seq. Bombeio (bombeio escritural) e dados no quadro Bombeio Físico.
+Os dados dos bombeios apresentados na parte superior da tela dependem da configuração da empresa (se controla ou não o bombeio físico), apresentando os dados do 
+Pedido de Bombeio Confirmado
+ quando a empresa não controla bombeio físico ou os dados da 
+Distribuição de Bombeio
+ quando a empresa faz o controle do bombeio físico. Caso haja o controle de PMM (Pedido de Movimentação de Material) o número do mesmo será apresentado junto aos dados.
+Ao abrir a tela 
+Associa Nota Fiscal com Bombeio
+, o Sispetro selecionará o primeiro Bombeio disponível. Caso o Bombeio selecionado não seja o desejado, basta clicar sobre outro bombeio no quadro
+ Bombeios Disponíveis
+ e o Bombeio selecionado será alterado, a substituição do Bombeio selecionado se dá clicando nos Bombeios disponíveis.
+O Sispetro permite a seleção/Inclusão de mais de um Bombeio para uma Nota Fiscal.
+Os bombeios selecionados/incluídos serão apresentados no quadro 
+Bombeios Selecionados
+. Em caso de mais de um Bombeio para uma Nota Fiscal, ao incluir o primeiro Bombeio este será marcado como último Bombeio. Ao incluir o segundo Bombeio, o primeiro (já selecionado anteriormente) terá a opção Último Bombeio desmarcada e o novo Bombeio terá esta marcação.
+Será possível, incluir ou Excluir Bombeios através dos Botões 
+ 
+, entretanto se faz necessário que dentre os bombeios selecionados, exista um dos bombeios com a marcação do último Bombeio selecionado.
+Caso ao excluir algum dos Bombeios, o Bombeio que permaneça no quadro Bombeios Selecionados não tenha a marcação de último Bombeio, o Sispetro não permitirá a conclusão da Associação, neste caso se faz necessário que selecione novamente de um novo Bombeio de forma a corrigir a informação e eliminar aquele que não possui a marcação de último Bombeio.
+A seleção/inclusão de mais Bombeio(s) está condicionada a quantidade Total do(s) Bombeio(s) selecionado(s) e da Nota Fiscal.
+Será possível incluir novo(s) Bombeio(s) até que seja atingida a quantidade total da Nota Fiscal. Assim que a quantidade total do(s) Bombeio(s) selecionado(s) atingir a quantidade da Nota Fiscal, o botão Incluir ficará desabilitado.
+Confirme as seguintes informações:
+Quantidade Confirmada (a ambiente e 20 graus)
+: Estas quantidades são as quantidades restantes de cada bombeio a ser amarradas a esta Nota Fiscal. Normalmente, estas quantidades são as quantidades do bombeio físico correspondente a Nota Fiscal. Porém, caso a Nota Fiscal não seja a primeira Nota Fiscal do Bombeio (no caso de haver duas ou mais Notas Fiscais para o mesmo bombeio), esta quantidade será o saldo restante do bombeio físico.
+Quantidade NF ( temperatura ambiente )
+: O Sistema, para converter a quantidade da Nota Fiscal (que está a 20 graus) para temperatura ambiente, obtém as temperaturas e consequente fator de conversão, do bombeio físico. Porém, o fornecedor pode ter um fator de conversão diferente (arredondamento de casas decimais). Assim, como ele informa também a quantidade a temperatura ambiente de cada bombeio a ser faturado, o usuário pode informar esta quantidade neste campo.
+Última NF Bombeio
+: Habilite este campo caso esta seja a última Nota Fiscal do Bombeio (no caso de haver somente uma por bombeio ou esta for a última deste bombeio).
+Os dados de 
+Medição Duto
+ e 
+Medição Tanque
+ só estarão habilitados para edição se a empresa controlar bombeio físico.
+Aperte o botão 
+OK
+ para confirmar a amarração.
+O Sistema irá cancelar a quantidade escritural gerada na Confirmação do bombeio ou Distribuição e configurará essa Nota para Movimentar estoque.
+Se havia vínculo com PMM, essa nota atualizará no PMM a quantidade separada (diminuindo-a) e a quantidade faturada (aumentando-a).
+Ao incluir a Nota, caso tenha respondido <
+NÃO
+> ao questionamento para Associar a Nota ao Bombeio, é possível fazer essa associação depois, da seguinte forma: localize a nota na 
+manutenção de Notas Fiscais
+ (
+Movimentação / Faturamento / Manutenção Notas Fiscais
+).
+Note que as notas fiscais de Bombeio estão em cor azul.
+Após selecioná-la, aperte o botão 
+ .Será apresentada a mesma tela citada no início deste tópico.
+Para 
+cancelar
+ um vínculo já feito, utilize o botão 
+A partir da versão 8.7, não será mais necessário informar uma Transportadora e um Frota no Sispetro para as notas fiscais de Bombeio. Para isso, basta configurar a Natureza de Operação em questão para trabalhar Sem Transportes no campo Via Transporte (DCP/ Sintegra). Veja maiores informações no tópico 
+.
+Na 
+Manutenção de Notas Fiscais
+ há um painel 
+Bombeios
+ para apresentar os bombeios vinculados à nota.
+Na 
+Manutenção de Bombeios
+ há um painel 
+Notas Fiscais
+ para apresentar as notas vinculadas ao bombeio.

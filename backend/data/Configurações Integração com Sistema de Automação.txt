@@ -1,0 +1,65 @@
+TITULO: Configurações Integração com Sistema de Automação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2968388295
+--------------------------------------------------
+Configurações de Usuário
+Para que o usuário tenha acesso á opção de integração com sistemas de automação na portaria de entrada/saída deve-se marcar o perfil 
+'Faz Portaria Entrada/Saída'
+ , que fica no
+ menu Ferramentas / Usuários / aba Perfil / aba Carregamento.
+Para que o usuário consiga realizar alterações no quadro de Automação de Base no cadastro de Produtos é necessário marcar o perfil 
+Pode alterar dados Automação base, 
+que fica no menu Ferramentas / Usuários / aba Perfil / aba Produto.
+Configurações de Sistema
+Na 
+configuração de Sistema
+ deve-se configurar o tipo de automação para utilizar a Troca de Arquivo
+, 
+que fica no menu Ferramentas / Sistema / aba Ordem Carregto / perfil Tipo de Automação.
+O perfil informado acima, semente será considerado caso o 
+Tipo de Automação
+ no Depósito esteja com a opção 
+Respeita Perfil de Empresa 
+selecionado. Caso a empresa trabalhe com mais de um Sistema de Automação de 
+Base, 
+deverá utilizar o perfil de 
+Depósito 
+para tratar cada base com sua sua automação.
+Configurações de Depósito
+No Depósito deve-se informar uma das opções abaixo do perfil 
+Tipo de Automação 
+em 
+Depósitos / aba Dados Adicionais / campo Tipo Automação.
+Troca de Arquivos: 
+utilizado quando a empresa trabalha com mais de uma automação, deverá utilizar esta opção para tratar cada base com sua automação. 
+Respeita Perfil de Empresa
+: 
+utilizado caso a automação seja única para as bases.
+No
+ 
+quadro
+ Integração via Arquivo 
+o usuário deve informar os caminhos das pastas que irão ser utilizados na troca de arquivos entre o SisPetro e os Sistemas de Automação, para isso basta ir em Arquivos / Depósitos / aba Dados Adicionais / Quadro Integração via Arquivo, veja mais em  
+Depósitos - Aba Dados Adicionais
+.
+Configurações no Produto
+No 
+Cadastro de Produtos
+ deve-se informar um Código de automação, o código deve ser do Sistema de Automação, para configurar basta ir na aba 
+Detalhes/Composição / grupo Automação Base
+ 
+/ campo Código da Automação. 
+Para que o usuário consiga realizar as alterações no quadro acima o mesmo deve ter permissão, para isso o usuário deve ir nos perfis de usuário, aba Produto e marcar o perfil 
+Pode alterar dados Automação base.
+Observação adicional – Verificação na aba de Produto do Depósito
+Além das configurações mencionadas acima, é importante verificar também a configuração existente na 
+aba Produto
+ da tela de 
+Depósito
+.
+Certifique-se de que o produto esteja 
+marcado para fazer automação
+, pois essa opção influencia diretamente no funcionamento do botão de integração com o sistema de automação.
+ 
+Caso o campo 
+“Faz Automação”
+ (ou equivalente) não esteja selecionado, o sistema não realizará a comunicação automática com o sistema de base, mesmo que as demais configurações de usuário, sistema e depósito estejam corretas.

@@ -1,0 +1,203 @@
+TITULO: Manutenção de Nota Fiscal
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440363
+--------------------------------------------------
+none
+Objetivo
+Esta é a tela de consulta das Notas Fiscais do SisPetro. Os dados serão apresentados de acordo com o intervalo de dias apresentado no grupo 
+Período para exibição de dados.
+Para abrir a tela Manutenção de Nota Fiscal, acesse através do menu 
+Movimentação / Faturamento / Manutenção NFs
+Nesta tela é permitido modificar a ordem das colunas, de forma que facilite a visualização de determinadas informações. Porém, para que essa modificação permaneça é necessário sair do SisPetro.
+Pesquisa pelo Campo: 
+basta clicar no campo no qual deseja realizar pesquisa, e digitar o conteúdo neste campo conforme imagem abaixo. 
+Filtros:
+Tipo de Nota Fiscal:
+ filtro por tipo de nota fiscal, podendo ser:
+NF-e
+Entrada
+Saída
+CT-e
+Entrada
+Saída
+Quadro Período para exibição de dados:
+Esse intervalo é sugerido automaticamente quando o usuário entra na tela e trabalha com o campo Data NF. Para alterar o padrão sugerido conforme a necessidade da empresa ou do usuário, deve-se configurar no perfil da empresa, 
+menu Ferramentas > Sistema > Nota Fiscal
+, através do box 
+Período para Exibição de Dados na Manutenção de Notas Fiscais. Para mais informações, ver 
+Painel Nota Fiscal
+. 
+A vantagem dessa configuração, é a possibilidade do usuário poder escolher um período para a apresentação das notas fiscais na tela, o que facilitará a consulta e deixará, dependendo do período configurado, a tela com menos registros, agilizando o trabalho.
+Visualiza NF Canceladas?:
+ permite visualizar as notas fiscais que estejam com status canceladas, caso este perfil esteja desmarcado as notas canceladas não serão exibidas.
+Visualiza somente NF fora do Estado?
+: permite filtrar somente as notas fiscais fora do estado.
+As Notas Fiscais serão mostradas na tela de acordo com o perfil de Grupo de Usuários utilizado. Para mais informações, ver 
+Visualização de Movimentação por Grupo de Usuários
+.
+Botões
+Visualiza:
+ permite visualizar os dados da nota fiscal selecionada pelo usuário.
+Inclui:
+ permite a inclusão de um conhecimento de frete, disponível apenas para empresas do tipo Transportadora ou Conjugadas. Para mais informações, ver 
+Emitindo um Conhecimento de Transporte CT-e
+.
+Vincular Bombeio:
+ faz o vínculo de um bombeio a uma nota fiscal que esteja cadastrada no SisPetro. Para mais informações, ver 
+Pedido de Bombeio
+Desvincular Bombeio:
+ desfaz o vínculo de um bombeio a uma nota fiscal que esteja cadastrada no SisPetro. Para mais informações, ver 
+Pedido de Bombeio
+Exclui:
+ permite excluir uma nota fiscal, desde que o usuário tenha o perfil 
+Permite exclusão de NFs canceladas 
+selecionado menu Ferramentas > Usuário > Faturamento Para mais informações, ver 
+Painel Faturamento (Usuários)
+.
+Importante:
+ para excluir uma nota fiscal, esta deverá estar cancelada, sem autorização da Sefaz (para as de notas fiscais eletrônicas) ou não tenha nenhum bem movimentado na manutenção de patrimônio vinculado a ela (Depreciação, Baixa, Efetivação). Para mais informações, ver 
+Como cancelar uma Nota Fiscal
+.
+Cancela:
+ cancela a nota fiscal selecionada pelo usuário, desde que a nota fiscal não esteja vinculada a uma Ordem de Carregamento. Caso a nota fiscal esteja vinculada a uma OC, deve-se primeiramente cancelar a Ordem de Carregamento. Para mais informações, ver 
+Como cancelar uma Nota Fiscal
+.
+Cobrança:
+ imprime a cobrança (boleto, por exemplo) vinculada a nota fiscal. Para mais informações, ver 
+Imprimindo Cobrança
+. Caso a empresa esteja configurada pra trabalhar com 
+Transferência de títulos a Receber entre Empresas
+ o SisPetro vai emitir o boleto da empresa que foi direcionada o título. Para mais informações, ver 
+Transferência de títulos a Receber entre Empresas
+Imprime:
+ imprime a nota fiscal selecionada. Para mais informações, ver 
+Imprimindo Notas Fiscais pela Manutenção de Notas Fiscais
+Impressão:
+ permite visualizar a impressão antes de encaminhar para a impressora.
+Rec.Custo:
+ permite recalcular o custo para as notas fiscais de vendas, conforme a nota fiscal posicionada. Caso queira recalcular custo para mais de uma nota fiscal utilize a tela 
+Recálculo de Custo de Nota Fiscal
+.
+NF-e:
+ acesso para a tela de 
+Manutenção de NF-e/CT-e Pendente
+, onde as pendências de nota fiscal eletrônica ficam disponíveis para ajuste do usuário. Para acessar essa tela é necessário ter o perfil de usuário 
+Acesso à tela de Manutenção de NFe
+ marcado. Para mais informações, ver 
+Painel Segurança (Usuários)
+.
+Evento Frota:
+ permite ao usuário relacionar as despesas do frota com a nota fiscal selecionada. Necessário ter a Natureza de Operação configurada para relacionar a nota fiscal com a despesa do Frota.  Para mais informações, ver 
+Vínculo das despesas com Frota e a Nota Fiscal
+ e 
+https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440530/Manuten+o+de+Eventos+Frota?force_transition=1228f378-8084-49ad-ad14-185661c5cf69
+ 
+Dados MDF-e:
+ acionando esse botão, será possível realizar a alteração de dados do Conhecimento de Frete utilizados no MDF-e. Esse botão só ficará habilitado para alteração de Notas do tipo CT-e, e só será possível alterar os dados caso o conhecimento 
+não 
+esteja cancelado e 
+não 
+tenha nenhum MDF-e para o mesmo. Para mais informações, ver 
+Emitindo um Conhecimento de Transporte CT-e
+Inclui Carta:
+ possibilita ao usuário incluir uma carta de correção, caso haja algum erro nos dados informados na nota fiscal. Este botão só será habilitado para notas fiscais de saída.  Para mais informações, ver 
+Carta de Correção Eletrônica
+.
+Carta:
+ imprime a carta de correção vinculada a nota fiscal selecionada. Verifique os itens inclusos através do Painel Diversos > Item Carta de Correção.  Para mais informações, ver 
+Abas da Manutenção de Notas Fiscais
+Muda Transp.:
+ muda transportadora da nota fiscal selecionada pelo usuário.  Para mais informações, ver 
+Mudança da Transportadora
+Atualiza:
+ ao clicar neste botão a tela será atualizada, trazendo as informações em tempo real ou de acordo com os novos filtros selecionados.
+Filtra:
+ através da tela que é aberta por este botão, o usuário pode optar pela exibição de apenas determinados dados na tela. Por exemplo, notas de um determinado intervalo.
+ 
+Na tela acima, foi selecionado o campo 
+Data NF
+ e preenchido os campos 
+Intervalo Inicial
+ e 
+Intervalo Final
+ com um determinado período. Ao clicar no botão 
+OK
+, o SisPetro mostrará na tela de manutenção de nota fiscal, apenas as notas cuja data fazem parte desse intervalo.
+Sincroniza:
+ este botão deve ser utilizado em determinadas situações, como, por exemplo, a Sefaz retornou o erro de Duplicidade de NF-e ou NF-e já está cancelada na base de dados da Sefaz, entre outras. Para mais informações, ver 
+Sincroniza Informações com a Sefaz
+.
+Para enviar e-mail com XML e DANFE/DACTE em casos de sincronização, selecione a opção do quadro Na sincronização de Nf-e/CT-e a opção 
+Envia e-mail com XML e DANFE/DACTE na Sincronização
+ e o SisPetro enviará e-mail, conforme regras padrões para obtenção de protocolo.
+Docto PG:
+ permite que seja impresso o documento de autorização de pagamento dos títulos a pagar. Ao selecionar uma Nota Fiscal e clicar nesse botão, todos os títulos a pagar vinculados a Nota Fiscal serão impressos. Além da Impressão também será possível a impressão dos títulos em arquivo um único arquivo.
+Documento associado:
+ imprime o documento vinculado a nota fiscal. Para mais informações, ver 
+Documento Associado
+Sai:
+ fecha a tela de manutenção de Nota Fiscal e retorna ao menu Principal do SisPetro.
+Layout Padrão: 
+volta o layout padrão do SisPetro.
+Legenda:
+ informar ao usuário o significado das cores dos registros apresentados na tela
+Cancelada:
+ serão apresentadas em 
+vermelho
+ todas as notas que foram canceladas. Para mais informações, ver 
+Como cancelar uma Nota Fiscal
+.
+Pendente de envio de carta de correção: 
+serão apresentadas em 
+cor da fonte roxo
+ todas as notas com o envio da carta de correção pendente a Sefaz. 
+Importada:
+ serão apresentadas com a 
+cor da fonte verde
+ todas as notas cuja entrada da nota foi realizada via importação de XML. Para mais informações, ver 
+Importação Manual de Notas Fiscais
+Bombeio:
+ serão apresentados em 
+azul
+ todas as notas de bombeio. Para mais informações, ver 
+Bombeio Físico
+Bombeio Vinculado/conhecimentos sem Averbação:
+ serão apresentados em 
+negrito 
+todos os 
+Conhecimentos de Frete(CT-e)
+ cujo campo averbação não esteja informado ou as notas com bombeio Vinculado.
+Com Carta de Correção:
+ serão apresentadas em 
+itálico 
+todas as notas com carta de correção. Para mais informações, ver 
+Carta de Correção Eletrônica
+.
+Documento Associado/Possui evento de Frota Vinculado: 
+serão apresentadas 
+sublinhadas
+ as notas que possuem documento associado e / ou evento de frota vinculado. 
+Pendente solicitação de Cancelamento/Inutilização de NF:
+ serão apresentadas em 
+verde-escuro
+ todas as notas que estejam pendentes de solicitação de Cancelamento ou inutilização. Para mais informações, ver 
+Cancelamento-Inutilização da Nota
+.
+Pendente cancelamento no SisPetro:
+ serão apresentadas em 
+amarelo
+ todas as notas cujo status esteja pendente de cancelamento no SisPetro.
+Pendente solic. do protocolo/manutenção de NF-e/CT-e:
+ serão apresentadas em 
+azul-claro
+ todas as notas pendente de solicitação do protocolo/manifestação.
+Pendente solicitação de recibo de NF-e/NFS-e/CT-e:
+ serão apresentadas em 
+cinza 
+notas pendentes de solicitação de recibo.
+NF-e/CT-e Denegada:
+ serão apresentadas em 
+verde-claro
+ todas as notas com status denegado. 
+Na tela de manutenção de Nota fiscal, é possível pesquisar outras informações que estão vinculadas a nota fiscal selecionada pelo usuário. Para isso basta selecionar uma nota fiscal e acessar o painel desejado. Os painéis estão classificados por área, e em cada um deles haverá outros painéis divididos por assunto. Para mais informações, ver 
+Abas da Manutenção de Notas Fiscais
+.

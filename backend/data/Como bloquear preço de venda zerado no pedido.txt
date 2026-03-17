@@ -1,0 +1,13 @@
+TITULO: Como bloquear preço de venda zerado no pedido
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2958688868
+--------------------------------------------------
+O objetivo dessa pagina é mostrar como configurar o sistema para bloquear a inclusão do pedido com valor dos itens zerado, segue abaixo os perfis a serem utilizados para o bloqueio.
+Perfil de Sistema → Bloqueia Pedido caso preço fora intervalo tabela:
+ Esse perfil ira bloquear caso o valor do preço estiver fora do intervalo cadastrado na tabela de preço.
+Perfil da Tabela de Preço → Bloqueia preço não encontrado:
+ Marcando esse perfil será bloqueado a inclusão dos pedidos sem preço cadastrado.
+Em resumo marcando esses 2 perfis, só será possível incluir um pedido de venda onde o produto tenha seu preço cadastrado na tabela de preço, e seu valor esteja dentro do intervalo do preço mínimo e máximo informado na tabela de preço.
+Observação: 
+É importante que o produto 
+não
+ esteja com valor de preço mínimo da tabela de preço igual a zero.

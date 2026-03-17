@@ -1,0 +1,88 @@
+TITULO: Manutenção de NF-e/CT-e/NFS-e Pendente
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2879390002
+--------------------------------------------------
+A tela de Manutenção de Nota Fiscal Eletrônica possui recursos que possibilita ao usuário enviar uma ou mais solicitação à Sefaz. A principal função desta tela é permitir que se verifique a situação do processo das Notas Fiscais, acionando, inclusive, procedimentos 
+Pendentes
+ por um tempo demasiado.
+Esta tela é a mesma para NF-e e CT-e, então dependendo do ramo seu nome é alterado.
+Esta tela poderá ser acessada via menu 
+Movimentação > Faturamento > Nota Fiscal Eletrônica/Conhecimento de Frete eletrônico > Manutenção de NF-e/CT-e/NFS-e Pendentes.
+A tela também pode ser acessada via Manutenção de NFs, através do botão 
+NF-e. 
+Para mais informações, ver 
+Manutenção de Nota Fiscal
+.
+Funcionalidades dos Botões
+Processa:
+ 
+Serão processados os registros selecionados na tela para solicitação conforme comando 
+recibo, protocolo, inutilização, cancelamento ou carta de correção
+. Além disso, ao clicar no botão o SisPetro informará via mensagem quando estiver no ambiente de homologação.
+Sincroniza:
+ 
+Consulta a nota marcada na tela na base da Sefaz e atualiza o status atual da nota. Somente será atualizado se a nota estiver autorizada, cancelada ou denegada na Sefaz. Este botão deve ser utilizado em determinadas situações, como por exemplo, a nota retornou erro de 
+Duplicidade de NF-e
+, 
+NF-e já está cancelada na base de dados da SEFAZ
+, entre outros. Para mais informações, ver 
+Sincroniza Informações com a Sefaz
+. Além disso, ao clicar no botão, o SisPetro informará via mensagem quando estiver no ambiente de homologação.
+Layout Default:
+ 
+Retorna o layout padrão da tela.
+Sair:
+ 
+Sair da tela.
+A utilização da tela poderá ser feita através dos campos disponíveis para filtro. Vejamos:
+Empresa: 
+por padrão o SisPetro já informa a empresa que está conectado.
+Ambiente:
+ filtra as notas que foram emitidas de acordo com o ambiente informado. 
+Tipo de Serviço: 
+perfil refere-se a empresas que podem emitir NF-e e CT-e, para que a consulta seja do serviço correto. Para mais informações, ver 
+Empresas que emitem NF-e e CT-e
+Todas Notas Fiscais com Pendências:
+ filtra todas as notas que estão com comandos pendentes, seja de Recibo, Protocolo, Cancelamento ou Inutilização. 
+Envia e-mail com XML e DANFE/DACTE na Sincronização:
+ Ao executar a sincronização, se a opção estiver selecionada, o SisPetro enviará e-mail com o XML e Danfe/Dacte, conforme regras padrões para obtenção de protocolo.
+Quadro Selecionar o Tipo de Pendência: 
+filtra as notas com a situação escolhida para cada comando. As opções são:
+Pendente Recibo:
+ lista todas as notas fiscais que estão com comando de Recibo pendente.
+Pendente Protocolo: 
+lista todas as notas fiscais que estão com comando de Protocolo pendente;
+Pendente Cancelamento: 
+lista todas as notas fiscais que estão com comando de Cancelamento pendente;
+Pendente Inutilização:  
+lista todas as notas fiscais que estão com comando de Inutilização pendente;
+Pendente Carta de Correção: 
+lista todas as notas fiscais que estão com comando de Carta Correção pendente;
+Período:
+ informar a data inicial e data final em que as notas foram emitidas. O campo período é habilitado se a opção do status for diferente de 
+Pendentes
+.
+Para exibir os dados com ou sem os filtros informados na tela, clicar no botão 
+Atualiza
+.
+As notas fiscais poderão ser visualizadas conforme imagem abaixo:
+Para processar as notas, primeiro selecione-as na tela ou clique no botão 
+Marca/Desmarca
+.
+Somente serão selecionadas as notas cujo status estão como 
+não solicitadas
+. Logo em seguida, clique no botão 
+Processa
+.
+Após clicar no botão 
+Processa
+, será apresentada a tela de 
+Indicação de Mensagem em Processamento
+, para o aguardo do processamento:
+Poderá enviar as notas com comandos diferentes ao mesmo tempo para processamento, mas a execução dos comandos serão feitos um por um.
+Por exemplo, foram selecionadas notas com comando para recibo, protocolo, inutilização e cancelamento, então, primeiro serão processadas as de recibo, apresentando a tela acima para aguardar e após processado o comando de recibo.
+Nesta mesma tela, será apresentado a informação de resposta do Servidor Hermes e deverá sair dessa tela.
+Após processada, apresentará na tela o retorno com a resposta do Servidor Hermes, será processado o comando de protocolo. Após processado o de protocolo, serão processadas as de inutilização e cancelamento, uma nota de cada vez.
+O SisPetro poderá emitir mensagens informando ao usuário que existem notas fiscais eletrônicas pendentes, podendo até bloquear.  Para mais informações, ver 
+Mensagens de Alerta para NF-e Pendente
+.
+Caso tenha alguma nota cujo evento seja diferenciado, ela deve ser processada numa outra execução (desmarque a nota antes de processar e depois processe novamente aí sim trocando o evento), isso porque será um evento só para todas as NFs apresentadas para processamento.

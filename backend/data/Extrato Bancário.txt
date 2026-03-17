@@ -1,0 +1,82 @@
+TITULO: Extrato Bancário
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898905
+--------------------------------------------------
+O Relatório de Extrato Bancário apresenta os movimentos realizados para cada conta bancária no período especificado, com apresentação de saldo inicial e final.
+Este relatório é útil para simulação/conferência do Fechamento Financeiro - Versão 2.0. Além disso, permite uma análise dos pagamentos e recebimentos da empresa num período, com valores agrupados inclusive em contas sintéticas, na estrutura do plano de contas gerencial da empresa.
+ATENÇÃO: O filtro de filiais/grupo filiais ou Conglomerado é utilizado para permitir ou não a impressão do movimento da conta como um todo, isto é, ou o movimento da conta é impresso na sua totalidade - respeitando os demais filtros de data, etc - ou ele não é impresso. Para que o filtro funcione, a conta deve estar configurada para restringir a sua movimentação para uma determinada filial ou grupo de filiais, desde o inicio do movimento, caso ela tenha algum movimento de “n” empresas, mesmo após a restrição, ele irá exibir os movimentos em um todo.
+Ver tópico Acesso Restrito para o Plano de Contas.
+ Assim, por exemplo, se você escolher para imprimir o extrato filtrando os dados somente para a filial numero 1, o SisPetro irá emitir o relatório para todas as contas que estejam configuradas para movimento da filial 1 + todas as outras contas de banco que estejam configuradas para movimento de qualquer filial (ou seja, o padrão).
+O acesso a esse relatório é através do Menu 
+Relatórios / Financeiro / Extrato Bancário
+:
+Este relatório também pode ser acessado pela 
+Manutenção de Fechamento Financeiro
+. A tela deste relatório não é exibida, mas na tela do 
+Relatório de Transição
+ pode selecionar a ordenação desejada e o relatório apresenta a movimentação das contas bancárias realizada entre um fechamento e outro.
+Pode ser realizado filtros por:
+Unidade de Negócios:
+ onde pode ser selecionado uma Filial específica, um Grupo de Filiais, um Conglomerado ou mesmo todas as Filiais cadastradas. 
+ 
+ 
+Filial:
+ caso tenha sido selecionado 
+Filial (escolher)
+ em 
+Unidade de Negócios
+, será habilitado este campo onde pode ser informada ou selecionada uma filial. O relatório apresentará a posição dos saldos das contas relativas a esta filial.
+Caso o usuário não tenha acesso a filial escolhida, a geração do relatório não trará nenhum resultado
+ 
+Grupo de Filiais:
+ caso tenha sido selecionado 
+Grupo de Filiais (escolher)
+ em 
+Unidade de Negócios
+, será habilitado este campo onde pode ser informado ou selecionado um grupo de filiais. O relatório apresentará a posição dos saldos das contas relativas a este grupo de filiais.
+Conglomerado de Filiais:
+ caso tenha sido selecionado 
+Conglomerado de Filiais (escolher)
+ em 
+Unidade de Negócios
+, será habilitado este campo onde pode ser informado ou selecionado um conglomerado de filiais. O relatório apresentará a posição dos saldos das contas relativas a este conglomerado de filiais.
+Considera regra de fechamento financeiro:
+ se marcado esta opção, será considerado no relatório somente as empresas que não estejam configuradas como fechamento exclusivo.
+Filtra Conta:
+ se marcada esta opção, será habilitado o campo 
+Conta de Banco
+ para que seja selecionado uma determinada conta.
+Conta de Banco:
+ deve ser informada ou selecionada a Conta de Banco que deve ser filtrada. O relatório apresentará as movimentações relativas a esta Conta de Banco. 
+ 
+ 
+Filtra Conta Destino:
+ se marcada esta opção, será habilitado campo 
+Seleciona Contas
+ para que sejam selecionadas as contas destino. As contas selecionadas ficarão salvas por usuário. 
+ 
+ 
+Período:
+ deverá ser informado o período ao qual se deseja imprimir o relatório. 
+ 
+ 
+Tipo:
+ as opções são: 
+ 
+ 
+Agrupamento:
+ define o tipo de agrupamento que deseja ser apresentado no relatório. Se optar pelo Código Extendido, será apresentado as contas sintéticas e analíticas com saldo total. As opções de agrupamento são: 
+ 
+ 
+O relatório apresentará o saldo inicial do período, em seguida apresenta todos os recebimentos e pagamentos não cancelados no período. Dentro do grupo de recebimentos e pagamentos será então utilizado o agrupamento informado em tela. No caso do agrupamento pelo código extendido serão apresentadas as contas sintéticas com a soma dos valores das suas contas analíticas. Para melhor visualização neste tipo de agrupamento configure os códigos extendidos das contas de despesa e receita na 
+Manutenção do Plano de Contas
+.
+Como esse relatório é útil para conferência do extrato bancário, ao final são apresentados o total de recebimentos cancelados e pagamentos cancelados no período, de forma que o saldo final possa coincidir com o extrato bancário. Caso o total de recebimentos cancelados seja diferente do total de pagamentos cancelados é uma indicação de que os cancelamentos não foram feitos na data de origem do lançamento, o que geralmente deveria ser feito.
+Cancelamentos em datas diferentes da data de origem são responsáveis por boa parte das diferenças apresentadas na conferência do extrato e devem ser o foco inicial de pesquisa para solução do problema.
+Utilize o 
+Extrato Conta
+ para visualizar estes lançamentos.
+ O layout do relatório será gerado conforme o arquivo 
+ExtratoBancario.rtm
+ que estiver no caminho do executável. É possível editar o Layout do relatório através do botão 
+Edita Layout
+:

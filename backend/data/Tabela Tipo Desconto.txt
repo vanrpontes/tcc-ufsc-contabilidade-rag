@@ -1,0 +1,104 @@
+TITULO: Tabela Tipo Desconto
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210552
+--------------------------------------------------
+Objetivo
+Nesta tabela são cadastrados os descontos e acréscimos a serem utilizados na 
+Tabela Tipo de Documento
+.
+A tela que permite manipular esta tabela é acionada a partir do Menu 
+Tabelas Auxiliares / Controladoria / Tipo Desconto.
+Para acrescentar um novo tipo de desconto acione o botão incluir 
+para abrir a tela de inclusão de registro
+Campos a serem preenchidos
+Descrição
+: informe a descrição (nome) o desconto/acréscimo.
+Cálculo a efetuar
+: indica o que será feito
+Indiferente: 
+o valor é calculado sem influenciar no valor do lançamento
+Desconta Valor Calculado: 
+o valor apurado será descontado do Contas a Pagar ou Receber
+Acrescenta Valor Calculado: 
+o valor apurado será descontado do Contas a Pagar ou Receber
+Desconto SOMENTE no Financeiro: 
+o desconto ocorrer somente no financeiro, e não na Nota Fiscal. Normalmente é utilizado em vendas para 
+Orgão Público. 
+Para mais informações, ver 
+Retenções em venda de Órgão Público.
+Observação: quando selecionado o campo Débito para Desconto Somente no Financeiro será habilitado. 
+Tipo
+: pode ser
+Manual: 
+o usuário informa base de cálculo e desconto no momento do lançamento
+Tabela Progressiva:
+ há uma tabela progressiva para definir desconto de acordo com faixas. Para mais informações, ver 
+Tabela Progressiva
+. 
+Fórmula:
+ o usuário cadastra fórmula no tipo de documento indicando como deverá ser o cálculo da base de cálculo e do desconto.
+Tabela Progressiva
+: deverá ser indicada uma tabela a ser utilizada quando o tipo do desconto for 
+Tabela Progressiva
+. 
+Valores Acumulados Mês
+: quando o tipo for 
+Tabela Progressiva
+ é possível que para cálculo de descontos e apuração da base de cálculo sejam acumulados os valores do mês para aquela determinada entidade (cliente ou fornecedor) para um mesmo tipo de desconto. Para isso o sistema leva em consideração o mês/ano referente a data de emissão dos títulos desta entidade.
+Acumula por:
+ este perfil permitirá ao usuário definir se a retenção a ser acumulada será calculada considerando a data de vencimento ou a data de emissão.
+Calcular pela data de emissão do título ou nota fiscal:
+ o desconto acumulado será gerado conforme a data de emissão do título ou nota fiscal.
+Calcular pela data de vencimento do título ou a data do primeiro vencimento da nota:
+ o desconto acumulado será gerado conforme a data de vencimento do título ou se o cliente já possuir uma outra nota fiscal com vencimento para a mesma data de vencimento.
+Geração de Título de Desconto Automático
+: se informado, indica que será gerado automaticamente um título de contas a pagar oriundo de retenção, com o valor obtido desse desconto. Para mais informações, ver 
+Tabela Geração de Títulos de Desconto Automático
+.
+Cód. Receita DIRF:
+ nesse campo é informado o código de receita do DIRF.
+Caso o campo 
+Geração de Título de Desconto Automático 
+for preenchido, o SisPetro 
+Desconsidera 
+as informações do 
+Quadro Conta para Contabilização do Desconto / Acréscimo
+Quadro Conta para Contabilização do Desconto / Acréscimo
+Acompanha Lançamento de Débito/Crédito
+: esta opção define que o valor do desconto será contabilizado com as mesmas contas de débito/crédito informadas no lançamento. 
+Cabe lembrar que esta opção não pode ser configurada para crédito em contas a pagar ou para débitos em contas a receber, pois contabilizaria contas de entidade
+.
+A opção 
+Acompanha lançamento de Crédito
+ deve estar marcada quanto se tratar 
+Retenções em vendas para Órgão Público
+Conta para Contabilização de Descontos
+: indica a conta para contabilizar os descontos/acréscimos que são calculados sobre títulos do contas a pagar/receber (financeiro) e das Notas Fiscais (faturamento). Para poder informar as contas deve-se habilitar no perfil da empresa, Menu Ferramentas / painel Contas Contábeis, as opções 
+Contabiliza desconto no Financeiro
+ e 
+Contabiliza desconto no Faturamento
+. Após incluir um tipo de desconto com as contas preenchidas para desconto/acréscimo, deve-se vincular esse tipo de desconto ao tipo de documento. Para mais informações, ver 
+Tabela Tipo de Documento
+.
+Conta Débito para Desconto Somente no Financeiro: 
+indica a conta para contabilizar os descontos que são calculados sobre títulos do receber. Esse campo só é habilitado somente quando a opção 
+Cálculo a efetuar
+ estiver como 
+Desconto Somente no Financeiro. 
+Envio de Retenção: 
+na emissão de Nota Fiscal de Serviço leiaute GINFES, caso o desconto seja retenção de ISS pode-se optar por: 
+Não enviar: 
+o valor é descontado do total da nota, porém não é enviado na tag 
+ValorIssRetido,
+ ou seja, a tag em questão será preenchida com zero. 
+Enviar como ISS Retido: 
+o valor calculado é descontado do total da nota e é enviado na tag 
+ValorIssRetido.
+Acione o botão 
+ para atualizar os dados no Sistema.
+Para mais informações sobre como trabalhar com Descontos e Acréscimos em títulos e Notas Fiscais, ver 
+Cálculo de Descontos-Acréscimos
+Para retornar ao Menu principal acione o botão Sair:
+Para saber mais
+No kb 
+Tabela Geração de Títulos de Desconto Automático
+  tem uma explicação adicional de como devem ocorrer as contabilizações.

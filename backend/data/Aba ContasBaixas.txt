@@ -1,0 +1,40 @@
+TITULO: Aba Contas/Baixas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2892890520
+--------------------------------------------------
+Contas
+Neste painel devem ser informadas as contas a serem contabilizadas no momento da baixa da cobrança eletrônica.
+Conta Banco:
+ é a conta que receberá os valores, no caso de processamento de baixa eletrônica. Se ela não for informada, na Leitura do Arquivo de Retorno o processamento da baixa não será realizado, não quitando o título nem fazendo a movimentação na conta bancária.
+Permite mais de uma baixa eletrônica: 
+Quando marcado permite baixar títulos com baixa parcial, ou títulos  com abatimento.
+Utiliza antecipação (desconto duplicata) na baixa eletrônica?:
+ o usuário pode configurar a conta e o tipo de carteira onde será feita a baixa para desconto, ou seja, caso o SisPetro receba essa informação pelo arquivo de retorno do banco, irá realizar a baixa idêntica ao processo de baixa normal, porém, lançará o valor da baixa na conta definida no campo Conta Corrente.
+Habilita processamento de despesas cobrança na baixa?:
+ se marcado, deve informar a conta de despesas cobrança onde esta conta será sugerida quando processar o 
+arquivo de retorno
+ da cobrança eletrônica. A conta de despesas de cobrança será utilizada na contabilização de outros descontos (e outras despesas que o banco irá realizar e descontar do valor bruto pago pelo cliente), como tarifas bancárias, no momento da baixa dos títulos.
+A baixa de despesas de cobrança é feita da seguinte maneira: o SisPetro identificará as despesas (atualmente listadas no campo Custas Cartório do arquivo de cobrança) e este valor será descontado do valor movimentado do banco (como se fosse um desconto porém contabilizado na conta de despesas de cobrança). O SisPetro irá movimentar na conta de banco, o valor líquido conforme o exemplo abaixo:
+Valor do Título: 1.000,00 
+Valor Pago: 1.000,00 
+Despesas Cobrança: 50,00 
+Contabilização: 
+(C) Conta Cliente: 1.000,00 
+(D) Conta Banco: 950,00 
+(D) Despesas Bancarias: 50,00
+ATENÇÃO:
+ Caso a empresa utilize a contabilidade real, deve alterar as fórmulas do código de contabilização da baixa de contas a receber, para que considere o valor de outros descontos (despesas de cobrança). Mais detalhes, ver help da Controladoria (Roteiros/Manutenção das Tabelas/Código de Contabilização/Exemplos de Contabilização).
+Habilita baixa em conta transitória?:
+ se marcado, indica que todos os lançamentos serão baixados numa conta transitória e logo após a baixa, será realizada a transferência do montante líquido desses lançamentos para a conta de banco. Dessa forma, ao emitir o relatório de extrato de banco, não aparecerão todos os lançamentos para a mesma conta de banco e sim um registro com o valor líquido. Na maioria das vezes, o banco lança somente o valor líquido creditado ao cliente num único lançamento, facilitando assim a conferência. 
+Ao marcar esta opção, devem ser informados a 
+conta transitória
+, o 
+código do histórico
+ e a descrição do 
+histórico
+.
+ATENÇÃO:
+ não será permitido marcar as opções 
+Utiliza antecipação (desconto duplicata) na baixa eletrônica?
+ e 
+Habilita baixa em conta transitória?
+ simultaneamente.

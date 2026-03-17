@@ -1,0 +1,134 @@
+TITULO: Adiantamento Quantificado de Clientes
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701810
+--------------------------------------------------
+O objetivo do Adiantamento Quantificado é fazer com que os adiantamentos de clientes possam estar vinculados a determinados produtos, preços e quantidades de forma a controlar as compras antecipadas de cada cliente. Assim, por exemplo, o cliente A poderá comprar R$ 300.000,00 correspondente a 300000 litros de diesel a R$ 1,00. Isso ficaria cadastrado junto ao adiantamento e os pedidos de venda seriam vinculados ao adiantamento de maneira a ir utilizando esta litragem.
+Caracteristicas:
+1)
+ O pedido de venda que estiver vinculado ao adiantamento só poderá conter um item (o vinculado).
+ 
+2)
+ Somente será permitido utilizar adiantamento quantificado nos pedidos de venda do tipo Retira.
+ 
+3)
+ O adiantamento poderá ter mais de um item, porém somente produtos diferentes.
+ 
+4)
+ Os pedidos de venda serão automaticamente aprovados quando vinculados a adiantamentos liberados e a empresa estiver configurada para tal.
+ 
+5)
+ Os adiantamentos serão controlados pelo comprador (grupo econômico) indicado no cabeçalho do pedido que deve coincidir com o comprador do adiantamento.
+ 
+6)
+ O controle de quantidade será por pedido e não no faturamento.
+ 
+7)
+ Os adiantamentos quantificados NÃO podem ser utilizados para pendências que não sejam as geradas pelas próprias notas fiscais geradas dos pedidos.
+ 
+8)
+ O adiantamento quantificado NÃO pode ser transferido ou pagos (para outras entidades ou empresas) quando houver pedidos que o utilize sem faturar, ou um título do Contas a Receber pendente, bem como não pode ser transferido de modo parcial.
+ 
+9)
+ O adiantamento quantificado NÃO pode ser pago parcialmente, só é permitido o pagamento integral.
+ 
+10)
+ É possível informar o depósito ao qual este adiantamento será vinculado.
+Passos para atingir a plenitude do processo.
+Configuração do sistema
+ Para poder utilizar o adiantamento quantificado vá no Menu 
+Ferramentas/Sistema, painel Financeiro
+ e marque a opção 
+, que é válida para todas as empresas.
+Inclusão do adiantamento
+ Providencie a 
+inclusão do adiantamento
+ como de costume, informando na tela principal o valor total deste adiantamento. Os dados para o adiantamento quantificado serão informados no painel 
+Utilização qtde
+ que só estará disponível quando a opção citada acima estiver marcada e no perfil do usuário (painel financeiro) estiver marcada a opção 
+"Pode incluir adiantamento quantificado de produto"
+.
+ Marque a opção 
+Adiantamento quantificado
+ e informe os dados dos produtos que compõem este adiantamento. Lembre-se: 
+somente produtos diferentes
+, veja a tela: 
+ 
+ 
+Para que seja disponibilizado o campo 
+Depósito
+, deverá ser marcada a permissão "Pode controlar depósito no adiantamento quantificado", em 
+Ferramentas/Sistema, painel Financeiro
+:
+Caso a permissão acima esteja marcada e já tenha sido selecionado um depósito para este adiantamento mas, seja necessário desvincular o adiantamento de qualquer depósito, acionar o botão 
+"Limpa Depósito"
+:
+Clique no botão 
+Inclui
+ para confirmar cada produto. Atente-se para que o valor total dos produtos seja igual ao valor informado para o adiantamento. Este adiantamento será discriminado na tela de Manutenção de Adiantamentos com a cor 
+verde petróleo
+.
+É possível informar casas decimais na quantidade dos produtos, para isso vide configuração no tópico 
+.
+O grid irá mostrar o código do produto, a descrição do mesmo, a quantidade original do adiantamento, preço, o saldo ainda restante desse adiantamento (caso já tenha sido utilizado uma parte) e o valor total.
+No momento de incluir o Adiantamento Quantificado deve-se definir se o Pedido de Venda vai ser do tipo Entrega, Retira ou Ambos, e isso é configurado na opção 
+Retira/Entrega
+.
+Retira
+ - É a opção padrão. Se foi definido que o pedido vai ser desse tipo, o preço informado será portanto o preço unitário do produto e no momento de 
+Incluir o Pedido de Venda
+ deverá ser selecionado que o Tipo é Retira. Caso o usuário escolha Entrega o sistema validará emitindo a seguinte mensagem na conclusão do mesmo: 
+"O tipo do campo Retira/Entrega deste pedido não está de acordo com o adiantamento selecionado".
+Entrega
+ - Se foi definido esse tipo no adiantamento, o usuário que está incluindo o mesmo deverá ficar atento, pois o preço considerado será o 
+preço do produto unitário + preço do frete unitário
+, ou seja o valor total do pedido tem que ser igual ao valor financeiro do adiantamento. No Pedido de Venda será verificado o valor do frete unitário informado e o sistema irá diminuir do valor unitário do produto, o que foi definido no adiantamento, para que no final fique salvo corretamente o valor unitário do produto e o valor unitário do frete.
+Exemplo: O valor definido no adiantamento é 1,20 e no pedido o valor do frete é 0,20, portanto o valor do produto nesse caso será 1,00.
+Idem mensagem de aviso do item anterior, caso seja selecionado tipo Retira ao invés de Entrega.
+Ambos
+ - Opção caracterizada como arriscada. Se no momento da inclusão do adiantamento nao foi definido se será entrega ou retira, tem-se a opção de definir como Ambos e no momento de fazer o Pedido de Venda o usuário poderá optar por um outro. E por isso acaba sendo classificada como arriscada, pois o preço que foi definido será considerado como o preço unitário do produto para o tipo Retira e no caso de ser tipo Entrega será o preço unitário produto + frete.
+Por exemplo: Se foi definido 1,20 o preço no adiantamento e no momento de fazer a inclusão do Pedido de Venda é selecionado tipo Retira o preço a ser considerado do produto será 1,20 mesmo. Agora se for definido que é Entrega e o usuário define que o valor do frete unitário é 0,5, o preço do produto passar a ser 1,15, ou seja, o sistema abate do valor unitário definido no adiantamento - 1,20 = 1,15 + 0,5.
+Lembrando que para a inclusão do valor do frete unitário no pedido continua valendo as configurações existentes, que pode variar de empresa para empresa.
+Inclusão do pedido de venda
+ Entre na tela para 
+. Informe um 
+tipo de cobrança
+ que permita Adiantamento Quantificado, isto é imprescindível! É possível já vincular este pedido ao adiantamento quantificado, ou vinculá-lo posteriormente. 
+Para vínculo durante a inclusão do Pedido de Venda
+ 
+ Na tela onde deve ser informado o produto, clique no botão 
+Adto
+ e escolha entre os adiantamentos/produtos apresentados. Lembre-se que os adiantamentos serão controlados pelo comprador (grupo econômico) indicado no cabeçalho do pedido que deve coincidir com o comprador do adiantamento e que o pedido de venda que estiver vinculado ao adiantamento só poderá conter um item. O fato de incluir um pedido já abaterá do saldo do produto escolhido a quantidade movimentada no pedido, no entanto o abatimento financeiro só acontecerá no momento em que for baixado o título utilizando o adiantamento.
+Para vínculo posterior pela Manutenção de Pedidos
+ 
+ Inclua um pedio normalmente, informando o tipo de cobrança que exige Adiantamento Quantificado. Este pedido não poderá ser aprovado até que o vínculo com o Adiantamento seja providenciado (nem através da Aprovação automática nem pela tela de Pedidos Pendentes ou Manutenção de Pedidos). Posteriormente, na tela de Manutenção de Pedidos, através do botão 
+ escolha entre os adiantamentos/produtos apresentados o adiantamento desejado para o vínculo. Para o vínculo é necessário que o produto e preço sejam os mesmos tanto no Pedido, como no Adiantamento. Além disso é necessário que o pedido só tenha um item, que haja saldo suficiente no adiantamento e que o pedido NÃO tenha sido faturado.
+Para que o pedido seja aprovado automaticamente (referente ao Financeiro e Vendas) é necessário marcar a opção 
+ no Menu 
+Ferramentas/Sistema, painel Financeiro
+, sendo válida para todas as empresas, porém esta aprovação se dá após o vínculo com o adiantamento quantificado.
+Cancelamento de vínculo com o Adiantamento Quantificado
+ Para se cancelar o vínculo do pedido com o Adiantamento é necessário que o pedido ainda NÃO tenha sido faturado nem cancelado, que o Adiantamento não esteja cancelado e que haja realmente um vínculo. Para isso, na tela de Manutenção de pedidos, através do botão 
+ confirme o cancelamento. O pedido será desvinculado, ficará como não aprovado (e não poderá ser aprovado até que se troque para um tipo de cobrança que não seja do tipo Adiantamento Quantificado ou que se faça um novo vínculo) e a quantidade referente a este pedido será liberada no Adiantamento quantificado.
+Emissão da Ordem de Carregamento
+ Na 
+, não será possível fazer uma ordem com a quantidade parcial do pedido.
+Faturamento do Pedido
+ No momento em que for gerada a 
+Nota Fiscal para este pedido
+, o título do contas a receber será identificado que é do tipo Adiantamento Quantificado e será relacionado com o número de Recibo do adiantamento utilizado no Pedido de Venda.
+Baixa do título do Contas a Receber
+ A baixa do título do contas a receber poderá acontecer pela 
+, pela tela de 
+Débitos/Créditos
+ ou pela 
+baixa normal
+. Independente de onde for providenciada a baixa, o título só poderá ser baixado utilizando o adiantamento quantificado informado no Pedido de Venda, bem como, este adiantamento quantificado não poderá ser utilizado para baixar quaisquer outros títulos. Detalhamos isso no item 
+Utilização de Créditos
+.
+Consulta da utilização do Adiantamento Quantificado
+ Para consultar a utilização do Adiantamento Quantificado por Pedidos ou Notas Fiscais, na 
+Manutenção de Adiantamentos
+, verifique o painel 
+Utilização Qtde
+Os adiantamentos quantificados são exibidos com o fundo na cor 
+Verde Petróleo
+ e posicionando o cursor a cada produto, pode se ver quais os pedidos e notas que utilizaram este adiantamento. Note que a quantidade total utilizada pelos pedidos é a diferença entre a quantidade do produto e seu saldo, portanto não serão visualizados pedidos cancelados ou desalocados. Os pedidos ainda NÃO faturados, aparecem somados como Quantidade Pendente e os pedidos já faturados são apresentados com o fundo na cor Amarela. Quando o pedido é faturado, não é alterado o saldo do Adiantamento Quantificado, mas é diminuída a Qtde Pendente do mesmo.

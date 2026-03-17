@@ -1,0 +1,58 @@
+TITULO: Transferência de Créditos (Adiantamentos) entre Empresas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878701844
+--------------------------------------------------
+Todos os créditos (tanto os gerados automaticamente via módulo de faturamento quanto os manuais) tem o escopo da empresa, isto é, só podem ser visualizados ou utilizados dentro da empresa geradora do crédito.
+Porém, existem situações onde o cliente faz um pagamento que gera crédito, por exemplo, e resolve comprar de uma outra empresa do grupo. Como fazer para conciliar o crédito gerado numa empresa com a pendência financeira gerada em outra?
+Para tais casos, existe o que chamamos de 
+"transferência de créditos entre empresas"
+. Para transferir algum crédito pendente de uma empresa para outra ( mantendo o mesmo cliente e dados originais do crédito ), o usuário deve acessar a tela de manutenção de créditos (Menu 
+Movimentação / Financeiro / Contas a Receber / Manutenção de Adiantamentos
+).
+Deve ser selecionado o crédito que se deseja transferir posicionando o cursor sobre o mesmo. Após selecionar o crédito, o usuário deve clicar no botão 
+Transfere Empresas
+.
+O sistema abrirá a tela de transferência de crédito entre empresas que deverá ter as seguintes informações lançadas:
+Conta Transferência Créditos:
+ Esta conta será uma conta de transferência onde sempre que for transferido algum montante de uma empresa para outra, esta conta será movimentada (a crédito pela empresa origem do crédito, isto é, na sua utilização e a débito pela empresa destino como origem do crédito na empresa destino). Assim, esta conta normalmente deve ter o saldo zerado pois, de maneira automatica, o Sistema movimenta-a duas vezes sempre que ocorrer este tipo de transferência.
+Empresa Destino:
+ Código da empresa destino da transferência.
+Código Histórico:
+ Código do histórico do movimento. Este histórico será utilizado somente para a movimentação contábil descrita acima. O Sistema preserva o histórico original do crédito no destino.
+Informações Adicionais:
+ Nesse campo pode ser colocado mais observações referentes ao lançamento.
+Data Movimento:
+ Data da transferência. Note que a data de fluxo segue a mesma do crédito original.
+Código de Contabilização Real:
+ O código da fórmula de contabilização que é usada para transferência de créditos. Esse código pode ser configurado para ser sugerido de forma automática. Mais informações no tópico: 
+Códigos de Contabilização Padrão na Transferência de Adiantamentos
+Para confirmar a transferência, deve ser utilizado o Botão 
+OK
+.
+No caso de 
+Adiantamentos quantificados
+, sempre será verificado se o adiantamento pode ser transferido, ou seja, ele não poderá ter pedidos vinculados sem faturar ou títulos em aberto. Neste caso, será realizado dois movimentos:
+    1. Utilização do crédito original com destino uma conta contábil. Esta conta contábil é a conta de transferência de créditos entre empresas indicada acima.
+    2. Geração de um novo crédito tendo como origem a mesma conta contábil.
+Assim, na empresa origem, o crédito original é considerado quitado e, na empresa destino, um novo crédito idêntico ao original é criado e permanece pendente.
+A partir da versão 7.9 criamos a aba transferência entre empresas onde pode ser visualizada a movimentação do adiantamento de cliente e fornecedores nas empresas.
+Caso seu adiantamento esteja vinculado a um Cheque, veja alguns detalhes no tópico 
+Transferência de Adiantamentos X Cheques
+.
+Cancelamento de Transferência
+Para cancelar a transferência, basta identificar na empresa destino o crédito gerado (normalmente deve ser um dos últimos) e cancelá-lo através do botão 
+Cancela
+. O Sistema irá reverter todo o processo original descrito acima.
+A partir da versão 7.8, foram disponibilizados no relatório de adiantamentos os campos referente as operações de transferências entre empresas.
+Segue abaixo uma tabela para esclarecer possíveis duvidas com os campos adicionados.
+Nome do campo no Pipeline
+Esclarecimentos
+NumReciboOrigem
+Adiantamento que gerou o adiantamento posicionado dentro da mesma empresa
+CodEntOrigem
+Entidade do Adiantamento que gerou o adiantamento posicionado dentro da mesma empresa
+NumReciboDestino
+Adiantamento que foi gerado pelo adiantamento posicionado dentro da mesma empresa
+NumReciboOrigTrEmp
+Adiantamento da outra empresa que gerou o adiantamento posicionado
+CodEmpOrigTrEmp
+Outra empresa que gerou o adiantamento posicionado

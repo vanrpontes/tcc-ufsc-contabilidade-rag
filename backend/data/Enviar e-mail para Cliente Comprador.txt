@@ -1,0 +1,61 @@
+TITULO: Enviar e-mail para Cliente Comprador
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2921073393
+--------------------------------------------------
+Enviar e-mail para Cliente Comprador 
+Na versão 8.12 foram criados dois novos perfis no cadastro de clientes, são eles:
+Recebe e-mail NF-e quando comprador:
+ Em alguns casos, no pedido de venda, o pedido tem duas entidades envolvidas, a 
+Faturada
+ e 
+Compradora
+. Antes da versão 8.12 apenas a entidade Faturada receberia o e-mail referente a Nota Fiscal Eletrônica, agora habilitando este perfil 
+"
+Recebe e-mail NF-e quando comprador", as duas entidades receberão o e-mail, 
+pois a Compradora pode ser a responsável financeira e gostaria de receber também o e-mail, por exemplo
+.
+ O perfil se encontra no 
+.
+Agrupa envio de e-mail conforme perfil de sistema:
+ este perfil trabalha junto com o perfil de sistema 
+. 
+Caso o perfil de 
+sistema
+ 
+Aba NF-e/CT-e
+ 
+esteja marcado para agrupar
+ 
+Agrupar o envio por OC 
+ 
+, 
+e no cliente esteja , 
+também
+ marcado para agrupar envio de e-mail conforme perfil de sistema 
+, apenas quando a Ordem de Carregamento inteira for faturada, os e-mails serão enviados. Veja abaixo um exemplo.
+Exemplo:
+A 
+empresa
+ esta marcada para 
+agrupar o envio de e-mail por OC
+ e os 
+clientes também
+.
+Um pedido de venda tem 3 itens, para 3 clientes diferentes.
+Feito uma Ordem de Carregamento para esses 3 itens.
+Faturado e processado na SEFAZ os 
+dois primeiros itens
+.
+Como a empresa e clientes estão marcados para agrupar e envio por OC, os e-mails ainda não foram enviados, estão aguardando o terceiro item ser faturado.
+O terceiro item, por algum acaso, não foi processado na SEFAZ e o faturista percebeu que , este item, não deverá ser mais faturado.
+Nesta situação, os dois primeiros e-mails ficarão "presos", à espera do faturamento do terceiro item. 
+O que fazer?
+Neste caso é preciso dizer ao sistema que a Ordem de Carregamento já esta concluída, 
+é preciso Desalocar o Pedido de venda
+, referente a esta OC. Veja mais informações em Desalocando Itens do Pedido
+Informação importante:
+Independente de ter marcado o perfil "Recebe e-mail NF-e quando comprador", o 
+cliente faturado sempre
+ receberá o e-mail refente a NF-e, se neste estiver marcado o perfil 
+"Envia e-mail com a NF-e".
+ 
+ 

@@ -1,0 +1,137 @@
+TITULO: Carta de Correção Eletrônica
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878440511
+--------------------------------------------------
+Para NF-e processada em ambiente de contingência, não é possível efetuar cancelamento ou carta de correção, sendo assim, é necessário copiar a URL de Eventos do Ambiente de Produção para a URL de Eventos do Ambiente Alternativo (no Cadastro de 
+UFs
+ do Sispetro Normal) para que seja possível emitir a Carta de Correção.
+Para maiores informações, consulte as regras da Sefaz.
+none
+Objetivo
+A carta de correção é instrumento legal para efetuar correções em Notas Fiscais Eletrônicas – (NF-e) com autorização de uso, respeitando as normas legais.
+Nestas alterações não poderão ser sanados erros relacionados a:
+Às variáveis consideradas no cálculo do valor do imposto, tais como: valor da operação ou da prestação, base de cálculo e alíquota.
+Correção de dados cadastrais que impliquem alteração na identidade ou no endereço de localização do remetente ou do destinatário.
+Alteração de data de emissão da NF-e ou à data de saída da mercadoria.
+Em relação ao 
+conhecimento de transporte
+ não poderão ser sanados os erros relacionados a:
+Valores que fazem parte da prestação de serviço (valor do frete, pedágio, taxas do transporte, etc.)
+Valores relacionados a impostos, como o valor do ICMS, por exemplo.
+CNPJ do tomador do serviço (pagador do frete)
+Remetente
+Destinatário
+Dados da nota fiscal vinculada ao conhecimento.
+A partir do advento da nota fiscal eletrônica, existe um procedimento chamado 
+registro do evento
+ para se relacionar alterações anteriormente realizadas através da carta de correção. Uma carta de correção corresponde portanto a um evento (com a soma das alterações realizadas até o momento para determinada nota fiscal).
+Esse processo será validado no Sispetro de duas formas:
+Notas Fiscais Próprias:
+ o usuário incluirá uma Carta de Correção selecionando uma NFe válida (cada empresa deve consultar a SEFAZ do seu estado para saber a regra vigente sobre o prazo máximo de emissão da carta de correção), selecionando os campos que precisarão ser alterados e seus novos valores. O Sispetro se comunicará com a SEFAZ e processará a Carta de Correção obtendo um número de protocolo. O Usuário poderá imprimir a Carta de Correção. Caso ocorra erro de processamento, será possível reprocessar a mesma via Manutenção de Nota Fiscal. O Usuário poderá cancelar a Carta de Correção caso a mesma não tenha recebido número de protocolo. Logo após o processamento, o Sispetro enviará um e-mail (caso esteja configurado) para os mesmos destinatários na NFe original.
+Caso o usuário gere uma Carta de Correção para uma Nota Fiscal, ele só poderá gerar uma segunda Carta de Correção caso a primeira já tenha sido enviada a SEFAZ ou tenha sido cancelada.
+Notas Fiscais Terceiros: 
+o usuário receberá o XML do terceiro referente a Carta de Correção e poderá importá-lo no Sistema, não haverá interação com a SEFAZ
+Utilizando a Carta de Correção no Sispetro
+O usuário pode utilizar dois pontos do sistema para fazer uma carta de correção para uma determinada Nota Fiscal: 
+Pela Manutenção de Nota Fiscal - 
+botão Inclui Carta
+Através do menu 
+Movimentação / Faturamento / Carta de Correção
+ 
+O usuário deve informar o código da empresa que foi emitida a nota fiscal, o código da entidade ao qual a nota foi emitida e o número da nota fiscal, nos campos 
+Empresa
+, 
+Código Entidade
+ e 
+Número NF
+, respectivamente. Após informar esses dados, o usuário deve clicar no botão 
+Atualiza
+, que os dados da Nota Fiscal serão carregados.
+Caso não saiba exatamente o número da NF, poderá utilizar o botão 
+Pesquisa NF
+, onde será aberta a tela abaixo:
+O usuário decidirá se fará a pesquisa por Data NF ou Intervalo de Numeração da Nota Fiscal, além do Tipo (Entrada ou Saída).
+Após localizar a NF desejada, deverá selecioná-la utilizando o botão 
+Seleciona
+, em seguida pressione 
+OK 
+para voltar a tela de Carta de Correção.
+Atente-se para o código da Empresa e Entidade informados na tela de Carta de Correção, pois os mesmos serão filtrados nessa pesquisa de NF.
+Após selecionada e carregada, todos os dados dessa nota fiscal serão exibidos na parte de baixo da tela nos grupos Dados NF e Alterações.
+Caso a nota fiscal possua mais de um item, selecione qual item da nota corresponde a correção a ser feita, no campo 
+#Item / Produto
+.
+Como exemplo, o usuário necessita emitir uma carta de correção para substituição de lacre rompido.
+Basta localizar o campo correspondente ao lacre e na Coluna 
+Valor Proposto
+ informe o novo valor, conforme exemplo na imagem acima.
+O campo 
+SitFrete_NFE 
+da tabela 
+FreteSituacao 
+deve ser utilizado quando for necessário fazer uma Carta de Correção para alteração do Tipo de Frete. Não confundir com o campo SitFret_SPED, que é utilizado para outra finalidade.
+Caso tenha dificuldades em localizar o Campo, é possível filtrá-lo, conforme mostra a imagem abaixo:
+Após digitar o novo valor, o usuário deverá selecionar o código de irregularidade, ou seja, o motivo pelo qual se está corrigindo esse valor. Caso o usuário não saiba o código, basta clicar no campo 
+Irregularidades,
+ para abrir a tela de pesquisa e selecionar o motivo desejado.
+Após selecionar o código de irregularidade o usuário pode preencher o campo "Observações" e para salvar esse item da carta de correção, basta clicar no botão "OK".
+É importante ressaltar que a irregularidade inserida na Carta de Correção é utilizada apenas para controle e histórico no Sispetro. Essa informação não é enviada a SEFAZ no processamento da Carta de Correção eletrônica.
+ A opção 
+Processa ao Sair
+ determinará se essa carta de correção será imediatamente processada na SEFAZ. Caso opte por desmarcar essa opção, a mesma poderá ser processada pela Manutenção de NFe Pendentes
+Após o preenchimento das informações necessárias, basta clicar no botão 
+OK
+ para finalizar a inclusão.
+Caso a Sefaz identifique que o texto preenchido em algum campo está acima do permitido, a Carta não será emitida na Sefaz e o Sispetro apresentará mensagem informativa “Nota Fiscal está com numero de alterações mais alto que o permitido” 
+Nesta situação se faz necessário reduzir 
+o tamanho do texto.
+Importante:
+Para empresas que possuem o servidor em um estado diferente do estado para a qual está sendo transmitida a Carta de Correção e entre esses estados há fuso horário, será preciso configurar o perfil 
+Tempo de Acréscimo/Decréscimo na Data/Hora enviada na NFE (minutos) 
+na 
+Tabela Unidades Federativas - UF's
+. Ao configurar este perfil, o Sispetro irá somar o tempo informado para o estado da nota fiscal para a qual está sendo feita a carta de correção, e assim trabalhar em conjunto com o fuso horário local.
+Exemplo:
+Servidor localizado no Estado SP 
+Filial no Estado MT
+Nota Fiscal emitida na Filial do Estado MT. Carta de Correção emitida às 14h00, porém o horário local no Servidor é 15h00.
+Ao emitir a Carta de Correção, a Sefaz do MT não irá autorizar, pois o horário é posterior ao horário atual.
+Configurado o perfil 
+Tempo de Acréscimo/Decréscimo na Data/Hora enviada na NFE (minutos)
+ para ser igual a 
+-60
+Ao emitir a Carta de Correção, o XML irá conter o horário de 14h00, E a Sefaz do MT irá autorizar a carta de correção normalmente, pois o horário é igual ao horário atual. 
+Incluindo e Imprimindo a Carta de Correção pela Manutenção de Nota Fiscal
+Através da 
+Manutenção de Nota Fiscal
+, o usuário poderá incluir e imprimir a Carta de Correção, caso esse carta já tenha sido feita.
+Para emitir a carta de correção para uma determinada nota fiscal, basta o usuário selecionar a nota desejada e clicar no botão 
+Inclui Carta
+.
+O SisPetro abrirá a tela de inclusão de carta de correção para nota fiscal, explicada no inicio deste tópico.
+Para Imprimir uma carta que já foi vinculada à nota fiscal, o usuário deve selecionar a nota fiscal e acessar o painel 
+Itens Carta Correção
+. Caso se tenha mais de uma carta, o usuário deve selecionar a carta que se deseja imprimir e clicar no botão 
+Carta
+.
+Será apresentada a tela abaixo:
+Através da tela de impressão de Pedido de Vendas, temos as seguintes opções:
+Impressão: 
+Caso selecionado será realizado a impressão de Carta de Correção.
+E-mail:
+ Caso essa opção esteja selecionada, será enviado um e-mail da Carta de Correção em PDF para o cliente. Para utilizar esse serviço veja mais em 
+Configuração de Conta de E-mail
+Deseja alterar corpo da Mensagem?:
+  Com esta opção é possível incluir um destinatário em cópia e também como cópia oculta, alterar o assunto e também a mensagem. Para isso basta marcar o perfil de usuário 
+Altera Destinatários da Carta de Correção. 
+Veja maiores detalhes em 
+Painel E-mail (Usuários)
+Em Arquivo:
+ Selecionando essa opção é possível salvar em forma de arquivo PDF a Carta de Correção, para isto basta selecionar um diretório em Arquivo de Destino.
+O nome do arquivo gerado, o Sispetro informa: CCorrecao + Código da empresa + Sequencial da Carda de Correção, podendo ser alterado pelo usuário caso queira.
+A carta será impressa .
+Gerenciando a Carta de Correção
+Através do painel Itens Carta Correção, o usuário poderá cancelar uma determinada carta, utilizando o botão "
+Cancela Carta de Correção
+" na aba Diversos da Manutenção de Notas Fiscais.
+Somente Cartas de Correção que não foram enviadas a SEFAZ podem ser canceladas.
+Nessa mesma tela também poderá ser visualizado o XML enviado e recebido da SEFAZ no processamento.

@@ -1,0 +1,140 @@
+TITULO: Configurações principais para emissão de CT-e
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4217438209
+--------------------------------------------------
+Objetivo
+A NF-e (modelo 57) que e conhecida como Conhecimento de Transporte é um documento digital que serve para formalizar o transporte de produtos entre locais.
+Para realizar emissão de CT-e, e necessário:
+Configurações
+Em Ferramentas > Sistema > Aba NF-e/CT-e
+A opção 
+Habilita emissão de NF-eletrônica? 
+deve estar marcada.
+A opção 
+Tipo de Emissão da Sefaz
+ deve estar selecionada a opção 
+Emissão de CT-e (Conhecimento de Transporte Eletrônico)
+ para Transportadora
+ ou Ambos 
+para Conjugada
+Selecionar o tipo de ambiente para trabalho para a emissão de NF-e: no quadro NF-e selecionar Produção, Homologação ou Contingência.
+Informar a URL para realizar a consulta no campo URL Consulta Publica CT-e.
+Quadro Contingência
+Deverá ser habilitada apenas quando houver indisponibilidade da SEFAZ para autorização de CT-e, 
+Para mais informações ver
+ 
+.
+Quadro Impressão
+Configurar se ira imprimir em Normal(papel) e arquivo informando o diretório onde os arquivos serão salvos.
+Configurar o layout da impressão: 
+Retrato
+ ou 
+Paisagem
+.
+Quadro CT-e DACTE
+Informar o caminho do layout que será utilizado para impressão, ou salvar o arquivo.
+Quadro Diversos
+Configurar o número máximo de dias para emissão de carta de correção.
+Quadro CT-e
+Escolher qual a 
+Entidade do conhecimento para livro fiscal e envio de E-mail/XML 
+As opções abaixo não são obrigatórias, mas influenciam na emissão do CT-e. São:
+Envia comprovante de entrega 
+#Dias padrão para data entrega (a partir da data da prestação) 
+Aviso de NF-e/CT-e Pendente
+Para mais informações ver 
+Painel NF-e/CT-e
+Quadro Autorizados para download do XML
+ Informar os CNPJ autorizados pela empresa a baixar o XML no quadro autorizados para download do XML para mais informações
+Para mais informações ver
+ 
+Painel NF-e/CT-e
+Em Ferramentas > Sistema > Aba Fretes
+Quadro Responsável pelo Seguro por Tipo de Conhecimento
+Selecione um padrão de seguro para os tipos de frete 
+Em Ferramentas > Usuário > Aba Fretes > Quadro Conhecimento
+Há vários perfis que podem ou não ser liberados de acordo com o usuário que irá emitir o conhecimento
+Para mais informações, ver 
+Painel Fretes (Usuários)
+. 
+Natureza de Operação
+Em Tabelas Auxiliares > Faturamento > Natureza de operação, painel
+ 
+Detalhes > Por Filial > sub aba Dados Gerais
+Marcar o campo
+ 
+Habilita NF-Eletrônica
+.
+Este campo é habilitado se no perfil de 
+empresa
+, o campo 
+Habilita emissão de NF-eletrônica
+ estiver marcado.
+Na 
+aba Detalhes >
+ 
+sub aba Dados Gerais
+,
+Deverão ser informadas as séries NF-e para emissão nos ambientes homologação, produção e contingência.
+Tipo de Emissão:
+ Própria
+Entrada/Saída:
+ Saída
+OBS.:
+ 
+Séries do CT-e precisa ser configuradas em
+ 
+Tabelas Auxiliares > Faturamento > Série Nota Fiscal.
+ 
+Para mais informações, ver
+ 
+Tabela Série Nota Fiscal
+Informações Adicionais
+Em 
+Painel Filial >
+ 
+Impressão NF, caso
+ precise, informar algumas observações da nota 
+Para que as observações sejam separadas para fisco e para o próprio contribuinte, deverá preencher as observações dentro de tags (<tag>....</tag>), conforme o exemplo abaixo. As tags utilizadas para Informações Adicionais são:
+Informações Adicionais de interesse do Fisco:
+ 
+<infAdFisco> ..... </infAdFisco>
+Informações Complementares de interesse do contribuinte:
+ 
+<infCpl> ..... </infCpl>
+Estas tags serão utilizadas para separar o conteúdo do campo 
+Observações 
+em campos distintos, no layout do DANFE de forma que você possa utilizar estes campos no seu layout (por exemplo, colocando o campo que informa somente as informações adicionais para o Fisco, num determinado local no seu layout de DANFE).
+O preenchimento deve ser feito conforme mostrado no exemplo acima, para que, ao montar o XML, considere as observações informadas pelo usuário.
+Configuração de UF
+Em
+ 
+Tabelas Auxiliares > Faturamento > UF > Aba Detalhes
+ > Sub Aba
+ 
+Endereços URL p/ CT-e
+, deverão ser informados os endereços web services de cada ambiente de trabalho (homologação, produção e alternativo) para cada tipo de serviço. Os serviços são:
+Recepção (solicitação de recibo)
+Retorno (solicitação de protocolo)
+Cancelamento
+Inutilização
+Consulta
+Status dos documentos fiscais enviados
+Eventos
+Distribuição DF-e 
+Aba Regras para CT-e
+Habilitar a opção 
+QR Code 
+Envia na opção 
+dados do Responsável Técnico. 
+Estes endereços serão utilizados para conectar no web service da Secretaria da Fazenda Estadual da UF do contribuinte ou do ambiente virtual, se for o caso, para solicitação dos serviços do CT-e. Para mais informações ver, 
+Tabela Unidades Federativas - UF
+Certificado Digital
+Configurar o certificado em Movimentação > Faturamento > Conhecimento de Transporte Eletrônico > Manutenção de Certificado Digital.
+Para mais informações, ver 
+Configuração do Certificado Digital
+.
+Para saber mais:
+Como emitir um Conhecimento de Transporte 
+Eletrônico
+, ver 
+Conhecimento de Transporte Eletrônico - CTe

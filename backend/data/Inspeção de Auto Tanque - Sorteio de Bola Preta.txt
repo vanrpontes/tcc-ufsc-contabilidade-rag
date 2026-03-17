@@ -1,0 +1,54 @@
+TITULO: Inspeção de Auto Tanque - Sorteio de Bola Preta
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936703103
+--------------------------------------------------
+Histórico
+Bola Preta é um procedimento de sorteio aleatório (ou forçado, se o usuário assim desejar), durante a operação de carregamento e descarga, para uma inspeção mais minuciosa. Ele é chamado assim pois antigamente este sorteio era realizado colocando bolas brancas e pretas num recipiente e sorteando uma bola que, se fosse preta, indicaria a necessidade de realização de uma inspeção adicional no frota.
+Esta inspeção é sempre realizada
+ 
+após
+ 
+o procedimento de portaria de entrada, possibilitando a configuração para
+ 
+carregamento, descargas ou ambas operações.
+Configurações necessárias no SisPetro
+Perfil de Usuário:
+ 
+Cancelar uma inspeção
+Liberar ou não uma OC (frota) selecionada para inspeção
+Inspecionar uma OC (frota) não selecionada para inspeção
+Incluir o resultado de uma inspeção
+Pode visualizar dados de sorteio
+Para mais informações, ver 
+Painel Carregamento (Usuários)
+Frota:
+Permite Inspeção:
+ se marcada, o frota (OC) será selecionado para sorteio e/ou permitir inspeção;
+Inspeção Imediata:
+ se marcada, o frota (OC) obrigatoriamente será inspecionado.
+Para mais informações, ver 
+Depósito - aba Inspeções:
+Quadro Configurações: 
+permite habilitar ou não para fazer bola preta. Deve habilitar bola preta somente para Base Própria.
+ Quadro Inspeções Realizadas:
+ mostra o status de inspeção de todas as OCs incluídas e não canceladas.
+Para mais informações, ver 
+Depósitos - Aba Dados Adicionais
+ e 
+Depósitos - aba Inspeções
+Portaria de Entrada:
+ não há qualquer alteração para o Bola Preta. Se o depósito estiver habilitado para fazer Bola Preta, no momento em que é realizada a leitura (seja manual, Basecom, Infitech, SmartCard ou VIew) da OC para fazer o carregamento ou descarga, a OC entra para sorteio (sem interferência do usuário). O resultado é visualizado na Portaria de Saída.
+Portaria de Saída:
+ para o usuário que tem perfil para tal (ver 
+Painel Carregamento (Usuários)
+, será habilitado o botão Dados Inspeção, independente se a OC foi ou não selecionada para inspeção.
+Para mais informações, ver 
+ e 
+Portaria de Saída
+Manutenção Ordens Carregamento - aba Inspeções: 
+depende do perfil do usuário para editar ou cancelar uma inspeção (ver 
+Painel Carregamento (Usuários)
+. A edição é a mesma da tela de Portaria de Saída, mas o cancelamento de uma inspeção deve ser feito nesta tela. Ao cancelar uma inspeção, a OC retorna o Resultado Sorteio e Status Inspeção como Sem Resultados. Caso queira que a OC participe novamente do processo de sorteio, deve retornar para a Portaria de Entrada, observando as configurações feitas no Depósito (ver 
+Depósitos - aba Inspeções
+) ou Edite para incluir uma inspeção.
+Para mais informações, ver 
+Aba Inspeções

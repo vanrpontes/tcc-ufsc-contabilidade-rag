@@ -1,0 +1,169 @@
+TITULO: Preenchimento de dados - SPED/Reinf
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2927263747
+--------------------------------------------------
+Após a inclusão do período de apuração dos dados, é necessário preencher as informações para envio.
+Assim, detalhamos a seguir como deve ser o processo.
+Para preencher as informações, selecione a empresa/período a ser apurado e clique na opção 
+Altera
+ da tela de 
+Manutenção do Reinf
+.
+O SisPetro apresentará a tela abaixo:
+O registro R-2010 é preenchido de forma automática buscando as notas de serviços emitidas para a empresa, seu preenchimento é através do botão Preenche da tela de 
+Manutenção do Reinf
+. Para mais informações, ver 
+Preenchimento Automático REINF - R2010
+.
+Na parte superior da tela, o sistema apresenta informações da empresa:
+Sequencial
+: número sequencial de identificação do período de geração dos dados
+Empresa
+: código de empresa para qual serão informados os dados
+ID
+: item preenchido automaticamente para vínculo entre os registros
+Mês/Ano
+: mês e ano de apuração para preenchimento dos dados
+Data Inclusão
+: data e hora de inclusão do período de apuração
+Ambiente
+: ambiente que o período de apuração para envio de dados está configurado em 
+, sendo:
+0 para Homologação
+1 para Produção
+Última Operação solicitada
+: indica a última operação que foi realizada, sendo:
+0 para Informações do Contribuinte
+1 para Eventos
+2 para Fechamento
+3 para Reabertura
+4 para Exclusão de Eventos
+Status
+: status do período de apuração selecionado, sendo:
+0 para Aberto
+1 para Fechado
+Tipo Produção
+: tipo de produção definido para o período de apuração, em 
+, sendo:
+0 para Produção ou
+1 para Produção Restrita.
+Na parte inferior da tela, o sistema apresenta os registros a serem preenchidos manualmente.
+Para incluir os dados de um determinado registro, acesse a aba do registro em questão e utilize o menu de botões do lado direito da tela a opção 
+Incluir 
+está representado pelo sinal de 
++
+: 
+Nos registros R-1000, nos campos onde são informados data (idePeriodo_iniValid, idePeriodo_fimValid, novavalidade_iniValid e novavalidade_fimValid) DEVEM SER PREENCHIDOS como AAAA-MM. Exemplo: 2018-05.
+ 
+Não deve ser preenchido 201805 pois a formatação de data é validada pela Receita e acusa erro, rejeitando o xml. 
+e o SisPetro apresentará a tela com as informações que devem ser preenchidas para cada registro:
+Hoje, os únicos registros preenchidos automaticamente pelo SisPetro são os registros 
+R-2010
+, R-2099 e R-4099
+Para os demais registros, as informações devem ser lançadas manualmente. Para mais informações,  acesse o site do 
+Sped-Reinf
+ e veja o leiaut.
+Ao finalizar o preenchimento, selecione 
+Salvar
+.
+Após a inclusão é possível alterar um registro, através da opção 
+Edita
+, excluir um registro, através da opção 
+Excluir
+ ou filtrar um determinado registro, através da opção 
+Filtro Adicional
+.
+Detalhamento dos Registros:
+R-1000: 
+informações do contribuinte (a ser enviado uma única vez no mês que começar a trabalhar com REINF)
+R-2010
+: é o registro que aponta os valores de contribuição previdenciária sobre serviços tomados (como obra)
+R-2020
+: é o registro de retenção de contribuição previdenciária - serviços prestados
+R-2040
+: é o registro dos valores decorrentes de recursos passados para associações desportivas (doações)
+R-2070
+: é o registro que envia, por beneficiário, quais as retenções feitas das contribuições citadas (Retenções na Fonte - IR, CSLL, Cofins, PIS/Pasep) - 
+removido pela Receita Federal para remodelação
+R-2098:
+ reabertura e a consulta de dados de fechamento
+R-4010: 
+é o registro que aponta pagamentos, créditos a beneficiário pessoa física
+R-4020:
+ 
+é o registro que aponta pagamentos, créditos a beneficiário pessoa jurídica
+R-4040:
+ 
+é o registro que aponta pagamentos, créditos a beneficiários não identificados
+R-4080:
+ 
+é o registro de Retenção no recebimento
+R-4099:
+ 
+fechamento, reabertura dos eventos da série R-4000
+R-5011
+: retorno da consulta de dados (em desuso)
+R-2099: 
+fechamento dos eventos
+R-9000: 
+exclusão de eventos
+Implementamos o Registro R-2020, porém
+ não foi possível sua transmissão de dados
+. É fundamental verificar a disponibilidade e prazos da Receita para esse registro antes de preenchê-lo.
+Para gerar o arquivo xml e transmiti-lo. Para mais informações, ver 
+.
+Evento de fechamento R-2099
+Muitas vezes ao enviar o evento de fechamento R-2099, o sistema do REINF retorna 
+EM PROCESSAMENTO. 
+De acordo com a Nota Orientativa 03/2018 - para mais informações ver em 
+http://sped.rfb.gov.br/pagina/show/2791
+ - isso ocorre porque esse 
+evento é assíncrono, ou seja, a resposta nem sempre é imediata
+.
+Por isso, muitas vezes, o retorno se o fechamento foi ou não processado com sucesso, pode demorar. 
+No SisPetro, quando isso ocorrer basta processar novamente o evento de fechamento. Internamente, o SisPetro faz uma consulta ao sistema do REINF para saber a condição atual do evento de fechamento enviado. 
+No XML de retorno enviado pelo REINF, observar que existem 2 informações de retorno:
+Recebimento com sucesso: este retorno refere-se à informação que o sistema do REINF recebeu com sucesso a solicitação de fechamento
+<status>
+<cdStatus>0</cdStatus> 
+<descRetorno>
+SUCESSO
+</descRetorno> 
+</status>
+Fechamento: este retorno refere-se à informação que a solicitação de fechamento foi processado ou não
+<ideStatus>
+<cdRetorno>2</cdRetorno> 
+<descRetorno>
+EM PROCESSAMENTO
+</descRetorno>  
+</ideStatus>
+Neste caso, significa que o sistema do REINF ainda não processou a solicitação de fechamento, sem o qual não pode ser processado o ENCERRAMENTO. 
+Deve processar novamente a solicitação de fechamento, até que retorne com SUCESSO ou retorne com o ERRO:
+<ideStatus>
+<cdRetorno>2</cdRetorno> 
+<descRetorno>
+SUCESSO
+</descRetorno>  
+</ideStatus>
+OU
+<ideStatus>
+<cdRetorno>1</cdRetorno> 
+<descRetorno>
+ERRO
+</descRetorno> 
+- <regOcorrs>
+<tpOcorr>1</tpOcorr> 
+<localErroAviso /> 
+<codResp>
+MS1078
+</codResp> 
+<dscResp>
+A EFD j foi fechada para o per odo informado, ou existe um evento de fechamento em processament
+o</dscResp> 
+</regOcorrs>
+</ideStatus>
+Retornando com SUCESSO ou com o ERRO acima, processar o ENCERRAMENTO.
+Para mais informações:
+SPED REINF - Configurações
+Painel Livro Eletrônico
+Manutenção do Reinf
+Preenchimento Automático REINF - R2010

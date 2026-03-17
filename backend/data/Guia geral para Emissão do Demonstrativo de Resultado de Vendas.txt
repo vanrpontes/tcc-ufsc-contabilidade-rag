@@ -1,0 +1,88 @@
+TITULO: Guia geral para Emissão do Demonstrativo de Resultado de Vendas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878898388
+--------------------------------------------------
+1. Confira a estrutura do Demonstrativo de Resultado.
+    
+O SisPetro já sugere uma estrutura de 
+Demonstrativo de Resultados
+, basta conferir se ela está de acordo com o que sua empresa espera.
+    
+a)
+ Inative algum item para que ela não seja impresso, se preferir exclua-o.
+    
+b)
+ Em cada item que não seja Sintético, vá ao painel Contas e selecione as contas que deverão ser agrupadas neste item.
+    
+c)
+ Escolha um (e somente um) item do Demonstrativo para que nele seja acumulado o valor da Receita de Vendas. Neste item marque a opção 
+Tipo de Agrupamento
+ para 
+Receita de Vendas
+    
+d)
+ Repita o processo para o item que for acumular o valor de Custos das Mercadorias, nele marque a opção 
+Tipo de Agrupamento
+ para 
+CMV
+.
+    
+e)
+ Finalmente repita o processo para o item que for acumular o valor de Devoluções de Vendas, nele marque a opção 
+Tipo de Agrupamento
+ para 
+Devolução de Vendas
+.
+    
+f)
+ Confira os demais itens para que estejam todos com o Tipo de Agrupamento definido para 
+Desconsiderar
+Contas Vinculadas
+O tipo de agrupamento, 
+Contas Vinculadas,
+ acumula os valores das contas vinculadas, levando valores de todos os lançamentos das respectivas contas.
+2. Configure o salvamento de Custos pela Nota Fiscal.
+    
+Para o item do Demonstrativo: Custos das Mercadorias Vendidas é necessário que a cada Nota Fiscal de Venda salve o custo de aquisição. 
+Para 
+mais
+ informações, ver 
+Cálculo de Custos
+. Veja as configurações necessárias:
+    
+a)
+ No perfil do Sistema, painel Nota Fiscal a opção: Salva Custos na NF de Venda.
+    
+b)
+ Vá em cada Natureza de Operação de Venda (Menu 
+Tabelas Auxiliares / Faturamento / Natureza de Operação, painel 
+Custos/Conhecimento
+) e marque quais os custos desejados para a Natureza. Para o Demonstrativo só é necessário o Custo Inicial (Aquisição).
+    
+c)
+ É fundamental para o processo de cálculo do custo médio funcionar que as naturezas de operação de entrada das notas fiscais 
+que alterem o custo médio
+ estejam marcadas para participarem do CMV (
+Participa do CMV
+ no painel 
+Dados Gerais
+).
+    
+d)
+ Para ajustar o Custo Inicial do Produto há duas formas: Manual ou pelo Fechamento de Estoque. No Menu 
+Arquivos / Produtos – painel Detalhes – 
+Custos para Venda
+, escolha uma das formas no item 
+custo médio utilizado
+, atente-se que esta configuração é por Empresa. O valor do custo, independente da forma pode ser por Vigência (se no perfil do Sistema, estiver marcada a opção Controla Custos por Data de Vigência). No caso de venda de produtos compostos como Gasolina C, o Custo Inicial será a soma do Custo de Gasolina A com o Custo do Álcool Anidro (proporcionalmente).
+Manual:
+ Informe o CUSTO CIF do Produto, este custo deverá ser alterado manualmente toda vez que houver alteração do Custo.
+Pelo Último Fechamento:
+ informe o depósito padrão para atualização do custo. Assim, toda vez que for feito um fechamento de estoque para este produto/empresa/depósito padrão o custo será atualizado automaticamente.
+    Caso seja o primeiro ajuste, ele poderá ser feito de forma global, porém, antes deixe todos os produtos configurados para que o custo inicial seja pelo último fechamento (esta é a opção padrão) e é imprescindível que sua empresa trabalhe com Fechamento de Estoque. No menu Movimentação/Estoque/
+ informe uma data e o custo de cada produto/empresa/depósito. Se este produto/empresa/depósito já tiver um fechamento de estoque para data, somente o custo deverá ser informado, se não tiver, deverá ser informado o saldo final na data para que o SisPetro providencie o fechamento de estoque.
+    
+e)
+ Para calcular custos de notas fiscais anteriores à configuração, utilize a Manutenção de NF´s, posicione na nota de venda desejada e clique no botão 
+Rec.Custo
+.
+3. Emita o Demonstrativo de Resultados sobre Vendas.

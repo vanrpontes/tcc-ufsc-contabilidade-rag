@@ -1,0 +1,80 @@
+TITULO: Manutenção de Pedágios
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926196462
+--------------------------------------------------
+1
+6
+false
+none
+list
+true
+Objetivo
+Esta é a tela de consulta dos Vale Pedágios do SisPetro. Para mais informações de como configurar e emitir um vale pedágio, ver 
+Gerenciamento de Pedágios automatizados.
+Para abrir a tela Manutenção de Pedágios, acesse através do menu 
+Movimentação/Transportes/Manutenção de Pedágios.
+Nesta tela, o Sispetro só apresenta os pedágios das empresas que o usuário pode fechar carga. Para maiores informações, acesse 
+Composição de carga
+.
+Independente do tipo de Vale Pedágio é utilizada a tag do xml de comunicação ValorPedagioViaFacil para o SisPetro trazer o valor 
+Filtros
+Gerenciador de Pedágio: 
+seleciona o gerenciador de pedágio para o filtro.
+Empresa: 
+nesse campo informamos uma empresa especifica para o filtro, ou seleciona a opção '<< TODAS >>', que serão apresentados os vale pedágio de todas as empresas.
+Resultado do Processamento: 
+este campo define na pesquisa o tipo de pedido a ser pesquisado, podendo ser:
+Todos os Pedidos
+Todos os que estão OK
+Todos os que estão com Erro
+A partir de: 
+este campo define a partir de qual data será realizado o filtro
+Botões 
+Processa: 
+através desse botão é acionado o Serviço de Comprar Pedágio (que pode ser acionado também no Fechamento da Carga pelo botão Processa). Só poderão ser processados os pedidos cujo o status do pedido não estejam como OK. 
+Se, por algum motivo, o sistema não conseguiu obter custo, o sistema não permitirá emitir a nota fiscal, pois não terá informações do valor do pedágio. Assim, ao clicar nesta opção, o Sispetro enviará este comando para obter o custo, liberando assim o processo.
+Confirma:
+ essa opção é utilizada para confirmar o vale pedágio, a confirmação é realizada após o processamento do pedido. Hoje a confirmação do Vale pedágio só se aplica para pedidos do Tipo
+ TAG
+, emitidos pelo gerenciador de pedágio da Target. O usuário só tera permissão para processar caso tenha as devidas permissões. Veja maiores detalhes em 
+Painel Fretes (Usuários)
+. 
+O usuário só poderá confirmar a compra caso tenha obtido o custo.
+Encerrar:
+ esse botão realiza o encerramento do CIOT, para que o usuário possa acionar o mesmo deve ter o perfil de usuário 
+Pode processar encerramento de CIOT
+ habilitado. Veja maiores detalhes em 
+Painel Fretes (Usuários)
+.
+Cancela: 
+ao acionar o botão de Cancela, é iniciado o cancelamento do vale pedágio selecionado e, caso a compra já tenha sido feita, sistema irá considerar o item como processado.
+O cancelamento só será permitido, caso o usuário tenha acesso. Veja maiores detalhes em 
+Painel Rota/Carga (Usuários)
+ 
+Renova Token: 
+o botão de renova token serve para limpar a ultima autenticação do token, dessa forma ao realizar um novo processamento o Sistema ira buscar um novo token. Essa função é muito utilizada quando o gerenciador de vale pedágio retorna uma autenticação de Token invalida ou com erro, sendo assim basta o usuário renovar o Token e realizar o processo novamente. Esse botão só ficara habilitado para usuários que tenham permissão para renovar o Token. Veja maiores detalhes em 
+Painel Rota/Carga (Usuários)
+.
+Atualiza: 
+ao clicar neste botão a tela será atualizada, trazendo as informações em tempo real ou de acordo com os novos filtros selecionados.
+Legenda: 
+informa ao usuário, o significado das cores dos registros apresentados na tela.
+Sair:
+ fecha a tela de manutenção de Pedágio e retorna ao menu Principal do SisPetro.
+Abas 
+Aba Principal
+Na aba principal são apresentados todos os pedágios que fazem parte do filtro utilizado na pesquisa.
+Aba Itens
+Apresenta os produtos emitidos para o pedágio selecionado.
+Aba Cupons
+Na aba de cupons são apresentados os cupons e praças referente ao vale pedágio selecionado.
+         Os cupons são obtidos automaticamente no processamento com a empresa gerenciadora de vale pedágio.
+Aba Comunicação Pedido
+Na aba de comunicação são apresentados os dados referente a comunicação com o vale pedágio
+Através dos botões XML Enviado e XML Retorno, podemos realizar a visualização dos XMLs enviados e e recebidos.
+Aba Comunicação Diversa
+Nessa aba serão apresentados todos os comandos de comunicação enviados para o gerenciador de vale pedágio. Serão apresentado todos os comandos independente do vale pedágio selecionado na aba principal.
+Para saber mais:
+Gerenciamento de Pedágios automatizados.
+Tabela Gerenciador de Pedágio X Empresa
+Tabela de Gerenciador de Pedágio
+Configurando CIOT

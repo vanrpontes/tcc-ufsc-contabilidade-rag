@@ -1,0 +1,62 @@
+TITULO: Servidor Sispetro Roteador - Configurações
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2926203154
+--------------------------------------------------
+Para configurar o Roteador é necessário incluir os Servidores Sispetro que controlarão os acessos na Aba Roteador do Servidor Sispetro que será ativado como roteador. O Servidor Roteador 
+não deve
+ ser incluído nesta lista. Acesse 
+Regras para utilização do Servidor Sispetro Roteador
+ para maiores informações.
+Para iniciar a configuração, siga os passos abaixo:
+Abra o Servidor Sispetro que será o Roteador na aba '
+Roteador
+'
+Selecione a opção '
+Incluir
+'
+Defina as informações, conforme abaixo:
+Nome do Servidor:
+ Defina o nome do Servidor Sispetro que controlará os acessos.
+IP:
+ Informe o IP do Servidor Sispetro.
+Porta: 
+Defina a porta do Servidor Sispetro (na inclusão é possível fazer o teste de conexão com o Servidor Sispetro cadastrado, selecionando a opção 
+).
+Filtro Máscara IP: 
+informar o range de IP das máquinas que serão direcionadas para este Servidor Sispetro. Para mais detalhes, acesse 
+Regras e Definições para configurar e utilizar o Roteador do Servidor Sispetro
+.
+Filtro Setor: 
+informar o nome do setor a ser direcionado para este Servidor Sispetro. Esta informação deve ser exatamente igual a definida no INI do Sispetro Normal e/ou Controladoria. Para mais detalhes, acesse 
+Regras e Definições para configurar e utilizar o Roteador do Servidor Sispetro
+.
+Filtro Empresa:
+ informar a descrição da empresa a ser direcionada para este Servidor Sispetro.  Esta informação deve ser exatamente igual a definida no INI do Sispetro Normal e/ou Controladoria. Para mais detalhes, acesse 
+Regras e Definições para configurar e utilizar o Roteador do Servidor Sispetro
+.
+Servidor Primário:
+ definir se esse será o servidor roteador primário. Para mais detalhes, acesse 
+Regras e Definições para configurar e utilizar o Roteador do Servidor Sispetro
+.
+Selecione a opção para '
+Gravar
+'.
+Abaixo seguem as demais funções apresentadas na tela:
+Editar
+: Utilizada para alterar as configurações de um Servidor Sispetro cadastrado.
+Excluir
+: Utilizada para excluir a configuração de um Servidor Sispetro cadastrado.
+Desabilitar
+: Utilizada para desativar um Servidor Sispetro cadastrado - sem excluí-lo.
+Testar
+: Utilizada para testar a conexão de um Servidor Sispetro cadastrado.
+Zerar
+: Utilizada para zerar a quantidade de usuários que a conexão foi direcionada para este Servidor Sispetro. Esta opção somente zera o contador, não influenciando na conexão.
+A opção de 
+Testar
+ conexão 
+preferencialmente
+ deve ser utilizado quando os usuários não estiverem logados no sistema.
+ 
+Caso seja habilitada a opção '
+Roteador
+' porém não tenha nenhuma configuração realizada, na inicialização, o Servidor Sispetro apresentará mensagem de alerta e não será iniciado:

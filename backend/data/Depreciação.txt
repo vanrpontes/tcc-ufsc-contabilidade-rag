@@ -1,0 +1,111 @@
+TITULO: Depreciação
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210390
+--------------------------------------------------
+O processo de cálculo de depreciação é feito a partir do botão 
+Depreciação
+ da tela de 
+Manutenção de Patrimônio.
+ 
+A tela de movimentação apresenta o 
+quadro Filial - Unidade de Negócios
+ de acordo com a opção feita no Perfil de Empresas em 
+Painel Patrimônio
+.
+Caso a empresa opte por fazer a depreciação por Grupo de Filiais ou por Filial, é de sua responsabilidade garantir que a depreciação foi feita para todos os Grupos ou Filiais.
+ 
+O cálculo de depreciação pode ser feito de duas formas: Diária ou Mensal. O padrão é o cálculo mensal. Vide em 
+Cálculo de Depreciação
+ a diferença entre eles e como configurá-los. 
+ Informe a 
+data final
+ para referência no cálculo da depreciação. Serão apresentados os produtos passíveis de depreciação: ativos, sem suspensão de depreciação, com data de término de depreciação maior que a data de referência informada e cujo valor depreciado seja menor que o valor do bem.
+Esta tela permitirá ao usuário definir quais os bens irão participar da depreciação, além de definir quais serão contabilizados ou não. O processo poderá ocorrer de forma individual ou geral. A depreciação parcial poderá ser feita em qualquer momento do mês.
+Importante:
+ Com este processo, a depreciação poderá ser feita para um bem específico no meio do mês, podendo ser baixado em seguida. No final do mês todos os outros bens serão apresentados normalmente com seu valor integral na depreciação.
+Agora temos na tela:
+Quadro 
+Filial
+ - campo 
+Unidade de Negócios
+: de acordo com o perfil de Empresas em 
+Painel Patrimônio
+, o usuário poderá optar por fazer a depreciação de forma Geral (todas as empresas), Grupo de Empresas (ver 
+Manutenção de Conglomerado de Empresas
+) ou por Filial.
+Quadro 
+Marca/Desmarca
+ com os botões:
+Participação
+: Este botão irá marcar ou desmarcar todos os bens existentes para participarem do processo de depreciação.
+Contabilização
+: Este botão irá marcar ou desmarcar todos os bens existentes para serem contabilizados.
+ 
+Quadro 
+Operações
+ com os botões:
+Alterar
+: é possível alterar as contas crédito e dévito, e também o valor a depreciar.
+Calcula Lotes
+: o SisPetro irá calcula a depreciação dos bens que foram selecionados anteriormente.
+ 
+Esclarecimento das colunas no quadro Bens:
+Participa:
+ indica se o bem irá participar da depreciação. Sempre será sugerido marcado. Caso seja desmarcado, o Sispetro irá desmarcar a coluna 
+Contabiliza
+ e zerar os valores da coluna 
+Valor a Depreciar
+, automaticamente. O processo inverso ocorrerá caso esta coluna seja marcada.
+Contabiliza:
+ indica se o bem irá ser contabilizado.
+Empr.:
+ indica o código da empresa.
+Filial:
+ indica a filial a qual o bem pertence.
+#Bem:
+ indica o código interno do bem.
+Descrição do Bem:
+ informa o nome do bem cadastrado.
+Taxa Anual:
+ indica a taxa anual a ser utilizada.
+Taxa diária:
+ indica a taxa a ser utilizada quando for a primeira depreciação do bem ou o cálculo de depreciação for diário.
+Tempo:
+ indica o número de meses que será feito o cálculo de depreciação, é normal que a primeira depreciação seja menor que 1 caso o bem ainda não tenha atingido um mês de aquisição.
+Última Deprec.:
+ informa a data da última depreciação feita para os bens do produtos.
+Valor Atual:
+ informa o valor atual do bem.
+Valor Deprec:
+ indica quanto o bem já tem acumulado de depreciação.
+Valor a Depreciar:
+ indica o valor que o sistema calculou para este que vai ser depreciado nesta movimentação.
+Valor Depreciação do Período:
+ valor que deve ser depreciado mensalmente do bem, calculado de acordo com a taxa de depreciação cadastrada para o bem.
+CC Despesa Deprec.:
+ informa a Conta Contábil de Despesa para depreciação.
+CC Deprec. Acum.:
+ informa a Conta Contábil de Depreciação Acumulada.
+Cód. Prod.:
+ informa o código do produto a quem o bem pertence.
+Descrição do Produto:
+ informa a descrição do produto a quem o bem pertence.
+Na parte inferior da tela são apresentados os lançamentos que serão feitos para esta depreciação. São agrupados de acordo com a conta de Depreciação Acumulada e a conta de Despesa de Depreciação, bem como filial do bem.
+Esclarecimento das colunas no quadro Lotes:
+Empr.:
+ indica a empresa que pertence o lote.
+Filial:
+ indica a filial a qual o lote pertence.
+CC Deprec. Acum.:
+ informa a Conta Contábil de Depreciação Acumulada onde o lote foi contabilizado.
+CC Depreciação Acumulada (Crédito):
+ informa a descrição da Conta Contábil de Depreciação Acumulada onde o lote foi contabilizado.
+CC Desp. Deprec.:
+ informa a Conta Contábil de Despesa de Depreciação onde o lote foi contabilizado.
+CC Despesa Depreciação (Débito):
+ informa a descrição da Conta Contábil de Depreciação Acumulada onde o lote foi contabilizado.
+Valor:
+ informa o valor contabilizado.
+Confirme a movimentação clicando no botão OK.  
+Foi feito somente o cálculo, os lançamentos só serão realizados após a 
+efetivação
+ deste movimento. Só é possível ter uma movimentação de depreciação a efetivar.

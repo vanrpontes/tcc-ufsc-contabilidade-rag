@@ -1,0 +1,99 @@
+TITULO: Depósitos - aba Inspeções
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936703106
+--------------------------------------------------
+Objetivo
+Nessa aba são feitas as configurações para habilitar ou não o processo de bola preta. Também mostra todas as OC (frotas) ativas e não canceladas que fizeram a portaria de entrada e foram publicadas.
+O depósito deve estar com a opção Base Própria marcada. 
+O acesso é feito através do Menu Arquivo / Depósitos / Aba Inspeções
+Quadro Configurações:
+ 
+Habilita Bola Preta:
+ por padrão é desmarcado. Caso marcado, permitirá realizar sorteios para as OC (frotas) de carregamento ou descarga incluídas. Se habilitado, deve configurar as demais opções:
+Realização de Sorteio:
+ 
+Não realiza (controla somente os resultados):
+ esta opção não fará os sorteios automaticamente. O usuário é que deverá selecionar as OC (frotas) e fazer a inspeção manualmente, através da tela de Portaria de Saída - botão Edita Inspeção ou através da tela de Manutenção Ordens Carregamento - aba Inspeções - botão Edita. 
+Realiza sorteio conforme as configurações:
+ esta opção fará os sorteios automaticamente, de acordo com as demais configurações.
+Prazo de Divulgação do Sorteio (em Minutos):
+ após as OC (frotas) saírem da Portaria de Entrada (data e hora da saída), iniciará a contagem para divulgação do resultado do sorteio (se a OC foi ou não selecionada para inspeção). A contagem inicia a partir da data e hora da saída das OC da Portaria de Entrada de acordo com o número de minutos configurado. Somente após o tempo definido é que as OC serão mostradas no quadro Inspeções Realizadas e na aba Inspeções da tela de Manutenção Ordens Carregamento.
+Tipo de Operação: 
+é possível configurar a inspeção nas seguintes opções
+Somente Carregamentos
+Somente Descargas
+Carregamento e Descargas
+Carregamento
+Quadro Carregamento:
+Quadro Dias da Semana:  
+Qtde Operações Previstas: 
+define o número de operações previstas (quantidade de OC de carregamento emitidas e não canceladas) durante a semana (de segunda à sexta-feira)
+Qtde Inspeções Desejadas:
+ define o número de inspeções desejadas para o número de operações previstas  (de segunda à sexta-feira)
+Quadro Fim de Semana:
+Qtde Operações Previstas:
+ define o número de inspeções desejadas para o número de operações previstas  (sábado e domingo)
+Qtde Inspeções Desejadas: 
+define o número de inspeções desejadas para o número de operações previstas  (sábado e domingo)
+Quadro Descarga:
+Quadro Dias da Semana:  
+Qtde Operações Previstas: 
+define o número de operações previstas (quantidade de OC de carregamento emitidas e não canceladas) durante a semana (de segunda à sexta-feira)
+Qtde Inspeções Desejadas:
+ define o número de inspeções desejadas para o número de operações previstas (de segunda à sexta-feira)
+Quadro Fim de Semana:
+Qtde Operações Previstas:
+ define o número de inspeções desejadas para o número de operações previstas (sábado e domingo)
+Qtde Inspeções Desejadas: 
+define o número de inspeções desejadas para o número de operações previstas (sábado e domingo)
+Os sorteios obedecerão à quantidade de operações previstas e dentro das operações previstas a quantidade de inspeções desejadas. 
+Exemplo:
+ 20 operações previstas e 5 inspeções desejadas. Os sorteios serão realizados até atingir 19 operações (se igual ou maior que 20 não serão mais realizados sorteios) e dentro dessas 19 operações, serão sorteados 5. Se a quantidade de inspeções desejadas atingir 5, os sorteios não serão mais realizados, independente se o número de operações previstas atingiu ou não a quantidade prevista.
+Quadro Impressão de Layout:
+Layout Formulário de Inspeção:
+ informe a pasta onde se encontra o rtm
+ Inspecao.rtm
+. Utilizado para imprimir relatório de inspeção através da Portaria de Saída - botão Imprime Formulário
+Nome Pipeline OC:
+ informe OrdemCarregto
+Nome ID OC:
+ informe ID
+Quadro Inspeções Realizadas: 
+n
+este quadro serão apresentadas todas as OC (frotas) de carregamento ativas e não canceladas que foram incluídas, desde que estejam liberadas para divulgação (prazo de divulgação). O período padrão para apresentar os dados são de 7 dias. Podem ser selecionados os campos desejados para apresentação dos dados. Definição de alguns campos:
+Data Sorteio:
+ data em que a OC (frota) foi ou não selecionada para sorteio. É a data e hora em que foi feita a Portaria de Entrada.
+Modo Sorteio: 
+Randômico:
+ escolha aleatória pelo SisPetro
+Dirigido:
+ frota marcado para obrigar inspeção. Para mais informações, ver 
+Tabela Manutenção de Frota
+Resultado Sorteio: 
+Não exige inspeção:
+ permite inspecionar mesmo não exigindo
+Exige inspeção:
+ obrigatório inspecionar
+Status Inspeção:
+ 
+Não realizada:
+ OC (frota) não selecionada para inspeção e liberada para fazer Portaria de Saída
+Realizada OK:
+ inspeção realizada e não apresentou inconformidades
+Realizada (encontrada não conformidade):
+ inspeção realizada e apresentou inconformidades
+Observação Inspeção:
+ texto livre digitado pelo usuário
+Usuário Inspeção:
+ usuário que fez a inspeção
+Data Divulgação:
+ data e hora que o resultado do sorteio será divulgado, independente se a OC (frota) foi ou não selecionada para sorteio
+Botão Imprime:
+ imprime os dados da tela
+Mais informações: 
+Inspeção de Auto Tanque - Sorteio de Bola Preta
+Painel Carregamento (Usuários)
+Depósitos - Aba Dados Adicionais
+Tabela Manutenção de Frota
+Portaria de Entrada
+Portaria de Saída
+Manutenção Ordens Carregamento - Aba Inspeções

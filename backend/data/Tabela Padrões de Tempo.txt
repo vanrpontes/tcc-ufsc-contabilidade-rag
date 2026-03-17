@@ -1,0 +1,22 @@
+TITULO: Tabela Padrões de Tempo
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2936703114
+--------------------------------------------------
+Essa tabela, acionada pelo menu Tabelas Auxiliares / Estoque / Padrões Tempo de Baia - É o coração do 
+, pois concentra os parâmetros de tempo para se definir o tempo de um Carregamento ou Descarga. Esses padrões serão vinculados às Baias cadastradas em 
+Depósitos - Aba Agendamento
+.
+Esclarecendo cada um dos campos:
+Descrição: 
+somente uma identificação para facilitar a escolha desse padrão no momento do vínculo com a Baia.
+Tempo de Operação (litros/segundo): 
+indica quantos litros podem ser carregados ou descarregados por segundo. Repare que, se a vazão de carregamento for diferente da descarga, será necessário cadastrar um Padrão de Tempo para cada (eis o motivo para, na Baia, poder ser indicado um padrão de tempo diferente para cada operação).
+Exemplificando, no caso de um Carregamento de 30.000 litros ocorrer em 30 minutos. Temos que fazer a seguinte equação para descobrir o número de litros por segundo:
+30.000 / 30 = 1.000 → Sabemos que 1.000 litros são carregados em 1 minuto
+1.000 / 60 = 16,666 → Sabemos que 16,666 litros são carregados em 1 segundo: ESTE É O VALOR A SER INFORMADO EM TEMPO OPERAÇÃO.
+Tempo de Troca de Compartimentos (minutos):
+ é o tempo, em minutos,que demora para concluir um compartimento e iniciar outro.
+Tempo de Remanejamento de Braços (minutos): 
+esse tempo será utilizado quando o número de compartimentos é maior que o número de braços. Quando termina de carregar os compartimentos com os braços existentes, é o tempo necessário para movimentar o caminhão e alinhar os demais compartimentos aos braços.
+Tempo entre Portaria e Baia (minutos):
+ é o t
+empo de deslocamento na entrada, entre a portaria e a baia e na saída, entre a baia e a portaria.

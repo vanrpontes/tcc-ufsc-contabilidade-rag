@@ -1,0 +1,144 @@
+TITULO: Consultas de Destinatário Efetuadas
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2925002895
+--------------------------------------------------
+A
+ 
+Consulta de Destinatário de NF-e/CT-e
+ 
+utiliza o Ambiente de Trabalho conforme configurado mas somente para Homologação ou Produção. Se o Ambiente de Trabalho estiver configurado como Homologação para emissão da NF-e e/ou do CT-e, a Consulta de Destinatário também realizará as consultas em Homologação.
+Antes da utilização da consulta de destinatário, é preciso configurar os serviços de consultas: 
+Painel Serviços SEFAZ
+ e 
+Consulta de Destinatário de NF-e/CT-e
+Com a implementação do
+ 
+Serviço automático para Consulta Destinatário NF-e/CT-e
+, foi criada esta tela para exibição dos dados de uma consulta de destinatário acessada através da 
+Manutenção Chaves de Acesso
+, botão Histórico Consulta:
+Filial Específica
+: caso queira, pode selecionar uma filial específica ou todas as filiais.
+Período:
+ informe o período de pesquisa das Consultas.
+Tipo de Consulta:
+ 
+Todos: mostra NF-e e CT-e.
+NF-e: mostra somente as NF-e.
+CT-e: mostra somente os CT-e.
+Data/Hora Próxima consulta NF-e: 
+mostra a próxima hora da consulta caso o status retorne como 137 - Documento não Localizado.
+Data/Hora Próxima consulta CT-e: 
+mostra a próxima hora da consulta caso o status retorne como 137 - Documento não Localizado.
+Aba Consulta: 
+contém as informações das pesquisas realizadas através do 
+webservice
+ e apresentado nos campos abaixo.
+Automática:
+ indica se a consulta foi efetuada de forma automática ou manual.
+Data:
+ qual a data e hora da Consulta.
+NSU Enviado:
+ c
+orresponde ao último documento enviado na consulta. Portanto, quando não tem documentos esse NSU refere-se ao mesmo da última consulta que teve documentos. 
+NSU Retornado: 
+corresponde ao último NSU retornado pela SEFAZ, caso a ultima consulta, retorne com Status 137 nenhum documento localizado o mesmo NSU se mantem.
+Último NSU Existente
+: grava 
+para a empresa qual foi o último NSU retornado. 
+Status Sefaz:
+ qual o status da consulta, retornado pela SEFAZ.
+Descrição Status Sefaz
+: descrição do status.
+Status SisPetro
+: indica se a Consulta foi ou não concluída, independente do retorno da Sefaz. Pode ocorrer erro de Consumo Indevido, porém o Status SisPetro considera que a 
+Consulta efetuada com sucesso.
+Usuário
+: qual usuário fez a pesquisa. Se foi de forma automática, indica o usuário informado no 
+Serviço automático para Consulta Destinatário NF-e/CT-e
+.
+# Consulta: 
+indica o sequencial da Consulta no SisPetro.
+#Empresa: 
+código da empresa consultada.
+Empresa: 
+descrição da empresa consultada.
+Ind. Continuidade: 
+indica se possui mais documentos ou não para CNPJ informado.
+TipoDocto: 
+indica se a consulta é para NF-e ou CT-e.
+Botões
+Layout Padrão:
+ 
+volta a tela com o layout padrão do SisPetro.
+Legenda:
+Informa ao usuário, 
+o significado das cores dos registros apresentados na tela.
+XML Enviado: 
+exibe o xml da solicitação enviada pelo SisPetro.
+XML Retorno:
+ exibe xml do retorno da solicitação na Sefaz.
+Aba Chaves Retornadas: 
+são apresentados detalhes do evento selecionado na aba de Consulta. São informações sobre número da nota fiscal, chave de acesso do documento fiscal, entre outras, referente ao NSU selecionado.
+#Empresa :
+ exibe o código da empresa.
+Empresa :
+ exibe o nome da empresa.
+Sequencial NF :
+ exibe o sequencial da nota fiscal.
+Chave Acesso :
+ exibe a chave de acesso.
+Situação NFe :
+1 - Uso autorizado no momento da consulta.
+2 - Uso denegado.
+3 - NFe Cancelada.
+Número NF :
+ exibe o numero da nota fiscal.
+Série :
+ exibe a série do documento fiscal.
+Data Emissão :
+ exibe a data da emissão do documento fiscal.
+Valor Total :
+ exibe o valor do documento fiscal.
+Autorizada Em :
+ exibe a data de autorização do documento fiscal.
+Tipo Manifestação:
+0 - Nenhuma Operação.
+1 - Confirmação de Operação.
+2 - Desconhecimento de Operação.
+3 - Operação não Realizada.
+4 -Ciência.
+Processada Manifestação :
+ campo de confirmação do processamento da manifestação.
+Cancelada :
+ campo de confirmação do cancelamento do documento fiscal.
+Tipo Últ. Manifestação:
+0 - Nenhuma Operação
+1 - Confirmação de Operação: somente para NF-e.
+2 - Desconhecimento de Operação: somente para NF-e.
+3 - Operação não Realizada: somente para NF-e.
+4 -Ciência: : somente para NF-e.
+5 - Prestação de Serviço em Desacordo: somente para CT-e.
+XML Completo :
+ campo indica se possui ou não XML completo.
+XML Resumo :
+ campo indica se possui ou não XML de resumo.
+XML Cancelamento: 
+campo indica se possui ou não XML de cancelamento.
+XML Carta de Correção: 
+campo indica se possui ou não XML de carta de correção.
+Botões
+Layout Padrão:
+ 
+volta a tela com o layout padrão do SisPetro.
+XML 
+NFE: 
+exibe o XML da NF-e, caso tenha do item selecionado.
+XML Cancto: 
+e
+xibe o XML de Cancelamento da NF-e, caso tenha do item selecionado.
+XML CC-e:
+ e
+xibe o XML da Carta de Correção da NF-e, caso tenha do item selecionado.
+A consulta traz um arquivo zipado com diversas informações, nem todas as informações são utilizada pelo SisPetro, Para mais informações, ver
+ 
+Tipos de informações retornadas na Consulta Destinatário X Sispetro 

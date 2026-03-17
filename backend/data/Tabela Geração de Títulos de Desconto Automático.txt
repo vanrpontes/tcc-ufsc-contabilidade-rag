@@ -1,0 +1,149 @@
+TITULO: Tabela Geração de Títulos de Desconto Automático
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210616
+--------------------------------------------------
+none
+Objetivo
+Nesta tabela serão cadastrados as pré-configurações para a geração automática de títulos de desconto para o 
+Contas a Receber
+ ou 
+Contas a Pagar
+A tela que permite manipular esta tabela é acionada a partir do Menu 
+Tabelas Auxiliares / Financeiro / Geração de Títulos de Desconto Automático
+Abas
+Navegação
+Detalhes
+Para acrescentar uma nova configuração para geração automática de título, acione o botão de inclusão de registro 
+.
+O SisPetro exibe a tela para preenchimento dos novos dados.
+Dados necessários:
+Ativo:
+ indica se o registro está ativo ou não para uso.
+Título: 
+escolha uma das opções
+Pagar
+Receber
+Tipo Entidade:
+ indica de que lugar será utilizado o código para a geração do título
+Fixo
+Obtém do Município
+Representante
+Entidade:
+ código da Entidade que será gerado o título. Somente será informado este campo se o 
+Tipo Entidade
+ estiver selecionado como 
+Fixo
+.
+Tipo Vencimento:
+ indica de que lugar será utilizada a faixa para cálculo do vencimento.
+Via Faixa
+Obtém do Município
+Faixa para Cálculo:
+ código da faixa para cálculo do vencimento. Somente será informado este campo se o 
+Tipo Vencimento
+ estiver selecionado como 
+Via Faixa
+. As faixas se encontram na 
+Tabela Faixa para Cálculo Vencimento de Desconto
+. 
+Tipo Data Base:
+ tipo de data que será utilizada para cálculo. 
+Data Emissão
+Data Vencimento (se não tiver, Emissão NF)
+Data Emissão NF (se não tiver, do Título)
+Para mais informações ver 
+Tipo Data Base no Título de Desconto Automático pela Data Emissão da NF
+.
+Vencimento em dia não útil:
+ indica qual decisão será tomada quando o dia do vencimento não cair em dia não útil.
+Indiferente
+Posterga
+Retrocede
+Cod. Histórico: 
+informar qual será o código de histórico que será utilizado no título
+Histórico: 
+seguirá o do código selecionado
+Tipo Documento:
+ tipo documento a ser utilizado no título.
+Conta ContraPartida: 
+informe a Conta débito que será utilizada para contabilização do título gerado
+Quadro Exclusivo Contas a Pagar
+Centro de Custo: 
+informe o Centro de Custo que será utilizado
+Quadro Exclusivo Contas a Receber
+Utiliza Tipo de Cobrança NF: 
+marcar caso queira que o título de cobrança siga o da Nota
+Tipo de Cobrança: 
+informe um tipo de cobrança que será utilizado para gerar o título. 
+Quadro Contabilização
+Desabilita contabilização desconto original:
+ 
+Marcado: Não contabiliza o desconto e contabiliza somente esse título (recomendado)
+Desmarcado: Contabiliza o desconto e também esse título 
+Conta Débito (pagar)/crédito (receber) acompanha Conta Título original:
+Marcado: obtém a(s) conta(s) de <DEBITO/CREDITO> da contabilização da NF. (Se for título a pagar estará Débito e a receber estará Crédito).
+Desmarcado: utiliza a 
+Conta Contrapartida
+ na contabilização desse título.
+A opção 
+Conta Débito (pagar)/crédito (receber) acompanha Conta Título original
+, basicamente, só pode ser marcada quando:
+Nota de Saída
+ 
+gerando um título a 
+Receber
+Nota de Entrada 
+ 
+gerando um título a 
+Pagar
+Abaixo um exemplo de como fica a contabilização de uma 
+Nota de Saída
+ com geração de um título a 
+Receber. 
+Explicação adicional sobre a contabilização: 
+O SisPetro irá:
+Usar Conta de Entidade nas contabilizações que envolvem títulos
+Ainda assim, não poderá ter a Conta de Entidade no Débito e Crédito na mesma operação
+A contabilização deve ser obrigatoriamente:
+Operação
+Débito
+Crédito
+Inclusão de Contas a Receber
+Conta de Entidade
+Exceto Conta de Entidade
+Baixa do Contas a Receber
+Exceto Conta de Entidade
+Conta de Entidade
+Cancelamento de Contas a Receber
+Exceto Conta de Entidade
+Conta de Entidade
+Cancelamento de Baixa do Contas a Receber
+Conta de Entidade
+Exceto Conta de Entidade
+Inclusão de Contas a Pagar
+Exceto Conta de Entidade
+Conta de Entidade
+Baixa do Contas a Pagar
+Conta de Entidade
+Exceto Conta de Entidade
+Cancelamento de Contas a Pagar
+Conta de Entidade
+Exceto Conta de Entidade
+Cancelamento de Baixa do Contas a Pagar
+Exceto Conta de Entidade
+Conta de Entidade
+O valor do Contas a Receber principal (da NF) é contabilizado na Conta de Entidade a Débito
+O valor do desconto deve ser contabilizado na Conta de Entidade:
+Débito quando for Contas a Receber (o Débito não faz sentido acompanhar, pois é Cliente diferente, pode acompanhar crédito)
+Crédito quando for Contas a Pagar (nessa opção, não é possível acompanhar o lançamento original nem no débito e nem no crédito).
+O valor do Contas a Pagar principal (da NF) deve ser contabilizado na Conta de Entidade a Crédito
+O valor do desconto deve ser contabilizado na Conta de Entidade:
+Crédito quando for Contas a Pagar (o Crédito não faz sentido acompanhar, pois é Fornecedor diferente, pode acompanhar débito).
+Não é permitido gerar Contas a Recebe
+A tabela de geração de títulos de desconto automático é informada na 
+Tabela Tipo Desconto
+.
+Para Saber Mais
+Configurando Geração de Título de Desconto Automático
+ 
+Configurando Geração de Título Adicional do Contas a Receber
+

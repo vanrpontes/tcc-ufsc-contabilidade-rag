@@ -1,0 +1,55 @@
+TITULO: Clientes - Consulta Movto. Faturado
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2878210658
+--------------------------------------------------
+No painel 
+Movimento Faturado
+, são apresentados os dados de faturamento (notas e baixas) para o cliente selecionado. Vide tela:
+Para ter acesso é necessário habilitar o perfil de usuário,
+ 
+Mostra painel movto. Faturado, 
+Painel Segurança (Usuários)
+.
+ 
+Os dados apresentados, são referentes ao cliente selecionado e ao seu grupo econômico, sendo exibido no painel superior, informações referentes as notas emitidas e no painel inferior, dados referentes as baixas de títulos do conta a receber, além disso, cada registro mostra a filial que foi emitida a nota fiscal ou feita a baixa.
+Os dados são filtrados a partir de uma determinada data limite de movimento, que pode ser alterada pelo botão 
+"Redefine data mínima movimento"
+.
+O último período informado (em dias) será salvo no arquivo do usuário, sendo sugerido na próxima consulta.
+São exibidos na tela, os prazos médios de pagamento previsto (de acordo com as 
+condições de pagamento
+ dada) e o real (de acordo com a data de pagamento).
+Prazo Prev. Pagto
+: É o prazo aplicado para este título. Representa o número de dias entre a Data de Emissão do título e a Data de Vencimento.
+Prazo Real Pagto
+: É o prazo que o cliente utilizou para pagar esse título. Representa o número de dias entre a Data de Emissão do Título e a Data do Pagamento.
+Prazo Médio
+: É a média ponderada dos prazos apresentados, em relação ao valor pago.
+Exemplo:
+Título
+Data Emissão
+Data Vencto.
+Valor
+Data Pagto.
+Prazo prev.
+Prazo real
+A
+10/01/2008
+15/01/2008
+100,00
+20/01/2008
+5
+10
+B
+10/01/2008
+12/01/2008
+200,00
+15/01/2008
+2
+5
+Total
+300,00
+Prazo Médio Previsto
+: ((5 * 100,00) + (2 * 200,00)) / 300,00 = *3 dias *
+Prazo Médio Real
+: ((2 * 100,00) + (5 * 200,00)) / 300,00 = *4 dias *
+Deve-se evitar colocar uma data muito antiga, quando se for redefinir uma data mínima de movimento, evitando assim uma demora na apresentação dos dados na tela, devido a quantidade de registros a serem localizados pelo sistema.

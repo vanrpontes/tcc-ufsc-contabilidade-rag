@@ -1,0 +1,72 @@
+TITULO: Roteiro de Venda para Entrega Futura
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/2899608408
+--------------------------------------------------
+Como configurar e trabalhar no SisPetro com Notas Fiscais de Venda para Entrega Futura é necessário realizar a configuração de duas Naturezas de Operação ( VEF e REF) 
+Para mais informações, ver 
+Venda para Entrega Futura
+.
+Tabela Natureza de Operação
+ para 
+Nota Fiscal Principal (VEF)
+Aba Geral / Perfil Movimenta Estoque 
+desmarcado
+Aba Geral / Perfil Gera Movimentação Financeira 
+marcado
+Aba Por Filial / Quadro Vínculo de Nota Fiscal:
+Perfil Permite ser NF de Origem (p/ controle de quantidade) no vínculo entre NF's 
+marcado
+Perfil Permite vincular NF a outra NF Emitida configurado 
+Sem Ação
+Perfil Validação de Qtde. no Vínculo de NF configurado para 
+Não controla qtde. no vínculo
+Envia NF(s) referenciada(s) no XML da NF-e (tag <refNFe>)?: 
+Marcado
+Tabela Natureza de Operação
+ para 
+Nota Fiscal de Entrega (REF)
+Aba Geral / Perfil Movimenta Estoque 
+marcado
+Aba Geral / Perfil Gera Movimentação Financeira 
+desmarcado
+Aba Por Filial / Quadro Vínculo de Nota Fiscal:
+Perfil Permite ser NF de Origem (p/ controle de quantidade) no vínculo entre NF's 
+desmarcado
+Perfil Permite vincular NF a outra NF Emitida configurado 
+Sem Ação
+Perfil Validação de Qtde. no Vínculo de NF configurado para 
+Não controla qtde no vínculo
+Envia NF(s) referenciada(s) no XML da NF-e (tag <refNFe>)?: 
+marcado
+Inclusão de Pedido VEF
+Incluir um pedido com o tipo 
+Venda Entrega Futura
+.
+Emissão da Nota Fiscal Principal (VEF)
+Incluir uma NF para o pedido VEF utilizando a natureza de operação para 
+Nota Fiscal Principal (VEF).
+Para realizar o faturamento automático é recomendável 
+vincular natureza ao produto
+ 
+Assim que o pedido 
+VEF
+ for faturado será automaticamente criado o contrato para vinculação ao pedido 
+REF
+Além disso será gerado um Título no Contas a Receber. Caso o pagamento tenha sido antecipado, quitar o título utilizando o adiantamento quantificado.
+Pagamento Antecipado
+Caso o cliente já tenha pago antecipadamente, o usuário deverá incluir um 
+Adiantamento Quantificado de Cliente
+ no valor total pago.
+Entrega da Mercadoria REF
+A cada entrega, fazer um pedido de Venda do tipo 
+Retirada de Venda de Entrega Futura
+ com a quantidade a ser entregue vinculando o Contrato de Venda. Para mais informações, ver 
+Inclusão de pedidos VEF e REF
+.
+Emissão da Nota Fiscal de Entrega (REF)
+Faturar o pedido de Venda emitido utilizando a natureza de operação para 
+Notas Fiscais de Entrega (REF)
+Ao fazer a nota será exigido o vínculo com uma Nota Fiscal, neste caso devendo ser escolhida a NF de Venda para Entrega Futura. 
+Para mais informações, ver:
+6. Contrato de Venda
+Inclusão de pedidos VEF e REF
+Inclusão de Contrato de Venda

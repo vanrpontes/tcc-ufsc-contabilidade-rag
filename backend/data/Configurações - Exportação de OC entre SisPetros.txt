@@ -1,0 +1,93 @@
+TITULO: Configurações - Exportação de OC entre SisPetros
+URL: https://futura.atlassian.net/wiki/spaces/SPT/pages/4248862721
+--------------------------------------------------
+Abaixo as configurações para utilizar a exportação de OC entre uma distribuidora e armazenadora que possuem SisPetro.
+Configurações 
+Armazenadora
+Criar um usuário para Distribuidora Congênere, habilitar API para inclusão de OC
+Ferramentas Usuários > 
+Aba Perfil > Aba Inferior Carregamento > Quadro API via Web
+Login / Access Key: 
+gerar nova Access Key.
+Senha / Secret Key: 
+gerar nova Secret Key.
+Habilitar API para inclusão OC neste usuário: 
+deve estar marcado.  
+O depósito que irá 
+receber a OC
+ será o apontado no padrão para vendas da empresa congênere.
+Configurações 
+Distribuidora
+Arquivos > Depósitos 
+Aba OC > Quadro Exportação:
+Informar qual será o 
+tipo da Exportação: 
+Base SisPetro
+Selecionar quais serão as 
+OC que devem participar da Exportação:
+Todos 
+Somente Carregamentos 
+Somente Descargas 
+Preencher:
+ 
+Login / Acess Key
+  
+(Solicitar dados com a empresa armazenadora)
+Senha / Secret Key 
+ (Solicitar dados com a empresa armazenadora)
+URL Inclusão Carregamento
+ 
+URL Inclusão Descarga
+  
+URL Cancelamento
+ 
+URL Token
+No caso de integração 
+entre SisPetros
+, as URL serão disponibilizadas pela 
+Futura.
+Selecione a empresa no quadro por filial: 
+deve selecionar a  empresa que participará da integração.
+Chave de Identificação da Empresa:
+ para integração entre 
+SisPetros
+ deve ser informado o CNPJ da empresa que a OC será incluída. 
+Nem sempre os produtos terão os mesmos códigos, caso os produtos sejam diferentes entre as bases será necessário a utilização de um DE/Para de Produto.
+Configuração de De/Para por Produto: 
+essa configuração ela pode ser 
+geral
+ utilizando o De-Para do cadastro do depósito ou 
+específica
+ para cada cliente cadastrando utilizando o cadastro de Manutenção de De/Para (o mesmo utilizado na importação de nota) para cadastro e posteriormente apontando ele no cliente. Os caminhos para cada um são:
+GERAL em Arquivo / Depósito / Aba Dados por Produto: 
+informar o código que o SisPetro fará o De/Para entre o código do seu SisPetro com o código SisPetro que irá receber a OC 
+ou
+ESPECÍFICA em Ferramentas / Importação de Dados / Manutenção de De/Para:
+ após  incluir ou selecionar um código já cadastrado, 
+na aba De/Para Itens
+, no campo item, selecionar a opção produto e, cadastrar o De/Para desejado. Após isso, em Arquivo / Clientes / Aba Detalhes / Aba inferior De/Para no campo produto, selecionar o De/Para cadastrado anteriormente. 
+Caso nenhuma dessas configurações forem feitas o SisPetro enviará o código do produto utilizado na OC
+att4314365977
+https://futura.atlassian.net/wiki
+d9ca59ba-0a3a-445b-b5d7-873463543861
+Exportacao de OC
+att4314628100
+4248862721
+1678451913635
+Para mais informações, ver 
+Depósitos
+ - aba Dados por Produto
+Ferramentas > Usuários > Aba Perfil > Aba Inferior Carregamento
+Na opção 
+marcar/desmarcar OC para Serviço de Exportação, 
+selecionar se o usuário poderá marcar ou desmarcar a opção da exportação da OC no momento de sua inclusão. Quando o depósito estiver configurado para exportar a OC a exportação será marcada por padrão. 
+Serviço Exportação OC
+Configurar e Habilitar o serviço Exportação OC no Hermes Controlador. 
+Para mais informações, ver 
+Serviço de Exportação OC
+Importante
+A API do SisPetro além de enviar OC para outra empresa, também recebe OC desde que um layout pré definido seja seguido, além de um usuário e senha seja devidamente configurado. O layout e mais informações estão disponíveis em 
+Documentação - API para inclusão/cancelamento de Ordens de Carregamento
+Para saber mais
+Inclusão de Ordem de Carregamento
+Documentação - API para inclusão/cancelamento de Ordens de Carregamento
