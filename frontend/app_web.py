@@ -62,7 +62,7 @@ if prompt := st.chat_input("Como posso ajudar na sua consulta contábil/técnica
         with st.spinner("Analisando base de conhecimento técnica..."):
             try:
                 response = requests.post(
-                    "http://127.0.0.1:8000/ask",
+                    "http://backend:8000/ask",  # <--- Aqui é o segredo!
                     json={"question": prompt},
                     timeout=30 
                 )
