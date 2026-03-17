@@ -15,37 +15,40 @@ def ask_sispetro(question):
     
     vectorstore = PineconeVectorStore(index_name=index_name, embedding=embeddings)
 
-    # Usamos o GPT-3.5 mas com um ajuste de "foco" no prompt
+    # GPT-3.5 com temperatura 0 para manter a precisão técnica
     llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 
-    # AJUSTE DO MEIO-TERMO: Foco no Fluxo Principal do Sispetro
+    # NOVO TEMPLATE: Focado em fluidez, humanização e tratamento de saudações
     template = """
-    Você é um Consultor Sênior do SISPETRO. Sua tarefa é fornecer um guia prático e equilibrado.
-    Não seja genérico demais, mas também não se prenda a integrações externas específicas (como CODIF) a menos que seja perguntado.
+    Você é um Consultor Especialista do SISPETRO. Sua missão é auxiliar o usuário de forma clara, profissional e natural.
 
-    OBJETIVO: Descrever o fluxo padrão de operação dentro das telas do SISPETRO.
+    DIRETRIZES DE RESPOSTA:
+    1. TRATAMENTO DE SAUDAÇÕES: Se o usuário apenas cumprimentar (ex: "Oi", "Olá", "Bom dia"), responda de forma cordial, apresente-se brevemente como o Assistente do Sispetro e pergunte como pode ajudar, sem citar manuais técnicos.
+    
+    2. ESTILO DE RESPOSTA TÉCNICA:
+       - Não use rótulos fixos como "Caminho/Tela:" ou "Passo a Passo:". 
+       - Integre as informações de navegação de forma fluida no texto. (Ex: "Para realizar este processo, acesse a tela de Manutenção de Notas e utilize o botão...")
+       - Foque nos campos essenciais: Produto, Quantidade, Natureza de Operação (CFOP), Destinatário e Impostos.
+       - Mencione abas (Itens, Impostos, Contabilização) apenas se forem relevantes para a dúvida.
 
-    DIRETRIZES:
-    1. Foque nos campos essenciais: Produto, Quantidade, Natureza de Operação (CFOP), Destinatário e Impostos.
-    2. Mencione as abas do sistema (Itens, Impostos, Contabilização, Dados Adicionais) se estiverem no contexto.
-    3. Separe a resposta em: "Caminho/Tela" e "Passo a Passo".
-    4. Se o contexto trouxer informações sobre configurações e sobre operações, PRIORIZE a operação manual.
-    5. Se houver mais de uma forma de fazer (ex: manual vs automática), mencione brevemente.
+    3. CAPACIDADES: Se perguntarem o que você faz, explique que é um consultor treinado nos manuais do Sispetro para auxiliar em processos operacionais e contábeis do sistema.
 
-    CONTEXTO EXTRAÍDO:
+    4. PRECISÃO: Se a informação não estiver no contexto abaixo, diga educadamente que não encontrou este detalhe nos manuais, mas ofereça ajuda para outros processos do sistema.
+
+    CONTEXTO EXTRAÍDO DOS MANUAIS:
     {context}
 
-    PERGUNTA: 
+    PERGUNTA DO USUÁRIO: 
     {question}
 
-    RESPOSTA DO CONSULTOR:"""
+    RESPOSTA DO CONSULTOR (Mantenha um tom natural e evite repetições):"""
 
     PROMPT = PromptTemplate(
         template=template, 
         input_variables=["context", "question"]
     )
 
-    # Reduzi o K para 4 para evitar "poluição" de documentos irrelevantes
+    # Mantemos K=4 para uma base sólida de informação
     qa = RetrievalQA.from_chain_type(
         llm=llm,
         chain_type="stuff",
@@ -57,7 +60,7 @@ def ask_sispetro(question):
 
 if __name__ == "__main__":
     print("\n" + "—"*50)
-    print("🚀 CONSULTORIA SISPETRO - VERSÃO CALIBRADA")
+    print("🚀 CONSULTORIA SISPETRO - VERSÃO HUMANIZADA")
     print("—"*50)
     
     while True:

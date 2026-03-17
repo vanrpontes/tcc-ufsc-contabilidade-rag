@@ -1,22 +1,33 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from app.chat import ask_sispetro # Importa a lógica que já funciona
+from app.chat import ask_sispetro # Importa a sua função calibrada
 
-app = FastAPI(title="API do Consultor Sispetro")
+app = FastAPI(
+    title="API Consultor Sispetro - RAG",
+    description="Interface de integração para consulta de tutoriais técnicos via IA.",
+    version="1.0.0"
+)
 
-# Definimos o formato do dado que a API vai receber
-class Pergunta(BaseModel):
-    texto: str
+# Definimos o formato de entrada da pergunta
+class QueryRequest(BaseModel):
+    question: str
 
 @app.get("/")
-def home():
-    return {"status": "Servidor Sispetro Ativo"}
+def read_root():
+    return {"status": "Online", "service": "Sispetro RAG API"}
 
-@app.post("/perguntar")
-def realizar_pergunta(pergunta: Pergunta):
+@app.post("/ask")
+def handle_ask(request: QueryRequest):
     try:
-        # Chamamos a função que você já testou e aprovou
-        resposta = ask_sispetro(pergunta.texto)
-        return {"resposta": resposta['result']}
+        # Chama a lógica de busca e geração que já testamos no chat.py
+        result = ask_sispetro(request.question)
+        
+        return {
+            "answer": result['result'],
+            "source_documents": [doc.metadata for doc in result.get('source_documents', [])]
+        }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=f"Erro interno no servidor: {str(e)}")
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
