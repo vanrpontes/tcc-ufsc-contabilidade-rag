@@ -1,26 +1,23 @@
 import os
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_pinecone import PineconeVectorStore
-from langchain.chains import RetrievalQA
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv
 
-# 1. Configuração de ambiente
-# Tenta carregar o .env localmente, mas não quebra se não existir (na AWS usamos Environment Variables)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 def ask_sispetro(question):
-    # Componentes pegando chaves do ambiente (AWS App Runner)
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
     index_name = os.getenv("PINECONE_INDEX_NAME")
-    
-    vectorstore = PineconeVectorStore(index_name=index_name, embedding=embeddings)
 
-    # GPT-3.5 com temperatura 0 para precisão técnica
+    vectorstore = PineconeVectorStore(index_name=index_name, embedding=embeddings)
+    retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
+
     llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 
-    # SEU TEMPLATE ORIGINAL (Mantido 100% íntegro)
     template = """
     Você é um Consultor Especialista do SISPETRO. Sua missão é auxiliar o usuário de forma clara, profissional e natural.
 
@@ -29,7 +26,7 @@ def ask_sispetro(question):
     
     2. ESTILO DE RESPOSTA TÉCNICA:
        - Não use rótulos fixos como "Caminho/Tela:" ou "Passo a Passo:". 
-       - Integre as informações de navegação de forma fluida no texto. (Ex: "Para realizar este processo, acesse a tela de Manutenção de Notas e utilize o botão...")
+       - Integre as informações de navegação de forma fluida no texto.
        - Foque nos campos essenciais: Produto, Quantidade, Natureza de Operação (CFOP), Destinatário e Impostos.
        - Mencione abas (Itens, Impostos, Contabilização) apenas se forem relevantes para a dúvida.
 
@@ -45,29 +42,19 @@ def ask_sispetro(question):
 
     RESPOSTA DO CONSULTOR (Mantenha um tom natural e evite repetições):"""
 
-    PROMPT = PromptTemplate(
-        template=template, 
-        input_variables=["context", "question"]
+    prompt = ChatPromptTemplate.from_template(template)
+
+    def format_docs(docs):
+        return "\n\n".join(doc.page_content for doc in docs)
+
+    rag_chain = (
+        {"context": retriever | format_docs, "question": RunnablePassthrough()}
+        | prompt
+        | llm
+        | StrOutputParser()
     )
 
-    # Chain de busca e resposta
-    qa = RetrievalQA.from_chain_type(
-        llm=llm,
-        chain_type="stuff",
-        retriever=vectorstore.as_retriever(search_kwargs={"k": 4}),
-        chain_type_kwargs={"prompt": PROMPT},
-        return_source_documents=True # Habilitado para o main.py não quebrar
-    )
+    response = rag_chain.invoke(question)
 
-    return qa.invoke(question)
-
-if __name__ == "__main__":
-    # Teste local mantido
-    print("\n" + "—"*50)
-    print("🚀 CONSULTORIA SISPETRO - VERSÃO HUMANIZADA")
-    print("—"*50)
-    while True:
-        pergunta = input("\nO que deseja realizar? ")
-        if pergunta.lower() in ['sair', 'exit']: break
-        resposta = ask_sispetro(pergunta)
-        print(f"\n💡 RESPOSTA:\n{resposta['result']}\n")
+    # Mantém o mesmo formato de retorno que o main.py espera
+    return {"result": response, "source_documents": []}
