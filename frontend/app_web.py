@@ -62,7 +62,7 @@ if prompt := st.chat_input("Como posso ajudar na sua consulta contábil/técnica
         with st.spinner("Analisando base de conhecimento técnica..."):
             try:
                 response = requests.post(
-                    "http://backend:8000/ask",  # <--- Aqui é o segredo!
+                    "https://ynppvjqfp3.us-east-1.awsapprunner.com/ask",  # <--- Aqui é o segredo! Apontamos o Domínio Padrão do Serviço backend criado na AWS App Runner
                     json={"question": prompt},
                     timeout=30 
                 )
