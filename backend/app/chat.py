@@ -1,17 +1,35 @@
 import os
+from fastapi import FastAPI
+from pydantic import BaseModel
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_pinecone import PineconeVectorStore
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
-from dotenv import load_dotenv
 
-# 1. Configuração de ambiente
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-load_dotenv(os.path.join(BASE_DIR, ".env"))
+# 1. Iniciar o FastAPI (É isso que o Uvicorn procura)
+app = FastAPI(title="Consultor Especialista SISPETRO - TCC UFSC")
 
-def ask_sispetro(question):
-    # Setup dos componentes base
+# Modelo para receber a pergunta via JSON
+class QuestionRequest(BaseModel):
+    question: str
+
+# 2. Rota de Teste (Health Check)
+# Se você acessar o link da AWS no navegador, vai aparecer essa mensagem
+@app.get("/")
+def home():
+    return {
+        "status": "online", 
+        "projeto": "TCC UFSC - RAG Contábil Sispetro",
+        "autor": "Vanclércio Rocha Pontes"
+    }
+
+# 3. Rota Principal do Chat
+@app.post("/ask")
+def ask_sispetro(request: QuestionRequest):
+    question = request.question
+    
+    # Configuração de componentes (Pega direto das variáveis de ambiente da AWS)
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
     index_name = os.getenv("PINECONE_INDEX_NAME")
     
@@ -20,7 +38,7 @@ def ask_sispetro(question):
     
     llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 
-    # 2. O Prompt (Exatamente como pede o Tutorial de RAG da doc que você mandou)
+    # Seu Template Personalizado
     template = """Você é o Consultor Especialista do SISPETRO, um assistente virtual baseado em Inteligência Artificial desenvolvido para o TCC de Ciências Contábeis da UFSC.
 
     DIRETRIZES DE IDENTIDADE:
@@ -41,14 +59,12 @@ def ask_sispetro(question):
 
     RESPOSTA:"""
 
-
     prompt = ChatPromptTemplate.from_template(template)
 
-    # 3. A "Chain" Moderna (LCEL) - Isso substitui o RetrievalQA que sumiu
-    # O format_docs junta os pedaços de texto encontrados no Pinecone
     def format_docs(docs):
         return "\n\n".join(doc.page_content for doc in docs)
 
+    # Chain LCEL
     rag_chain = (
         {"context": retriever | format_docs, "question": RunnablePassthrough()}
         | prompt
@@ -56,15 +72,7 @@ def ask_sispetro(question):
         | StrOutputParser()
     )
 
-    # 4. Execução
+    # Execução
     response = rag_chain.invoke(question)
     
     return {"result": response}
-
-if __name__ == "__main__":
-    while True:
-        pergunta = input("\nO que deseja realizar? ")
-        if pergunta.lower() in ['sair', 'exit']: break
-        print("🔍 Analisando manuais...")
-        resposta = ask_sispetro(pergunta)
-        print(f"\n💡 RESPOSTA:\n{resposta['result']}\n")
