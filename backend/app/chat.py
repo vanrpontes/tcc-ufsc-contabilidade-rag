@@ -1,78 +1,73 @@
 import os
-from fastapi import FastAPI
-from pydantic import BaseModel
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_pinecone import PineconeVectorStore
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.runnables import RunnablePassthrough
-from langchain_core.output_parsers import StrOutputParser
+from langchain.chains import RetrievalQA
+from langchain.prompts import PromptTemplate
+from dotenv import load_dotenv
 
-# 1. Iniciar o FastAPI (É isso que o Uvicorn procura)
-app = FastAPI(title="Consultor Especialista SISPETRO - TCC UFSC")
+# 1. Configuração de ambiente
+# Tenta carregar o .env localmente, mas não quebra se não existir (na AWS usamos Environment Variables)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
-# Modelo para receber a pergunta via JSON
-class QuestionRequest(BaseModel):
-    question: str
-
-# 2. Rota de Teste (Health Check)
-# Se você acessar o link da AWS no navegador, vai aparecer essa mensagem
-@app.get("/")
-def home():
-    return {
-        "status": "online", 
-        "projeto": "TCC UFSC - RAG Contábil Sispetro",
-        "autor": "Vanclércio Rocha Pontes"
-    }
-
-# 3. Rota Principal do Chat
-@app.post("/ask")
-def ask_sispetro(request: QuestionRequest):
-    question = request.question
-    
-    # Configuração de componentes (Pega direto das variáveis de ambiente da AWS)
+def ask_sispetro(question):
+    # Componentes pegando chaves do ambiente (AWS App Runner)
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
     index_name = os.getenv("PINECONE_INDEX_NAME")
     
     vectorstore = PineconeVectorStore(index_name=index_name, embedding=embeddings)
-    retriever = vectorstore.as_retriever(search_kwargs={"k": 4})
-    
+
+    # GPT-3.5 com temperatura 0 para precisão técnica
     llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
 
-    # Seu Template Personalizado
-    template = """Você é o Consultor Especialista do SISPETRO, um assistente virtual baseado em Inteligência Artificial desenvolvido para o TCC de Ciências Contábeis da UFSC.
+    # SEU TEMPLATE ORIGINAL (Mantido 100% íntegro)
+    template = """
+    Você é um Consultor Especialista do SISPETRO. Sua missão é auxiliar o usuário de forma clara, profissional e natural.
 
-    DIRETRIZES DE IDENTIDADE:
-    1. QUEM É VOCÊ: Se perguntarem "quem é você", responda: "Sou um Consultor Especialista baseado em IA, treinado para auxiliar na gestão contábil e operacional do software Sispetro."
-    2. O QUE É O SISPETRO: Se perguntarem "o que é o Sispetro", responda: "O Sispetro é um ERP especializado para distribuidoras de combustíveis, desenvolvido pela Futura. Ele automatiza rotinas fiscais, estoque, financeiro e integra consultas à ANP e SEFAZ."
-    3. NÃO CONFUNDA: Você é o instrutor; o Sispetro é a ferramenta. Nunca diga "Eu sou um ERP". 
+    DIRETRIZES DE RESPOSTA:
+    1. TRATAMENTO DE SAUDAÇÕES: Se o usuário apenas cumprimentar (ex: "Oi", "Olá", "Bom dia"), responda de forma cordial, apresente-se brevemente como o Assistente do Sispetro e pergunte como pode ajudar, sem citar manuais técnicos.
+    
+    2. ESTILO DE RESPOSTA TÉCNICA:
+       - Não use rótulos fixos como "Caminho/Tela:" ou "Passo a Passo:". 
+       - Integre as informações de navegação de forma fluida no texto. (Ex: "Para realizar este processo, acesse a tela de Manutenção de Notas e utilize o botão...")
+       - Foque nos campos essenciais: Produto, Quantidade, Natureza de Operação (CFOP), Destinatário e Impostos.
+       - Mencione abas (Itens, Impostos, Contabilização) apenas se forem relevantes para a dúvida.
 
-    DIRETRIZES TÉCNICAS:
-    - APRESENTAÇÃO: Use sua identificação apenas na primeira saudação.
-    - SIGLAS: Explique siglas como OC (Ordem de Carregamento) e ICMS ST (Substituição Tributária) na primeira menção.
-    - CONTEXTO: Use os dados abaixo para fundamentar suas respostas técnicas.
+    3. CAPACIDADES: Se perguntarem o que você faz, explique que é um consultor treinado nos manuais do Sispetro para auxiliar em processos operacionais e contábeis do sistema.
 
-    CONTEXTO:
+    4. PRECISÃO: Se a informação não estiver no contexto abaixo, diga educadamente que não encontrou este detalhe nos manuais, mas ofereça ajuda para outros processos do sistema.
+
+    CONTEXTO EXTRAÍDO DOS MANUAIS:
     {context}
 
-    PERGUNTA: 
+    PERGUNTA DO USUÁRIO: 
     {question}
 
-    RESPOSTA:"""
+    RESPOSTA DO CONSULTOR (Mantenha um tom natural e evite repetições):"""
 
-    prompt = ChatPromptTemplate.from_template(template)
-
-    def format_docs(docs):
-        return "\n\n".join(doc.page_content for doc in docs)
-
-    # Chain LCEL
-    rag_chain = (
-        {"context": retriever | format_docs, "question": RunnablePassthrough()}
-        | prompt
-        | llm
-        | StrOutputParser()
+    PROMPT = PromptTemplate(
+        template=template, 
+        input_variables=["context", "question"]
     )
 
-    # Execução
-    response = rag_chain.invoke(question)
-    
-    return {"result": response}
+    # Chain de busca e resposta
+    qa = RetrievalQA.from_chain_type(
+        llm=llm,
+        chain_type="stuff",
+        retriever=vectorstore.as_retriever(search_kwargs={"k": 4}),
+        chain_type_kwargs={"prompt": PROMPT},
+        return_source_documents=True # Habilitado para o main.py não quebrar
+    )
+
+    return qa.invoke(question)
+
+if __name__ == "__main__":
+    # Teste local mantido
+    print("\n" + "—"*50)
+    print("🚀 CONSULTORIA SISPETRO - VERSÃO HUMANIZADA")
+    print("—"*50)
+    while True:
+        pergunta = input("\nO que deseja realizar? ")
+        if pergunta.lower() in ['sair', 'exit']: break
+        resposta = ask_sispetro(pergunta)
+        print(f"\n💡 RESPOSTA:\n{resposta['result']}\n")

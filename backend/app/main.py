@@ -1,6 +1,9 @@
+import uvicorn
+import os
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from app.chat import ask_sispetro # Importa a sua função calibrada
+# Importa a função do arquivo chat.py que está dentro da pasta 'app'
+from app.chat import ask_sispetro 
 
 app = FastAPI(
     title="API Consultor Sispetro - RAG",
@@ -8,26 +11,30 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Definimos o formato de entrada da pergunta
 class QueryRequest(BaseModel):
     question: str
 
 @app.get("/")
 def read_root():
-    return {"status": "Online", "service": "Sispetro RAG API"}
+    # Rota para o Health Check do App Runner (Protocolo HTTP, Caminho /)
+    return {"status": "Online", "service": "Sispetro RAG API", "autor": "Vanclércio Rocha Pontes"}
 
 @app.post("/ask")
 def handle_ask(request: QueryRequest):
     try:
-        # Chama a lógica de busca e geração que já testamos no chat.py
+        # Chama o motor RAG do chat.py
         result = ask_sispetro(request.question)
         
+        # Retorna o resultado limpando os metadados para o JSON
         return {
-            "answer": result['result'],
+            "answer": result.get('result'),
             "source_documents": [doc.metadata for doc in result.get('source_documents', [])]
         }
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Erro interno no servidor: {str(e)}")
+        # Log de erro para depuração no console AWS
+        print(f"Erro na execução: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    # Roda na 8080 para casar com o painel do App Runner
+    uvicorn.run(app, host="0.0.0.0", port=8080)
