@@ -62,7 +62,7 @@ if prompt := st.chat_input("Como posso ajudar na sua consulta contábil/técnica
         with st.spinner("Analisando base de conhecimento técnica..."):
             try:
                 response = requests.post(
-                    "http://chatbotsispetro.com.br:8080/ask",  # <--- Aqui é o segredo! Apontamos o Domínio Padrão do Serviço backend criado na AWS Lighsail
+                    "http://100.54.120.2:8080/ask",  # <--- Aqui é o segredo! Apontamos o Domínio Padrão do Serviço backend criado na AWS Lighsail
                     json={"question": prompt},
                     timeout=30 
                 )
