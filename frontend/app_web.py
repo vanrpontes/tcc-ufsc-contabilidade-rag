@@ -100,7 +100,7 @@ st.markdown("""
         background-color: #0e1117;
         color: #999999; /* Um cinza um pouco mais claro para facilitar a leitura */
         text-align: center;
-        font-size: 0.9rem; /* Aumentado de 0.75 para 0.9 */
+        font-size: 1.5rem; /* Aumentado de 0.75 para 0.9 */
         font-weight: 500;
         padding: 8px 0; /* Aumentado para dar mais destaque */
         z-index: 9999;
