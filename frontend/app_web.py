@@ -74,7 +74,11 @@ with st.sidebar:
     st.title("Sobre o Projeto")
     st.info("Este chatbot utiliza RAG para consultar manuais técnicos do Sispetro.")
     st.markdown("---")
+
     st.write("**Autor:** Vanclércio da Rocha Pontes")
+    st.write("**Orientador:** Prof. Dr. Valmir Emil Hoffmann")
+    
+    st.markdown("---")
     
     if st.button("Limpar Histórico", use_container_width=True):
         st.session_state.messages = [st.session_state.messages[0]] # Mantém apenas a saudação
