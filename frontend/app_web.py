@@ -67,9 +67,10 @@ if prompt := st.chat_input("Dúvida técnica ou contábil..."):
 
 # 5. Sidebar
 with st.sidebar:
-    st.markdown('<div class="sidebar-logo-container">', unsafe_allow_html=True)
-    st.image("https://identidade.ufsc.br/files/2017/10/brasao_UFSC_vertical_sigla_sombreado.png", width=60)
-    st.markdown('</div>', unsafe_allow_html=True)
+    # Centralização do Brasão usando colunas
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.image("https://identidade.ufsc.br/files/2017/10/brasao_UFSC_vertical_sigla_sombreado.png", width=80)
     
     st.title("Sobre o Projeto")
     st.info("Este chatbot utiliza RAG para consultar manuais técnicos do Sispetro.")
