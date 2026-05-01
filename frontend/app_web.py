@@ -96,11 +96,12 @@ st.markdown("""
         left: 0;
         bottom: 0;
         width: 100%;
-        background-color: transparent;
+        background-color: #0e1117; /* Cor de fundo igual ao tema escuro do Streamlit */
         color: #808080;
         text-align: center;
-        font-size: 0.8rem;
-        padding: 5px 0;
+        font-size: 0.75rem;
+        padding: 2px 0;
+        z-index: 9999; /* Garante que fique na frente de outros elementos */
     }
     </style>
     <div class="footer">
