@@ -20,11 +20,11 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.title("🛡️ Chatbot Técnico Sispetro")
+st.title("🛡️ Chatbot Sispetro")
 st.markdown("""
-**Projeto de Graduação em Ciências Contábeis – UFSC** *O Potencial da Inteligência Artificial pelo Método RAG para a Gestão da Informação Contábil*
+**Projeto de Graduação em Ciências Contábeis da UFSC** *O Potencial da Inteligência Artificial pelo Método RAG para a Gestão da Informação Contábil*
 """)
-st.caption("Baseado em documentos técnicos e manuais operacionais do software Sispetro.")
+st.caption("Baseado em documentos técnicos, tutoriais e manuais operacionais do software Sispetro.")
 st.divider()
 
 # 3. Gerenciamento do Histórico com Saudação Inicial
@@ -76,7 +76,7 @@ with st.sidebar:
     st.markdown("---")
     
     st.markdown("""
-        <div style="font-size: 0.85rem; line-height: 1.4;">
+        <div style="font-size: 0.9rem; line-height: 1.4;">
             <strong>Autor:</strong> Vanclércio da Rocha Pontes<br>
             <strong>Orientador:</strong> Prof. Dr. Valmir Emil Hoffmann
         </div>
@@ -87,3 +87,23 @@ with st.sidebar:
     if st.button("Limpar Histórico", use_container_width=True):
         st.session_state.messages = [st.session_state.messages[0]] # Mantém apenas a saudação
         st.rerun()
+
+# 6. Rodapé da Página Principal
+st.markdown("""
+    <style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: transparent;
+        color: #808080;
+        text-align: center;
+        font-size: 0.8rem;
+        padding: 5px 0;
+    }
+    </style>
+    <div class="footer">
+        UFSC | Florianópolis — 2026
+    </div>
+""", unsafe_allow_html=True)
