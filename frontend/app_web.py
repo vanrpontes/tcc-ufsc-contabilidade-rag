@@ -96,12 +96,13 @@ st.markdown("""
         left: 0;
         bottom: 0;
         width: 100%;
-        background-color: #0e1117; /* Cor de fundo igual ao tema escuro do Streamlit */
-        color: #808080;
+        background-color: #0e1117;
+        color: #999999; /* Um cinza um pouco mais claro para facilitar a leitura */
         text-align: center;
-        font-size: 0.75rem;
-        padding: 2px 0;
-        z-index: 9999; /* Garante que fique na frente de outros elementos */
+        font-size: 0.9rem; /* Aumentado de 0.75 para 0.9 */
+        font-weight: 500;
+        padding: 8px 0; /* Aumentado para dar mais destaque */
+        z-index: 9999;
     }
     </style>
     <div class="footer">
