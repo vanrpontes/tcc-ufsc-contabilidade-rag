@@ -52,7 +52,7 @@ def run_ingestion():
     # 3. Fragmentação (Chunking) conforme Metodologia do TCC
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000, 
-        chunk_overlap=100
+        chunk_overlap=200
     )
     docs = text_splitter.split_documents(raw_documents)
     print(f"✂️  Documentos fatiados em {len(docs)} chunks.")
