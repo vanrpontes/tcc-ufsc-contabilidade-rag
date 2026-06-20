@@ -1,4 +1,4 @@
-##Sispetro AI — Chatbot RAG para Manuais Técnicos##
+**Sispetro AI — Chatbot RAG para Manuais Técnicos**
 
 Protótipo de chatbot baseado em Retrieval-Augmented Generation (RAG), desenvolvido como parte de um Trabalho de Conclusão de Curso (TCC) em Ciências Contábeis pela Universidade Federal de Santa Catarina (UFSC).
 
