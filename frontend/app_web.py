@@ -22,7 +22,7 @@ st.markdown("""
 
 st.title("🛡️ Chatbot Sispetro")
 st.markdown("""
-**Projeto de Graduação em Ciências Contábeis da UFSC** *O Potencial da Inteligência Artificial para a Gestão da Informação pelo Método Retrieval-Aubmented Generation (RAG)*
+**Projeto de Graduação em Ciências Contábeis da UFSC** *O Potencial da Inteligência Artificial para a Gestão da Informação em Contabilidade pelo Método Retrieval-Aubmented Generation (RAG)*
 """)
 st.caption("Baseado em documentos técnicos, tutoriais e manuais operacionais do software Sispetro.")
 st.divider()
