@@ -40,29 +40,31 @@ Frontend (Streamlit)  ⇄  Backend (FastAPI)  ⇄  Pinecone (Base Vetorial)
 
 ---
 
-**📁 Estrutura do repositório**
+## 📁 Estrutura do repositório
 
-├── backend/                        # API FastAPI: lógica do RAG, embeddings e integração com OpenAI/Pinecone
+```
+├── backend/                     # API FastAPI: lógica do RAG, embeddings e integração com OpenAI/Pinecone
 │   ├── app/
-│   │   ├── main.py                 # Entrypoint da API (porta 8080)
-│   │   └── chat.py                 # Motor do RAG (retriever + geração)
-│   └── data/                       # Base de tutoriais extraída (não versionada — ver .gitignore)
-├── frontend/                       # Interface Streamlit (porta 8501)
+│   │   ├── main.py              # Entrypoint da API (porta 8080)
+│   │   └── chat.py              # Motor do RAG (retriever + geração)
+│   └── data/                    # Base de tutoriais extraída (não versionada — ver .gitignore)
+├── frontend/                    # Interface Streamlit (porta 8501)
 │   └── app_web.py
-├── research/                       # Artefatos acadêmicos e de validação do TCC
-│   ├── academic/                   # Documentos acadêmicos oficiais
+├── research/                    # Artefatos acadêmicos e de validação do TCC
+│   ├── academic/
 │   │   ├── TCC_Vanclercio_Pontes_2026.pdf
 │   │   └── slides_apresentacao_TCC_2026.pdf
-│   ├── validation/                 # Evidências da validação empírica do protótipo
-│   │   ├── evidencias-perguntas-teste/   # Prints das respostas geradas pelo chatbot
+│   ├── validation/
+│   │   ├── evidencias-perguntas-teste/
 │   │   ├── historico_24_prompts_sispetro_ai.pdf
 │   │   └── instrumento_validacao_sispetro.xlsx
-│   └── knowledge-base/             # Inventário da base de conhecimento
-│       ├── extrair_arquivos.py     # Script para listar arquivos da base
+│   └── knowledge-base/
+│       ├── extrair_arquivos.py
 │       └── inventario_base_sispetro.xlsx
-├── docker-compose.yml              # Orquestração dos serviços (backend + frontend)
+├── docker-compose.yml
 ├── Dockerfile
 └── .gitignore
+```
 
 ---
 
@@ -103,6 +105,10 @@ bash
 
 **🎓 Contexto acadêmico e validação**
 A validação empírica do protótipo, incluindo o instrumento de avaliação utilizado, os resultados obtidos e a discussão crítica das limitações identificadas, está detalhada no Capítulo 4 do TCC. O conjunto completo de perguntas-teste, respostas geradas pelo sistema e trechos correspondentes da documentação técnica utilizados na checagem documental está disponível no Apêndice do trabalho.
+
+📄 [Acesse o TCC completo aqui](research/academic/TCC_Vanclercio_Pontes_2026.pdf)
+
+O conjunto completo de perguntas-teste, respostas geradas pelo sistema e trechos correspondentes da documentação técnica utilizados na checagem documental está disponível em `research/validation/` e no Apêndice do trabalho.
 
 ---
 
