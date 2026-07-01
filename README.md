@@ -1,6 +1,6 @@
 **Sispetro AI — Chatbot RAG para Manuais Técnicos**
 
-Protótipo de chatbot baseado em Retrieval-Augmented Generation (RAG), desenvolvido como parte de um Trabalho de Conclusão de Curso (TCC) em Ciências Contábeis pela Universidade Federal de Santa Catarina (UFSC).
+Protótipo de chatbot baseado em Retrieval-Augmented Generation (RAG), desenvolvido como Trabalho de Conclusão de Curso (TCC) em Ciências Contábeis pela Universidade Federal de Santa Catarina (UFSC).
 
 O Potencial da Inteligência Artificial pelo Método RAG para a Gestão da Informação Contábil
 Autor: Vanclércio da Rocha Pontes
@@ -9,10 +9,14 @@ UFSC — Florianópolis, 2026
 
 🔗 Aplicação em produção: https://chatbotsispetro.com.br
 
+---
+
 📌 Sobre o projeto
-O Sispetro AI é um assistente conversacional que utiliza a arquitetura RAG para consultar, de forma precisa e contextualizada, a base de tutoriais técnicos do sistema de gestão Sispetro (software ERP voltado a postos de combustíveis e distribuidoras, desenvolvido pela Futura Tecnologia).
+O Sispetro AI é um assistente conversacional que utiliza a arquitetura RAG para consultar, de forma precisa e contextualizada, a base de tutoriais técnicos do sistema de gestão Sispetro — um ERP voltado a postos de combustíveis e distribuidoras, desenvolvido pela Futura Tecnologia.
 Em vez de depender exclusivamente do conhecimento generalista de um modelo de linguagem, o sistema recupera trechos relevantes de uma base documental própria — extraída do Atlassian Confluence — antes de gerar cada resposta, reduzindo o risco de respostas fabricadas (alucinações) e ancorando o conteúdo gerado em fontes verificáveis.
-Este repositório contém o código-fonte completo utilizado na pesquisa, incluindo os scripts de extração e pré-processamento da base de conhecimento, a configuração do pipeline RAG e a implementação do backend e do frontend da aplicação, disponibilizado com o objetivo de assegurar a transparência e a reprodutibilidade dos resultados apresentados no TCC.
+Este repositório contém o código-fonte completo utilizado na pesquisa, incluindo os scripts de extração e pré-processamento da base de conhecimento, a configuração do pipeline RAG e a implementação do backend e do frontend da aplicação. O código é disponibilizado com o objetivo de assegurar a transparência e a reprodutibilidade dos resultados apresentados no TCC.
+
+---
 
 🏗️ Arquitetura
 O sistema é estruturado em três camadas desacopladas:
@@ -29,22 +33,37 @@ Frontend (Streamlit)  ⇄  Backend (FastAPI)  ⇄  Pinecone (Base Vetorial)
 5. Indexação — armazenamento dos vetores no Pinecone, banco de dados vetorial em nuvem.
 
 **Pipeline de consulta (em tempo de execução):**
-O usuário envia uma pergunta pela interface Streamlit.
-O backend FastAPI recupera, via similaridade semântica, os trechos mais relevantes da base vetorial.
-O modelo GPT-3.5 Turbo (OpenAI) gera a resposta com base no contexto recuperado.
-A resposta é exibida ao usuário, mantendo o histórico da sessão.
+1. O usuário envia uma pergunta pela interface Streamlit.
+2. O backend FastAPI recupera, via similaridade semântica, os trechos mais relevantes da base vetorial.
+3. O modelo GPT-3.5 Turbo (OpenAI) gera a resposta com base no contexto recuperado.
+4. A resposta é exibida ao usuário, mantendo o histórico da sessão.
+
+---
 
 **📁 Estrutura do repositório**
-├── backend/            # API FastAPI: lógica do RAG, embeddings e integração com OpenAI/Pinecone
+├── backend/                        # API FastAPI: lógica do RAG, embeddings e integração com OpenAI/Pinecone
 │   ├── app/
-│   │   ├── main.py     # Entrypoint da API (porta 8080)
-│   │   └── chat.py      # Motor do RAG (retriever + geração)
-│   └── data/            # Base de tutoriais extraída (não versionada — ver .gitignore)
-├── frontend/            # Interface Streamlit (porta 8501)
+│   │   ├── main.py                 # Entrypoint da API (porta 8080)
+│   │   └── chat.py                 # Motor do RAG (retriever + geração)
+│   └── data/                       # Base de tutoriais extraída (não versionada — ver .gitignore)
+├── frontend/                       # Interface Streamlit (porta 8501)
 │   └── app_web.py
-├── docker-compose.yml   # Orquestração dos serviços (backend + frontend)
+├── research/                       # Artefatos acadêmicos e de validação do TCC
+│   ├── academic/                   # Documentos acadêmicos oficiais
+│   │   ├── TCC_Vanclercio_Pontes_2026.pdf
+│   │   └── slides_apresentacao_TCC_2026.pdf
+│   ├── validation/                 # Evidências da validação empírica do protótipo
+│   │   ├── evidencias-perguntas-teste/   # Prints das respostas geradas pelo chatbot
+│   │   ├── historico_24_prompts_sispetro_ai.pdf
+│   │   └── instrumento_validacao_sispetro.xlsx
+│   └── knowledge-base/             # Inventário da base de conhecimento
+│       ├── extrair_arquivos.py     # Script para listar arquivos da base
+│       └── inventario_base_sispetro.xlsx
+├── docker-compose.yml              # Orquestração dos serviços (backend + frontend)
 ├── Dockerfile
 └── .gitignore
+
+---
 
 **🚀 Como executar localmente**
 
@@ -79,16 +98,23 @@ bash
 
 ⚠️ Sobre credenciais: por motivos de segurança, o arquivo .env não está incluído neste repositório (ver .gitignore). É necessário configurar suas próprias chaves de API da OpenAI e do Pinecone para executar o projeto. Nenhuma credencial real foi exposta neste repositório público.
 
+---
+
 **🎓 Contexto acadêmico e validação**
 A validação empírica do protótipo, incluindo o instrumento de avaliação utilizado, os resultados obtidos e a discussão crítica das limitações identificadas, está detalhada no Capítulo 4 do TCC. O conjunto completo de perguntas-teste, respostas geradas pelo sistema e trechos correspondentes da documentação técnica utilizados na checagem documental está disponível no Apêndice do trabalho.
 
+---
+
 **📄 Licença**
 Este projeto é disponibilizado para fins acadêmicos e de pesquisa. Sinta-se à vontade para estudar, adaptar e reproduzir o experimento, mantendo a devida citação ao trabalho original.
+
+---
 
 **✉️ Contato**
 Para dúvidas sobre o projeto ou sobre o TCC, entre em contato:
  - E-mail: vrpontes@outlook.com
  - LinkedIn: linkedin.com/in/vanrpontes
 
-
+---
 **UFSC — Florianópolis, 2026**
+---
