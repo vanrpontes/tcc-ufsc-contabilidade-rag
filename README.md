@@ -41,6 +41,7 @@ Frontend (Streamlit)  ⇄  Backend (FastAPI)  ⇄  Pinecone (Base Vetorial)
 ---
 
 **📁 Estrutura do repositório**
+
 ├── backend/                        # API FastAPI: lógica do RAG, embeddings e integração com OpenAI/Pinecone
 │   ├── app/
 │   │   ├── main.py                 # Entrypoint da API (porta 8080)
